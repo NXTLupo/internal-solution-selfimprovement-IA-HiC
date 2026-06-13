@@ -28,13 +28,13 @@ chunks:
     key_terms: [information, congress, assistance, house-bill, extremely, including, military, proposal]
     token_count: 80
   - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c2"
-    char_span: [2288, 4038]
+    char_span: [2287, 4037]
     sentence_count: 13
     key_terms: [student, loans, increase, pell, college, students, grants, middle]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/college/1l79wjs.md#c3"
-    char_span: [4040, 5671]
+    char_span: [4039, 5670]
     sentence_count: 9
     key_terms: [open-salary6273, college, bill, year, fucking, anti-intellectualism, thepickleconnoisseur, start]
     section: Comments

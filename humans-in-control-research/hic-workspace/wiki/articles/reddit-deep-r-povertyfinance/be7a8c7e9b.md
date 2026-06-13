@@ -15,12 +15,12 @@ industries: [healthcare]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/be7a8c7e9b.md#c0"
-    char_span: [0, 1791]
+    char_span: [0, 1790]
     sentence_count: 21
     key_terms: [hospital, blood, povertyfinance, okay, took, anything, paycheck, already]
-    token_count: 427
+    token_count: 426
   - id: "articles/reddit-deep-r-povertyfinance/be7a8c7e9b.md#c1"
-    char_span: [1793, 3105]
+    char_span: [1792, 3104]
     sentence_count: 10
     key_terms: [hospital, qualify, assistance, hopefully, negotiate, medicaid, medical, credit]
     token_count: 302

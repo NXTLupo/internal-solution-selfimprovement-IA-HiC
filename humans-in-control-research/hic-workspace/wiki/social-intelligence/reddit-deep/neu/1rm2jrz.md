@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, private, health, llc, neu, pre, northeastern, appreciated]
     token_count: 125
   - id: "social-intelligence/reddit-deep/neu/1rm2jrz.md#c1"
-    char_span: [520, 2502]
+    char_span: [519, 2501]
     sentence_count: 2
     key_terms: [buildings, private, triples, melvin, speare, takamishroud, like, llcs]
     section: Comments

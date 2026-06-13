@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineeringstudents, opportunities, engineering, "i'm", own, aerospace, comments, studying]
     token_count: 194
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c1"
-    char_span: [857, 2802]
+    char_span: [856, 2801]
     sentence_count: 17
     key_terms: [aerospace, engineering, work, country, chepetronix317, going, don, residency]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sk4rz5.md#c2"
-    char_span: [2804, 3582]
+    char_span: [2803, 3581]
     sentence_count: 7
     key_terms: [study, countries, security, america, further, france, school, learn]
     section: Comments

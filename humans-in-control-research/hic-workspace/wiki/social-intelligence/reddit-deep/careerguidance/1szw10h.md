@@ -28,7 +28,7 @@ chunks:
     key_terms: [degree, manufacturing, engineering, something, advanced, because, company, place]
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1szw10h.md#c2"
-    char_span: [4871, 7103]
+    char_span: [4871, 7102]
     sentence_count: 7
     key_terms: [experience, corporate, stability, career, opportunities, engineering, adhd, direction]
     token_count: 436

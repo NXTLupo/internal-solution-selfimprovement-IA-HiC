@@ -23,25 +23,25 @@ chunks:
     key_terms: [phone, laptop, digitalnomad, stand, life, tiny, difference, comments]
     token_count: 321
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c1"
-    char_span: [1371, 3007]
+    char_span: [1370, 3006]
     sentence_count: 13
     key_terms: [ryantylerthomas, grinder, coffee, pasaatituuli, phone, "it's", vssl, wikipedia]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c2"
-    char_span: [3009, 3851]
+    char_span: [3008, 3850]
     sentence_count: 4
     key_terms: [coffee, funnel, cards, "it's", shpongolised, randomweeb9, apartment, extension]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c3"
-    char_span: [3854, 5683]
+    char_span: [3853, 5682]
     sentence_count: 8
     key_terms: [keyboard, monitor, extra, ipad, already, better, cables, laptop]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/digitalnomad/1pzc17q.md#c4"
-    char_span: [5685, 7006]
+    char_span: [5684, 7005]
     sentence_count: 6
     key_terms: [laptop, using, ergonomics, lighting, compact, never, stand, good]
     section: Comments

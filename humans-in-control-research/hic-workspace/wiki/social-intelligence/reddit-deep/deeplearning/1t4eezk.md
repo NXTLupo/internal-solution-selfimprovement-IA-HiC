@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/deeplearning/1t4eezk.md#c0"
-    char_span: [0, 1303]
+    char_span: [0, 1302]
     sentence_count: 9
     key_terms: [synthetic-data-flywheel, https, synthetic, com, comments, flywheel, dakshjain-1616, github]
     token_count: 318

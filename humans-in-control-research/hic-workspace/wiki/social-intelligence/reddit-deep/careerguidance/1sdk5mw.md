@@ -21,7 +21,7 @@ chunks:
     key_terms: [citizen, getting, careerguidance, achievable, comments, danielfromnigeria, cia, fbi]
     token_count: 205
   - id: "social-intelligence/reddit-deep/careerguidance/1sdk5mw.md#c1"
-    char_span: [856, 2280]
+    char_span: [855, 2279]
     sentence_count: 5
     key_terms: [citizenship, intelligence, canadian, get, recruited, security, citizen, getting]
     section: Comments

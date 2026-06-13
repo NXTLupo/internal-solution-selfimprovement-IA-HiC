@@ -28,31 +28,31 @@ chunks:
     key_terms: ["they're", like, automation, software, "uipath's", agentic, "that's", uipath]
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c2"
-    char_span: [3594, 4533]
+    char_span: [3593, 4532]
     sentence_count: 3
     key_terms: [get, bed, discord, invest, dualipastrophyhsband, https, total, buy]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c3"
-    char_span: [4535, 6108]
+    char_span: [4534, 6107]
     sentence_count: 5
     key_terms: [romania, hot, romanian, pretty, psychological-wrap25, needs, women, inspectordull5915]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c4"
-    char_span: [5936, 6899]
+    char_span: [5935, 6898]
     sentence_count: 6
     key_terms: [wednesday, garbage, anyway, terrible-session5028, going, necarpenter417, commonemitter, ridiculously]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c5"
-    char_span: [6901, 7188]
+    char_span: [6900, 7187]
     sentence_count: 2
     key_terms: [dc4f82504dc7e2cd6fb61283ff28eab77eae0145, png, horizontaltomato, o6ns1ufo3ixf1, purchase, insider, preview, buying]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ogs58b.md#c6"
-    char_span: [7190, 8711]
+    char_span: [7189, 8710]
     sentence_count: 15
     key_terms: [vanilaagorila, right, commodities, gold, good, peddycash, bullshit, euphoria]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [year, degree, gap, photography, bachelor, people, trying, "i'm"]
     token_count: 455
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c1"
-    char_span: [1920, 3978]
+    char_span: [1919, 3977]
     sentence_count: 18
     key_terms: [want, gap, year, professional, unforgivenzy, years, undergrad, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c2"
-    char_span: [3755, 5865]
+    char_span: [3754, 5864]
     sentence_count: 11
     key_terms: [experience, want, work, unforgivenzy, year, people, school, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c3"
-    char_span: [5551, 6815]
+    char_span: [5550, 6814]
     sentence_count: 9
     key_terms: [working, people, field, world, because, degree, little, versus]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/gradschool/1sl9pua.md#c4"
-    char_span: [6817, 8670]
+    char_span: [6816, 8669]
     sentence_count: 22
     key_terms: [time, year, gap, too, because, young, did, like]
     section: Comments

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="nu">
+<head>
+<meta charset="UTF-8">
+<title>GOLD · case-study (NU)</title>
+<!--
+  GOLD TWIN: case-study, Northeastern University brand.
+  Source of truth: Figma file z2v9Pvhg23hlljEitPBdAt
+    - Frame 91:2 "GOLD · case-study (nu) · 03 case detail (Amazon)"  -> page 1 (before/after)
+    - Frame 93:2 "GOLD · case-study (nu) · 04 case detail (Stripe)"  -> page 2 (evidence stack)
+  Tokens: node 97:2 (DESIGN TOKENS - NU, live MCP-readable): rail navy #0E1626,
+  ink #16233C, accent red #C8102E, source teal #1D6E64, Lora headlines + takeaway,
+  Archivo body, IBM Plex Mono labels. Geometry identical to the NXT twin.
+  Each .gold-page is a 1920x1080 stage. The fill model replaces ONLY human-readable
+  text with corpus-grounded content; every tag, class, and inline style is preserved.
+  Subjects below (Amazon, Stripe) are REPRESENTATIVE illustrative content; the fill
+  pass must substitute NAMED real entities from the research corpus, never archetypes.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#080808}
+.gold-page{position:relative;width:1920px;height:1080px;background:#FFFFFF;font-family:'Archivo',sans-serif;color:#16233C;overflow:hidden;margin:0 auto}
+.rail{position:absolute;left:0;top:0;width:92px;height:1080px;background:#0E1626}
+.dotmark{position:absolute;left:30px;top:990px;display:grid;grid-template-columns:repeat(3,12px);gap:6px}
+.dotmark span{width:12px;height:12px;background:#C8102E;display:block}
+.wordmark{position:absolute;top:50px;right:80px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:20px;letter-spacing:7px;color:#73757A;text-transform:uppercase}
+.content{position:absolute;left:172px;top:58px;width:1660px;display:flex;flex-direction:column;gap:16px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:19px;letter-spacing:6px;color:#C8102E;text-transform:uppercase;white-space:nowrap}
+.headline{font-family:'Lora',serif;font-weight:500;font-size:46px;line-height:1.12;color:#16233C;max-width:1400px}
+.metarow{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;letter-spacing:1px;line-height:1.6;color:#73757A;text-transform:uppercase;white-space:pre-wrap}
+.hairline{height:1px;background:#DDDDD6;width:100%}
+.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:#16233C;padding:28px 48px;font-family:'Lora',serif;font-weight:400;font-size:23.5px;line-height:1.48;color:#FFFFFF}
+.srcline{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:1px;color:#1D6E64;text-transform:uppercase}
+/* before/after */
+.barow{display:flex;gap:26px;height:460px}
+.bap{flex:1;min-width:0;padding:30px 32px;display:flex;flex-direction:column;gap:16px}
+.bap--warn{background:#FAEDED}
+.bap--cool{background:#EDF7F5}
+.balbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.bap--warn .balbl{color:#C8102E}
+.bap--cool .balbl{color:#1D6E64}
+.bahead{font-family:'Lora',serif;font-weight:500;font-size:26px;line-height:1.15;color:#16233C}
+.bapts{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.bapt{display:flex;gap:12px;align-items:flex-start}
+.bapt span{width:7px;height:7px;flex-shrink:0;margin-top:7px;display:block}
+.bap--warn .bapt span{background:#C8102E}
+.bap--cool .bapt span{background:#1D6E64}
+.bapt p{font-size:16.5px;line-height:1.4;color:#16233C}
+.baarrow{align-self:center;font-family:'Lora',serif;font-size:44px;color:#73757A;width:24px;text-align:center;flex-shrink:0}
+.bares{display:flex;gap:48px}
+.bares .col{flex:1;min-width:0}
+.rlbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;color:#73757A;text-transform:uppercase;margin-bottom:10px}
+.rtxt{font-size:18px;line-height:1.42;color:#16233C}
+.baq{display:flex;gap:14px}
+.baq .bar{width:4px;background:#1D6E64;flex-shrink:0}
+.baq .qt{font-size:16.5px;line-height:1.42;color:#16233C;margin-bottom:8px}
+/* evidence stack */
+.eslbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;color:#73757A;text-transform:uppercase}
+.esstack{display:flex;flex-direction:column;justify-content:space-between;height:540px}
+.esrow{display:flex;gap:28px;align-items:stretch}
+.esrow .bar{width:4px;background:#1D6E64;flex-shrink:0}
+.esrow .qcol{flex:1;min-width:0}
+.esrow .qt{font-size:24px;line-height:1.34;color:#16233C;margin-bottom:10px}
+.esrow .scol{width:440px;flex-shrink:0}
+.esrow .slbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:11.5px;letter-spacing:2px;color:#73757A;text-transform:uppercase;margin-bottom:8px}
+.esrow .stxt{font-size:16.5px;line-height:1.42;color:#16233C}
+.esrow .srcline{font-size:12.5px}
+</style>
+</head>
+<body>
+
+<!-- PAGE 03 · CASE DETAIL · BEFORE/AFTER (Figma 91:2) -->
+<section class="gold-page" data-figma-node="91:2" data-variant="before-after">
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wordmark">NORTHEASTERN</div>
+  <div class="content">
+    <div class="kicker">CASE STUDY · AMAZON</div>
+    <div class="headline">Amazon designs the top contact reasons out of existence instead of staffing up to answer them</div>
+    <div class="metarow">THE SELF-SERVE MODEL   ·   GLOBAL E-COMMERCE   ·   SELF-SERVICE CX          TIMEFRAME  Sustained operating model          INVESTMENT  Upstream defect fixes + self-serve surfaces</div>
+    <div class="hairline"></div>
+    <div class="barow">
+      <div class="bap bap--warn">
+        <div class="balbl">BEFORE</div>
+        <div class="bahead">Staff to the volume</div>
+        <div class="bapts">
+          <div class="bapt"><span></span><p>Every contact reason is answered by adding more agents</p></div>
+          <div class="bapt"><span></span><p>The same defect generates the same call every week</p></div>
+          <div class="bapt"><span></span><p>Tickets closed is the scoreboard, not contacts avoided</p></div>
+          <div class="bapt"><span></span><p>Forecasting argues about headcount instead of asking why the calls exist</p></div>
+          <div class="bapt"><span></span><p>Peak season is survived with overtime, then repeated the next year</p></div>
+        </div>
+      </div>
+      <div class="baarrow">→</div>
+      <div class="bap bap--cool">
+        <div class="balbl">AFTER</div>
+        <div class="bahead">Design the contact away</div>
+        <div class="bapts">
+          <div class="bapt"><span></span><p>The top contact reasons are traced to an upstream defect and fixed</p></div>
+          <div class="bapt"><span></span><p>The answer is surfaced before the contact form</p></div>
+          <div class="bapt"><span></span><p>Contacts that never had to happen become the scoreboard</p></div>
+          <div class="bapt"><span></span><p>Every product team owns the contacts its defects generate</p></div>
+          <div class="bapt"><span></span><p>Peak season stresses the defect backlog, not the phone queue</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="bares">
+      <div class="col">
+        <div class="rlbl">RESULT</div>
+        <div class="rtxt">Routine contacts fall away as the underlying defects disappear, so capacity shifts to the genuinely novel problem.</div>
+      </div>
+      <div class="col baq">
+        <div class="bar"></div>
+        <div>
+          <div class="qt">&ldquo;The best customer service is if the customer doesn&rsquo;t need to call.&rdquo;</div>
+          <div class="srcline">SOURCE: AMAZON SHAREHOLDER LETTER</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway">The lever is not more agents; it is fewer reasons to make contact. Removing the defect beats answering the call.</div>
+</section>
+
+<!-- PAGE 04 · CASE DETAIL · EVIDENCE STACK (Figma 93:2) -->
+<section class="gold-page" data-figma-node="93:2" data-variant="evidence-stack">
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wordmark">NORTHEASTERN</div>
+  <div class="content">
+    <div class="kicker">CASE STUDY · STRIPE</div>
+    <div class="headline">Stripe makes the documentation the first responder, so most questions never become tickets</div>
+    <div class="metarow">THE DOCUMENTATION MODEL   ·   DEVELOPER PLATFORM   ·   SELF-SERVICE CX          TIMEFRAME  Sustained operating model          INVESTMENT  Versioned docs + search relevance</div>
+    <div class="hairline"></div>
+    <div class="eslbl">CONVERGENT EVIDENCE</div>
+    <div class="esstack">
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;If it&rsquo;s in the docs, the question usually never becomes a ticket.&rdquo;</div>
+          <div class="srcline">SOURCE: STRIPE DOCS</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">The documentation resolves at the point of need, before a queue exists.</div>
+        </div>
+      </div>
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;I found the integration answer faster than I could have filed a ticket.&rdquo;</div>
+          <div class="srcline">SOURCE: DEVELOPER SURVEY</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">For the developer, findability beats even the fastest queue.</div>
+        </div>
+      </div>
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;We version the docs with the API, so the answer is never stale.&rdquo;</div>
+          <div class="srcline">SOURCE: STRIPE ENGINEERING</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">Freshness is what keeps the documented fix trustworthy.</div>
+        </div>
+      </div>
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;Great docs reduce support load and increase activation; they are a growth channel, not a cost center.&rdquo;</div>
+          <div class="srcline">SOURCE: STRIPE ATLAS GUIDES</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">The company treats documentation investment as revenue work, which is why it stays funded.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway">The first responder is the document, not the agent. Invest in search relevance and version freshness, and the ticket becomes the exception.</div>
+</section>
+
+<!-- PAGE 05 · CASE DETAIL · FOUR-BLOCK (Figma 136:2) -->
+<section class="gold-page" data-figma-node="136:2" data-variant="four-block">
+  <style>
+  .fbgrid{display:flex;gap:26px;height:640px}
+  .fbcol{flex:1;min-width:0;display:flex;flex-direction:column;gap:18px}
+  .fbblk{flex:1;display:flex;gap:20px;padding:16px 24px 16px 0;border-left:6px solid;min-width:0}
+  .fbblk .lbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;width:152px;flex-shrink:0;padding-left:20px}
+  .fbblk .txt{font-size:19px;line-height:1.45;color:#16233C;flex:1}
+  .fbpanel{width:564px;flex-shrink:0;background:#16233C;padding:28px;display:flex;flex-direction:column;gap:18px}
+  .fbpanel .plbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:#D41B2C}
+  .fbpanel .hero{font-family:'Lora',serif;font-weight:500;font-size:60px;line-height:1.05;color:#FFFFFF}
+  .fbpanel .herol{font-size:17px;color:rgba(255,255,255,0.82);line-height:1.4}
+  .fbpanel .div{height:1px;background:rgba(255,255,255,0.18)}
+  .fbpanel .mv{font-family:'Lora',serif;font-weight:500;font-size:30px;line-height:1.05;color:#D41B2C}
+  .fbpanel .ml{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.35;margin-top:2px}
+  .fbpanel .pq{display:flex;gap:16px}
+  .fbpanel .pq .bar{width:4px;background:#D41B2C;flex-shrink:0}
+  .fbpanel .pq .qt{font-size:16.5px;color:rgba(255,255,255,0.92);line-height:1.45;margin-bottom:8px}
+  .fbpanel .pq .srcline{color:#D41B2C}
+  </style>
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wordmark">NORTHEASTERN</div>
+  <div class="content">
+    <div class="kicker">CASE STUDY · NORTHEASTERN GIVING DAY</div>
+    <div class="headline">Giving Day delivered Northeastern's largest single-day result by embedding philanthropy inside an event</div>
+    <div class="metarow">ANNUAL GIVING CAMPAIGN   ·   BOSTON, MA   ·   330K+ ALUMNI BASE          TIMEFRAME  Single day (April 2026)          INVESTMENT  Events team production · Cvent</div>
+    <div class="hairline"></div>
+    <div class="fbgrid">
+      <div class="fbcol">
+        <div class="fbblk" style="border-left-color:#C8102E;background:#FAEDED"><div class="lbl" style="color:#C8102E">CHALLENGE</div><div class="txt">Annual giving faces a structural headwind: alumni have become more sophisticated and are less responsive to direct solicitation. The events team needed to drive participation at scale without making the event feel like a fundraising ask, and without adding solicitation headcount the budget does not carry.</div></div>
+        <div class="fbblk" style="border-left-color:#16233C;background:#F2F1EA"><div class="lbl" style="color:#16233C">APPROACH</div><div class="txt">Every event charged a registration fee that included a fractional gift component, an event fee gift, so philanthropy was embedded in the transaction rather than bolted on. The Giving Day itself was produced entirely by the events team as an educational and community experience, with fundraising woven into the architecture rather than announced from the stage.</div></div>
+        <div class="fbblk" style="border-left-color:#1D6E64;background:#EDF7F5"><div class="lbl" style="color:#1D6E64">OUTCOME</div><div class="txt">Giving Day produced the largest one-day result in Northeastern's history, with thousands of individual donors giving in a single day. The model bypassed direct solicitation friction entirely: the gift arrived as a natural part of participation, not as a separate decision the alumnus had to be talked into.</div></div>
+        <div class="fbblk" style="border-left-color:#A4804A;background:#FAF9F4"><div class="lbl" style="color:#16233C">LESSON</div><div class="txt">Embedding philanthropy inside an experience removes the psychological friction of a direct ask. When the gift is part of the transaction, not a separate decision, participation scales without requiring a larger solicitation team.</div></div>
+      </div>
+      <div class="fbpanel">
+        <div class="plbl">KEY OUTCOME</div>
+        <div class="hero">Largest</div>
+        <div class="herol">single-day giving result in Northeastern's history</div>
+        <div class="div"></div>
+        <div><div class="mv">$4M</div><div class="ml">raised in a single day</div></div>
+        <div><div class="mv">15-16K</div><div class="ml">individual donors in one day</div></div>
+        <div><div class="mv">$1 of $10</div><div class="ml">of every event fee directed as a university gift</div></div>
+        <div class="div"></div>
+        <div class="pq"><div class="bar"></div><div><div class="qt">&ldquo;The whole thing was fundraising. I think we raised $4 million. The biggest single day in our history.&rdquo;</div><div class="srcline">SOURCE: NXT STAKEHOLDER INTERVIEW</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway">When the gift is part of the experience, participation scales without a bigger ask machine. Design the philanthropy into the event, not onto it.</div>
+</section>
+
+</body>
+</html>

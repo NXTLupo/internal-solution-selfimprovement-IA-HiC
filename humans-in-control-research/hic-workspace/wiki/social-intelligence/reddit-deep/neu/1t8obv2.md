@@ -23,7 +23,7 @@ chunks:
     key_terms: [analytics, business, students, northeastern, current, honest, international, bba]
     token_count: 374
   - id: "social-intelligence/reddit-deep/neu/1t8obv2.md#c1"
-    char_span: [1793, 3837]
+    char_span: [1792, 3836]
     sentence_count: 13
     key_terms: [here, get, market, job, forums, issue, place, roles]
     section: Comments

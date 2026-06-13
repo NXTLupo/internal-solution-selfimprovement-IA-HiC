@@ -23,85 +23,85 @@ chunks:
     key_terms: [jobs, market, point, years, cscareerquestions, job, "hasn't", worse]
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c1"
-    char_span: [2059, 3990]
+    char_span: [2058, 3989]
     sentence_count: 17
     key_terms: [market, coming, back, get, lol, completely, industries, pre-covid]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c2"
-    char_span: [3992, 5762]
+    char_span: [3991, 5761]
     sentence_count: 23
     key_terms: [market, industry, boom, "it's", new, anything, remember, dot-com]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c3"
-    char_span: [5764, 7542]
+    char_span: [5763, 7541]
     sentence_count: 13
     key_terms: [market, like, new, experience, understand, cyclical, company, always]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c4"
-    char_span: [7545, 9244]
+    char_span: [7544, 9243]
     sentence_count: 11
     key_terms: [people, get, terrible, outlook, "wasn't", groceryremarkable272, early-surround7413, watergoesdownhill]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c5"
-    char_span: [9246, 10874]
+    char_span: [9245, 10873]
     sentence_count: 10
     key_terms: [years, hiring, months, amazon, whatssenguntoagoblin, odd-government8896, laid, sub]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c6"
-    char_span: [10877, 12624]
+    char_span: [10876, 12623]
     sentence_count: 11
     key_terms: [summer, internship, fall, offer, internships, like, went, multiple]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c7"
-    char_span: [12626, 14788]
+    char_span: [12625, 14787]
     sentence_count: 17
     key_terms: [years, been, "it's", interest, started, market, pretty, going]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c8"
-    char_span: [14790, 16090]
+    char_span: [14789, 16089]
     sentence_count: 6
     key_terms: [layoffs, started, years, coffeesippingbastard, awesomeoverwhelming, field, money, "we're"]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c9"
-    char_span: [16092, 16703]
+    char_span: [16091, 16702]
     sentence_count: 6
     key_terms: [cyclical, illustrious-pound266, occasionalgoodtakes, early-surround7413, double-whammy, manufacturing, fundamental, recession]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c10"
-    char_span: [16705, 18647]
+    char_span: [16704, 18646]
     sentence_count: 10
     key_terms: [coffeesippingbastard, hoping, retail, "that's", manufacturing, good, job, assumption]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c11"
-    char_span: [18649, 20792]
+    char_span: [18648, 20791]
     sentence_count: 15
     key_terms: [companies, labor, immigration, whoppermaltmilkballs, foreign, problem, hiring, "it's"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c12"
-    char_span: [20794, 21763]
+    char_span: [20793, 21762]
     sentence_count: 9
     key_terms: [started, market, stands, point, legitimate-mostlet, down, kind, like]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c13"
-    char_span: [21765, 23083]
+    char_span: [21764, 23082]
     sentence_count: 8
     key_terms: [cycle, everything, economic, probably, ukrokit2, because, deleted, managed]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ncpim0.md#c14"
-    char_span: [23085, 24943]
+    char_span: [23084, 24942]
     sentence_count: 11
     key_terms: [carelesspackage1982, "it's", people, been, own, candidates, companies, qualified]
     section: Comments

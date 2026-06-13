@@ -23,85 +23,85 @@ chunks:
     key_terms: [applyingtocollege, kids, comments, passion, project, school, high, inauthenticity]
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c1"
-    char_span: [1014, 1787]
+    char_span: [1013, 1786]
     sentence_count: 11
     key_terms: [non-profit, started, parents, problem, school, whole, realbeavercleaver, got]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c2"
-    char_span: [1790, 3201]
+    char_span: [1789, 3200]
     sentence_count: 8
     key_terms: ["didn't", people, organization, did, got, experience, supplies, school]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c3"
-    char_span: [3205, 5366]
+    char_span: [3204, 5365]
     sentence_count: 14
     key_terms: [schoolers, "it's", athenapreparatory, high, field, right, encouraging, fake]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c4"
-    char_span: [5082, 6736]
+    char_span: [5081, 6735]
     sentence_count: 17
     key_terms: [college, applications, exaggerated, got, high, "it's", kids, schoolers]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c5"
-    char_span: [6738, 9078]
+    char_span: [6737, 9077]
     sentence_count: 17
     key_terms: [research, something, high, kids, projects, kid, like, organizing]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c6"
-    char_span: [9080, 10943]
+    char_span: [9079, 10942]
     sentence_count: 17
     key_terms: [schools, student, like, students, "don't", hypsm, body, did]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c7"
-    char_span: [10945, 11550]
+    char_span: [10944, 11549]
     sentence_count: 4
     key_terms: [world, years, ago, past, organizations, romanticizing, volunteering, communities]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c8"
-    char_span: [11552, 13636]
+    char_span: [11551, 13635]
     sentence_count: 8
     key_terms: [organizations, school, here, students, agree, bcs, half, admissions]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c9"
-    char_span: [13638, 15763]
+    char_span: [13637, 15762]
     sentence_count: 10
     key_terms: [school, projects, students, done, time, counselor, probably, income]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c10"
-    char_span: [15765, 17008]
+    char_span: [15764, 17007]
     sentence_count: 4
     key_terms: [nonprofit, undergrad, colleges, probably, founder, school, niceunparticularman, non-representative]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c11"
-    char_span: [17010, 18476]
+    char_span: [17009, 18475]
     sentence_count: 10
     key_terms: [applicants, because, strong, comfortable-spare734, etc, kids, extracurricular, academically]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c12"
-    char_span: [18478, 20763]
+    char_span: [18477, 20762]
     sentence_count: 11
     key_terms: [admissions, universities, specific, students, college, departmental, tests, test]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c13"
-    char_span: [20765, 23160]
+    char_span: [20764, 23159]
     sentence_count: 14
     key_terms: [colleges, kids, academic, school, value, admissions, education, students]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t83aho.md#c14"
-    char_span: [23162, 24465]
+    char_span: [23161, 24464]
     sentence_count: 8
     key_terms: [non-profits, work, non-profit, volunteer, existing, another, college, exactly]
     section: Comments

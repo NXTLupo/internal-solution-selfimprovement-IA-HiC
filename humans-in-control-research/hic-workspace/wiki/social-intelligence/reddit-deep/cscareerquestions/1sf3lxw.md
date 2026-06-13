@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sf3lxw.md#c0"
-    char_span: [0, 757]
+    char_span: [0, 756]
     sentence_count: 5
     key_terms: [cscareerquestions, https, comments, movement, wwwrise, "what's", org, accelerating]
-    token_count: 188
+    token_count: 187
 ---
 # Mass Layoffs In CS Careers Are Accelerating. Learn How To Protect Yourself
 

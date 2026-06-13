@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, "i'm", comments, software, bubble, appropriate-try-7626, blah, "i'll"]
     token_count: 248
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c1"
-    char_span: [982, 3004]
+    char_span: [981, 3003]
     sentence_count: 10
     key_terms: [yourfriendlyreminder, emergency, fund, like, internship, something, prepared, already]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c2"
-    char_span: [3006, 4961]
+    char_span: [3005, 4960]
     sentence_count: 10
     key_terms: [years, jobs, tech, everything, companies, different, framework, paycheck]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c3"
-    char_span: [4963, 7079]
+    char_span: [4962, 7078]
     sentence_count: 14
     key_terms: [working, bubble, field, knows, "won't", certainly, engineers, probably]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c4"
-    char_span: [7081, 9366]
+    char_span: [7080, 9365]
     sentence_count: 12
     key_terms: [economy, emergency, debt, fund, risk, bubble, building, consider]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c5"
-    char_span: [9368, 11178]
+    char_span: [9367, 11177]
     sentence_count: 12
     key_terms: [capital, massive, economy, "isn't", data, american, billions, directly]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c6"
-    char_span: [11180, 12423]
+    char_span: [11179, 12422]
     sentence_count: 8
     key_terms: [going, market, interest, cutting, always, money, rates, fed]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/cscareerquestions/1py49dg.md#c7"
-    char_span: [12425, 14413]
+    char_span: [12424, 14412]
     sentence_count: 10
     key_terms: [bubble, market, stock, significant, bankruptcy, microsoft, everyone, popping]
     section: Comments

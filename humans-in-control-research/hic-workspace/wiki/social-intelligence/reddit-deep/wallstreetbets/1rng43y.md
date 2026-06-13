@@ -23,31 +23,31 @@ chunks:
     key_terms: [tax, "i'm", leg, lots, messaged, instead, wallstreetbets, debit]
     token_count: 421
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c1"
-    char_span: [1770, 2856]
+    char_span: [1769, 2855]
     sentence_count: 10
     key_terms: [choose, mortgage, options, capital, discord, gains, total, years]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c2"
-    char_span: [2858, 4523]
+    char_span: [2857, 4522]
     sentence_count: 9
     key_terms: [robinhood, problem, someone, alwaysnevernotwrong, sea-advertising8372, thenicestredditor, case, don]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c3"
-    char_span: [4375, 5919]
+    char_span: [4374, 5918]
     sentence_count: 9
     key_terms: [account, picklerickletv, lots, tax, another, getting, support, broker]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c4"
-    char_span: [5923, 7491]
+    char_span: [5922, 7490]
     sentence_count: 12
     key_terms: [schwab, contract, fills, money, assignments, commissions, pay, platform]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rng43y.md#c5"
-    char_span: [7493, 9134]
+    char_span: [7492, 9133]
     sentence_count: 16
     key_terms: [options, like, afterwards, contracts, adjusted, fidelity, basstid, believe]
     section: Comments

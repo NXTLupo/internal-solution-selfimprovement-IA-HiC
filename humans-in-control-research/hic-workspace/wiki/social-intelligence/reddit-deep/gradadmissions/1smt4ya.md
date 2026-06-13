@@ -23,13 +23,13 @@ chunks:
     key_terms: [giving, update, gradadmissions, final, hard, work, incredibly, professors]
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c1"
-    char_span: [1672, 3354]
+    char_span: [1671, 3353]
     sentence_count: 10
     key_terms: [like, nsf, projects, funded, astro, got, moment, cycle]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/gradadmissions/1smt4ya.md#c2"
-    char_span: [3356, 4327]
+    char_span: [3355, 4326]
     sentence_count: 9
     key_terms: [masters, neoliberalsocialist, maybe, feel, give, good, salty-war-9354, heartbreaking]
     section: Comments

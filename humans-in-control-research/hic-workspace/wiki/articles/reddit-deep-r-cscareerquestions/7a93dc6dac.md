@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/7a93dc6dac.md#c0"
-    char_span: [0, 2075]
+    char_span: [0, 2074]
     sentence_count: 12
     key_terms: [cscareerquestions, saturated, people, comments, reddit, https, trend, com]
-    token_count: 501
+    token_count: 500
   - id: "articles/reddit-deep-r-cscareerquestions/7a93dc6dac.md#c1"
-    char_span: [2077, 3065]
+    char_span: [2076, 3064]
     sentence_count: 4
     key_terms: [because, "you're", "you've", right, "it's", keep, backtoworkedward, overcorrecting]
     token_count: 235

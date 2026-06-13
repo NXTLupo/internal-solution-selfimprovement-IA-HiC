@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c0"
-    char_span: [0, 1674]
+    char_span: [0, 1673]
     sentence_count: 11
     key_terms: [experience, internship, engineeringstudents, unpaid, undergraduate, like, work, comments]
-    token_count: 365
+    token_count: 364
   - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c1"
-    char_span: [1676, 3873]
+    char_span: [1675, 3872]
     sentence_count: 17
     key_terms: [research, internship, summer, hintothemagnificent, something, like, "you're", undergraduate]
     token_count: 468
   - id: "articles/reddit-deep-r-engineeringstudents/1fbeb04cd5.md#c2"
-    char_span: [3875, 4243]
+    char_span: [3874, 4242]
     sentence_count: 2
     key_terms: [capabilities, considering, potentially, businesses, especially, experience, internship, recommend]
     token_count: 70

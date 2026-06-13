@@ -1,0 +1,69 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: vanguard, issue, holdings, sync, plaid, account, quicken
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I have had good luck with Plaid.
+Plaid is the service that connects SA to Vanguard. I liked SA's platform but when I cant see my investments its not worth it
+I just posted nearly the exact same message titled “Data Sync”.  I’m using Divtracker which also uses Plaid for sync’ing. Worked well (understanding that Vanguard can take some time with settlement) until a few months ago. Something changed and Vanguard tech support is non-existent but im looking to escalate. I’m following this thread to see if you get any answers and I’ll post on my thread if I get some.
+
+EXAMPLE 2:
+Data Sync I’m an income focused investor using my Vanguard self-directed IRA in retirement. I use Divtracker to monitor and record the dividends, Exdiv dates, dividend calendar and NAVs. Divtracker is designed to sync once per day to my Vanguard account using Plaid. This setup worked well up to about 2 months ago but lately the connection often times breaks, data is incomplete or non-existent. Plaid tech support blames Vanguard and Vanguard tech support is weak. [...]
+
+EXAMPLE 3:
+No issues with Fidelity or Schwab.  After spending 90 minutes with quicken support it is an issue with Vanguard data.
+
+EXAMPLE 4:
+Vanguard download to Quicken I’ve been a quicken user for years and also have accounts at Fidelity, Schwab and primary accounts are with Vanguard.  Recently downloads of options from Vanguard are not being recognized by quicken as individual securities by their strike price and expiration date.
+
+EXAMPLE 5:
+Third party aggregation issues I've been having issues for the last six months getting my Vanguard holdings to sync or even load with third party sites. I had been using Seeking Alpha and switched to Yahoo Finance when that site kept having problems.
+
+EXAMPLE 6:
+Has anyone else had this issue? Or maybe has a third party site that actually works well with Vanguard?
+
+EXAMPLE 7:
+The issue is Vanguard holdings not syncing. With Seeking Alpha, it will allow me to complete the handshake between SA and Vanguard but then not sync the holdings afterwards. Hard to get a good picture of my holdings when it shows options I sold over a month ago or incorrect share counts.
+
+EXAMPLE 8:
+Since all options are now lumped as a single “unidentified security “, my net worth calculation is worthlessness.  Is it time to bail on Vanguard? I think the issue is with Quicken. Most financial institutions were downloading fine until Quicken updated their software - in particular I’m having problems with the VG unidentified security and can’t download Janus at all. It’s a known issue - Ive got a problem-report in and so far have 4 pages of other users responding with the same complaint.
+
+EXAMPLE 9:
+I've worked with SA and they seem to point to Vanguard. I've done all the nonsense from trying different browsers, devices, clearing the cache, deleting the tokens, etc.
+
+EXAMPLE 10:
+Yahoo Finance was working for awhile. Now it will complete the handshake (sometimes) but then none of the holdings populate.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -23,7 +23,7 @@ chunks:
     key_terms: [productivity, years, dad, "i'm", comments, getting, parents, aware]
     token_count: 271
   - id: "social-intelligence/reddit-deep/productivity/1te7bfo.md#c1"
-    char_span: [1191, 2038]
+    char_span: [1190, 2037]
     sentence_count: 8
     key_terms: [productive, caregiving, nursing, rhythm, doing, cna, job, work]
     section: Comments

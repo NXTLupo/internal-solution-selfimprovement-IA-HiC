@@ -23,31 +23,31 @@ chunks:
     key_terms: [history, get, top, pursue, school, academia, question, schools]
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c1"
-    char_span: [1904, 4065]
+    char_span: [1903, 4064]
     sentence_count: 19
     key_terms: [job, academic, okay, history, exhausted-teacher789, top, pursue, tenure]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c2"
-    char_span: [3788, 5035]
+    char_span: [3787, 5034]
     sentence_count: 14
     key_terms: [did, jobs, academic, because, history, paying, wouldn, years]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c3"
-    char_span: [5037, 7318]
+    char_span: [5036, 7317]
     sentence_count: 24
     key_terms: [history, academic, job, someone, jobs, teach, get, guarantee]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c4"
-    char_span: [7320, 8907]
+    char_span: [7319, 8906]
     sentence_count: 4
     key_terms: [phd, experience, teaching, school, transferrable, broadwaybean, internships, plus]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/askacademia/1swlygm.md#c5"
-    char_span: [8909, 11136]
+    char_span: [8908, 11135]
     sentence_count: 12
     key_terms: [history, sad-staff1734, drtonytiger, phd, oversupply, professors, professor, analyst]
     section: Comments

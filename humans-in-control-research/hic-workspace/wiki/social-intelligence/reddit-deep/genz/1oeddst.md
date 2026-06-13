@@ -23,43 +23,43 @@ chunks:
     key_terms: [credit, spending, people, adult, like, own, apartment, comments]
     token_count: 385
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c1"
-    char_span: [1754, 3716]
+    char_span: [1753, 3715]
     sentence_count: 16
     key_terms: [credit, score, money, juliavalentine, "don't", bank, free, use]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c2"
-    char_span: [3718, 5081]
+    char_span: [3717, 5080]
     sentence_count: 12
     key_terms: [credit, breaknecessary6940, laplongejr, european, because, curious, getting, borrow]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c3"
-    char_span: [5083, 7363]
+    char_span: [5082, 7362]
     sentence_count: 16
     key_terms: [credit, someone, certain, behavior, designed, history, living, scores]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c4"
-    char_span: [7365, 8679]
+    char_span: [7364, 8678]
     sentence_count: 9
     key_terms: [credit, cards, score, functioning, applies, digital, history, society]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c5"
-    char_span: [8681, 9563]
+    char_span: [8680, 9562]
     sentence_count: 5
     key_terms: [credit, "don't", money, point, card, getting, kawaiiqueen21, essentially]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c6"
-    char_span: [9565, 11219]
+    char_span: [9564, 11218]
     sentence_count: 10
     key_terms: [credit, "don't", trust, good, history, expect, benefit, paying]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/genz/1oeddst.md#c7"
-    char_span: [11221, 12345]
+    char_span: [11220, 12344]
     sentence_count: 5
     key_terms: [credit, "don't", trust, something, accept, phones, since, until]
     section: Comments

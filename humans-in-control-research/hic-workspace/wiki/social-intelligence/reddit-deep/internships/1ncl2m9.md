@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, international, hyderabad, comments, abroad, india, find, tacoman9112012]
     token_count: 137
   - id: "social-intelligence/reddit-deep/internships/1ncl2m9.md#c1"
-    char_span: [603, 1672]
+    char_span: [602, 1671]
     sentence_count: 4
     key_terms: [tacoman9112012, interested, hyderabad, details, share, agentfinancial3464, frequent-action620, "i'm"]
     section: Comments

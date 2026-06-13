@@ -23,7 +23,7 @@ chunks:
     key_terms: [like, comments, college, pathway, being, feels, years, certifications]
     token_count: 294
   - id: "social-intelligence/reddit-deep/college/1ol02kp.md#c1"
-    char_span: [1425, 2450]
+    char_span: [1424, 2449]
     sentence_count: 7
     key_terms: [going, time, healthcare, different, people, historical-hand8091, impressionnext3445, code]
     section: Comments

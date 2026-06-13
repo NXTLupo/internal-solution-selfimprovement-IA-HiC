@@ -33,31 +33,31 @@ chunks:
     key_terms: [request, student, send, dynaroars, phd-cs-us, reminders, deadline, students]
     token_count: 378
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c3"
-    char_span: [3913, 5800]
+    char_span: [3912, 5799]
     sentence_count: 10
     key_terms: [application, system, write, letter, prompt, profs, immediately, lor]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c4"
-    char_span: [5802, 7429]
+    char_span: [5801, 7428]
     sentence_count: 8
     key_terms: [letter, especially, ask, research, letters, usually, answer, draft]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c5"
-    char_span: [7431, 9661]
+    char_span: [7430, 9660]
     sentence_count: 13
     key_terms: [write, letter, program, student, applicants, applicant, programs, specific]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c6"
-    char_span: [9663, 11128]
+    char_span: [9662, 11127]
     sentence_count: 9
     key_terms: [letter, student, minutes, request, schools, upload, minimumtelevision217, email]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/gradadmissions/1p0lkim.md#c7"
-    char_span: [11130, 12600]
+    char_span: [11129, 12599]
     sentence_count: 6
     key_terms: [thank, cool, want, deadlines, reminders, signature, believe, sending]
     section: Comments

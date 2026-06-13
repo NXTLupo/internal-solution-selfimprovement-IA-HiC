@@ -23,25 +23,25 @@ chunks:
     key_terms: [strike, students, highereducation, general, higher, making, participate, education]
     token_count: 360
   - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c1"
-    char_span: [1587, 3561]
+    char_span: [1586, 3560]
     sentence_count: 17
     key_terms: [institution, protesting, faculty, power, students, leaders, protest, without]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c2"
-    char_span: [3563, 4203]
+    char_span: [3562, 4202]
     sentence_count: 6
     key_terms: [strike, down, general, workers, "that's", diaphoniusdaintydude, non-participation, shut]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c3"
-    char_span: [4205, 6391]
+    char_span: [4204, 6390]
     sentence_count: 10
     key_terms: [universities, strike, probably, impact, situation, something, scenario, because]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/highereducation/1qoet03.md#c4"
-    char_span: [6393, 6752]
+    char_span: [6392, 6751]
     sentence_count: 2
     key_terms: [strike, everything, inherently, mentioned, minizara2, economic, everyone, semester]
     section: Comments

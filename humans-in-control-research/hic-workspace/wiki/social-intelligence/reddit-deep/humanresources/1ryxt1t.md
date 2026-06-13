@@ -21,19 +21,19 @@ chunks:
     key_terms: [humanresources, certification, compliance, comments, company, either, hrci, shrm]
     token_count: 215
   - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c1"
-    char_span: [944, 2690]
+    char_span: [943, 2689]
     sentence_count: 13
     key_terms: [hrci, shrm, kungsuhpanda, affirmative, take, compliance, definitely, action]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c2"
-    char_span: [2692, 4313]
+    char_span: [2691, 4312]
     sentence_count: 10
     key_terms: [course, hrci, prep, shrm, executive, everyone, company, manager]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/humanresources/1ryxt1t.md#c3"
-    char_span: [4315, 5690]
+    char_span: [4314, 5689]
     sentence_count: 8
     key_terms: [questions, hrstudypro, recommend, practice, recent, taking, found, years]
     section: Comments

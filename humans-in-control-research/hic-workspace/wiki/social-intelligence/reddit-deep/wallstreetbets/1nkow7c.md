@@ -48,19 +48,19 @@ chunks:
     key_terms: [views, youtube, controversy, screenshots, amazingly, different, leveraged, strategic]
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c6"
-    char_span: [10203, 11384]
+    char_span: [10202, 11383]
     sentence_count: 6
     key_terms: [redditusername71, effort, earnings, probably, thesis, nothingbettertodoyes, calls, going]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c7"
-    char_span: [11386, 12385]
+    char_span: [11385, 12384]
     sentence_count: 2
     key_terms: [hikori99, fineeee, people, thishitisgettingold, full, port, azimuthaztronaut, redditusername71]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nkow7c.md#c8"
-    char_span: [12388, 14093]
+    char_span: [12387, 14092]
     sentence_count: 9
     key_terms: [redditusername71, gap, low, sentiment, earnings, outlook, calls, point]
     section: Comments

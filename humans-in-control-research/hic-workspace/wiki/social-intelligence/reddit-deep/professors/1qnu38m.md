@@ -26,67 +26,67 @@ chunks:
     key_terms: [because, requirement, students, purpose, student, class, don, want]
     token_count: 261
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c2"
-    char_span: [3506, 5745]
+    char_span: [3505, 5744]
     sentence_count: 18
     key_terms: [accommodations, student, disability, services, students, get, being, karen]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c3"
-    char_span: [5747, 6886]
+    char_span: [5746, 6885]
     sentence_count: 12
     key_terms: [student, assignments, disability, dampening, noise, back, time, work]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c4"
-    char_span: [6888, 8269]
+    char_span: [6887, 8268]
     sentence_count: 10
     key_terms: [accommodation, office, requirements, disability, reasonable, student, cannot, speech]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c5"
-    char_span: [8271, 10381]
+    char_span: [8270, 10380]
     sentence_count: 17
     key_terms: [requirements, student, class, pass, accommodation, hazelstone37, "it's", work]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c6"
-    char_span: [10128, 10761]
+    char_span: [10127, 10760]
     sentence_count: 4
     key_terms: [requirements, student, "don't", pass, fail, fantastic-antics, notaflatsquirrel, appropriate]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c7"
-    char_span: [10763, 12303]
+    char_span: [10762, 12302]
     sentence_count: 9
     key_terms: [disability, answer, accommodation, requirements, need, reasonable, determine, something]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c8"
-    char_span: [12305, 14422]
+    char_span: [12304, 14421]
     sentence_count: 18
     key_terms: [course, student, disability, like, approved, accommodations, requirement, drop]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c9"
-    char_span: [14424, 15503]
+    char_span: [14423, 15502]
     sentence_count: 7
     key_terms: [disability, "it's", anxiety, accommodations, services, spelled, student, going]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c10"
-    char_span: [15505, 17003]
+    char_span: [15504, 17002]
     sentence_count: 12
     key_terms: [thisnameishilarious, kidnapped, requirements, tell, department, negotiable, on-campus, student]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c11"
-    char_span: [17005, 19247]
+    char_span: [17004, 19246]
     sentence_count: 18
     key_terms: [accommodations, department, "it's", student, students, school, unfair, disability]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1qnu38m.md#c12"
-    char_span: [19249, 21186]
+    char_span: [19248, 21185]
     sentence_count: 16
     key_terms: [student, course, part, accommodations, interrupting, chair, requirement, cannot]
     section: Comments

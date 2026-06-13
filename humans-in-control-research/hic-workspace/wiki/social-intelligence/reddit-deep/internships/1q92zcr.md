@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1q92zcr.md#c0"
-    char_span: [0, 306]
+    char_span: [0, 305]
     sentence_count: 1
     key_terms: [internships, comments, accuratepatience3691, reddit-deep, experience, internship, interview, regular]
-    token_count: 82
+    token_count: 81
 ---
 # Oracle internship interview experience from a regular BTech CS student
 

@@ -23,43 +23,43 @@ chunks:
     key_terms: [engineering, like, because, engineeringstudents, calculus, degree, differential, "i'm"]
     token_count: 317
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c1"
-    char_span: [1458, 3631]
+    char_span: [1457, 3630]
     sentence_count: 19
     key_terms: [engineering, degree, experience, justareddituser202, back, design, manufacturing, cad]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c2"
-    char_span: [3318, 4591]
+    char_span: [3317, 4590]
     sentence_count: 10
     key_terms: ["bachelor's", students, degree, restrictions, engineering, science, school, back]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c3"
-    char_span: [4593, 6249]
+    char_span: [4592, 6248]
     sentence_count: 13
     key_terms: ["i'm", engineering, privatetopics54492, get, schools, "bachelor's", transcript, college]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c4"
-    char_span: [6251, 7405]
+    char_span: [6250, 7404]
     sentence_count: 8
     key_terms: [schools, internship, bachelors, electriccrabs, experience, getting, looking, degree]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c5"
-    char_span: [7407, 9580]
+    char_span: [7406, 9579]
     sentence_count: 12
     key_terms: [engineering, masters, "bachelor's", back, bachelor, classes, degree, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c6"
-    char_span: [9284, 10009]
+    char_span: [9283, 10008]
     sentence_count: 4
     key_terms: ["bachelor's", engineering, get, year, capstone, masters, fluff, intro]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rtq16f.md#c7"
-    char_span: [10011, 11146]
+    char_span: [10010, 11145]
     sentence_count: 6
     key_terms: [algebra, disastrous-pin-1617, college, years, trig, experience, technician, professor]
     section: Comments

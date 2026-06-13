@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, everyone, grateful, excellent-carob6982, years, best, post]
     token_count: 200
   - id: "social-intelligence/reddit-deep/gradadmissions/1rs8kbo.md#c1"
-    char_span: [727, 1606]
+    char_span: [726, 1605]
     sentence_count: 6
     key_terms: [excellent-carob6982, congratulations, thank, stanford, amazing, school, any-construction-789, aggravatingad2992]
     section: Comments

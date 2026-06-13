@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, gradschool, comments, criteria, count, work, filipinoairlines, internships]
     token_count: 113
   - id: "social-intelligence/reddit-deep/gradschool/1osxpw6.md#c1"
-    char_span: [462, 1339]
+    char_span: [461, 1338]
     sentence_count: 10
     key_terms: [experience, companies, internships, work, field, directly, asking, count]
     section: Comments

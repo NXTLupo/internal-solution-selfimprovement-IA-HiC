@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1prbjym.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1prbjym/obsessing_over_grad_school_admission_responses/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,25 @@ flair: "Education"
 extracted_at: "2026-06-06T23:23:15.586Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c0"
+    char_span: [0, 1297]
+    sentence_count: 11
+    key_terms: [school, feel, gradadmissions, doctor, like, self, pepperdine, comments]
+    token_count: 308
+  - id: "social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c1"
+    char_span: [1312, 2993]
+    sentence_count: 17
+    key_terms: [sensitive-contest-88, pepperdine, applied, phd, psyd, sure, deleted, program]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/gradadmissions/1prbjym.md#c2"
+    char_span: [2995, 3848]
+    sentence_count: 6
+    key_terms: [sensitive-contest-88, deleted, piccolotemporary4975, heard, get, job, application, financially]
+    section: Comments
+    token_count: 213
 ---
-
 # Obsessing over Grad school admission responses
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1prbjym/obsessing_over_grad_school_admission_responses/)

@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1rp0xmd.md#c0"
-    char_span: [0, 942]
+    char_span: [0, 941]
     sentence_count: 5
     key_terms: [internships, internship, advice, comments, projects, morocco, student, master]
-    token_count: 226
+    token_count: 225
 ---
 # AI/ML Internship – Advice for Summer 2026 (Master’s student)
 

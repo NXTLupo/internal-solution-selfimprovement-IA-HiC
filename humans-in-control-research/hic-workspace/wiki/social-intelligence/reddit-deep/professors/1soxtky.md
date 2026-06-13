@@ -23,43 +23,43 @@ chunks:
     key_terms: [office, classroom, comments, students, culture, perspectives, attendance, engagement]
     token_count: 269
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c1"
-    char_span: [1230, 1806]
+    char_span: [1229, 1805]
     sentence_count: 7
     key_terms: [office, hours, information, attending, timetable, adjacent, computer, corridor]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c2"
-    char_span: [1808, 3511]
+    char_span: [1807, 3510]
     sentence_count: 8
     key_terms: [office, hours, classes, wannabehazmattech, traditional, week, work, attendance]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c3"
-    char_span: [3513, 5451]
+    char_span: [3512, 5450]
     sentence_count: 12
     key_terms: [students, wannabehazmattech, office, hours, come, help, like, math]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c4"
-    char_span: [5453, 7058]
+    char_span: [5452, 7057]
     sentence_count: 13
     key_terms: [come, office, wannabehazmattech, don, class, hours, work, research]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c5"
-    char_span: [7060, 7943]
+    char_span: [7059, 7942]
     sentence_count: 13
     key_terms: [students, beyond, additional, areas, wannabehazmattech, year, controversial, institution]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c6"
-    char_span: [7945, 9264]
+    char_span: [7944, 9263]
     sentence_count: 10
     key_terms: [wannabehazmattech, students, office, hours, understand, scroll, mylifeisprettyplain, email]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/professors/1soxtky.md#c7"
-    char_span: [9266, 10684]
+    char_span: [9265, 10683]
     sentence_count: 8
     key_terms: [office, adventureontherocks, hours, tried, different, students, because, person]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [application, experience, applyingtocollege, time, work, currently, comments, school]
     token_count: 244
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7phrh.md#c1"
-    char_span: [985, 1951]
+    char_span: [984, 1950]
     sentence_count: 7
     key_terms: [experience, application, work, consider, schools, having, reader, help]
     section: Comments

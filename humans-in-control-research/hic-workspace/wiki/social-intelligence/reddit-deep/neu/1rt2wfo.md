@@ -21,7 +21,7 @@ chunks:
     key_terms: [major, law, school, neu, comments, security, finance, demand]
     token_count: 252
   - id: "social-intelligence/reddit-deep/neu/1rt2wfo.md#c1"
-    char_span: [977, 2019]
+    char_span: [976, 2018]
     sentence_count: 9
     key_terms: [something, interested, easier, class, study, seem, fun-theory9697, recommendation]
     section: Comments

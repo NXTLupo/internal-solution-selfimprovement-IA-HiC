@@ -21,19 +21,19 @@ chunks:
     key_terms: [careerguidance, start, comments, guidance, student, career, gullible-winter-8787, law]
     token_count: 157
   - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c1"
-    char_span: [637, 1577]
+    char_span: [636, 1576]
     sentence_count: 7
     key_terms: [domain, international, get, research, pursue, region, law, professionals]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c2"
-    char_span: [1579, 3947]
+    char_span: [1578, 3946]
     sentence_count: 18
     key_terms: [like, domain, knowledge, international, internships, research, counterterrorism, opportunities]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1ofnydy.md#c3"
-    char_span: [3949, 5933]
+    char_span: [3948, 5932]
     sentence_count: 20
     key_terms: [organisations, international, opportunities, india, law, skills, consultant, government]
     section: Comments

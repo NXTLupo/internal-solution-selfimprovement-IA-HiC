@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c0"
-    char_span: [0, 2011]
+    char_span: [0, 2010]
     sentence_count: 15
     key_terms: [waterloo, uchicago, tech, math, network, want, reputation, uwaterloo]
-    token_count: 477
+    token_count: 476
   - id: "articles/reddit-deep-r-uwaterloo/b9ed4dac20.md#c1"
-    char_span: [2013, 4131]
+    char_span: [2012, 4130]
     sentence_count: 12
     key_terms: [uchicago, waterloo, admissions, commissionrecent886, uwaterloo, prestige, chicago, school]
     token_count: 486

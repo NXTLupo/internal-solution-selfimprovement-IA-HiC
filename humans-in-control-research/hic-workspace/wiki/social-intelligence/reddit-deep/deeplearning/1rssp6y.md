@@ -23,7 +23,7 @@ chunks:
     key_terms: [novaheadshot, models, deeplearning, professional, https, specialized, com, www]
     token_count: 238
   - id: "social-intelligence/reddit-deep/deeplearning/1rssp6y.md#c1"
-    char_span: [1190, 2119]
+    char_span: [1189, 2118]
     sentence_count: 1
     key_terms: [reddit, https, com, www, entrepreneurs, headshots, artificialntelligence, chatgptpromptgenius]
     section: Comments

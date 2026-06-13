@@ -43,43 +43,43 @@ chunks:
     key_terms: [boat, systems, itself, finishing, training, barrel, course, reward]
     token_count: 393
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c5"
-    char_span: [10408, 11632]
+    char_span: [10407, 11631]
     sentence_count: 6
     key_terms: [ignorant, already, confident-touch-6547, hands, money, hey, nuke, ones]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c6"
-    char_span: [11634, 13439]
+    char_span: [11633, 13438]
     sentence_count: 14
     key_terms: [day, "it's", people, non-technical, ago, use, bizarromax, blockchain]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c7"
-    char_span: [13441, 14807]
+    char_span: [13440, 14806]
     sentence_count: 9
     key_terms: [sentience, something, people, person, wrong, anthropomorphizing, been, png]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c8"
-    char_span: [14809, 16307]
+    char_span: [14808, 16306]
     sentence_count: 14
     key_terms: [code, technology, seriously, speed, jack, man, buttstuffingt0n, wolfeheartgames]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c9"
-    char_span: [16310, 18331]
+    char_span: [16309, 18330]
     sentence_count: 12
     key_terms: [people, mandoman61, "he's", marketing, advanced, strategy, concern, pretend]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c10"
-    char_span: [18333, 19408]
+    char_span: [18332, 19407]
     sentence_count: 5
     key_terms: [e7cd33cf342f680473753ed0d8938315fe48c05a, chat, discuss, ended, get, png, stop, infinitereign88]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/artificial/1o6ck4l.md#c11"
-    char_span: [19410, 21029]
+    char_span: [19409, 21028]
     sentence_count: 13
     key_terms: [illustriousworld823, maybe, people, best, want, awareness, guesses, systems]
     section: Comments

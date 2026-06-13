@@ -23,19 +23,19 @@ chunks:
     key_terms: [remote, managers, micromanaging, "who's", visibility, comments, everyone, without]
     token_count: 210
   - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c1"
-    char_span: [1002, 1665]
+    char_span: [1001, 1664]
     sentence_count: 4
     key_terms: [managing, fairentertainment194, done, mins, team, time, suckerpunchdrunk, distractions]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c2"
-    char_span: [1667, 3529]
+    char_span: [1666, 3528]
     sentence_count: 16
     key_terms: [performance, meetings, meeting, weekly, teams, tell, time, work]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/managers/1s17qki.md#c3"
-    char_span: [3531, 4843]
+    char_span: [3530, 4842]
     sentence_count: 8
     key_terms: [time, want, concerned, workload, weekly, "you're", asana, don]
     section: Comments

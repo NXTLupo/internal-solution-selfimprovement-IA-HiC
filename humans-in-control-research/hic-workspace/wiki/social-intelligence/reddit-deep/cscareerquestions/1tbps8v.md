@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tbps8v/i_got_14_cs_offers_here_are_6_years_of_advice_i/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -10,11 +11,65 @@ score: 0
 upvote_ratio: 0.45
 num_comments: 42
 flair: "Student"
-extracted_at: "2026-06-06T23:23:15.639Z"
+extracted_at: "2026-06-08T18:49:42.895Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c0"
+    char_span: [0, 1121]
+    sentence_count: 13
+    key_terms: [comments, "i'm", cscareerquestions, saying, opinion, advice, futurefaangemployee, crazy]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c1"
+    char_span: [1123, 3257]
+    sentence_count: 30
+    key_terms: [python, resume, interviews, want, description, because, achievements, "don't"]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c2"
+    char_span: [2994, 5264]
+    sentence_count: 28
+    key_terms: [like, want, interview, company, questions, "they're", answer, "don't"]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c3"
+    char_span: [4972, 7155]
+    sentence_count: 29
+    key_terms: [questions, interview, "don't", want, "you're", question, ask, like]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c4"
+    char_span: [6902, 9149]
+    sentence_count: 29
+    key_terms: [job, interview, because, "you're", questions, company, boards, remote]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c5"
+    char_span: [8887, 9855]
+    sentence_count: 10
+    key_terms: [job, "don't", because, day, getting, enough, people, agree]
+    token_count: 235
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c6"
+    char_span: [9870, 10458]
+    sentence_count: 8
+    key_terms: [suit, tie, because, dressed, people, reddit, interviewing, professional]
+    section: Comments
+    token_count: 143
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c7"
+    char_span: [10460, 12483]
+    sentence_count: 13
+    key_terms: [futurefaangemployee, veeva, people, some-btc-name, level, offer, don, suit]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c8"
+    char_span: [12230, 12862]
+    sentence_count: 3
+    key_terms: [being, quarter, cscareerquestions, good, some-btc-name, individual, integrity, validates]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbps8v.md#c9"
+    char_span: [12864, 14585]
+    sentence_count: 10
+    key_terms: [being, people, something, likable, tell, resume, "you're", futurefaangemployee]
+    section: Comments
+    token_count: 436
 ---
-
 # I got 14 CS offers. Here are 6 years of advice I wish I had at the start
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tbps8v/i_got_14_cs_offers_here_are_6_years_of_advice_i/)
@@ -64,8 +119,8 @@ This is no joke, life-changing advice I'm giving you that I wish I knew. I quick
 
 ## Comments
 
-- **caiteha** (16↑): Suit and tie? What?
-  - **akguitar** (7↑): Yeahhh.
+- **caiteha** (17↑): Suit and tie? What?
+  - **akguitar** (6↑): Yeahhh.
 
 People on Reddit, do not listen to this “wear a suit and tie” stuff. Maybe the other stuff sure but, I took this advice a long time ago when I was getting started.
 
@@ -79,11 +134,11 @@ I dunno where or why this suit and tie advice still gets pushed but, read the ro
     - **Useful_Citron_8216** (2↑): I’ve always been told the rule is dress one level higher then the interviewer, if it’s a tech company(which are usually more casual) wear a dress shirt, if it’s a bank(which is a more professional industry) wear a suit
   - **excelbae** (1↑): Maybe recruiters care, but what do the hiring manager or SWEs think? Personally I try not to be biased, but I could see people being put off by a full suit on some subconscious level. Perhaps signals that you don’t really understand the culture in tech. There are many SWEs who despise the “suits” (the bean counters, the MBA class, whatever you want to call it), especially in this economy.
 - **Some-btc-name** (11↑): tldr: guy says we need to lie
-  - **FutureFAANGEmployee** (5↑): Also, don’t throw the baby out with the bath water. I’m definitely sure some things I said are wrong, but I can also guarantee there is at least 1 thing you can learn from this even if you don’t agree with everything else
-  - **FutureFAANGEmployee** (2↑): Try not to, but you may have to. A recruiter from Veeva was throwing curveballs at me to see if I slip up and asked me if I would accept an offer at Amazon if I got one. If I tell the truth and say yes, it’s an auto reject. You have to lie and say, “No, Veeva is my #1 option. I love your guys’ product and mission”. They’re not trying to hire people who want a job. They are only hiring people that are passionate about their company. Wow, funnily enough now that I think about it, this EXACT situation happened to the Neetcode guy from Veeva too lmao. He passed all the interviews and was about to get the offer, then he got rejected since he said he’d accept another offer over Veeva’s because he was being honest, so this validates my point
+  - **FutureFAANGEmployee** (3↑): Also, don’t throw the baby out with the bath water. I’m definitely sure some things I said are wrong, but I can also guarantee there is at least 1 thing you can learn from this even if you don’t agree with everything else
+  - **FutureFAANGEmployee** (3↑): Try not to, but you may have to. A recruiter from Veeva was throwing curveballs at me to see if I slip up and asked me if I would accept an offer at Amazon if I got one. If I tell the truth and say yes, it’s an auto reject. You have to lie and say, “No, Veeva is my #1 option. I love your guys’ product and mission”. They’re not trying to hire people who want a job. They are only hiring people that are passionate about their company. Wow, funnily enough now that I think about it, this EXACT situation happened to the Neetcode guy from Veeva too lmao. He passed all the interviews and was about to get the offer, then he got rejected since he said he’d accept another offer over Veeva’s because he was being honest, so this validates my point
     - **Some-btc-name** (2↑): I'm not saying your wrong, and I agree I think that's what it might take for most, but I want to uphold some level of integrity.
-- **vorg7** (8↑): IMO like half of these are good advice, a quarter neutral, a quarter harmful. Better than the average cscareerquestions post so good job I guess?
-- **Legitimate_Cut_6254** (8↑): Your points are okay but I think a lot of what you said boils down to you being a high energy individual who is being engaged and showing interest. Don't be a hollow sole on camera.
+- **vorg7** (7↑): IMO like half of these are good advice, a quarter neutral, a quarter harmful. Better than the average cscareerquestions post so good job I guess?
+- **Legitimate_Cut_6254** (7↑): Your points are okay but I think a lot of what you said boils down to you being a high energy individual who is being engaged and showing interest. Don't be a hollow sole on camera.
 
 That being said the resume game is a key aspect here. The bullshit companies are pulling on ATS is insane.
 - **rustybutterindia** (6↑): You're gonna get met with a lot of cynical comments but I actually appreciate this post, please don't delete it. It's nice to see something useful and genuine and not AI-generated for once on these forums.

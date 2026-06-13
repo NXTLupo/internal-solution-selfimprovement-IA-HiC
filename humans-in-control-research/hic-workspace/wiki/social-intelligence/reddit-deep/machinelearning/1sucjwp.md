@@ -71,25 +71,25 @@ chunks:
     key_terms: [mean, optional, update, stablediffusion, centralization, equivalently, comparisons, non-leading]
     token_count: 241
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c11"
-    char_span: [9221, 11237]
+    char_span: [9220, 11236]
     sentence_count: 15
     key_terms: [adamw, muon, performance, memory, difference, mnist, "it's", test]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c12"
-    char_span: [10943, 12212]
+    char_span: [10942, 12211]
     sentence_count: 14
     key_terms: [optimizer, muon, adamw, parameters, matrices, memory, "i've", "it's"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c13"
-    char_span: [12214, 13392]
+    char_span: [12213, 13391]
     sentence_count: 4
     key_terms: [optimizer, day, post, whether, paper, vibes, write, age]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/machinelearning/1sucjwp.md#c14"
-    char_span: [13394, 15129]
+    char_span: [13393, 15128]
     sentence_count: 13
     key_terms: [people, work, "i'm", like, everything, optimizers, optimizer, seriously]
     section: Comments

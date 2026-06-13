@@ -53,31 +53,31 @@ chunks:
     key_terms: [waterloo, inc, n2l, wage, high, construction, prica, global]
     token_count: 392
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c7"
-    char_span: [10213, 11332]
+    char_span: [10212, 11331]
     sentence_count: 11
     key_terms: [programmers, area, find, inetro, within, best, cant, got]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c8"
-    char_span: [11334, 12508]
+    char_span: [11333, 12507]
     sentence_count: 10
     key_terms: [work, subway, japan, agreements, super, here, "i've", live]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c9"
-    char_span: [12511, 14723]
+    char_span: [12510, 14722]
     sentence_count: 20
     key_terms: [japanese, raman, signatures, hitachino, something, anywhere, canadian, brewery]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c10"
-    char_span: [14725, 16469]
+    char_span: [14724, 16468]
     sentence_count: 13
     key_terms: [temporary-foreign-worker-reforms-immigration-chamber-report-1, text, https, something, fucking, bettertransit, thefringthing, www]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/waterloo/1o2jwzp.md#c11"
-    char_span: [16472, 18465]
+    char_span: [16471, 18464]
     sentence_count: 22
     key_terms: [action, people, labourers, anything, farmers, fucking, voting, "you're"]
     section: Comments

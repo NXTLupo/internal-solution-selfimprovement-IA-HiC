@@ -21,19 +21,19 @@ chunks:
     key_terms: [careerguidance, jobs, comments, skilled, systems, without, better, degree]
     token_count: 155
   - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c1"
-    char_span: [725, 2809]
+    char_span: [724, 2808]
     sentence_count: 17
     key_terms: [degree, tech, going, projects, getting, without, level, care]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c2"
-    char_span: [2811, 4556]
+    char_span: [2810, 4555]
     sentence_count: 21
     key_terms: [tech, fear, jobs, developers, saturated, software, already, through]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/careerguidance/1rti3ik.md#c3"
-    char_span: [4558, 4998]
+    char_span: [4557, 4997]
     sentence_count: 3
     key_terms: [tech, right, give, job, truthteller6000, whatdoido8383, difficult, elemant48]
     section: Comments

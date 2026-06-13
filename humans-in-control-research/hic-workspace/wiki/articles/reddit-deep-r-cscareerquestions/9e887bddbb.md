@@ -15,15 +15,15 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/9e887bddbb.md#c0"
-    char_span: [0, 2378]
-    sentence_count: 16
+    char_span: [0, 2461]
+    sentence_count: 17
     key_terms: [technical, internship, work, position, support, full-time, cscareerquestions, engineer]
-    token_count: 497
+    token_count: 513
   - id: "articles/reddit-deep-r-cscareerquestions/9e887bddbb.md#c1"
-    char_span: [2380, 2857]
+    char_span: [2463, 2856]
     sentence_count: 2
-    key_terms: [ibm, definitely, internship, taigahalla, converted, technical, comments, relevant]
-    token_count: 110
+    key_terms: [ibm, definitely, internship, taigahalla, converted, technical, comments, training]
+    token_count: 92
 ---
 # Internship or Full-Time for Career Pivot?
 

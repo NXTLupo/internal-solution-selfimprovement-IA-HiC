@@ -23,31 +23,31 @@ chunks:
     key_terms: [like, work, cscareerquestions, everything, comments, backend, project, months]
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c1"
-    char_span: [1737, 3249]
+    char_span: [1736, 3248]
     sentence_count: 7
     key_terms: [definitely, consider, employed, company, resume, taking, get, give]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c2"
-    char_span: [3251, 5235]
+    char_span: [3250, 5234]
     sentence_count: 13
     key_terms: [onboarding, lol, "don't", job, need, constantly, management, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c3"
-    char_span: [4974, 5775]
+    char_span: [4973, 5774]
     sentence_count: 4
     key_terms: [job, something, applying, quitting, better, market, quiet, thank]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c4"
-    char_span: [5777, 6474]
+    char_span: [5776, 6473]
     sentence_count: 3
     key_terms: [big, tech, work, technical, people, darkflameshadowninja, snoochipmunks9977, experience]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lcxe9a.md#c5"
-    char_span: [6476, 8267]
+    char_span: [6475, 8266]
     sentence_count: 8
     key_terms: [gpt, work, corporate, specific, chatgpt, deleted, effort, people]
     section: Comments

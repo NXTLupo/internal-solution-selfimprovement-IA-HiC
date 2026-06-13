@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, language, because, languages, comments, someone, better, school]
     token_count: 176
   - id: "social-intelligence/reddit-deep/college/1luhckt.md#c1"
-    char_span: [808, 2580]
+    char_span: [807, 2579]
     sentence_count: 8
     key_terms: [language, turbulent-artist961, learning, college, better, school, conversations, learn]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1luhckt.md#c2"
-    char_span: [2582, 4843]
+    char_span: [2581, 4842]
     sentence_count: 12
     key_terms: [college, school, high, language, french, no-professional-9618, learned, better]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/college/1luhckt.md#c3"
-    char_span: [4845, 6088]
+    char_span: [4844, 6087]
     sentence_count: 6
     key_terms: [school, high, language, german, class, bad, did, professors]
     section: Comments

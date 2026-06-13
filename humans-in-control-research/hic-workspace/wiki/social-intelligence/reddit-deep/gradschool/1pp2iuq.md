@@ -23,43 +23,43 @@ chunks:
     key_terms: [professor, course, professional, work, assignment, gradschool, requested, academic]
     token_count: 345
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c1"
-    char_span: [1651, 3610]
+    char_span: [1650, 3609]
     sentence_count: 18
     key_terms: [professor, work, shocked, grad, assignment, seriously, because, friends]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c2"
-    char_span: [3612, 5675]
+    char_span: [3611, 5674]
     sentence_count: 15
     key_terms: [program, online, professor, grad, courses, vague, requirments, like]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c3"
-    char_span: [5677, 7804]
+    char_span: [5676, 7803]
     sentence_count: 23
     key_terms: [online, students, because, university, professor, people, coyotelitius, give]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c4"
-    char_span: [7806, 10126]
+    char_span: [7805, 10125]
     sentence_count: 22
     key_terms: [professor, probably, grade, because, change, experienced, retroactive, professors]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c5"
-    char_span: [10128, 12468]
+    char_span: [10127, 12467]
     sentence_count: 23
     key_terms: [university, degree, program, professor, good, course, "don't", appreciated]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c6"
-    char_span: [12470, 14430]
+    char_span: [12469, 14429]
     sentence_count: 14
     key_terms: [professor, degree, opportunities, coyotelitius, least, somewhere, another, problem]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradschool/1pp2iuq.md#c7"
-    char_span: [14432, 15822]
+    char_span: [14431, 15821]
     sentence_count: 10
     key_terms: [good, professor, prusaudis, standards, maintain, required, syllabus, degree]
     section: Comments

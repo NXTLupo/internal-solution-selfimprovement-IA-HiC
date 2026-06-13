@@ -23,19 +23,19 @@ chunks:
     key_terms: [favorite, university, everyone, gradadmissions, place, love, comments, because]
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c1"
-    char_span: [1663, 2827]
+    char_span: [1662, 2826]
     sentence_count: 11
     key_terms: [flightofwonder, times, appreciate, jmeshelton, mindset, always, mysteriouspolicy4354, thank]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c2"
-    char_span: [2829, 3997]
+    char_span: [2828, 3996]
     sentence_count: 10
     key_terms: [flightofwonder, interview, places, moonbat1334, good, like, luck, bisensual]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/gradadmissions/1quxnux.md#c3"
-    char_span: [3999, 5211]
+    char_span: [3998, 5210]
     sentence_count: 8
     key_terms: [flightofwonder, best, thank, luck, too, appreciate, professor, programs]
     section: Comments

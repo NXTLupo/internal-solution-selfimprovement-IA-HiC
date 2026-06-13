@@ -33,25 +33,25 @@ chunks:
     key_terms: [post, interesting, perspective, considered, discussion, relatively, published, yesterday]
     token_count: 80
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c3"
-    char_span: [4782, 6907]
+    char_span: [4781, 6906]
     sentence_count: 19
     key_terms: [career, working, keep, long, time, financial, medicine, yourself]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c4"
-    char_span: [6909, 9035]
+    char_span: [6908, 9034]
     sentence_count: 21
     key_terms: [yourself, time, medicine, healthy, family, fulfillment, want, work]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c5"
-    char_span: [9037, 11149]
+    char_span: [9036, 11148]
     sentence_count: 17
     key_terms: [medical, like, try, medicine, always, school, volunteering, work]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1s6tkcy.md#c6"
-    char_span: [11151, 12865]
+    char_span: [11150, 12864]
     sentence_count: 13
     key_terms: [healthcare, computational, diagnostics, specialties, neurology, biology, degrees, matyyyy]
     section: Comments

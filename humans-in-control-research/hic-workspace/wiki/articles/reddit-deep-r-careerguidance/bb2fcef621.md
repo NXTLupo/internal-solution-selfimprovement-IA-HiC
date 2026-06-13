@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/bb2fcef621.md#c0"
-    char_span: [0, 2116]
+    char_span: [0, 2115]
     sentence_count: 19
     key_terms: [career, looking, people, trying, experience, started, working, careerguidance]
-    token_count: 508
+    token_count: 507
   - id: "articles/reddit-deep-r-careerguidance/bb2fcef621.md#c1"
-    char_span: [2121, 2878]
+    char_span: [2120, 2877]
     sentence_count: 3
     key_terms: [trades, looking, newrepresentative912, hot-criticism8353, like, long, paid, term]
     token_count: 175

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, please, ece, free, comments, industry, seniors, online]
     token_count: 237
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kw1owp.md#c1"
-    char_span: [1007, 1964]
+    char_span: [1006, 1963]
     sentence_count: 4
     key_terms: [engineeringstudents, infinitecoderunner, wiki, reddit, https, com, new-tie-6529, read]
     section: Comments

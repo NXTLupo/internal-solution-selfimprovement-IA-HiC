@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, people, genuinely, comments, friends, without, expect, random]
     token_count: 198
   - id: "social-intelligence/reddit-deep/college/1ti5h7t.md#c1"
-    char_span: [952, 2407]
+    char_span: [951, 2406]
     sentence_count: 12
     key_terms: [people, social, years, yourself, college, friends, desperatereality4584, sheepherdernext3196]
     section: Comments

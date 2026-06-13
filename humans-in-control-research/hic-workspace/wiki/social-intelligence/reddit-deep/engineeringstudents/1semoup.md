@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, recommend, comments, subjects, start, engineering, reddit-deep, engineer]
     token_count: 110
   - id: "social-intelligence/reddit-deep/engineeringstudents/1semoup.md#c1"
-    char_span: [507, 2596]
+    char_span: [506, 2595]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, please, reddit, https, calc, com, calculus]
     section: Comments

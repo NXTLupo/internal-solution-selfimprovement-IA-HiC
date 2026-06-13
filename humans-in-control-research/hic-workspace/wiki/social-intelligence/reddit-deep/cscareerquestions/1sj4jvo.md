@@ -23,37 +23,37 @@ chunks:
     key_terms: [company, cscareerquestions, path, career, growth, tech, comments, stuck]
     token_count: 259
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c1"
-    char_span: [1048, 3053]
+    char_span: [1047, 3052]
     sentence_count: 16
     key_terms: [applications, skills, experience, companies, like, move, targeting, applying]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c2"
-    char_span: [3055, 4847]
+    char_span: [3054, 4846]
     sentence_count: 23
     key_terms: [year, promotion, company, normal, like, swes, because, current]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c3"
-    char_span: [4852, 6107]
+    char_span: [4851, 6106]
     sentence_count: 12
     key_terms: [experience, years, companies, residency, because, market, school, target]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c4"
-    char_span: [6112, 8174]
+    char_span: [6111, 8173]
     sentence_count: 23
     key_terms: [code, viewed, review, discussion, years, unviewed, place, dyledion]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c5"
-    char_span: [8176, 9724]
+    char_span: [8175, 9723]
     sentence_count: 22
     key_terms: [companies, people, job, like, new, time, interviews, taking]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sj4jvo.md#c6"
-    char_span: [9726, 10441]
+    char_span: [9725, 10440]
     sentence_count: 7
     key_terms: [career, doctor, librarianoutside2376, remote-ground-8847, day, job, applications, everything]
     section: Comments

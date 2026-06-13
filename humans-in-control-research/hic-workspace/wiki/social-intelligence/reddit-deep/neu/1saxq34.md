@@ -23,7 +23,7 @@ chunks:
     key_terms: [arlington, consulting, boston, campus, trying, opportunities, geopolitical, northeastern]
     token_count: 359
   - id: "social-intelligence/reddit-deep/neu/1saxq34.md#c1"
-    char_span: [1557, 3082]
+    char_span: [1556, 3081]
     sentence_count: 12
     key_terms: [boston, arlington, student, larger, space, perspective, community, joshi1381]
     section: Comments

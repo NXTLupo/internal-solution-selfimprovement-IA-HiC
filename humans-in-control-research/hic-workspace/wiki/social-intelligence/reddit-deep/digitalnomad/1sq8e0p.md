@@ -28,25 +28,25 @@ chunks:
     key_terms: [country, upwork, registered, complaint, platform, reversed, account, clients]
     token_count: 291
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c2"
-    char_span: [3721, 5668]
+    char_span: [3720, 5667]
     sentence_count: 15
     key_terms: [i-earned-447k-on-upwork-with-a-perfect-record-their-ai-system-permanently-banned-me-619cf9b2007a, upwork, get, clients, belikenative, lipmichal, situation, becomes]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c3"
-    char_span: [5670, 7170]
+    char_span: [5669, 7169]
     sentence_count: 15
     key_terms: [back, transactions, upwork, improper, satisfactionextra911, nomad, get, work]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c4"
-    char_span: [7172, 9033]
+    char_span: [7171, 9032]
     sentence_count: 9
     key_terms: [com, deel, platform, banned, demonazraeli, swiftfoxtrot, verification, freelancers]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/digitalnomad/1sq8e0p.md#c5"
-    char_span: [9035, 9596]
+    char_span: [9034, 9595]
     sentence_count: 6
     key_terms: [belikenative, demonazraeli, geographical, inconvenient, enforcement, misleading, surprising, publishes]
     section: Comments

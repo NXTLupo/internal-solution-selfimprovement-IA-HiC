@@ -23,7 +23,7 @@ chunks:
     key_terms: [chatgpt, going, run, comments, selling, money, data, "it's"]
     token_count: 348
   - id: "social-intelligence/reddit-deep/chatgpt/1opg68z.md#c1"
-    char_span: [1365, 2356]
+    char_span: [1364, 2355]
     sentence_count: 7
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
     section: Comments

@@ -33,55 +33,55 @@ chunks:
     key_terms: [does, sensitive, others, being, feel, here, too]
     token_count: 20
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c3"
-    char_span: [4357, 6653]
+    char_span: [4356, 6652]
     sentence_count: 16
     key_terms: [cersei, employee, significant, managing, actions, impacts, partner, person]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c4"
-    char_span: [6655, 8426]
+    char_span: [6654, 8425]
     sentence_count: 13
     key_terms: [let, physically, supervisor, vomiting, capable, better, people, asked]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c5"
-    char_span: [8428, 10669]
+    char_span: [8427, 10668]
     sentence_count: 16
     key_terms: [emergency, company, understand, practices, best, boss, like, feeling]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c6"
-    char_span: [10671, 12808]
+    char_span: [10670, 12807]
     sentence_count: 17
     key_terms: [got, leave, never, weeks, supervisor, daughter, because, himself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c7"
-    char_span: [12537, 13054]
+    char_span: [12536, 13053]
     sentence_count: 5
     key_terms: [responsibility, ai-generated, threatening, throughout, companies, harassing, situation, policies]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c8"
-    char_span: [13056, 14620]
+    char_span: [13055, 14619]
     sentence_count: 12
     key_terms: [manager, asking, like, themselves, workplace, employee, entirely, powerful]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c9"
-    char_span: [14622, 16555]
+    char_span: [14621, 16554]
     sentence_count: 11
     key_terms: ["i'm", person, personally, sometimes, everyone, pharmacy, remember, realize]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c10"
-    char_span: [16557, 18526]
+    char_span: [16556, 18525]
     sentence_count: 11
     key_terms: [manager, demoniclionfish, what-you-should-know-about-pregnant-workers-fairness-act, situation, response, federal, inappropriate, state]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/managers/1syyeji.md#c11"
-    char_span: [18528, 20368]
+    char_span: [18527, 20367]
     sentence_count: 10
     key_terms: [manager, making, days, did, medical, message, person, please]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rfsvdf.md
 url: "https://www.reddit.com/r/internships/comments/1rfsvdf/internship_interview_prep_that_actually_works_my/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,24 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.227Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rfsvdf.md#c0"
+    char_span: [0, 2114]
+    sentence_count: 2
+    key_terms: [internship, interview, questions, tradeoffs, role, internships, behavioral, leadership]
+    token_count: 525
+  - id: "social-intelligence/reddit-deep/internships/1rfsvdf.md#c1"
+    char_span: [2116, 2971]
+    sentence_count: 1
+    key_terms: [interview, answers, review, does, don, help, team, accomplish]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/internships/1rfsvdf.md#c2"
+    char_span: [2986, 3517]
+    sentence_count: 1
+    key_terms: [manojbakshikumar, aloevera1964, experience, networking, recruiters, confident, framework, interview]
+    section: Comments
+    token_count: 125
 ---
-
 # internship interview prep that actually works. my playbook.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rfsvdf/internship_interview_prep_that_actually_works_my/)

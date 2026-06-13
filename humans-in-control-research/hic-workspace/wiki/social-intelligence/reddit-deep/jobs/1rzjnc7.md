@@ -21,31 +21,31 @@ chunks:
     key_terms: [jobs, comments, earnings, weedwizard44, reddit-deep, experience, understand, outsource]
     token_count: 130
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c1"
-    char_span: [550, 2725]
+    char_span: [549, 2724]
     sentence_count: 15
     key_terms: [like, individual, companies, problem, middle, people, "you're", class]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c2"
-    char_span: [2408, 3114]
+    char_span: [2407, 3113]
     sentence_count: 4
     key_terms: [workers, people, "you're", cross-functional, relationships, consequences, notoriousrdc, combination]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c3"
-    char_span: [3116, 5123]
+    char_span: [3115, 5122]
     sentence_count: 14
     key_terms: [because, promote, "it's", management, something, certain, company, premise]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c4"
-    char_span: [5125, 6806]
+    char_span: [5124, 6805]
     sentence_count: 11
     key_terms: [companies, people, batteries, products, becomes, dollars, become, electronic-goal-8141]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/jobs/1rzjnc7.md#c5"
-    char_span: [6809, 8201]
+    char_span: [6808, 8200]
     sentence_count: 14
     key_terms: [don, care, fine, everything, people, need, anything, dalearev]
     section: Comments

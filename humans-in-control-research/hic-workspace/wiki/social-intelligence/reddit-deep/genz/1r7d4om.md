@@ -23,13 +23,13 @@ chunks:
     key_terms: [time, years, feel, like, "i've", break, waste, gen]
     token_count: 508
   - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c1"
-    char_span: [2080, 4175]
+    char_span: [2079, 4174]
     sentence_count: 16
     key_terms: [good, years, maintaining, work, currently, designers, because, discord]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/genz/1r7d4om.md#c2"
-    char_span: [4177, 5678]
+    char_span: [4176, 5677]
     sentence_count: 10
     key_terms: [job, work, school, early, human, like, use, encountering]
     section: Comments

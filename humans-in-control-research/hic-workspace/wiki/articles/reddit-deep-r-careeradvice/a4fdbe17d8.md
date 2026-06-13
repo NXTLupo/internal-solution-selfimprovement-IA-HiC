@@ -15,17 +15,17 @@ industries: [workforce, ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/a4fdbe17d8.md#c0"
-    char_span: [0, 2007]
+    char_span: [0, 2006]
     sentence_count: 11
     key_terms: [software, online, engineer, certifications, career, careeradvice, engineering, etc]
-    token_count: 446
+    token_count: 445
   - id: "articles/reddit-deep-r-careeradvice/a4fdbe17d8.md#c1"
-    char_span: [2009, 3521]
+    char_span: [2008, 3520]
     sentence_count: 12
     key_terms: [currently, job, timmyturnahp21, using, "i'm", want, companies, blocked]
     token_count: 371
   - id: "articles/reddit-deep-r-careeradvice/a4fdbe17d8.md#c2"
-    char_span: [3526, 4231]
+    char_span: [3525, 4230]
     sentence_count: 4
     key_terms: [development, software, amount, front, going, end, improvements, engineering]
     token_count: 149

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="nxt">
+<head>
+<meta charset="UTF-8">
+<title>GOLD · case-study (NXT)</title>
+<!--
+  GOLD TWIN: case-study, NXT brand.
+  Source of truth: Figma file iSQhAVM7SI4QHAWB7y9C2z
+    - Frame 212:2 "GOLD · case-study (nxt) · 03 case detail (Amazon)"  -> page 1 (before/after)
+    - Frame 217:2 "GOLD · case-study (nxt) · 04 case detail (Stripe)"  -> page 2 (evidence stack)
+  Tokens: node 223:2 (DESIGN TOKENS - NXT, live MCP-readable).
+  Each .gold-page is a 1920x1080 stage. The fill model replaces ONLY human-readable
+  text with corpus-grounded content; every tag, class, and inline style is preserved.
+  Subjects below (Amazon, Stripe) are REPRESENTATIVE illustrative content; the fill
+  pass must substitute NAMED real entities from the research corpus, never archetypes.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#080808}
+.gold-page{position:relative;width:1920px;height:1080px;background:#FFFFFF;font-family:'Archivo',sans-serif;color:#141414;overflow:hidden;margin:0 auto}
+.rail{position:absolute;left:0;top:0;width:92px;height:1080px;background:#0D0D0D}
+.dotmark{position:absolute;left:30px;top:990px;display:grid;grid-template-columns:repeat(3,12px);gap:6px}
+.dotmark span{width:12px;height:12px;background:#B8B800;display:block}
+.wordmark{position:absolute;top:58px;right:80px;font-family:'Archivo',sans-serif;font-weight:900;font-size:28px;letter-spacing:1px;color:#0D0D0D;text-transform:uppercase}
+.content{position:absolute;left:172px;top:58px;width:1660px;display:flex;flex-direction:column;gap:16px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:19px;letter-spacing:6px;color:#00B7C3;text-transform:uppercase;white-space:nowrap}
+.headline{font-family:'Archivo',sans-serif;font-weight:600;font-size:46px;line-height:1.08;letter-spacing:-0.5px;color:#141414;max-width:1400px}
+.metarow{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:14px;letter-spacing:1px;line-height:1.6;color:#73757A;text-transform:uppercase;white-space:pre-wrap}
+.hairline{height:1px;background:#DDDDD6;width:100%}
+.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:#B8B800;padding:28px 48px;font-family:'Archivo',sans-serif;font-weight:400;font-size:23px;line-height:1.48;color:#0D0D0D}
+.srcline{font-family:'IBM Plex Mono',monospace;font-weight:500;font-size:12px;letter-spacing:1px;color:#00B7C3;text-transform:uppercase}
+/* before/after */
+.barow{display:flex;gap:26px;height:468px}
+.bap{flex:1;min-width:0;padding:30px 32px;display:flex;flex-direction:column;gap:16px}
+.bap--warn{background:#FAF1EC}
+.bap--cool{background:#EBF7F8}
+.balbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.bap--warn .balbl{color:#CC6644}
+.bap--cool .balbl{color:#00B7C3}
+.bahead{font-family:'Archivo',sans-serif;font-weight:600;font-size:25px;line-height:1.15;color:#141414}
+.bapts{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.bapt{display:flex;gap:12px;align-items:flex-start}
+.bapt span{width:7px;height:7px;flex-shrink:0;margin-top:7px;display:block}
+.bap--warn .bapt span{background:#CC6644}
+.bap--cool .bapt span{background:#00B7C3}
+.bapt p{font-size:16.5px;line-height:1.4;color:#141414}
+.baarrow{align-self:center;font-size:44px;color:#73757A;width:44px;text-align:center;flex-shrink:0}
+.bares{display:flex;gap:48px}
+.bares .col{flex:1;min-width:0}
+.rlbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;color:#73757A;text-transform:uppercase;margin-bottom:10px}
+.rtxt{font-size:18px;line-height:1.42;color:#141414}
+.baq{display:flex;gap:14px}
+.baq .bar{width:4px;background:#00B7C3;flex-shrink:0}
+.baq .qt{font-size:16.5px;line-height:1.42;color:#141414;margin-bottom:8px}
+/* evidence stack */
+.eslbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;color:#73757A;text-transform:uppercase}
+.esstack{display:flex;flex-direction:column;justify-content:space-between;height:540px}
+.esrow{display:flex;gap:28px;align-items:stretch}
+.esrow .bar{width:4px;background:#00B7C3;flex-shrink:0}
+.esrow .qcol{flex:1;min-width:0}
+.esrow .qt{font-size:24px;line-height:1.34;color:#141414;margin-bottom:10px}
+.esrow .scol{width:440px;flex-shrink:0}
+.esrow .slbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:11.5px;letter-spacing:2px;color:#73757A;text-transform:uppercase;margin-bottom:8px}
+.esrow .stxt{font-size:16.5px;line-height:1.42;color:#141414}
+.esrow .srcline{font-size:12.5px}
+</style>
+</head>
+<body>
+
+<!-- PAGE 03 · CASE DETAIL · BEFORE/AFTER (Figma 212:2) -->
+<section class="gold-page" data-figma-node="212:2" data-variant="before-after">
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wordmark">NXT HUMANS</div>
+  <div class="content">
+    <div class="kicker">CASE STUDY · AMAZON</div>
+    <div class="headline">Amazon designs the top contact reasons out of existence instead of staffing up to answer them</div>
+    <div class="metarow">THE SELF-SERVE MODEL   ·   GLOBAL E-COMMERCE   ·   SELF-SERVICE CX          TIMEFRAME  Sustained operating model          INVESTMENT  Upstream defect fixes + self-serve surfaces</div>
+    <div class="hairline"></div>
+    <div class="barow">
+      <div class="bap bap--warn">
+        <div class="balbl">BEFORE</div>
+        <div class="bahead">Staff to the volume</div>
+        <div class="bapts">
+          <div class="bapt"><span></span><p>Every contact reason is answered by adding more agents</p></div>
+          <div class="bapt"><span></span><p>The same defect generates the same call every week</p></div>
+          <div class="bapt"><span></span><p>Tickets closed is the scoreboard, not contacts avoided</p></div>
+          <div class="bapt"><span></span><p>Forecasting argues about headcount instead of asking why the calls exist</p></div>
+          <div class="bapt"><span></span><p>Peak season is survived with overtime, then repeated the next year</p></div>
+        </div>
+      </div>
+      <div class="baarrow">→</div>
+      <div class="bap bap--cool">
+        <div class="balbl">AFTER</div>
+        <div class="bahead">Design the contact away</div>
+        <div class="bapts">
+          <div class="bapt"><span></span><p>The top contact reasons are traced to an upstream defect and fixed</p></div>
+          <div class="bapt"><span></span><p>The answer is surfaced before the contact form</p></div>
+          <div class="bapt"><span></span><p>Contacts that never had to happen become the scoreboard</p></div>
+          <div class="bapt"><span></span><p>Every product team owns the contacts its defects generate</p></div>
+          <div class="bapt"><span></span><p>Peak season stresses the defect backlog, not the phone queue</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="bares">
+      <div class="col">
+        <div class="rlbl">RESULT</div>
+        <div class="rtxt">Routine contacts fall away as the underlying defects disappear, so capacity shifts to the genuinely novel problem.</div>
+      </div>
+      <div class="col baq">
+        <div class="bar"></div>
+        <div>
+          <div class="qt">&ldquo;The best customer service is if the customer doesn&rsquo;t need to call.&rdquo;</div>
+          <div class="srcline">SOURCE: AMAZON SHAREHOLDER LETTER</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway">The lever is not more agents; it is fewer reasons to make contact. Removing the defect beats answering the call.</div>
+</section>
+
+<!-- PAGE 04 · CASE DETAIL · EVIDENCE STACK (Figma 217:2) -->
+<section class="gold-page" data-figma-node="217:2" data-variant="evidence-stack">
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wordmark">NXT HUMANS</div>
+  <div class="content">
+    <div class="kicker">CASE STUDY · STRIPE</div>
+    <div class="headline">Stripe makes the documentation the first responder, so most questions never become tickets</div>
+    <div class="metarow">THE DOCUMENTATION MODEL   ·   DEVELOPER PLATFORM   ·   SELF-SERVICE CX          TIMEFRAME  Sustained operating model          INVESTMENT  Versioned docs + search relevance</div>
+    <div class="hairline"></div>
+    <div class="eslbl">CONVERGENT EVIDENCE</div>
+    <div class="esstack">
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;If it&rsquo;s in the docs, the question usually never becomes a ticket.&rdquo;</div>
+          <div class="srcline">SOURCE: STRIPE DOCS</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">The documentation resolves at the point of need, before a queue exists.</div>
+        </div>
+      </div>
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;I found the integration answer faster than I could have filed a ticket.&rdquo;</div>
+          <div class="srcline">SOURCE: DEVELOPER SURVEY</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">For the developer, findability beats even the fastest queue.</div>
+        </div>
+      </div>
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;We version the docs with the API, so the answer is never stale.&rdquo;</div>
+          <div class="srcline">SOURCE: STRIPE ENGINEERING</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">Freshness is what keeps the documented fix trustworthy.</div>
+        </div>
+      </div>
+      <div class="esrow">
+        <div class="bar"></div>
+        <div class="qcol">
+          <div class="qt">&ldquo;Great docs reduce support load and increase activation; they are a growth channel, not a cost center.&rdquo;</div>
+          <div class="srcline">SOURCE: STRIPE ATLAS GUIDES</div>
+        </div>
+        <div class="scol">
+          <div class="slbl">WHAT IT SHOWS</div>
+          <div class="stxt">The company treats documentation investment as revenue work, which is why it stays funded.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway">The first responder is the document, not the agent. Invest in search relevance and version freshness, and the ticket becomes the exception.</div>
+</section>
+
+<!-- PAGE 05 · CASE DETAIL · FOUR-BLOCK (Figma 260:2) -->
+<section class="gold-page" data-figma-node="260:2" data-variant="four-block">
+  <style>
+  .fbgrid{display:flex;gap:26px;height:640px}
+  .fbcol{flex:1;min-width:0;display:flex;flex-direction:column;gap:18px}
+  .fbblk{flex:1;display:flex;gap:20px;padding:16px 24px 16px 0;border-left:6px solid;min-width:0}
+  .fbblk .lbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase;width:152px;flex-shrink:0;padding-left:20px}
+  .fbblk .txt{font-size:19px;line-height:1.45;color:#141414;flex:1}
+  .fbpanel{width:564px;flex-shrink:0;background:#115054;padding:28px;display:flex;flex-direction:column;gap:18px}
+  .fbpanel .plbl{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:#B8B800}
+  .fbpanel .hero{font-family:'Archivo',sans-serif;font-weight:600;font-size:60px;line-height:1.05;color:#FFFFFF}
+  .fbpanel .herol{font-size:17px;color:rgba(255,255,255,0.82);line-height:1.4}
+  .fbpanel .div{height:1px;background:rgba(255,255,255,0.18)}
+  .fbpanel .mv{font-family:'Archivo',sans-serif;font-weight:600;font-size:30px;line-height:1.05;color:#B8B800}
+  .fbpanel .ml{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.35;margin-top:2px}
+  .fbpanel .pq{display:flex;gap:16px}
+  .fbpanel .pq .bar{width:4px;background:#B8B800;flex-shrink:0}
+  .fbpanel .pq .qt{font-size:16.5px;color:rgba(255,255,255,0.92);line-height:1.45;margin-bottom:8px}
+  .fbpanel .pq .srcline{color:#B8B800}
+  </style>
+  <div class="rail"></div>
+  <div class="dotmark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wordmark">NXT HUMANS</div>
+  <div class="content">
+    <div class="kicker">CASE STUDY · ZAPPOS</div>
+    <div class="headline">Zappos turns the service call from a cost center into the strongest brand moment it owns</div>
+    <div class="metarow">THE SERVICE-CULTURE MODEL   ·   ONLINE RETAIL   ·   RELATIONSHIP CX          TIMEFRAME  Decade-scale operating model          INVESTMENT  Agent autonomy + no-script service culture</div>
+    <div class="hairline"></div>
+    <div class="fbgrid">
+      <div class="fbcol">
+        <div class="fbblk" style="border-left-color:#CC6644;background:#FAF1EC"><div class="lbl" style="color:#CC6644">CHALLENGE</div><div class="txt">Call-center orthodoxy treats every minute on the phone as a cost to be minimized, so agents rush callers off the line, scripts flatten every conversation into the same transcript, and loyalty erodes with every clipped interaction. The metric board rewards short calls, not returning customers.</div></div>
+        <div class="fbblk" style="border-left-color:#141414;background:#F2F1EA"><div class="lbl" style="color:#141414">APPROACH</div><div class="txt">Zappos removed handle-time targets entirely and let agents stay on a call as long as the customer needs. There are no scripts: agents improvise around the person, not the process, and the company treats the phone call as the single best brand moment it owns. Hiring screens for service disposition first and trains product knowledge second.</div></div>
+        <div class="fbblk" style="border-left-color:#00B7C3;background:#EBF7F8"><div class="lbl" style="color:#00B7C3">OUTCOME</div><div class="txt">The contact center became the loyalty engine. Customers who call convert and return at the highest rates the company tracks, service stories circulate as marketing the company never has to buy, and the famously long calls became proof of the culture rather than a staffing problem.</div></div>
+        <div class="fbblk" style="border-left-color:#B8B800;background:#FAFAF7"><div class="lbl" style="color:#141414">LESSON</div><div class="txt">When the call is treated as a brand asset instead of a cost, the contact center stops competing with marketing and starts doing its job: the conversation is the product.</div></div>
+      </div>
+      <div class="fbpanel">
+        <div class="plbl">KEY OUTCOME</div>
+        <div class="hero">Loyalty engine</div>
+        <div class="herol">The phone call became the highest-converting brand moment the company owns</div>
+        <div class="div"></div>
+        <div><div class="mv">No scripts</div><div class="ml">agents improvise around the customer</div></div>
+        <div><div class="mv">No clocks</div><div class="ml">handle-time targets removed</div></div>
+        <div><div class="mv">Service first</div><div class="ml">hiring screens for disposition before product knowledge</div></div>
+        <div class="div"></div>
+        <div class="pq"><div class="bar"></div><div><div class="qt">&ldquo;We are a service company that happens to sell shoes.&rdquo;</div><div class="srcline">SOURCE: TONY HSIEH, ZAPPOS FOUNDER</div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="takeaway">The call is the brand moment. Staff it for connection, not for speed, and the marketing takes care of itself.</div>
+</section>
+
+</body>
+</html>

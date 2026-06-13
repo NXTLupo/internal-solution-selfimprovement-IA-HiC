@@ -23,13 +23,13 @@ chunks:
     key_terms: [done, productivity, get, want, productive, something, comments, action]
     token_count: 271
   - id: "social-intelligence/reddit-deep/productivity/1tksv1n.md#c1"
-    char_span: [1139, 2988]
+    char_span: [1138, 2987]
     sentence_count: 12
     key_terms: [self-accountability, complete, big, flamingolower6171, help, week, accountability, apps]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/productivity/1tksv1n.md#c2"
-    char_span: [2990, 4679]
+    char_span: [2989, 4678]
     sentence_count: 19
     key_terms: [list, day, tasks, write, pick, everything, planning, another]
     section: Comments

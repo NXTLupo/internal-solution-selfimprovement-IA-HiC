@@ -23,19 +23,19 @@ chunks:
     key_terms: [gemini, stablecoin, comments, platform, bonus, test, use, straightforward]
     token_count: 216
   - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c1"
-    char_span: [883, 1610]
+    char_span: [882, 1609]
     sentence_count: 12
     key_terms: [account, bank, transfer, digits, signed, send, wire, thejakernator]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c2"
-    char_span: [1612, 3569]
+    char_span: [1611, 3568]
     sentence_count: 18
     key_terms: ["don't", because, "you're", marketingmuted1411, get, promo, like, dikweeds]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gemini/1nlfvf2.md#c3"
-    char_span: [3332, 3704]
+    char_span: [3331, 3703]
     sentence_count: 3
     key_terms: [sign, address, marketingmuted1411, take, ready-made, agreement, contracts, notarized]
     section: Comments

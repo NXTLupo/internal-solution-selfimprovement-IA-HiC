@@ -21,25 +21,25 @@ chunks:
     key_terms: [collar, blue, careerguidance, job, comments, critical, possible, thinking]
     token_count: 384
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c1"
-    char_span: [1736, 3833]
+    char_span: [1735, 3832]
     sentence_count: 13
     key_terms: [good, brother, empties, garbage, drive, since, truck, wheatmonkey]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c2"
-    char_span: [3835, 5627]
+    char_span: [3834, 5626]
     sentence_count: 16
     key_terms: [something, get, autistic, jobs, like, cleaning, starting, working]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c3"
-    char_span: [5630, 7131]
+    char_span: [5629, 7130]
     sentence_count: 8
     key_terms: [friends, works, experience, successful, carpenter, graphics, another, signage]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1rdw9xv.md#c4"
-    char_span: [7133, 9202]
+    char_span: [7132, 9201]
     sentence_count: 16
     key_terms: [autistic, drywall, merciij, tested, job, sure, girlfriend, diagnosed]
     section: Comments

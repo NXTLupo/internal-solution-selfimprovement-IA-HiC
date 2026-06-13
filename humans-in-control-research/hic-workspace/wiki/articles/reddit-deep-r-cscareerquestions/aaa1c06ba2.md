@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c0"
-    char_span: [0, 986]
+    char_span: [0, 985]
     sentence_count: 6
     key_terms: [experience, cscareerquestions, fake, get, here, background, companies, adding]
-    token_count: 224
+    token_count: 223
   - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c1"
-    char_span: [988, 3253]
+    char_span: [987, 3252]
     sentence_count: 7
     key_terms: [companies, experience, consultancy, years, get, someone, consultancies, least]
     token_count: 512
   - id: "articles/reddit-deep-r-cscareerquestions/aaa1c06ba2.md#c2"
-    char_span: [3003, 3659]
+    char_span: [3002, 3658]
     sentence_count: 5
     key_terms: [experience, years, legitimate-mostlet, gandalf-and-frodo, like, megaascizorr, suggestions, occupation]
     token_count: 160

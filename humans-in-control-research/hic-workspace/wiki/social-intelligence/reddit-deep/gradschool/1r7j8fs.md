@@ -23,37 +23,37 @@ chunks:
     key_terms: [information, understand, problem, "don't", results, gradschool, literature, technique]
     token_count: 390
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c1"
-    char_span: [1788, 3903]
+    char_span: [1787, 3902]
     sentence_count: 20
     key_terms: [good, read, paper, reading, write, idea, questions, abstract]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c2"
-    char_span: [3905, 5140]
+    char_span: [3904, 5139]
     sentence_count: 12
     key_terms: [better, paper, been, get, identify, lacuna, fill, help]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c3"
-    char_span: [5142, 7408]
+    char_span: [5141, 7407]
     sentence_count: 15
     key_terms: [questions, something, question, read, discipline, terrified, labmates, project]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c4"
-    char_span: [7112, 7945]
+    char_span: [7111, 7944]
     sentence_count: 7
     key_terms: [highlight, something, helpful, papers, zotero, topic, communication, introduction]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c5"
-    char_span: [7947, 10197]
+    char_span: [7946, 10196]
     sentence_count: 24
     key_terms: [papers, read, something, specific, yourself, methods, maybe, notes]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/gradschool/1r7j8fs.md#c6"
-    char_span: [10199, 10977]
+    char_span: [10198, 10976]
     sentence_count: 3
     key_terms: [notes, paper, specific, context, did, approach, results, answer]
     section: Comments

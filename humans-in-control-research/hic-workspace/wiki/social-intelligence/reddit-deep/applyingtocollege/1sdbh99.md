@@ -23,13 +23,13 @@ chunks:
     key_terms: [brown, jhu, considering, applyingtocollege, pay, full, comments, general]
     token_count: 294
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c1"
-    char_span: [1217, 2369]
+    char_span: [1216, 2368]
     sentence_count: 7
     key_terms: [jhu, brown, isn, interested, clearly, finance, parents, conscious-secret-775]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sdbh99.md#c2"
-    char_span: [2371, 3862]
+    char_span: [2370, 3861]
     sentence_count: 9
     key_terms: [school, brown, business, entry-level, lutzlover, positions, analyst, finance]
     section: Comments

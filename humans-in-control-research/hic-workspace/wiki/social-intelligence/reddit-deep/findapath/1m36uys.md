@@ -33,37 +33,37 @@ chunks:
     key_terms: [discipline, afraid, work, accountability, relentless, structure, willpower, ambition]
     token_count: 137
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c3"
-    char_span: [4450, 6095]
+    char_span: [4449, 6094]
     sentence_count: 13
     key_terms: [thank, helpful, please, administered, adhd, findapath, comments, everyone]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c4"
-    char_span: [6097, 7629]
+    char_span: [6096, 7628]
     sentence_count: 16
     key_terms: [yourself, proud, debt, changing, remember, future, subject-situation272, focus]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c5"
-    char_span: [7631, 9593]
+    char_span: [7630, 9592]
     sentence_count: 29
     key_terms: [get, start, work, sleep, recommend, job, better, credit]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c6"
-    char_span: [9595, 11496]
+    char_span: [9594, 11495]
     sentence_count: 16
     key_terms: [money, student, going, start, attention, account, working, anyway]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c7"
-    char_span: [11498, 13099]
+    char_span: [11497, 13098]
     sentence_count: 14
     key_terms: [field, skill, felt, life, accounting, something, decision, another]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/findapath/1m36uys.md#c8"
-    char_span: [13101, 13780]
+    char_span: [13100, 13779]
     sentence_count: 7
     key_terms: [focus, salt-technology-9702, get, good, plan, hypercritical, distractions, everything]
     section: Comments

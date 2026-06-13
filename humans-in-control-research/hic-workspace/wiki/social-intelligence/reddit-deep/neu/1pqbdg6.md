@@ -28,13 +28,13 @@ chunks:
     key_terms: [let, png, international, kihrn1w4438g1, sponsorship, discourage, important, naturally]
     token_count: 117
   - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c2"
-    char_span: [2848, 4859]
+    char_span: [2847, 4858]
     sentence_count: 22
     key_terms: [applications, companies, applying, startups, company, navneetjoshi7, interviews, callbacks]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/neu/1pqbdg6.md#c3"
-    char_span: [4861, 5825]
+    char_span: [4860, 5824]
     sentence_count: 11
     key_terms: [internship, genuinely, projects, people, particular-quote3369, darthvalarmorghulis, coop, send]
     section: Comments

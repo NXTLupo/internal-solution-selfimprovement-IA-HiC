@@ -21,7 +21,7 @@ chunks:
     key_terms: [people, neu, connections, spontaneous, meet, comments, students, totally]
     token_count: 412
   - id: "social-intelligence/reddit-deep/neu/1qc0jin.md#c1"
-    char_span: [1785, 3257]
+    char_span: [1784, 3256]
     sentence_count: 13
     key_terms: [like, computercat19, co-op, app, find, idea, wonderful, sounds]
     section: Comments

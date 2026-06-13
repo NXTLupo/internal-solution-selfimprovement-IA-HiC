@@ -23,7 +23,7 @@ chunks:
     key_terms: [car, debt, personalfinance, savings, loans, like, emergency, comments]
     token_count: 328
   - id: "social-intelligence/reddit-deep/personalfinance/1tc2xsw.md#c1"
-    char_span: [1335, 1783]
+    char_span: [1334, 1782]
     sentence_count: 3
     key_terms: [personalfinance, questions, wiki, automatically, automoderator, information, flinters17, moderators]
     section: Comments

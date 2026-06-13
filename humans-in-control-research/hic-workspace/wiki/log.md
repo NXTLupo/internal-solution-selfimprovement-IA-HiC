@@ -320,11 +320,113 @@ chunks:
     section: "[2026-06-06] session | AI Analyst session started / [2026-06-06] compile | Wiki compile run compile_1780764234831 / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] session | AI Analyst session started / [2026-06-06] compile | Wiki compile run compile_1780768237628 / [2026-06-06] session | AI Analyst session started"
     token_count: 506
   - id: "log.md#c53"
-    char_span: [98691, 99020]
+    char_span: [98691, 100378]
     sentence_count: 1
     key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
     section: "[2026-06-06] session | AI Analyst session started"
-    token_count: 110
+    token_count: 495
+  - id: "log.md#c54"
+    char_span: [100437, 102124]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-06] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c55"
+    char_span: [102183, 104004]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780791742347 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780799046408 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780799595847 / [2026-06-07] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c56"
+    char_span: [104063, 105902]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780800437299 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780801331178"
+    token_count: 506
+  - id: "log.md#c57"
+    char_span: [105961, 107759]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780801813699 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780803009128 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780803995423 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780804717583"
+    token_count: 462
+  - id: "log.md#c58"
+    char_span: [107818, 109637]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780808490239 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780809308127 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780809940160 / [2026-06-07] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c59"
+    char_span: [109696, 111514]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780815170533 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780843828697 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780846780355"
+    token_count: 484
+  - id: "log.md#c60"
+    char_span: [111573, 113545]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780847133841 / [2026-06-07] session | AI Analyst session started / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780848995999 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780852462937 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780854857134 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780862269872"
+    token_count: 495
+  - id: "log.md#c61"
+    char_span: [113604, 115574]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780868238426 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780868964037 / [2026-06-07] session | AI Analyst session started / [2026-06-07] compile | Wiki compile run compile_1780869464450 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780878571980 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780882788703 / [2026-06-08] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c62"
+    char_span: [115645, 117452]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] compile | Wiki compile run compile_1780884639876 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780888970457 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780892801427 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c63"
+    char_span: [117523, 119331]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] compile | Wiki compile run compile_1780924870398 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780926882185 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780927878251"
+    token_count: 484
+  - id: "log.md#c64"
+    char_span: [119390, 121360]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780929040648 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780929706568 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780929961263 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780930654819 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780931753518 / [2026-06-08] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c65"
+    char_span: [121431, 123391]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] compile | Wiki compile run compile_1780937702851 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780938242045 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780939403998 / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780939811179 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780942648193 / [2026-06-08] session | AI Analyst session started"
+    token_count: 495
+  - id: "log.md#c66"
+    char_span: [123450, 125268]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780943922885 / [2026-06-08] compile | Wiki compile run compile_1780945659487 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780947568649 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started"
+    token_count: 484
+  - id: "log.md#c67"
+    char_span: [125327, 127166]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780953543120 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780958246854 / [2026-06-08] session | AI Analyst session started"
+    token_count: 506
+  - id: "log.md#c68"
+    char_span: [127237, 129195]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-08] compile | Wiki compile run compile_1780960955549 / [2026-06-08] session | AI Analyst session started / [2026-06-08] session | AI Analyst session started / [2026-06-08] compile | Wiki compile run compile_1780962128304 / [2026-06-08] session | AI Analyst session started / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780964353572 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780968269421 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780973197014"
+    token_count: 495
+  - id: "log.md#c69"
+    char_span: [129254, 131051]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780975903467 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1780977593574 / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781012801711 / [2026-06-09] session | AI Analyst session started / [2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781017273836 / [2026-06-09] session | AI Analyst session started"
+    token_count: 462
+  - id: "log.md#c70"
+    char_span: [131110, 132001]
+    sentence_count: 1
+    key_terms: [applewebkit, mozilla, windows, gecko, khtml, win64, like, x64]
+    section: "[2026-06-09] session | AI Analyst session started / [2026-06-09] compile | Wiki compile run compile_1781020298306 / [2026-06-09] session | AI Analyst session started / [2026-06-09] lint | Wiki health check (run lint_1781023127791) / [2026-06-09] session | AI Analyst session started"
+    token_count: 251
 ---
 # Humans in Control -- Wiki Operations Log
 
@@ -4685,3 +4787,1038 @@ chunks:
   - patterns_compiled: 0
   - index_regenerated: true
   - duration_ms: 67198
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T15:15:50.117Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780931753518
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 95299
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T16:41:38.122Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780937702851
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 89815
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T17:03:51.274Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780938242045
+  - synthesis_regenerated: 0
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 642532
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T17:22:39.348Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780939403998
+  - synthesis_regenerated: 0
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 104029
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T17:30:03.678Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780939811179
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 74085
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T18:11:02.761Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T18:15:24.393Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780942648193
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 74842
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T18:22:11.878Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T18:33:25.434Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T18:36:43.717Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780943922885
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 77560
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780945659487
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 78293
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T19:31:46.840Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T19:36:34.847Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780947568649
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 70302
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T19:52:26.892Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T20:02:25.853Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T20:58:47.135Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:01:48.314Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:08:51.527Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:12:42.449Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:12:44.484Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780953543120
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 66880
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:35:02.578Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:35:06.183Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T21:41:33.834Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780958246854
+  - synthesis_regenerated: 0
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 62711
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T23:14:16.759Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780960955549
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 68606
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T23:35:00.885Z
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T23:35:20.639Z
+
+
+
+## [2026-06-08] compile | Wiki compile run compile_1780962128304
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 60730
+
+
+
+## [2026-06-08] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-08T23:53:57.362Z
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T00:12:50.906Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1780964353572
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 65697
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T01:16:34.845Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1780968269421
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 69047
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T02:40:54.996Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1780973197014
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 59470
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T03:25:12.396Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1780975903467
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 60074
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T03:53:13.884Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1780977593574
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 66209
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T10:10:37.012Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1781012801711
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 69842
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T14:31:16.201Z
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T14:55:36.997Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1781017273836
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 62466
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T15:26:58.258Z
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T15:45:55.998Z
+
+
+
+## [2026-06-09] compile | Wiki compile run compile_1781020298306
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 62830
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T16:38:47.432Z
+
+
+
+## [2026-06-09] lint | Wiki health check (run lint_1781023127791)
+- pages_scanned: 275
+- total_findings: 447
+- errors: 0
+- warnings: 352
+- info: 95
+- duration_ms: 28141
+- next_due: 2026-06-16
+
+
+
+## [2026-06-09] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-09T16:41:16.570Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T02:37:39.219Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781059473816
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 80244
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781060339653
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 41524
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T04:14:32.293Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T05:10:25.025Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T05:30:03.506Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T05:50:35.770Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T09:40:20.307Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T15:18:29.985Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781105033196
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 45239
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T17:36:34.177Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T17:58:45.573Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T17:59:17.312Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T18:03:29.457Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781115445211
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 20870
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781115528058
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 18617
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T18:37:42.308Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781116797455
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 19864
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T18:48:19.405Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781117370172
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 23834
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T18:50:01.907Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781117557177
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 20075
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T19:34:21.638Z
+
+
+
+## [2026-06-10] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-10T19:34:34.655Z
+
+
+
+## [2026-06-10] compile | Wiki compile run compile_1781120205056
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 19584
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T01:18:33.403Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781141229995
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 20512
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T02:58:30.522Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T03:35:17.046Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T03:39:32.178Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T03:39:53.855Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781149486204
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 20553
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T04:14:21.828Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T04:59:36.884Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T05:03:50.862Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T05:04:02.866Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781154376455
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 21109
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781155065912
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 17384
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T14:58:04.630Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T14:58:07.367Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T15:00:45.647Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781190097716
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 19095
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T15:06:21.514Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T15:12:11.375Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781190953592
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 17679
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781192102236
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 33340
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781196355447
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 16317
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T17:25:47.483Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781200221495
+  - synthesis_regenerated: 1
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 15841
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T18:36:52.658Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T18:37:03.537Z
+
+
+
+## [2026-06-11] compile | Wiki compile run compile_1781203359347
+  - synthesis_regenerated: 0
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 18793
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T21:35:53.830Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T21:38:21.619Z
+
+
+
+## [2026-06-11] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-11T22:18:52.042Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T01:54:44.940Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T01:58:30.566Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T02:59:40.967Z
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781234035883
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 72254
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T12:10:32.893Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T12:12:59.149Z
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781269691024
+  - synthesis_regenerated: 3
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 82041
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T13:11:48.039Z
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781270100155
+  - synthesis_regenerated: 4
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 84518
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T15:19:19.760Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T16:49:08.828Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T17:08:40.078Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T17:38:51.509Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T17:44:50.636Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T17:50:30.029Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T18:14:24.596Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T18:14:26.794Z
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781288259194
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 64766
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781288733504
+  - clusters: 9
+  - applied: 2
+  - queued: 4
+  - rejected: 3
+  - skills_touched: none
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33238
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781288841442
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 33570
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781289026381
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 39960
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781289039686
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 37842
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781290015204
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 56547
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T18:59:53.607Z
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781292073390
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 34250
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781292075409
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 32852
+
+
+
+## [2026-06-12] learn | Learning pass learn_1781292121838
+  - clusters: 9
+  - applied: 3
+  - queued: 3
+  - rejected: 3
+  - skills_touched: deck-narrative-composer
+  - chunk_configs_promoted: none
+  - constraints_retired: 0
+  - duration_ms: 35001
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T19:36:38.380Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T19:47:22.521Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T21:06:32.203Z
+
+
+
+## [2026-06-12] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-12T21:10:48.106Z
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781298900237
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 57514
+
+
+
+## [2026-06-12] compile | Wiki compile run compile_1781301169584
+  - synthesis_regenerated: 2
+  - patterns_compiled: 0
+  - index_regenerated: true
+  - duration_ms: 59004
+
+
+
+## [2026-06-13] session | AI Analyst session started
+  - user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+  - started_at: 2026-06-13T05:07:42.351Z

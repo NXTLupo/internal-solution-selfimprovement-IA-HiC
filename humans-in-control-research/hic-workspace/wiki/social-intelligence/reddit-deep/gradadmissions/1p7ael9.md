@@ -23,37 +23,37 @@ chunks:
     key_terms: [questions, school, grad, gradadmissions, answer, application, recruitment, "i'll"]
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradadmissions/1p7ael9.md#c1"
-    char_span: [1554, 3395]
+    char_span: [1553, 3394]
     sentence_count: 10
     key_terms: [application, gpa, consideration, definitely, experience, mckelveyengineering, industry, program]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/gradadmissions/1p7ael9.md#c2"
-    char_span: [3397, 4484]
+    char_span: [3396, 4483]
     sentence_count: 5
     key_terms: [interests, research, amareddit2fl25, web-inquiry, background, gradadmit, register, current]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/gradadmissions/1p7ael9.md#c3"
-    char_span: [4486, 6782]
+    char_span: [4485, 6781]
     sentence_count: 9
     key_terms: [research, experience, mckelveyengineering, applying, graduate, program, background, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1p7ael9.md#c4"
-    char_span: [6469, 7156]
+    char_span: [6468, 7155]
     sentence_count: 4
     key_terms: [grading, international, applicants, relate, mckelveyengineering, applications, particularly, experiences]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/gradadmissions/1p7ael9.md#c5"
-    char_span: [7158, 9725]
+    char_span: [7157, 9724]
     sentence_count: 11
     key_terms: [application, consideration, mckelveyengineering, research, phd, committees, university, december]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/gradadmissions/1p7ael9.md#c6"
-    char_span: [9727, 11967]
+    char_span: [9726, 11966]
     sentence_count: 19
     key_terms: [students, funding, programs, admissions, great, year, include, amareddit2fl25]
     section: Comments

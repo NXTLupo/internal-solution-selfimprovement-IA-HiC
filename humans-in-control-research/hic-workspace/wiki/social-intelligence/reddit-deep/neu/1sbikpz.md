@@ -21,31 +21,31 @@ chunks:
     key_terms: [northeastern, courses, co-op, exchange, program, "northeastern's", years, take]
     token_count: 265
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c1"
-    char_span: [1158, 3020]
+    char_span: [1157, 3019]
     sentence_count: 8
     key_terms: [summer, credits, classes, graduate, course, came, did, take]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c2"
-    char_span: [3022, 4955]
+    char_span: [3021, 4954]
     sentence_count: 12
     key_terms: [summer, northeastern, classes, people, take, courses, requirements, graduating]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c3"
-    char_span: [4957, 6928]
+    char_span: [4956, 6927]
     sentence_count: 16
     key_terms: [summer, credits, abroad, take, dialogue, graduate, semester, science]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c4"
-    char_span: [6930, 8954]
+    char_span: [6929, 8953]
     sentence_count: 14
     key_terms: [summer, credits, worldintelligent7639, courses, ibs, class, able, northeastern]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sbikpz.md#c5"
-    char_span: [8687, 10031]
+    char_span: [8686, 10030]
     sentence_count: 9
     key_terms: [summer, credits, take, courses, able, ibs, graduate, classes]
     section: Comments

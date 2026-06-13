@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/49af1faf9c.md#c0"
-    char_span: [0, 1762]
+    char_span: [0, 1761]
     sentence_count: 10
     key_terms: [money, australia, job, around, skills, fitting, january, kitchen]
-    token_count: 401
+    token_count: 400
 ---
 # Do I stick with my job and learn the skills or prioritise making more money?
 

@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l8se5c.md#c0"
-    char_span: [0, 1012]
+    char_span: [0, 1011]
     sentence_count: 5
     key_terms: [access, engineeringstudents, standards, student, engineering, comments, civil, no-television6249]
     token_count: 211

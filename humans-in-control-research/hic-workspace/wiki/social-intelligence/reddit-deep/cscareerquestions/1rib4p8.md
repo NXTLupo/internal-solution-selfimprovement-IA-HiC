@@ -18,17 +18,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c0"
-    char_span: [0, 1987]
+    char_span: [0, 1986]
     sentence_count: 18
     key_terms: [dont, company, stuck, cscareerquestions, microfrontends, legacy, being, job]
-    token_count: 455
+    token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c1"
-    char_span: [1989, 4037]
+    char_span: [1988, 4036]
     sentence_count: 16
     key_terms: [work, job, engineering, dont, etc, different, something, finances]
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rib4p8.md#c2"
-    char_span: [4039, 4828]
+    char_span: [4038, 4827]
     sentence_count: 9
     key_terms: [dont, time, stuck, job, jobs, additional, interested, recruiters]
     token_count: 169

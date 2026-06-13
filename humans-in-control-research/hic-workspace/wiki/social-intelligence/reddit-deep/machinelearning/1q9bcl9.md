@@ -23,7 +23,7 @@ chunks:
     key_terms: [screen, vision, https, source, bullmeza, machinelearning, local, app]
     token_count: 394
   - id: "social-intelligence/reddit-deep/machinelearning/1q9bcl9.md#c1"
-    char_span: [1586, 2566]
+    char_span: [1585, 2565]
     sentence_count: 4
     key_terms: [bullmeza, project, vision, agent, mindless-brainless, cool, goal, "it's"]
     section: Comments

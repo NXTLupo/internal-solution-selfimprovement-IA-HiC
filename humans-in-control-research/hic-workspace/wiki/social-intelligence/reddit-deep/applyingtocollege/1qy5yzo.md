@@ -23,37 +23,37 @@ chunks:
     key_terms: [applyingtocollege, got, people, school, good, kids, comments, everyone]
     token_count: 272
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c1"
-    char_span: [1169, 3255]
+    char_span: [1168, 3254]
     sentence_count: 14
     key_terms: [school, schools, happy, immature, amazing, sorry, snarchetype, good]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c2"
-    char_span: [3011, 3394]
+    char_span: [3010, 3393]
     sentence_count: 3
     key_terms: [engineering, samspayedpi, beautiful, confident, education, seriously, boulder, classes]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c3"
-    char_span: [3396, 4243]
+    char_span: [3395, 4242]
     sentence_count: 5
     key_terms: [difference, lottery, simply, lot, packing-tape-man, applications, standardized, universities]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c4"
-    char_span: [4245, 6460]
+    char_span: [4244, 6459]
     sentence_count: 25
     key_terms: [school, ohio, college, people, opportunities, large, state, competitive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c5"
-    char_span: [6197, 6551]
+    char_span: [6196, 6550]
     sentence_count: 4
     key_terms: [competitive, super, environment, grasshopper, colleges, position, snobbery, yourself]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qy5yzo.md#c6"
-    char_span: [6553, 7105]
+    char_span: [6552, 7104]
     sentence_count: 5
     key_terms: [top, students, schools, dontchuckitup, runnykinepity, insufferable, challenging, classmates]
     section: Comments

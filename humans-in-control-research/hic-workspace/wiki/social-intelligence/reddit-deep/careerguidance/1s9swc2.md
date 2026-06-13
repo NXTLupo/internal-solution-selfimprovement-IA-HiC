@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1s9swc2.md#c0"
-    char_span: [0, 2211]
+    char_span: [0, 2210]
     sentence_count: 14
     key_terms: [interest, student, careerguidance, abroad, trying, visa, work, background]
-    token_count: 483
+    token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1s9swc2.md#c1"
-    char_span: [2213, 3063]
+    char_span: [2212, 3062]
     sentence_count: 8
     key_terms: [considering, countries, practical, relatives, portugal, student, people, permit]
     token_count: 172

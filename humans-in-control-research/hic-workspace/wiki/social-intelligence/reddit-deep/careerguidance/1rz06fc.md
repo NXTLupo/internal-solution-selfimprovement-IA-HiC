@@ -23,7 +23,7 @@ chunks:
     key_terms: [marketing, been, careerguidance, job, like, comments, creative, career]
     token_count: 186
   - id: "social-intelligence/reddit-deep/careerguidance/1rz06fc.md#c1"
-    char_span: [752, 1051]
+    char_span: [751, 1050]
     sentence_count: 1
     key_terms: [analytics, temporarytrifle290, data, background, candidates, marketing, learning, combine]
     section: Comments

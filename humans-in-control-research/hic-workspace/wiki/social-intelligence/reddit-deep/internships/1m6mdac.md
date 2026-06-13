@@ -11,11 +11,9 @@ score: 0
 upvote_ratio: 0.33
 num_comments: 1
 flair: "General"
-extracted_at: "2026-05-25T15:51:38.718Z"
+extracted_at: "2026-06-08T17:32:14.354Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1m6mdac.md#c0"
     char_span: [0, 1006]

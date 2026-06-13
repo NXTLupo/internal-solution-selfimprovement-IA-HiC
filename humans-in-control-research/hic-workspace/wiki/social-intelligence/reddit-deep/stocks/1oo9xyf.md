@@ -23,31 +23,31 @@ chunks:
     key_terms: [big-short-michael-burry-put-option-bet-palantir-nvidia-bubble-2025-11, stocks, burry, big, comments, palantir, against, markets]
     token_count: 161
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c1"
-    char_span: [630, 2420]
+    char_span: [629, 2419]
     sentence_count: 10
     key_terms: [utm, comment, people, https, share, com, scion-asset-management-llc, comments]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c2"
-    char_span: [2422, 4306]
+    char_span: [2421, 4305]
     sentence_count: 15
     key_terms: [positions, against, options, definitively, hedge, long, article, bearish]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c3"
-    char_span: [4308, 6079]
+    char_span: [4307, 6078]
     sentence_count: 15
     key_terms: [million, value, bubble, approximately, burry, right, put, puts]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c4"
-    char_span: [6082, 7254]
+    char_span: [6081, 7253]
     sentence_count: 11
     key_terms: ["it's", bubble, hundreds, "doesn't", dollars, crypto, money, tesla]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/stocks/1oo9xyf.md#c5"
-    char_span: [7256, 8654]
+    char_span: [7255, 8653]
     sentence_count: 7
     key_terms: [worth, puts, premium, expire, nvidia, people, specialist-neat4254, degen]
     section: Comments

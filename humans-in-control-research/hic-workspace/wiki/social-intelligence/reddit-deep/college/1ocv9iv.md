@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, college, comments, students, source, roles, done, get]
     token_count: 199
   - id: "social-intelligence/reddit-deep/college/1ocv9iv.md#c1"
-    char_span: [937, 3099]
+    char_span: [936, 3098]
     sentence_count: 16
     key_terms: [research, professors, doing, going, "you're", professor, process, usually]
     section: Comments

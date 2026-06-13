@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineeringstudents, "c's", get, comments, career, grades, bad, gpa]
     token_count: 174
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c1"
-    char_span: [719, 1298]
+    char_span: [718, 1297]
     sentence_count: 8
     key_terms: [job, gpa, years, like, yamivsjulius, shecosmique, graduation, graduated]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c2"
-    char_span: [1300, 2772]
+    char_span: [1299, 2771]
     sentence_count: 14
     key_terms: [job, benchristians3n, college, never, shecosmique, anything, engineer, grades]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c3"
-    char_span: [2774, 4649]
+    char_span: [2773, 4648]
     sentence_count: 14
     key_terms: [job, zrustyshackleford, engineering, accomplishments, school, did, graduated, average]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/engineeringstudents/1l2mejy.md#c4"
-    char_span: [4651, 6602]
+    char_span: [4650, 6601]
     sentence_count: 15
     key_terms: [graduated, gpa, job, classes, passion, internship, professors, remember]
     section: Comments

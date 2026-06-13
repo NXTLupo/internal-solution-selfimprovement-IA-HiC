@@ -23,55 +23,55 @@ chunks:
     key_terms: [alphaevolve, machinelearning, implementation, "deepmind's", openevolve, comments, source, system]
     token_count: 142
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c1"
-    char_span: [618, 1195]
+    char_span: [617, 1194]
     sentence_count: 3
     key_terms: [programs, using, program, code, llms, modifications, context-rich, continuously]
     section: What is OpenEvolve?
     token_count: 111
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c2"
-    char_span: [1224, 1574]
+    char_span: [1223, 1573]
     sentence_count: 1
     key_terms: [gemini-flash-2, works, openai-compatible, multi-objective, checkpointing, optimization, distributed, engineering]
     section: What makes it special?
     token_count: 84
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c3"
-    char_span: [1617, 2319]
+    char_span: [1616, 2318]
     sentence_count: 3
     key_terms: [optimization, evolved, arrangements, mathematical, minimization, successfully, alphaevolve, constrained]
     section: "We replicated AlphaEvolve's results!"
     token_count: 131
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c4"
-    char_span: [2350, 2662]
+    char_span: [2349, 2661]
     sentence_count: 1
     key_terms: [openai-compatible, api, claude-sonnet-3, gemini-flash-2, architecture, generations, inference, cerebras]
     section: LLM Performance Insights
     token_count: 77
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c5"
-    char_span: [2685, 3084]
+    char_span: [2684, 3083]
     sentence_count: 2
     key_terms: [openevolve, github, codelion, https, com, examples, main, tree]
     section: "Try it yourself!"
     token_count: 99
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c6"
-    char_span: [3099, 5310]
+    char_span: [3098, 5309]
     sentence_count: 10
     key_terms: [openevolve, crossover, operators, packing, optimization, traditional, evaluation, implements]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c7"
-    char_span: [5312, 7328]
+    char_span: [5311, 7327]
     sentence_count: 12
     key_terms: [openevolve, optillm, own, different, funsearch, codelion, mutation, parallel]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c8"
-    char_span: [7330, 9141]
+    char_span: [7329, 9140]
     sentence_count: 8
     key_terms: [openevolve, asankhs, mutation, program, gemini-flash-2, evolve, using, controller]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/machinelearning/1kr9w8l.md#c9"
-    char_span: [9143, 10123]
+    char_span: [9142, 10122]
     sentence_count: 3
     key_terms: [openevolve, codelion, github, https, blob, com, open, controller]
     section: Comments

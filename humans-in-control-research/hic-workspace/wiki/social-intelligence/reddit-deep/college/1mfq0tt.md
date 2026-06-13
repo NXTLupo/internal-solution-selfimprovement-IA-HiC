@@ -23,13 +23,13 @@ chunks:
     key_terms: [school, comments, college, student, access, one-description4302, find, reassurance]
     token_count: 215
   - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c1"
-    char_span: [860, 2931]
+    char_span: [859, 2930]
     sentence_count: 18
     key_terms: [student, experience, one-description4302, get, time, college, school, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mfq0tt.md#c2"
-    char_span: [2677, 3919]
+    char_span: [2676, 3918]
     sentence_count: 8
     key_terms: [libraries, school, one-description4302, college, card, let, tap, visitor]
     section: Comments

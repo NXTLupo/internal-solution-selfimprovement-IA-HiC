@@ -23,31 +23,31 @@ chunks:
     key_terms: [careerguidance, compensated, comments, been, feel, grow, job, love]
     token_count: 246
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c1"
-    char_span: [1053, 3132]
+    char_span: [1052, 3131]
     sentence_count: 22
     key_terms: [management, "i'm", job, work, longer, senior, new, team]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c2"
-    char_span: [3134, 4676]
+    char_span: [3133, 4675]
     sentence_count: 21
     key_terms: [work, incredibly, biscuitinflight, sales, base, paid, "wouldn't", amazing]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c3"
-    char_span: [4678, 6834]
+    char_span: [4677, 6833]
     sentence_count: 24
     key_terms: [pay, work, job, life, like, "you're", dirtycoldtaco, raise]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c4"
-    char_span: [6544, 7436]
+    char_span: [6543, 7435]
     sentence_count: 9
     key_terms: [job, staying, regret, years, good, pay, plus, chefboyarde90]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/careerguidance/1t7qc2c.md#c5"
-    char_span: [7438, 7772]
+    char_span: [7437, 7771]
     sentence_count: 3
     key_terms: [anuggetsuncle, substantially, available, promotion, scheduled, testing, advice, having]
     section: Comments

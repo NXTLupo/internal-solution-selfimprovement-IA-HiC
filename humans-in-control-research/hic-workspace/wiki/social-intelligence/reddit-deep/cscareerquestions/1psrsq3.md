@@ -26,25 +26,25 @@ chunks:
     key_terms: [feels, keep, honestly, enough, contribute, everything, pretending, buzzwords]
     token_count: 164
   - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c2"
-    char_span: [2891, 4030]
+    char_span: [2890, 4029]
     sentence_count: 8
     key_terms: [internships, year, companies, hiring, "don't", good, keep, time]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c3"
-    char_span: [4034, 5745]
+    char_span: [4033, 5744]
     sentence_count: 16
     key_terms: [internship, year, "you're", don, something, engineer, position, pressure]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c4"
-    char_span: [5747, 7723]
+    char_span: [5746, 7722]
     sentence_count: 23
     key_terms: [time, companies, everyone, people, skewed, non-technical, internships, need]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1psrsq3.md#c5"
-    char_span: [7725, 9424]
+    char_span: [7724, 9423]
     sentence_count: 20
     key_terms: [people, time, working, perspective, lot, companies, projects, yourself]
     section: Comments

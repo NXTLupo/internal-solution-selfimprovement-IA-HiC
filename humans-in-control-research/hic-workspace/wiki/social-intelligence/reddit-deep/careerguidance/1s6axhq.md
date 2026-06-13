@@ -23,7 +23,7 @@ chunks:
     key_terms: [want, something, looking, science, careerguidance, currently, undergrad, business]
     token_count: 358
   - id: "social-intelligence/reddit-deep/careerguidance/1s6axhq.md#c1"
-    char_span: [1611, 2847]
+    char_span: [1610, 2846]
     sentence_count: 7
     key_terms: [consulting, business, commerce, product, science, degree, queens, get]
     section: Comments

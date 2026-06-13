@@ -23,49 +23,49 @@ chunks:
     key_terms: [because, leaving, students, money, years, time, work, professors]
     token_count: 473
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c1"
-    char_span: [2141, 4089]
+    char_span: [2140, 4088]
     sentence_count: 15
     key_terms: [going, become, field, years, phd, understand, professor, securing]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c2"
-    char_span: [4091, 5939]
+    char_span: [4090, 5938]
     sentence_count: 17
     key_terms: [teach, right, questioning, job, corporate, something, teaching, already]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c3"
-    char_span: [5941, 8104]
+    char_span: [5940, 8103]
     sentence_count: 19
     key_terms: [institution, department, need, health, last, faculty, better, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c4"
-    char_span: [7821, 8543]
+    char_span: [7820, 8542]
     sentence_count: 8
     key_terms: [new, contract, better, leave, interestingly, opportunities, financially, institution]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c5"
-    char_span: [8545, 10337]
+    char_span: [8544, 10336]
     sentence_count: 16
     key_terms: ["i'm", "that's", doing, overwhelmed, feel, like, constantly, students]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c6"
-    char_span: [10339, 12579]
+    char_span: [10338, 12578]
     sentence_count: 27
     key_terms: [people, department, place, thank, institution, realization, million, exists]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c7"
-    char_span: [12296, 13354]
+    char_span: [12295, 13353]
     sentence_count: 13
     key_terms: [better, sports, sure, congratulations, considering, functioning, institution, colleagues]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/professors/1sv9j5o.md#c8"
-    char_span: [13356, 13658]
+    char_span: [13355, 13657]
     sentence_count: 3
     key_terms: [professionals, everything, clinician, iteration, something, teaching, enjoyed, looking]
     section: Comments

@@ -28,31 +28,31 @@ chunks:
     key_terms: [college, general, performative, university, education, genuinely, colleges, degree]
     token_count: 277
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c2"
-    char_span: [3373, 5169]
+    char_span: [3372, 5168]
     sentence_count: 10
     key_terms: [college, people, get, further, opportunities, performative, dont, kids]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c3"
-    char_span: [5171, 6342]
+    char_span: [5170, 6341]
     sentence_count: 7
     key_terms: [life, people, activities, understand, lucrative, monetary, beleive, greater]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c4"
-    char_span: [6344, 8406]
+    char_span: [6343, 8405]
     sentence_count: 8
     key_terms: [lucrative, money, getting, career, people, success, making, paying]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c5"
-    char_span: [8408, 9993]
+    char_span: [8407, 9992]
     sentence_count: 11
     key_terms: [purplurpuzzlehead111, get, like, because, school, performative, people, class]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t6t4fm.md#c6"
-    char_span: [9995, 11197]
+    char_span: [9994, 11196]
     sentence_count: 6
     key_terms: [college, education, parents, "they're", adults, though, good, "it's"]
     section: Comments

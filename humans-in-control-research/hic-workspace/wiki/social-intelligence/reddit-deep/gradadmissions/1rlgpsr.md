@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, grateful, relative-tonight-273, got, confirmation, universities, reddit-deep]
     token_count: 133
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlgpsr.md#c1"
-    char_span: [531, 1250]
+    char_span: [530, 1249]
     sentence_count: 2
     key_terms: [congratulations, relative-tonight-273, serious-phrase-4164, superstarrockyou, own-mobile-1775, tangerine766, scholarship, adill9822]
     section: Comments

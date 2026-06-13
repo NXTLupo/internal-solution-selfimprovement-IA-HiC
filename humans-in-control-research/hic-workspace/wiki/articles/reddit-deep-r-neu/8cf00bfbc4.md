@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-neu/8cf00bfbc4.md#c0"
-    char_span: [0, 2124]
+    char_span: [0, 2123]
     sentence_count: 15
     key_terms: [on-campus, employment, f-1-curricular-practical-training, co-op, cpt, full-time, ogs, time]
-    token_count: 491
+    token_count: 490
   - id: "articles/reddit-deep-r-neu/8cf00bfbc4.md#c1"
-    char_span: [2126, 2849]
+    char_span: [2125, 2848]
     sentence_count: 7
     key_terms: [co-op, on-campus, part-time, question, advisor, always, formal-operation4241, check]
     token_count: 193

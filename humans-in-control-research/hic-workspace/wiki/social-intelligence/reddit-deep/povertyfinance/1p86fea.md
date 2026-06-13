@@ -23,31 +23,31 @@ chunks:
     key_terms: [povertyfinance, thanksgiving, comments, tracking, finally, "i'm", richardbrandon2, reddit-deep]
     token_count: 173
   - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c1"
-    char_span: [721, 2563]
+    char_span: [720, 2562]
     sentence_count: 12
     key_terms: [went, years, apartment, deposit, percent, living, people, common-tradition-123]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c2"
-    char_span: [2565, 2863]
+    char_span: [2564, 2862]
     sentence_count: 3
     key_terms: [card, gift, job, somewhere, compared, getting, "haven't", husband]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c3"
-    char_span: [2865, 4704]
+    char_span: [2864, 4703]
     sentence_count: 16
     key_terms: [parents, house, neighborhood, makes, month, apartment, interest, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c4"
-    char_span: [4483, 5294]
+    char_span: [4482, 5293]
     sentence_count: 6
     key_terms: [cute-consequence-184, disability, laundry, dreamsservedsoft, tfelsemanresuon, recommending, notoriously, affording]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/povertyfinance/1p86fea.md#c5"
-    char_span: [5296, 7212]
+    char_span: [5295, 7211]
     sentence_count: 17
     key_terms: [rent, because, dollar, grown, house, kids, another, hundred]
     section: Comments

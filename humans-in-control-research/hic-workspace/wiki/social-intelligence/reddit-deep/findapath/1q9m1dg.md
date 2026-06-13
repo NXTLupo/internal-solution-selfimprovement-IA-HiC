@@ -33,31 +33,31 @@ chunks:
     key_terms: [around, "i'm", "i've", something, been, like, electronics, maintaining]
     token_count: 145
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c3"
-    char_span: [4518, 5465]
+    char_span: [4517, 5464]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c4"
-    char_span: [5468, 7434]
+    char_span: [5467, 7433]
     sentence_count: 13
     key_terms: [help, desk, career, health, lemonchill24, get, like, look]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c5"
-    char_span: [7436, 8884]
+    char_span: [7435, 8883]
     sentence_count: 15
     key_terms: [like, nursing, additional, schooling, security, nurses, capital-trouble4468, familiar-green-6273]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c6"
-    char_span: [8886, 9619]
+    char_span: [8885, 9618]
     sentence_count: 9
     key_terms: [tlie000, entry, level, like, flairpointsbot, learninearnin, considering, perspective]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/findapath/1q9m1dg.md#c7"
-    char_span: [9624, 11588]
+    char_span: [9623, 11587]
     sentence_count: 14
     key_terms: [thank, door, uber, flairpointsbot, car, dash, get, job]
     section: Comments

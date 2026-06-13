@@ -21,7 +21,7 @@ chunks:
     key_terms: [month, trading, friends, strategy, careerguidance, months, job, june]
     token_count: 523
   - id: "social-intelligence/reddit-deep/careerguidance/1spa2s8.md#c1"
-    char_span: [2166, 4004]
+    char_span: [2166, 4003]
     sentence_count: 18
     key_terms: [real, trading, market, months, build, money, accuracy, strategy]
     section: Comments

@@ -23,49 +23,49 @@ chunks:
     key_terms: [loans, personalfinance, collections, comments, getting, savings, cooked, credit]
     token_count: 284
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c1"
-    char_span: [1059, 3148]
+    char_span: [1058, 3147]
     sentence_count: 15
     key_terms: [interest, comments, debt, pay, paying, loans, post, take]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c2"
-    char_span: [3150, 4140]
+    char_span: [3149, 4139]
     sentence_count: 11
     key_terms: [car, payment, pay, payments, smallest, "don't", until, sell]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c3"
-    char_span: [4142, 6009]
+    char_span: [4141, 6008]
     sentence_count: 10
     key_terms: [collections, pay, get, home, need, rent, work, year]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c4"
-    char_span: [6011, 8053]
+    char_span: [6010, 8052]
     sentence_count: 8
     key_terms: [yourself, little-bass0600, cooked, thank, get, good, positive, parents]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c5"
-    char_span: [7782, 8682]
+    char_span: [7781, 8681]
     sentence_count: 3
     key_terms: [cooked, living, anuncomfortablepanda, puzzleheaded-heart29, keep, especially, self-aware, eliminate]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c6"
-    char_span: [8684, 10435]
+    char_span: [8683, 10434]
     sentence_count: 13
     key_terms: [mba, job, experience, debt, get, someone, resume, loans]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c7"
-    char_span: [10437, 11309]
+    char_span: [10436, 11308]
     sentence_count: 5
     key_terms: [job, debt, auto, loan, pay, take, time, georgeretire]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/personalfinance/1kxkwd7.md#c8"
-    char_span: [11311, 12869]
+    char_span: [11310, 12868]
     sentence_count: 12
     key_terms: [job, income, debt, like, mba, honestly, increase, costs]
     section: Comments

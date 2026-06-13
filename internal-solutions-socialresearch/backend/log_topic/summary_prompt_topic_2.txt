@@ -1,20 +1,87 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: co-op, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: op, im, linkedin, cooked, interviews, op search, email
+- Top keywords: account, browser, app, online, vanguard, log, tried
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-co-op search, is it game over idk if im overthinking but im so cooked like i had 3 interviews during finals season (so around 16 days ago) but i havent heard back yet. its my first co-op btw. i've done 60 applications so far (im trying to get a clinical/research co-op), and i've sent a thank you email and a follow up email but i havent heard back since. i just spammed applied to 8 rn like i frl am stressed. am i cooked like idk all my friends are on the spring cycle so they had less time to find their co-ops and i've been avoiding linkedin so i literally do not know if i still have that much t [...]
+When you first log in to Vanguard's web application from a new browser or browser profile, the app challenges you with a texted code and gives you the option to trust the browser in the future.
 
 EXAMPLE 2:
-How cooked am I for finding a co-op Ive applied to over 80 positions all mechE related and had 4 interviews but all turned me down. I literally dont know what to do. Most of the nuWorks jobs I dont qualify for because of my gpa so ive been going thru linkedIn and Indeed mostly. Mind you this isn't my first co-op search, like I completed a co-op last year so its not like i have no experience. The interviews are also going pretty well and I understand that there are def more qualified people out there, but I just want someone to give me a chance!!! So ya, i have what, like 2 moths left to find a [...]
+Set Up Online Account Access Glitch Hi! I just turned 18 and want to make my first investment, and I've chosen Vanguard as my broker. After the slightly painful process of making a brokerage account, I am trying to invest in the S&P500, but every time I try to click "buy and sell" from the transact menu, I am told to set up online account access. So, like a good little future-investor, I enter all the information they want from me, after which they tell me I've actually had online access the whole time! Whoops! Oh well, I guess I'll just try again! Transact, buy and sell...ohh... [...]
 
 EXAMPLE 3:
-Catastrophic Co-op Search I have been having the most miserable and agonizing co-op search this semester guys. Over 100 applications as a COS undergrad. At this point in my search I have landed 0 interviews.
+edit: to add, all this is on Vanguards side.  when you click “trust this browser“ it saves a combination of these sessions credentials on their end to not prompt for 2FA until a certain time on their side.  I imagine you’ll need to get in touch with their web development team to get your credentials deleted from their trusted server
+\> this is on Vanguards side. when you click “trust this browser“ it saves a combination of these sessions credentials on their end to not prompt for 2FA until a certain time on their side.
 
 EXAMPLE 4:
-I visit the Career Design Studio often, I've reworked my resume countless times, but I have 0 results or feedback to work off of. Just the occasional rejection email that coincidentally comes out the second I see one of my peers accept the job on linkedin. Every day it takes all of my strength to keep holding on and keep myself from quitting. It's so hard and I feel like I have no reason to keep going. I have a great GPA for COS, I have completed a co-op already, and I'm an interesting candidate if you ask me. [...]
+New to Vanguard online system - need sanity check regarding securing the online account. I'm considering using Vanguard, so I started the online account creation process.  After a few hiccups (which, credit where due, the Vanguard help desk resolved quickly) I was able to log in to the web application.
+
+EXAMPLE 5:
+How to reset from trusting browser (without deleting non-vanguard.com browsing data)? Where does Vanguard's web application store the data used to identify a trusted browser profile? (It does not seem to be in browser cookies or local storage for any `*.vanguard.com` domains.)
+
+EXAMPLE 6:
+When I refreshed a recently opened Vanguard app page, it took me back to the login page, as expected (since I deleted whatever cookie carried my login session token).
+
+EXAMPLE 7:
+However, it appears I cannot access the profile or set up 2FA until I finish "setting up my account", which appears to involve completely setting up a banking or investment account.  I validated with Vanguard's help desk that this is correct.
+
+EXAMPLE 8:
+So how does the app identify my browser? I thought that it would be in cookie or other data associated with [vanguard.com](http://vanguard.com) or a subdomain. But I deleted that data, and doing so didn't change whatever the app uses to identity and trust my browser.
+
+EXAMPLE 9:
+Yeah, Vanguard should be providing a way in the web application UI to cancel the trust setup (just as they provide the checkbox to trust the browser in the first place), but apparently don't.
+
+EXAMPLE 10:
+Vanguard isn't really at the cutting edge of brokerage functionality, if that's your expectation.  It's fine as a set-and-forget account to buy their mutual funds but not a great platform for anything active daily.
+I work in cybersecurity and I promise you the amount of regulations and compliance policies they have to follow… you’re good.
+
+EXAMPLE 11:
+If you choose to have the app trust that browser, then next time you log in, it does not challenge you because it trusts the browser, as requested.
+
+EXAMPLE 12:
+That web app doesn't seem to have any user interface for doing that (i.e., no continue-to-trust checkbox on login page, nothing on logout page, nothing I found in profile/security pages).
+
+EXAMPLE 13:
+I tried deleting all browser data (cookies and browser local storage) for [vanguard.com](http://vanguard.com) and all subdomains (e.g., [personal1.vanguard.com](http://personal1.vanguard.com), [login.vanguard.com](http://login.vanguard.com), [logon.vanguard.com](http://logon.vanguard.com), etc.).  (This was in Chrome, on the site permissions page where you can select specific domains whose data to delete.)
+
+EXAMPLE 14:
+1. Ensure the settings are as I want, and
+2. Most importantly, set up 2FA to ensure the online account is locked down before engaging in any sensitive activities
+
+EXAMPLE 15:
+However, when I logged in again (via username and password), the app did *not* challenge with a texted code. That is, the *app still trusts the browser*.
+
+EXAMPLE 16:
+He said no one there talks to customers, but he at least (supposedly) submitted the feedback that they should have a way to undo a "trust this browser" election.
+I don't know for sure, but I strongly suspect they primarily use your [user-agent](https://en.wikipedia.org/wiki/User-Agent_header). Try changing that with an extension and see if that does anything.
+
+EXAMPLE 17:
+\> I imagine you’ll need to get in touch with their web development team to get your credentials deleted from their trusted server
+
+EXAMPLE 18:
+(I called customer support, but the only workaround they know of is to delete browser data for *all sites*, which of course messes up other things (discarding login tokens, destroying shopping-cart cookie data, etc.).)
+
+EXAMPLE 19:
+The customer service drone I talked to first thought that they did it by IP address (you know, the *same* IP address that my *different* browser profiles, *different* browsers, and *different* computers/phone use, providing *different* behavior.
+
+EXAMPLE 20:
+At a higher level, if you've logged in and told the application to trust your browser (browser profile), how do you revoke that (i.e., tell it to no longer trust that browser) *without* deleting browser site data for *all sites*?
+
+EXAMPLE 21:
+However, **if you want to revoke that trust**, that is, tell the application to return to challenging you with a texted code, **how can you do that**?
+
+EXAMPLE 22:
+FWIW, they aren't going to let you (or anyone who hacks your account) withdraw money from the account for an ample holding period of at least 7-10 days after you set this up, so there is plenty of time to set up 2FA before there are risks to your account that it would protect from.
+don't know why they do it that way but not much to secure without accounts setup
+
+EXAMPLE 23:
+Have you set up a brokerage account in addition to a Cash Plus account? You need to do any trades of ETFs and shares from the brokerage, not the Cash Plus.
+
+EXAMPLE 24:
+your going to have to spend some time learning about session tokens, authentication tokens, session handshakes, marriage ceremonies (no joke they’re called that when browsers/sessions accept each other as authentic and trusted)…
+
+EXAMPLE 25:
+with all that said it’s going to be a combination of all of the above with other authentication and authorization credentials.  some new ones are data analytics driven (your ip address changed but the geo tag is close enough to your other known ip address we’ll accept it as the same ip address login)
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

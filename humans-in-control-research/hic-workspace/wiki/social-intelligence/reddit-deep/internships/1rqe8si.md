@@ -21,31 +21,31 @@ chunks:
     key_terms: [internships, interview, comments, students, helped, landed, successfully, reddit-deep]
     token_count: 121
   - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c1"
-    char_span: [529, 2630]
+    char_span: [528, 2629]
     sentence_count: 3
     key_terms: [experience, interview, questions, ask, helped, penguin15243, interviewer, personality]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c2"
-    char_span: [2632, 4510]
+    char_span: [2631, 4509]
     sentence_count: 2
     key_terms: [don, answer, company, interviewing, like, experience, networking, understand]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c3"
-    char_span: [4512, 5210]
+    char_span: [4511, 5209]
     sentence_count: 3
     key_terms: [interview, small, don, own, talk, conversation, discouraged, internships]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c4"
-    char_span: [5212, 7114]
+    char_span: [5211, 7113]
     sentence_count: 9
     key_terms: [being, company, researching, able, interviews, preparing, referrals, approach]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/internships/1rqe8si.md#c5"
-    char_span: [7116, 7561]
+    char_span: [7115, 7560]
     sentence_count: 3
     key_terms: [technical, objective-ad-2643, conversational, competition, connections, engineering, preparation, difference]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, admission, comments, planning, prepare, attend, study, tests]
     token_count: 221
   - id: "social-intelligence/reddit-deep/gradschool/1tj71jd.md#c1"
-    char_span: [975, 1376]
+    char_span: [974, 1375]
     sentence_count: 1
     key_terms: [time, consistency, applying, mornings, studying, tripsbut, country, matters]
     section: Comments

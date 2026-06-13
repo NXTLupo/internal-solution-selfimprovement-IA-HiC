@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, networking, people, comments, linkedin, network, effort, often]
     token_count: 313
   - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c1"
-    char_span: [1413, 3458]
+    char_span: [1412, 3457]
     sentence_count: 11
     key_terms: [people, networking, conversation, having, linkedin, like, talk, describe]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c2"
-    char_span: [3460, 5327]
+    char_span: [3459, 5326]
     sentence_count: 12
     key_terms: [people, help, job, linkedin, college, add, new, classmates]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/college/1lsb1sp.md#c3"
-    char_span: [5329, 7017]
+    char_span: [5328, 7016]
     sentence_count: 13
     key_terms: [people, networking, clubs, field, major, club, get, help]
     section: Comments

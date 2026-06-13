@@ -21,7 +21,7 @@ chunks:
     key_terms: [data, opportunities, internships, internship, analytics, currently, comments, looking]
     token_count: 188
   - id: "social-intelligence/reddit-deep/internships/1t29pgl.md#c1"
-    char_span: [836, 1385]
+    char_span: [835, 1384]
     sentence_count: 1
     key_terms: [analytics, roles, objective-bad-4447, sweet-frosting4839, efficient-touch69, com, data, internshipdaily]
     section: Comments

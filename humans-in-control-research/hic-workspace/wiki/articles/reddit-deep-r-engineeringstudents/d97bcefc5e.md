@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/d97bcefc5e.md#c0"
-    char_span: [0, 1670]
+    char_span: [0, 1669]
     sentence_count: 10
     key_terms: [internships, engineeringstudents, apply, freshman, summer, experience, positions, technical]
-    token_count: 368
+    token_count: 367
   - id: "articles/reddit-deep-r-engineeringstudents/d97bcefc5e.md#c1"
-    char_span: [1672, 2822]
+    char_span: [1671, 2821]
     sentence_count: 9
     key_terms: [internship, apply, get, definitely, experience, freshman, gained, summer]
     token_count: 255

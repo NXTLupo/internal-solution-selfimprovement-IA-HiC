@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/24c0beceef.md#c0"
-    char_span: [0, 2230]
+    char_span: [0, 2229]
     sentence_count: 18
     key_terms: [company, engineering, cscareerquestions, ai-development, prompt, been, feel, like]
-    token_count: 484
+    token_count: 483
   - id: "articles/reddit-deep-r-cscareerquestions/24c0beceef.md#c1"
-    char_span: [2232, 4298]
+    char_span: [2231, 4297]
     sentence_count: 13
     key_terms: [people, management, hoping, staff, consumption, day, already, running]
     token_count: 458

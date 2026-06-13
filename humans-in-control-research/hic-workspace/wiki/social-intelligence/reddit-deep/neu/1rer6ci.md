@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rer6ci.md#c0"
-    char_span: [0, 436]
+    char_span: [0, 435]
     sentence_count: 1
     key_terms: [application, comments, co-op, https, neu, hot-nothing-4424, jjp3sgmkpplg1, experiential]
-    token_count: 141
+    token_count: 140
 ---
 # application surge caused by co-op
 

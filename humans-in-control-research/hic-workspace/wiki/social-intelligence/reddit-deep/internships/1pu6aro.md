@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, comments, justaboredstudent9, reddit-deep, underground, preferably, student, places]
     token_count: 85
   - id: "social-intelligence/reddit-deep/internships/1pu6aro.md#c1"
-    char_span: [344, 748]
+    char_span: [343, 747]
     sentence_count: 2
     key_terms: [freshmen, unlikely-resort1324, jamesjohnbushytail, ones, no-cockroach9505, gillyboi100, internship, companies]
     section: Comments

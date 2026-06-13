@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, year, comments, going, dizzystanza1327, arrangements, perspectives, information]
     token_count: 162
   - id: "social-intelligence/reddit-deep/college/1no61ek.md#c1"
-    char_span: [709, 1730]
+    char_span: [708, 1729]
     sentence_count: 5
     key_terms: [classes, college, people, school, being, class, going, eat]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/college/1no61ek.md#c2"
-    char_span: [1735, 3847]
+    char_span: [1734, 3846]
     sentence_count: 14
     key_terms: [get, being, class, work, semester, outside, school, high]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1no61ek.md#c3"
-    char_span: [3849, 4113]
+    char_span: [3848, 4112]
     sentence_count: 5
     key_terms: [emails, check, notifications, opportunities, professional, reminders, deadline, everyday]
     section: Comments

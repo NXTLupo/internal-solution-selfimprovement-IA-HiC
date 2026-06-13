@@ -18,12 +18,12 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1smilw2.md#c0"
-    char_span: [0, 2141]
+    char_span: [0, 2140]
     sentence_count: 11
     key_terms: [entry-level, consulting, being, tech, research, problem-solving, careeradvice, human]
-    token_count: 506
+    token_count: 505
   - id: "social-intelligence/reddit-deep/careeradvice/1smilw2.md#c1"
-    char_span: [2143, 2310]
+    char_span: [2142, 2309]
     sentence_count: 2
     key_terms: [because, consulting, research, machine, career, double, useful, audit]
     token_count: 38

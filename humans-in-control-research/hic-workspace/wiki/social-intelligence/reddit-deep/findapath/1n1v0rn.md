@@ -28,31 +28,31 @@ chunks:
     key_terms: [research, planning, recommendations, empathy, intelligence, being, discomfort, psychology]
     token_count: 416
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c2"
-    char_span: [4235, 5969]
+    char_span: [4234, 5968]
     sentence_count: 14
     key_terms: [thank, helpful, please, pattymayo8701, introverted, help, findapath, comments]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c3"
-    char_span: [5971, 7232]
+    char_span: [5970, 7231]
     sentence_count: 6
     key_terms: [revolutionwooden5638, compliance, healthcare, documentation, etc, work, management, probably]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c4"
-    char_span: [7234, 8843]
+    char_span: [7233, 8842]
     sentence_count: 12
     key_terms: [amazing, pivoted, fullupfinish, assurance, something, sometimes, quality, performancecrazy514]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c5"
-    char_span: [8845, 9901]
+    char_span: [8844, 9900]
     sentence_count: 8
     key_terms: [something, like, worth, job, effort, performancecrazy514, being, doing]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/findapath/1n1v0rn.md#c6"
-    char_span: [9903, 12169]
+    char_span: [9902, 12168]
     sentence_count: 13
     key_terms: [specialist, roles, talent, organisational, development, good, job, assessment]
     section: Comments

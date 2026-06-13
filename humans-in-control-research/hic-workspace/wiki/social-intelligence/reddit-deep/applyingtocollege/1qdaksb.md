@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qdaksb.md#c0"
-    char_span: [0, 1486]
+    char_span: [0, 1485]
     sentence_count: 10
     key_terms: [professors, courses, princeton, experiences, community, applyingtocollege, specific, applications]
     token_count: 305

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sg4jl2/wasted_4_years_of_college_in_survival_mode_dec/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,54 @@ flair: "New Grad"
 extracted_at: "2026-06-06T23:23:15.635Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c0"
+    char_span: [0, 1925]
+    sentence_count: 23
+    key_terms: [hours, cscareerquestions, skills, assignments, week, work, zero, currently]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c1"
+    char_span: [1927, 2835]
+    sentence_count: 12
+    key_terms: [job, want, myself, strong, since, tired, gig, hard]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c2"
+    char_span: [2850, 4381]
+    sentence_count: 5
+    key_terms: [projects, plus, degree, skills, start, engineering, put, genuinely]
+    section: Comments
+    token_count: 347
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c3"
+    char_span: [4383, 5376]
+    sentence_count: 8
+    key_terms: [interviews, work, degree, "it's", automatically, fickle-owl666, interpersonal, certificates]
+    section: Comments
+    token_count: 225
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c4"
+    char_span: [5378, 6989]
+    sentence_count: 9
+    key_terms: [projects, matter, github, hosted, hobbies, therealslimshady1234, point, exact-contact-3837]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c5"
+    char_span: [6991, 9132]
+    sentence_count: 12
+    key_terms: ["master's", professional, research, build, math, doctorate, therefore, however]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c6"
+    char_span: [9134, 11200]
+    sentence_count: 14
+    key_terms: [job, learn, time, school, skills, fundamentals, programming, need]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4jl2.md#c7"
+    char_span: [11202, 12893]
+    sentence_count: 16
+    key_terms: ["you're", get, job, time, learning, because, best, projects]
+    section: Comments
+    token_count: 404
 ---
-
 # Wasted 4 years of college in survival mode. Dec 2025 CS Grad with zero skills, actually faked my way through the degree. Need a reset.
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sg4jl2/wasted_4_years_of_college_in_survival_mode_dec/)

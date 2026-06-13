@@ -21,19 +21,19 @@ chunks:
     key_terms: [co-op, percentage, comments, everyone, curious, class, neu, reddit-deep]
     token_count: 188
   - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c1"
-    char_span: [780, 2466]
+    char_span: [779, 2465]
     sentence_count: 6
     key_terms: [nuworks, get, co-op, chilllfam, androidslash, cumminghippo, northeastern, jobs]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c2"
-    char_span: [2468, 4216]
+    char_span: [2467, 4215]
     sentence_count: 16
     key_terms: [experience, co-op, cycle, company, chance, grades, people, quite]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/neu/1qepjl3.md#c3"
-    char_span: [4219, 4789]
+    char_span: [4218, 4788]
     sentence_count: 6
     key_terms: [companies, chances, adorable-cut-7925, get, straightforward, internship, generally, guarantee]
     section: Comments

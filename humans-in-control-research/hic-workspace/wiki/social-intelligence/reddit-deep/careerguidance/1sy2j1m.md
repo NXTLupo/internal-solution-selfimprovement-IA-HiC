@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sy2j1m.md#c0"
-    char_span: [0, 412]
+    char_span: [0, 411]
     sentence_count: 3
     key_terms: [careerguidance, comments, reddit-deep, graduated, honours, husband, thought, working]
-    token_count: 122
+    token_count: 121
 ---
 # Career path advice anyone ? I thought I’d have a secure job, house and husband at 24. I graduated with an honours Bsc 2 years ago yet I’m working min wage in my home town
 

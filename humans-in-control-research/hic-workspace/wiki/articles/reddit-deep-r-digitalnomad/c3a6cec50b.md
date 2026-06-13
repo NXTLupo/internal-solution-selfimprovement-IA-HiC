@@ -15,17 +15,17 @@ industries: [healthcare, financial_services]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-digitalnomad/c3a6cec50b.md#c0"
-    char_span: [0, 2132]
+    char_span: [0, 2131]
     sentence_count: 16
     key_terms: [free, public, insurance, brazil, need, "you're", digitalnomad, "don't"]
-    token_count: 472
+    token_count: 471
   - id: "articles/reddit-deep-r-digitalnomad/c3a6cec50b.md#c1"
-    char_span: [2134, 3310]
+    char_span: [2133, 3309]
     sentence_count: 8
     key_terms: [healthcare, emergency, countries, services, care, haberdasher42, cardiologist, consultation]
     token_count: 260
   - id: "articles/reddit-deep-r-digitalnomad/c3a6cec50b.md#c2"
-    char_span: [3312, 4460]
+    char_span: [3311, 4459]
     sentence_count: 10
     key_terms: [system, insurance, brazil, healthcare, abusing, travel, abuse, care]
     token_count: 273

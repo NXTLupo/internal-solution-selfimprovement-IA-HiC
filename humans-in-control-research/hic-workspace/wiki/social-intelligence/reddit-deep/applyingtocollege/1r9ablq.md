@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, application, comments, process, focus, international, reddit-deep, experience]
     token_count: 120
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9ablq.md#c1"
-    char_span: [498, 2729]
+    char_span: [497, 2728]
     sentence_count: 13
     key_terms: [international, schools, undergrads, internationals, student, school, acceptance, story]
     section: Comments

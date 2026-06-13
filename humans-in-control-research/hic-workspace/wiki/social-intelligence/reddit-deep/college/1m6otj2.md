@@ -21,37 +21,37 @@ chunks:
     key_terms: [college, scholarships, semester, aid, got, removed, asked, girlfriend]
     token_count: 452
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c1"
-    char_span: [1965, 3702]
+    char_span: [1964, 3701]
     sentence_count: 12
     key_terms: [going, reason, school, aid, case, "i'm", university, deleted]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c2"
-    char_span: [3704, 5897]
+    char_span: [3703, 5896]
     sentence_count: 15
     key_terms: [scholarship, financial, get, grants, institutional, displacement, scholarships, aid]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c3"
-    char_span: [5899, 7055]
+    char_span: [5898, 7054]
     sentence_count: 11
     key_terms: [school, community, college, expensive, financial, private, grants, office]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c4"
-    char_span: [7057, 8298]
+    char_span: [7056, 8297]
     sentence_count: 8
     key_terms: [money, ohio, happened, transfer, western, people, state, aid]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c5"
-    char_span: [8300, 10386]
+    char_span: [8299, 10385]
     sentence_count: 16
     key_terms: [scholarships, aid, school, college, wonderstarsss, like, processing, community]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/college/1m6otj2.md#c6"
-    char_span: [10388, 10647]
+    char_span: [10387, 10646]
     sentence_count: 4
     key_terms: [residentfield2170, administration, educated, industry, probably, already, fucking, funding]
     section: Comments

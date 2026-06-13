@@ -23,25 +23,25 @@ chunks:
     key_terms: [burnout, because, remote-first, work, struggling, comments, managers, either]
     token_count: 451
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c1"
-    char_span: [1788, 3967]
+    char_span: [1787, 3966]
     sentence_count: 23
     key_terms: [openingconfection261, employees, work, "there's", higher, people, encourage, something]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c2"
-    char_span: [3969, 5781]
+    char_span: [3968, 5780]
     sentence_count: 11
     key_terms: [work, because, "they're", development, "it's", need, time, sometimes]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c3"
-    char_span: [5783, 7664]
+    char_span: [5782, 7663]
     sentence_count: 20
     key_terms: [work, "don't", day, take, constant, meetings, burnout, despite]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/managers/1maoegp.md#c4"
-    char_span: [7666, 8573]
+    char_span: [7665, 8572]
     sentence_count: 17
     key_terms: [technically, flexible, another, because, burnout, enough, hours, point]
     section: Comments

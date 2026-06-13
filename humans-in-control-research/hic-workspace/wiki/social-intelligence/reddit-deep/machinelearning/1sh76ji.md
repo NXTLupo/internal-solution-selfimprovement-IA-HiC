@@ -43,7 +43,7 @@ chunks:
     key_terms: ["it's", "i'll", "i'm", implementation, better, final, codebase, engineer]
     token_count: 360
   - id: "social-intelligence/reddit-deep/machinelearning/1sh76ji.md#c5"
-    char_span: [8681, 9663]
+    char_span: [8681, 9662]
     sentence_count: 4
     key_terms: [orchestration, post-training, pattern, youtube, reinforcedknowledge, https, layer, video]
     token_count: 224

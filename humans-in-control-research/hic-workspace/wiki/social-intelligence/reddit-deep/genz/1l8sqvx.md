@@ -23,25 +23,25 @@ chunks:
     key_terms: [school, college, high, get, "i'm", community, comments, honestly]
     token_count: 423
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c1"
-    char_span: [1757, 3663]
+    char_span: [1756, 3662]
     sentence_count: 10
     key_terms: [like, been, school, business, computer, honestly, discord, getting]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c2"
-    char_span: [3665, 5619]
+    char_span: [3664, 5618]
     sentence_count: 8
     key_terms: [university, college, degree, community, phaustiantheodicy, love, music, opportunity]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c3"
-    char_span: [5621, 7236]
+    char_span: [5620, 7235]
     sentence_count: 11
     key_terms: [college, better, graduate, debt, good, everyone, getting, masters]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/genz/1l8sqvx.md#c4"
-    char_span: [7238, 7809]
+    char_span: [7237, 7808]
     sentence_count: 4
     key_terms: [faithlessnesscute204, college, masters, years, tarchival-sage, corporate, desperate, compared]
     section: Comments

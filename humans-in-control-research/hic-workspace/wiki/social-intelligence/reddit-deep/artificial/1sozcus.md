@@ -23,19 +23,19 @@ chunks:
     key_terms: [build, app, artificial, comments, computer, behind, custom, months]
     token_count: 349
   - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c1"
-    char_span: [1413, 3456]
+    char_span: [1412, 3455]
     sentence_count: 23
     key_terms: ["it's", work, making, "can't", security, another, mistake, crunchygremlin]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c2"
-    char_span: [3460, 5698]
+    char_span: [3459, 5697]
     sentence_count: 7
     key_terms: [build, like, start, help, automating, everything, building, changing]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/artificial/1sozcus.md#c3"
-    char_span: [5703, 6273]
+    char_span: [5702, 6272]
     sentence_count: 6
     key_terms: [inventory, nothing, tracker, fancy, app, part, experience, breakdown]
     section: Comments

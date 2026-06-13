@@ -23,25 +23,25 @@ chunks:
     key_terms: [college-students-now-get-12-months-of-microsoft-365-premium-and-linkedin-premium-career-on-us, microsoft, internships, https, microsoft-365-linkedin-premium-free-students, www, comments, linkedin]
     token_count: 206
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c1"
-    char_span: [851, 2232]
+    char_span: [850, 2231]
     sentence_count: 8
     key_terms: [linkedin, premium, email, got, activated, days, spycommander13, invite]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c2"
-    char_span: [2234, 4325]
+    char_span: [2233, 4324]
     sentence_count: 11
     key_terms: [premium, linkedin, email, edu, account, subscription, championshipcute6440, personal]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c3"
-    char_span: [4072, 5741]
+    char_span: [4071, 5740]
     sentence_count: 6
     key_terms: [deepfreezedisease, received, account, deleted, student, email, did, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1qelam2.md#c4"
-    char_span: [5552, 5873]
+    char_span: [5551, 5872]
     sentence_count: 4
     key_terms: [student, figure, necessary-pipe-5971, issue, did, snoochipmunks534, mynameistimon, stolenapollo]
     section: Comments

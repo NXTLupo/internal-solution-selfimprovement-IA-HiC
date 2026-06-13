@@ -23,13 +23,13 @@ chunks:
     key_terms: [because, career, major, path, findapath, semesters, comments, transfer]
     token_count: 293
   - id: "social-intelligence/reddit-deep/findapath/1pwtnri.md#c1"
-    char_span: [1334, 3490]
+    char_span: [1333, 3489]
     sentence_count: 15
     key_terms: [thank, helpful, people, please, major, findapath, comments, everyone]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/findapath/1pwtnri.md#c2"
-    char_span: [3492, 4785]
+    char_span: [3491, 4784]
     sentence_count: 11
     key_terms: [good, teachers, yourself, friends, relief, "don't", sense, state]
     section: Comments

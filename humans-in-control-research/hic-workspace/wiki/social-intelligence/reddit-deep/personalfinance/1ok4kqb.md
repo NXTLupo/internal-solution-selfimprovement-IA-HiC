@@ -28,43 +28,43 @@ chunks:
     key_terms: [job, year, retirement, expenses, mortgage, husband, payment, savings]
     token_count: 348
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c2"
-    char_span: [2759, 3484]
+    char_span: [2758, 3483]
     sentence_count: 6
     key_terms: [retirement, situation, alarmingslothherder, adcomfortable2974, inheritance, semi-retire, certainly, financial]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c3"
-    char_span: [3486, 5575]
+    char_span: [3485, 5574]
     sentence_count: 15
     key_terms: [retirement, until, need, age, everything, situation, benefits, decision]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c4"
-    char_span: [5577, 7370]
+    char_span: [5576, 7369]
     sentence_count: 17
     key_terms: [retirement, "that's", pension, people, month, retiring, later, average]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c5"
-    char_span: [7372, 8807]
+    char_span: [7371, 8806]
     sentence_count: 14
     key_terms: [husband, retired, health, month, security, issues, people, retire]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c6"
-    char_span: [8809, 10398]
+    char_span: [8808, 10397]
     sentence_count: 12
     key_terms: [retirement, unemployment, let, retire, least, another, husband, fairly]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c7"
-    char_span: [10400, 11783]
+    char_span: [10399, 11782]
     sentence_count: 11
     key_terms: [georgeretire, benefits, unemployment, deleted, husband, reduced, person, cases]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/personalfinance/1ok4kqb.md#c8"
-    char_span: [11785, 13292]
+    char_span: [11784, 13291]
     sentence_count: 15
     key_terms: [retirement, savings, work, decided, mistake, answer, income, retire]
     section: Comments

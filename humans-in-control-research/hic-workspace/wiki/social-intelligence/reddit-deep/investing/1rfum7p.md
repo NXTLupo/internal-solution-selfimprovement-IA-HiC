@@ -11,11 +11,10 @@ score: 0
 upvote_ratio: 0.11
 num_comments: 6
 flair: ""
-extracted_at: "2026-05-17T01:13:31.194Z"
+extracted_at: "2026-06-11T15:26:11.550Z"
 extraction_method: "praw-deep"
-research_goal: "Analyze Gen Z's emerging attitudes, behaviors, trends, and frustrations specifically concerning investing, saving, spending, and the integration of AI into personal financial management."
-industries: [financial_services, ai_research, retail]
-industry_method: llm
+research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
+engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
 chunks:
   - id: "social-intelligence/reddit-deep/investing/1rfum7p.md#c0"
     char_span: [0, 1496]

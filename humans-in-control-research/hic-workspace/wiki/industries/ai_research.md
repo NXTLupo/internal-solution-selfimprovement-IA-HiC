@@ -7,7 +7,7 @@ industries: [ai_research]
 status: active
 chunks:
   - id: "industries/ai_research.md#c0"
-    char_span: [0, 713]
+    char_span: [0, 712]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-artificial, reddit-chatgpt, auto-generated, b3373178b4]
     section: Cross-over verticals (shared sources) / Representative sources

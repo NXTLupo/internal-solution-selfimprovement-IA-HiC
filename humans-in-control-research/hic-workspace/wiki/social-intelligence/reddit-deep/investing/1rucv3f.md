@@ -23,43 +23,43 @@ chunks:
     key_terms: [investing, comments, kind, like, fit-army7395, combination, environment, reddit-deep]
     token_count: 148
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c1"
-    char_span: [634, 2627]
+    char_span: [633, 2626]
     sentence_count: 14
     key_terms: [trump, inflation, everything, trying, happening, anything, economic, massive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c2"
-    char_span: [2349, 3240]
+    char_span: [2348, 3239]
     sentence_count: 6
     key_terms: [good, information, everything, because, pleasant-shallot-707, ideas, trump, snoodoughnuts1763]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c3"
-    char_span: [3242, 5277]
+    char_span: [3241, 5276]
     sentence_count: 19
     key_terms: [economy, businesses, inflation, unemployment, good, lack, "america's", countries]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c4"
-    char_span: [5279, 6604]
+    char_span: [5278, 6603]
     sentence_count: 10
     key_terms: [trump, did, oil, ordinarily, because, economy, prices, though]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c5"
-    char_span: [6606, 8226]
+    char_span: [6605, 8225]
     sentence_count: 9
     key_terms: [trump, inflation, economy, trumpflation, did, growth, slump, years]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c6"
-    char_span: [8228, 10111]
+    char_span: [8227, 10110]
     sentence_count: 7
     key_terms: [going, cliff, everything, energy, supply, being, biden, shock]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1rucv3f.md#c7"
-    char_span: [10113, 10497]
+    char_span: [10112, 10496]
     sentence_count: 2
     key_terms: [bond-markets-flash-warning-as-inflation-risks-resurface, inflation, marketinsider, environments, historically, commodities, persistence, stagflation]
     section: Comments

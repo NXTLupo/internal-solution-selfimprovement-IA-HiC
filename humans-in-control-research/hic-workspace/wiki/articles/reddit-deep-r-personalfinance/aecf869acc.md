@@ -15,22 +15,22 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c0"
-    char_span: [0, 2126]
+    char_span: [0, 2125]
     sentence_count: 15
     key_terms: [pool, wife, house, financial, get, loan, personalfinance, share]
-    token_count: 503
+    token_count: 502
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c1"
-    char_span: [2130, 2798]
+    char_span: [2129, 2797]
     sentence_count: 7
     key_terms: [pay, concern, house, "i've", real, relationship, considering, immediately]
     token_count: 144
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c2"
-    char_span: [2800, 4971]
+    char_span: [2799, 4970]
     sentence_count: 21
     key_terms: [pool, "don't", "it's", live, risk, excavation, including, september]
     token_count: 512
   - id: "articles/reddit-deep-r-personalfinance/aecf869acc.md#c3"
-    char_span: [4684, 5789]
+    char_span: [4683, 5788]
     sentence_count: 8
     key_terms: [like, live, lawn, mom, retired, someone, garage, nickburnscompanyguy]
     token_count: 256

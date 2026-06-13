@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s7ezbe.md#c0"
-    char_span: [0, 1568]
+    char_span: [0, 1567]
     sentence_count: 12
     key_terms: [applyingtocollege, usa, process, application, admissions, comments, college, getting]
-    token_count: 335
+    token_count: 334
 ---
 # Messed up /random college application process in the USA
 

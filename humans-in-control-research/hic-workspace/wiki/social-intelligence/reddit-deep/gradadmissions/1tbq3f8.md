@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1tbq3f8/admissions_advice_my_fall_2026_dream_was_ruined/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,42 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.581Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c0"
+    char_span: [0, 2088]
+    sentence_count: 12
+    key_terms: [department, school, deadline, graduate, application, admissions, fall, approval]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c1"
+    char_span: [2090, 2960]
+    sentence_count: 7
+    key_terms: [school, department, grad, png, gfhfrylacu0h1, international, acknowledged, "department's"]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c2"
+    char_span: [2975, 5202]
+    sentence_count: 9
+    key_terms: [department, get, deadline, international, fall, work, admissions, experience]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c3"
+    char_span: [5204, 6776]
+    sentence_count: 8
+    key_terms: [department, purdue, school, deadline, happened, stunning-trade-4503, admit, inadvertently]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c4"
+    char_span: [6778, 9000]
+    sentence_count: 20
+    key_terms: [lafayette, international, good, west, students, museums, outside, better]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tbq3f8.md#c5"
+    char_span: [8716, 9870]
+    sentence_count: 14
+    key_terms: [ncsu, department, universe, purdue, dean, like, administration, discrimination]
+    section: Comments
+    token_count: 278
 ---
-
 # [Admissions Advice] My Fall 2026 dream was ruined because the department forgot to notify the Grad School on time. Forced into Spring '27. 🥺
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1tbq3f8/admissions_advice_my_fall_2026_dream_was_ruined/)

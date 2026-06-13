@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-managers/f1bc8c57bb.md#c0"
-    char_span: [0, 1948]
+    char_span: [0, 1947]
     sentence_count: 16
     key_terms: [interviews, interview, seen, through, remote, roles, brainwavecc, applicants]
-    token_count: 455
+    token_count: 454
   - id: "articles/reddit-deep-r-managers/f1bc8c57bb.md#c1"
-    char_span: [1950, 2230]
+    char_span: [1949, 2229]
     sentence_count: 3
     key_terms: ["we'll-reimburse-you-later", model, employer-pre-paid, importantly, interviews, followed, "wouldn't", flying]
     token_count: 65

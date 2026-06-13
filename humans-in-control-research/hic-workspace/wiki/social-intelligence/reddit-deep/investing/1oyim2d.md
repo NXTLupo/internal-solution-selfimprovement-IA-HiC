@@ -23,25 +23,25 @@ chunks:
     key_terms: [investing, companies, players, stocks, data, take, focusing, centre]
     token_count: 394
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c1"
-    char_span: [1843, 3788]
+    char_span: [1842, 3787]
     sentence_count: 13
     key_terms: [theme, data, center, down, like, strength, growth, month]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c2"
-    char_span: [3790, 5801]
+    char_span: [3789, 5800]
     sentence_count: 9
     key_terms: [datacenter, power, infrastructure, cooling, centers, market, datacenters, data]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c3"
-    char_span: [5805, 7456]
+    char_span: [5804, 7455]
     sentence_count: 18
     key_terms: [infrastructure, fundamentals, avgo, data, financial, cooling, "you're", early]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/investing/1oyim2d.md#c4"
-    char_span: [7458, 9009]
+    char_span: [7457, 9008]
     sentence_count: 11
     key_terms: [narrow-ad-7856, international, good, reasonable, center, careless-cobbler-357, broad, index]
     section: Comments

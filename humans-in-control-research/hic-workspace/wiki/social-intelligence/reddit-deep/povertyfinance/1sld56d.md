@@ -28,43 +28,43 @@ chunks:
     key_terms: [better, plan, rap, flexibility, calculator, discussing, thankfully, donation]
     token_count: 108
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c2"
-    char_span: [2143, 4081]
+    char_span: [2142, 4080]
     sentence_count: 21
     key_terms: [job, experience, maintenance, jadedunionoperator, manufacturing, got, janitorial, education]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c3"
-    char_span: [4086, 5721]
+    char_span: [4085, 5720]
     sentence_count: 12
     key_terms: [eggs, around, clearance, grocery, freeze, cut, definitely, something]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c4"
-    char_span: [5725, 7250]
+    char_span: [5724, 7249]
     sentence_count: 19
     key_terms: [internet, food, like, retention, probably, qualify, xfinity, asking]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c5"
-    char_span: [7252, 8682]
+    char_span: [7251, 8681]
     sentence_count: 11
     key_terms: [particular-fly3409, gas, "i'm", meal, plan, partner, "it's", depends]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c6"
-    char_span: [8685, 10417]
+    char_span: [8684, 10416]
     sentence_count: 13
     key_terms: [like, policy, bill, internet, recipes, charge, beans, "y'all"]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c7"
-    char_span: [10420, 12470]
+    char_span: [10419, 12469]
     sentence_count: 10
     key_terms: [customer, new, cancel, call, insurance, car, deal, get]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/povertyfinance/1sld56d.md#c8"
-    char_span: [12473, 12893]
+    char_span: [12472, 12892]
     sentence_count: 6
     key_terms: [internet, name, new, plan, rate, unfortunately, investigate, "shouldn't"]
     section: Comments

@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-professors/66dfcd5dd4.md#c0"
-    char_span: [0, 1205]
+    char_span: [0, 1204]
     sentence_count: 17
     key_terms: [absolutely, professors, comments, homework, semester, students, digital, course]
-    token_count: 294
+    token_count: 293
 ---
 # I went "old school" this semester and students absolutely loved it. Best course evaluations in 10+ years of teaching.
 

@@ -28,13 +28,13 @@ chunks:
     key_terms: [deadline, anything, suddenly, changed, ntu, disorganization, accountability, disrespectful]
     token_count: 346
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c2"
-    char_span: [2947, 4757]
+    char_span: [2946, 4756]
     sentence_count: 5
     key_terms: [applyingtocollege, essays, reddit, https, com, www, wiki, automoderator]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ku4su7.md#c3"
-    char_span: [4759, 5549]
+    char_span: [4758, 5548]
     sentence_count: 8
     key_terms: [applyingtocollege, loquatseparate, automatically, hiramedson18, frustrating, indicators, moderators, reputation]
     section: Comments

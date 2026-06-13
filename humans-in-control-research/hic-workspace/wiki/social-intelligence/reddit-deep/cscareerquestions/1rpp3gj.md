@@ -28,19 +28,19 @@ chunks:
     key_terms: [realistically, industry, possible, preparation, background, motivation, rebuilding, understand]
     token_count: 176
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c2"
-    char_span: [2892, 4868]
+    char_span: [2891, 4867]
     sentence_count: 18
     key_terms: [experience, something, people, competing, honestly, possible, backend, course]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c3"
-    char_span: [4870, 6830]
+    char_span: [4869, 6829]
     sentence_count: 16
     key_terms: [backend, month, interview, projects, software, project, basics, prep]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpp3gj.md#c4"
-    char_span: [6832, 7498]
+    char_span: [6831, 7497]
     sentence_count: 3
     key_terms: [learn, path, time, extraordinary, employment, impressive, innovation, otherwise]
     section: Comments

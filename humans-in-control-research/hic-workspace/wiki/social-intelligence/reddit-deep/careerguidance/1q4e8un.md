@@ -16,7 +16,7 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1q4e8un.md#c0"
-    char_span: [0, 1301]
+    char_span: [0, 1300]
     sentence_count: 9
     key_terms: [cybersecurity, analytics, data, "i'm", careerguidance, experience, comments, booming]
     token_count: 300

@@ -23,31 +23,31 @@ chunks:
     key_terms: [someone, applyingtocollege, income, school, low, colleges, comments, probably]
     token_count: 210
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c1"
-    char_span: [903, 2473]
+    char_span: [902, 2472]
     sentence_count: 10
     key_terms: [school, income, money, circumstances, spend, high, tell, available]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c2"
-    char_span: [2475, 4134]
+    char_span: [2474, 4133]
     sentence_count: 13
     key_terms: [income, opportunities, school, available, went, applying, essays, expect]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c3"
-    char_span: [4136, 5343]
+    char_span: [4135, 5342]
     sentence_count: 11
     key_terms: [kids, income, spots, parents, reality, tuition, weekend, blind]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c4"
-    char_span: [5345, 7670]
+    char_span: [5344, 7669]
     sentence_count: 13
     key_terms: [school, schools, kids, someone, aos, feel, hang, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swdidw.md#c5"
-    char_span: [7338, 8962]
+    char_span: [7337, 8961]
     sentence_count: 10
     key_terms: [financial, need-blind, aid, school, need, pell, recipients, affluence]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [work, cscareerquestions, experience, comments, company, foreign, free, youtoometootoo]
     token_count: 112
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg2jvm.md#c1"
-    char_span: [461, 2302]
+    char_span: [460, 2301]
     sentence_count: 13
     key_terms: [work, free, job, experience, reboog711, projects, company, fucking]
     section: Comments

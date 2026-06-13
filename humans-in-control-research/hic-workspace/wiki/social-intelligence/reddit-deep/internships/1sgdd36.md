@@ -23,7 +23,7 @@ chunks:
     key_terms: [early, internships, internship, interview, comments, decision, directly, aligned]
     token_count: 292
   - id: "social-intelligence/reddit-deep/internships/1sgdd36.md#c1"
-    char_span: [1355, 1954]
+    char_span: [1354, 1953]
     sentence_count: 1
     key_terms: [role, get, congratulations, internships, certainty, important, anything, applying]
     section: Comments

@@ -15,22 +15,22 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c0"
-    char_span: [0, 1987]
+    char_span: [0, 1986]
     sentence_count: 15
     key_terms: [university, undergrad, did, phd, masters, studied, big, school]
-    token_count: 465
+    token_count: 464
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c1"
-    char_span: [1989, 4175]
+    char_span: [1988, 4174]
     sentence_count: 25
     key_terms: [lot, faculty, department, prestige, opportunities, program, institution, research]
     token_count: 466
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c2"
-    char_span: [4177, 6435]
+    char_span: [4176, 6434]
     sentence_count: 15
     key_terms: [research, school, world, time, biology, marine, field, known]
     token_count: 501
   - id: "articles/reddit-deep-r-gradschool/09fca6be2f.md#c3"
-    char_span: [6437, 7629]
+    char_span: [6436, 7628]
     sentence_count: 12
     key_terms: [school, undergrad, graduate, students, project, student, tuition, attend]
     token_count: 266

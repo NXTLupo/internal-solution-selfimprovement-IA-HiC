@@ -23,37 +23,37 @@ chunks:
     key_terms: [job, master, experience, degree, years, because, parents, careerguidance]
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c1"
-    char_span: [2134, 3881]
+    char_span: [2133, 3880]
     sentence_count: 12
     key_terms: [masters, pay, semester, doing, job, time, experience, company]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c2"
-    char_span: [3883, 4772]
+    char_span: [3882, 4771]
     sentence_count: 7
     key_terms: [experience, masters, degree, expirence, almost, prestigious-cake3557, get, job]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c3"
-    char_span: [4774, 6827]
+    char_span: [4773, 6826]
     sentence_count: 15
     key_terms: [experience, positions, networking, work, degrees, job, strictlyonerous, masters]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c4"
-    char_span: [6830, 8900]
+    char_span: [6829, 8899]
     sentence_count: 17
     key_terms: [parents, management, going, blazingnailsmcgee, career, want, absolutely, american]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c5"
-    char_span: [8902, 10444]
+    char_span: [8901, 10443]
     sentence_count: 21
     key_terms: [decisions, better, absolutely, experience, parents, advice, answer, master]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1pt2q9v.md#c6"
-    char_span: [10446, 11084]
+    char_span: [10445, 11083]
     sentence_count: 6
     key_terms: [masters, class, job, take, company, taking, back, get]
     section: Comments

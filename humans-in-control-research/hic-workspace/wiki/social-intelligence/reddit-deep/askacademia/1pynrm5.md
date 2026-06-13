@@ -23,19 +23,19 @@ chunks:
     key_terms: [international, phd, askacademia, comments, computer, country, student, funded]
     token_count: 261
   - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c1"
-    char_span: [1153, 2561]
+    char_span: [1152, 2560]
     sentence_count: 6
     key_terms: [research, preferential, universities, fraud, university, countries, academic, country]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c2"
-    char_span: [2563, 4175]
+    char_span: [2562, 4174]
     sentence_count: 11
     key_terms: [countries, international, opportunities, good, deleted, funding, thought, tunisia]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/askacademia/1pynrm5.md#c3"
-    char_span: [4177, 4785]
+    char_span: [4176, 4784]
     sentence_count: 6
     key_terms: [environment, country, professional, conferences, encouraging, accessible, countries, exploring]
     section: Comments

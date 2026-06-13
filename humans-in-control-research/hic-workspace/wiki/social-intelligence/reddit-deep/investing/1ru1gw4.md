@@ -23,31 +23,31 @@ chunks:
     key_terms: [nasdaq-100, spacex, shares, capitalisation, tracking, nasdaq, index, rule]
     token_count: 468
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c1"
-    char_span: [1983, 3804]
+    char_span: [1982, 3803]
     sentence_count: 10
     key_terms: [shareholders, charlatans, juanpabloeltres, lockup, lastgreenleaf, inclusion, mandatory, podcast]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c2"
-    char_span: [3806, 5629]
+    char_span: [3805, 5628]
     sentence_count: 8
     key_terms: [added, funds, sp500, buy, vti, companies, investing, backdate]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c3"
-    char_span: [5631, 7226]
+    char_span: [5630, 7225]
     sentence_count: 3
     key_terms: [elon-mu***REDACTED-KEY***, theprofessional9, stocks, wealthfront, look, voo, want, charge]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c4"
-    char_span: [7228, 8480]
+    char_span: [7227, 8479]
     sentence_count: 8
     key_terms: [definitely, tesla, sub, theprofessional9, americanscream, phillipjpark, considering, devonhezter]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/investing/1ru1gw4.md#c5"
-    char_span: [8482, 9331]
+    char_span: [8481, 9330]
     sentence_count: 5
     key_terms: [nasdaq-100, nasdaq, fightonforusc, investing, stocks, earthelectronic7954, sp500, paradoxicalparrots]
     section: Comments

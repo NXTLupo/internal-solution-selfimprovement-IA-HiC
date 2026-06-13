@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-internships/7baa6ed72e.md#c0"
-    char_span: [0, 2204]
+    char_span: [0, 2203]
     sentence_count: 2
     key_terms: [co-op, internships, experience, internship, "i'm", applying, graduate, friends]
-    token_count: 502
+    token_count: 501
   - id: "articles/reddit-deep-r-internships/7baa6ed72e.md#c1"
-    char_span: [2206, 2456]
+    char_span: [2205, 2455]
     sentence_count: 3
     key_terms: [experiences, graduation, congrats, graduate, semester, students, through, apart]
     token_count: 62

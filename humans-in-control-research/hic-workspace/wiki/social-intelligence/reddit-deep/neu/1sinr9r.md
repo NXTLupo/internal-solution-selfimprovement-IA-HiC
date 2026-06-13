@@ -21,7 +21,7 @@ chunks:
     key_terms: [northeastern, https, comments, facts, neu, png, opportunities, sf74u7219lug1]
     token_count: 129
   - id: "social-intelligence/reddit-deep/neu/1sinr9r.md#c1"
-    char_span: [400, 993]
+    char_span: [399, 992]
     sentence_count: 2
     key_terms: [icameearly, "don't", khvi1, adsubstantial3900, coop, cps, brainwashing, misselling]
     section: Comments

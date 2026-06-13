@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, transition, comments, product, comp, role, sci, realistically]
     token_count: 158
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c1"
-    char_span: [641, 2898]
+    char_span: [640, 2897]
     sentence_count: 13
     key_terms: [experience, "you're", like, already, going, technically, get, job]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rlwiwp.md#c2"
-    char_span: [2900, 4049]
+    char_span: [2899, 4048]
     sentence_count: 11
     key_terms: [product, engineering, targeting, technical, backend, resume, api, area]
     section: Comments

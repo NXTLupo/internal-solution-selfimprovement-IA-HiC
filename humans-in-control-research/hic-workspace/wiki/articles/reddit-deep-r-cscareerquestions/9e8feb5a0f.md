@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/9e8feb5a0f.md#c0"
-    char_span: [0, 2173]
+    char_span: [0, 2172]
     sentence_count: 16
     key_terms: [internships, job, networking, better, cscareerquestions, personal, projects, chances]
-    token_count: 509
+    token_count: 508
   - id: "articles/reddit-deep-r-cscareerquestions/9e8feb5a0f.md#c1"
-    char_span: [2175, 3984]
+    char_span: [2174, 3983]
     sentence_count: 17
     key_terms: [aspects, domains, masters, someone, person, illustrious-pound266, great, here]
     token_count: 413

@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbfcx5.md#c0"
-    char_span: [0, 771]
+    char_span: [0, 770]
     sentence_count: 6
     key_terms: [engineeringstudents, comments, hirevue, co-op, manufacturing, goldenp00per, information, interactive]
     token_count: 182

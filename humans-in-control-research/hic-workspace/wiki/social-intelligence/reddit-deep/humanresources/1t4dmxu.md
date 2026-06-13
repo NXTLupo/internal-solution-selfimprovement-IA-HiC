@@ -23,7 +23,7 @@ chunks:
     key_terms: [placement, humanresources, india, good, internship, comments, shrm-cp, taking]
     token_count: 268
   - id: "social-intelligence/reddit-deep/humanresources/1t4dmxu.md#c1"
-    char_span: [1104, 2348]
+    char_span: [1103, 2347]
     sentence_count: 9
     key_terms: [india, post, subreddit, company, value, does, job, work]
     section: Comments

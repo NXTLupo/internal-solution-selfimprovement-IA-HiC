@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, career, path, economics, comments, finance, figure, doing]
     token_count: 207
   - id: "social-intelligence/reddit-deep/careerguidance/1r2tgok.md#c1"
-    char_span: [870, 1881]
+    char_span: [869, 1880]
     sentence_count: 6
     key_terms: [like, something, finance, project, people, lanes, find, job]
     section: Comments

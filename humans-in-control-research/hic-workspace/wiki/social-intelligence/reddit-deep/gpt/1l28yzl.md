@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1l28yzl.md#c0"
-    char_span: [0, 1613]
+    char_span: [0, 1612]
     sentence_count: 6
     key_terms: [branding, assets, chatgpt, character, marketers, comments, creating, mockups]
-    token_count: 357
+    token_count: 356
 ---
 # Marketers & Creatives: Built 4 Visual Assets for a Branding Project in One Day Using ChatGPT
 

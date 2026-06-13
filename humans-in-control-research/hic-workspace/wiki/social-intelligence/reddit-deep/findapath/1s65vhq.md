@@ -23,37 +23,37 @@ chunks:
     key_terms: [financially, "i'm", comments, future, architecture, years, successful, findapath]
     token_count: 442
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c1"
-    char_span: [1924, 2871]
+    char_span: [1923, 2870]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c2"
-    char_span: [2874, 4861]
+    char_span: [2873, 4860]
     sentence_count: 10
     key_terms: [hauntingprompt1436, interest, fakehollow0902, help, life, experience, degrees, helpful]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c3"
-    char_span: [4863, 7152]
+    char_span: [4862, 7151]
     sentence_count: 15
     key_terms: [architecture, decision, animals, fakehollow0902, skills, money, "it's", job]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c4"
-    char_span: [7154, 8803]
+    char_span: [7153, 8802]
     sentence_count: 5
     key_terms: [work, substantialhandle124, high, passion, family, architecture, "it's", vet]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c5"
-    char_span: [8805, 10690]
+    char_span: [8804, 10689]
     sentence_count: 13
     key_terms: [opening-cantaloupe56, fakehollow0902, want, through, advice, future, starve, supply]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/findapath/1s65vhq.md#c6"
-    char_span: [10692, 12883]
+    char_span: [10691, 12882]
     sentence_count: 13
     key_terms: [something, passion, sucks, eventually, being, fakehollow0902, people, architecture]
     section: Comments

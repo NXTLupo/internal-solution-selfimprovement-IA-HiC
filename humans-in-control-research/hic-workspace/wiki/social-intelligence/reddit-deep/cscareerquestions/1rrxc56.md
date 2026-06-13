@@ -23,79 +23,79 @@ chunks:
     key_terms: [high, supply, software, engineers, something, cscareerquestions, like, people]
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c1"
-    char_span: [1620, 3627]
+    char_span: [1619, 3626]
     sentence_count: 14
     key_terms: [experience, resume, high, resumes, started, direct, listed, picked]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c2"
-    char_span: [3629, 5278]
+    char_span: [3628, 5277]
     sentence_count: 14
     key_terms: [high, like, english, levels, people, eddie, great, halen]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c3"
-    char_span: [5280, 7166]
+    char_span: [5279, 7165]
     sentence_count: 12
     key_terms: [market, people, companies, mediocre, supply, utzutzutzpro, accountants, rate]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c4"
-    char_span: [7168, 9044]
+    char_span: [7167, 9043]
     sentence_count: 19
     key_terms: [design, engineers, engineer, mediocre, afterwards, good, team, accountants]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c5"
-    char_span: [9046, 11084]
+    char_span: [9045, 11083]
     sentence_count: 14
     key_terms: [supply, competent, get, good, low, devs, high, jobs]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c6"
-    char_span: [10829, 12354]
+    char_span: [10828, 12353]
     sentence_count: 12
     key_terms: [good, interviews, tell, knowledge, people, resume, savings-giraffe-4007, being]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c7"
-    char_span: [12357, 13967]
+    char_span: [12356, 13966]
     sentence_count: 10
     key_terms: [fucking, interview, fizzbuzz, straight, without, degree, block, grads]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c8"
-    char_span: [13969, 15779]
+    char_span: [13968, 15778]
     sentence_count: 11
     key_terms: [interviewed, basic, did, palindrome, statements, companies, questions, fizzbuzz]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c9"
-    char_span: [15781, 17469]
+    char_span: [15780, 17468]
     sentence_count: 8
     key_terms: [strikingsignature563, never, good, imposter, solution, syndrome, company, problem]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c10"
-    char_span: [17471, 19353]
+    char_span: [17470, 19352]
     sentence_count: 15
     key_terms: [offers, negotiating, companies, willing, offer, experience, competing, salaries]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c11"
-    char_span: [19355, 21289]
+    char_span: [19354, 21288]
     sentence_count: 9
     key_terms: [people, embedded, work, year, defense, salary, faang, per]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c12"
-    char_span: [21291, 22860]
+    char_span: [21290, 22859]
     sentence_count: 7
     key_terms: [day, "mcdonald's", customers, increase, software, demand, profit, supply]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rrxc56.md#c13"
-    char_span: [22862, 24065]
+    char_span: [22861, 24064]
     sentence_count: 10
     key_terms: [software, cost, projects, product, banger, salary, valve, fantastically]
     section: Comments

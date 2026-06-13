@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, comments, abroad, endlessethann, international, opportunities, reddit-deep, internship]
     token_count: 99
   - id: "social-intelligence/reddit-deep/internships/1rxdm5n.md#c1"
-    char_span: [373, 1525]
+    char_span: [372, 1524]
     sentence_count: 6
     key_terms: [internship, endlessethann, asia, placement, europe, outrageousgazelle210, sweet-frosting4839, day]
     section: Comments

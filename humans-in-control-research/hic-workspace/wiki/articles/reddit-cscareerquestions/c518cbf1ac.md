@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-cscareerquestions/c518cbf1ac.md#c0"
-    char_span: [0, 942]
+    char_span: [0, 941]
     sentence_count: 8
     key_terms: [cscareerquestions, limited, claude, reddit, month, posts, code, like]
-    token_count: 250
+    token_count: 249
 ---
 # Am I insane for thinking this sub is being astroturfed?
 

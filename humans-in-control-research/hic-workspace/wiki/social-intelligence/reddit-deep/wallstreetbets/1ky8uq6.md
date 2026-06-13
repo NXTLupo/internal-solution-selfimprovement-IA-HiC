@@ -23,43 +23,43 @@ chunks:
     key_terms: [wallstreetbets, comments, posted, fmcc, sell, told, reddit-deep, apresta16]
     token_count: 130
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c1"
-    char_span: [437, 641]
+    char_span: [436, 640]
     sentence_count: 1
     key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c2"
-    char_span: [643, 2365]
+    char_span: [642, 2364]
     sentence_count: 5
     key_terms: [wsb, bitcoin21mm, bro, like, bagholding, something, believed, comments]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c3"
-    char_span: [2108, 2778]
+    char_span: [2107, 2777]
     sentence_count: 7
     key_terms: [been, bagholding, popular-substance490, maybe, years, additional, conviction, allocated]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c4"
-    char_span: [2780, 4597]
+    char_span: [2779, 4596]
     sentence_count: 12
     key_terms: [apresta16, better, years, loss, tax, invested, probably, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c5"
-    char_span: [4362, 5081]
+    char_span: [4361, 5080]
     sentence_count: 8
     key_terms: [years, deleted, bro, gain, good, lol, sideshowglobs, considering]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c6"
-    char_span: [5083, 6229]
+    char_span: [5082, 6228]
     sentence_count: 8
     key_terms: [wrong, years, reddit, until, beneficial-swim843, chersprolapsedanus, down, draw]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ky8uq6.md#c7"
-    char_span: [6231, 7078]
+    char_span: [6230, 7077]
     sentence_count: 5
     key_terms: [accumulate, apresta16, dumpster, register, working, behind, time, opportunity]
     section: Comments

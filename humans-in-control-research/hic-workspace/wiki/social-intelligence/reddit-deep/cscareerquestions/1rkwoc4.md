@@ -26,31 +26,31 @@ chunks:
     key_terms: [experience, coding, enough, people, hours, get, good, like]
     token_count: 167
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c2"
-    char_span: [3003, 4629]
+    char_span: [3002, 4628]
     sentence_count: 9
     key_terms: [code, data, companies, wikipedia, already, "they're", models, primary-walrus-5623]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c3"
-    char_span: [4631, 6678]
+    char_span: [4630, 6677]
     sentence_count: 10
     key_terms: [better, get, models, opus, trying, data, good, like]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c4"
-    char_span: [6680, 7985]
+    char_span: [6679, 7984]
     sentence_count: 12
     key_terms: [code, better, issues, architecture, good, experience, consider, changes]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c5"
-    char_span: [7987, 9935]
+    char_span: [7986, 9934]
     sentence_count: 15
     key_terms: [code, training, crap, data, good, because, "that's", works]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rkwoc4.md#c6"
-    char_span: [9937, 11913]
+    char_span: [9936, 11912]
     sentence_count: 11
     key_terms: [filtering, data, good, model, training, writing, "it's", difference]
     section: Comments

@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c0"
-    char_span: [0, 1194]
+    char_span: [0, 1193]
     sentence_count: 10
     key_terms: [students, problem, either, vent, professors, "didn't", reddit, yours]
-    token_count: 296
+    token_count: 295
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c1"
-    char_span: [1196, 3027]
+    char_span: [1195, 3026]
     sentence_count: 21
     key_terms: [inability, get, time, problem, behavior, conditioning, because, manage]
     token_count: 414
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c2"
-    char_span: [3029, 5316]
+    char_span: [3028, 5315]
     sentence_count: 22
     key_terms: [problem, people, get, want, students, years, stop, professors]
     token_count: 509
   - id: "articles/reddit-deep-r-professors/d5daeb73ed.md#c3"
-    char_span: [5318, 7377]
+    char_span: [5317, 7376]
     sentence_count: 16
     key_terms: [elitist, students, being, "i'm", expectations, intellectual, face, "it's"]
     token_count: 498

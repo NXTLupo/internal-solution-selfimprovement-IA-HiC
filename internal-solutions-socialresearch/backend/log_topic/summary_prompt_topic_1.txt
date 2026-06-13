@@ -1,46 +1,86 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: co-op, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: models, local, claude, finance, mahoraga, cs, run
+- Top keywords: vanguard, fee, advisor, program, account, service, years
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Running out of Claude credits? Mahoraga is here. Northeastern gives us 300 a month, 500 if you're lucky, and premium seats if you're really lucky. By no means is that a small amount; it really is a useful resource that all students should honestly be abusing. (not to cheat on your NUpath courses, but to learn!)
+Vanguard decided to FAFO with their $100 full transfer out fee, so now I'm cancelling my advisor services Let me preface this by saying I know I'm an insignificant fish in their big pool of investors.  They don't care about my fees and won't notice if I drop them.  I'm simply sharing if anyone else is on the fence about Personal Advisor services...
 
 EXAMPLE 2:
-I built **Mahoraga**, which routes simple tasks using contextual bandits (LinUCB) to local models to cut costs, as well as increase speed. Most work you do consists of bash, edit, etc. honestly pretty quick and light commands that claude really shouldn't have to run. All local inference, all free. Cloud escalation exists but only fires on retry.
+EDIT: Fixed my outdated use of "PAS" to mean "Personal Advisor Services"; Vanguard now calls that "PA" and "PAS" is the 500k+ "Select" tier. Their digital advisor is basically VTI-VXUS-BND-BNDX.
 
 EXAMPLE 3:
-However tokens are getting more expensive, models are heavier, and i know a bunch of kids that run out before the end of the month. they wait for northeastern, but there are a million students here, and they just can't give us more and more. I personally use claude in my co-op as well, which eats usage.
+I have to say that my first phone contact them 2 days ago was very unimpressive. Not the people, the actual phone quality was so bad I had to have them call me back when their office was quieter. When they did call back the connection was so bad I had to have them repeat themselves way too many times. If they can't get their phones right... it did not inspire confidence. (Fwiw my hearing is fine, on an iPhone, speaker and earphones.) Thank you. Having been with Vanguard for decades, I finally moved over to Schwab for their customer service. [...]
 
 EXAMPLE 4:
-"So just use a local model," a smart freshman kid would say. local models run on your own device, and are essentially free. However cloud models like claude, chatgpt, most mainstream subscription models are just smarter and logically sound.
+>*Vanguard Brokerage may charge a $100 processing fee for each account closure and full transfer of account assets to another firm....The fee will not be assessed for clients who hold at least $5 million in qualifying Vanguard assets or brokerage accounts enrolled in a Vanguard-affiliated advisory service.*
 
 EXAMPLE 5:
-Results, tables, and analysis is on the github. If you study CS/DS/AI, you probably know more than me. Input would be appreciated.  Linkedin?
+So then I pointed out I pay over $1k a year in advisory fees.  If they want to nickel and dime me, I can do the same in return.  They had a choice: waive the $100 one-time fee and keep my annual advisor fees, or keep the one-time $100 and loose the $1k+ per year fees I'm paying them.
 
 EXAMPLE 6:
-I recently got an offer for the masters program for Chemical Engineering this upcoming fall semester. I was wondering if anyone had any insight into how the co-op programs work- specifically the companies NEU has tie-ups with as well as the process of potentially securing one (including success rates of securing companies if anyone has a rough idea). I'm pretty excited and would love to connect with anyone who is either currently in the program or is joining this upcoming semester! connect with a finance mentor on shinequo. [...]
+Looking for reviews for those who transferred from a Big Box investment house to Vanguard Just retired, 66, currently at a big name brokerage house for 20+ years, it has way too many fees, very much liking the Boglehead philosophy, not someone who wants to fiddle with investments. I'd love to hear from anyone who moved their 6 figure portfolio to Vanguard in a similar situation. I'm considering the Personal Advisor or Personal Advisor Select options for the first year as a way to get situated and for retirement tax planning. [...]
 
 EXAMPLE 7:
-Fork, Clone, Star, Steal: [github.com/pockanoodles/Mahoraga](https://github.com/pockanoodles/Mahoraga)
+I've been a PA client for nearly 10 years, paying the 0.3% AUM advisory fee which equates to well over $1k a year in fees.
 
 EXAMPLE 8:
-So if you're doing CS/Business/honestly whatever nowadays and want to build/ship more often this might be the solution. Clone the repo, fork the repo, everything is **opensource** so you can use claude to implement this if you run into difficulty. Runs on your computer, no one else gets the data except you. (not me, not northeastern).
+I like Vanguard and have the majority of my retirement savings there, but the growth you have seen has nothing to do with where the account is held. It is entirely a function of what you selected for investments. Yes fees are important and should be considered, but that is a second order consideration. You would have had the same performance holding the same assets at any other brokerage. You must take the time to understand what is held inside of all of your accounts!
 
 EXAMPLE 9:
-Just wanted to know, has anyone actually received these for the Boston campus?  
-Or had any success getting reconsidered?  
-Trying to understand how these are being allocated. The coop experiences were worth it because I got hired full time right from one of my coops
+Vanguard used to be quite good until they nerfed the Flagship program which had dedicated reps who were empowered to act to resolve issues and to provide genuinely good advice. Now the regular 800 agents are not empowered to do anything other than walk one through an online form that sits somewhere in the Philippines aging for about two weeks before someone pulls it off the pile. For a client-owned firm, the decay of customer service is an outright embarrassment.
+They do have some overseas call centers like many firms.  This is the likely cause of phone quality. [...]
 
 EXAMPLE 10:
-MS CS Align (Boston) – Anyone actually received International Academic Excellence / CPS Leaders & Scholars? I’ve been admitted to MS CS Align (Boston) and was told scholarships are automatically considered.
+I don't know if that meant ($5M AUM) OR (brokerage accounts enrolled in advisory services) or if it meant $5M in advisory services.  But the fact that it says "may charge" suggests there is a way to waive the fee.  Their answer was still "No".
 
 EXAMPLE 11:
-I ran 192 tasks across 8 agents (4 local Ollama models, 4 cloud CLIs) on a 16GB MacBook Pro, forcing round-robin so every agent got every prompt. Quality is scored by a 4-layer heuristic system (novelty ratio, structural checks, embedding similarity, length ratio). Zero API cost for evaluation, and no LLM-as-judge.
+Finally, I have 78k sitting in a Vanguard 401k account right now from my previous employer between 2023 and 2026.
 
 EXAMPLE 12:
-I qualify for both the International Academic Excellence and CPS Leaders & Scholars awards, but haven’t received any award. They said that students are automatically considered and awarded these scholarships which means they didn’t deem me qualified even tho I met the requirements.
+Any and all advice is welcome. Please help me make some smarter financial decisions starting tomorrow. I'm calling Vanguard first thing in the morning and I'm gonna  start asking questions.
+
+EXAMPLE 13:
+Walk Me Through How To Get My Money Out Of Primerica And Into Vanguard I need some help on getting ALL of my money out of Primerica.
+
+EXAMPLE 14:
+Long-winded rant to say I'm out.  And if you're on the fence, you should be too.  Stay at Vanguard if you want.  I probably will.  But don't pay for PA.  Just setup automated contributions and let it ride.  If you tend to be emotional during downturns, have your spouse change your password and not share it with you once the auto-investing is setup (but only do this if you trust your spouse, ha!).
+
+EXAMPLE 15:
+To transfer your assets to Vanguard contact them. They have transfer people who will help you. You may be able to “transfer in kind” or you may need to liquidate current holdings then reinvest. All this is done WITHOUT taking your money out of retirement account.
+
+EXAMPLE 16:
+Figuring I've earned some good with being a PA client for all these years, I asked for a fee waiver because I was unaware of the new fee and it was a silly mistake where I could have avoided the fee by withdrawing my money instead of ACATS.
+
+EXAMPLE 17:
+I get that they are targeting buy & hold investors but for that small portion of my portfolio I leave for fun, I should be able to make moves when I want to.
+There are people who don’t know the difference between a stock and a bond, or are not comfortable investing their money.  They can and likely will) do far worse than Vanguard’s Personal Advisory Service at 0.3% a year.
+That's fair.  I guess the realization I came to was that I thought the advisor piece would give me more than just a human walking me through how to setup a robo advisor. [...]
+
+EXAMPLE 18:
+Leave old 401k as is or roll it over into your Vanguard traditional/rollover IRA and invest as above.
+
+EXAMPLE 19:
+**TL;DR: I'm now of the opinion you're probably better setting up a simple 60% VTI / 30% VXUS / 10% BND automated investing plan and taking 15 minutes a year to rebalance if needed.  The fee for advisor services probably isn't worth it.**
+
+EXAMPLE 20:
+I dont use PAS, only DIY at Vanguard.  If I wanted help would use an independent financial planner and pay for just a plan, for a fixed fee, not annual aum related fees to have them implement the plan.
+
+EXAMPLE 21:
+You should be able to initiate all of the transfers by starting with Vanguard and having them pull the accounts over.
+
+EXAMPLE 22:
+Vanguard has developed a cashflow for now until my wife and I are 100.  It includes detailed spending, and more importantly, detailed decumulation.  The distribution phase of planning is so much more complicated than the accumulation phase.  We have a meeting every few months to review performance and what is forecasted.
+
+EXAMPLE 23:
+I just recently found out about how much they are skimming off of me compared to other options like Vanguard or Fidelity.
+
+EXAMPLE 24:
+Transfer Roth IRA. Invest 100% into VFFVX, a Vanguard managed target date fund portfolio for those retiring around 2055.
+
+EXAMPLE 25:
+You can’t move your current 401k, that will need to remain at ML until you leave your employer.
+TLDR but basing financial decisions on recency bias is a bad idea. That being said I do love vanguard and Jack Bogle’s investing philosophy.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

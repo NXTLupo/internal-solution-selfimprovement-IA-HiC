@@ -21,7 +21,7 @@ chunks:
     key_terms: [neu, comments, hardware, robotics, transfer, reality, advice, online]
     token_count: 280
   - id: "social-intelligence/reddit-deep/neu/1s7wpnb.md#c1"
-    char_span: [1174, 2850]
+    char_span: [1173, 2849]
     sentence_count: 10
     key_terms: [northeastern, school, neu, great, especially, decisions, rankings, transfer]
     section: Comments

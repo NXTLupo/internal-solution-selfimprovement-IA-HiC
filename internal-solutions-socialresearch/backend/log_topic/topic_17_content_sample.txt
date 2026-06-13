@@ -1,0 +1,16 @@
+Topic 17 - Content Sample
+Number of content items: 21
+Top words: security, keys, security key, sms, 2fa, vanguard, security keys
+
+Content 1 (length: 289 chars):
+1. I went into Vanguard and added a Bitwarden Passkey to my account by selecting Security Key in 2FA. This somewhat surprisingly (to me) counts as one Security Key.
+2. I added my YubiKey as the second Security Key.
+3. The two security keys allowed me to disable Security Codes (SMS codes).
+
+Content 2 (length: 339 chars):
+- How do I disable SMS 2FA in favor of more secure methods?
+     - Register two FIDO2 keys and the option will become available. ^[Source](https://www.reddit.com/r/VanguardInvestments/comments/1nyscgm/comment/ni0hfll/) I just added Security Keys to my Vanguard account and I want to share what I learned. I had the following configuration:
+
+Content 3 (length: 229 chars):
+Vanguard Weakens Account 2FA Security TLDR; Management at Vanguard doesn't seem to understand computer security, and just weakened their security posture by forcing SMS backup codes, defeating the point of physical security keys.
+

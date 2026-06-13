@@ -23,19 +23,19 @@ chunks:
     key_terms: [back, colombia, already, digitalnomad, being, kinda, come, days]
     token_count: 498
   - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c1"
-    char_span: [2107, 3907]
+    char_span: [2107, 3906]
     sentence_count: 12
     key_terms: [fine, colombia, problem, digitalnomad, days, trailtwist, scheduled, surgeries]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c2"
-    char_span: [3909, 5727]
+    char_span: [3908, 5726]
     sentence_count: 11
     key_terms: [passport, fine, visa, immigration, overstaying, days, exemptions, illegally]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/digitalnomad/1s8tst3.md#c3"
-    char_span: [5729, 7628]
+    char_span: [5728, 7627]
     sentence_count: 13
     key_terms: [immigration, being, "it's", because, actual, freaky, papaya, paying]
     section: Comments

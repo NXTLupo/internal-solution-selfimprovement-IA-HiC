@@ -23,7 +23,7 @@ chunks:
     key_terms: [full-stack, system, microservices, built, internships, tech, attendance, internship]
     token_count: 420
   - id: "social-intelligence/reddit-deep/internships/1sybcd1.md#c1"
-    char_span: [1675, 3039]
+    char_span: [1674, 3038]
     sentence_count: 6
     key_terms: [metrics, resume, get, real, projects, channel, strong, point]
     section: Comments

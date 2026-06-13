@@ -28,37 +28,37 @@ chunks:
     key_terms: [anything, husband, "didn't", speech-impaired, mother-in-law, financially, frustrating, responsible]
     token_count: 182
   - id: "social-intelligence/reddit-deep/povertyfinance/1sopa7u.md#c2"
-    char_span: [3084, 5369]
+    char_span: [3083, 5368]
     sentence_count: 21
     key_terms: [submitter, appropriate, need, advice, please, thank, vents, vent]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/povertyfinance/1sopa7u.md#c3"
-    char_span: [5371, 6899]
+    char_span: [5370, 6898]
     sentence_count: 12
     key_terms: [medicaid, caregiver, clothoswhorl, compensation, disability, retirement, "husband's", mortgage]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/povertyfinance/1sopa7u.md#c4"
-    char_span: [6901, 8364]
+    char_span: [6900, 8363]
     sentence_count: 16
     key_terms: [sorry, "i'm", snap, clothoswhorl, month, countable, medical, income]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/povertyfinance/1sopa7u.md#c5"
-    char_span: [8369, 9843]
+    char_span: [8368, 9842]
     sentence_count: 12
     key_terms: [expenses, out-of-pocket, clothoswhorl, jerry111165, amount, food, look, need]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/povertyfinance/1sopa7u.md#c6"
-    char_span: [9845, 11801]
+    char_span: [9844, 11800]
     sentence_count: 12
     key_terms: [local, help, services, office, squash, food, deliver, several]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/povertyfinance/1sopa7u.md#c7"
-    char_span: [11803, 13758]
+    char_span: [11802, 13757]
     sentence_count: 17
     key_terms: [help, clothoswhorl, gettingbacktorc, husband, church, financially, time, work]
     section: Comments

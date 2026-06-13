@@ -23,7 +23,7 @@ chunks:
     key_terms: [marketing, like, roles, internships, ads, findapath, comments, strategy]
     token_count: 279
   - id: "social-intelligence/reddit-deep/findapath/1lj7qt1.md#c1"
-    char_span: [1238, 2906]
+    char_span: [1237, 2905]
     sentence_count: 13
     key_terms: [thank, helpful, please, able, good, help, findapath, comments]
     section: Comments

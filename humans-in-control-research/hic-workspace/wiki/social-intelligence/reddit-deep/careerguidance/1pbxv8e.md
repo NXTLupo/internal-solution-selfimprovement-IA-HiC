@@ -21,37 +21,37 @@ chunks:
     key_terms: [careerguidance, underrated, comments, advice, misunderstandings, work, productivity, reddit-deep]
     token_count: 158
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c1"
-    char_span: [697, 2526]
+    char_span: [696, 2525]
     sentence_count: 12
     key_terms: [environment, hard, work, peaceful, position, deleted, other-razzmatazz-816, mediocre-career8695]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c2"
-    char_span: [2333, 4281]
+    char_span: [2332, 4280]
     sentence_count: 16
     key_terms: [something, fight, time, eventually, everything, complain, everyone, limbodog]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c3"
-    char_span: [4001, 5539]
+    char_span: [4000, 5538]
     sentence_count: 13
     key_terms: [longer, task, deleted, forever, greatly, perfect, product, served]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c4"
-    char_span: [5541, 7311]
+    char_span: [5540, 7310]
     sentence_count: 14
     key_terms: [own, experience, solutions, mistakes, because, perfect, months, trying]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c5"
-    char_span: [7313, 8601]
+    char_span: [7312, 8600]
     sentence_count: 13
     key_terms: [kind, people, "don't", work, bounderies, solutions, kindness, because]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1pbxv8e.md#c6"
-    char_span: [8603, 10290]
+    char_span: [8602, 10289]
     sentence_count: 8
     key_terms: [apprehensivecrab96, get, work, hard, goldcarats, something, someone, people]
     section: Comments

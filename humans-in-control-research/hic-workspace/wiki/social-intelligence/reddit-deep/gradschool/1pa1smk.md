@@ -28,7 +28,7 @@ chunks:
     key_terms: [realistically, significantly, application, competitive, activities, graduating, leadership, programs]
     token_count: 67
   - id: "social-intelligence/reddit-deep/gradschool/1pa1smk.md#c2"
-    char_span: [2397, 3269]
+    char_span: [2396, 3268]
     sentence_count: 5
     key_terms: [time, research, neurosciencenerd, extra, year, related, usually, matter]
     section: Comments

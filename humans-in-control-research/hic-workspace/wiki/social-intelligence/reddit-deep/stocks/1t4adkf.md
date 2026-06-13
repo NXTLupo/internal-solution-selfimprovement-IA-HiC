@@ -28,25 +28,25 @@ chunks:
     key_terms: [reddit, stocks, https, com, www, author, search, indicator]
     token_count: 305
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c2"
-    char_span: [3013, 4443]
+    char_span: [3012, 4442]
     sentence_count: 10
     key_terms: [reality, unprecedented, years, time, inflation, economy, finally, markets]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c3"
-    char_span: [4445, 5251]
+    char_span: [4444, 5250]
     sentence_count: 6
     key_terms: [investigatorplus3229, stock, sportsguru4714, bornalivedead, propelling, declining, happening, sentiment]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c4"
-    char_span: [5253, 7006]
+    char_span: [5252, 7005]
     sentence_count: 9
     key_terms: [moddingspreee, rally, msft, investment, billion, google, investigatorplus3229, internetsolid4166]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1t4adkf.md#c5"
-    char_span: [6809, 7788]
+    char_span: [6808, 7787]
     sentence_count: 3
     key_terms: [long, been, momentum, anyone, farms, empathyfabrication, internetsolid4166, fakietreflip]
     section: Comments

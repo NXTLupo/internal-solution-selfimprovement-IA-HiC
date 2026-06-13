@@ -23,31 +23,31 @@ chunks:
     key_terms: [job, company, careerguidance, doing, engineering, day, work, comments]
     token_count: 327
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c1"
-    char_span: [1392, 3418]
+    char_span: [1391, 3417]
     sentence_count: 21
     key_terms: [doing, start, job, work, yourself, responsibility, self-medicate, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c2"
-    char_span: [3420, 5471]
+    char_span: [3419, 5470]
     sentence_count: 29
     key_terms: [get, find, company, money, got, job, impression, protection]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c3"
-    char_span: [5473, 7494]
+    char_span: [5472, 7493]
     sentence_count: 23
     key_terms: [employees, private, equity, get, easy, facilities, management, company]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c4"
-    char_span: [7496, 9665]
+    char_span: [7495, 9664]
     sentence_count: 18
     key_terms: [been, employees, time, get, like, engineers, contract, process]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1mvwbup.md#c5"
-    char_span: [9667, 11055]
+    char_span: [9666, 11054]
     sentence_count: 15
     key_terms: [project, management, experience, manufacturing, engineering, mentioned, company, higher]
     section: Comments

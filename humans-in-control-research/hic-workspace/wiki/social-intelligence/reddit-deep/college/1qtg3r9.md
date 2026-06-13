@@ -23,25 +23,25 @@ chunks:
     key_terms: ["it's", college, credit, class, major, withdrawing, comments, because]
     token_count: 259
   - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c1"
-    char_span: [1083, 1396]
+    char_span: [1082, 1395]
     sentence_count: 2
     key_terms: ["it's", waste, no-championship-4, time, emarialartayu, financially, transcript, withdrawal]
     section: Comments
     token_count: 93
   - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c2"
-    char_span: [1398, 3362]
+    char_span: [1397, 3361]
     sentence_count: 17
     key_terms: [time, class, hours, major, get, dropping, drop, definitely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c3"
-    char_span: [3109, 3445]
+    char_span: [3108, 3444]
     sentence_count: 3
     key_terms: [valuablemistake8521, class, definitely, miserable, something, changing, valuable, yourself]
     section: Comments
     token_count: 82
   - id: "social-intelligence/reddit-deep/college/1qtg3r9.md#c4"
-    char_span: [3447, 4038]
+    char_span: [3446, 4037]
     sentence_count: 3
     key_terms: [financial, square-tomorrow3837, aid, sure, cherrycokeee27, lower-ad-7109, especially, graduating]
     section: Comments

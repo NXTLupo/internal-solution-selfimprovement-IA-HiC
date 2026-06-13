@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sgkc9d.md#c0"
-    char_span: [0, 373]
+    char_span: [0, 372]
     sentence_count: 3
     key_terms: [careerguidance, comments, implementation, onlymypvthoes, opportunities, reddit-deep, referrals, solutions]
-    token_count: 99
+    token_count: 98
 ---
 # Looking for referrals, guidance, or full time opportunities in Technical PM / AI implementation / solutions roles across the US. Any advice?
 

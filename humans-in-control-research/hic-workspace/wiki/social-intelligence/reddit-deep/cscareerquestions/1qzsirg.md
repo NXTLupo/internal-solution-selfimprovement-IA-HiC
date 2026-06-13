@@ -21,13 +21,13 @@ chunks:
     key_terms: [interviews, experience, prior, cscareerquestions, mscs, completed, undergrad, comments]
     token_count: 298
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c1"
-    char_span: [1273, 3216]
+    char_span: [1272, 3215]
     sentence_count: 23
     key_terms: [engineering, like, therealbigback91, couple, years, get, tech, interviews]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qzsirg.md#c2"
-    char_span: [3218, 3968]
+    char_span: [3217, 3967]
     sentence_count: 7
     key_terms: [internship, offer, full, get, time, risingsun1964, connections, experience]
     section: Comments

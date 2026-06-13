@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, internships, help, need, comments, please, month, solve]
     token_count: 173
   - id: "social-intelligence/reddit-deep/internships/1tifnr9.md#c1"
-    char_span: [718, 1280]
+    char_span: [717, 1279]
     sentence_count: 8
     key_terms: [linkedin, skills, "you're", react, like, professionals, internships, nian2326076]
     section: Comments

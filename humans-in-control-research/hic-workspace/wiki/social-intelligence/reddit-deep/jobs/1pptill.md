@@ -31,91 +31,91 @@ chunks:
     key_terms: [field, fired, hurt, inappropriate, conversation, acknowledge, reprimanded, harassment]
     token_count: 134
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c3"
-    char_span: [3438, 4980]
+    char_span: [3438, 4979]
     sentence_count: 9
     key_terms: [family, fluffyassistant7107, "couldn't", torture, pulled, place, words, lifes-a-lil-foggy]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c4"
-    char_span: [4982, 6558]
+    char_span: [4981, 6557]
     sentence_count: 8
     key_terms: [sexual, inappropriate, new, unplanned, creepy, u-dull-western9379, hire, own]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c5"
-    char_span: [6560, 8533]
+    char_span: [6559, 8532]
     sentence_count: 19
     key_terms: [because, like, work, people, inappropriate, childhood, something, riddance]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c6"
-    char_span: [8535, 10444]
+    char_span: [8534, 10443]
     sentence_count: 16
     key_terms: [get, got, harassment, drinking, personal, company, trapped, person]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c7"
-    char_span: [10446, 12253]
+    char_span: [10445, 12252]
     sentence_count: 11
     key_terms: [either, terminate, response, someone, autism, responsible-dig-359, being, hire]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c8"
-    char_span: [12255, 14270]
+    char_span: [12254, 14269]
     sentence_count: 23
     key_terms: [fluffyassistant7107, friends, learned, lesson, office, close, early, like]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c9"
-    char_span: [14272, 15623]
+    char_span: [14271, 15622]
     sentence_count: 14
     key_terms: [work, people, experience, conversation, sex, remotely, advice, brings]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c10"
-    char_span: [15625, 17285]
+    char_span: [15624, 17284]
     sentence_count: 11
     key_terms: [conversation, language, judged, people, black, gonna, material-heron6336, mynameisnotsparta]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c11"
-    char_span: [17287, 18531]
+    char_span: [17286, 18530]
     sentence_count: 10
     key_terms: [work, personal, people, plentycryptographer5, avoid, day, like, need]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c12"
-    char_span: [18533, 20142]
+    char_span: [18532, 20141]
     sentence_count: 8
     key_terms: [inappropriate, far, too, work, discussion, randyest, office, sexual]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c13"
-    char_span: [20144, 22180]
+    char_span: [20143, 22179]
     sentence_count: 16
     key_terms: [bullet, telling, dodged, did, work, educating, catholic, believe]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c14"
-    char_span: [21939, 22533]
+    char_span: [21938, 22532]
     sentence_count: 7
     key_terms: [relationship, parents, guys, "it's", generalizations, unconscious, dogmomaf15, something]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c15"
-    char_span: [22535, 24509]
+    char_span: [22534, 24508]
     sentence_count: 14
     key_terms: [inappropriate, conversation, office, "wasn't", "you're", come, "it's", like]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c16"
-    char_span: [24512, 26554]
+    char_span: [24511, 26553]
     sentence_count: 20
     key_terms: [conversation, personal, unplanned, parents, keep, work, definitely, different]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1pptill.md#c17"
-    char_span: [26556, 27196]
+    char_span: [26555, 27195]
     sentence_count: 3
     key_terms: [inappropriate, gobirds1-11-6-26, professionalism, conversation, professional, challenge, diligent, problems]
     section: Comments

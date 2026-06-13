@@ -1,0 +1,78 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: cash plus, plus account, cash plus account, card, automatic, vanguard cash plus, vanguard cash
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Representative: "Thanks for confirming this, but there is not a option at this time to be able to do this on a recurring basis from your Cash Plus account to your other Vanguard account."
+
+EXAMPLE 2:
+Vanguard Cash Plus can't do automatic investments TLDR: there's no way to set up automatic investments from Vanguard Cash Plus into a Vanguard Brokerage Account.
+
+EXAMPLE 3:
+Cash Plus Automatic Withdrawals Does the Vanguard Cash Plus Account not allow for automatic withdrawals? I have found the page for setting up automatic deposits, but not automatic withdrawals.
+
+EXAMPLE 4:
+u/enki941 does it make sense to create a Wiki for this type of information? While I have the Vanguard Cash Plus account, I only use it as basically a long term savings account, with a mix of cash and VMRXX (which gives a slightly better return right now). I find it a little too limited for it to be a true cash management account like Fidelity has. I'm happy they have it, as it is a convenient place to park some cash, but I've heard similar reports of some stuff just not working. [...]
+
+EXAMPLE 5:
+Where can Vanguard Cash Plus Account not be used for payment? I have had the Vanguard Cash Plus Account for a few months and the only place it I can't use it is to pay my **Target Circle (formerly Red) Card**.
+
+EXAMPLE 6:
+I want to keep this split investment between fund A and B in my brokerage, but I want the funding source to be my vanguard cash plus account, not my external bank account. How do I do this? On the website, when I click on cash plus > transfer cash menu > withdraw, it allows me to do a one-time withdrawal, but that's not what I want. I want a recurring withdrawal, with the split allocation."
+
+EXAMPLE 7:
+"I have a cash plus account and a brokerage account. I want to make a weekly, automatic withdrawal from my cash plus account into my brokerage account.
+
+EXAMPLE 8:
+If it's not possible has anyone had success with setting up automatic ACH pulls from their financial institution from the Cash Plus account?  I'm not sure if it is possible to do automatic withdrawals, but you can definitely do ACH pulls from other financial institutions.
+You can set up direct debits of Cash Plus account (ACH pull) from other financial institutions, say, to pay rent/mortgage etc.
+I have setup automatics withdrawals from the other party’s end. To pull for my car payment, credit card etc
+
+EXAMPLE 9:
+>Comenity / Bread Financial non-bank credit card issuer including Bread Amex and AAA signature VISA (added 03/2025)
+
+EXAMPLE 10:
+Currently, I invest in my brokerage account via an automatic weekly investment from my external (non-vanguard) bank. This automatic investment allows me to select a fixed allocation between the 2 funds in my brokerage account. Every week $200 goes to fund A and $100 goes to fund B. Both fund A and B are in my brokerage account.
+
+EXAMPLE 11:
+>Target Red Card "The routing and/or account number is incorrect. Please check your information and try again." (as of 03/2025)
+
+EXAMPLE 12:
+After poking around the website and app for 30 minutes I messaged a representative. Thought this might be useful information for others in this situation.
+
+EXAMPLE 13:
+[https://www.bogleheads.org/forum/viewtopic.php?t=421345&sid=cdd627777e75e6e108b52cfd25b62efa](https://www.bogleheads.org/forum/viewtopic.php?t=421345&sid=cdd627777e75e6e108b52cfd25b62efa)
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

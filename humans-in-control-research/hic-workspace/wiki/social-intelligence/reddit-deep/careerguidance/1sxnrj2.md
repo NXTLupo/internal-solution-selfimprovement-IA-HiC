@@ -7,13 +7,13 @@ subreddit: "careerguidance"
 title: "Job search hacks from a career coach (that actually work) ?"
 author: "sunflowerwellnesshtx"
 date: "2026-04-28T01:56:29.000Z"
-score: 3
-upvote_ratio: 0.6
+score: 2
+upvote_ratio: 0.57
 num_comments: 4
 flair: "Education & Qualifications"
-extracted_at: "2026-06-05T19:52:45.215Z"
+extracted_at: "2026-06-08T18:50:07.145Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sxnrj2.md#c0"
     char_span: [0, 1682]
@@ -30,7 +30,7 @@ chunks:
 # Job search hacks from a career coach (that actually work) ?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sxnrj2/job_search_hacks_from_a_career_coach_that/)
-Posted by **sunflowerwellnesshtx** · **3↑** · **4 comments**
+Posted by **sunflowerwellnesshtx** · **2↑** · **4 comments**
 
 I'm a career coach, and here's what I've seen countless times—job seekers applying to over 100 jobs and hearing nothing. That's not always about experience; it's about strategy.
 

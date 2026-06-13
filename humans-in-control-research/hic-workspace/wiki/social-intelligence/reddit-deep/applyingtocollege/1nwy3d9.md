@@ -26,43 +26,43 @@ chunks:
     key_terms: [grandmother, identified, cornell, instate, matched, student, legacy, school]
     token_count: 36
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c2"
-    char_span: [2439, 4646]
+    char_span: [2438, 4645]
     sentence_count: 13
     key_terms: [engineering, major, schools, school, get, theeclecticgamer, "that's", apply]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c3"
-    char_span: [4343, 6351]
+    char_span: [4342, 6350]
     sentence_count: 18
     key_terms: [engineering, school, tangouniform977, college, purdue, business, because, covered]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c4"
-    char_span: [6353, 8342]
+    char_span: [6352, 8341]
     sentence_count: 13
     key_terms: [engineering, state, colleges-and-departments, including, business, liberal, chapel, school]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c5"
-    char_span: [8345, 10641]
+    char_span: [8344, 10640]
     sentence_count: 14
     key_terms: [engineering, program, need, cornell, student, eurydice227, aid, year]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c6"
-    char_span: [10369, 11476]
+    char_span: [10368, 11475]
     sentence_count: 8
     key_terms: [engineering, programs, cornell, ranking, student, colby-bates-bowdoin, aid, arts]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c7"
-    char_span: [11478, 13838]
+    char_span: [11477, 13837]
     sentence_count: 12
     key_terms: [engineering, programs, schools, school, because, degree, top, admissions]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nwy3d9.md#c8"
-    char_span: [13840, 15148]
+    char_span: [13839, 15147]
     sentence_count: 8
     key_terms: [programs, institution, classmates, dartmouth, year, students, abroad, affiliate]
     section: Comments

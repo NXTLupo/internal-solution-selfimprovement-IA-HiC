@@ -53,49 +53,49 @@ chunks:
     key_terms: [because, engineering, degree, bim, "i've", couple, architecture, field]
     token_count: 316
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c7"
-    char_span: [10258, 12396]
+    char_span: [10257, 12395]
     sentence_count: 7
     key_terms: [cadd, like, degree, building, involves, autocad, working, bigger]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c8"
-    char_span: [12398, 13969]
+    char_span: [12397, 13968]
     sentence_count: 9
     key_terms: [cad, leverage, looking, point, bim, get, "i'm", shit]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c9"
-    char_span: [13971, 16426]
+    char_span: [13970, 16425]
     sentence_count: 17
     key_terms: [degree, management, electives, point, database, important, computer, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c10"
-    char_span: [16092, 17250]
+    char_span: [16091, 17249]
     sentence_count: 9
     key_terms: [degree, important, completing, passionate, passion, career, doing, happy]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c11"
-    char_span: [17252, 19309]
+    char_span: [17251, 19308]
     sentence_count: 9
     key_terms: [like, bachelors, psychology, masters, economics, interests, get, want]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c12"
-    char_span: [19311, 21324]
+    char_span: [19310, 21323]
     sentence_count: 13
     key_terms: [like, shit, want, degree, something, passion, though, video]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c13"
-    char_span: [21326, 23266]
+    char_span: [21325, 23265]
     sentence_count: 14
     key_terms: [like, math, skills, thinking, "don't", guess, get, job]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1s0sp9p.md#c14"
-    char_span: [23268, 24886]
+    char_span: [23267, 24885]
     sentence_count: 8
     key_terms: [something, like, work, degree, skills, economics, thinking, design]
     section: Comments

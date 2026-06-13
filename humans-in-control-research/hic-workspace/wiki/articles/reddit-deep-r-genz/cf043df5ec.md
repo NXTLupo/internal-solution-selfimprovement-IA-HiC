@@ -15,12 +15,12 @@ industries: [retail]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/cf043df5ec.md#c0"
-    char_span: [0, 1023]
+    char_span: [0, 1022]
     sentence_count: 11
     key_terms: [why-gen-z-buys-luxury-its-not-about-money-anymore-475f564580fc, https, comments, discord, brands, luxury, market, reddit]
-    token_count: 270
+    token_count: 269
   - id: "articles/reddit-deep-r-genz/cf043df5ec.md#c1"
-    char_span: [1026, 2544]
+    char_span: [1025, 2543]
     sentence_count: 12
     key_terms: [cars, cavalier, clapped, toyotas, afford, brands, luxury, money]
     token_count: 382

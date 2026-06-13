@@ -23,49 +23,49 @@ chunks:
     key_terms: [ice, sick, comments, employee, managers, called, "didn't", "wasn't"]
     token_count: 343
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c1"
-    char_span: [1447, 3156]
+    char_span: [1446, 3155]
     sentence_count: 8
     key_terms: [issue, call, time, absence, someone, strike, panicswtchd, "it's"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c2"
-    char_span: [3158, 4911]
+    char_span: [3157, 4910]
     sentence_count: 12
     key_terms: [calling, strike, advice, doesn, documented, answer, issue, sound]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c3"
-    char_span: [4914, 6366]
+    char_span: [4913, 6365]
     sentence_count: 14
     key_terms: [important, "i'm", employee, calling, showing, people, reason, greedy-employment917]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c4"
-    char_span: [6368, 7993]
+    char_span: [6367, 7992]
     sentence_count: 16
     key_terms: [policy, benevelotceasar, discretion, exception, deleted, manager, special, handle]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c5"
-    char_span: [7995, 9960]
+    char_span: [7994, 9959]
     sentence_count: 13
     key_terms: [day, call, need, specific, policy, like, guidance, contact]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c6"
-    char_span: [9963, 12034]
+    char_span: [9962, 12033]
     sentence_count: 21
     key_terms: [employee, company, policy, unexpected, absences, coverage, fairness, whatever]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c7"
-    char_span: [12036, 13720]
+    char_span: [12035, 13719]
     sentence_count: 11
     key_terms: [coming, policy, "it's", like, employee, sickness, because, accept]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/managers/1qrd1q3.md#c8"
-    char_span: [13722, 15473]
+    char_span: [13721, 15472]
     sentence_count: 8
     key_terms: [strike, conversation, union, unannounced, call, attendance, disarray, employer]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t6y4tp.md#c0"
-    char_span: [0, 2505]
+    char_span: [0, 2504]
     sentence_count: 17
     key_terms: [finance, engineering, genuinely, cybersecurity, reverse, systems, deeply, side]
-    token_count: 525
+    token_count: 524
 ---
 # Title: Finance Student Deeply Interested in Reverse Engineering / Computer Systems – Career Confusion and Need Honest Advice?
 

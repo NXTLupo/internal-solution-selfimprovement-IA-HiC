@@ -23,25 +23,25 @@ chunks:
     key_terms: [waterloo, comments, areas, young, kids, near, want, neighbourhoods]
     token_count: 166
   - id: "social-intelligence/reddit-deep/waterloo/1q0rsn2.md#c1"
-    char_span: [686, 2519]
+    char_span: [685, 2518]
     sentence_count: 10
     key_terms: [job, foundcityyy, budget, area, jobs, universities, easy, good]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/waterloo/1q0rsn2.md#c2"
-    char_span: [2521, 4532]
+    char_span: [2520, 4531]
     sentence_count: 18
     key_terms: [student, housing, walking, universities, foundcityyy, find, okay, university]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/waterloo/1q0rsn2.md#c3"
-    char_span: [4534, 5617]
+    char_span: [4533, 5616]
     sentence_count: 7
     key_terms: [trish-voisin-42-zaduk-court-conestogo-ontario-n0b1n0, realtor, foundcityyy, get, complexes, probably, question, tbh]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/waterloo/1q0rsn2.md#c4"
-    char_span: [5619, 6597]
+    char_span: [5618, 6596]
     sentence_count: 3
     key_terms: [honhonhonfrfr, neighborhoods, area, families, around, sneakysyllabusreader, lance, circumstance]
     section: Comments

@@ -43,13 +43,13 @@ chunks:
     key_terms: [analyst, private, whether, underwriting, firms, focus, years, development]
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c5"
-    char_span: [9584, 11953]
+    char_span: [9583, 11952]
     sentence_count: 18
     key_terms: [management, acquisitions, industrial, asset, multifamily, firms, good, experience]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1oo75vr.md#c6"
-    char_span: [11955, 12565]
+    char_span: [11954, 12564]
     sentence_count: 4
     key_terms: [industrial, underwriting, programs, research, sector, power, dashboard-handy, culture-screen]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [interview, highereducation, higher, round, institution, job, team, experience]
     token_count: 418
   - id: "social-intelligence/reddit-deep/highereducation/1qpwg1h.md#c1"
-    char_span: [2075, 2846]
+    char_span: [2074, 2845]
     sentence_count: 7
     key_terms: [mobility, college, skills, social, goals, help, implementation, kilolimaoscar]
     section: Comments

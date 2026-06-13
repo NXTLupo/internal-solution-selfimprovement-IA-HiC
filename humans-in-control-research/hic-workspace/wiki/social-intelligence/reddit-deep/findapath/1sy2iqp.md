@@ -23,19 +23,19 @@ chunks:
     key_terms: [job, masters, working, career, secure, neuroscience, occupational, been]
     token_count: 447
   - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c1"
-    char_span: [1946, 3705]
+    char_span: [1945, 3704]
     sentence_count: 14
     key_terms: [thank, creative, helpful, please, alongside, findapath, comments, everyone]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c2"
-    char_span: [3707, 5880]
+    char_span: [3706, 5879]
     sentence_count: 15
     key_terms: [day, degree, doing, healthcare, currently, something, country, problem]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/findapath/1sy2iqp.md#c3"
-    char_span: [5883, 7173]
+    char_span: [5882, 7172]
     sentence_count: 9
     key_terms: ["don't", research, degree, another, masters, grads, miamiconnectionexo, get]
     section: Comments

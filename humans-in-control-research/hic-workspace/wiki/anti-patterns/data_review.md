@@ -26,7 +26,7 @@ chunks:
     key_terms: [source, summary, journal, resolve, author, higher, verification, alternative]
     token_count: 432
   - id: "anti-patterns/data_review.md#c3"
-    char_span: [6007, 6520]
+    char_span: [6006, 6519]
     sentence_count: 3
     key_terms: [patterns, appendlearnedantipattern, added, user, user-correction, auto-appended, consistently, description]
     section: Learned Anti-Patterns (auto-grown)

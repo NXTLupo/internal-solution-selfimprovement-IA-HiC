@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-artificial/ebe356db7c.md#c0"
-    char_span: [0, 1411]
+    char_span: [0, 1410]
     sentence_count: 2
     key_terms: [conscious, claude, too, artificial, eloquence, mechanism, argument, claudia]
-    token_count: 322
+    token_count: 321
 ---
 # Richard Dawkins spent 3 days with Claude and named her "Claudia." what he concluded after is hard to defend.
 

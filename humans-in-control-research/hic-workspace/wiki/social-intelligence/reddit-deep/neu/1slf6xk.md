@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1slf6xk.md#c0"
-    char_span: [0, 735]
+    char_span: [0, 734]
     sentence_count: 7
     key_terms: [transfer, student, comments, co-ops, fall, feel, neu, year]
     token_count: 192

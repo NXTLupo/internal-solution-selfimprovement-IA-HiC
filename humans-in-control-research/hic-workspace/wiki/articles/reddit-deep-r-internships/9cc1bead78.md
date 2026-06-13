@@ -15,12 +15,12 @@ relevance: 30
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
 chunks:
   - id: "articles/reddit-deep-r-internships/9cc1bead78.md#c0"
-    char_span: [0, 1907]
+    char_span: [0, 1906]
     sentence_count: 9
     key_terms: [internships, experience, asked, https, environment, interesting, take, internship]
-    token_count: 446
+    token_count: 445
   - id: "articles/reddit-deep-r-internships/9cc1bead78.md#c1"
-    char_span: [1910, 2499]
+    char_span: [1909, 2498]
     sentence_count: 3
     key_terms: [ropeemotional0910, "don't", honestly, resume, applications, martin3dabot, internship, traddev26]
     token_count: 154

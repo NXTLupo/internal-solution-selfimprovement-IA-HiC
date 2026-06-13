@@ -18,7 +18,7 @@ industries: [financial_services, workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1nbwro0.md#c0"
-    char_span: [0, 1345]
+    char_span: [0, 1344]
     sentence_count: 12
     key_terms: [personalfinance, advice, investments, job, investing, remaining, spendings, comments]
     token_count: 321

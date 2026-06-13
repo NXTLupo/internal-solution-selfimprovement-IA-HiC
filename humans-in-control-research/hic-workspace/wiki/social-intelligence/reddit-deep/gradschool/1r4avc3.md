@@ -23,31 +23,31 @@ chunks:
     key_terms: [another, looking, groups, grad, gradschool, comments, graduate, roommate]
     token_count: 310
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c1"
-    char_span: [1350, 2805]
+    char_span: [1349, 2804]
     sentence_count: 10
     key_terms: [dirtrepresentative9, couple, apartments, "couldn't", students, housing, program, stipend]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c2"
-    char_span: [2807, 4128]
+    char_span: [2806, 4127]
     sentence_count: 10
     key_terms: [partner, point, car, expensive, living, saying, school, bronx]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c3"
-    char_span: [4130, 6278]
+    char_span: [4129, 6277]
     sentence_count: 15
     key_terms: [housing, throwaway172892930, grad, unrealistically, fordham, around, living, bronx]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c4"
-    char_span: [6002, 7421]
+    char_span: [6001, 7420]
     sentence_count: 7
     key_terms: [housing, married, people, right, get, live, marriage, cheaper]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/gradschool/1r4avc3.md#c5"
-    char_span: [7423, 9437]
+    char_span: [7422, 9436]
     sentence_count: 15
     key_terms: [housing, fordham, queens, school, streeteasy, university, position, another]
     section: Comments

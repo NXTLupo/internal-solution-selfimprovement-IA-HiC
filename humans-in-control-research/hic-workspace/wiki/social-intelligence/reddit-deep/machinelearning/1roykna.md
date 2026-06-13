@@ -23,7 +23,7 @@ chunks:
     key_terms: [https, endorsement, agents, memory, arxiv, comments, machinelearning, memento]
     token_count: 453
   - id: "social-intelligence/reddit-deep/machinelearning/1roykna.md#c1"
-    char_span: [1983, 3738]
+    char_span: [1982, 3737]
     sentence_count: 15
     key_terms: [fragments, retrieval, activation, fragment-based, interesting, time, importance, critical]
     section: Comments

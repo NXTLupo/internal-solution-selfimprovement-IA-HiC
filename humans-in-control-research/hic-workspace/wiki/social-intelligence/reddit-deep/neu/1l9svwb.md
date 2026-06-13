@@ -23,7 +23,7 @@ chunks:
     key_terms: [university, survey, looking, recent, pennsylvania, job, neu, understand]
     token_count: 392
   - id: "social-intelligence/reddit-deep/neu/1l9svwb.md#c1"
-    char_span: [1628, 2150]
+    char_span: [1627, 2149]
     sentence_count: 6
     key_terms: ["we'll", results, school, study, part, representing, cross-post, engagement]
     section: Comments

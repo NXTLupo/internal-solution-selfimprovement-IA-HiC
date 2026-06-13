@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, comments, job, imhighoncocaine, recommending, engineering, internships, reddit-deep]
     token_count: 162
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c1"
-    char_span: [657, 2584]
+    char_span: [656, 2583]
     sentence_count: 19
     key_terms: [degree, work, software, graduated, knowledge, aptitude, classes, people]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c2"
-    char_span: [2586, 4674]
+    char_span: [2585, 4673]
     sentence_count: 25
     key_terms: [mumble, "it's", exploration, good, hobbyist, college, mindset, passion]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c3"
-    char_span: [4676, 6209]
+    char_span: [4675, 6208]
     sentence_count: 10
     key_terms: [get, job, software, easier, career, degree, school, pivot]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c4"
-    char_span: [6211, 7316]
+    char_span: [6210, 7315]
     sentence_count: 6
     key_terms: [jobs, embedded, already, checks, calm-tumbleweed-9820, mark, time-constrained, applicability]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c5"
-    char_span: [7318, 9392]
+    char_span: [7317, 9391]
     sentence_count: 10
     key_terms: [degree, data, become, like, work, electrical, structures, software]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c6"
-    char_span: [9104, 9738]
+    char_span: [9103, 9737]
     sentence_count: 7
     key_terms: [swe, watered, level, been, big, down, far, pays]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1u8ll.md#c7"
-    char_span: [9740, 10567]
+    char_span: [9739, 10566]
     sentence_count: 6
     key_terms: [hardware, job, swe, computer, somewherenormal9157, "it's", applications, differential]
     section: Comments

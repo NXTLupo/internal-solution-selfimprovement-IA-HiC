@@ -26,43 +26,43 @@ chunks:
     key_terms: [ideas, here, like, inappropriate, suggestions, disability, outrageous, genuinely]
     token_count: 98
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c2"
-    char_span: [2393, 4450]
+    char_span: [2392, 4449]
     sentence_count: 13
     key_terms: [accommodation, course, record, disability, lectures, set, professor, semester]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c3"
-    char_span: [4452, 6782]
+    char_span: [4451, 6781]
     sentence_count: 14
     key_terms: [class, lectures, schedule, course, online, "it's", material, probably]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c4"
-    char_span: [6784, 7402]
+    char_span: [6783, 7401]
     sentence_count: 4
     key_terms: [class, take, semester, going, maybe, next, prerequisite, perspective]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c5"
-    char_span: [7404, 9555]
+    char_span: [7403, 9554]
     sentence_count: 12
     key_terms: [class, asynchronous, maybe, accommodation, get, disability, different, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c6"
-    char_span: [9326, 9593]
+    char_span: [9325, 9592]
     sentence_count: 3
     key_terms: [class, iknowallseven, accessible, disability, impossible, structured, suggested, instance]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c7"
-    char_span: [9596, 11621]
+    char_span: [9595, 11620]
     sentence_count: 21
     key_terms: [reading, class, accommodation, list, try, work, guardrails, detailed]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/college/1nksr1m.md#c8"
-    char_span: [11624, 12854]
+    char_span: [11623, 12853]
     sentence_count: 8
     key_terms: [accommodation, disability, course, lectures, services, another, options, office]
     section: Comments

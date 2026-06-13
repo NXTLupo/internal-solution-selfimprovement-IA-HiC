@@ -23,31 +23,31 @@ chunks:
     key_terms: [questions, answer, managers, ceo, something, comments, language, research]
     token_count: 379
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c1"
-    char_span: [1699, 3797]
+    char_span: [1698, 3796]
     sentence_count: 11
     key_terms: [learn, experience, alignment, important, questions, teachings, buzzword, "there's"]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c2"
-    char_span: [3799, 4635]
+    char_span: [3798, 4634]
     sentence_count: 8
     key_terms: [like, different, answers, "that's", right, lot, believer2687, performative]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c3"
-    char_span: [4637, 6237]
+    char_span: [4636, 6236]
     sentence_count: 11
     key_terms: [believer2687, supportive, managers, manager, process, sharing, trained, update]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c4"
-    char_span: [6239, 8264]
+    char_span: [6238, 8263]
     sentence_count: 21
     key_terms: [information, because, "don't", direct, trying, irreplaceable, communicate, "i'm"]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/managers/1rtho66.md#c5"
-    char_span: [8266, 10609]
+    char_span: [8265, 10608]
     sentence_count: 18
     key_terms: [information, because, working, going, jccaclimber, ship, definitely, priorities]
     section: Comments

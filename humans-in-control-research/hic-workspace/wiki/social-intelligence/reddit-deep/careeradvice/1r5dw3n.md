@@ -18,7 +18,7 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1r5dw3n.md#c0"
-    char_span: [0, 1659]
+    char_span: [0, 1658]
     sentence_count: 15
     key_terms: ["i'm", career, careeradvice, jobs, background, generation, something, comments]
     token_count: 433

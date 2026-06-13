@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, systems, productive, people, less, new, comments, spending]
     token_count: 316
   - id: "social-intelligence/reddit-deep/productivity/1p16umt.md#c1"
-    char_span: [1496, 3418]
+    char_span: [1495, 3417]
     sentence_count: 26
     key_terms: [system, productivity, done, get, new, work, perfect, elpiet]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/productivity/1p16umt.md#c2"
-    char_span: [3420, 5398]
+    char_span: [3419, 5397]
     sentence_count: 15
     key_terms: [productivity, activities, tools, concentrating, time, productive, instead, systems]
     section: Comments

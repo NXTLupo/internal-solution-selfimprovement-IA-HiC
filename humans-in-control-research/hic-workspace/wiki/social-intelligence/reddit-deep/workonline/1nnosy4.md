@@ -23,7 +23,7 @@ chunks:
     key_terms: [like, student, people, skills, philippines, feel, here, workonline]
     token_count: 497
   - id: "social-intelligence/reddit-deep/workonline/1nnosy4.md#c1"
-    char_span: [2147, 3477]
+    char_span: [2146, 3476]
     sentence_count: 12
     key_terms: [potential, emotion, humans, skills, human, learn, accordingloss2675, don]
     section: Comments

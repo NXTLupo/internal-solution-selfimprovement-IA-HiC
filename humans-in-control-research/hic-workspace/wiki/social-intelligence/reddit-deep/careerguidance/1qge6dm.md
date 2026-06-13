@@ -21,25 +21,25 @@ chunks:
     key_terms: [limited, careerguidance, retail, interpersonal, years, job, background, associate]
     token_count: 436
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c1"
-    char_span: [2022, 2952]
+    char_span: [2021, 2951]
     sentence_count: 5
     key_terms: [places, retail, banks, roles, experience, people, skills, local]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c2"
-    char_span: [2954, 4925]
+    char_span: [2953, 4924]
     sentence_count: 16
     key_terms: [store, background, customers, probably, counter, people, places, retail]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c3"
-    char_span: [4927, 7059]
+    char_span: [4926, 7058]
     sentence_count: 24
     key_terms: [job, too, require, good, security, grocery, patient, systems]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1qge6dm.md#c4"
-    char_span: [7061, 7811]
+    char_span: [7060, 7810]
     sentence_count: 12
     key_terms: [something, customer, hospital, service, working, representative, proficiency, wheelchairs]
     section: Comments

@@ -1,0 +1,138 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: vanguard, loan, plan, ups, 401k, rollover, check
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Lost/delayed 401k rollover check from vanguard UPDATE: Package(?) showed up two days late after having no scans in the UPS system for 3+ days. It got lost/delayed getting to the local hub in LA, but I don’t blame UPS.
+
+EXAMPLE 2:
+Vanguard is very fast on ACH transfers, which are free.  Always 1 day as long as a weekend is not in the way.
+It’s a 401k rollover. If you can point me to an electronic rollover option, I’d love it. But I’m 99.999% certain the only option is a paper check.
+
+EXAMPLE 3:
+Apparently I have to open my own inquiry with UPS, then let Vanguard know I’ve done that, and after 10 days have passed from the initial check issuance, they will issue me a new check.
+
+EXAMPLE 4:
+On 12/22/2025, I rolled over some money from my 401k to my VG IRA. Fair enough, I could not touch the money for 9 days and now it is ready and shows up in my account as ready to withdraw.
+
+EXAMPLE 5:
+Get your act together Vanguard. Next time, I’ll probably skip the expedited service. I have another 401k to rollover at some point.  
+——
+
+EXAMPLE 6:
+Ugh. Had a whole post written asking about how Vanguard handles this, but then I just decided to call Vanguard first.
+
+EXAMPLE 7:
+Thank you  If two different Vanguard reps gave you the same incorrect rollover instructions and it caused a taxable event you never intended, that’s not on you. A few things I’d strongly recommend:
+
+EXAMPLE 8:
+3. Loop in your plan administrator (not just Vanguard).
+Your employer’s plan administrator or HR benefits department has more authority than you think.
+If the SRIP was mistakenly made available, that’s an employer plan error, and they may be required to correct it under IRS/ERISA rules.
+
+EXAMPLE 9:
+What hogwash. I should have just had it sent USPS. Why they don’t they have an electronic option in 2026 is baffling. Finally showed up today after making it to the origin facility last night, followed by all the scans you'd expect.
+FWIW:  I've linked my checking account to Vanguard for money transfers.  If I initiate a transfer at 10am on Monday, it will be at my Credit Union by 10 am on Tuesday.
+
+EXAMPLE 10:
+So my time with this company is up. I am have accounts with 2 other large brokerage houses and am sure they will be happy to receive my VG funds.
+
+EXAMPLE 11:
+2 years ago, a Vanguard agent gave me erroneously instructions to roll in an outside 401k fund into my SRIP fund. My employer mistakenly made this fund available to a segment of their employees and should not be open, therefore will be liquidated. Last month, another agent did the same mistake to do a in-plan roll over, and it went again into the SRIP (which is will be close out). Vanguard, called me 2 days later to correct that, to roller over to my 401k. I open a ticket to Vanguard to possibly correct their mistake. [...]
+
+EXAMPLE 12:
+Ready to move my investments from Vanguard I have been with Vanguard since 1992 and have a decent amount invested with them. I find that they are becoming a burden to deal with and after a bad experience today, have decided to dump them.
+
+EXAMPLE 13:
+I put the blame squarely on Vanguard for this. It was sent in a large paper mailing envelope, not a UPS overnight stiff cardboard envelope like it should have been. It clearly got stuck in a bag or bin somewhere. UPS is not setup to handle an envelope that USPS handles very well.
+
+EXAMPLE 14:
+In short, my several hundred thousand dollar direct rollover check, sent expedited via UPS, was picked up by UPS on Saturday and has gone into limbo land since. No further scans, so very likely lost at this point.
+
+EXAMPLE 15:
+1. Escalate beyond the frontline reps.
+Ask to speak with:
+A supervisor or the vanguard Retirement Plan Services escalation team
+
+EXAMPLE 16:
+4. Ask about a “plan-level correction” under the IRS Employee Plans Compliance Resolution System (EPCRS).
+This is fancy IRS language for “fixing mistakes without punishing the employee.”
+If the plan or Vanguard gave bad direction, they might be required to correct the tax consequences.
+
+EXAMPLE 17:
+I called (got a person in India) and was told that my funds had to be with them for 60 days before I could do anything. I asked for an override to do a QCD and they agreed. But, I had me jump through hoops. After answering all their questions they called my 401k administrator to verify my name, dob, address, $ amount rolled over, check number etc. etc. (with me on the line in tandem). Then the VG agent spent a good 30 minutes processing everything and informed me that I would have to seek their override permission every time I needed to do a QCD before their 60 day freeze was over. [...]
+
+EXAMPLE 18:
+2. Document everything.
+Write down:
+Dates of the calls
+What instructions were given
+Who told you to do the in-plan rollover
+The result of the SRIP liquidation
+The more bulletproof your timeline, the easier it is for them to reconsider.
+
+EXAMPLE 19:
+7. Worst case, request Vanguard provide:
+A written statement acknowledging the bad guidance
+A tax indemnification letter
+Or a reimbursement for any taxes/penalties
+They won’t offer this upfront, but escalations sometimes approve it when the facts are clear.
+
+EXAMPLE 20:
+That said, I moved my largest account out of Vanguard recently, though for different reasons. There are/were few people who were more of a Vanguard champion than me. I gave them grace for years, but eventually I couldn’t take it anymore - I had to move an account out. Customer service issues, website and app problems for 10+ years, restrictions on what investments you can buy/hold in a brokerage account, and then what became the most frustrating for me - charges for paper documents and how they handled that (implemented it, then changed the waiver criteria less than a year later.). [...]
+
+EXAMPLE 21:
+6. Your accountant is right to be involved, but you may also want to consult an ERISA attorney.
+You don’t necessarily need to sue, but attorneys know the exact language to use so large custodians stop shrugging their shoulders.
+
+EXAMPLE 22:
+I tried to do a QCD online today, and got the following message "The shares you’re trying to redeem were recently purchased. To protect your account, we can send the proceeds from the sale of those shares only to the institution and account from which they originated.  
+To complete this transaction, you can choose to send the proceeds to the originating institution and account. If you purchased the shares by check, or if you have questions about this transaction, contact us for assistance."
+
+EXAMPLE 23:
+I’m not aware if that 60-day hold is industry standard or not. (Does anyone know?)
+There is this fine line between “security” and inconvenience - I’ve been super frustrated by that with plenty of firms. However the amount of fraud out there is so great, you can understand why these firms have to put some practices in place to protect themselves, let alone us.
+
+EXAMPLE 24:
+Or specifically request their “Case Review Team”
+Frontline reps almost never admit fault, but escalations sometimes do.
+
+EXAMPLE 25:
+5. Since it happened twice and affected multiple employees this could be a pattern.
+That dramatically strengthens your argument.
+One rep messing up is human.
+Two reps plus other employees in the same situation is a systemic issue.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

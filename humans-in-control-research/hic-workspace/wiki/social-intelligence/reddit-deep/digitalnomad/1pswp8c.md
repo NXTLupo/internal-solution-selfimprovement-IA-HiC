@@ -23,43 +23,43 @@ chunks:
     key_terms: [booking, feedback, details, flight, digitalnomad, "i'm", struggling, community]
     token_count: 400
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c1"
-    char_span: [1756, 3426]
+    char_span: [1755, 3425]
     sentence_count: 19
     key_terms: [like, booking, problem, google, autofill, "doesn't", people, travel]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c2"
-    char_span: [3428, 5424]
+    char_span: [3427, 5423]
     sentence_count: 14
     key_terms: [airline, travelers, directly, booking, support, through, trust, midomidito]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c3"
-    char_span: [5426, 7568]
+    char_span: [5425, 7567]
     sentence_count: 28
     key_terms: ["it's", service, midomidito, time, nolatearrivals, enough, everyone, websites]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c4"
-    char_span: [7289, 7964]
+    char_span: [7288, 7963]
     sentence_count: 6
     key_terms: [midomidito, period, route, home, png, i5b9bzqgqq8g1, compelling, anything]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c5"
-    char_span: [7966, 9320]
+    char_span: [7965, 9319]
     sentence_count: 16
     key_terms: [booking, flights, journey, search, immediately, book, show, alliance]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c6"
-    char_span: [9322, 11323]
+    char_span: [9321, 11322]
     sentence_count: 23
     key_terms: [transparent, "it's", like, too, booking, website, especially, midomidito]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/digitalnomad/1pswp8c.md#c7"
-    char_span: [11326, 12129]
+    char_span: [11325, 12128]
     sentence_count: 3
     key_terms: [different, because, booking, process, service, "don't", book, time]
     section: Comments

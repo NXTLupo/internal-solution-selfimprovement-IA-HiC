@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/3a9fab81fe.md#c0"
-    char_span: [0, 1512]
+    char_span: [0, 1511]
     sentence_count: 12
     key_terms: [year, experience, internships, engineeringstudents, projects, engineering, internship, seriously]
-    token_count: 313
+    token_count: 312
 ---
 # When should engineering students seriously start preparing for internships?
 

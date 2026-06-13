@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/uwaterloo/1tmugtz.md#c0"
-    char_span: [0, 347]
+    char_span: [0, 346]
     sentence_count: 2
     key_terms: [uwaterloo, comments, reddit-deep, possible, waterloo, program, regular, version]
-    token_count: 97
+    token_count: 96
 ---
 # I got it into Waterloo health sci for the regular program, is it possible for me to switch into the co-op version?
 

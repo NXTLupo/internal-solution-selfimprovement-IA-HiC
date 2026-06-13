@@ -23,19 +23,19 @@ chunks:
     key_terms: ["i'm", taught, "don't", money, never, personalfinance, parents, savings]
     token_count: 336
   - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c1"
-    char_span: [1453, 3551]
+    char_span: [1452, 3550]
     sentence_count: 29
     key_terms: [need, personalfinance, budget, "you're", spend, accountable, wiki, decisions]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c2"
-    char_span: [3553, 5540]
+    char_span: [3552, 5539]
     sentence_count: 23
     key_terms: ["don't", "it's", money, understand, income, spend, emergency, anything]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1qpmi31.md#c3"
-    char_span: [5542, 6321]
+    char_span: [5541, 6320]
     sentence_count: 6
     key_terms: [get, committeesome6736, plan, temporarily, discipline, budgeting, encourage, estimated]
     section: Comments

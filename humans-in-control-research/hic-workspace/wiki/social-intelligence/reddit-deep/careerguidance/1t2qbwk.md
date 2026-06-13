@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t2qbwk.md#c0"
-    char_span: [0, 731]
+    char_span: [0, 730]
     sentence_count: 6
     key_terms: [careerguidance, job, comments, shake, steps, caregiverextra1170, new, nervousness]
-    token_count: 189
+    token_count: 188
 ---
 # How do you shake the under confidence out of your system and start new or shift completely to a new career in a terrible job market?
 

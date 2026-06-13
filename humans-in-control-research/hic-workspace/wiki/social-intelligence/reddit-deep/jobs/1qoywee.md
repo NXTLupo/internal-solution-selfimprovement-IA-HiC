@@ -21,19 +21,19 @@ chunks:
     key_terms: [comments, jobs, longdongdottcom, reddit-deep, appreciate, feedback, posted, reddit]
     token_count: 85
   - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c1"
-    char_span: [288, 2402]
+    char_span: [287, 2401]
     sentence_count: 24
     key_terms: [resume, specifically, roles, education, use, unless, realistically, microsoft]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c2"
-    char_span: [2404, 3357]
+    char_span: [2403, 3356]
     sentence_count: 12
     key_terms: [education, college, mention, school, appropriate-tutor587, doing, date, help]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/jobs/1qoywee.md#c3"
-    char_span: [3359, 4750]
+    char_span: [3358, 4749]
     sentence_count: 9
     key_terms: [longdongdottcom, gpa, put, college, outlook, remove, school, appropriate-tutor587]
     section: Comments

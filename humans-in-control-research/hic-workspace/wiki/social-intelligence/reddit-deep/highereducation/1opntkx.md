@@ -23,19 +23,19 @@ chunks:
     key_terms: [highereducation, comments, laura-growthspurt, communications, incorporated, prospective, reddit-deep, applicants]
     token_count: 110
   - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c1"
-    char_span: [505, 2701]
+    char_span: [504, 2700]
     sentence_count: 14
     key_terms: [college, redghostorchid, change, higher, moving, school, martechnician, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c2"
-    char_span: [2439, 3395]
+    char_span: [2438, 3394]
     sentence_count: 6
     key_terms: [school, communications, alumni, university, happening, marketing, towards, career]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/highereducation/1opntkx.md#c3"
-    char_span: [3397, 5090]
+    char_span: [3396, 5089]
     sentence_count: 13
     key_terms: [departments, marketing, budgets, like, year, enrollment, experience, lifelong]
     section: Comments

@@ -21,31 +21,31 @@ chunks:
     key_terms: [internships, engineeringstudents, engineering, gpa, job, comments, average, college]
     token_count: 386
   - id: "social-intelligence/reddit-deep/engineeringstudents/1puna36.md#c1"
-    char_span: [1706, 3825]
+    char_span: [1705, 3824]
     sentence_count: 13
     key_terms: [casual, people, skills, like, talk, interviews, generally, interview]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/engineeringstudents/1puna36.md#c2"
-    char_span: [3827, 6053]
+    char_span: [3826, 6052]
     sentence_count: 15
     key_terms: [people, conversation, got, darkblitz01, kind, like, put, talk]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/engineeringstudents/1puna36.md#c3"
-    char_span: [6056, 7957]
+    char_span: [6055, 7956]
     sentence_count: 14
     key_terms: [society, great, "i've", join, lot, networking, engineers, socially]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/engineeringstudents/1puna36.md#c4"
-    char_span: [7959, 8848]
+    char_span: [7958, 8847]
     sentence_count: 6
     key_terms: [because, social, never, does, guy, "i'm", job, like]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/engineeringstudents/1puna36.md#c5"
-    char_span: [8850, 10517]
+    char_span: [8849, 10516]
     sentence_count: 9
     key_terms: [technical, get, interns, fields, higher, reddit, social, folks]
     section: Comments

@@ -69,6 +69,47 @@ MEASURE = r"""
 """
 
 
+# 2026-06-10 - NATIVE GEOMETRY tier (the 1-to-1 editable contract). Walks the
+# stage and emits every visible background fill and per-side border as a rect
+# spec, in DOM paint order. Slides without SVG render as FULLY NATIVE shapes +
+# editable text (no raster at all); stages containing SVG (journey emotion
+# curves) keep the proven raster graphic layer for the SVG fidelity.
+GEO = r"""
+() => {
+  const stage = document.querySelector('#stage');
+  if(!stage) return {rects:[], hasSvg:false};
+  const sr = stage.getBoundingClientRect();
+  const parse=(c)=>{const m=(c||'').match(/rgba?\(([^)]+)\)/); if(!m) return null;
+    const p=m[1].split(',').map(s=>parseFloat(s.trim()));
+    return {r:p[0],g:p[1],b:p[2],a:p.length>=4?p[3]:1};};
+  const hex=(o)=>{const h=n=>('0'+Math.max(0,Math.min(255,Math.round(n))).toString(16)).slice(-2);
+    return (h(o.r)+h(o.g)+h(o.b)).toUpperCase();};
+  const rects=[];
+  const push=(x,y,w,h,col)=>{
+    if(!col||col.a===0||w<0.5||h<0.5) return;
+    rects.push({x:x-sr.left,y:y-sr.top,w:w,h:h,fill:hex(col),alpha:col.a});
+  };
+  const walk=(el)=>{
+    if(el.tagName==='svg') return;
+    const cs=getComputedStyle(el);
+    if(cs.display==='none'||cs.visibility==='hidden') return;
+    const b=el.getBoundingClientRect();
+    const bg=parse(cs.backgroundColor);
+    if(bg&&bg.a>0) push(b.left,b.top,b.width,b.height,bg);
+    const lw=parseFloat(cs.borderLeftWidth)||0, rw=parseFloat(cs.borderRightWidth)||0,
+          tw=parseFloat(cs.borderTopWidth)||0, bw=parseFloat(cs.borderBottomWidth)||0;
+    if(lw>=0.5&&cs.borderLeftStyle!=='none') push(b.left,b.top,lw,b.height,parse(cs.borderLeftColor));
+    if(rw>=0.5&&cs.borderRightStyle!=='none') push(b.right-rw,b.top,rw,b.height,parse(cs.borderRightColor));
+    if(tw>=0.5&&cs.borderTopStyle!=='none') push(b.left,b.top,b.width,tw,parse(cs.borderTopColor));
+    if(bw>=0.5&&cs.borderBottomStyle!=='none') push(b.left,b.bottom-bw,b.width,bw,parse(cs.borderBottomColor));
+    for(const k of el.children) walk(k);
+  };
+  walk(stage);
+  return {rects, hasSvg: !!stage.querySelector('svg')};
+}
+"""
+
+
 def html_to_editable_pptx(html: str, out_path: str) -> dict:
     """Render ONE gold-language HTML stage to an editable .pptx at out_path. Returns a small report.
 
@@ -161,13 +202,60 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         pass
                     pg.wait_for_timeout(500)
                     m = pg.evaluate(MEASURE)
-                    pg.add_style_tag(content=HIDE_TEXT)
-                    pg.wait_for_timeout(120)
-                    pg.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
+                    geo = pg.evaluate(GEO)
+                    native = bool(geo.get("rects")) and not geo.get("hasSvg")
+                    if not native:
+                        # SVG present (or geometry walk empty): keep the proven
+                        # raster graphic layer so curves stay pixel-faithful.
+                        pg.add_style_tag(content=HIDE_TEXT)
+                        pg.wait_for_timeout(120)
+                        pg.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
                     pg.close()
 
                     slide = prs.slides.add_slide(prs.slide_layouts[6])
-                    slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333 * EMU)), height=Emu(int(7.5 * EMU)))
+                    if native:
+                        # NATIVE GEOMETRY tier: every fill and border bar is a real
+                        # PPTX rectangle a consultant can recolor/move/resize.
+                        from pptx.enum.shapes import MSO_SHAPE
+                        try:
+                            from pptx_export import _set_solid_fill_with_alpha, _suppress_effects
+                        except Exception:
+                            _set_solid_fill_with_alpha = None
+                            _suppress_effects = None
+                        for rc in geo["rects"]:
+                            if rc["x"] >= W or rc["y"] >= H:
+                                continue
+                            shp = slide.shapes.add_shape(
+                                MSO_SHAPE.RECTANGLE, ex(rc["x"]), ey(rc["y"]),
+                                ex(max(rc["w"], 1.0)), ey(max(rc["h"], 1.0)))
+                            shp.shadow.inherit = False
+                            shp.line.fill.background()
+                            if _set_solid_fill_with_alpha is not None and rc.get("alpha", 1) < 1:
+                                _set_solid_fill_with_alpha(shp.fill._xPr, rc["fill"], rc["alpha"])
+                            else:
+                                shp.fill.solid()
+                                shp.fill.fore_color.rgb = RGBColor.from_string(rc["fill"])
+                            if _suppress_effects is not None:
+                                try:
+                                    _suppress_effects(shp._element.spPr)
+                                except Exception:
+                                    pass
+                            # 2026-06-11 - remove <p:style> entirely. Its
+                            # fillRef/lnRef point at theme accent1; whenever an
+                            # explicit fill is missing or schema-invalid,
+                            # PowerPoint falls back to it and paints the shape
+                            # OFFICE BLUE (the journey-map deck corruption).
+                            # Explicit spPr carries everything we need.
+                            try:
+                                _sp = shp._element
+                                _style = _sp.find(
+                                    '{http://schemas.openxmlformats.org/presentationml/2006/main}style')
+                                if _style is not None:
+                                    _sp.remove(_style)
+                            except Exception:
+                                pass
+                    else:
+                        slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333 * EMU)), height=Emu(int(7.5 * EMU)))
 
                     for r in m.get("runs", []):
                         txt = r["text"]
@@ -191,6 +279,22 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # doesn't render past the visible slide area.
                         ebottom = min(r.get("ebottom", r["y"] + r["h"]), H - 12)
                         bx = r["x"]; bw = max(8.0, eright - bx); bh = max(_lh, ebottom - r["y"], 12.0)
+                        # 2026-06-11 - BOX-SLOP TIGHTENING. (a) A single-line run
+                        # does not need its element's full width: cap the box at
+                        # the text width + slack so left-aligned kickers never
+                        # overlap the right-anchored wordmark box. (b) Never let
+                        # the line-count rounding extend the box materially past
+                        # the element bottom - phantom tail rows were tripping
+                        # box-overlap assertions against the sources strip.
+                        _tw0 = r.get("tw") or r["w"]
+                        if r["h"] <= _lh * 1.6 and (r.get("align", "left") or "left") in ("left", "start"):
+                            bw = min(bw, max(_tw0 * 1.10 + 24.0, 60.0))
+                            # Single-line runs also cap HEIGHT at their own line:
+                            # table cells / flex parents otherwise donate their
+                            # full container bottom (header text inheriting the
+                            # cell's definition-row height), creating phantom
+                            # tall boxes that trip overlap assertions.
+                            bh = min(bh, max(r["h"] + 6.0, _lh * 1.05))
                         right_anchored = (r["y"] < 100) and (r["x"] + r["w"] > W * 0.9) and (r["w"] < W * 0.5)
                         if right_anchored:
                             _align = "right"; bx = r["x"] - 20; bw = (W - 24) - bx
@@ -200,6 +304,12 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         scale = min(1.0, (target_lines * bw) / max(tw * PW, 1.0))
                         _size_px = r["size"] * scale
                         bh = max(bh, target_lines * (_lh * scale) + 4)
+                        # Global cap: a run never inherits more than ONE line of
+                        # slack beyond its measured text height. Container
+                        # bottoms (table cells, flex parents) otherwise donate
+                        # phantom depth; one line is enough headroom for
+                        # PowerPoint font-metric rewrap drift.
+                        bh = min(bh, r["h"] + _lh)
                         tb = slide.shapes.add_textbox(ex(bx), ey(r["y"]), ex(bw), ey(bh))
                         tf = tb.text_frame; tf.word_wrap = True; tf.auto_size = None
                         tf.vertical_anchor = MSO_ANCHOR.TOP

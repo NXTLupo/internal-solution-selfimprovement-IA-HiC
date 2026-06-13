@@ -11,11 +11,10 @@ score: 156
 upvote_ratio: 0.88
 num_comments: 69
 flair: ""
-extracted_at: "2026-05-16T20:55:12.707Z"
+extracted_at: "2026-06-09T03:57:17.086Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
-industries: [financial_services]
-industry_method: llm
+research_goal: "Trends in alumni giving and donor retention for universities"
+engagement: "trends-in-alumni-giving-and-donor-retention-for-universities"
 chunks:
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c0"
     char_span: [0, 1254]
@@ -23,91 +22,91 @@ chunks:
     key_terms: [financialindependence, income, expenses, taxes, tax, retirement, breakdown, questions]
     token_count: 277
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c1"
-    char_span: [1266, 1929]
+    char_span: [1265, 1928]
     sentence_count: 2
     key_terms: [income, tax, total, federal, owed, tax-advantaged, "california's", california]
     section: TL;DR
     token_count: 194
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c2"
-    char_span: [1944, 4035]
+    char_span: [1943, 4034]
     sentence_count: 13
     key_terms: [income, tax, insurance, health, highest, lowest, state, total]
     section: Overview
     token_count: 514
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c3"
-    char_span: [4037, 5680]
+    char_span: [4036, 5679]
     sentence_count: 9
     key_terms: [accounts, tax-advantaged, bonds, taxable, traditional, allocation, retirement, portfolio]
     section: Overview
     token_count: 454
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c4"
-    char_span: [5682, 7556]
+    char_span: [5681, 7555]
     sentence_count: 11
     key_terms: [tax, income, dividends, marginal, property, years, low, year]
     section: Overview
     token_count: 425
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c5"
-    char_span: [7558, 8099]
+    char_span: [7557, 8098]
     sentence_count: 2
     key_terms: [unknowns, taxes, today, years, tax, recommendations, spreadsheet, personally]
     section: Overview
     token_count: 120
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c6"
-    char_span: [8140, 9685]
+    char_span: [8139, 9684]
     sentence_count: 7
     key_terms: [income, deduction, self-employment, tax, gains, total, capital, amount]
     section: "2025 Income Tax - Federal: -$3,000"
     token_count: 424
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c7"
-    char_span: [9687, 10258]
+    char_span: [9686, 10257]
     sentence_count: 4
     key_terms: [tax, repayment, therefore, advance, credits, credit, total, underestimated]
     section: "2025 Income Tax - Federal: -$3,000"
     token_count: 141
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c8"
-    char_span: [10273, 12029]
+    char_span: [10272, 12028]
     sentence_count: 20
     key_terms: [tax, years, conversions, work, whether, working, family, future]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c9"
-    char_span: [12031, 13391]
+    char_span: [12030, 13390]
     sentence_count: 14
     key_terms: [income, city, ira, work, california, paycheck, purposes, council]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c10"
-    char_span: [13393, 15334]
+    char_span: [13392, 15333]
     sentence_count: 15
     key_terms: [get, year, years, alternating, projections, aca, "i've", low]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c11"
-    char_span: [15336, 17226]
+    char_span: [15335, 17225]
     sentence_count: 6
     key_terms: [etc, expenses, allocation, magnesiumcarbonate, insurance, property, transportation, maintenance]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c12"
-    char_span: [17228, 19097]
+    char_span: [17227, 19096]
     sentence_count: 8
     key_terms: [cash, years, year, short, fund, correction, short-term, dividends]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c13"
-    char_span: [19099, 21292]
+    char_span: [19098, 21291]
     sentence_count: 8
     key_terms: [future, point, like, problem, income, roth, tax, thinking]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c14"
-    char_span: [21294, 22985]
+    char_span: [21293, 22984]
     sentence_count: 12
     key_terms: [people, subsidies, aca, stay, qualify, like, insurance, spending]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/financialindependence/1rckz9m.md#c15"
-    char_span: [22987, 24133]
+    char_span: [22986, 24132]
     sentence_count: 9
     key_terms: [getting, person, fireinnahole, tax, another, easily, wealth, tonguepunchmypoopbox]
     section: Comments
@@ -269,8 +268,8 @@ When I applied for ACA coverage at the start of 2025 I had to estimate our MAGI 
 
 ## Comments
 
-- **MediumFIRE** (63↑): Nobody tells you this when you start down the road to FIRE, but eventually you will find yourself in the throws of tax optimization as the final boss of efficiency.  Excellent write-up!  My 25 y/o self would be appalled that I've become a tax nerd tho.
-  - **cfi-2025** (19↑): I definitely learned a lot about taxes this year in trying to understand everything. Especially with ACA subsidy cliffs, Roth IRA conversion considerations, trying to nail down what the dividends from taxable accounts will be, whether to get an HSA-supported health care plan, whether to contribute to a T-IRA (if you have earned income), etc.
+- **MediumFIRE** (64↑): Nobody tells you this when you start down the road to FIRE, but eventually you will find yourself in the throws of tax optimization as the final boss of efficiency.  Excellent write-up!  My 25 y/o self would be appalled that I've become a tax nerd tho.
+  - **cfi-2025** (18↑): I definitely learned a lot about taxes this year in trying to understand everything. Especially with ACA subsidy cliffs, Roth IRA conversion considerations, trying to nail down what the dividends from taxable accounts will be, whether to get an HSA-supported health care plan, whether to contribute to a T-IRA (if you have earned income), etc.
 
 Yet another "shift" in thinking and planning that's abruptly needed when transitioning from working to RE.
   - **Sierra-Powderhound** (1↑): Well done in life and on this post!   I truly hope you and your family are living rewarding and meaningful lives.  Kudos!
@@ -283,9 +282,9 @@ I REd several years ago and have a similar set of facts as you.  In years 2-3, m
 
 As your post shows, paying for Covered California feels like a part time job and can lead you into altering other decisions.  We did that for a few years.  Didn't enjoy all the hoops and costs.  I don't want to work but my spouse is into local government and decided to run for city council in our small city.  Turns out that our city council members get almost no paycheck but **include excellent health care** through CALPERS.  She likes her role and is making a difference in our community.  Not dealing with Covered California has been terrific for us.  This also makes it easier to up our Roth conversions as we don't need to think how impacts our health care costs.
 - **heres_lurking_at_you** (30↑): Amazing breakdown and very helpful. Thank you!
-- **PretentiousPickle** (19↑): Just chiming in to let you know I really appreciate your post and details you provided. I hope to find myself in your shoes someday and will use this to help myself out.
-- **secretfinaccount** (9↑): Does your rental income count for the purposes of IRA contribution space?  Or is someone going to work in 2026?
-  - **cfi-2025** (9↑): Rental income does not count as earned income for IRA purposes, no.
+- **PretentiousPickle** (18↑): Just chiming in to let you know I really appreciate your post and details you provided. I hope to find myself in your shoes someday and will use this to help myself out.
+- **secretfinaccount** (7↑): Does your rental income count for the purposes of IRA contribution space?  Or is someone going to work in 2026?
+  - **cfi-2025** (8↑): Rental income does not count as earned income for IRA purposes, no.
 
 The IRA space is due to:
 
@@ -293,15 +292,15 @@ The IRA space is due to:
 2. Some part-time consulting work I did for a colleague ($3,000).
 
 The W-2 paycheck was a one-off. I am continuing the consulting work into 2026, it's typically two to three days a month. Presuming the engagement continues through the year, it will probably come to ~$15,000 for the year.
-    - **secretfinaccount** (3↑): I’ve always thought about doing some work to fill in the IRA bucket but those FICA taxes just keep sapping my will.  😂
+    - **secretfinaccount** (5↑): I’ve always thought about doing some work to fill in the IRA bucket but those FICA taxes just keep sapping my will.  😂
 - **alittlehardtodecide** (7↑): Looks to me like you are gonna have a tough time staying under that aca cliff.  All those dividends and your consulting are going to put you real close.  Not to mention if you let that 2.2 mm of ira to compound it's gonna result in some large rmds.  Have you looked at long term projections and options of alternating years of high and low magi to try get get aca subsidies every other year.  Great write up , thanks!
-  - **cfi-2025** (4↑): > Have you looked at long term projections and options of alternating years of high and low magi to try get get aca subsidies every other year. 
+  - **cfi-2025** (2↑): > Have you looked at long term projections and options of alternating years of high and low magi to try get get aca subsidies every other year. 
 
 I've not spent any substantive time exploring this, but it is something I've thought about in the past. Although I was looking at it more aggressively, and less frequently than every other year, perhaps something like liquidating enough for three years of expenses and then having low MAGI that might even qualify us for a free Silver CSR plan.
 
 But I've not done enough research to see if this is a viable option. The calculus is going to change as our kids get older and launch, at which point they won't be on our health care or counted as a dependent. So that might change things substantially.
-- **bRonsen93** (6↑): Great post, just curious if you have a breakout of your spending?
-  - **cfi-2025** (16↑): I can share that. I didn't post here since it didn't seem germane to taxes.
+- **bRonsen93** (5↑): Great post, just curious if you have a breakout of your spending?
+  - **cfi-2025** (17↑): I can share that. I didn't post here since it didn't seem germane to taxes.
 
 We track every expense in a Google sheet, so I have a very detailed picture. Here are the 2025 expenses from the highest-level categories with lots of rounding:
 
@@ -369,15 +368,15 @@ At some point in the next few years I'll sit down and do a detailed analysis of 
 We are aiming to stay in that sweet spot. I realize it's "just" $8,000 or so that we're talking about, so I'm not going to do anything crazy to stay in there, but if we can stay in there and enjoy the level of spending that we'd like, then why not?
   - **draakken35** (1↑): in today dollars, a 2M IRA RMD for a 75 year old is +/- $81,000. With someone on a $150k per year spend plan the RMD isn't huge. Is it the most tax efficient withdrawal from accounts, nope, but not crushing.
 - **[deleted]** (16↑): Am I the only one who cringes at $6m net worth used ACA subsidies? That would be like me going to the food bank so I can save on groceries so I can eat out more
-  - **User-no-relation** (29↑): actually $6m is just what they have invested.  They own a primary home that is probably $2m and a rental around $1m so it's more like a $9m networth
-  - **branstad** (27↑): I don't think most people find ACA subsidies and food assistance comparable. One significant difference is that ACA subsidies are a tax credit to reduce monthly premiums while SNAP is directly funded via appropriations.
-    - **FearlessPark4588** (8↑): I asked this before; indeed, most people don't consider them similar. To me, money is money and if you qualify, you qualify. There is already enough judgment about people taking SNAP and I won't contribute to that.
-  - **granolaraisin** (7↑): Nah. Insurance is such a scam to begin with. Since insurance companies unfairly profit from the people, I have no problems letting the government pay for that profit on my behalf if I can qualify. 
+  - **User-no-relation** (30↑): actually $6m is just what they have invested.  They own a primary home that is probably $2m and a rental around $1m so it's more like a $9m networth
+  - **branstad** (26↑): I don't think most people find ACA subsidies and food assistance comparable. One significant difference is that ACA subsidies are a tax credit to reduce monthly premiums while SNAP is directly funded via appropriations.
+    - **FearlessPark4588** (9↑): I asked this before; indeed, most people don't consider them similar. To me, money is money and if you qualify, you qualify. There is already enough judgment about people taking SNAP and I won't contribute to that.
+  - **granolaraisin** (8↑): Nah. Insurance is such a scam to begin with. Since insurance companies unfairly profit from the people, I have no problems letting the government pay for that profit on my behalf if I can qualify. 
 
 This isn’t like going to a food bank where you’re directly taking something another person could use. One person getting insurance subsidies doesn’t deny another person from getting the same.
     - **FIREinnahole** (3↑): And tax fraud is crazy rampant as well.  So I have no problem seeing someone who has paid $100K(!) in taxes on a yearly(!!) basis get a little relief on healthcare via an entirely legal means.
-  - **TurbulentOpinion2100** (15↑): No, you are not. This is a common thing in the FIRE community, however.  I find it distasteful as well.
-    - **TonguePunchMyPoopBox** (15↑): Sadly it’s a result of focusing taxes on income and not (also) on wealth. Or at least the ways we tax wealth are too conservative.
-  - **FIREinnahole** (3↑): No.  They could easily have an asset test if it was intended to only be available for poor people.  I'm not RE yet, but looking my state's version of ACA there is a column that specifically says "Asset Test:  None" for their very low cost plan.
+  - **TurbulentOpinion2100** (17↑): No, you are not. This is a common thing in the FIRE community, however.  I find it distasteful as well.
+    - **TonguePunchMyPoopBox** (14↑): Sadly it’s a result of focusing taxes on income and not (also) on wealth. Or at least the ways we tax wealth are too conservative.
+  - **FIREinnahole** (4↑): No.  They could easily have an asset test if it was intended to only be available for poor people.  I'm not RE yet, but looking my state's version of ACA there is a column that specifically says "Asset Test:  None" for their very low cost plan.
 
 You being upset with it is more akin to also being upset with OP getting $4000 in federal tax credit because he has 2 kids but can easily afford them.

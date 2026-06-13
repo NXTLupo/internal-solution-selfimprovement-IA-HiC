@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rbyhya.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rbyhya/can_i_be_honest/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,97 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.591Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c0"
+    char_span: [0, 1449]
+    sentence_count: 2
+    key_terms: [graduate, gradadmissions, comments, students, process, school, level, ready]
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c1"
+    char_span: [1464, 3732]
+    sentence_count: 20
+    key_terms: [through, phd, getting, purpose, people, applications, being, going]
+    section: Comments
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c2"
+    char_span: [3734, 4500]
+    sentence_count: 7
+    key_terms: [lot, rejection, accepted, getting, handle, find, phd, time]
+    section: Comments
+    token_count: 160
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c3"
+    char_span: [4502, 6745]
+    sentence_count: 14
+    key_terms: [accepted, article, because, school, distinguished, doesn, here, phd]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c4"
+    char_span: [6747, 7831]
+    sentence_count: 6
+    key_terms: ["it's", rejection, time, admissions, reflection, comment, being, skill]
+    section: Comments
+    token_count: 269
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c5"
+    char_span: [7833, 9978]
+    sentence_count: 15
+    key_terms: ["i'm", intentionally, independent, possible, mindset, totally, bigger, doing]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c6"
+    char_span: [9980, 10772]
+    sentence_count: 7
+    key_terms: [people, grad, something, feeding, luxury, school, done, get]
+    section: Comments
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c7"
+    char_span: [10774, 12894]
+    sentence_count: 7
+    key_terms: [questions, find, research, intellectually, runyourluckxxx, assume, admissions, graduate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c8"
+    char_span: [12580, 14689]
+    sentence_count: 15
+    key_terms: [happy-hearing6671, call, website, admissions, graduate, parents, people, school]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c9"
+    char_span: [14414, 14748]
+    sentence_count: 3
+    key_terms: [contact, old, insufferable, institution, employment, explicitly, sometimes, academic]
+    section: Comments
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c10"
+    char_span: [14750, 16597]
+    sentence_count: 9
+    key_terms: [people, call, parents, embarrassing, "junior's", parent, close, never]
+    section: Comments
+    token_count: 462
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c11"
+    char_span: [16599, 17754]
+    sentence_count: 7
+    key_terms: [school, applying, student, website, lab, academically, hoppergirl85, instructions]
+    section: Comments
+    token_count: 260
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c12"
+    char_span: [17756, 19908]
+    sentence_count: 14
+    key_terms: [programs, better, people, particularly, application, here, breakdowns, stressful]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c13"
+    char_span: [19910, 21202]
+    sentence_count: 11
+    key_terms: [application, professors, available, potential, websites, cycle, aggressivemap2288, wannabegradstu]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rbyhya.md#c14"
+    char_span: [21204, 23197]
+    sentence_count: 13
+    key_terms: [questions, people, ask, "it's", process, without, asking, others]
+    section: Comments
+    token_count: 420
 ---
-
 # can i be honest?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rbyhya/can_i_be_honest/)

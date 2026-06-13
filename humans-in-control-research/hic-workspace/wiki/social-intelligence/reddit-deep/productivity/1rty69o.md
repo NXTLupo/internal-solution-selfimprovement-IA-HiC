@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, like, something, comments, professionstrong6563, doing, lot, reddit-deep]
     token_count: 179
   - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c1"
-    char_span: [781, 2462]
+    char_span: [780, 2461]
     sentence_count: 19
     key_terms: [day, burnout, like, need, tiny, minutes, matter, spiritual-courage-77]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c2"
-    char_span: [2465, 4395]
+    char_span: [2464, 4394]
     sentence_count: 18
     key_terms: [enough, everything, done, drinking, despite, water, day, feel]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1rty69o.md#c3"
-    char_span: [4398, 6164]
+    char_span: [4397, 6163]
     sentence_count: 16
     key_terms: [zent-productivity, habits, trying, want-too-much, https, been, work, described]
     section: Comments

@@ -412,12 +412,19 @@ async function resilientGet(url: string, opts: { timeoutMs?: number; maxAttempts
 /**
  * Write (overwrite) a wiki page. Used for full page updates.
  */
-export async function writeWikiPage(relativePath: string, content: string): Promise<boolean> {
+export async function writeWikiPage(
+    relativePath: string,
+    content: string,
+    // 2026-06-12 ENGAGEMENT-TAG GUARANTEE (supercharge 1.1): callers persisting
+    // retrievable corpus pass chunk:true + the session slug so the manifest
+    // record is tier-1 visible to this engagement's retrieval.
+    opts?: { chunk?: boolean; engagement?: string },
+): Promise<boolean> {
     try {
         const resp = await fetch(`${PROXY_BASE}/api/wiki/write`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ path: relativePath, content }),
+            body: JSON.stringify({ path: relativePath, content, chunk: opts?.chunk || false, engagement: opts?.engagement || undefined }),
         });
         if (!resp.ok) {
             console.error(`[WikiService] Write failed for ${relativePath}:`, await resp.text());
@@ -776,7 +783,9 @@ The AI ingestion pipeline reads these as PRIORITY 1 sources.
 `;
 
     try {
-        await writeWikiPage(`sources/uploads-${date}-${slug}.md`, page);
+        // 2026-06-12 - chunk + engagement-tag so the upload catalog is tier-1
+        // retrievable for THIS session (was an untagged, unchunked stub).
+        await writeWikiPage(`sources/uploads-${date}-${slug}.md`, page, { chunk: true, engagement: slug });
         console.log(`[WikiService] Seeded wiki with ${fileNames.length} uploaded document records`);
         return 1;
     } catch (e) {

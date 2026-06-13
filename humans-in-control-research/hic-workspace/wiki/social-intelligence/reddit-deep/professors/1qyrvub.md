@@ -23,49 +23,49 @@ chunks:
     key_terms: [study, professors, students, guides, exam, comments, giving, review]
     token_count: 234
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c1"
-    char_span: [1013, 2001]
+    char_span: [1012, 2000]
     sentence_count: 8
     key_terms: [list, readings, grateful, headings, students, already, topics, guide]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c2"
-    char_span: [2003, 4168]
+    char_span: [2002, 4167]
     sentence_count: 16
     key_terms: [study, questions, list, work, guide, assignments, late, objectives]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c3"
-    char_span: [3853, 4747]
+    char_span: [3852, 4746]
     sentence_count: 2
     key_terms: [different, guides, paste, study, copy, use, accidentally, hoopoebirdie]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c4"
-    char_span: [4749, 6507]
+    char_span: [4748, 6506]
     sentence_count: 13
     key_terms: [class, study, exam, guide, sessions, students, times, get]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c5"
-    char_span: [6509, 6886]
+    char_span: [6508, 6885]
     sentence_count: 2
     key_terms: [questions, engineering, significant, waronadvent, everything, students, covered, similar]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c6"
-    char_span: [6888, 9209]
+    char_span: [6887, 9208]
     sentence_count: 15
     key_terms: [study, students, test, guide, good, teaching, guides, expectations]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c7"
-    char_span: [8910, 9483]
+    char_span: [8909, 9482]
     sentence_count: 4
     key_terms: [study, student, guides, good, own, work, pedogogically, sandysanbar]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/professors/1qyrvub.md#c8"
-    char_span: [9485, 11271]
+    char_span: [9484, 11270]
     sentence_count: 17
     key_terms: [exam, questions, question, study, learning, position, students, knowing]
     section: Comments

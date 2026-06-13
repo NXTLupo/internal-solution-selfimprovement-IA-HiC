@@ -28,7 +28,7 @@ chunks:
     key_terms: [like, enjoy, data, engineer, learning, devops, early, roles]
     token_count: 243
   - id: "social-intelligence/reddit-deep/careerguidance/1moho20.md#c2"
-    char_span: [2802, 3589]
+    char_span: [2801, 3588]
     sentence_count: 1
     key_terms: [everything, like, containerization, fundamentals, optimization, overwhelmed, bite-sized, monitoring]
     section: Comments

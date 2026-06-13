@@ -126,18 +126,21 @@ export const DIRECTIVES: HashtagDirective[] = [
     // ────────────────────────────────────────────────────────────────────
     {
         id: '#recommendations',
-        name: 'AI Tool Recommendations (VS-Multi)',
+        name: 'AI Tool Recommendations',
         category: 'consulting-deliverable',
-        summary: 'Generate consulting-grade AI tool recommendations split into Defensible Consensus + Non-Obvious Bets.',
+        summary: 'Generate consulting-grade recommendations as GOLD recommendation slides (action title, supporting actions, impact, cited evidence).',
         description:
-            'Loads the recommendation-architect skill + verbalized-sampling skill. Extracts engagement_context (client, vendor, industry, named initiative, target segment, named stakeholders, preferred tech stack, hard non-starters, regulatory constraints) from your prompt + uploads. Produces two concept groups: 5 Defensible Consensus (full distribution) + 5 Non-Obvious Bets (probability < 0.05, deep-tail sampling) explicitly distinct from the consensus set. Renders as two visually-differentiated tile sections (chartreuse-bordered consensus, cyan-bordered bets with BET badge + probability pills). Each tile expandable to a 12-field consulting brief (description, why-matters-for-segment, long-term-outcome-through-line, initiative-dependency, existing-stack execution, preferred-stack fit, stakeholders, implementation steps, risks, guardrail fit, expected impact, verbatim corpus quote).',
+            'Loads the recommendation-architect skill. Extracts engagement_context (client, vendor, industry, named initiative, target segment, named stakeholders, preferred tech stack, hard non-starters, regulatory constraints) from your prompt + uploads, then produces consulting-grade recommendations grounded in the corpus via manifest-chunk retrieval. Routes through the ONE canonical engine (sendChatMessage slide-mode) and renders the GOLD recommendation slide template (action title, numbered supporting actions, impact grid/strip, cited evidence quotes, implication) - identical pipeline to #journey/#blueprint. #recommendations and #recs are the same directive. PPTX export via the gold-stage pipeline.',
+        aliases: ['#recs', '#recommendation'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides', '#dense'],
         examples: [
-            '#recommendations You are a senior AI strategy consultant for NXT Humans helping Northeastern improve first-year co-op readiness. Constraints: no new platform, Microsoft Copilot preferred, FERPA, Liz + Jen as stakeholders. 5 CLR-dependent + 5 CLR-independent.',
+            '#recommendations First-year co-op readiness for Northeastern; Microsoft Copilot preferred, FERPA, Liz + Jen as stakeholders #NU',
+            '#recs Advancement modernization moves grounded in the corpus #slides',
         ],
         requiresContext: true,
         usesVerbalizedSampling: true,
         introduced: '2026-05-11',
-        outputType: 'recommendation_tiles',
+        outputType: 'slide_template',
     },
 
     // ────────────────────────────────────────────────────────────────────
@@ -152,9 +155,9 @@ export const DIRECTIVES: HashtagDirective[] = [
         id: '#journey',
         name: 'Customer Journey Map',
         category: 'consulting-deliverable',
-        summary: 'Generate a customer journey map as a freeform HTML slide (stages, touchpoints, pain points, moments of truth).',
+        summary: 'Generate a GOLD actor-lane journey matrix (stages x actor lanes, pain stacks, personas/opportunities, KPI tiles).',
         description:
-            'Produces a brand-styled journey-map artifact via the Design Desk freeform-HTML pipeline. Renders stages with persona-grounded actions, touchpoints, pain points, emotion intensity, and moment-of-truth markers. Inherits NXT or NU exemplar treatment (10-point design spec). Stage 1: corpus → journey JSON. Stage 2: JSON → HTML body inside the brand exemplar shell. Universal tone rules applied. Falls back from DeepSeek V4 Flash to Gemini 3.1 Pro or GPT-5.4 on provider error.',
+            'Routes through the ONE canonical engine (sendChatMessage slide-mode) and renders the GOLD journey-map slide template: an actor-lane matrix where the matrix IS the body (stages across the top, actor lanes down, PERSONAS voice row, stacked per-phase pain cells, OPPORTUNITIES row, embedded KPI tiles, takeaway band). Manifest-chunk grounded; cite-by-pointer. NOT the Bitner blueprint (that is #blueprint). Inherits NU or NXT GOLD tokens. PPTX export via the gold-stage pipeline.',
         aliases: ['#journeys'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -165,17 +168,17 @@ export const DIRECTIVES: HashtagDirective[] = [
         usesVerbalizedSampling: false,
         usesVerbalizedConfidence: false,
         introduced: '2026-05-04',
-        outputType: 'freeform_slide',
+        outputType: 'slide_template',
     },
     {
         id: '#blueprint',
         name: 'Service Blueprint',
         category: 'consulting-deliverable',
-        summary: 'Generate a future-state service blueprint with the 5-swimlane Bitner model + fail points + recommendations.',
+        summary: 'Generate a GOLD service blueprint (Bitner frontstage/backstage matrix + fail points).',
         description:
-            'Produces a service-blueprint HTML slide. Same 10-point design spec as #journey but framed as FUTURE STATE - pain points solved, recommendations layered. Swimlanes: customer actions, frontstage, backstage, support, physical evidence. Fail points flagged. Persona-grounded. Brand inheritance via NXT or NU exemplar.',
+            'Routes through the ONE canonical engine (sendChatMessage slide-mode) and renders the GOLD service-blueprint slide template: the Bitner model as a matrix (phase header, mood strip, Customer / Frontstage / Backstage / Support·Data lanes, fail-points row). Manifest-chunk grounded. #blueprint owns frontstage/backstage; #journey owns the actor-lane journey. Inherits NU or NXT GOLD tokens. PPTX via the gold-stage pipeline.',
         aliases: ['#blueprints'],
-        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides', '#dense'],
         examples: [
             '#blueprint Skill-gap coaching for SME co-ops #NU',
             '#blueprint Advancement onboarding for new mid-major institutions',
@@ -184,15 +187,15 @@ export const DIRECTIVES: HashtagDirective[] = [
         usesVerbalizedSampling: false,
         usesVerbalizedConfidence: false,
         introduced: '2026-05-04',
-        outputType: 'freeform_slide',
+        outputType: 'slide_template',
     },
     {
         id: '#arch',
         name: 'System Architecture Diagram',
         category: 'consulting-deliverable',
-        summary: 'Generate a system architecture diagram (C4 + TOGAF context view) as a freeform HTML slide.',
+        summary: 'Generate a GOLD architecture map (layers of components, integration flows, cited nodes).',
         description:
-            'Produces a system-architecture HTML slide showing components, integration flows, data stores, and external systems. Inherits C4 + TOGAF context conventions. Nodes annotated with citations from the corpus. Brand inheritance via NXT or NU exemplar.',
+            'Routes through the ONE canonical engine (sendChatMessage slide-mode) and renders the GOLD architecture-map slide template: layered components, integration flows, data stores, and external systems, each node annotated with corpus citations (C4 + TOGAF context conventions). Manifest-chunk grounded. Inherits NU or NXT GOLD tokens. PPTX via the gold-stage pipeline.',
         aliases: ['#architecture'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -203,15 +206,15 @@ export const DIRECTIVES: HashtagDirective[] = [
         usesVerbalizedSampling: false,
         usesVerbalizedConfidence: false,
         introduced: '2026-05-04',
-        outputType: 'freeform_slide',
+        outputType: 'slide_template',
     },
     {
         id: '#roadmap',
         name: 'Strategic Roadmap',
         category: 'consulting-deliverable',
-        summary: 'Generate a NOW / NEXT / LATER roadmap as a freeform HTML slide with dependencies and milestones.',
+        summary: 'Generate a GOLD roadmap timeline (NOW / NEXT / LATER horizons with initiatives, milestones, dependencies).',
         description:
-            'Produces a roadmap HTML slide with three horizon columns. Initiatives placed with dependency arrows, milestones, owner badges, and gating criteria. Brand inheritance via NXT or NU exemplar. Currently does not VS-pick the timeline shape - this is a candidate for VS uplift (alternatives: Gantt strip / Wardley horizon / domain-skill matrix).',
+            'Routes through the ONE canonical engine (sendChatMessage slide-mode) and renders the GOLD timeline slide template: NOW / NEXT / LATER horizon columns with initiatives, milestones, owner badges, and gating criteria. Manifest-chunk grounded. Inherits NU or NXT GOLD tokens. PPTX via the gold-stage pipeline.',
         aliases: ['#roadmaps'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
@@ -222,17 +225,17 @@ export const DIRECTIVES: HashtagDirective[] = [
         usesVerbalizedSampling: false,
         usesVerbalizedConfidence: false,
         introduced: '2026-05-04',
-        outputType: 'freeform_slide',
+        outputType: 'slide_template',
     },
     {
         id: '#org',
         name: 'Org Chart',
         category: 'consulting-deliverable',
-        summary: 'Generate an org chart as a freeform HTML slide - reporting lines, roles, and named stakeholders from the corpus.',
+        summary: 'Generate a GOLD org chart - reporting tiers of evidence-cited node cards (DECIDES / DIRECTS / DELIVERS).',
         description:
-            'Produces an org-chart HTML slide with reporting hierarchy, named roles, named individuals where the corpus supports it, and stakeholder annotations. Brand inheritance via NXT or NU exemplar. Particularly evidence-sensitive - quality depends on uploaded client docs that name people and reporting lines.',
+            'Routes through the ONE canonical engine (sendChatMessage slide-mode) and renders the GOLD org-chart slide template (built from Figma NU 178:3): 2-4 reporting TIER rows, each a row of node cards with a role title, a one-line responsibility, and a NAMED source, joined by hairline drops; the decision-authority node carries an accent top border. The org chart IS the slide body. DESCRIPTIVE of the structure that exists today, never prescriptive. Manifest-chunk grounded; evidence-sensitive (best with client docs that name roles and reporting lines). Inherits NU or NXT GOLD tokens. PPTX via the gold-stage pipeline.',
         aliases: ['#orgs', '#orgchart', '#orgcharts'],
-        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides', '#dense'],
         examples: [
             '#org Northeastern Advancement Office reporting hierarchy #NU',
             '#org Co-op program stakeholders: Liz, Jen, deans, employer partners',
@@ -241,7 +244,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         usesVerbalizedSampling: false,
         usesVerbalizedConfidence: false,
         introduced: '2026-05-04',
-        outputType: 'freeform_slide',
+        outputType: 'slide_template',
     },
     {
         id: '#persona',
@@ -393,8 +396,8 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a NXT-branded one-pager HTML artifact intended for a stakeholder to read in 90 seconds.',
         description:
-            'Composes the html-deliverable-composer + verbalized-sampling skills. Produces a self-contained HTML page with a finding-grade title, one hero data point, 2-3 supporting findings, one diagram (VS-picked diagram type), Copy-as-prompt footer. Optimized for one screen + scroll. NXT branding by default (#NU for Northeastern variant). Visual layout is VS-picked from k=5 candidates - escapes the centered-card SaaS default.',
-        combinesWith: ['#NXT', '#NU'],
+            'Composes the html-deliverable-composer + verbalized-sampling skills. Produces a self-contained HTML page with a finding-grade title, one hero data point, 2-3 supporting findings, one diagram (VS-picked diagram type), Copy-as-prompt footer. Optimized for one screen + scroll. NXT branding by default (#NU for Northeastern variant). Visual layout is VS-picked from k=5 candidates - escapes the centered-card SaaS default. Add #slide for the GOLD slide TWIN (executive-brief, brief variant: hero finding + finding cards with cited evidence), manifest-grounded and brand-token skinned.',
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         modifiers: [
             { token: '--variants k', description: 'Emit k distinct variants in a 2×3 grid with Pick-this buttons (k=2-6)', values: '2-6' },
         ],
@@ -413,8 +416,8 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a NXT-branded HTML explainer page for a learner to understand a concept end-to-end.',
         description:
-            'Modeled on the "How rate limiting works" pattern: flow diagram up top, 2-4 annotated code/data snippets beside the prose, "Gotchas" section at the bottom with severity-coded callouts. Information architecture is VS-picked from k=5 candidates (flow-led / snippet-led / Q&A / worked-example / decision-tree). NXT branded. Copy-as-prompt footer. Length 1500-3500 words. Optimized for sequential read.',
-        combinesWith: ['#NXT', '#NU'],
+            'Modeled on the "How rate limiting works" pattern: flow diagram up top, 2-4 annotated code/data snippets beside the prose, "Gotchas" section at the bottom with severity-coded callouts. Information architecture is VS-picked from k=5 candidates (flow-led / snippet-led / Q&A / worked-example / decision-tree). NXT branded. Copy-as-prompt footer. Length 1500-3500 words. Optimized for sequential read. Add #slide for the GOLD slide TWIN (executive-brief, explainer variant: stepped concept cards + GOTCHAS strip), manifest-grounded and brand-token skinned.',
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         modifiers: [
             { token: '--variants k', description: 'Emit k distinct variant IAs to compare' },
         ],
@@ -433,8 +436,8 @@ export const DIRECTIVES: HashtagDirective[] = [
         category: 'consulting-deliverable',
         summary: 'Generate a long-form HTML strategic report with tabbed sections + embedded charts.',
         description:
-            'For prose-dominant content where a slide deck would be the wrong format. Tabbed or anchored sections (default: Executive Summary / Findings / Recommendations / Next Steps - but the section IA is VS-picked from alternatives). Embedded charts per section. Evidence panels with verbatim corpus quotes. Length 3000-8000 words. Optimized for navigation, not sequential read. Sharable URL.',
-        combinesWith: ['#NXT', '#NU'],
+            'For prose-dominant content where a slide deck would be the wrong format. Tabbed or anchored sections (default: Executive Summary / Findings / Recommendations / Next Steps - but the section IA is VS-picked from alternatives). Embedded charts per section. Evidence panels with verbatim corpus quotes. Length 3000-8000 words. Optimized for navigation, not sequential read. Sharable URL. Add #slide for the GOLD slide TWIN (executive-brief, report variant: hero finding + exec-summary key findings), manifest-grounded and brand-token skinned.',
+        combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         modifiers: [
             { token: '--variants k', description: 'Emit k distinct report-structure variants' },
         ],
@@ -561,6 +564,21 @@ export const DIRECTIVES: HashtagDirective[] = [
         requiresContext: false,
         usesVerbalizedSampling: false,
         introduced: '2026-04-10',
+    },
+    {
+        id: '#dense',
+        name: 'Dense Variant (universal density axis)',
+        category: 'system',
+        summary: 'Force the dense variant of every slide template emitted this turn - more items, count-adaptive type, PPTX-safe.',
+        description: 'View modifier. Raises every template\'s item ceilings per the shared DENSITY_SPEC (components/slideTemplates/types.ts) in BOTH the web preview and the 1920x1080 PPTX stage twin: more bullets, quotes, rows, phases, or features, with type sizes adapting to the actual item count so nothing overflows the 16:9 canvas. The model also sets density=dense on its own when the user asks for more detail or modifies a prior generation to add items beyond the base ceiling - #dense is the explicit override. Density raises CEILINGS, not floors: every added item must be evidenced.',
+        combinesWith: ['#slide', '#slides', '#NXT', '#NU', '#themes', '#persona', '#recommendations', '#case-study', '#gap', '#compete', '#prd', '#audit', '#roadmap', '#strategy'],
+        examples: [
+            '#themes all eight patterns with quotes #slides #dense #NU',
+            '#case-study Giving Day with the full evidence base #slide #dense',
+        ],
+        requiresContext: false,
+        usesVerbalizedSampling: false,
+        introduced: '2026-06-10',
     },
     {
         id: '#NXT',

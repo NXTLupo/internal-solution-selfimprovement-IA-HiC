@@ -11,11 +11,10 @@ score: 249
 upvote_ratio: 0.95
 num_comments: 59
 flair: ""
-extracted_at: "2026-05-16T20:55:12.706Z"
+extracted_at: "2026-06-09T03:57:17.085Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
-industries: [financial_services]
-industry_method: llm
+research_goal: "Trends in alumni giving and donor retention for universities"
+engagement: "trends-in-alumni-giving-and-donor-retention-for-universities"
 chunks:
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c0"
     char_span: [0, 1888]
@@ -48,25 +47,25 @@ chunks:
     key_terms: [year, because, bucket, car, bitcoin, bought, worth, did]
     token_count: 428
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c6"
-    char_span: [10287, 12064]
+    char_span: [10286, 12063]
     sentence_count: 13
     key_terms: [spending, admiration, interest, tracking, already, because, hours, since]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c7"
-    char_span: [12066, 14063]
+    char_span: [12065, 14062]
     sentence_count: 20
     key_terms: [without, fartallnight, yield, post, time, too, want, investment]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c8"
-    char_span: [14065, 15107]
+    char_span: [14064, 15106]
     sentence_count: 9
     key_terms: [felicidades, investment, crypto, weird, got, que, una, appreciation]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/financialindependence/1rs93im.md#c9"
-    char_span: [15109, 16988]
+    char_span: [15108, 16987]
     sentence_count: 15
     key_terms: [years, retired, did, retirement, encontrar, honestly, curious, people]
     section: Comments
@@ -136,17 +135,17 @@ This might be my most controversial (?) behavior compared to a lot of folks in t
 
 My only comment is that you seem to be very careful about your spending and tracking it. With an 8 figure net worth and minimal expenses, this seems like a lot of effort when there’s virtually no world where it makes a difference. You can spend 4x as much and it still wouldn’t matter. In any case, congratulations to you on your success!
   - **FIRE_and_forget_it** (12↑): I can't help but track my spending. I'm a data nerd at heart, and this is a data set I have complete control over. I know I could ignore it. It's actually not a particularly difficult or tedious task, and I can do a bulk of the figuring in a single evening (3 hours?) because of how I have structured my (simple) tracking spreadsheet. One of the biggest jobs with it is re-tagging the credit card spending to accurate categories (no, the grocery store is not hardware).
-- **bodhipooh** (50↑): What surprises me most about this post is that it’s already been a year since the last one. I remember reading the Year 7 post with great interest, admiration, and appreciation.  
+- **bodhipooh** (48↑): What surprises me most about this post is that it’s already been a year since the last one. I remember reading the Year 7 post with great interest, admiration, and appreciation.  
 
 Admiration for the FIRE commitment, the life being experienced and enjoyed, and the results achieved so far. 
 
 Interest because I’m fast approaching the point when I’ll likely pull the trigger and I find your story and choices attractive and feel they could inform mine in some ways. As someone who is essentially in CoastFIRE mode (earning a substantial income doing IT consulting, but already transitioned into semi-retirement, working ~60 hours each month, and relocated somewhere with higher QoL and much lower CoL) your posts provide a lot of inspiration and insight into what FIRE life could and should be.
 
 And, appreciation for the willingness to share not just your story but also all the details and perspective, including the good, the bad, and the ugly. I really look forward to the Year 9 post, and many more.
-  - **FIRE_and_forget_it** (9↑): Thanks for the feedback. I don't frequent this sub any longer, but there was a time where it was very helpful to me so I want to give back, and in a high quality way. Hopefully these posts meet that bar.
+  - **FIRE_and_forget_it** (8↑): Thanks for the feedback. I don't frequent this sub any longer, but there was a time where it was very helpful to me so I want to give back, and in a high quality way. Hopefully these posts meet that bar.
 - **brownpanther223** (27↑): Such a high quality post! I thought I was reading a Fatfire post but then it was missing a vacation house.. I once got roasted there for not spending enough. This shows life can be content without ultra riches and spend.
   - **Indaleciox** (8↑): Most people live a content life without that lol
-  - **FIRE_and_forget_it** (5↑): 100% I'm looking forward to giving a bunch of my money away over the years. I'll do plenty of traveling as well, but that is not how I want to spend a majority my money and time. I don't want stuff either. Too much maintenance.
+  - **FIRE_and_forget_it** (4↑): 100% I'm looking forward to giving a bunch of my money away over the years. I'll do plenty of traveling as well, but that is not how I want to spend a majority my money and time. I don't want stuff either. Too much maintenance.
 - **fartallnight** (4↑): My favorite type of posts. Congrats on the 8th year! 
 
 Does your crypto sit on cold or do you earn yield? I'm trying to get back into DeFi, and appreciate some pointers. I also have the same approach as you on crypto. Most of my investment are in TradFi
@@ -168,4 +167,4 @@ For a few years I was shy about saying I was retired because I thought it might 
   - **Previous_Guitar5027** (2↑): Buying BTC under $1000 is a good investment strategy if you did that 10 years ago.
   - **FIRE_and_forget_it** (1↑): It's ridiculous. Honestly.
 - **cncm88** (2↑): I love these updates from people who have retired. Thanks for taking the time to update us and for your insights. I’m hoping to pull the trigger in the next 3-5 years once the kids are in school. My biggest fear is loss of purpose (not that I’m someone who cares that deeply about my job, still it provides structure on a day to day basis). Glad to hear you’re still enjoying retirement!
-- **conor747** (4↑): Great read and well done
+- **conor747** (3↑): Great read and well done

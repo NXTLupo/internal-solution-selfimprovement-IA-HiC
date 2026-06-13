@@ -23,25 +23,25 @@ chunks:
     key_terms: [askacademia, long, admissions, applicants, committees, humanities, references, academic]
     token_count: 281
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c1"
-    char_span: [1445, 3371]
+    char_span: [1444, 3370]
     sentence_count: 17
     key_terms: [professors, no-end-2710, graduate, years, exceptional, been, experience, references]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c2"
-    char_span: [3373, 4248]
+    char_span: [3372, 4247]
     sentence_count: 5
     key_terms: [letters, recommendation, applicant, programs, history, read, significantly, applications]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c3"
-    char_span: [4250, 6407]
+    char_span: [4249, 6406]
     sentence_count: 16
     key_terms: [different, ghztegju, research, letters, professional, thank, hear, long]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/askacademia/1sy5ae4.md#c4"
-    char_span: [6409, 6783]
+    char_span: [6408, 6782]
     sentence_count: 4
     key_terms: [speak, ask, recommendation, professor, ghztegju, "master's", reaching, research]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [safety, script, high-context, model, safety-mismatch-in-large-context, reasoning, comments, delusion]
     token_count: 443
   - id: "social-intelligence/reddit-deep/openai/1p76tes.md#c1"
-    char_span: [1881, 2153]
+    char_span: [1880, 2152]
     sentence_count: 1
     key_terms: [safety-mismatch-in-large-context, showwelcomeonshare, rozsatundeai, rationalise, alignment, mismatch, substack, context]
     section: Comments

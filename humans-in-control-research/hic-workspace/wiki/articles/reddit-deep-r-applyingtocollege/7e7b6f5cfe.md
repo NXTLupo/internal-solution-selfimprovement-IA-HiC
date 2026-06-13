@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/7e7b6f5cfe.md#c0"
-    char_span: [0, 1708]
+    char_span: [0, 1707]
     sentence_count: 9
     key_terms: [gpa, college, courses, applyingtocollege, schools, medium-ad-7305, school, comments]
-    token_count: 459
+    token_count: 458
 ---
 # Does a Weighted GPA of 5.2-5.5 Add Value to College Applications? (By Senior Year)
 

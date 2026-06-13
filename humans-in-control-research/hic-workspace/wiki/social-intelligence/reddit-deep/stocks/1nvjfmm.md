@@ -23,43 +23,43 @@ chunks:
     key_terms: [reddit-stock-falls-for-second-day-as-references-to-its-content-in-chatgpt-responses-plummet-135203534, reddit, chatgpt, content, cited, https, com, responses]
     token_count: 280
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c1"
-    char_span: [1102, 2597]
+    char_span: [1101, 2596]
     sentence_count: 6
     key_terms: [reddit, probably, x-has-highest-rate-of-misinformation-as-a-news-sou, misinformation, openai, random, conclusions, company]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c2"
-    char_span: [2599, 4184]
+    char_span: [2598, 4183]
     sentence_count: 8
     key_terms: [reddit, misinformation, thesefuckingaccounts, deadinternettheory, anotherthroneaway, laughinggaster666, bot, etc]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c3"
-    char_span: [4186, 6026]
+    char_span: [4185, 6025]
     sentence_count: 9
     key_terms: [chatgpt, generated, comments, iiiiiiiiiateeyes, content, posts, like, articles]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c4"
-    char_span: [6028, 7873]
+    char_span: [6027, 7872]
     sentence_count: 9
     key_terms: [reddit, citations, bought, dropping, because, dropped, support, likely]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c5"
-    char_span: [7875, 10024]
+    char_span: [7874, 10023]
     sentence_count: 11
     key_terms: [reddit, chat, gpt, want, kind, town, username, chatgpt]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c6"
-    char_span: [10026, 12085]
+    char_span: [10025, 12084]
     sentence_count: 16
     key_terms: [reddit, get, information, unbiased, because, "there's", gwillhunting, guess]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/stocks/1nvjfmm.md#c7"
-    char_span: [12087, 12516]
+    char_span: [12086, 12515]
     sentence_count: 2
     key_terms: [reddit, answers, few-chemist-3463, conversation, considering, keywording, statement, anything]
     section: Comments

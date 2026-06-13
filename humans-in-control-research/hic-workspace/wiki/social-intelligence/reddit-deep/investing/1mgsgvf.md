@@ -23,13 +23,13 @@ chunks:
     key_terms: [percentage, investing, comments, momentum, growth, caps, etfs, long]
     token_count: 203
   - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c1"
-    char_span: [806, 2705]
+    char_span: [805, 2704]
     sentence_count: 13
     key_terms: [risk, bestjaegerpilot, fun-sundae4060, stocks, concentration, investing, portfolio, accounts]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1mgsgvf.md#c2"
-    char_span: [2707, 4656]
+    char_span: [2706, 4655]
     sentence_count: 14
     key_terms: [account, altruistic-buy8779, dividends, time, accounts, income, invest, years]
     section: Comments

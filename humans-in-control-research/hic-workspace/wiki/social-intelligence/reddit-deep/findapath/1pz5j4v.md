@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1pz5j4v.md
 url: "https://www.reddit.com/r/findapath/comments/1pz5j4v/im_30_but_im_10_years_behind_ive_been_lost_ever/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,42 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-06-06T23:22:15.470Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c0"
+    char_span: [0, 1807]
+    sentence_count: 18
+    key_terms: [school, went, "i'm", together, program, games, video, years]
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c1"
+    char_span: [1809, 3521]
+    sentence_count: 16
+    key_terms: [need, working, school, games, loved, never, video, job]
+    token_count: 391
+  - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c2"
+    char_span: [3536, 5464]
+    sentence_count: 18
+    key_terms: [thank, programs, helpful, people, please, need, findapath, comments]
+    section: Comments
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c3"
+    char_span: [5466, 7512]
+    sentence_count: 22
+    key_terms: [need, get, work, accounting, experience, motivation, education, business]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c4"
+    char_span: [7514, 9024]
+    sentence_count: 17
+    key_terms: [yourself, back, good, job, avoidingsubpoena, going, hard, accounting]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/findapath/1pz5j4v.md#c5"
+    char_span: [9026, 10386]
+    sentence_count: 12
+    key_terms: [cleanslate2, accountant, yourself, college, career, school, welshdragoninlondon, being]
+    section: Comments
+    token_count: 362
 ---
-
 # I'm 30 but I'm 10 years behind. I've been lost ever since high school.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1pz5j4v/im_30_but_im_10_years_behind_ive_been_lost_ever/)

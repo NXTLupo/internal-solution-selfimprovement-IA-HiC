@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, comments, people, orangespectre, communities, reddit-deep, applicants, subreddits]
     token_count: 134
   - id: "social-intelligence/reddit-deep/gradschool/1t8lkzo.md#c1"
-    char_span: [609, 1996]
+    char_span: [608, 1995]
     sentence_count: 5
     key_terms: [results, right, find, decision, better, people, season, sluntcrossintheroad]
     section: Comments

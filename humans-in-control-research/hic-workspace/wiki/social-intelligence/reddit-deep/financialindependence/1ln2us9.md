@@ -23,31 +23,31 @@ chunks:
     key_terms: [financialindependence, retirement, age, live, relative, future, small, traditional]
     token_count: 471
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c1"
-    char_span: [1974, 3249]
+    char_span: [1973, 3248]
     sentence_count: 9
     key_terms: [retire, retirement, deeterfly, situation, anything, tracygee, ability, age]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c2"
-    char_span: [3251, 4562]
+    char_span: [3250, 4561]
     sentence_count: 12
     key_terms: [property, working, number, social, starwarsfan456123789, until, gambledmywifeaway, adu]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c3"
-    char_span: [4564, 6375]
+    char_span: [4563, 6374]
     sentence_count: 11
     key_terms: [support, pretty, ntdoyfanboy, adu, get, need, government, retirement]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c4"
-    char_span: [6377, 8437]
+    char_span: [6376, 8436]
     sentence_count: 18
     key_terms: [annuity, retirement, month, like, probably, person, years, risk]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/financialindependence/1ln2us9.md#c5"
-    char_span: [8439, 9039]
+    char_span: [8438, 9038]
     sentence_count: 6
     key_terms: [month, definitely, going, cash, job, low, too, appropriate]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, question, dissertation, good, experience, comments, graduate, students]
     token_count: 228
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c1"
-    char_span: [956, 1389]
+    char_span: [955, 1388]
     sentence_count: 3
     key_terms: [freelance, thinking, "you're", forsookcomparison, phd, alternative, backgrounds, experience]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c2"
-    char_span: [1391, 3239]
+    char_span: [1390, 3238]
     sentence_count: 5
     key_terms: [a05f-4fc5-a7d3-ab56ccb48631, careercraft-launch, careercraft, keyword, myninja, https, super, apps]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtsuea.md#c3"
-    char_span: [3009, 3650]
+    char_span: [3008, 3649]
     sentence_count: 3
     key_terms: [a05f-4fc5-a7d3-ab56ccb48631, cscareerquestions-s851, careercraft-launch, conversation-based, free, tool, conversation, careercraft]
     section: Comments

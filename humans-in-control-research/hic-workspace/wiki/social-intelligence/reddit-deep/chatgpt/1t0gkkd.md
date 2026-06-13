@@ -23,31 +23,31 @@ chunks:
     key_terms: [chatgpt, d514-83ea-a6d2-86474ae104dc, https, com, comments, prompt, share, dog]
     token_count: 183
   - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c1"
-    char_span: [620, 2486]
+    char_span: [619, 2485]
     sentence_count: 8
     key_terms: [horizontal, like, integral, image, model, r-chatgpt-1050422060352024636, constraint, structure]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c2"
-    char_span: [2488, 4315]
+    char_span: [2487, 4314]
     sentence_count: 11
     key_terms: [model, e524da9e65f5ae47fb7a3923735e6220a900fa1d, since, sometimes, geometry, happened, failing, parser]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c3"
-    char_span: [4317, 4995]
+    char_span: [4316, 4994]
     sentence_count: 3
     key_terms: [bro, ac73fdd6e5ea6d142ddebc2fc58d9fb558fb18de, cb82075ec74f65b7c6f37e98f9ba7251d6bb5d68, preview, format, https, width, auto]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c4"
-    char_span: [4997, 6423]
+    char_span: [4996, 6422]
     sentence_count: 5
     key_terms: [model, someone, dog, gave, accurately, diffusion, message, "else's"]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/chatgpt/1t0gkkd.md#c5"
-    char_span: [6425, 6755]
+    char_span: [6424, 6754]
     sentence_count: 1
     key_terms: [dog, charmander787, mramazing111, brother, fucking, kidding, preview, symedia]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, get, "bachelor's", comments, career, degree, "didn't", did]
     token_count: 275
   - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c1"
-    char_span: [1165, 3421]
+    char_span: [1164, 3420]
     sentence_count: 21
     key_terms: [degree, bachelors, job, field, work, specific, getting, loans]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1qgjkf7.md#c2"
-    char_span: [3423, 3847]
+    char_span: [3422, 3846]
     sentence_count: 5
     key_terms: [people, gaps, challenging, employment, experience, caregiver, employers, explained]
     section: Comments

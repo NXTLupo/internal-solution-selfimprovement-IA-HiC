@@ -23,13 +23,13 @@ chunks:
     key_terms: [fafsa, estimator, circumstances, northeastern, css, different, financial, wondering]
     token_count: 309
   - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c1"
-    char_span: [1371, 3447]
+    char_span: [1370, 3446]
     sentence_count: 12
     key_terms: [ok-banana-2859, did, cost, get, background-essay6470, got, estimate, affect]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rvepom.md#c2"
-    char_span: [3114, 3506]
+    char_span: [3113, 3505]
     sentence_count: 4
     key_terms: [background-essay6470, absolutely, especially, currently, education, expecting, obviously, stressful]
     section: Comments

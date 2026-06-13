@@ -28,31 +28,31 @@ chunks:
     key_terms: [engagement, asked, wasn, work, last, time, automation, reporting]
     token_count: 470
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c2"
-    char_span: [4560, 6585]
+    char_span: [4559, 6584]
     sentence_count: 16
     key_terms: [consulting, client, agency, doing, done, etc, rate, department]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c3"
-    char_span: [6588, 8715]
+    char_span: [6587, 8714]
     sentence_count: 16
     key_terms: [problems, obviously, need, "don't", since, back, done, get]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c4"
-    char_span: [8717, 10686]
+    char_span: [8716, 10685]
     sentence_count: 20
     key_terms: [number, "he'd", like, rate, "they're", yadda, put, desperate]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c5"
-    char_span: [10688, 12627]
+    char_span: [10687, 12626]
     sentence_count: 22
     key_terms: [companies, frank, elsewhere, recently, walking, better, higher, longer]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/jobs/1qo7mnm.md#c6"
-    char_span: [12629, 14524]
+    char_span: [12628, 14523]
     sentence_count: 19
     key_terms: [work, did, octeyon, contact, agency, longer, intelligent-note9517, bayouwaterandmusic]
     section: Comments

@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1till7f.md#c0"
-    char_span: [0, 1882]
+    char_span: [0, 1881]
     sentence_count: 9
     key_terms: [work, startups, collegeone1210, early-stage, internships, team, interested, execution]
     token_count: 391

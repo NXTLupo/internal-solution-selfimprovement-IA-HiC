@@ -21,43 +21,43 @@ chunks:
     key_terms: [college, like, feel, semester, community, comments, against, anymore]
     token_count: 296
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c1"
-    char_span: [1234, 1682]
+    char_span: [1233, 1681]
     sentence_count: 3
     key_terms: [transfer, almightypicklegod, year, orlandofren, ultimately, community, thinking, wherever]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c2"
-    char_span: [1684, 3827]
+    char_span: [1683, 3826]
     sentence_count: 21
     key_terms: [college, students, did, because, too, community, problem, schools]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c3"
-    char_span: [3561, 3872]
+    char_span: [3560, 3871]
     sentence_count: 6
     key_terms: [almightypicklegod, multiple, switched, because, college, program, started, stopped]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c4"
-    char_span: [3874, 5710]
+    char_span: [3873, 5709]
     sentence_count: 14
     key_terms: [college, community, tuition, universities, hard, year, typically, yourself]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c5"
-    char_span: [5712, 7838]
+    char_span: [5711, 7837]
     sentence_count: 23
     key_terms: [college, community, back, "don't", right, service, "you're", money]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c6"
-    char_span: [7840, 9401]
+    char_span: [7839, 9400]
     sentence_count: 12
     key_terms: [community, education, get, colleges, degree, scholarships, "don't", need]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/college/1oschdg.md#c7"
-    char_span: [9403, 10365]
+    char_span: [9402, 10364]
     sentence_count: 8
     key_terms: [credits, transcripts, get, transcript, school, "you're", apply, like]
     section: Comments

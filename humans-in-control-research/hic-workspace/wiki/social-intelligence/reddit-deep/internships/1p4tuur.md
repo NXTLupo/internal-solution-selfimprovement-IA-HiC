@@ -23,13 +23,13 @@ chunks:
     key_terms: [looking, internships, bangalore, startup, people, want, incubation, building]
     token_count: 322
   - id: "social-intelligence/reddit-deep/internships/1p4tuur.md#c1"
-    char_span: [1517, 2899]
+    char_span: [1516, 2898]
     sentence_count: 2
     key_terms: [g5utergtjrrcre5na, gupshup123, interested, please, below, learn, fill, form]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/internships/1p4tuur.md#c2"
-    char_span: [2901, 3437]
+    char_span: [2900, 3436]
     sentence_count: 1
     key_terms: [g5utergtjrrcre5na, gupshup123, interested, forms, https, gle, please, below]
     section: Comments

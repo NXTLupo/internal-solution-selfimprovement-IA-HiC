@@ -21,7 +21,7 @@ chunks:
     key_terms: [minor, engineering, comments, graduate, co-ops, additional-spring27, years, neu]
     token_count: 160
   - id: "social-intelligence/reddit-deep/neu/1s69uen.md#c1"
-    char_span: [666, 2319]
+    char_span: [665, 2318]
     sentence_count: 4
     key_terms: [minor, summer, year, classes, class, credits, orangeelectric, co-ops]
     section: Comments

@@ -26,7 +26,7 @@ chunks:
     key_terms: [experience, interview, interviews, questions, job, real, company, resume]
     token_count: 367
   - id: "social-intelligence/reddit-deep/internships/1nntnfu.md#c2"
-    char_span: [4017, 4894]
+    char_span: [4016, 4893]
     sentence_count: 3
     key_terms: [helpful, thanks, student, openingkitchen7220, want, work, congratulations, real-role872]
     section: Comments

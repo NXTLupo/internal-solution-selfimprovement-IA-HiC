@@ -23,7 +23,7 @@ chunks:
     key_terms: [get, gradschool, comments, research, months, school, seems, grad]
     token_count: 203
   - id: "social-intelligence/reddit-deep/gradschool/1tegh08.md#c1"
-    char_span: [794, 2230]
+    char_span: [793, 2229]
     sentence_count: 13
     key_terms: [right, keep, applying, projects, correct, finding, letters, science]
     section: Comments

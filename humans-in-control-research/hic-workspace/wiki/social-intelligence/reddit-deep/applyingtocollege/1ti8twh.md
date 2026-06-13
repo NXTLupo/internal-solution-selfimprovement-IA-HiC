@@ -26,49 +26,49 @@ chunks:
     key_terms: [berkeley, because, did, get, mit, connections, financially, prestigious]
     token_count: 126
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c2"
-    char_span: [2765, 4741]
+    char_span: [2764, 4740]
     sentence_count: 6
     key_terms: [engineering, mit, flexibility, schools, big, tech, berkeley, natural]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c3"
-    char_span: [4743, 6619]
+    char_span: [4742, 6618]
     sentence_count: 4
     key_terms: [major, day, engineering, additional, transfer, degree, majors, public]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c4"
-    char_span: [6621, 8607]
+    char_span: [6620, 8606]
     sentence_count: 11
     key_terms: [mit, employment, scared-traffic-4060, vast-operation3463, berkeley, primary, degree, market]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c5"
-    char_span: [8609, 10457]
+    char_span: [8608, 10456]
     sentence_count: 9
     key_terms: [coast, schools, east, engineering, collegetransitions, top-feeders-tech, school, cmu]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c6"
-    char_span: [10459, 12674]
+    char_span: [10458, 12673]
     sentence_count: 8
     key_terms: [berkeley, flagship, waterloo, independent-tart608, people, "don't", get, acceptance]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c7"
-    char_span: [12676, 14688]
+    char_span: [12675, 14687]
     sentence_count: 6
     key_terms: [berkeley, schools, outcome, people, time, developing, generation, honestly]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c8"
-    char_span: [14690, 16451]
+    char_span: [14689, 16450]
     sentence_count: 11
     key_terms: [berkeley, mit, lawrence, been, cost, new, roi, in-state]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ti8twh.md#c9"
-    char_span: [16453, 17577]
+    char_span: [16452, 17576]
     sentence_count: 9
     key_terms: [berkeley, because, labs, students, private, schools, bigstatistician4166, range]
     section: Comments

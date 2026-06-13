@@ -28,25 +28,25 @@ chunks:
     key_terms: [companies, etf, dividend, sector, above, etfs, like, want]
     token_count: 431
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c2"
-    char_span: [3553, 5621]
+    char_span: [3552, 5620]
     sentence_count: 13
     key_terms: [growth, "don't", fund, progrieferhere, term, anything, probably, ideally]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c3"
-    char_span: [5623, 7681]
+    char_span: [5622, 7680]
     sentence_count: 22
     key_terms: ["i'm", something, less, term, personally, expecting, portfolio, continue]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c4"
-    char_span: [7683, 8960]
+    char_span: [7682, 8959]
     sentence_count: 11
     key_terms: [diversification, good, playing, around, "you're", learn, lucky, get]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/investing/1p9tqfc.md#c5"
-    char_span: [8962, 9735]
+    char_span: [8961, 9734]
     sentence_count: 6
     key_terms: [diversification-protects-you-least, civolatility, selling, https, com, "i've", "it's", www]
     section: Comments

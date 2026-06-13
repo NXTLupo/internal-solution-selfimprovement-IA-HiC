@@ -23,7 +23,7 @@ chunks:
     key_terms: [program, applyingtocollege, experiences, university, westcliff, clinical, comments, corona]
     token_count: 283
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t2zlvy.md#c1"
-    char_span: [1190, 1437]
+    char_span: [1189, 1436]
     sentence_count: 2
     key_terms: [regular-pear-8625, prenursing, subreddits, allnurses, graduates, elkrange, chatgpt, nursing]
     section: Comments

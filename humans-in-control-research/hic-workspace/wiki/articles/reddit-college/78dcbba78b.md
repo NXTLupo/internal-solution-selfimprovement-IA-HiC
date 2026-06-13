@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-college/78dcbba78b.md#c0"
-    char_span: [0, 1648]
+    char_span: [0, 1647]
     sentence_count: 1
     key_terms: [classes, college, attend, doesn, going, feel, get, room]
-    token_count: 390
+    token_count: 389
 ---
 # Roomate isn’t going to class
 

@@ -23,13 +23,13 @@ chunks:
     key_terms: [gradadmissions, accepted, comments, mit, reddit-deep, acceptance, rejection, yesterday]
     token_count: 80
   - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c1"
-    char_span: [308, 2207]
+    char_span: [307, 2206]
     sentence_count: 15
     key_terms: [congrats, acceptance, curious, no-test6484, unambiguous, applicants, celebrate, top-tier]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qy3giu.md#c2"
-    char_span: [2209, 3443]
+    char_span: [2208, 3442]
     sentence_count: 12
     key_terms: [england, perspective, boston, new, congrats, godrishuniverse, real, awesome]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [wallstreetbets, comments, goes, hard, life, like, too, reddit-deep]
     token_count: 176
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c1"
-    char_span: [663, 2015]
+    char_span: [662, 2014]
     sentence_count: 4
     key_terms: [average, https, goes, sometimes, sooumy154, discord, bought, anymanufacturer6465]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c2"
-    char_span: [2017, 3708]
+    char_span: [2016, 3707]
     sentence_count: 11
     key_terms: [earnings, sooumy154, like, rioferdy838, coreweave, november, company, people]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/wallstreetbets/1ovqifz.md#c3"
-    char_span: [3710, 5152]
+    char_span: [3709, 5151]
     sentence_count: 5
     key_terms: [sooumy154, down, like, november, options, bought, shares, march]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [rag, memory, https, knowledge, com, indexing, context, agents]
     token_count: 428
   - id: "social-intelligence/reddit-deep/deeplearning/1rnad8x.md#c1"
-    char_span: [1808, 2563]
+    char_span: [1807, 2562]
     sentence_count: 4
     key_terms: [agent, curious-visit3353, agentixlabs, giorgio1979, developing, important, knowledge, preferred]
     section: Comments

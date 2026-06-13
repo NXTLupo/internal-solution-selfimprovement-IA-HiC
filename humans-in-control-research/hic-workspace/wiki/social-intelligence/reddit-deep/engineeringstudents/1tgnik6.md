@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tgnik6.md#c0"
-    char_span: [0, 1009]
+    char_span: [0, 1008]
     sentence_count: 6
     key_terms: [experience, technology, engineeringstudents, years, engineering, mechanical, graduated, post-grad]
-    token_count: 227
+    token_count: 226
 ---
 # 4 Years of Experience Post-Grad for Engineering Technology?
 

@@ -28,7 +28,7 @@ chunks:
     key_terms: [roles, positions, higher, certifications, early-career, institutions, universities, appreciated]
     token_count: 145
   - id: "social-intelligence/reddit-deep/highereducation/1o39vha.md#c2"
-    char_span: [2504, 3393]
+    char_span: [2503, 3392]
     sentence_count: 8
     key_terms: [postings, positions, hiring, people, ubc, universities, government, university]
     section: Comments

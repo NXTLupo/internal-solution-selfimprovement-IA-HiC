@@ -28,43 +28,43 @@ chunks:
     key_terms: [hallucination, judgment, people, model, generation, structural, different, machines]
     token_count: 326
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c2"
-    char_span: [3798, 4047]
+    char_span: [3797, 4046]
     sentence_count: 3
     key_terms: [hallucinations, gattadifatta, counteract, incomplete, expertise, instincts, something, probably]
     section: Comments
     token_count: 57
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c3"
-    char_span: [4049, 6089]
+    char_span: [4048, 6088]
     sentence_count: 10
     key_terms: [lost-bathroom-2060, human, good, here, question, shortcut, better, gemini]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c4"
-    char_span: [5808, 7129]
+    char_span: [5807, 7128]
     sentence_count: 8
     key_terms: [context, training, hallucinations, risk, enigmaofoz, structure, outside, depth]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c5"
-    char_span: [7131, 8474]
+    char_span: [7130, 8473]
     sentence_count: 14
     key_terms: [gemini, actor, article, answer, google, wife, provided, research]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c6"
-    char_span: [8476, 10567]
+    char_span: [8475, 10566]
     sentence_count: 15
     key_terms: [gemini, california, farm, bierwagen, chatgpt, musickismagick, waters, deep-sea-4867]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c7"
-    char_span: [10266, 10780]
+    char_span: [10265, 10779]
     sentence_count: 5
     key_terms: [advanced-cat9927, hallucinations, hallucinating, fabrications, apparently, california, according, president]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/artificial/1pjgh5w.md#c8"
-    char_span: [10782, 12656]
+    char_span: [10781, 12655]
     sentence_count: 13
     key_terms: [hallucination, like, reasoning, something, failures, survived, correct, diverge]
     section: Comments

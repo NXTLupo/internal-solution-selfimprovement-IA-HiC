@@ -21,19 +21,19 @@ chunks:
     key_terms: [design, game, computer, science, development, neu, interested, comments]
     token_count: 277
   - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c1"
-    char_span: [1161, 1368]
+    char_span: [1160, 1367]
     sentence_count: 1
     key_terms: [lavishsphere, first-year, business, pursuing, friends, oakland, staying, design]
     section: Comments
     token_count: 53
   - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c2"
-    char_span: [1370, 3647]
+    char_span: [1369, 3646]
     sentence_count: 15
     key_terms: [courses, requirements, professor, game, get, oakland, majors, major]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/neu/1s0aiuu.md#c3"
-    char_span: [3649, 4536]
+    char_span: [3648, 4535]
     sentence_count: 3
     key_terms: [feels, like, students, general, "they're", people, makes, practically]
     section: Comments

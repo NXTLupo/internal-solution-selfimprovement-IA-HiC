@@ -23,13 +23,13 @@ chunks:
     key_terms: [work, evaluation, co-op, toxic, overtime, physical, waterlooworks, environment]
     token_count: 504
   - id: "social-intelligence/reddit-deep/uwaterloo/1piqxdh.md#c1"
-    char_span: [2237, 4078]
+    char_span: [2236, 4077]
     sentence_count: 13
     key_terms: [working, xgwang66, expectations, china, issue, keep, ehhthing, advisor]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/uwaterloo/1piqxdh.md#c2"
-    char_span: [4080, 5560]
+    char_span: [4079, 5559]
     sentence_count: 5
     key_terms: [china, job, like, advisor, working, normal, xgwang66, reached]
     section: Comments

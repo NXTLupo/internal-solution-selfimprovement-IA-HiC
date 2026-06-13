@@ -7,7 +7,7 @@ industries: [sustainability]
 status: active
 chunks:
   - id: "industries/sustainability.md#c0"
-    char_span: [0, 739]
+    char_span: [0, 738]
     sentence_count: 2
     key_terms: [industries, sources, shared, social-intelligence, articles, sustainability, reddit-deep, reddit-deep-r-waterloo]
     section: Cross-over verticals (shared sources) / Representative sources

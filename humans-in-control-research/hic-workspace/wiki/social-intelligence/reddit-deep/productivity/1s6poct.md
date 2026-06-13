@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, comments, northernvillan, reddit-deep, suggestions, management, productive, situations]
     token_count: 169
   - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c1"
-    char_span: [790, 3007]
+    char_span: [789, 3006]
     sentence_count: 17
     key_terms: [productivity, system, time, systems, working, northernvillan, "you're", performance]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/productivity/1s6poct.md#c2"
-    char_span: [3009, 5278]
+    char_span: [3008, 5277]
     sentence_count: 10
     key_terms: [meetings, time, people, etc, outlook, needed, system, productivity]
     section: Comments

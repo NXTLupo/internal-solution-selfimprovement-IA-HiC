@@ -23,25 +23,25 @@ chunks:
     key_terms: [got, gradschool, undergrad, cheating, comments, decision, caught, asked]
     token_count: 226
   - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c1"
-    char_span: [946, 1150]
+    char_span: [945, 1149]
     sentence_count: 1
     key_terms: [dishonest, academically, answered, already, person, "you've", admit, tells]
     section: Comments
     token_count: 51
   - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c2"
-    char_span: [1152, 3307]
+    char_span: [1151, 3306]
     sentence_count: 17
     key_terms: [program, since, lie, academic, learned, mistake, record, great]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c3"
-    char_span: [3047, 3722]
+    char_span: [3046, 3721]
     sentence_count: 4
     key_terms: [learn, mistake, relationfearless5998, applications, especially, resilience, trutru1002, beautiful]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/gradschool/1plfq10.md#c4"
-    char_span: [3724, 5638]
+    char_span: [3723, 5637]
     sentence_count: 14
     key_terms: [mistake, major, probably, people, dishonesty, submitted, academic, happens]
     section: Comments

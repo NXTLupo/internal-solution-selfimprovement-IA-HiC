@@ -23,13 +23,13 @@ chunks:
     key_terms: [synthetic, like, learning, classification, deeplearning, data, genuinley, comments]
     token_count: 387
   - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c1"
-    char_span: [1610, 3917]
+    char_span: [1609, 3916]
     sentence_count: 7
     key_terms: [synthetic, data, model, honestly, right, like, real, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1t0rdri.md#c2"
-    char_span: [3611, 4262]
+    char_span: [3610, 4261]
     sentence_count: 5
     key_terms: [synthetic, data, real, model, classification, distributions, stylistically, fine-tuning]
     section: Comments

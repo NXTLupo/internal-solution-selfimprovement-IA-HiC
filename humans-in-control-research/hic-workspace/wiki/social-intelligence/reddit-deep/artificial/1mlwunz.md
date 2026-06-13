@@ -33,43 +33,43 @@ chunks:
     key_terms: [people, companionship, back, companion, chatgpt, power, open, personalization]
     token_count: 221
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c3"
-    char_span: [5420, 6426]
+    char_span: [5419, 6425]
     sentence_count: 5
     key_terms: [completely, critique, "aren't", public-vegetable-182, available-signal209, get, "it's", contradicted]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c4"
-    char_span: [6428, 7563]
+    char_span: [6427, 7562]
     sentence_count: 9
     key_terms: [listen, information, gpt, work, people, "don't", gtp-5, been]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c5"
-    char_span: [7565, 9750]
+    char_span: [7564, 9749]
     sentence_count: 15
     key_terms: [people, thedadthatgrills, therapy, "aren't", being, countries, because, issues]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c6"
-    char_span: [9435, 11534]
+    char_span: [9434, 11533]
     sentence_count: 25
     key_terms: [people, mental, phone, like, loneliness, global, issues, social]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c7"
-    char_span: [11299, 11770]
+    char_span: [11298, 11769]
     sentence_count: 3
     key_terms: [loneliness, global, issue, alancarronline, individualism, increasingly, stereotypes, companies]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c8"
-    char_span: [11772, 14068]
+    char_span: [11771, 14067]
     sentence_count: 20
     key_terms: [problem, unfortunately, need, emotional, potential, sometimes, profound, digital]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/artificial/1mlwunz.md#c9"
-    char_span: [14070, 15020]
+    char_span: [14069, 15019]
     sentence_count: 7
     key_terms: [model, like, people, quirks, hours, learn, disappointment, professionally]
     section: Comments

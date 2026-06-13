@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, in-person, like, meetings, glasses, meeting, always, laptop]
     token_count: 446
   - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c1"
-    char_span: [1979, 3261]
+    char_span: [1978, 3260]
     sentence_count: 10
     key_terms: [meeting, people, don, someone, paper, searequirement7749, zombienedflanders, bot]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/productivity/1sah46y.md#c2"
-    char_span: [3263, 5134]
+    char_span: [3262, 5133]
     sentence_count: 14
     key_terms: [paper, use, something, lectures, meeting, similar, summary, "there's"]
     section: Comments

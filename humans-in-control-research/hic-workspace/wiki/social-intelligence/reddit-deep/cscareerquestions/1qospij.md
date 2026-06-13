@@ -33,7 +33,7 @@ chunks:
     key_terms: [good, working, seems, get, keep, mle, work, professionals]
     token_count: 180
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qospij.md#c3"
-    char_span: [4465, 6202]
+    char_span: [4464, 6201]
     sentence_count: 11
     key_terms: [established, learning, software, yourself, tooling, without, effort, moving]
     section: Comments

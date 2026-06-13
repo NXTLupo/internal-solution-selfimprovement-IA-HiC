@@ -28,61 +28,61 @@ chunks:
     key_terms: [credit, pay, insurance, card, "i'm", life, interest, payments]
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c2"
-    char_span: [3943, 6142]
+    char_span: [3942, 6141]
     sentence_count: 20
     key_terms: [getting, judgment, payout, creditors, insurance, annuity, credit, income]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c3"
-    char_span: [6145, 6998]
+    char_span: [6144, 6997]
     sentence_count: 5
     key_terms: [ilovemychildren5, non-revocable, jurisdiction, balls2hairy, feasibility, possibility, potentially, applicable]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c4"
-    char_span: [7000, 9026]
+    char_span: [6999, 9025]
     sentence_count: 18
     key_terms: [home, mortgage, getting, credit, bankruptcy, co-signed, creditors, deceased]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c5"
-    char_span: [9028, 9979]
+    char_span: [9027, 9978]
     sentence_count: 11
     key_terms: [thanks, circumstances, suspicious, interest, happens, months, "don't", extra]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c6"
-    char_span: [9981, 11953]
+    char_span: [9980, 11952]
     sentence_count: 12
     key_terms: [credit, debt, "don't", card, interest, cards, house, apr]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c7"
-    char_span: [11955, 13805]
+    char_span: [11954, 13804]
     sentence_count: 16
     key_terms: [pay, insurance, get, certificate, death, money, debt, credit]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c8"
-    char_span: [13807, 15578]
+    char_span: [13806, 15577]
     sentence_count: 15
     key_terms: [death, certificate, months, cause, days, "i'm", instead, unusual]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c9"
-    char_span: [15580, 17800]
+    char_span: [15579, 17799]
     sentence_count: 18
     key_terms: [cards, debt, insurance, attorney, freezing, planning, because, elderly]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c10"
-    char_span: [17802, 19555]
+    char_span: [17801, 19554]
     sentence_count: 12
     key_terms: [option, house, sure, need, community, something, brother, losing]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/personalfinance/1sq4n5y.md#c11"
-    char_span: [19557, 19828]
+    char_span: [19556, 19827]
     sentence_count: 4
     key_terms: [bank, home, combination, elsewhere, mortgage, "doesn't", someone, afford]
     section: Comments

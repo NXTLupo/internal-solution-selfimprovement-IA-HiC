@@ -23,37 +23,37 @@ chunks:
     key_terms: [program, phd, work, gradschool, anywhere, comments, programs, research]
     token_count: 290
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c1"
-    char_span: [1241, 2519]
+    char_span: [1240, 2518]
     sentence_count: 9
     key_terms: [phd, work, program, study, time, interested, university, obtaining]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c2"
-    char_span: [2521, 4141]
+    char_span: [2520, 4140]
     sentence_count: 9
     key_terms: [programs, phd, sometimes, institutions, like, interested, research, keeping]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c3"
-    char_span: [4147, 6440]
+    char_span: [4146, 6439]
     sentence_count: 25
     key_terms: [programs, research, interested, metallurgy, faculty, schools, member, people]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c4"
-    char_span: [6442, 8213]
+    char_span: [6441, 8212]
     sentence_count: 16
     key_terms: [phd, want, profit, emotional-tough2780, program, careenbeemolly, school, work]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c5"
-    char_span: [8215, 10213]
+    char_span: [8214, 10212]
     sentence_count: 15
     key_terms: [careenbeemolly, schools, emotional-tough2780, undergrad, like, "i'm", look, definitely]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1tihljw.md#c6"
-    char_span: [10215, 10428]
+    char_span: [10214, 10427]
     sentence_count: 3
     key_terms: [get, assistantships, assistantship, assistant, research, teaching, offered, tuition]
     section: Comments

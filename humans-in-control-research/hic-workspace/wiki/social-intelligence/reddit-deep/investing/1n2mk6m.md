@@ -23,37 +23,37 @@ chunks:
     key_terms: [market, trump-media-cryptocom-launch-new-crypto-treasury-firm-via-spac-deal-2025-08-26, trump, com, https, www, comments, administration]
     token_count: 513
   - id: "social-intelligence/reddit-deep/investing/1n2mk6m.md#c1"
-    char_span: [2165, 3884]
+    char_span: [2164, 3883]
     sentence_count: 7
     key_terms: [yaboijack055, capitalism, money, free, funkychickenkong, market, corporations, socialism]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/investing/1n2mk6m.md#c2"
-    char_span: [3886, 5895]
+    char_span: [3885, 5894]
     sentence_count: 14
     key_terms: [government, totalitarianism, political, fascism, federal, consolidated, power, small]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/investing/1n2mk6m.md#c3"
-    char_span: [5897, 6361]
+    char_span: [5896, 6360]
     sentence_count: 4
     key_terms: [fascist, askingyouquestions48, "it's", totalitarianism, significantly, incorporates, totalitarian, governments]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/investing/1n2mk6m.md#c4"
-    char_span: [6363, 7843]
+    char_span: [6362, 7842]
     sentence_count: 6
     key_terms: [never, stage, etc, capitalism, government, market, usual-importance-893, being]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/investing/1n2mk6m.md#c5"
-    char_span: [7845, 9884]
+    char_span: [7844, 9883]
     sentence_count: 11
     key_terms: [government, market, free, capitalism, funkychickenkong, intervention, truly, participant]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/investing/1n2mk6m.md#c6"
-    char_span: [9886, 11918]
+    char_span: [9885, 11917]
     sentence_count: 12
     key_terms: [funkychickenkong, conservative, market, free, explaining, government, seemingly, company]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [management, roles, information, internships, risk, consulting, experience, internship]
     token_count: 241
   - id: "social-intelligence/reddit-deep/internships/1t4p4gi.md#c1"
-    char_span: [1151, 1707]
+    char_span: [1150, 1706]
     sentence_count: 3
     key_terms: [focused, resume, intro, hard, ihavenoideabtw, applications, nepternship, robertisaak]
     section: Comments

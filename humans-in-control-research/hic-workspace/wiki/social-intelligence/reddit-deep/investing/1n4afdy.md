@@ -23,49 +23,49 @@ chunks:
     key_terms: [buy, investing, long-term, something, comments, invest, rental, wealth]
     token_count: 216
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c1"
-    char_span: [898, 2422]
+    char_span: [897, 2421]
     sentence_count: 12
     key_terms: [management, years, company, rental, house, never, selling, tenants]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c2"
-    char_span: [2424, 3600]
+    char_span: [2423, 3599]
     sentence_count: 11
     key_terms: [live, property, passive, people, fragrant-aide-3174, possible-trip-5299, got, like]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c3"
-    char_span: [3602, 5369]
+    char_span: [3601, 5368]
     sentence_count: 11
     key_terms: [passive, income, house, job, background, activity, credit, enough]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c4"
-    char_span: [5371, 7447]
+    char_span: [5370, 7446]
     sentence_count: 13
     key_terms: [people, work, passive, takes, stocks, complaining, maintenance, btc]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c5"
-    char_span: [7449, 8977]
+    char_span: [7448, 8976]
     sentence_count: 14
     key_terms: [income, rental, year, people, maintenance, breakeven, interest, property]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c6"
-    char_span: [8979, 10167]
+    char_span: [8978, 10166]
     sentence_count: 11
     key_terms: [people, did, voo, want, received, growth, money, years]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c7"
-    char_span: [10169, 11111]
+    char_span: [10168, 11110]
     sentence_count: 6
     key_terms: [years, inheritance, returns, "that's", stalkaturnedtyper, lot, need, put]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/investing/1n4afdy.md#c8"
-    char_span: [11113, 12799]
+    char_span: [11112, 12798]
     sentence_count: 15
     key_terms: [estate, stocks, like, real, dumpitdog, property, requires, liquid]
     section: Comments

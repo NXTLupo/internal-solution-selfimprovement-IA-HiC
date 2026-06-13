@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/abddbcac1e.md#c0"
-    char_span: [0, 1830]
+    char_span: [0, 1829]
     sentence_count: 17
     key_terms: [interested, classes, gradadmissions, policy, since, years, engineering, gpa]
-    token_count: 402
+    token_count: 401
   - id: "articles/reddit-deep-r-gradadmissions/abddbcac1e.md#c1"
-    char_span: [1832, 3961]
+    char_span: [1831, 3960]
     sentence_count: 24
     key_terms: [programs, undergraduate, gpa, next, statistics, economics, technical, advanced]
     token_count: 438
   - id: "articles/reddit-deep-r-gradadmissions/abddbcac1e.md#c2"
-    char_span: [3963, 5091]
+    char_span: [3962, 5090]
     sentence_count: 11
     key_terms: [math, grades, econ, advanced, analysis, calculus, algebra, courses]
     token_count: 252

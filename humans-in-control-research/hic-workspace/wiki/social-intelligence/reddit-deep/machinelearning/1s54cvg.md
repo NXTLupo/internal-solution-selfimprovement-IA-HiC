@@ -21,31 +21,31 @@ chunks:
     key_terms: [wrong, machinelearning, locomo, intentionally, comments, accepts, answers, audited]
     token_count: 208
   - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c1"
-    char_span: [786, 3185]
+    char_span: [785, 3184]
     sentence_count: 20
     key_terms: [answer, system, https, wrong, questions, key, specific, answers]
     section: LoCoMo
     token_count: 501
   - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c2"
-    char_span: [3187, 5615]
+    char_span: [3186, 5614]
     sentence_count: 17
     key_terms: [context, window, longmemeval-s, memory, https, benchmark, cognitive, questions]
     section: LoCoMo / LongMemEval / LoCoMo-Plus
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c3"
-    char_span: [5677, 8121]
+    char_span: [5676, 8120]
     sentence_count: 9
     key_terms: [judge, evaluation, memory, systems, benchmarks, model, ingestion, context]
     section: Requirements for meaningful long-term memory evaluation
     token_count: 487
   - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c4"
-    char_span: [8136, 10382]
+    char_span: [8135, 10381]
     sentence_count: 6
     key_terms: [judge, response, suggestions, acceptance, benchmark, convomem, metadata, against]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/machinelearning/1s54cvg.md#c5"
-    char_span: [10384, 12713]
+    char_span: [10383, 12712]
     sentence_count: 15
     key_terms: [memory, temporal, relationships, contradicts, preferences, conflicts, updates, contradictions]
     section: Comments

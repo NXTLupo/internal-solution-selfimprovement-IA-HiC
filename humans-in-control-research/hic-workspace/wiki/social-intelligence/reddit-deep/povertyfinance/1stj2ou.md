@@ -23,25 +23,25 @@ chunks:
     key_terms: [got, povertyfinance, credit, going, "we've", debt, comments, paying]
     token_count: 416
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c1"
-    char_span: [1745, 3726]
+    char_span: [1744, 3725]
     sentence_count: 16
     key_terms: [chicken, povertyfinance, dinner, buy, egg, like, wiki, dumplings]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c2"
-    char_span: [3730, 5839]
+    char_span: [3729, 5838]
     sentence_count: 23
     key_terms: [price, alicecat628, car, give, life, expensive, insurance, internet]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c3"
-    char_span: [5841, 7890]
+    char_span: [5840, 7889]
     sentence_count: 25
     key_terms: [budget, debt, husband, cash, spending, great, spreadsheet, get]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/povertyfinance/1stj2ou.md#c4"
-    char_span: [7892, 9562]
+    char_span: [7891, 9561]
     sentence_count: 11
     key_terms: [instead, eat, homemade, budget, buying, beans, guess, lonelycontact9158]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, internships, days, experience, internship, comments, student, advice]
     token_count: 232
   - id: "social-intelligence/reddit-deep/internships/1mgrgwo.md#c1"
-    char_span: [999, 1881]
+    char_span: [998, 1880]
     sentence_count: 9
     key_terms: [reachful, research, explore, did, communicate, publication, absolutely, critically]
     section: Comments

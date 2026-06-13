@@ -23,43 +23,43 @@ chunks:
     key_terms: [gradadmissions, rejection, comments, posted, intelligenttank2993, unfortunately, application, reddit-deep]
     token_count: 159
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c1"
-    char_span: [671, 787]
+    char_span: [670, 786]
     sentence_count: 2
     key_terms: [gaymedic69, rejection, rejected, telling, going, soft]
     section: Comments
     token_count: 36
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c2"
-    char_span: [789, 2955]
+    char_span: [788, 2954]
     sentence_count: 11
     key_terms: [application, intelligenttank2993, rejection, good, opening, psych, "it's", soft]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c3"
-    char_span: [2704, 4914]
+    char_span: [2703, 4913]
     sentence_count: 18
     key_terms: [application, intelligenttank2993, rejection, right, experiences, like, feedback, funding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c4"
-    char_span: [4662, 5561]
+    char_span: [4661, 5560]
     sentence_count: 7
     key_terms: [intelligenttank2993, time, age, disappointed, dismissed, obviously, rejection, anything]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c5"
-    char_span: [5563, 5909]
+    char_span: [5562, 5908]
     sentence_count: 4
     key_terms: [international, student, dedication, discipline, problems, studying, forward, hearing]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c6"
-    char_span: [5911, 7963]
+    char_span: [5910, 7962]
     sentence_count: 13
     key_terms: [email, coriander1998, program, intelligenttank2993, dev, applied, focused, offelautumn]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qyvrw0.md#c7"
-    char_span: [7700, 8138]
+    char_span: [7699, 8137]
     sentence_count: 2
     key_terms: [got, gaooo777, reach, prospective, previously, rejections, themselves, phxnights]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [thesis, gradschool, breakdown, comments, example, quarter, almost, mental]
     token_count: 191
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c1"
-    char_span: [769, 1132]
+    char_span: [768, 1131]
     sentence_count: 3
     key_terms: [pages, like, boltvnderhuge, bibliography, dissertation, spreadsheets, discussion, archknits]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c2"
-    char_span: [1134, 3068]
+    char_span: [1133, 3067]
     sentence_count: 14
     key_terms: [thesis, masters, xoxowoman06, long, helpful, length, longer, trying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c3"
-    char_span: [2828, 3424]
+    char_span: [2827, 3423]
     sentence_count: 7
     key_terms: [did, examples, question, present, larger, themostperfectofcats, local, information]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c4"
-    char_span: [3426, 5279]
+    char_span: [3425, 5278]
     sentence_count: 18
     key_terms: [writing, paper, like, masters, program, thesis, department, discussion]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c5"
-    char_span: [5281, 7196]
+    char_span: [5280, 7195]
     sentence_count: 14
     key_terms: [thesis, pages, write, page, research, requirements, got, need]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c6"
-    char_span: [7198, 9400]
+    char_span: [7197, 9399]
     sentence_count: 28
     key_terms: [work, methods, results, hypotheses, pages, already, figures, similar]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradschool/1n9js7x.md#c7"
-    char_span: [9402, 9769]
+    char_span: [9401, 9768]
     sentence_count: 4
     key_terms: ["you'll", get, good, everything, examples, finished, probably, provided]
     section: Comments

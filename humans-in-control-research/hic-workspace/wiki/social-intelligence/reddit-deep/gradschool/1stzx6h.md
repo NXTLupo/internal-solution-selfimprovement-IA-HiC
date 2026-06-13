@@ -23,13 +23,13 @@ chunks:
     key_terms: [phd, funding, financial, makes, canada, gradschool, comments, supposed]
     token_count: 417
   - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c1"
-    char_span: [1860, 3768]
+    char_span: [1859, 3767]
     sentence_count: 9
     key_terms: [canada, substantially, years, phd, research, because, getting, working]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/gradschool/1stzx6h.md#c2"
-    char_span: [3770, 4639]
+    char_span: [3769, 4638]
     sentence_count: 7
     key_terms: [tuition, stipends, people, school, correct-shine-1692, lot, work, thealexanderpach]
     section: Comments

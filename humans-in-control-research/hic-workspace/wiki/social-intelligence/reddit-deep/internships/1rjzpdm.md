@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rjzpdm.md
 url: "https://www.reddit.com/r/internships/comments/1rjzpdm/my_manager_made_me_cry_is_this_treatment_normal/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,53 @@ flair: "During the Internship"
 extracted_at: "2026-06-06T23:20:46.220Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c0"
+    char_span: [0, 1554]
+    sentence_count: 14
+    key_terms: [internships, "i'm", "doesn't", problem, powerpoints, "it's", understand, comments]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c1"
+    char_span: [1559, 3633]
+    sentence_count: 16
+    key_terms: [questions, back, "i'm", like, time, getting, manager, talking]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c2"
+    char_span: [3635, 4517]
+    sentence_count: 10
+    key_terms: [job, semester, friends, manager, problem, behind, lack, left]
+    token_count: 193
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c3"
+    char_span: [4532, 6306]
+    sentence_count: 18
+    key_terms: [manager, material, get, understand, questions, through, intern, normal]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c4"
+    char_span: [6308, 7414]
+    sentence_count: 10
+    key_terms: [definitely, questions, probably, manager, asking, phone, lot, business-related]
+    section: Comments
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c5"
+    char_span: [7416, 9689]
+    sentence_count: 20
+    key_terms: [appreciate, "i'm", manager, understand, mistakes, company, "you're", approachable]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c6"
+    char_span: [9437, 11180]
+    sentence_count: 20
+    key_terms: [lead, company, project, experience, something, sometimes, changing, director]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/internships/1rjzpdm.md#c7"
+    char_span: [11182, 11509]
+    sentence_count: 5
+    key_terms: [learn, opportunities, irregularity, validation, treatment, feedback, yourself, explore]
+    section: Comments
+    token_count: 71
 ---
-
 # My manager made me cry. Is this treatment normal? Am I the problem?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rjzpdm/my_manager_made_me_cry_is_this_treatment_normal/)

@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, reddit-deep, everybody, posted, reddit, source, thanks]
     token_count: 66
   - id: "social-intelligence/reddit-deep/gradadmissions/1ouugm4.md#c1"
-    char_span: [224, 966]
+    char_span: [223, 965]
     sentence_count: 4
     key_terms: [language, want, because, study, person-first, specifically, stigmatizing, fulfillment]
     section: Comments

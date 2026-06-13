@@ -23,7 +23,7 @@ chunks:
     key_terms: [project, background, business, analyst, product, careerguidance, advice, devops]
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1t9vxws.md#c1"
-    char_span: [1837, 3482]
+    char_span: [1836, 3481]
     sentence_count: 12
     key_terms: [technical, product, devops, sql, learning, python, help, automation]
     section: Comments

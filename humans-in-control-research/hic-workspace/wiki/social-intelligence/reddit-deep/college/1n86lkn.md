@@ -23,31 +23,31 @@ chunks:
     key_terms: [college, people, feel, "everyone's", something, sometimes, comments, "doesn't"]
     token_count: 350
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c1"
-    char_span: [1553, 1904]
+    char_span: [1552, 1903]
     sentence_count: 4
     key_terms: [transactional, especially, friendship, networking, "groupme's", everyone, transfer, college]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c2"
-    char_span: [1906, 4185]
+    char_span: [1905, 4184]
     sentence_count: 20
     key_terms: [college, school, "you're", university, people, high, "it's", connection]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c3"
-    char_span: [3870, 6226]
+    char_span: [3869, 6225]
     sentence_count: 17
     key_terms: [people, help, time, friends, campus, feel, get, lot]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c4"
-    char_span: [5967, 6258]
+    char_span: [5966, 6257]
     sentence_count: 2
     key_terms: [worse, room, want, pathetic, getting, housing, anyone, people]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/college/1n86lkn.md#c5"
-    char_span: [6260, 8294]
+    char_span: [6259, 8293]
     sentence_count: 19
     key_terms: [alone, events, time, yourself, friends, joined, feel, everyone]
     section: Comments

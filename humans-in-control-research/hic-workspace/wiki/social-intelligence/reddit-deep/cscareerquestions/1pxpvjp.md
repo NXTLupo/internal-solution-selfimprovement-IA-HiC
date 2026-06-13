@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, engineer, service, support, tech, electrical, comments, systems]
     token_count: 207
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxpvjp.md#c1"
-    char_span: [914, 2092]
+    char_span: [913, 2091]
     sentence_count: 5
     key_terms: [engineering, like, software, epicfail1994, "i'm", role, sure, manager]
     section: Comments

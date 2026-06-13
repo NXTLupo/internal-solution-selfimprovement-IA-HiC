@@ -26,25 +26,25 @@ chunks:
     key_terms: [unc, succeed, better, career, help, headquarters, possibility, publishing]
     token_count: 158
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c2"
-    char_span: [2899, 4708]
+    char_span: [2898, 4707]
     sentence_count: 6
     key_terms: [applyingtocollege, creative, writing, unc, engineering, did, questions, columbia]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c3"
-    char_span: [4712, 6357]
+    char_span: [4711, 6356]
     sentence_count: 13
     key_terms: [columbia, unc, class, okay-advice, been, freshman, premier, program]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c4"
-    char_span: [6359, 8352]
+    char_span: [6358, 8351]
     sentence_count: 11
     key_terms: [college, money, columbia, creative, writing, nearly, going, saved]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lca87m.md#c5"
-    char_span: [8354, 8587]
+    char_span: [8353, 8586]
     sentence_count: 1
     key_terms: [deleted, redact, mountainous, anonymized, "columbia's", simplistic, certainly, outgoing]
     section: Comments

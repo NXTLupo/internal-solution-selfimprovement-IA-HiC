@@ -23,91 +23,91 @@ chunks:
     key_terms: [chatgpt, comments, instructions, reddit-deep, quenelle44, em-dashes, supposed, finally]
     token_count: 105
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c1"
-    char_span: [353, 934]
+    char_span: [352, 933]
     sentence_count: 5
     key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c2"
-    char_span: [937, 2362]
+    char_span: [936, 2361]
     sentence_count: 7
     key_terms: [f82f1cb044fbb499b34c697e6b8ccf4a18067f69, no-fluff, message, financialgazelle6558, here, like, use, lowkeymythguided]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c3"
-    char_span: [2364, 4009]
+    char_span: [2363, 4008]
     sentence_count: 7
     key_terms: [quot-i-would-never-incorporate-this-quot-what-studio-ghibli-039-s-hayao-miyazaki-once-said-about-ai-animation-8021037, absolutely, something, deleted, talking, avatar, dashes, figure]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c4"
-    char_span: [3768, 4094]
+    char_span: [3767, 4093]
     sentence_count: 3
     key_terms: [about-ai-animation-8021037, quote, missapplication, nonplussed, appearing, referring, utilizing, happened]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c5"
-    char_span: [4096, 6050]
+    char_span: [4095, 6049]
     sentence_count: 6
     key_terms: [easily, worth, everything, without, bubble, companion, back, date]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c6"
-    char_span: [6052, 7819]
+    char_span: [6051, 7818]
     sentence_count: 7
     key_terms: [understand, chatgpt, writing, dashes, hungry-wrongdoer-156, passive-aggressive, png, try]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c7"
-    char_span: [7821, 8919]
+    char_span: [7820, 8918]
     sentence_count: 6
     key_terms: [people, suggestions, absolutely, amazing, writing, items, right, wrote]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c8"
-    char_span: [8921, 10768]
+    char_span: [8920, 10767]
     sentence_count: 7
     key_terms: [use, dashes, because, dash, "it's", time, em-dash, hyphen]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c9"
-    char_span: [10527, 10798]
+    char_span: [10526, 10797]
     sentence_count: 1
     key_terms: [sentence, chatgpt, anyone, dashes, double, pasted, people, thinks]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c10"
-    char_span: [10800, 12423]
+    char_span: [10799, 12422]
     sentence_count: 8
     key_terms: ["it's", "true", instructions, marictdude22, agi, hyphens, always, "you're"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c11"
-    char_span: [12177, 13226]
+    char_span: [12176, 13225]
     sentence_count: 7
     key_terms: ["it's", instructions, thecakeisalienunoit, human, small, idisestablish, isalienunoit, magnificent]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c12"
-    char_span: [13228, 13410]
+    char_span: [13227, 13409]
     sentence_count: 1
     key_terms: [ingredients, candidates, compounds, confirmed, enceladus, near-term, strongest, organic]
     section: Comments
     token_count: 39
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c13"
-    char_span: [13412, 15080]
+    char_span: [13411, 15079]
     sentence_count: 6
     key_terms: [png, b505eff7f3958e631b3ce37abf6524c56baa202d, bce490d7c38f78f872c6242fc5024005eb9c6381, preview, format, people, used-huckleberry-320, pure-razzmatazz5274]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c14"
-    char_span: [14874, 15108]
+    char_span: [14873, 15107]
     sentence_count: 2
     key_terms: [dis, "it's", constantly, epidemic, mic-drop, baloney, deca065, "there's"]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/chatgpt/1owob2f.md#c15"
-    char_span: [15110, 15737]
+    char_span: [15109, 15736]
     sentence_count: 5
     key_terms: [student, kingofdiamondskeckec, goingslowfast, clickbait, em-dashes, actively, followed, honestly]
     section: Comments

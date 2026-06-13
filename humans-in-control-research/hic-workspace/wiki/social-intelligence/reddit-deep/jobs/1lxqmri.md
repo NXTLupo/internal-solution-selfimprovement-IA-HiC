@@ -23,31 +23,31 @@ chunks:
     key_terms: [entry, level, masters, degree, epidimiology, job, jobs, internship]
     token_count: 437
   - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c1"
-    char_span: [2003, 4130]
+    char_span: [2002, 4129]
     sentence_count: 6
     key_terms: [experience, entry-level, internships, work, full-time, years, position, part-time]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c2"
-    char_span: [4132, 6101]
+    char_span: [4131, 6100]
     sentence_count: 5
     key_terms: [why-does-an-entry-level-job-now-require-three-years-of-experience-heres-how-that-hurts-workers-and-companies-alike-a4ff864f, experience, more-new-graduates-applying-to-internships-in-tough-job-market-glassdoor-2025-4, internships, internship, https, years, part-time]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c3"
-    char_span: [6103, 8218]
+    char_span: [6102, 8217]
     sentence_count: 21
     key_terms: [working, get, graduate, health, hoping, assistantship, experience, internship]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c4"
-    char_span: [8220, 10326]
+    char_span: [8219, 10325]
     sentence_count: 19
     key_terms: [experience, career, degree, level, jobs, sas, getting, entry]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1lxqmri.md#c5"
-    char_span: [10328, 11311]
+    char_span: [10327, 11310]
     sentence_count: 1
     key_terms: [healthcare, admin, infection, control, degrees, someone, degree, health]
     section: Comments

@@ -21,49 +21,49 @@ chunks:
     key_terms: [college, community, going, comments, feel, good, goslinglover, institutions]
     token_count: 207
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c1"
-    char_span: [870, 2929]
+    char_span: [869, 2928]
     sentence_count: 17
     key_terms: [college, classes, university, community, "you're", profs, years, connections]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c2"
-    char_span: [2931, 5381]
+    char_span: [2930, 5380]
     sentence_count: 20
     key_terms: [community, college, students, transfer, colleges, year, rutgers, summer]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c3"
-    char_span: [5383, 6602]
+    char_span: [5382, 6601]
     sentence_count: 9
     key_terms: [opportunities, contribute, successful, community, professor, involved, research, students]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c4"
-    char_span: [6604, 8871]
+    char_span: [6603, 8870]
     sentence_count: 15
     key_terms: [year, school, networking, classes, summer, opportunities, years, professor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c5"
-    char_span: [8553, 8986]
+    char_span: [8552, 8985]
     sentence_count: 5
     key_terms: [students, major, networking, transfer, focused, years, additionally, community]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c6"
-    char_span: [8988, 11143]
+    char_span: [8987, 11142]
     sentence_count: 17
     key_terms: [classes, year, student, working, requirement, work, experience, "semester's"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c7"
-    char_span: [11145, 13091]
+    char_span: [11144, 13090]
     sentence_count: 11
     key_terms: [college, transfer, community, year, finish, loans, cool, get]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1nafd6s.md#c8"
-    char_span: [13093, 15007]
+    char_span: [13092, 15006]
     sentence_count: 13
     key_terms: [university, classes, transfer, because, "don't", years, kind, professors]
     section: Comments

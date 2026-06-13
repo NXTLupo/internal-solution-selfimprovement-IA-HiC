@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, internships, part-time, stay, firm, fmcg, got, different]
     token_count: 369
   - id: "social-intelligence/reddit-deep/internships/1taijjj.md#c1"
-    char_span: [1652, 2124]
+    char_span: [1651, 2123]
     sentence_count: 4
     key_terms: [next, guaranteed, summer, appropriate-tutor587, hereisouttasight, internships, considered, graduation]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [https, theaidigest, comments, village, agents, openai, org, metaknowing]
     token_count: 102
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c1"
-    char_span: [364, 2312]
+    char_span: [363, 2311]
     sentence_count: 14
     key_terms: ["it's", people, body, comparable, generate, physical, current, "doesn't"]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c2"
-    char_span: [2314, 4260]
+    char_span: [2313, 4259]
     sentence_count: 10
     key_terms: [event, human, budget, venue, planning, b0dedaa5ab6b4ea7dd9289c92f6c4411b39e77e1, humans, coordination]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c3"
-    char_span: [4262, 5863]
+    char_span: [4261, 5862]
     sentence_count: 11
     key_terms: [people, like, another, because, random, based, event, case]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c4"
-    char_span: [5865, 7105]
+    char_span: [5864, 7104]
     sentence_count: 11
     key_terms: [event, ready-performer-2937, representativeany573, flyer, "it's", lol, poor, task]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c5"
-    char_span: [7107, 8867]
+    char_span: [7106, 8866]
     sentence_count: 5
     key_terms: [human, like, calling, ai-organized, event, "it's", atcg-1, pretty]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1lg4rd6.md#c6"
-    char_span: [8624, 8994]
+    char_span: [8623, 8993]
     sentence_count: 3
     key_terms: [like, using, seen-short-film, hallucinated, unneccessary, automation, libraries, resources]
     section: Comments

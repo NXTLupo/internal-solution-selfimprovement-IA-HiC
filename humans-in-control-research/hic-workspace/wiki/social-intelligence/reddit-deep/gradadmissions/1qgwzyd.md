@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, https, png, oozoxiv659eg1, reddit-deep, accepted, connect]
     token_count: 137
   - id: "social-intelligence/reddit-deep/gradadmissions/1qgwzyd.md#c1"
-    char_span: [426, 1549]
+    char_span: [425, 1548]
     sentence_count: 4
     key_terms: [congratulations, congrats, applied, argumentmysterious31, good, mind, too, normal-path-3451]
     section: Comments

@@ -28,43 +28,43 @@ chunks:
     key_terms: [com, chatgpt-micro-cap-experiment, https, research, nathanbsmith729, github, luckyone7777, nathanbsmith]
     token_count: 432
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c2"
-    char_span: [3634, 4479]
+    char_span: [3633, 4478]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c3"
-    char_span: [4481, 6022]
+    char_span: [4480, 6021]
     sentence_count: 4
     key_terms: [remindme, days, outragedaardvark, apples, performance, benchmark, useful, index]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c4"
-    char_span: [5845, 6038]
+    char_span: [5844, 6037]
     sentence_count: 1
     key_terms: [comments, chatgpt, context, nbv8nk6, reddit, remind, https, com]
     section: Comments
     token_count: 72
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c5"
-    char_span: [6040, 6581]
+    char_span: [6039, 6580]
     sentence_count: 1
     key_terms: [message, delete, reddit, remindmebot, com, compose, subject, others]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c6"
-    char_span: [6583, 8119]
+    char_span: [6582, 8118]
     sentence_count: 2
     key_terms: [remindme, days, remindmebot, message, reddit, https, com, www]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c7"
-    char_span: [7847, 9241]
+    char_span: [7846, 9240]
     sentence_count: 5
     key_terms: [tubasarefun, unfettered, correctly, chatgpt, hedgies, access, market, lucky-necessary-8382]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/chatgpt/1n5ssf6.md#c8"
-    char_span: [9243, 10880]
+    char_span: [9242, 10879]
     sentence_count: 17
     key_terms: [recommendations, cool, universe, against, managed, whether, bucks, bank]
     section: Comments

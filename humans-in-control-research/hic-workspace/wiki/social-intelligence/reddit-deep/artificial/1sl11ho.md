@@ -33,25 +33,25 @@ chunks:
     key_terms: [anthropic, models, people, field, understand, technical, question, security]
     token_count: 346
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c3"
-    char_span: [6923, 9013]
+    char_span: [6922, 9012]
     sentence_count: 17
     key_terms: [opinion, mythos, "don't", analysts, judgment, year-old, because, openbsd]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c4"
-    char_span: [9015, 10385]
+    char_span: [9014, 10384]
     sentence_count: 3
     key_terms: [read, gonna, definitely, acrolith, detector, people, solid, write]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c5"
-    char_span: [10387, 11663]
+    char_span: [10386, 11662]
     sentence_count: 1
     key_terms: [manager, officer, director, engineer, chief, marketing, product, analyst]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/artificial/1sl11ho.md#c6"
-    char_span: [11665, 13266]
+    char_span: [11664, 13265]
     sentence_count: 10
     key_terms: [integer, improvement, conditions, overflow, security, mythos, subtle, far-eagle7029]
     section: Comments

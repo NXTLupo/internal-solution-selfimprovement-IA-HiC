@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, college, resume, opportunities, undergraduate, internships, reddit-deep, experience]
     token_count: 120
   - id: "social-intelligence/reddit-deep/college/1l5mupk.md#c1"
-    char_span: [466, 2713]
+    char_span: [465, 2712]
     sentence_count: 15
     key_terms: [federal, election, local, state, college, resume, congressional, legislation]
     section: Comments

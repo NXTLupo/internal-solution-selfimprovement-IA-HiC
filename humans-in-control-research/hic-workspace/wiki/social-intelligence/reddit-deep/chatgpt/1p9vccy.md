@@ -23,43 +23,43 @@ chunks:
     key_terms: [openai, money, ads, like, comments, chatgpt, twitter, making]
     token_count: 304
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c1"
-    char_span: [1207, 2187]
+    char_span: [1206, 2186]
     sentence_count: 3
     key_terms: [browser, r-chatgpt-1050422060352024636, discord, product, truman, beautiful-homework47, withoutreason1729, post]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c2"
-    char_span: [2189, 3040]
+    char_span: [2188, 3039]
     sentence_count: 5
     key_terms: [thegoldengoober, flakylion5449, theta-sigma45, conversation, naptasticly, installing, shootzilla, rewatched]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c3"
-    char_span: [3042, 4909]
+    char_span: [3041, 4908]
     sentence_count: 9
     key_terms: [ads, like, personal, friend, preferable, something, anybody, banners]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c4"
-    char_span: [4911, 6041]
+    char_span: [4910, 6040]
     sentence_count: 5
     key_terms: [conversation, advertise, products, thinking, already, content, giving, karmaagriculturalist]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c5"
-    char_span: [6043, 8055]
+    char_span: [6042, 8054]
     sentence_count: 16
     key_terms: [ads, people, subscriptions, going, documentary, obviously, cheaper, bubble]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c6"
-    char_span: [8057, 9867]
+    char_span: [8056, 9866]
     sentence_count: 6
     key_terms: [tetris, enshittified, point, like, want, redditors, anymore, crackle]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/chatgpt/1p9vccy.md#c7"
-    char_span: [9869, 11224]
+    char_span: [9868, 11223]
     sentence_count: 4
     key_terms: [d2467a8dc9e65c21269b8227f257bf66750bcae4, giphy, gif, old, accounts, fit-possibility-4248, pleasenteravaliduser, responsible-sky-1336]
     section: Comments

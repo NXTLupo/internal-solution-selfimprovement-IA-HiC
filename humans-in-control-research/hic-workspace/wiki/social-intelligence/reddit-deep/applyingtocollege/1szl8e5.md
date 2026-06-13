@@ -31,13 +31,13 @@ chunks:
     key_terms: ["i'm", taking, scholarship, afraid, perspectives, flexibility, high-paying, confidence]
     token_count: 162
   - id: "social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c3"
-    char_span: [4972, 5827]
+    char_span: [4971, 5826]
     sentence_count: 5
     key_terms: [stanford, commitment, potential, dod, mit, rice, entrepreneurship, underestimate]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/applyingtocollege/1szl8e5.md#c4"
-    char_span: [5829, 7518]
+    char_span: [5828, 7517]
     sentence_count: 6
     key_terms: [financial, mit, aid, sure, stanford, lawsuit, scholarship, "i'm"]
     section: Comments

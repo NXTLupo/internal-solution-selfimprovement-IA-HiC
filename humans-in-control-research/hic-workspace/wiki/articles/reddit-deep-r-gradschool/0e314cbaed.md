@@ -15,17 +15,17 @@ industries: [higher_ed, financial_services, healthcare]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c0"
-    char_span: [0, 1402]
+    char_span: [0, 1401]
     sentence_count: 12
     key_terms: [without, afford, gradschool, honestly, hospital, masters, people, reddit]
-    token_count: 335
+    token_count: 334
   - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c1"
-    char_span: [1404, 3306]
+    char_span: [1403, 3305]
     sentence_count: 10
     key_terms: [program, time, online, school, university, decent, enough, full]
     token_count: 419
   - id: "articles/reddit-deep-r-gradschool/0e314cbaed.md#c2"
-    char_span: [3308, 4858]
+    char_span: [3307, 4857]
     sentence_count: 9
     key_terms: [comms, people, university, director, "master's", private, program, tuition]
     token_count: 379

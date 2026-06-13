@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, india, pcmb, comments, studying, options, student, abroad]
     token_count: 313
   - id: "social-intelligence/reddit-deep/careerguidance/1sag83c.md#c1"
-    char_span: [1354, 2659]
+    char_span: [1353, 2658]
     sentence_count: 5
     key_terms: [career, creativecupcake6640, best, test, boostgrad, minutes, request, session]
     section: Comments

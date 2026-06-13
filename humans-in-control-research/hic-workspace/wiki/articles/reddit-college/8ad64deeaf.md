@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-college/8ad64deeaf.md#c0"
-    char_span: [0, 1415]
+    char_span: [0, 1414]
     sentence_count: 10
     key_terms: [alternative, assignment, religious, obligation, college, class, event, week]
-    token_count: 322
+    token_count: 321
 ---
 # Missed class due to religious obligation; professor gave 0
 

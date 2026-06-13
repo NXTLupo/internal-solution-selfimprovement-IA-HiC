@@ -28,7 +28,7 @@ chunks:
     key_terms: [higher, education, students, conflict-based, attack, constructive, institutions, necessarily]
     token_count: 502
   - id: "social-intelligence/reddit-deep/highereducation/1qkpu8g.md#c2"
-    char_span: [4775, 5924]
+    char_span: [4775, 5923]
     sentence_count: 8
     key_terms: [institutions, americas-censored-campuses-25-web-of-control, higher, principles, education, survival, federal, prepare]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [financial, careerguidance, comments, college, finally, looking, market, start]
     token_count: 185
   - id: "social-intelligence/reddit-deep/careerguidance/1tk6my9.md#c1"
-    char_span: [783, 2529]
+    char_span: [782, 2528]
     sentence_count: 13
     key_terms: [tax, finance, people, companies, roles, traditional, work, accounting]
     section: Comments

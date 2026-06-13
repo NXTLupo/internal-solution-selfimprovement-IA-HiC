@@ -7,7 +7,7 @@ industries: [manufacturing]
 status: active
 chunks:
   - id: "industries/manufacturing.md#c0"
-    char_span: [0, 785]
+    char_span: [0, 784]
     sentence_count: 2
     key_terms: [industries, reddit-deep-r-careerguidance, sources, shared, articles, manufacturing, reddit-deep-r-engineeringstudents, reddit-deep-r-cscareerquestions]
     section: Cross-over verticals (shared sources) / Representative sources

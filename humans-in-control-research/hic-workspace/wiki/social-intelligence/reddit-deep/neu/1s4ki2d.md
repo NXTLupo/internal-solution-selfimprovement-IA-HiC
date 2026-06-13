@@ -18,10 +18,10 @@ industries: [higher_ed, real_estate]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1s4ki2d.md#c0"
-    char_span: [0, 1322]
+    char_span: [0, 1321]
     sentence_count: 4
     key_terms: [subleased, usually, people, appreciate, comments, someone, student, neu]
-    token_count: 299
+    token_count: 298
 ---
 # Quick question for students who've subleased before
 

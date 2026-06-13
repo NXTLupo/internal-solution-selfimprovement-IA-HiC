@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, dsa, preparing, comments, projects, together, looking, mern]
     token_count: 202
   - id: "social-intelligence/reddit-deep/internships/1t4daxx.md#c1"
-    char_span: [830, 1912]
+    char_span: [829, 1911]
     sentence_count: 9
     key_terms: [prep, good, like, interested, interviews, leetcode, projects, remarkable-bunch6208]
     section: Comments

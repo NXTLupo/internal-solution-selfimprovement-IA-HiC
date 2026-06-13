@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, experience, applying, junior, fast-nuces, currently, difficult, genuinely]
     token_count: 340
   - id: "social-intelligence/reddit-deep/internships/1tic9vr.md#c1"
-    char_span: [1622, 2235]
+    char_span: [1621, 2234]
     sentence_count: 5
     key_terms: [difficult, refferals, juniors, market, immediatematter6801, experience, internship, understand]
     section: Comments

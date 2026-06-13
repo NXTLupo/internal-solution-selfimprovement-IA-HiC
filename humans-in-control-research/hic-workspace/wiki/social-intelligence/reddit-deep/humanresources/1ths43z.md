@@ -23,31 +23,31 @@ chunks:
     key_terms: [qualtricsxmx4455njxw, scenarios, comments, humanresources, https, case, com, automated]
     token_count: 358
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c1"
-    char_span: [1601, 3651]
+    char_span: [1600, 3650]
     sentence_count: 16
     key_terms: [using, "i've", hiring, requirements, majorphaser, law, used, benefits]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c2"
-    char_span: [3656, 4474]
+    char_span: [3655, 4473]
     sentence_count: 5
     key_terms: [californias-ai-hiring-rules-are-now-in-effectand-new-lawsuits-expand-employer-risk, "you're", hollandhart, https, com, law, www, recommendation]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c3"
-    char_span: [4476, 6424]
+    char_span: [4475, 6423]
     sentence_count: 11
     key_terms: [act, qualtrics, gonebabythoughts, "it's", post, anonymous, familiar, rubber]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c4"
-    char_span: [6426, 8223]
+    char_span: [6425, 8222]
     sentence_count: 13
     key_terms: [questions, use, resume, survey, recruiting, another, auditor, human]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/humanresources/1ths43z.md#c5"
-    char_span: [8225, 9069]
+    char_span: [8224, 9068]
     sentence_count: 4
     key_terms: [research, hiring, thoughts, insight, survey, thank, okay, use]
     section: Comments

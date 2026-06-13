@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c0"
-    char_span: [0, 1450]
+    char_span: [0, 1449]
     sentence_count: 2
     key_terms: ["i'm", internships, reddit, genuinely, anything, comments, projects, whatever]
-    token_count: 345
+    token_count: 344
   - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c1"
-    char_span: [1452, 3389]
+    char_span: [1451, 3388]
     sentence_count: 15
     key_terms: [people, get, because, engineering, internships, easy, "it's", work]
     token_count: 451
   - id: "articles/reddit-deep-r-internships/6c5caca46e.md#c2"
-    char_span: [3391, 4050]
+    char_span: [3390, 4049]
     sentence_count: 2
     key_terms: [like, babies, people, build, caramelparking8382, get, jobs, need]
     token_count: 150

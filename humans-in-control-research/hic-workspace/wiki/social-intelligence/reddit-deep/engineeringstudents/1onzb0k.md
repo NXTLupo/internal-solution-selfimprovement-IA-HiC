@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, get, last, test, year, yesterday, comments, results]
     token_count: 204
   - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c1"
-    char_span: [837, 1639]
+    char_span: [836, 1638]
     sentence_count: 5
     key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c2"
-    char_span: [1641, 3356]
+    char_span: [1640, 3355]
     sentence_count: 6
     key_terms: [got, shortlisted, mail, interview, received, results, anyone, please]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1onzb0k.md#c3"
-    char_span: [3132, 3726]
+    char_span: [3131, 3725]
     sentence_count: 4
     key_terms: [received, unstop, update, shows, get, adorablecat6521, participate, shortlisted]
     section: Comments

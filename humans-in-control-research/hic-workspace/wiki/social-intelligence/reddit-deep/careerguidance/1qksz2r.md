@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1qksz2r.md#c0"
-    char_span: [0, 363]
+    char_span: [0, 362]
     sentence_count: 3
     key_terms: [careerguidance, comments, overwhelmed, reddit-deep, financial, struggles, feeling, picking]
-    token_count: 104
+    token_count: 103
 ---
 # Feeling overwhelmed picking my career path as a senior high student with financial struggles—need advice. What should I do?
 

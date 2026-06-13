@@ -23,7 +23,7 @@ chunks:
     key_terms: [productivity, daily, organized, structure, comments, through, without, social]
     token_count: 267
   - id: "social-intelligence/reddit-deep/productivity/1qqb85k.md#c1"
-    char_span: [1214, 2440]
+    char_span: [1213, 2439]
     sentence_count: 7
     key_terms: [less, like, time, social, media, instead, phone, track]
     section: Comments

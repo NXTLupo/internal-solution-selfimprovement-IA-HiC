@@ -23,61 +23,61 @@ chunks:
     key_terms: [everything, wallstreetbets, comments, tomorrow, anyways, wanted, sucks, don]
     token_count: 192
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c1"
-    char_span: [718, 1921]
+    char_span: [717, 1920]
     sentence_count: 4
     key_terms: [wsb, degenerate, discord, called, making, https, money, never]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c2"
-    char_span: [1924, 2890]
+    char_span: [1923, 2889]
     sentence_count: 3
     key_terms: [rope, playing, doing, until, yacht, teslaselectricbill, thebourbonoftruth, png]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c3"
-    char_span: [2892, 4665]
+    char_span: [2891, 4664]
     sentence_count: 19
     key_terms: [like, loss, individual, minutes, options, outcome, boring, stocks]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c4"
-    char_span: [4667, 5901]
+    char_span: [4666, 5900]
     sentence_count: 7
     key_terms: [million, did, yippiekayyaymrfalcon, sword, stunning-power8885, dumb, get, hit]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c5"
-    char_span: [5903, 6840]
+    char_span: [5902, 6839]
     sentence_count: 1
     key_terms: [e947d670e7b9c241137c624c4ff063b0aeb89a03, couple, options-n-hookers, popularplanet3000, some-elevator3065, post-rock-mickey, idkwhatimbrewin, dolphingarden]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c6"
-    char_span: [6842, 8036]
+    char_span: [6841, 8035]
     sentence_count: 7
     key_terms: [tsla, short, cvna, down, time, shorting, selling, report]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c7"
-    char_span: [8038, 9607]
+    char_span: [8037, 9606]
     sentence_count: 10
     key_terms: [cvna, shorting, wendies, anbu-black-ops, short, bro, get, last]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c8"
-    char_span: [9612, 10500]
+    char_span: [9611, 10499]
     sentence_count: 4
     key_terms: [stock, earnings, never, sofi, isospeedrix, wafflepiezz, expiration, logicbully]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c9"
-    char_span: [10502, 12262]
+    char_span: [10501, 12261]
     sentence_count: 6
     key_terms: [too, least, unionadventurous3831, calls, overcookedfantasy, ball, cvna, get]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mdo3gz.md#c10"
-    char_span: [12265, 14091]
+    char_span: [12264, 14090]
     sentence_count: 13
     key_terms: [cars, cooking, fucking, people, short, been, hype, inventory]
     section: Comments

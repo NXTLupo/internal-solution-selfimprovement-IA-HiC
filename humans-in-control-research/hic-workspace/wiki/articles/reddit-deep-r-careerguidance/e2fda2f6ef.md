@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/e2fda2f6ef.md#c0"
-    char_span: [0, 786]
+    char_span: [0, 785]
     sentence_count: 7
     key_terms: [college, careerguidance, school, students, reddit, entry, level, right]
-    token_count: 181
+    token_count: 180
   - id: "articles/reddit-deep-r-careerguidance/e2fda2f6ef.md#c1"
-    char_span: [788, 2743]
+    char_span: [787, 2742]
     sentence_count: 12
     key_terms: [years, bachelors, "it's", degree, school, scholarships, challenging, financially]
     token_count: 490

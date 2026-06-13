@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-productivity/1db1ceb8b4.md#c0"
-    char_span: [0, 1149]
+    char_span: [0, 1148]
     sentence_count: 12
     key_terms: [productivity, phone, distractions, distraction, switching, culprit, tracked, reddit]
-    token_count: 264
+    token_count: 263
 ---
 # I tracked every distraction I had for 7 days, here is what shocked me
 

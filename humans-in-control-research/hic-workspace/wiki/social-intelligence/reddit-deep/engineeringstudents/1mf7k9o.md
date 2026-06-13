@@ -26,55 +26,55 @@ chunks:
     key_terms: [degree, heard, "i've", guys, like, potential, opinions, classes]
     token_count: 299
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c2"
-    char_span: [3329, 5465]
+    char_span: [3328, 5464]
     sentence_count: 17
     key_terms: [engineering, degree, something, "i'm", job, like, lionheart5830, maybe]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c3"
-    char_span: [5467, 6725]
+    char_span: [5466, 6724]
     sentence_count: 11
     key_terms: [classes, year, advice, people, school, social, taking, "you'll"]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c4"
-    char_span: [6727, 8841]
+    char_span: [6726, 8840]
     sentence_count: 18
     key_terms: [like, "i'm", sure, years, engineering, jobs, year, anything]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c5"
-    char_span: [8843, 10948]
+    char_span: [8842, 10947]
     sentence_count: 13
     key_terms: [engineering, civil-syllabub8553, year, already, because, million, supermuncher60, millionaires]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c6"
-    char_span: [10950, 13076]
+    char_span: [10949, 13075]
     sentence_count: 19
     key_terms: [engineering, years, money, like, business, school, get, "it's"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c7"
-    char_span: [13078, 13589]
+    char_span: [13077, 13588]
     sentence_count: 6
     key_terms: [mentality, service, money, disciplines, engineering, absolutely, everything, incredibly]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c8"
-    char_span: [13591, 15494]
+    char_span: [13590, 15493]
     sentence_count: 13
     key_terms: [years, civil-syllabub8553, get, like, salary, being, money, pilot]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c9"
-    char_span: [15496, 17472]
+    char_span: [15495, 17471]
     sentence_count: 20
     key_terms: [money, job, like, experience, regulation, airplanes, already, company]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mf7k9o.md#c10"
-    char_span: [17474, 19066]
+    char_span: [17473, 19065]
     sentence_count: 14
     key_terms: [civil-syllabub8553, engineer, yourself, particularly, being, experience, prospects, romantic]
     section: Comments

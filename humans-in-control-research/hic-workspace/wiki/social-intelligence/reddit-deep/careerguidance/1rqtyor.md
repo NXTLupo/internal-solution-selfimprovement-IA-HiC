@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1rqtyor.md#c0"
-    char_span: [0, 2190]
+    char_span: [0, 2189]
     sentence_count: 14
     key_terms: [career, long-term, another, careerguidance, growth, travel, opportunities, been]
-    token_count: 452
+    token_count: 451
 ---
 # I’m looking for genuine career guidance and would really appreciate advice from experienced professionals here?
 

@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, leetcode, etc, "i'm", university, solutions, comments, courses]
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1os2ln7.md#c1"
-    char_span: [1564, 2383]
+    char_span: [1563, 2382]
     sentence_count: 6
     key_terms: [necessary, always, degree, etc, low, own, responsibility, incentivized]
     section: Comments

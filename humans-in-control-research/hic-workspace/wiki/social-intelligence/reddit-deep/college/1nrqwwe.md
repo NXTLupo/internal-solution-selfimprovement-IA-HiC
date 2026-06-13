@@ -21,31 +21,31 @@ chunks:
     key_terms: [college, year, gap, "you're", everyone, rejected, because, time]
     token_count: 503
   - id: "social-intelligence/reddit-deep/college/1nrqwwe.md#c1"
-    char_span: [2441, 3781]
+    char_span: [2440, 3780]
     sentence_count: 8
     key_terms: [students, gap, year, financial, safeties, "that's", "don't", going]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/college/1nrqwwe.md#c2"
-    char_span: [3783, 5174]
+    char_span: [3782, 5173]
     sentence_count: 13
     key_terms: [college, university, wanted, icy-lengthiness-7013, great, story, aid, get]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/college/1nrqwwe.md#c3"
-    char_span: [5176, 7350]
+    char_span: [5175, 7349]
     sentence_count: 22
     key_terms: [people, college, experience, cause, years, work, having, later]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nrqwwe.md#c4"
-    char_span: [7082, 7887]
+    char_span: [7081, 7886]
     sentence_count: 9
     key_terms: [college, experience, people, gap, jobs, years, real, time]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/college/1nrqwwe.md#c5"
-    char_span: [7889, 8477]
+    char_span: [7888, 8476]
     sentence_count: 5
     key_terms: [semester, school, being, epicgameslauncher, gap, instrumental, jasperdarkk, motivation]
     section: Comments

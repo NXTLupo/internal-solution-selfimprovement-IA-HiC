@@ -28,25 +28,25 @@ chunks:
     key_terms: [because, etc, got, job, experience, interested, recruiters, interview]
     token_count: 146
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c2"
-    char_span: [2236, 4236]
+    char_span: [2235, 4235]
     sentence_count: 14
     key_terms: [similar, environment, job, lot, position, people, high, time]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c3"
-    char_span: [4238, 4762]
+    char_span: [4237, 4761]
     sentence_count: 6
     key_terms: [job, current, market, unable-goat7551, unemployable, borderline, personally, stagnation]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c4"
-    char_span: [4764, 6457]
+    char_span: [4763, 6456]
     sentence_count: 11
     key_terms: [making, year, percentile, income-percentile-calculator, probably, program, someone, working]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tnadfm.md#c5"
-    char_span: [6462, 8474]
+    char_span: [6461, 8473]
     sentence_count: 12
     key_terms: [people, risk, job, like, pay, stagnating, company, instead]
     section: Comments

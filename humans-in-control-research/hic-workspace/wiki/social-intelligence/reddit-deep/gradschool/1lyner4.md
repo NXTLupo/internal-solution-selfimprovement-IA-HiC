@@ -18,10 +18,10 @@ industries: [higher_ed, ai_research, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1lyner4.md#c0"
-    char_span: [0, 249]
+    char_span: [0, 248]
     sentence_count: 2
     key_terms: [gradschool, comments, internships, reddit-deep, saksheeeee, students, posted, reddit]
-    token_count: 75
+    token_count: 74
 ---
 # DS/ML internships for grad students?
 

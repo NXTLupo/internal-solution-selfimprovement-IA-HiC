@@ -21,55 +21,55 @@ chunks:
     key_terms: [school, prestige, state, applyingtocollege, "you're", institutions, going, prestigious]
     token_count: 425
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c1"
-    char_span: [1937, 2708]
+    char_span: [1936, 2707]
     sentence_count: 6
     key_terms: [northwestern, stanford, harvard, someone, people, school, serenade-of-the-seas, duke]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c2"
-    char_span: [2710, 4687]
+    char_span: [2709, 4686]
     sentence_count: 12
     key_terms: [duke, crescentcrane, northwestern, hypsm, prestigious, like, different, prestige]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c3"
-    char_span: [4399, 5133]
+    char_span: [4398, 5132]
     sentence_count: 5
     key_terms: [prestigious, berkeley, obviously, people, other-number-4463, bro, ucla, chosenprince]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c4"
-    char_span: [5135, 7276]
+    char_span: [5134, 7275]
     sentence_count: 14
     key_terms: [school, schools, better, people, top, went, academic, intellectual]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c5"
-    char_span: [7279, 9210]
+    char_span: [7278, 9209]
     sentence_count: 6
     key_terms: [prestige, schools, people, academic, school, whores, student, better]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c6"
-    char_span: [9212, 10172]
+    char_span: [9211, 10171]
     sentence_count: 4
     key_terms: [connections, school, university, kentucky, because, someone, people, good]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c7"
-    char_span: [10174, 12270]
+    char_span: [10173, 12269]
     sentence_count: 10
     key_terms: [like, being, state, "it's", eventually, thousands, applying, hundreds]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c8"
-    char_span: [12004, 13495]
+    char_span: [12003, 13494]
     sentence_count: 11
     key_terms: [because, prestige, get, disaster, everyone, problem, someone, matter]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syn0w7.md#c9"
-    char_span: [13497, 14149]
+    char_span: [13496, 14148]
     sentence_count: 6
     key_terms: [academically, talented, average, schools, people, turned, get, homogeneous]
     section: Comments

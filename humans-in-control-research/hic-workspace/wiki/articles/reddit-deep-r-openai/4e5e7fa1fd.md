@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/4e5e7fa1fd.md#c0"
-    char_span: [0, 1480]
+    char_span: [0, 1479]
     sentence_count: 14
     key_terms: [context, mxforest, openai, window, subscription, gpt-4, comments, chatgpt]
-    token_count: 387
+    token_count: 386
 ---
 # Has anyone confirmed that GPT-4.1 has a 1 million token context window?
 

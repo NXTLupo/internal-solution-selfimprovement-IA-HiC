@@ -23,7 +23,7 @@ chunks:
     key_terms: [school, kinda, state, get, like, gradschool, leadership, something]
     token_count: 458
   - id: "social-intelligence/reddit-deep/gradschool/1om9maj.md#c1"
-    char_span: [1892, 3425]
+    char_span: [1891, 3424]
     sentence_count: 13
     key_terms: [university, applying, school, research, masters, people, grad, want]
     section: Comments

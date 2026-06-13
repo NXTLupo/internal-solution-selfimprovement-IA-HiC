@@ -23,7 +23,7 @@ chunks:
     key_terms: [transformers, deeplearning, fine-tuning, https, manning, action, architecture, book]
     token_count: 498
   - id: "social-intelligence/reddit-deep/deeplearning/1qv2cmv.md#c1"
-    char_span: [1954, 3233]
+    char_span: [1954, 3232]
     sentence_count: 11
     key_terms: [book, thanks, having, double-government-79, fabulous-possible758, scary-opportunity848, offer, thank]
     section: Comments

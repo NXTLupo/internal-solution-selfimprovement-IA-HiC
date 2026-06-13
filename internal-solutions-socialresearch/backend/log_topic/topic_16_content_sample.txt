@@ -1,0 +1,17 @@
+Topic 16 - Content Sample
+Number of content items: 15
+Top words: try, account, vanguard, bank, fails, money, handling
+
+Content 1 (length: 1267 chars):
+* First I tried to sign up for the account. At first things were going fine. Then it trapped me in some kind of flow where it would only keep requiring me to fund the account. No login, no dashboard, no anything, just keep trying to fund the account.
+* The funding flow continuously fails. I try to hook up Fidelity, fails. I try to hook up Schwab, fails. I try to hook up Bank of America, and at first it fails, but then when I retry it (I retried them all) magically the account is there now - *sort of* \- except it's sort of greyed out. I try to click something else to select funds, just get errors.
+* So I go on Google and find Reddit threads (thanks Reddit!) where people have secret links that should help you finish adding accounts. So I use those links, and sure enough, it gets me to a normal dashboard and out of  the stupid funding flow. (wtf?? why is this the method to get in?!)
+* I try to use one of their flows to transfer all assets from another brokerage to Vanguard. This, of course, also fails. Can't transfer the Schwab assets, which are considerable. So I give up for the day.
+* Today I tried to login to try it again. The login page is broken. Just a big stupid blank screen, not even an error. I clear my cookies/cache and try again. Nothing.
+
+Content 2 (length: 128 chars):
+Why I won't use Vanguard I tried to sign up to Vanguard for a brokerage account. It didn't work. Multiple failures, frustration.
+
+Content 3 (length: 420 chars):
+Now, a week later my bank is fully verified, and it is still not letting me withdraw my money. Because this is a recent purchase, for security reasons the money needs to go back to the original bank account that the funds were deposited with. Again, this is the same bank account, they used the wrong number which I corrected. I have to wait 20 something minutes to talk to support again to solve this, just frustrating.
+

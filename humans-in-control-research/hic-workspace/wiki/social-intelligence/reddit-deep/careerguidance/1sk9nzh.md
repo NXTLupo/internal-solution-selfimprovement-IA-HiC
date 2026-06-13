@@ -23,25 +23,25 @@ chunks:
     key_terms: [because, "i've", experience, engineering, like, careerguidance, "i'll", jobs]
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c1"
-    char_span: [1757, 3995]
+    char_span: [1756, 3994]
     sentence_count: 12
     key_terms: [engineering, engineers, sales, companies, feel, because, months, people]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c2"
-    char_span: [3997, 5702]
+    char_span: [3996, 5701]
     sentence_count: 19
     key_terms: [construction, engineering, mechanical, engineers, job, design, contractors, experience]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c3"
-    char_span: [5704, 7566]
+    char_span: [5703, 7565]
     sentence_count: 13
     key_terms: [engineering, sales, job, finance, administration, months, "it's", jobs]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/careerguidance/1sk9nzh.md#c4"
-    char_span: [7568, 7989]
+    char_span: [7567, 7988]
     sentence_count: 4
     key_terms: [teaching, get, barnext6046, certificate, engineering, traditional, eventually, supplement]
     section: Comments

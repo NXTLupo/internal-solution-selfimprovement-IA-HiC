@@ -23,43 +23,43 @@ chunks:
     key_terms: [laptop, desk, resignation, time, company, email, work, personally]
     token_count: 404
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c1"
-    char_span: [1672, 3601]
+    char_span: [1671, 3600]
     sentence_count: 19
     key_terms: [weeks, computer, company, laptop, employees, tracking, though, got]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c2"
-    char_span: [3603, 5672]
+    char_span: [3602, 5671]
     sentence_count: 20
     key_terms: [start, people, "it's", job, new, employment, obligated, december]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c3"
-    char_span: [5674, 7213]
+    char_span: [5673, 7212]
     sentence_count: 9
     key_terms: [never, another, company, manager, future, laptop, return, tisthetimetobelit2]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c4"
-    char_span: [7215, 9220]
+    char_span: [7214, 9219]
     sentence_count: 15
     key_terms: [interview, exit, get, remembered, emotional, secretary, anyways, company]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c5"
-    char_span: [9222, 11356]
+    char_span: [9221, 11355]
     sentence_count: 18
     key_terms: [get, work, companies, equipment, company, manager, working, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c6"
-    char_span: [11103, 11717]
+    char_span: [11102, 11716]
     sentence_count: 4
     key_terms: [documented, sure, want, documentation, masteraahs, supervisor, equipment, "couldn't"]
     section: Comments
     token_count: 149
   - id: "social-intelligence/reddit-deep/jobs/1py80ew.md#c7"
-    char_span: [11722, 12419]
+    char_span: [11721, 12418]
     sentence_count: 4
     key_terms: [resigning, somewhere, company, email, ijustworkhere000c, ok-willow-9145, definitely, equipment]
     section: Comments

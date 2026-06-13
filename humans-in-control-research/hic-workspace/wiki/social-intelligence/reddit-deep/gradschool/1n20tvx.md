@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, comments, feedback, defense, proud, time, work, bakedveldtland]
     token_count: 270
   - id: "social-intelligence/reddit-deep/gradschool/1n20tvx.md#c1"
-    char_span: [1019, 2534]
+    char_span: [1018, 2533]
     sentence_count: 16
     key_terms: [congratulations, bakedveldtland, deleted, thank, working, intelligent-basil600, happy, "i'm"]
     section: Comments

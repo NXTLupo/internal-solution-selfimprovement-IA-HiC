@@ -23,67 +23,67 @@ chunks:
     key_terms: [cash, taxable, brokerage, personalfinance, nursing, setup, hysa, currently]
     token_count: 437
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c1"
-    char_span: [1778, 3483]
+    char_span: [1777, 3482]
     sentence_count: 15
     key_terms: [brokerage, investingnerd2020, vti, account, taxable, broker, invest, funds]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c2"
-    char_span: [3485, 4641]
+    char_span: [3484, 4640]
     sentence_count: 11
     key_terms: [market, american, exposure, international, small, stock, investingnerd2020, businesses]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c3"
-    char_span: [4643, 6402]
+    char_span: [4642, 6401]
     sentence_count: 15
     key_terms: [emergency, paycheck, account, taxable, invest, months, automatically, pay]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c4"
-    char_span: [6404, 6997]
+    char_span: [6403, 6996]
     sentence_count: 5
     key_terms: [money, start, idea, bivolion13, eventually, everything, downturns, investing]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c5"
-    char_span: [6999, 8781]
+    char_span: [6998, 8780]
     sentence_count: 10
     key_terms: [school, nursing, time, community, expenses, because, college, recover]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c6"
-    char_span: [8783, 9419]
+    char_span: [8782, 9418]
     sentence_count: 6
     key_terms: [program, free, hospital, "daughter's", presumably, bachelors, bassfartz, full-time]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c7"
-    char_span: [9421, 10862]
+    char_span: [9420, 10861]
     sentence_count: 8
     key_terms: [keep, college, going, next, community, schooling, planning, nursing]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c8"
-    char_span: [10864, 12923]
+    char_span: [10863, 12922]
     sentence_count: 22
     key_terms: [tax, like, hsa, account, invest, advantaged, california, hsas]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c9"
-    char_span: [12925, 14305]
+    char_span: [12924, 14304]
     sentence_count: 9
     key_terms: [going, taxes, need, probably, growth, invest, "you're", rollingprobablecause]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c10"
-    char_span: [14307, 16249]
+    char_span: [14306, 16248]
     sentence_count: 15
     key_terms: [hsa, market, funds, gains, cash, accounts, invest, money]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/personalfinance/1tbts44.md#c11"
-    char_span: [16251, 17884]
+    char_span: [16250, 17883]
     sentence_count: 9
     key_terms: [hsa-earnings-taxable-in-california, need, california, accounts, loko8765, vanguard, federal, taxable]
     section: Comments

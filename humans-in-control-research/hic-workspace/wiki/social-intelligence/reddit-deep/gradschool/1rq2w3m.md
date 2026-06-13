@@ -23,25 +23,25 @@ chunks:
     key_terms: [biomedical, engineering, biotech, program, master, loans, data, gradschool]
     token_count: 362
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c1"
-    char_span: [1616, 3196]
+    char_span: [1615, 3195]
     sentence_count: 11
     key_terms: [masters, engineering, debt, employment, hjohns23, programs, hopkins, allamericanbreakfast]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c2"
-    char_span: [3198, 4707]
+    char_span: [3197, 4706]
     sentence_count: 7
     key_terms: [michigan-engineering-student-salary-information, salary, masters-biomedical-engineering-ay24, career, engin, https, umich, methodology]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c3"
-    char_span: [4709, 6570]
+    char_span: [4708, 6569]
     sentence_count: 12
     key_terms: [masters, phd, seeking, grad, graduates, sometimes, program, student]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1rq2w3m.md#c4"
-    char_span: [6572, 7249]
+    char_span: [6571, 7248]
     sentence_count: 6
     key_terms: [debt, pitiful-army-1625, been, loan, forgiveness, patrickj86, presumably, certainly]
     section: Comments

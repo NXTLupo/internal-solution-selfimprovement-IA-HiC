@@ -23,19 +23,19 @@ chunks:
     key_terms: [school, people, applyingtocollege, college, ivy, comments, doesn, hypsm]
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c1"
-    char_span: [1650, 3342]
+    char_span: [1649, 3341]
     sentence_count: 4
     key_terms: [school, ivy, uiuc, went, senior-dog-9735, state, half, mill]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c2"
-    char_span: [3344, 4710]
+    char_span: [3343, 4709]
     sentence_count: 8
     key_terms: [acceptance, cornell, rate, undergraduate-admissions, applications, university-factbook, https, edu]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tkobp3.md#c3"
-    char_span: [4712, 5854]
+    char_span: [4711, 5853]
     sentence_count: 10
     key_terms: [school, state, uiuc, students, cornell, picked, connectionscatergory, right]
     section: Comments

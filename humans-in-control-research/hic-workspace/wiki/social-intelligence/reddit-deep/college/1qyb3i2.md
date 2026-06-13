@@ -23,19 +23,19 @@ chunks:
     key_terms: [life, yourself, college, stick, meaningful, comments, accept, skills]
     token_count: 362
   - id: "social-intelligence/reddit-deep/college/1qyb3i2.md#c1"
-    char_span: [1622, 3590]
+    char_span: [1621, 3589]
     sentence_count: 18
     key_terms: [school, graduating, networking, imaginary-roll-5665, important, get, friends, career]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1qyb3i2.md#c2"
-    char_span: [3592, 4887]
+    char_span: [3591, 4886]
     sentence_count: 14
     key_terms: [excited, academics, message, career, linux, ask, did, else]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/college/1qyb3i2.md#c3"
-    char_span: [4890, 6776]
+    char_span: [4889, 6775]
     sentence_count: 13
     key_terms: [college, deleted, lo1mteloj6o, graduate, youtube, glittering-phone-819, douchebagplatitudes, imaginary-roll-5665]
     section: Comments

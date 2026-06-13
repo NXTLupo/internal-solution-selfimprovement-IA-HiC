@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, school, time, current, degree, full, want, healthcare]
     token_count: 347
   - id: "social-intelligence/reddit-deep/college/1rpem7m.md#c1"
-    char_span: [1500, 3396]
+    char_span: [1499, 3395]
     sentence_count: 9
     key_terms: ["i'm", too, everything, healthcare, passionate, full-time, switched, yourself]
     section: Comments

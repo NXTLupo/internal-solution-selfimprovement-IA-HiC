@@ -23,25 +23,25 @@ chunks:
     key_terms: [minecraft, weights, conversations, build, https, vaei9yge1o8, com, www]
     token_count: 347
   - id: "social-intelligence/reddit-deep/openai/1nuaopt.md#c1"
-    char_span: [1458, 2622]
+    char_span: [1457, 2621]
     sentence_count: 5
     key_terms: [hours, speed, years, per, math, time, minecraft, response]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/openai/1nuaopt.md#c2"
-    char_span: [2624, 4315]
+    char_span: [2623, 4314]
     sentence_count: 5
     key_terms: [years, f84a331b59bab4b3b7b31a6984f99e85c70234fb, response, caveman, deleted, douglas, answer, crafts]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/openai/1nuaopt.md#c3"
-    char_span: [4318, 5278]
+    char_span: [4317, 5277]
     sentence_count: 5
     key_terms: [hard, seem, easy, scoshi, https, "it's", xkcd, aggressivesoup01]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/openai/1nuaopt.md#c4"
-    char_span: [5280, 6566]
+    char_span: [5279, 6565]
     sentence_count: 7
     key_terms: ["it's", aa9a0ec51f821cf77a639ff63b9145370564f2e7, anything, computer, redstone, https, model, ninetalesninefaces]
     section: Comments

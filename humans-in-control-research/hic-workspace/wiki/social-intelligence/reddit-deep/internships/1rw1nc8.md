@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, abroad, internships, been, like, especially, personally, comments]
     token_count: 278
   - id: "social-intelligence/reddit-deep/internships/1rw1nc8.md#c1"
-    char_span: [1277, 2808]
+    char_span: [1276, 2807]
     sentence_count: 12
     key_terms: [placement, internship, abroad, europe, legal, worth, asia, fee]
     section: Comments

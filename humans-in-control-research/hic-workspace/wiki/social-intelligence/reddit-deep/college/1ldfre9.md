@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ldfre9.md
 url: "https://www.reddit.com/r/college/comments/1ldfre9/how_to_make_peace_that_i_cant_have_much_as_a_very/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,25 @@ flair: "Emotional health/coping/adulting"
 extracted_at: "2026-06-06T23:23:15.573Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ldfre9.md#c0"
+    char_span: [0, 1742]
+    sentence_count: 2
+    key_terms: ["i'm", because, "it's", college, having, though, money, academic]
+    token_count: 404
+  - id: "social-intelligence/reddit-deep/college/1ldfre9.md#c1"
+    char_span: [1757, 2285]
+    sentence_count: 4
+    key_terms: [etc, exoticregister7761, get, life, various-maybe, internships, personable, feelings]
+    section: Comments
+    token_count: 131
+  - id: "social-intelligence/reddit-deep/college/1ldfre9.md#c2"
+    char_span: [2287, 4157]
+    sentence_count: 11
+    key_terms: [funding, summer, going, internships, life, year, everything, validation]
+    section: Comments
+    token_count: 434
 ---
-
 # how to make peace that i can't have much as a very low-income student?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ldfre9/how_to_make_peace_that_i_cant_have_much_as_a_very/)

@@ -23,7 +23,7 @@ chunks:
     key_terms: [opportunities, applyingtocollege, internship, placement, comments, college, reddit-deep, particular]
     token_count: 91
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m9jqh1.md#c1"
-    char_span: [407, 2189]
+    char_span: [406, 2188]
     sentence_count: 12
     key_terms: [school, schools, internship, internships, better, summer, "it's", nyc]
     section: Comments

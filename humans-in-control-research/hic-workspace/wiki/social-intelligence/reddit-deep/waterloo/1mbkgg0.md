@@ -23,13 +23,13 @@ chunks:
     key_terms: [waterloo, moving, comments, toronto, saltygiraffe6400, reddit-deep, affordable, experience]
     token_count: 137
   - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c1"
-    char_span: [545, 2298]
+    char_span: [544, 2297]
     sentence_count: 10
     key_terms: [drop, kms, cearrach, waterloo, toronto, local, truck, uhaul]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/waterloo/1mbkgg0.md#c2"
-    char_span: [2300, 2901]
+    char_span: [2299, 2900]
     sentence_count: 6
     key_terms: [student, van, speechrecent1898, move-pooling, especially, something, checking, facebook]
     section: Comments

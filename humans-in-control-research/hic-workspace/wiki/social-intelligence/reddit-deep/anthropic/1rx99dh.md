@@ -23,7 +23,7 @@ chunks:
     key_terms: [anthropic, comments, coreyblake9000, reddit-deep, context, claude, cowork, posted]
     token_count: 84
   - id: "social-intelligence/reddit-deep/anthropic/1rx99dh.md#c1"
-    char_span: [283, 2112]
+    char_span: [282, 2111]
     sentence_count: 13
     key_terms: [context, claude, window, cowork, like, compacting, previous, suddenly]
     section: Comments

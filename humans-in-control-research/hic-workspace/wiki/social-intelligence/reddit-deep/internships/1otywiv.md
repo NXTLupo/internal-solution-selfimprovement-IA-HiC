@@ -7,13 +7,13 @@ subreddit: "internships"
 title: "I got the internship!"
 author: "meanjo13"
 date: "2025-11-11T03:26:33.000Z"
-score: 77
-upvote_ratio: 0.99
+score: 76
+upvote_ratio: 0.98
 num_comments: 18
 flair: "Offers"
-extracted_at: "2026-06-03T17:24:13.601Z"
+extracted_at: "2026-06-08T17:32:14.346Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1otywiv.md#c0"
     char_span: [0, 1302]
@@ -30,7 +30,7 @@ chunks:
 # I got the internship!
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1otywiv/i_got_the_internship/)
-Posted by **meanjo13** · **77↑** · **18 comments**
+Posted by **meanjo13** · **76↑** · **18 comments**
 
 After a month of waiting after the interview, I got a call tonight apologizing for the delay and telling me I was chosen for the position! I really thought it was going to be another ghost experience and that I'd never hear from them again. It's not impossible!! 
 
@@ -41,7 +41,7 @@ Basically, don't give up! And if you don't hear anything back, volunteering or t
 
 ## Comments
 
-- **Away-Yogurtcloset200** (5↑): Congrats! I am currently applying and it is tough. I am going to meet with the career center to go over my resume next week. Which field is your internship in?
+- **Away-Yogurtcloset200** (6↑): Congrats! I am currently applying and it is tough. I am going to meet with the career center to go over my resume next week. Which field is your internship in?
   - **meanjo13** (1↑): Pharmaceuticals which is a little intimidating honestly and good luck! Hopefully they give you some good pointers and you can just revise and put out more applications
 - **Appropriate-Tutor587** (2↑): Congrats
 - **Axiomexx** (2↑): Congratulations bro 🎉

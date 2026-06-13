@@ -23,31 +23,31 @@ chunks:
     key_terms: [school, gradschool, full-time, comments, people, going, notes, paper]
     token_count: 212
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c1"
-    char_span: [886, 1644]
+    char_span: [885, 1643]
     sentence_count: 10
     key_terms: [use, paper, pen, fashioned, notebook, version, google, notes]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c2"
-    char_span: [1646, 3060]
+    char_span: [1645, 3059]
     sentence_count: 9
     key_terms: [notability, subscription, ipad, got, notability-subscription-faq, uleebunny, discount, purchase]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c3"
-    char_span: [3062, 4151]
+    char_span: [3061, 4150]
     sentence_count: 11
     key_terms: [paper, pen, notes, years, use, always, laptop, screen]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c4"
-    char_span: [4153, 6331]
+    char_span: [4152, 6330]
     sentence_count: 12
     key_terms: [notes, laptop, class, paper, pen, works, take, formulas]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1lzl5sp.md#c5"
-    char_span: [6088, 6519]
+    char_span: [6087, 6518]
     sentence_count: 4
     key_terms: [classes, slides, notes, pen, used, imjustaverage, memorization, downloaded]
     section: Comments

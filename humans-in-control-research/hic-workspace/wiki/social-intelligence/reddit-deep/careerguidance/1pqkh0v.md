@@ -28,19 +28,19 @@ chunks:
     key_terms: [job, pay, work, development, experience, increase, probably, question]
     token_count: 95
   - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c2"
-    char_span: [2493, 4603]
+    char_span: [2492, 4602]
     sentence_count: 19
     key_terms: [counter-offer, opportunities, offer, replacement, don, hire, look, take]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c3"
-    char_span: [4605, 6285]
+    char_span: [4604, 6284]
     sentence_count: 18
     key_terms: [company, never, justme39908, red, learning, because, sooner, plans]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1pqkh0v.md#c4"
-    char_span: [6287, 7618]
+    char_span: [6286, 7617]
     sentence_count: 17
     key_terms: [job, start, find, red, applying, another, company, better]
     section: Comments

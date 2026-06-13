@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/ad6f38d6bf.md#c0"
-    char_span: [0, 1964]
+    char_span: [0, 1963]
     sentence_count: 16
     key_terms: ["you're", engineeringstudents, work, meetings, company, interns, doing, unimportant]
-    token_count: 434
+    token_count: 433
   - id: "articles/reddit-deep-r-engineeringstudents/ad6f38d6bf.md#c1"
-    char_span: [1967, 3439]
+    char_span: [1966, 3438]
     sentence_count: 12
     key_terms: [complain, doing, like, completely, internship, meaningful, aircraft, fixtures]
     token_count: 331

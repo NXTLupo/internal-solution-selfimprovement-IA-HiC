@@ -28,61 +28,61 @@ chunks:
     key_terms: [help, finances, however, smarter, advice, being, time, try]
     token_count: 191
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c2"
-    char_span: [2758, 4551]
+    char_span: [2757, 4550]
     sentence_count: 12
     key_terms: [credit, comments, prestigious-band3633, never, name, post, advice, freeze]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c3"
-    char_span: [4553, 6564]
+    char_span: [4552, 6563]
     sentence_count: 25
     key_terms: [don, desperate, thought, people, like, financial, situation, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c4"
-    char_span: [6324, 6653]
+    char_span: [6323, 6652]
     sentence_count: 4
     key_terms: [different, situation, something, everyone, gunter5, hitting, problem, similar]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c5"
-    char_span: [6655, 8403]
+    char_span: [6654, 8402]
     sentence_count: 18
     key_terms: [financial, take, because, money, terrible, parents, savings, anyone]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c6"
-    char_span: [8405, 9257]
+    char_span: [8404, 9256]
     sentence_count: 11
     key_terms: [doesn, change, wouldn, tough, love, magnoliasandmums, moyashimonrocket, dragon-queen]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c7"
-    char_span: [9259, 11332]
+    char_span: [9258, 11331]
     sentence_count: 15
     key_terms: [money, grandparents, good, because, subsidizing, yourself, housing, answer]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c8"
-    char_span: [11334, 13049]
+    char_span: [11333, 13048]
     sentence_count: 16
     key_terms: [yourself, "can't", good, example, better, credit, parent, great]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c9"
-    char_span: [13052, 15104]
+    char_span: [13051, 15103]
     sentence_count: 15
     key_terms: ["i'm", universities, get, college, future, better, great, aid]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c10"
-    char_span: [15106, 16579]
+    char_span: [15105, 16578]
     sentence_count: 17
     key_terms: [work, year, yourself, college, process, junior, parent, senior]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/personalfinance/1s8knxt.md#c11"
-    char_span: [16581, 17672]
+    char_span: [16580, 17671]
     sentence_count: 8
     key_terms: [business, strongly, college, get, community, trades, "you'll", local]
     section: Comments

@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/eba21c56fb.md#c0"
-    char_span: [0, 2034]
+    char_span: [0, 2033]
     sentence_count: 13
     key_terms: [business, chatyourcareer, communication, interviews, majesticparsley9002, value, careerguidance, impact]
-    token_count: 452
+    token_count: 451
 ---
 # What skills actually matter in tech careers (beyond what job ads list)?
 

@@ -23,13 +23,13 @@ chunks:
     key_terms: [grad, time, school, class, gradschool, comments, choices, program]
     token_count: 255
   - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c1"
-    char_span: [1045, 2431]
+    char_span: [1044, 2430]
     sentence_count: 12
     key_terms: [classes, semester, class, choices, morning, didn, time, scheduled]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/gradschool/1teevie.md#c2"
-    char_span: [2433, 3777]
+    char_span: [2432, 3776]
     sentence_count: 8
     key_terms: [time, class, day, classes, evening, choice, early, get]
     section: Comments

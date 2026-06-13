@@ -21,7 +21,7 @@ chunks:
     key_terms: [design, engineering, verification, career, engineeringstudents, software, advice, opportunities]
     token_count: 283
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdnkpy.md#c1"
-    char_span: [1414, 1737]
+    char_span: [1413, 1736]
     sentence_count: 5
     key_terms: [roles, competitive, engineering, degree, computer, embedded, graduate, insanely]
     section: Comments

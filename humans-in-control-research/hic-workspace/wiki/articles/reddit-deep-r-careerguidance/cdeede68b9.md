@@ -15,10 +15,10 @@ industries: [saas, enterprise_it, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/cdeede68b9.md#c0"
-    char_span: [0, 1162]
+    char_span: [0, 1161]
     sentence_count: 12
     key_terms: [job, careerguidance, java, role, developer, engineer, company, package]
-    token_count: 272
+    token_count: 271
 ---
 # Which career path—Java development or DevOps/Cloud—will give me better long-term salary growth and job stability, considering I want to switch from QA early in my career?
 

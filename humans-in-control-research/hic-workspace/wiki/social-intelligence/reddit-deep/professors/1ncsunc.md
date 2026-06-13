@@ -23,79 +23,79 @@ chunks:
     key_terms: [texas-ams-president-fires-an-english-professor-after-removing-a-dean-and-a-department-head, am-dean-professor-removed-following-student-complaints-over-curriculum, https, com, reddit, post, www, professors]
     token_count: 222
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c1"
-    char_span: [826, 3007]
+    char_span: [825, 3006]
     sentence_count: 21
     key_terms: [students, higher, college, uncertainty, like, families, prepared, deleted]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c2"
-    char_span: [3009, 5009]
+    char_span: [3008, 5008]
     sentence_count: 13
     key_terms: [students, want, universities, feel, huge, "it's", education, political]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c3"
-    char_span: [5011, 6886]
+    char_span: [5010, 6885]
     sentence_count: 16
     key_terms: [college, "it's", society, choice, because, becomes, believe, failure]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c4"
-    char_span: [6888, 8871]
+    char_span: [6887, 8870]
     sentence_count: 10
     key_terms: [kikikididi, literature, endorsing, existence, talking, going, "children's", children]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c5"
-    char_span: [8873, 10776]
+    char_span: [8872, 10775]
     sentence_count: 12
     key_terms: [people, endorsing, agree, basic, facts, conclusions, seen, existence]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c6"
-    char_span: [10781, 12483]
+    char_span: [10780, 12482]
     sentence_count: 11
     key_terms: [an-update-from-president-mark-a-welsh-iii, course, charlesinrichmond, inconsistent, description, disagreeing, here, president]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c7"
-    char_span: [12485, 14492]
+    char_span: [12484, 14491]
     sentence_count: 12
     key_terms: [student, gender, policy, department, chair, content, course, consequences]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c8"
-    char_span: [14494, 16049]
+    char_span: [14493, 16048]
     sentence_count: 11
     key_terms: [legislator, content, course, issues, impression, literature, concerned, materials]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c9"
-    char_span: [16052, 17085]
+    char_span: [16051, 17084]
     sentence_count: 5
     key_terms: [class, absolutely, literature, children, syllabus, content, course, teach]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c10"
-    char_span: [17087, 19232]
+    char_span: [17086, 19231]
     sentence_count: 16
     key_terms: [university, bright, chair, fired, information, dean, "i'm", instructor]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c11"
-    char_span: [19234, 21000]
+    char_span: [19233, 20999]
     sentence_count: 9
     key_terms: [recommended-institutional-regulations-on-academic-freedom-and-tenure, government, situation, faculty, "that's", point, isn, lack]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c12"
-    char_span: [21002, 22712]
+    char_span: [21001, 22711]
     sentence_count: 11
     key_terms: [speech, right, republicans, agitprop, believe, freedom, vicstolemylunchmoney, being]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/professors/1ncsunc.md#c13"
-    char_span: [22714, 23687]
+    char_span: [22713, 23686]
     sentence_count: 6
     key_terms: [charlesinrichmond, want, luncheroo, sessions, struggle, similar, life-education-8030, sadly]
     section: Comments

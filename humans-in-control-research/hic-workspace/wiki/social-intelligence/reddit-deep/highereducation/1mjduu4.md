@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1mjduu4.md#c0"
-    char_span: [0, 1332]
+    char_span: [0, 1331]
     sentence_count: 5
     key_terms: [journal, global, education, higher, publication, scholarly, highereducation, international]
-    token_count: 259
+    token_count: 258
 ---
 # Journal of Global Higher Education
 

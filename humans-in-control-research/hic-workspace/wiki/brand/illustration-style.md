@@ -11,37 +11,37 @@ tags: [brand, illustration, visual-style, flat-design, geometric, vector]
 evidence_count: 0
 chunks:
   - id: "brand/illustration-style.md#c0"
-    char_span: [0, 2214]
+    char_span: [0, 2213]
     sentence_count: 20
     key_terms: [illustration, elements, element, decorative, circles, shapes, visual, illustrations]
     section: Core Principles
     token_count: 477
   - id: "brand/illustration-style.md#c1"
-    char_span: [2243, 3433]
+    char_span: [2242, 3432]
     sentence_count: 7
     key_terms: [illustration, accent, color, shapes, background, element, black, chartreuse]
     section: Color in Illustrations
     token_count: 300
   - id: "brand/illustration-style.md#c2"
-    char_span: [3450, 4840]
+    char_span: [3449, 4839]
     sentence_count: 4
     key_terms: [icons, icon, set, inside, white, backgrounds, grid, consistent]
     section: Icon Style
     token_count: 338
   - id: "brand/illustration-style.md#c3"
-    char_span: [4860, 6322]
+    char_span: [4859, 6321]
     sentence_count: 4
     key_terms: [connector, labels, line, specifications, color, flows, nodes, right-angle]
     section: Diagram Style
     token_count: 390
   - id: "brand/illustration-style.md#c4"
-    char_span: [6324, 6974]
+    char_span: [6323, 6973]
     sentence_count: 1
     key_terms: [rectangles, architecture, left-to-right, top-to-bottom, comparison, service, flows, side-by-side]
     section: Diagram Style
     token_count: 141
   - id: "brand/illustration-style.md#c5"
-    char_span: [7003, 8867]
+    char_span: [7002, 8866]
     sentence_count: 21
     key_terms: [banned, effects, gradients, gradient, visual, illustrations, ai-generated, icons]
     section: What This Style Is NOT

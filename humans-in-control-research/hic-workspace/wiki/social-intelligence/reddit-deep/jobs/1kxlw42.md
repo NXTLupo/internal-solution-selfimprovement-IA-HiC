@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1kxlw42.md#c0"
-    char_span: [0, 1028]
+    char_span: [0, 1027]
     sentence_count: 7
     key_terms: [jobs, entry-level, florida, comments, criminal, justice, looking, outside]
-    token_count: 236
+    token_count: 235
 ---
 # Criminal Justice Student in Florida — What Entry-Level Jobs Should I Be Looking At (Outside of Being a Cop)?
 

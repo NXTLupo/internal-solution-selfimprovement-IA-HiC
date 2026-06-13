@@ -23,37 +23,37 @@ chunks:
     key_terms: [someone, "i'm", anyone, connections, introduce, comments, instead, never]
     token_count: 383
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c1"
-    char_span: [1670, 3039]
+    char_span: [1669, 3038]
     sentence_count: 15
     key_terms: [job, former, "don't", networking, co-worker, friends, looking, superpomegranate7933]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c2"
-    char_span: [3041, 4157]
+    char_span: [3040, 4156]
     sentence_count: 11
     key_terms: [job, applications, been, last, friend, people, thanossnapsslimjims, best]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c3"
-    char_span: [4159, 6316]
+    char_span: [4158, 6315]
     sentence_count: 17
     key_terms: [job, been, get, years, purchasing, something, somewhere, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c4"
-    char_span: [6052, 6317]
+    char_span: [6051, 6316]
     sentence_count: 2
     key_terms: [visualcelery, business, cleaning, customer, complex, laundry, running, hired]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c5"
-    char_span: [6319, 8262]
+    char_span: [6318, 8261]
     sentence_count: 15
     key_terms: [week, job, year, company, graphic, hiring, got, last]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1ldmqil.md#c6"
-    char_span: [8264, 9049]
+    char_span: [8263, 9048]
     sentence_count: 7
     key_terms: [cleaninfresno, networking, referring, generic, period, month, trial, no-investment8322]
     section: Comments

@@ -48,31 +48,31 @@ chunks:
     key_terms: [field, interviewing, interested, questions, somewhere, memorize, possible, prepared]
     token_count: 78
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c6"
-    char_span: [10267, 11671]
+    char_span: [10266, 11670]
     sentence_count: 10
     key_terms: [phd, want, research, application, industry, prepared, explain, process]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c7"
-    char_span: [11673, 13211]
+    char_span: [11672, 13210]
     sentence_count: 6
     key_terms: [interviews, definitely, people, programs, students, current, nervous, program]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c8"
-    char_span: [13213, 14881]
+    char_span: [13212, 14880]
     sentence_count: 10
     key_terms: [ok-soup-3313, thank, congrats, holiday-metal1028, congratulations, great, information, best]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c9"
-    char_span: [14643, 14923]
+    char_span: [14642, 14922]
     sentence_count: 3
     key_terms: [ok-soup-3313, thank, congratulations, recreational, activities, community, sdavistvs, students]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/gradadmissions/1rxd1hk.md#c10"
-    char_span: [14925, 15395]
+    char_span: [14924, 15394]
     sentence_count: 4
     key_terms: [because, getting, did, time, understanding, specifically, definitely, experience]
     section: Comments

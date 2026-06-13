@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineering, internship, freshman, engineeringstudents, internships, get, like, electrical]
     token_count: 306
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c1"
-    char_span: [1336, 3133]
+    char_span: [1335, 3132]
     sentence_count: 19
     key_terms: [get, like, "don't", small, fair, "i'm", job, internship]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c2"
-    char_span: [3135, 4612]
+    char_span: [3134, 4611]
     sentence_count: 14
     key_terms: ["i'm", year, "don't", engineering, currently, freshman, student, enough]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c3"
-    char_span: [4614, 6648]
+    char_span: [4613, 6647]
     sentence_count: 18
     key_terms: [engineering, freshman, range-shoddy, being, internships, get, job, year]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o50lnm.md#c4"
-    char_span: [6650, 7333]
+    char_span: [6649, 7332]
     sentence_count: 7
     key_terms: [company, local, any-composer-6790, concentrate, engineering, entry-level, internship, university]
     section: Comments

@@ -31,19 +31,19 @@ chunks:
     key_terms: [disclosure, typescript, snowflake, mention, kotlin, median, python, spring]
     token_count: 168
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c3"
-    char_span: [2643, 4524]
+    char_span: [2642, 4523]
     sentence_count: 10
     key_terms: [kotlin, day, java, job, jobs, average, surprising, seen]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c4"
-    char_span: [4526, 6219]
+    char_span: [4525, 6218]
     sentence_count: 8
     key_terms: [linkedin, indeed, postings, better, data, full, job, applying]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rdf7xp.md#c5"
-    char_span: [6221, 7053]
+    char_span: [6220, 7052]
     sentence_count: 5
     key_terms: [voidwater1, hiring, offer, job, pristine-item680, lurkrrrrbrndnw, thr0waway12324, opportunities]
     section: Comments

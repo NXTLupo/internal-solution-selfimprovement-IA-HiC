@@ -23,19 +23,19 @@ chunks:
     key_terms: [precalc, engineering, engineeringstudents, pretty, guys, professor, comments, algebra]
     token_count: 414
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c1"
-    char_span: [1771, 3437]
+    char_span: [1770, 3436]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, please, reddit, next-explanation321, https, com, automoderator]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c2"
-    char_span: [3439, 4800]
+    char_span: [3438, 4799]
     sentence_count: 11
     key_terms: ["that's", discipline, algebra, precalc, engineering, time, different, college]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8dim4.md#c3"
-    char_span: [4802, 6615]
+    char_span: [4801, 6614]
     sentence_count: 12
     key_terms: [algebra, college, next-explanation321, doing, semester, precalc, summer, sithlord73991]
     section: Comments

@@ -21,85 +21,85 @@ chunks:
     key_terms: [students, semester, college, directions, experience, different, comments, absent]
     token_count: 316
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c1"
-    char_span: [1418, 1997]
+    char_span: [1417, 1996]
     sentence_count: 6
     key_terms: [major, business, class, like, participates, journalism, questions, sometimes]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c2"
-    char_span: [1999, 4243]
+    char_span: [1998, 4242]
     sentence_count: 17
     key_terms: [business, like, majors, because, class, need, stem, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c3"
-    char_span: [3985, 5914]
+    char_span: [3984, 5913]
     sentence_count: 15
     key_terms: [classes, students, like, business, need, yeah, interested, anything]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c4"
-    char_span: [5916, 7986]
+    char_span: [5915, 7985]
     sentence_count: 13
     key_terms: [people, class, english, discussions, been, take, interested, mandatory]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c5"
-    char_span: [7988, 10046]
+    char_span: [7987, 10045]
     sentence_count: 14
     key_terms: [learning, material, answer, quiz, everything, worksheet, lectures, students]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c6"
-    char_span: [10048, 11142]
+    char_span: [10047, 11141]
     sentence_count: 6
     key_terms: [because, don, learning, get, job, jobs, certification, applications]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c7"
-    char_span: [11145, 13105]
+    char_span: [11144, 13104]
     sentence_count: 18
     key_terms: [learning, time, getting, holiestcannoly, graded, school, participation, going]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c8"
-    char_span: [13107, 15186]
+    char_span: [13106, 15185]
     sentence_count: 25
     key_terms: [classes, having, missed, social, though, media, plan, staying]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c9"
-    char_span: [15188, 17343]
+    char_span: [15187, 17342]
     sentence_count: 24
     key_terms: [classes, world, need, night, keep, hierarchy, important, magnesium]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c10"
-    char_span: [17345, 19461]
+    char_span: [17344, 19460]
     sentence_count: 16
     key_terms: [students, professor, yourself, someone, staying, student, happen, little]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c11"
-    char_span: [19463, 20515]
+    char_span: [19462, 20514]
     sentence_count: 3
     key_terms: [students, anymore, great, aren, don, responsibilities, balenciagagucci, mynameiswinner]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c12"
-    char_span: [20518, 22851]
+    char_span: [20517, 22850]
     sentence_count: 16
     key_terms: [anymore, don, students, because, care, "i'm", like, professors]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c13"
-    char_span: [22545, 23391]
+    char_span: [22544, 23390]
     sentence_count: 5
     key_terms: [gpa, anymore, system, beautiful-package877, personalitynew2404, drop, fail, simultaneously]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/college/1se5sr1.md#c14"
-    char_span: [23393, 24258]
+    char_span: [23392, 24257]
     sentence_count: 10
     key_terms: [husband, student, school, "it's", time, nontraditional, additionally, generational]
     section: Comments

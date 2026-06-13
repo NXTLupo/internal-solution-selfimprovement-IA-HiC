@@ -21,19 +21,19 @@ chunks:
     key_terms: [program, comments, abroad, people, super, back, neu, opportunities]
     token_count: 197
   - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c1"
-    char_span: [857, 3003]
+    char_span: [856, 3002]
     sentence_count: 9
     key_terms: [nuin, friends, people, back, boston, campus, year, semester]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c2"
-    char_span: [2694, 4910]
+    char_span: [2693, 4909]
     sentence_count: 12
     key_terms: [because, people, nuin, lot, spoiled, abroad, superthebean, complaining]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rzdct7.md#c3"
-    char_span: [4647, 5706]
+    char_span: [4646, 5705]
     sentence_count: 7
     key_terms: [efficiencymotor5057, friends, boston, decision, someone, waiting, campus, altruistic-most-463]
     section: Comments

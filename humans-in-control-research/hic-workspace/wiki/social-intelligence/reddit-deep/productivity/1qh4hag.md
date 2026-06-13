@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, year, comments, systems, william45623, approaching, reddit-deep, distracted]
     token_count: 185
   - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c1"
-    char_span: [782, 2470]
+    char_span: [781, 2469]
     sentence_count: 26
     key_terms: [year, routines, feeling, stopped, trying, feels, klutzylocation725, been]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c2"
-    char_span: [2472, 4588]
+    char_span: [2471, 4587]
     sentence_count: 22
     key_terms: [new, watching, started, stopped, like, art, wish, year]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/productivity/1qh4hag.md#c3"
-    char_span: [4590, 5136]
+    char_span: [4589, 5135]
     sentence_count: 4
     key_terms: [key-environment-4910, mum, challenge, implement, mentioned, appalled, automate, emotions]
     section: Comments

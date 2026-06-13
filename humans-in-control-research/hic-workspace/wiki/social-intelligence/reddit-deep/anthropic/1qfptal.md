@@ -18,10 +18,10 @@ industries: [ai_research, saas, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1qfptal.md#c0"
-    char_span: [0, 277]
+    char_span: [0, 276]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, jpcaparas, improver, serious, claude, posted]
-    token_count: 81
+    token_count: 80
 ---
 # The Prompt Improver Every Serious Claude Code User Needs
 

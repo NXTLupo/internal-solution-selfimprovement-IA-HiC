@@ -23,13 +23,13 @@ chunks:
     key_terms: [michigan, been, don, direction, findapath, comments, feeling, working]
     token_count: 307
   - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c1"
-    char_span: [1213, 3327]
+    char_span: [1212, 3326]
     sentence_count: 23
     key_terms: [thank, community, good, military, helpful, please, findapath, comments]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/findapath/1ou3d6k.md#c2"
-    char_span: [3329, 5110]
+    char_span: [3328, 5109]
     sentence_count: 11
     key_terms: [yourself, development, join, something, learning, military, teaching, whatever]
     section: Comments

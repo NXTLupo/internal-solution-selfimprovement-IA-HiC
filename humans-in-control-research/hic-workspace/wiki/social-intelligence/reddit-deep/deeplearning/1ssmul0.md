@@ -23,13 +23,13 @@ chunks:
     key_terms: [multi-agent, agents, hallucinations, deeplearning, model, does, comments, asking]
     token_count: 405
   - id: "social-intelligence/reddit-deep/deeplearning/1ssmul0.md#c1"
-    char_span: [1885, 4147]
+    char_span: [1884, 4146]
     sentence_count: 2
     key_terms: [hallucinations, different, get, gets, llm, better, models, model]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/deeplearning/1ssmul0.md#c2"
-    char_span: [4152, 4691]
+    char_span: [4151, 4690]
     sentence_count: 2
     key_terms: [whether, keep, programmatically, conversations, professional, satisfactory, evaluations, necroforest]
     section: Comments

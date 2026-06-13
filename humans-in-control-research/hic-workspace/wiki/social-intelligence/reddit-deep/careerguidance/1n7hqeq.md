@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, computer, degree, part-time, considering, "i'm", evening, careerguidance]
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1n7hqeq.md#c1"
-    char_span: [2140, 3060]
+    char_span: [2139, 3059]
     sentence_count: 8
     key_terms: [loweringpass, engineering, "i'm", expensive, computer, classes, market, option]
     section: Comments

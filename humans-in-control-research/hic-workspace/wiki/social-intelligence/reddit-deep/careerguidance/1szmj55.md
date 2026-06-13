@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1szmj55.md
 url: "https://www.reddit.com/r/careerguidance/comments/1szmj55/im_thinking_about_switching_career_paths_into/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.897Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1szmj55.md#c0"
+    char_span: [0, 1813]
+    sentence_count: 15
+    key_terms: [nursing, like, different, careerguidance, trying, been, healthcare, switching]
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/careerguidance/1szmj55.md#c1"
+    char_span: [1828, 4258]
+    sentence_count: 19
+    key_terms: ["you're", nursing, committing, different, good, "it's", hospital, patient]
+    section: Comments
+    token_count: 496
 ---
-
 # I’m thinking about switching career paths into nursing. Any advice? PLEASE!
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1szmj55/im_thinking_about_switching_career_paths_into/)

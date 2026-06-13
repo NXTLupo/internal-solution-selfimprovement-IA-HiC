@@ -28,19 +28,19 @@ chunks:
     key_terms: [bothering, something, trying, conversations, interactions, experienced, interaction, interpreted]
     token_count: 183
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c2"
-    char_span: [3272, 5079]
+    char_span: [3271, 5078]
     sentence_count: 16
     key_terms: [lynxacceptable1490, experienced, candidate, committee, something, honestly, research, campus]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c3"
-    char_span: [5081, 6416]
+    char_span: [5080, 6415]
     sentence_count: 10
     key_terms: [unprofessional, people, search, committee, different, probably, nothing, chair]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/askacademia/1s6lhhe.md#c4"
-    char_span: [6418, 8192]
+    char_span: [6417, 8191]
     sentence_count: 15
     key_terms: [person, get, want, department, academia, prepositionstrander, being, chair]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [transcription, editing, jobs, experience, schedule, medical, workonline, comments]
     token_count: 440
   - id: "social-intelligence/reddit-deep/workonline/1tgz1uf.md#c1"
-    char_span: [1990, 2544]
+    char_span: [1989, 2543]
     sentence_count: 4
     key_terms: [medical, transcription, entry-level, fortheloveofbugs, positioning, background, everything, experience]
     section: Comments

@@ -48,25 +48,25 @@ chunks:
     key_terms: [satire, greg, like, return-to-office, announcements, suspiciously, dashboards, mid-shower]
     token_count: 198
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c6"
-    char_span: [9998, 11733]
+    char_span: [9997, 11732]
     sentence_count: 11
     key_terms: [politicus-8080, meetings, like, accurate, journal, itself, people, beneficial-walrus680]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c7"
-    char_span: [11735, 12358]
+    char_span: [11734, 12357]
     sentence_count: 5
     key_terms: [scheduling, gutters, people, stop, "rorschach's", assistant, recurring, attendee]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c8"
-    char_span: [12360, 13718]
+    char_span: [12359, 13717]
     sentence_count: 13
     key_terms: [royal-finding-3886, loss, ticket, sorry, thank, through, closed, hour]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/managers/1l5dp4b.md#c9"
-    char_span: [13720, 15669]
+    char_span: [13719, 15668]
     sentence_count: 11
     key_terms: [politicus-8080, beekeeper, corporate, everyone, progress, because, nothing, guess]
     section: Comments

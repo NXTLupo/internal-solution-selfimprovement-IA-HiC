@@ -23,7 +23,7 @@ chunks:
     key_terms: [sciences, health, careerguidance, field, study, jobs, comments, careers]
     token_count: 214
   - id: "social-intelligence/reddit-deep/careerguidance/1sg41zm.md#c1"
-    char_span: [953, 2405]
+    char_span: [952, 2404]
     sentence_count: 7
     key_terms: [health, people, coordinator, informatics, interviews, companies, insurance, clinical]
     section: Comments

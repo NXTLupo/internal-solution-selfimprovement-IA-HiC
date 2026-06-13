@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1olkz06.md#c0"
-    char_span: [0, 1280]
+    char_span: [0, 1279]
     sentence_count: 3
     key_terms: [cloud, internship, learning, germany, looking, international, development, engineering]
-    token_count: 308
+    token_count: 307
 ---
 # Looking for a Cloud Engineering Internship in Germany (Exchange Student, Learning German)
 

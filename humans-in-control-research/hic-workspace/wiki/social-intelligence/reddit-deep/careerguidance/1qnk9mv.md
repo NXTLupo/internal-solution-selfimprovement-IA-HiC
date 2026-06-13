@@ -26,13 +26,13 @@ chunks:
     key_terms: [feel, being, like, expectations, engineering, don, want, everything]
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c2"
-    char_span: [4061, 5188]
+    char_span: [4060, 5187]
     sentence_count: 14
     key_terms: [trying, years, horror-cheek-7091, feel, get, time, work, opportunity]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/careerguidance/1qnk9mv.md#c3"
-    char_span: [5190, 6105]
+    char_span: [5189, 6104]
     sentence_count: 7
     key_terms: [yourself, always, districtevening3681, bright-future-girl, horror-cheek-7091, give, step, encouraging]
     section: Comments

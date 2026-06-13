@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1mkxzcl.md#c0"
-    char_span: [0, 786]
+    char_span: [0, 785]
     sentence_count: 4
     key_terms: [presentation, gpt-5, code, comments, official, anyone, https, demo]
     token_count: 229

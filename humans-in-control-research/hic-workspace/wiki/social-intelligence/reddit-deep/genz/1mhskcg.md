@@ -28,43 +28,43 @@ chunks:
     key_terms: [resource, special, like, humiliating, copy-paste, demanding, affected, engineer]
     token_count: 131
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c2"
-    char_span: [3084, 4809]
+    char_span: [3083, 4808]
     sentence_count: 10
     key_terms: [source, open, open-source, companies, tech, membership, software, discord]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c3"
-    char_span: [4811, 6712]
+    char_span: [4810, 6711]
     sentence_count: 15
     key_terms: [people, industry, software, humans, engineers, experience, understand, companies]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c4"
-    char_span: [6714, 8043]
+    char_span: [6713, 8042]
     sentence_count: 12
     key_terms: [engineers, software, developers, replace, level, get, current, course]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c5"
-    char_span: [8045, 10155]
+    char_span: [8044, 10154]
     sentence_count: 12
     key_terms: [junior, "that's", companies, engineers, "i'm", "it's", due, work]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c6"
-    char_span: [10157, 11494]
+    char_span: [10156, 11493]
     sentence_count: 7
     key_terms: [people, engineers, replacing, engineer, software, less, draftsman, replace]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c7"
-    char_span: [11496, 13507]
+    char_span: [11495, 13506]
     sentence_count: 9
     key_terms: [tech, companies, because, cutting, indians, nothing, always, stupid]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/genz/1mhskcg.md#c8"
-    char_span: [13509, 13770]
+    char_span: [13508, 13769]
     sentence_count: 3
     key_terms: [interest, rates, specifically, unprofitable, speculative, investment, companies, billions]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [life, around, mid-20s, trying, real, turn, successful, comments]
     token_count: 361
   - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c1"
-    char_span: [1556, 3437]
+    char_span: [1555, 3436]
     sentence_count: 16
     key_terms: [later, prioritize, future, prioritizing, house, did, here, life]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c2"
-    char_span: [3439, 5175]
+    char_span: [3438, 5174]
     sentence_count: 16
     key_terms: [like, money, car, investing, yourself, friends, purpose, future]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c3"
-    char_span: [5177, 7082]
+    char_span: [5176, 7081]
     sentence_count: 20
     key_terms: [social, better, get, use, work, years, life, decompress]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c4"
-    char_span: [7087, 8299]
+    char_span: [7086, 8298]
     sentence_count: 12
     key_terms: [got, home, advice, money, until, life, live, own]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c5"
-    char_span: [8301, 10133]
+    char_span: [8300, 10132]
     sentence_count: 21
     key_terms: [friend, like, friends, instead, career, equity, having, planes]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/genz/1rruaix.md#c6"
-    char_span: [10135, 11324]
+    char_span: [10134, 11323]
     sentence_count: 6
     key_terms: [friends, action, please, rules, genz, "i'd", automatically, automoderator]
     section: Comments

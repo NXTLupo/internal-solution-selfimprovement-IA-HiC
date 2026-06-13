@@ -23,7 +23,7 @@ chunks:
     key_terms: [careeradvice, comments, reddit-deep, marketing, replaced, career, decide, design]
     token_count: 94
   - id: "social-intelligence/reddit-deep/careeradvice/1qrxpmu.md#c1"
-    char_span: [334, 1103]
+    char_span: [333, 1102]
     sentence_count: 9
     key_terms: [career, something, design, come, find, get, like, new]
     section: Comments

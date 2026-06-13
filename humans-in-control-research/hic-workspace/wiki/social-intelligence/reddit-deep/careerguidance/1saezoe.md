@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, reddit-deep, highschool, commerce, ankoku1, student, career]
     token_count: 91
   - id: "social-intelligence/reddit-deep/careerguidance/1saezoe.md#c1"
-    char_span: [339, 1187]
+    char_span: [338, 1186]
     sentence_count: 9
     key_terms: [skills, job, accounting, economics, help, look, reccomending, thepandapear]
     section: Comments

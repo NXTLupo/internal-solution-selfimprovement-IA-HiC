@@ -1,0 +1,113 @@
+---
+id: social-intelligence/reddit-deep/bogleheads/1qaaj3s.md
+url: "https://www.reddit.com/r/Bogleheads/comments/1qaaj3s/how_to_choose_an_investment_platform/"
+kind: "social-post"
+source: "reddit-deep: r/bogleheads"
+subreddit: "bogleheads"
+title: "How to choose an investment platform?"
+author: "sillygoose183683"
+date: "2026-01-11T20:45:28.000Z"
+score: 3
+upvote_ratio: 1
+num_comments: 7
+flair: "Investing Questions"
+extracted_at: "2026-06-11T15:26:21.369Z"
+extraction_method: "praw-deep"
+research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
+engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+chunks:
+  - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c0"
+    char_span: [0, 2129]
+    sentence_count: 16
+    key_terms: [investment, platform, brokerage, investing, sofi, accounts, account, college]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c1"
+    char_span: [2131, 2396]
+    sentence_count: 3
+    key_terms: [clarification, exclusively, terminology, background, relatively, knowledge, anything, misused]
+    token_count: 56
+  - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c2"
+    char_span: [2411, 4483]
+    sentence_count: 19
+    key_terms: [fidelity, good, funds, auto, free, bogleheads, excellent, customer]
+    section: Comments
+    token_count: 515
+  - id: "social-intelligence/reddit-deep/bogleheads/1qaaj3s.md#c3"
+    char_span: [4485, 4629]
+    sentence_count: 1
+    key_terms: [currently, customer, fidelity, vanguard, linking, reviews, service, better]
+    section: Comments
+    token_count: 41
+---
+# How to choose an investment platform?
+
+Source: [reddit-deep: r/bogleheads](https://www.reddit.com/r/Bogleheads/comments/1qaaj3s/how_to_choose_an_investment_platform/)
+Posted by **sillygoose183683** · **3↑** · **7 comments**
+
+**Context:** I am a college student in my last semester of college and will soon graduate and begin working a full time job. A little over a year ago I opened a brokerage account and a Roth IRA and began investing a substantial portion of what little extra cash I have as a college student. Nothing crazy, I just wanted to get started early and focus on building the habit of investing. Currently my holdings are 100% VOO in both accounts. Both of these accounts are on SoFi. 
+
+At the time of opening the accounts I did very little research on the nuances and differences between investment platforms. My thought at the time and for the most part still is that the differences mostly fall to personal preference and my priority should be to simply build the habit of investing a portion of my income. I chose SoFi for the following reasons. 
+
+* I already had an HYSA and did all of my banking with SoFi.
+* I like the interface.
+* I wanted to keep things simple and focus on building the right habits, not the details.
+* SoFi offers VOO with no fees.
+
+Now that I am approaching graduation and a full-time job I expect my retirement/investment contributions to grow substantially. A large portion of that will be in a TSP. The rest will be in a Roth IRA and individual brokerage account.
+
+**Question:** What considerations do/did you all make when choosing an investment platform? I am pretty confident in my thought process above, but I want to know if the community has any thoughts or advice to consider before my contributions get larger.
+
+  
+**Sub-Questions**
+
+1. What are the implications/considerations, tax and otherwise, of moving a Roth IRA or brokerage account to another platform?
+2. What are the advantages of the "big three" (Vanguard, Schwab, Fidelity) that seem to get the most attention of this sub-reddit.
+3. Are there any generic factors to look for or avoid in an investment platform.
+
+**Note:** I am relatively new to all of this. My knowledge background is almost exclusively "The Simple Path to Wealth" and being a member of this sub for a few months. If I seem to have misused any terminology or if anything needs clarification please let me know.
+
+## Comments
+
+- **forbiddenlake** (3↑): Do you like the color blue? Schwab. Red? Vanguard.  Green? Fidelity. They're all huge, well established, and have low fee options.
+  - **sillygoose183683** (1↑): Thanks, this was pretty much my understanding of the communities thoughts on this topic.
+
+Follow-up, is there anything about these three that set them apart in particular, other than than the factors you mentioned? Or can our color game be easily extended to Light Blue? SoFi.
+    - **ac106** (2↑): ^(At this point I should be sponsored by Fidelity)
+
+**Pros:**
+
+- Fidelity is pretty awesome as a [one stop shop](https://www.bogleheads.org/wiki/Fidelity:_one_stop_shop)
+
+- They have excellent 24 hr customer service. They have a strong social media presence that actually answers questions. r/fidelityinvestments & r/fidelitycrypto are staffed by actual Fidelity employees who provide customer support.
+
+
+- The app is good. A little buggy but they release regular updates. It’s not a good as Robin Hood but you shouldn’t need the app that much anyways. We are Bogleheads, not day traders. Website is very good. 
+
+- The Cash Management Account is great as combo high yield savings/checking/BillPay account with  free checks  and a debit card. All ATM fees are refunded . The auto liquidation feature  allows you to use a treasury money market (FDLXX) as a defacto core position (no state tax).  You can also buy CDs with a CMA. 
+
+- They allow auto buys of fractional ETFs.  
+
+- They offer excellent  529s, HSAs, DAFs etc. 
+
+- Fidelity Crypto allows direct custody and transfers of  crypto.   
+
+- Good fixed income tools including Auto Roll for Treasuries and CDs (automated rolling bond ladders) 
+
+- Fidelity credit card is unlimited 2% if deposited into core position with  free TSA pre-check and some other decent perks 
+
+- Local branches
+
+- Fee free mutual funds. (FZROX, FZIPX, FNILX, FZILX)
+
+.  
+.  
+
+
+**Cons:**
+
+- They put **very** long holds (10 **business** days/2 weeks) when you *pull* funds from another bank.  If you *push* funds into Fidelity, it’s availible immediately.  
+
+- No Zelle
+
+- No Plaid for linking ACH
+  - **Itu_Leona** (1↑): Fidelity and Schwab currently have better customer service reviews than Vanguard.

@@ -23,85 +23,85 @@ chunks:
     key_terms: [money, "i'm", like, comments, personalfinance, savings, couple, "didn't"]
     token_count: 498
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c1"
-    char_span: [2119, 4223]
+    char_span: [2118, 4222]
     sentence_count: 21
     key_terms: [savings, doing, failure, emergency, financial, capabilities, perspective, back]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c2"
-    char_span: [4225, 6282]
+    char_span: [4224, 6281]
     sentence_count: 19
     key_terms: [probably, people, find, hour, life, pay, work, stressful]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c3"
-    char_span: [6014, 7241]
+    char_span: [6013, 7240]
     sentence_count: 13
     key_terms: [call, job, better, center, education, internal, started, making]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c4"
-    char_span: [7243, 9195]
+    char_span: [7242, 9194]
     sentence_count: 29
     key_terms: [work, "don't", "won't", warehouse, "couldn't", jobs, want, kentucky]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c5"
-    char_span: [9197, 11347]
+    char_span: [9196, 11346]
     sentence_count: 16
     key_terms: [low, pay, good, hour, job, jobs, like, warehouses]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c6"
-    char_span: [11349, 12978]
+    char_span: [11348, 12977]
     sentence_count: 11
     key_terms: [good, jobs, healthcare, assistant, glassdoor, familiar, office-assistant-1680495, remote]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c7"
-    char_span: [12980, 14708]
+    char_span: [12979, 14707]
     sentence_count: 11
     key_terms: [don, job, work, comfortable, home, situation, because, parents]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c8"
-    char_span: [14710, 16978]
+    char_span: [14709, 16977]
     sentence_count: 17
     key_terms: [job, homelessnightkin, program, similar, degree, school, skills, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c9"
-    char_span: [16662, 17646]
+    char_span: [16661, 17645]
     sentence_count: 10
     key_terms: [definitely, because, savings, old, time, too, communicating, personality]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c10"
-    char_span: [17648, 19247]
+    char_span: [17647, 19246]
     sentence_count: 18
     key_terms: [sustainability, people, "you're", environmental, job, change, degree, doing]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c11"
-    char_span: [19249, 20942]
+    char_span: [19248, 20941]
     sentence_count: 13
     key_terms: [commute, "you're", field, home, job, jobs, experience, "doesn't"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c12"
-    char_span: [20944, 21923]
+    char_span: [20943, 21922]
     sentence_count: 6
     key_terms: [work, near, virtual, making, remote, jobs, move, sustainability]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c13"
-    char_span: [21925, 23784]
+    char_span: [21924, 23783]
     sentence_count: 12
     key_terms: [degree, like, work, "don't", ambulatory, "bachelor's", healthcare, education]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/personalfinance/1sqc5z6.md#c14"
-    char_span: [23786, 24279]
+    char_span: [23785, 24278]
     sentence_count: 3
     key_terms: [problem, burger, kuttymongoose, challenges, educatihrs, empowering, especially, incredibly]
     section: Comments

@@ -21,31 +21,31 @@ chunks:
     key_terms: [jobs, looking, something, comments, industry, entry, level, rockstarhuman2]
     token_count: 137
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c1"
-    char_span: [570, 2026]
+    char_span: [569, 2025]
     sentence_count: 10
     key_terms: [job, sharksfan707, "that's", like, doesn, cash, easy, food]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c2"
-    char_span: [2028, 2506]
+    char_span: [2027, 2505]
     sentence_count: 2
     key_terms: [stores, available-stick-7299, rockstarhuman2, fast-food, homedepot, homegoods, inventory, teenagers]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c3"
-    char_span: [2508, 4394]
+    char_span: [2507, 4393]
     sentence_count: 17
     key_terms: [customer, because, people, entry-level, lkayschmidt, desk, difficult, service]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c4"
-    char_span: [4398, 6479]
+    char_span: [4397, 6478]
     sentence_count: 19
     key_terms: [job, jobs, college, work, income, remote, get, nice]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1lwl0hf.md#c5"
-    char_span: [6481, 6775]
+    char_span: [6480, 6774]
     sentence_count: 1
     key_terms: [top-10-remote-work-from-home-jobs-experience-needed-logan-jack-vstgc, linkedin, https, pulse, com, www, simply, thanks]
     section: Comments

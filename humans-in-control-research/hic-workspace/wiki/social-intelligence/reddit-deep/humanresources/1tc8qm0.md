@@ -23,19 +23,19 @@ chunks:
     key_terms: [humanresources, hrbp, management, currently, comments, career, global, person]
     token_count: 358
   - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c1"
-    char_span: [1453, 3451]
+    char_span: [1452, 3450]
     sentence_count: 9
     key_terms: [experience, companies, bigger, get, company, smaller, people, emarialartayu]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c2"
-    char_span: [3456, 4626]
+    char_span: [3455, 4625]
     sentence_count: 10
     key_terms: [ornery-mycologist-53, puddingadorable9260, good, take, experience, different, feeling, looked]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/humanresources/1tc8qm0.md#c3"
-    char_span: [4628, 5671]
+    char_span: [4627, 5670]
     sentence_count: 10
     key_terms: [puddingadorable9260, hrbp, role, promotion, change, title, bank, head]
     section: Comments

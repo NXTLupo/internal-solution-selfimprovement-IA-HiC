@@ -21,37 +21,37 @@ chunks:
     key_terms: [ceo, entry-level, jobs, economists, comments, getting, outlook, surveys]
     token_count: 296
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c1"
-    char_span: [1270, 3559]
+    char_span: [1269, 3558]
     sentence_count: 13
     key_terms: [mistakes, people, barry, learn, because, traditional, does, like]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c2"
-    char_span: [3561, 5729]
+    char_span: [3560, 5728]
     sentence_count: 17
     key_terms: [people, exponentially, limitations, human, energy, being, years, time]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c3"
-    char_span: [5731, 7797]
+    char_span: [5730, 7796]
     sentence_count: 15
     key_terms: [different, something, learning, completely, like, llms, convincingly, "isn't"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c4"
-    char_span: [7799, 9206]
+    char_span: [7798, 9205]
     sentence_count: 14
     key_terms: [competitors, ceo, knowledge, because, company, problem, signal-implement-70, human]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c5"
-    char_span: [9208, 11156]
+    char_span: [9207, 11155]
     sentence_count: 7
     key_terms: ["doesn't", ceos, because, money, ceo, "it's", company, replace]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/jobs/1sm6lht.md#c6"
-    char_span: [11159, 11419]
+    char_span: [11158, 11418]
     sentence_count: 2
     key_terms: [jobs, chuckoftheirish, eliminating, replacement, employees, remaining, creation, whatever]
     section: Comments

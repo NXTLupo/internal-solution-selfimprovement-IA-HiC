@@ -15,12 +15,12 @@ relevance: 35
 engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
 chunks:
   - id: "articles/reddit-deep-r-college/df79c9fba2.md#c0"
-    char_span: [0, 857]
+    char_span: [0, 856]
     sentence_count: 5
     key_terms: [college, time, achievements, community, comments, finding, reddit, full]
-    token_count: 206
+    token_count: 205
   - id: "articles/reddit-deep-r-college/df79c9fba2.md#c1"
-    char_span: [859, 2545]
+    char_span: [858, 2544]
     sentence_count: 11
     key_terms: [old, non-traditional, scholarships, try, work, experience, laughing, students]
     token_count: 409

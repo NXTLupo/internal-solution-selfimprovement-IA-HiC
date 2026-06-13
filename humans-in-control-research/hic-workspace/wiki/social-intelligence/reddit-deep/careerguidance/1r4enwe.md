@@ -21,31 +21,31 @@ chunks:
     key_terms: [learn, watching, youtube, careerguidance, comments, careers, change, people]
     token_count: 227
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c1"
-    char_span: [1003, 2584]
+    char_span: [1002, 2583]
     sentence_count: 12
     key_terms: [youtube, industry, people, like, standards, learning, career, making]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c2"
-    char_span: [2586, 4264]
+    char_span: [2585, 4263]
     sentence_count: 15
     key_terms: [youtube, time, worldtallestengineer, use, defiant-ad2342, something, willpower, content]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c3"
-    char_span: [4266, 6362]
+    char_span: [4265, 6361]
     sentence_count: 15
     key_terms: [learning, watching, youtube, something, specific, amazingmrbrock, defiant-ad2342, "didn't"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c4"
-    char_span: [6364, 8547]
+    char_span: [6363, 8546]
     sentence_count: 13
     key_terms: [learning, defiant-ad2342, youtube, thin-blueberry9183, new, resource, career, learn]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1r4enwe.md#c5"
-    char_span: [8549, 8756]
+    char_span: [8548, 8755]
     sentence_count: 1
     key_terms: [defiant-ad2342, particular, channels, searches, project, someway, towards, career]
     section: Comments

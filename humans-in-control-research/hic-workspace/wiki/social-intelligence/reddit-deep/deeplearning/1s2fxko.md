@@ -23,7 +23,7 @@ chunks:
     key_terms: [prompt, autoprompter, optimization, github, autoresearch, deeplearning, https, com]
     token_count: 320
   - id: "social-intelligence/reddit-deep/deeplearning/1s2fxko.md#c1"
-    char_span: [1587, 1990]
+    char_span: [1586, 1989]
     sentence_count: 1
     key_terms: [synthetic, seeingwhatworks, distributions, autoresearch, optimization, bonniew1554, closed-loop, overfitting]
     section: Comments

@@ -23,49 +23,49 @@ chunks:
     key_terms: [days, get, ive, job, like, findapath, comments, thought]
     token_count: 451
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c1"
-    char_span: [1913, 2860]
+    char_span: [1912, 2859]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c2"
-    char_span: [2863, 4216]
+    char_span: [2862, 4215]
     sentence_count: 8
     key_terms: [bigbirdsbrain, brain, small, consistency, like, protecting, shrinking, something]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c3"
-    char_span: [4218, 6389]
+    char_span: [4217, 6388]
     sentence_count: 19
     key_terms: [job, going, time, something, recovery, requires, yourself, getting]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c4"
-    char_span: [6391, 6829]
+    char_span: [6390, 6828]
     sentence_count: 5
     key_terms: [get, "it's", unsustainable, organically, emptiness, flattened, approach, engaging]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c5"
-    char_span: [6831, 8440]
+    char_span: [6830, 8439]
     sentence_count: 20
     key_terms: [start, ancientgreenthings, going, life, time, exercise, doing, thank]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c6"
-    char_span: [8442, 10545]
+    char_span: [8441, 10544]
     sentence_count: 15
     key_terms: [people, university, psych, getting, counselling, life, experience, postgrad]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c7"
-    char_span: [10547, 12734]
+    char_span: [10546, 12733]
     sentence_count: 31
     key_terms: [too, experience, like, relevant, don, jobs, late, something]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1tjws0b.md#c8"
-    char_span: [12736, 13355]
+    char_span: [12735, 13354]
     sentence_count: 7
     key_terms: [conscious-art3545, job, magicdragon3, presently, psychosis, something, attempts, because]
     section: Comments

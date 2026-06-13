@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-artificial/9bc3d73cbf.md#c0"
-    char_span: [0, 2073]
+    char_span: [0, 2072]
     sentence_count: 21
     key_terms: [claude, workflow, thinking, engineering, model, anthropic, amd, code]
-    token_count: 454
+    token_count: 453
   - id: "articles/reddit-deep-r-artificial/9bc3d73cbf.md#c1"
-    char_span: [2075, 3581]
+    char_span: [2074, 3580]
     sentence_count: 11
     key_terms: [infinite-pheonix, expensive, providing, increase, insight, service, models, tokens]
     token_count: 324

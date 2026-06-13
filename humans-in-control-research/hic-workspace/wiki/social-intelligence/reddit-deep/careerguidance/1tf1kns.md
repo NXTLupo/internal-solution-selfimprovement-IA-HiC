@@ -23,13 +23,13 @@ chunks:
     key_terms: [job, careerguidance, office, great, team, tips, mentorship, benefits]
     token_count: 247
   - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c1"
-    char_span: [962, 3192]
+    char_span: [961, 3191]
     sentence_count: 16
     key_terms: [job, mentorship, career, scope, good, like, pay, definitely]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1tf1kns.md#c2"
-    char_span: [3194, 3315]
+    char_span: [3193, 3314]
     sentence_count: 1
     key_terms: [hesitant, knowing, support, bigger, having, guess, ready, job]
     section: Comments

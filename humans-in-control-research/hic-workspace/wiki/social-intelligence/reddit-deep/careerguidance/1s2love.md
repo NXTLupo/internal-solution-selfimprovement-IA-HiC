@@ -33,7 +33,7 @@ chunks:
     key_terms: [roles, looking, administration, did, experience, management, transition, emotional]
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1s2love.md#c3"
-    char_span: [6004, 6621]
+    char_span: [6003, 6620]
     sentence_count: 4
     key_terms: [experience, "you're", acadiaordinary8955, documentation, coordination, corrections, development, positioning]
     section: Comments

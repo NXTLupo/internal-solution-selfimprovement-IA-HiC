@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/aeaaba8149.md#c0"
-    char_span: [0, 1553]
+    char_span: [0, 1552]
     sentence_count: 10
     key_terms: [review, school, grad, status, department, program, gradadmissions, hcim]
-    token_count: 356
+    token_count: 355
   - id: "articles/reddit-deep-r-gradadmissions/aeaaba8149.md#c1"
-    char_span: [1555, 2590]
+    char_span: [1554, 2589]
     sentence_count: 8
     key_terms: [externalwindow9234, decision, status, admission, program, waiting, thank, desperatemark8581]
     token_count: 243

@@ -28,31 +28,31 @@ chunks:
     key_terms: [firmware, development, feedback, chinese, looking, better, brands, design]
     token_count: 223
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c2"
-    char_span: [2908, 5019]
+    char_span: [2907, 5018]
     sentence_count: 17
     key_terms: [cost, chinese, mouse, bom, good, supply, chain, cheap]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c3"
-    char_span: [5023, 6954]
+    char_span: [5022, 6953]
     sentence_count: 15
     key_terms: [bom, costs, cost, weight, want, components, reconsider, smoothmarx]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c4"
-    char_span: [6956, 8114]
+    char_span: [6955, 8113]
     sentence_count: 9
     key_terms: [competitive, going, mouse, desk, try, clayquartercake, manufacturing, lightweight]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c5"
-    char_span: [8116, 10099]
+    char_span: [8115, 10098]
     sentence_count: 7
     key_terms: [good, market, practicality, like, side, aspecially, probably, trix-one]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ps2ib2.md#c6"
-    char_span: [10101, 11965]
+    char_span: [10100, 11964]
     sentence_count: 2
     key_terms: [like, trix-one, linux, "i'm", bhop2003, comments, exactly, become]
     section: Comments

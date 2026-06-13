@@ -15,12 +15,12 @@ relevance: 35
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-college/8e3f4d6fbb.md#c0"
-    char_span: [0, 1891]
+    char_span: [0, 1890]
     sentence_count: 12
     key_terms: [college, honors, latin, matter, gpa, otterlyoddityy, school, laude]
-    token_count: 467
+    token_count: 466
   - id: "articles/reddit-deep-r-college/8e3f4d6fbb.md#c1"
-    char_span: [1893, 3726]
+    char_span: [1892, 3725]
     sentence_count: 24
     key_terms: [laude, cum, school, summa, honors, got, college, program]
     token_count: 440

@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1se0nm1.md#c0"
-    char_span: [0, 2193]
+    char_span: [0, 2192]
     sentence_count: 19
     key_terms: [opportunity, everything, engineeringstudents, college, engineering, didn, got, internship]
-    token_count: 502
+    token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1se0nm1.md#c1"
-    char_span: [2195, 3193]
+    char_span: [2194, 3192]
     sentence_count: 9
     key_terms: [development, because, family, months, didn, feel, next, time]
     token_count: 218

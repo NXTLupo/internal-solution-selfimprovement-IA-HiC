@@ -23,7 +23,7 @@ chunks:
     key_terms: [undergrad, student, help, college, faculty, design, connections, engineering]
     token_count: 213
   - id: "social-intelligence/reddit-deep/college/1lrcdty.md#c1"
-    char_span: [1016, 2187]
+    char_span: [1015, 2186]
     sentence_count: 9
     key_terms: [advisor, office, hours, club, building, schools, active, defianttumbleweed850]
     section: Comments

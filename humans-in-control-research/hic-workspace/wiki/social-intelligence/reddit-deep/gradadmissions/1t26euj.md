@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1t26euj.md#c0"
-    char_span: [0, 463]
+    char_span: [0, 462]
     sentence_count: 2
     key_terms: [gradadmissions, comments, program, angelsuperstar101, like, kindergarten, certificate, development]
-    token_count: 110
+    token_count: 109
 ---
 # UNCC: Child and Family Development: Birth through Kindergarten, Graduate Certificate – Online experiences
 

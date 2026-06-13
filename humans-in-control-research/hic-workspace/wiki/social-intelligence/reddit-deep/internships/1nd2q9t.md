@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, comments, contract, mistake, offer, sent, disappointment, reddit-deep]
     token_count: 169
   - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c1"
-    char_span: [687, 2506]
+    char_span: [686, 2505]
     sentence_count: 6
     key_terms: [offer, sufficient-onion4785, return, realneilpeart, want, anything, letter, person]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c2"
-    char_span: [2324, 2964]
+    char_span: [2323, 2963]
     sentence_count: 3
     key_terms: [contract, already, signed, purple-measurement47, inspiringpineapple, pushyladynjina, international, jamesbibarnes]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/internships/1nd2q9t.md#c3"
-    char_span: [2966, 4402]
+    char_span: [2965, 4401]
     sentence_count: 8
     key_terms: [employment, offer, application, offers, people, reason, practical-anything66, given]
     section: Comments

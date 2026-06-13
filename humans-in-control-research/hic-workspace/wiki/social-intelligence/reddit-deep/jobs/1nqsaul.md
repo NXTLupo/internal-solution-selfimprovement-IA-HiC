@@ -28,13 +28,13 @@ chunks:
     key_terms: [unemployment, stay, thankful, friends, through, "don't", going, did]
     token_count: 489
   - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c2"
-    char_span: [3902, 5614]
+    char_span: [3902, 5613]
     sentence_count: 11
     key_terms: [employers, linkedin, applications, question, serious, issues, people, tough-boysenberry324]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1nqsaul.md#c3"
-    char_span: [5616, 6959]
+    char_span: [5615, 6958]
     sentence_count: 8
     key_terms: [interviews, y-do-i-still-listen, did, congratulations, presentation, work, background, experience]
     section: Comments

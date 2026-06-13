@@ -48,7 +48,7 @@ chunks:
     key_terms: [comedy-night-at-counterpoint-brewing-company-tickets-1987631594605, cambridge-centre-for-the-arts-gallery-opening-rece, headshots-scoops-networking-tickets-1987733375033, https, ever-pending, www, eventbrite, networking]
     token_count: 281
   - id: "social-intelligence/reddit-deep/waterloo/1t0cks2.md#c6"
-    char_span: [10219, 11500]
+    char_span: [10218, 11499]
     sentence_count: 9
     key_terms: [fragrant-divide240, come-what-may-spring-2026, https, mixologyacappella, waterloo, com, neoengel, awesome]
     section: Comments

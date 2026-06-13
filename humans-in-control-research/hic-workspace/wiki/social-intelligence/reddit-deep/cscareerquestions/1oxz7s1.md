@@ -21,19 +21,19 @@ chunks:
     key_terms: [internship, school, because, experience, cscareerquestions, doing, american, comments]
     token_count: 378
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c1"
-    char_span: [1607, 2757]
+    char_span: [1606, 2756]
     sentence_count: 5
     key_terms: [internship, robert, half, pay, work, superdietpepsi, marcablefluke, conversation]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c2"
-    char_span: [2759, 4596]
+    char_span: [2758, 4595]
     sentence_count: 15
     key_terms: [experience, take, entry-level-talent-avoidant, something, software, "there's", easier, enough]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oxz7s1.md#c3"
-    char_span: [4598, 6476]
+    char_span: [4597, 6475]
     sentence_count: 10
     key_terms: [experience, get, internship, real, engineer, enough, months, jeffgerickson]
     section: Comments

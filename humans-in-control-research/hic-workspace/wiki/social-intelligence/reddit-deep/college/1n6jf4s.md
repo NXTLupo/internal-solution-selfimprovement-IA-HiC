@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, school, comments, classes, anyone, hours, hard, need]
     token_count: 233
   - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c1"
-    char_span: [957, 2856]
+    char_span: [956, 2855]
     sentence_count: 17
     key_terms: [classes, work, time, schedule, don, job, like, week]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c2"
-    char_span: [2858, 4719]
+    char_span: [2857, 4718]
     sentence_count: 19
     key_terms: [classes, tiefluid6347, sure, too, caregiver, semester, courses, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c3"
-    char_span: [4510, 5890]
+    char_span: [4509, 5889]
     sentence_count: 12
     key_terms: [full, courses, online, time, classes, semester, because, deleted]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/college/1n6jf4s.md#c4"
-    char_span: [5892, 6850]
+    char_span: [5891, 6849]
     sentence_count: 8
     key_terms: [classes, hours, depends, need, semester, courses, working, perpetuallytired74]
     section: Comments

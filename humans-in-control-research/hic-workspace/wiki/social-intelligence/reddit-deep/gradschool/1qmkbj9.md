@@ -23,19 +23,19 @@ chunks:
     key_terms: [reading, novel, gradschool, comments, started, don, like, time]
     token_count: 237
   - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c1"
-    char_span: [1032, 2502]
+    char_span: [1031, 2501]
     sentence_count: 9
     key_terms: [library, audiobooks, through, novels, card, got, reading, access]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c2"
-    char_span: [2504, 4584]
+    char_span: [2503, 4583]
     sentence_count: 14
     key_terms: [school, read, reading, couldn, novels, books, work, favorite]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qmkbj9.md#c3"
-    char_span: [4365, 5682]
+    char_span: [4364, 5681]
     sentence_count: 8
     key_terms: [school, time, reading, read, work, novels, relax, grad]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/bc53f94ccd.md#c0"
-    char_span: [0, 2099]
+    char_span: [0, 2098]
     sentence_count: 14
     key_terms: [college, semester, sap, school, enrolled, classes, transferring, issue]
-    token_count: 476
+    token_count: 475
   - id: "articles/reddit-deep-r-college/bc53f94ccd.md#c1"
-    char_span: [2101, 3686]
+    char_span: [2100, 3685]
     sentence_count: 10
     key_terms: [fall, classes, college, spring, enrolled, semester, appeal, look]
     token_count: 362

@@ -23,7 +23,7 @@ chunks:
     key_terms: [skills, mumbai, marketing, bba, collage, careerguidance, nimms, internships]
     token_count: 227
   - id: "social-intelligence/reddit-deep/careerguidance/1redjn9.md#c1"
-    char_span: [886, 1720]
+    char_span: [885, 1719]
     sentence_count: 2
     key_terms: [marketing, ads, internship, analytics, facebook, manager, google, skills]
     section: Comments

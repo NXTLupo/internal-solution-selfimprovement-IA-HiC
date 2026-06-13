@@ -1,0 +1,52 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard Chester Funds settled $25 million with investors over claims of misleading fund management practices, providing an opportunity for affected investors to claim compensation.",
+      "post_refs": [
+        "1pqrkvm"
+      ]
+    },
+    {
+      "point": "Vanguard is very fast on ACH transfers, which are free and typically completed within one day.",
+      "post_refs": [
+        "1qosuuu"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard's customer service is consistently reported as poor, with issues such as long wait times, unhelpful representatives, and repeated requests for the same information.",
+      "post_refs": [
+        "1smdomw",
+        "1sjxp78",
+        "1s5ftw7",
+        "1qv6boj",
+        "1q70btj"
+      ]
+    },
+    {
+      "point": "Vanguard's handling of specific financial transactions, such as backdoor Roth IRA contributions, hardship withdrawals, and 401k rollovers, is often problematic and inefficient.",
+      "post_refs": [
+        "1smdomw",
+        "1sjxp78",
+        "1s5ftw7",
+        "1qosuuu",
+        "1qj037z",
+        "1q70btj",
+        "1parohx"
+      ]
+    },
+    {
+      "point": "Vanguard's infrastructure and processes are criticized for being outdated, such as the reliance on paper checks for 401k rollovers instead of electronic options.",
+      "post_refs": [
+        "1qosuuu"
+      ]
+    },
+    {
+      "point": "Vanguard's error in providing incorrect instructions for financial transactions can lead to unintended tax consequences for customers.",
+      "post_refs": [
+        "1parohx"
+      ]
+    }
+  ]
+}

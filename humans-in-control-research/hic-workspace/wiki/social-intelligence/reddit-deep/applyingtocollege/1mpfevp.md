@@ -21,19 +21,19 @@ chunks:
     key_terms: [applyingtocollege, comments, classroomhopeful648, mit, reddit-deep, breakdown, applying, stanford]
     token_count: 121
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mpfevp.md#c1"
-    char_span: [438, 1609]
+    char_span: [437, 1608]
     sentence_count: 13
     key_terms: [school, scores, score, college, common, submit, data, high]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mpfevp.md#c2"
-    char_span: [1611, 3269]
+    char_span: [1610, 3268]
     sentence_count: 7
     key_terms: [classroomhopeful648, probably, mit, oklahoma, because, kansas, pretty, being]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mpfevp.md#c3"
-    char_span: [3271, 4060]
+    char_span: [3270, 4059]
     sentence_count: 1
     key_terms: [classroomhopeful648, score, toomanyheys, execution, deleted, harvard, charm, reach]
     section: Comments

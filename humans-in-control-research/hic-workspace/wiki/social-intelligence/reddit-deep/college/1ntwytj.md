@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ntwytj.md
 url: "https://www.reddit.com/r/college/comments/1ntwytj/careermaster_advice/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,19 @@ flair: "Grad school"
 extracted_at: "2026-06-06T23:23:15.571Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ntwytj.md#c0"
+    char_span: [0, 1989]
+    sentence_count: 12
+    key_terms: [mathematics, get, math, engineering, management, want, masters, program]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/college/1ntwytj.md#c1"
+    char_span: [2004, 3191]
+    sentence_count: 6
+    key_terms: [degree, "master's", military, job, clearwaterrev, exit, look, year]
+    section: Comments
+    token_count: 271
 ---
-
 # Career/Master Advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ntwytj/careermaster_advice/)

@@ -129,22 +129,56 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false)
         if (cached && Date.now() - cached.ts < _CATALOG_TTL_MS) return cached.records;
     }
     try {
-        const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}`;
+        // 2026-06-08 PATH UNIFICATION (Layer 4): tier-1 = engagement-scoped chunks
+        // (the run's freshly-collected, now engagement-tagged corpus). include_pages=true
+        // so title+relevance pre-ranking works; types scoped to the two the theme/persona
+        // pipelines consume. This is what fresh runs now resolve through, the SAME clean-
+        // chunk path cached runs use - no more raw-blob fallback.
+        const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload')}&include_pages=true`;
         const resp = await fetch(url);
         if (!resp.ok) return [];
         const data = await resp.json();
         let ids: string[] = Array.isArray(data?.chunk_ids) ? data.chunk_ids : [];
-        let pages: Record<string, { key_terms: string[]; relevance: number; title?: string }> = {};
-        // Phase 2.0 cached-only fallback: empty engagement catalog -> use the KL
-        // selection's pages (the chunks exist; the engagement-slug filter just
-        // excluded them). This is what lets MCR serve the cached corpus instead
-        // of falling back to bulk RAG. The selection endpoint also returns
-        // page-level key_terms so pickChunksForPrompt can PRE-RANK cheaply.
+        let pages: Record<string, { key_terms: string[]; relevance: number; title?: string }> =
+            (data && typeof data.pages === 'object' && data.pages) ? data.pages : {};
+        if (ids.length) console.log(`[chunkRetrieval] engagement-scoped catalog for "${engagementSlug}": ${ids.length} chunk pointers, ${Object.keys(pages).length} pages`);
+        // tier-2 = the COMMITTED KL selection (cached corpus the user explicitly chose).
+        // UNION it onto tier-1 so the three modes collapse to one path:
+        //   fresh-only  -> selection empty  -> tier-1 chunks only
+        //   cached-only -> tier-1 empty     -> selection chunks only
+        //   BLEND       -> both, deduped    -> this run's fresh corpus + chosen cached corpus
+        // _fetchSelectionCatalogIds already returns empty for an _uncommitted (dormant)
+        // selection, honoring the no-auto-arm rule, so a fresh page load never injects it.
+        const sel = await _fetchSelectionCatalogIds();
+        if (sel.ids.length) {
+            const have = new Set(ids);
+            let added = 0;
+            for (const id of sel.ids) { if (!have.has(id)) { ids.push(id); have.add(id); added++; } }
+            // tier-1 (engagement) page metadata wins on key collision; sel fills the rest.
+            pages = { ...sel.pages, ...pages };
+            console.log(`[chunkRetrieval] unioned KL-selection catalog: +${added} new chunk pointers (total ${ids.length}, ${Object.keys(pages).length} pages)`);
+        }
+        // 2026-06-12 - tier-3 WHOLE-WIKI fallback. When tier-1 (engagement-
+        // tagged records) AND tier-2 (committed KL selection) are both empty -
+        // e.g. a restored session whose slug matches no manifest record and no
+        // KL selection armed this session - the old behavior returned [] and
+        // the chat silently degraded to bulk-RAG injection (the exact anti-
+        // pattern the manifest engine exists to kill: standing rule
+        // feedback_deliverables_manifest_wiki_not_rag). Instead, read the
+        // WHOLE-WIKI catalog (engagement="" is an explicitly supported query;
+        // the 2026-06-08 include_pages work was added for this case) and let
+        // pickChunksForPrompt's key-term pre-rank + MMR token budget select
+        // the on-goal slice. Grounding stays manifest-pointer-based with
+        // verbatim chunk citations; bulk-RAG never carries a deliverable.
         if (ids.length === 0) {
-            const sel = await _fetchSelectionCatalogIds();
-            ids = sel.ids;
-            pages = sel.pages;
-            if (ids.length) console.log(`[chunkRetrieval] engagement catalog empty for "${engagementSlug}" - using KL-selection catalog (${ids.length} chunk pointers, ${Object.keys(pages).length} pages w/ key_terms)`);
+            const wholeUrl = `${PROXY_BASE}/api/manifest/chunks?engagement=&types=${encodeURIComponent('social-post,article,upload')}&include_pages=true`;
+            const wResp = await fetch(wholeUrl);
+            if (wResp.ok) {
+                const wData = await wResp.json();
+                ids = Array.isArray(wData?.chunk_ids) ? wData.chunk_ids : [];
+                pages = (wData && typeof wData.pages === 'object' && wData.pages) ? wData.pages : {};
+                console.warn(`[chunkRetrieval] tier-1 (engagement "${engagementSlug}") + tier-2 (KL selection) catalogs EMPTY - tier-3 WHOLE-WIKI manifest fallback: ${ids.length} chunk pointers, ${Object.keys(pages).length} pages (pre-rank narrows to the on-goal slice; grounding stays manifest-based, never bulk RAG)`);
+            }
         }
         const records: ManifestChunkRecord[] = ids.map((id) => {
             const [src, frag] = id.split('#');
@@ -168,6 +202,16 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false)
             };
         });
         _CATALOG_CACHE.set(engagementSlug, { ts: Date.now(), records });
+        // 2026-06-11 - feed the render-time pointer resolver so [path.md#cN]
+        // citations the model emits can resolve to NAMED sources on every
+        // surface (chat prose, slide JSON, exports). Raw pointers leaking into
+        // rendered artifacts was the 2026-06-11 #journey failure.
+        try {
+            const { registerPointerSource } = await import('./citationPointerRegistry');
+            for (const [src, pm] of Object.entries(pages)) {
+                if (pm && pm.title) registerPointerSource(src, pm.title);
+            }
+        } catch { /* non-blocking */ }
         return records;
     } catch (e: any) {
         console.warn('[chunkRetrieval] manifest catalog read failed:', e?.message || e);
@@ -200,6 +244,15 @@ export interface PickChunksOptions {
      *  the pinned cached chunks; shards 1..K must NOT re-pin them (that would
      *  waste each shard's budget re-selecting the same 557 cached chunks). */
     skipAutoPin?: boolean;
+    /** 2026-06-08 PHASE 2 (broader retrieval). When the strict pass under-delivers
+     *  (breadth-floor violation), the caller re-runs with broaden=true: zero-overlap
+     *  chunks are NOT dropped but kept as relevance-ranked backfill below the matched
+     *  set, so the breadth window widens to adjacent evidence (and more shards become
+     *  available) instead of re-prompting the same narrow chunk set. Strict-first,
+     *  broaden-on-need preserves precision on the first pass and trades it for recall
+     *  only when the floor is missed - meeting the floor via UPSTREAM retrieval, not
+     *  by manufacturing themes from the same chunks. */
+    broaden?: boolean;
 }
 
 export interface PickedChunks {
@@ -355,6 +408,8 @@ export async function pickChunksForPrompt(
     }
     const scored: Scored[] = [];
     let droppedZeroScore = 0;
+    const _broaden = !!(opts && (opts as any).broaden);
+    let _broadenBackfill = 0;
     for (const rec of candidateRecs) {
         const ch = byId.get(rec.chunkId);
         if (!ch) continue;
@@ -365,10 +420,24 @@ export async function pickChunksForPrompt(
         const score = overlap * Math.max(1, ch.sentenceCount);
         const isPinned = pinned.has(ch.id);
         if (!isPinned && score === 0) {
+            // 2026-06-08 PHASE 2 (broader retrieval). Strict pass DROPS zero-overlap
+            // chunks (precision). On a broaden retry, KEEP them as relevance-ranked
+            // backfill: a sub-1 score derived from manifest relevance so every matched
+            // chunk (score >= 1) still ranks first, but adjacent evidence fills the
+            // remaining budget instead of leaving the window starved at the matched set.
+            if (_broaden) {
+                const relScore = Math.max(0.01, Math.min(0.99, (rec.sourceRelevance || 0) / 100));
+                scored.push({ chunk: ch, score: relScore, charLen: ch.text.length });
+                _broadenBackfill++;
+                continue;
+            }
             droppedZeroScore++;
             continue;
         }
         scored.push({ chunk: ch, score: isPinned ? Number.POSITIVE_INFINITY : score, charLen: ch.text.length });
+    }
+    if (_broaden && _broadenBackfill > 0) {
+        console.log(`[chunkRetrieval] broaden: kept ${_broadenBackfill} zero-overlap chunk(s) as relevance-ranked backfill (was dropped in strict mode)`);
     }
 
     // Phase A1 (go-forward plan) - MMR diversity packing. The old pack took pure
@@ -492,6 +561,43 @@ export function assembleChunkCorpus(
  * Returns the CITATION INSTRUCTION block to inject into the generator's
  * system prompt. Same wording across all deliverables so the validator
  * can rely on a stable contract. */
+/**
+ * 2026-06-12 - THE SHARED MCR GROUNDING HELPER (supercharge 5.1). One entry
+ * point for every deliverable engine that needs a manifest-grounded corpus:
+ * #recommendations, the HTML directives (#strategy/#brief/#report/...), the
+ * artifact engine, narrativeComposer. Replaces per-engine embedding-RAG
+ * article-body injection (the documented root cause of hollow deliverables)
+ * with the same deterministic pick -> resolve -> assemble path the chat and
+ * theme shards use. Returns empty corpus on failure - callers keep their
+ * existing fallback, so reliability is strictly added.
+ */
+export async function buildManifestCorpusForGoal(
+    goal: string,
+    engagementSlug: string,
+    opts?: { tokenBudget?: number; extraContext?: string },
+): Promise<{ corpus: string; chunkCount: number; sourcesRead: number; instructions: string }> {
+    const empty = { corpus: '', chunkCount: 0, sourcesRead: 0, instructions: '' };
+    try {
+        const picked = await pickChunksForPrompt(goal, engagementSlug, {
+            tokenBudget: opts?.tokenBudget ?? 30_000,
+            extraContext: opts?.extraContext || '',
+        });
+        if (!picked.chunkIds.length) return empty;
+        const resolved = await resolveChunks(picked.chunkIds);
+        if (!resolved.chunks.length) return empty;
+        console.log(`[MCR-helper] grounded "${goal.slice(0, 50)}...": ${resolved.chunks.length} chunks from ${resolved.sourcesRead} pages (catalog=${picked.catalogSize})`);
+        return {
+            corpus: assembleChunkCorpus(resolved.chunks),
+            chunkCount: resolved.chunks.length,
+            sourcesRead: resolved.sourcesRead,
+            instructions: chunkCitationInstructions(),
+        };
+    } catch (e: any) {
+        console.warn('[MCR-helper] grounding failed (caller falls back):', e?.message || e);
+        return empty;
+    }
+}
+
 export function chunkCitationInstructions(): string {
     return [
         'CITATION DISCIPLINE - MANDATORY (UNIVERSAL):',

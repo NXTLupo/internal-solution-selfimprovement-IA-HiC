@@ -23,43 +23,43 @@ chunks:
     key_terms: [month, povertyfinance, people, money, comments, "don't", spend, live]
     token_count: 200
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c1"
-    char_span: [761, 2650]
+    char_span: [760, 2649]
     sentence_count: 9
     key_terms: [debt, repayment, money, month, budget, "that's", going, nettrack-37]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c2"
-    char_span: [2652, 4869]
+    char_span: [2651, 4868]
     sentence_count: 23
     key_terms: [budget, groceries, new, money, rent, getting, renewal, subscription]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c3"
-    char_span: [4871, 6883]
+    char_span: [4870, 6882]
     sentence_count: 11
     key_terms: ["i'm", budget, something, because, neurodivergent, hyperfixation, "don't", like]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c4"
-    char_span: [6885, 9106]
+    char_span: [6884, 9105]
     sentence_count: 13
     key_terms: [money, envelopes, credit, budget, cards, "don't", groceries, card]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c5"
-    char_span: [9108, 11153]
+    char_span: [9107, 11152]
     sentence_count: 26
     key_terms: [money, month, envelope, get, next, spending, "you're", like]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c6"
-    char_span: [11156, 13022]
+    char_span: [11155, 13021]
     sentence_count: 20
     key_terms: [debt, albertqwe, extreme, month, did, lot, per, year]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/povertyfinance/1md98dk.md#c7"
-    char_span: [13024, 14118]
+    char_span: [13023, 14117]
     sentence_count: 10
     key_terms: [month, debt, everything, budget, living, system, money, phone]
     section: Comments

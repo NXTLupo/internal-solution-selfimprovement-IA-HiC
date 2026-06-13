@@ -23,31 +23,31 @@ chunks:
     key_terms: [friends, people, close, like, neu, something, comments, everyone]
     token_count: 357
   - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c1"
-    char_span: [1569, 3510]
+    char_span: [1568, 3509]
     sentence_count: 17
     key_terms: [snootigers4247, campus, people, class, group, meals, trips, fall]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c2"
-    char_span: [3303, 4192]
+    char_span: [3302, 4191]
     sentence_count: 8
     key_terms: [major, snootigers4247, northeastern, transfer, friends, ambitiousinjury8817, feel, part]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c3"
-    char_span: [4194, 6329]
+    char_span: [4193, 6328]
     sentence_count: 16
     key_terms: [friends, meet, everyone, transfer, student, snootigers4247, events, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c4"
-    char_span: [6040, 6370]
+    char_span: [6039, 6369]
     sentence_count: 3
     key_terms: [relationship, communicate, maintain, meetings, together, friends, outside, putting]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/neu/1l14bco.md#c5"
-    char_span: [6372, 7410]
+    char_span: [6371, 7409]
     sentence_count: 7
     key_terms: [friends, studying, going, day, lot, acquaintances, conversations, non-college]
     section: Comments

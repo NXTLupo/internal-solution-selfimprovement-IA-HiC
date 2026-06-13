@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1smrkq8.md
 url: "https://www.reddit.com/r/careerguidance/comments/1smrkq8/title_how_do_you_bridge_the_knowledge_gap_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,13 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.902Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1smrkq8.md#c0"
+    char_span: [0, 1990]
+    sentence_count: 14
+    key_terms: [like, careerguidance, feel, background, government, academic, comments, everyone]
+    token_count: 448
 ---
-
 # Title: How do you bridge the "knowledge gap" for career and academic paths? Looking for advice.
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1smrkq8/title_how_do_you_bridge_the_knowledge_gap_for/)

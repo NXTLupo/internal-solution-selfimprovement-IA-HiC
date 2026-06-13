@@ -28,7 +28,7 @@ chunks:
     key_terms: [shrm, knowledge, situational-aligned, ready, situational, understand, long-term, questions]
     token_count: 116
   - id: "social-intelligence/reddit-deep/humanresources/1t4ag9g.md#c2"
-    char_span: [2570, 3143]
+    char_span: [2569, 3142]
     sentence_count: 2
     key_terms: [test, prometrics, congrats, center, inevitable-west-9032, helps, greedy-canary-5807, congratulations]
     section: Comments

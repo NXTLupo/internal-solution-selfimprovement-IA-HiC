@@ -18,17 +18,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c0"
-    char_span: [0, 1709]
+    char_span: [0, 1708]
     sentence_count: 14
     key_terms: [science, "it's", "i'm", like, tech, careerguidance, path, impossible]
-    token_count: 433
+    token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c1"
-    char_span: [1711, 3519]
+    char_span: [1710, 3518]
     sentence_count: 22
     key_terms: ["it's", like, exam, "i'll", "there's", here, consulting, genetics]
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1tjh1sf.md#c2"
-    char_span: [3521, 4765]
+    char_span: [3520, 4764]
     sentence_count: 17
     key_terms: [good, "i'd", mbbs, want, residency, lawyer, physician-researcher, match]
     token_count: 317

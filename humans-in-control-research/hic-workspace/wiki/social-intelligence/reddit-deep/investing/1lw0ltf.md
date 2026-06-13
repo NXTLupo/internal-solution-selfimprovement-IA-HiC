@@ -33,49 +33,49 @@ chunks:
     key_terms: [sell, nvidia, total, day, july, didn, time, everything]
     token_count: 492
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c3"
-    char_span: [6033, 7183]
+    char_span: [6033, 7182]
     sentence_count: 10
     key_terms: [collapsewatch, time, congrats, advice, story, combinationfit9606, hudybudyfudywhudy, back]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c4"
-    char_span: [7185, 9096]
+    char_span: [7184, 9095]
     sentence_count: 14
     key_terms: [hudybudyfudywhudy, congratulations, time, bitcoin, hardest, portion, losing, nvidia]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c5"
-    char_span: [8862, 9243]
+    char_span: [8861, 9242]
     sentence_count: 5
     key_terms: [austinvvs, elsewhere, investing, successes, everyone, exposure, anyways, almost]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c6"
-    char_span: [9245, 10831]
+    char_span: [9244, 10830]
     sentence_count: 10
     key_terms: [tax, shares, move-to-puerto-rico-and-pay-no-capital-gains-tax, need, accountant, retirement, account, because]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c7"
-    char_span: [10833, 12478]
+    char_span: [10832, 12477]
     sentence_count: 16
     key_terms: [shares, bought, specifically, investment, because, splits, sense, today]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c8"
-    char_span: [12480, 13737]
+    char_span: [12479, 13736]
     sentence_count: 12
     key_terms: [share, story, fake, nvidia, stock, nothing, success, bought]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c9"
-    char_span: [13739, 15280]
+    char_span: [13738, 15279]
     sentence_count: 10
     key_terms: [back, like, myself, online, people, stocks, though, theboringinvestor96]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/investing/1lw0ltf.md#c10"
-    char_span: [15282, 16445]
+    char_span: [15281, 16444]
     sentence_count: 12
     key_terms: [nvda, price, story, back, months, shares, for-1, split]
     section: Comments

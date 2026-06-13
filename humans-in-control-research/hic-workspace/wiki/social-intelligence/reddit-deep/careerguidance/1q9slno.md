@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1q9slno.md#c0"
-    char_span: [0, 1034]
+    char_span: [0, 1033]
     sentence_count: 4
     key_terms: [academic, careerguidance, situation, comments, guidance, forward, career, moving]
-    token_count: 209
+    token_count: 208
 ---
 # International Student Seeking Guidance on Academic and Career Path Moving Forward?
 

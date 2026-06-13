@@ -23,43 +23,43 @@ chunks:
     key_terms: [students, organization, years, professors, threatened, academic, comments, happened]
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c1"
-    char_span: [2270, 4374]
+    char_span: [2269, 4373]
     sentence_count: 17
     key_terms: [get, thank, something, moirasha, account, thought, tenure, world]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c2"
-    char_span: [4376, 6265]
+    char_span: [4375, 6264]
     sentence_count: 21
     key_terms: [sorry, academia, happened, hoseroaf, reach, consciousplay9194, "i've", love]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c3"
-    char_span: [6267, 7917]
+    char_span: [6266, 7916]
     sentence_count: 16
     key_terms: [people, accepted, yourself, forward, someone, support, others, alone-guarantee-9646]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c4"
-    char_span: [7919, 9171]
+    char_span: [7918, 9170]
     sentence_count: 14
     key_terms: [experience, ashamed, through, others, psychologicalad7756, sorry, able, feel]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c5"
-    char_span: [9173, 11291]
+    char_span: [9172, 11290]
     sentence_count: 17
     key_terms: ["didn't", victim, organization, institution, disregard, anything, people, report]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c6"
-    char_span: [11293, 13174]
+    char_span: [11292, 13173]
     sentence_count: 20
     key_terms: [because, yourself, society, because--sometimes--i, people, awful, sorry, young]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/professors/1qxzi5u.md#c7"
-    char_span: [13176, 13640]
+    char_span: [13175, 13639]
     sentence_count: 2
     key_terms: [complaints, jane, crustaltrudger, progressing, willenbring, protection, situation, bringing]
     section: Comments

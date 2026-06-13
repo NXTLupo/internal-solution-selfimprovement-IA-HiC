@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/a71ccdbc58.md#c0"
-    char_span: [0, 1705]
+    char_span: [0, 1704]
     sentence_count: 10
     key_terms: [engineeringstudents, systems, reddit, power, https, com, wiki, www]
-    token_count: 381
+    token_count: 380
 ---
 # How do I get a co op in Power systems as a Graduate Student?
 

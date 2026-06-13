@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1t5q5zv.md
 url: "https://www.reddit.com/r/findapath/comments/1t5q5zv/looking_for_creatively_fulfilling_career_options/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,48 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.479Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c0"
+    char_span: [0, 1892]
+    sentence_count: 14
+    key_terms: [little, school, thesis, financially, job, creatively, interested, findapath]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c1"
+    char_span: [1894, 3826]
+    sentence_count: 16
+    key_terms: [creative, experience, like, advice, independent, assistant, something, director]
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c2"
+    char_span: [3841, 5675]
+    sentence_count: 12
+    key_terms: [thank, helpful, please, findapath, marketing, comments, everyone, guidance]
+    section: Comments
+    token_count: 428
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c3"
+    char_span: [5677, 7927]
+    sentence_count: 19
+    key_terms: [going, creative, job, like, get, work, outside, decent]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c4"
+    char_span: [7631, 8924]
+    sentence_count: 9
+    key_terms: [something, days, creativity, profession, passion, people, resume, dizzlethebizzlemizzl]
+    section: Comments
+    token_count: 305
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c5"
+    char_span: [8926, 11282]
+    sentence_count: 19
+    key_terms: [creative, work, something, teaching, city, get, like, corporate]
+    section: Comments
+    token_count: 494
+  - id: "social-intelligence/reddit-deep/findapath/1t5q5zv.md#c6"
+    char_span: [11284, 11991]
+    sentence_count: 6
+    key_terms: [indie, don, get, ridiculously, necessarily, solidserval, appreciate, commercial]
+    section: Comments
+    token_count: 158
 ---
-
 # Looking for Creatively Fulfilling Career Options
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1t5q5zv/looking_for_creatively_fulfilling_career_options/)

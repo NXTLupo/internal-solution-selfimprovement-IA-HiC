@@ -21,31 +21,31 @@ chunks:
     key_terms: [purdue, "i'm", uiuc, college, parents, applyingtocollege, pay, year]
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c1"
-    char_span: [1911, 3381]
+    char_span: [1911, 3380]
     sentence_count: 12
     key_terms: [college, uiuc, parents, having, purdue, aid, financial, because]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c2"
-    char_span: [3383, 5469]
+    char_span: [3382, 5468]
     sentence_count: 17
     key_terms: [uiuc, purdue, family, difference, firms, worth, situation, given]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c3"
-    char_span: [5471, 7330]
+    char_span: [5470, 7329]
     sentence_count: 10
     key_terms: [purdue, placement, starting, https, edu, corporate, avg, income]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c4"
-    char_span: [7332, 9187]
+    char_span: [7331, 9186]
     sentence_count: 19
     key_terms: [purdue, https, edu, students, amazon, realistically, forth, majordetail]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qui7v2.md#c5"
-    char_span: [9189, 10806]
+    char_span: [9188, 10805]
     sentence_count: 7
     key_terms: [uiuc, stronger, good, program, purdue, school, "don't", get]
     section: Comments

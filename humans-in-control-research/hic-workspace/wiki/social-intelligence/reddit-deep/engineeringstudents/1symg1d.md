@@ -23,19 +23,19 @@ chunks:
     key_terms: [aerospace, engineering, engineeringstudents, student, python, worth, comments, learning]
     token_count: 191
   - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c1"
-    char_span: [876, 2684]
+    char_span: [875, 2683]
     sentence_count: 15
     key_terms: [worldtallestengineer, code, "it's", python, get, want, results, future]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c2"
-    char_span: [2686, 4433]
+    char_span: [2685, 4432]
     sentence_count: 14
     key_terms: [python, learn, heythere1212121212, "it's", cabbbagedealer, aerospace, generally, project]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1symg1d.md#c3"
-    char_span: [4435, 5822]
+    char_span: [4434, 5821]
     sentence_count: 11
     key_terms: [time, matlab, python, "it's", comments, learning, jubjjub, knowing]
     section: Comments

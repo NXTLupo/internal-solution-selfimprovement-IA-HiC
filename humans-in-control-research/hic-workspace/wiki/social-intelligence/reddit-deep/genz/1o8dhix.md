@@ -28,25 +28,25 @@ chunks:
     key_terms: [credit, people, money, been, card, like, lot, applications]
     token_count: 222
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c2"
-    char_span: [2589, 3879]
+    char_span: [2588, 3878]
     sentence_count: 12
     key_terms: [money, advice, people, like, financial, personal, spending, discord]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c3"
-    char_span: [3881, 4781]
+    char_span: [3880, 4780]
     sentence_count: 4
     key_terms: [financial, building, problems, ramsey, steps, baby, dave, rent]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c4"
-    char_span: [4783, 6867]
+    char_span: [4782, 6866]
     sentence_count: 9
     key_terms: [operations, money, because, order, debt, spending, already, advice]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/genz/1o8dhix.md#c5"
-    char_span: [6869, 7565]
+    char_span: [6868, 7564]
     sentence_count: 3
     key_terms: [afmboorfh9f-cd6mthlia0vgr1citcmtgntsbvhwl4zkk0acpazvn2zp, dave-ramsey-7-baby-steps, because, content, getting, methods, poverty, ramseysolutions]
     section: Comments

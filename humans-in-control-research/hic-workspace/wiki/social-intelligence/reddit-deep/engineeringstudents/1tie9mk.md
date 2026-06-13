@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tie9mk.md#c0"
-    char_span: [0, 301]
+    char_span: [0, 300]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, zenitsunaidu, engineering, reddit-deep, advice, career, posted]
-    token_count: 85
+    token_count: 84
 ---
 # Need career advice after 2 year gap after ECE engineering
 

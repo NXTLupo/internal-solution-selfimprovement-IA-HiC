@@ -15,17 +15,17 @@ industries: [financial_services, government]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c0"
-    char_span: [0, 1840]
+    char_span: [0, 1839]
     sentence_count: 11
     key_terms: [dont, personalfinance, account, been, last, withdraw, savings, advice]
-    token_count: 445
+    token_count: 444
   - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c1"
-    char_span: [1842, 3883]
+    char_span: [1841, 3882]
     sentence_count: 16
     key_terms: [money, time, account, thought, dad, lot, seriously, research]
     token_count: 459
   - id: "articles/reddit-deep-r-personalfinance/469d1caced.md#c2"
-    char_span: [3885, 5118]
+    char_span: [3884, 5117]
     sentence_count: 13
     key_terms: [ask, hysa, investment, crypto, randomcoffeethoughts, money, years, dad]
     token_count: 307

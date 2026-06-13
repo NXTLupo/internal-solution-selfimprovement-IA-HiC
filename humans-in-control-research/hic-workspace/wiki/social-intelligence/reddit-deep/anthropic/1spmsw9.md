@@ -18,10 +18,10 @@ industries: [ai_research, saas, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1spmsw9.md#c0"
-    char_span: [0, 339]
+    char_span: [0, 338]
     sentence_count: 1
     key_terms: [anthropic, comments, github-style, reddit-deep, assistant, generates, heatmaps, tokenmap]
-    token_count: 98
+    token_count: 97
 ---
 # I built Tokenmap: A CLI tool that generates GitHub-style heatmaps for your AI code assistant usage (Claude, Cursor, etc.)
 

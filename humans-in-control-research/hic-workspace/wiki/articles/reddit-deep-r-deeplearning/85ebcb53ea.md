@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/85ebcb53ea.md#c0"
-    char_span: [0, 2560]
+    char_span: [0, 2559]
     sentence_count: 13
     key_terms: [important, reasoning, chain, asi, want, intelligence, abstraction, generate]
-    token_count: 512
+    token_count: 511
   - id: "articles/reddit-deep-r-deeplearning/85ebcb53ea.md#c1"
-    char_span: [2562, 5136]
+    char_span: [2561, 5135]
     sentence_count: 16
     key_terms: [important, reasoning, ability, abstraction, system, self-correcting, architectures, contradiction]
     token_count: 434

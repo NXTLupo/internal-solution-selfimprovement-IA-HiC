@@ -28,13 +28,13 @@ chunks:
     key_terms: [unless, user, avoid, use, language, response, overly, occasionally]
     token_count: 486
   - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c2"
-    char_span: [4517, 6475]
+    char_span: [4517, 6474]
     sentence_count: 8
     key_terms: [prompt, chats, good, addition, "doesn't", recent, system, being]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/gpt/1oegm0h.md#c3"
-    char_span: [6477, 7996]
+    char_span: [6476, 7995]
     sentence_count: 9
     key_terms: [prompt, chats, personality, almost, trying, "you're", maybe, chat]
     section: Comments

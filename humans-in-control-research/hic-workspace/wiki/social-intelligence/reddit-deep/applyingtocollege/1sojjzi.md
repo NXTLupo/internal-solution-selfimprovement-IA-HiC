@@ -26,19 +26,19 @@ chunks:
     key_terms: [major, people, year, cut-throat, community, different, students, because]
     token_count: 415
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c2"
-    char_span: [3971, 6104]
+    char_span: [3970, 6103]
     sentence_count: 16
     key_terms: [pre-med, competitive, school, med, people, dreamingmermade, because, schools]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c3"
-    char_span: [6106, 8037]
+    char_span: [6105, 8036]
     sentence_count: 15
     key_terms: [school, money, prestigious, experience, specific, another, nothing, problem]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sojjzi.md#c4"
-    char_span: [8039, 9351]
+    char_span: [8038, 9350]
     sentence_count: 12
     key_terms: [school, selective, "it's", experience, supportive, cutthroat, princeton, culture]
     section: Comments

@@ -21,67 +21,67 @@ chunks:
     key_terms: [cscareerquestions, expectations, friendships, everything, microsoft, something, comments, honestly]
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c1"
-    char_span: [2052, 3726]
+    char_span: [2051, 3725]
     sentence_count: 9
     key_terms: [work, fulfillment, happiness, outside, sufficiently, diversified, performance, describing]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c2"
-    char_span: [3728, 5629]
+    char_span: [3727, 5628]
     sentence_count: 12
     key_terms: [work, job, life, people, minimum, outside, invest, single]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c3"
-    char_span: [5631, 7505]
+    char_span: [5630, 7504]
     sentence_count: 18
     key_terms: [everything, job, great, lot, previous, satisfaction, big, new]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c4"
-    char_span: [7507, 9313]
+    char_span: [7506, 9312]
     sentence_count: 13
     key_terms: [work, outside, live, people, "don't", going, find, job]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c5"
-    char_span: [9315, 9955]
+    char_span: [9314, 9954]
     sentence_count: 2
     key_terms: [redact, abadasscutiepie, skateboarding, trexroboparty, attraction, abounding, introvert, tomica018]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c6"
-    char_span: [9957, 12138]
+    char_span: [9956, 12137]
     sentence_count: 14
     key_terms: [people, find, like, groups, team, group, try, microsoft]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c7"
-    char_span: [12140, 14161]
+    char_span: [12139, 14160]
     sentence_count: 15
     key_terms: [dysfunctional, asdfdelta, big, better, dysfunction, environment, performance, tech]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c8"
-    char_span: [14163, 16165]
+    char_span: [14162, 16164]
     sentence_count: 20
     key_terms: [work, microsoft, asdfdelta, add, big, problems, feeling, through]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c9"
-    char_span: [16167, 17693]
+    char_span: [16166, 17692]
     sentence_count: 11
     key_terms: [work, startup, big, like, tech, perfection, yourself, current]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c10"
-    char_span: [17695, 19606]
+    char_span: [17694, 19605]
     sentence_count: 20
     key_terms: [big, job, work, abadasscutiepie, people, time, want, complete]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pj9hj2.md#c11"
-    char_span: [19608, 20499]
+    char_span: [19607, 20498]
     sentence_count: 8
     key_terms: [soul-sucking, beginning, smaller, prefer, place, end, feel, left]
     section: Comments

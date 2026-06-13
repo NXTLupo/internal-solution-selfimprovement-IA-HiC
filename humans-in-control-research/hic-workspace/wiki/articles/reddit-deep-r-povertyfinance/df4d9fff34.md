@@ -15,22 +15,22 @@ industries: [government, policy]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c0"
-    char_span: [0, 1738]
+    char_span: [0, 1737]
     sentence_count: 14
     key_terms: [people, bad, povertyfinance, school, work, full-time, because, daycare]
-    token_count: 416
+    token_count: 415
   - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c1"
-    char_span: [1740, 3208]
+    char_span: [1739, 3207]
     sentence_count: 16
     key_terms: [kids, because, don, pick, time, government, pathetic, parents]
     token_count: 354
   - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c2"
-    char_span: [3212, 4502]
+    char_span: [3211, 4501]
     sentence_count: 9
     key_terms: [pay, because, able, childcare, homeless, housing, section, without]
     token_count: 319
   - id: "articles/reddit-deep-r-povertyfinance/df4d9fff34.md#c3"
-    char_span: [4505, 6139]
+    char_span: [4504, 6138]
     sentence_count: 8
     key_terms: [section, people, issue, place, find, got, because, couldn]
     token_count: 393

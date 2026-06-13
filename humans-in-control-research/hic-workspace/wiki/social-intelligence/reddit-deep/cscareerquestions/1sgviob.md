@@ -21,19 +21,19 @@ chunks:
     key_terms: [cscareerquestions, did, becoming, comments, engineer, product, career, theobstacleistheway3]
     token_count: 283
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c1"
-    char_span: [1220, 3107]
+    char_span: [1219, 3106]
     sentence_count: 13
     key_terms: [theobstacleistheway3, tech, software, grads, sales, snowcroc, tree8282, selling]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c2"
-    char_span: [3109, 5015]
+    char_span: [3108, 5014]
     sentence_count: 16
     key_terms: [starting, like, companies, sdet, people, pivots, roles, get]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgviob.md#c3"
-    char_span: [5017, 6635]
+    char_span: [5016, 6634]
     sentence_count: 13
     key_terms: [get, patent, cyber, traditional, went, college, become, supply]
     section: Comments

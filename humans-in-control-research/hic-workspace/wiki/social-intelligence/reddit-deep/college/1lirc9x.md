@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, essay, classes, year, because, professor, failed, passed]
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c1"
-    char_span: [2194, 4210]
+    char_span: [2193, 4209]
     sentence_count: 19
     key_terms: [professor, school, different, degree, class, anxiety, college, english]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1lirc9x.md#c2"
-    char_span: [4212, 5904]
+    char_span: [4211, 5903]
     sentence_count: 7
     key_terms: [professor, boss, mean, take, something, connotes, synonyms, courses]
     section: Comments

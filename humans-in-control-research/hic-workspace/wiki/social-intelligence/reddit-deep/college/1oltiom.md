@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, education, comments, mental, malaysiahemphill, self-education, environment, reddit-deep]
     token_count: 204
   - id: "social-intelligence/reddit-deep/college/1oltiom.md#c1"
-    char_span: [816, 2031]
+    char_span: [815, 2030]
     sentence_count: 12
     key_terms: [free, state, years, https, community, colleges, stanford, classes]
     section: Comments

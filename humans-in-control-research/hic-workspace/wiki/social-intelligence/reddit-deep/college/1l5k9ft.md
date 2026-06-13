@@ -23,7 +23,7 @@ chunks:
     key_terms: [got, professors, professor, comments, college, around, conversation, relationship]
     token_count: 187
   - id: "social-intelligence/reddit-deep/college/1l5k9ft.md#c1"
-    char_span: [799, 1820]
+    char_span: [798, 1819]
     sentence_count: 7
     key_terms: [professors, recommending, "don't", industry, involved, students, world, friendshippast3386]
     section: Comments

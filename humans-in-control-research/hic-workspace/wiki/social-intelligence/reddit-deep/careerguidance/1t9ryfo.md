@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t9ryfo.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t9ryfo/im_22_finishing_my_marketing_degree_and_im_scared/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,40 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.885Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c0"
+    char_span: [0, 2310]
+    sentence_count: 18
+    key_terms: [marketing, sports, like, careerguidance, people, big, feel, time]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c1"
+    char_span: [2312, 4433]
+    sentence_count: 16
+    key_terms: [job, don, want, because, insurance, transportation, especially, difficult]
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c2"
+    char_span: [4435, 6586]
+    sentence_count: 16
+    key_terms: [marketing, want, sports, digital, money, big, makes, practical]
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c3"
+    char_span: [6588, 6962]
+    sentence_count: 4
+    key_terms: [sports, prioritize, happiness, influence, long-term, stability, business, decision]
+    token_count: 80
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c4"
+    char_span: [6977, 9099]
+    sentence_count: 23
+    key_terms: [marketing, sports, job, "don't", getting, "you'll", get, work]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/careerguidance/1t9ryfo.md#c5"
+    char_span: [9101, 11085]
+    sentence_count: 17
+    key_terms: [sports, marketing, working, sponsorships, opportunity, don, normal, level]
+    section: Comments
+    token_count: 410
 ---
-
 # I’m 22, finishing my Marketing degree, and I’m scared of choosing the wrong career path. I could really use advice. How much should money, happiness, and long-term goals influence my decision at this stage?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t9ryfo/im_22_finishing_my_marketing_degree_and_im_scared/)

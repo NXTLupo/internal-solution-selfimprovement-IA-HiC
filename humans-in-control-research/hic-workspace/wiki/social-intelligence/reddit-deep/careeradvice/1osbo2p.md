@@ -23,13 +23,13 @@ chunks:
     key_terms: [people, learn, want, working, careeradvice, like, use, comments]
     token_count: 389
   - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c1"
-    char_span: [1601, 3400]
+    char_span: [1600, 3399]
     sentence_count: 19
     key_terms: ["don't", use, benefits, formulas, learning, without, easier, infamousperformer100]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/careeradvice/1osbo2p.md#c2"
-    char_span: [3402, 4630]
+    char_span: [3401, 4629]
     sentence_count: 11
     key_terms: [professionals, experience, possible, infamousperformer100, askiacareercoaching, learn, don, keen]
     section: Comments

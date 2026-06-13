@@ -28,19 +28,19 @@ chunks:
     key_terms: [sandisk, enterprise, expected, billion, range, share, png, infrastructure]
     token_count: 190
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c2"
-    char_span: [2549, 4218]
+    char_span: [2548, 4217]
     sentence_count: 8
     key_terms: [bloodmosshunter, slowing, growth, usb, previous, billion, discord, numbers]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c3"
-    char_span: [4220, 5947]
+    char_span: [4219, 5946]
     sentence_count: 7
     key_terms: [profit, agitatorsupreme, buy, take, market, prices, taking, prestigiousaccess765]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t0dyty.md#c4"
-    char_span: [5733, 6382]
+    char_span: [5732, 6381]
     sentence_count: 2
     key_terms: [market, prestigiousaccess765, negativesemicolon, nothingtoofancy26, horseok9732, absolutely, temporary, earnings]
     section: Comments

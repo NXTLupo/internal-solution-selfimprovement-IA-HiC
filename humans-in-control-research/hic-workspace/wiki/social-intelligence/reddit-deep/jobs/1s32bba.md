@@ -21,13 +21,13 @@ chunks:
     key_terms: [job, comments, another, direct-mixture-2855, jobs, stay, reddit-deep, argument]
     token_count: 201
   - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c1"
-    char_span: [824, 2755]
+    char_span: [823, 2754]
     sentence_count: 14
     key_terms: [report, resume, eurocanadian2, taxes, don, job, want, situation]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/jobs/1s32bba.md#c2"
-    char_span: [2757, 3987]
+    char_span: [2756, 3986]
     sentence_count: 13
     key_terms: [report, like, labor, job, r3giment75, companies, breaking, calling]
     section: Comments

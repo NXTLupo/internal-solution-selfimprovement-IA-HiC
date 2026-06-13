@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1qjtq50.md#c0"
-    char_span: [0, 592]
+    char_span: [0, 591]
     sentence_count: 2
     key_terms: [career, jobs, comments, skills, learn, good, pick, lemonade2250]
-    token_count: 143
+    token_count: 142
 ---
 # What jobs skills to learn for career development?
 

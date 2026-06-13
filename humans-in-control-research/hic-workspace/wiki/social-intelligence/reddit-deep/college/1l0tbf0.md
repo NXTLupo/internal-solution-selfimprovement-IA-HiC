@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, "i'm", "i've", scared, got, family, years, "i'll"]
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c1"
-    char_span: [1874, 3793]
+    char_span: [1873, 3792]
     sentence_count: 18
     key_terms: [school, melodydreamx, ask, "it's", possible, problems, figure, hoping]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c2"
-    char_span: [3795, 5855]
+    char_span: [3794, 5854]
     sentence_count: 31
     key_terms: [reading, learn, "don't", lot, use, important, listening, learning]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c3"
-    char_span: [5857, 7819]
+    char_span: [5856, 7818]
     sentence_count: 20
     key_terms: ["i'm", online, lavishnessrecent2138, full-time, work, because, degree, "can't"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/college/1l0tbf0.md#c4"
-    char_span: [7821, 9600]
+    char_span: [7820, 9599]
     sentence_count: 31
     key_terms: [family, find, got, job, time, yesterday, college, deleted]
     section: Comments

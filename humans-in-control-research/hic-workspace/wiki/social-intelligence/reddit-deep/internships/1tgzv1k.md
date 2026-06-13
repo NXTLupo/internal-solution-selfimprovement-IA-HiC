@@ -21,7 +21,7 @@ chunks:
     key_terms: [students, internships, experience, practical, universities, feel, confidence, understand]
     token_count: 218
   - id: "social-intelligence/reddit-deep/internships/1tgzv1k.md#c1"
-    char_span: [1132, 1445]
+    char_span: [1131, 1444]
     sentence_count: 1
     key_terms: [exoticmuffin13, internships, completely, confidence, practical, emphasis, exposure, learning]
     section: Comments

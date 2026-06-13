@@ -966,6 +966,12 @@ async function exportSlideSpecPdf(artifact: any): Promise<void> {
 export async function exportPptx(artifact: Artifact, tokens: DesignTokens): Promise<void> {
     if ((artifact as any).type === 'slide') return exportSlideSpecPptx(artifact);
     if ((artifact as any).type === 'freeform') return exportFreeformPptx(artifact);
+    // 2026-06-11 - LEGACY RASTER PATH (loud, never silent). Typed artifacts
+    // (persona/org/journey schema objects) export as a branded shell + PNG
+    // body - NOT the gold editable pipeline. New analyst-chat deliverables
+    // route through :::slide -> SlideCanvas/deck gold export or gold #stage
+    // HTML; only pre-one-engine artifacts land here.
+    console.warn(`[exportPptx] LEGACY raster export for artifact type="${(artifact as any).type}" id=${artifact.id} - body is a PNG, not editable gold shapes. Regenerate via #${(artifact as any).type} in the analyst chat for the gold editable twin.`);
     const { default: PptxGenJS } = await import('pptxgenjs');
     const pptx = new PptxGenJS();
     pptx.defineLayout({ name: 'NXT_16x9', width: 13.333, height: 7.5 });

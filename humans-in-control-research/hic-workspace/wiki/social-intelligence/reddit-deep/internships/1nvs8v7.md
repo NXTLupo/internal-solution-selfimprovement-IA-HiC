@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, searching, months, applications, job, experience, full-time, interview]
     token_count: 390
   - id: "social-intelligence/reddit-deep/internships/1nvs8v7.md#c1"
-    char_span: [1639, 2826]
+    char_span: [1638, 2825]
     sentence_count: 4
     key_terms: [congratulations, congrats, deserved, comfortable-lime-936, consistent-serve-701, professional-age-948, repulsive-news-9610, big]
     section: Comments

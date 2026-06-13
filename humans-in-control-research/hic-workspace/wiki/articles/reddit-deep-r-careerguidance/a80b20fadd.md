@@ -15,22 +15,22 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c0"
-    char_span: [0, 2282]
+    char_span: [0, 2281]
     sentence_count: 19
     key_terms: [role, leadership, boss, job, like, work, another, careerguidance]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c1"
-    char_span: [2284, 4021]
+    char_span: [2283, 4020]
     sentence_count: 15
     key_terms: [job, new, meeting, get, time, director, tomorrow, months]
     token_count: 397
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c2"
-    char_span: [4023, 6023]
+    char_span: [4022, 6022]
     sentence_count: 13
     key_terms: [want, raise, severance, company, years, comfortable, keep, new]
     token_count: 490
   - id: "articles/reddit-deep-r-careerguidance/a80b20fadd.md#c3"
-    char_span: [6025, 6543]
+    char_span: [6024, 6542]
     sentence_count: 5
     key_terms: [changed, doubled, butteredpizza69420, love, successfully, comfortable, industries, increases]
     token_count: 123

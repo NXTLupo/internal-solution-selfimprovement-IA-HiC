@@ -21,7 +21,7 @@ chunks:
     key_terms: [co-op, fall, "i'm", like, company, internships, internship, "it's"]
     token_count: 501
   - id: "social-intelligence/reddit-deep/internships/1rwt2ea.md#c1"
-    char_span: [2141, 3125]
+    char_span: [2140, 3124]
     sentence_count: 8
     key_terms: [experience, co-op, yamfickle3694, good, longer, months, summer, sushilover56]
     section: Comments

@@ -21,19 +21,19 @@ chunks:
     key_terms: [comments, job, jobs, application, desperation, reddit-deep, experience, miserable]
     token_count: 150
   - id: "social-intelligence/reddit-deep/jobs/1plxr8l.md#c1"
-    char_span: [587, 2380]
+    char_span: [586, 2379]
     sentence_count: 13
     key_terms: [resume, retail, been, experience, physical, because, friends, showing]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/jobs/1plxr8l.md#c2"
-    char_span: [2382, 4067]
+    char_span: [2381, 4066]
     sentence_count: 19
     key_terms: [experience, trade, people, different, interview, trades, trying, willingnesskind7561]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/jobs/1plxr8l.md#c3"
-    char_span: [4069, 5433]
+    char_span: [4068, 5432]
     sentence_count: 10
     key_terms: [retail, people, places, experience, "they're", school, new-veterinarian5597, cadd9181b7543ii7i44]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [development, cloud, experience, engineer, roles, cscareerquestions, security, support]
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rxu2le.md#c1"
-    char_span: [2070, 2260]
+    char_span: [2069, 2259]
     sentence_count: 4
     key_terms: [sde, secirity, security, becomes, concern, raising, better, demand]
     section: Comments

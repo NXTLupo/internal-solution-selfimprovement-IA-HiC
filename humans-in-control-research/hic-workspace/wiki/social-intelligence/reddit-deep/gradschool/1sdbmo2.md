@@ -23,49 +23,49 @@ chunks:
     key_terms: [school, did, live, job, gradschool, comments, savings, afford]
     token_count: 239
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c1"
-    char_span: [920, 2576]
+    char_span: [919, 2575]
     sentence_count: 15
     key_terms: [stipend, undergrad, godwinson4king, school, lower, big, job, jobs]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c2"
-    char_span: [2578, 4308]
+    char_span: [2577, 4307]
     sentence_count: 6
     key_terms: [stipend, phd, tuition, university, like, students, month, get]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c3"
-    char_span: [4311, 4737]
+    char_span: [4310, 4736]
     sentence_count: 2
     key_terms: [stipends, notavalgrinder, unrealistic, completely, especially, everywhere, pressured, canadian]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c4"
-    char_span: [4739, 6619]
+    char_span: [4738, 6618]
     sentence_count: 13
     key_terms: [stipend, tuition, least, city, live, year, university, roommates]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c5"
-    char_span: [6410, 8254]
+    char_span: [6409, 8253]
     sentence_count: 14
     key_terms: [loans, job, work, stipend, fellowship, financial, everyone, semester]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c6"
-    char_span: [8256, 9250]
+    char_span: [8255, 9249]
     sentence_count: 8
     key_terms: [assistance, doing, phd, tuition, years, paying, entrepreneurhuge5008, "i'm"]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c7"
-    char_span: [9252, 10625]
+    char_span: [9251, 10624]
     sentence_count: 13
     key_terms: [outside, stipend, support, sacrifices, possible, masters, willing, without]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/gradschool/1sdbmo2.md#c8"
-    char_span: [10627, 11417]
+    char_span: [10626, 11416]
     sentence_count: 4
     key_terms: [devanclara, time, full, job, masters, studied, proud, until]
     section: Comments

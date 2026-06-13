@@ -28,13 +28,13 @@ chunks:
     key_terms: [current, future, never, years, investments, get, "i'd", less]
     token_count: 448
   - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c2"
-    char_span: [3451, 4311]
+    char_span: [3450, 4310]
     sentence_count: 6
     key_terms: [congratulations, idratherbeinegypt, work, dirty-neoliberal, vanillalifestyle, talicenseplate, encouragement, mountainous]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/financialindependence/1o5kcfb.md#c3"
-    char_span: [4313, 5483]
+    char_span: [4312, 5482]
     sentence_count: 7
     key_terms: [spending, investments, "he's", retirement, accounts, access, redact, mammoth-series-9419]
     section: Comments

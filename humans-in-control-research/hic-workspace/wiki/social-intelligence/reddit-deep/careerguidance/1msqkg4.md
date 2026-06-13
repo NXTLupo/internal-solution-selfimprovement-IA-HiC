@@ -33,7 +33,7 @@ chunks:
     key_terms: [skills, employable, salesforce, tableau, experience, marketable, in-demand, current]
     token_count: 263
   - id: "social-intelligence/reddit-deep/careerguidance/1msqkg4.md#c3"
-    char_span: [5119, 5944]
+    char_span: [5118, 5943]
     sentence_count: 5
     key_terms: [federal-court-reporting-program, ncra-a-to-z-online-program, discover, program, discoversteno-program, court, found, https]
     section: Comments

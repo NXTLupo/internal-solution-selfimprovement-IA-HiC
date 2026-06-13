@@ -28,7 +28,7 @@ chunks:
     key_terms: [acca, complete, learning, focus, role, side, alternatively, internships]
     token_count: 173
   - id: "social-intelligence/reddit-deep/careerguidance/1t2gh5n.md#c2"
-    char_span: [2764, 3951]
+    char_span: [2763, 3950]
     sentence_count: 8
     key_terms: [acca, exemptions, already, papers, legitimate-meat-2720, later, original-bus-6172, pay]
     section: Comments

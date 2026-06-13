@@ -23,31 +23,31 @@ chunks:
     key_terms: [comments, feeling-currency6212, fake, genz, reddit-deep, completely, regularly, compared]
     token_count: 155
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c1"
-    char_span: [613, 2350]
+    char_span: [612, 2349]
     sentence_count: 9
     key_terms: [market, inflation, stock, expectations, being, earnings, discord, outpace]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c2"
-    char_span: [2352, 4391]
+    char_span: [2351, 4390]
     sentence_count: 17
     key_terms: [people, stock, oracle, economic, growth, living, aren, don]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c3"
-    char_span: [4393, 5463]
+    char_span: [4392, 5462]
     sentence_count: 10
     key_terms: [stock, market, dividends, buybacks, thinking, wages, last, pay]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c4"
-    char_span: [5465, 7191]
+    char_span: [5464, 7190]
     sentence_count: 13
     key_terms: [market, feeling-currency6212, americans, own, invested, because, soaring, months]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/genz/1smi98r.md#c5"
-    char_span: [7193, 9019]
+    char_span: [7192, 9018]
     sentence_count: 9
     key_terms: [market, years, down, want, because, people, plans, get]
     section: Comments

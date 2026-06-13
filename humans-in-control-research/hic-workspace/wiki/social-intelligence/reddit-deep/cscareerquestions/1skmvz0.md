@@ -26,19 +26,19 @@ chunks:
     key_terms: [ones, projects, include, sending, format, applications, built, behavioral]
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c2"
-    char_span: [4423, 5909]
+    char_span: [4422, 5908]
     sentence_count: 7
     key_terms: [projects, advice, skills, job, include, project, hiring, market]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c3"
-    char_span: [5911, 8023]
+    char_span: [5910, 8022]
     sentence_count: 10
     key_terms: ["you're", "it's", because, someone, hiring, applications, ones, applying]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmvz0.md#c4"
-    char_span: [8025, 10053]
+    char_span: [8024, 10052]
     sentence_count: 17
     key_terms: [network, because, someone, people, "don't", lot, specifically, job]
     section: Comments

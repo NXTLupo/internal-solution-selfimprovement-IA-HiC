@@ -1,83 +1,83 @@
 {
   "positive": [
     {
-      "id": 12,
-      "one_sentence_summary": "Discussions center around finding replacement products and alternatives when preferred skincare items become discontinued or unavailable.",
-      "short_summary": "Product replacement requests"
+      "id": 0,
+      "one_sentence_summary": "Discussions about investment fund selection strategies and portfolio management approaches, focusing on evaluating different fund types based on performance metrics and long-term investment goals.",
+      "short_summary": "Investment fund selection"
     }
   ],
   "neutral": [
     {
-      "id": 2,
-      "one_sentence_summary": "Discussions focus on skincare routines and treatment options for addressing post-acne dark spots, hyperpigmentation, and scarring through various topical treatments and preventive measures.",
-      "short_summary": "Post-acne dark spots"
-    },
-    {
       "id": 1,
-      "one_sentence_summary": "Discussions focus on evaluating and selecting sunscreen products based on protection effectiveness, cosmetic properties, skin compatibility, and daily wearability preferences.",
-      "short_summary": "Sunscreen product evaluation"
-    },
-    {
-      "id": 4,
-      "one_sentence_summary": "Discussions focus on skincare product selection challenges, ingredient sensitivities, and finding effective yet affordable cleansers and moisturizers for various skin types and conditions.",
-      "short_summary": "Skincare product recommendations"
-    },
-    {
-      "id": 5,
-      "one_sentence_summary": "Discussions focused on skincare routine development and acne treatment, where individuals seek advice on product selection, ingredient usage, and professional consultation for various skin concerns.",
-      "short_summary": "Skincare routine advice"
-    },
-    {
-      "id": 7,
-      "one_sentence_summary": "Discussions focus on skincare routine optimization, particularly the proper integration, sequencing, and application timing of active ingredients like retinoids and acids while maintaining skin barrier health.",
-      "short_summary": "Skincare routine optimization"
-    },
-    {
-      "id": 6,
-      "one_sentence_summary": "Discussions focus on understanding and managing pore-related skin concerns, particularly sebaceous filaments and oil control, through various cleansing methods and chemical treatments.",
-      "short_summary": "Pore management skincare"
-    },
-    {
-      "id": 8,
-      "one_sentence_summary": "Discussions focus on laser treatments and professional dermatological procedures for treating persistent acne and acne scarring when conventional methods have failed.",
-      "short_summary": "Laser acne treatment"
-    },
-    {
-      "id": 9,
-      "one_sentence_summary": "Discussions focus on establishing effective facial skincare routines to address various skin concerns including oily, sensitive, and dry skin conditions while seeking simple, budget-friendly product recommendations.",
-      "short_summary": "Skincare routine advice"
-    },
-    {
-      "id": 11,
-      "one_sentence_summary": "Discussions focus on facial cleansing routines and product selection challenges, particularly regarding effective removal of sunscreen and makeup while avoiding skin irritation and breakouts.",
-      "short_summary": "Facial cleansing routines"
-    },
-    {
-      "id": 10,
-      "one_sentence_summary": "Discussions focus on developing comprehensive skincare routines with emphasis on barrier repair, moisturization, and product recommendations for various skin types and concerns.",
-      "short_summary": "Skincare routine advice"
-    },
-    {
-      "id": 14,
-      "one_sentence_summary": "Discussions focus on building and optimizing daily skincare routines with proper sequencing of active ingredients, serums, and protective products to address various skin concerns while maintaining skin barrier health.",
-      "short_summary": "Skincare routine optimization"
+      "one_sentence_summary": "Discussions evaluate the cost-effectiveness and service quality of investment advisory programs at major brokerages, comparing professional management fees against self-directed investing approaches.",
+      "short_summary": "Investment advisory services"
     }
   ],
   "negative": [
     {
-      "id": 0,
-      "one_sentence_summary": "Discussions focus on diagnosing and treating various facial skin concerns through routine adjustments, emphasizing the identification of over-exfoliation and barrier damage as common underlying causes of persistent skin issues.",
-      "short_summary": "Skincare troubleshooting discussions"
+      "id": 2,
+      "one_sentence_summary": "Discussions about technical challenges with online financial platform authentication systems, browser trust settings, and two-factor authentication management.",
+      "short_summary": "Online banking authentication issues"
+    },
+    {
+      "id": 5,
+      "one_sentence_summary": "Discussions focus on retirement account management complexities including IRA contribution tracking, tax implications of withdrawals, and administrative challenges with account conversions and rollovers.",
+      "short_summary": "Retirement account management"
+    },
+    {
+      "id": 4,
+      "one_sentence_summary": "Discussions focus on technical issues and user interface problems with investment platform portfolio tracking and performance calculation tools.",
+      "short_summary": "Platform interface issues"
     },
     {
       "id": 3,
-      "one_sentence_summary": "Discussions focus on comprehensive acne treatment experiences where individuals share their extensive trials with various skincare products, routines, and approaches while seeking solutions for persistent skin concerns.",
-      "short_summary": "Acne treatment experiences"
+      "one_sentence_summary": "Discussions focus on estate planning and financial account management, covering the transfer of investment accounts through trusts, inheritance processes, and power of attorney arrangements.",
+      "short_summary": "Estate account management"
+    },
+    {
+      "id": 6,
+      "one_sentence_summary": "Discussions focus on brokerage account management, investment transaction processes, settlement fund usage, and troubleshooting technical issues with online trading platforms.",
+      "short_summary": "Brokerage account transactions"
+    },
+    {
+      "id": 8,
+      "one_sentence_summary": "Discussions about tax-efficient investment strategies for selling shares, focusing on cost basis methods and brokerage procedures that minimize capital gains tax liability.",
+      "short_summary": "Tax-efficient share selling"
+    },
+    {
+      "id": 7,
+      "one_sentence_summary": "Discussions about persistent technical issues with investment account data synchronization between brokerage platforms and third-party financial management applications.",
+      "short_summary": "Account sync issues"
+    },
+    {
+      "id": 9,
+      "one_sentence_summary": "Discussions focus on the operational challenges and complexities investors face when buying, selling, and transferring mutual fund shares between different financial institutions.",
+      "short_summary": "Mutual fund transactions"
+    },
+    {
+      "id": 11,
+      "one_sentence_summary": "Discussions focus on understanding and calculating tax obligations for investment income, including dividends, capital gains, and tax-exempt securities.",
+      "short_summary": "Investment taxation guidance"
+    },
+    {
+      "id": 10,
+      "one_sentence_summary": "Discussions about retirement account rollover processes, customer service experiences with financial institutions, and challenges with traditional paper-based transfer methods.",
+      "short_summary": "Retirement account rollovers"
+    },
+    {
+      "id": 12,
+      "one_sentence_summary": "Discussions focus on navigating investment platform interfaces to access account information and fund details, with users sharing technical solutions to overcome platform usability issues.",
+      "short_summary": "Investment platform navigation"
     },
     {
       "id": 13,
-      "one_sentence_summary": "Discussions focus on identifying and treating various skin lesions including pimples, cysts, and raised bumps that cause discomfort or concern.",
-      "short_summary": "Skin lesion treatment"
+      "one_sentence_summary": "Discussions about limitations in financial account automation features, particularly regarding automatic transfers and withdrawal capabilities between different account types.",
+      "short_summary": "Account automation limitations"
+    },
+    {
+      "id": 14,
+      "one_sentence_summary": "Discussions focus on retirement account strategies involving traditional and Roth IRA conversions, particularly backdoor Roth techniques and their associated tax implications and procedural requirements.",
+      "short_summary": "Roth conversion strategies"
     }
   ]
 }

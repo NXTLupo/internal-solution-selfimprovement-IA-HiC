@@ -21,25 +21,25 @@ chunks:
     key_terms: [school, feel, college, prestigious, uga, southern, georgia, maybe]
     token_count: 377
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c1"
-    char_span: [1600, 3716]
+    char_span: [1599, 3715]
     sentence_count: 20
     key_terms: [school, going, confidence, debt, get, because, smaller, better]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c2"
-    char_span: [3718, 5149]
+    char_span: [3717, 5148]
     sentence_count: 8
     key_terms: [school, want, medical, prestigious, scholarship, resources, research, southern]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c3"
-    char_span: [5151, 6922]
+    char_span: [5150, 6921]
     sentence_count: 8
     key_terms: [school, important, good, normal, money, honestly, average, because]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/college/1pzja8q.md#c4"
-    char_span: [6924, 7388]
+    char_span: [6923, 7387]
     sentence_count: 3
     key_terms: [school, lazy-yogurtcloset784, field, pediatrics, personally, psychology, neurology, nuerology]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/6f5e03fcfc.md#c0"
-    char_span: [0, 2304]
+    char_span: [0, 2303]
     sentence_count: 22
     key_terms: [programs, get, policy, good, schools, student, gradadmissions, school]
-    token_count: 501
+    token_count: 500
   - id: "articles/reddit-deep-r-gradadmissions/6f5e03fcfc.md#c1"
-    char_span: [2306, 2598]
+    char_span: [2305, 2597]
     sentence_count: 3
     key_terms: [funded, fully, extraordinarily, gossipgal1324, competitive, admissions, experience, generally]
     token_count: 63

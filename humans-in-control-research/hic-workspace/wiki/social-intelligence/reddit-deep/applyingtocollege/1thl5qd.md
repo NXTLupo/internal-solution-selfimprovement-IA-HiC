@@ -23,13 +23,13 @@ chunks:
     key_terms: [projects, "i've", competitions, applyingtocollege, been, personal, because, applications]
     token_count: 353
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c1"
-    char_span: [1702, 3742]
+    char_span: [1701, 3741]
     sentence_count: 15
     key_terms: [niceunparticularman, doing, projects, competitions, stand, application, engineering, love]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl5qd.md#c2"
-    char_span: [3744, 6098]
+    char_span: [3743, 6097]
     sentence_count: 14
     key_terms: [competitions, projects, impressive, passion, compelling, texus86, making, "isn't"]
     section: Comments

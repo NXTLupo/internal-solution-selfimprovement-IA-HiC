@@ -18,7 +18,7 @@ industries: [workforce, ai_research, education]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1quhe2l.md#c0"
-    char_span: [0, 1172]
+    char_span: [0, 1171]
     sentence_count: 10
     key_terms: [people, careeradvice, young, get, comments, feedback, learning, platform]
     token_count: 279

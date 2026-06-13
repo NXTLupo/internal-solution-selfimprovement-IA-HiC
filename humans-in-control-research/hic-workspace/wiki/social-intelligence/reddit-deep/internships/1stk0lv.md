@@ -16,7 +16,7 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1stk0lv.md#c0"
-    char_span: [0, 1015]
+    char_span: [0, 1014]
     sentence_count: 7
     key_terms: [internships, summer, nbcu, academic, comments, get, hey, tips]
     token_count: 243

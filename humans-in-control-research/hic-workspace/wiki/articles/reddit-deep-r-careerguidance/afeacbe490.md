@@ -15,12 +15,12 @@ industries: [retail, dtc, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/afeacbe490.md#c0"
-    char_span: [0, 2432]
+    char_span: [0, 2431]
     sentence_count: 8
     key_terms: [retail, interpersonal, people, skills, limited, careerguidance, places, roles]
-    token_count: 510
+    token_count: 509
   - id: "articles/reddit-deep-r-careerguidance/afeacbe490.md#c1"
-    char_span: [2437, 3757]
+    char_span: [2436, 3756]
     sentence_count: 12
     key_terms: [banks, local, retail, satisfactionisunder0, store, value, unraveltheuniverse, real]
     token_count: 310

@@ -13,17 +13,17 @@ extracted_at: "2026-05-31T21:52:14.586723+00:00"
 chars: 5089
 chunks:
   - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c0"
-    char_span: [0, 1610]
+    char_span: [0, 1609]
     sentence_count: 18
     key_terms: [openclaw, machinelearning, incredibly, ironclaw, security, machine, version, reddit]
-    token_count: 376
+    token_count: 375
   - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c1"
-    char_span: [1612, 3696]
+    char_span: [1611, 3695]
     sentence_count: 13
     key_terms: [policy, access, information, credential, prevention, database, actions, ensure]
     token_count: 440
   - id: "articles/reddit-deep-r-machinelearning/19be5df6bb.md#c2"
-    char_span: [3698, 5264]
+    char_span: [3697, 5263]
     sentence_count: 11
     key_terms: [ironclaw, here, com, project, github, skills, ilblackdragon, agent]
     token_count: 393

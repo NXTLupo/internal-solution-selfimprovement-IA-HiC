@@ -23,13 +23,13 @@ chunks:
     key_terms: [software, online, engineer, certifications, career, careeradvice, engineering, etc]
     token_count: 465
   - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c1"
-    char_span: [2083, 3633]
+    char_span: [2082, 3632]
     sentence_count: 12
     key_terms: [currently, job, timmyturnahp21, using, "i'm", want, companies, blocked]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careeradvice/1pbnkqn.md#c2"
-    char_span: [3638, 5629]
+    char_span: [3637, 5628]
     sentence_count: 11
     key_terms: [software, generated, something, end, amount, going, development, data]
     section: Comments

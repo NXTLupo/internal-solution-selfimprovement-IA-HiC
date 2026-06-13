@@ -21,43 +21,43 @@ chunks:
     key_terms: [college, "don't", "i'm", going, parents, school, scholarships, orientation]
     token_count: 451
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c1"
-    char_span: [1880, 3030]
+    char_span: [1879, 3029]
     sentence_count: 17
     key_terms: [get, job, major, oversaturated, various-maybe, good, something, english]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c2"
-    char_span: [3032, 5021]
+    char_span: [3031, 5020]
     sentence_count: 14
     key_terms: [job, major, computer, science, degree, portfolio, prospects, saturated]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c3"
-    char_span: [5023, 7103]
+    char_span: [5022, 7102]
     sentence_count: 16
     key_terms: [college, community, job, years, financial, graduate, required, masters]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c4"
-    char_span: [6799, 7166]
+    char_span: [6798, 7165]
     sentence_count: 1
     key_terms: [financial, aid, use, scholarship, considered, continuing, necessary, transfers]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c5"
-    char_span: [7168, 8920]
+    char_span: [7167, 8919]
     sentence_count: 14
     key_terms: [college, degree, money, courses, cost, too, understand, general]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c6"
-    char_span: [8922, 10838]
+    char_span: [8921, 10837]
     sentence_count: 17
     key_terms: [university, something, work, applying, because, called, get, keep]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/college/1ldm79p.md#c7"
-    char_span: [10840, 12453]
+    char_span: [10839, 12452]
     sentence_count: 13
     key_terms: [school, signed, loans, get, job, community, computer, contract]
     section: Comments

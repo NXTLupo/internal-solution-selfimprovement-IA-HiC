@@ -23,13 +23,13 @@ chunks:
     key_terms: [corporate, don, times, want, findapath, graduated, comments, forever]
     token_count: 306
   - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c1"
-    char_span: [1221, 2800]
+    char_span: [1220, 2799]
     sentence_count: 15
     key_terms: [thank, helpful, please, "it's", life, findapath, anything, comments]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/findapath/1t03rte.md#c2"
-    char_span: [2802, 4079]
+    char_span: [2801, 4078]
     sentence_count: 15
     key_terms: [com, careerexplorer, bunnychow123, life, passionate, testerly, purpose, appalachianskinthief]
     section: Comments

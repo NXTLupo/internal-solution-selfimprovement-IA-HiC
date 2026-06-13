@@ -18,22 +18,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c0"
-    char_span: [0, 1900]
+    char_span: [0, 1899]
     sentence_count: 6
     key_terms: [research, postbacc, predoc, phd, gradadmissions, work, undergrad, comments]
-    token_count: 475
+    token_count: 474
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c1"
-    char_span: [1902, 4101]
+    char_span: [1901, 4100]
     sentence_count: 9
     key_terms: [research, sociology, undergrad, graduate, course, relatively, studies, senior]
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c2"
-    char_span: [4103, 6607]
+    char_span: [4102, 6606]
     sentence_count: 10
     key_terms: [research, school, undergraduate, program, experience, high, professional, events]
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradadmissions/1let3bc.md#c3"
-    char_span: [6609, 6792]
+    char_span: [6608, 6791]
     sentence_count: 1
     key_terms: [organizations, justice-related, international, participated, development, government, high-level, briefings]
     token_count: 28

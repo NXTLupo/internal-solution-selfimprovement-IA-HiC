@@ -23,13 +23,13 @@ chunks:
     key_terms: [applyingtocollege, considering, currently, comments, schools, please, abt, help]
     token_count: 201
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c1"
-    char_span: [771, 1631]
+    char_span: [770, 1630]
     sentence_count: 4
     key_terms: [columbia, science, saartemaster, degree, best, ivy, scpo, opportunities]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sqe81f.md#c2"
-    char_span: [1633, 3370]
+    char_span: [1632, 3369]
     sentence_count: 6
     key_terms: [columbia, sciences, harvard, applyingtocollege, program, degree, universities, experience]
     section: Comments

@@ -21,79 +21,79 @@ chunks:
     key_terms: [applyingtocollege, telling, comments, students, classes, year, staggeringly, reddit-deep]
     token_count: 152
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c1"
-    char_span: [637, 2659]
+    char_span: [636, 2658]
     sentence_count: 21
     key_terms: [classes, year, kids, handle, junior, study, years, kid]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c2"
-    char_span: [2661, 4001]
+    char_span: [2660, 4000]
     sentence_count: 10
     key_terms: [school, work, definitely, learning, classes, almost, manage, learn]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c3"
-    char_span: [4003, 5955]
+    char_span: [4002, 5954]
     sentence_count: 13
     key_terms: [people, take, aps, like, classes, college, school, didn]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c4"
-    char_span: [5957, 7509]
+    char_span: [5956, 7508]
     sentence_count: 10
     key_terms: [year, aps, school, classes, college, courses, physics, junior]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c5"
-    char_span: [7511, 9059]
+    char_span: [7510, 9058]
     sentence_count: 6
     key_terms: [aps, top, school, schools, wasn, applicant, apply, class]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c6"
-    char_span: [9061, 11210]
+    char_span: [9060, 11209]
     sentence_count: 13
     key_terms: [classes, school, high, student, challenging, applyingtocollege, students, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c7"
-    char_span: [10983, 11211]
+    char_span: [10982, 11210]
     sentence_count: 2
     key_terms: [larrytheevilbunnie, aps, correctly, berkeley, estimate, honestly, pre-reqs, remember]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c8"
-    char_span: [11213, 11817]
+    char_span: [11212, 11816]
     sentence_count: 4
     key_terms: [classes, kids, colleges, unusual, doesn, take, hot-yogurt5539, fatsadhappy]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c9"
-    char_span: [11819, 13926]
+    char_span: [11818, 13925]
     sentence_count: 14
     key_terms: [school, kids, college, take, classes, years, competitive, aps]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c10"
-    char_span: [13703, 13971]
+    char_span: [13702, 13970]
     sentence_count: 2
     key_terms: [school, permission, themselves, yeyiyeyiyo, parental, requires, parents, expect]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c11"
-    char_span: [13973, 15204]
+    char_span: [13972, 15203]
     sentence_count: 13
     key_terms: [time, physics, courses, regular, student, teacher, apush, grade]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c12"
-    char_span: [15206, 17407]
+    char_span: [15205, 17406]
     sentence_count: 10
     key_terms: [school, counselor, high, class, typically, gpa, top, courses]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n0tyjj.md#c13"
-    char_span: [17409, 17578]
+    char_span: [17408, 17577]
     sentence_count: 2
     key_terms: [admission, schools, handle, honors, public, short, state, story]
     section: Comments

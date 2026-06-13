@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, like, program, programming, work, comments, anyways, worried]
     token_count: 338
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c1"
-    char_span: [1461, 2200]
+    char_span: [1460, 2199]
     sentence_count: 2
     key_terms: [martinomon, securityclearance, code, find, jail, time, wait, dudewithparrot]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c2"
-    char_span: [2203, 3890]
+    char_span: [2202, 3889]
     sentence_count: 4
     key_terms: [claude, wait, deleted, dangerously-skip-permissions, generate, comes, until, cranberrylast4683]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c3"
-    char_span: [3892, 5002]
+    char_span: [3891, 5001]
     sentence_count: 7
     key_terms: [everyone, making, signal, "don't", big, code, jira, sure]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c4"
-    char_span: [5004, 7059]
+    char_span: [5003, 7058]
     sentence_count: 10
     key_terms: [code, use, because, aromaticgust, files, llm, tag, interviews]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c5"
-    char_span: [6814, 7718]
+    char_span: [6813, 7717]
     sentence_count: 6
     key_terms: [been, code, got, use, environmental, engineering, performance, compelling]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c6"
-    char_span: [7720, 9313]
+    char_span: [7719, 9312]
     sentence_count: 12
     key_terms: [considering, people, "don't", model, using, bad, come, etc]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rs6nl5.md#c7"
-    char_span: [9315, 10684]
+    char_span: [9314, 10683]
     sentence_count: 10
     key_terms: [like, syntax, comprehensiveride946, dev, lot, real, work, production-ready]
     section: Comments

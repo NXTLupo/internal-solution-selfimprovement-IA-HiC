@@ -23,19 +23,19 @@ chunks:
     key_terms: [people, student, college, comments, excited, active, attend, "don't"]
     token_count: 251
   - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c1"
-    char_span: [1137, 2810]
+    char_span: [1136, 2809]
     sentence_count: 16
     key_terms: [professors, people, club, get, want, question, classes, mention]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c2"
-    char_span: [2812, 4939]
+    char_span: [2811, 4938]
     sentence_count: 15
     key_terms: [people, club, orgs, classes, college, interesting, org, show]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/college/1sla5rn.md#c3"
-    char_span: [4941, 6079]
+    char_span: [4940, 6078]
     sentence_count: 15
     key_terms: [meetings, students, college, student, budget, ask, food, lab]
     section: Comments

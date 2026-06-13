@@ -23,49 +23,49 @@ chunks:
     key_terms: [counselor, college, private, affordable, applyingtocollege, selective, comments, guidance]
     token_count: 333
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c1"
-    char_span: [1463, 1862]
+    char_span: [1462, 1861]
     sentence_count: 4
     key_terms: [consultant, college, private, "didn't", discussion, seriously, anything, consider]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c2"
-    char_span: [1864, 4123]
+    char_span: [1863, 4122]
     sentence_count: 18
     key_terms: [college, consultants, students, get, guidance, student, information, help]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c3"
-    char_span: [3850, 5310]
+    char_span: [3849, 5309]
     sentence_count: 7
     key_terms: [consultants, college, trainers, athletes, athletic, students, student, gold]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c4"
-    char_span: [5312, 7034]
+    char_span: [5311, 7033]
     sentence_count: 21
     key_terms: [counselor, help, themselves, avoid, value, hire, athletes, results]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c5"
-    char_span: [7036, 8878]
+    char_span: [7035, 8877]
     sentence_count: 24
     key_terms: [school, major, year, counselor, something, opinion, profile, working]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c6"
-    char_span: [8880, 11223]
+    char_span: [8879, 11222]
     sentence_count: 17
     key_terms: [counselor, schools, different, help, take, international, year, admissions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c7"
-    char_span: [10916, 11507]
+    char_span: [10915, 11506]
     sentence_count: 6
     key_terms: [college, katharinekatekate, work, opportunities, contractors, independent, admissions, counseling]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nz8a9d.md#c8"
-    char_span: [11509, 13201]
+    char_span: [11508, 13200]
     sentence_count: 22
     key_terms: [students, counselor, don, someone, admitted, familiar, guidance, probably]
     section: Comments

@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1rh9ke3.md#c0"
-    char_span: [0, 338]
+    char_span: [0, 337]
     sentence_count: 2
     key_terms: [careerguidance, comments, international, opportunities, monthlow7017, reddit-deep, looking, advice]
-    token_count: 101
+    token_count: 100
 ---
 # [Career Advice] Amazon Site Lead (India) | 6 YOE Last Mile | Looking for International Opportunities ?
 

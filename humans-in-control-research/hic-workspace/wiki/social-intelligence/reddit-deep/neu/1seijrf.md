@@ -21,7 +21,7 @@ chunks:
     key_terms: [full-time, finance-related, co-op, year, management, wellington, questions, comments]
     token_count: 331
   - id: "social-intelligence/reddit-deep/neu/1seijrf.md#c1"
-    char_span: [1375, 2354]
+    char_span: [1374, 2353]
     sentence_count: 9
     key_terms: [co-op, private, answer, co-ops, offers, return, detectiveelectrical2, difficult-review283]
     section: Comments

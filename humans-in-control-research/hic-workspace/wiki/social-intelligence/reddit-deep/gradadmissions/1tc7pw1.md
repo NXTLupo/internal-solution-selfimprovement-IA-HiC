@@ -23,13 +23,13 @@ chunks:
     key_terms: [gradadmissions, comments, research, grad, international, reddit-deep, important, published]
     token_count: 86
   - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c1"
-    char_span: [349, 1695]
+    char_span: [348, 1694]
     sentence_count: 11
     key_terms: [research, zestyclose-tax2939, programs, papers, contributions, top, conference, authored]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/gradadmissions/1tc7pw1.md#c2"
-    char_span: [1697, 3735]
+    char_span: [1696, 3734]
     sentence_count: 11
     key_terms: [phd, experience, seeking-for-entry-level-positions-with-20-years-of-experience, publications, application, yourself, program, top]
     section: Comments

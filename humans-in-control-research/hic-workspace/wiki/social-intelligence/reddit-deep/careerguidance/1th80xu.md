@@ -23,25 +23,25 @@ chunks:
     key_terms: [stability, want, careerguidance, feels, flexibility, time, exhausted, situation]
     token_count: 423
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c1"
-    char_span: [1940, 3331]
+    char_span: [1939, 3330]
     sentence_count: 14
     key_terms: [healthcare, entry-level, specialized, work, different, teaching, setting, people]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c2"
-    char_span: [3333, 5121]
+    char_span: [3332, 5120]
     sentence_count: 13
     key_terms: [administration, jobs, government, stability, benefits, honestly, career, higher]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c3"
-    char_span: [5123, 6955]
+    char_span: [5122, 6954]
     sentence_count: 11
     key_terms: [people, operations, strategy, environments, less, background, compliance, everything]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/careerguidance/1th80xu.md#c4"
-    char_span: [6957, 8929]
+    char_span: [6956, 8928]
     sentence_count: 16
     key_terms: [flexibility, companies, roles, operations, stability, project, coordination, work]
     section: Comments

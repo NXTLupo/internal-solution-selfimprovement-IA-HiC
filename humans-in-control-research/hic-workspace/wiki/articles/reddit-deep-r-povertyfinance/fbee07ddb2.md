@@ -15,32 +15,32 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c0"
-    char_span: [0, 2209]
+    char_span: [0, 2208]
     sentence_count: 9
     key_terms: [college, children, parents, school, povertyfinance, taking, universities, loans]
-    token_count: 461
+    token_count: 460
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c1"
-    char_span: [2211, 4730]
+    char_span: [2210, 4729]
     sentence_count: 12
     key_terms: [school, high, enrollment, students, classes, college, dual, take]
     token_count: 480
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c2"
-    char_span: [4732, 7144]
+    char_span: [4731, 7143]
     sentence_count: 16
     key_terms: [college, university, students, universities, associates, community, live, tuition]
     token_count: 485
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c3"
-    char_span: [7146, 9552]
+    char_span: [7145, 9551]
     sentence_count: 13
     key_terms: [college, year, tuition, scholarships, enrollment, child, classes, credit]
     token_count: 495
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c4"
-    char_span: [9554, 11646]
+    char_span: [9553, 11645]
     sentence_count: 11
     key_terms: [tuition, reimburse, etc, research, college, universities, "it's", jobs]
     token_count: 477
   - id: "articles/reddit-deep-r-povertyfinance/fbee07ddb2.md#c5"
-    char_span: [11649, 12229]
+    char_span: [11648, 12228]
     sentence_count: 5
     key_terms: [schools, kids, employees, states, objective-kangaroo-7, free, give, freecollegenow]
     token_count: 132

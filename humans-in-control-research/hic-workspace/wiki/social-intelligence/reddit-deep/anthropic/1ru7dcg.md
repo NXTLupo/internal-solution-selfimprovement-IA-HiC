@@ -18,10 +18,10 @@ industries: [ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1ru7dcg.md#c0"
-    char_span: [0, 317]
+    char_span: [0, 316]
     sentence_count: 1
     key_terms: [anthropic, comments, auto-inject, reddit-deep, codebase, ctxpilot, windsurf, context]
-    token_count: 93
+    token_count: 92
 ---
 # ctxpilot — Auto-inject codebase context into Cursor, Claude Code, Codex & Windsurf
 

@@ -28,25 +28,25 @@ chunks:
     key_terms: [medical, issues, going, housewives, increase, northern, virginia, discuss]
     token_count: 77
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c2"
-    char_span: [2204, 3349]
+    char_span: [2203, 3348]
     sentence_count: 11
     key_terms: [sounds, like, withdrawal, deserved, assets, health, retire, difficult-cricket541]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c3"
-    char_span: [3351, 5191]
+    char_span: [3350, 5190]
     sentence_count: 19
     key_terms: [retirement, difficult-cricket541, plan, chubby, fire, nice, arlington, accounts]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c4"
-    char_span: [5193, 6683]
+    char_span: [5192, 6682]
     sentence_count: 16
     key_terms: [library, thegreatcoursesplus, classes, get, arlington, fairfax, thanks, beginning-comedian-2]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pz3cdc.md#c5"
-    char_span: [6685, 7445]
+    char_span: [6684, 7444]
     sentence_count: 3
     key_terms: [get, walking, desk, consider, because, money, area, diet]
     section: Comments

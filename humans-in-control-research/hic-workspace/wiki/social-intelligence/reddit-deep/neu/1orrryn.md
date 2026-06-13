@@ -21,13 +21,13 @@ chunks:
     key_terms: [housing, neu, comments, facebook, boston, sublet, traditionallake3608, co-op]
     token_count: 190
   - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c1"
-    char_span: [761, 2348]
+    char_span: [760, 2347]
     sentence_count: 7
     key_terms: [housing, getting, traditionallake3608, https, reddit, www, facebook, mcm998]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/neu/1orrryn.md#c2"
-    char_span: [2350, 4232]
+    char_span: [2349, 4231]
     sentence_count: 6
     key_terms: [sublet, traditionallake3608, instagram, guy, housing, boston, post, apartment]
     section: Comments

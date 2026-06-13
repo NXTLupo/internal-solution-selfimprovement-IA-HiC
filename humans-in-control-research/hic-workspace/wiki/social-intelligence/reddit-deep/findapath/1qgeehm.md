@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qgeehm.md
 url: "https://www.reddit.com/r/findapath/comments/1qgeehm/help_finding_a_career_path_for_my_66yearold_mom/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,19 @@ flair: "Findapath-Job Search Support"
 extracted_at: "2026-06-06T23:22:15.456Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qgeehm.md#c0"
+    char_span: [0, 1977]
+    sentence_count: 4
+    key_terms: [limited, retail, interpersonal, years, job, background, associate, difficult]
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/findapath/1qgeehm.md#c1"
+    char_span: [1992, 4131]
+    sentence_count: 15
+    key_terms: [thank, helpful, please, cafeteria, findapath, insurance, comments, customer]
+    section: Comments
+    token_count: 458
 ---
-
 # Help Finding a Career Path for My 66-Year-Old Mom - Retail Background, Amazing People Skills, Limited Computer Experience
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qgeehm/help_finding_a_career_path_for_my_66yearold_mom/)

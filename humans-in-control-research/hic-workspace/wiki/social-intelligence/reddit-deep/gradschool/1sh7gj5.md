@@ -23,25 +23,25 @@ chunks:
     key_terms: [class, semester, last, grade, got, help, "it's", assignment]
     token_count: 309
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c1"
-    char_span: [1313, 3338]
+    char_span: [1312, 3337]
     sentence_count: 18
     key_terms: [needs, assignment, grade, professor, academic, graduate, rubric, talk]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c2"
-    char_span: [3340, 4731]
+    char_span: [3339, 4730]
     sentence_count: 14
     key_terms: ["can't", professor, partner, problem, solve, emotionally, tyuiopguyt, students]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c3"
-    char_span: [4733, 6572]
+    char_span: [4732, 6571]
     sentence_count: 17
     key_terms: [my-other-favorite-ww, reason, here, tyuiopguyt, advice, handle, record, entrepreneurhuge5008]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradschool/1sh7gj5.md#c4"
-    char_span: [6574, 7070]
+    char_span: [6573, 7069]
     sentence_count: 3
     key_terms: [assignment, final, entire, class, extra, exam, prof, presentation]
     section: Comments

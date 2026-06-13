@@ -23,25 +23,25 @@ chunks:
     key_terms: [internships, comments, single, point, possibility, reddit-deep, everywhere, experience]
     token_count: 200
   - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c1"
-    char_span: [828, 2174]
+    char_span: [827, 2173]
     sentence_count: 18
     key_terms: [companies, specific, get, experience, something, approach, research, hiring]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c2"
-    char_span: [2176, 4223]
+    char_span: [2175, 4222]
     sentence_count: 17
     key_terms: [experience, nextimplement8888, probably, resume, intuitive9999, prior, pass, detectors]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c3"
-    char_span: [3925, 5079]
+    char_span: [3924, 5078]
     sentence_count: 10
     key_terms: [learn, take, experience, feel, got, like, role, auto-updating]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/internships/1s1tuq3.md#c4"
-    char_span: [5081, 5696]
+    char_span: [5080, 5695]
     sentence_count: 4
     key_terms: [big-cry9898, egotech1987, probably, ranking, school, appropriate-tutor587, "it's", "true"]
     section: Comments

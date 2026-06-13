@@ -23,7 +23,7 @@ chunks:
     key_terms: [personalfinance, comments, post, investments-any, variationno4602, appreciated, reddit-deep, retirement]
     token_count: 96
   - id: "social-intelligence/reddit-deep/personalfinance/1peq5tc.md#c1"
-    char_span: [409, 1628]
+    char_span: [408, 1627]
     sentence_count: 4
     key_terms: [personalfinance, retirement, portfolio, thejontorrweno, fund, wiki, down, easy]
     section: Comments

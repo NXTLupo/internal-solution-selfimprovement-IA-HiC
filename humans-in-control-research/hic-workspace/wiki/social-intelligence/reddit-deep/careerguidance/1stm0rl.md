@@ -23,31 +23,31 @@ chunks:
     key_terms: [job, comments, company, careerguidance, months, leave, role, full-time]
     token_count: 403
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c1"
-    char_span: [1694, 2922]
+    char_span: [1693, 2921]
     sentence_count: 3
     key_terms: [munchytime, probably, months, paying, anonymousforalittle, since, fantastic-kale9603, fast]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c2"
-    char_span: [2925, 3995]
+    char_span: [2924, 3994]
     sentence_count: 7
     key_terms: [job, months, take, onboarding, leaving, working, matter, being]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c3"
-    char_span: [3997, 6010]
+    char_span: [3996, 6009]
     sentence_count: 15
     key_terms: [money, get, job, need, people, toxic, like, take]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c4"
-    char_span: [6012, 7540]
+    char_span: [6011, 7539]
     sentence_count: 10
     key_terms: [difficult-mango312, dog, struggle, company, people, candidate, companies, because]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/careerguidance/1stm0rl.md#c5"
-    char_span: [7542, 9229]
+    char_span: [7541, 9228]
     sentence_count: 16
     key_terms: [company, time, companies, leaving, "wasn't", capable-savings-6776, ago, care]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [support, uber, payments, solutions, cannot, email, eoin, workonline]
     token_count: 448
   - id: "social-intelligence/reddit-deep/workonline/1t7dv5x.md#c1"
-    char_span: [2102, 4173]
+    char_span: [2101, 4172]
     sentence_count: 12
     key_terms: [uber, linkedin, project, worked, been, pay, another, malejjj]
     section: Comments

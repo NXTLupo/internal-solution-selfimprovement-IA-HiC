@@ -23,49 +23,49 @@ chunks:
     key_terms: [year, poor, povertyfinance, income, girlfriend, comments, dollars, around]
     token_count: 386
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c1"
-    char_span: [1448, 3416]
+    char_span: [1447, 3415]
     sentence_count: 16
     key_terms: [money, "i'm", opposite, people, spend, good, something, poverty]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c2"
-    char_span: [3418, 5514]
+    char_span: [3417, 5513]
     sentence_count: 9
     key_terms: [money, house, lottery, going, buy, poor, meatloaf, mortgage]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c3"
-    char_span: [5516, 7093]
+    char_span: [5515, 7092]
     sentence_count: 14
     key_terms: [money, women, judged, spend, clothing, mindset, enjoy, going]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c4"
-    char_span: [7095, 8392]
+    char_span: [7094, 8391]
     sentence_count: 8
     key_terms: [people, something, feel, save, learning, professorghost-x, budget, essential]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c5"
-    char_span: [8394, 10435]
+    char_span: [8393, 10434]
     sentence_count: 17
     key_terms: [spend, money, professorghost-x, because, anything, poverty, "it's", time]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c6"
-    char_span: [10437, 12569]
+    char_span: [10436, 12568]
     sentence_count: 15
     key_terms: [money, like, having, currency, housing, income, people, saving]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c7"
-    char_span: [12571, 14059]
+    char_span: [12570, 14058]
     sentence_count: 9
     key_terms: [money, time, girlfriend, anything, being, never, justanotherday1977, onions-make-me-cry]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/povertyfinance/1oijglr.md#c8"
-    char_span: [14061, 14726]
+    char_span: [14060, 14725]
     sentence_count: 4
     key_terms: [money, marriage, account, dating, person, "you're", house, turquoisestar]
     section: Comments

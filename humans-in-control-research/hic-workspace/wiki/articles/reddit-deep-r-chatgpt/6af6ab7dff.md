@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/6af6ab7dff.md#c0"
-    char_span: [0, 1761]
+    char_span: [0, 1760]
     sentence_count: 10
     key_terms: [chatgpt, https, save, a67df99152969d796f9f11b204d9826f971f9f51, callmejimmilton, please, conversation, image]
-    token_count: 513
+    token_count: 512
   - id: "articles/reddit-deep-r-chatgpt/6af6ab7dff.md#c1"
-    char_span: [1763, 2144]
+    char_span: [1762, 2143]
     sentence_count: 2
     key_terms: [street-inevitable358, worth-reputation3450, like, u4b1wjrfhipww, interrogated, aeugaedirlu, tortured, dungeon]
     token_count: 132

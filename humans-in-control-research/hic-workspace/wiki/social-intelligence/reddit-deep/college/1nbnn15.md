@@ -23,61 +23,61 @@ chunks:
     key_terms: [classes, college, attend, doesn, going, feel, get, room]
     token_count: 413
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c1"
-    char_span: [1730, 3954]
+    char_span: [1729, 3953]
     sentence_count: 13
     key_terms: [students, time, college, lecture, attend, like, disability, materials]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c2"
-    char_span: [3956, 4544]
+    char_span: [3955, 4543]
     sentence_count: 5
     key_terms: ["don't", attend, get, accommodations, communication, professors, different, important]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c3"
-    char_span: [4546, 6696]
+    char_span: [4545, 6695]
     sentence_count: 13
     key_terms: [class, help, grade, work, year, assaulted, professor, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c4"
-    char_span: [6424, 7317]
+    char_span: [6423, 7316]
     sentence_count: 9
     key_terms: [help, tutoring, resources, health, mental, expensivebutterfly93, plan, accountability]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c5"
-    char_span: [7319, 9356]
+    char_span: [7318, 9355]
     sentence_count: 21
     key_terms: [got, college, friends, did, get, like, adjustment, services]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c6"
-    char_span: [9358, 11009]
+    char_span: [9357, 11008]
     sentence_count: 23
     key_terms: [because, skipped, "i'd", homework, support, enough, final, exam]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c7"
-    char_span: [11011, 12977]
+    char_span: [11010, 12976]
     sentence_count: 15
     key_terms: [back, went, suspension, college, through, though, doing, going]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c8"
-    char_span: [12979, 14731]
+    char_span: [12978, 14730]
     sentence_count: 19
     key_terms: [college, freshman, year, diagnosed, bipolar, time, roommate, doing]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c9"
-    char_span: [14733, 16962]
+    char_span: [14732, 16961]
     sentence_count: 9
     key_terms: [classes, okperformance1758, time, college, people, sometimes, semester, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nbnn15.md#c10"
-    char_span: [16688, 18574]
+    char_span: [16687, 18573]
     sentence_count: 19
     key_terms: [like, doing, too, roommate, responsibility, feel, "doesn't", routine]
     section: Comments

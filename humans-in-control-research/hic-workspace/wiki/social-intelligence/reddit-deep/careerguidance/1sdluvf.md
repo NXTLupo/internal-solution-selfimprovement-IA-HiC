@@ -21,13 +21,13 @@ chunks:
     key_terms: [careerguidance, please, study, "bachelor's", currently, comments, position, another]
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c1"
-    char_span: [1930, 4293]
+    char_span: [1929, 4292]
     sentence_count: 20
     key_terms: [information, experience, like, business, analyst, degree, "you're", roles]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1sdluvf.md#c2"
-    char_span: [4298, 4717]
+    char_span: [4297, 4716]
     sentence_count: 2
     key_terms: [gaming, companies, tech, perspective, background, experience, understand, approach]
     section: Comments

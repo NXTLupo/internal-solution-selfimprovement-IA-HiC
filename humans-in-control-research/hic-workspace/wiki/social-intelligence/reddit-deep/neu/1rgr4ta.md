@@ -23,7 +23,7 @@ chunks:
     key_terms: [accelerate, comments, classes, offered, writing, taking, guide, neu]
     token_count: 190
   - id: "social-intelligence/reddit-deep/neu/1rgr4ta.md#c1"
-    char_span: [793, 2771]
+    char_span: [792, 2770]
     sentence_count: 14
     key_terms: [accelerate, courses, writing, course, major, first-year-writing, econ, find]
     section: Comments

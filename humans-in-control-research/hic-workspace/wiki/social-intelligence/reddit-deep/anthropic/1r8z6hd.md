@@ -23,7 +23,7 @@ chunks:
     key_terms: [claude, experience, godot, anthropic, code, like, game, something]
     token_count: 313
   - id: "social-intelligence/reddit-deep/anthropic/1r8z6hd.md#c1"
-    char_span: [1413, 1917]
+    char_span: [1412, 1916]
     sentence_count: 3
     key_terms: [vscode, code, "godot's", claude, kexnyc, godot, harjjotsinghh, gpt-oss-120b]
     section: Comments

@@ -201,7 +201,17 @@ def _record_provider_success(provider: str) -> None:
     h["total_calls"] += 1
 
 
-_GEMINI_LABEL_MODEL = "gemini-2.5-flash"
+# 2026-06-12 - was "gemini-2.5-flash" (retired tier) with the key in the URL
+# query string; this call site escaped the A2 redaction sweep and logged a raw
+# key via httpx. Canonical fast-text model + x-goog-api-key header now.
+_GEMINI_LABEL_MODEL = "gemini-3.5-flash"
+
+
+def _gemini_key_headers() -> dict:
+    """Mirror of app.py _goog_key_headers (A2/P0): key rides the
+    x-goog-api-key HEADER, never the ?key= URL query param (which leaks via
+    URL scans, logs, referrers)."""
+    return {"Content-Type": "application/json", "x-goog-api-key": _GEMINI_API_KEY}
 
 
 async def _label_clusters_via_gemini(prompt: str) -> list | None:
@@ -213,10 +223,10 @@ async def _label_clusters_via_gemini(prompt: str) -> list | None:
     if not _GEMINI_API_KEY or not _provider_is_healthy("gemini"):
         return None
     url = (f"https://generativelanguage.googleapis.com/v1beta/models/"
-           f"{_GEMINI_LABEL_MODEL}:generateContent?key={_GEMINI_API_KEY}")
+           f"{_GEMINI_LABEL_MODEL}:generateContent")
     try:
         async with httpx.AsyncClient(timeout=90.0) as client:
-            resp = await client.post(url, json={
+            resp = await client.post(url, headers=_gemini_key_headers(), json={
                 "contents": [{"role": "user", "parts": [{"text": prompt}]}],
                 "generationConfig": {
                     "temperature": 0,  # determinism per feedback_determinism_first_for_cached_runs
@@ -279,13 +289,15 @@ async def _embed_via_gemini(texts: list[str]) -> list[list[float]]:
     requests at a time keeps us under typical free-tier rate limits."""
     if not _GEMINI_API_KEY:
         raise RuntimeError("GEMINI_API_KEY not set — fallback embeddings unavailable")
-    url = f"{_GEMINI_EMBED_URL}?key={_GEMINI_API_KEY}"
+    # 2026-06-12 - key moved from ?key= URL param to the x-goog-api-key header
+    # (A2/P0 redaction rule; URL params leak via logs).
+    url = _GEMINI_EMBED_URL
     sem = asyncio.Semaphore(8)
 
     async def one(text: str) -> list[float]:
         async with sem:
             async with httpx.AsyncClient(timeout=60.0) as client:
-                resp = await client.post(url, json={
+                resp = await client.post(url, headers=_gemini_key_headers(), json={
                     "model": f"models/{_GEMINI_EMBED_MODEL}",
                     "content": {"parts": [{"text": (text or " ")[:8000]}]},
                 })

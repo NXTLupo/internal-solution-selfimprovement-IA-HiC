@@ -43,7 +43,7 @@ chunks:
     key_terms: ["doesn't", better, safety, don, soul, self-negation, introductory, paradoxical]
     token_count: 188
   - id: "social-intelligence/reddit-deep/chatgpt/1lq6x1u.md#c5"
-    char_span: [10369, 11514]
+    char_span: [10368, 11513]
     sentence_count: 8
     key_terms: [throwra-1995mf, please, consciousness, conversation, image, post, r-chatgpt-1050422060352024636, concerns]
     section: Comments

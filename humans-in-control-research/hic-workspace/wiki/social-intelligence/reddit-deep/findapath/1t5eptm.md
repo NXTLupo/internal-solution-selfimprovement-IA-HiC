@@ -28,25 +28,25 @@ chunks:
     key_terms: ["i've", life, like, "don't", did, felt, "i'm", experience]
     token_count: 483
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c2"
-    char_span: [4266, 6050]
+    char_span: [4265, 6049]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, nessarin]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c3"
-    char_span: [6053, 8059]
+    char_span: [6052, 8058]
     sentence_count: 20
     key_terms: [like, activities, been, everything, interests, situation, comment, feeling]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c4"
-    char_span: [8061, 10060]
+    char_span: [8060, 10059]
     sentence_count: 8
     key_terms: [felt, life, like, thoughts, someone, started, helped, inside]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/findapath/1t5eptm.md#c5"
-    char_span: [10062, 12323]
+    char_span: [10061, 12322]
     sentence_count: 18
     key_terms: [pretty, therapy, job, like, time, yourself, correct, degree]
     section: Comments

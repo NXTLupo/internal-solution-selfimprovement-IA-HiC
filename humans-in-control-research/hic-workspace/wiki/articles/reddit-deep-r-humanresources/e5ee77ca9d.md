@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-humanresources/e5ee77ca9d.md#c0"
-    char_span: [0, 1786]
+    char_span: [0, 1785]
     sentence_count: 14
     key_terms: [companies, humanresources, apply, here, hrbp, challenged, experience, management]
-    token_count: 427
+    token_count: 426
   - id: "articles/reddit-deep-r-humanresources/e5ee77ca9d.md#c1"
-    char_span: [1788, 4039]
+    char_span: [1787, 4038]
     sentence_count: 11
     key_terms: [puddingadorable9260, experience, years, company, smaller, people, emarialartayu, get]
     token_count: 503

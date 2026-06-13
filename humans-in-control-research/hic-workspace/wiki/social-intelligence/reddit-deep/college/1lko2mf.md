@@ -26,7 +26,7 @@ chunks:
     key_terms: [people, don, feel, conversations, connection, apartment, bothering, interests]
     token_count: 93
   - id: "social-intelligence/reddit-deep/college/1lko2mf.md#c2"
-    char_span: [2572, 3758]
+    char_span: [2571, 3757]
     sentence_count: 11
     key_terms: [people, don, like, small, college, someone, friend, senior]
     section: Comments

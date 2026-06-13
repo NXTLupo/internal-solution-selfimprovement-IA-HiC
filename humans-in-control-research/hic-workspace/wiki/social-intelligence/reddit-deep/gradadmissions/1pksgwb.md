@@ -23,19 +23,19 @@ chunks:
     key_terms: [gradadmissions, left, comments, someone, school, back, did, didn]
     token_count: 149
   - id: "social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c1"
-    char_span: [592, 1976]
+    char_span: [591, 1975]
     sentence_count: 8
     key_terms: [career, work, experience, academia, graduate, industry, flamingbandaidbox, "i'm"]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c2"
-    char_span: [1978, 3711]
+    char_span: [1977, 3710]
     sentence_count: 12
     key_terms: [undergrad, industry, phd, years, got, career, school, brianborchers]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/gradadmissions/1pksgwb.md#c3"
-    char_span: [3713, 5396]
+    char_span: [3712, 5395]
     sentence_count: 13
     key_terms: ["i'm", school, worked, field, difficult, applying, whether, working]
     section: Comments

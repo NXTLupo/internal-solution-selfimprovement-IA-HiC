@@ -23,25 +23,25 @@ chunks:
     key_terms: [research, people, competitive, get, gradschool, comments, schools, grad]
     token_count: 197
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c1"
-    char_span: [872, 2584]
+    char_span: [871, 2583]
     sentence_count: 13
     key_terms: [work, experience, school, grad, time, undergrad, program, people]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c2"
-    char_span: [2586, 4680]
+    char_span: [2585, 4679]
     sentence_count: 10
     key_terms: [industry, get, letter, school, phd, recommendation, people, good]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c3"
-    char_span: [4682, 6562]
+    char_span: [4681, 6561]
     sentence_count: 15
     key_terms: [time, worked, undergrad, program, get, gpa, phd, grades]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/gradschool/1na2dn9.md#c4"
-    char_span: [6564, 8688]
+    char_span: [6563, 8687]
     sentence_count: 20
     key_terms: [experience, masters, program, get, time, research, schools, people]
     section: Comments

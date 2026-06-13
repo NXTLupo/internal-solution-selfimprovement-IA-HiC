@@ -23,7 +23,7 @@ chunks:
     key_terms: [applying, engineeringstudents, started, didn, get, year, internship, comments]
     token_count: 410
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kmnhbw.md#c1"
-    char_span: [1819, 3901]
+    char_span: [1818, 3900]
     sentence_count: 16
     key_terms: [engineeringstudents, experience, wiki, position, please, reddit, https, application]
     section: Comments

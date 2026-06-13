@@ -18,7 +18,7 @@ industries: [ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rooob1.md#c0"
-    char_span: [0, 449]
+    char_span: [0, 448]
     sentence_count: 2
     key_terms: [anthropic, comments, windows, claude, code, brentyoungphoto, reddit-deep, computer]
     token_count: 122

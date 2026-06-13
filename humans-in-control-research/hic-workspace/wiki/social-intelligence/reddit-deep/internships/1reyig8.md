@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, comments, company, adventurousbat1517, pharmaceutical, cybersecurity, opportunities, experiences]
     token_count: 162
   - id: "social-intelligence/reddit-deep/internships/1reyig8.md#c1"
-    char_span: [690, 1753]
+    char_span: [689, 1752]
     sentence_count: 4
     key_terms: [insurance, medical, common, prestigious-hour-215, adventurousbat1517, bank, oil, pharmaceuticals]
     section: Comments

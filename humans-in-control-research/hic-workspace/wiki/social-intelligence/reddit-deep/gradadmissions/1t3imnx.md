@@ -33,7 +33,7 @@ chunks:
     key_terms: [program, like, masters, degree, engineering, experiences, netherlands, cambridge]
     token_count: 303
   - id: "social-intelligence/reddit-deep/gradadmissions/1t3imnx.md#c3"
-    char_span: [3927, 6144]
+    char_span: [3926, 6143]
     sentence_count: 6
     key_terms: [engineering, degree, program, chemistry, chemical, masters, people, university]
     section: Comments

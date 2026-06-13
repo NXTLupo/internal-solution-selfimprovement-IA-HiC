@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1l63pci.md#c0"
-    char_span: [0, 1230]
+    char_span: [0, 1229]
     sentence_count: 6
     key_terms: [internship, internships, remote, data, comments, projects, looking, science]
-    token_count: 267
+    token_count: 266
 ---
 # Looking for Advice: How to Get a Remote Internship in Data Science / AI / ML as a Student from India?
 

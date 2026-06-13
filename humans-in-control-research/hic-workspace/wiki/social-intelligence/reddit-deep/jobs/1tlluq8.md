@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1tlluq8.md#c0"
-    char_span: [0, 286]
+    char_span: [0, 285]
     sentence_count: 1
     key_terms: [comments, practical-welder2302, jobs, need, reddit-deep, internship, developer, full-time]
-    token_count: 83
+    token_count: 82
 ---
 # Need Internship / Full-Time Job as Software Developer — Need Guidance
 

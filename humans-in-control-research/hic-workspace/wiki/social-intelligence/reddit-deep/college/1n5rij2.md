@@ -23,31 +23,31 @@ chunks:
     key_terms: [because, college, full-time, comments, student, campus, "i'm", move]
     token_count: 180
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c1"
-    char_span: [789, 2261]
+    char_span: [788, 2260]
     sentence_count: 9
     key_terms: [ancientnoise1757, applied, parents, doing, fafsa, room, semester, college]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c2"
-    char_span: [2263, 3177]
+    char_span: [2262, 3176]
     sentence_count: 10
     key_terms: [work, "didn't", though, radiant-pianist-3596, back, did, duty, got]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c3"
-    char_span: [3179, 5124]
+    char_span: [3178, 5123]
     sentence_count: 14
     key_terms: [work, school, doing, shifts, car, hrs, semester, campus]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c4"
-    char_span: [4881, 5522]
+    char_span: [4880, 5521]
     sentence_count: 6
     key_terms: [car, college, parents, paying, people, coachinteresting7125, lot, rent]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/college/1n5rij2.md#c5"
-    char_span: [5524, 7032]
+    char_span: [5523, 7031]
     sentence_count: 14
     key_terms: [campus, maintenancelazy, parents, living, maybe, tuition, common, family]
     section: Comments

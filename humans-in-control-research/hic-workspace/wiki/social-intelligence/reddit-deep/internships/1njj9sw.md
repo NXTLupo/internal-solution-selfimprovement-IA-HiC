@@ -7,13 +7,13 @@ subreddit: "internships"
 title: "1700+ applications, 1 offer, 13 Months of Struggling"
 author: "PiggyTheFloyd"
 date: "2025-09-17T17:18:43.000Z"
-score: 109
+score: 110
 upvote_ratio: 0.97
 num_comments: 11
 flair: "Offers"
-extracted_at: "2026-06-03T18:34:48.713Z"
+extracted_at: "2026-06-08T17:32:14.347Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1njj9sw.md#c0"
     char_span: [0, 2097]
@@ -35,7 +35,7 @@ chunks:
 # 1700+ applications, 1 offer, 13 Months of Struggling
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1njj9sw/1700_applications_1_offer_13_months_of_struggling/)
-Posted by **PiggyTheFloyd** · **109↑** · **11 comments**
+Posted by **PiggyTheFloyd** · **110↑** · **11 comments**
 
 13 months ago, I started my full-time job search: nervous, hopeful, and lost. I got top-tier university in data science, and also got 4 internships during college. Even 2 are big names, all proved useless and meaningless in front of the brutal job market. I want to be honest for my only 1 offer from 1700+ applications: It definitely wasn’t lucky, this market in 2025 is brutal. I worked through Christmas eve. I rewrote my resume while everyone was on vacation. I stopped applying blindly and started asking myself: What are meaningful actions? Here’s what I learned from my experience during this period.
 

@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/cad8bd0b86.md#c0"
-    char_span: [0, 2216]
+    char_span: [0, 2215]
     sentence_count: 10
     key_terms: [school, people, texas, medical, like, schools, great, applyingtocollege]
-    token_count: 484
+    token_count: 483
   - id: "articles/reddit-deep-r-applyingtocollege/cad8bd0b86.md#c1"
-    char_span: [2218, 2683]
+    char_span: [2217, 2682]
     sentence_count: 4
     key_terms: [columbia, much-strawberry-7750, particularly, zoinkability, elaborate, jamjam125, reputable, avoiding]
     token_count: 120

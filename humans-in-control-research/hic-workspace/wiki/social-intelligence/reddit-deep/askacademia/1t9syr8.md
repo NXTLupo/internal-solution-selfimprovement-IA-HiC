@@ -23,7 +23,7 @@ chunks:
     key_terms: [program, college, askacademia, conferences, been, sure, prospects, comments]
     token_count: 477
   - id: "social-intelligence/reddit-deep/askacademia/1t9syr8.md#c1"
-    char_span: [2281, 3733]
+    char_span: [2280, 3732]
     sentence_count: 18
     key_terms: [yourself, recommendation, "don't", conferences, networking, already, travel, academiathrow5371]
     section: Comments

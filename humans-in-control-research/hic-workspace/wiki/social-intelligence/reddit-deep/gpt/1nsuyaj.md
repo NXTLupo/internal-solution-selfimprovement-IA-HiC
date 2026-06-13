@@ -18,17 +18,17 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c0"
-    char_span: [0, 2187]
+    char_span: [0, 2186]
     sentence_count: 18
     key_terms: [transcript, summary, validator, gpt, uploaded, case, dialogue, respond]
-    token_count: 513
+    token_count: 512
   - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c1"
-    char_span: [2189, 4365]
+    char_span: [2188, 4364]
     sentence_count: 4
     key_terms: [case, transcript, line, validator, taxonomy, section, blank, headers]
     token_count: 504
   - id: "social-intelligence/reddit-deep/gpt/1nsuyaj.md#c2"
-    char_span: [4367, 4894]
+    char_span: [4366, 4893]
     sentence_count: 6
     key_terms: [transcript, validator, output, names, never, case, file, unreadable]
     token_count: 124

@@ -15,22 +15,22 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c0"
-    char_span: [0, 1778]
+    char_span: [0, 1777]
     sentence_count: 6
     key_terms: [affective, cognitive, consciousness, architecture, deeplearning, state, real, nutshells1]
-    token_count: 393
+    token_count: 392
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c1"
-    char_span: [1780, 4422]
+    char_span: [1779, 4421]
     sentence_count: 16
     key_terms: [universe, probabilistic, recursive, pocket, within, hypothesis, simulation, indistinguishable]
     token_count: 501
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c2"
-    char_span: [4424, 6315]
+    char_span: [4423, 6314]
     sentence_count: 9
     key_terms: [probabilistic, indistinguishability, epistemic, inference, indistinguishable, through, supset, level]
     token_count: 434
   - id: "articles/reddit-deep-r-deeplearning/1beea91bf1.md#c3"
-    char_span: [6320, 6960]
+    char_span: [6319, 6959]
     sentence_count: 14
     key_terms: ["it's", application, experiences, personality, continuous, eventually, personally, dictating]
     token_count: 134

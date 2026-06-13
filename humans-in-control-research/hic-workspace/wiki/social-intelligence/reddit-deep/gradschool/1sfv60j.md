@@ -23,25 +23,25 @@ chunks:
     key_terms: [school, years, time, graduate, career, going, full, experience]
     token_count: 367
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c1"
-    char_span: [1524, 3404]
+    char_span: [1523, 3403]
     sentence_count: 15
     key_terms: [time, entertainerfree9654, "i'm", school, going, old, pass, graduate]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c2"
-    char_span: [3406, 4782]
+    char_span: [3405, 4781]
     sentence_count: 10
     key_terms: [school, congrats, "direct-from-my-master's", program, working, cohort, years, realistic-age9085]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c3"
-    char_span: [4784, 6665]
+    char_span: [4783, 6664]
     sentence_count: 11
     key_terms: [phd, started, finished, programs, backoutside1, done, "i've", work]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/gradschool/1sfv60j.md#c4"
-    char_span: [6667, 8430]
+    char_span: [6666, 8429]
     sentence_count: 14
     key_terms: [phd, work, school, often, time, research, started, being]
     section: Comments

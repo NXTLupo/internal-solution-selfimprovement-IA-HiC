@@ -23,19 +23,19 @@ chunks:
     key_terms: [semesters, take, gradschool, comments, classes, taking, coffeechangesthings, grad]
     token_count: 137
   - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c1"
-    char_span: [555, 2735]
+    char_span: [554, 2734]
     sentence_count: 14
     key_terms: [summer, grad, time, graduate, round-sense7935, funding, program, through]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c2"
-    char_span: [2737, 4439]
+    char_span: [2736, 4438]
     sentence_count: 10
     key_terms: [semesters, graduate, time, work, student, summer, grad, research]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/gradschool/1qpaabt.md#c3"
-    char_span: [4441, 6382]
+    char_span: [4440, 6381]
     sentence_count: 14
     key_terms: [year, research, work, hours, take, classes, years, time]
     section: Comments

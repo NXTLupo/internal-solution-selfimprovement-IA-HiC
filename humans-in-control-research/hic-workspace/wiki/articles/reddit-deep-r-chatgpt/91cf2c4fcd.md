@@ -15,22 +15,22 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c0"
-    char_span: [0, 2257]
+    char_span: [0, 2256]
     sentence_count: 17
     key_terms: [car, electricity, simply, autonomous, chatgpt, morning, service, future]
-    token_count: 466
+    token_count: 465
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c1"
-    char_span: [2259, 4598]
+    char_span: [2258, 4597]
     sentence_count: 22
     key_terms: [groceries, order, car, generate, simply, entertainment, units, game]
     token_count: 466
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c2"
-    char_span: [4600, 7198]
+    char_span: [4599, 7197]
     sentence_count: 20
     key_terms: [work, people, services, economy, evolved, administrative, infrastructure, conversation]
     token_count: 510
   - id: "articles/reddit-deep-r-chatgpt/91cf2c4fcd.md#c3"
-    char_span: [7200, 8761]
+    char_span: [7199, 8760]
     sentence_count: 12
     key_terms: [create, openai, game, character, subreddit, concerns, together, whatever]
     token_count: 381

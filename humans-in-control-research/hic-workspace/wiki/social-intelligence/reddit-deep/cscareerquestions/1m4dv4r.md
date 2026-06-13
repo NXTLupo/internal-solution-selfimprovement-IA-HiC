@@ -23,79 +23,79 @@ chunks:
     key_terms: [cscareerquestions, saturated, comments, https, com, reddit, never, years]
     token_count: 326
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c1"
-    char_span: [1318, 3123]
+    char_span: [1317, 3122]
     sentence_count: 6
     key_terms: [people, trend, normal, new, transitory, permanent, opposite, because]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c2"
-    char_span: [3125, 4256]
+    char_span: [3124, 4255]
     sentence_count: 10
     key_terms: [level, entry, including, scarcity, deleted, people, does, patrickisgreat]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c3"
-    char_span: [4258, 6137]
+    char_span: [4257, 6136]
     sentence_count: 15
     key_terms: [people, saturated, yoe, upskilling, future, redact, illustrious-pound266, complete-orchid3896]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c4"
-    char_span: [6139, 7802]
+    char_span: [6138, 7801]
     sentence_count: 8
     key_terms: [people, time, industry, technologies, development, new, tech, definitely]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c5"
-    char_span: [7805, 9800]
+    char_span: [7804, 9799]
     sentence_count: 10
     key_terms: [people, skilled, jobs, created, "that's", "don't", developer, economic]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c6"
-    char_span: [9804, 11900]
+    char_span: [9803, 11899]
     sentence_count: 12
     key_terms: [years, coming, market, tech, too, increasing, struggling, attrition]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c7"
-    char_span: [11678, 12222]
+    char_span: [11677, 12221]
     sentence_count: 4
     key_terms: [competent, growth, years, year, projections, bug-ridden, projected, bootcamp]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c8"
-    char_span: [12224, 12685]
+    char_span: [12223, 12684]
     sentence_count: 4
     key_terms: [functionality, outsourcing, fictitious, increasing, ownership, upkeeping, honestly, company]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c9"
-    char_span: [12687, 14654]
+    char_span: [12686, 14653]
     sentence_count: 14
     key_terms: [u-s-economy-added-818000-fewer-jobs-than-first-reported-sign-job-market-has-been-slowing, job, government, why-fear-government-data-u-125933904, "don't", https, trust, "it's"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c10"
-    char_span: [14656, 16583]
+    char_span: [14655, 16582]
     sentence_count: 7
     key_terms: [sub, industry, ghost-engineers-stanford-study-4643, people, being, govt, developers, americans]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c11"
-    char_span: [16585, 18604]
+    char_span: [16584, 18603]
     sentence_count: 11
     key_terms: [developers, industry, produces, throwaway133731, people, being, "it's", jobs]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c12"
-    char_span: [18606, 20542]
+    char_span: [18605, 20541]
     sentence_count: 12
     key_terms: [engineers, software, people, too, graduates, european, saturate, because]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m4dv4r.md#c13"
-    char_span: [20545, 21236]
+    char_span: [20544, 21235]
     sentence_count: 4
     key_terms: [programming, market, people, though, seats, like, self-learned, automatable]
     section: Comments

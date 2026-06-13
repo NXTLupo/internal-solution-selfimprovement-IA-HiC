@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, robotics, williams, school, years, best, long, term]
     token_count: 515
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxa9hx.md#c1"
-    char_span: [2360, 2613]
+    char_span: [2359, 2612]
     sentence_count: 3
     key_terms: [fragrantbluebird8106, masters, considered, graduate, normally, realized, amount, doing]
     section: Comments

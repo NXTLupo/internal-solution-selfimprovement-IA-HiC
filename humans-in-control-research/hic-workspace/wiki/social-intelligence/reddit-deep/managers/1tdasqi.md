@@ -23,43 +23,43 @@ chunks:
     key_terms: [team, low, comments, managers, keeping, performers, processes, person]
     token_count: 359
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c1"
-    char_span: [1499, 3541]
+    char_span: [1498, 3540]
     sentence_count: 10
     key_terms: [everything, knowledge, document, someone, ron, difference, sometimes, enormous]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c2"
-    char_span: [3543, 5397]
+    char_span: [3542, 5396]
     sentence_count: 11
     key_terms: [employee, lot, manager, someone, uncomfortable, bad, get, experience]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c3"
-    char_span: [5399, 7538]
+    char_span: [5398, 7537]
     sentence_count: 12
     key_terms: [work, hiring, years, departments, replacement, impossible, probation, backfill]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c4"
-    char_span: [7540, 9305]
+    char_span: [7539, 9304]
     sentence_count: 10
     key_terms: [person, sometimes, "it's", team, personality, got, everyone, because]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c5"
-    char_span: [9307, 11296]
+    char_span: [9306, 11295]
     sentence_count: 8
     key_terms: [low, person, performers, get, someone, fired, backfill, everyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c6"
-    char_span: [11011, 12981]
+    char_span: [11010, 12980]
     sentence_count: 12
     key_terms: [thatfeelingisbliss88, "don't", people, person, sharing-about-his-personal-life, like, want, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1tdasqi.md#c7"
-    char_span: [12759, 13436]
+    char_span: [12758, 13435]
     sentence_count: 6
     key_terms: [sometimes, "don't", team, someone, person, let, like, soggy-attempt]
     section: Comments

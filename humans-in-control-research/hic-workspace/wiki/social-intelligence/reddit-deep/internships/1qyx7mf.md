@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, international, business, freshman, advice, analytics, comments, freshmen]
     token_count: 302
   - id: "social-intelligence/reddit-deep/internships/1qyx7mf.md#c1"
-    char_span: [1456, 1920]
+    char_span: [1455, 1919]
     sentence_count: 5
     key_terms: [looking, university, kind, post, content-cash3836, administrative, iphone1234789, specifically]
     section: Comments

@@ -48,7 +48,7 @@ chunks:
     key_terms: [https, waterloo, sugar-bush-tours-add-as-many-tickets-as-you-need, easter, claytime-tickets-1979743521165, com, egg, www]
     token_count: 498
   - id: "social-intelligence/reddit-deep/waterloo/1savqnq.md#c6"
-    char_span: [10090, 10622]
+    char_span: [10090, 10621]
     sentence_count: 2
     key_terms: [fragrant-divide240, queensmount-arena-skate-jam, mystery, murder, neglectovduty1999, ilikecrunchyfood, skateboarding, echinodermae]
     section: Comments

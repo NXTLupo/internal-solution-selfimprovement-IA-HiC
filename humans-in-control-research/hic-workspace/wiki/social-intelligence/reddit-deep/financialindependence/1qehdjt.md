@@ -53,49 +53,49 @@ chunks:
     key_terms: [ab-1482-california-tenant-protection-act-2019, stay, increases, landlords, control, points, been, get]
     token_count: 252
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c7"
-    char_span: [10264, 11339]
+    char_span: [10263, 11338]
     sentence_count: 7
     key_terms: [friends, relationship, climbing, travel, certain-avocado-1012, goals, "i'm", "it's"]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c8"
-    char_span: [11341, 13148]
+    char_span: [11340, 13147]
     sentence_count: 14
     key_terms: [spending, people, market, cola, keep, year, withdrawal, inflation]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c9"
-    char_span: [13150, 15145]
+    char_span: [13149, 15144]
     sentence_count: 13
     key_terms: [years, amount, portfolio, withdrawing, ago, year, spending, withdraw]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c10"
-    char_span: [15147, 15556]
+    char_span: [15146, 15555]
     sentence_count: 3
     key_terms: [percentage, model, year, flexibility, retirement, withdrawal, calculate, financial]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c11"
-    char_span: [15558, 17582]
+    char_span: [15557, 17581]
     sentence_count: 16
     key_terms: [doing, useful, "it's", risk, retirement, sequence, million, change]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c12"
-    char_span: [17316, 18557]
+    char_span: [17315, 18556]
     sentence_count: 11
     key_terms: [pitch, inreach, garmin, scares, life, representation, fundamentally, unfortunately]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c13"
-    char_span: [18559, 19524]
+    char_span: [18558, 19523]
     sentence_count: 8
     key_terms: [lawyer, love, excellent, details, friends, alaska, hungn3, skurka]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/financialindependence/1qehdjt.md#c14"
-    char_span: [19526, 20756]
+    char_span: [19525, 20755]
     sentence_count: 9
     key_terms: ["it's", show, probably, hungn3, people, great, songs, story]
     section: Comments

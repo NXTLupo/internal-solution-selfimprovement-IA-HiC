@@ -23,7 +23,7 @@ chunks:
     key_terms: [mechatronics, sydney, internship, engineeringstudents, research, engineering, comments, position]
     token_count: 280
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ojkw6w.md#c1"
-    char_span: [1294, 1757]
+    char_span: [1293, 1756]
     sentence_count: 3
     key_terms: [like, communities, experiences, internships, cadetships, tetaaaaaa, anything, applying]
     section: Comments

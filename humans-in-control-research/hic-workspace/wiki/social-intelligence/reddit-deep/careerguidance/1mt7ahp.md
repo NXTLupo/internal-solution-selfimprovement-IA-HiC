@@ -21,85 +21,85 @@ chunks:
     key_terms: [job, careerguidance, work, currently, comments, evening, around, intelligent-text-812]
     token_count: 342
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c1"
-    char_span: [1347, 1420]
+    char_span: [1346, 1419]
     sentence_count: 1
     key_terms: [geohog713, stress, day, jobs, like, low, man, "we'd"]
     section: Comments
     token_count: 27
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c2"
-    char_span: [1423, 3355]
+    char_span: [1422, 3354]
     sentence_count: 10
     key_terms: [days, hospital, people, construction, definitely, patients, possible, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c3"
-    char_span: [3164, 3490]
+    char_span: [3163, 3489]
     sentence_count: 3
     key_terms: [intelligent-text-812, days, week, cakerobot365, government, following, geohog713, notkerbal]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c4"
-    char_span: [3492, 5004]
+    char_span: [3491, 5003]
     sentence_count: 15
     key_terms: [overtime, similarcomfortable69, stressful, stress, job, management, understand, mornings]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c5"
-    char_span: [5006, 5876]
+    char_span: [5005, 5875]
     sentence_count: 7
     key_terms: [trash, absolutely, making, "you'll", intelligent-text-812, similarcomfortable69, guys, job]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c6"
-    char_span: [5878, 7718]
+    char_span: [5877, 7717]
     sentence_count: 16
     key_terms: [estate, real, stress, around, commercial, "that's", intelligent-text-812, nerdsrulelovealways]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c7"
-    char_span: [7720, 9650]
+    char_span: [7719, 9649]
     sentence_count: 13
     key_terms: [estate, real, properties, currently, company, rentals, savings, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c8"
-    char_span: [9448, 10622]
+    char_span: [9447, 10621]
     sentence_count: 9
     key_terms: [estate, look, real, industry, jobs, inspector, mentioned, building]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c9"
-    char_span: [10624, 12544]
+    char_span: [10623, 12543]
     sentence_count: 24
     key_terms: [college, telling, county, people, school, "don't", been, something]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c10"
-    char_span: [12546, 14633]
+    char_span: [12545, 14632]
     sentence_count: 17
     key_terms: [paycheck, "i've", comfortable, attention, adhd, college, therapy, graduated]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c11"
-    char_span: [14635, 16322]
+    char_span: [14634, 16321]
     sentence_count: 16
     key_terms: [definitely, something, get, like, people, "don't", lot, disabled]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c12"
-    char_span: [16324, 18430]
+    char_span: [16323, 18429]
     sentence_count: 17
     key_terms: [adhd, working, accommodations, get, jobs, mentioned, situation, symptoms]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c13"
-    char_span: [18200, 19699]
+    char_span: [18199, 19698]
     sentence_count: 14
     key_terms: [jobs, retail, organizational, permitting, something, soff10, horror-judgment-6937, intelligent-text-812]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7ahp.md#c14"
-    char_span: [19701, 20907]
+    char_span: [19700, 20906]
     sentence_count: 9
     key_terms: [savings, learning, higher, invest, maxing, pursue, intelligent-text-812, least]
     section: Comments

@@ -21,31 +21,31 @@ chunks:
     key_terms: [college, become, seems, study, good, want, comments, useless]
     token_count: 228
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c1"
-    char_span: [931, 3060]
+    char_span: [930, 3059]
     sentence_count: 13
     key_terms: [college, classes, field, undecided, fields, competitive, don, like]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c2"
-    char_span: [3062, 4792]
+    char_span: [3061, 4791]
     sentence_count: 7
     key_terms: [college, get, years, time, people, job, year, spending]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c3"
-    char_span: [4794, 5867]
+    char_span: [4793, 5866]
     sentence_count: 5
     key_terms: [path, career, degree, professor, believe, college, become, having]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c4"
-    char_span: [5869, 8073]
+    char_span: [5868, 8072]
     sentence_count: 17
     key_terms: [degree, college, business, engineering, job, time, figure, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l9yk6w.md#c5"
-    char_span: [7786, 8490]
+    char_span: [7785, 8489]
     sentence_count: 6
     key_terms: [community, something, college, options, bit, less, life, tiny-vampcat6678]
     section: Comments

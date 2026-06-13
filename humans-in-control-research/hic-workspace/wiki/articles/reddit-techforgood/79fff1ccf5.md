@@ -15,10 +15,10 @@ industries: [nonprofit, saas]
 industry_method: llm
 chunks:
   - id: "articles/reddit-techforgood/79fff1ccf5.md#c0"
-    char_span: [0, 985]
+    char_span: [0, 984]
     sentence_count: 10
     key_terms: [techforgood, gdpr, building, feedback, partner, reddit, draft, rooms]
-    token_count: 242
+    token_count: 241
 ---
 # Feedback request: GDPR‑safe ‘partner rooms’ for nonprofits – worth building?
 

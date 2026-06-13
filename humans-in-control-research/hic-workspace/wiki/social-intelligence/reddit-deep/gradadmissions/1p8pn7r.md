@@ -33,13 +33,13 @@ chunks:
     key_terms: [physics, get, help, graduate, letters, program, advice, longer]
     token_count: 361
   - id: "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c3"
-    char_span: [4437, 6431]
+    char_span: [4436, 6430]
     sentence_count: 13
     key_terms: [phd, ranked, research, program, profs, competitive, get, need]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/gradadmissions/1p8pn7r.md#c4"
-    char_span: [6433, 7490]
+    char_span: [6432, 7489]
     sentence_count: 9
     key_terms: [physics, research, phd, difficult, classes, python, "don't", core]
     section: Comments

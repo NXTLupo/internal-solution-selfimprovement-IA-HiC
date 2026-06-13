@@ -23,61 +23,61 @@ chunks:
     key_terms: [students, writing, years, teaching, "don't", professors, comments, podcasts]
     token_count: 497
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c1"
-    char_span: [2222, 4167]
+    char_span: [2221, 4166]
     sentence_count: 12
     key_terms: [writing, teaching, convenience, discipline, thousands, practice, people, "you're"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c2"
-    char_span: [4169, 5630]
+    char_span: [4168, 5629]
     sentence_count: 7
     key_terms: [calculators, consequence, risk, something, college, deleted, getting, credit]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c3"
-    char_span: [5632, 7812]
+    char_span: [5631, 7811]
     sentence_count: 17
     key_terms: [online, students, classes, person, in-person, material, without, working]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c4"
-    char_span: [7814, 9550]
+    char_span: [7813, 9549]
     sentence_count: 11
     key_terms: [students, synchronous, education, classes, online, participating, asynchronous, challenges]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c5"
-    char_span: [9552, 10429]
+    char_span: [9551, 10428]
     sentence_count: 8
     key_terms: [abused, because, centers, testing, alone-guarantee-9646, wow, antique-flan2500, bibliophilebroad]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c6"
-    char_span: [10431, 12411]
+    char_span: [10430, 12410]
     sentence_count: 13
     key_terms: [students, online, summer, class, competitive, pandemic, teaching, courses]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c7"
-    char_span: [12413, 13470]
+    char_span: [12412, 13469]
     sentence_count: 6
     key_terms: [school, courses, online, job, course-by-course, residencies, invaluable, shockingly]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c8"
-    char_span: [13472, 15473]
+    char_span: [13471, 15472]
     sentence_count: 15
     key_terms: [vespula0987654321, life, community, podcasts, college, history, student, writing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c9"
-    char_span: [15260, 15784]
+    char_span: [15259, 15783]
     sentence_count: 4
     key_terms: [podcast, word, presentation, assignment, beatissima, convincing, difference, generated]
     section: Comments
     token_count: 129
   - id: "social-intelligence/reddit-deep/professors/1lgi13y.md#c10"
-    char_span: [15786, 17829]
+    char_span: [15785, 17828]
     sentence_count: 16
     key_terms: [online, notebooklm-audio-overviews, technology, https, years, education, examination-books, scartonbot]
     section: Comments

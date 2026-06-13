@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1rhcd0r.md
 url: "https://www.reddit.com/r/findapath/comments/1rhcd0r/barista_with_a_bachelors_where_to_go_from_here/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,42 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.475Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1rhcd0r.md#c0"
+    char_span: [0, 2049]
+    sentence_count: 13
+    key_terms: [chinese, degree, "i'd", "didn't", doing, competitive, here, "i'm"]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/findapath/1rhcd0r.md#c1"
+    char_span: [2053, 3048]
+    sentence_count: 9
+    key_terms: ["i'm", like, "i've", reasonable, classes, enjoyed, "don't", ideas]
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/findapath/1rhcd0r.md#c2"
+    char_span: [3063, 5193]
+    sentence_count: 16
+    key_terms: [thank, helpful, people, please, good, here, shoty6966-, situations]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/findapath/1rhcd0r.md#c3"
+    char_span: [5195, 7111]
+    sentence_count: 17
+    key_terms: [business, chinese, did, eventually, transition, anything, lartinos, english]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/findapath/1rhcd0r.md#c4"
+    char_span: [7113, 8931]
+    sentence_count: 10
+    key_terms: [security, job, considered, clearance, agencies, military, service, europe]
+    section: Comments
+    token_count: 406
+  - id: "social-intelligence/reddit-deep/findapath/1rhcd0r.md#c5"
+    char_span: [8933, 10633]
+    sentence_count: 11
+    key_terms: [wars, agencies, military, joining, studies, moment, pretty, pursue]
+    section: Comments
+    token_count: 377
 ---
-
 # Barista with a Bachelors. Where to go from here?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1rhcd0r/barista_with_a_bachelors_where_to_go_from_here/)

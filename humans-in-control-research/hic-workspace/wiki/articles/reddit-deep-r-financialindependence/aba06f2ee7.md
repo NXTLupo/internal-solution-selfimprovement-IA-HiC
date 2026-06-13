@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-financialindependence/aba06f2ee7.md#c0"
-    char_span: [0, 1474]
+    char_span: [0, 1473]
     sentence_count: 4
     key_terms: [financialindependence, insurance, reddit, roth, brokerage, comments, current, monthly]
-    token_count: 450
+    token_count: 449
   - id: "articles/reddit-deep-r-financialindependence/aba06f2ee7.md#c1"
-    char_span: [1476, 3379]
+    char_span: [1475, 3378]
     sentence_count: 16
     key_terms: [current, future, never, years, investments, get, "i'd", less]
     token_count: 448
   - id: "articles/reddit-deep-r-financialindependence/aba06f2ee7.md#c2"
-    char_span: [3381, 4098]
+    char_span: [3380, 4097]
     sentence_count: 6
     key_terms: [congratulations, idratherbeinegypt, work, vanillalifestyle, talicenseplate, encouragement, dedication, indicative]
     token_count: 193

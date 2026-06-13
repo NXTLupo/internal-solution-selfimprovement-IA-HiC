@@ -23,19 +23,19 @@ chunks:
     key_terms: [free, investing, portfolio, comments, general, being, tools, data]
     token_count: 186
   - id: "social-intelligence/reddit-deep/investing/1maszho.md#c1"
-    char_span: [846, 2185]
+    char_span: [845, 2184]
     sentence_count: 10
     key_terms: [g-68bb1f3f309481919ef708236b4a4078-stock-market-intelligence-stocks-etf-crypto, competitive-play-660, worked, martin-life-learner, tools, using, gpt, like]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/investing/1maszho.md#c2"
-    char_span: [2187, 3714]
+    char_span: [2186, 3713]
     sentence_count: 8
     key_terms: [analysis, portfolio, inquisitor--nox, brokerbotics, chartlense, research, downtown-island1478, tools]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/investing/1maszho.md#c3"
-    char_span: [3718, 5085]
+    char_span: [3717, 5084]
     sentence_count: 8
     key_terms: [downtown-island1478, research, been, like, something, insights, amsflow, company]
     section: Comments

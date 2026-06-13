@@ -21,19 +21,19 @@ chunks:
     key_terms: [experience, "i'm", jobs, assistant, comments, specific, getting, admin]
     token_count: 232
   - id: "social-intelligence/reddit-deep/jobs/1ozaqgi.md#c1"
-    char_span: [1023, 3047]
+    char_span: [1022, 3046]
     sentence_count: 15
     key_terms: [experience, benedictcumberknits, together, working, find, job, something, venting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ozaqgi.md#c2"
-    char_span: [2824, 3230]
+    char_span: [2823, 3229]
     sentence_count: 5
     key_terms: [degree, benedictcumberknits, find, recession, strangers, homicide, language, believe]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/jobs/1ozaqgi.md#c3"
-    char_span: [3232, 3962]
+    char_span: [3231, 3961]
     sentence_count: 9
     key_terms: [experience, college, degree, market, right, dazzling-lead-8557, don, need]
     section: Comments

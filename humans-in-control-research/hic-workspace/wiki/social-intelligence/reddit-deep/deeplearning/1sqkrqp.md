@@ -23,7 +23,7 @@ chunks:
     key_terms: [real-time, rtf, decoder, cpu, piper, onnx, vits, deeplearning]
     token_count: 460
   - id: "social-intelligence/reddit-deep/deeplearning/1sqkrqp.md#c1"
-    char_span: [1533, 3522]
+    char_span: [1533, 3521]
     sentence_count: 8
     key_terms: [architecture, blog, gauravvij, frontier, variants, better, faster, github]
     token_count: 431

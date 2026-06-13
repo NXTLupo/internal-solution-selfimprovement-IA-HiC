@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, philosophy, berkeley, comments, majoring, student, totally, super-pomegranate339]
     token_count: 221
   - id: "social-intelligence/reddit-deep/careerguidance/1shbz7j.md#c1"
-    char_span: [931, 2658]
+    char_span: [930, 2657]
     sentence_count: 12
     key_terms: ["you're", experience, majors, philosophy, marketing, super-pomegranate339, lazy-protection3749, psych]
     section: Comments

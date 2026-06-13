@@ -21,25 +21,25 @@ chunks:
     key_terms: [careerguidance, comments, career, good, responsibilities, reddit-deep, effective, seriously]
     token_count: 145
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c1"
-    char_span: [613, 2574]
+    char_span: [612, 2573]
     sentence_count: 19
     key_terms: [work, email, priority, minutes, non, ones, coworkers, straight]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c2"
-    char_span: [2576, 4163]
+    char_span: [2575, 4162]
     sentence_count: 17
     key_terms: [work, being, biggest, instead, answer, asking, better, impact]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c3"
-    char_span: [4165, 5949]
+    char_span: [4164, 5948]
     sentence_count: 12
     key_terms: [being, pivot, don, people, tables, boss, work, personable]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/careerguidance/1p6xwrj.md#c4"
-    char_span: [5951, 7398]
+    char_span: [5950, 7397]
     sentence_count: 11
     key_terms: [fun, time, promotion, everyone, getting, instead, always, having]
     section: Comments

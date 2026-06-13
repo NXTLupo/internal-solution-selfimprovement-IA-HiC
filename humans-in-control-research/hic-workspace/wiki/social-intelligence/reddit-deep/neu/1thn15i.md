@@ -21,25 +21,25 @@ chunks:
     key_terms: ["i've", international, co-op, get, interviews, anything, applying, comments]
     token_count: 389
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c1"
-    char_span: [1744, 3635]
+    char_span: [1743, 3634]
     sentence_count: 17
     key_terms: [internships, spring, co-op, complete, position, summer, alternatively, good]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c2"
-    char_span: [3637, 5679]
+    char_span: [3636, 5678]
     sentence_count: 22
     key_terms: [program, ambulance, kids, students, like, internship, ackman747, marketing]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c3"
-    char_span: [5681, 7972]
+    char_span: [5680, 7971]
     sentence_count: 20
     key_terms: [year, co-op, northeastern, co-ops, instead, student, doesn, worth]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/neu/1thn15i.md#c4"
-    char_span: [7974, 9770]
+    char_span: [7973, 9769]
     sentence_count: 12
     key_terms: [co-op, guaranteed, co-ops, students, school, roles, student, job]
     section: Comments

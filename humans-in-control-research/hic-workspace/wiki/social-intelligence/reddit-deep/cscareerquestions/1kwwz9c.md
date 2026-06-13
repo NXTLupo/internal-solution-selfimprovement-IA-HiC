@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, want, comments, career, path, reddit-deep, direction, children]
     token_count: 133
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kwwz9c.md#c1"
-    char_span: [474, 675]
+    char_span: [473, 674]
     sentence_count: 1
     key_terms: [entrepreneurhuge5008, nomadicscribe, criminal, stosphia, justice, thought, circle, "what's"]
     section: Comments

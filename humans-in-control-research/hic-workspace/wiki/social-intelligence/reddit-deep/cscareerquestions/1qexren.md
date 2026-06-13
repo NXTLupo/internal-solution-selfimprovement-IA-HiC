@@ -28,25 +28,25 @@ chunks:
     key_terms: [like, going, don, making, code, keep, want, something]
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c2"
-    char_span: [4183, 5801]
+    char_span: [4182, 5800]
     sentence_count: 9
     key_terms: [company, problem, development, executives, production, unfiltered, redact, resume]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c3"
-    char_span: [5806, 7687]
+    char_span: [5805, 7686]
     sentence_count: 12
     key_terms: ["it's", code, professional, going, performance, fantastic, continue, another]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c4"
-    char_span: [7689, 9923]
+    char_span: [7688, 9922]
     sentence_count: 16
     key_terms: [get, build, explain, architecture, down, production, important, probably]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qexren.md#c5"
-    char_span: [9925, 11117]
+    char_span: [9924, 11116]
     sentence_count: 7
     key_terms: [coding, claude, engineering, code, production, diagrams, security, rules]
     section: Comments

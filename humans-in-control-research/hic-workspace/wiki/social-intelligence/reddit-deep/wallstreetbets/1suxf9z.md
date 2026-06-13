@@ -28,31 +28,31 @@ chunks:
     key_terms: [poet, long-term, portfolio, bullish, trimmed, scholarship-funded, high, rollercoaster]
     token_count: 159
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c2"
-    char_span: [2648, 3585]
+    char_span: [2647, 3584]
     sentence_count: 1
     key_terms: [existing-mammoth-315, discord, months, total, ago, best, poet, wsb]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c3"
-    char_span: [3587, 5018]
+    char_span: [3586, 5017]
     sentence_count: 4
     key_terms: [chance, back, like, preview, format, existing-mammoth-315, rutherfordrevelation, https]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c4"
-    char_span: [5020, 5616]
+    char_span: [5019, 5615]
     sentence_count: 3
     key_terms: [veganturkishbaklava, riskismyapellido, administration, gym6daysaweek, meaningfully, surveillance, comfortable, shinobinc]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c5"
-    char_span: [5620, 7116]
+    char_span: [5619, 7115]
     sentence_count: 5
     key_terms: [existing-mammoth-315, d0379effc72adad9b5e2c68be3661ed6401162db, poet, preview, selling, cramer, format, honor]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suxf9z.md#c6"
-    char_span: [7118, 8270]
+    char_span: [7117, 8269]
     sentence_count: 6
     key_terms: [sonnythecoolboy, existing-mammoth-315, bigger, shares, right, today, sold, chaingoldstein]
     section: Comments

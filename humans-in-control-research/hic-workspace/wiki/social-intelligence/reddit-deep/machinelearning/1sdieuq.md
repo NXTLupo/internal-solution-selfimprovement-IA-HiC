@@ -28,7 +28,7 @@ chunks:
     key_terms: [topics, reference-free-behavioral-discovery, model, rlhf, factory, farming, planted, topic-specific]
     token_count: 506
   - id: "social-intelligence/reddit-deep/machinelearning/1sdieuq.md#c2"
-    char_span: [4191, 5644]
+    char_span: [4191, 5643]
     sentence_count: 1
     key_terms: [rip-it-out-by-the-roots, layer, behaviors, different, something, auditing, behavior, bmarti44]
     section: Comments

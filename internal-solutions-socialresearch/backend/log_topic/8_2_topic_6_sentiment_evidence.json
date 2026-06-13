@@ -1,0 +1,57 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard's settlement fund acts like a built-in savings account, earning interest at the current short-term rate.",
+      "post_refs": [
+        "1sjuqjs"
+      ]
+    },
+    {
+      "point": "Vanguard provides a clear process for buying mutual funds or trading ETFs and stocks through the settlement fund.",
+      "post_refs": [
+        "1tq64du"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard has issues with transaction delays and settlement times, causing confusion and frustration among users.",
+      "post_refs": [
+        "1q2cfkf",
+        "1sxaw9h",
+        "1rufuka",
+        "1qnp33h",
+        "1qcp71u",
+        "1q37xdq"
+      ]
+    },
+    {
+      "point": "Users experience difficulties with automatic contributions and transfers not going through as expected.",
+      "post_refs": [
+        "1rufuka",
+        "1qcp71u"
+      ]
+    },
+    {
+      "point": "Vanguard's customer service is often slow to respond and resolve issues, leading to user dissatisfaction.",
+      "post_refs": [
+        "1rufuka",
+        "1qcp71u",
+        "1q37xdq"
+      ]
+    },
+    {
+      "point": "There are issues with duplicate transactions and processing errors, causing confusion and potential financial discrepancies.",
+      "post_refs": [
+        "1q4vmt9",
+        "1q37xdq"
+      ]
+    },
+    {
+      "point": "Users find it difficult to track the date of record for transactions, which is not always clearly provided by Vanguard.",
+      "post_refs": [
+        "1srefmo"
+      ]
+    }
+  ]
+}

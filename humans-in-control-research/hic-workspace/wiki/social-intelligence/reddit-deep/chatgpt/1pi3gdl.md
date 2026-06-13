@@ -23,37 +23,37 @@ chunks:
     key_terms: [voice, chatgpt, experience, comments, mode, artemgetman, reddit-deep, constantly]
     token_count: 127
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c1"
-    char_span: [514, 2395]
+    char_span: [513, 2394]
     sentence_count: 19
     key_terms: [chatgpt, pause, please, conversation, image, until, post, r-chatgpt-1050422060352024636]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c2"
-    char_span: [2397, 3386]
+    char_span: [2396, 3385]
     sentence_count: 10
     key_terms: [voice, use, artemgetman, mode, time, without, sounds, like]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c3"
-    char_span: [3388, 5339]
+    char_span: [3387, 5338]
     sentence_count: 13
     key_terms: [voice, artemgetman, daily, avm, use, like, ultrababyvegeta, used]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c4"
-    char_span: [5093, 6372]
+    char_span: [5092, 6371]
     sentence_count: 13
     key_terms: [use, voice, fit-glass-2030, artemgetman, annoying, useless, sounds, going]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c5"
-    char_span: [6374, 8292]
+    char_span: [6373, 8291]
     sentence_count: 16
     key_terms: [use, voice, voice-to-text, artemgetman, mode, because, brainstorming, daily]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1pi3gdl.md#c6"
-    char_span: [8296, 9608]
+    char_span: [8295, 9607]
     sentence_count: 6
     key_terms: [use, voice, feature, problem, conversation, like, time, something]
     section: Comments

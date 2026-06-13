@@ -23,25 +23,25 @@ chunks:
     key_terms: [job, positions, feel, hard, degree, employment, multimedia, part-time]
     token_count: 397
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c1"
-    char_span: [1739, 3828]
+    char_span: [1738, 3827]
     sentence_count: 18
     key_terms: [resume, everything, through, applications, specifically, broad, "isn't", means]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c2"
-    char_span: [3833, 5877]
+    char_span: [3832, 5876]
     sentence_count: 18
     key_terms: [get, resume, need, content, degree, check, internships, work]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c3"
-    char_span: [5879, 6851]
+    char_span: [5878, 6850]
     sentence_count: 8
     key_terms: [around, weezay5000, degree, write, got, job, move, use]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/jobs/1stnfbj.md#c4"
-    char_span: [6853, 8489]
+    char_span: [6852, 8488]
     sentence_count: 10
     key_terms: [linkedin, people, years, portfolio, positions, applying, always, degree]
     section: Comments

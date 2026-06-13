@@ -21,31 +21,31 @@ chunks:
     key_terms: [job, developer, software, working, careerguidance, years, got, comments]
     token_count: 429
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c1"
-    char_span: [1776, 3536]
+    char_span: [1775, 3535]
     sentence_count: 12
     key_terms: ["it's", today, years, get, job, market, being, refusals]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c2"
-    char_span: [3538, 4187]
+    char_span: [3537, 4186]
     sentence_count: 8
     key_terms: [anymore, years, market, field, ago, get, developers, rejections]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c3"
-    char_span: [4189, 6288]
+    char_span: [4188, 6287]
     sentence_count: 10
     key_terms: [code, outlier, job, work, yourself, writing, degree, market]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c4"
-    char_span: [6043, 8123]
+    char_span: [6042, 8122]
     sentence_count: 16
     key_terms: [years, yourself, dyslechtchitect, being, job, life, different, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nqwpv1.md#c5"
-    char_span: [7871, 8979]
+    char_span: [7870, 8978]
     sentence_count: 9
     key_terms: ["it's", language, possible, "that's", focus, grit, like, real]
     section: Comments

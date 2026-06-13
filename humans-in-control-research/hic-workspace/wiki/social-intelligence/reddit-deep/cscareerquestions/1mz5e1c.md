@@ -26,61 +26,61 @@ chunks:
     key_terms: [something, certification, programming, get, too, work, long-term, anything]
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c2"
-    char_span: [3456, 5331]
+    char_span: [3455, 5330]
     sentence_count: 8
     key_terms: [remote, goodnightlondon, caregiver, being, internships, get, jobs, experience]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c3"
-    char_span: [5333, 7382]
+    char_span: [5332, 7381]
     sentence_count: 22
     key_terms: [remote, right, job, being, competitive, too, something, anything]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c4"
-    char_span: [7384, 9477]
+    char_span: [7383, 9476]
     sentence_count: 15
     key_terms: [doordash, dangerous, get, programming, job, jobs, need, getting]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c5"
-    char_span: [9479, 11499]
+    char_span: [9478, 11498]
     sentence_count: 16
     key_terms: [job, like, something, get, career, market, "you're", shit]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c6"
-    char_span: [11501, 12650]
+    char_span: [11500, 12649]
     sentence_count: 8
     key_terms: ["i'm", working, likely, hard, lot, work, lowest-hanging, self-reporting]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c7"
-    char_span: [12652, 14169]
+    char_span: [12651, 14168]
     sentence_count: 13
     key_terms: [health, uniformed, because, officer, service, force, air, too]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c8"
-    char_span: [14171, 15702]
+    char_span: [14170, 15701]
     sentence_count: 9
     key_terms: [clearance, "you're", need, government, enlisting, getting, looking, decent]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c9"
-    char_span: [15704, 16628]
+    char_span: [15703, 16627]
     sentence_count: 6
     key_terms: [defense, career, force, intel, area, got, lots, want]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c10"
-    char_span: [16630, 18606]
+    char_span: [16629, 18605]
     sentence_count: 14
     key_terms: [clearance, "you'll", school, afb, get, got, job, tech]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mz5e1c.md#c11"
-    char_span: [18379, 18782]
+    char_span: [18378, 18781]
     sentence_count: 2
     key_terms: [officer, joking, dont, graduate, sentence, enlist, hiring, listen]
     section: Comments

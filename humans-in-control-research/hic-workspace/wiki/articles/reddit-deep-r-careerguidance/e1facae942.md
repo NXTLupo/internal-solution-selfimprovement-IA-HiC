@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c0"
-    char_span: [0, 1835]
+    char_span: [0, 1834]
     sentence_count: 12
     key_terms: [careerguidance, years, portfolio, personal, liberal, through, trading, career]
-    token_count: 416
+    token_count: 415
   - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c1"
-    char_span: [1837, 3873]
+    char_span: [1836, 3872]
     sentence_count: 8
     key_terms: [additional, business, income, revenue, career, skills, professional, don]
     token_count: 469
   - id: "articles/reddit-deep-r-careerguidance/e1facae942.md#c2"
-    char_span: [3875, 5887]
+    char_span: [3874, 5886]
     sentence_count: 11
     key_terms: [skills, employable, salesforce, tableau, federal-court-reporting-program, role, side, experience]
     token_count: 468

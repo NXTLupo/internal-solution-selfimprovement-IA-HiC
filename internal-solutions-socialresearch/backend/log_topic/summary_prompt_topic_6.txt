@@ -1,0 +1,113 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: account, transaction, money, purchase, settlement fund, vanguard, brokerage
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Click on your account. Click on Transact. Select Buy Mutual Funds or Trade ETFs and Stocks. From there, you're just buying what you want and the amount available for purchases is just the amount in your Settlement Fund.
+
+EXAMPLE 2:
+As to your question, if you successfully deposited $200 into your Vanguard brokerage account, it should still be there in some form. What does the account balance say at the top level? Vanguard brokerage accounts don't hold 'cash' -- any funds not allocated to a particular investment are held in a money market account (VMFXX) until you need them, but that is for all intents and purposes basically cash with a decent interest rate.
+
+EXAMPLE 3:
+Buying funds through my Roth IRA I thought it was possible to purchase funds through my Vanguard Roth IRA account. But When I try to do so, it tells me I must go through my settlement fund to do so as I've already maxed out my contribution for this year. Understandable. But I cannot seem to access this option to use the settlement on the "trade mutual funds" page for this account. I have more than enough money in the Roth settlements fund, and no pending purchases. So, the money is there. I can see it on the page. I just cannot access the option to use this as a funding source. [...]
+
+EXAMPLE 4:
+vanguard account [hello, so I opened up a vanguard brokerage account in around August and I put in around 200 into the account and I didn't do anything with the money and just left it in the account. I'm very new to vanguard and I'm just confused on why I have only 2 cents in my account and if my 200 is still in my account or not? and if it is how can I get my 200 back. I'm 19 and I haven't had the time to learn or really invest in the account because of school and work and study but Im just concerned on where my 200 is and if I can get it back. ](https://preview.redd.it/vi6euqkfbvqf1. [...]
+
+EXAMPLE 5:
+Here is what I'm doing: After I go through "Transact" and "Buy & Sell", entering the ticker symbol and clicking "Trade", I get to the "Trade Mutual Funds" screen and select my brokerage account. I have three. I select the Roth IRA brokerage account and it goes to the "Trade mutual funds" screen. The fund I want to buy appears on the screen above my IRA fund. At this point there is a green bar in the upper right corner telling me I have fully funded my RIRA for 2026. In the left corner is the brokerage account number with the amount in my settlement fund labeled "available for purchase". [...]
+
+EXAMPLE 6:
+Duplicate transaction from banking account to Vanguard brokerage account I have a monthly investment scheduled that automatically withdraw money from my bank checking account to my Vanguard brokerage account. The transaction has always occurred at the beginning of the month. However a few days ago I got 2 alerts in my email about the transaction that were two days apart (on 1st Jan and 3rd Jan) from my Chase checking account to Vanguard. They are of the same amount ($3500).
+
+EXAMPLE 7:
+There is no option at any point in this to select where the money is coming from. I cannot see my settlement fund as an option to pay. It doesn't even let me purchase the fund through my bank account. I have looked at other brokerage accounts of mine and there are different. With those I CAN see the settlement fund with other brokerage accounts. So, for some reason the site seems to think I'm trying to contribute to the RIRA instead of purchasing funds in the brokerage account.
+
+EXAMPLE 8:
+If you already own a fund and you want more, it's even easier. Just click on Transact to the right of the fund that you want to purchase.
+
+EXAMPLE 9:
+Thank you for belonging to the Vanguard community of investors. Similar thing happened to me today, had my monthly autoinvest that’s set up for the first of the month process on 12/31 due to the holiday and then processed a second time today showing the money leaving my bank for the second time. Someone messed up on vanguards end and I’ll be calling on Monday.
+
+EXAMPLE 10:
+I could not contact Vanguard customer service since it is the weekend now but Chase customer service confirmed they see the 2nd transaction as pending (and my balance is deducted twice).
+
+EXAMPLE 11:
+Two things about your screenshot confuse me. First, the Funds Received section says CASH. How did you deposit this $200? Second, it also says (adjustment) on that line, which is a little confusing. In my account, I see neither of those for my activity, as the source is always shown. Also, dividends are typically followed by a Reinvestment line. I'm seeing Sweep Outs, which are normally for purchases, but nothing that shows what was purchased. Is this your full account activity?
+
+EXAMPLE 12:
+The first transaction seems completed as I see it appears as funded in my Vanguard account. However the second transaction appears as pending in my Chase account but it does not appear anywhere in my Vanguard account.
+
+EXAMPLE 13:
+If your account balance says ~$200 at the top, you should be fine and it may just be confusing how the activity is showing in the log. If your account balance is actually only $0.02 or something like that, and you didn't use those funds to buy anything, you should probably call Vanguard ASAP to find out what is going on. The only thing I could think of, assuming your account balance is ~$0.02, is that the initial $200 funding of your account didn't go through or somehow got reversed and Vanguard pulled it back out, but you still received some partial dividend from the period of time it was the [...]
+
+EXAMPLE 14:
+**UPDATE**: I received an email titled “Update on your recent transaction” which says the following:
+
+EXAMPLE 15:
+Edit: spoke to vanguard just now, they are aware of a widespread issue and are working on resolving. Was told I should have money back in my bank account within a week. I can see they updated things in my vanguard account to reflect the issue, but have to wait to get the extra money they took in error back. Goodluck to everyone impacted my this.
+I learned of this from an email I received just now from Vanguard. Fortunately I have enough in my bank to cover the double dip but wtf, this is so incompetent on Vanguard’s part. Email says funds will be returned in 1-3 days. [...]
+
+EXAMPLE 16:
+**Due to a processing error on January 2, 2026, a duplicate automatic purchase was made within your account. We've addressed the cause of the processing issue, and the impacted funds are expected to be restored to the originating bank account within 1 to 3 days. You do not need to take any action.**
+
+EXAMPLE 17:
+At the bottom of the screen are the order amount and "continue order". I click "continue order" and it goes to another screen. It says, in large letters, "You've reached your contribution limit. You have reached your contribution limit for all available tax years and you must use your settlement fund to pay for this order."
+
+EXAMPLE 18:
+Steps to BUY using uninvested funds sitting in your account:
+1. Transact
+2. Enter stock symbol you wish to buy
+3. Click buy
+4. “Select an account” pops up. Choose your Roth if that is where you are buying from. 
+5. Scroll down and buy will be highlighted.  Enter number of shares.   
+6. Select order type market or limit
+7. Choose market if you are DCA, select limit if you want to place your own bid  
+8. If you are placing a limit order you next choose how long you want your limit order to be active. I personally use GTC (good til cancelled     which in reality only sets it for 3 months)
+
+EXAMPLE 19:
+First and foremost, while your screenshot is certainly helpful to see the activity, as without it we would be answering as just a guess, you have left some personal info unredacted in it (name and account number), so I would highly advise you to remove that ASAP. While it is unlikely someone could do something with just that, it exposes you to unnecessary risk.
+
+EXAMPLE 20:
+**We sincerely apologize for this inconvenience. You can track the status of the correction anytime through our website or mobile app in Transaction history.**
+
+EXAMPLE 21:
+If it's still not working, you might need to describe in more detail the steps that you are taking and any messages that you receive.
+Thanks to all for your help.
+
+EXAMPLE 22:
+Has anyone have similar experience and how did you resolve it? I’m hoping it is just a glitch. Thanks!
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -28,7 +28,7 @@ chunks:
     key_terms: [through, anyone, small, transitioning, experiments, transitions, experiment, non-linear]
     token_count: 100
   - id: "social-intelligence/reddit-deep/careeradvice/1n6jpd3.md#c2"
-    char_span: [2737, 3929]
+    char_span: [2736, 3928]
     sentence_count: 20
     key_terms: [passion, work, money, able, singularity, everywhere, fullfilled, energizes]
     section: Comments

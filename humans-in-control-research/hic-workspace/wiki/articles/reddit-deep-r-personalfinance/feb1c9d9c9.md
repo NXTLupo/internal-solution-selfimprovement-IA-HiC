@@ -15,12 +15,12 @@ industries: [financial_services, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/feb1c9d9c9.md#c0"
-    char_span: [0, 2042]
+    char_span: [0, 2041]
     sentence_count: 18
     key_terms: [internship, savings, get, back, track, personalfinance, expense, around]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-deep-r-personalfinance/feb1c9d9c9.md#c1"
-    char_span: [2044, 4114]
+    char_span: [2043, 4113]
     sentence_count: 17
     key_terms: [savings, debt, pay, budget, credit, need, personalfinance, "you're"]
     token_count: 506

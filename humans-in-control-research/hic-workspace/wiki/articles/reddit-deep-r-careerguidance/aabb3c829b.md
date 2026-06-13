@@ -15,10 +15,10 @@ relevance: 45
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/aabb3c829b.md#c0"
-    char_span: [0, 1668]
+    char_span: [0, 1667]
     sentence_count: 14
     key_terms: [careerfocusmind, college, outrageous-guava1881, replace, careerguidance, career, paths, new]
-    token_count: 386
+    token_count: 385
 ---
 # What career paths do you think colleges should be preparing students for more proactively?
 

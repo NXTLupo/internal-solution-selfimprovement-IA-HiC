@@ -21,31 +21,31 @@ chunks:
     key_terms: [cscareerquestions, comments, degree, doing, degree-less, reddit-deep, experience, companies]
     token_count: 134
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ollmg8.md#c1"
-    char_span: [546, 1975]
+    char_span: [545, 1974]
     sentence_count: 14
     key_terms: [experience, degree, engineer, enough, dustyson123, did, good, analyst]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ollmg8.md#c2"
-    char_span: [1977, 4086]
+    char_span: [1976, 4085]
     sentence_count: 14
     key_terms: [degree, get, currently, fake-software-eng, without, people, doing, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ollmg8.md#c3"
-    char_span: [3800, 5134]
+    char_span: [3799, 5133]
     sentence_count: 12
     key_terms: [degree, got, companies, either, field, sunsgettinreallow, back, case]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ollmg8.md#c4"
-    char_span: [5136, 7283]
+    char_span: [5135, 7282]
     sentence_count: 12
     key_terms: [time, degree, because, circumstances, etc, got, like, experience]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ollmg8.md#c5"
-    char_span: [7285, 8285]
+    char_span: [7284, 8284]
     sentence_count: 8
     key_terms: [enough, experience, anyone, degree, doing, been, work, application]
     section: Comments

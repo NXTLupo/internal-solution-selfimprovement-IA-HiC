@@ -23,19 +23,19 @@ chunks:
     key_terms: [cancer, take, years, gpa, pain, year, gradschool, diagnosis]
     token_count: 469
   - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c1"
-    char_span: [1925, 3419]
+    char_span: [1924, 3418]
     sentence_count: 10
     key_terms: [explaining, statement, personal, reyislokidoki, therainabaina, academics, affected, balance]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c2"
-    char_span: [3421, 5584]
+    char_span: [3420, 5583]
     sentence_count: 15
     key_terms: [program, undergrad, personal, masters, school, applications, got, want]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t4tupb.md#c3"
-    char_span: [5321, 6233]
+    char_span: [5320, 6232]
     sentence_count: 9
     key_terms: [got, gpa, masters, last, lot, year, jaizentheghost, undergraduate]
     section: Comments

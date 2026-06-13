@@ -23,7 +23,7 @@ chunks:
     key_terms: [medical, careerguidance, field, years, comments, career, change, jobs]
     token_count: 288
   - id: "social-intelligence/reddit-deep/careerguidance/1thocil.md#c1"
-    char_span: [1188, 3351]
+    char_span: [1187, 3350]
     sentence_count: 12
     key_terms: [tech, because, sales, mri, completely, radiology, physical, straight]
     section: Comments

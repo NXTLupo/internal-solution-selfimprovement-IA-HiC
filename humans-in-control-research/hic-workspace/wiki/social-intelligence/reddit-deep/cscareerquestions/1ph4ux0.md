@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1ph4ux0/array_reversal_as_a_filtering_question/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,94 @@ flair: "Lead/Manager"
 extracted_at: "2026-06-06T23:23:15.632Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c0"
+    char_span: [0, 1241]
+    sentence_count: 7
+    key_terms: [super, cscareerquestions, "we're", typically, comments, looking, people, "you've"]
+    token_count: 290
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c1"
+    char_span: [1243, 2645]
+    sentence_count: 10
+    key_terms: [array, array2, len, easy, algorithms, algorithm, question, talking]
+    token_count: 365
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c2"
+    char_span: [2647, 4996]
+    sentence_count: 15
+    key_terms: [array, able, reverse, requirements, crazy, interview, "i'm", job]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c3"
+    char_span: [4998, 5448]
+    sentence_count: 1
+    key_terms: [last, algorithms, especially, memorizing, arguments, reversing, something, astounds]
+    token_count: 94
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c4"
+    char_span: [5463, 7167]
+    sentence_count: 14
+    key_terms: [coding, getting, market, interviewed, job, plus, time, experience]
+    section: Comments
+    token_count: 401
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c5"
+    char_span: [7169, 9260]
+    sentence_count: 15
+    key_terms: [array, experience, easy, someone, arrays, figure, curriculum, interviews]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c6"
+    char_span: [9262, 11462]
+    sentence_count: 10
+    key_terms: [array, experience, reverse, able, loop, knowledge, semicolon, question]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c7"
+    char_span: [11464, 13448]
+    sentence_count: 14
+    key_terms: [write, like, loop, new, developers, fibonacci, implement, knowledge]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c8"
+    char_span: [13450, 15389]
+    sentence_count: 7
+    key_terms: [born, "i'm", "it's", reverse, people, code, time, operator]
+    section: Comments
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c9"
+    char_span: [15391, 16520]
+    sentence_count: 11
+    key_terms: ["don't", constant, comfortable, beginning, interview, console, little, buddy]
+    section: Comments
+    token_count: 281
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c10"
+    char_span: [16522, 18094]
+    sentence_count: 10
+    key_terms: [programming, easy, like, honestly, language, maxghost, question, thinking]
+    section: Comments
+    token_count: 392
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c11"
+    char_span: [18096, 20018]
+    sentence_count: 7
+    key_terms: [languages, language, used, functions, interview, questions, learning, problem]
+    section: Comments
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c12"
+    char_span: [20020, 21866]
+    sentence_count: 15
+    key_terms: [issues, applicant, senior, like, different, assume, junior, memory]
+    section: Comments
+    token_count: 399
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c13"
+    char_span: [21868, 23679]
+    sentence_count: 9
+    key_terms: [like, mechanic, hiring, "can't", chief, needs, question, current]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1ph4ux0.md#c14"
+    char_span: [23681, 24956]
+    sentence_count: 12
+    key_terms: [applicants, biomedical, degrees, science, above, class, car, task]
+    section: Comments
+    token_count: 280
 ---
-
 # Array Reversal as a Filtering Question
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1ph4ux0/array_reversal_as_a_filtering_question/)

@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p2jneh.md#c0"
-    char_span: [0, 476]
+    char_span: [0, 475]
     sentence_count: 4
     key_terms: [applyingtocollege, comments, scholars, summer, thrive, noahtheboa1320, alternatives, reddit-deep]
-    token_count: 120
+    token_count: 119
 ---
 # Does anyone have experience with college help programs like Thrive scholars, Leda, etc?
 

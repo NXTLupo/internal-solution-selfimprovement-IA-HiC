@@ -28,7 +28,7 @@ chunks:
     key_terms: [opportunity, degree, educational, thought, done, get, phd, "university's"]
     token_count: 175
   - id: "social-intelligence/reddit-deep/college/1ocfckm.md#c2"
-    char_span: [2924, 3355]
+    char_span: [2923, 3354]
     sentence_count: 4
     key_terms: [years, undergrad, school, worked, jobs, opportunities, professors, claisen33]
     section: Comments

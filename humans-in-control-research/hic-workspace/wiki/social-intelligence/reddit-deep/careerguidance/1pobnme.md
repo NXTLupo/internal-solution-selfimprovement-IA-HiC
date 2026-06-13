@@ -43,7 +43,7 @@ chunks:
     key_terms: [phd, want, decision, years, withdrawing, possible, rational, because]
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1pobnme.md#c5"
-    char_span: [10122, 11272]
+    char_span: [10122, 11271]
     sentence_count: 12
     key_terms: [phd, years, mammothdull6020, germany, depressed, specially, harder, having]
     section: Comments

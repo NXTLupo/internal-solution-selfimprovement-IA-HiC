@@ -23,67 +23,67 @@ chunks:
     key_terms: [careerguidance, comments, people, illustrious-word-979, being, years, told, institutional]
     token_count: 214
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c1"
-    char_span: [893, 1994]
+    char_span: [892, 1993]
     sentence_count: 10
     key_terms: [development, people, entry, level, "it's", experience, embracing, getting]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c2"
-    char_span: [1997, 3934]
+    char_span: [1996, 3933]
     sentence_count: 14
     key_terms: [illustrious-word-979, people, being, going, "i'm", told, too, want]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c3"
-    char_span: [3936, 5817]
+    char_span: [3935, 5816]
     sentence_count: 9
     key_terms: [ultimatechaos233, being, information, like, completely, inaccurate, something, everyone]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c4"
-    char_span: [5819, 7548]
+    char_span: [5818, 7547]
     sentence_count: 16
     key_terms: [everyone, due, jobs, need, efficient, monetary, because, economy]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c5"
-    char_span: [7550, 9637]
+    char_span: [7549, 9636]
     sentence_count: 10
     key_terms: [right, people, poliosaurus3000, services, because, afford, making, going]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c6"
-    char_span: [9639, 11270]
+    char_span: [9638, 11269]
     sentence_count: 11
     key_terms: [people, years, exactly, ageism, fetish, system, illustrious-word-979, point]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c7"
-    char_span: [11272, 13501]
+    char_span: [11271, 13500]
     sentence_count: 13
     key_terms: [conflicted, training, prompts, asking, tinastep2000, like, understand, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c8"
-    char_span: [13232, 13516]
+    char_span: [13231, 13515]
     sentence_count: 2
     key_terms: [illustrious-word-979, documentation, piebythelake, knowledge, something, building, question, training]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c9"
-    char_span: [13518, 15396]
+    char_span: [13517, 15395]
     sentence_count: 13
     key_terms: [people, work, good, absolutely, debategate, understand, efficient, software]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c10"
-    char_span: [15398, 16929]
+    char_span: [15397, 16928]
     sentence_count: 9
     key_terms: [job, everyone, else, people, taking, point, work, experience]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/careerguidance/1s5znkv.md#c11"
-    char_span: [16931, 18149]
+    char_span: [16930, 18148]
     sentence_count: 9
     key_terms: [fundamentals, pointing, anyone, people, illustrious-word-979, eased, years, etc]
     section: Comments

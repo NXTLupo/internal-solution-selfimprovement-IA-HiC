@@ -23,7 +23,7 @@ chunks:
     key_terms: [national, applyingtocollege, international, accelerated, comments, college, student, common]
     token_count: 192
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pxybdy.md#c1"
-    char_span: [872, 1821]
+    char_span: [871, 1820]
     sentence_count: 6
     key_terms: [circumstances, international, admissions, colleges, safeapprehensive8427, drive, applyingtocollege, bot]
     section: Comments

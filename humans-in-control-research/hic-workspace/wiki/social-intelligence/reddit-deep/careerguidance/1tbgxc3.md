@@ -23,25 +23,25 @@ chunks:
     key_terms: [careerguidance, like, comments, because, science, shelves, simple, strong]
     token_count: 376
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c1"
-    char_span: [1587, 3004]
+    char_span: [1586, 3003]
     sentence_count: 12
     key_terms: [like, instructions, good, look, components, repetitive, workplace, assembly]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c2"
-    char_span: [3006, 5040]
+    char_span: [3005, 5039]
     sentence_count: 12
     key_terms: [work, kyojur0, though, like, definitely, scott41373, inventory, nugget814]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c3"
-    char_span: [4785, 6966]
+    char_span: [4784, 6965]
     sentence_count: 19
     key_terms: [like, always, being, "don't", dog, job, work, structured]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tbgxc3.md#c4"
-    char_span: [6674, 7431]
+    char_span: [6673, 7430]
     sentence_count: 5
     key_terms: [blacksockpaws, healthcare, support, pretty, principlewooden1621, being, did, tech]
     section: Comments

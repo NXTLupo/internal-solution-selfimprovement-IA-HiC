@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1r7zhei.md#c0"
-    char_span: [0, 1382]
+    char_span: [0, 1381]
     sentence_count: 10
     key_terms: [looking, careeradvice, completely, business, comments, everyone, software, remote]
     token_count: 331

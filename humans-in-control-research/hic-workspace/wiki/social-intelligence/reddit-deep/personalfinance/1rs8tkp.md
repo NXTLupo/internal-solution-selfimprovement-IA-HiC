@@ -28,55 +28,55 @@ chunks:
     key_terms: [age, access, holes, money, reach, need, unexpectedly, appropriate]
     token_count: 130
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c2"
-    char_span: [2863, 4979]
+    char_span: [2862, 4978]
     sentence_count: 15
     key_terms: [child, months, parents, photos, contribution, until, decisions, benefits]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c3"
-    char_span: [4981, 7244]
+    char_span: [4980, 7243]
     sentence_count: 23
     key_terms: [trust, insurance, expenses, beneficiary, money, attorney, invest, incapacitated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c4"
-    char_span: [7246, 8904]
+    char_span: [7245, 8903]
     sentence_count: 12
     key_terms: [financial, insurance, kid, "don't", money, beneficiary, like, morally]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c5"
-    char_span: [8907, 10424]
+    char_span: [8906, 10423]
     sentence_count: 15
     key_terms: [money, "wouldn't", savingforcollege, give, kid, need, provide, savings]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c6"
-    char_span: [10426, 11531]
+    char_span: [10425, 11530]
     sentence_count: 15
     key_terms: [money, control, "don't", fafsa, trust, free, ira, lot]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c7"
-    char_span: [11533, 13557]
+    char_span: [11532, 13556]
     sentence_count: 14
     key_terms: [money, account, utma, kid, ugma, education, financial, accounts]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c8"
-    char_span: [13270, 13862]
+    char_span: [13269, 13861]
     sentence_count: 5
     key_terms: [money, using, inheritance, jamflowwman, suggestion, childcare, expensive, financial]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c9"
-    char_span: [13864, 15831]
+    char_span: [13863, 15830]
     sentence_count: 12
     key_terms: [money, like, child, later, plan, management, education, financial]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1rs8tkp.md#c10"
-    char_span: [15833, 17416]
+    char_span: [15832, 17415]
     sentence_count: 15
     key_terms: [attorney, set, want, insurance, account, consult, estate, lawyer]
     section: Comments

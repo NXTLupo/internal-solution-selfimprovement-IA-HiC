@@ -23,43 +23,43 @@ chunks:
     key_terms: [yale, pitt, medical, school, applyingtocollege, mit, gap, pick]
     token_count: 301
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c1"
-    char_span: [1274, 3559]
+    char_span: [1273, 3558]
     sentence_count: 26
     key_terms: [school, mit, medical, yale, research, undergraduate, med, take]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c2"
-    char_span: [3561, 5411]
+    char_span: [3560, 5410]
     sentence_count: 10
     key_terms: [average, mit, medical, schools, range, application, disciplines, gpa]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c3"
-    char_span: [5413, 7528]
+    char_span: [5412, 7527]
     sentence_count: 7
     key_terms: [med, degree, doctor, intelligent-web-8017, someone, school, opportunities, transaction]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c4"
-    char_span: [7530, 9509]
+    char_span: [7529, 9508]
     sentence_count: 8
     key_terms: [school, mit, pitt, medical, reincarnatedbiscuits, program, good, med]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c5"
-    char_span: [9511, 11658]
+    char_span: [9510, 11657]
     sentence_count: 12
     key_terms: [top, schools, yale, like, medical, med, mit, undergrads]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c6"
-    char_span: [11660, 13510]
+    char_span: [11659, 13509]
     sentence_count: 2
     key_terms: [comment, getting, larp, deleted, program, access, making, school]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssnisd.md#c7"
-    char_span: [13512, 14101]
+    char_span: [13511, 14100]
     sentence_count: 4
     key_terms: [research, early, years, pitt, ok-fishing609, relationships, competitive, connections]
     section: Comments

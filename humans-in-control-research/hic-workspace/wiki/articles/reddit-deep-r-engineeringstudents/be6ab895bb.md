@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/be6ab895bb.md#c0"
-    char_span: [0, 2174]
+    char_span: [0, 2173]
     sentence_count: 15
     key_terms: [engineeringstudents, reddit, wiki, https, com, biosensing, www, project]
-    token_count: 496
+    token_count: 495
   - id: "articles/reddit-deep-r-engineeringstudents/be6ab895bb.md#c1"
-    char_span: [2176, 4008]
+    char_span: [2175, 4007]
     sentence_count: 14
     key_terms: [project, research, automation, orangetothefourth, projects, mentor, potentially, ieee]
     token_count: 375

@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c0"
-    char_span: [0, 1527]
+    char_span: [0, 1526]
     sentence_count: 10
     key_terms: [chatgpt, grade, today, assignment, professors, generated, sometimes, submitted]
-    token_count: 338
+    token_count: 337
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c1"
-    char_span: [1529, 4084]
+    char_span: [1528, 4083]
     sentence_count: 20
     key_terms: [education, uneducated, person, life, educated, skills, college, sophisticated]
     token_count: 484
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c2"
-    char_span: [4086, 5789]
+    char_span: [4085, 5788]
     sentence_count: 14
     key_terms: [opportunity, yourself, opportunities, learn, translation, sacrifices, education, important]
     token_count: 315
   - id: "articles/reddit-deep-r-professors/7b0cbccbfc.md#c3"
-    char_span: [5791, 7152]
+    char_span: [5790, 7151]
     sentence_count: 10
     key_terms: [popstarkirbys, read, section, did, assignment, student, good, need]
     token_count: 360

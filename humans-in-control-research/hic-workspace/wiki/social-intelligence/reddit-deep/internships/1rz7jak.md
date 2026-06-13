@@ -23,7 +23,7 @@ chunks:
     key_terms: [return, internship, chance, internships, comments, career, high, low]
     token_count: 134
   - id: "social-intelligence/reddit-deep/internships/1rz7jak.md#c1"
-    char_span: [593, 1018]
+    char_span: [592, 1017]
     sentence_count: 6
     key_terms: [appropriate-tutor587, good, experiences, nitekore080, internship, different, diversity, requietis]
     section: Comments

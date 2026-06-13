@@ -28,31 +28,31 @@ chunks:
     key_terms: [talking, younger, people, social, folks, compartmentalizing, like, acknowledging]
     token_count: 159
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c2"
-    char_span: [2850, 4664]
+    char_span: [2849, 4663]
     sentence_count: 19
     key_terms: [group, like, facebook, online, "we've", basketball, completely, hypothesis]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c3"
-    char_span: [4666, 6667]
+    char_span: [4665, 6666]
     sentence_count: 17
     key_terms: ["didn't", smiled, back, like, odd, awkwardly, behavior, comments]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c4"
-    char_span: [6669, 8248]
+    char_span: [6668, 8247]
     sentence_count: 8
     key_terms: [remember, eachother, like, people, together, awkward, "didn't", memory]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c5"
-    char_span: [8251, 10157]
+    char_span: [8250, 10156]
     sentence_count: 11
     key_terms: [people, recognize, someone, generational, "it's", remember, specific, problem]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/genz/1rdobx0.md#c6"
-    char_span: [10159, 10471]
+    char_span: [10158, 10470]
     sentence_count: 5
     key_terms: [feel, like, try, relationships, transactional, regardless, airplanes, everyone]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, back, been, gap, get, appreciate, interviews, comments]
     token_count: 243
   - id: "social-intelligence/reddit-deep/careerguidance/1s4i4fg.md#c1"
-    char_span: [1074, 2024]
+    char_span: [1073, 2023]
     sentence_count: 4
     key_terms: [trying, gap, year, projects, because, doing, work, exitexisting2108]
     section: Comments

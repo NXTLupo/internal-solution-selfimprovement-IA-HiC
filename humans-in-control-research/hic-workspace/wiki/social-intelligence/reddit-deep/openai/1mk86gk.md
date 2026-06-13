@@ -23,25 +23,25 @@ chunks:
     key_terms: [context, comments, lesson, openai, gpt-5, study, book, "true"]
     token_count: 259
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c1"
-    char_span: [1136, 2220]
+    char_span: [1135, 2219]
     sentence_count: 4
     key_terms: [gemini, better, krishnajeya, raffinesse, context, version, timeandspaceandme, open]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c2"
-    char_span: [2225, 4017]
+    char_span: [2224, 4016]
     sentence_count: 13
     key_terms: [window, krishnajeya, gemini, compute, context, million, disappointed, least]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c3"
-    char_span: [4019, 5833]
+    char_span: [4018, 5832]
     sentence_count: 12
     key_terms: [window, use, context, gemini, value, temperature, unsupported, thought]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/openai/1mk86gk.md#c4"
-    char_span: [5835, 6415]
+    char_span: [5834, 6414]
     sentence_count: 4
     key_terms: [context, prayers, bible, time, fundamentally, comparable, different, otherwise]
     section: Comments

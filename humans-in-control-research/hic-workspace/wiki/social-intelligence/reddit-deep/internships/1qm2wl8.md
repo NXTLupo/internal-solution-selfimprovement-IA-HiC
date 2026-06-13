@@ -23,7 +23,7 @@ chunks:
     key_terms: [sales, companies, internships, tech, candidates, connecting, placements, successful]
     token_count: 215
   - id: "social-intelligence/reddit-deep/internships/1qm2wl8.md#c1"
-    char_span: [978, 1250]
+    char_span: [977, 1249]
     sentence_count: 2
     key_terms: [rough-manager-172, acanthisittano6174, originally, finishing, carolina, relocate, willing, kindly]
     section: Comments

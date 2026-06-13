@@ -23,25 +23,25 @@ chunks:
     key_terms: [since, want, learning, college, anything, comments, program, "didn't"]
     token_count: 291
   - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c1"
-    char_span: [1298, 3558]
+    char_span: [1297, 3557]
     sentence_count: 17
     key_terms: [good, students, youtube, skills, check, study, back, luck]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c2"
-    char_span: [3291, 5013]
+    char_span: [3290, 5012]
     sentence_count: 19
     key_terms: [ask, back, good, meet, time, went, academic, "master's"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c3"
-    char_span: [5015, 7155]
+    char_span: [5014, 7154]
     sentence_count: 17
     key_terms: [write, day, experience, studying, whatever, already, because, reading]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/college/1pzkm1j.md#c4"
-    char_span: [7157, 7758]
+    char_span: [7156, 7757]
     sentence_count: 4
     key_terms: [set, favorite, school, amazing-awareness-15, time, excellent, channels, comments]
     section: Comments

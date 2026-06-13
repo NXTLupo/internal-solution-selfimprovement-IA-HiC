@@ -23,31 +23,31 @@ chunks:
     key_terms: [comments, programs, get, degrees, people, undergrad, phd, research]
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c1"
-    char_span: [2274, 3093]
+    char_span: [2273, 3092]
     sentence_count: 7
     key_terms: [phd, education, never, danceswithsockson, take, floweryhimalayas, combat-wounded, flyingmeowbear]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c2"
-    char_span: [3095, 5178]
+    char_span: [3094, 5177]
     sentence_count: 12
     key_terms: [get, people, phd, everyone, degrees, jewishtigerpup, want, work]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c3"
-    char_span: [5180, 6457]
+    char_span: [5179, 6456]
     sentence_count: 11
     key_terms: [wanted, definitely, masters, career, school, "don't", rabbi, teach]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c4"
-    char_span: [6459, 8762]
+    char_span: [6458, 8761]
     sentence_count: 7
     key_terms: [phd, programs, masters, applicants, degrees, funded, sometimes, typically]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradadmissions/1scbx7v.md#c5"
-    char_span: [8764, 10961]
+    char_span: [8763, 10960]
     sentence_count: 17
     key_terms: [masters, phd, "master's", need, program, degree, considered, field]
     section: Comments

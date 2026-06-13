@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1ono1p6.md#c0"
-    char_span: [0, 741]
+    char_span: [0, 740]
     sentence_count: 7
     key_terms: [comments, context, project, openai, window, goofball-john-mcgee, user, misremembers]
     token_count: 193

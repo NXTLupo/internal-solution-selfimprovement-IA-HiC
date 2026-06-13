@@ -23,37 +23,37 @@ chunks:
     key_terms: [program, grad, time, experience, gradschool, positions, comments, history]
     token_count: 203
   - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c1"
-    char_span: [903, 2193]
+    char_span: [902, 2192]
     sentence_count: 13
     key_terms: [research, essentially, week, work, attend, worked, hand, take]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c2"
-    char_span: [2195, 4158]
+    char_span: [2194, 4157]
     sentence_count: 23
     key_terms: [time, school, week, classes, graduate, worked, understanding, hour]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c3"
-    char_span: [4160, 5052]
+    char_span: [4159, 5051]
     sentence_count: 8
     key_terms: [time, important, program, least, full, grad, work, conversations]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c4"
-    char_span: [5054, 7173]
+    char_span: [5053, 7172]
     sentence_count: 10
     key_terms: [time, working, full, work, undergrad, research, because, around]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c5"
-    char_span: [7175, 9327]
+    char_span: [7174, 9326]
     sentence_count: 17
     key_terms: [work, job, history, time, definitiontrue6252, full, depends, person]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1t9np8r.md#c6"
-    char_span: [9329, 10830]
+    char_span: [9328, 10829]
     sentence_count: 14
     key_terms: [time, full-time, part, work, doing, full, part-time, anything]
     section: Comments

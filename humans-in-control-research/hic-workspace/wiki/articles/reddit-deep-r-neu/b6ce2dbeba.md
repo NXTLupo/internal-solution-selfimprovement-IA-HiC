@@ -15,17 +15,17 @@ relevance: 50
 engagement_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
 chunks:
   - id: "articles/reddit-deep-r-neu/b6ce2dbeba.md#c0"
-    char_span: [0, 788]
+    char_span: [0, 787]
     sentence_count: 2
     key_terms: [program, abroad, people, reddit, super, back, neu, opportunities]
-    token_count: 181
+    token_count: 180
   - id: "articles/reddit-deep-r-neu/b6ce2dbeba.md#c1"
-    char_span: [790, 2971]
+    char_span: [789, 2970]
     sentence_count: 9
     key_terms: [nuin, friends, people, back, boston, campus, year, semester]
     token_count: 512
   - id: "articles/reddit-deep-r-neu/b6ce2dbeba.md#c2"
-    char_span: [2663, 3878]
+    char_span: [2662, 3877]
     sentence_count: 8
     key_terms: [nuin, because, spoiled, aid, got, lot, entitled, wealthy]
     token_count: 279

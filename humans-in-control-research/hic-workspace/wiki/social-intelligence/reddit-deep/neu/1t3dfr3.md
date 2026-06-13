@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1t3dfr3.md#c0"
-    char_span: [0, 853]
+    char_span: [0, 852]
     sentence_count: 7
     key_terms: [received, boston, automatically, international, scholarships, considered, excellence, academic]
-    token_count: 182
+    token_count: 181
 ---
 # MS CS Align (Boston) – Anyone actually received International Academic Excellence / CPS Leaders & Scholars?
 

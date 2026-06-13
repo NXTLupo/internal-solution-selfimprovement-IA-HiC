@@ -28,49 +28,49 @@ chunks:
     key_terms: [feeling, whether, been, tell, year, affected, position, already]
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c2"
-    char_span: [3496, 5470]
+    char_span: [3495, 5469]
     sentence_count: 14
     key_terms: [program, environment, work, yourself, because, staying, whether, option]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c3"
-    char_span: [5472, 7224]
+    char_span: [5471, 7223]
     sentence_count: 17
     key_terms: [likely, conversations, goals, lab, okay, feedback, progress, regular]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c4"
-    char_span: [7226, 9327]
+    char_span: [7225, 9326]
     sentence_count: 21
     key_terms: [like, people, lab, side, absolutely, reactions, rotation, opinion]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c5"
-    char_span: [9329, 11401]
+    char_span: [9328, 11400]
     sentence_count: 30
     key_terms: [people, unfortunately, understand, issues, disabilities, dont, lot, different]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c6"
-    char_span: [11403, 13096]
+    char_span: [11402, 13095]
     sentence_count: 14
     key_terms: [implemented, ago, post, questions, semester, verbatim, changed, nothing]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c7"
-    char_span: [13098, 15545]
+    char_span: [13097, 15544]
     sentence_count: 24
     key_terms: [questions, last, comments, feedback, hundreds, received, account, advice]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c8"
-    char_span: [15547, 17848]
+    char_span: [15546, 17847]
     sentence_count: 22
     key_terms: [change, hearing, administrators, "can't", going, toxic, behaviours, department]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1s5tk2h.md#c9"
-    char_span: [17850, 18194]
+    char_span: [17849, 18193]
     sentence_count: 4
     key_terms: [pis, statistically, following, possible, research, however, unlucky, gotten]
     section: Comments

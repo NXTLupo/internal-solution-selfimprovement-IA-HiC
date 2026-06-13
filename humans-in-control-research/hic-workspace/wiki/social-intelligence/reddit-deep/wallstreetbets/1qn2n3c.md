@@ -33,31 +33,31 @@ chunks:
     key_terms: [positions, shares, decline, approximately, non-leveraged, able, pre-market, versus]
     token_count: 337
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c3"
-    char_span: [5424, 6484]
+    char_span: [5423, 6483]
     sentence_count: 4
     key_terms: [currency, discord, disastrous-choice101, everythingmustcease, total, gold, seen, wsb]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c4"
-    char_span: [6486, 8344]
+    char_span: [6485, 8343]
     sentence_count: 14
     key_terms: [stocks, yen, dollar, elections, japanese, against, decline, earning]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c5"
-    char_span: [8346, 9498]
+    char_span: [8345, 9497]
     sentence_count: 2
     key_terms: [png, cf67dd25e330f5db465f8c7efe6458d51b5f646c, preview, format, https, width, auto, redd]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c6"
-    char_span: [9500, 11477]
+    char_span: [9499, 11476]
     sentence_count: 16
     key_terms: [independent-cress382, therpgrad, commodities, gold, elections, continue, current, either]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qn2n3c.md#c7"
-    char_span: [11479, 12806]
+    char_span: [11478, 12805]
     sentence_count: 9
     key_terms: [gold, earnings, gdxu, next, against, another, dollar, months]
     section: Comments

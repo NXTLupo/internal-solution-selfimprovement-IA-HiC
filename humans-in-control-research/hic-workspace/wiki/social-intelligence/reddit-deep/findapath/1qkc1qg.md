@@ -23,43 +23,43 @@ chunks:
     key_terms: [like, feel, don, especially, findapath, comments, feeling, nothing]
     token_count: 346
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c1"
-    char_span: [1517, 3714]
+    char_span: [1516, 3713]
     sentence_count: 18
     key_terms: [thank, helpful, redgreenrevolt, please, community, findapath, comments, everyone]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c2"
-    char_span: [3716, 5509]
+    char_span: [3715, 5508]
     sentence_count: 20
     key_terms: [people, time, starting, school, right, stage, life, graduate]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c3"
-    char_span: [5511, 6596]
+    char_span: [5510, 6595]
     sentence_count: 10
     key_terms: [pivot, parents, change, being, big, keep, life, want]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c4"
-    char_span: [6598, 8433]
+    char_span: [6597, 8432]
     sentence_count: 13
     key_terms: [nursing, realize, poopswordsrus, lpn, addiction, someone, health, mental]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c5"
-    char_span: [8435, 9083]
+    char_span: [8434, 9082]
     sentence_count: 10
     key_terms: [yourself, lot, connections, disposition, unavoidable, entangled, interests, sometimes]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c6"
-    char_span: [9085, 11247]
+    char_span: [9084, 11246]
     sentence_count: 10
     key_terms: [yourself, let, move, college, worked, live, volunteer, network]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/findapath/1qkc1qg.md#c7"
-    char_span: [11249, 11324]
+    char_span: [11248, 11323]
     sentence_count: 1
     key_terms: [curious, parents, bright, house, stunt, get, seem]
     section: Comments

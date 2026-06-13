@@ -28,37 +28,37 @@ chunks:
     key_terms: [international, "don't", offer, grad, accomplished, tenure-track, perspective, sponsorship]
     token_count: 96
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c2"
-    char_span: [2728, 3149]
+    char_span: [2727, 3148]
     sentence_count: 5
     key_terms: [emotional-benefit994, thank, devilinthedistrict, been, applicants, wasteland, honestly, prepared]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c3"
-    char_span: [3151, 5168]
+    char_span: [3150, 5167]
     sentence_count: 13
     key_terms: [been, years, devilinthedistrict, job, schools, several, market, teach]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c4"
-    char_span: [4848, 5649]
+    char_span: [4847, 5648]
     sentence_count: 8
     key_terms: [least, state, red, blue, live, teaching-focused, subdisciplinary, assistantship]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c5"
-    char_span: [5651, 7069]
+    char_span: [5650, 7068]
     sentence_count: 10
     key_terms: [get, "i'm", students, engineering, internships, positions, network, several]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c6"
-    char_span: [7071, 8672]
+    char_span: [7070, 8671]
     sentence_count: 5
     key_terms: [want, pinkaddict2003, career, job, phd, understand, expecting, industry]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/gradadmissions/1rmxued.md#c7"
-    char_span: [8674, 10621]
+    char_span: [8673, 10620]
     sentence_count: 5
     key_terms: [privilege, because, perhaps, someone, academia, research, careers, friends]
     section: Comments

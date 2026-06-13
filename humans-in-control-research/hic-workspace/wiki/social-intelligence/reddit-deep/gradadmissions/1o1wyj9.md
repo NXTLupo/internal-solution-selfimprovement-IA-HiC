@@ -23,37 +23,37 @@ chunks:
     key_terms: [international, mscs, students, anymore, gradadmissions, market, people, don]
     token_count: 489
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c1"
-    char_span: [2037, 3704]
+    char_span: [2037, 3703]
     sentence_count: 6
     key_terms: [utm, students, season, international, share, mscs, gradpilot, comments]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c2"
-    char_span: [3706, 5476]
+    char_span: [3705, 5475]
     sentence_count: 11
     key_terms: [countries, good, here, metronomyc, education, recommend, germany, getting]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c3"
-    char_span: [5478, 7314]
+    char_span: [5477, 7313]
     sentence_count: 8
     key_terms: [gradpilot, local, job, course, market, work, students, getting]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c4"
-    char_span: [7316, 8263]
+    char_span: [7315, 8262]
     sentence_count: 9
     key_terms: [degree, get, everyone, without, years, hard, "it's", traditional]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c5"
-    char_span: [8267, 10346]
+    char_span: [8266, 10345]
     sentence_count: 15
     key_terms: [job, students, international, needs, right, luck, generation, sympathy]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradadmissions/1o1wyj9.md#c6"
-    char_span: [10348, 11093]
+    char_span: [10347, 11092]
     sentence_count: 5
     key_terms: [years, governmentok4147, iamthebananagod, internationals, international, such-mud-7276, everything, genuinely]
     section: Comments

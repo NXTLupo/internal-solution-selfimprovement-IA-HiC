@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineering, degree, bachelors, engineeringstudents, masters, without, photonics, comments]
     token_count: 243
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c1"
-    char_span: [1132, 2351]
+    char_span: [1131, 2350]
     sentence_count: 7
     key_terms: [masters, holoporcupine, engineering, background, good, experience, ashi4days, programs]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c2"
-    char_span: [2353, 3647]
+    char_span: [2352, 3646]
     sentence_count: 9
     key_terms: [engineering, requirements, undergrad, classes, college, courses, degree, school]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c3"
-    char_span: [3649, 5250]
+    char_span: [3648, 5249]
     sentence_count: 12
     key_terms: [engineering, math, physics, familyrootsquest, masters, holoporcupine, "i'm", finishing]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3cg2h.md#c4"
-    char_span: [5252, 6874]
+    char_span: [5251, 6873]
     sentence_count: 11
     key_terms: [engineering, masters, "i'm", physics, mechatronics, interested, projects, getting]
     section: Comments

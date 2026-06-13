@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/c9e3ca5f8c.md#c0"
-    char_span: [0, 1869]
+    char_span: [0, 1868]
     sentence_count: 21
     key_terms: [amazon, people, cscareerquestions, got, grad, new, comments, honestly]
-    token_count: 456
+    token_count: 455
   - id: "articles/reddit-deep-r-cscareerquestions/c9e3ca5f8c.md#c1"
-    char_span: [1871, 3590]
+    char_span: [1870, 3589]
     sentence_count: 12
     key_terms: [people, layoff, got, amazon, months, rich-put4159, great, never]
     token_count: 446

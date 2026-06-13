@@ -23,19 +23,19 @@ chunks:
     key_terms: [credits, bio-110, school, labs, want, semester, classes, psy-237]
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c1"
-    char_span: [1878, 4010]
+    char_span: [1877, 4009]
     sentence_count: 21
     key_terms: [classes, science, class, hard, social, bio, lab, take]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c2"
-    char_span: [4012, 6277]
+    char_span: [4011, 6276]
     sentence_count: 22
     key_terms: [works, because, stress, hours, courses, like, take, time]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m6o0xj.md#c3"
-    char_span: [6279, 8337]
+    char_span: [6278, 8336]
     sentence_count: 16
     key_terms: [school, college, don, yourself, like, something, because, credits]
     section: Comments

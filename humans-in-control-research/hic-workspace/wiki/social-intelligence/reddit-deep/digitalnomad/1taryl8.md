@@ -23,19 +23,19 @@ chunks:
     key_terms: [digitalnomad, unemployment, base, need, affordable, apartment, somewhere, comments]
     token_count: 229
   - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c1"
-    char_span: [978, 3013]
+    char_span: [977, 3012]
     sentence_count: 12
     key_terms: [budget, because, affordable, definitely, places, find, too, expensive]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c2"
-    char_span: [3018, 4395]
+    char_span: [3017, 4394]
     sentence_count: 15
     key_terms: [europe, krakow, salary, usd, liveable, national, probably, enough]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/digitalnomad/1taryl8.md#c3"
-    char_span: [4397, 5109]
+    char_span: [4396, 5108]
     sentence_count: 7
     key_terms: [expensive, residence, bosnia, people, permit, wideneighborhood8167, recent-classic7398, interesting]
     section: Comments

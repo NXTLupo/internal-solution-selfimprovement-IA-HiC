@@ -16,7 +16,7 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1qxylpv.md#c0"
-    char_span: [0, 1691]
+    char_span: [0, 1690]
     sentence_count: 13
     key_terms: [internships, internship, better, months, onsite, opportunities, offer, been]
     token_count: 385

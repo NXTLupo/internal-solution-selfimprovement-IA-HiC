@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, tracking, explore, student, career, paths, roles]
     token_count: 250
   - id: "social-intelligence/reddit-deep/careerguidance/1qfzfaa.md#c1"
-    char_span: [1161, 2245]
+    char_span: [1160, 2244]
     sentence_count: 6
     key_terms: [analyst, pricing, roles, positions, entry-level, honestly, probably, bca]
     section: Comments

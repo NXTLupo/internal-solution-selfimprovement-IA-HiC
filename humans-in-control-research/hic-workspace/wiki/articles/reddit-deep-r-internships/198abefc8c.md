@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/198abefc8c.md#c0"
-    char_span: [0, 1108]
+    char_span: [0, 1107]
     sentence_count: 10
     key_terms: [internship, internships, winter, like, myself, reddit, summer, place]
-    token_count: 264
+    token_count: 263
   - id: "articles/reddit-deep-r-internships/198abefc8c.md#c1"
-    char_span: [1110, 2191]
+    char_span: [1109, 2190]
     sentence_count: 3
     key_terms: [s0urpatch1tv, winter, looking, mostly, remote, cottonshirtwithstain, brand, roles]
     token_count: 276

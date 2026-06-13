@@ -23,7 +23,7 @@ chunks:
     key_terms: [careeradvice, early, been, different, building, comments, advice, skills]
     token_count: 303
   - id: "social-intelligence/reddit-deep/careeradvice/1t10rxz.md#c1"
-    char_span: [1366, 1741]
+    char_span: [1365, 1740]
     sentence_count: 3
     key_terms: [projects, small, experimentation, consistent, direction, gradually, pressure, becomes]
     section: Comments

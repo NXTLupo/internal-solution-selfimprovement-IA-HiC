@@ -21,55 +21,55 @@ chunks:
     key_terms: [getting, ideally, careerguidance, career, "don't", "i'm", jobs, life]
     token_count: 284
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c1"
-    char_span: [1118, 2844]
+    char_span: [1117, 2843]
     sentence_count: 16
     key_terms: [business, start, job, better, retire, early, years, traditional]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c2"
-    char_span: [2846, 4912]
+    char_span: [2845, 4911]
     sentence_count: 10
     key_terms: [radiology, always, too, field, techs, already, medical, thought]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c3"
-    char_span: [4657, 5446]
+    char_span: [4656, 5445]
     sentence_count: 5
     key_terms: [required, state, job, love, financialsailor1, pokeballer2k19, completing, especially]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c4"
-    char_span: [5448, 7137]
+    char_span: [5447, 7136]
     sentence_count: 17
     key_terms: [mate, financialsailor1, year, different, engineer, captain, manager, career]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c5"
-    char_span: [7139, 9110]
+    char_span: [7138, 9109]
     sentence_count: 14
     key_terms: [ok-possession-2415, bachelor, software, trainer, communications, instructional, background, experience]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c6"
-    char_span: [9112, 10802]
+    char_span: [9111, 10801]
     sentence_count: 13
     key_terms: [selling, yourself, sales, importance, probably, teachers, nurses, lankysignificance966]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c7"
-    char_span: [10804, 11814]
+    char_span: [10803, 11813]
     sentence_count: 7
     key_terms: [career, lowest, skills, entry, youre, data, pokeballer2k19, demonstrating]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c8"
-    char_span: [11816, 13860]
+    char_span: [11815, 13859]
     sentence_count: 13
     key_terms: [engineering, healthcare, experience, nurse, saturated, deleted, doctor, new]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1o1bplh.md#c9"
-    char_span: [13862, 14202]
+    char_span: [13861, 14201]
     sentence_count: 4
     key_terms: [autonomy, work, opportunity, challenged, day-to-day, competent, generally, satisfied]
     section: Comments

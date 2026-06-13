@@ -21,31 +21,31 @@ chunks:
     key_terms: [traditional, paths, cscareerquestions, been, swe, business, comments, analyst]
     token_count: 291
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c1"
-    char_span: [1397, 3285]
+    char_span: [1396, 3284]
     sentence_count: 9
     key_terms: [engineering, stagnate, being, going, wages, tech, engineers, problems]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c2"
-    char_span: [3288, 5052]
+    char_span: [3287, 5051]
     sentence_count: 8
     key_terms: [software, utm, cscareerquestions, getting, people, share, big, endpoints]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c3"
-    char_span: [5054, 6396]
+    char_span: [5053, 6395]
     sentence_count: 11
     key_terms: [good, exploitation, endh1bfraud, positions, criminal, organize, working, reddit]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c4"
-    char_span: [6401, 8462]
+    char_span: [6400, 8461]
     sentence_count: 9
     key_terms: [innit2improve, get, bebetterennit, gen3archive, opportunity, swe, business, paycheck]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5ybhq.md#c5"
-    char_span: [8187, 8699]
+    char_span: [8186, 8698]
     sentence_count: 1
     key_terms: [industry, best, bebetterennit, perspective, including, subreddit, anywhere, everyone]
     section: Comments

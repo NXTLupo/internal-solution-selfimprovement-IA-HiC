@@ -31,13 +31,13 @@ chunks:
     key_terms: [pls, futher, help, tips, use]
     token_count: 15
   - id: "social-intelligence/reddit-deep/internships/1setboz.md#c3"
-    char_span: [4756, 6794]
+    char_span: [4755, 6793]
     sentence_count: 14
     key_terms: [internship, wild-ad-2346, people, get, keep, projects, these-age-4667, resume]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1setboz.md#c4"
-    char_span: [6506, 7878]
+    char_span: [6505, 7877]
     sentence_count: 9
     key_terms: [handshake, applying, projects, prachub, future, bills, https, start]
     section: Comments

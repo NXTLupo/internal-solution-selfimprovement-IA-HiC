@@ -23,43 +23,43 @@ chunks:
     key_terms: [people, research, gradadmissions, institutions, grad, list, name-brand, important]
     token_count: 349
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c1"
-    char_span: [1536, 3128]
+    char_span: [1535, 3127]
     sentence_count: 8
     key_terms: [applying, students, international, kanoncyn, because, programmes, university, european]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c2"
-    char_span: [3130, 5063]
+    char_span: [3129, 5062]
     sentence_count: 8
     key_terms: [fantasticmrsfields, schools, applying, unlikely-sleep-7717, livable, people, fee, somewhere]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c3"
-    char_span: [5065, 7226]
+    char_span: [5064, 7225]
     sentence_count: 15
     key_terms: [better, ivy, schools, top, university, generally, important, academia]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c4"
-    char_span: [7228, 9074]
+    char_span: [7227, 9073]
     sentence_count: 9
     key_terms: [school, state, elite, low-tier, students, statistically, universities, ended]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c5"
-    char_span: [9076, 10715]
+    char_span: [9075, 10714]
     sentence_count: 6
     key_terms: [better, ivy, outcomes, students, because, schools, people, researchers]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c6"
-    char_span: [10717, 11836]
+    char_span: [10716, 11835]
     sentence_count: 6
     key_terms: [top, professors, university, professor, academic, schools, student, people]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/gradadmissions/1pjrxst.md#c7"
-    char_span: [11839, 13163]
+    char_span: [11838, 13162]
     sentence_count: 4
     key_terms: [top, because, institutions, ivies, prestige, college, country, support]
     section: Comments

@@ -31,7 +31,7 @@ chunks:
     key_terms: [admissions, administration, institution, federal, funding, though, institutions, beautiful]
     token_count: 504
   - id: "social-intelligence/reddit-deep/highereducation/1nnltoh.md#c3"
-    char_span: [7803, 8687]
+    char_span: [7803, 8686]
     sentence_count: 3
     key_terms: [institutions, data, something, admitted, students, raise, underrepresented, administration]
     token_count: 173

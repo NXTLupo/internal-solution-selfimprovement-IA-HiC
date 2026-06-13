@@ -23,31 +23,31 @@ chunks:
     key_terms: [investing, stocks, currently, comments, buying, primesclipper, importantly, reddit-deep]
     token_count: 158
   - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c1"
-    char_span: [697, 2327]
+    char_span: [696, 2326]
     sentence_count: 10
     key_terms: ["that's", mean, difference, companies, thetreece, expense, winners, market]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c2"
-    char_span: [2329, 3742]
+    char_span: [2328, 3741]
     sentence_count: 8
     key_terms: [ucore-launches-us-department-of-defense-funded-18-4-million-fsu9dwx9ou4h, uuraf, jeffumopolis, definitely, because, bought, illustrious-coat3532, arrnf]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c3"
-    char_span: [3744, 5480]
+    char_span: [3743, 5479]
     sentence_count: 9
     key_terms: [revenue, asts, louisiana, discount, because, deleted, million, bisonduckalltheway15]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c4"
-    char_span: [5482, 6617]
+    char_span: [5481, 6616]
     sentence_count: 7
     key_terms: [year, expected, due, catalyst, events, growth, based, amat]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/investing/1m1mdgm.md#c5"
-    char_span: [6619, 7346]
+    char_span: [6618, 7345]
     sentence_count: 2
     key_terms: [lunr, year, comments, reddit, negative-river-2865, https, asts, bbai]
     section: Comments

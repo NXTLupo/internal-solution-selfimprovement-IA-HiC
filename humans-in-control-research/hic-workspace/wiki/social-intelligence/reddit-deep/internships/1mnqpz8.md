@@ -21,13 +21,13 @@ chunks:
     key_terms: [opportunities, internships, internship, comments, engineer, position, software, substantialpizza557]
     token_count: 162
   - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c1"
-    char_span: [711, 2697]
+    char_span: [710, 2696]
     sentence_count: 7
     key_terms: [companies, simplify, open, https, big, summer, nointernship, internships]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/internships/1mnqpz8.md#c2"
-    char_span: [2699, 3580]
+    char_span: [2698, 3579]
     sentence_count: 10
     key_terms: [company, substantialpizza557, companies, applying, linkedin, deleted, big, don]
     section: Comments

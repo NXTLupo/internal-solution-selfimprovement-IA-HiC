@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1n2d2qf.md#c0"
-    char_span: [0, 748]
+    char_span: [0, 747]
     sentence_count: 6
     key_terms: [careerguidance, javascript, wordpress, comments, career, focus, right, node]
-    token_count: 192
+    token_count: 191
 ---
 # Am I on the right career path as a WordPress designer learning JavaScript & Node.js?
 

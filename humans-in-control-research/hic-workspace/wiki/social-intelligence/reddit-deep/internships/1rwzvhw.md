@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rwzvhw.md
 url: "https://www.reddit.com/r/internships/comments/1rwzvhw/3rd_year_cs_student_looking_for_backend_ai/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,13 @@ flair: "Applications"
 extracted_at: "2026-06-06T23:20:46.234Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rwzvhw.md#c0"
+    char_span: [0, 1299]
+    sentence_count: 2
+    key_terms: [backend, internship, opportunities, internships, looking, systems, development, engineering]
+    token_count: 319
 ---
-
 # 3rd Year CS Student looking for Backend / AI Internship, Resume Review + Opportunities
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rwzvhw/3rd_year_cs_student_looking_for_backend_ai/)

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1owedzg.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1owedzg/even_andrew_ng_is_saying_overhyped_ai_is_causing/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,78 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.630Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c0"
+    char_span: [0, 1103]
+    sentence_count: 2
+    key_terms: [especially, cscareerquestions, https, post, comments, careers, andrew, useful]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c1"
+    char_span: [1105, 3298]
+    sentence_count: 9
+    key_terms: [general, frontier, models, applications, time, work, contribute, particular]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c2"
+    char_span: [3313, 4865]
+    sentence_count: 16
+    key_terms: [sure, need, writing, understanding, "it's", codebase, software, yourself]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c3"
+    char_span: [4867, 5944]
+    sentence_count: 6
+    key_terms: [dev, companies, anything, market, people, redact, tough, web]
+    section: Comments
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c4"
+    char_span: [5946, 7901]
+    sentence_count: 12
+    key_terms: [manufacturing, offshoring, better, killed, people, jobs, automation, compliance]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c5"
+    char_span: [7903, 9039]
+    sentence_count: 10
+    key_terms: [job, positions, people, doing, guys, like, work, ienumerable661]
+    section: Comments
+    token_count: 277
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c6"
+    char_span: [9041, 10284]
+    sentence_count: 7
+    key_terms: [next, management, offshore, getting, windows, right, been, lol]
+    section: Comments
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c7"
+    char_span: [10286, 12234]
+    sentence_count: 9
+    key_terms: [outsourcing, talking, offshoring, ability, around, bubble, evolve, nobody]
+    section: Comments
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c8"
+    char_span: [12238, 13315]
+    sentence_count: 5
+    key_terms: [long, engineers, frontier, company, models, application-layer, end, need]
+    section: Comments
+    token_count: 227
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c9"
+    char_span: [13317, 14519]
+    sentence_count: 8
+    key_terms: [get, people, back, offshoring, onshore, number, swings, different-maize-9818]
+    section: Comments
+    token_count: 299
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c10"
+    char_span: [14521, 16593]
+    sentence_count: 20
+    key_terms: [ubi, anyone, ignore, point, agi, inflection, different, replaced]
+    section: Comments
+    token_count: 486
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1owedzg.md#c11"
+    char_span: [16595, 18873]
+    sentence_count: 15
+    key_terms: [code, shit, degree, guarantee, economy, design, people, requirements]
+    section: Comments
+    token_count: 507
 ---
-
 # Even Andrew Ng is saying overhyped AI is causing harm and that CS degree will still be useful for decades to come
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1owedzg/even_andrew_ng_is_saying_overhyped_ai_is_causing/)

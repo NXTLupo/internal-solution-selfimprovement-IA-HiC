@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, comments, reddit, solidride5853, engineering, reddit-deep, experience, internship]
     token_count: 93
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r4vbaq.md#c1"
-    char_span: [385, 1019]
+    char_span: [384, 1018]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments

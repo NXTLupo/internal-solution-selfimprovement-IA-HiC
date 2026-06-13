@@ -7,13 +7,13 @@ subreddit: "engineeringstudents"
 title: "My engineering internship and entry-level job application guide. Stop mass applying into the void."
 author: "lazydictionary"
 date: "2026-01-20T16:07:30.000Z"
-score: 459
+score: 456
 upvote_ratio: 0.96
 num_comments: 33
 flair: "Career Advice"
-extracted_at: "2026-06-06T17:43:22.924Z"
+extracted_at: "2026-06-08T18:49:20.729Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c0"
     char_span: [0, 2284]
@@ -53,13 +53,13 @@ chunks:
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c7"
-    char_span: [14107, 16181]
+    char_span: [14107, 16180]
     sentence_count: 18
     key_terms: [school, applications, internships, job, applicants, especially, undergrad, honestly]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qi55xz.md#c8"
-    char_span: [16183, 18332]
+    char_span: [16182, 18331]
     sentence_count: 17
     key_terms: [lazydictionary, right, shirt, internships, don, job, especially, something]
     section: Comments
@@ -68,7 +68,7 @@ chunks:
 # My engineering internship and entry-level job application guide. Stop mass applying into the void.
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1qi55xz/my_engineering_internship_and_entrylevel_job/)
-Posted by **lazydictionary** · **459↑** · **33 comments**
+Posted by **lazydictionary** · **456↑** · **33 comments**
 
 Here's a guide for your internship, co-op, or job search. It is targeted at US job applicants in the private sector. Resumes and applications for academia, the federal government, and niche industries may require different approaches, so do your own research for those specific paths.
 
@@ -136,7 +136,7 @@ Okay, so you passed the pre-screens and are doing an in-person or virtual interv
 
 ## Comments
 
-- **zacce** (27↑): Well written. 
+- **zacce** (29↑): Well written. 
 
 > They'll give your resume a 10 sec glance  
 
@@ -160,16 +160,16 @@ One company I was at had a total of 30 people, including interns (I think they a
 The most recent start-up I was at was in the Bay Area and when I applied to it, *I didn't attach my resume*. But a few weeks after submitting, HR emailed me and said there was no resume, asked me for it, I interviewed through several rounds, and I ultimately got the job. When they asked if I had any questions when getting my offer, I straight up asked, "I would have assumed I'd get filtered out without a resume. What prompted you to ask for it?", and they replied that the hiring manager loved my cover letter and wanted to know more. Niche case, but you never know what really makes or breaks it for you in the application process.
   - **ConversationNo9592** (4↑): Startups? How do you even find them?
   - **Worried_Ice2836** (3↑): What do you normally include in your cover letters. I find it hard to find a median between being professional and showing my individuality
-- **zacce** (12↑): > What usually happens is they look through the first 50-100 applicants (maybe fewer)
+- **zacce** (11↑): > What usually happens is they look through the first 50-100 applicants (maybe fewer)
 
 The 1st 50-100 applicants that passed ATS filtering.
-- **jakep623** (16↑): Nice post. I agree, just recently got a new (dream) job as a pretty recent grad (10 months of experience, and 6 engineering internships in undergrad). Can confirm, this is the way.
-  - **lazydictionary** (10↑): Six internships is crazy. Did you have some in high school too?
-    - **FlowerPowerCagney** (6↑): it says BS/MS in his bio, so presumably he got some as a masters student as well
-    - **jakep623** (4↑): All in undergrad. Government aerospace (5) and childrens hospital (1). Long story.
+- **jakep623** (17↑): Nice post. I agree, just recently got a new (dream) job as a pretty recent grad (10 months of experience, and 6 engineering internships in undergrad). Can confirm, this is the way.
+  - **lazydictionary** (9↑): Six internships is crazy. Did you have some in high school too?
+    - **FlowerPowerCagney** (5↑): it says BS/MS in his bio, so presumably he got some as a masters student as well
+    - **jakep623** (5↑): All in undergrad. Government aerospace (5) and childrens hospital (1). Long story.
 
 Need to update my flair. Never did MS in EECS but I am waiting on a decision from a large state school for PhD in aero.
-- **zoe3ank** (6↑): This is solid advice, especially the timing piece about being in the first batch of applicants. I used to see this constantly when working with employers - they'd get 200+ applications for entry-level roles and honestly just stop looking after the first 50-75 decent ones.
+- **zoe3ank** (4↑): This is solid advice, especially the timing piece about being in the first batch of applicants. I used to see this constantly when working with employers - they'd get 200+ applications for entry-level roles and honestly just stop looking after the first 50-75 decent ones.
 
 One thing I'd add from the employer side: that whole "apply on company website vs job boards" thing is spot on, but there's another layer. A lot of companies now use multiple ATS systems or have weird integrations that don't talk to each other properly. I've seen students miss out because their LinkedIn Easy Apply went to some third-party system that the hiring manager never actually checks.
 
@@ -178,7 +178,7 @@ The referral angle is becoming huge too, especially in tech. Even for new grads,
 Also want to emphasize what you said about job fairs. I know they feel old school, but honestly some of the best placements I saw came through face-to-face interactions. Recruiters are drowning in digital applications but they remember the kid who asked smart questions about their specific tech stack at the career fair.
 
 The prayer part at the end is painfully accurate. You can do everything right and still get ghosted because they decided to promote internally or freeze hiring. Don't take it personally - just keep the pipeline full.
-- **PozPoz__** (4↑): As a senior who didn’t have any internships, it all feels pretty hopeless…
+- **PozPoz__** (5↑): As a senior who didn’t have any internships, it all feels pretty hopeless…
   - **lazydictionary** (2↑): It's not hopeless, but I hope you have some interesting projects to write about on your resume.
 
 There are a bunch of success stories on /r/EngineeringResumes of students landing their first jobs with no internships

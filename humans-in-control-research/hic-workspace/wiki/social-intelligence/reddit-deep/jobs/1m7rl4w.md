@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1m7rl4w.md#c0"
-    char_span: [0, 381]
+    char_span: [0, 380]
     sentence_count: 3
     key_terms: [jobs, comments, officialbcurrington, appreciated, reddit-deep, therapist, medicine, physical]
-    token_count: 99
+    token_count: 98
 ---
 # Entry level Job for college medicine student?
 

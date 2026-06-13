@@ -21,19 +21,19 @@ chunks:
     key_terms: [ucla, umich, applyingtocollege, data, opportunities, heard, conditional, perspective]
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c1"
-    char_span: [2165, 3031]
+    char_span: [2164, 3030]
     sentence_count: 8
     key_terms: [bballfan1183, college, thatswhaturmomsaid69, like, ucla, competitive, attendance, personally]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c2"
-    char_span: [3033, 5049]
+    char_span: [3032, 5048]
     sentence_count: 8
     key_terms: [conditional, umich, ucla, college, detroit, logan, never, offer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sm07gk.md#c3"
-    char_span: [4808, 6257]
+    char_span: [4807, 6256]
     sentence_count: 2
     key_terms: [ucla, consulting, anything, honestly, michigan, already, overall, private]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1slcc4l.md#c0"
-    char_span: [0, 2050]
+    char_span: [0, 2049]
     sentence_count: 9
     key_terms: [preprint, fully-funded, bioinformatics, school, international, discouraging, value, scholarship]
-    token_count: 451
+    token_count: 450
 ---
 # Need advice: Should I publish a preprint for my dry-lab FYP? Lecturers are discouraging, and I need portfolio value for fully-funded grad school.
 

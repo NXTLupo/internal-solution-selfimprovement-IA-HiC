@@ -33,31 +33,31 @@ chunks:
     key_terms: [encouragement, unfathomable, chronically, solidarity, hellscape, squeezed, getting, letting]
     token_count: 88
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c3"
-    char_span: [4723, 6347]
+    char_span: [4722, 6346]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c4"
-    char_span: [6349, 8476]
+    char_span: [6348, 8475]
     sentence_count: 10
     key_terms: [realize, obviousanon1, alone, thank, don, definitely, pattystr, myself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c5"
-    char_span: [8171, 8769]
+    char_span: [8170, 8768]
     sentence_count: 4
     key_terms: [endometriosis, sending, health, sorry, life, completely, definitely, excellent]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c6"
-    char_span: [8773, 10917]
+    char_span: [8772, 10916]
     sentence_count: 18
     key_terms: [month, help, living, food, "i'm", time, year, community]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sf7azs.md#c7"
-    char_span: [10656, 12000]
+    char_span: [10655, 11999]
     sentence_count: 11
     key_terms: [get, depression, struggling, grandpa, stories, through, wages, days]
     section: Comments

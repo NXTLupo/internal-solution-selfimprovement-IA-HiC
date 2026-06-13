@@ -31,31 +31,31 @@ chunks:
     key_terms: [ironclaw, com, github, agent, http, nearai, near, confidential]
     token_count: 87
   - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c3"
-    char_span: [4089, 4555]
+    char_span: [4088, 4554]
     sentence_count: 3
     key_terms: [skills, "won't", able, run, ilblackdragon, rahulgoel1995, implementing, credentials]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c4"
-    char_span: [4557, 6411]
+    char_span: [4556, 6410]
     sentence_count: 12
     key_terms: [ilblackdragon, llms, github, here, ironclaw, project, contributors, https]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c5"
-    char_span: [6413, 8233]
+    char_span: [6412, 8232]
     sentence_count: 9
     key_terms: [ironclaw, ilblackdragon, confidential, lookatmywormhole, people, everyone, identity, releases]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c6"
-    char_span: [8235, 10551]
+    char_span: [8234, 10550]
     sentence_count: 8
     key_terms: [security, confidential, data, run, prevent, access, ilblackdragon, architecture]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/machinelearning/1rlnwsk.md#c7"
-    char_span: [10553, 12746]
+    char_span: [10552, 12745]
     sentence_count: 24
     key_terms: [near, something, ironclaw, action, confidential, ecosystem, priority, excited]
     section: Comments

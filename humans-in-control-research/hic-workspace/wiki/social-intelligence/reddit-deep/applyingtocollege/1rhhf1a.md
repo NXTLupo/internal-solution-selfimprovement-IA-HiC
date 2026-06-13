@@ -26,25 +26,25 @@ chunks:
     key_terms: [college, school, becoming, degree, get, "it's", exiting, having]
     token_count: 344
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c2"
-    char_span: [3468, 5141]
+    char_span: [3467, 5140]
     sentence_count: 12
     key_terms: [school, reasonably, good, uiuc, majors, field, want, dartmouth]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c3"
-    char_span: [5143, 6052]
+    char_span: [5142, 6051]
     sentence_count: 2
     key_terms: [https, cojobrien, research, status, college-labor-market, photo, outcomes-by-major, com]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c4"
-    char_span: [6054, 8003]
+    char_span: [6053, 8002]
     sentence_count: 14
     key_terms: [music, arts, "i'm", ivy, marathonmarathon, schools, school, major]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rhhf1a.md#c5"
-    char_span: [8005, 9704]
+    char_span: [8004, 9703]
     sentence_count: 14
     key_terms: [school, students, schools, supplementals, something, supposed, clarity, college]
     section: Comments

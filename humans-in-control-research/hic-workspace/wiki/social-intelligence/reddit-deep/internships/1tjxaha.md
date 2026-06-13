@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1tjxaha.md#c0"
-    char_span: [0, 1436]
+    char_span: [0, 1435]
     sentence_count: 12
     key_terms: [internships, policy, internship, suggestions, background, compliance, governance, financial]
-    token_count: 296
+    token_count: 295
 ---
 # Suggestions for Internship Paths
 

@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c0"
-    char_span: [0, 980]
+    char_span: [0, 979]
     sentence_count: 6
     key_terms: [engineeringstudents, aerospace, startup, important, engineer, reddit, school, going]
-    token_count: 205
+    token_count: 204
   - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c1"
-    char_span: [982, 3235]
+    char_span: [981, 3234]
     sentence_count: 20
     key_terms: [experience, engineers, something, thermal, internships, important, job, because]
     token_count: 473
   - id: "articles/reddit-deep-r-engineeringstudents/fef29dc06c.md#c2"
-    char_span: [3237, 4636]
+    char_span: [3236, 4635]
     sentence_count: 11
     key_terms: [internships, important, because, always, clubs, "don't", gottatrusttheengr, get]
     token_count: 312

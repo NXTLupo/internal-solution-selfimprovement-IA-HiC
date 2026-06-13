@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1mnnprh.md#c0"
-    char_span: [0, 1187]
+    char_span: [0, 1186]
     sentence_count: 2
     key_terms: [verbosity, effort, high, low, medium, gpt-5, response, minimal]
-    token_count: 343
+    token_count: 342
   - id: "social-intelligence/reddit-deep/gpt/1mnnprh.md#c1"
-    char_span: [1198, 2769]
+    char_span: [1197, 2768]
     sentence_count: 5
     key_terms: [convo-lang, https, current, learn, electrons, reasoning-effort, voltage, github]
     token_count: 368

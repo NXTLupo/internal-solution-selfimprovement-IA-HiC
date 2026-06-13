@@ -21,19 +21,19 @@ chunks:
     key_terms: [cscareerquestions, comments, college, screwed, course, terms, been, circumstances]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c1"
-    char_span: [894, 2897]
+    char_span: [893, 2896]
     sentence_count: 15
     key_terms: [interest, "you'll", "you've", faang, debt, goal, rose, technical]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c2"
-    char_span: [2899, 4528]
+    char_span: [2898, 4527]
     sentence_count: 10
     key_terms: [got, graduation, currently, kansas, "that's", clubs, doing, "don't"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nlgdsf.md#c3"
-    char_span: [4530, 6474]
+    char_span: [4529, 6473]
     sentence_count: 11
     key_terms: [classes, fall, spring, accounting, co-op, something, summer, major]
     section: Comments

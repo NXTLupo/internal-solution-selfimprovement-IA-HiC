@@ -43,19 +43,19 @@ chunks:
     key_terms: [example, change, growth, vision, ready, ion, next, take]
     token_count: 245
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c5"
-    char_span: [10272, 11300]
+    char_span: [10271, 11299]
     sentence_count: 4
     key_terms: [people, homelessness, apprehensivecrow4504, tragicallybrokenhip, great, point, water, wafflesorbust]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c6"
-    char_span: [11302, 13125]
+    char_span: [11301, 13124]
     sentence_count: 11
     key_terms: [hospital, haljordan2424, new, want, pay, healthcare, unhappy, people]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/waterloo/1npazik.md#c7"
-    char_span: [13127, 13771]
+    char_span: [13126, 13770]
     sentence_count: 8
     key_terms: [slogan, "can't", words, come, like, need, transformational, awkwardtalk5234]
     section: Comments

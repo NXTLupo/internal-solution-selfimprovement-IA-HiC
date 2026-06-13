@@ -21,13 +21,13 @@ chunks:
     key_terms: [offer, interview, received, finally, internships, opportunity, experience, internship]
     token_count: 352
   - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c1"
-    char_span: [1592, 3267]
+    char_span: [1591, 3266]
     sentence_count: 13
     key_terms: [congratulations, psychologicalcup6385, offer, internship, searching, congrats, timeline, awesome]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/internships/1rtpjc7.md#c2"
-    char_span: [3269, 4224]
+    char_span: [3268, 4223]
     sentence_count: 10
     key_terms: [ghosted, couple, internship, something, getting, since, luck, paid]
     section: Comments

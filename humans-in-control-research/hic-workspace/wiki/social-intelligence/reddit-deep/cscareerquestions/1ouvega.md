@@ -23,37 +23,37 @@ chunks:
     key_terms: [talent, cscareerquestions, comments, tonight, needed, miserable-corner-254, new, conversation]
     token_count: 196
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c1"
-    char_span: [886, 2607]
+    char_span: [885, 2606]
     sentence_count: 11
     key_terms: [trump-green-cards-gradutate-college, people, irresponsible, guy, fucking, damned, dumb, god]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c2"
-    char_span: [2609, 4074]
+    char_span: [2608, 4073]
     sentence_count: 15
     key_terms: [party, against, deleted, action, bubble, h-1bs, least, parties]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c3"
-    char_span: [4076, 6017]
+    char_span: [4075, 6016]
     sentence_count: 8
     key_terms: [people, ancient-carry-4796, h1b, america, "you're", worth, immigrants, countries]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c4"
-    char_span: [6019, 8032]
+    char_span: [6018, 8031]
     sentence_count: 14
     key_terms: [rankings, schools, https, best-global-universities, artificial-intelligence, education, best, com]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c5"
-    char_span: [8034, 9905]
+    char_span: [8033, 9904]
     sentence_count: 10
     key_terms: [best-global-universities, artificial-intelligence, https, "aren't", airankings, immigrants, education, rankings]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ouvega.md#c6"
-    char_span: [9907, 10518]
+    char_span: [9906, 10517]
     sentence_count: 3
     key_terms: [people, means, "it's", says, victorsmonster, especially, sad-boi-97, interview]
     section: Comments

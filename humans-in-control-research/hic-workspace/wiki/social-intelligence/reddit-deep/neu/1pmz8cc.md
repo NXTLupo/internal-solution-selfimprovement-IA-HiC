@@ -23,7 +23,7 @@ chunks:
     key_terms: [graduate, probation, academic, dismissal, semester, appeal, gpa, advising]
     token_count: 330
   - id: "social-intelligence/reddit-deep/neu/1pmz8cc.md#c1"
-    char_span: [1494, 2160]
+    char_span: [1493, 2159]
     sentence_count: 2
     key_terms: [update, specialist-ease-6322, levzn, gpa, information, ereqsxxevd, struggling, extension]
     section: Comments

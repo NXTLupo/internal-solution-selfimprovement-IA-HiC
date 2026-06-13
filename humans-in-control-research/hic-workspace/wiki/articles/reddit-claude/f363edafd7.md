@@ -15,12 +15,12 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "articles/reddit-claude/f363edafd7.md#c0"
-    char_span: [0, 2258]
+    char_span: [0, 2257]
     sentence_count: 28
     key_terms: [claude, memory, context, discipline, session, without, verification-before-completion, hard]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-claude/f363edafd7.md#c1"
-    char_span: [2260, 4271]
+    char_span: [2259, 4270]
     sentence_count: 23
     key_terms: [claude, verification-before-completion, claude-flow, github, memory, consultation, superpowers, code]
     token_count: 493

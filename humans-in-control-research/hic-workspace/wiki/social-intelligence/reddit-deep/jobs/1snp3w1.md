@@ -21,7 +21,7 @@ chunks:
     key_terms: [jobs, comments, completepurification, entry, level, reddit-deep, experience, seriously]
     token_count: 95
   - id: "social-intelligence/reddit-deep/jobs/1snp3w1.md#c1"
-    char_span: [372, 2185]
+    char_span: [371, 2184]
     sentence_count: 12
     key_terms: [experience, significant-theme253, years, get, education, agencies, degree, office]
     section: Comments

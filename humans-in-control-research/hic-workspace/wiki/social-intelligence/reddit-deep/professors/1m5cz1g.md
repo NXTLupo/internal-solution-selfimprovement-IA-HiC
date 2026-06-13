@@ -36,91 +36,91 @@ chunks:
     key_terms: [anything, "don't", because, edit, vindicating, comments, slightly, obvious]
     token_count: 75
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c4"
-    char_span: [6632, 8843]
+    char_span: [6631, 8842]
     sentence_count: 17
     key_terms: [work, because, covid, academic, company, labour, papers, redact]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c5"
-    char_span: [8845, 10125]
+    char_span: [8844, 10124]
     sentence_count: 10
     key_terms: [passionate, being, lower, feel, uninformed, informed, students, passion]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c6"
-    char_span: [10127, 12256]
+    char_span: [10126, 12255]
     sentence_count: 13
     key_terms: [information, knowledge, cold, war, dalicussnuss, background, informed, severely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c7"
-    char_span: [12007, 13194]
+    char_span: [12006, 13193]
     sentence_count: 9
     key_terms: [information, colleagues, "you're", share, lot, per, cautious-yellow, presentations]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c8"
-    char_span: [13196, 14483]
+    char_span: [13195, 14482]
     sentence_count: 13
     key_terms: [assignments, creativity, students, benefit, cynical, playing, submit, book]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c9"
-    char_span: [14485, 15717]
+    char_span: [14484, 15716]
     sentence_count: 8
     key_terms: [gen, laziness, students, started, social, unique, class, years]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c10"
-    char_span: [15719, 17941]
+    char_span: [15718, 17940]
     sentence_count: 17
     key_terms: [information, "won't", head, "it's", work, meaningful, memorized, shrinking]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c11"
-    char_span: [17943, 19362]
+    char_span: [17942, 19361]
     sentence_count: 12
     key_terms: [someone, responsibly, issue, use, conversation, else, "it's", classroom]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c12"
-    char_span: [19364, 21454]
+    char_span: [19363, 21453]
     sentence_count: 13
     key_terms: [musicismydeadbeatdad, "it's", "you're", productivity, drugs, youth, "i'm", use]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c13"
-    char_span: [21167, 21467]
+    char_span: [21166, 21466]
     sentence_count: 3
     key_terms: [characterizations, historically, disparage, incorrect, strutting, oldsters, starting, faculty]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c14"
-    char_span: [21469, 23555]
+    char_span: [21468, 23554]
     sentence_count: 11
     key_terms: [students, education, "you're", pedagogies, young-and-cool-and-relatable, learning, boomers, connect]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c15"
-    char_span: [23559, 25890]
+    char_span: [23558, 25889]
     sentence_count: 19
     key_terms: ["i'm", faculty, students, because, concentrated, perspective, connecting, everything]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c16"
-    char_span: [25892, 27909]
+    char_span: [25891, 27908]
     sentence_count: 21
     key_terms: [students, "you're", because, get, "i'm", colleagues, dismissing, committee]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c17"
-    char_span: [27911, 29992]
+    char_span: [27910, 29991]
     sentence_count: 15
     key_terms: [students, college, "don't", demonstrate, position, probably, capable, grouchy]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/professors/1m5cz1g.md#c18"
-    char_span: [29994, 31264]
+    char_span: [29993, 31263]
     sentence_count: 14
     key_terms: ["you're", "don't", email, like, attention, etiquette, emails, "i'm"]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [chatgpt, better, grok, artificial, comments, curious, coding, derekagraham]
     token_count: 194
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c1"
-    char_span: [781, 2634]
+    char_span: [780, 2633]
     sentence_count: 8
     key_terms: [reddit, better, voice, elon, comments, amazing, because, chatgpt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c2"
-    char_span: [2431, 4024]
+    char_span: [2430, 4023]
     sentence_count: 8
     key_terms: [because, grok, uncensored, amazing, exactly, answer, remarkable-unit-7874, forsaken-parsley798]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c3"
-    char_span: [3824, 4995]
+    char_span: [3823, 4994]
     sentence_count: 8
     key_terms: [grok, marketing, summaries, unlimited, training, deleted, budget, gpt]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/artificial/1m6qdic.md#c4"
-    char_span: [4997, 5539]
+    char_span: [4996, 5538]
     sentence_count: 2
     key_terms: [different, psychologically, perspectives, bowlfew3641, encountered, manipulated, perspective, ideologies]
     section: Comments

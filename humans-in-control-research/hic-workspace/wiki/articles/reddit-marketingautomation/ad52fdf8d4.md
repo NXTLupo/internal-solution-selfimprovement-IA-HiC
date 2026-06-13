@@ -15,10 +15,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-marketingautomation/ad52fdf8d4.md#c0"
-    char_span: [0, 2214]
+    char_span: [0, 2213]
     sentence_count: 14
     key_terms: [onboarding, marketingautomation, https, marketing, airtable, emails, users, directories]
-    token_count: 474
+    token_count: 473
 ---
 # Automating My Marketing Workflow: 3 Tools That Saved Me 10+ Hours a Week
 

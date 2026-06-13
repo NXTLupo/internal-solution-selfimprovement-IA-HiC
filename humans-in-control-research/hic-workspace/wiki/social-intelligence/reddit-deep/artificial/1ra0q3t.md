@@ -23,13 +23,13 @@ chunks:
     key_terms: [code, ai-generated, comprehension, team, artificial, interested, codebase, comments]
     token_count: 443
   - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c1"
-    char_span: [2105, 4429]
+    char_span: [2104, 4428]
     sentence_count: 18
     key_terms: [architecture, code, difficult-sugar-4862, available-knee9983, implementation, understanding, team, convention]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/artificial/1ra0q3t.md#c2"
-    char_span: [4431, 6560]
+    char_span: [4430, 6559]
     sentence_count: 13
     key_terms: [code, add, technically, like, generated, treating, because, anyone]
     section: Comments

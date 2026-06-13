@@ -23,7 +23,7 @@ chunks:
     key_terms: [help, uwaterloo, workplace, comments, courses, writing, actual, scientistupbeat9060]
     token_count: 195
   - id: "social-intelligence/reddit-deep/uwaterloo/1tk50fm.md#c1"
-    char_span: [838, 2327]
+    char_span: [837, 2326]
     sentence_count: 5
     key_terms: [course, agentindependent306, scientistupbeat9060, meaningless, enrolled, students, courses, objective-style1994]
     section: Comments

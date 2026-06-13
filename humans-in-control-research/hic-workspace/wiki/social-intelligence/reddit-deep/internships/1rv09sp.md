@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1rv09sp.md#c0"
-    char_span: [0, 423]
+    char_span: [0, 422]
     sentence_count: 2
     key_terms: [internships, looking, bangalore, comments, software, company, student, summer]
-    token_count: 114
+    token_count: 113
 ---
 # Looking for summer internship for a BTech 2 nd year student in a software company in Bangalore
 

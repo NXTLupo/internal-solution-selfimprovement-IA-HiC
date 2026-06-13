@@ -23,25 +23,25 @@ chunks:
     key_terms: [social, artificial, models, like, comments, network, aifeed, follow]
     token_count: 276
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c1"
-    char_span: [1225, 2916]
+    char_span: [1224, 2915]
     sentence_count: 13
     key_terms: ["don't", anything, produce, seem, collectively, data, progress, gung-ho]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c2"
-    char_span: [2918, 4680]
+    char_span: [2917, 4679]
     sentence_count: 11
     key_terms: [data, sounds, heat, like, work, islands, odballl, ladder]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c3"
-    char_span: [4682, 6271]
+    char_span: [4681, 6270]
     sentence_count: 10
     key_terms: [linkedin, around, circle-jerk, interesting, absolutely, celebrates, recursive, anything]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/artificial/1qkqyqe.md#c4"
-    char_span: [6273, 7359]
+    char_span: [6272, 7358]
     sentence_count: 7
     key_terms: [interested, people, "you're", posts, dms, user, redheadsignal, participate]
     section: Comments

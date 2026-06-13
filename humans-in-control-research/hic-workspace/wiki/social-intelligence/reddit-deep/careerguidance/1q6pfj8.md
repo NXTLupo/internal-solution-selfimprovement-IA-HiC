@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, career, comments, salmanmalik1988, professional, reddit-deep, economics, learning]
     token_count: 106
   - id: "social-intelligence/reddit-deep/careerguidance/1q6pfj8.md#c1"
-    char_span: [411, 829]
+    char_span: [410, 828]
     sentence_count: 2
     key_terms: [planning, policy, urban, dense-nectarine368, intersection, development, consulting, positioned]
     section: Comments

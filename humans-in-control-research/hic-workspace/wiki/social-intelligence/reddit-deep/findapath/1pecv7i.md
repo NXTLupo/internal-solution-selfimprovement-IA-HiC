@@ -23,7 +23,7 @@ chunks:
     key_terms: [career, findapath, comments, been, akkkkkkkkll, recruitment, reddit-deep, operations]
     token_count: 156
   - id: "social-intelligence/reddit-deep/findapath/1pecv7i.md#c1"
-    char_span: [627, 1759]
+    char_span: [626, 1758]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

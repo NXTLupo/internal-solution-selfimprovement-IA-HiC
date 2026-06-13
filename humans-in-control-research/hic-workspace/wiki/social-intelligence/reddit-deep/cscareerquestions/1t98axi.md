@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, career, comments, honestly, planning, masters, advice, pursue]
     token_count: 253
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c1"
-    char_span: [1129, 3217]
+    char_span: [1128, 3216]
     sentence_count: 20
     key_terms: [learn, product, implementation, people, "you'll", great, engineering, interesting]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c2"
-    char_span: [3219, 5486]
+    char_span: [3218, 5485]
     sentence_count: 14
     key_terms: [expert, people, https, lot, ffrdcs, organizations, india, isro]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c3"
-    char_span: [5488, 7766]
+    char_span: [5487, 7765]
     sentence_count: 15
     key_terms: [without, going, plan, because, enough, code, get, hard]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t98axi.md#c4"
-    char_span: [7768, 8063]
+    char_span: [7767, 8062]
     sentence_count: 3
     key_terms: [willingpirate3009, environments, perspective, assessment, understand, direction, naturally, something]
     section: Comments

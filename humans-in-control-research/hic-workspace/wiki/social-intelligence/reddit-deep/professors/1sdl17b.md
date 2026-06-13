@@ -23,49 +23,49 @@ chunks:
     key_terms: [students, professors, class, back, comments, learning, passion, fellow]
     token_count: 283
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c1"
-    char_span: [1236, 2982]
+    char_span: [1235, 2981]
     sentence_count: 15
     key_terms: [students, diggingupophelia, always, don, drop, like, curiosity, exception]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c2"
-    char_span: [2984, 4917]
+    char_span: [2983, 4916]
     sentence_count: 11
     key_terms: [students, college, community, student, week, attendance, difference, certainly]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c3"
-    char_span: [4919, 6964]
+    char_span: [4918, 6963]
     sentence_count: 24
     key_terms: [employers, students, always, class, assignments, because, however, through]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c4"
-    char_span: [6966, 8388]
+    char_span: [6965, 8387]
     sentence_count: 15
     key_terms: [teaching, speech, like, new, absolutely, remember, semester, students]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c5"
-    char_span: [8390, 10579]
+    char_span: [8389, 10578]
     sentence_count: 17
     key_terms: [students, class, process, time, university, teaching, student, access]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c6"
-    char_span: [10324, 11117]
+    char_span: [10323, 11116]
     sentence_count: 3
     key_terms: [assignment, getting, logins, data, lms, time, certification, flabbergasted]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c7"
-    char_span: [11119, 12921]
+    char_span: [11118, 12920]
     sentence_count: 14
     key_terms: [been, students, teaching, people, worse, years, back, get]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/professors/1sdl17b.md#c8"
-    char_span: [12923, 14749]
+    char_span: [12922, 14748]
     sentence_count: 9
     key_terms: [the-impact-of-ai-on-students-reading-critical-thinking-and-problem-solving-skills, recent-trends-college-readiness-and-subsequent-college-performance, college, college-preparedness-over-years-according-naep, students, https, text, reminders]
     section: Comments

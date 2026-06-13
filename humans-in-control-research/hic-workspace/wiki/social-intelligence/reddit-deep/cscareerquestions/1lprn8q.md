@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lprn8q.md#c0"
-    char_span: [0, 1726]
+    char_span: [0, 1725]
     sentence_count: 3
     key_terms: [cscareerquestions, assistant, developer, prototype, real-time, comments, engineer, projects]
-    token_count: 412
+    token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lprn8q.md#c1"
-    char_span: [1728, 2432]
+    char_span: [1727, 2431]
     sentence_count: 6
     key_terms: [engineer, mlops, job, certifications, minimum-viable, prioritisation, contributions, assumptions]
     token_count: 163

@@ -38,37 +38,37 @@ chunks:
     key_terms: [children-data-surveillance-amazon-facebook-google-apple, video-games-data-privacy-artificial-intelligence, https, com, www, meta-patent-ai-dead-bot-llm, the-goods, mashable]
     token_count: 248
   - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c4"
-    char_span: [6412, 7992]
+    char_span: [6411, 7991]
     sentence_count: 12
     key_terms: [melanatedbagel25, openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c5"
-    char_span: [7995, 9486]
+    char_span: [7994, 9485]
     sentence_count: 5
     key_terms: [nullvoidxnilmission, something, chatgpt, "they're", ground, people, reddit, justwalkingalonghere]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c6"
-    char_span: [9488, 10683]
+    char_span: [9487, 10682]
     sentence_count: 7
     key_terms: [acrobatic-jump1105, like, "true", searched, imagine, police, inevitable-jury-6271, camelsaresofuckedup]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c7"
-    char_span: [10685, 12493]
+    char_span: [10684, 12492]
     sentence_count: 9
     key_terms: [models, run, consent, bigger, like, expensive, graphics, internet]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c8"
-    char_span: [12495, 14671]
+    char_span: [12494, 14670]
     sentence_count: 12
     key_terms: [data, yourself, info, settings, better, need, use, government]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/chatgpt/1r8kjym.md#c9"
-    char_span: [14674, 16088]
+    char_span: [14673, 16087]
     sentence_count: 9
     key_terms: [data, everything, people, alaskaexplorationgeo, justwalkingalonghere, stock-personality136, get, good]
     section: Comments

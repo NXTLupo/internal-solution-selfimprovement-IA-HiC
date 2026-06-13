@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradschool/fc1ebc3d3e.md#c0"
-    char_span: [0, 1096]
+    char_span: [0, 1095]
     sentence_count: 9
     key_terms: [congratulations, advice, school, grad, gradschool, comments, congrats, semester]
-    token_count: 262
+    token_count: 261
 ---
 # Advice for a first gen Grad student?
 

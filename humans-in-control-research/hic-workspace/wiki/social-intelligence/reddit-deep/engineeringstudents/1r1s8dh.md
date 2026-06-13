@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r1s8dh.md#c0"
-    char_span: [0, 1176]
+    char_span: [0, 1175]
     sentence_count: 10
     key_terms: [engineering, engineeringstudents, year, scholarships, best, employers, comments, careers]
     token_count: 271

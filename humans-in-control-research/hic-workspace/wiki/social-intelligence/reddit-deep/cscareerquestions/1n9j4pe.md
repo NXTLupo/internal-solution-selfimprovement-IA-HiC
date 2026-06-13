@@ -21,31 +21,31 @@ chunks:
     key_terms: ["i'm", get, "i've", applications, resume, experience, cscareerquestions, https]
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c1"
-    char_span: [1996, 3945]
+    char_span: [1995, 3944]
     sentence_count: 12
     key_terms: ["don't", people, friends, advice, either, google, better, market]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c2"
-    char_span: [3947, 5619]
+    char_span: [3946, 5618]
     sentence_count: 12
     key_terms: [resume, stack, full, good, experience, company, deleted, generic]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c3"
-    char_span: [5621, 7253]
+    char_span: [5620, 7252]
     sentence_count: 16
     key_terms: [university, people, resume, like, low, experience, already, posting]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c4"
-    char_span: [7255, 9324]
+    char_span: [7254, 9323]
     sentence_count: 15
     key_terms: [applying, get, graduate, awesomeness2078, internships, full, next, time]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n9j4pe.md#c5"
-    char_span: [9326, 9453]
+    char_span: [9325, 9452]
     sentence_count: 2
     key_terms: [apps, internship, include, anyway, highly, summer, zacce, does]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [internships, internship, anything, pretty, day, first-year, comments, everyone]
     token_count: 391
   - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c1"
-    char_span: [1828, 3586]
+    char_span: [1827, 3585]
     sentence_count: 11
     key_terms: [pathacceptable3119, best, like, luck, team, good, time, prachub]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/internships/1t2lqpl.md#c2"
-    char_span: [3588, 4514]
+    char_span: [3587, 4513]
     sentence_count: 2
     key_terms: [already, pathacceptable3119, intellectual, internships, opportunity, confidence, definitely, describing]
     section: Comments

@@ -26,37 +26,37 @@ chunks:
     key_terms: [love, devastating, guaranteed, genuinely, otherwise, proximity, structure, catholic]
     token_count: 104
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c2"
-    char_span: [2424, 4401]
+    char_span: [2423, 4400]
     sentence_count: 12
     key_terms: [smith, environment, going, purplecowswiftie, schools, night, lot, med]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c3"
-    char_span: [4403, 6483]
+    char_span: [4402, 6482]
     sentence_count: 12
     key_terms: [great, opportunities, school, boston, smith, resources, students, medical]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c4"
-    char_span: [6485, 8589]
+    char_span: [6484, 8588]
     sentence_count: 17
     key_terms: [implementnatural204, smith, student, representative, school, mainbeachgoon, aspirations, interesting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c5"
-    char_span: [8354, 8909]
+    char_span: [8353, 8908]
     sentence_count: 6
     key_terms: [activities, school, buy, city, good, incredibly, drinking, football]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c6"
-    char_span: [8911, 9935]
+    char_span: [8910, 9934]
     sentence_count: 14
     key_terms: [study, smith, time, want, work, starting, because, friends]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sc11cw.md#c7"
-    char_span: [9937, 11500]
+    char_span: [9936, 11499]
     sentence_count: 6
     key_terms: [smith, opportunities, research, boston, implementnatural204, scene, get, paid]
     section: Comments

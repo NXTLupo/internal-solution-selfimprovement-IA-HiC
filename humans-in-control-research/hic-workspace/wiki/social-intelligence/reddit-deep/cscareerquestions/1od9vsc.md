@@ -26,7 +26,7 @@ chunks:
     key_terms: [better, cst, transferring, competitive, perspective, appreciate, especially, everything]
     token_count: 89
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od9vsc.md#c2"
-    char_span: [2731, 3178]
+    char_span: [2730, 3177]
     sentence_count: 6
     key_terms: [understand, degree, years, difference, experience, mid-sized, rosenvine, something]
     section: Comments

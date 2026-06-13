@@ -38,43 +38,43 @@ chunks:
     key_terms: ["i'm", people, need, because, got, everything, messages, probably]
     token_count: 269
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c4"
-    char_span: [7888, 9816]
+    char_span: [7887, 9815]
     sentence_count: 23
     key_terms: [family, steps-to-take-if-someone-opens-a-credit-card-in-your-name, parents, police, report, responsible, yourself, accept]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c5"
-    char_span: [9818, 11494]
+    char_span: [9817, 11493]
     sentence_count: 8
     key_terms: [credit, like, ssn, without, always, family, loving, parent]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c6"
-    char_span: [11496, 13392]
+    char_span: [11495, 13391]
     sentence_count: 21
     key_terms: [himself, parents, credit, aunt, hard, minutes, people, report]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c7"
-    char_span: [13394, 15524]
+    char_span: [13393, 15523]
     sentence_count: 22
     key_terms: [family, don, get, life, people, report, situation, therapist]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c8"
-    char_span: [15526, 16656]
+    char_span: [15525, 16655]
     sentence_count: 7
     key_terms: [credit, payments, report, cards, debt, get, want, nekohideyoshi]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c9"
-    char_span: [16658, 18664]
+    char_span: [16657, 18663]
     sentence_count: 16
     key_terms: [credit, don, report, "don't", loans, score, "it's", like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1pwgksv.md#c10"
-    char_span: [18666, 19547]
+    char_span: [18665, 19546]
     sentence_count: 12
     key_terms: [report, back, single, radiant-pianist-3596, doing, money, whysomanyostriches, knew]
     section: Comments

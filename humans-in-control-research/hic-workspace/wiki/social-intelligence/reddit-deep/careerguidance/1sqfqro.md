@@ -21,19 +21,19 @@ chunks:
     key_terms: [careerguidance, career, opportunities, gap, freelance, building, comments, getting]
     token_count: 307
   - id: "social-intelligence/reddit-deep/careerguidance/1sqfqro.md#c1"
-    char_span: [1330, 3314]
+    char_span: [1329, 3313]
     sentence_count: 21
     key_terms: [data, skills, job, people, market, get, like, projects]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1sqfqro.md#c2"
-    char_span: [3316, 5158]
+    char_span: [3315, 5157]
     sentence_count: 16
     key_terms: [data, learning, get, like, anything, personal, towards, skills]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/careerguidance/1sqfqro.md#c3"
-    char_span: [5161, 5718]
+    char_span: [5160, 5717]
     sentence_count: 3
     key_terms: [distinctmango3663, don, get, tommyknocker77, professional, internships, consulting, companies]
     section: Comments

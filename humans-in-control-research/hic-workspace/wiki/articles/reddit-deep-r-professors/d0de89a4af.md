@@ -15,12 +15,12 @@ relevance: 64
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-professors/d0de89a4af.md#c0"
-    char_span: [0, 2054]
+    char_span: [0, 2053]
     sentence_count: 26
     key_terms: [students, notes, take, learning, "don't", professors, comments, teachers]
-    token_count: 480
+    token_count: 479
   - id: "articles/reddit-deep-r-professors/d0de89a4af.md#c1"
-    char_span: [2056, 4056]
+    char_span: [2055, 4055]
     sentence_count: 16
     key_terms: [notes, students, because, lecture, note, undergrad, outline, provide]
     token_count: 454

@@ -23,13 +23,13 @@ chunks:
     key_terms: [chinese, students, different, apps, like, feel, here, canadian]
     token_count: 388
   - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c1"
-    char_span: [1809, 3620]
+    char_span: [1808, 3619]
     sentence_count: 10
     key_terms: [chinese, like, english, daily, drive, using, use, question]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/uwaterloo/1ssnj4n.md#c2"
-    char_span: [3622, 3975]
+    char_span: [3621, 3974]
     sentence_count: 1
     key_terms: [minute-wolverine417, self-hosters, homelabbers, non-trivial, amolven16, bilingual, mentioned, waterloo]
     section: Comments

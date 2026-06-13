@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, learn, comments, learning, breakfastaccurate966, tech, overwhelming, unstructured]
     token_count: 196
   - id: "social-intelligence/reddit-deep/careerguidance/1rrayb2.md#c1"
-    char_span: [864, 3024]
+    char_span: [863, 3023]
     sentence_count: 15
     key_terms: [analytics, data, skills, breakfastaccurate966, "it's", learning, foundational, learn]
     section: Comments

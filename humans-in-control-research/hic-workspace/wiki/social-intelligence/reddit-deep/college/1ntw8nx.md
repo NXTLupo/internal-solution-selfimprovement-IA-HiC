@@ -21,19 +21,19 @@ chunks:
     key_terms: [get, job, college, want, comments, because, school, good]
     token_count: 147
   - id: "social-intelligence/reddit-deep/college/1ntw8nx.md#c1"
-    char_span: [603, 2704]
+    char_span: [602, 2703]
     sentence_count: 12
     key_terms: [job, sure, get, semester, work, experience, recommend, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ntw8nx.md#c2"
-    char_span: [2421, 4457]
+    char_span: [2420, 4456]
     sentence_count: 16
     key_terms: [work, plenty, club, time, year, college, working, others]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ntw8nx.md#c3"
-    char_span: [4239, 4774]
+    char_span: [4238, 4773]
     sentence_count: 5
     key_terms: [detectivenarrow, online, curatorofyourdreams, did, job, year, highschool, advantage]
     section: Comments

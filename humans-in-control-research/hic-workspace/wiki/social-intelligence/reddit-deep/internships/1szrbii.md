@@ -21,7 +21,7 @@ chunks:
     key_terms: [iit, kgp, rpr, mandi, confirmation, guide, internships, comments]
     token_count: 395
   - id: "social-intelligence/reddit-deep/internships/1szrbii.md#c1"
-    char_span: [1683, 2207]
+    char_span: [1682, 2206]
     sentence_count: 2
     key_terms: [reallypratik, selected, grishma, domain, get, year, internships, shortlisted]
     section: Comments

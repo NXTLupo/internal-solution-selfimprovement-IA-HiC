@@ -23,19 +23,19 @@ chunks:
     key_terms: [school, opportunities, grad, job, funded, loans, scholarship, year]
     token_count: 443
   - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c1"
-    char_span: [1986, 3411]
+    char_span: [1985, 3410]
     sentence_count: 11
     key_terms: [masters, funded, fully, major, "it's", stipend, tuition, school]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c2"
-    char_span: [3413, 4686]
+    char_span: [3412, 4685]
     sentence_count: 6
     key_terms: [students, "master's", programs, funded, phd, guarantee, usually, thousandshardships]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/gradschool/1qsbxm4.md#c3"
-    char_span: [4688, 6044]
+    char_span: [4687, 6043]
     sentence_count: 12
     key_terms: [funded, tuition, assistantships, fully, graduate, semester, masters, program]
     section: Comments

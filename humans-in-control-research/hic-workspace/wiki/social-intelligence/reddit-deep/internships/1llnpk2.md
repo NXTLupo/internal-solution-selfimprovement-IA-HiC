@@ -21,19 +21,19 @@ chunks:
     key_terms: [internship, internshipprogram, program, https, japan, internships, experience, comments]
     token_count: 242
   - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c1"
-    char_span: [1053, 2656]
+    char_span: [1052, 2655]
     sentence_count: 2
     key_terms: [odd-indication-8237, connect, too, applied, deleted, mail, contest, receive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c2"
-    char_span: [2441, 4549]
+    char_span: [2440, 4548]
     sentence_count: 4
     key_terms: [enrollment, letter, form, provide, university, odd-indication-8237, got, interview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1llnpk2.md#c3"
-    char_span: [4317, 4567]
+    char_span: [4316, 4566]
     sentence_count: 1
     key_terms: [anyone, update, ineedtoselectaname, acceptance, rejection, accepted, received, updates]
     section: Comments

@@ -26,25 +26,25 @@ chunks:
     key_terms: [summer, applications, bottled-up, currently, potential, somewhere, stressing, feelings]
     token_count: 99
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c2"
-    char_span: [2364, 3588]
+    char_span: [2363, 3587]
     sentence_count: 9
     key_terms: [companies, dialsoapbox, internships, students, company, apply, weeks, ago]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c3"
-    char_span: [3590, 5663]
+    char_span: [3589, 5662]
     sentence_count: 16
     key_terms: [internship, "i'm", role, work, student, zettasyntax, grad, "couldn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c4"
-    char_span: [5432, 6674]
+    char_span: [5431, 6673]
     sentence_count: 9
     key_terms: [friends, publicinvention, opportunities, internships, robertlread, "i'm", internship, yourself]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/internships/1t1zwjd.md#c5"
-    char_span: [6676, 7999]
+    char_span: [6675, 7998]
     sentence_count: 7
     key_terms: [iamanoob690, internship, internships, experience, sophomore, junior, resume, summer]
     section: Comments

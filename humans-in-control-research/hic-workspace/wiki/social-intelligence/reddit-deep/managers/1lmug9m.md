@@ -23,25 +23,25 @@ chunks:
     key_terms: [team, manager, been, new, pip, comments, convince, escalate]
     token_count: 385
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c1"
-    char_span: [1652, 3199]
+    char_span: [1651, 3198]
     sentence_count: 14
     key_terms: [management, restaurant, everything, "manager's", problems, training, "didn't", offers]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c2"
-    char_span: [3201, 4785]
+    char_span: [3200, 4784]
     sentence_count: 15
     key_terms: [pip, team, no-mongoose1541, nothing, job, like, another, fallacy]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c3"
-    char_span: [4787, 6640]
+    char_span: [4786, 6639]
     sentence_count: 10
     key_terms: [manager, leave, pip, reason, chemical-bathroom-24, feels, teams, toxic]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/managers/1lmug9m.md#c4"
-    char_span: [6642, 8364]
+    char_span: [6641, 8363]
     sentence_count: 8
     key_terms: [heightflat9761, team, harassment, deleted, investigation, got, another, because]
     section: Comments

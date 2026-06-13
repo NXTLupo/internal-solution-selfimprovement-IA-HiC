@@ -23,31 +23,31 @@ chunks:
     key_terms: [careeradvice, didnt, job, obviously, comments, never, raise, start]
     token_count: 306
   - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c1"
-    char_span: [1267, 3212]
+    char_span: [1266, 3211]
     sentence_count: 11
     key_terms: [pay, mx5plus2cones, ask, job, around, better, design, productzestyclose968]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c2"
-    char_span: [3214, 5293]
+    char_span: [3213, 5292]
     sentence_count: 19
     key_terms: [salary, conversation, start, pay, definitely, management, applying, "doesn't"]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c3"
-    char_span: [5295, 6801]
+    char_span: [5294, 6800]
     sentence_count: 13
     key_terms: [employer, competitive, work, confident, another, company, "you've", based]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c4"
-    char_span: [6803, 8145]
+    char_span: [6802, 8144]
     sentence_count: 13
     key_terms: ["it's", electrical, underpaid, "you're", range, years, area, been]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/careeradvice/1szrtnp.md#c5"
-    char_span: [8147, 9447]
+    char_span: [8146, 9446]
     sentence_count: 14
     key_terms: [market, get, job, offers, raise, paid, adjustment, applying]
     section: Comments

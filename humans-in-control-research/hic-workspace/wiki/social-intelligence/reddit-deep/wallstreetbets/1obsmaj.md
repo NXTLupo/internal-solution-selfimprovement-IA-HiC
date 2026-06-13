@@ -28,19 +28,19 @@ chunks:
     key_terms: [https, b0380b954e5f4a217fe8b753accb799ea52c19d9, dipto-mukherjee-scpm-mba-192a322a, com, glxy, here, continuing, coreweave]
     token_count: 333
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c2"
-    char_span: [2781, 3898]
+    char_span: [2780, 3897]
     sentence_count: 4
     key_terms: [https, tendies, "wendy's", com, category, account, discord, tenders]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c3"
-    char_span: [3900, 5371]
+    char_span: [3899, 5370]
     sentence_count: 3
     key_terms: [peppybilly, e186faadd8ebf3a414f1dcec77770a24e6eafd8d, thabluecat, bought, painterelectrical372, tasselledwobbegong1, money, bet]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1obsmaj.md#c4"
-    char_span: [5373, 6581]
+    char_span: [5372, 6580]
     sentence_count: 3
     key_terms: [deleted, shares, napalm2142, probably, discord, bought, https, never]
     section: Comments

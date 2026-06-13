@@ -23,19 +23,19 @@ chunks:
     key_terms: [povertyfinance, like, everything, groceries, comments, paycheck, income, people]
     token_count: 275
   - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c1"
-    char_span: [1097, 2768]
+    char_span: [1096, 2767]
     sentence_count: 10
     key_terms: [car, pay, "wouldn't", deleted, money, lot, gamer30168, probably]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c2"
-    char_span: [2771, 4672]
+    char_span: [2770, 4671]
     sentence_count: 14
     key_terms: [debt, better, get, job, emergencies, car, subsidized, deleted]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/povertyfinance/1low8e6.md#c3"
-    char_span: [4674, 5069]
+    char_span: [4673, 5068]
     sentence_count: 4
     key_terms: [month, food, utilities, probably, deleted, outside, camper, likely]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [gemini, comments, account, passkey, windows, access, edited, trying]
     token_count: 225
   - id: "social-intelligence/reddit-deep/gemini/1lq9pjz.md#c1"
-    char_span: [840, 2010]
+    char_span: [839, 2009]
     sentence_count: 11
     key_terms: [phone, passkey, gemini, shouldbeestudying, code, set, trapfiend, account]
     section: Comments

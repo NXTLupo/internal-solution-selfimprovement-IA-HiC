@@ -127,3 +127,91 @@ Beyond the 10 hard rules above:
 4. **Action titles, not topic labels.** "Students apply to 100+ co-ops in the first cycle" not "The Application Phase".
 
 These rules are also enforced at runtime by `services/slidePostProcessor.ts` (METAPHOR_PATTERNS + META_NARRATION_PATTERNS, added 2026-06-06) and by the Hook Bus dispatcher (`.claude/hooks/scripts/dispatch_validators.py`) routing to `validate_titles.py`, `validate_no_em_dashes.py`, `validate_slide_variety.py` for the `#presentation` deliverable per `.claude/ARCHITECTURE.md`.
+
+
+## GOLD Figma recreation furniture — defect-hardened (2026-06-09, SkillOpt)
+Recreating a deliverable as a Figma page (one per deliverable + a PPTX-twin clone) at the GOLD 1920x1080 spec
+(see hic-workspace/wiki/design-system/gold-visual-language.md + gold/*.html twins):
+- 3x3 DOT MARK: build deterministically as a VERTICAL auto-layout of 3 HORIZONTAL rows of 3 squares
+  (12px, itemSpacing 6, HUG). NEVER use layoutWrap='WRAP' + resize() — it renders as a single horizontal
+  row that collides with the takeaway band. Place x=30, y=1080-42-48 on the rail.
+- KICKER: layoutSizingHorizontal='HUG' — FILL-width makes its bounding box overlap the top-right wordmark.
+- QA LOOP (mandatory): after build, collect leaf TEXT absolute bounding boxes, flag intersecting pairs,
+  screenshot, fix to ZERO collisions before claiming done (creative-director pass).
+- DESIGN STANDARDS: generous padding between elements; vertically balanced (fill the stage, no dead band
+  above the takeaway); >=2 verbatim corpus quotes per deliverable column (evidence density); elegant
+  restraint; color-as-meaning (accent=pain, cool=need/source); no eyebrow microlabels; no em-dash.
+- SELF-IMPROVEMENT: every fix/enhancement is logged to synthesis/generation-failures.md AND folded back
+  into this skill (SkillOpt) so future generations inherit it.
+
+
+## Logo + stronger-contrast (2026-06-09, SkillOpt — user-corrected)
+- LOGO: place the ACTUAL brand logo vector top-right (wiki/brand/logos/nxt-humans-wordmark-*.svg via
+  createNodeFromSvg, ~170px wide), NEVER a text-wordmark stand-in. The gold spec's IBM Plex Mono "NXT
+  HUMANS" text is a placeholder; we have the real vector, so use it. (User: "why did you make that up?")
+- STRONGER CONTRAST (per NXT_HUMANS_Design_System_Style_Guide): the single most important takeaway is a
+  SOLID CHARTREUSE block with BLACK text (max one chartreuse block per page), not a dark band. Other
+  strong-contrast devices to deploy where the layout calls for them: .section-dark full-bleed bands
+  (chartreuse num, white h2, oversized cropping display), and color-block grids (black/chartreuse/teal-deep/
+  panel cells, text inverts on dark). Ground contrast choices in the style guide; do not invent.
+
+
+## h1 wrap + logo padding (2026-06-09, SkillOpt — user-corrected)
+- H1 ACTION TITLE: constrain width (~1180px of the 1660 canvas, layoutSizingHorizontal=FIXED) so it WRAPS
+  to two lines and clears the top-right logo zone. Never let the full-width h1 run into the logo on one line.
+- LOGO PADDING: inset the logo from the canvas edge (right edge ~40px in from 1832, i.e. x~1636 at 156px
+  wide, y~58) with clear breathing room; do not jam it into the corner or against the headline.
+
+
+## Writing discipline + page structure (2026-06-09, SkillOpt — user-mandated)
+- ANTI-SLOP BEFORE GENERATING: ALWAYS run the anti-slop scan (.claude/hooks/scripts/validate_ai_slop.py +
+  precheck_slop.py + the 350+ banned list in .claude/CLAUDE.md) on EVERY copy field BEFORE building a Figma
+  exemplar, not after. Writing must be human-readable and clear; fix awkward grammar (e.g. "rank items to a
+  category" -> "rank each item against the customer's segment"). Writing is load-bearing. INDUSTRY-AGNOSTIC:
+  copy and examples must read for ANY vertical the user is researching (retail, finance, healthcare, travel,
+  government, media, fashion, etc.); never assume a domain. Use representative copy per the Representative-
+  Content Firewall; real artifacts pull domain content from the live corpus/manifest.
+- NO REDUNDANT META LABELS: remove eyebrow/gid chrome that color/position/an adjacent numeral already conveys
+  (e.g. a "GAP-01" gid sitting above the "01" numeral; a "GAP-01 · US-1" tag on each rec card). Per the GOLD
+  anti-slop microlabel rule. KEEP only load-bearing labels (SOURCE:, severity HIGH/CRITICAL, prevalence
+  DOMINANT/RECURRING, Gartner scale, lens category, FEEDS gap-trace lines).
+- PAGE STRUCTURE: each deliverable gets its OWN Figma page, in BOTH the NXT file (iSQhAVM7SI4QHAWB7y9C2z) AND
+  the Northeastern file (z2v9Pvhg23hlljEitPBdAt). Name "GOLD · <deliverable> (nxt|nu)". NU uses the *-nu gold
+  twins + NU tokens (ink-navy rail, Huskies red accent, gold; h1 per NU type).
+
+
+## Methodology / self-referential ban (2026-06-09, SkillOpt — now HOOK-ENFORCED)
+NEVER expose the research apparatus on a finished artifact. BANNED as kicker/heading/label/note chrome:
+"WHAT THE CORPUS SAYS", "EVIDENCE" (as a methodology label), "SIX-LENS SCAN", a "LENSES" framework strip,
+"student/customer/user-voice scan", "the evidence is thickest", the words "corpus" / "methodology". Kickers
+and headings carry a topic or an insight, never the method. Named "SOURCE: <name>" citations ARE allowed.
+MANDATORY before building ANY Figma exemplar: run .claude/hooks/scripts/validate_self_referential_freeform.py
+AND validate_ai_slop.py on every copy field; build only on exit 0. The self-ref hook was extended 2026-06-09
+with _METHODOLOGY_PATTERNS (tested: blocks the corpus/six-lens kicker at exit 2, passes clean at exit 0).
+
+
+## Layout variation + journey phases (2026-06-09, SkillOpt)
+- VARIATION: each deliverable replicates ITS gold twin's distinct layout - do NOT default everything to a
+  4-column grid. journey = phase ruler + GOAL/WHERE-IT-BREAKS bordered blocks; service-blueprint = swimlane
+  grid (lanes x stages); competitive = maturity-dot matrix; strategy = Rumelt kernel (stacked diagnosis/
+  guiding-policy/coherent-actions); block-quote = single hero quote; case-study = challenge/approach/outcome
+  blocks; roadmap = NOW/NEXT/LATER horizons; persona = roster + detail. Read each gold *-nxt.html and mirror
+  its structure.
+- JOURNEY: stage ruler + labels use PHASE NAMES (e.g. Notice / Search / Contact / Wait / Resolve), NEVER time
+  durations ("0 MIN", "DAY 1-3"). A journey maps phases, not a stopwatch.
+
+
+## MANDATORY pre-build protocol per deliverable (2026-06-09, SkillOpt — user-demanded, do EVERY time)
+Before building ANY deliverable exemplar in Figma, run all three, in order, and only build on pass:
+1. READ THE GOLD TWIN: hic-workspace/wiki/design-system/gold/<deliverable>-{nxt|nu}.html — mirror ITS distinct
+   layout (never default to 4 columns).
+2. READ THE EXPERT SKILL for that deliverable (it defines the model/structure/required fields):
+   gap -> gap-analysis-evaluator | recommendations -> recommendation-architect | themes -> theme-analyst |
+   journey -> diagrams/journey-illustrator | service-blueprint -> service-blueprint-mapper |
+   competitive -> competitive-analyst | personas -> persona-architect | strategy -> strategy-author |
+   roadmap -> roadmap-builder | prd -> prd-compiler | tech-arch -> tech-arch-generator |
+   tech-audit -> tech-audit-inspector | report -> strategic-report-writer | meta-themes -> meta-themes |
+   mindmap -> mind-map-architect | org -> org-chart.
+3. ANTI-SLOP GATE: run .claude/hooks/scripts/validate_self_referential_freeform.py AND validate_ai_slop.py
+   on every copy field; build only on exit 0.
+Then build, screenshot, run the collision audit, fix to zero, log any defect to failure-log + SkillOpt + memory.

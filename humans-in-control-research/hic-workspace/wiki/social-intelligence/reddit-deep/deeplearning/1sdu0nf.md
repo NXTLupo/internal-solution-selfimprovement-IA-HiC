@@ -23,7 +23,7 @@ chunks:
     key_terms: [nandi-mini-150m, model, huggingface, https, transformers, architecture, deeplearning, benchmaxing]
     token_count: 447
   - id: "social-intelligence/reddit-deep/deeplearning/1sdu0nf.md#c1"
-    char_span: [1876, 2449]
+    char_span: [1875, 2448]
     sentence_count: 1
     key_terms: [version, paintereffective9584, nice-resolution2620, does, gguf, approachable, interference, intraluminal]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [vanderbilt, applicant, applyingtocollege, students, transfer, college, please, application]
     token_count: 404
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smdqlv.md#c1"
-    char_span: [1922, 3667]
+    char_span: [1921, 3666]
     sentence_count: 8
     key_terms: [rejected, transfer, got, only-decision-5198, manipulation, like, year, rejection]
     section: Comments

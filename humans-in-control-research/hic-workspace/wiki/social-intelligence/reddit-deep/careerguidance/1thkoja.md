@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1thkoja.md#c0"
-    char_span: [0, 996]
+    char_span: [0, 995]
     sentence_count: 3
     key_terms: [mainframe, project, career, careerguidance, choose, extraction, comments, existing]
-    token_count: 232
+    token_count: 231
 ---
 # Help me how to choose career path based on experience ?
 

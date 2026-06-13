@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, real, job, experience, internship, something, comments, students]
     token_count: 206
   - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c1"
-    char_span: [860, 2642]
+    char_span: [859, 2641]
     sentence_count: 1
     key_terms: [like, heyiloveya, something, job, everything, interviews, software, already]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c2"
-    char_span: [2644, 3329]
+    char_span: [2643, 3328]
     sentence_count: 2
     key_terms: [looking, project, lot, work, notimpossible, competitions, companies, programme]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/internships/1sneu43.md#c3"
-    char_span: [3331, 5051]
+    char_span: [3330, 5050]
     sentence_count: 10
     key_terms: [students, something, like, free, pay, projects, already, joining]
     section: Comments

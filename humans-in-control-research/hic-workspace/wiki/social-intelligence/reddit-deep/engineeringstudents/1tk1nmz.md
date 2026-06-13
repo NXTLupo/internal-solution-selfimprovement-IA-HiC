@@ -21,7 +21,7 @@ chunks:
     key_terms: [hardware, engineeringstudents, computer, student, systems, acceleration, engineering, internships]
     token_count: 218
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tk1nmz.md#c1"
-    char_span: [1085, 2088]
+    char_span: [1084, 2087]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

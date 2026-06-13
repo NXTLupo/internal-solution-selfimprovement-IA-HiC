@@ -23,13 +23,13 @@ chunks:
     key_terms: [phd, germany, askacademia, countries, currently, comments, doing, neuro]
     token_count: 217
   - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c1"
-    char_span: [940, 2221]
+    char_span: [939, 2220]
     sentence_count: 7
     key_terms: [phd, academia, publications, redditboy117, hard, determine, graduate, balance]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/askacademia/1t9cv7p.md#c2"
-    char_span: [2223, 3185]
+    char_span: [2222, 3184]
     sentence_count: 6
     key_terms: [working-abrocoma4122, unemployment, immigration, phd, germany, suggest, right, get]
     section: Comments

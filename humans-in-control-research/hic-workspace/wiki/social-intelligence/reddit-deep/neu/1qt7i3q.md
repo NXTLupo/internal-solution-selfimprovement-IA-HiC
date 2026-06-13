@@ -23,7 +23,7 @@ chunks:
     key_terms: [trustyhuskyneu, students, housing, forced, option, single, northeastern, com]
     token_count: 238
   - id: "social-intelligence/reddit-deep/neu/1qt7i3q.md#c1"
-    char_span: [1062, 1396]
+    char_span: [1061, 1395]
     sentence_count: 4
     key_terms: [discord, nca4rcrzdr, https, join, satire-writing, trustyhuskyneu, surprisingly, seahorses]
     section: Comments

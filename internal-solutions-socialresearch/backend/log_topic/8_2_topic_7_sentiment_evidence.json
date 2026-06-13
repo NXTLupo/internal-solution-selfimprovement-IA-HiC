@@ -1,0 +1,56 @@
+{
+  "positive": [
+    {
+      "point": "Some users report no issues with accessing their Vanguard accounts or using certain browsers like Firefox and Safari.",
+      "post_refs": [
+        "1t10h00",
+        "1sjc0r9"
+      ]
+    },
+    {
+      "point": "Vanguard's low fees are appreciated by users, despite some service issues.",
+      "post_refs": [
+        "1t10h00"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Users are experiencing significant technical issues with Vanguard's website, including inability to access accounts, cancel trades, or view balances.",
+      "post_refs": [
+        "1t10h00",
+        "1sjrzcn",
+        "1sjry8p",
+        "1r2urb1",
+        "1qpb3yw"
+      ]
+    },
+    {
+      "point": "There are ongoing problems with third-party data synchronization, affecting users' ability to track their investments accurately.",
+      "post_refs": [
+        "1qdjbqz",
+        "1pexz6a"
+      ]
+    },
+    {
+      "point": "Vanguard's customer service is perceived as declining, with long resolution times for technical issues.",
+      "post_refs": [
+        "1t10h00",
+        "1qpb3yw"
+      ]
+    },
+    {
+      "point": "Users report issues with withdrawing cash from accounts, possibly due to unclear policies or technical errors.",
+      "post_refs": [
+        "1sigsbt",
+        "1o26p25"
+      ]
+    },
+    {
+      "point": "Problems with data downloads to financial software like Quicken, affecting users' financial tracking.",
+      "post_refs": [
+        "1qahrf2"
+      ]
+    }
+  ]
+}

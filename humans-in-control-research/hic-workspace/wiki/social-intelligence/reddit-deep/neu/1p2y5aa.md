@@ -21,25 +21,25 @@ chunks:
     key_terms: ["i'm", neu, considering, want, academically, here, http, experience]
     token_count: 411
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c1"
-    char_span: [1676, 2330]
+    char_span: [1675, 2329]
     sentence_count: 3
     key_terms: [somewhere, freshman, minor, vegetabletitle6726, understandable, academically, everywhere, understand]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c2"
-    char_span: [2333, 4399]
+    char_span: [2332, 4398]
     sentence_count: 13
     key_terms: [library, transferred, study, here, transfer, people, sussybananas, don]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c3"
-    char_span: [4132, 4706]
+    char_span: [4131, 4705]
     sentence_count: 5
     key_terms: [leaving, advice, stocktelephone11, recommendations, northeastern, transferring, considering, acceptance]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/neu/1p2y5aa.md#c4"
-    char_span: [4708, 5147]
+    char_span: [4707, 5146]
     sentence_count: 2
     key_terms: [boston, mentioned, schools, no-expression7574, best, headquarter, csrankings, percentage]
     section: Comments

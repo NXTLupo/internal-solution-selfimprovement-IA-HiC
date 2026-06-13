@@ -23,13 +23,13 @@ chunks:
     key_terms: [uwaterloo, comments, reddit-deep, posted, reddit, source, happy, https]
     token_count: 72
   - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c1"
-    char_span: [244, 1905]
+    char_span: [243, 1904]
     sentence_count: 8
     key_terms: [choice, business, rejected, "you're", engineering, management, admission, alternate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1tdctrg.md#c2"
-    char_span: [1651, 2221]
+    char_span: [1650, 2220]
     sentence_count: 5
     key_terms: [choice, got, math, alternate, rejected, haunting-mulberry-12, main, environmental]
     section: Comments

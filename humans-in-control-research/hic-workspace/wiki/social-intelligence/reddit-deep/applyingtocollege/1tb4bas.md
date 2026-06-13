@@ -36,31 +36,31 @@ chunks:
     key_terms: [getting, terms, threshold, college, cracked, someone, ranked, get]
     token_count: 149
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c4"
-    char_span: [6144, 7685]
+    char_span: [6143, 7684]
     sentence_count: 12
     key_terms: [princeton, yale, list, mit, tier, stanford, glad-entrepreneur764, intelligent-web-8017]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c5"
-    char_span: [7687, 9096]
+    char_span: [7686, 9095]
     sentence_count: 11
     key_terms: ["don't", methodology, yale, applicants, commonapp, applying, stanford, majors]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c6"
-    char_span: [9098, 10373]
+    char_span: [9097, 10372]
     sentence_count: 5
     key_terms: [brown, intelligent-web-8017, uchicago, wharton, darty, particular, dartmouth, prestige]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c7"
-    char_span: [10375, 11257]
+    char_span: [10374, 11256]
     sentence_count: 1
     key_terms: [intelligent-web-8017, university, school, silly, ecstatic-term-852, tier, unc, untowardadvance]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tb4bas.md#c8"
-    char_span: [11259, 12706]
+    char_span: [11258, 12705]
     sentence_count: 5
     key_terms: [intelligent-web-8017, school, umich, tier, berkeley, columbia, caltech, spiritedad3855]
     section: Comments

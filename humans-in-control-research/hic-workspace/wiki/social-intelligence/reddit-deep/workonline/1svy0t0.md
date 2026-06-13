@@ -28,13 +28,13 @@ chunks:
     key_terms: [teleperformance, felt, interview, microsoft, process, cloud, https, video]
     token_count: 264
   - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c2"
-    char_span: [3252, 4758]
+    char_span: [3251, 4757]
     sentence_count: 7
     key_terms: [teleperformance, experience, companies, people, ai-techguy001, outsourcing, like, glassdoor]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/workonline/1svy0t0.md#c3"
-    char_span: [4760, 5770]
+    char_span: [4759, 5769]
     sentence_count: 6
     key_terms: [address-before-interview, canada, needleworkersmart486, prestigious-drink459, designer-raisin9909, heard, legit, "teleperformance's"]
     section: Comments

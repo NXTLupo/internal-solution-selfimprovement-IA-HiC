@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1lsocdd.md#c0"
-    char_span: [0, 2120]
+    char_span: [0, 2119]
     sentence_count: 13
     key_terms: [research, grad, comments, industry, gradadmissions, school, biochemistry, drug]
-    token_count: 490
+    token_count: 489
   - id: "social-intelligence/reddit-deep/gradadmissions/1lsocdd.md#c1"
-    char_span: [2122, 2886]
+    char_span: [2121, 2885]
     sentence_count: 5
     key_terms: [considering, advice, super, best, feel, "i've", like, phd]
     token_count: 176

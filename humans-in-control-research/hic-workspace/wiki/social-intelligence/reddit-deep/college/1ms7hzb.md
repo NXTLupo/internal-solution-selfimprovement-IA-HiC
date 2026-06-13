@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, comments, looking, package, care, inspiration, reddit-deep, accounting]
     token_count: 130
   - id: "social-intelligence/reddit-deep/college/1ms7hzb.md#c1"
-    char_span: [553, 2416]
+    char_span: [552, 2415]
     sentence_count: 10
     key_terms: [motivational, pens, notes, paper, like, note, headphones, jpsartre99]
     section: Comments

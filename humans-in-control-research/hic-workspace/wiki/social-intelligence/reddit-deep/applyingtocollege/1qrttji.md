@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, applyingtocollege, student, baruch, career, pace, networking, university]
     token_count: 258
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrttji.md#c1"
-    char_span: [1266, 1523]
+    char_span: [1265, 1522]
     sentence_count: 1
     key_terms: [business, baruch, lacedprozac, finance, liberal, majors, school, doing]
     section: Comments

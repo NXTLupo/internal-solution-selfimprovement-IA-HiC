@@ -21,19 +21,19 @@ chunks:
     key_terms: [jobs, comments, people, cuckoofriendandollie, bad, find, hard, entry-level]
     token_count: 142
   - id: "social-intelligence/reddit-deep/jobs/1mv5hkh.md#c1"
-    char_span: [525, 2552]
+    char_span: [524, 2551]
     sentence_count: 21
     key_terms: [job, years, companies, graduated, good, right, like, recession]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1mv5hkh.md#c2"
-    char_span: [2554, 4572]
+    char_span: [2553, 4571]
     sentence_count: 14
     key_terms: [jobs, getting, started, lot, better, years, year, although]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/jobs/1mv5hkh.md#c3"
-    char_span: [4574, 5149]
+    char_span: [4573, 5148]
     sentence_count: 7
     key_terms: [job, months, took, find, another, always, horniavocadofarmer11, performing]
     section: Comments

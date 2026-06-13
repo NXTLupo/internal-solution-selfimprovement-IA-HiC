@@ -15,17 +15,17 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-machinelearning/6b33ca4bff.md#c0"
-    char_span: [0, 2149]
+    char_span: [0, 2148]
     sentence_count: 6
     key_terms: [model, known-origin, reference, organisms, residual, machinelearning, layers, method]
-    token_count: 501
+    token_count: 500
   - id: "articles/reddit-deep-r-machinelearning/6b33ca4bff.md#c1"
-    char_span: [2151, 4326]
+    char_span: [2150, 4325]
     sentence_count: 2
     key_terms: [reference-free-behavioral-discovery, topics, model, bmarti44, rip-it-out-by-the-roots, https, com, rlhf]
     token_count: 497
   - id: "articles/reddit-deep-r-machinelearning/6b33ca4bff.md#c2"
-    char_span: [4328, 5581]
+    char_span: [4327, 5580]
     sentence_count: 1
     key_terms: [layer, behaviors, different, something, auditing, behavior, planted, "lora's"]
     token_count: 249

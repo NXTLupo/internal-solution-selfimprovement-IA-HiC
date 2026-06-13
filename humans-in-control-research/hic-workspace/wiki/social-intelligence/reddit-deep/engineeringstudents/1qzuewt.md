@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineeringstudents, internship, accepted, comments, career, fair, appreciated, engineering]
     token_count: 147
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c1"
-    char_span: [637, 2770]
+    char_span: [636, 2769]
     sentence_count: 13
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, accepted, better]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qzuewt.md#c2"
-    char_span: [2772, 4953]
+    char_span: [2771, 4952]
     sentence_count: 13
     key_terms: [internship, good, getting, network, resume, professional, get, networking]
     section: Comments

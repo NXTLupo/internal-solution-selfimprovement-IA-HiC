@@ -21,25 +21,25 @@ chunks:
     key_terms: [engineering, cscareerquestions, career, tech, comments, industry, software, been]
     token_count: 170
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c1"
-    char_span: [759, 2817]
+    char_span: [758, 2816]
     sentence_count: 16
     key_terms: [engineering, career, healthcare, cscareerquestions, job, message, degree, been]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c2"
-    char_span: [2819, 4694]
+    char_span: [2818, 4693]
     sentence_count: 13
     key_terms: [engineering, people, because, get, displaced, graduate, physical, software]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c3"
-    char_span: [4696, 6711]
+    char_span: [4695, 6710]
     sentence_count: 17
     key_terms: [years, getting, interviews, gold-flatworm-4313, software, senior, applications, competition]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rwcdge.md#c4"
-    char_span: [6713, 8106]
+    char_span: [6712, 8105]
     sentence_count: 11
     key_terms: [people, like, career, firing, launch, "what's", miserable-corner-254, happyirishman633210]
     section: Comments

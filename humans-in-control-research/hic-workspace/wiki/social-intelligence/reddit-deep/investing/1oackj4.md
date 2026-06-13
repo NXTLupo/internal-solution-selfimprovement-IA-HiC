@@ -23,73 +23,73 @@ chunks:
     key_terms: [already, investing, comments, assets, dollar, market, due, cryptocurrency]
     token_count: 244
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c1"
-    char_span: [1054, 1407]
+    char_span: [1053, 1406]
     sentence_count: 3
     key_terms: [everyone, intelligent, themselves, question, believe, deleted, exactly, learned]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c2"
-    char_span: [1409, 3099]
+    char_span: [1408, 3098]
     sentence_count: 7
     key_terms: [investing, market, money, essentially, actively, because, deleted, answer]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c3"
-    char_span: [3102, 3748]
+    char_span: [3101, 3747]
     sentence_count: 3
     key_terms: [ching, end, outrageous-horse-701, thegoluofwallstreet, good, mylifeofficial, gratification, outperformed]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c4"
-    char_span: [3750, 5624]
+    char_span: [3749, 5623]
     sentence_count: 10
     key_terms: [different, time, probably, because, answer, market, traded, better-butterfly-309]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c5"
-    char_span: [5389, 5876]
+    char_span: [5388, 5875]
     sentence_count: 4
     key_terms: [different, time, better-butterfly-309, going, down, paperhandsthedip, meaningful, snoo23533]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c6"
-    char_span: [5878, 7647]
+    char_span: [5877, 7646]
     sentence_count: 10
     key_terms: [look, dollar, euro-dollar-exchange-rate-historical-chart, back, time, friend, racist, environmentalfig1594]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c7"
-    char_span: [7649, 8020]
+    char_span: [7648, 8019]
     sentence_count: 2
     key_terms: [all-time, price, high, redsfan4life411, substantively, cazzy1212, multiples, situation]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c8"
-    char_span: [8022, 9740]
+    char_span: [8021, 9739]
     sentence_count: 9
     key_terms: [fundamentally, different, empire, decades, forever, forward, nothing, always]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c9"
-    char_span: [9742, 10151]
+    char_span: [9741, 10150]
     sentence_count: 4
     key_terms: [market, throwaway4alltyme, flyingsolo07, bitseybloom, different, dominance, all-time, economic]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c10"
-    char_span: [10153, 11434]
+    char_span: [10152, 11433]
     sentence_count: 8
     key_terms: [banana, market, brkb, twohundredandfiftythousand, dollars, michael, always, coming]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c11"
-    char_span: [11436, 13335]
+    char_span: [11435, 13334]
     sentence_count: 9
     key_terms: [years, investments, buy, markets, cycles, tacos, "i'm", last]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1oackj4.md#c12"
-    char_span: [13337, 14809]
+    char_span: [13336, 14808]
     sentence_count: 7
     key_terms: [stocks, high, investment, volatility, regularly, because, quality, bought]
     section: Comments

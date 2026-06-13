@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, interviews, data, getting, final, accelerated, analytics, something]
     token_count: 373
   - id: "social-intelligence/reddit-deep/internships/1syijtm.md#c1"
-    char_span: [1597, 3136]
+    char_span: [1596, 3135]
     sentence_count: 9
     key_terms: [interviews, multiple, practice, rounds, banggbangtan, final, often, questions]
     section: Comments

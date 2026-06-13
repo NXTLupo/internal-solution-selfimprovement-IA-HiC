@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/f2aeaa76c5.md#c0"
-    char_span: [0, 1917]
+    char_span: [0, 1916]
     sentence_count: 12
     key_terms: [texas, university, academic, freedom, martinpeterson, chair, dean, colleagues]
-    token_count: 434
+    token_count: 433
   - id: "articles/reddit-deep-r-professors/f2aeaa76c5.md#c1"
-    char_span: [1919, 3496]
+    char_span: [1918, 3495]
     sentence_count: 8
     key_terms: [professor-banned-from-teaching-plato-excerpt-to-leave-texas-a-m-its-getting-worse, like, weirdonightowl, censorship, che-social, academics, chronicle, teaching]
     token_count: 401

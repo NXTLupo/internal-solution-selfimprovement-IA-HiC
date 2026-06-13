@@ -18,7 +18,7 @@ industries: [workforce, higher_ed, media]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/workonline/1q5lf2l.md#c0"
-    char_span: [0, 1496]
+    char_span: [0, 1495]
     sentence_count: 11
     key_terms: [basic, get, clients, ratings, skills, short, small, tasks]
     token_count: 361

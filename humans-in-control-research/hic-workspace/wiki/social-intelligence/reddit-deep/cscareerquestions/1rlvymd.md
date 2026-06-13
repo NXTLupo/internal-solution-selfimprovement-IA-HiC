@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, experience, comments, nationaluniofficial, job, opportunities, internships, reddit-deep]
     token_count: 94
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rlvymd.md#c1"
-    char_span: [431, 1379]
+    char_span: [430, 1378]
     sentence_count: 4
     key_terms: [internships, internship, hiring, illustrioushead7878, got, job, densetension3468, apprenticeships]
     section: Comments

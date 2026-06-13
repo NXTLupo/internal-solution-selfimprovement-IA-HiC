@@ -21,7 +21,7 @@ chunks:
     key_terms: [ang, tourism, careerguidance, anong, path, operations, comments, student]
     token_count: 421
   - id: "social-intelligence/reddit-deep/careerguidance/1qzggrq.md#c1"
-    char_span: [1624, 2194]
+    char_span: [1623, 2193]
     sentence_count: 1
     key_terms: [coordinator, skills, roles, since, emotionalgreen1330, administrative, unpredictable, transferable]
     section: Comments

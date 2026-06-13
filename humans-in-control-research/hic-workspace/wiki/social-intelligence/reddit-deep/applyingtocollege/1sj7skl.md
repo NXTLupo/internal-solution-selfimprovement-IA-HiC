@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, comments, courses, reddit-deep, olympiads, colleges, language, country]
     token_count: 113
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sj7skl.md#c1"
-    char_span: [432, 1341]
+    char_span: [431, 1340]
     sentence_count: 8
     key_terms: [sat, require, years, necessary, research, schools, school, glad-entrepreneur764]
     section: Comments

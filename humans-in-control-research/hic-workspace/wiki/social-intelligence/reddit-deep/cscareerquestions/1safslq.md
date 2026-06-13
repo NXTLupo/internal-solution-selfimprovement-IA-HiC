@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, years, full-time, cscareerquestions, semester, already, company, since]
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1safslq.md#c1"
-    char_span: [2176, 2773]
+    char_span: [2176, 2772]
     sentence_count: 4
     key_terms: [being, done, time, possibilities, burstawesome, attractive, exhausting, pairstrong]
     section: Comments

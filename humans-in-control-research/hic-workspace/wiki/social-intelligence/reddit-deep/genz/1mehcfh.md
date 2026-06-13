@@ -28,37 +28,37 @@ chunks:
     key_terms: [tech, let, brain, like, because, future, smart, years]
     token_count: 219
   - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c2"
-    char_span: [3474, 5092]
+    char_span: [3473, 5091]
     sentence_count: 9
     key_terms: [people, deleted, discord, "aren't", change, harder, embarrassed-lab4446, going]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c3"
-    char_span: [5094, 6680]
+    char_span: [5093, 6679]
     sentence_count: 7
     key_terms: [ai-s-takeover-of-entry-level-tasks-is-making-college-grads-job-hunt-harder, tech, workers, construction, bloomberg, brightest, analysis, articles]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c4"
-    char_span: [6682, 7617]
+    char_span: [6681, 7616]
     sentence_count: 8
     key_terms: [tech, because, find, get, distillatemedia, oversaturated, millennials, developing]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c5"
-    char_span: [7619, 9436]
+    char_span: [7618, 9435]
     sentence_count: 8
     key_terms: [people, tech, family, school, young, engineering, lankamonkee, work]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c6"
-    char_span: [9438, 11433]
+    char_span: [9437, 11432]
     sentence_count: 16
     key_terms: [time, work, people, engineering, good, tech, doctors, seniors]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/genz/1mehcfh.md#c7"
-    char_span: [11435, 12920]
+    char_span: [11434, 12919]
     sentence_count: 10
     key_terms: [tech, people, obviously, involved, abirdjustshatonmyeye, aren, job, jobs]
     section: Comments

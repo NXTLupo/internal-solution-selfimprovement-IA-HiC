@@ -23,19 +23,19 @@ chunks:
     key_terms: [research, school, gradadmissions, experience, volunteer, comments, masters, advice]
     token_count: 320
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdisi4.md#c1"
-    char_span: [1317, 3289]
+    char_span: [1316, 3288]
     sentence_count: 14
     key_terms: [psych, counseling, clinical, forensic, research, work, school, psyd]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdisi4.md#c2"
-    char_span: [3291, 4775]
+    char_span: [3290, 4774]
     sentence_count: 20
     key_terms: [day, "i'm", "you're", look, use, doctorate, payments, amounts]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/gradadmissions/1rdisi4.md#c3"
-    char_span: [4777, 5409]
+    char_span: [4776, 5408]
     sentence_count: 7
     key_terms: [home, options, "i'm", phd, want, work, responsibilities, alternatives]
     section: Comments

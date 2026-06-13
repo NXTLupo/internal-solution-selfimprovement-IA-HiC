@@ -15,27 +15,27 @@ industries: [higher_ed, education, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c0"
-    char_span: [0, 1723]
+    char_span: [0, 1722]
     sentence_count: 8
     key_terms: [gradschool, utm, reddit, business, comments, research, https, share]
-    token_count: 426
+    token_count: 425
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c1"
-    char_span: [1725, 3113]
+    char_span: [1724, 3112]
     sentence_count: 6
     key_terms: [research, "i'm", myself, "bachelor's", anything, honestly, trying, quite]
     token_count: 294
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c2"
-    char_span: [3115, 4846]
+    char_span: [3114, 4845]
     sentence_count: 8
     key_terms: [lifestyle, phd, maintain, research, science, social, data, something]
     token_count: 376
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c3"
-    char_span: [4848, 7111]
+    char_span: [4847, 7110]
     sentence_count: 12
     key_terms: [programs, research, like, school, grad, definitely, something, statement]
     token_count: 460
   - id: "articles/reddit-deep-r-gradschool/cca3e6caf2.md#c4"
-    char_span: [7113, 8283]
+    char_span: [7112, 8282]
     sentence_count: 6
     key_terms: [professors, program, totally, great, reach, stats, substantial-role01, ask]
     token_count: 244

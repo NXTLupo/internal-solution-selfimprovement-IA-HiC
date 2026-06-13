@@ -18,27 +18,27 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c0"
-    char_span: [0, 1863]
+    char_span: [0, 1862]
     sentence_count: 12
     key_terms: [post, llm, "it's", comparison, comments, services, training, chatgpt]
-    token_count: 437
+    token_count: 436
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c1"
-    char_span: [1865, 3810]
+    char_span: [1864, 3809]
     sentence_count: 12
     key_terms: [instructions, mistral-agents, gpt5, "i'm", llm, main, chattygpt, political]
     token_count: 465
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c2"
-    char_span: [3812, 5908]
+    char_span: [3811, 5907]
     sentence_count: 19
     key_terms: [does, bulletpoints, using, note, response, chatgpt, headers, mistral]
     token_count: 493
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c3"
-    char_span: [5910, 8137]
+    char_span: [5909, 8136]
     sentence_count: 21
     key_terms: [ethnicity, chatgpt, information, mistral, response, choice, though, image]
     token_count: 500
   - id: "social-intelligence/reddit-deep/gpt/1ohe59d.md#c4"
-    char_span: [8139, 10205]
+    char_span: [8138, 10204]
     sentence_count: 18
     key_terms: [ethnicity, perfectly, provides, chatgpt, gemini, images, interestingly, asked]
     token_count: 470

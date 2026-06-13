@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1sux66v.md
 url: "https://www.reddit.com/r/internships/comments/1sux66v/offer_decision_help_huge_last_minute_dilemma/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,25 @@ flair: "Offers"
 extracted_at: "2026-06-06T23:20:46.214Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1sux66v.md#c0"
+    char_span: [0, 1916]
+    sentence_count: 12
+    key_terms: [kla, offer, mathworks, intern, internships, role, work, conversion]
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/internships/1sux66v.md#c1"
+    char_span: [1931, 2561]
+    sentence_count: 4
+    key_terms: [appropriate-tutor587, going, weeks, internship, relocating, relocation, currently, position]
+    section: Comments
+    token_count: 174
+  - id: "social-intelligence/reddit-deep/internships/1sux66v.md#c2"
+    char_span: [2563, 3952]
+    sentence_count: 11
+    key_terms: [mathworks, weeks, kla, want, relocation, decision, duration, exciting]
+    section: Comments
+    token_count: 344
 ---
-
 # Offer Decision Help (huge last minute dilemma)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1sux66v/offer_decision_help_huge_last_minute_dilemma/)

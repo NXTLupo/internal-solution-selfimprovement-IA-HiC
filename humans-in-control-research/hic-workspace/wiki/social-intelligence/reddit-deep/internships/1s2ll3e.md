@@ -21,25 +21,25 @@ chunks:
     key_terms: [interview, internships, day, like, questions, comments, leetcode, starting]
     token_count: 351
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c1"
-    char_span: [1518, 3471]
+    char_span: [1517, 3470]
     sentence_count: 17
     key_terms: [coding, icy-asparagus-7643, dont, like, look, completely, interviews, leadership]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c2"
-    char_span: [3165, 4891]
+    char_span: [3164, 4890]
     sentence_count: 17
     key_terms: [zealousideal-dot9052, stories, mock, leadership, interview, questions, leetcode, question]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c3"
-    char_span: [4893, 6983]
+    char_span: [4892, 6982]
     sentence_count: 20
     key_terms: [icy-asparagus-7643, like, practice, clear-brush7795, sorting, resume, dsa, interview]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/internships/1s2ll3e.md#c4"
-    char_span: [6985, 7638]
+    char_span: [6984, 7637]
     sentence_count: 5
     key_terms: [problems, quick-cantaloupe953, icy-asparagus-7643, complexity, currently, kingques0, remaining, throughly]
     section: Comments

@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/fbcdc2e919.md#c0"
-    char_span: [0, 2410]
+    char_span: [0, 2409]
     sentence_count: 24
     key_terms: [field, career, work, experience, economics, finance, toronto, careerguidance]
-    token_count: 507
+    token_count: 506
   - id: "articles/reddit-deep-r-careerguidance/fbcdc2e919.md#c1"
-    char_span: [2412, 2465]
+    char_span: [2411, 2464]
     sentence_count: 2
     key_terms: [research, "don't", take, want, word]
     token_count: 14

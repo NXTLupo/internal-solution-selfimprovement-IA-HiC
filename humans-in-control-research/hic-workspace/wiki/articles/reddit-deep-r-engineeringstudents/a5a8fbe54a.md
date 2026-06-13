@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/a5a8fbe54a.md#c0"
-    char_span: [0, 1777]
+    char_span: [0, 1776]
     sentence_count: 10
     key_terms: [experience, creamprofessional641, engineeringstudents, manufacturer, engineering, mechanical, equipment, comments]
-    token_count: 406
+    token_count: 405
   - id: "articles/reddit-deep-r-engineeringstudents/a5a8fbe54a.md#c1"
-    char_span: [1779, 2708]
+    char_span: [1778, 2707]
     sentence_count: 5
     key_terms: [page, fresh, grad, points, bassprobachelor, automatically, aurorafinem, internships]
     token_count: 225

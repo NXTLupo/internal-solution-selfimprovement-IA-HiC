@@ -15,10 +15,10 @@ industries: [saas, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/abb2509dfc.md#c0"
-    char_span: [0, 2000]
+    char_span: [0, 1999]
     sentence_count: 8
     key_terms: [internships, backend, stack, looking, applications, https, com, paid]
-    token_count: 486
+    token_count: 485
 ---
 # Looking for remote Full Stack or Backend Internships
 

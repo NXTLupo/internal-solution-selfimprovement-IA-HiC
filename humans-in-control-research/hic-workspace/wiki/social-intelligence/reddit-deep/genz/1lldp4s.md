@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, genz, alphamassdebeta, reddit-deep, hobbies, "here's", posted, reddit]
     token_count: 77
   - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c1"
-    char_span: [265, 1666]
+    char_span: [264, 1665]
     sentence_count: 5
     key_terms: [meaning, https, favorite, comment, cornell, discord, preview, format]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/genz/1lldp4s.md#c2"
-    char_span: [1668, 2785]
+    char_span: [1667, 2784]
     sentence_count: 4
     key_terms: [alphamassdebeta, maserati, biturbo, deleted, someone, big-maintenance2544, live, sold]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [princeton, applyingtocollege, comments, college, ranking, responsible-bake-935, reddit-deep, "linkedin's"]
     token_count: 149
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c1"
-    char_span: [539, 1811]
+    char_span: [538, 1810]
     sentence_count: 7
     key_terms: [ucla, berkeley, schools, babson, engineering, linkedin, rankings, yodelingveterinarian]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c2"
-    char_span: [1813, 3848]
+    char_span: [1812, 3847]
     sentence_count: 11
     key_terms: [college, exceptional, employment, business, research, california-colleges-return-on-investment, ranking, jacejones52]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c3"
-    char_span: [3850, 5904]
+    char_span: [3849, 5903]
     sentence_count: 10
     key_terms: [alumni, methodology, cohorts, recent, tracks, placement, job, percentage]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mon5re.md#c4"
-    char_span: [5906, 7483]
+    char_span: [5905, 7482]
     sentence_count: 7
     key_terms: [mediocre-sector-8246, yale, columbia, school, internships, jobs, princeton, drawing]
     section: Comments

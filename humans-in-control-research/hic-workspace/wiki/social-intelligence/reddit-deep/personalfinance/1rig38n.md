@@ -28,49 +28,49 @@ chunks:
     key_terms: [higher, find, jobs, like, time, subscriptions, interviewing, necessities]
     token_count: 122
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c2"
-    char_span: [2683, 4667]
+    char_span: [2682, 4666]
     sentence_count: 16
     key_terms: [car, cheaper, behind, "don't", money, rent, little, people]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c3"
-    char_span: [4669, 5328]
+    char_span: [4668, 5327]
     sentence_count: 4
     key_terms: [learned, back, been, addressing, emergency, hindsight, rustycake, spookmann]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c4"
-    char_span: [5330, 7104]
+    char_span: [5329, 7103]
     sentence_count: 14
     key_terms: [excuse, never, learning, credit, saving, debt, anything, learned]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c5"
-    char_span: [7106, 9254]
+    char_span: [7105, 9253]
     sentence_count: 8
     key_terms: [lostinthe-sauce-204, because, cash, like, spending, back, thinner, helped]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c6"
-    char_span: [9014, 9298]
+    char_span: [9013, 9297]
     sentence_count: 2
     key_terms: [pay, rent, likelyangel, contribute, honestly, reminder, another, parents]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c7"
-    char_span: [9300, 10499]
+    char_span: [9299, 10498]
     sentence_count: 9
     key_terms: [pay, family, debt, live, money, get, relationship, solodarlings]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c8"
-    char_span: [10501, 12727]
+    char_span: [10500, 12726]
     sentence_count: 31
     key_terms: [debt, pay, getting, savings, credit, car, down, interest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1rig38n.md#c9"
-    char_span: [12729, 13953]
+    char_span: [12728, 13952]
     sentence_count: 11
     key_terms: [interest, card, pay, end, rate, possible, monthly, payment]
     section: Comments

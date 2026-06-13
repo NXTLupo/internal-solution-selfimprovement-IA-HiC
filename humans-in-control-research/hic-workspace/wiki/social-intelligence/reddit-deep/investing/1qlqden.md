@@ -23,55 +23,55 @@ chunks:
     key_terms: ["trump's", british, stocks, trump, performance, year, investing, potential]
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c1"
-    char_span: [2326, 3441]
+    char_span: [2326, 3440]
     sentence_count: 7
     key_terms: [years, performance, last, europeans, european, europe, did, etf]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c2"
-    char_span: [3443, 5399]
+    char_span: [3442, 5398]
     sentence_count: 11
     key_terms: [currencies, investors, usd, market, pleasant-shallot-707, measured, future, right]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c3"
-    char_span: [5401, 7520]
+    char_span: [5400, 7519]
     sentence_count: 13
     key_terms: [population, satisfied, stable, like, exchange, strategy, "there's", trump]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c4"
-    char_span: [7523, 9318]
+    char_span: [7522, 9317]
     sentence_count: 11
     key_terms: [business, europe, continent, friendly, outperformance, significantly, least, government]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c5"
-    char_span: [9320, 11310]
+    char_span: [9319, 11309]
     sentence_count: 12
     key_terms: [market, international-equity-cumulative-outperformance-cycles, investment, outperformance, years, "it's", continue, believe]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c6"
-    char_span: [10999, 11402]
+    char_span: [10998, 11401]
     sentence_count: 5
     key_terms: [funds, "american's", boycotting, discussion, strangling, investors, continue, european]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c7"
-    char_span: [11404, 13484]
+    char_span: [11403, 13483]
     sentence_count: 20
     key_terms: [world, bad, idea, sentiment, boycott, markets, allies, people]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c8"
-    char_span: [13486, 14942]
+    char_span: [13485, 14941]
     sentence_count: 11
     key_terms: [currently, getting, money, remymartinsextra, simple-link-3249, comeatmebro9, policymakers, credibility]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/investing/1qlqden.md#c9"
-    char_span: [14944, 15981]
+    char_span: [14943, 15980]
     sentence_count: 9
     key_terms: [stocks, banks, correlation, did, point, years, bank, ftse]
     section: Comments

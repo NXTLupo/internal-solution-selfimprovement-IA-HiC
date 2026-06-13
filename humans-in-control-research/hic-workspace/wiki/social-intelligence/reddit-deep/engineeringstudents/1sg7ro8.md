@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, engineeringstudents, co-op, competitive, entry-level, comments, student, without]
     token_count: 270
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sg7ro8.md#c1"
-    char_span: [1197, 1841]
+    char_span: [1196, 1840]
     sentence_count: 3
     key_terms: [no-reporter-1651, without, connections, nepternship, robertisaak, experience, instantly, applying]
     section: Comments

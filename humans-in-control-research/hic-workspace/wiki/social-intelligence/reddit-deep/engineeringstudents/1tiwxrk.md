@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, research, engineeringstudents, equipment, internships, been, "i'm", developing]
     token_count: 293
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tiwxrk.md#c1"
-    char_span: [1466, 2543]
+    char_span: [1465, 2542]
     sentence_count: 7
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments

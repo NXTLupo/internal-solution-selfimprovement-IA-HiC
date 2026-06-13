@@ -23,13 +23,13 @@ chunks:
     key_terms: [lastiberianlynx, programming, https, gamedev, com, focus, cscareerquestions, youtube]
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c1"
-    char_span: [1937, 3720]
+    char_span: [1936, 3719]
     sentence_count: 7
     key_terms: [architecture, like, though, applications, niche, programming, need, gamedev]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ns6q7q.md#c2"
-    char_span: [3722, 4202]
+    char_span: [3721, 4201]
     sentence_count: 5
     key_terms: [gamedev, according-emu-8721, get, good, job, self-motivated, experience, learning]
     section: Comments

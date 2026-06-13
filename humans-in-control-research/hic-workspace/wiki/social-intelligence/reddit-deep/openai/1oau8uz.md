@@ -43,13 +43,13 @@ chunks:
     key_terms: [calibration, intelligent, social, brain, human, reward-circuit, interactions, adolescence]
     token_count: 142
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c5"
-    char_span: [10253, 12151]
+    char_span: [10252, 12150]
     sentence_count: 20
     key_terms: [information, brain, human, developed, pasted, social, interaction, back]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/openai/1oau8uz.md#c6"
-    char_span: [12154, 12801]
+    char_span: [12153, 12800]
     sentence_count: 6
     key_terms: [different, interactions, interaction, social, human, model, generational, reliability]
     section: Comments

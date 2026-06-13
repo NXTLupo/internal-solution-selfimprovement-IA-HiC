@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnp5vu.md#c0"
-    char_span: [0, 1422]
+    char_span: [0, 1421]
     sentence_count: 12
     key_terms: [dotnet, cscareerquestions, web, career, api, get, experience, comments]
     token_count: 339

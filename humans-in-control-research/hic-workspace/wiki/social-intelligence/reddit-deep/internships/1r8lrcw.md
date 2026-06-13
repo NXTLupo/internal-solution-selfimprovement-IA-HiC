@@ -11,9 +11,9 @@ score: 232
 upvote_ratio: 0.95
 num_comments: 47
 flair: "General"
-extracted_at: "2026-06-06T16:39:04.094Z"
+extracted_at: "2026-06-08T17:32:14.343Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c0"
     char_span: [0, 2030]
@@ -31,25 +31,25 @@ chunks:
     key_terms: [internships, don, relationships, keep, year-round, companies, students, relationship-building]
     token_count: 339
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c3"
-    char_span: [5621, 5791]
+    char_span: [5621, 5790]
     sentence_count: 2
     key_terms: [offer, got, stickybarbie, alongside, small-ish, company, intern, people]
     section: Comments
     token_count: 44
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c4"
-    char_span: [5793, 7702]
+    char_span: [5792, 7701]
     sentence_count: 4
     key_terms: [suitable-jelly-3693, life-journalist-2790, experience, chatgpt, relationships, anything, original, valuable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c5"
-    char_span: [7455, 7912]
+    char_span: [7454, 7911]
     sentence_count: 1
     key_terms: [insane, suitable-jelly-3693, neat-service-7974, ashaazability, conversation, heavenlylord, finishing, "couldn't"]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/internships/1r8lrcw.md#c6"
-    char_span: [7914, 8540]
+    char_span: [7913, 8539]
     sentence_count: 6
     key_terms: [companies, suitable-jelly-3693, variouschicken1144, slow-hair7851, certificate, internships, definitely, internship]
     section: Comments
@@ -220,22 +220,22 @@ and if it doesn’t land this round, don’t waste the miss. build proof, keep r
 
 ## Comments
 
-- **stickybarbie** (11↑): Last year I got my offer in April with a small-ish company of about 150 people in our site. The intern I worked alongside got her offer in May. 
+- **stickybarbie** (9↑): Last year I got my offer in April with a small-ish company of about 150 people in our site. The intern I worked alongside got her offer in May. 
 
 Additionally, I was granted an extension and was able to work part-time remotely during the fall school semester. Sometimes those small companies allow for closer relationships and way more flexibility!
   - **Emotional_Spread528** (3↑): W
   - **Suitable-Jelly-3693** (2↑): dude that is awesome. i had a really similar experience last year, i was rejected from a bunch of faang/big tech opportunities, but ended up having a blast at a local studio during the summer.
     - **stickybarbie** (2↑): exactly! i wouldn’t trade my experience for anything else. plus company size ≠ experience quality, those close relationships build trust and you can end up being trained on higher-level tasks if your team sees your competencies!
-- **Life-Journalist-2790** (10↑): Thank you so much 😊
+- **Life-Journalist-2790** (11↑): Thank you so much 😊
   - **Suitable-Jelly-3693** (1↑): for sure!! reach out if there is anything i can do to help. you got this!
     - **Life-Journalist-2790** (2↑): Can I dm u
     - **unknown_boy2004** (1↑): Can i also dm you?
-- **Emotional_Spread528** (8↑): I am with you on finding internships as soon as they are indexed. It’s a game of speed out there rn.
+- **Emotional_Spread528** (9↑): I am with you on finding internships as soon as they are indexed. It’s a game of speed out there rn.
   - **Suitable-Jelly-3693** (2↑): yeah 2025 and 2026 internship season have been a different animal. it’s actually brutal out there.
-- **No-Suggestion-9433** (3↑): AI is rotting your brain
-- **NahhhReallyyyy** (7↑): Straight outta ChatGPT
-  - **Suitable-Jelly-3693** (0↑): welcome to 2026 bro people use chatgpt to write. you do too. what matters is that I convey original, valuable ideas. I sit and talk with chatgpt for 5 minutes and it organizes my thoughts and turns them into a clear formatted output. that’s how it’s supposed to be used.
-    - **heavenlylord** (3↑): “original, valuable ideas” and it’s just the most generic advice that it would tell you within 2 minutes of starting the conversation
+- **No-Suggestion-9433** (4↑): AI is rotting your brain
+- **NahhhReallyyyy** (5↑): Straight outta ChatGPT
+  - **Suitable-Jelly-3693** (1↑): welcome to 2026 bro people use chatgpt to write. you do too. what matters is that I convey original, valuable ideas. I sit and talk with chatgpt for 5 minutes and it organizes my thoughts and turns them into a clear formatted output. that’s how it’s supposed to be used.
+    - **heavenlylord** (5↑): “original, valuable ideas” and it’s just the most generic advice that it would tell you within 2 minutes of starting the conversation
 - **Ashaazability** (3↑): 2027 banking is finishing up too which is insane how early they recruit
   - **Suitable-Jelly-3693** (1↑): yeah fr. i couldn't imagine being in that field rn. it sounds insane from what I have heard from my friends.
 - **Neat-Service-7974** (3↑): For those reading this,

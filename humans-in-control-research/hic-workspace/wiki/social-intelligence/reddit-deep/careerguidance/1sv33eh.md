@@ -28,19 +28,19 @@ chunks:
     key_terms: [something, sales, like, work, someone, being, small, find]
     token_count: 356
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c2"
-    char_span: [3531, 5276]
+    char_span: [3530, 5275]
     sentence_count: 13
     key_terms: [misaligned, sales, like, people, burnt, internet, figure, start]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c3"
-    char_span: [5278, 7379]
+    char_span: [5277, 7378]
     sentence_count: 14
     key_terms: [work, answer, people, sales, life, treatment, industry, thinking]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1sv33eh.md#c4"
-    char_span: [7381, 9421]
+    char_span: [7380, 9420]
     sentence_count: 18
     key_terms: [rich, sales, business, start, job, like, new, something]
     section: Comments

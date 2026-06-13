@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/college/1thi8sx.md#c0"
-    char_span: [0, 2181]
+    char_span: [0, 2180]
     sentence_count: 1
     key_terms: [studies, law, something, international, want, development, advice, policy]
-    token_count: 468
+    token_count: 467
 ---
 # should i shift to development studies or international studies? need honest advice
 

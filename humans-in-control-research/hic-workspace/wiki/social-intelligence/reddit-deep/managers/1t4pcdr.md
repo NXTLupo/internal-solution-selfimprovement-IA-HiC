@@ -23,19 +23,19 @@ chunks:
     key_terms: [team, member, frustrated, management, temporary, comments, managers, projects]
     token_count: 235
   - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c1"
-    char_span: [1059, 3305]
+    char_span: [1058, 3304]
     sentence_count: 14
     key_terms: [team, temporary, establishmentlocal97, lead, member, management, director, lonely-world-981]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c2"
-    char_span: [3307, 5382]
+    char_span: [3306, 5381]
     sentence_count: 12
     key_terms: [person, get, promoted, looking, manager, advocate, because, change]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/managers/1t4pcdr.md#c3"
-    char_span: [5384, 7415]
+    char_span: [5383, 7414]
     sentence_count: 14
     key_terms: [establishmentlocal97, sohaib-riaz-khan, communication, build, frustration, opportunity, transparent, here]
     section: Comments

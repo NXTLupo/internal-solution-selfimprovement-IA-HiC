@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1r4k9wm.md
 url: "https://www.reddit.com/r/findapath/comments/1r4k9wm/whats_a_good_career_path_for_young_people_that/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,61 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.462Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c0"
+    char_span: [0, 803]
+    sentence_count: 7
+    key_terms: [people, findapath, comments, career, demand, strong, young, good]
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c1"
+    char_span: [818, 2984]
+    sentence_count: 19
+    key_terms: [thank, different, everyone, helpful, please, good, like, findapath]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c2"
+    char_span: [2988, 3383]
+    sentence_count: 3
+    key_terms: [like, maximizing, protecting, guarantee, paperwork, becoming, drowning, weekends]
+    section: Comments
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c3"
+    char_span: [3385, 5575]
+    sentence_count: 22
+    key_terms: [work, money, established, feel, get, pays, time, critical]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c4"
+    char_span: [5302, 6039]
+    sentence_count: 10
+    key_terms: [water, maintenance, time, technician, whether, system, worker, great]
+    section: Comments
+    token_count: 161
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c5"
+    char_span: [6041, 7456]
+    sentence_count: 12
+    key_terms: [great, start, did, jobs, work, treatment, schedule, problem]
+    section: Comments
+    token_count: 328
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c6"
+    char_span: [7458, 9510]
+    sentence_count: 17
+    key_terms: [people, doing, hospital, primary-bug-7353, right, time, compliance, financial]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c7"
+    char_span: [9215, 9816]
+    sentence_count: 4
+    key_terms: [prior-actuator-8110, climb, good, physically, demanding, different, difficult, efficient]
+    section: Comments
+    token_count: 142
+  - id: "social-intelligence/reddit-deep/findapath/1r4k9wm.md#c8"
+    char_span: [9818, 11907]
+    sentence_count: 17
+    key_terms: [career, school, least, engineering, interesting, take, medicine, medical]
+    section: Comments
+    token_count: 496
 ---
-
 # What’s a good career path for young people that pays well and has strong demand?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1r4k9wm/whats_a_good_career_path_for_young_people_that/)

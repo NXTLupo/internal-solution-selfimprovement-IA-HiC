@@ -26,37 +26,37 @@ chunks:
     key_terms: [student, financial, help, first-generation, realistically, accounting, graduating, resources]
     token_count: 112
   - id: "social-intelligence/reddit-deep/college/1przvhs.md#c2"
-    char_span: [2214, 4168]
+    char_span: [2213, 4167]
     sentence_count: 25
     key_terms: [semester, need, graduating, get, courses, student, close, offer]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/college/1przvhs.md#c3"
-    char_span: [4170, 5670]
+    char_span: [4169, 5669]
     sentence_count: 13
     key_terms: [loans, aid, been, currently, financial, balance, options, tuition]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/college/1przvhs.md#c4"
-    char_span: [5672, 7332]
+    char_span: [5671, 7331]
     sentence_count: 12
     key_terms: [balance, semester, clearwaterrev, large, lose, repayment, students, private]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/college/1przvhs.md#c5"
-    char_span: [7334, 9546]
+    char_span: [7333, 9545]
     sentence_count: 17
     key_terms: [loans, aid, completion, financial, federal, private, student, parent]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1przvhs.md#c6"
-    char_span: [9268, 10224]
+    char_span: [9267, 10223]
     sentence_count: 7
     key_terms: [student, state, because, out-of-state, classified, living, "you're", been]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/college/1przvhs.md#c7"
-    char_span: [10226, 11922]
+    char_span: [10225, 11921]
     sentence_count: 8
     key_terms: [school, residency, ilovemoneyandcats, pay, semester, degree, in-state, taking]
     section: Comments

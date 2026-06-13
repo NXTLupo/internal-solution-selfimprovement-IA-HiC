@@ -21,7 +21,7 @@ chunks:
     key_terms: [field, learn, "i'm", cscareerquestions, narrow, feel, get, good]
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjjyk6.md#c1"
-    char_span: [1909, 3359]
+    char_span: [1908, 3358]
     sentence_count: 11
     key_terms: [projects, learn, days, good, job, like, pick, work]
     section: Comments

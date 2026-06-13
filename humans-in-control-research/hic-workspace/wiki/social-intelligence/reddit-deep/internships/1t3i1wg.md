@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, postings, intern, skills, being, day, companies, comments]
     token_count: 369
   - id: "social-intelligence/reddit-deep/internships/1t3i1wg.md#c1"
-    char_span: [1761, 4100]
+    char_span: [1760, 4099]
     sentence_count: 13
     key_terms: [like, interns, documentation, tasks, low, work, enhancvapp, internship]
     section: Comments

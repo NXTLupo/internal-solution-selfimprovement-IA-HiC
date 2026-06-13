@@ -23,55 +23,55 @@ chunks:
     key_terms: [blue-owl-stock-record-low-fund-redemptions, billion, credit, requests, private, https, blue, com]
     token_count: 339
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c1"
-    char_span: [1393, 3888]
+    char_span: [1392, 3887]
     sentence_count: 24
     key_terms: [illiquidity, investors, credit, retail, professional, doesn, hope, tech]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c2"
-    char_span: [3890, 5687]
+    char_span: [3889, 5686]
     sentence_count: 14
     key_terms: [getting, private, quarter, money, month, blackstone, redemption, crowbars]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c3"
-    char_span: [5689, 7899]
+    char_span: [5688, 7898]
     sentence_count: 17
     key_terms: [private, sell, credit, investors, illiquid, publicly, equity, traded]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c4"
-    char_span: [7901, 9201]
+    char_span: [7900, 9200]
     sentence_count: 8
     key_terms: [investors, always, credit, people, indication, liquidity, private, starts]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c5"
-    char_span: [9203, 11167]
+    char_span: [9202, 11166]
     sentence_count: 13
     key_terms: [investors, private, standard, midmarket-pe, fund, investment, valuations, credit]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c6"
-    char_span: [11169, 13009]
+    char_span: [11168, 13008]
     sentence_count: 11
     key_terms: [premium, illiquidity, redemptions, don, get, long, understand, volatility]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c7"
-    char_span: [13011, 15016]
+    char_span: [13010, 15015]
     sentence_count: 5
     key_terms: [funds, loans, redemptions, often, investors, blue-owl-tells-investors-loan-204038988, retail, value]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c8"
-    char_span: [15018, 16940]
+    char_span: [15017, 16939]
     sentence_count: 15
     key_terms: [fund, private, kinda, underlying, investors, headline, biggest, getting]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/investing/1sbejuv.md#c9"
-    char_span: [16942, 17463]
+    char_span: [16941, 17462]
     sentence_count: 4
     key_terms: [bubbles, question, owl, franks2000inchtv, opportunity, starting, another, beating]
     section: Comments

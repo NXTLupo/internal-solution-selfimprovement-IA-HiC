@@ -28,7 +28,7 @@ chunks:
     key_terms: [people, pretty, like, disappointed, internships, perspective, traditional, accounting]
     token_count: 145
   - id: "social-intelligence/reddit-deep/careerguidance/1pohk7i.md#c2"
-    char_span: [2740, 4062]
+    char_span: [2739, 4061]
     sentence_count: 8
     key_terms: [traditional, finance, valuation, business, around, lower, offer, small]
     section: Comments

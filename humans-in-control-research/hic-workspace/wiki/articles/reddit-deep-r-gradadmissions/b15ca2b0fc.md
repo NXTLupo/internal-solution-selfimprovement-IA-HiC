@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/b15ca2b0fc.md#c0"
-    char_span: [0, 1080]
+    char_span: [0, 1079]
     sentence_count: 6
     key_terms: [apostacix, masters, gradadmissions, applying, comments, intern, marine, reddit]
-    token_count: 303
+    token_count: 302
 ---
 # Was about to go to sleep haha
 

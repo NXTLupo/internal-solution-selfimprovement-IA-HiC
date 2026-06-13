@@ -23,43 +23,43 @@ chunks:
     key_terms: [portfolio, investing, comments, today, ath, hits, plan, concentrated]
     token_count: 162
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c1"
-    char_span: [668, 1742]
+    char_span: [667, 1741]
     sentence_count: 6
     key_terms: [stubbornly, euphoric, overly, hulksinvinciblepants, right, ass, been, big]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c2"
-    char_span: [1744, 3759]
+    char_span: [1743, 3758]
     sentence_count: 12
     key_terms: [market, once-in-a-lifetime, global, people, money, overbought, overvalued, extremely]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c3"
-    char_span: [3761, 5813]
+    char_span: [3760, 5812]
     sentence_count: 4
     key_terms: [once-in-a-lifetime, once-in-a-decade, global, democratic, spike, electoral, massive, process]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c4"
-    char_span: [5815, 6321]
+    char_span: [5814, 6320]
     sentence_count: 3
     key_terms: [invest, ath, market, people, crash, chrishall86432, statistically, diversified]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c5"
-    char_span: [6323, 8299]
+    char_span: [6322, 8298]
     sentence_count: 19
     key_terms: [market, portfolio, always, term, year, funds, stock, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c6"
-    char_span: [8106, 9140]
+    char_span: [8105, 9139]
     sentence_count: 10
     key_terms: [market, buy, cash, cornerone238, always, prefecture-level-sz, usernameiwontregret, bulk]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/investing/1sxng39.md#c7"
-    char_span: [9142, 9422]
+    char_span: [9141, 9421]
     sentence_count: 1
     key_terms: [applied-philosophy-the-shiller-pe-and-sp-500-returns, stocks, market-outlook, institutional, personally, short-term, insights, because]
     section: Comments

@@ -28,85 +28,85 @@ chunks:
     key_terms: [like, "i'm", expectations, themselves, genuinely, improving, performer, employee]
     token_count: 104
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c2"
-    char_span: [2537, 4012]
+    char_span: [2536, 4011]
     sentence_count: 7
     key_terms: [days, vacation, week, approved, flexible, unlimited, employee, because]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c3"
-    char_span: [4014, 5707]
+    char_span: [4013, 5706]
     sentence_count: 13
     key_terms: [day, district, vacation, typical, middle, person, pieces, taking]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c4"
-    char_span: [5709, 7048]
+    char_span: [5708, 7047]
     sentence_count: 5
     key_terms: [unlimited, pto, days, company, having, pretty, found, taken]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c5"
-    char_span: [7050, 9027]
+    char_span: [7049, 9026]
     sentence_count: 16
     key_terms: [days, pto, take, vacation, company, always, scandinavian, time]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c6"
-    char_span: [9029, 11047]
+    char_span: [9028, 11046]
     sentence_count: 14
     key_terms: [days, take, pto, company, hours, leave, sick, incredibly]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c7"
-    char_span: [11049, 12921]
+    char_span: [11048, 12920]
     sentence_count: 13
     key_terms: [department, pto, unlimited, policy, boss, "it's", authority, employee]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c8"
-    char_span: [12923, 15179]
+    char_span: [12922, 15178]
     sentence_count: 19
     key_terms: [boss, been, meeting, "you're", documentation, professional, "don't", departments]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c9"
-    char_span: [15181, 17386]
+    char_span: [15180, 17385]
     sentence_count: 15
     key_terms: [policy, training, boss, pto, managers, been, everything, enforcing]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c10"
-    char_span: [17388, 19284]
+    char_span: [17387, 19283]
     sentence_count: 12
     key_terms: [specialization, people, person, policy, "it's", like, management, authority]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c11"
-    char_span: [19286, 21371]
+    char_span: [19285, 21370]
     sentence_count: 12
     key_terms: [unlimited, policy, pto, someone, department, subjective, arbitrary, business]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c12"
-    char_span: [21373, 23208]
+    char_span: [21372, 23207]
     sentence_count: 12
     key_terms: [policy, anarkittensurprise, pto, unlimited, company, manager, meeting, intend]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c13"
-    char_span: [23210, 25378]
+    char_span: [23209, 25377]
     sentence_count: 13
     key_terms: [policy, employee, days, year, person, tell, work, situation]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c14"
-    char_span: [25380, 27379]
+    char_span: [25379, 27378]
     sentence_count: 12
     key_terms: [company, hustle, policy, worth, team, absolutely, themselves, unlimited]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/managers/1o3ma5d.md#c15"
-    char_span: [27381, 28071]
+    char_span: [27380, 28070]
     sentence_count: 6
     key_terms: [barely, people, power, kids, sartensinaceite, department, americans, employees]
     section: Comments

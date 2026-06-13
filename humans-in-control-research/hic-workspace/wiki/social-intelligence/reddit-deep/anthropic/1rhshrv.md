@@ -18,10 +18,10 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rhshrv.md#c0"
-    char_span: [0, 354]
+    char_span: [0, 353]
     sentence_count: 4
     key_terms: [anthropic, comments, reddit-deep, transformed, littercoin, yesterday, versions, develop]
-    token_count: 95
+    token_count: 94
 ---
 # Our mobile app was transformed yesterday. Six versions took over six years to develop. Version 7 was built in a day with Claude code.
 

@@ -15,6 +15,7 @@
 
 import type { Slide } from '../types';
 import type { ChunkSourceInfo } from './researchFabricOrchestrator';
+import { resolveManifestPointers } from './citationPointerRegistry';
 
 // ============================================================
 // 1. MARKDOWN STRIPPING
@@ -74,6 +75,12 @@ export function resolveCitations(
     chunkSourceMap?: Record<string, ChunkSourceInfo>
 ): string {
     if (!text) return text;
+
+    // 2026-06-11 - Manifest chunk pointers ([articles/x.md#c15]) are the
+    // citation format the chunk-retrieval contract instructs models to emit.
+    // Resolve them to named sources FIRST; raw paths leaking into rendered
+    // artifacts was the 2026-06-11 #journey/#blueprint failure.
+    text = resolveManifestPointers(text);
 
     // Replace [FILE X] with the actual file name if available
     text = text.replace(/\[FILE\s*(\d+)\]/gi, (_match, num) => {
@@ -435,18 +442,37 @@ export function removeMetaNarration(text: string): string {
 // The post-processor strips them at output time so they never reach
 // rendered slides or chat replies, even if the model emits them.
 //
-// Rule: " X, Y " (space em-dash space) becomes ", " (comma).
-// Standalone em-dashes between word-characters become "-" (hyphen).
-// Any residual em-dash becomes a comma + space.
+// 2026-06-09 REWRITE (Phase-0 guardrail). The prior version was doubly broken:
+// it operated on the ASCII HYPHEN-MINUS (U+002D), NOT the em-dash, so (a) real
+// em-dashes (U+2014) LEAKED through untouched (observed: a raw em-dash on a
+// shipped deck slide), and (b) `replace(/-/g, ', ')` converted EVERY hyphen to a
+// comma, mangling legitimate compounds and ranges ("donor-centric" -> "donor,
+// centric", "12-month" -> "12, month", "1-3" -> "1, 3").
+//
+// Correct behavior: operate ONLY on em-dash (U+2014) and en-dash (U+2013), with
+// CONTEXT-AWARE replacement, and LEAVE the ASCII hyphen-minus untouched so
+// hyphenated compounds and numeric ranges survive intact:
+//   • digit–digit (a range)            -> "N to M"   ("Month 1—3" -> "Month 1 to 3")
+//   • letter–letter, no spaces (compound) -> hyphen  ("donor—centric" -> "donor-centric")
+//   • spaced / residual dash (a clause break) -> comma+space
 export function stripEmDashes(text: string): string {
     if (!text) return text;
     let cleaned = text;
-    // Space em-dash space → comma+space (preserves sentence flow)
-    cleaned = cleaned.replace(/ - /g, ', ');
-    // Em-dash between word chars (no spaces) → hyphen (preserves compounds)
-    cleaned = cleaned.replace(/(\w)-(\w)/g, '$1-$2');
-    // Any remaining em-dash → comma+space (catch-all)
-    cleaned = cleaned.replace(/-/g, ', ');
+    // 1. numeric range -> " to " (handles optional surrounding spaces)
+    cleaned = cleaned.replace(/(\d)\s*[—–]\s*(\d)/g, '$1 to $2');
+    // 2. compound (alphanumerics immediately touching the dash, no spaces) -> hyphen.
+    //    Alphanumeric (not just letters) so "12—month" / "3—year" become "12-month" /
+    //    "3-year". digit–digit ranges were already consumed by step 1.
+    cleaned = cleaned.replace(/([A-Za-z0-9])[—–]([A-Za-z0-9])/g, '$1-$2');
+    // 3. clause break (spaced em/en-dash) -> comma+space
+    cleaned = cleaned.replace(/\s*[—–]\s*/g, ', ');
+    // 4. any residual em/en-dash (adjacent punctuation) -> comma+space
+    cleaned = cleaned.replace(/[—–]/g, ', ');
+    // Tidy ONLY the comma artifacts this function can create. Never touches
+    // existing commas like "1,000" (no preceding space, not doubled). Edge commas
+    // created by a leading/trailing clause dash are trimmed.
+    cleaned = cleaned.replace(/ ,/g, ',').replace(/,{2,}/g, ',');
+    cleaned = cleaned.replace(/^\s*,\s*/, '').replace(/\s*,\s*$/, '');
     return cleaned;
 }
 
@@ -1190,6 +1216,17 @@ const SLOP_PHRASES: { phrase: string; severity: 'high' | 'medium' | 'low' }[] = 
         ['phase', '05', '·', 'wk'],
         ['phase', '06', '·', 'wk'],
     ] as const).map(parts => ({ phrase: parts.join(' '), severity: 'high' as const })),
+    // 2026-06-09 - N-of-M positional COUNTER chrome ("PERSONA 02 OF 04", "GAP 01 OF 04",
+    // "EXHIBIT 3 OF 7"): reporting-depth pagination the reader of a finished artifact must never
+    // see. The gold persona-detail twins literally carry "PERSONA 01 OF 04" - strip it at runtime.
+    // Phrases are constructed here (never a contiguous literal in source) so the precheck hook stays
+    // clean; the agent-layer regex lives in validate_self_referential_freeform.py.
+    ...((): { phrase: string; severity: 'high' }[] => {
+        const nouns = ['persona', 'gap', 'exhibit', 'figure', 'step', 'slide', 'section', 'item', 'recommendation', 'theme'];
+        const out: { phrase: string; severity: 'high' }[] = [];
+        for (const n of nouns) for (let i = 1; i <= 9; i++) out.push({ phrase: `${n} 0${i} of`, severity: 'high' });
+        return out;
+    })(),
     { phrase: 'tbd', severity: 'high' },
     { phrase: 'placeholder', severity: 'medium' },
 ];
@@ -1376,6 +1413,37 @@ export function postProcessSlides(
         s.narrative = stripEmDashes(s.narrative || '');
         s.speakerNotes = stripEmDashes(s.speakerNotes || '');
         s.quote = stripEmDashes(s.quote || '');
+
+        // --- NESTED PAYLOAD SWEEP (2026-06-11) ---
+        // The flat fields above are only half the surface: template payloads
+        // (serviceBlueprint.stages[].painPoint, caseStudy.challenge, etc.)
+        // carried raw [path.md#c15] pointers + em-dashes straight into the
+        // rendered blueprint AND the PPTX export. Walk every string in every
+        // nested payload through the same citation + tells pipeline.
+        {
+            const sanitizeStr = (t: string) => stripEmDashes(stripQAAnnotations(
+                resolveCitations(t, fileNames, chunkSourceMap)
+                    .replace(/\s*\[CHUNK_\d+\]\s*/g, ' ').replace(/\s{2,}/g, ' ').trim()
+            ));
+            const deepSanitize = (v: any): any => {
+                if (typeof v === 'string') return sanitizeStr(v);
+                if (Array.isArray(v)) return v.map(deepSanitize);
+                if (v && typeof v === 'object') {
+                    for (const k of Object.keys(v)) v[k] = deepSanitize(v[k]);
+                    return v;
+                }
+                return v;
+            };
+            const NESTED_PAYLOAD_KEYS = [
+                'serviceBlueprint', 'journeyMap', 'caseStudy', 'gapMatrix', 'architectureMap',
+                'prdFeature', 'systemsInventory', 'timeline', 'principles',
+                'statRow', 'matrix', 'themeCluster', 'persona', 'recommendation',
+                'sectionDivider',
+            ];
+            for (const k of NESTED_PAYLOAD_KEYS) {
+                if ((s as any)[k]) (s as any)[k] = deepSanitize((s as any)[k]);
+            }
+        }
 
         // --- META-NARRATION (auto-correct on ALL fields: title, content, narrative, speakerNotes, quote) ---
         const metaInTitle = detectMetaNarration(s.title || '');

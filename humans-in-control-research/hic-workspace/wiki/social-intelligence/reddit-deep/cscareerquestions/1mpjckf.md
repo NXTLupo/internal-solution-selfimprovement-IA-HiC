@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, useful, resources, comments, career, skills, books, non-programming]
     token_count: 172
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c1"
-    char_span: [783, 2488]
+    char_span: [782, 2487]
     sentence_count: 11
     key_terms: [software, requirements, stakeholders, objectives, part, difficult, notpepus, wiegers]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mpjckf.md#c2"
-    char_span: [2490, 3187]
+    char_span: [2489, 3186]
     sentence_count: 5
     key_terms: [good, engineer, software, brooks, skills, being, fred, soft]
     section: Comments

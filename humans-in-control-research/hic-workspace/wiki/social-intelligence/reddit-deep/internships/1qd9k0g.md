@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, student, school, internships, high, experience, internship, comments]
     token_count: 177
   - id: "social-intelligence/reddit-deep/internships/1qd9k0g.md#c1"
-    char_span: [790, 2167]
+    char_span: [789, 2166]
     sentence_count: 12
     key_terms: [guptaprateeek, opportunities, development, kshatralabs, contribute, business, market, high]
     section: Comments

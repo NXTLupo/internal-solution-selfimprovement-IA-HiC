@@ -23,7 +23,7 @@ chunks:
     key_terms: [emotional, feel, people, companionship, using, help, like, chatbots]
     token_count: 466
   - id: "social-intelligence/reddit-deep/genz/1pbhcq0.md#c1"
-    char_span: [1991, 3775]
+    char_span: [1990, 3774]
     sentence_count: 10
     key_terms: [are-you-the-therapist-friend-things-you-must-know-to-deal-with-this-label-3d4e06179d6d, the-unseen-burden-of-being-the-therapist-friend, https, people, com, like, need, rouxjean]
     section: Comments

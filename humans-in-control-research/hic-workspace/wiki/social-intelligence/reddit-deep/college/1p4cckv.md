@@ -21,19 +21,19 @@ chunks:
     key_terms: [didn, because, graduation, don, walk, college, friends, did]
     token_count: 422
   - id: "social-intelligence/reddit-deep/college/1p4cckv.md#c1"
-    char_span: [1770, 3431]
+    char_span: [1769, 3430]
     sentence_count: 16
     key_terms: ["don't", students, family, moment, feel, graduation, benefit, faculty]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/college/1p4cckv.md#c2"
-    char_span: [3433, 4211]
+    char_span: [3432, 4210]
     sentence_count: 8
     key_terms: [graduation, celebrate, walking, photos, clientsuccessful9504, plan, take, walk]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/college/1p4cckv.md#c3"
-    char_span: [4213, 6142]
+    char_span: [4212, 6141]
     sentence_count: 12
     key_terms: [walk, graduation, college, day, celebrate, something, friends, family]
     section: Comments

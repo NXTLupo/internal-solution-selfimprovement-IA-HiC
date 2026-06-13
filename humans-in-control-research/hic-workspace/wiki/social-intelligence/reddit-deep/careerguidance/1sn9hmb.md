@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sn9hmb.md#c0"
-    char_span: [0, 339]
+    char_span: [0, 338]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, bhuvi1991, developer, realistic, learning, android]
-    token_count: 100
+    token_count: 99
 ---
 # 10+ YOE Senior Android Developer learning Data Science — What’s the realistic "next step" in the Job market?
 

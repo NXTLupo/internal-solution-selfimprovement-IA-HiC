@@ -28,49 +28,49 @@ chunks:
     key_terms: [needs, spending, account, monthly, budget, bills, going, money]
     token_count: 286
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c2"
-    char_span: [3207, 3659]
+    char_span: [3206, 3658]
     sentence_count: 4
     key_terms: ["it's", weekly, cash, fun, gone, misappropriated, necessities, replenished]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c3"
-    char_span: [3661, 5422]
+    char_span: [3660, 5421]
     sentence_count: 15
     key_terms: [cash, account, debit, card, snacks, money, "it's", stop]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c4"
-    char_span: [5424, 7139]
+    char_span: [5423, 7138]
     sentence_count: 14
     key_terms: [cancer, money, budgeting, thinking, problem, hustle, sounds, being]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c5"
-    char_span: [7141, 9282]
+    char_span: [7140, 9281]
     sentence_count: 11
     key_terms: [problem, therapy, financial, something, work, finance, budget, spouse]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c6"
-    char_span: [9284, 10416]
+    char_span: [9283, 10415]
     sentence_count: 4
     key_terms: ["doesn't", agree, get, calculator, budget, figure, going, money]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c7"
-    char_span: [10418, 12299]
+    char_span: [10417, 12298]
     sentence_count: 7
     key_terms: [money, couples, lv-42whatnow, "it's", because, down, need, spending]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c8"
-    char_span: [12301, 14345]
+    char_span: [12300, 14344]
     sentence_count: 15
     key_terms: [financial, spending, advisor, tenaciousgreen, health, counselling, necessities, retirement]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/povertyfinance/1s1kxrk.md#c9"
-    char_span: [14347, 16183]
+    char_span: [14346, 16182]
     sentence_count: 17
     key_terms: [allowance, money, like, personally, different, ninjakaat, whatever, account]
     section: Comments

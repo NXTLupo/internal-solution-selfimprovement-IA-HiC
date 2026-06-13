@@ -23,25 +23,25 @@ chunks:
     key_terms: [year, position, like, gradschool, assistant, candidate, positions, professor]
     token_count: 507
   - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c1"
-    char_span: [2259, 4251]
+    char_span: [2258, 4250]
     sentence_count: 17
     key_terms: [position, funding, though, keep, positions, professor, hardest, people]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c2"
-    char_span: [4253, 5975]
+    char_span: [4252, 5974]
     sentence_count: 17
     key_terms: [low-probability, investments, world, worlds, investment, however, payoffs, almost]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c3"
-    char_span: [5977, 7805]
+    char_span: [5976, 7804]
     sentence_count: 14
     key_terms: [canada, australia, currently, probably, looking, midwest, postdoc, cycles]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/gradschool/1lo9nj5.md#c4"
-    char_span: [7808, 8741]
+    char_span: [7807, 8740]
     sentence_count: 6
     key_terms: [instead, advice, ready, disastrous-wildcat, got, lost, decision-making, disappointment]
     section: Comments

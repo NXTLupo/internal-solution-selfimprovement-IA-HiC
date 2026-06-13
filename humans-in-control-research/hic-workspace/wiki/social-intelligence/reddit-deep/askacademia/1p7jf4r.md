@@ -28,25 +28,25 @@ chunks:
     key_terms: [people, get, "it's", used, challenging, potentially, assistants, eventually]
     token_count: 125
   - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c2"
-    char_span: [2831, 4262]
+    char_span: [2830, 4261]
     sentence_count: 11
     key_terms: [academia, career, issues, perfectionism, "it's", want, everyone, "doesn't"]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c3"
-    char_span: [4264, 5867]
+    char_span: [4263, 5866]
     sentence_count: 17
     key_terms: [good, learning, streetlab8504, "don't", "isn't", find, cognitive, punishing]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c4"
-    char_span: [5869, 7507]
+    char_span: [5868, 7506]
     sentence_count: 17
     key_terms: [psychology, challenging, cognitive, designing, something, academia, decision, everyone]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/askacademia/1p7jf4r.md#c5"
-    char_span: [7509, 9732]
+    char_span: [7508, 9731]
     sentence_count: 15
     key_terms: [like, describing, "you're", happy, academia, enjoying, everyone, research]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, comments, extrapreference9693, reddit-deep, financing, providers, student, posted]
     token_count: 72
   - id: "social-intelligence/reddit-deep/gradschool/1rsnpvc.md#c1"
-    char_span: [291, 1186]
+    char_span: [290, 1185]
     sentence_count: 4
     key_terms: [loans, international, forgiveness, students, private, school, "you're", high]
     section: Comments

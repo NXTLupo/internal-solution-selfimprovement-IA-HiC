@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/b70f5cd7eb.md#c0"
-    char_span: [0, 935]
+    char_span: [0, 934]
     sentence_count: 3
     key_terms: [mainframe, project, career, careerguidance, choose, extraction, existing, another]
-    token_count: 212
+    token_count: 211
 ---
 # Help me how to choose career path based on experience ?
 

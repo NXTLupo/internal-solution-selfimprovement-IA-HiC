@@ -26,55 +26,55 @@ chunks:
     key_terms: ["i'm", like, enough, country, "don't", going, feel, here]
     token_count: 495
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c2"
-    char_span: [4324, 5095]
+    char_span: [4323, 5094]
     sentence_count: 8
     key_terms: [job, snap, qualify, student, find, get, time, callmebigpahpa]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c3"
-    char_span: [5097, 7167]
+    char_span: [5096, 7166]
     sentence_count: 14
     key_terms: [snap, force, air, work, experience, enrolled, students, college]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c4"
-    char_span: [7169, 9202]
+    char_span: [7168, 9201]
     sentence_count: 21
     key_terms: [work, snap, take, participate, food, exemptions, separately, training]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c5"
-    char_span: [9204, 11253]
+    char_span: [9203, 11252]
     sentence_count: 25
     key_terms: [vomitonvelvet, great, sorry, "i'm", want, direction, figure, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c6"
-    char_span: [11013, 11327]
+    char_span: [11012, 11326]
     sentence_count: 4
     key_terms: [supporters, trump, here, assuming, craziest, honestly, laughing, "wouldn't"]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c7"
-    char_span: [11329, 12177]
+    char_span: [11328, 12176]
     sentence_count: 10
     key_terms: [get, government, anything, everyone, money, taxes, redistribute, affordably]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c8"
-    char_span: [12179, 14127]
+    char_span: [12178, 14126]
     sentence_count: 18
     key_terms: [bachelors, living, vomitonvelvet, going, available, community, college, tuition]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c9"
-    char_span: [14129, 15544]
+    char_span: [14128, 15543]
     sentence_count: 8
     key_terms: [citizen, expensive, student, talking, dental, single, xtergo, emt]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/college/1lrqif4.md#c10"
-    char_span: [15546, 16761]
+    char_span: [15545, 16760]
     sentence_count: 10
     key_terms: [something, homeless, college, germany, "don't", bank, feel, food]
     section: Comments

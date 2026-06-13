@@ -23,19 +23,19 @@ chunks:
     key_terms: [investing, right, comments, stocks, years, etf, recommendations, reddit-deep]
     token_count: 211
   - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c1"
-    char_span: [871, 2204]
+    char_span: [870, 2203]
     sentence_count: 13
     key_terms: [returns, market, years, ath, been, investment, inflation, adjusted]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c2"
-    char_span: [2206, 4120]
+    char_span: [2205, 4119]
     sentence_count: 17
     key_terms: [time, highs, market, buying, people, all-time, consistently, index]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/investing/1pqr1t3.md#c3"
-    char_span: [4122, 5718]
+    char_span: [4121, 5717]
     sentence_count: 20
     key_terms: [time, inquiringmind14, bitcoin, better, option, outperformed, sp500, reasonable]
     section: Comments

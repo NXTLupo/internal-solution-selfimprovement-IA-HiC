@@ -7,7 +7,7 @@ industries: [insurance]
 status: active
 chunks:
   - id: "industries/insurance.md#c0"
-    char_span: [0, 709]
+    char_span: [0, 708]
     sentence_count: 2
     key_terms: [sources, industries, articles, reddit-deep-r-povertyfinance, shared, reddit-deep-r-digitalnomad, reddit-deep-r-personalfinance, insurance]
     section: Cross-over verticals (shared sources) / Representative sources

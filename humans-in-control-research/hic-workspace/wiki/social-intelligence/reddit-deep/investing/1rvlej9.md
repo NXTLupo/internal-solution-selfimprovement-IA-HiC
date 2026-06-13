@@ -23,25 +23,25 @@ chunks:
     key_terms: [analyze, investment, investing, portfolio, comments, anyone, people, tools]
     token_count: 165
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c1"
-    char_span: [733, 1802]
+    char_span: [732, 1801]
     sentence_count: 4
     key_terms: [financial-swim-5884, halilural, look, foliofox, analyze, returns, "don't", fair]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c2"
-    char_span: [1804, 3793]
+    char_span: [1803, 3792]
     sentence_count: 13
     key_terms: [halilural, ok-introduction-1940, use, like, nvda, chatgpt, started, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c3"
-    char_span: [3543, 3951]
+    char_span: [3542, 3950]
     sentence_count: 3
     key_terms: [engines, calculations, hallucinate, portfolios, volatility, danielraz, language, struggle]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/investing/1rvlej9.md#c4"
-    char_span: [3953, 5947]
+    char_span: [3952, 5946]
     sentence_count: 18
     key_terms: [different, use, answers, chatgpt, complex, machine, claude, gemini]
     section: Comments

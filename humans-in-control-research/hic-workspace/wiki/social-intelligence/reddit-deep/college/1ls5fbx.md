@@ -21,49 +21,49 @@ chunks:
     key_terms: [college, experience, exchange, going, comments, been, commute, getting]
     token_count: 415
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c1"
-    char_span: [1951, 3533]
+    char_span: [1950, 3532]
     sentence_count: 9
     key_terms: [experience, college, like, school, country, big, get, different]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c2"
-    char_span: [3535, 5077]
+    char_span: [3534, 5076]
     sentence_count: 8
     key_terms: [experience, college, "you're", exchange, students, anyways, usually, having]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c3"
-    char_span: [5079, 7185]
+    char_span: [5078, 7184]
     sentence_count: 14
     key_terms: [college, experience, american, everything, don, get, students, foreign]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c4"
-    char_span: [6948, 7235]
+    char_span: [6947, 7234]
     sentence_count: 3
     key_terms: [fees, pay, university, exchange, whatever, student, detain, reason]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c5"
-    char_span: [7237, 9404]
+    char_span: [7236, 9403]
     sentence_count: 23
     key_terms: [here, safe, students, current, foreign, student, feel, university]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c6"
-    char_span: [9406, 11611]
+    char_span: [9405, 11610]
     sentence_count: 15
     key_terms: [come, get, "it's", people, experience, here, like, saying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c7"
-    char_span: [11363, 11780]
+    char_span: [11362, 11779]
     sentence_count: 6
     key_terms: [cowards, get, experience, happening, regularly, downvote, platform, weekends]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/college/1ls5fbx.md#c8"
-    char_span: [11782, 12599]
+    char_span: [11781, 12598]
     sentence_count: 7
     key_terms: [beginning-device-591, crime, women, engineering, experienced, christians, immigrants, christian]
     section: Comments

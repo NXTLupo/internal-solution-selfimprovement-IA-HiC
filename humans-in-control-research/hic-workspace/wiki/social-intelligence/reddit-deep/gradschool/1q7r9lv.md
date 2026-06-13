@@ -23,43 +23,43 @@ chunks:
     key_terms: [affordable, gradschool, comments, graduate, options, school, snoomarzipans6854, love]
     token_count: 232
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c1"
-    char_span: [1013, 3139]
+    char_span: [1012, 3138]
     sentence_count: 17
     key_terms: [canadian, degrees, people, school, universities, considering, did, lot]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c2"
-    char_span: [3141, 5335]
+    char_span: [3140, 5334]
     sentence_count: 12
     key_terms: [school, phd, here, research, classes, program, internationals, did]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c3"
-    char_span: [5053, 5795]
+    char_span: [5052, 5794]
     sentence_count: 10
     key_terms: [industry, degree, school, time, misadventuresofj, accreditation, self-planned, alternative]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c4"
-    char_span: [5797, 7150]
+    char_span: [5796, 7149]
     sentence_count: 13
     key_terms: [university, gradstudies, fee, classmates, students, however, overall, program]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c5"
-    char_span: [7152, 8186]
+    char_span: [7151, 8185]
     sentence_count: 5
     key_terms: [economics, sfu-economics-maintains-top-three-ranking, canada, academically, sfu, important, kevingyk, rigorous]
     section: Comments
     token_count: 255
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c6"
-    char_span: [8188, 10472]
+    char_span: [8187, 10471]
     sentence_count: 18
     key_terms: [lot, here, programs, germany, canada, accommodation, international, money]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/gradschool/1q7r9lv.md#c7"
-    char_span: [10474, 11132]
+    char_span: [10473, 11131]
     sentence_count: 4
     key_terms: [program, policy-oriented, afghanistan, development, interesting, classmates, university, australia]
     section: Comments

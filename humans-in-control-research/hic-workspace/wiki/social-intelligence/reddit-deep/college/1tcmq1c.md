@@ -21,31 +21,31 @@ chunks:
     key_terms: [college, wanted, comments, around, school, doing, did, high]
     token_count: 232
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c1"
-    char_span: [955, 3262]
+    char_span: [954, 3261]
     sentence_count: 22
     key_terms: [college, dental, hygiene, careers, health, coolcod3159, jobs, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c2"
-    char_span: [2990, 4997]
+    char_span: [2989, 4996]
     sentence_count: 14
     key_terms: [school, doing, something, always, high, like, experience, honestly]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c3"
-    char_span: [4999, 6948]
+    char_span: [4998, 6947]
     sentence_count: 15
     key_terms: [school, degree, lot, people, wanted, figure, option, remote]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c4"
-    char_span: [6950, 9281]
+    char_span: [6949, 9280]
     sentence_count: 11
     key_terms: [career, life, enjoy, get, college, major, something, want]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1tcmq1c.md#c5"
-    char_span: [9283, 10161]
+    char_span: [9282, 10160]
     sentence_count: 9
     key_terms: [expensive, decided, school, cheap-kaleidoscope91, class, life, biochemistry, bluewindice]
     section: Comments

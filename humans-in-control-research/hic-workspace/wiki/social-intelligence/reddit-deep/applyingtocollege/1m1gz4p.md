@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m1gz4p.md#c0"
-    char_span: [0, 557]
+    char_span: [0, 556]
     sentence_count: 4
     key_terms: [applyingtocollege, application, comments, exotic-enthusiasm727, ultra, dontchuckitup, reddit-deep, a2civilian]
     token_count: 151

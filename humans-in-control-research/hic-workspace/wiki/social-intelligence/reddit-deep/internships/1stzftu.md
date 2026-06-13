@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, startup, internships, experience, internship, comments, robotics, company]
     token_count: 167
   - id: "social-intelligence/reddit-deep/internships/1stzftu.md#c1"
-    char_span: [737, 1513]
+    char_span: [736, 1512]
     sentence_count: 8
     key_terms: [research, program, appropriate-tutor587, insti, hour, per, take, year]
     section: Comments

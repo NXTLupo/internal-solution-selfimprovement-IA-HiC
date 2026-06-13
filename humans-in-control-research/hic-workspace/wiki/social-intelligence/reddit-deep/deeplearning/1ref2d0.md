@@ -28,19 +28,19 @@ chunks:
     key_terms: [production, systems, rag, long-term, retrieval, solution, current, domains]
     token_count: 216
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c2"
-    char_span: [3883, 6120]
+    char_span: [3882, 6119]
     sentence_count: 11
     key_terms: [information, specialist, residentticket1273, problem, ground-truth, organisation, point, "it's"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c3"
-    char_span: [6122, 7801]
+    char_span: [6121, 7800]
     sentence_count: 7
     key_terms: [information, characteristics, develop, fundamentally, llms, time, snapshot, context]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/deeplearning/1ref2d0.md#c4"
-    char_span: [7803, 9316]
+    char_span: [7802, 9315]
     sentence_count: 7
     key_terms: [brain, kind, lot, sentences, language, parsing, amount, system]
     section: Comments

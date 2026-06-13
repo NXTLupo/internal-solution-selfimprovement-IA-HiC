@@ -23,7 +23,7 @@ chunks:
     key_terms: [findapath, comments, reddit-deep, comparison, tracking, explore, faiz506, student]
     token_count: 84
   - id: "social-intelligence/reddit-deep/findapath/1qfzfw7.md#c1"
-    char_span: [323, 1455]
+    char_span: [322, 1454]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

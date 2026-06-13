@@ -7,13 +7,13 @@ subreddit: "college"
 title: "First Career Fair Advice"
 author: "nottonightyou"
 date: "2026-02-11T07:50:11.000Z"
-score: 21
-upvote_ratio: 0.96
+score: 20
+upvote_ratio: 0.92
 num_comments: 13
 flair: ""
-extracted_at: "2026-06-06T16:38:05.643Z"
+extracted_at: "2026-06-08T17:32:14.362Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/college/1r1ra3y.md#c0"
     char_span: [0, 1099]
@@ -48,7 +48,7 @@ chunks:
 # First Career Fair Advice
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1r1ra3y/first_career_fair_advice/)
-Posted by **nottonightyou** · **21↑** · **13 comments**
+Posted by **nottonightyou** · **20↑** · **13 comments**
 
 I’m a Junior, and I have my first career fair next week on campus! I’m nervous, I’ve never been to one of these, and I also don’t have hardly any work experience. 
 

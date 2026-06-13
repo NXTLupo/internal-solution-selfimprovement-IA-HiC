@@ -23,13 +23,13 @@ chunks:
     key_terms: [applyingtocollege, math, nyu, uiuc, internship, comments, opportunities, quantitative]
     token_count: 227
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c1"
-    char_span: [987, 2603]
+    char_span: [986, 2602]
     sentence_count: 16
     key_terms: [nyu, uiuc, courant, undergrad, math, schools, better, quant]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sowguz.md#c2"
-    char_span: [2605, 4255]
+    char_span: [2604, 4254]
     sentence_count: 11
     key_terms: [nyu, uiuc, better, zhiskd, opportunities, education, courant, private]
     section: Comments

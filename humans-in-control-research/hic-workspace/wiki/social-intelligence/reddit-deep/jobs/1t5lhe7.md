@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, never, jobs, bluecomments, homeschooled, particularly, reddit-deep, socialzied]
     token_count: 107
   - id: "social-intelligence/reddit-deep/jobs/1t5lhe7.md#c1"
-    char_span: [432, 997]
+    char_span: [431, 996]
     sentence_count: 5
     key_terms: [trades, sudden-usual-5140, work, bulkytiger8706, veximmortalis, bluecomments, scav-stalker, interaction]
     section: Comments

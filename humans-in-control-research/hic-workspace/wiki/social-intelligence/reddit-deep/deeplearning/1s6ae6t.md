@@ -23,7 +23,7 @@ chunks:
     key_terms: [papers, techniques, agent, paper, without, access, agents, autoresearch]
     token_count: 436
   - id: "social-intelligence/reddit-deep/deeplearning/1s6ae6t.md#c1"
-    char_span: [1831, 2606]
+    char_span: [1830, 2605]
     sentence_count: 4
     key_terms: [hindsight, vectorize-io, kalpitdixit, scholarship, literature, relevant, access, github]
     section: Comments

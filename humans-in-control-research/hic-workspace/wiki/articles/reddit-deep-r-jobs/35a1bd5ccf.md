@@ -15,12 +15,12 @@ relevance: 30
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-jobs/35a1bd5ccf.md#c0"
-    char_span: [0, 2072]
+    char_span: [0, 2071]
     sentence_count: 23
     key_terms: [applying, jobs, internships, resume, experience, roles, entry-level, been]
-    token_count: 482
+    token_count: 481
   - id: "articles/reddit-deep-r-jobs/35a1bd5ccf.md#c1"
-    char_span: [2074, 3354]
+    char_span: [2073, 3353]
     sentence_count: 8
     key_terms: [experience, years, get, internship, competing, positions, probably, against]
     token_count: 293

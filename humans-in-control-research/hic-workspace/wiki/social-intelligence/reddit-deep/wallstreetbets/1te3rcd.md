@@ -23,25 +23,25 @@ chunks:
     key_terms: [wallstreetbets, comments, options, https, reddit, shares, thanks, didnt]
     token_count: 395
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c1"
-    char_span: [1404, 1608]
+    char_span: [1403, 1607]
     sentence_count: 1
     key_terms: [total, year, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c2"
-    char_span: [1610, 3239]
+    char_span: [1609, 3238]
     sentence_count: 7
     key_terms: [degenerate, posts, years, day, wsb, discord, bought, people]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c3"
-    char_span: [3241, 4607]
+    char_span: [3240, 4606]
     sentence_count: 6
     key_terms: [grouchy-donkey-8609, options, shares, good, panicapprehensive16, figma, ligma, money]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/wallstreetbets/1te3rcd.md#c4"
-    char_span: [4609, 5164]
+    char_span: [4608, 5163]
     sentence_count: 4
     key_terms: [panicapprehensive16, bot, fig, wallstreetbets, automatically, moderators, performed, questions]
     section: Comments

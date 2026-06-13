@@ -23,13 +23,13 @@ chunks:
     key_terms: [waterloo, uchicago, tech, network, math, reputation, uwaterloo, comments]
     token_count: 358
   - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c1"
-    char_span: [1536, 2997]
+    char_span: [1535, 2996]
     sentence_count: 10
     key_terms: [waterloo, uchicago, chicago, want, resources, prestige, students, school]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/uwaterloo/1t1to0m.md#c2"
-    char_span: [2999, 4612]
+    char_span: [2998, 4611]
     sentence_count: 10
     key_terms: [admissions, uwaterloo, uchicago, waterloo, automoderator, skyl0rdxdcs, year, moderators]
     section: Comments

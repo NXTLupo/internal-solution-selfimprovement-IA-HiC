@@ -26,25 +26,25 @@ chunks:
     key_terms: [asu-atomic-ai-modules-arizona-state-university, learning, asu, https, instructure, www, management, atomic]
     token_count: 183
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c2"
-    char_span: [2920, 4650]
+    char_span: [2919, 4649]
     sentence_count: 19
     key_terms: [down, faculty, online, own, university, contract, material, content]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c3"
-    char_span: [4652, 5210]
+    char_span: [4651, 5209]
     sentence_count: 3
     key_terms: [need, better, collectorcardandcoin, thisunis20characters, helpful-orchid2710, like, ctenophorever, definitely]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c4"
-    char_span: [5212, 7174]
+    char_span: [5211, 7173]
     sentence_count: 9
     key_terms: [faculty, canvas, asu, own, case, "it's", credential, because]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1sxl43c.md#c5"
-    char_span: [7176, 7630]
+    char_span: [7175, 7629]
     sentence_count: 5
     key_terms: [likeness, wow, fighterpilottim, shiny-mango624, simultaneously, universities, instruction, notmrchips]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [different, gold, investing, long-term, comments, anyone, crypto, stocks]
     token_count: 182
   - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c1"
-    char_span: [738, 2386]
+    char_span: [737, 2385]
     sentence_count: 10
     key_terms: [qqq, gld, buy, sell, dec-24, trade, market, etfs]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c2"
-    char_span: [2388, 3797]
+    char_span: [2387, 3796]
     sentence_count: 1
     key_terms: [sell, buy, qqq, tlt, dec-24, trade, gld, apr-25]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/investing/1pdga22.md#c3"
-    char_span: [3799, 4176]
+    char_span: [3798, 4175]
     sentence_count: 1
     key_terms: [buy, qqq, sep-25, sell, tlt, apr-25]
     section: Comments

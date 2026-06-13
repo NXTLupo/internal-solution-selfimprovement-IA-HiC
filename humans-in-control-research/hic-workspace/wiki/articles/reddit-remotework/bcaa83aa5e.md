@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-remotework/bcaa83aa5e.md#c0"
-    char_span: [0, 841]
+    char_span: [0, 840]
     sentence_count: 10
     key_terms: [office, rto, remotework, reddit, job, week, investment, management]
-    token_count: 213
+    token_count: 212
 ---
 # My Job Went RTO.. I am now flying to the office every week
 

@@ -23,49 +23,49 @@ chunks:
     key_terms: [underperforming, trained, rather, get, pip, told, wfh, processes]
     token_count: 367
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c1"
-    char_span: [1594, 3504]
+    char_span: [1593, 3503]
     sentence_count: 15
     key_terms: [unemployment, job, conversationmore4104, company, market, get, like, process]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c2"
-    char_span: [3507, 3981]
+    char_span: [3506, 3980]
     sentence_count: 2
     key_terms: [job, market, bad, seeing, happy-personality-15, let, "true", specialization]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c3"
-    char_span: [3983, 6278]
+    char_span: [3982, 6277]
     sentence_count: 12
     key_terms: [unemployment, cause, fired, job, employee, states, state, got]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c4"
-    char_span: [6280, 6629]
+    char_span: [6279, 6628]
     sentence_count: 2
     key_terms: [come, saying, won, unemployment, resignation, attendance, terminated, agreement]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c5"
-    char_span: [6631, 8618]
+    char_span: [6630, 8617]
     sentence_count: 11
     key_terms: [conversationmore4104, stickydeltastrike, pip, unemployment, needs, get, like, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c6"
-    char_span: [8345, 9392]
+    char_span: [8344, 9391]
     sentence_count: 8
     key_terms: [come, admitting, environmentalluck515, fired, days, get, job, like]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c7"
-    char_span: [9394, 11147]
+    char_span: [9393, 11146]
     sentence_count: 11
     key_terms: [like, conversationmore4104, pip, insubordination, job, company, nothing, person]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/managers/1s3otou.md#c8"
-    char_span: [11149, 13125]
+    char_span: [11148, 13124]
     sentence_count: 12
     key_terms: [work, conversationmore4104, considered, like, pip, someone, termination, come]
     section: Comments

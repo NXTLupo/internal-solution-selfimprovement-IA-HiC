@@ -23,25 +23,25 @@ chunks:
     key_terms: [something, environment, artificial, agent, own, building, stressors, suffering]
     token_count: 491
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c1"
-    char_span: [2069, 3635]
+    char_span: [2068, 3634]
     sentence_count: 9
     key_terms: [suffering, conscious, buddhist, burning, suffer, illustrious-web-6011, onlyonequickquestion, distancesolar1449]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c2"
-    char_span: [3637, 5774]
+    char_span: [3636, 5773]
     sentence_count: 13
     key_terms: [suffering, like, real, matter, doesn, dog, here, own]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c3"
-    char_span: [5776, 7189]
+    char_span: [5775, 7188]
     sentence_count: 7
     key_terms: [like, hollow, model, existence, predict, access, models, small]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/artificial/1t31ghg.md#c4"
-    char_span: [7191, 9002]
+    char_span: [7190, 9001]
     sentence_count: 9
     key_terms: [been, context, theonlyvibemaster, day, seen, tell, reddituser567853, sparescrewdriver]
     section: Comments

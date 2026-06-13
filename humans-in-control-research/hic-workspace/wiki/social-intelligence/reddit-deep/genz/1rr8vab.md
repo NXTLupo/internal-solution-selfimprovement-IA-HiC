@@ -23,13 +23,13 @@ chunks:
     key_terms: [friends, enjoyable, comments, thinking, cheated, maybe, back, genz]
     token_count: 282
   - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c1"
-    char_span: [1156, 2957]
+    char_span: [1155, 2956]
     sentence_count: 11
     key_terms: [happy, "it's", anyone, amandwivedi98, relationship, "don't", want, attraction]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1rr8vab.md#c2"
-    char_span: [2959, 5005]
+    char_span: [2958, 5004]
     sentence_count: 18
     key_terms: [someone, dating, people, going, "i'm", time, women, get]
     section: Comments

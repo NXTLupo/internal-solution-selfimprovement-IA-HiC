@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1rnzemt.md#c0"
-    char_span: [0, 2242]
+    char_span: [0, 2241]
     sentence_count: 18
     key_terms: [internship, internships, remote, want, responsibilities, aligned, because, company]
-    token_count: 485
+    token_count: 484
   - id: "social-intelligence/reddit-deep/internships/1rnzemt.md#c1"
-    char_span: [2244, 2398]
+    char_span: [2243, 2397]
     sentence_count: 2
     key_terms: [experience, internship, exposure, learning, pursuing, better, onsite, remote]
     token_count: 29

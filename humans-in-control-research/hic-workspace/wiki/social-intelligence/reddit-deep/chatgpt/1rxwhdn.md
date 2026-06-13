@@ -33,7 +33,7 @@ chunks:
     key_terms: [input, month, subscriptions, categories, breakdown, disappear, freelance, groceries]
     token_count: 180
   - id: "social-intelligence/reddit-deep/chatgpt/1rxwhdn.md#c3"
-    char_span: [5492, 6791]
+    char_span: [5491, 6790]
     sentence_count: 8
     key_terms: [prompt, post, chatgpt, openai, please, conversation, image, r-chatgpt-1050422060352024636]
     section: Comments

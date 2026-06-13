@@ -1,0 +1,105 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: shares, fund, sell, mutual, buy, sale, mutual fund
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Thoughts? I don't believe you can do an exchange between two different mutual fund companies. It has to be a sell and then a buy.
+Right, so what's the best approach to avoid being out of the market for a day?
+I'm not sure there is a way.
+
+EXAMPLE 2:
+Unless it's a Fidelity money market, no one knows what the proceeds of the sale will be until after the close on the day it's sold. If both funds are the same mutual fund company, it can be done as an exchange because one company handles both sides of the trade. You may be able to use 90% of the previous day's closing value of the Fidelity fund to purchase the Vanguard fund, however that may have to be a broker assisted trade.
+
+EXAMPLE 3:
+exchange Fidelity fund for Vanguard fund. I transferred a Fidelity mutual fund (call it FXXXX) from my fidelity Roth to my new Vanguard Roth. (ACAT transfer).
+
+EXAMPLE 4:
+1. Do I need to disable the weekly transaction or change anything?  Or will Vanguard put everything in money market?
+
+EXAMPLE 5:
+The 2-3 Customer Service Rep I spoke with all didn't believe this can't be done in 1 step.  As one of the largest Financial institutions in the world.    I'm surprise such a simple issue still exist and how big their development team is. Selling a mutual fund can go directly into another vsnguard mutual fund by doing an exchange or go into the settlement fund in the same account ao not aure why you are saying that can't happen. Your explanation is either poor or you're missing something. [...]
+
+EXAMPLE 6:
+In Fidelity or Schwab.  I can just do step 3 and it will ask where to draw the funds and all within 1 Step.
+
+EXAMPLE 7:
+I don't usually sell stuff in Vanguard, so forgive me.  I see there is a 30 day rule on buying more of the same.  Can I just hit sell or do I need to change my account in other ways?
+
+EXAMPLE 8:
+I have excess capital in a Vanguard **California Municipal** Money Market Mutual fund (for tax free purpose). and have a  Monthly re-occurring investment into Vanguard ETFs.   Vanguard have no direct way of accomplishing this all within 1 single account.
+
+EXAMPLE 9:
+How can I work around this?  If I were to pay the $75 for a broker-assisted sale, would they be able to set this up even though the sold fund is Fidelity?   Or should I just sell 1/N of the fund and the next day buy the amount of the previous day's sale, and sell another tranche, thereby limiting my daily exposure to 1/N , but for N days, which in all likelihood would reduce the variance (but not the worst case, if the market did the exact same thing N days in a row).
+
+EXAMPLE 10:
+Context for doing this:  Earn as  much tax exempt (Fed & State) income as possible for the excess capital waiting for investment.
+
+EXAMPLE 11:
+2.  Is it a problem that I've been buying it all last month and I need to stop for a month or six weeks before I do this?  
+  
+3.  What will happen in two weeks when I get dividends?
+
+EXAMPLE 12:
+Your most recent shares have probably lost value, and you're going to have a loss, but because you're constantly buying it will be considered a wash sale. You can't recognize the loss now, but instead the loss will be added to the basis of the new shares (in a complicated order I don't pretend to understand). If you are doing any purchases inside a tax-advantaged account, it could be those shares that have their basis increased, meaning you will lose the loss entirely.
+
+EXAMPLE 13:
+I'd moved the assets to Vanguard because I prefer the Vanguard fund (call it VXXXX)  to the original.  I'd like to exchange the FXXXX for VXXXX in the shortest transaction possible, rather than liquidating to cash one evening and re-investing the next.  (I once suffered an sad loss by doing that on exactly the worst day.)
+
+EXAMPLE 14:
+Maybe edit your post to state exactly what you want to happen, rather than what Vanguard is forcing you to do.
+Updated in original post.   The excess capital is sitting in a Vanguard California Municipal Money Market Fund.
+
+EXAMPLE 15:
+When selling Vanguard **California Municipal** Money Market Mutual fund in (Account A) the proceeds can only go to settlement account in (Account B),  going directly to Settlement account in (Account A) is not an option.  So the only work around they have is create Account B.
+
+EXAMPLE 16:
+Vanguard sale transaction is set up to allow you to link a buy action that uses the proceeds of the previous sale.  However, that feature is disabled when selling FXXXX.   One can work around it by placing a separate buy order, but then I get bold + red warnings that I don't currently have funds to cover the purchase, and if I don't by T+1,  that a number of bad things can happen, that I'd prefer to avoid.
+
+EXAMPLE 17:
+Questions on 30 day rule and selling stuff with dividends and recurring transactions I would like to have $25k in cash lying around (to pay for some house repair stuff that is coming up in the next few months), and I have decided would like to sell shares from my VTSAX account in my taxable brokerage to get the money.  Given the markets right now, I'd like to do this ASAP before it dumps any more.  I buy VTSAX every week on Fridays in a recurring transaction including last Friday (and am happy to continue to buy it weekly even after this sale), and when it gets dividends, it reinvests.
+
+EXAMPLE 18:
+4.  If I put "min tax" for my basis, will it try to sell the shares subject to short term capital gains because the current price is only a few months down?
+
+EXAMPLE 19:
+Is the "excess capital" is in the Settlement Fund MMF? Or did you purchase a separate MMF? The separate MMF probably won't work.
+
+EXAMPLE 20:
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+EXAMPLE 21:
+5.  The $25k was my best guess of how much money I want to have for home and other upcoming expenses-- am I triggering some sort of limit and should do a different amount?   Here is the order for "Min tax"
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

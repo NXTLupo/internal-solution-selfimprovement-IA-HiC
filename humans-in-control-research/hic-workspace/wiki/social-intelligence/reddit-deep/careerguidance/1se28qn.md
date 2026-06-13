@@ -23,7 +23,7 @@ chunks:
     key_terms: [career, get, job, cons, jobs, pros, careerguidance, paths]
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1se28qn.md#c1"
-    char_span: [2140, 2415]
+    char_span: [2140, 2414]
     sentence_count: 1
     key_terms: [manager, work, illreputation991, odd-athlete279, deleted, project, realtor, become]
     section: Comments

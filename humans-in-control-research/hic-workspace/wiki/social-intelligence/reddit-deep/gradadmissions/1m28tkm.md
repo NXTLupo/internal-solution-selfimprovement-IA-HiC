@@ -23,49 +23,49 @@ chunks:
     key_terms: [questions, gradadmissions, school, edit, like, applying, comments, programs]
     token_count: 282
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c1"
-    char_span: [1223, 3097]
+    char_span: [1222, 3096]
     sentence_count: 15
     key_terms: [research, usual-try-2059, people, application, fit, get, good, experience]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c2"
-    char_span: [3099, 4667]
+    char_span: [3098, 4666]
     sentence_count: 5
     key_terms: [did, want, lab, motivations, school, outrageous-media-603, "don't", silent-archer-5750]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c3"
-    char_span: [4669, 6748]
+    char_span: [4668, 6747]
     sentence_count: 20
     key_terms: [usual-try-2059, research, masters, experience, seriouslynotmanan, help, programs, phd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c4"
-    char_span: [6476, 6795]
+    char_span: [6475, 6794]
     sentence_count: 4
     key_terms: [experience, meaningful, reasonable, molecular, practical, cultural, position, possible]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c5"
-    char_span: [6797, 7862]
+    char_span: [6796, 7861]
     sentence_count: 5
     key_terms: [students, specific, need, want, possible, program, cases, keep]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c6"
-    char_span: [7864, 9734]
+    char_span: [7863, 9733]
     sentence_count: 14
     key_terms: [research, faculty, lab, finding, through, considering, supervisors, interests]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c7"
-    char_span: [9736, 11603]
+    char_span: [9735, 11602]
     sentence_count: 14
     key_terms: [usual-try-2059, too, research, someone, cycle, thank, accepted, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1m28tkm.md#c8"
-    char_span: [11343, 12076]
+    char_span: [11342, 12075]
     sentence_count: 6
     key_terms: [rejected, experience, research, papers, like, usual-try-2059, applications, contributed]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [food, people, money, save, definitely, especially, expensive, comments]
     token_count: 444
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c1"
-    char_span: [1890, 2731]
+    char_span: [1889, 2730]
     sentence_count: 5
     key_terms: [throwaway2026z, discord, please, bratwithfreckles, followtheleads, automatically, automoderator, alextricity]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c2"
-    char_span: [2733, 3652]
+    char_span: [2732, 3651]
     sentence_count: 5
     key_terms: [recipes, something, posting, entire, cook, good, "it's", life]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c3"
-    char_span: [3654, 5589]
+    char_span: [3653, 5588]
     sentence_count: 12
     key_terms: [food, learning, bizarrealex, bell, cook, fast, look, taco]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1sewqft.md#c4"
-    char_span: [5298, 6197]
+    char_span: [5297, 6196]
     sentence_count: 8
     key_terms: [week, saving, money, spend, eat, life, pleasseeeeeee, flammableice]
     section: Comments

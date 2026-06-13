@@ -23,7 +23,7 @@ chunks:
     key_terms: [short-term, work, povertyfinance, short, freelance, comments, options, similar]
     token_count: 270
   - id: "social-intelligence/reddit-deep/povertyfinance/1teq5bg.md#c1"
-    char_span: [1165, 2939]
+    char_span: [1164, 2938]
     sentence_count: 5
     key_terms: [day, get, paid, extension, because, payment, usually, local]
     section: Comments

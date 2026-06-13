@@ -23,43 +23,43 @@ chunks:
     key_terms: [savings, povertyfinance, insurance, comments, shopping, budget, events, strawberryspinachcat]
     token_count: 262
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c1"
-    char_span: [905, 2420]
+    char_span: [904, 2419]
     sentence_count: 11
     key_terms: [cantsleepconfused, rent, polishrocket, utilities, expenses, account, average, budget]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c2"
-    char_span: [2422, 3988]
+    char_span: [2421, 3987]
     sentence_count: 7
     key_terms: [expenses, savings, costco, groceries, insurance, utilities, interest, internet]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c3"
-    char_span: [3991, 5613]
+    char_span: [3990, 5612]
     sentence_count: 12
     key_terms: [child, frozenrage1989, support, income, month, chicken, making, salary]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c4"
-    char_span: [5615, 7459]
+    char_span: [5614, 7458]
     sentence_count: 12
     key_terms: [paid, empty-disaster-6738, insurance, includes, internet, monthly, income, single]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c5"
-    char_span: [7461, 9065]
+    char_span: [7460, 9064]
     sentence_count: 8
     key_terms: [debt, mortgage, hoa, management, savings, credit, people, whatelsecouldiwrite]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c6"
-    char_span: [9068, 10284]
+    char_span: [9067, 10283]
     sentence_count: 6
     key_terms: [mortgage, subscriptions, house, groceries, insurance, expenses, income, month]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssczoj.md#c7"
-    char_span: [10286, 10891]
+    char_span: [10285, 10890]
     sentence_count: 5
     key_terms: [people, reason, communication, purplechips7, groceries, important, remaining, expenses]
     section: Comments

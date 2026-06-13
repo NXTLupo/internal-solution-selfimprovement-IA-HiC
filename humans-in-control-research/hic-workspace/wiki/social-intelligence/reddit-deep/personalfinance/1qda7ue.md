@@ -23,13 +23,13 @@ chunks:
     key_terms: [money, personalfinance, invest, comments, school, spend, been, food]
     token_count: 247
   - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c1"
-    char_span: [1028, 2307]
+    char_span: [1027, 2306]
     sentence_count: 14
     key_terms: [cost, saving, setup, important, techylocs, anywhere, college, console]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/personalfinance/1qda7ue.md#c2"
-    char_span: [2310, 3753]
+    char_span: [2309, 3752]
     sentence_count: 12
     key_terms: [like, yourself, gaming, "you're", stick, something, console, bought]
     section: Comments

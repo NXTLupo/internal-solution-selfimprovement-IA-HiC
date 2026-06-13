@@ -23,25 +23,25 @@ chunks:
     key_terms: [debt, personalfinance, like, comments, savings, saving, feels, money]
     token_count: 235
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c1"
-    char_span: [1049, 2590]
+    char_span: [1048, 2589]
     sentence_count: 7
     key_terms: [health, tax, flow, hsa, wiki, bogleheads, retirement, insurance]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c2"
-    char_span: [2592, 4226]
+    char_span: [2591, 4225]
     sentence_count: 11
     key_terms: [retirement, pay, interest, externalself1337, debt, put, save, emergency]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c3"
-    char_span: [4228, 6125]
+    char_span: [4227, 6124]
     sentence_count: 14
     key_terms: [debt, savings, interest, muffinmatrix, pay, rate, charged, return]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/personalfinance/1nnpc51.md#c4"
-    char_span: [6127, 7731]
+    char_span: [6126, 7730]
     sentence_count: 10
     key_terms: [emergency, debt, fund, savings, paying, pay, depending, financial]
     section: Comments

@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/deeplearning/1t80xhc.md#c0"
-    char_span: [0, 2452]
+    char_span: [0, 2451]
     sentence_count: 12
     key_terms: [important, reasoning, chain, asi, want, intelligence, abstraction, generate]
-    token_count: 502
+    token_count: 501
   - id: "social-intelligence/reddit-deep/deeplearning/1t80xhc.md#c1"
-    char_span: [2454, 5186]
+    char_span: [2453, 5185]
     sentence_count: 17
     key_terms: [important, reasoning, ability, abstraction, system, error-correction, self-correcting, memory]
     token_count: 462

@@ -23,79 +23,79 @@ chunks:
     key_terms: [people, "they're", futureofwork, bot, cuz, "it's", jobs, like]
     token_count: 485
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c1"
-    char_span: [2076, 3437]
+    char_span: [2076, 3436]
     sentence_count: 10
     key_terms: [employment, level, people, jobs, labor, wages, unnecessary, income]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c2"
-    char_span: [3439, 5622]
+    char_span: [3438, 5621]
     sentence_count: 19
     key_terms: [get, want, productivity, power, right, electing, because, capital]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c3"
-    char_span: [5624, 6937]
+    char_span: [5623, 6936]
     sentence_count: 10
     key_terms: [ubi, income, people, substantial, definition, universal, possible, maximum-sustainable]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c4"
-    char_span: [6939, 9006]
+    char_span: [6938, 9005]
     sentence_count: 16
     key_terms: [work, society, people, income, employment, everything, cmaz121, control]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c5"
-    char_span: [9008, 10818]
+    char_span: [9007, 10817]
     sentence_count: 15
     key_terms: [income, ubi, people, households, productive, basic, production, ownership]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c6"
-    char_span: [10820, 13115]
+    char_span: [10819, 13114]
     sentence_count: 13
     key_terms: [automation, humans, human, cmaz121, people, corporations, cases, labor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c7"
-    char_span: [12853, 14697]
+    char_span: [12852, 14696]
     sentence_count: 12
     key_terms: [cmaz121, robots, roosterburns, automation, happening, household, question, income]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c8"
-    char_span: [14699, 15369]
+    char_span: [14698, 15368]
     sentence_count: 8
     key_terms: [paycheck, live, want, generations, delusional, goverments, peacefully, exploited]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c9"
-    char_span: [15371, 17622]
+    char_span: [15370, 17621]
     sentence_count: 15
     key_terms: [get, better, companies, like, cmaz121, plan, exploited, baseline]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c10"
-    char_span: [17351, 18317]
+    char_span: [17350, 18316]
     sentence_count: 5
     key_terms: [republican, job, creators, administrations, companies, baseline, income, heard]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c11"
-    char_span: [18319, 19022]
+    char_span: [18318, 19021]
     sentence_count: 6
     key_terms: [companies, taxes, "it's", tax, disincentivizes, completely, destroyers, government]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c12"
-    char_span: [19024, 21468]
+    char_span: [19023, 21467]
     sentence_count: 11
     key_terms: [people, children, future, naturally, work, scarcity, "doesn't", having]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/futureofwork/1sbxxfr.md#c13"
-    char_span: [21179, 22990]
+    char_span: [21178, 22989]
     sentence_count: 10
     key_terms: [having, transport, free, children, energy, jobs, use, designed]
     section: Comments

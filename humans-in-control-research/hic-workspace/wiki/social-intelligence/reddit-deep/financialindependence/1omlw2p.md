@@ -28,37 +28,37 @@ chunks:
     key_terms: [life, "wasn't", money, worth, "i've", net, rebalancing, unnaturally]
     token_count: 177
   - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c2"
-    char_span: [2634, 4793]
+    char_span: [2633, 4792]
     sentence_count: 13
     key_terms: [help, life, without, friend, never, investments, "i've", yojimbo261]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c3"
-    char_span: [4795, 6933]
+    char_span: [4794, 6932]
     sentence_count: 12
     key_terms: [certainly, because, year, forever, quickly, annual, having, lawyer]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c4"
-    char_span: [6935, 8593]
+    char_span: [6934, 8592]
     sentence_count: 9
     key_terms: [people, contributions, solomongrumpy, deathsythe, investment, returns, assets, likely]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c5"
-    char_span: [8595, 8927]
+    char_span: [8594, 8926]
     sentence_count: 3
     key_terms: [couple, unexpected, continued, expecting, portfolio, surprised, monetary, happily]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c6"
-    char_span: [8929, 10679]
+    char_span: [8928, 10678]
     sentence_count: 13
     key_terms: [years, hit, work, because, finally, million, support, stocks]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/financialindependence/1omlw2p.md#c7"
-    char_span: [10681, 11104]
+    char_span: [10680, 11103]
     sentence_count: 3
     key_terms: [different, choices, trying, "i'm", "i've", life, direction, supported]
     section: Comments

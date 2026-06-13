@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, comments, reddit, get, seacomfort5279, reddit-deep, experience, freelanced]
     token_count: 133
   - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c1"
-    char_span: [531, 2299]
+    char_span: [530, 2298]
     sentence_count: 11
     key_terms: [seacomfort5279, apply, portfolio, linkedin, design, thank, internships, get]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/internships/1sboa7f.md#c2"
-    char_span: [2301, 3144]
+    char_span: [2300, 3143]
     sentence_count: 3
     key_terms: [seacomfort5279, thank, consideration, "i'll", companies, freshman, bro, take]
     section: Comments

@@ -28,31 +28,31 @@ chunks:
     key_terms: [professors, admissions, experience, deadline, programs, faculty, "don't", offer]
     token_count: 376
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c2"
-    char_span: [3474, 4089]
+    char_span: [3473, 4088]
     sentence_count: 6
     key_terms: [facilitate, yaphetsez, general, project, crazy-potential-861, like, admissions, overturned]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c3"
-    char_span: [4091, 6090]
+    char_span: [4090, 6089]
     sentence_count: 14
     key_terms: [email, got, potential, programs, options, sending, get, good]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c4"
-    char_span: [6092, 7933]
+    char_span: [6091, 7932]
     sentence_count: 16
     key_terms: [phd, mcs, uiuc, students, applied, funding, program, interviewed]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c5"
-    char_span: [7935, 9026]
+    char_span: [7934, 9025]
     sentence_count: 8
     key_terms: [phd, admission, significantly, applicants, publications, interest, research, faculty]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjxgd5.md#c6"
-    char_span: [9028, 10472]
+    char_span: [9027, 10471]
     sentence_count: 16
     key_terms: [programs, crazy-potential-861, get, grfp, definitely, interested, research, neuroai]
     section: Comments

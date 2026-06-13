@@ -23,13 +23,13 @@ chunks:
     key_terms: [degree, oklahoma, programs, announcement, regents, professors, comments, meeting]
     token_count: 328
   - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c1"
-    char_span: [1456, 3207]
+    char_span: [1455, 3206]
     sentence_count: 9
     key_terms: [education, state-regents-meetings, life-education-8030, geography, state-system, okhighered, esvadude, programs]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/professors/1pg1ttc.md#c2"
-    char_span: [3209, 4938]
+    char_span: [3208, 4937]
     sentence_count: 9
     key_terms: [people, essentially, geographers, gis, themselves, christmas, geography, oklahoma]
     section: Comments

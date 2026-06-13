@@ -30,9 +30,9 @@ Browser → Launchpad:8000 → Agent:8500 → MCP Wrappers (8501-8507) → Core 
 Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). **`docker compose up` will fail if this directory doesn't exist** — the compose file references `../NXT-Agency/` for build context and volume mounts. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad serves a pre-built Vite dist via Nginx — rebuild in `../NXT-Agency/agency-agents-launchpad/` if the frontend changes.
 
 ### Critical Files (modify with caution)
-- `mcp-services/agent/app.py` — AI orchestrator (963 lines); `tool_services` dict (line 92) maps service names to MCP URLs
-- `launchpad/app.py` — WebSocket proxy hub (1,310 lines)
-- `docker-compose-all.yml` — Full platform config (573 lines). **Always use this file**, never `docker-compose.yml` alone
+- `mcp-services/agent/app.py` — AI orchestrator (~900 lines); `tool_services` dict maps service names to MCP URLs
+- `launchpad/app.py` — WebSocket proxy hub (~1,200 lines)
+- `docker-compose-all.yml` — Full platform config (~550 lines). **Always use this file**, never `docker-compose.yml` alone
 
 ### Branch & Commit Discipline
 - **Never merge to main.** Main is owner-controlled and runs months behind feature branches. Branch FROM the latest feature branch (e.g., `HiC-*`) to inherit recent work — never from main.
@@ -98,7 +98,22 @@ Credentials: `postgres`/`postgres`, database: `app`, pgvector 0.5.1 for semantic
 
 ### Testing
 ```bash
-# Miro Generator (only service with full Jest setup)
+# HiC Research (vitest + tsc gate)
+cd humans-in-control-research
+npm run typecheck                        # tsc --noEmit — MANDATORY before shipping any HiC change
+                                         # (vite build does NOT type-check; esbuild skips TS errors)
+npm run test                             # vitest unit suite (jsdom; design-desk/ + services/)
+npx vitest run services/corpusMergeAuthority.test.ts   # single test file
+npx vitest run -t "name pattern"         # single test by name
+npm run test:e2e                         # E2E deliverable tests — SLOW, requires live proxy :5012 + API keys
+npm run check:templates                  # web.tsx ↔ pptx.ts slide-template parity check
+
+# HiC SkillOpt — offline skill-training pipeline (mines hic-workspace rollouts → proposes skill edits)
+npm run skillopt:all                     # extract rollouts → build training set → train (gated)
+npm run skillopt:dry-run                 # propose skill edits without writing them
+npm run skillopt:train-promote           # train + auto-promote accepted edits to .claude/skills/
+
+# Miro Generator (Jest)
 cd internal-solutions-miro-generator
 npm test                    # Jest with ts-jest
 npm run test:coverage       # With coverage report
@@ -107,7 +122,7 @@ npm run test:coverage       # With coverage report
 cd internal-solutions-socialresearch/backend
 pytest                      # pytest>=7.4.0, pytest-cov>=4.1.0
 ```
-Most services lack formal test suites — test via Docker health checks and manual validation.
+Other services lack formal test suites — test via Docker health checks and manual validation.
 
 ### Environment Validation
 ```bash
@@ -140,7 +155,7 @@ docker compose -f docker-compose-all.yml exec launchpad curl -s http://localhost
 | Video Analyzer | 5002 | video-analyzer | FastAPI, Whisper API, FFmpeg |
 | Miro Generator | 5004 | miro-generator | TypeScript CLI, Jest |
 | Character Generator | 5010 | consistent-character-generator | Gemini (Imagen 3, Veo 3.1), IndexedDB |
-| Research Generator | 5011 | hic-research | React 19, Vite, Gemini AI, human-in-loop |
+| Research Generator | 5011 | hic-research | React 18, Vite, Gemini AI, human-in-loop |
 | Research Proxy | 5012 | research-proxy | Python proxy for HiC Research AI calls |
 | Copilot Recipe Generator | 5013 | copilot-recipe-generator | FastAPI + Vite React frontend, Claude Opus 4.6 |
 | Presentation Renderer | 5014 | presentation-renderer | React 19, Vite 6, framer-motion (scroll-driven render of HiC narrativeComposer payloads) |
@@ -201,7 +216,7 @@ Changes to this service require working in its respective repo. Only `docker-com
 
 ### Humans-in-Control Research (`humans-in-control-research/`)
 
-The most actively developed service. A React 19 + TypeScript + Vite 6 + Tailwind SPA that generates consulting-grade research deliverables (strategy decks, persona sets, service blueprints, competitive analyses) using multi-model AI (Gemini, Claude, OpenAI).
+The most actively developed service. A React 18 + TypeScript + Vite 6 + Tailwind SPA that generates consulting-grade research deliverables (strategy decks, persona sets, service blueprints, competitive analyses) using multi-model AI (Gemini, Claude, OpenAI).
 
 **Flat project structure** — no `src/` directory. Components and services live at the root:
 ```
@@ -211,7 +226,8 @@ humans-in-control-research/
 │                                   LiveProcessingIndicator, prototype viewer, etc.)
 ├── services/                     — TypeScript service modules — the application's brain:
 │   ├── aiRouter.ts               — model selection + provider routing (Gemini-primary on
-│   │                                Stage 2/5, Opus default on brief deepen)
+│   │                                Stage 2/5). Artifact hashtags force-route to claude-fable-5
+│   │                                (see corpusChatService.ts force-route + Fable note below)
 │   ├── deliverableModelRouter.ts — health-aware per-#deliverable model router with
 │   │                                cross-provider fallback (Pro→Flash→2.5Flash→gpt-5.5);
 │   │                                reorders by provider health, per-model timeouts
@@ -228,7 +244,7 @@ humans-in-control-research/
 │   ├── deliverableFrameworks.ts  — schema definitions for all deliverable types
 │   ├── hashtagParser.ts          — composer hashtag routing (#proto, #presentations, etc.)
 │   └── exportService.ts          — PPTX (pptxgenjs) + PDF (jspdf) export
-├── proxy/                        — Python CORS proxy (FastAPI, ~1,100 lines)
+├── proxy/                        — Python CORS proxy (FastAPI, ~16,000 lines)
 │   └── app.py                    — 200+ data sources, 8 connector types (REST, RSS, CKAN,
 │                                   arXiv, etc.). Also proxies AI API calls + wiki writes
 ├── hic-workspace/                — persistent knowledge base
@@ -253,7 +269,7 @@ humans-in-control-research/
 **Local development:**
 ```bash
 cd humans-in-control-research
-npm install && npm run dev    # Vite dev server on port 3000
+npm install --legacy-peer-deps && npm run dev    # Vite dev server on port 3000
 # Proxy (separate terminal):
 cd proxy && python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt && python app.py   # Port 5012
@@ -263,7 +279,9 @@ pip install -r requirements.txt && python app.py   # Port 5012
 
 **Rebuild required on every frontend change** — the HiC container is nginx serving a static Vite dist with **no HMR**. After editing anything under `humans-in-control-research/`, run `docker compose -f docker-compose-all.yml up -d --build research-generator` and hard-refresh the browser. Port `3000` belongs to **Social Research**, not HiC — never suggest `npm run dev` on `:3000` for HiC work.
 
-**Active work plans** live in `humans-in-control-research/plans/` — dated files dominate (most recent first). Recent and load-bearing: `harness-master-roadmap-2026-06-02.md`, `harness-architecture-audit-2026-06-02.md`, `harness-rehardening-2026-06-02.md`, `nxt-design-system-200-build-2026-06-01.md`, `design-system-wiki-catalog-2026-06-01.md`, `end-to-end-lifecycle-assessment-2026-05-31.md`, `journey-retrieval-pipeline-fix-2026-05-31.md`, `preview-vs-export-parity-audit-2026-05-29.md`, `karpathy-second-brain-uplift.md`, `hic-notebooklm-uplift-plan-2026-05-24.md`, `hic-honest-audit-and-remediation-2026-05-23.md`. Older but still-referenced: `html-as-default-output-uplift.md`, `verbalized-sampling-uplift.md`, `reinforcement-inference-uplift.md`. Check there before starting non-trivial HiC work — there may already be a plan to extend rather than duplicate.
+**Artifact generation routes to Claude Fable 5.** Every artifact hashtag in Analyst chat (`#slides #journey #blueprint #personas #themes #recs #prd #gap #competitive #case-study #roadmap #audit #arch`) force-routes generation to `claude-fable-5` inside `corpusChatService.sendChatMessage` (before grounding-context budgeting). Plain non-hashtag chat defaults to `gemini-3.5-flash` and respects the model picker. Designer chat (`chatToSlideSpec`, `chatToFreeform`) also routes to Fable 5. **Gotcha:** `claude-fable-5` rejects the `temperature` param with a 400 (same as `opus-4-[789]`); the proxy strips it at the `/api/ai/anthropic` chokepoint (`proxy/app.py` ~line 8403) — do not pass `temperature` to these models.
+
+**Active work plans** live in `humans-in-control-research/plans/` — dated files dominate (most recent first). Recent and load-bearing: `hic-supercharge-plan-2026-06-12.md`, `fable-5-swap-and-anti-rag-2026-06-12.md`, `harness-master-roadmap-2026-06-02.md`, `harness-architecture-audit-2026-06-02.md`, `harness-rehardening-2026-06-02.md`, `nxt-design-system-200-build-2026-06-01.md`, `design-system-wiki-catalog-2026-06-01.md`, `end-to-end-lifecycle-assessment-2026-05-31.md`, `journey-retrieval-pipeline-fix-2026-05-31.md`, `preview-vs-export-parity-audit-2026-05-29.md`, `karpathy-second-brain-uplift.md`, `hic-notebooklm-uplift-plan-2026-05-24.md`, `hic-honest-audit-and-remediation-2026-05-23.md`. Older but still-referenced: `html-as-default-output-uplift.md`, `verbalized-sampling-uplift.md`, `reinforcement-inference-uplift.md`. Check there before starting non-trivial HiC work — there may already be a plan to extend rather than duplicate.
 
 **Output quality rules** live in `.claude/CLAUDE.md` — brand colors, citation protocol, banned phrases (350+), consulting frameworks (Minto, Rumelt, SCQA), content budgets. These load into every Claude Code session and apply to all deliverable generation.
 
@@ -276,7 +294,7 @@ The legacy directory `internal-solutions-research-generator/` still exists but D
 - **CPU-only PyTorch**: Social Research Backend uses `--index-url https://download.pytorch.org/whl/cpu` to avoid CUDA bloat
 
 ### Frontend Tech Split
-- **HiC Research SPA**: `humans-in-control-research/` (React 19, TypeScript 5.8, Vite 6, Tailwind 3.4, pptxgenjs/jspdf for export). Flat structure — no `src/` directory.
+- **HiC Research SPA**: `humans-in-control-research/` (React 18.3, TypeScript 5.8, Vite 6, Tailwind 3.4, pptxgenjs/jspdf for export, vitest). Flat structure — no `src/` directory.
 - **Modern Vite services**: Character Generator, Social Research Frontend (React 19, TypeScript, Vite 6)
 - **Embedded Vite frontend**: Copilot Recipe Generator has a `frontend/` subdirectory (React + Vite); build with `cd frontend && npm install && npm run build` before the FastAPI backend serves the static dist.
 - **Legacy webpack**: Journey Mapper (React 17, webpack 5, but frontend is mostly vanilla JS + HTML templates)

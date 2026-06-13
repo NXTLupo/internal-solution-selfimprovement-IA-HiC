@@ -1,5 +1,68 @@
 {
-  "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-  "positive": [],
-  "negative": []
+  "positive": [
+    {
+      "point": "Once accounts are established, the process should be smoother and easier.",
+      "post_refs": [
+        "1tsy2ch"
+      ]
+    },
+    {
+      "point": "Vanguard's investment products are appreciated, despite technical issues.",
+      "post_refs": [
+        "1tsy2ch"
+      ]
+    },
+    {
+      "point": "Vanguard's security measures are seen as beneficial for protecting accounts.",
+      "post_refs": [
+        "1tsy2ch"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Users experience significant issues with account creation and login processes, often getting stuck in loops.",
+      "post_refs": [
+        "1rop3zf",
+        "1sbenwg",
+        "1qtlbf5",
+        "1nz4wyc"
+      ]
+    },
+    {
+      "point": "Customer service is not available 24/7, causing frustration for users needing immediate assistance.",
+      "post_refs": [
+        "1sbukpp",
+        "1riub85"
+      ]
+    },
+    {
+      "point": "Technical issues with the website and app, such as login problems and error messages, are common.",
+      "post_refs": [
+        "1qaa6k2",
+        "1t213lc",
+        "1rcp9uu"
+      ]
+    },
+    {
+      "point": "Users face difficulties with security features like Yubikey setup and 2FA, which are not intuitive.",
+      "post_refs": [
+        "1rnbv4z",
+        "1p5w7l7"
+      ]
+    },
+    {
+      "point": "Vanguard's system does not handle non-standard email domains well, causing issues for some users.",
+      "post_refs": [
+        "1s4aopd"
+      ]
+    },
+    {
+      "point": "There are delays and complications in linking bank accounts and updating account information.",
+      "post_refs": [
+        "1u1o696",
+        "1t02gby"
+      ]
+    }
+  ]
 }

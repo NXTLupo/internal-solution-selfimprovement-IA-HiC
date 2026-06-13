@@ -1,0 +1,15 @@
+Documents for Topic 4 (showing first 3):
+
+Document 1:
+Margin Account Performance Fixed Not sure if anyone else has noticed but it looks like they finally fixed the rate of return calculations and a few other features for margin accounts with the brokerage! Yes I got an email about my margin act getting a check next month about this. That’s a bit worrying that they don’t have the right calculations for interest rates and such...
+
+Document 2:
+Performing negative since I joined Hey, I joined vanguard around a month ago and it has been negative ever since. Yet I have a brokers application with a larger amount invested in VOO and it is performing way better. How come?  They go up and down. You're supposed to get returns over years and not days.
+VOO is always going to preform the same no matter where it is held. Make sure you are looking at the same time frame. 
+I'm not really sure what you are asking here. If you are invested in the exa...
+
+Document 3:
+VUG- Split Error? Looked on my app (and website) a few minutes ago and the value of my VUG position was substantially less than it should be. Anyone else noticing this? My GTC limit buy orders for VUG, VGT, MGK are reportedly being cancelled - I presume split
+This happens frequently with Vanguard after stock splits. It will fix itself over the next few days.
+Kinda wild that they’re so lax about showing people their portfolio totally cooked. The split math should happen and apply all at once...
+

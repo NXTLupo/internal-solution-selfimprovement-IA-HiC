@@ -23,25 +23,25 @@ chunks:
     key_terms: [money, comments, college, dear-performance-394, cause, feel, genz, job]
     token_count: 258
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c1"
-    char_span: [1037, 2440]
+    char_span: [1036, 2439]
     sentence_count: 15
     key_terms: [debt, get, "i'll", "i'm", pay, graduation, discord, parents]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c2"
-    char_span: [2442, 3642]
+    char_span: [2441, 3641]
     sentence_count: 13
     key_terms: [glaceausmartwater20, masters, requirements, doing, different, undergrad, honestly, require]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c3"
-    char_span: [3644, 5429]
+    char_span: [3643, 5428]
     sentence_count: 16
     key_terms: [though, months, grandmother, job, dementia, jared187, military, living]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/genz/1nu0uck.md#c4"
-    char_span: [5431, 5740]
+    char_span: [5430, 5739]
     sentence_count: 5
     key_terms: ["i'm", full, "anything's", including, benefits, hardcore, honestly, mattered]
     section: Comments

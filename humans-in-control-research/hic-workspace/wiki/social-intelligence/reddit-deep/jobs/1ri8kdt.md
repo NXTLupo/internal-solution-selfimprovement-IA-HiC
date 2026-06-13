@@ -21,49 +21,49 @@ chunks:
     key_terms: [new, comments, finally, person, makes, been, jobs, eisforexhausted]
     token_count: 179
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c1"
-    char_span: [735, 2016]
+    char_span: [734, 2015]
     sentence_count: 11
     key_terms: [job, another, raise, get, pay, obviously, position, notice]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c2"
-    char_span: [2019, 3936]
+    char_span: [2018, 3935]
     sentence_count: 8
     key_terms: [chatgpt, paste, copy, pay, formatting, employee, probably, question]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c3"
-    char_span: [3740, 4712]
+    char_span: [3739, 4711]
     sentence_count: 7
     key_terms: [musicquestion, chatgpt, person, live-juggernaut-221, yohoho-abottleofrum, clear, paste, copy]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c4"
-    char_span: [4714, 6700]
+    char_span: [4713, 6699]
     sentence_count: 7
     key_terms: [get, strangearcticles, interns, workload, getting, usually, person, "you're"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c5"
-    char_span: [6702, 6972]
+    char_span: [6701, 6971]
     sentence_count: 3
     key_terms: [awesome, feels, contemplating, consequences, ranstopolis, short-lived, recommend, euphoria]
     section: Comments
     token_count: 62
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c6"
-    char_span: [6974, 8838]
+    char_span: [6973, 8837]
     sentence_count: 9
     key_terms: [job, new, get, eisforexhausted, thevintagejane, punkrockclub, raise, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c7"
-    char_span: [8617, 8934]
+    char_span: [8616, 8933]
     sentence_count: 3
     key_terms: [salary, calculated, employee, everyone, typical, anyone, match, point]
     section: Comments
     token_count: 90
   - id: "social-intelligence/reddit-deep/jobs/1ri8kdt.md#c8"
-    char_span: [8936, 10757]
+    char_span: [8935, 10756]
     sentence_count: 9
     key_terms: [job, looking, nonprofits, new, eisforexhausted, value, years, immediately]
     section: Comments

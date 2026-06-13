@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, got, healthcare, marketing, comments, selected, analyst, fast-growing]
     token_count: 204
   - id: "social-intelligence/reddit-deep/internships/1t5cuxk.md#c1"
-    char_span: [920, 1428]
+    char_span: [919, 1427]
     sentence_count: 3
     key_terms: [addazzling9105, beautiful-year-1945, clg, did, wow, nipseytrapper, applicants, internship]
     section: Comments

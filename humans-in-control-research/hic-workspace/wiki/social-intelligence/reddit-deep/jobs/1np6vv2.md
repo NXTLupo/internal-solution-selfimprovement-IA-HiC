@@ -23,37 +23,37 @@ chunks:
     key_terms: [offer, job, unpaid, internship, comments, received, because, reduced]
     token_count: 316
   - id: "social-intelligence/reddit-deep/jobs/1np6vv2.md#c1"
-    char_span: [1385, 3110]
+    char_span: [1384, 3109]
     sentence_count: 14
     key_terms: [pay, money, legal, did, hey, employer, because, illegal]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/jobs/1np6vv2.md#c2"
-    char_span: [3112, 3832]
+    char_span: [3111, 3831]
     sentence_count: 5
     key_terms: [people, upbeat-fondant9185, knew, chuckoftheirish, personally, certainly, publicize, skeletons]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/jobs/1np6vv2.md#c3"
-    char_span: [3834, 5219]
+    char_span: [3833, 5218]
     sentence_count: 6
     key_terms: [experience, chuckoftheirish, get, company, interns, removed, unpaid, fancyentrepreneur480]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/jobs/1np6vv2.md#c4"
-    char_span: [5221, 6981]
+    char_span: [5220, 6980]
     sentence_count: 20
     key_terms: [company, purchasing, retired, yarktheshark11, "you're", sense, story, took]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1np6vv2.md#c5"
-    char_span: [6983, 8904]
+    char_span: [6982, 8903]
     sentence_count: 13
     key_terms: [job, red, chipotle, husband, people, "you're", worried-opposite-588, being]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1np6vv2.md#c6"
-    char_span: [8906, 10269]
+    char_span: [8905, 10268]
     sentence_count: 8
     key_terms: [intern, internship, employer, educational, job, work, directly, employee]
     section: Comments

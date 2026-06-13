@@ -15,12 +15,12 @@ industries: [financial_services, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-wallstreetbets/f7aa8d0bfb.md#c0"
-    char_span: [0, 1940]
+    char_span: [0, 1939]
     sentence_count: 26
     key_terms: [like, plan, friday, next, comments, wallstreetbets, crwv, absolutely]
-    token_count: 513
+    token_count: 512
   - id: "articles/reddit-deep-r-wallstreetbets/f7aa8d0bfb.md#c1"
-    char_span: [1942, 2549]
+    char_span: [1941, 2548]
     sentence_count: 4
     key_terms: [nuts, wsb, beautiful, discord, electronic-force-729, https, scarletcarsonrose, gold]
     token_count: 182

@@ -23,7 +23,7 @@ chunks:
     key_terms: [fine-tuning, model, training, outputs, inference-time, deeplearning, wrong, bad]
     token_count: 506
   - id: "social-intelligence/reddit-deep/deeplearning/1svg7if.md#c1"
-    char_span: [1856, 3289]
+    char_span: [1856, 3288]
     sentence_count: 7
     key_terms: [fine-tuning-5b-code-assistant-three-lessons, instruction, https, wrong, microgpt, correct, deliberately, pretraining]
     token_count: 333

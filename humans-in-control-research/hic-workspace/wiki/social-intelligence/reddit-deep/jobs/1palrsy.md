@@ -23,7 +23,7 @@ chunks:
     key_terms: [jobs, experience, comments, introverted, reddit-deep, introverts, drfuckwad, posted]
     token_count: 113
   - id: "social-intelligence/reddit-deep/jobs/1palrsy.md#c1"
-    char_span: [423, 2205]
+    char_span: [422, 2204]
     sentence_count: 17
     key_terms: [job, get, warehouse, start, don, like, work, references]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", lab, enough, experience, doing, wet, school, good]
     token_count: 487
   - id: "social-intelligence/reddit-deep/gradadmissions/1mhv9rp.md#c1"
-    char_span: [2189, 3766]
+    char_span: [2188, 3765]
     sentence_count: 11
     key_terms: ["i'm", plan, get, good, constantly, something, yourself, experts]
     section: Comments

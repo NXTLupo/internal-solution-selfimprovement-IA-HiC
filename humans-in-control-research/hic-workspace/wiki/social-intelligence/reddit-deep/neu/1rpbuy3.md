@@ -23,7 +23,7 @@ chunks:
     key_terms: [accelerate, business, comments, advice, long-construction386, neu, administration, understanding]
     token_count: 165
   - id: "social-intelligence/reddit-deep/neu/1rpbuy3.md#c1"
-    char_span: [684, 1392]
+    char_span: [683, 1391]
     sentence_count: 4
     key_terms: [long-construction386, class, capacity, great, quite, low, year, stocktelephone11]
     section: Comments

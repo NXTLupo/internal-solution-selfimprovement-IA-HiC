@@ -21,37 +21,37 @@ chunks:
     key_terms: [professors, relationships, classes, college, office, enthusiastic, hours, feel]
     token_count: 287
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c1"
-    char_span: [1378, 3473]
+    char_span: [1377, 3472]
     sentence_count: 13
     key_terms: [interested, struggling, students, student, messageok239, force, helps, like]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c2"
-    char_span: [3475, 5458]
+    char_span: [3474, 5457]
     sentence_count: 17
     key_terms: [recommendation, writing, questions, ask, "we're", get, need, everything]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c3"
-    char_span: [5460, 7034]
+    char_span: [5459, 7033]
     sentence_count: 7
     key_terms: [professors, noinfluence952, small, assignments, talk, definitely, classes, effort]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c4"
-    char_span: [7036, 9142]
+    char_span: [7035, 9141]
     sentence_count: 18
     key_terms: [professor, office, hours, ask, chance, professors, talk, assignments]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c5"
-    char_span: [9144, 10764]
+    char_span: [9143, 10763]
     sentence_count: 7
     key_terms: [class, professor, questions, get, ask, something, question, awkward]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/college/1nn8drm.md#c6"
-    char_span: [10766, 12867]
+    char_span: [10765, 12866]
     sentence_count: 20
     key_terms: [office, questions, cricketcounselor, process, hours, thank, good, interests]
     section: Comments

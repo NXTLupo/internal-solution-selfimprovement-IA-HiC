@@ -21,7 +21,7 @@ chunks:
     key_terms: [conversion, co-op, moderna, trying, early-career, gsk, experience, full-time]
     token_count: 278
   - id: "social-intelligence/reddit-deep/neu/1suqvjn.md#c1"
-    char_span: [1264, 1813]
+    char_span: [1263, 1812]
     sentence_count: 2
     key_terms: [co-op, time, moment, full, notcallipygian, consideration, international, hereboyfetch]
     section: Comments

@@ -1,13 +1,16 @@
 Topic 2 - Content Sample
-Number of content items: 4
-Top words: op, im, linkedin, cooked, interviews, op search, email
+Number of content items: 25
+Top words: account, browser, app, online, vanguard, log, tried
 
-Content 1 (length: 907 chars):
-co-op search, is it game over idk if im overthinking but im so cooked like i had 3 interviews during finals season (so around 16 days ago) but i havent heard back yet. its my first co-op btw. i've done 60 applications so far (im trying to get a clinical/research co-op), and i've sent a thank you email and a follow up email but i havent heard back since. i just spammed applied to 8 rn like i frl am stressed. am i cooked like idk all my friends are on the spring cycle so they had less time to find their co-ops and i've been avoiding linkedin so i literally do not know if i still have that much time left Im in the same position as you, but fall cycle searchers can apply all the way up to August. I've had some classmates get theirs in june and july. Obviously no one wants to wait that long, but it is what it is. Apply to co-ops through linkedIn as well. Good luck to you and I hope you get one soon.
+Content 1 (length: 193 chars):
+When you first log in to Vanguard's web application from a new browser or browser profile, the app challenges you with a texted code and gives you the option to trust the browser in the future.
 
-Content 2 (length: 771 chars):
-How cooked am I for finding a co-op Ive applied to over 80 positions all mechE related and had 4 interviews but all turned me down. I literally dont know what to do. Most of the nuWorks jobs I dont qualify for because of my gpa so ive been going thru linkedIn and Indeed mostly. Mind you this isn't my first co-op search, like I completed a co-op last year so its not like i have no experience. The interviews are also going pretty well and I understand that there are def more qualified people out there, but I just want someone to give me a chance!!! So ya, i have what, like 2 moths left to find a job. How cooked am I? give it to me straight lol I know of people who didn’t find co-ops in time but ended up getting positions for September-December! There’s still hope
+Content 2 (length: 1654 chars):
+Set Up Online Account Access Glitch Hi! I just turned 18 and want to make my first investment, and I've chosen Vanguard as my broker. After the slightly painful process of making a brokerage account, I am trying to invest in the S&P500, but every time I try to click "buy and sell" from the transact menu, I am told to set up online account access. So, like a good little future-investor, I enter all the information they want from me, after which they tell me I've actually had online access the whole time! Whoops! Oh well, I guess I'll just try again! Transact, buy and sell...ohh...they want me to set up online account access. You get the idea. Anything I try to do on my individual brokerage account, whether in the app or the website, I am trapped in an infinite loop in which I can get nothing done. My sanity is slowly draining, so any help would be greatly appreciated! My friend had this same or similar issue - "create an account", "you already have an account",  followed by a message like can't reset password because there is no such account. He tried for weeks to get help from customer support, trying different things, such as "get the Chrome browser." They mostly just read from scripts. I could not help him either. I think they had permanently locked his account. Finally he went to the Schwab office in our town and transfered his account to them. (His was never a youth account, but was formerly a 401(k) account.) Sorry I don't have better news/experience for you. Good luck.
+Ditto, except we're switching to Fidelity.
+To be honest, I tend to have more issues in the app than the web interface, so I usually use that for anything.
 
-Content 3 (length: 207 chars):
-Catastrophic Co-op Search I have been having the most miserable and agonizing co-op search this semester guys. Over 100 applications as a COS undergrad. At this point in my search I have landed 0 interviews.
+Content 3 (length: 524 chars):
+edit: to add, all this is on Vanguards side.  when you click “trust this browser“ it saves a combination of these sessions credentials on their end to not prompt for 2FA until a certain time on their side.  I imagine you’ll need to get in touch with their web development team to get your credentials deleted from their trusted server
+\> this is on Vanguards side. when you click “trust this browser“ it saves a combination of these sessions credentials on their end to not prompt for 2FA until a certain time on their side.
 

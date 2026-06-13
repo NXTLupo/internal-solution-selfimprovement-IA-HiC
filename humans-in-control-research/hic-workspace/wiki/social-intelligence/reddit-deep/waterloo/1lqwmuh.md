@@ -28,25 +28,25 @@ chunks:
     key_terms: [men, time, difficult, cowardly, critical, selfish, touched, filthy]
     token_count: 64
   - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c2"
-    char_span: [2426, 4408]
+    char_span: [2425, 4407]
     sentence_count: 13
     key_terms: [organizers, waterloo, get, behavior, assault, crowded, message, anyone]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c3"
-    char_span: [4410, 6362]
+    char_span: [4409, 6361]
     sentence_count: 21
     key_terms: ["it's", happened, security, someone, moved, sorry, "who's", women]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c4"
-    char_span: [6364, 8256]
+    char_span: [6363, 8255]
     sentence_count: 14
     key_terms: [wrong, face, like, time, catcalled, because, punched, impact]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/waterloo/1lqwmuh.md#c5"
-    char_span: [8258, 9095]
+    char_span: [8257, 9094]
     sentence_count: 7
     key_terms: [happened, reported, sharing, sascwr, https, sorry, case, org]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [job, tech, anything, careerguidance, always, exams, engineering, govt]
     token_count: 386
   - id: "social-intelligence/reddit-deep/careerguidance/1pj8laf.md#c1"
-    char_span: [1686, 2423]
+    char_span: [1685, 2422]
     sentence_count: 5
     key_terms: [projects, direct-structure-555, build, small, like, expectations, persistent, placements]
     section: Comments

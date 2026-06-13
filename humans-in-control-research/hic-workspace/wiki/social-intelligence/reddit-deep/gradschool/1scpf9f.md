@@ -23,7 +23,7 @@ chunks:
     key_terms: [psychology, paths, school, experience, grad, clinical, whether, career]
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradschool/1scpf9f.md#c1"
-    char_span: [2223, 2477]
+    char_span: [2222, 2476]
     sentence_count: 3
     key_terms: [mitchgradschooladvice, wp-content, questions, clinical, answers, uploads, happy, https]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rsb3l6.md
 url: "https://www.reddit.com/r/internships/comments/1rsb3l6/waiting_on_internship_decision_after_round_2_at_a/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,30 @@ flair: "Interviews"
 extracted_at: "2026-06-06T23:20:46.226Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c0"
+    char_span: [0, 1992]
+    sentence_count: 14
+    key_terms: [entertainment, interviewers, round, internships, felt, "it's", internship, interview]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c1"
+    char_span: [1994, 2939]
+    sentence_count: 10
+    key_terms: [did, round, process, following, wednesday, because, company, invite]
+    token_count: 209
+  - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c2"
+    char_span: [2954, 5128]
+    sentence_count: 12
+    key_terms: [company, entertainment, internship, offer, jobs, wait, skillsire, avoiding]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/internships/1rsb3l6.md#c3"
+    char_span: [5130, 5430]
+    sentence_count: 4
+    key_terms: ["you're", interested, desperate, proactive, recruiter, check-in, specific, timeline]
+    section: Comments
+    token_count: 67
 ---
-
 # Waiting on internship decision after Round 2 at a major entertainment company. Anyone experience a longer wait and still get the offer?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rsb3l6/waiting_on_internship_decision_after_round_2_at_a/)

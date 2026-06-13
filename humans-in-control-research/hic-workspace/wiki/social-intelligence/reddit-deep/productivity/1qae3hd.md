@@ -23,25 +23,25 @@ chunks:
     key_terms: [list, productivity, long, thought, overwhelming, felt, here, deadlines]
     token_count: 393
   - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c1"
-    char_span: [1722, 3352]
+    char_span: [1721, 3351]
     sentence_count: 18
     key_terms: [day, task, tasks, today, list, minutes, overwhelming, overwhelmed]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c2"
-    char_span: [3354, 5137]
+    char_span: [3353, 5136]
     sentence_count: 21
     key_terms: [list, everything, master, tasks, day, "it's", want, important]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c3"
-    char_span: [5139, 6545]
+    char_span: [5138, 6544]
     sentence_count: 11
     key_terms: [day, get, like, list, something, future, weekly, tasks]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/productivity/1qae3hd.md#c4"
-    char_span: [6547, 7431]
+    char_span: [6546, 7430]
     sentence_count: 6
     key_terms: [list, tasks, days, important, having, makes, big, feel]
     section: Comments

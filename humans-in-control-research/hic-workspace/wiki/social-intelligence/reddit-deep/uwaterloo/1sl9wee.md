@@ -23,25 +23,25 @@ chunks:
     key_terms: [co-op, worked, industry, strategies, academia, advisors, advisor, hiring]
     token_count: 376
   - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c1"
-    char_span: [1755, 3915]
+    char_span: [1754, 3914]
     sentence_count: 15
     key_terms: [co-op, waterloo, people, rather, recruiters, pay, industry, provide]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c2"
-    char_span: [3917, 5769]
+    char_span: [3916, 5768]
     sentence_count: 15
     key_terms: [advisors, people, students, co-op, redcattles, justified, feedback, software]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c3"
-    char_span: [5771, 7976]
+    char_span: [5770, 7975]
     sentence_count: 18
     key_terms: [alumni, waterloo, industry, co-operative-education-and-professional-affairs-office, coop, hire, job, part]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/uwaterloo/1sl9wee.md#c4"
-    char_span: [7978, 9600]
+    char_span: [7977, 9599]
     sentence_count: 10
     key_terms: [uwaterloo, https, moderators, please, automoderator, message, admissions, campus-wellness]
     section: Comments

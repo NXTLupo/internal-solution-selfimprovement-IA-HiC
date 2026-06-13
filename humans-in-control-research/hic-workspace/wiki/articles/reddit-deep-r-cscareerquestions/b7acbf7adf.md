@@ -15,10 +15,10 @@ industries: [higher_ed, workforce, ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/b7acbf7adf.md#c0"
-    char_span: [0, 1261]
+    char_span: [0, 1260]
     sentence_count: 6
     key_terms: [experience, cscareerquestions, internship, comments, already, college, better, people]
-    token_count: 263
+    token_count: 262
 ---
 # How helpful is it for your first job prospects to have experience in Machine Learning from an internship?
 

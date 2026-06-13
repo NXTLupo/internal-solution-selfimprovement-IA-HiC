@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/eafee1beae.md#c0"
-    char_span: [0, 1807]
+    char_span: [0, 1806]
     sentence_count: 12
     key_terms: [graduation, career, analytics, guidance, careerguidance, alternative, internships, bba]
-    token_count: 427
+    token_count: 426
   - id: "articles/reddit-deep-r-careerguidance/eafee1beae.md#c1"
-    char_span: [1809, 2690]
+    char_span: [1808, 2689]
     sentence_count: 6
     key_terms: [business, analyst, data, analytics, career, intern, maybe, good]
     token_count: 188

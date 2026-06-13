@@ -23,97 +23,97 @@ chunks:
     key_terms: [pip, comments, job, like, interview, managers, already, getting]
     token_count: 311
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c1"
-    char_span: [1238, 3409]
+    char_span: [1237, 3408]
     sentence_count: 18
     key_terms: [manager, because, pip, job, management, new, "wasn't", resignation]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c2"
-    char_span: [3411, 4657]
+    char_span: [3410, 4656]
     sentence_count: 9
     key_terms: [pip, manager, time, severance, company, anyone, senior, cantaloupecomplete57]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c3"
-    char_span: [4659, 6580]
+    char_span: [4658, 6579]
     sentence_count: 13
     key_terms: [pip, because, disciplinary, like, frequently, company, failure, issues]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c4"
-    char_span: [6582, 6855]
+    char_span: [6581, 6854]
     sentence_count: 3
     key_terms: [severance, performance, company, payment, willing, cannot, reason, needs]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c5"
-    char_span: [6857, 8781]
+    char_span: [6856, 8780]
     sentence_count: 12
     key_terms: [pip, always, beat, industry, internal, posting, stats-on-clearing-pip, people]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c6"
-    char_span: [8783, 10163]
+    char_span: [8782, 10162]
     sentence_count: 10
     key_terms: [pip, seen, employee, never, using, like, pips, micromanaging]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c7"
-    char_span: [10165, 11743]
+    char_span: [10164, 11742]
     sentence_count: 15
     key_terms: [pip, without, performance, tier, realized, systems, agency, needed]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c8"
-    char_span: [11745, 13436]
+    char_span: [11744, 13435]
     sentence_count: 12
     key_terms: [get, someone, constructive, termination, show, company, deleted, process]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c9"
-    char_span: [13438, 15214]
+    char_span: [13437, 15213]
     sentence_count: 14
     key_terms: [expectations, never, performance, pip, extremely, positions, employee, possible]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c10"
-    char_span: [15216, 17389]
+    char_span: [15215, 17388]
     sentence_count: 12
     key_terms: [good, employee, pip, people, because, nothing, serious, boss]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c11"
-    char_span: [17391, 18778]
+    char_span: [17390, 18777]
     sentence_count: 8
     key_terms: [pip, company, extra, termination, expected, lawsuit, through, people]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c12"
-    char_span: [18780, 20493]
+    char_span: [18779, 20492]
     sentence_count: 8
     key_terms: [pip, employee, pips, employment, themselves, formality, recommend, position]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c13"
-    char_span: [20495, 21775]
+    char_span: [20494, 21774]
     sentence_count: 5
     key_terms: [get, pip, pips, termination, put, leader, people, justsomepotatosalad]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c14"
-    char_span: [21777, 23259]
+    char_span: [21776, 23258]
     sentence_count: 10
     key_terms: [responsibility, job, people, ready, take, themselves, employees, patients]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c15"
-    char_span: [23261, 25213]
+    char_span: [23260, 25212]
     sentence_count: 9
     key_terms: [pip, companies, quit, successfully, "it's", employees, culture, exactly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1nxxj9a.md#c16"
-    char_span: [24974, 27003]
+    char_span: [24973, 27002]
     sentence_count: 13
     key_terms: [pip, otherwise-relief2248, manager, successfully, never, performance, time, performers]
     section: Comments

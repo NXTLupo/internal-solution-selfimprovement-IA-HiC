@@ -21,25 +21,25 @@ chunks:
     key_terms: [cscareerquestions, eventually, comments, figured, coding, senior, hit, life]
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c1"
-    char_span: [921, 2686]
+    char_span: [920, 2685]
     sentence_count: 8
     key_terms: [internships, hard, hit, like, tech, work, levels, senior]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c2"
-    char_span: [2688, 3850]
+    char_span: [2687, 3849]
     sentence_count: 8
     key_terms: [average, making, compensation, "don't", salaries, likely, get, jobs]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c3"
-    char_span: [3852, 5705]
+    char_span: [3851, 5704]
     sentence_count: 12
     key_terms: [alinroc, talking, warningsignals, career, comfortable, "it's", top, cyprovix]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t37wpz.md#c4"
-    char_span: [5707, 6674]
+    char_span: [5706, 6673]
     sentence_count: 9
     key_terms: [eventually, percentile, income-percentile-calculator, adderall, income, income-percent-bot, "i'll", "i'm"]
     section: Comments

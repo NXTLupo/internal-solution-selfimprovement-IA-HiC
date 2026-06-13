@@ -28,7 +28,7 @@ chunks:
     key_terms: [takes, time, experiences, management, seriously, switching, technical, honestly]
     token_count: 83
   - id: "social-intelligence/reddit-deep/engineeringstudents/1m18sep.md#c2"
-    char_span: [2553, 3547]
+    char_span: [2552, 3546]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

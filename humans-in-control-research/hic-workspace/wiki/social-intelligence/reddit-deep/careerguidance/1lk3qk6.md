@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1lk3qk6.md#c0"
-    char_span: [0, 1541]
+    char_span: [0, 1540]
     sentence_count: 12
     key_terms: [cfd, careerguidance, undergraduate, engineering, like, mechanical, aerospace, companies]
-    token_count: 351
+    token_count: 350
 ---
 # I’m a Mechanical Engineering undergraduate and would like to get a job in the field of CFD. Can anyone advise me on how to proceed?
 

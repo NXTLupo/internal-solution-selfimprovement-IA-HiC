@@ -23,7 +23,7 @@ chunks:
     key_terms: [international, university, "master's", get, program, design, universities, "university's"]
     token_count: 490
   - id: "social-intelligence/reddit-deep/gradschool/1srezj7.md#c1"
-    char_span: [2227, 3918]
+    char_span: [2227, 3917]
     sentence_count: 13
     key_terms: [apply, schools, grad, applications, program, adults, "didn't", school]
     section: Comments

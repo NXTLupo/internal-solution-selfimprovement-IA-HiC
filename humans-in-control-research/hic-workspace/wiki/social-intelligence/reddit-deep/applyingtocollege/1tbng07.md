@@ -23,55 +23,55 @@ chunks:
     key_terms: [location, comments, college, applyingtocollege, consider, because, making, people]
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c1"
-    char_span: [2304, 4136]
+    char_span: [2303, 4135]
     sentence_count: 12
     key_terms: [location, opportunities, school, people, institutions, prestigious, internship, companies]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c2"
-    char_span: [4138, 5499]
+    char_span: [4137, 5498]
     sentence_count: 8
     key_terms: [graduate, programs, research, unfortunately, application, internships, recommender, important]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c3"
-    char_span: [5501, 7599]
+    char_span: [5500, 7598]
     sentence_count: 12
     key_terms: [research, opportunities, fit, college, location, people, person, being]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c4"
-    char_span: [7601, 10041]
+    char_span: [7600, 10040]
     sentence_count: 13
     key_terms: [zestyclose-smell4158, colleges, professors, research, teaching, independently, good, universities]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c5"
-    char_span: [10043, 11383]
+    char_span: [10042, 11382]
     sentence_count: 7
     key_terms: [professors, teaching, research, students, course, availability, grad, attention]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c6"
-    char_span: [11385, 13569]
+    char_span: [11384, 13568]
     sentence_count: 9
     key_terms: [location, school, rural, different, tkdcondor, prestige, college, happy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c7"
-    char_span: [13312, 13741]
+    char_span: [13311, 13740]
     sentence_count: 2
     key_terms: [location, chose, application, prestigious, ironically, reputation, primarily, tkdcondor]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c8"
-    char_span: [13743, 15498]
+    char_span: [13742, 15497]
     sentence_count: 12
     key_terms: [opportunities, grinnell, school, city, however, opinion, willing, campus]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tbng07.md#c9"
-    char_span: [15500, 16997]
+    char_span: [15499, 16996]
     sentence_count: 6
     key_terms: [connections, experience, careers, school, internships, located, zestyclose-smell4158, urban]
     section: Comments

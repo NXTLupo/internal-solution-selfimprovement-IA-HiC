@@ -1,0 +1,64 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: 2025, contribution, ira, year, roth ira, maxed, prior
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I made an IRA contribution and selected it for the prior tax year (2025, because I still had room left for that year).
+
+EXAMPLE 2:
+Vanguard says I’ve “maxed out IRA contributions for 2025” even though I haven’t contributed anything? I’m super confused and hoping someone here has run into this before. I’m trying to open/fund a Roth IRA on Vanguard, and when I go to make the contribution it gives me this message:
+
+EXAMPLE 3:
+But I haven’t put any money into a Roth IRA this year or anywhere else. I don’t even think I’ve contributed to a Roth IRA in the past at all.
+Does this just mean I accidentally selected the wrong contribution year? Or is Vanguard glitching because 2025 contributions aren’t open yet? Did you put money into any IRA? 
+i’ve never opened an account for this before.
+Do you have a Traditional IRA?  How much have you put in that?  They aren't separate limits.
+
+EXAMPLE 4:
+About a month and a half later (this Friday), when I logged into my account, I saw a Vanguard pop-up saying they had made an error — they had originally applied my contribution to the  current tax year (2026) instead of the prior year, and they were correcting it.
+
+EXAMPLE 5:
+After they fixed the mistake and moved the contribution to the prior year (2025) where it was supposed to go, it created an excess contribution for that prior year.
+
+EXAMPLE 6:
+Just trying to understand what to expect before I call them. Thanks in advance for any insight. Same issue here. Only reason we selected 2025 for January/Feb 2026 transfers was because they showed the end of December/early Jan transfer counting toward 2026. Even shows it that way on our January 31st statement. So I figured it just missed the daily cutoff and contributed more to 2025 and figured we had an early start on 2026. Then they caused the overage by deciding they made an error and transferring it all to 2025. Their email even admits it was a system error. [...]
+
+EXAMPLE 7:
+Contribution Overage Hi everyone — I’m wondering if anyone has had something like this happen with Vanguard and how it was resolved.
+
+EXAMPLE 8:
+18-year-old trying to set up Roth IRA. My 18-year-old daughter wants to set up a Roth IRA to make a 2025 contribution for her earned income for her first summer job last year.  She clicked on the "Roth IRA" button to get started.  She went through all the steps, but when she got done, she had a brokerage account and a cash plus account but no Roth IRA.  Did she do something wrong, or did Vanguard force her to set it up this way?  Her bank account is linked and ready to go when we get this figured out. [...]
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

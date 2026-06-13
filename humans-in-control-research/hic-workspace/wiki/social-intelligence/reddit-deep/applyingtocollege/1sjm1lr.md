@@ -26,19 +26,19 @@ chunks:
     key_terms: [smith, because, excited, reason, everyone, amazing, upset, high]
     token_count: 169
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c2"
-    char_span: [2582, 4572]
+    char_span: [2581, 4571]
     sentence_count: 13
     key_terms: [smith, amazing, haters, school, people, ok-nature2087, consortium, graduated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c3"
-    char_span: [4334, 4941]
+    char_span: [4333, 4940]
     sentence_count: 1
     key_terms: [education, access, part, ok-nature2087, borzoidaddy, incredible, threatened, "bigotry's"]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sjm1lr.md#c4"
-    char_span: [4943, 6830]
+    char_span: [4942, 6829]
     sentence_count: 19
     key_terms: [smith, school, great, friends, congratulated, got, like, says]
     section: Comments

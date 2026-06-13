@@ -23,25 +23,25 @@ chunks:
     key_terms: [productivity, productive, comments, everyone, plan, stay, week, efficiently]
     token_count: 147
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c1"
-    char_span: [642, 2148]
+    char_span: [641, 2147]
     sentence_count: 21
     key_terms: [list, today, care, down, need, complete, tasks, write]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c2"
-    char_span: [2150, 3861]
+    char_span: [2149, 3860]
     sentence_count: 11
     key_terms: [down, week, simple, makes, like, too, work, everything]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c3"
-    char_span: [3863, 5889]
+    char_span: [3862, 5888]
     sentence_count: 17
     key_terms: [day, like, week, tasks, context, list, work, calendar]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/productivity/1swovpn.md#c4"
-    char_span: [5891, 7119]
+    char_span: [5890, 7118]
     sentence_count: 6
     key_terms: [location-based, like, list, time, try, checklists, blocking, calendar]
     section: Comments

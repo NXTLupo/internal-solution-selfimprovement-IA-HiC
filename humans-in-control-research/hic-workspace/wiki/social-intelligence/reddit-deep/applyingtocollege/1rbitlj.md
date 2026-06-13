@@ -23,49 +23,49 @@ chunks:
     key_terms: [universities, acceptance, applyingtocollege, rates, competitive, applicants, colleges, comments]
     token_count: 192
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c1"
-    char_span: [940, 3116]
+    char_span: [939, 3115]
     sentence_count: 16
     key_terms: [applications, schools, applicants, kids, rate, numbers, universities, "don't"]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c2"
-    char_span: [3118, 4493]
+    char_span: [3117, 4492]
     sentence_count: 9
     key_terms: [applications, schools, universities, top, acceptance, university, admission, holistic]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c3"
-    char_span: [4495, 5415]
+    char_span: [4494, 5414]
     sentence_count: 5
     key_terms: [apply, students, universities, "wouldn't", results, zealousidealweird706, did, get]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c4"
-    char_span: [5417, 7437]
+    char_span: [5416, 7436]
     sentence_count: 12
     key_terms: [schools, kids, candidates, number, colleges, freshman, chicago, take]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c5"
-    char_span: [7439, 9604]
+    char_span: [7438, 9603]
     sentence_count: 15
     key_terms: [students, top, faculty, applications, universities, population, schools, tuition]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c6"
-    char_span: [9606, 10632]
+    char_span: [9605, 10631]
     sentence_count: 6
     key_terms: [years, top, harvard, ivies, ago, qualifications, valedictorian, prototypical]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c7"
-    char_span: [10634, 12457]
+    char_span: [10633, 12456]
     sentence_count: 10
     key_terms: [schools, college, minimum, requirements, admit, kids, admissions, applicants]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbitlj.md#c8"
-    char_span: [12459, 14633]
+    char_span: [12458, 14632]
     sentence_count: 20
     key_terms: [admissions, aggravating-mind-657, students, despite, schools, scores, applications, apply]
     section: Comments

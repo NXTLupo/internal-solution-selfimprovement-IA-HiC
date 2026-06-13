@@ -23,61 +23,61 @@ chunks:
     key_terms: [stock, advice, nvidia, investing, "i'm", sell, "i've", portfolio]
     token_count: 359
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c1"
-    char_span: [1478, 3072]
+    char_span: [1477, 3071]
     sentence_count: 16
     key_terms: [nvidia, want, quarter, regular, decide, person, index, maybe]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c2"
-    char_span: [3074, 5130]
+    char_span: [3073, 5129]
     sentence_count: 19
     key_terms: [strategy, rookiemistake101, tax, goldman, use, explain, problem, taxable]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c3"
-    char_span: [5132, 5361]
+    char_span: [5131, 5360]
     sentence_count: 1
     key_terms: [apple, costless, increase, sideline, strategy, against, another, client]
     section: Comments
     token_count: 53
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c4"
-    char_span: [5363, 7466]
+    char_span: [5362, 7465]
     sentence_count: 16
     key_terms: [rookiemistake101, gains, need, pay, situation, expenses, similar, advice]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c5"
-    char_span: [7251, 7829]
+    char_span: [7250, 7828]
     sentence_count: 6
     key_terms: [rookiemistake101, companies, godssilliestgoose22, gains, need, undergraduate, considering, fascinated]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c6"
-    char_span: [7831, 9377]
+    char_span: [7830, 9376]
     sentence_count: 12
     key_terms: [capital, germany, gains, sell, calculate, question, company, deleted]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c7"
-    char_span: [9379, 10457]
+    char_span: [9378, 10456]
     sentence_count: 9
     key_terms: [nvidia, market, "it's", monopolies, regulator, already, prior, gpu]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c8"
-    char_span: [10459, 12461]
+    char_span: [10458, 12460]
     sentence_count: 16
     key_terms: [nvidia, tax, gains, niit, sell, companies, ethiopia, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c9"
-    char_span: [12260, 13995]
+    char_span: [12259, 13994]
     sentence_count: 7
     key_terms: [mrtouchngo, selling, stock, get, covered, income, nvidia, stocks]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1lxb0m0.md#c10"
-    char_span: [13739, 15606]
+    char_span: [13738, 15605]
     sentence_count: 14
     key_terms: [stock, ira, stocks, uncompensated, roth, brokerage, situation, something]
     section: Comments

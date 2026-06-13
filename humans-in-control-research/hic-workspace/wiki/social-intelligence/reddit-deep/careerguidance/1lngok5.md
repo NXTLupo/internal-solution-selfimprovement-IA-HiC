@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, comments, career, myself, redreptile2020, commitments, constraints, reddit-deep]
     token_count: 133
   - id: "social-intelligence/reddit-deep/careerguidance/1lngok5.md#c1"
-    char_span: [548, 2158]
+    char_span: [547, 2157]
     sentence_count: 11
     key_terms: [world, eventually, history, options, picture, brain, "don't", focus]
     section: Comments

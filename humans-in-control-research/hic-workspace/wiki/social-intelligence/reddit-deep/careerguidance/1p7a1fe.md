@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1p7a1fe.md#c0"
-    char_span: [0, 2326]
+    char_span: [0, 2325]
     sentence_count: 18
     key_terms: [international, legal, law, slovak, work, working, careerguidance, french]
-    token_count: 505
+    token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1p7a1fe.md#c1"
-    char_span: [2328, 3073]
+    char_span: [2327, 3072]
     sentence_count: 6
     key_terms: [situation, slovakia, opportunities, possibilities, appreciated, challenging, environment, perspective]
     token_count: 146

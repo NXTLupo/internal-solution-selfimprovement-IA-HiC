@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1savw4i.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1savw4i/about_to_be_a_fresh_grad_what_on_earth_do_i_do/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,37 @@ flair: "Student"
 extracted_at: "2026-06-06T23:23:15.634Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c0"
+    char_span: [0, 1607]
+    sentence_count: 11
+    key_terms: [jobs, hiring, people, grads, cscareerquestions, new, looking, career]
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c1"
+    char_span: [1622, 3581]
+    sentence_count: 8
+    key_terms: [aristhemage, application, get, government, linkedin, degree, any-presentation-679, ireallylikethemdogs]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c2"
+    char_span: [3315, 4124]
+    sentence_count: 6
+    key_terms: [network, ireallylikethemdogs, lazycatrocks, considering, algorithms, assumption, especially, experience]
+    section: Comments
+    token_count: 192
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c3"
+    char_span: [4126, 6245]
+    sentence_count: 18
+    key_terms: [people, connections, job, get, idontevenknowwhats, something, come, need]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1savw4i.md#c4"
+    char_span: [6247, 7788]
+    sentence_count: 8
+    key_terms: [time, internships, experience, full, resume, year, internship, pipelines]
+    section: Comments
+    token_count: 378
 ---
-
 # About to be a fresh grad. What on EARTH do I do?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1savw4i/about_to_be_a_fresh_grad_what_on_earth_do_i_do/)

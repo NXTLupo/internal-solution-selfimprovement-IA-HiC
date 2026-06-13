@@ -15,17 +15,17 @@ relevance: 30
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/00cde4ccad.md#c0"
-    char_span: [0, 1374]
+    char_span: [0, 1373]
     sentence_count: 10
     key_terms: [cscareerquestions, like, work, experiences, passion, working, people, reddit]
-    token_count: 302
+    token_count: 301
   - id: "articles/reddit-deep-r-cscareerquestions/00cde4ccad.md#c1"
-    char_span: [1376, 3191]
+    char_span: [1375, 3190]
     sentence_count: 16
     key_terms: [embedded, work, software, evolution, hundreds, gamedev, aware-individual-827, niche]
     token_count: 432
   - id: "articles/reddit-deep-r-cscareerquestions/00cde4ccad.md#c2"
-    char_span: [3193, 4417]
+    char_span: [3192, 4416]
     sentence_count: 16
     key_terms: [tech, decades, outsourcing, swe, industries, outsourced, certain, replace]
     token_count: 286

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/1ddcfda4c9.md#c0"
-    char_span: [0, 1605]
+    char_span: [0, 1604]
     sentence_count: 27
     key_terms: [giving, update, gradadmissions, final, hard, work, incredibly, professors]
-    token_count: 370
+    token_count: 369
   - id: "articles/reddit-deep-r-gradadmissions/1ddcfda4c9.md#c1"
-    char_span: [1607, 3567]
+    char_span: [1606, 3566]
     sentence_count: 14
     key_terms: [like, nsf, projects, funded, astro, got, industry, career]
     token_count: 463

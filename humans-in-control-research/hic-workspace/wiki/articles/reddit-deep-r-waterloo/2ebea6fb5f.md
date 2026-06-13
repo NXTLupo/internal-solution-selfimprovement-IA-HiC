@@ -15,10 +15,10 @@ industries: [higher_ed, real_estate]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-waterloo/2ebea6fb5f.md#c0"
-    char_span: [0, 1736]
+    char_span: [0, 1735]
     sentence_count: 13
     key_terms: [waterloo, toronto, moving, cearrach, truck, kms, generally, comments]
-    token_count: 437
+    token_count: 436
 ---
 # Best moving method from Waterloo to Toronto
 

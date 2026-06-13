@@ -1,0 +1,65 @@
+---
+id: articles/reddit-deep-r-personalfinance/f26dae4e4a.md
+url: "articles/reddit-deep-r-personalfinance/f8ed26172a.md"
+url_hash: "f26dae4e4a"
+kind: "article"
+source: "Reddit Deep: r/personalfinance"
+title: "I was sold on whole life insurance and now I regret it"
+author: ""
+date: ""
+tier: 3
+method: "cached"
+extracted_at: "2026-06-11T15:30:56.606921+00:00"
+chars: 4614
+engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+collected_at: "2026-06-11T15:30:56.637Z"
+relevance: 48
+engagement_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
+content_hash: "53c288c107a29880"
+relevance_by_goal: {"46dec9599ad5":48}
+chunks:
+  - id: "articles/reddit-deep-r-personalfinance/f26dae4e4a.md#c0"
+    char_span: [0, 2074]
+    sentence_count: 16
+    key_terms: [insurance, life, money, benefit, individual, death, grow, "i'm"]
+    token_count: 473
+  - id: "articles/reddit-deep-r-personalfinance/f26dae4e4a.md#c1"
+    char_span: [2076, 4122]
+    sentence_count: 13
+    key_terms: [insurance, life, "don't", ira, triscuitmeniscus, contributing, age, like]
+    token_count: 500
+  - id: "articles/reddit-deep-r-personalfinance/f26dae4e4a.md#c2"
+    char_span: [4124, 4770]
+    sentence_count: 5
+    key_terms: [insurance, paying, back, car, cost, got, hers, tellleather4967]
+    token_count: 165
+---
+# I was sold on whole life insurance and now I regret it
+
+Source: [Reddit Deep: r/personalfinance](articles/reddit-deep-r-personalfinance/f8ed26172a.md)
+
+Hi all, I'm an unmarried, no kids, 23M and I have no debt and am just about to start a job where I can really start saving for my future. However, while I was in college, my parents' financial advisor kind of "sold" me on whole life insurance for various different reasons. I made it pretty clear to him that I was not very interested on the death benefit aspect of it, and he assured me that there were ways for it to be a good "investment".
+
+Well consider me a fool for believing him and actually thinking that whole life insurance is an investment just because I can pull money out tax free. I had no idea that it was a loan until recently and I put about $2,500 into the account and my current surrender value is $16... Am I right in thinking that it would be best just to give up on that life insurance policy and close it? Then just focus on maxing out my Roth IRA and investing in individual accounts that would grow WAY faster than my cash value in my life insurance. Plus I'd be able to take money out (of the individual) NOT as a loan, even if I am paying long term capital gains on that. Wouldn't that be a better way to grow my money rather than have it slowly grow 3.5-4% in my life insurance policy?
+
+I am meeting with the financial advisor and am probably going to stop contributing to his accounts for my Roth IRA and just do it in ETFs and various indices rather than pay a 1% account balance fee every quarter. But that is beside the point. Should I close that life insurance policy if I'm not interested in the death benefit? Plus the money that grows in my individual/roth/401k should grow to be a significant chunk of money that would be a death benefit in itself after a couple decades. Sure it might not match the life insurance death benefit but at least I'd have access to it!!! I think I'm just gonna tank the $2.5k in premiums i've paid...
+
+Please correct me if i'm wrong anywhere. thank you!
+
+--- TOP COMMENTS ---
+[1024↑ Triscuitmeniscus] >I am meeting with the financial advisor and am probably going to stop contributing to his accounts for my Roth IRA and just do it in ETFs and various indices rather than pay a 1% account balance fee every quarter.
+
+Sweet Jesus, this guy is charging you 1% *quarterly* for "managing" your IRA? He's taking you for a ride. Don't just stop contributing, close out and cancel all accounts with him and have it transferred to a Fidelity/Schwab/whatever account where you can manage it on your own. 
+
+All your instincts are pretty much spot on here. At this point you probably don't "need" life insurance anyway, but even if you wanted to at your age you could get a 20-year $500k policy for something like $15-20/month. Investing that money in a simple target date or total market index fund in an IRA (one that *doesn't* charge you 4% per year) will have you *way* ahead immediately.
+[207↑ Subject_Address_9221] I guess I never realized term life insurance could be that cheap! It sucks I've been treating whole life like an investment paying 200 a month when I could've been doing that for the same/better coverage? RIP
+[136↑ I-Here-555] Given that you're unmarried and no kids, why do you need life insurance coverage at all? 
+
+Not saying you don't, just that it's not obvious why you do.
+[214↑ Triscuitmeniscus] At least you figured it out now and not in 15 years like a lot of people that post about this issue. Start putting that into an IRA and you'll be over the $2,500 loss in less than a year. By the time you retire you won't even remember this happened.
+[65↑ Captain-Popcorn] Now you have a good question to ask any future potential investment advisor. “Do you recommend whole life policies?”  If the answer isn’t “no” or “almost never”, move along.
+[10↑ mr_friend_computer] So with your age, if you don't drink or smoke, getting VERY long term "term" insurance can save you money down the road while protecting you.  Once you set it, you keep paying it - and at your age, it's cheap as hell.
+
+For instance, my wife got hers a good while before I did and my insurance is 2-3 times the cost of hers.  She's been paying longer, but it's so cheap that the carrying cost is negligible.
+[8↑ moron88] i'm 32 and paying like $8/mo for 50k through my car insurance. the multi-policy discount knocked $10/mo off my car lol.
+[8↑ TellLeather4967] Could be worse - I paid $1000 a month for several years for whole life. Once I saw the light, educated myself on personal finance, and closed the account, I haven’t looked back. An expensive lesson, but no major consequences in the long run. If anything, maybe my FI date got moved back by a few months.

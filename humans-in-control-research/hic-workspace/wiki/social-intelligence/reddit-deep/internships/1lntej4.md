@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, internship, comments, title, "i'm", need, connections, engineering]
     token_count: 163
   - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c1"
-    char_span: [669, 2473]
+    char_span: [668, 2472]
     sentence_count: 12
     key_terms: [professors, etc, industry, applications, email, cold, internship, directors]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/internships/1lntej4.md#c2"
-    char_span: [2476, 2951]
+    char_span: [2475, 2950]
     sentence_count: 2
     key_terms: [person, networking, messaging, questions, anywhere, compared, goodluck, interest]
     section: Comments

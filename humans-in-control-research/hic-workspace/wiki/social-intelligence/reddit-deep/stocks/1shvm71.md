@@ -28,49 +28,49 @@ chunks:
     key_terms: [earnings, target, price, cut, end, sentiments, consensus, estimate]
     token_count: 116
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c2"
-    char_span: [2421, 4317]
+    char_span: [2420, 4316]
     sentence_count: 7
     key_terms: [sub, buy, always, google, doomposting, good, something, everyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c3"
-    char_span: [4042, 5959]
+    char_span: [4041, 5958]
     sentence_count: 8
     key_terms: [microsoft, openai, kanguhrus, cromwest, always, offset, being, lavishnessless4356]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c4"
-    char_span: [5700, 6264]
+    char_span: [5699, 6263]
     sentence_count: 3
     key_terms: [copilot, claude, movingtoseattlesoon, bing, therealjerseytom, therealdealguy, unfortunately, everything]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c5"
-    char_span: [6266, 8022]
+    char_span: [6265, 8021]
     sentence_count: 11
     key_terms: [anthropic, msft, claude, krazynukz, realized, bought, buying, google]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c6"
-    char_span: [7793, 9743]
+    char_span: [7792, 9742]
     sentence_count: 10
     key_terms: [google, office, challenger, microsoft, something, pivoting, similar, france]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c7"
-    char_span: [9509, 11319]
+    char_span: [9508, 11318]
     sentence_count: 10
     key_terms: ["it's", like, microsoft, something, looking, france, google, office]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c8"
-    char_span: [11109, 12889]
+    char_span: [11108, 12888]
     sentence_count: 9
     key_terms: [account, msft, consider, savings, too, portfolio, forget, prestigious-craft251]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1shvm71.md#c9"
-    char_span: [12696, 13308]
+    char_span: [12695, 13307]
     sentence_count: 6
     key_terms: [talking, google, prestigious-craft251, basic, cost, load, weedinthekoolaid, camxthexman3]
     section: Comments

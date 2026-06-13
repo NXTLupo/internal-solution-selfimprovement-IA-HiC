@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1p32cdm.md
 url: "https://www.reddit.com/r/college/comments/1p32cdm/professor_hasnt_returned_a_single_grade_all/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,42 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.569Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c0"
+    char_span: [0, 2275]
+    sentence_count: 23
+    key_terms: [exam, class, grades, grade, students, college, lecture, midterm]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c1"
+    char_span: [2277, 2359]
+    sentence_count: 2
+    key_terms: [experience, escalate, himself, similar, anyone, dean, does]
+    token_count: 17
+  - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c2"
+    char_span: [2374, 4581]
+    sentence_count: 20
+    key_terms: [professor, chair, department, dean, changed, nothing, report, exam]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c3"
+    char_span: [4583, 7147]
+    sentence_count: 17
+    key_terms: [dean, situation, feedback, semester, students, course, requirements, opportunity]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c4"
+    char_span: [7149, 8942]
+    sentence_count: 12
+    key_terms: [university, absolutely, mediatrixmagnifica, professor, situation, nothing, documentation, department]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/college/1p32cdm.md#c5"
+    char_span: [8944, 9465]
+    sentence_count: 4
+    key_terms: [like, life, responsibility, blue-zebra-10, unfortunately, department, disaster, personal]
+    section: Comments
+    token_count: 135
 ---
-
 # Professor hasn’t returned a single grade all semester. Tossed our first exam and refuses to tell us our standing.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1p32cdm/professor_hasnt_returned_a_single_grade_all/)

@@ -23,43 +23,43 @@ chunks:
     key_terms: [development, cscareerquestions, get, art, job, web, work, comments]
     token_count: 284
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c1"
-    char_span: [1235, 1923]
+    char_span: [1234, 1922]
     sentence_count: 5
     key_terms: [nothing, startup, years, age, laid, like, josephhabun, internship]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c2"
-    char_span: [1925, 3944]
+    char_span: [1924, 3943]
     sentence_count: 13
     key_terms: [games, pixel, art, josephhabun, analytics, job, already, resume]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c3"
-    char_span: [3946, 6161]
+    char_span: [3945, 6160]
     sentence_count: 15
     key_terms: [getting, development, been, get, tech, different, designer, industry]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c4"
-    char_span: [6163, 7806]
+    char_span: [6162, 7805]
     sentence_count: 9
     key_terms: [healthcare, donate, experience, deleted, dangerous-nerve9309, fantastic-fun-3179, app, "it's"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c5"
-    char_span: [7808, 9799]
+    char_span: [7807, 9798]
     sentence_count: 14
     key_terms: [healthcare, software, career, people, engineering, back, job, miserable]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c6"
-    char_span: [9801, 11855]
+    char_span: [9800, 11854]
     sentence_count: 16
     key_terms: [code, get, "it's", job, week, working, "don't", good]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l0etrl.md#c7"
-    char_span: [11857, 13399]
+    char_span: [11856, 13398]
     sentence_count: 5
     key_terms: [definitely, modelcroissant, yoe, experience, engineer, problems, software, looking]
     section: Comments

@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1qna9fd.md#c0"
-    char_span: [0, 1882]
+    char_span: [0, 1881]
     sentence_count: 16
     key_terms: [role, career, full-stack, technology, big, careerguidance, early, development]
-    token_count: 401
+    token_count: 400
 ---
 # Big 4 Technology Risk (SOC audits) vs Full-Stack Java ,early career tradeoff?
 

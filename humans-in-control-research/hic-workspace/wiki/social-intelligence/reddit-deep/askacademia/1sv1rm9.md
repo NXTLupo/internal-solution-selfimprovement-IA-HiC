@@ -28,25 +28,25 @@ chunks:
     key_terms: [people, social, ignorance, through, doing, rules, unprofessional, throughout]
     token_count: 139
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c2"
-    char_span: [2648, 4425]
+    char_span: [2647, 4424]
     sentence_count: 14
     key_terms: [someone, advice, purpleconversation36, work, help, helpful, humble, biglybiglytremendous]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c3"
-    char_span: [4427, 6743]
+    char_span: [4426, 6742]
     sentence_count: 21
     key_terms: [culturalyesterday641, different, been, faculty, people, compensation, going, academia]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c4"
-    char_span: [6456, 7399]
+    char_span: [6455, 7398]
     sentence_count: 9
     key_terms: [faculty, answer, purpleconversation36, doesn, place, administration, disrespectful, appreciable]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/askacademia/1sv1rm9.md#c5"
-    char_span: [7401, 8221]
+    char_span: [7400, 8220]
     sentence_count: 7
     key_terms: [because, clinical, focus, gauge, offer, sense, don, like]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, trying, got, job, tech, comments, programming, reddit-deep]
     token_count: 197
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c1"
-    char_span: [830, 2729]
+    char_span: [829, 2728]
     sentence_count: 5
     key_terms: [get, network, years, like, show, experience, something, relevant]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c2"
-    char_span: [2731, 3971]
+    char_span: [2730, 3970]
     sentence_count: 3
     key_terms: [jobs, anything, robotics, updates, done, help, like, opportunities]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c3"
-    char_span: [3973, 5943]
+    char_span: [3972, 5942]
     sentence_count: 13
     key_terms: [role, did, candidates, interview, industry, answer, market, aintnobodygottime89]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c4"
-    char_span: [5945, 7276]
+    char_span: [5944, 7275]
     sentence_count: 18
     key_terms: [programming, resume, been, "it's", going, time, reflection, anything]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c5"
-    char_span: [7278, 9339]
+    char_span: [7277, 9338]
     sentence_count: 18
     key_terms: [getting, companies, job, people, engineering, own, projects, amazing]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qe9gv2.md#c6"
-    char_span: [9341, 11143]
+    char_span: [9340, 11142]
     sentence_count: 18
     key_terms: [resume, interviews, years, people, entry, level, maybe, "it's"]
     section: Comments

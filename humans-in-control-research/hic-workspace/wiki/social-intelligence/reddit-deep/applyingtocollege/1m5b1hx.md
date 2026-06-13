@@ -21,37 +21,37 @@ chunks:
     key_terms: [college, applyingtocollege, people, prestigious, university, obviously, something, colleges]
     token_count: 300
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m5b1hx.md#c1"
-    char_span: [1345, 2483]
+    char_span: [1344, 2482]
     sentence_count: 10
     key_terms: [narrative, college, escaped, matrix, get, "it's", real, congratulations]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m5b1hx.md#c2"
-    char_span: [2485, 4116]
+    char_span: [2484, 4115]
     sentence_count: 9
     key_terms: [kids, law, university, graduate, parents, school, ticket, car]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m5b1hx.md#c3"
-    char_span: [4118, 5263]
+    char_span: [4117, 5262]
     sentence_count: 6
     key_terms: [university, attended, students, schools, universities, associate, thrilled, friends]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m5b1hx.md#c4"
-    char_span: [5265, 7657]
+    char_span: [5264, 7656]
     sentence_count: 15
     key_terms: [attended, college, like, schools, attend, environment, work, colleagues]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m5b1hx.md#c5"
-    char_span: [7659, 9400]
+    char_span: [7658, 9399]
     sentence_count: 14
     key_terms: [colleges, students, talking, dontchuckitup, academically, universities, celebrities, financially]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m5b1hx.md#c6"
-    char_span: [9402, 10813]
+    char_span: [9401, 10812]
     sentence_count: 19
     key_terms: [school, college, harvard, feel, went, daughter, someone, family]
     section: Comments

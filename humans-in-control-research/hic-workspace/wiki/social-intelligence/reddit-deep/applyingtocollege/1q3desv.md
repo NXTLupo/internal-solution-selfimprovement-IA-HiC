@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q3desv.md#c0"
-    char_span: [0, 1378]
+    char_span: [0, 1377]
     sentence_count: 9
     key_terms: [admissions, applyingtocollege, northwestern, need, explaining, committee, comments, opinions]
-    token_count: 313
+    token_count: 312
 ---
 # Should I email the college admissions committee if I applied almost a day late?!
 

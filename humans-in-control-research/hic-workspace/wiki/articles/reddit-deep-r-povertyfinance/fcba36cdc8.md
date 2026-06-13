@@ -15,12 +15,12 @@ industries: [financial_services, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/fcba36cdc8.md#c0"
-    char_span: [0, 2014]
+    char_span: [0, 2013]
     sentence_count: 11
     key_terms: [povertyfinance, money, spend, bank, card, don, automation, comments]
-    token_count: 473
+    token_count: 472
   - id: "articles/reddit-deep-r-povertyfinance/fcba36cdc8.md#c1"
-    char_span: [2018, 3598]
+    char_span: [2017, 3597]
     sentence_count: 8
     key_terms: [people, like, internet, budgeting, starting, already, service, mobile]
     token_count: 367

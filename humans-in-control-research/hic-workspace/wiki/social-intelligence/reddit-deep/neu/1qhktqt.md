@@ -31,7 +31,7 @@ chunks:
     key_terms: ["don't", though, tough, "it's", corporations, engineering, especially, abilities]
     token_count: 170
   - id: "social-intelligence/reddit-deep/neu/1qhktqt.md#c3"
-    char_span: [4849, 5560]
+    char_span: [4848, 5559]
     sentence_count: 4
     key_terms: [science, boston, independent-lab6410, minor, bulky-command9731, oweoyahdkcns18273, data, grad]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [oververbosity, instructions, api, confirmed, analysis, comments, desired, injects]
     token_count: 284
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c1"
-    char_span: [1295, 2932]
+    char_span: [1294, 2931]
     sentence_count: 20
     key_terms: [prompt, always, openai, kathilliana, api, car, gets, "it's"]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c2"
-    char_span: [2934, 4841]
+    char_span: [2933, 4840]
     sentence_count: 10
     key_terms: [katalogical, https, com, kathilliana, oververbosity, dashboard, chatgpt, harmony]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c3"
-    char_span: [4845, 6781]
+    char_span: [4844, 6780]
     sentence_count: 10
     key_terms: [oververbosity, prompt, stunning-ad-2433, capabilities, comparative, chatgpt, tableau, bullet]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/openai/1mqydr4.md#c4"
-    char_span: [6783, 7977]
+    char_span: [6782, 7976]
     sentence_count: 6
     key_terms: [instructions, prompt, use, available, router, system, reverse-engineering, model]
     section: Comments

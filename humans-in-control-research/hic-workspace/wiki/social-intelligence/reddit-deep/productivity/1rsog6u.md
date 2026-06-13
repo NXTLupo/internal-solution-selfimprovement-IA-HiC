@@ -28,25 +28,25 @@ chunks:
     key_terms: [work, because, advice, people, subconscious, strategy, change, system]
     token_count: 196
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c2"
-    char_span: [3295, 5624]
+    char_span: [3294, 5623]
     sentence_count: 20
     key_terms: [inevitablesuccess44, naturally, something, work, because, people, cause, sense]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c3"
-    char_span: [5626, 7821]
+    char_span: [5625, 7820]
     sentence_count: 11
     key_terms: [never, knowledge, independence, development, discipline, effective, financial, something]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c4"
-    char_span: [7823, 9678]
+    char_span: [7822, 9677]
     sentence_count: 15
     key_terms: [habits, like, business, identity, problem, started, asking, atomic]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/productivity/1rsog6u.md#c5"
-    char_span: [9680, 10584]
+    char_span: [9679, 10583]
     sentence_count: 9
     key_terms: [work, learning, inevitablesuccess44, clearthinkinglab, productivity, development, interesting, everything]
     section: Comments

@@ -28,37 +28,37 @@ chunks:
     key_terms: [president-trump-positions-u-s-as-global-superpower-in-manufacturing, whitehouse, announcement, partnership, articles, softbank, openai, oracle]
     token_count: 48
   - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c2"
-    char_span: [1828, 3537]
+    char_span: [1827, 3536]
     sentence_count: 8
     key_terms: [trump, president, solarpropietor, guy, r-chatgpt-1050422060352024636, everyone, discord, posted]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c3"
-    char_span: [3539, 5552]
+    char_span: [3538, 5551]
     sentence_count: 12
     key_terms: [starfleetdropout6, politics, remember, politicians, staggering, everyone, specific, standard]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c4"
-    char_span: [5554, 7046]
+    char_span: [5553, 7045]
     sentence_count: 10
     key_terms: [government, want, jumpedbylife, partnership, don, businesses, having, notaspacealieniswear]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c5"
-    char_span: [7048, 8070]
+    char_span: [7047, 8069]
     sentence_count: 10
     key_terms: [take, openai, local, apersonwhoexists1, boss, mob, various-loan2560, inauguration]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c6"
-    char_span: [8072, 9990]
+    char_span: [8071, 9989]
     sentence_count: 11
     key_terms: [anything, ea12baf706e880d4141d01740f53245eefbb1b95, chatgpt, legal, get, mrtorrence, knowledge, epstein]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qxk9bq.md#c7"
-    char_span: [9719, 10338]
+    char_span: [9718, 10337]
     sentence_count: 4
     key_terms: [claude, mrtorrence, chatgpt, gemini, others, americanasskicker, used, considering]
     section: Comments

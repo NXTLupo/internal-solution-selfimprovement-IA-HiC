@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rvzf6t/i_graduated_cs_in_2022_and_applied_to_1800_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,42 @@ flair: "Experienced"
 extracted_at: "2026-06-06T23:23:15.632Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c0"
+    char_span: [0, 2182]
+    sentence_count: 30
+    key_terms: [interviews, negotiate, cscareerquestions, getting, did, time, graduated, comments]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c1"
+    char_span: [2186, 2807]
+    sentence_count: 7
+    key_terms: [interviews, nerves, people, experimented, differently, practicing, interview, knowledge]
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c2"
+    char_span: [2822, 4997]
+    sentence_count: 15
+    key_terms: [market, interviews, different, "i'm", negotiate, something, nerves, offers]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c3"
+    char_span: [4999, 6985]
+    sentence_count: 9
+    key_terms: [my-ten-rules-for-negotiating-a-job-offer, resume, negotiations, ats, like, experience, interviews, anything]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c4"
+    char_span: [7065, 8906]
+    sentence_count: 12
+    key_terms: [date, experience, rendercv, description, start, end, "it's", list]
+    section: "Your contact info (if you're applying to local jobs, put in your address)"
+    token_count: 449
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rvzf6t.md#c5"
+    char_span: [8908, 9810]
+    sentence_count: 5
+    key_terms: [comfortable, behavioral, answers, using, get, like, prep, dreamyrosebreeze]
+    section: "Your contact info (if you're applying to local jobs, put in your address)"
+    token_count: 194
 ---
-
 # I graduated CS in 2022 and applied to 1800 jobs. Here is everything I learned the hard way
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rvzf6t/i_graduated_cs_in_2022_and_applied_to_1800_jobs/)

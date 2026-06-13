@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md#c0"
-    char_span: [0, 2186]
+    char_span: [0, 2185]
     sentence_count: 23
     key_terms: [cscareerquestions, got, offers, reddit, tech, interviews, engineers, referrals]
-    token_count: 507
+    token_count: 506
   - id: "articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md#c1"
-    char_span: [2188, 3851]
+    char_span: [2187, 3850]
     sentence_count: 14
     key_terms: [linkedin, experience, competitive-one441, premium, market, got, job, work]
     token_count: 381
   - id: "articles/reddit-deep-r-cscareerquestions/1d1c58eadf.md#c2"
-    char_span: [3853, 5443]
+    char_span: [3852, 5442]
     sentence_count: 14
     key_terms: [remote, outside, offer, lot, work, interviews, sympathise, industry]
     token_count: 376

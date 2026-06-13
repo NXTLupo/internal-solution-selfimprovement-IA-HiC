@@ -15,12 +15,12 @@ relevance: 30
 engagement_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
 chunks:
   - id: "articles/reddit-deep-r-college/da238f4bbc.md#c0"
-    char_span: [0, 1476]
+    char_span: [0, 1475]
     sentence_count: 10
     key_terms: [college, child, development, take, time, want, psychology, currently]
-    token_count: 331
+    token_count: 330
   - id: "articles/reddit-deep-r-college/da238f4bbc.md#c1"
-    char_span: [1478, 3266]
+    char_span: [1477, 3265]
     sentence_count: 12
     key_terms: [admissions, college, community, classes, seeking, degree, office, school]
     token_count: 408

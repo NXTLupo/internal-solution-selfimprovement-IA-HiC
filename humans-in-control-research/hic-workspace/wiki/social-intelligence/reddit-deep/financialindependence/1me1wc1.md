@@ -33,25 +33,25 @@ chunks:
     key_terms: [begin, house, car, plan, wife, independence, comfortable, significant]
     token_count: 157
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c3"
-    char_span: [4855, 5612]
+    char_span: [4854, 5611]
     sentence_count: 8
     key_terms: [keep, inspiring, congrats, staying, great, cosmicslug73, silentpulsex, frustrated]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c4"
-    char_span: [5614, 7033]
+    char_span: [5613, 7032]
     sentence_count: 9
     key_terms: [hour, situation, marriage, because, almost, people, hard, almamahlerwerfel]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c5"
-    char_span: [7035, 8781]
+    char_span: [7034, 8780]
     sentence_count: 13
     key_terms: [prenup, assets, marriage, divorce, married, people, person, shhhhhhhhhhhhhhhhhh]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/financialindependence/1me1wc1.md#c6"
-    char_span: [8784, 9359]
+    char_span: [8783, 9358]
     sentence_count: 5
     key_terms: [walk, congratulations, unconventional, denomination, fertymerty, regardless, unsettling, southern]
     section: Comments

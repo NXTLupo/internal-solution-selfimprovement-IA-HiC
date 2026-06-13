@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1tegxou.md
 url: "https://www.reddit.com/r/jobs/comments/1tegxou/how_do_you_guys_manage_to_get_decent_paying_jobs/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,42 @@ flair: "Job searching"
 extracted_at: "2026-06-06T23:23:15.617Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c0"
+    char_span: [0, 1975]
+    sentence_count: 12
+    key_terms: ["i've", jobs, local, positions, high, cybersecurity, programming, job]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c1"
+    char_span: [1977, 2523]
+    sentence_count: 4
+    key_terms: [connections, "i'm", improve, "i've", job, specifically, alternative, interested]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c2"
+    char_span: [2538, 4548]
+    sentence_count: 13
+    key_terms: [job, getting, resume, experience, commercialqueasy538, roles, get, market]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c3"
+    char_span: [4550, 6522]
+    sentence_count: 17
+    key_terms: [job-application-tracker-304442c8054680d4a870f232c102726b, job, companies, position, unemployment, keep, experience, applying]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c4"
+    char_span: [6524, 8893]
+    sentence_count: 14
+    key_terms: ["i've", through, lot, indeed, resume, applications, connections, job]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/jobs/1tegxou.md#c5"
+    char_span: [8895, 11189]
+    sentence_count: 12
+    key_terms: [definitely, interviews, level, roles, job, decent, applications, lower]
+    section: Comments
+    token_count: 510
 ---
-
 # How do you guys manage to get decent paying jobs? Could use some advice.
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tegxou/how_do_you_guys_manage_to_get_decent_paying_jobs/)

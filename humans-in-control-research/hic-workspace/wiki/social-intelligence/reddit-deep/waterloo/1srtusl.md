@@ -23,19 +23,19 @@ chunks:
     key_terms: [waterloo, information, been, job, comments, advice, health, region]
     token_count: 304
   - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c1"
-    char_span: [1403, 3359]
+    char_span: [1402, 3358]
     sentence_count: 17
     key_terms: [health, insurance, districtcurrent, like, companies, industry, commute, ontario]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c2"
-    char_span: [3361, 5551]
+    char_span: [3360, 5550]
     sentence_count: 17
     key_terms: [entry-level, help, resume, build, data, get, interested, applying]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/waterloo/1srtusl.md#c3"
-    char_span: [5553, 5862]
+    char_span: [5552, 5861]
     sentence_count: 3
     key_terms: [use, articulate, especially, companies, configure, becoming, familiar, agentic]
     section: Comments

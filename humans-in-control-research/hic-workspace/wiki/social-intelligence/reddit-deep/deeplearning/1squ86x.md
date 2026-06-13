@@ -23,7 +23,7 @@ chunks:
     key_terms: [physical, deeplearning, algorithm, comments, lip-sync, kitto-true-ai-agent-toy, getting, https]
     token_count: 242
   - id: "social-intelligence/reddit-deep/deeplearning/1squ86x.md#c1"
-    char_span: [1086, 1381]
+    char_span: [1085, 1380]
     sentence_count: 1
     key_terms: [kickstarter, kitto-true-ai-agent-toy, pre-launch, optimized, resources, hardware, projects, driving]
     section: Comments

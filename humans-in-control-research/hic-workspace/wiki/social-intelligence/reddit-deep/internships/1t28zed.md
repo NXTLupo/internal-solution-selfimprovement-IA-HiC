@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, because, summer, did, get, co-ops, don, comments]
     token_count: 337
   - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c1"
-    char_span: [1318, 3010]
+    char_span: [1317, 3009]
     sentence_count: 4
     key_terms: [internship, major, back, something, applying, jpgirlyn, progress, projects]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c2"
-    char_span: [3012, 5248]
+    char_span: [3011, 5247]
     sentence_count: 15
     key_terms: [internship, companies, recruiters, oppositebasil2720, resume, apply, did, position]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1t28zed.md#c3"
-    char_span: [5250, 7016]
+    char_span: [5249, 7015]
     sentence_count: 12
     key_terms: [internship, advice, get, got, like, experience, interview, position]
     section: Comments

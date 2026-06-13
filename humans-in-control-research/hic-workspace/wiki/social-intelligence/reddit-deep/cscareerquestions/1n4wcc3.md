@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1n4wcc3/asking_hiring_managers_how_does_low_experiece/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,83 @@ subreddit: "cscareerquestions"
 title: "Asking Hiring Managers: How does low experiece candidate land the job?"
 author: "badsignalnow"
 date: "2025-08-31T14:36:18.000Z"
-score: 74
+score: 72
 upvote_ratio: 0.9
 num_comments: 95
 flair: ""
-extracted_at: "2026-06-06T23:23:15.638Z"
+extracted_at: "2026-06-08T18:49:42.893Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c0"
+    char_span: [0, 1285]
+    sentence_count: 10
+    key_terms: [experience, cscareerquestions, job, hiring, interviews, comments, linkedin, relevant]
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c1"
+    char_span: [1287, 2839]
+    sentence_count: 31
+    key_terms: [experience, important, hiring, devs, get, job, positions, referrals]
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c2"
+    char_span: [2854, 4788]
+    sentence_count: 20
+    key_terms: [something, learn, attitude, don, juniors, leading-ability-7317, resume, interviewing]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c3"
+    char_span: [4790, 6681]
+    sentence_count: 15
+    key_terms: [learn, answer, thank, didn, candidate, interview, something, attitude]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c4"
+    char_span: [6683, 8812]
+    sentence_count: 16
+    key_terms: [get, question, process, experience, less, pipeline, through, intern]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c5"
+    char_span: [8814, 11052]
+    sentence_count: 16
+    key_terms: [candidate, experience, impressive, get, consider, role, swe, background]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c6"
+    char_span: [11054, 13285]
+    sentence_count: 11
+    key_terms: [customer, altruistic-cattle761, service, support, career, doing, roles, immediately]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c7"
+    char_span: [13287, 15384]
+    sentence_count: 13
+    key_terms: [hiring, experience, position, manager, resumes, intern, hire, graduation]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c8"
+    char_span: [15386, 16987]
+    sentence_count: 12
+    key_terms: [experience, technical, projects, looking, internships, big, criteria, quality]
+    section: Comments
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c9"
+    char_span: [16989, 19027]
+    sentence_count: 15
+    key_terms: [experience, candidates, recruiter, hiring, least, part, qualified, pipeline]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1n4wcc3.md#c10"
+    char_span: [19029, 19468]
+    sentence_count: 5
+    key_terms: [hired, get, candidates, admitting, awkward, company, husband, looking]
+    section: Comments
+    token_count: 106
 ---
-
 # Asking Hiring Managers: How does low experiece candidate land the job?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1n4wcc3/asking_hiring_managers_how_does_low_experiece/)
-Posted by **badsignalnow** · **74↑** · **95 comments**
+Posted by **badsignalnow** · **72↑** · **95 comments**
 
 As a hiring manager you are making the hiring decision for low experience candidates.  You have a 360 degree view on how to get that job. Tell us how to do it?
 
@@ -72,7 +137,7 @@ For juniors I hire for attitude, passion, and ability to learn.  My experience i
 But, if they are passionate and approach things with the attitude of “I don’t know this but I can learn it” then they generally do pretty well.  So, in the interview if you are interviewing with someone like me you get extra points for admitting you don’t know something and taking a stab at it if you have an idea or saying you can ramp up on it.  If you follow up after the interview with a well researched answer as well as your thoughts it will make you a top candidate in my eval.  Just don’t copy/paste someone else’s, this includes AI, answer.  I need to see that you taught yourself something.
 
 Also on my teams I want people to be willing to ask the “dumb questions” they think everyone already knows.  More times than not it clarifies what we are doing and fills in holes I didn’t realize were there.  Sometimes I just completely missed something and it is my turn to learn something.  Either way we are better for it.  Not every team operates this way though.
-  - **andhausen** (24↑): > For juniors I hire for attitude, passion, and ability to learn. My experience is that most Juniors don’t know much coming out of college and that is ok.
+  - **andhausen** (26↑): > For juniors I hire for attitude, passion, and ability to learn. My experience is that most Juniors don’t know much coming out of college and that is ok.
 
 You’re taking about people that you’re interviewing. How does one show their attitude on a resume?
     - **Leading-Ability-7317** (2↑): Harder to do for sure but there are some things that you can put there.  
@@ -80,8 +145,8 @@ You’re taking about people that you’re interviewing. How does one show their
 On the cover letter or resume summary you can use phrases like “I am a lifelong student and approach every challenge as an opportunity to learn”.  I have close to 20YoE and I still have something like that on my resume.
 
 For projects or experience from college or internships highlight where you needed to learn new things.  Your focus here is how you ramped up quickly and got the job done.  Since you lack expertise you are focusing on other strengths.  You are adaptable, learn quickly, and have boundless energy; this is a resume, don’t lie, but this is where you get to brag a bit about yourself
-    - **Various_Mobile4767** (-2↑): Write "I have good attitude, passion and ability to learn" as a bullet point. Duh.
-  - **NewSchoolBoxer** (5↑): I'm glad you mentioned attitude, passion and ability to learn and giving your own answer and not a manufactured one the internet says is correct. Hard skills can be much more easily improved than soft skills and we're talking junior / entry level.
+    - **Various_Mobile4767** (-3↑): Write "I have good attitude, passion and ability to learn" as a bullet point. Duh.
+  - **NewSchoolBoxer** (4↑): I'm glad you mentioned attitude, passion and ability to learn and giving your own answer and not a manufactured one the internet says is correct. Hard skills can be much more easily improved than soft skills and we're talking junior / entry level.
   - **[deleted]** (2↑): > If you follow up after the interview with a well researched answer as well as your thoughts it will make you a top candidate in my eval.
 
 Can you expand more on this? I thought the post interview email is just a thank you with maybe a quick reference to something that was discussed to re-affirm your interest. Didn't realize you can use it try and shove in more answers or use it as a chance to re-do an answer you fumbled, figured that would just come off as overbearing or desperate.
@@ -92,7 +157,7 @@ But, they went off and read up on it and in the thank you email slipped in a few
 It wasn’t a please hire me because I filled this knowledge gap.  It was a thank you for identifying this and I didn’t realize things worked that way.  
 
 So, it was something that made them standout.  But, the hard part about interviewing is every interviewer is different.  Not sure if others would feel the same.  It sucks that a large part of this process is so subjective
-- **doktorhladnjak** (15↑): Everywhere I’ve worked has mostly hired entry level through a university recruiting pipeline. That means hiring mostly interns the fall before the summer when they’ll work, then converting the best to full time employees once they’ll graduate. If there weren’t enough intern conversions, they will open up to hire full time directly, but still on the same schedule and process. 
+- **doktorhladnjak** (16↑): Everywhere I’ve worked has mostly hired entry level through a university recruiting pipeline. That means hiring mostly interns the fall before the summer when they’ll work, then converting the best to full time employees once they’ll graduate. If there weren’t enough intern conversions, they will open up to hire full time directly, but still on the same schedule and process. 
 
 There’s a sense that the best students get jobs through this process, and there must be something wrong with anyone “left over”. Like either they didn’t get a return offer from any internships or could not pass interviews. 
 
@@ -103,7 +168,7 @@ No, it’s not fair but it stresses the importance of getting a good internship 
 It also shows how going back to school for a masters can play to your advantage by putting you back into the intern university recruiting pipeline.
 - **Academic-Pizza9787** (35↑): Luck
   - **brutalanglosaxon** (3↑): And embellishing on your CV.
-- **Altruistic-Cattle761** (17↑): I mean, you don't, really.\*
+- **Altruistic-Cattle761** (19↑): I mean, you don't, really.\*
 
 This is not a dig at you personally for asking this -- this is a normal or at least common question that I myself have asked -- but "How can I get a job while being objectively less experience than the median candidate?" is a how-do-i-get-rich-quick scheme masquerading as a question. Your question, taken at face value, makes no sense. Why would an employer willingly choose a candidate with less demonstrated experience? The answer to this question is "get more experienced".
 
@@ -116,7 +181,7 @@ Find companies you think would be good to work for, and start looking through th
 \*Sure maybe once in a blue moon this happens for mostly unique or at least impractical reasons ("candidate has 200k followers on Twitter and a strong social media brand as a SWE influencer", "candidate is a maintainer on some piece of OSS that is important to us", etc), but by and large it's not a thing.\*\*
 
 \*\*Also my answer is calibrated specifically for your situation: breaking into the industry. If this question is coming from someone farther along in their career, the answer is different.
-  - **wesborland1234** (7↑): Ok but just apply for Solutions Architect or Data Analyst?
+  - **wesborland1234** (8↑): Ok but just apply for Solutions Architect or Data Analyst?
 
 Except you can’t get either of those without experience, especially the former.
 
@@ -149,14 +214,14 @@ There are things that can be done by the average early career/aspiring person. B
 
 For someone pivoting later in life or coming in self taught, one might have success looking for less mature companies where hiring practices/titles are less established and there’s more room to prove your hustling chops by getting thrown into the deep end of the pool
 - **No-Measurement2005** (18↑): That’s the neat part. You don’t
-- **jmutiny1993** (5↑): Networking. All my previous jobs were because I knew someone in the company who either got my resume directly to the manager or put in a good word for me during the interview. In my current position I've also been able to get my friends/family interviews to positions throughout my company.
+- **jmutiny1993** (6↑): Networking. All my previous jobs were because I knew someone in the company who either got my resume directly to the manager or put in a good word for me during the interview. In my current position I've also been able to get my friends/family interviews to positions throughout my company.
 - **lhorie** (3↑): From the hiring manager perspective, most if not all resumes will have checked most if not all of those boxes. The recuiter’s job was to filter out all but a few high quality resumes before they get in front of a hiring manager.
 
 “Few” is around 10-30 resumes per open role
 
 Then we pick the first out of that smaller set that clears the bar in technical interviews
   - **badsignalnow** (2↑): In your experience what is the recruiter looking for to be considered high quality? What are you looking for to select a smaller set?
-    - **lhorie** (5↑): Recruiters will verbally tell you some criteria like skills and projects, but eye tracking research I saw a while back suggests pedigree is a big factor (aka, internships in big name tech companies pop, T10 names pop); people apparently don’t like to admit that specific form of bias. If I had to give you my own hot take, I’d say the generalized criteria is quality/trustworthiness of 3rd party validation/“vouching”
+    - **lhorie** (6↑): Recruiters will verbally tell you some criteria like skills and projects, but eye tracking research I saw a while back suggests pedigree is a big factor (aka, internships in big name tech companies pop, T10 names pop); people apparently don’t like to admit that specific form of bias. If I had to give you my own hot take, I’d say the generalized criteria is quality/trustworthiness of 3rd party validation/“vouching”
 
 The hiring manager interview specifically is a behavioral round. So I’m looking at anything that remotely resembles experience. Internships resemble it the most, so I start there. Then RA/TA experience, if any, and school group projects. Side projects if there’s nothing else. The other technical rounds will look at coding (DS&A, technical communication, etc)
 

@@ -21,31 +21,31 @@ chunks:
     key_terms: [sexuality, comments, college, course, human, weird, reddit-deep, assignment]
     token_count: 121
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c1"
-    char_span: [500, 2186]
+    char_span: [499, 2185]
     sentence_count: 7
     key_terms: [course, like, sexuality, something, studies, gender, report, theory]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c2"
-    char_span: [2188, 3672]
+    char_span: [2187, 3671]
     sentence_count: 8
     key_terms: [course, class, being, send, presented, lecturer, because, covered]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c3"
-    char_span: [3674, 5927]
+    char_span: [3673, 5926]
     sentence_count: 24
     key_terms: [film, music, get, porn, something, netflix, called, course]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c4"
-    char_span: [5668, 6558]
+    char_span: [5667, 6557]
     sentence_count: 3
     key_terms: [compliant, student, couple, course, format, other-squirrel-8705, adappropriate2295, spaceistoofaraway]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/college/1n9dipg.md#c5"
-    char_span: [6560, 8360]
+    char_span: [6559, 8359]
     sentence_count: 4
     key_terms: [technical-waltz1669, sexuality, weird, words, like, sex, formatting, formatted]
     section: Comments

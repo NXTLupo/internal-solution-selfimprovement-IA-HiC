@@ -1,6 +1,6 @@
 ---
 name: deck-narrative-composer
-version: 1.1
+version: 1.7
 last_improved: 2026-05-23
 description: Content-block narrative generation for strategy decks using 12 block types, report-derived distillation, per-slide context injection, and layout auto-resolution. 2026-05-23 — per-slide narratives now use Verbalized Sampling (k=3 candidates with frame + probability) to escape templated McKinsey-prose phrasing.
 thinking: high
@@ -302,3 +302,36 @@ serif(NU)/Archivo(NXT) action-title h1, dark takeaway band with exactly one acce
 Color is meaning (accent = pain/critical/diagnosis; cool = need/target/fix/source; neutral = structure).
 NO eyebrow microlabels that color/position already convey (WHAT FRUSTRATES THEM, WHAT THEY NEED,
 DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent; the language is fixed.
+
+
+## Learned behaviors
+
+
+<!-- learned behavior added 2026-06-12 from 11 feedback signals -->
+To optimize presentation outputs, always include at least three pain points per phase in journey slides and omit the "comparables"
+
+
+
+<!-- learned behavior added 2026-06-12 from 10 feedback signals -->
+For all presentation outputs, eliminate redundant source citations, increase body copy size, and align sources directly beneath quotes.
+
+
+
+<!-- learned behavior added 2026-06-12 from 9 feedback signals -->
+For all presentation outputs, increase body copy size and never use the Archivo font. In case studies, completely remove
+
+
+
+<!-- learned behavior added 2026-06-12 from 8 feedback signals -->
+For all presentation deliverables, increase body copy size and never use the Archivo font. Eliminate redundant source citations,
+
+
+
+<!-- learned behavior added 2026-06-12 from 7 feedback signals -->
+For all presentation deliverables, never use the Archivo font. In case studies, completely omit the "comparables
+
+
+
+<!-- learned behavior added 2026-06-12 from 6 feedback signals -->
+For all presentation deliverables, never use the Archivo font. In case studies, omit the "comparables" section
+

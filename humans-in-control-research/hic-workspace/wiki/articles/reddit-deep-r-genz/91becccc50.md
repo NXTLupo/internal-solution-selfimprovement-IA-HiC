@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/91becccc50.md#c0"
-    char_span: [0, 1681]
+    char_span: [0, 1680]
     sentence_count: 18
     key_terms: [elon, genz, comments, discord, filled, health, reddit, earns]
-    token_count: 430
+    token_count: 429
   - id: "articles/reddit-deep-r-genz/91becccc50.md#c1"
-    char_span: [1683, 2495]
+    char_span: [1682, 2494]
     sentence_count: 3
     key_terms: [eclecticevergreen, value, multiple, annual-audience-2569, hard, hate, contribution, thelastbyte]
     token_count: 198

@@ -28,43 +28,43 @@ chunks:
     key_terms: [appreciate, time, expand, resume, being, "don't", edit, game]
     token_count: 272
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c2"
-    char_span: [2983, 4332]
+    char_span: [2982, 4331]
     sentence_count: 11
     key_terms: [job, growth, take, everyone, personal, hiring, future-accountant-70, early-judgment-2895]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c3"
-    char_span: [4334, 6054]
+    char_span: [4333, 6053]
     sentence_count: 14
     key_terms: [work, job, growth, company, feeling, nothing, maleficent-syrup9881, scotchtapeconnosieur]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c4"
-    char_span: [6056, 6985]
+    char_span: [6055, 6984]
     sentence_count: 6
     key_terms: [job, growth, "you're", start, years, run, work, experiencing]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c5"
-    char_span: [6987, 8986]
+    char_span: [6986, 8985]
     sentence_count: 11
     key_terms: [similar, potentially, job, work, hours, challenging, been, time]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c6"
-    char_span: [8988, 9912]
+    char_span: [8987, 9911]
     sentence_count: 8
     key_terms: [job, leave, future-accountant-70, acceptablesuit9328, xxomegasupremexx, unrealistic, conditions, redundancy]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c7"
-    char_span: [9914, 11788]
+    char_span: [9913, 11787]
     sentence_count: 17
     key_terms: [roles, job, time, clients, making, "you're", doing, paced]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mjc5f9.md#c8"
-    char_span: [11517, 12675]
+    char_span: [11516, 12674]
     sentence_count: 10
     key_terms: [doing, day, job, work, because, feeling, vermicellifresh1620, years]
     section: Comments

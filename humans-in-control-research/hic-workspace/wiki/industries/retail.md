@@ -7,7 +7,7 @@ industries: [retail]
 status: active
 chunks:
   - id: "industries/retail.md#c0"
-    char_span: [0, 731]
+    char_span: [0, 730]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-deep-r-careerguidance, reddit-digital-marketing, reddit-deep-r-investing, retail]
     section: Cross-over verticals (shared sources) / Representative sources

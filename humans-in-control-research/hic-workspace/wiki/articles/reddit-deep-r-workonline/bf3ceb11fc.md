@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-workonline/bf3ceb11fc.md#c0"
-    char_span: [0, 2611]
+    char_span: [0, 2610]
     sentence_count: 28
     key_terms: [supervisor, customer, training, trainer, calls, new, concentrix, experience]
-    token_count: 511
+    token_count: 510
   - id: "articles/reddit-deep-r-workonline/bf3ceb11fc.md#c1"
-    char_span: [2613, 3422]
+    char_span: [2612, 3421]
     sentence_count: 9
     key_terms: [training, support, thanks, high-escalation, visitfrosty2959, bullydogsbest, acknowledge, considering]
     token_count: 181

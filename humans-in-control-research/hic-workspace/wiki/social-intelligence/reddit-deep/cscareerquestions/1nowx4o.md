@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, software, skills, development, comments, getting, python, freedomsauce]
     token_count: 161
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c1"
-    char_span: [691, 1377]
+    char_span: [690, 1376]
     sentence_count: 5
     key_terms: [development, software, making, mathematicians, marcablefluke, understanding, architecting, clairvoyance]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c2"
-    char_span: [1379, 3133]
+    char_span: [1378, 3132]
     sentence_count: 13
     key_terms: [skills, business, learning, problems, freedomsauce, like, developers, understand]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nowx4o.md#c3"
-    char_span: [3135, 4200]
+    char_span: [3134, 4199]
     sentence_count: 10
     key_terms: [building, tools, projects, ucxhsfe40gx9gqdkfvvurnja, future, skills, code, need]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [graduating, comm, job, yung, hunting, careerguidance, medyo, pwede]
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1tmh1ym.md#c1"
-    char_span: [1633, 2901]
+    char_span: [1632, 2900]
     sentence_count: 10
     key_terms: [here, sometimes, creative, design, technicianroyal9769, good, like, work]
     section: Comments

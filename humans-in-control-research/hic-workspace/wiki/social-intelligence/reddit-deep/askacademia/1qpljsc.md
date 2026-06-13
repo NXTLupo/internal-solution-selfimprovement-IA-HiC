@@ -28,43 +28,43 @@ chunks:
     key_terms: [research, anyone, undergraduates, opportunities, appreciated, encountered, definitely, experience]
     token_count: 147
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c2"
-    char_span: [2962, 4804]
+    char_span: [2961, 4803]
     sentence_count: 14
     key_terms: [project, supervisor, phd, absolutely, defensive, something, because, nothing]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c3"
-    char_span: [4806, 7074]
+    char_span: [4805, 7073]
     sentence_count: 10
     key_terms: [student, work, project, students, phd, advisor, masters, continue]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c4"
-    char_span: [7076, 8746]
+    char_span: [7075, 8745]
     sentence_count: 11
     key_terms: [student, something, work, considering, project, advice, likely, bajablastfromthepast]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c5"
-    char_span: [8748, 10360]
+    char_span: [8747, 10359]
     sentence_count: 10
     key_terms: [thesis, advisor, project, bajablastfromthepast, student, phd, work, projects]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c6"
-    char_span: [10362, 12110]
+    char_span: [10361, 12109]
     sentence_count: 10
     key_terms: [bajablastfromthepast, absolutely, collaborative, work, advisor, meeting, asking, person]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c7"
-    char_span: [12112, 14338]
+    char_span: [12111, 14337]
     sentence_count: 12
     key_terms: [work, student, phd, project, thesis, get, something, continue]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/askacademia/1qpljsc.md#c8"
-    char_span: [14340, 15529]
+    char_span: [14339, 15528]
     sentence_count: 12
     key_terms: [project, graduating, defense, thesis, bajablastfromthepast, going, understanding, dissertation]
     section: Comments

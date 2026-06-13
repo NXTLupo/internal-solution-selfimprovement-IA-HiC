@@ -23,19 +23,19 @@ chunks:
     key_terms: [don, classes, engineering, engineeringstudents, feels, feeling, overwhelmed, did]
     token_count: 455
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c1"
-    char_span: [2081, 2915]
+    char_span: [2080, 2914]
     sentence_count: 12
     key_terms: ["it's", because, school, get, hard, like, take, time]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c2"
-    char_span: [2917, 5109]
+    char_span: [2916, 5108]
     sentence_count: 21
     key_terms: [get, engineering, being, crusherdestroyer90, time, everyone, stubborn, classes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pjw5le.md#c3"
-    char_span: [4835, 7040]
+    char_span: [4834, 7039]
     sentence_count: 18
     key_terms: [too, year, student, class, engineering, practice, friends, similar]
     section: Comments

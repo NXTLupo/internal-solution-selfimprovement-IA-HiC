@@ -23,13 +23,13 @@ chunks:
     key_terms: [experience, internship, internships, level, years, advantage, year, graduate]
     token_count: 472
   - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c1"
-    char_span: [2139, 4273]
+    char_span: [2138, 4272]
     sentence_count: 14
     key_terms: [internship, interns, internships, experience, entry, problem, actual, grads]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/jobs/1rgflla.md#c2"
-    char_span: [4275, 5801]
+    char_span: [4274, 5800]
     sentence_count: 11
     key_terms: [internship, experience, everyone, someone, level, done, companies, company]
     section: Comments

@@ -11,11 +11,9 @@ score: 2
 upvote_ratio: 0.67
 num_comments: 14
 flair: "Career Development"
-extracted_at: "2026-05-23T12:15:41.547Z"
+extracted_at: "2026-06-08T17:32:00.980Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
-industries: [workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/humanresources/1smq1ck.md#c0"
     char_span: [0, 1506]
@@ -54,7 +52,7 @@ I just don’t know what sounds interesting to me in HR. I know I’m kinda tire
 
 ## Comments
 
-- **sweetlax30007** (14↑): I was a generalist for years which allowed me to build muscle across disciplines and figure out what I do and don't like. A generalist role exposes you to everything so you don't have to pick just one
+- **sweetlax30007** (15↑): I was a generalist for years which allowed me to build muscle across disciplines and figure out what I do and don't like. A generalist role exposes you to everything so you don't have to pick just one
   - **MsGrayRm813** (3↑): I’ve been applying to those roles and thought they would be a good opportunity to try different things. No bites yet outside of nonprofits so far.
     - **EmarialArtayu** (2↑): A masters doesnt automatically qualify you for generalist. You start at coordinator or assistanr at mosr companies. The exception being the top 10 hr programs where f500s are known to pull graduates for non entry roles or hr leadership development programs.
 

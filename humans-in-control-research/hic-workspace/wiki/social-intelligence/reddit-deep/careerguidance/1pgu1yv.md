@@ -21,13 +21,13 @@ chunks:
     key_terms: [honestly, been, "i've", job, editing, careerguidance, career, get]
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1pgu1yv.md#c1"
-    char_span: [1910, 4038]
+    char_span: [1909, 4037]
     sentence_count: 17
     key_terms: [content, publishing, marketing, because, writing, something, editing, english]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1pgu1yv.md#c2"
-    char_span: [4040, 4384]
+    char_span: [4039, 4383]
     sentence_count: 6
     key_terms: [get, experience, want, certificates, freelanced, including, initially, marketing]
     section: Comments

@@ -26,43 +26,43 @@ chunks:
     key_terms: [significantly, experiences, flexibility, introverted, especially, experience, apartment, deadening]
     token_count: 115
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c2"
-    char_span: [2622, 2897]
+    char_span: [2621, 2896]
     sentence_count: 4
     key_terms: [dad, get, spacercat, evening, network, speaker, campus, coming]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c3"
-    char_span: [2899, 5014]
+    char_span: [2898, 5013]
     sentence_count: 14
     key_terms: [drive, going, lot, anxious, driving, right, comfortable, car]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c4"
-    char_span: [4750, 5046]
+    char_span: [4749, 5045]
     sentence_count: 3
     key_terms: [question, miss, discojellyfisho, convenience, experience, yourself, because, cutting]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c5"
-    char_span: [5048, 6349]
+    char_span: [5047, 6348]
     sentence_count: 9
     key_terms: [campus, connections, dorm, experience, apartment, commute, choose, rychaithescienceguy]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c6"
-    char_span: [6351, 8206]
+    char_span: [6350, 8205]
     sentence_count: 17
     key_terms: [campus, time, commuting, college, friends, events, person, being]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c7"
-    char_span: [8208, 9997]
+    char_span: [8207, 9996]
     sentence_count: 13
     key_terms: [people, friends, campus, like, whatever, classes, college, "they're"]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/college/1mu4pze.md#c8"
-    char_span: [9999, 10925]
+    char_span: [9998, 10924]
     sentence_count: 10
     key_terms: [commuter, depends, campus, events, find, participatory, unfortunately, bobbybobo888]
     section: Comments

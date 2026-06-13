@@ -23,13 +23,13 @@ chunks:
     key_terms: [gradschool, comments, soon, consequences, reddit-deep, admissions, everything, currently]
     token_count: 115
   - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c1"
-    char_span: [494, 2322]
+    char_span: [493, 2321]
     sentence_count: 9
     key_terms: [program, questions, students, "you're", admissions, start, year, pis]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradschool/1s9yyv7.md#c2"
-    char_span: [2324, 3545]
+    char_span: [2323, 3544]
     sentence_count: 11
     key_terms: [administrative, field, staff, fall, work, semester, summer, though]
     section: Comments

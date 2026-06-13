@@ -1,0 +1,55 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard's simplicity and bare-bones approach is appreciated by users who prefer straightforward interfaces.",
+      "post_refs": [
+        "1rjry8z"
+      ]
+    },
+    {
+      "point": "The ability to see transaction history and details on the Vanguard website is valued by users for thorough checking.",
+      "post_refs": [
+        "1rjry8z",
+        "1qbf9db"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Users find it difficult to identify the type of account they have on the Vanguard dashboard.",
+      "post_refs": [
+        "1tcnh9r"
+      ]
+    },
+    {
+      "point": "Frustration with the lack of detailed information on certain funds within 403b accounts.",
+      "post_refs": [
+        "1rzlowr"
+      ]
+    },
+    {
+      "point": "Difficulty in finding receipts for gifts-in-kind donations on the Vanguard website.",
+      "post_refs": [
+        "1rjyrms"
+      ]
+    },
+    {
+      "point": "The mobile app lacks detailed transaction information compared to the website.",
+      "post_refs": [
+        "1rjry8z"
+      ]
+    },
+    {
+      "point": "Vanguard's site is often delayed in updating transaction information.",
+      "post_refs": [
+        "1qnp009"
+      ]
+    },
+    {
+      "point": "Challenges in finding banking transaction history on Vanguard's platform.",
+      "post_refs": [
+        "1qbf9db"
+      ]
+    }
+  ]
+}

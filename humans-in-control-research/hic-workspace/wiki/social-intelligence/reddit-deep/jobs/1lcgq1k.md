@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1lcgq1k.md
 url: "https://www.reddit.com/r/jobs/comments/1lcgq1k/graduated_with_stats_degree_applying_to/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,49 @@ flair: "Rejections"
 extracted_at: "2026-06-06T23:23:15.610Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c0"
+    char_span: [0, 1554]
+    sentence_count: 18
+    key_terms: [jobs, applying, resume, roles, entry-level, internships, been, year]
+    token_count: 367
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c1"
+    char_span: [1569, 3104]
+    sentence_count: 13
+    key_terms: [experience, against, years, contractor, internship, competing, recruiter, applying]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c2"
+    char_span: [3107, 4602]
+    sentence_count: 5
+    key_terms: [experience, internship, sometimes, student, degree, years, get, already]
+    section: Comments
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c3"
+    char_span: [4604, 6841]
+    sentence_count: 15
+    key_terms: [graduate, student, degree, experience, years, position, biostatistician, market]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c4"
+    char_span: [6843, 8251]
+    sentence_count: 13
+    key_terms: [resume, recommend, citizen, get, put, top, bernardobrito, iphone1234789]
+    section: Comments
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c5"
+    char_span: [8253, 10189]
+    sentence_count: 15
+    key_terms: [experience, resume, formatting, work, "you're", job, apostrophe, relevant]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/jobs/1lcgq1k.md#c6"
+    char_span: [10191, 12154]
+    sentence_count: 22
+    key_terms: [something, programming, apostrophe, language, students, resume, skills, wrong]
+    section: Comments
+    token_count: 462
 ---
-
 # Graduated with stats degree, applying to entry-level data and insurance jobs for a year — not even interviews. What am I doing wrong?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1lcgq1k/graduated_with_stats_degree_applying_to/)

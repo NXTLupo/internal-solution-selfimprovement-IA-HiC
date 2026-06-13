@@ -7,7 +7,7 @@ industries: [healthcare]
 status: active
 chunks:
   - id: "industries/healthcare.md#c0"
-    char_span: [0, 769]
+    char_span: [0, 768]
     sentence_count: 2
     key_terms: [reddit-deep-r-careerguidance, industries, sources, shared, articles, healthcare, reddit-deep-r-artificial, auto-generated]
     section: Cross-over verticals (shared sources) / Representative sources

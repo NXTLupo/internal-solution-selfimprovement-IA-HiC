@@ -33,13 +33,13 @@ chunks:
     key_terms: [work, people, services, economy, evolved, administrative, infrastructure, today]
     token_count: 366
   - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c3"
-    char_span: [6732, 8685]
+    char_span: [6731, 8684]
     sentence_count: 14
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, character, subreddit]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/chatgpt/1rtnlo3.md#c4"
-    char_span: [8687, 8844]
+    char_span: [8686, 8843]
     sentence_count: 1
     key_terms: [together, essentially, combine, objects, prompts, create, number, series]
     section: Comments

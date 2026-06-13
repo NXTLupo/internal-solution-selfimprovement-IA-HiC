@@ -23,43 +23,43 @@ chunks:
     key_terms: [engineering, "it's", people, "i'm", engineeringstudents, bad, hard, want]
     token_count: 492
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c1"
-    char_span: [2084, 3134]
+    char_span: [2084, 3133]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, reddit, https, com, "i'm", read, www]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c2"
-    char_span: [3137, 4474]
+    char_span: [3136, 4473]
     sentence_count: 11
     key_terms: [engineering, discipline, everyone, "it's", job, like, work, motivation]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c3"
-    char_span: [4476, 6139]
+    char_span: [4475, 6138]
     sentence_count: 13
     key_terms: [engineering, grades, professors, curve, departments, hard, average, college]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c4"
-    char_span: [6141, 7817]
+    char_span: [6140, 7816]
     sentence_count: 13
     key_terms: [discipline, according-earth5498, mediocre, engineering, historical-winner801, study, self, hard]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c5"
-    char_span: [7820, 9947]
+    char_span: [7819, 9946]
     sentence_count: 17
     key_terms: [engineering, discipline, laloidemurphyxx, people, check, learn, get, internship]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c6"
-    char_span: [9949, 11846]
+    char_span: [9948, 11845]
     sentence_count: 21
     key_terms: [learn, according-earth5498, engineering, hard, "i'll", "it's", something, remember]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qlmzoj.md#c7"
-    char_span: [11848, 13753]
+    char_span: [11847, 13752]
     sentence_count: 10
     key_terms: [engineering, degree, computer, electrical, according-earth5498, deepspaceanon, hours, engineer]
     section: Comments

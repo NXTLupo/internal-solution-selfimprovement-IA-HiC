@@ -15,17 +15,17 @@ relevance: 35
 engagement_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/239efbdc8a.md#c0"
-    char_span: [0, 1535]
+    char_span: [0, 1534]
     sentence_count: 14
     key_terms: [people, cscareerquestions, applying, intermediate, job, network, junior, reddit]
-    token_count: 369
+    token_count: 368
   - id: "articles/reddit-deep-r-cscareerquestions/239efbdc8a.md#c1"
-    char_span: [1537, 3316]
+    char_span: [1536, 3315]
     sentence_count: 14
     key_terms: [post, friends, recruiters, network, untrimmedbagel, get, experience, linkedin]
     token_count: 430
   - id: "articles/reddit-deep-r-cscareerquestions/239efbdc8a.md#c2"
-    char_span: [3318, 3937]
+    char_span: [3317, 3936]
     sentence_count: 5
     key_terms: [importantsquirrel, acquaintances, intermediate, connections, development, difference, higher-ups, internship]
     token_count: 129

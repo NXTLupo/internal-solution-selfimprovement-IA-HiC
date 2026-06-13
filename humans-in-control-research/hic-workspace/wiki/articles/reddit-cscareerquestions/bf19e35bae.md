@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-cscareerquestions/bf19e35bae.md#c0"
-    char_span: [0, 926]
+    char_span: [0, 925]
     sentence_count: 2
     key_terms: [microsoft, employees, microsoft-to-lay-off-as-many-as-9000-employees-in-latest-round, cscareerquestions, layoffs, washington, wednesday, company]
-    token_count: 227
+    token_count: 226
 ---
 # Microsoft to lay off about 9,000 employees in latest round
 

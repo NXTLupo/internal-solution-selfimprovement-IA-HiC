@@ -1,0 +1,44 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard's platform is appreciated for being clean and straightforward, making it easy for new investors to set up and manage their portfolios.",
+      "post_refs": [
+        "1tko1j3"
+      ]
+    },
+    {
+      "point": "The ability to buy specific dollar amounts of funds like VOO, allowing for partial share purchases, is seen as a positive feature for those with limited funds.",
+      "post_refs": [
+        "1rhmboz"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Users experience difficulty selling fractional shares of ETFs on Vanguard, as the platform only permits whole share sales, causing inconvenience for those wanting to liquidate entire positions.",
+      "post_refs": [
+        "1rwq6f8",
+        "1omnjre"
+      ]
+    },
+    {
+      "point": "The inability to set up recurring investments for certain ETFs like SCHD or SGOL on Vanguard is a limitation, prompting some users to consider other brokerages like Fidelity.",
+      "post_refs": [
+        "1tko1j3"
+      ]
+    },
+    {
+      "point": "Vanguard's app and website have limitations in selecting specific lots for sale using SpecID, causing frustration for users trying to manage their tax implications effectively.",
+      "post_refs": [
+        "1tttfr9",
+        "1pytk43"
+      ]
+    },
+    {
+      "point": "Users are unable to manage existing recurring ETF investments through the Vanguard app, as the interface only allows the creation of new transactions.",
+      "post_refs": [
+        "1roodnl"
+      ]
+    }
+  ]
+}

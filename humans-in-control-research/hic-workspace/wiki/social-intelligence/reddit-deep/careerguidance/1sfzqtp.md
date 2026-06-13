@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sfzqtp.md#c0"
-    char_span: [0, 310]
+    char_span: [0, 309]
     sentence_count: 3
     key_terms: [careerguidance, comments, advice, carbasic6975, reddit-deep, guidance, anyone, career]
-    token_count: 93
+    token_count: 92
 ---
 # Need Advice/ Guidance on my Career Path. Can anyone give me some advice?
 

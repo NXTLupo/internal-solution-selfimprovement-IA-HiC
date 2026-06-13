@@ -23,7 +23,7 @@ chunks:
     key_terms: [gpt, language-native, tone, comments, feedback, semantic, github, states]
     token_count: 260
   - id: "social-intelligence/reddit-deep/gpt/1lku91l.md#c1"
-    char_span: [993, 1566]
+    char_span: [992, 1565]
     sentence_count: 13
     key_terms: [echo, tone, discovered, engineered, remembered, listening, recognize, resonated]
     section: Comments

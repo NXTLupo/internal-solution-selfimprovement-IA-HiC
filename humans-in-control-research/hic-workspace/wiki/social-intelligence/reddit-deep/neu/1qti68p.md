@@ -23,7 +23,7 @@ chunks:
     key_terms: [study, neu, feedback, "i'm", want, flashcards, comments, students]
     token_count: 375
   - id: "social-intelligence/reddit-deep/neu/1qti68p.md#c1"
-    char_span: [1473, 2263]
+    char_span: [1472, 2262]
     sentence_count: 6
     key_terms: [notebooklm, features, neither-scarcity-235, specifically, competitors, note-taking, recommended, background]
     section: Comments

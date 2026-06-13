@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1lprp78.md#c0"
-    char_span: [0, 895]
+    char_span: [0, 894]
     sentence_count: 1
     key_terms: [internships, data, comments, learning, science, student, working, advice]
     token_count: 222

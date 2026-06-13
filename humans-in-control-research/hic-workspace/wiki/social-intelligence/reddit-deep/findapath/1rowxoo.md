@@ -23,7 +23,7 @@ chunks:
     key_terms: [biology, career, science, bioinformatics, fields, computational, opportunities, data]
     token_count: 338
   - id: "social-intelligence/reddit-deep/findapath/1rowxoo.md#c1"
-    char_span: [1522, 2654]
+    char_span: [1521, 2653]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

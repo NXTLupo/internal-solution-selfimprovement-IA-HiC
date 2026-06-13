@@ -33,7 +33,7 @@ chunks:
     key_terms: [layer, output, weak, prompt, constraint, model, investment, framework]
     token_count: 365
   - id: "social-intelligence/reddit-deep/chatgpt/1slph2q.md#c3"
-    char_span: [7041, 8217]
+    char_span: [7040, 8216]
     sentence_count: 5
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit, concerns]
     section: Comments

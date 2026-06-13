@@ -23,25 +23,25 @@ chunks:
     key_terms: [waterloo, part-time, comments, getting, advice, places, school, find]
     token_count: 220
   - id: "social-intelligence/reddit-deep/waterloo/1o1uuf5.md#c1"
-    char_span: [941, 3038]
+    char_span: [940, 3037]
     sentence_count: 19
     key_terms: [hiring, picky, starbucks, loserfamilymember, work, security, indeed, being]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/waterloo/1o1uuf5.md#c2"
-    char_span: [3040, 5091]
+    char_span: [3039, 5090]
     sentence_count: 11
     key_terms: [hiring, person, places, resume, start, application, christmas, around]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/waterloo/1o1uuf5.md#c3"
-    char_span: [5093, 7171]
+    char_span: [5092, 7170]
     sentence_count: 18
     key_terms: [job, scam, posting, money, thousands, pay, company, fake]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/waterloo/1o1uuf5.md#c4"
-    char_span: [7173, 7899]
+    char_span: [7172, 7898]
     sentence_count: 4
     key_terms: [luck, applying, coming, good, less, like, work, international]
     section: Comments

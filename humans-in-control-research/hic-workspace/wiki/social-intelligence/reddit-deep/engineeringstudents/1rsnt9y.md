@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsnt9y.md#c0"
-    char_span: [0, 1449]
+    char_span: [0, 1448]
     sentence_count: 7
     key_terms: [engineering, internship, engineeringstudents, f170b0957b364223ae5338c2ec39a948ffc3361f, student, infrastructure, civil, melbourne]
-    token_count: 364
+    token_count: 363
 ---
 # [Student] 2nd Year Civil Engineering Student – Australia – Looking for Internship Resume Feedback
 

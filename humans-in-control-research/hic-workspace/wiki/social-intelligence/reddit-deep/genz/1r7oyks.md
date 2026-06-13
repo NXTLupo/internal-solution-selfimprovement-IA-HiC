@@ -23,19 +23,19 @@ chunks:
     key_terms: [money, comments, "don't", ordinary-fish-9791, genz, "i'm", like, investments]
     token_count: 137
   - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c1"
-    char_span: [532, 661]
+    char_span: [531, 660]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c2"
-    char_span: [664, 2700]
+    char_span: [663, 2699]
     sentence_count: 18
     key_terms: [save, money, enjoy, pay, "don't", "i'm", rent, invest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1r7oyks.md#c3"
-    char_span: [2459, 3641]
+    char_span: [2458, 3640]
     sentence_count: 5
     key_terms: [save, mostly, saving, chemical-village-211, money, life, chickennugs4hugs, youchasechickens]
     section: Comments

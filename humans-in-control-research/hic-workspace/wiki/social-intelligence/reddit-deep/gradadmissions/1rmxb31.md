@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rmxb31.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rmxb31/do_grad_school_mail_physical_admission_letters/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxb31.md#c0"
+    char_span: [0, 539]
+    sentence_count: 3
+    key_terms: [admission, gradadmissions, mailed, school, comments, letters, grad, reddit-deep]
+    token_count: 124
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rmxb31.md#c1"
+    char_span: [554, 1264]
+    sentence_count: 4
+    key_terms: [admissions, expecting, letter, though, fragrantbluebird8106, okphilosopher2053, mail, nice]
+    section: Comments
+    token_count: 208
 ---
-
 # Do grad school mail physical admission letters these days?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rmxb31/do_grad_school_mail_physical_admission_letters/)

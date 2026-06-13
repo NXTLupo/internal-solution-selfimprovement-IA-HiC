@@ -23,7 +23,7 @@ chunks:
     key_terms: [applications, comments, applied, rich-independence184, works, neu, reddit-deep, anymore]
     token_count: 133
   - id: "social-intelligence/reddit-deep/neu/1ok1kq5.md#c1"
-    char_span: [528, 1300]
+    char_span: [527, 1299]
     sentence_count: 7
     key_terms: [job, experience, market, rich-independence184, academicweapon149, unprecedentedly, unpredictable, journalistnu]
     section: Comments

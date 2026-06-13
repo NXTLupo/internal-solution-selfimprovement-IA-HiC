@@ -23,67 +23,67 @@ chunks:
     key_terms: [interviews, job, comments, reality, people, person, skills, wanted]
     token_count: 263
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c1"
-    char_span: [1049, 3036]
+    char_span: [1048, 3035]
     sentence_count: 16
     key_terms: [personality, like, lol, too, zwicker101, buzzwords, responses, normally]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c2"
-    char_span: [3038, 5293]
+    char_span: [3037, 5292]
     sentence_count: 15
     key_terms: [company, someone, technically, negative-counter-766, personality, job, team, describing]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c3"
-    char_span: [5295, 6778]
+    char_span: [5294, 6777]
     sentence_count: 7
     key_terms: [right, work, different, professor, questions, technical, conflict, answer]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c4"
-    char_span: [6780, 8123]
+    char_span: [6779, 8122]
     sentence_count: 9
     key_terms: [interview, something, skills, demonstrated, roles, technical, "you're", negative-counter-766]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c5"
-    char_span: [8125, 9646]
+    char_span: [8124, 9645]
     sentence_count: 7
     key_terms: [negative-counter-766, interview, specialized, applicants, especially, algorithm, technical, everyone]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c6"
-    char_span: [9648, 11721]
+    char_span: [9647, 11720]
     sentence_count: 10
     key_terms: [interview, interviews, person, stage, demonstrate, job, lawsuit, someone]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c7"
-    char_span: [11724, 13779]
+    char_span: [11723, 13778]
     sentence_count: 13
     key_terms: [technical, get, skills, "you're", kind-information-689, interview, "didn't", "won't"]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c8"
-    char_span: [13781, 14093]
+    char_span: [13780, 14092]
     sentence_count: 1
     key_terms: [prick, knowledgeable, insufferable, override, asshole, comment, skilled, amount]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c9"
-    char_span: [14095, 16084]
+    char_span: [14094, 16083]
     sentence_count: 13
     key_terms: [people, "it's", work, getting, school, ok-sink-8875, etc, networking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c10"
-    char_span: [15828, 16145]
+    char_span: [15827, 16144]
     sentence_count: 1
     key_terms: [networking, ohgr8whatnow, ok-sink-8875, connections, frustrated, turnaround, zwicker101, actively]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/jobs/1tbz2vv.md#c11"
-    char_span: [16147, 17870]
+    char_span: [16146, 17869]
     sentence_count: 13
     key_terms: [interview, manager, interviewer, "it's", jobseekers, minutes, working, hiring]
     section: Comments

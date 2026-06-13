@@ -28,31 +28,31 @@ chunks:
     key_terms: [companies, successfully, executives, potential, indexes, major, "i'm", ipo]
     token_count: 151
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c2"
-    char_span: [2946, 3734]
+    char_span: [2945, 3733]
     sentence_count: 5
     key_terms: [revenue, little, market, gonna, index, "i'm", darthpineapple5, norcalathlete]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c3"
-    char_span: [3736, 5595]
+    char_span: [3735, 5594]
     sentence_count: 9
     key_terms: [spacex, early, needs, get, investors, liquidity, trillion, windhero]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c4"
-    char_span: [5597, 7478]
+    char_span: [5596, 7477]
     sentence_count: 15
     key_terms: [dealerships, company, direct, tesla, car, get, sell, without]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c5"
-    char_span: [7480, 9429]
+    char_span: [7479, 9428]
     sentence_count: 13
     key_terms: [texas, manufacturers, dealers, tesla, laws, sell, because, direct]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/investing/1qwkh74.md#c6"
-    char_span: [9431, 11444]
+    char_span: [9430, 11443]
     sentence_count: 11
     key_terms: [dealership, manufacturers, laws, dealer, international, tesla, traditional, networks]
     section: Comments

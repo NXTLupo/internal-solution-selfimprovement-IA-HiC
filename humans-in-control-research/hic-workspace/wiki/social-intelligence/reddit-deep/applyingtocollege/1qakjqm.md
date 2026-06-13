@@ -28,7 +28,7 @@ chunks:
     key_terms: [early, essays, decision, applications, deadlines, continue, finalize, research]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qakjqm.md#c2"
-    char_span: [4584, 5816]
+    char_span: [4583, 5815]
     sentence_count: 5
     key_terms: [applyingtocollege, essays, wiki, related, reddit, collegeessays, https, com]
     section: Comments

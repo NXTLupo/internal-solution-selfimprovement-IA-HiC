@@ -15,32 +15,32 @@ relevance: 55
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c0"
-    char_span: [0, 2404]
+    char_span: [0, 2403]
     sentence_count: 26
     key_terms: [resume, applying, job, getting, interviews, engineeringstudents, engineeringresumes, materials]
-    token_count: 514
+    token_count: 513
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c1"
-    char_span: [2406, 4393]
+    char_span: [2405, 4392]
     sentence_count: 23
     key_terms: [job, linkedin, indeed, resume, application, everything, applying, "you're"]
     token_count: 423
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c2"
-    char_span: [4395, 6684]
+    char_span: [4394, 6683]
     sentence_count: 18
     key_terms: [job, company, fair, companies, work, interest, applications, ask]
     token_count: 485
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c3"
-    char_span: [6686, 7839]
+    char_span: [6685, 7838]
     sentence_count: 12
     key_terms: [presenting, business, practice, specific, casual, google, clean, "don't"]
     token_count: 265
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c4"
-    char_span: [7841, 10175]
+    char_span: [7840, 10174]
     sentence_count: 32
     key_terms: [resume, people, employees, want, already, applied, conversation, cover]
     token_count: 514
   - id: "articles/reddit-deep-r-engineeringstudents/e87dfabfec.md#c5"
-    char_span: [10177, 12259]
+    char_span: [10176, 12258]
     sentence_count: 13
     key_terms: [people, interviews, offer, different, start-ups, got, led, lot]
     token_count: 477

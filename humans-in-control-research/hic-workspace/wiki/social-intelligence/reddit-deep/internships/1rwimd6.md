@@ -21,13 +21,13 @@ chunks:
     key_terms: [internships, connections, get, got, internship, interviews, comments, because]
     token_count: 410
   - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c1"
-    char_span: [1804, 3758]
+    char_span: [1803, 3757]
     sentence_count: 18
     key_terms: [applying, engineering, internships, land, experience, structured, interview, domestic]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/internships/1rwimd6.md#c2"
-    char_span: [3760, 5667]
+    char_span: [3759, 5666]
     sentence_count: 9
     key_terms: [internships, resume, everything, maybe, right, american, graduate, applied]
     section: Comments

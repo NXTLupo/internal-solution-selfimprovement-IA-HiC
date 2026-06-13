@@ -1,0 +1,48 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard offers the ability to invest in target date retirement funds, which simplifies the investment process for users by aligning with their desired retirement year.",
+      "post_refs": [
+        "1q1qu6j"
+      ]
+    },
+    {
+      "point": "Vanguard provides good record-keeping, allowing users to access historical transaction data, which is beneficial for tracking contributions and withdrawals.",
+      "post_refs": [
+        "1rdy0tf"
+      ]
+    },
+    {
+      "point": "Vanguard allows for withholding taxes from IRA distributions, providing a straightforward way to manage tax obligations.",
+      "post_refs": [
+        "1ooncpw"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard does not allow withholding of state taxes from IRA distributions for certain states, causing inconvenience for users who prefer automatic tax management.",
+      "post_refs": [
+        "1opwu0a"
+      ]
+    },
+    {
+      "point": "Vanguard's system has issues with processing small contributions, such as the inability to contribute small amounts like 42 cents to max out a Roth IRA, leading to user frustration.",
+      "post_refs": [
+        "1rgof97"
+      ]
+    },
+    {
+      "point": "Vanguard does not track total contributions for Roth IRAs, placing the responsibility on users to maintain their own records, which can have significant tax implications.",
+      "post_refs": [
+        "1rdy0tf"
+      ]
+    },
+    {
+      "point": "Vanguard has a known issue with duplicate Roth conversions, which can cause confusion and requires customer service intervention to resolve.",
+      "post_refs": [
+        "1pu3ruc"
+      ]
+    }
+  ]
+}

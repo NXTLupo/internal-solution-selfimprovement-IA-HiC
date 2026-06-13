@@ -15,17 +15,17 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/eddceca03e.md#c0"
-    char_span: [0, 2151]
+    char_span: [0, 2150]
     sentence_count: 25
     key_terms: [genuinely, school, everything, applyingtocollege, get, emory, "i'm", ucsd]
-    token_count: 467
+    token_count: 466
   - id: "articles/reddit-deep-r-applyingtocollege/eddceca03e.md#c1"
-    char_span: [2153, 4302]
+    char_span: [2152, 4301]
     sentence_count: 28
     key_terms: [emory, better, campus, life-calligrapher156, upset-leader-4725, uga, prestige, school]
     token_count: 512
   - id: "articles/reddit-deep-r-applyingtocollege/eddceca03e.md#c2"
-    char_span: [4035, 4500]
+    char_span: [4034, 4499]
     sentence_count: 5
     key_terms: [random, life-calligrapher156, don, universities, basketball, strangers, american, football]
     token_count: 114

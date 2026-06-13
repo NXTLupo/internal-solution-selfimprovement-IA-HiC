@@ -38,19 +38,19 @@ chunks:
     key_terms: [students, seriously, because, co-op, spreadsheet, circulates, impossible, structural]
     token_count: 143
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c4"
-    char_span: [8377, 10214]
+    char_span: [8376, 10213]
     sentence_count: 10
     key_terms: [people, culture, like, lot, tech, waterloo, myself, didyoutrainnecktoday]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c5"
-    char_span: [10216, 12409]
+    char_span: [10215, 12408]
     sentence_count: 17
     key_terms: [people, culture, social, game, shit, highschool, popularity, genuinely]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/uwaterloo/1tibkq1.md#c6"
-    char_span: [12411, 14439]
+    char_span: [12410, 14438]
     sentence_count: 17
     key_terms: [somebody, placements, always, people, feel, personal, better, growth]
     section: Comments

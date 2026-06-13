@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1n2l7cf.md#c0"
-    char_span: [0, 1203]
+    char_span: [0, 1202]
     sentence_count: 6
     key_terms: [gradadmissions, comments, control, funding, strong, nervous-animator-663, post, show]
-    token_count: 273
+    token_count: 272
 ---
 # Follow-up on Grad School Admission Post (Biomedical Sciences)
 

@@ -1,0 +1,124 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: shares, method, term, sell, gain, tax, cost
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+> The MinTax cost basis method is generally designed to lower an individual's tax burden for the current transaction by identifying securities to sell based on the most favorable tax rate using the ordering rules described above. Each category is exhausted before moving to the next. If the cost of the original share is unknown, we'll treat the cost basis as zero.
+> 
+> In many cases, the MinTax cost basis method may reduce the tax impact, but it does not guarantee the lowest total tax liability. [...]
+
+EXAMPLE 2:
+> #How it works
+> Our system prioritizes your tax savings by selecting to sell securities in the order listed below:
+> 
+> * Short-term capital loss from largest to smallest.
+> * Long-term capital loss from largest to smallest.
+> * Short-term zero gain or loss.
+> * Long-term zero gain or loss.
+> * Long-term capital gain from smallest to largest.
+> * Short-term capital gain from the smallest to largest.
+
+EXAMPLE 3:
+1. 0.330  purchased at $113.70 per share. Total pending gain in the whole lot is $42.77. Lot is up 113.99%
+2. 2.161 purchased at $186.87 per share. Total pending gain in the whole lot is $121.94. Lot is up 30.20%.
+
+EXAMPLE 4:
+Vanguard offers the [**Highest in, first out** (HIFO) method](https://investor.vanguard.com/investor-resources-education/taxes/cost-basis-highest-in-first-out) --- do we know if this method would apply to shares, if they happen to have the highest cost basis? I sold the specific lots in the last few weeks, so I would not expect VG's procedures to have changed in such a short period of time.
+___________
+To liquidate those lots less than one whole shares; do you think the following might work? 
+Transfer all the lots with high basis (example: 0.2@$260, 0.8@$262, 0. [...]
+
+EXAMPLE 5:
+> Our system prioritizes your tax savings by selecting to sell securities in the order listed below:
+
+EXAMPLE 6:
+* Vanguard's **Market sell: SpecID** transaction only allows WHOLE numbers of shares (i.e. sell transaction will not proceed with 2.8 shares).
+
+EXAMPLE 7:
+Selling Fractional Stock at Vanguard I am diversifying a portfolio which has a big unrealized gains with Apple, but there are some shares with high basis. To minimize realized capital gains: I will sell the Apple shares with the highest basis first.
+
+EXAMPLE 8:
+* I used a Vanguard **Market Order: SpecID** to sell the whole shares (2 shares and 1 share from the example above).
+
+EXAMPLE 9:
+Edit: However it could choose shares that would lead to short-term capital gains instead of long-term capital gains for tax purposes.
+I think your edit describes VG's [MinTax method](https://investor.vanguard.com/investor-resources-education/taxes/cost-basis-minimum-tax), do you agree?
+
+EXAMPLE 10:
+The scedario below was to KEEP some shares of ABCD, but also: a better solution to my sitation is here: https://www.reddit.com/r/VanguardInvestments/comments/1omnjre/selling_fractional_stock_at_vanguard/
+
+EXAMPLE 11:
+* I had hoped that selling the whole number of shares in the LOT would *also* sell the lot's fraction, but it wasn't so: I am left with 0.8 and 0.9 shares.
+
+EXAMPLE 12:
+Do you have any suggestions for unloading those fractional shares withOUT liquidating my whole Apple position?
+
+EXAMPLE 13:
+If I sell 0.33 shares (and assuming Vanguard let you sell fractional shares) would it take it from the first lot, which has the smallest overall gain. Or from the second lot, which would give me the smallest gain on 0.33 shares?
+
+EXAMPLE 14:
+Selling fractional shares of ETF I was hoping to liquidate an entire ETF position but Vanguard only permits whole share sales. I also can’t buy enough fractional shares to round up to 1 share. Obviously this isn’t a new problem- is there a workaround? Thx.  [deleted]
+It doesn’t give me that option. And even if it did, it’s an ETF. The dollar value could change between the time I place the order and it executes. The only option is to sell whole shares. Can’t even do a limit order. 
+Edit:
+I mis-read your post: I overlooked ENTIRE.
+
+EXAMPLE 15:
+To me the second answer is the obviously right one, but I'm looking for confirmation. Without one, I'll be the guinea pig I guess. Today I made a limit order sale of 1 share. Based on market prices I should have done it yesterday. Now I can feel stress over $5.
+
+EXAMPLE 16:
+* Short-term capital loss from largest to smallest.
+* Long-term capital loss from largest to smallest.
+* Short-term zero gain or loss.
+* Long-term zero gain or loss.
+* Long-term capital gain from smallest to largest.
+* Short-term capital gain from the smallest to largest.
+
+EXAMPLE 17:
+* Many of the lots are fractional shares (e.g. 2.8 shares with $250 basis and 1.9 shares with $260 basis). All those fractions add up to a lot shares!
+
+EXAMPLE 18:
+~~1. open a second account, then ~~
+~~2. transfer that less-than-one share to the the new account (select by lot), example: the 0.3 of 2.3 shades of ABCD, two shares stay behind.~~
+~~3. Repeat for other fractionals~~
+~~4. Liquidate all those fractional shares (eg 0.3 shares, 0.5 shares, 0.8 shares).~~
+~~5. Profit!~~
+
+EXAMPLE 19:
+There are no lots with losses and no lots that are even, so the next lot that MinTax would select would be those with LTCG.
+
+EXAMPLE 20:
+Oddly, I have two brokerage accounts, and the entire basis has disappeared for all lots in the one I'm not using for this experiment. A little concerning but I don't need to move them right away so I hope this bug goes away soon.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

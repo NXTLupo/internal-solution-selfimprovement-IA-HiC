@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rl1tk6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rl1tk6/25_year_old_trying_to_figure_out_my_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,37 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.883Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c0"
+    char_span: [0, 1428]
+    sentence_count: 10
+    key_terms: [something, tech, careerguidance, career, roles, experience, healthcare, long-term]
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c1"
+    char_span: [1443, 3705]
+    sentence_count: 20
+    key_terms: [people, tech, structured, opportunities, day, good, mri, work]
+    section: Comments
+    token_count: 498
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c2"
+    char_span: [3707, 5064]
+    sentence_count: 10
+    key_terms: [consulting, management, product, people, pivot, path, tech, bachelor]
+    section: Comments
+    token_count: 298
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c3"
+    char_span: [5066, 7000]
+    sentence_count: 21
+    key_terms: [like, tech, usually, healthcare, sales, radiology, years, pay]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/careerguidance/1rl1tk6.md#c4"
+    char_span: [7002, 7253]
+    sentence_count: 2
+    key_terms: [experiences, gradsimple, interviews, newsletter, different, insights, college, helpful]
+    section: Comments
+    token_count: 47
 ---
-
 # 25 year old trying to figure out my career path — open to tech, healthcare, or sales. Any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rl1tk6/25_year_old_trying_to_figure_out_my_career_path/)

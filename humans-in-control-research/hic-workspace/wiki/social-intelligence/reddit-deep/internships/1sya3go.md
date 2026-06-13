@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, comments, nyc, rowentire8894, undergraduate, reddit-deep, internship, accepting]
     token_count: 118
   - id: "social-intelligence/reddit-deep/internships/1sya3go.md#c1"
-    char_span: [503, 1613]
+    char_span: [502, 1612]
     sentence_count: 3
     key_terms: [maybe, "you're", interested, internship, competing, "that's", check, youre]
     section: Comments

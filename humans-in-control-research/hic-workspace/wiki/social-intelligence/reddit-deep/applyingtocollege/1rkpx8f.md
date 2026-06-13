@@ -28,43 +28,43 @@ chunks:
     key_terms: [transportation, unobtainable, comfortable, constraints, financial, anywhere, campuses, colleges]
     token_count: 61
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c2"
-    char_span: [2332, 4213]
+    char_span: [2331, 4212]
     sentence_count: 13
     key_terms: [ucf, national, merit, contact, formal-research4531, finalists, oos, finalist]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c3"
-    char_span: [4215, 4854]
+    char_span: [4214, 4853]
     sentence_count: 3
     key_terms: [results, family, akron, cost, ucf, considerably, contributing, additional]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c4"
-    char_span: [4856, 6750]
+    char_span: [4855, 6749]
     sentence_count: 14
     key_terms: [home, ucf, schools, insurance, cost, college, going, visit]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c5"
-    char_span: [6752, 7490]
+    char_span: [6751, 7489]
     sentence_count: 5
     key_terms: [home, abroad, school, akron, close, away, get, determining]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c6"
-    char_span: [7492, 9763]
+    char_span: [7491, 9762]
     sentence_count: 21
     key_terms: [school, ucf, opportunities, visit, bhc, kid, son, graduated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c7"
-    char_span: [9447, 11228]
+    char_span: [9446, 11227]
     sentence_count: 14
     key_terms: [home, college, either, school, financial, possible, masters, someone]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkpx8f.md#c8"
-    char_span: [11230, 12822]
+    char_span: [11229, 12821]
     sentence_count: 16
     key_terms: [away, year, borrow, parent, "we're", lot, reasonable, understand]
     section: Comments

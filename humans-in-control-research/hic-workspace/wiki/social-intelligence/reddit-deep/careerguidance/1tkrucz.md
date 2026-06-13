@@ -21,43 +21,43 @@ chunks:
     key_terms: [corporate, sometimes, too, people, learn, like, careerguidance, communication]
     token_count: 426
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c1"
-    char_span: [1899, 3232]
+    char_span: [1898, 3231]
     sentence_count: 13
     key_terms: ["let's", working, across, circle, touch, back, base, need]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c2"
-    char_span: [3235, 5374]
+    char_span: [3234, 5373]
     sentence_count: 12
     key_terms: [corporate, perspective, people, makes, important, optimize, further, working]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c3"
-    char_span: [5052, 5870]
+    char_span: [5051, 5869]
     sentence_count: 8
     key_terms: [corporate, lingo, language, better, people, simple, talk, kitchen-law-3674]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c4"
-    char_span: [5872, 7419]
+    char_span: [5871, 7418]
     sentence_count: 13
     key_terms: [everyone, playing, jargon, people, reason, best, don, like]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c5"
-    char_span: [7421, 9330]
+    char_span: [7420, 9329]
     sentence_count: 10
     key_terms: [get, aligned, easier, don, corporate, sometimes, concise, people]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c6"
-    char_span: [9332, 11011]
+    char_span: [9331, 11010]
     sentence_count: 11
     key_terms: [language, company, leave, like, english, looking, behind, cringe]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1tkrucz.md#c7"
-    char_span: [11013, 12381]
+    char_span: [11012, 12380]
     sentence_count: 12
     key_terms: [use, better, else, work, aligning, getting, coming, jargon]
     section: Comments

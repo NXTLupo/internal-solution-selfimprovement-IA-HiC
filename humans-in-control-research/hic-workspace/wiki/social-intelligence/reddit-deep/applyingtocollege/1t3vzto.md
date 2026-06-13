@@ -21,19 +21,19 @@ chunks:
     key_terms: [accounting, school, applyingtocollege, told, want, tuition, grandparents, good]
     token_count: 339
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c1"
-    char_span: [1458, 3332]
+    char_span: [1457, 3331]
     sentence_count: 8
     key_terms: [accounting, major, double, honest-ad1279, accountants, compromise, automated, classes]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c2"
-    char_span: [3334, 5112]
+    char_span: [3333, 5111]
     sentence_count: 14
     key_terms: [accounting, don, school, majors, major, money, get, take]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t3vzto.md#c3"
-    char_span: [5114, 6345]
+    char_span: [5113, 6344]
     sentence_count: 12
     key_terms: [access, information, grades, likely, accounting, graduation, parents, gives]
     section: Comments

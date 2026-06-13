@@ -23,7 +23,7 @@ chunks:
     key_terms: [careeradvice, comments, imaginary-potato4633, reddit-deep, developer, career, posted, reddit]
     token_count: 79
   - id: "social-intelligence/reddit-deep/careeradvice/1puwbaw.md#c1"
-    char_span: [265, 1546]
+    char_span: [264, 1545]
     sentence_count: 12
     key_terms: ["there's", career, research, "don't", developer, engineers, takeyouraxeandhack, ask]
     section: Comments

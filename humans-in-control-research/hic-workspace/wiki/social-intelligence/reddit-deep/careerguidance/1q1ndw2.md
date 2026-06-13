@@ -21,7 +21,7 @@ chunks:
     key_terms: [software, like, working, years, knowledge, careerguidance, follow, areas]
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1q1ndw2.md#c1"
-    char_span: [2199, 3974]
+    char_span: [2198, 3973]
     sentence_count: 12
     key_terms: [software, career, cybersecurity, architecture, roles, since, data, automation]
     section: Comments

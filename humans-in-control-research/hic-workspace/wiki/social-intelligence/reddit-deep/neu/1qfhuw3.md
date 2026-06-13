@@ -21,7 +21,7 @@ chunks:
     key_terms: [https, co-op, co-ops, nucoop, nuworks-co-op-grader, app, tool, chrome-extension]
     token_count: 468
   - id: "social-intelligence/reddit-deep/neu/1qfhuw3.md#c1"
-    char_span: [1869, 2551]
+    char_span: [1868, 2550]
     sentence_count: 5
     key_terms: [turtlecap1324, thank, academicweapon149, cake, day, julianproskillz, northeastern, innovators]
     section: Comments

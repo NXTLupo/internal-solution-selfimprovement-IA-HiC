@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, contribute, internship, comments, student, aggressive-post-156, learn, open]
     token_count: 182
   - id: "social-intelligence/reddit-deep/internships/1oea1kk.md#c1"
-    char_span: [721, 968]
+    char_span: [720, 967]
     sentence_count: 2
     key_terms: [goodlifeexperience, brilliant-fun1307, opportunity, internship, building, deleted, systems, utilize]
     section: Comments

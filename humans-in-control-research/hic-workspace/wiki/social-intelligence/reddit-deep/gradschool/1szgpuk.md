@@ -23,61 +23,61 @@ chunks:
     key_terms: [distance, school, graduate, grad, long, together, getting, close]
     token_count: 420
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c1"
-    char_span: [2033, 4087]
+    char_span: [2032, 4086]
     sentence_count: 16
     key_terms: [person, school, compromise, grad, like, time, reality, finish]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c2"
-    char_span: [4089, 4474]
+    char_span: [4088, 4473]
     sentence_count: 4
     key_terms: [partner, sacrificed, graduated, sacrifice, together, visiting, already, applied]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c3"
-    char_span: [4476, 6354]
+    char_span: [4475, 6353]
     sentence_count: 11
     key_terms: [distance, school, job, getting, got, grad, experience, marriage]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c4"
-    char_span: [6356, 7506]
+    char_span: [6355, 7505]
     sentence_count: 5
     key_terms: [job, afterwards, classmates, because, "didn't", school, best, get]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c5"
-    char_span: [7508, 9897]
+    char_span: [7507, 9896]
     sentence_count: 19
     key_terms: [relationship, top, want, prestige, priority, together, career, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c6"
-    char_span: [9593, 11913]
+    char_span: [9592, 11912]
     sentence_count: 15
     key_terms: [something, get, year, person, hard, job, situation, academic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c7"
-    char_span: [11674, 11969]
+    char_span: [11673, 11968]
     sentence_count: 1
     key_terms: [isaac-get-the-golem, nervous-one123, interacted, elaborate, abstract, comments, concrete, "couldn't"]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c8"
-    char_span: [11971, 14163]
+    char_span: [11970, 14162]
     sentence_count: 1
     key_terms: ["it's", academia, distance, long-distance, long, couple, got, academic]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c9"
-    char_span: [14165, 14929]
+    char_span: [14164, 14928]
     sentence_count: 2
     key_terms: [different, academic, careers, advice, anyway, "that's", seen, localdescription]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/gradschool/1szgpuk.md#c10"
-    char_span: [14931, 16963]
+    char_span: [14930, 16962]
     sentence_count: 8
     key_terms: [years, phd, assuming, research, getting, couple, going, institution]
     section: Comments

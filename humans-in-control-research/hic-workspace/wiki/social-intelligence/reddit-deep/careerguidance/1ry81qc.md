@@ -28,37 +28,37 @@ chunks:
     key_terms: [school, nursing, program, anesthesiology, apply, get, med, "bachelor's"]
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c2"
-    char_span: [3474, 5379]
+    char_span: [3473, 5378]
     sentence_count: 25
     key_terms: [sales, did, everything, experience, okamipiano, shelli1206, sometimes, looking]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c3"
-    char_span: [5381, 7399]
+    char_span: [5380, 7398]
     sentence_count: 23
     key_terms: [program, career, degree, school, med, graduating, probably, nursing]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c4"
-    char_span: [7401, 9684]
+    char_span: [7400, 9683]
     sentence_count: 12
     key_terms: [medical, debt, job, insurance, school, embarrassment, substantial, like]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c5"
-    char_span: [9686, 10958]
+    char_span: [9685, 10957]
     sentence_count: 22
     key_terms: [forgiven, loans, debt, healthcare, non-profit, payments, student, fucked]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c6"
-    char_span: [10960, 12808]
+    char_span: [10959, 12807]
     sentence_count: 12
     key_terms: [healthcare, already, nursing, roles, informatics, data, debt, technology]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/careerguidance/1ry81qc.md#c7"
-    char_span: [12813, 13528]
+    char_span: [12812, 13527]
     sentence_count: 7
     key_terms: [another, working, been, too, certifications, embarrassment, background, classmates]
     section: Comments

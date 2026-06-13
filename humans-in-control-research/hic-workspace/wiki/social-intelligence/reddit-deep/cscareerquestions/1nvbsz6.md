@@ -23,25 +23,25 @@ chunks:
     key_terms: [getting, cscareerquestions, career, engineering, interviews, companies, canadian, comments]
     token_count: 298
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c1"
-    char_span: [1319, 3274]
+    char_span: [1318, 3273]
     sentence_count: 12
     key_terms: [like, people, particularly, jwt, coherently, management, whatever, problem]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c2"
-    char_span: [3276, 5187]
+    char_span: [3275, 5186]
     sentence_count: 14
     key_terms: [degree, engineering, idempotency, like, projects, openapi, postman, design]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c3"
-    char_span: [5189, 7468]
+    char_span: [5188, 7467]
     sentence_count: 23
     key_terms: [engineering, electrical, bachelor, canada, companies, germany, here, lol]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nvbsz6.md#c4"
-    char_span: [7470, 8425]
+    char_span: [7469, 8424]
     sentence_count: 11
     key_terms: [get, deleted, education, software, degree, doing, hepennypacker1131, pixelphoenixforce]
     section: Comments

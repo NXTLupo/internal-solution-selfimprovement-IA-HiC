@@ -23,19 +23,19 @@ chunks:
     key_terms: [stocks, investing, industrial, comments, old, moodyhighway, reddit-deep, absolutely]
     token_count: 144
   - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c1"
-    char_span: [573, 2635]
+    char_span: [572, 2634]
     sentence_count: 11
     key_terms: [companies, invest, aapl, boring, construction, tech, millions, charlie]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c2"
-    char_span: [2422, 3570]
+    char_span: [2421, 3569]
     sentence_count: 10
     key_terms: [money, company, companies, boring, value, "it's", investment, country]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/investing/1kvzxay.md#c3"
-    char_span: [3572, 4197]
+    char_span: [3571, 4196]
     sentence_count: 3
     key_terms: [hold, buying, market, stocks, diversification, thegargageman, pinpointing, eventually]
     section: Comments

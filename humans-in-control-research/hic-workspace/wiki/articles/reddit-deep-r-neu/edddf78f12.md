@@ -15,17 +15,17 @@ relevance: 50
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-neu/edddf78f12.md#c0"
-    char_span: [0, 882]
+    char_span: [0, 881]
     sentence_count: 8
     key_terms: [final, neu, year, comments, semester, student, reddit, scared]
-    token_count: 233
+    token_count: 232
   - id: "articles/reddit-deep-r-neu/edddf78f12.md#c1"
-    char_span: [884, 2960]
+    char_span: [883, 2959]
     sentence_count: 8
     key_terms: [fine, get, email, final, freshman, probably, yourself, america]
     token_count: 512
   - id: "articles/reddit-deep-r-neu/edddf78f12.md#c2"
-    char_span: [2684, 3599]
+    char_span: [2683, 3598]
     sentence_count: 13
     key_terms: [transcript, finals, "don't", get, good, lot, certificate, explanation]
     token_count: 227

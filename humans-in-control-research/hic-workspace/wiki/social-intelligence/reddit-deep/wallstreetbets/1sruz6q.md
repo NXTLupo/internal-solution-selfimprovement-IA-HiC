@@ -33,37 +33,37 @@ chunks:
     key_terms: [intel, profitability, economically, questionable, especially, irrational, financial, expiring]
     token_count: 79
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c3"
-    char_span: [4725, 6359]
+    char_span: [4724, 6358]
     sentence_count: 11
     key_terms: [intel, build, oracle, chips, deals, circular, discord, project]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c4"
-    char_span: [6361, 8390]
+    char_span: [6360, 8389]
     sentence_count: 16
     key_terms: [company, super-activity-4675, crash, intel, appletrees2, companies, training, capital]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c5"
-    char_span: [8392, 9330]
+    char_span: [8391, 9329]
     sentence_count: 9
     key_terms: [intel, earnings, already, people, china, buy, oil, gorginhanson]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c6"
-    char_span: [9332, 11361]
+    char_span: [9331, 11360]
     sentence_count: 14
     key_terms: [intel, national, security, already, going, goodboxclub, lol, company]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c7"
-    char_span: [11366, 13284]
+    char_span: [11365, 13283]
     sentence_count: 12
     key_terms: [intel, years, earnings, been, time, precision, "hasn't", newtembarrassed8722]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sruz6q.md#c8"
-    char_span: [13286, 13396]
+    char_span: [13285, 13395]
     sentence_count: 1
     key_terms: [loss, pics, appletrees2, toilet, gonna, learn, print, yoooo]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1t9q0np.md#c0"
-    char_span: [0, 1248]
+    char_span: [0, 1247]
     sentence_count: 9
     key_terms: [math, people, technical, comments, incoming, switched, courses, co-ops]
-    token_count: 286
+    token_count: 285
 ---
 # Incoming CS and Math
 

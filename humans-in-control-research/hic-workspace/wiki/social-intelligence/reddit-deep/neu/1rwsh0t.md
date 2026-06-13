@@ -26,7 +26,7 @@ chunks:
     key_terms: [degree, "don't", given, roles, get, accomplished, northeastern, particularly]
     token_count: 135
   - id: "social-intelligence/reddit-deep/neu/1rwsh0t.md#c2"
-    char_span: [3027, 3953]
+    char_span: [3026, 3952]
     sentence_count: 8
     key_terms: [northeastern, available, support, please, sounds, healthandwellness, call, edu]
     section: Comments

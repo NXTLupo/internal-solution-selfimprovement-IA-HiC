@@ -31,31 +31,31 @@ chunks:
     key_terms: [tool, structured, training, model, selection, nlt, accuracy, reduced]
     token_count: 434
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c3"
-    char_span: [6583, 8407]
+    char_span: [6582, 8406]
     sentence_count: 13
     key_terms: [structured, json, outputs, markdown, gemini, output, random, performance]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c4"
-    char_span: [8409, 10076]
+    char_span: [8408, 10075]
     sentence_count: 10
     key_terms: [tool, output, parameters, accuracy, language, natural, undoubtedly, case]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c5"
-    char_span: [10078, 12186]
+    char_span: [10077, 12185]
     sentence_count: 11
     key_terms: [tool, parameters, tools, pass, reasoning, language, practice, natural]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c6"
-    char_span: [12188, 14516]
+    char_span: [12187, 14515]
     sentence_count: 16
     key_terms: [paper, tool, skills, json, calling, "anthropic's", interesting, "it's"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/machinelearning/1o8szk0.md#c7"
-    char_span: [14519, 15803]
+    char_span: [14518, 15802]
     sentence_count: 8
     key_terms: [tool, especially, benchmark, calling, tektoks, format, inputs, string]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", school, awards, applyingtocollege, "doesn't", application, kind, specifics]
     token_count: 245
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rnofff.md#c1"
-    char_span: [1087, 2329]
+    char_span: [1086, 2328]
     sentence_count: 16
     key_terms: [college, school, start, application, activities, getting, awards, "you're"]
     section: Comments

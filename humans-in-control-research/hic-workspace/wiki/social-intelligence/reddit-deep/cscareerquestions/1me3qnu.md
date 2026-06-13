@@ -23,85 +23,85 @@ chunks:
     key_terms: [job, people, cscareerquestions, applying, level, get, comments, clearly]
     token_count: 362
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c1"
-    char_span: [1574, 3656]
+    char_span: [1573, 3655]
     sentence_count: 20
     key_terms: [companies, sometimes, criteria, applications, candidates, ats, started, mostly]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c2"
-    char_span: [3658, 5711]
+    char_span: [3657, 5710]
     sentence_count: 14
     key_terms: [experience, solution, applications, people, technologies, using, years, job]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c3"
-    char_span: [5713, 7600]
+    char_span: [5712, 7599]
     sentence_count: 18
     key_terms: [meet, "i've", requirements, apply, been, new, something, thousands]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c4"
-    char_span: [7602, 9498]
+    char_span: [7601, 9497]
     sentence_count: 11
     key_terms: [something, ago, time, people, years, get, everything, applying]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c5"
-    char_span: [9500, 11558]
+    char_span: [9499, 11557]
     sentence_count: 13
     key_terms: [resume, companies, time, crafted, like, applying, hundreds, position]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c6"
-    char_span: [11562, 13644]
+    char_span: [11561, 13643]
     sentence_count: 9
     key_terms: [people, chili-lime-chihuahua, applicants, someone, applications, unqualified, get, work]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c7"
-    char_span: [13647, 15671]
+    char_span: [13646, 15670]
     sentence_count: 6
     key_terms: [qualified, looking, people, illustrious-pound266, experience, "don't", years, jobs]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c8"
-    char_span: [15673, 17179]
+    char_span: [15672, 17178]
     sentence_count: 8
     key_terms: [lying, experience, need, "don't", companies, learning, people, entry]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c9"
-    char_span: [17181, 19365]
+    char_span: [17180, 19364]
     sentence_count: 12
     key_terms: [experience, requirements, years, companies, pretty, significant, job, lie]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c10"
-    char_span: [19367, 20610]
+    char_span: [19366, 20609]
     sentence_count: 2
     key_terms: [exaggeration, sandwiches, linkedin, posting, points, desperate-till-9228, job, saw]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c11"
-    char_span: [20612, 22736]
+    char_span: [20611, 22735]
     sentence_count: 7
     key_terms: [experience, years, relevant, requirements, shit, tier, related, apply]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c12"
-    char_span: [22512, 22907]
+    char_span: [22511, 22906]
     sentence_count: 5
     key_terms: [get, applying, apply, "don't", unqualified, completely, themselves, employers]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c13"
-    char_span: [22909, 24763]
+    char_span: [22908, 24762]
     sentence_count: 17
     key_terms: ["i've", work, job, applying, applied, looking, working, making]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1me3qnu.md#c14"
-    char_span: [24765, 25720]
+    char_span: [24764, 25719]
     sentence_count: 10
     key_terms: [pay, office, back, job, remote, "i'd", hybrid, money]
     section: Comments

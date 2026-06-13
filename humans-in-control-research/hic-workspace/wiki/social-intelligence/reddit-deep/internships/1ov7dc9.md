@@ -7,15 +7,13 @@ subreddit: "internships"
 title: "Should I take an unpaid 6-month internship at BISAG Gandhinagar (Govt Institute) in my final year of BTech CE?"
 author: "Certain-Position2066"
 date: "2025-11-12T14:58:11.000Z"
-score: 4
-upvote_ratio: 1
+score: 3
+upvote_ratio: 0.81
 num_comments: 12
 flair: "Offers"
-extracted_at: "2026-05-25T18:31:15.454Z"
+extracted_at: "2026-06-08T17:32:14.348Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [workforce, higher_ed, government]
-industry_method: llm
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1ov7dc9.md#c0"
     char_span: [0, 1377]
@@ -32,7 +30,7 @@ chunks:
 # Should I take an unpaid 6-month internship at BISAG Gandhinagar (Govt Institute) in my final year of BTech CE?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1ov7dc9/should_i_take_an_unpaid_6month_internship_at/)
-Posted by **Certain-Position2066** · **4↑** · **12 comments**
+Posted by **Certain-Position2066** · **3↑** · **12 comments**
 
 Hey everyone,
 

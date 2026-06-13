@@ -21,7 +21,7 @@ chunks:
     key_terms: [northeastern, "i'm", talk, comments, students, current, neu, reddit-deep]
     token_count: 173
   - id: "social-intelligence/reddit-deep/neu/1s4onhq.md#c1"
-    char_span: [683, 1062]
+    char_span: [682, 1061]
     sentence_count: 3
     key_terms: [please, noganache7059, butchunicorn, northeastern, experience, guaranteed, affording, interview]
     section: Comments

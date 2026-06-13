@@ -23,31 +23,31 @@ chunks:
     key_terms: [engineeringstudents, calculus, comments, semester, reddit, calc, engineering, reddit-deep]
     token_count: 187
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c1"
-    char_span: [787, 2410]
+    char_span: [786, 2409]
     sentence_count: 9
     key_terms: [engineeringstudents, wiki, please, reddit, https, calc, com, students]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c2"
-    char_span: [2412, 3511]
+    char_span: [2411, 3510]
     sentence_count: 17
     key_terms: [tutor, classes, possible, hardest, list, weed, stumpythegiant, intentionally]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c3"
-    char_span: [3513, 5424]
+    char_span: [3512, 5423]
     sentence_count: 23
     key_terms: [calc, diff, class, appearanceable6646, professor, hardest, got, math]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c4"
-    char_span: [5149, 5559]
+    char_span: [5148, 5558]
     sentence_count: 5
     key_terms: [took, substitution, progression, eventually, everything, lightbulb, reference, something]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nbs3sr.md#c5"
-    char_span: [5561, 6662]
+    char_span: [5560, 6661]
     sentence_count: 11
     key_terms: [calc, class, trig, eventually, struggles, found, pre, retrospectively]
     section: Comments

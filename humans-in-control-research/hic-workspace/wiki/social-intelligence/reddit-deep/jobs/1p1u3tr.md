@@ -23,7 +23,7 @@ chunks:
     key_terms: [like, programming, don, feel, jobs, apps, job, programmer]
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1p1u3tr.md#c1"
-    char_span: [1922, 3239]
+    char_span: [1922, 3238]
     sentence_count: 15
     key_terms: [don, experience, like, co-op, feel, want, internship, because]
     token_count: 298

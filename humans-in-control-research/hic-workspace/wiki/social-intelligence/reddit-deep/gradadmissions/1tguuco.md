@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1tguuco.md#c0"
-    char_span: [0, 604]
+    char_span: [0, 603]
     sentence_count: 6
     key_terms: [gradadmissions, comments, graduate, canada, ieat5orangeseveryday, time, usa, reddit-deep]
     token_count: 166

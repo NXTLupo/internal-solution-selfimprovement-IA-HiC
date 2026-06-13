@@ -23,19 +23,19 @@ chunks:
     key_terms: [jobs, struggling, comments, job, part, time, safe-table-6226, reddit-deep]
     token_count: 150
   - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c1"
-    char_span: [602, 1699]
+    char_span: [601, 1698]
     sentence_count: 6
     key_terms: [interviews, scheduled, chipotle, manager, course, playful-airport2928, "it's", need]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c2"
-    char_span: [1701, 2906]
+    char_span: [1700, 2905]
     sentence_count: 6
     key_terms: [happened, manager, downtownlasd, job, another, hiring, careless-disaster67, hours]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1qj47dd.md#c3"
-    char_span: [2908, 4554]
+    char_span: [2907, 4553]
     sentence_count: 15
     key_terms: [climateloud7679, safe-table-6226, people, availability, here, chipotle, retirees, around]
     section: Comments

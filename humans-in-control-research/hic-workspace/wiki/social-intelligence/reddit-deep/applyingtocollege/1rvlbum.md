@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvlbum.md#c0"
-    char_span: [0, 1319]
+    char_span: [0, 1318]
     sentence_count: 7
     key_terms: [leadership, experiences, college, applications, applyingtocollege, extracurriculars, activities, important]
-    token_count: 255
+    token_count: 254
 ---
 # How Important Are Leadership Experiences in College Applications?
 

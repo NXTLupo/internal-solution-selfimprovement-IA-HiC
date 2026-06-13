@@ -23,37 +23,37 @@ chunks:
     key_terms: [here, working, advice, comments, graphic, church, job, like]
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c1"
-    char_span: [1641, 2818]
+    char_span: [1640, 2817]
     sentence_count: 7
     key_terms: [because, job, time, freelance, churches, family, sonsoflibertynh1776, leave]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c2"
-    char_span: [2820, 4562]
+    char_span: [2819, 4561]
     sentence_count: 14
     key_terms: [freelance, work, people, side, want, employment, probably, current]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c3"
-    char_span: [4564, 6593]
+    char_span: [4563, 6592]
     sentence_count: 19
     key_terms: [freelance, job, work, like, look, time, experience, possible]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c4"
-    char_span: [6595, 8697]
+    char_span: [6594, 8696]
     sentence_count: 16
     key_terms: [job, new, graphic, around, pursue, lockandload11, etc, time]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c5"
-    char_span: [8700, 10354]
+    char_span: [8699, 10353]
     sentence_count: 14
     key_terms: [job, don, graphic, designer, find, want, companies, something]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1osl4dr.md#c6"
-    char_span: [10356, 11332]
+    char_span: [10355, 11331]
     sentence_count: 8
     key_terms: [another, raise, look, underpaid, employer, church, unless, later]
     section: Comments

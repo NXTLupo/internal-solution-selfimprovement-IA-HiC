@@ -33,55 +33,55 @@ chunks:
     key_terms: [users, safety, constraints, careful, failure, systems, design, risk]
     token_count: 177
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c3"
-    char_span: [6125, 8272]
+    char_span: [6124, 8271]
     sentence_count: 18
     key_terms: [guardrails, conversations, constantly, technical, thinking, because, nothing, overall]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c4"
-    char_span: [8274, 8660]
+    char_span: [8273, 8659]
     sentence_count: 4
     key_terms: [providing, people, "don't", specifically, inclination, difference, structured, understand]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c5"
-    char_span: [8662, 10666]
+    char_span: [8661, 10665]
     sentence_count: 10
     key_terms: [google, something, tifinchi, jacques-vache-23, safety, transcript, clnwo4dbwgmd8bowlceur2hdtv0, reasoning]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c6"
-    char_span: [10668, 10877]
+    char_span: [10667, 10876]
     sentence_count: 2
     key_terms: [cactus, continuing, genuinely, reassess, causing, leaning, opacity, tightly]
     section: Comments
     token_count: 50
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c7"
-    char_span: [10879, 13255]
+    char_span: [10878, 13254]
     sentence_count: 6
     key_terms: [character-release976, fascinating, like, tifinchi, because, limits, models, engineering]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c8"
-    char_span: [12927, 14996]
+    char_span: [12926, 14995]
     sentence_count: 12
     key_terms: [guardrails, "i've", because, problem, capabilities, fascinating, "it's", alignment]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c9"
-    char_span: [14998, 16980]
+    char_span: [14997, 16979]
     sentence_count: 21
     key_terms: [the-bridge-ami, persistent, resolution, done, find, "i've", "it's", let]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c10"
-    char_span: [16982, 18857]
+    char_span: [16981, 18856]
     sentence_count: 12
     key_terms: [research, tifinchi, michaeldfwftw, duecommunication9248, diagnostic, f2c4-8011-b33c-e37afa2e5b7a, citations, chatgpt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gpt/1pth1bw.md#c11"
-    char_span: [18576, 18974]
+    char_span: [18575, 18973]
     sentence_count: 3
     key_terms: [research, defensiveness, according, automatic, citations, longevity, facebook, experts]
     section: Comments

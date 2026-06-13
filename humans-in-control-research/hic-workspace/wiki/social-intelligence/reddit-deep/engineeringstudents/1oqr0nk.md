@@ -23,31 +23,31 @@ chunks:
     key_terms: [engineeringstudents, learning, engineering, comments, college, coding, "you're", like]
     token_count: 224
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c1"
-    char_span: [1057, 1911]
+    char_span: [1056, 1910]
     sentence_count: 5
     key_terms: [coding, engineering, code, representativebit736, documentation, happybaby00, takeonefish, absolutely]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c2"
-    char_span: [1913, 3994]
+    char_span: [1912, 3993]
     sentence_count: 8
     key_terms: [because, course, points, knowledge, quickly, subject, years, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c3"
-    char_span: [3697, 4347]
+    char_span: [3696, 4346]
     sentence_count: 5
     key_terms: [people, world, automatically, conclusions, engineering, chemistry, companies, competent]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c4"
-    char_span: [4349, 6254]
+    char_span: [4348, 6253]
     sentence_count: 12
     key_terms: [time, engineering, years, systematic, schooling, trainable, indicate, learning]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oqr0nk.md#c5"
-    char_span: [6256, 7431]
+    char_span: [6255, 7430]
     sentence_count: 14
     key_terms: [learn, better, ok-examination6200, gpa, "i'm", job, pass, want]
     section: Comments

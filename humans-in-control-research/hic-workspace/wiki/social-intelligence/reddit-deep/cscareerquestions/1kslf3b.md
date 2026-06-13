@@ -43,55 +43,55 @@ chunks:
     key_terms: [work, everything, leadership, presented, believe, no-show, problem, "don't"]
     token_count: 341
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c5"
-    char_span: [10335, 11998]
+    char_span: [10334, 11997]
     sentence_count: 11
     key_terms: [manager, google, doc, pushed, get, good, especially, deadlines]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c6"
-    char_span: [12000, 13769]
+    char_span: [11999, 13768]
     sentence_count: 14
     key_terms: [coding, deadline, planning, couple, high, roadmap, design, matter]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c7"
-    char_span: [13771, 15780]
+    char_span: [13770, 15779]
     sentence_count: 15
     key_terms: [severance, like, change, choice, google, get, "i'm", extremely]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c8"
-    char_span: [15782, 17343]
+    char_span: [15781, 17342]
     sentence_count: 13
     key_terms: [business, "you're", companies, big, parts, always, change, people]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c9"
-    char_span: [17345, 19732]
+    char_span: [17344, 19731]
     sentence_count: 18
     key_terms: [companies, everything, bureaucracy, big, experience, something, everyone, opposite]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c10"
-    char_span: [19498, 20175]
+    char_span: [19497, 20174]
     sentence_count: 5
     key_terms: ["i'm", experience, teams, ubccompscistudent, time, especially, companies, generally]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c11"
-    char_span: [20177, 22251]
+    char_span: [20176, 22250]
     sentence_count: 14
     key_terms: [google, company, legal, fit, negative, because, better, people]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c12"
-    char_span: [22253, 23914]
+    char_span: [22252, 23913]
     sentence_count: 16
     key_terms: [reviews, often, code, did, google, conceptually, learn, fix]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kslf3b.md#c13"
-    char_span: [23916, 24900]
+    char_span: [23915, 24899]
     sentence_count: 7
     key_terms: [been, team, test, teams, bug, investigations, incorrectly, regressions]
     section: Comments

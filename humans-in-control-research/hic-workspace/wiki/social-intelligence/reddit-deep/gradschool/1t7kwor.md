@@ -23,25 +23,25 @@ chunks:
     key_terms: [work, gradschool, university, comments, students, summer, grad, research-related]
     token_count: 211
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c1"
-    char_span: [976, 3187]
+    char_span: [975, 3186]
     sentence_count: 7
     key_terms: [like, genuinely, jobs, people, though, store, don, old]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c2"
-    char_span: [2865, 3374]
+    char_span: [2864, 3373]
     sentence_count: 1
     key_terms: [feels, side, tool, work, unemployment, copyediting, especially, everything]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c3"
-    char_span: [3376, 5343]
+    char_span: [3375, 5342]
     sentence_count: 15
     key_terms: [summer, research, get, funding, work, "didn't", "that's", scholarships]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradschool/1t7kwor.md#c4"
-    char_span: [5345, 6553]
+    char_span: [5344, 6552]
     sentence_count: 7
     key_terms: [school, get, flexible, working, people, summer, field, good]
     section: Comments

@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c0"
-    char_span: [0, 2301]
+    char_span: [0, 2300]
     sentence_count: 17
     key_terms: [problem, math, career, degree, field, going, cscareerquestions, get]
-    token_count: 511
+    token_count: 510
   - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c1"
-    char_span: [2305, 3951]
+    char_span: [2304, 3950]
     sentence_count: 7
     key_terms: [willing, new, because, kids, move, university, anywhere, relocate]
     token_count: 394
   - id: "articles/reddit-deep-r-cscareerquestions/66f1ec2bbc.md#c2"
-    char_span: [3953, 4582]
+    char_span: [3952, 4581]
     sentence_count: 7
     key_terms: [get, coding, care, financially, background, experience, proficient, transition]
     token_count: 155

@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, finding, area, bay, jobs, comments, postings, posted]
     token_count: 230
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c1"
-    char_span: [1031, 1997]
+    char_span: [1030, 1996]
     sentence_count: 8
     key_terms: [networking, get, network, connections, job, computer, linkedin, behind]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c2"
-    char_span: [1999, 4020]
+    char_span: [1998, 4019]
     sentence_count: 13
     key_terms: [jobs, better, people, job, linkedin, apply, been, find]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c3"
-    char_span: [4022, 6235]
+    char_span: [4021, 6234]
     sentence_count: 19
     key_terms: [jobs, looking, change, find, cannot, apply, days, job]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c4"
-    char_span: [6237, 8450]
+    char_span: [6236, 8449]
     sentence_count: 13
     key_terms: [already, job, jobs, applying, listings, because, instead, writing]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pb5hp4.md#c5"
-    char_span: [8452, 8927]
+    char_span: [8451, 8926]
     sentence_count: 5
     key_terms: [luck, big, keep, economyspeed007, thereallostcost, stressedkid01, interviews, well-known]
     section: Comments

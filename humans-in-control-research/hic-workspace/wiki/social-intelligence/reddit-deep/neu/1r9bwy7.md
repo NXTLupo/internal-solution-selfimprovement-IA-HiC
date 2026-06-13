@@ -23,7 +23,7 @@ chunks:
     key_terms: [northeastern, comments, neu, sapphireblossom, over-the-top, reddit-deep, crazy-long, generated]
     token_count: 146
   - id: "social-intelligence/reddit-deep/neu/1r9bwy7.md#c1"
-    char_span: [556, 1944]
+    char_span: [555, 1943]
     sentence_count: 4
     key_terms: [sapphireblossom, northeastern, "he's", posts, real, mbturgeon, facebook, linkedin]
     section: Comments

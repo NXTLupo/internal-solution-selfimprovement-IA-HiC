@@ -31,85 +31,85 @@ chunks:
     key_terms: [candidates, tons, references, believe, metrics, hiring, people, else]
     token_count: 184
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c3"
-    char_span: [5235, 7208]
+    char_span: [5234, 7207]
     sentence_count: 12
     key_terms: [experience, faang, component, react, years, java, like, year]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c4"
-    char_span: [7210, 8627]
+    char_span: [7209, 8626]
     sentence_count: 6
     key_terms: [experience, faang, functional, component, integrate, because, startup, affectionate-turn137]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c5"
-    char_span: [8629, 10374]
+    char_span: [8628, 10373]
     sentence_count: 8
     key_terms: [like, time, companies, leetcode, global, people, check, justleave-mealone]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c6"
-    char_span: [10376, 11768]
+    char_span: [10375, 11767]
     sentence_count: 5
     key_terms: [candidates, company, deleted, asking, easily, blood, clear, mark]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c7"
-    char_span: [11770, 14025]
+    char_span: [11769, 14024]
     sentence_count: 8
     key_terms: [metrics, android, developers, get, bullshit, advice, impact, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c8"
-    char_span: [13702, 14462]
+    char_span: [13701, 14461]
     sentence_count: 1
     key_terms: [bullshit, feature, payment, people, calls, get, stereotypical, dethstroke54]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c9"
-    char_span: [14464, 16741]
+    char_span: [14463, 16740]
     sentence_count: 20
     key_terms: [productive, jobs, because, trying, productivity, faang, investments, find]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c10"
-    char_span: [16743, 18325]
+    char_span: [16742, 18324]
     sentence_count: 11
     key_terms: [day, "they're", working, chill, faang, cyclodevops, business, ladycatherinehoward]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c11"
-    char_span: [18328, 20428]
+    char_span: [18327, 20427]
     sentence_count: 16
     key_terms: [experience, get, resume, product, people, head, emergency, billions]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c12"
-    char_span: [20430, 21881]
+    char_span: [20429, 21880]
     sentence_count: 6
     key_terms: [meritocracy, means, interview, everyone, become, fidodo, people, person]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c13"
-    char_span: [21883, 23531]
+    char_span: [21882, 23530]
     sentence_count: 10
     key_terms: [embellishment, interviewer, experience, architect, interview, prepared, software, yourself]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c14"
-    char_span: [23533, 25633]
+    char_span: [23532, 25632]
     sentence_count: 18
     key_terms: [job, company, beastybaiter, "it's", oil, went, honestly, software]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c15"
-    char_span: [25635, 27255]
+    char_span: [25634, 27254]
     sentence_count: 14
     key_terms: [candidates, evaluations, get, companies, interview, win, time, work]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nto6kw.md#c16"
-    char_span: [27257, 29285]
+    char_span: [27256, 29284]
     sentence_count: 19
     key_terms: [recruiters, interview, people, requirements, arms, here, race, candidates]
     section: Comments

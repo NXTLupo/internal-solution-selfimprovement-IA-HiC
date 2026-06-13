@@ -23,7 +23,7 @@ chunks:
     key_terms: [lost, something, post, thelostandhound, northeastern, hound, https, items]
     token_count: 392
   - id: "social-intelligence/reddit-deep/neu/1smlet9.md#c1"
-    char_span: [1724, 2353]
+    char_span: [1723, 2352]
     sentence_count: 5
     key_terms: [own, creator-ye-lamar, lostandhound, appreciate, definitely, efficiency, engagement, community]
     section: Comments

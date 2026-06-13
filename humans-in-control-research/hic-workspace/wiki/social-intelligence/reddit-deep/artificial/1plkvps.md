@@ -28,37 +28,37 @@ chunks:
     key_terms: [next, "couldn't", people, saying, years, "i'm", safe, happening]
     token_count: 429
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c2"
-    char_span: [3668, 5483]
+    char_span: [3667, 5482]
     sentence_count: 19
     key_terms: [job, krazyboi, because, forever, talking, longer, market, get]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c3"
-    char_span: [5485, 6018]
+    char_span: [5484, 6017]
     sentence_count: 5
     key_terms: [coders, college, better, coding, information, unprotected, notgalgon, sensitive]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c4"
-    char_span: [6020, 8047]
+    char_span: [6019, 8046]
     sentence_count: 19
     key_terms: [ijdelheidijdelheden, maybe, right, extrapolate, does, work, meaningful, knowledge]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c5"
-    char_span: [7789, 9949]
+    char_span: [7788, 9948]
     sentence_count: 16
     key_terms: [taking, meaningful, trash, art, tax, work, dishwasher, arguably]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c6"
-    char_span: [9684, 10208]
+    char_span: [9683, 10207]
     sentence_count: 6
     key_terms: [outrageous-crazy-253, time-traveler, completely, correcting, dishwasher, government, opposition, everybody]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/artificial/1plkvps.md#c7"
-    char_span: [10211, 12442]
+    char_span: [10210, 12441]
     sentence_count: 17
     key_terms: [knowledge, internet, products, number, jobs, increase, going, labor]
     section: Comments

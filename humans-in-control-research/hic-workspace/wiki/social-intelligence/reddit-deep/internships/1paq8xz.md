@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, terrible, founder, build, internships, experience, including, technical]
     token_count: 270
   - id: "social-intelligence/reddit-deep/internships/1paq8xz.md#c1"
-    char_span: [1249, 2096]
+    char_span: [1248, 2095]
     sentence_count: 4
     key_terms: [pay, experience, someone, making, character-company-47, bots, ceruleangenesis, analytical]
     section: Comments

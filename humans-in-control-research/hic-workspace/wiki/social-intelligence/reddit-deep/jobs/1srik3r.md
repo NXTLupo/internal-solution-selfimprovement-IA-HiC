@@ -21,31 +21,31 @@ chunks:
     key_terms: [generation, jobs, experience, comments, little, people, system, remarkable-sand-5059]
     token_count: 286
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c1"
-    char_span: [1280, 3270]
+    char_span: [1279, 3269]
     sentence_count: 16
     key_terms: [car, work, mechanic, like, man, old, want, interested]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c2"
-    char_span: [3274, 4736]
+    char_span: [3273, 4735]
     sentence_count: 6
     key_terms: [remarkable-sand-5059, experience, "you're", entry, issue, level, different, mechanic]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c3"
-    char_span: [4738, 5838]
+    char_span: [4737, 5837]
     sentence_count: 7
     key_terms: [remarkable-sand-5059, work, problem, labor, today, using, free, quit]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c4"
-    char_span: [5840, 7545]
+    char_span: [5839, 7544]
     sentence_count: 13
     key_terms: [remarkable-sand-5059, free, "i'm", life, requiring, training, because, happens]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1srik3r.md#c5"
-    char_span: [7547, 9267]
+    char_span: [7546, 9266]
     sentence_count: 13
     key_terms: [training, work, companies, free, like, "aren't", paying, get]
     section: Comments

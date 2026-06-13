@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c0"
-    char_span: [0, 2111]
+    char_span: [0, 2110]
     sentence_count: 8
     key_terms: [engineering, science, data, https, berkeley, mcds, www, master]
-    token_count: 484
+    token_count: 483
   - id: "social-intelligence/reddit-deep/gradadmissions/1r22krf.md#c1"
-    char_span: [2113, 4200]
+    char_span: [2112, 4199]
     sentence_count: 9
     key_terms: [courses, significantly, tuition, engineering, gsi, berkeley, semester, getting]
     token_count: 462

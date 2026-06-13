@@ -28,25 +28,25 @@ chunks:
     key_terms: [leasing, person, back, lot, aggressive, responding, scheduled, everyone]
     token_count: 126
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c2"
-    char_span: [2691, 4695]
+    char_span: [2690, 4694]
     sentence_count: 15
     key_terms: [person, difference, housing, title, woman, "it's", need, definitely]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c3"
-    char_span: [4697, 6695]
+    char_span: [4696, 6694]
     sentence_count: 21
     key_terms: [housing, "she's", because, transitioning, comfortable, told, roommate, stalking]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c4"
-    char_span: [6697, 8875]
+    char_span: [6696, 8874]
     sentence_count: 14
     key_terms: [housing, being, year-old, because, person, get, guaranteed, treatment]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1mmpgoj.md#c5"
-    char_span: [8877, 11211]
+    char_span: [8876, 11210]
     sentence_count: 19
     key_terms: [housing, university, roommate, "don't", situation, somewhere, change, potentially]
     section: Comments

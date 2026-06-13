@@ -21,7 +21,7 @@ chunks:
     key_terms: [roommate, "i'm", neu, medical, oakland, random, condition, comments]
     token_count: 432
   - id: "social-intelligence/reddit-deep/neu/1t3vkbh.md#c1"
-    char_span: [1857, 3592]
+    char_span: [1856, 3591]
     sentence_count: 11
     key_terms: [single, dorms, friends, miathekoala, get, oakland, singles, minifridge]
     section: Comments

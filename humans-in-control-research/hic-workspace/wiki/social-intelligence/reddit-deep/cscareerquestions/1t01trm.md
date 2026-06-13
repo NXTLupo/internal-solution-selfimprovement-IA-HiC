@@ -21,7 +21,7 @@ chunks:
     key_terms: [bla, cscareerquestions, supply, chain, work, situation, comments, projects]
     token_count: 298
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t01trm.md#c1"
-    char_span: [1210, 3204]
+    char_span: [1209, 3203]
     sentence_count: 12
     key_terms: [title, supply, chain, job, official, resume, list, swe]
     section: Comments

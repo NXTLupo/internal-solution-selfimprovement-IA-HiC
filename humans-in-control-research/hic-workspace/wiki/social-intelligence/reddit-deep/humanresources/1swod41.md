@@ -23,25 +23,25 @@ chunks:
     key_terms: [humanresources, manufacturing, small, development, supervisors, "i'm", leadership, comments]
     token_count: 225
   - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c1"
-    char_span: [1028, 3085]
+    char_span: [1027, 3084]
     sentence_count: 17
     key_terms: [leaders, rolecompetitive5588, work, culture, peer, team, mentorship, transition]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c2"
-    char_span: [3087, 5326]
+    char_span: [3086, 5325]
     sentence_count: 17
     key_terms: [supervisors, time, coaching, training, manufacturing, development, post, real]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c3"
-    char_span: [5328, 7710]
+    char_span: [5327, 7709]
     sentence_count: 15
     key_terms: [training, leaders, leadership, situations, companies, frontline, in-person, question]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/humanresources/1swod41.md#c4"
-    char_span: [7712, 8460]
+    char_span: [7711, 8459]
     sentence_count: 3
     key_terms: [executive-education, darden, programs, virginia, contact, https, teams, edu]
     section: Comments

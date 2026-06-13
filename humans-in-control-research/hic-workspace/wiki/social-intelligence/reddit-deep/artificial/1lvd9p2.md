@@ -23,7 +23,7 @@ chunks:
     key_terms: [experimenting, agent, artificial, workflows, comments, virtual, agents, code]
     token_count: 174
   - id: "social-intelligence/reddit-deep/artificial/1lvd9p2.md#c1"
-    char_span: [828, 1626]
+    char_span: [827, 1625]
     sentence_count: 7
     key_terms: [no-code, bro, dev, like, receptionists, environments, intelligence, horizon-dev]
     section: Comments

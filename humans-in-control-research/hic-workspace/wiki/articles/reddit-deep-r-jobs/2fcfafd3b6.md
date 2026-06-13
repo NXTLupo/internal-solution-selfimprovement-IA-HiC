@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/2fcfafd3b6.md#c0"
-    char_span: [0, 915]
+    char_span: [0, 914]
     sentence_count: 6
     key_terms: [jobs, comments, people, reddit, trades, never, sudden-usual-5140, work]
-    token_count: 235
+    token_count: 234
 ---
 # Is there an easy way to get hired for a job if you never graduated high school and lack social skills?
 

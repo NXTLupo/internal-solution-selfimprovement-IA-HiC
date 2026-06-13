@@ -23,19 +23,19 @@ chunks:
     key_terms: [gradschool, comments, school, skills, learn, biopharmaceutical, grad, "i'm"]
     token_count: 120
   - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c1"
-    char_span: [467, 2260]
+    char_span: [466, 2259]
     sentence_count: 12
     key_terms: [hazelstone37, suchageonerd, wish, everything, annotated, because, staples, writing]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c2"
-    char_span: [2262, 3649]
+    char_span: [2261, 3648]
     sentence_count: 13
     key_terms: [school, reading, grad, time, superturtle48, fun, articles, practice]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/gradschool/1ltnd2f.md#c3"
-    char_span: [3651, 5363]
+    char_span: [3650, 5362]
     sentence_count: 12
     key_terms: [deleted, upbeat-main5469, solid, statistical, good, committing, statistics, exercise]
     section: Comments

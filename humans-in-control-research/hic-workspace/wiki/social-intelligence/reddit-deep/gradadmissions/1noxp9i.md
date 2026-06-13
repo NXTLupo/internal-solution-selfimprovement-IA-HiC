@@ -38,25 +38,25 @@ chunks:
     key_terms: [get, "don't", grad, something, applying, yourself, execute, "you're"]
     token_count: 301
   - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c4"
-    char_span: [7786, 9414]
+    char_span: [7785, 9413]
     sentence_count: 9
     key_terms: [internationaldiary, got, topcryptographer5436, gpa, northwestern, universities, shot, experience]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c5"
-    char_span: [9416, 11107]
+    char_span: [9415, 11106]
     sentence_count: 20
     key_terms: [because, needed, get, professors, predictor, professor, statement, applying]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c6"
-    char_span: [11109, 12854]
+    char_span: [11108, 12853]
     sentence_count: 22
     key_terms: [get, university, professor, program, several, advice, helped, topcryptographer5436]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/gradadmissions/1noxp9i.md#c7"
-    char_span: [12856, 13768]
+    char_span: [12855, 13767]
     sentence_count: 6
     key_terms: [school, gpa, grad, relationships, kimimariexo, analytical, professors, rejections]
     section: Comments

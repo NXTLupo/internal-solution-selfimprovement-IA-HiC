@@ -15,12 +15,12 @@ industries: [real_estate, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/cdafbd801d.md#c0"
-    char_span: [0, 1973]
+    char_span: [0, 1972]
     sentence_count: 16
     key_terms: [estate, real, nightlife, bartending, careerguidance, job, experience, developer]
-    token_count: 454
+    token_count: 453
   - id: "articles/reddit-deep-r-careerguidance/cdafbd801d.md#c1"
-    char_span: [1975, 3794]
+    char_span: [1974, 3793]
     sentence_count: 14
     key_terms: [sue, fafnirthesteed, sales, development, like, pay, harassment, agreement]
     token_count: 447

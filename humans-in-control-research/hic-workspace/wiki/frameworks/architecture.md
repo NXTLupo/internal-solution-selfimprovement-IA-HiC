@@ -11,61 +11,61 @@ tags: [architecture, c4-model, togaf, well-architected, system-design]
 evidence_count: 0
 chunks:
   - id: "frameworks/architecture.md#c0"
-    char_span: [0, 798]
+    char_span: [0, 797]
     sentence_count: 5
     key_terms: [architecture, well-architected, specification, technology, framework, provides, model, togaf]
     section: Canonical Framework
     token_count: 138
   - id: "frameworks/architecture.md#c1"
-    char_span: [827, 3354]
+    char_span: [826, 3353]
     sentence_count: 19
     key_terms: [architecture, section, state, business, capabilities, technical, cost, debt]
     section: Required Sections (20)
     token_count: 508
   - id: "frameworks/architecture.md#c2"
-    char_span: [3356, 5812]
+    char_span: [3355, 5811]
     sentence_count: 16
     key_terms: [data, section, management, container, integration, address, level, architecture]
     section: Required Sections (20)
     token_count: 476
   - id: "frameworks/architecture.md#c3"
-    char_span: [5814, 8299]
+    char_span: [5813, 8298]
     sentence_count: 15
     key_terms: [architecture, section, technology, deployment, adrs, availability, state, measurement]
     section: Required Sections (20)
     token_count: 491
   - id: "frameworks/architecture.md#c4"
-    char_span: [8301, 9536]
+    char_span: [8300, 9535]
     sentence_count: 6
     key_terms: [architecture, risks, migration, risk, strategy, organizational, probability, governance]
     section: Required Sections (20)
     token_count: 241
   - id: "frameworks/architecture.md#c5"
-    char_span: [9582, 11501]
+    char_span: [9581, 11500]
     sentence_count: 11
     key_terms: [architecture, integration, address, define, personalization, real-time, management, data]
     section: CX-Specific Architecture Considerations
     token_count: 334
   - id: "frameworks/architecture.md#c6"
-    char_span: [11545, 13012]
+    char_span: [11544, 13011]
     sentence_count: 8
     key_terms: [architecture, security, everything, technology, rationale, components, generated, reference]
     section: Anti-Patterns (Generation Must Avoid)
     token_count: 239
   - id: "frameworks/architecture.md#c7"
-    char_span: [13032, 14043]
+    char_span: [13031, 14042]
     sentence_count: 1
     key_terms: [minimum, section, adr, checklist, decisions, migration, contains, register]
     section: Quality Gates
     token_count: 232
   - id: "frameworks/architecture.md#c8"
-    char_span: [14073, 15540]
+    char_span: [14072, 15539]
     sentence_count: 4
     key_terms: [architecture, technology, solutions, business, decision, document, warrants, address]
     section: Generation Instructions
     token_count: 295
   - id: "frameworks/architecture.md#c9"
-    char_span: [15563, 15943]
+    char_span: [15562, 15942]
     sentence_count: 1
     key_terms: [architecture, frameworks, anti-patterns, framework, strategy, architectures, requirements, evaluating]
     section: Cross-References

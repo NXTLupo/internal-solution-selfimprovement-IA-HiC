@@ -26,25 +26,25 @@ chunks:
     key_terms: [having, thank, realistically, community, education, situation, judgment, terrible]
     token_count: 109
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c2"
-    char_span: [2648, 3922]
+    char_span: [2647, 3921]
     sentence_count: 9
     key_terms: [college, community, years, get, semester, liberal, turbulent-artist961, loans]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c3"
-    char_span: [3924, 5949]
+    char_span: [3923, 5948]
     sentence_count: 18
     key_terms: [transfer, college, school, internships, live, experience, community, semester]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c4"
-    char_span: [5951, 7250]
+    char_span: [5950, 7249]
     sentence_count: 16
     key_terms: [college, academic, take, experience, community, education, students, classes]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1lcn1og.md#c5"
-    char_span: [7252, 8438]
+    char_span: [7251, 8437]
     sentence_count: 11
     key_terms: [arts, college, liberal, degree, school, community, ildadof3, family]
     section: Comments

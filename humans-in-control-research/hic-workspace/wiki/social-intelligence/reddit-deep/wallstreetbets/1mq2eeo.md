@@ -33,43 +33,43 @@ chunks:
     key_terms: [reddit, png, committee, rddt, diverse, preview, format, https]
     token_count: 465
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c3"
-    char_span: [6160, 6462]
+    char_span: [6159, 6461]
     sentence_count: 1
     key_terms: [comments, total, wallstreetbets, submissions, visualmod, previous, account, months]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c4"
-    char_span: [6464, 8293]
+    char_span: [6463, 8292]
     sentence_count: 13
     key_terms: [buy, reddit, ipo, myself, stock, like, wsb, position]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c5"
-    char_span: [8295, 9723]
+    char_span: [8294, 9722]
     sentence_count: 19
     key_terms: [ticker, platform, usually, growth, green, price, back, rddt]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c6"
-    char_span: [9725, 10768]
+    char_span: [9724, 10767]
     sentence_count: 8
     key_terms: [looking, fundamentals, time, astrology, technical, against, growing, ripping]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c7"
-    char_span: [10770, 12386]
+    char_span: [10769, 12385]
     sentence_count: 14
     key_terms: [buy, bought, market, time, technicals, obviously, anything, netflix]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c8"
-    char_span: [12388, 13520]
+    char_span: [12387, 13519]
     sentence_count: 8
     key_terms: [roas, winners, though, takebackyourfuture, organizational, techtuna1200, nygiants181, impressive]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mq2eeo.md#c9"
-    char_span: [13522, 14963]
+    char_span: [13521, 14962]
     sentence_count: 8
     key_terms: [bots, people, internet, buying, stupid, alarmingadvertising5, alwaysfavoriteasian, users]
     section: Comments

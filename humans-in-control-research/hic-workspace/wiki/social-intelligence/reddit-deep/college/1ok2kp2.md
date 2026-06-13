@@ -21,7 +21,7 @@ chunks:
     key_terms: [business, engineering, like, master, something, comments, software, college]
     token_count: 391
   - id: "social-intelligence/reddit-deep/college/1ok2kp2.md#c1"
-    char_span: [1754, 3690]
+    char_span: [1753, 3689]
     sentence_count: 12
     key_terms: [business, research, industry, degree, cheap-kaleidoscope91, good, "i've", want]
     section: Comments

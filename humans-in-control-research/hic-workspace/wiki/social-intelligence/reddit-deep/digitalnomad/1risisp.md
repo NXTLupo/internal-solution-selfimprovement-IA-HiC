@@ -33,31 +33,31 @@ chunks:
     key_terms: [asia, "it's", flight, hour, america, "i've", jet, lag]
     token_count: 363
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c3"
-    char_span: [4368, 6383]
+    char_span: [4367, 6382]
     sentence_count: 16
     key_terms: [year, get, "i'd", twice, settingintentions, thanksgiving, time, conditions]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c4"
-    char_span: [6385, 8270]
+    char_span: [6384, 8269]
     sentence_count: 15
     key_terms: ["i'm", parents, years, bit, relationship, adult, like, realizing]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c5"
-    char_span: [8272, 10353]
+    char_span: [8271, 10352]
     sentence_count: 22
     key_terms: [parents, jetlag, settingintentions, least, money, visit, bobachonker, end]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c6"
-    char_span: [10355, 12431]
+    char_span: [10354, 12430]
     sentence_count: 21
     key_terms: [flight, hours, hour, business, because, class, sleep, get]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/digitalnomad/1risisp.md#c7"
-    char_span: [12433, 13792]
+    char_span: [12432, 13791]
     sentence_count: 11
     key_terms: [settingintentions, asia, america, korea, maybe, considering, something, flights]
     section: Comments

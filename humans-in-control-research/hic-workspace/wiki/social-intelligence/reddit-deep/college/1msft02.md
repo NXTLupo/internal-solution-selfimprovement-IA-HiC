@@ -23,19 +23,19 @@ chunks:
     key_terms: [like, college, university, comments, commute, school, guess, makes]
     token_count: 231
   - id: "social-intelligence/reddit-deep/college/1msft02.md#c1"
-    char_span: [963, 2540]
+    char_span: [962, 2539]
     sentence_count: 11
     key_terms: [involved, campus, friends, deleted, started, events, school, clubs]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/college/1msft02.md#c2"
-    char_span: [2542, 4695]
+    char_span: [2541, 4694]
     sentence_count: 30
     key_terms: [campus, home, try, commuter, classes, college, around, clubs]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1msft02.md#c3"
-    char_span: [4697, 6433]
+    char_span: [4696, 6432]
     sentence_count: 19
     key_terms: [college, campus, involved, friends, living, fun, get, like]
     section: Comments

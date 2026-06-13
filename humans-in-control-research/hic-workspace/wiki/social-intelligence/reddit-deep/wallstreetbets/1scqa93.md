@@ -28,37 +28,37 @@ chunks:
     key_terms: ["capital's", positions, "shouldn't", bullshit, duration, software, stargate, supposed]
     token_count: 148
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c2"
-    char_span: [2566, 4076]
+    char_span: [2565, 4075]
     sentence_count: 6
     key_terms: [ai-moderator, saas, together, discord, garbage, massive, boomer, entire]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c3"
-    char_span: [4078, 5002]
+    char_span: [4077, 5001]
     sentence_count: 5
     key_terms: [humans, humble-section-5638, years, need, paid, s1n0d3utscht3k, seafinding9818, nomynametoday]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c4"
-    char_span: [5004, 6297]
+    char_span: [5003, 6296]
     sentence_count: 11
     key_terms: [work, "doesn't", boss, need, months, sentientshadeofgreen, doesn, speed]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c5"
-    char_span: [6299, 8424]
+    char_span: [6298, 8423]
     sentence_count: 18
     key_terms: [email, work, worked, based, build, did, dos, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c6"
-    char_span: [8143, 8433]
+    char_span: [8142, 8432]
     sentence_count: 3
     key_terms: [based, email, working, dos, computers, remember, transfer, mailmen]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/wallstreetbets/1scqa93.md#c7"
-    char_span: [8435, 9347]
+    char_span: [8434, 9346]
     sentence_count: 6
     key_terms: [going, don, customers, software, finally, systems, hidden, above]
     section: Comments

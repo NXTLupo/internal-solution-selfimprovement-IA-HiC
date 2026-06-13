@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/ecbfde692a.md#c0"
-    char_span: [0, 1941]
+    char_span: [0, 1940]
     sentence_count: 14
     key_terms: [like, careerguidance, feel, background, government, academic, comments, everyone]
-    token_count: 432
+    token_count: 431
 ---
 # Title: How do you bridge the "knowledge gap" for career and academic paths? Looking for advice.
 

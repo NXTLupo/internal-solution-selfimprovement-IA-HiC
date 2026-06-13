@@ -28,19 +28,19 @@ chunks:
     key_terms: [experience, medical, closer, idea, time, year, comfortable, environment]
     token_count: 223
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c2"
-    char_span: [2765, 5014]
+    char_span: [2764, 5013]
     sentence_count: 18
     key_terms: [research, academia, time, thousandshardships, teaching, opportunities, did, job]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c3"
-    char_span: [5016, 7344]
+    char_span: [5015, 7343]
     sentence_count: 17
     key_terms: [experience, else, culture, "you're", astrophysics, organization, being, doing]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/askacademia/1tbeihx.md#c4"
-    char_span: [7347, 8931]
+    char_span: [7346, 8930]
     sentence_count: 11
     key_terms: [academia, country, potential, previous, research, similar, better, sounds]
     section: Comments

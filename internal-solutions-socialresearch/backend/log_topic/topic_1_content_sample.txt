@@ -1,13 +1,13 @@
 Topic 1 - Content Sample
-Number of content items: 12
-Top words: models, local, claude, finance, mahoraga, cs, run
+Number of content items: 25
+Top words: vanguard, fee, advisor, program, account, service, years
 
-Content 1 (length: 312 chars):
-Running out of Claude credits? Mahoraga is here. Northeastern gives us 300 a month, 500 if you're lucky, and premium seats if you're really lucky. By no means is that a small amount; it really is a useful resource that all students should honestly be abusing. (not to cheat on your NUpath courses, but to learn!)
+Content 1 (length: 350 chars):
+Vanguard decided to FAFO with their $100 full transfer out fee, so now I'm cancelling my advisor services Let me preface this by saying I know I'm an insignificant fish in their big pool of investors.  They don't care about my fees and won't notice if I drop them.  I'm simply sharing if anyone else is on the fence about Personal Advisor services...
 
-Content 2 (length: 347 chars):
-I built **Mahoraga**, which routes simple tasks using contextual bandits (LinUCB) to local models to cut costs, as well as increase speed. Most work you do consists of bash, edit, etc. honestly pretty quick and light commands that claude really shouldn't have to run. All local inference, all free. Cloud escalation exists but only fires on retry.
+Content 2 (length: 194 chars):
+EDIT: Fixed my outdated use of "PAS" to mean "Personal Advisor Services"; Vanguard now calls that "PA" and "PAS" is the 500k+ "Select" tier. Their digital advisor is basically VTI-VXUS-BND-BNDX.
 
-Content 3 (length: 304 chars):
-However tokens are getting more expensive, models are heavier, and i know a bunch of kids that run out before the end of the month. they wait for northeastern, but there are a million students here, and they just can't give us more and more. I personally use claude in my co-op as well, which eats usage.
+Content 3 (length: 620 chars):
+I have to say that my first phone contact them 2 days ago was very unimpressive. Not the people, the actual phone quality was so bad I had to have them call me back when their office was quieter. When they did call back the connection was so bad I had to have them repeat themselves way too many times. If they can't get their phones right... it did not inspire confidence. (Fwiw my hearing is fine, on an iPhone, speaker and earphones.) Thank you. Having been with Vanguard for decades, I finally moved over to Schwab for their customer service. I do still keep the majority of my assets in Vanguard funds/ETFs however.
 

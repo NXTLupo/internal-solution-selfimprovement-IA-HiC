@@ -26,49 +26,49 @@ chunks:
     key_terms: [productivity, causing, economy, higher, years, been, fed, commendable]
     token_count: 209
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c2"
-    char_span: [3191, 4462]
+    char_span: [3190, 4461]
     sentence_count: 7
     key_terms: [trump, going, everything, economy, nothing, fucked, people, powell]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c3"
-    char_span: [4464, 5210]
+    char_span: [4463, 5209]
     sentence_count: 4
     key_terms: [everything, alone, fluid-expert-4363, bros, left, iwubinvesting, macro-economy, deyachtifier]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c4"
-    char_span: [5212, 7065]
+    char_span: [5211, 7064]
     sentence_count: 11
     key_terms: [trump, kamala, right, everything, democrats, economy, elected, exactly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c5"
-    char_span: [6836, 8610]
+    char_span: [6835, 8609]
     sentence_count: 8
     key_terms: [tech, people, recession, low, market, years, been, job]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c6"
-    char_span: [8612, 10896]
+    char_span: [8611, 10895]
     sentence_count: 26
     key_terms: [offshore, workers, access, build, years, "it's", databases, reporting]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c7"
-    char_span: [10898, 12912]
+    char_span: [10897, 12911]
     sentence_count: 12
     key_terms: [changed, alkaliphiles, "don't", low, inflation, thousands, hundreds, illegal]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c8"
-    char_span: [12914, 14605]
+    char_span: [12913, 14604]
     sentence_count: 9
     key_terms: [time, tariffs, prices, price, immediately, eventually, inflation, provided]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/stocks/1rxdlgn.md#c9"
-    char_span: [14607, 15815]
+    char_span: [14606, 15814]
     sentence_count: 7
     key_terms: [inflation, believe, concern, people, strong, effectadventurous764, money, "we're"]
     section: Comments

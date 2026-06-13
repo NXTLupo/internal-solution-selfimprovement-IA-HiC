@@ -21,55 +21,55 @@ chunks:
     key_terms: [completely, comments, feels, right, years, been, get, job]
     token_count: 223
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c1"
-    char_span: [991, 2904]
+    char_span: [990, 2903]
     sentence_count: 19
     key_terms: [people, departments, work, contract, already, better, faster, single]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c2"
-    char_span: [2906, 4746]
+    char_span: [2905, 4745]
     sentence_count: 12
     key_terms: [seeing, companies, layoffs, numbers, years, billionares, job, creation]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c3"
-    char_span: [4751, 5849]
+    char_span: [4750, 5848]
     sentence_count: 10
     key_terms: [ubi, something, universal, support, having, states, "that's", maybe]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c4"
-    char_span: [5851, 6929]
+    char_span: [5850, 6928]
     sentence_count: 6
     key_terms: [experience, pressure, applesbananasrhinoc, doubt, knew, like, expectations, restrictions]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c5"
-    char_span: [6931, 8644]
+    char_span: [6930, 8643]
     sentence_count: 14
     key_terms: [job, people, going, because, market, collapse, probably, awful]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c6"
-    char_span: [8646, 11101]
+    char_span: [8645, 11100]
     sentence_count: 13
     key_terms: [collective, power, understanding, ruling, class, leverage, boomers, housing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c7"
-    char_span: [11104, 13526]
+    char_span: [11103, 13525]
     sentence_count: 15
     key_terms: [collective, public, power, capable, people, understanding, stand, imagination]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c8"
-    char_span: [13528, 15507]
+    char_span: [13527, 15506]
     sentence_count: 16
     key_terms: [like, office, hopelessness, politicians, "it's", because, "doesn't", wealthy]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/jobs/1tjlq91.md#c9"
-    char_span: [15509, 15824]
+    char_span: [15508, 15823]
     sentence_count: 1
     key_terms: [rdtranger6969, overthinking, something, navigate, projects, shipping, traction, because]
     section: Comments

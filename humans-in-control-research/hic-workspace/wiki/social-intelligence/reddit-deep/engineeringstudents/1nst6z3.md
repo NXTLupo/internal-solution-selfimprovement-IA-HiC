@@ -21,13 +21,13 @@ chunks:
     key_terms: [engineering, electrical, engineeringstudents, currently, graduates, comments, students, advice]
     token_count: 250
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c1"
-    char_span: [1182, 3319]
+    char_span: [1181, 3318]
     sentence_count: 36
     key_terms: [engineering, degree, though, crazy, been, classes, college, comfortable]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nst6z3.md#c2"
-    char_span: [3321, 4621]
+    char_span: [3320, 4620]
     sentence_count: 17
     key_terms: [power, electricity, connection, graduate, industry, physics, degree, except]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [content, structured, seo, deeplearning, responses, comments, thinking, keyword]
     token_count: 367
   - id: "social-intelligence/reddit-deep/deeplearning/1smypb9.md#c1"
-    char_span: [1768, 3045]
+    char_span: [1767, 3044]
     sentence_count: 5
     key_terms: [entity, content, specifically, mentiondesk, keyword, similar, clean, found]
     section: Comments

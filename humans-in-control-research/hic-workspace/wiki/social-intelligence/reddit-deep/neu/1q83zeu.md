@@ -16,7 +16,7 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1q83zeu.md#c0"
-    char_span: [0, 779]
+    char_span: [0, 778]
     sentence_count: 6
     key_terms: [opportunities, northeastern, full-time, comments, science, admit, co-op, pure-equipment8795]
     token_count: 200

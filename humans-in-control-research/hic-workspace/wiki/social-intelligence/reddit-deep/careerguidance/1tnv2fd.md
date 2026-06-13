@@ -33,13 +33,13 @@ chunks:
     key_terms: [career, good, genuinely, therapist, earlier, people, trying, "you've"]
     token_count: 226
   - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c3"
-    char_span: [5235, 7294]
+    char_span: [5234, 7293]
     sentence_count: 17
     key_terms: [performance, people, job, get, "it's", life, work, negative]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/careerguidance/1tnv2fd.md#c4"
-    char_span: [7296, 8498]
+    char_span: [7295, 8497]
     sentence_count: 10
     key_terms: [toxic, scheduled, helpful, someone, "didn't", giving, books, thank]
     section: Comments

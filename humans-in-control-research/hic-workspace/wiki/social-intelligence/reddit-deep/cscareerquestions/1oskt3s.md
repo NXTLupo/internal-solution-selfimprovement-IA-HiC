@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, start, internships, experience, applying, comments, personal, semester]
     token_count: 151
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oskt3s.md#c1"
-    char_span: [688, 1627]
+    char_span: [687, 1626]
     sentence_count: 5
     key_terms: [luunnn, thanks, "you're", start, good, "it's", use, weak]
     section: Comments

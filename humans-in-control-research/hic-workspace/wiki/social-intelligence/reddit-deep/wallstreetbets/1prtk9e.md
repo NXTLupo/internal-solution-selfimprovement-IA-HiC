@@ -33,19 +33,19 @@ chunks:
     key_terms: [company, shares, volume, spacs, best, low, old, regulatory]
     token_count: 217
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c3"
-    char_span: [5193, 5443]
+    char_span: [5192, 5442]
     sentence_count: 1
     key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c4"
-    char_span: [5445, 6812]
+    char_span: [5444, 6811]
     sentence_count: 9
     key_terms: [drseuss1020, pct, questions, discord, https, got, long, open]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/wallstreetbets/1prtk9e.md#c5"
-    char_span: [6814, 8258]
+    char_span: [6813, 8257]
     sentence_count: 13
     key_terms: [drseuss1020, too, d159fc3e189dba09cdb55fab67927ac7a5875c3a, money, preview, format, myself, zealousidealship3215]
     section: Comments

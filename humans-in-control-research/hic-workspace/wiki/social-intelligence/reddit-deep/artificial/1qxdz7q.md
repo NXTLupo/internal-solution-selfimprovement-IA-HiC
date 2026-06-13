@@ -28,19 +28,19 @@ chunks:
     key_terms: [context, getting, pricing, writing, claude, gpt-5, opus, claude-opus-4-6]
     token_count: 162
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c2"
-    char_span: [2236, 4365]
+    char_span: [2235, 4364]
     sentence_count: 12
     key_terms: [models, use, model, real, because, "don't", cost, own]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c3"
-    char_span: [4367, 6172]
+    char_span: [4366, 6171]
     sentence_count: 10
     key_terms: ["don't", model, believe, happens, writing, models, openai, "that's"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/artificial/1qxdz7q.md#c4"
-    char_span: [6174, 7020]
+    char_span: [6173, 7019]
     sentence_count: 7
     key_terms: [use, production, reasoning, terminal, routing, codex, model, needle-in-haystack]
     section: Comments

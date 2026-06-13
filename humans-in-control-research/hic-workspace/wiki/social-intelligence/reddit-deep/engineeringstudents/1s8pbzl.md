@@ -23,13 +23,13 @@ chunks:
     key_terms: [experience, engineeringstudents, comments, overthinking, reddit-deep, restaurants, florensic1, employers]
     token_count: 165
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c1"
-    char_span: [713, 2184]
+    char_span: [712, 2183]
     sentence_count: 14
     key_terms: [freshman, experience, engineering, internships, get, like, year, vibrations]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8pbzl.md#c2"
-    char_span: [2186, 4432]
+    char_span: [2185, 4431]
     sentence_count: 13
     key_terms: [experience, because, "you're", hired, college, graduation, interviews, interview]
     section: Comments

@@ -28,31 +28,31 @@ chunks:
     key_terms: [seems, get, like, responsibility, internship, anything, assuming, nowadays]
     token_count: 90
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c2"
-    char_span: [2489, 4530]
+    char_span: [2488, 4529]
     sentence_count: 17
     key_terms: [wrong, emotions, companies, don, gpa, deleted, down, "it's"]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c3"
-    char_span: [4532, 5941]
+    char_span: [4531, 5940]
     sentence_count: 13
     key_terms: ["it's", reality, normal, emotions, happened, because, feel, something]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c4"
-    char_span: [5943, 7876]
+    char_span: [5942, 7875]
     sentence_count: 21
     key_terms: [gpa, "don't", interview, because, juscurious21, requirement, list, professors]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c5"
-    char_span: [7878, 9936]
+    char_span: [7877, 9935]
     sentence_count: 13
     key_terms: [gpa, questions, applying, niggamusprime17, proficiencies, keep, like, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1krfosj.md#c6"
-    char_span: [9940, 11404]
+    char_span: [9939, 11403]
     sentence_count: 13
     key_terms: ["didn't", manufacturing, engineering, get, gpa, take, something, graduate]
     section: Comments

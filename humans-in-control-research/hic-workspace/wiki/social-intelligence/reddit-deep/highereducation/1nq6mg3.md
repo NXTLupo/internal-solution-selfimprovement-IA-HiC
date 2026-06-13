@@ -26,19 +26,19 @@ chunks:
     key_terms: [approaches, different, objection, biggest, curious, dropout, hardest, schools]
     token_count: 29
   - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c2"
-    char_span: [2216, 4837]
+    char_span: [2215, 4836]
     sentence_count: 22
     key_terms: [schools, different, application, get, students, better, school, researching]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c3"
-    char_span: [4839, 6239]
+    char_span: [4838, 6238]
     sentence_count: 3
     key_terms: [strategy, schools, take, different, marketing, tracking, deleted, decent]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/highereducation/1nq6mg3.md#c4"
-    char_span: [6241, 7499]
+    char_span: [6240, 7498]
     sentence_count: 15
     key_terms: ["don't", crm, "it's", like, marketing, deadline, students, always]
     section: Comments

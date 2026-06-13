@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, comments, industry, career, life, amanhasnoname54, increasingly, reddit-deep]
     token_count: 155
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c1"
-    char_span: [618, 1719]
+    char_span: [617, 1718]
     sentence_count: 10
     key_terms: [skills, trying, silenceredirectshere, fire, get, "i'm", like, quit]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c2"
-    char_span: [1723, 3742]
+    char_span: [1722, 3741]
     sentence_count: 10
     key_terms: [farming, money, day, jobs, something, organic, someone, point]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c3"
-    char_span: [3744, 4500]
+    char_span: [3743, 4499]
     sentence_count: 7
     key_terms: [old, personally, dentist, hardly, money, like, want, latenighredditor]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c4"
-    char_span: [4502, 6425]
+    char_span: [4501, 6424]
     sentence_count: 5
     key_terms: [work, dentistry, nightmare, career, fouoifjefoijvnioviow, enjoy, money, day]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c5"
-    char_span: [6429, 8475]
+    char_span: [6428, 8474]
     sentence_count: 9
     key_terms: [good, law, work, immediately, willingness, journalism, asshole, around]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c6"
-    char_span: [8478, 10540]
+    char_span: [8477, 10539]
     sentence_count: 15
     key_terms: [get, dangerouspurpose5661, career, people, never, like, tech, fitness]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l6era4.md#c7"
-    char_span: [10542, 10759]
+    char_span: [10541, 10758]
     sentence_count: 2
     key_terms: [former, billboard, approved, coworker, manager, project, realtor, right]
     section: Comments

@@ -21,25 +21,25 @@ chunks:
     key_terms: [internships, experience, cscareerquestions, because, comments, personal, projects, without]
     token_count: 201
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c1"
-    char_span: [922, 3155]
+    char_span: [921, 3154]
     sentence_count: 13
     key_terms: [projects, internships, matter, people, impossible, got, "it's", experience]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c2"
-    char_span: [3157, 5065]
+    char_span: [3156, 5064]
     sentence_count: 16
     key_terms: [startup, accomplishedsea8675, different, building, getting, years, big, tech]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c3"
-    char_span: [5067, 7491]
+    char_span: [5066, 7490]
     sentence_count: 13
     key_terms: [projects, skills, interviews, personal, school, decisions, lot, getting]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7jdjy.md#c4"
-    char_span: [7493, 8305]
+    char_span: [7492, 8304]
     sentence_count: 5
     key_terms: [cooked, independent-dish-128, hot-conference-9129, story, according-emu-8721, brave-finding-3866, hard, job]
     section: Comments

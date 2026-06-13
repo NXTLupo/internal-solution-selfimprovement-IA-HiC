@@ -18,12 +18,12 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rsvgb7.md#c0"
-    char_span: [0, 2182]
+    char_span: [0, 2181]
     sentence_count: 7
     key_terms: [seattle, northeastern, campus, experience, co-op, university, boston, students]
-    token_count: 504
+    token_count: 503
   - id: "social-intelligence/reddit-deep/neu/1rsvgb7.md#c1"
-    char_span: [2184, 2520]
+    char_span: [2183, 2519]
     sentence_count: 4
     key_terms: [students, seattle, internships, appreciate, especially, graduation, full-time, long-term]
     token_count: 71

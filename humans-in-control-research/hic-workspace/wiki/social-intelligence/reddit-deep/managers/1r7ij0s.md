@@ -23,19 +23,19 @@ chunks:
     key_terms: [team, in-person, comments, managers, managing, company, office, remote]
     token_count: 180
   - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c1"
-    char_span: [781, 1352]
+    char_span: [780, 1351]
     sentence_count: 5
     key_terms: [accept, higher, level, team, comfortable, established, experienced, temptation]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c2"
-    char_span: [1354, 3324]
+    char_span: [1353, 3323]
     sentence_count: 14
     key_terms: [team, day, office, opportunities, expectations, good, lot, time]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/managers/1r7ij0s.md#c3"
-    char_span: [3326, 3843]
+    char_span: [3325, 3842]
     sentence_count: 6
     key_terms: [want, illustrious-pass-546, get, team, established, downstream, impression, dedicated]
     section: Comments

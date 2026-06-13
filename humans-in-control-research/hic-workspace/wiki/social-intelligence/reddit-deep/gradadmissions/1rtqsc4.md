@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rtqsc4.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rtqsc4/canada_grad_school_admission_without_official/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Biological Sciences"
 extracted_at: "2026-06-06T23:23:15.587Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rtqsc4.md#c0"
+    char_span: [0, 828]
+    sentence_count: 5
+    key_terms: [admission, transcripts, get, official, gradadmissions, comments, "don't", want]
+    token_count: 189
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rtqsc4.md#c1"
+    char_span: [843, 1381]
+    sentence_count: 4
+    key_terms: [transcripts, schools, circumstances, admissions, afterwards, definitely, understand, unofficial]
+    section: Comments
+    token_count: 113
 ---
-
 # Canada grad school admission without official transcripts
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rtqsc4/canada_grad_school_admission_without_official/)

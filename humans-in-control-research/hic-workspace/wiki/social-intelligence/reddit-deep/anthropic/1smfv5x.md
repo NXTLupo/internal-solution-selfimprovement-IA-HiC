@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1smfv5x.md#c0"
-    char_span: [0, 257]
+    char_span: [0, 256]
     sentence_count: 1
     key_terms: [anthropic, comments, customization, reddit-deep, ankammusic, runbook, claude, posted]
-    token_count: 73
+    token_count: 72
 ---
 # Claude Code prompt customization runbook
 

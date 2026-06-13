@@ -28,61 +28,61 @@ chunks:
     key_terms: [bali, real, destinations, phase, "we've", sustainable, get, resilience]
     token_count: 468
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c2"
-    char_span: [4177, 5977]
+    char_span: [4176, 5976]
     sentence_count: 16
     key_terms: [longer, "we're", home, europe, months, stays, definitely, lifestyle]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c3"
-    char_span: [5979, 8156]
+    char_span: [5978, 8155]
     sentence_count: 18
     key_terms: [been, living, years, time, hybrid, being, "we've", full]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c4"
-    char_span: [8158, 10135]
+    char_span: [8157, 10134]
     sentence_count: 15
     key_terms: [relationships, back, retirement, outside, partner, project, thanks, doing]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c5"
-    char_span: [10137, 12007]
+    char_span: [10136, 12006]
     sentence_count: 11
     key_terms: [having, lifestyle, someone, always, "you're", years, inheritance, experience]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c6"
-    char_span: [12009, 14086]
+    char_span: [12008, 14085]
     sentence_count: 23
     key_terms: [doing, "don't", like, time, expensive, something, friendly, because]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c7"
-    char_span: [14088, 16230]
+    char_span: [14087, 16229]
     sentence_count: 17
     key_terms: [reality, working, "you're", right, hard, business, people, never]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c8"
-    char_span: [16232, 18225]
+    char_span: [16231, 18224]
     sentence_count: 12
     key_terms: [costs, year, americas, monthly, europe, rates, asia, boutique]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c9"
-    char_span: [18227, 20466]
+    char_span: [18226, 20465]
     sentence_count: 17
     key_terms: [infrastructure, island, year, remotely, hopping, income, exploration, caribbean]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c10"
-    char_span: [20468, 22149]
+    char_span: [20467, 22148]
     sentence_count: 10
     key_terms: [hobbies, exploration, restaurants, gear, occasional, different, somewhere, nomading]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/digitalnomad/1m83gdd.md#c11"
-    char_span: [22151, 23280]
+    char_span: [22150, 23279]
     sentence_count: 11
     key_terms: [visa, nomad, possible, thinking, digital, spain, like, self-employment]
     section: Comments

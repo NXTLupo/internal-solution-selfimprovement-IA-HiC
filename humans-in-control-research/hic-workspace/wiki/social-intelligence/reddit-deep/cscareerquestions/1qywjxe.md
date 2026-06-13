@@ -26,79 +26,79 @@ chunks:
     key_terms: [land, jobs, analogy, market, "don't", great, money, thats]
     token_count: 102
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c2"
-    char_span: [2488, 4605]
+    char_span: [2487, 4604]
     sentence_count: 22
     key_terms: [passion, industry, someone, become, actor, acting, "don't", point]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c3"
-    char_span: [4607, 6685]
+    char_span: [4606, 6684]
     sentence_count: 20
     key_terms: [passion, successful, dentist, acting, actor, important, reasoning, everyone]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c4"
-    char_span: [6687, 8567]
+    char_span: [6686, 8566]
     sentence_count: 8
     key_terms: [like, pretty, job, dentists, practice, because, dentist, offices]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c5"
-    char_span: [8569, 10412]
+    char_span: [8568, 10411]
     sentence_count: 14
     key_terms: [people, passion, like, work, software, hamster, almost, "don't"]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c6"
-    char_span: [10414, 12224]
+    char_span: [10413, 12223]
     sentence_count: 8
     key_terms: [everywhere, get, work, passion, need, probably, software, dollar]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c7"
-    char_span: [12226, 14042]
+    char_span: [12225, 14041]
     sentence_count: 11
     key_terms: ["don't", job, lol, work, average, belfort, passion, jordan]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c8"
-    char_span: [14044, 16099]
+    char_span: [14043, 16098]
     sentence_count: 11
     key_terms: [projects, job, passion, need, passionate, class, grinding, without]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c9"
-    char_span: [16101, 17188]
+    char_span: [16100, 17187]
     sentence_count: 12
     key_terms: [grinding, passion, get, keep, life, interest, doctor, people]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c10"
-    char_span: [17190, 18802]
+    char_span: [17189, 18801]
     sentence_count: 11
     key_terms: [absolutely, apexvice88, nowadays, software, typical, coping, dental, people]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c11"
-    char_span: [18804, 20609]
+    char_span: [18803, 20608]
     sentence_count: 12
     key_terms: [expectations, grind, swe, reasonable, thinking, dentist, setting, "there's"]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c12"
-    char_span: [20611, 22192]
+    char_span: [20610, 22191]
     sentence_count: 15
     key_terms: [passionate, senior, field, passion, people, good, job, need]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c13"
-    char_span: [22194, 24103]
+    char_span: [22193, 24102]
     sentence_count: 13
     key_terms: [programming, passion, senior, years, been, code, dev, engineer]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qywjxe.md#c14"
-    char_span: [24105, 24798]
+    char_span: [24104, 24797]
     sentence_count: 3
     key_terms: [problems, field, c-u-in-da-ballpit, here, time, apexvice88, collecting, management]
     section: Comments

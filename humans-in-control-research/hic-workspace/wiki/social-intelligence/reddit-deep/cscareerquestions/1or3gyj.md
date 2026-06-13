@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1or3gyj/my_experience_interviewing_in_2025_with_5_yoe/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,53 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.633Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c0"
+    char_span: [0, 2179]
+    sentence_count: 18
+    key_terms: [stock, years, amazon, "i've", compensation, target, cscareerquestions, layoffs]
+    token_count: 499
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c1"
+    char_span: [2181, 4489]
+    sentence_count: 23
+    key_terms: [interviews, companies, interview, applications, leetcode, "would've", applied, hellointerview]
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c2"
+    char_span: [4491, 4809]
+    sentence_count: 4
+    key_terms: [offers, comp, extremely, interview, mid-level, accepted, sf-based, startups]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c3"
+    char_span: [4824, 6906]
+    sentence_count: 14
+    key_terms: [interviews, phillythompson, "don't", interview, months, subscriptions, applications, level]
+    section: Comments
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c4"
+    char_span: [6908, 8537]
+    sentence_count: 12
+    key_terms: [interview, subscription, design, content, hellointerview, system, interviewers, worth]
+    section: Comments
+    token_count: 373
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c5"
+    char_span: [8539, 10273]
+    sentence_count: 11
+    key_terms: [nflxengthrowaway, amazon, compensation, questions, getting, premium, maximumsupermarket80, desperatesouthpark]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c6"
+    char_span: [10275, 12314]
+    sentence_count: 18
+    key_terms: [did, long, offer, stack, tech, leetcode, interviewing, job]
+    section: Comments
+    token_count: 453
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1or3gyj.md#c7"
+    char_span: [12316, 12986]
+    sentence_count: 5
+    key_terms: [resume, resumes, "i've", lot, responsibilities, androidcat06, bulletpoints, descriptions]
+    section: Comments
+    token_count: 156
 ---
-
 # My experience interviewing in 2025 with 5 YOE
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1or3gyj/my_experience_interviewing_in_2025_with_5_yoe/)

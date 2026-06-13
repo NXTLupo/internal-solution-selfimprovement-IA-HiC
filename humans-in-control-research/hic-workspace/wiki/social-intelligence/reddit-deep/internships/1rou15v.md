@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, comments, applications, reddit-deep, appreciate, experience, internship, interview]
     token_count: 178
   - id: "social-intelligence/reddit-deep/internships/1rou15v.md#c1"
-    char_span: [733, 2382]
+    char_span: [732, 2381]
     sentence_count: 10
     key_terms: [sometimes, ats, resume, companies, different, because, market, others]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/internships/1rou15v.md#c2"
-    char_span: [2384, 2995]
+    char_span: [2383, 2994]
     sentence_count: 3
     key_terms: [resume, formatting, checking, industry-specific, ats, bit, specifically, especially]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [references, article, journal, exist, assignment, fabricated, professors, integrity]
     token_count: 324
   - id: "social-intelligence/reddit-deep/professors/1pggtm9.md#c1"
-    char_span: [1403, 2744]
+    char_span: [1402, 2743]
     sentence_count: 12
     key_terms: [fake, references, integrity, assignment, fabricated, academic, problem, sources]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/professors/1pggtm9.md#c2"
-    char_span: [2746, 4699]
+    char_span: [2745, 4698]
     sentence_count: 14
     key_terms: [student, integrity, academic, prove, evidence, report, preponderance, time]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1pggtm9.md#c3"
-    char_span: [4701, 6122]
+    char_span: [4700, 6121]
     sentence_count: 8
     key_terms: [integrity, office, academic, students, sources, excuse, "that's", mentalrestaurant1431]
     section: Comments

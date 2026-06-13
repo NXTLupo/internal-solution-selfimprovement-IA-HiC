@@ -21,25 +21,25 @@ chunks:
     key_terms: [williams, applyingtocollege, school, comments, decision, college, unlikely-but-possible, pre-professionalism]
     token_count: 237
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c1"
-    char_span: [1015, 2091]
+    char_span: [1014, 2090]
     sentence_count: 9
     key_terms: [williams, school, financial, likely, people, going, etc, got]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c2"
-    char_span: [2093, 4236]
+    char_span: [2092, 4235]
     sentence_count: 26
     key_terms: [williams, architecture, heard, conversation, great, got, transfer, amazing]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c3"
-    char_span: [4238, 6285]
+    char_span: [4237, 6284]
     sentence_count: 14
     key_terms: [school, went, people, williams, hour-lab140, flamingoordinary2965, cambridge, because]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qbaunx.md#c4"
-    char_span: [6287, 6889]
+    char_span: [6286, 6888]
     sentence_count: 6
     key_terms: [thought, admirable-pie-7731, don, fit, yale, competitive, opportunity, recognition]
     section: Comments

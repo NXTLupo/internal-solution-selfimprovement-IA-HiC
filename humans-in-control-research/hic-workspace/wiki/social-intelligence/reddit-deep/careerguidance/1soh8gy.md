@@ -28,19 +28,19 @@ chunks:
     key_terms: [job, get, medical, coding, people, certification, billing, without]
     token_count: 302
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c2"
-    char_span: [3734, 6035]
+    char_span: [3733, 6034]
     sentence_count: 34
     key_terms: [life, get, take, continue, yourself, excuses, learn, quit]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c3"
-    char_span: [6037, 8332]
+    char_span: [6036, 8331]
     sentence_count: 25
     key_terms: [coding, medical, healthcare, get, lots, alwaysreturning, don, overnight]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1soh8gy.md#c4"
-    char_span: [8334, 9154]
+    char_span: [8333, 9153]
     sentence_count: 9
     key_terms: [coding, people, car, medical, reddit, job, jobs, mind]
     section: Comments

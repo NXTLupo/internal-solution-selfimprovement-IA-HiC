@@ -15,10 +15,10 @@ relevance: 50
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-internships/fc263eddb0.md#c0"
-    char_span: [0, 1534]
+    char_span: [0, 1533]
     sentence_count: 5
     key_terms: [internships, internship, maybe, "you're", nyc, interested, competing, comments]
-    token_count: 356
+    token_count: 355
 ---
 # Last minute internships in NYC as a first year undergraduate student?
 

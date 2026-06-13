@@ -26,13 +26,13 @@ chunks:
     key_terms: [college, career, school, ged, take, work, appreciate, community]
     token_count: 167
   - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c2"
-    char_span: [2765, 4601]
+    char_span: [2764, 4600]
     sentence_count: 16
     key_terms: [ged, get, through, community, college, dropped, school, got]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1nrv6ek.md#c3"
-    char_span: [4603, 6231]
+    char_span: [4602, 6230]
     sentence_count: 15
     key_terms: [school, high, college, ged, through, get, accredited, partially]
     section: Comments

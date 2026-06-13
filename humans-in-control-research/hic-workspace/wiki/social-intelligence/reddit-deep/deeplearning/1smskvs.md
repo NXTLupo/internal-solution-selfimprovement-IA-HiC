@@ -23,13 +23,13 @@ chunks:
     key_terms: [https, distribution, sampling, model, srtrbm-llm-hybrid, org, training, hybrid]
     token_count: 458
   - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c1"
-    char_span: [1828, 4259]
+    char_span: [1827, 4258]
     sentence_count: 13
     key_terms: [samples, sampling, distribution, rbm, energy, detailed, does, balance]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/deeplearning/1smskvs.md#c2"
-    char_span: [4261, 5118]
+    char_span: [4260, 5117]
     sentence_count: 5
     key_terms: [operating, detailed, dynamics, training, balance, regime, chain, non-equilibrium]
     section: Comments

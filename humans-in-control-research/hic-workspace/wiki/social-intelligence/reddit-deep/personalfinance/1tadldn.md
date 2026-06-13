@@ -28,61 +28,61 @@ chunks:
     key_terms: [futures, better, applications, alternative, experience, companies, headcount, profusely]
     token_count: 148
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c2"
-    char_span: [2438, 4323]
+    char_span: [2437, 4322]
     sentence_count: 15
     key_terms: [tools, data, design, new, because, visualization, field, specialized]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c3"
-    char_span: [4325, 6374]
+    char_span: [4324, 6373]
     sentence_count: 9
     key_terms: [information, dashboards, been, enough, good, "it's", use, work]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c4"
-    char_span: [6376, 8404]
+    char_span: [6375, 8403]
     sentence_count: 16
     key_terms: [animation, design, because, development, wraeclast66, work, aesthetic, company]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c5"
-    char_span: [8406, 9554]
+    char_span: [8405, 9553]
     sentence_count: 14
     key_terms: [use, proposals, accounting, platform, company, copilot, change, doing]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c6"
-    char_span: [9556, 11654]
+    char_span: [9555, 11653]
     sentence_count: 19
     key_terms: [sales, technical, experience, instead, infrastructure, person, joscampau1400, relationships]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c7"
-    char_span: [11656, 13796]
+    char_span: [11655, 13795]
     sentence_count: 16
     key_terms: [people, room, want, technical, machine, savings, saying, being]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c8"
-    char_span: [13798, 15662]
+    char_span: [13797, 15661]
     sentence_count: 10
     key_terms: [start, buffinita, job, wait, people, level, applicants, company]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c9"
-    char_span: [15666, 16417]
+    char_span: [15665, 16416]
     sentence_count: 3
     key_terms: [design, library, working, holiday-distance-822, job, kingofmangoes, graduated, recognize]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c10"
-    char_span: [16419, 17924]
+    char_span: [16418, 17923]
     sentence_count: 10
     key_terms: [role, been, "i've", technical, learned, design, months, people]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/personalfinance/1tadldn.md#c11"
-    char_span: [17926, 18923]
+    char_span: [17925, 18922]
     sentence_count: 9
     key_terms: [industrial, maintenance, management, replacing, technical, demand, robots, lazyworkeronreddit]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [university, missouri-rolla, "dad's", paper, askacademia, mcdonnell, aircraft, comments]
     token_count: 385
   - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c1"
-    char_span: [1688, 3501]
+    char_span: [1687, 3500]
     sentence_count: 12
     key_terms: [been, digitized, nasa, https, library, paper, collections, "it's"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c2"
-    char_span: [3503, 4661]
+    char_span: [3502, 4660]
     sentence_count: 9
     key_terms: [librarian, searching, bowen, engineering, journals, library, states, kindofcrazyscientist]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/askacademia/1qy08qz.md#c3"
-    char_span: [4663, 6346]
+    char_span: [4662, 6345]
     sentence_count: 15
     key_terms: [bowen, university, nothing, public, institutions, good, nasa, ntrs]
     section: Comments

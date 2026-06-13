@@ -18,10 +18,10 @@ industries: [ai_research, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1sif2xq.md#c0"
-    char_span: [0, 474]
+    char_span: [0, 473]
     sentence_count: 3
     key_terms: [anthropic, comments, claude, code, thehighnotes, development, interesting, reddit-deep]
-    token_count: 122
+    token_count: 121
 ---
 # Claude Code is my entire development team. Here's the 15-project, 4-machine setup.
 

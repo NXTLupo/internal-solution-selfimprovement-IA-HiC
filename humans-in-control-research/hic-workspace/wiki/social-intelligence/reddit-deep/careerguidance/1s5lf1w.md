@@ -18,10 +18,10 @@ industries: [government, policy, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1s5lf1w.md#c0"
-    char_span: [0, 1457]
+    char_span: [0, 1456]
     sentence_count: 8
     key_terms: [careerguidance, government, financial, long-term, practical, comments, creation, faceless]
-    token_count: 283
+    token_count: 282
 ---
 # What factors should someone consider when deciding whether to leave a stable government job to pursue long-term skill development like learning Chinese versus short-term income opportunities such as faceless content creation?
 

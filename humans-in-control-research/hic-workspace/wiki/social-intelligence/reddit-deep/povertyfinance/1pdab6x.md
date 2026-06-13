@@ -28,37 +28,37 @@ chunks:
     key_terms: [experiences, personal, forward, input, sound, best, dmps, does]
     token_count: 23
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c2"
-    char_span: [1912, 3936]
+    char_span: [1911, 3935]
     sentence_count: 21
     key_terms: [car, "you'll", debt, pay, everything, important, cheaper, enough]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c3"
-    char_span: [3938, 5806]
+    char_span: [3937, 5805]
     sentence_count: 13
     key_terms: ["it's", "you're", big, hard, help, bankruptcy, yourself, already]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c4"
-    char_span: [5808, 7052]
+    char_span: [5807, 7051]
     sentence_count: 7
     key_terms: ["don't", month, get, too, bankruptcy, questions, "it's", look]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c5"
-    char_span: [7054, 9532]
+    char_span: [7053, 9531]
     sentence_count: 27
     key_terms: [hardship, payments, repayment, debt, minimums, because, credit, cash]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c6"
-    char_span: [9184, 11130]
+    char_span: [9183, 11129]
     sentence_count: 14
     key_terms: [dmp, pay, credit, state, love-the-classics, get, need, new]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/povertyfinance/1pdab6x.md#c7"
-    char_span: [11132, 12922]
+    char_span: [11131, 12921]
     sentence_count: 19
     key_terms: [bankruptcy, consider, mortgage, cut, debt, essentials, expenses, interest]
     section: Comments

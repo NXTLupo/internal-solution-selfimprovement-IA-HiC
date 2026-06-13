@@ -18,27 +18,27 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c0"
-    char_span: [0, 265]
+    char_span: [0, 264]
     sentence_count: 1
     key_terms: [gradadmissions, comments, blackberry36, reddit-deep, management, "master's", looking, program]
-    token_count: 73
+    token_count: 72
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c1"
-    char_span: [267, 2419]
+    char_span: [266, 2418]
     sentence_count: 19
     key_terms: [major, health, public, sports, gpa, classes, fsu, management]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c2"
-    char_span: [2159, 4349]
+    char_span: [2158, 4348]
     sentence_count: 16
     key_terms: [experience, myself, sports, gpa, "i'm", helping, journey, program]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c3"
-    char_span: [4061, 4603]
+    char_span: [4060, 4602]
     sentence_count: 6
     key_terms: [along, use, want, fundamentals, connections, recognition, affordable, facility]
     token_count: 131
   - id: "social-intelligence/reddit-deep/gradadmissions/1qp23co.md#c4"
-    char_span: [4605, 4999]
+    char_span: [4604, 4998]
     sentence_count: 7
     key_terms: [thank, read, time, appreciate, commitment, absorbing, knowledge, shanagaes]
     token_count: 88

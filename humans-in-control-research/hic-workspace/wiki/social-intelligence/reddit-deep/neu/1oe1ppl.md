@@ -23,7 +23,7 @@ chunks:
     key_terms: [https, html-starter-kappa-ecru, nuworks-co-op-grader, ashwin-iyer1, com, positions, comments, applied]
     token_count: 215
   - id: "social-intelligence/reddit-deep/neu/1oe1ppl.md#c1"
-    char_span: [823, 1787]
+    char_span: [822, 1786]
     sentence_count: 9
     key_terms: [position, turtlecap1324, quantitative, risk, analytics, applied, finance, careless-monitor7276]
     section: Comments

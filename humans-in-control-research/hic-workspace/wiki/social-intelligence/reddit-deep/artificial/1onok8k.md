@@ -23,7 +23,7 @@ chunks:
     key_terms: [development, artificial, comments, software, better, method, helps, human]
     token_count: 152
   - id: "social-intelligence/reddit-deep/artificial/1onok8k.md#c1"
-    char_span: [712, 1616]
+    char_span: [711, 1615]
     sentence_count: 8
     key_terms: [adapt, "don't", gatekeeping, use, clients, people, illustrious-film4018, ways]
     section: Comments

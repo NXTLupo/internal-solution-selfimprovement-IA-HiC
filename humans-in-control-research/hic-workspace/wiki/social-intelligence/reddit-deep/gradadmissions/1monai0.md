@@ -28,13 +28,13 @@ chunks:
     key_terms: [institution, area, expensive, less, industry, amazing, opportunities, good]
     token_count: 440
   - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c2"
-    char_span: [4094, 6255]
+    char_span: [4093, 6254]
     sentence_count: 14
     key_terms: [lab, students, institution, nih, definitely, especially, expensive, getting]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/gradadmissions/1monai0.md#c3"
-    char_span: [6257, 7057]
+    char_span: [6256, 7056]
     sentence_count: 8
     key_terms: [like, program, boston, lab, well-structured, stereoisomer, universities, institution]
     section: Comments

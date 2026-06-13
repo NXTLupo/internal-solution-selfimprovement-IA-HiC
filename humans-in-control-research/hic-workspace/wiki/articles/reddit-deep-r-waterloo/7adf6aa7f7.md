@@ -15,12 +15,12 @@ industries: [workforce, real_estate]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-waterloo/7adf6aa7f7.md#c0"
-    char_span: [0, 1461]
+    char_span: [0, 1460]
     sentence_count: 16
     key_terms: [available, good, waterloo, realtor, immediately, comments, housing, schools]
-    token_count: 342
+    token_count: 341
   - id: "articles/reddit-deep-r-waterloo/7adf6aa7f7.md#c1"
-    char_span: [1463, 3119]
+    char_span: [1462, 3118]
     sentence_count: 18
     key_terms: [laurelwood, realtor, schools, great, sageme-2020, immediate, shopping, suggest]
     token_count: 402

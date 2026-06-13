@@ -23,43 +23,43 @@ chunks:
     key_terms: [investment, investing, comments, lawsuits, problems, against, rezolve, large]
     token_count: 182
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c1"
-    char_span: [761, 2588]
+    char_span: [760, 2587]
     sentence_count: 4
     key_terms: [yorkville, position, ragnaroksunset, chart, short, rzlv, agreement, financing]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c2"
-    char_span: [2590, 4367]
+    char_span: [2589, 4366]
     sentence_count: 10
     key_terms: [rezolve, court, defendants, investment, agreement, companies, yorkville, bigger]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c3"
-    char_span: [4369, 6467]
+    char_span: [4368, 6466]
     sentence_count: 10
     key_terms: [rezolve-ai-rzlv-faking-arr-declining-revenue-dan-wagner-chatgpt-wrapper, rezolve, investment, fuzzypandaresearch, "rezolve's", situation, bitcoin, invest]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c4"
-    char_span: [6469, 8514]
+    char_span: [6468, 8513]
     sentence_count: 16
     key_terms: [rezolve, investment, "rezolve's", yorkville, new, court, situation, want]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c5"
-    char_span: [8516, 10506]
+    char_span: [8515, 10505]
     sentence_count: 15
     key_terms: [newyork-newyorkcountysc-2504749-rezolve-ai-plc-v-ya-ii-pn-ltd, information, maxgallow, history, google, stock, ceo, dan]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c6"
-    char_span: [10254, 12778]
+    char_span: [10253, 12777]
     sentence_count: 13
     key_terms: [company, complaint, plaintiffs, spa, february, transactions, new, york]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nj7eqk.md#c7"
-    char_span: [12474, 13850]
+    char_span: [12473, 13849]
     sentence_count: 10
     key_terms: [company, plaintiffs, sepa, agreement, ltd, spa, does, liquidity]
     section: Comments

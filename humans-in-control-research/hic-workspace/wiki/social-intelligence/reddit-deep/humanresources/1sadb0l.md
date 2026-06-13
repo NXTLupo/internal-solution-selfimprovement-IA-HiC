@@ -23,13 +23,13 @@ chunks:
     key_terms: [humanresources, work, onboarding, recommend, comments, months, ordinary-drummer-780, does]
     token_count: 275
   - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c1"
-    char_span: [1204, 2899]
+    char_span: [1203, 2898]
     sentence_count: 11
     key_terms: [interactive, confluence, jira, employee, sites, use, work, checklists]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/humanresources/1sadb0l.md#c2"
-    char_span: [2901, 5013]
+    char_span: [2900, 5012]
     sentence_count: 13
     key_terms: [automatically, ordinary-drummer-780, subreddit, location, please, moderators, onboarding, performed]
     section: Comments

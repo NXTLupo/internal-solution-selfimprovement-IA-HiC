@@ -18,10 +18,10 @@ industries: [workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1spzp7p.md#c0"
-    char_span: [0, 647]
+    char_span: [0, 646]
     sentence_count: 5
     key_terms: [internships, koramangala, comments, students, startup, coffee, environmentalcar2781, paid]
-    token_count: 167
+    token_count: 166
 ---
 # Paid internship in Koramangala for students who want actual startup experience (not fetch coffee)
 

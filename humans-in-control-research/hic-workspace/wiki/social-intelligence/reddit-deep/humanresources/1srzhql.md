@@ -23,7 +23,7 @@ chunks:
     key_terms: [humanresources, management, psychology, comments, book, communications, professional, internships]
     token_count: 133
   - id: "social-intelligence/reddit-deep/humanresources/1srzhql.md#c1"
-    char_span: [575, 2108]
+    char_span: [574, 2107]
     sentence_count: 13
     key_terms: [book, post, subreddit, program, going, good, sure, work]
     section: Comments

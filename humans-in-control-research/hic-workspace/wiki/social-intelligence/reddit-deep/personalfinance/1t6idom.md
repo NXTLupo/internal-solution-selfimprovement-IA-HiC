@@ -28,37 +28,37 @@ chunks:
     key_terms: [because, loans, "i'm", nothing, "didn't", people, "don't", "i've"]
     token_count: 333
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c2"
-    char_span: [3105, 4015]
+    char_span: [3104, 4014]
     sentence_count: 4
     key_terms: [money, loans, spending, habits, being, extra, spend, did]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c3"
-    char_span: [4017, 5999]
+    char_span: [4016, 5998]
     sentence_count: 13
     key_terms: [insurance, georgeretire, work, regardless, m0o0onpie, consider, increase, medicaid]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c4"
-    char_span: [5738, 6207]
+    char_span: [5737, 6206]
     sentence_count: 4
     key_terms: [multimillionaire, cool-crimes, investing, obligated, catering, compound, interest, yourself]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c5"
-    char_span: [6209, 8143]
+    char_span: [6208, 8142]
     sentence_count: 16
     key_terms: [opportunities, income, debt, like, need, m0o0onpie, yourself, numbers]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c6"
-    char_span: [8145, 10275]
+    char_span: [8144, 10274]
     sentence_count: 19
     key_terms: [design, graphic, "master's", jobs, get, job, extra, part]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/personalfinance/1t6idom.md#c7"
-    char_span: [10277, 12286]
+    char_span: [10276, 12285]
     sentence_count: 13
     key_terms: ["that's", jobs, probably, faceslikeflowers, personalfinance, masters, commontopics, debt]
     section: Comments

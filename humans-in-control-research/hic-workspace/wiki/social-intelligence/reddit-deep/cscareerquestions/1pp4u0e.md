@@ -26,25 +26,25 @@ chunks:
     key_terms: [career, arista, early, growthperspective, team, compensation, uncertainty, appreciate]
     token_count: 90
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c2"
-    char_span: [2260, 3870]
+    char_span: [2259, 3869]
     sentence_count: 13
     key_terms: [like, company, sarcasticpie, brand, aws, work, straight, culture]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c3"
-    char_span: [3872, 5769]
+    char_span: [3871, 5768]
     sentence_count: 15
     key_terms: [gatorboyusa, amazon, years, experience, arista, name, against, layoffs]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c4"
-    char_span: [5546, 6984]
+    char_span: [5545, 6983]
     sentence_count: 9
     key_terms: [gatorboyusa, melodic-rub-3703, situation, transfer, layoffs, seattle, similar, amazon]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pp4u0e.md#c5"
-    char_span: [6986, 8515]
+    char_span: [6985, 8514]
     sentence_count: 11
     key_terms: [salary, gatorboyusa, bay, long, term, something, company, signing]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [work, findapath, immigrate, comments, career, authorization, international, experiences]
     token_count: 120
   - id: "social-intelligence/reddit-deep/findapath/1qn24xq.md#c1"
-    char_span: [531, 2610]
+    char_span: [530, 2609]
     sentence_count: 12
     key_terms: [thank, helpful, please, engineering, here, want, findapath, comments]
     section: Comments

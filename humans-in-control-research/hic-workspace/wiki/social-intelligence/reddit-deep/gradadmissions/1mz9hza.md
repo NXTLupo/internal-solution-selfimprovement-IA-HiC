@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1mz9hza.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1mz9hza/grad_school_admission_in_biomedical_sciences_some/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Biological Sciences"
 extracted_at: "2026-06-06T23:23:15.592Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mz9hza.md#c0"
+    char_span: [0, 1067]
+    sentence_count: 8
+    key_terms: [year, programs, gradadmissions, biomedical, comments, sciences, students, funding]
+    token_count: 245
+  - id: "social-intelligence/reddit-deep/gradadmissions/1mz9hza.md#c1"
+    char_span: [1082, 1461]
+    sentence_count: 3
+    key_terms: [schools, early, good, raisedbybooksntv, usual-try-2059, chesneywills, quartzoheart, thenaterator]
+    section: Comments
+    token_count: 121
 ---
-
 # Grad School Admission in Biomedical Sciences – Some Thoughts After This Year
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1mz9hza/grad_school_admission_in_biomedical_sciences_some/)

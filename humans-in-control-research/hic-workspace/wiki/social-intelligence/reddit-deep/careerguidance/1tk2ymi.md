@@ -23,19 +23,19 @@ chunks:
     key_terms: [statistics, data, comments, starting, careerguidance, people, field, considering]
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c1"
-    char_span: [1457, 3325]
+    char_span: [1456, 3324]
     sentence_count: 14
     key_terms: [age, data, plane-matter6583, science, "it's", role, looking, masters]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c2"
-    char_span: [3327, 5288]
+    char_span: [3326, 5287]
     sentence_count: 6
     key_terms: [understand, customers, effectively, like, need, gunpowder, scientist, existing]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/careerguidance/1tk2ymi.md#c3"
-    char_span: [5290, 6712]
+    char_span: [5289, 6711]
     sentence_count: 13
     key_terms: [people, work, understand, knowledge, though, "don't", field, able]
     section: Comments

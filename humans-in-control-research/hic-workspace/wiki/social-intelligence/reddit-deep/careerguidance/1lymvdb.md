@@ -23,43 +23,43 @@ chunks:
     key_terms: [wanna, day, "don't", been, "i'm", job, careerguidance, money]
     token_count: 455
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c1"
-    char_span: [1855, 3548]
+    char_span: [1854, 3547]
     sentence_count: 14
     key_terms: [gonna, months, opportunity, day, give, home, "i'm", brahnbrahl]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c2"
-    char_span: [3550, 4126]
+    char_span: [3549, 4125]
     sentence_count: 2
     key_terms: ["it's", mental, since, consciousness, unfortunately, psychologist, surroundings, convulsions]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c3"
-    char_span: [4128, 6117]
+    char_span: [4127, 6116]
     sentence_count: 22
     key_terms: ["i'm", because, depression, sucks, support, goodgoodgoody, home, quit]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c4"
-    char_span: [5870, 7765]
+    char_span: [5869, 7764]
     sentence_count: 10
     key_terms: [psychiatrist, "it's", like, need, problem, serious, therapy, health]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c5"
-    char_span: [7769, 10021]
+    char_span: [7768, 10020]
     sentence_count: 20
     key_terms: [like, week, work, standard, therapy, finance, started, working]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c6"
-    char_span: [9772, 10022]
+    char_span: [9771, 10021]
     sentence_count: 4
     key_terms: [finance, week, work, important, projects, someone, stories, working]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/careerguidance/1lymvdb.md#c7"
-    char_span: [10024, 11291]
+    char_span: [10023, 11290]
     sentence_count: 12
     key_terms: [years, work, everything, today, stanthemilkman8888, ago, big, else]
     section: Comments

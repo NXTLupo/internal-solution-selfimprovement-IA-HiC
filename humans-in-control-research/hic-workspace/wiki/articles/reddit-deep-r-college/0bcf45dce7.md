@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/0bcf45dce7.md#c0"
-    char_span: [0, 2078]
+    char_span: [0, 2077]
     sentence_count: 13
     key_terms: [college, resources, live, pregnant, housing, baby, home, too]
-    token_count: 483
+    token_count: 482
   - id: "articles/reddit-deep-r-college/0bcf45dce7.md#c1"
-    char_span: [2080, 2678]
+    char_span: [2079, 2677]
     sentence_count: 8
     key_terms: [smartwonderwoman, halflingmelody, apartment, boyfriend, commenter, encounter, financial, mentioned]
     token_count: 137

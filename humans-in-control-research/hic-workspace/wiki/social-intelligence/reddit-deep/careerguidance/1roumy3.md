@@ -21,25 +21,25 @@ chunks:
     key_terms: [get, experience, healthcare, jobs, radiology, like, want, careerguidance]
     token_count: 465
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c1"
-    char_span: [2131, 3609]
+    char_span: [2130, 3608]
     sentence_count: 14
     key_terms: [education, sudburysonofabitch, rad, tech, hospital, formal, needed, going]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c2"
-    char_span: [3611, 5030]
+    char_span: [3610, 5029]
     sentence_count: 9
     key_terms: [program, school, get, rad, tech, want, accredited, healthcare]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c3"
-    char_span: [5032, 6732]
+    char_span: [5031, 6731]
     sentence_count: 10
     key_terms: [program, get, admissions, counselor, knowledge, questions, college, courses]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1roumy3.md#c4"
-    char_span: [6734, 8814]
+    char_span: [6733, 8813]
     sentence_count: 16
     key_terms: [get, hospital, community, program, volunteering, take, anything, position]
     section: Comments

@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1kssoof.md#c0"
-    char_span: [0, 1976]
+    char_span: [0, 1975]
     sentence_count: 13
     key_terms: [looking, shyam-sunder-reddy, linkedin, startup, https, internships, opportunity, com]
     token_count: 498

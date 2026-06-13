@@ -15,17 +15,17 @@ industries: [real_estate, financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/ae8d6ec6ab.md#c0"
-    char_span: [0, 1791]
+    char_span: [0, 1790]
     sentence_count: 13
     key_terms: [year, genz, mortgage, comments, discord, anyone, equity, likely]
-    token_count: 459
+    token_count: 458
   - id: "articles/reddit-deep-r-genz/ae8d6ec6ab.md#c1"
-    char_span: [1793, 3554]
+    char_span: [1792, 3553]
     sentence_count: 12
     key_terms: [mortgage, house, pay, people, early, year, "it's", time]
     token_count: 427
   - id: "articles/reddit-deep-r-genz/ae8d6ec6ab.md#c2"
-    char_span: [3556, 4643]
+    char_span: [3555, 4642]
     sentence_count: 8
     key_terms: [mortgage, year, interest, payment, principal, cheaper, value, buy]
     token_count: 242

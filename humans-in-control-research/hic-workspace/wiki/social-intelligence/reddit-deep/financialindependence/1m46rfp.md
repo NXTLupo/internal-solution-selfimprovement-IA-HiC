@@ -28,61 +28,61 @@ chunks:
     key_terms: [care, time, chance, health, costs, get, treatments, daughter]
     token_count: 449
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c2"
-    char_span: [3424, 4376]
+    char_span: [3423, 4375]
     sentence_count: 10
     key_terms: [cancer, wife, treatment, express-alfalfa-3702, "don't", been, best, fmla]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c3"
-    char_span: [4378, 6550]
+    char_span: [4377, 6549]
     sentence_count: 22
     key_terms: ["it's", company, through, intellectually, leave, hope, job, time]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c4"
-    char_span: [6282, 6750]
+    char_span: [6281, 6749]
     sentence_count: 5
     key_terms: [keep, time, try, continuity, personally, important, obviously, seconding]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c5"
-    char_span: [6753, 8770]
+    char_span: [6752, 8769]
     sentence_count: 24
     key_terms: [care, kids, express-alfalfa-3702, money, daughter, help, time, guilty]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c6"
-    char_span: [8772, 10731]
+    char_span: [8771, 10730]
     sentence_count: 17
     key_terms: [express-alfalfa-3702, "it's", take, kids, work, definitely, everything, insurance]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c7"
-    char_span: [10733, 12728]
+    char_span: [10732, 12727]
     sentence_count: 15
     key_terms: [company, because, strong, leave, get, insurance, situation, clinical]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c8"
-    char_span: [12730, 14480]
+    char_span: [12729, 14479]
     sentence_count: 23
     key_terms: [keep, family, cancer, sure, understand, through, express-alfalfa-3702, faang]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c9"
-    char_span: [14482, 16456]
+    char_span: [14481, 16455]
     sentence_count: 24
     key_terms: [medical, family, biopsy, good, time, sequencing, changing, research]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c10"
-    char_span: [16458, 18392]
+    char_span: [16457, 18391]
     sentence_count: 24
     key_terms: [hire, pick, take, driver, drop, kids, talk, hospitals]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/financialindependence/1m46rfp.md#c11"
-    char_span: [18394, 19970]
+    char_span: [18393, 19969]
     sentence_count: 16
     key_terms: [express-alfalfa-3702, amazing, because, rainbowcandy7, good, take-home, instance, family]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [highereducation, reading, summer, leadership, comments, recommendations, reddit-deep, innovation]
     token_count: 115
   - id: "social-intelligence/reddit-deep/highereducation/1tc45cw.md#c1"
-    char_span: [511, 764]
+    char_span: [510, 763]
     sentence_count: 1
     key_terms: [peak-higher-ed-survive-academic, amazon, https, com, www, stevefoerster, alexander, "haven't"]
     section: Comments

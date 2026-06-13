@@ -23,43 +23,43 @@ chunks:
     key_terms: [experience, findapath, comments, medicine, science, coding, "isn't", years]
     token_count: 174
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c1"
-    char_span: [659, 2616]
+    char_span: [658, 2615]
     sentence_count: 14
     key_terms: [thank, helpful, please, experience, findapath, comments, everyone, guidance]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c2"
-    char_span: [2618, 4740]
+    char_span: [2617, 4739]
     sentence_count: 22
     key_terms: [degree, want, "don't", find, life, like, time, financial]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c3"
-    char_span: [4742, 6850]
+    char_span: [4741, 6849]
     sentence_count: 20
     key_terms: [planning, sales, urban, years, noguarantee3961, stability, military, working]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c4"
-    char_span: [6556, 6898]
+    char_span: [6555, 6897]
     sentence_count: 6
     key_terms: [stability, going, sales, effectively, especially, beginning, recommend, semblance]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c5"
-    char_span: [6903, 8350]
+    char_span: [6902, 8349]
     sentence_count: 12
     key_terms: [parents, life, decisions, military, bodies, combat, force, kinds]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c6"
-    char_span: [8352, 10351]
+    char_span: [8351, 10350]
     sentence_count: 14
     key_terms: [yourself, parents, sales, art, life, like, college, history]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/findapath/1n5h7me.md#c7"
-    char_span: [10353, 10504]
+    char_span: [10352, 10503]
     sentence_count: 3
     key_terms: [work, halliburton, oilfields, always, cement, maybe, start, years]
     section: Comments

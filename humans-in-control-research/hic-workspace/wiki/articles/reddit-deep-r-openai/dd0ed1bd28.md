@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/dd0ed1bd28.md#c0"
-    char_span: [0, 968]
+    char_span: [0, 967]
     sentence_count: 6
     key_terms: [traditional-let-856, loops, offontangent, shivansh12t, reasoning, schedules, comments, thoughts]
-    token_count: 266
+    token_count: 265
 ---
 # GPT-5 pro breaking itself after reasoning for 30+ minutes? Did it reach full context window?
 

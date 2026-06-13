@@ -15,12 +15,12 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "articles/reddit-anthropic/67e6d4ecfb.md#c0"
-    char_span: [0, 1653]
+    char_span: [0, 1652]
     sentence_count: 1
     key_terms: [anthropics-claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, claude-mythos-isnt-a-sentient-super-hacker-its-a-sales-pitch-claims-of-thousands-of-severe-zero-days-rely-on-just-198-manual-reviews, https, ai-cybersecurity-after-mythos-the-jagged-frontier, com, tomshardware, anthropic, artificial-intelligence]
-    token_count: 510
+    token_count: 509
   - id: "articles/reddit-anthropic/67e6d4ecfb.md#c1"
-    char_span: [1655, 3739]
+    char_span: [1654, 3738]
     sentence_count: 9
     key_terms: [models, anthropic, vulnerability, exploits, e2f78c7ec1655fedd945366151ba54fcb9580508, exploit, https, open-source]
     token_count: 476

@@ -21,37 +21,37 @@ chunks:
     key_terms: [careerguidance, programming, comments, start, years, successfully, reddit-deep, appreciate]
     token_count: 170
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c1"
-    char_span: [709, 2194]
+    char_span: [708, 2193]
     sentence_count: 10
     key_terms: [thepancakewar, applications, field, jobs, because, someone, print, yadda]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c2"
-    char_span: [2196, 4180]
+    char_span: [2195, 4179]
     sentence_count: 16
     key_terms: [bullshit, people, programming, ago, laid, hardware, software, competitive-dream860]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c3"
-    char_span: [4182, 5242]
+    char_span: [4181, 5241]
     sentence_count: 6
     key_terms: [experienced, experience, project, legitimate-instance2, jobs, tech, redactedtortoise, professionally]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c4"
-    char_span: [5244, 7329]
+    char_span: [5243, 7328]
     sentence_count: 7
     key_terms: [programming, companies, job, deleted, people, get, experience, industrial]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c5"
-    char_span: [7331, 8735]
+    char_span: [7330, 8734]
     sentence_count: 14
     key_terms: [career, being, subreddits, aleksdude, possible, happens, ageism, proof-emergency-5441]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/careerguidance/1novhre.md#c6"
-    char_span: [8737, 10243]
+    char_span: [8736, 10242]
     sentence_count: 16
     key_terms: [time, career, "you're", possible, serious, coding, people, slow-bodybuilder-972]
     section: Comments

@@ -23,49 +23,49 @@ chunks:
     key_terms: [investing, financialindependence, brokerage, home, husband, month, prioritize, comments]
     token_count: 461
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c1"
-    char_span: [1838, 3635]
+    char_span: [1837, 3634]
     sentence_count: 9
     key_terms: ["you're", group, people, feel, building, invested, current, focused]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c2"
-    char_span: [3637, 5471]
+    char_span: [3636, 5470]
     sentence_count: 14
     key_terms: [retired, rental, pandachibaby, networth-percentile-calculator, home, specific, personalfinancedata, extra]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c3"
-    char_span: [5473, 7453]
+    char_span: [5472, 7452]
     sentence_count: 35
     key_terms: [something, husband, brokerage, "you're", right, loan, low, max]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c4"
-    char_span: [7455, 9390]
+    char_span: [7454, 9389]
     sentence_count: 23
     key_terms: [emergency, comment, good, housing, months, stress, loose, money]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c5"
-    char_span: [9392, 11479]
+    char_span: [9391, 11478]
     sentence_count: 24
     key_terms: ["you're", people, home, financial, husband, pandachibaby, money, need]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c6"
-    char_span: [11481, 13684]
+    char_span: [11480, 13683]
     sentence_count: 27
     key_terms: [income, month, right, something, "it's", pressure, "i'd", building]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c7"
-    char_span: [13686, 15794]
+    char_span: [13685, 15793]
     sentence_count: 23
     key_terms: [investment, home, loan, mortgage, edgeinformal8264, money, month, right]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/financialindependence/1rm7elh.md#c8"
-    char_span: [15796, 16297]
+    char_span: [15795, 16296]
     sentence_count: 5
     key_terms: [appreciation, cashflow, negative, property, income, significantly, pandachibaby, subsidising]
     section: Comments

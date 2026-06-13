@@ -4,6 +4,7 @@ import App from './App';
 import { DesignDesk } from './design-desk';
 import { installChunkLoadGuard } from './services/chunkLoadGuard';
 import { AppErrorBoundary } from './components/AppErrorBoundary';
+import { hydrateTokensFromFigma } from './components/slideTemplates/types';
 
 // 2026-06-03 — UNIVERSAL ERROR SURFACING. Deliverable-generation failures were
 // reported as SILENT resets to landing. Two root causes: (1) no React error
@@ -69,6 +70,18 @@ if (typeof window !== 'undefined') {
 // such failure auto-recovers via a debounced page reload that pulls the
 // fresh index.html.
 installChunkLoadGuard();
+
+// 2026-06-09 - Hydrate the renderer TOKENS from LIVE Figma tokens (proxy
+// /api/design-tokens, MCP-sourced from the design-system files) at boot, so the
+// renderer (web.tsx/pptx.ts) paints from Figma rather than the hardcoded literals
+// in types.ts. Fire-and-forget; fail-loud inside (never silently guesses). NU brand
+// hydration is re-invoked per-deliverable where the renderer applies the NU override.
+void hydrateTokensFromFigma('NXT');
+// NU brand object hydrates from its own live token sheet (97:2) so both
+// brands paint Figma-live, not just the NXT default.
+void import('./components/slideTemplates/brands').then(({ getBrand }) =>
+    hydrateTokensFromFigma('NU', getBrand('nu') as any)
+).catch(() => { /* non-fatal: static NU values stand */ });
 
 // ================================================================
 // BUNDLE VERSION BANNER — Second Brain identity stamp at boot

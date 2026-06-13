@@ -21,43 +21,43 @@ chunks:
     key_terms: [careerguidance, job, work, comments, actual, career, school, careless-silver-4161]
     token_count: 291
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c1"
-    char_span: [1206, 3099]
+    char_span: [1205, 3098]
     sentence_count: 15
     key_terms: [recession, people, lot, definition, declared, negative, quarters, complex]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c2"
-    char_span: [3101, 4910]
+    char_span: [3100, 4909]
     sentence_count: 22
     key_terms: [speckonthisearth, been, school, trade, find, programs, classes, deleted]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c3"
-    char_span: [4912, 5649]
+    char_span: [4911, 5648]
     sentence_count: 7
     key_terms: [applying, physical-condition76, back, been, jobs, administration, communications, consequences]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c4"
-    char_span: [5651, 7649]
+    char_span: [5650, 7648]
     sentence_count: 18
     key_terms: [normal, worldtallestengineer, zestyclose-second295, new, jobs, time, government, interviews]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c5"
-    char_span: [7373, 7827]
+    char_span: [7372, 7826]
     sentence_count: 6
     key_terms: [worldtallestengineer, fault, money, mountaindadwbeard, costfinal3263, depression, government, countries]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c6"
-    char_span: [7829, 9953]
+    char_span: [7828, 9952]
     sentence_count: 14
     key_terms: [trump, government, mountaindadwbeard, year, people, been, canceling, american]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1p7loi0.md#c7"
-    char_span: [9955, 11067]
+    char_span: [9954, 11066]
     sentence_count: 9
     key_terms: [industry, change, county, roles, using, job, fast-learning, strengthening]
     section: Comments

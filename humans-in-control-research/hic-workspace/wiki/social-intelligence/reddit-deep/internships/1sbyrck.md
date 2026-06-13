@@ -31,25 +31,25 @@ chunks:
     key_terms: [connections, job, doing, personal, projects, chances, heavily, people]
     token_count: 247
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c3"
-    char_span: [4847, 6405]
+    char_span: [4846, 6404]
     sentence_count: 12
     key_terms: [school, companies, engineering, fraternity, aerospace, student, people, connections]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c4"
-    char_span: [6407, 8697]
+    char_span: [6406, 8696]
     sentence_count: 15
     key_terms: [get, connections, because, working, hypnotic8008, clubs, email, definitely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c5"
-    char_span: [8414, 8790]
+    char_span: [8413, 8789]
     sentence_count: 2
     key_terms: [get, eveninginevitable240, door, hard, applications, connections, normally, personal]
     section: Comments
     token_count: 93
   - id: "social-intelligence/reddit-deep/internships/1sbyrck.md#c6"
-    char_span: [8792, 10807]
+    char_span: [8791, 10806]
     sentence_count: 14
     key_terms: [connections, right, someone, skills, get, "it's", networking, portfolio]
     section: Comments

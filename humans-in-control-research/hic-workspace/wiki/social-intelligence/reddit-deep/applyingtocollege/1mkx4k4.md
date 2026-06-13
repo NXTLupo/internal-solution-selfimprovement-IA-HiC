@@ -21,19 +21,19 @@ chunks:
     key_terms: [princeton-enhances-financial-aid-again-it-welcomes-class-2029-which-includes, princeton, princeton-eliminates-tuition-for-families-making-250-000-a-year, financial, students, https, applyingtocollege, aid]
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c1"
-    char_span: [2354, 3754]
+    char_span: [2353, 3753]
     sentence_count: 6
     key_terms: [princeton, families, students, come, earning, hopkins, tuition, yogurtclosetopen3567]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c2"
-    char_span: [3756, 5508]
+    char_span: [3755, 5507]
     sentence_count: 9
     key_terms: [princeton, net-price-calculator, admission, financial, cost-aid, https, aid, edu]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mkx4k4.md#c3"
-    char_span: [5510, 7500]
+    char_span: [5509, 7499]
     sentence_count: 17
     key_terms: [retirement, princeton, accounts, tuition, international, means, years, year]
     section: Comments

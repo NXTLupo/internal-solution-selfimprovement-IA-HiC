@@ -23,7 +23,7 @@ chunks:
     key_terms: [retrieved, chunking, chunk, semantic, context, answer, search, system]
     token_count: 492
   - id: "social-intelligence/reddit-deep/deeplearning/1t7vuo7.md#c1"
-    char_span: [2397, 3829]
+    char_span: [2396, 3828]
     sentence_count: 1
     key_terms: [retrieval, u92yvvgajxe3utxz, because, issue, mbdijawx8xk, rag, completely, document]
     section: Comments

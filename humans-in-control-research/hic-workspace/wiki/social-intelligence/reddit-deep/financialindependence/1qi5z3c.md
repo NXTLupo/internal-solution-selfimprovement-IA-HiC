@@ -28,43 +28,43 @@ chunks:
     key_terms: [years, pet, anticipate, expenses, savings, travel, months--projected, care]
     token_count: 361
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c2"
-    char_span: [3360, 4843]
+    char_span: [3359, 4842]
     sentence_count: 17
     key_terms: [insurance, get, health, need, university, barista, spanish, student]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c3"
-    char_span: [4845, 6751]
+    char_span: [4844, 6750]
     sentence_count: 12
     key_terms: [insurance, health, working, solomongrumpy, conversions, "it's", week, starbucks]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c4"
-    char_span: [6754, 8472]
+    char_span: [6753, 8471]
     sentence_count: 15
     key_terms: [years, neithercatnorfowl, travel, start, job, like, work, enough]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c5"
-    char_span: [8474, 10394]
+    char_span: [8473, 10393]
     sentence_count: 27
     key_terms: [calculator, fire, income, mymoneymile, job, stop, yourself, health]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c6"
-    char_span: [10396, 12474]
+    char_span: [10395, 12473]
     sentence_count: 19
     key_terms: [like, right, able, get, good, help, use, advisor]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c7"
-    char_span: [12476, 14736]
+    char_span: [12475, 14735]
     sentence_count: 15
     key_terms: [money, inefficient, better, working, inefficiently, state, efficiently, healthcare]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1qi5z3c.md#c8"
-    char_span: [14738, 14903]
+    char_span: [14737, 14902]
     sentence_count: 2
     key_terms: [challenges, healthcare, something, without, access, afford, easily, health]
     section: Comments

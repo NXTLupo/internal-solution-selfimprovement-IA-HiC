@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1s7ydjl.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1s7ydjl/professional_experience_rather_than_academic/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s7ydjl.md#c0"
+    char_span: [0, 1159]
+    sentence_count: 6
+    key_terms: [experience, program, field, professional, undergrad, gradadmissions, anyone, grad]
+    token_count: 237
+  - id: "social-intelligence/reddit-deep/gradadmissions/1s7ydjl.md#c1"
+    char_span: [1174, 2036]
+    sentence_count: 6
+    key_terms: [lonely-program, experience, thanks, longjumping-dingo175, early, mother-click-4465, work, communication]
+    section: Comments
+    token_count: 206
 ---
-
 # Professional experience rather than academic experience in grad school applications
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1s7ydjl/professional_experience_rather_than_academic/)

@@ -23,61 +23,61 @@ chunks:
     key_terms: [powerpoints, class, students, quizzes, course, lecture, online, papers]
     token_count: 507
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c1"
-    char_span: [2264, 3803]
+    char_span: [2264, 3802]
     sentence_count: 13
     key_terms: [slides, notes, english, lecture, posted, "what's", "don't", words]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c2"
-    char_span: [3805, 5930]
+    char_span: [3804, 5929]
     sentence_count: 11
     key_terms: [slides, students, later, notes, incomplete, available, annotate, reading]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c3"
-    char_span: [5655, 6548]
+    char_span: [5654, 6547]
     sentence_count: 5
     key_terms: [participation, points, notes, students, people, submit, doing, "i'd"]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c4"
-    char_span: [6550, 8494]
+    char_span: [6549, 8493]
     sentence_count: 19
     key_terms: [class, ppts, stranger2306, powerpoints, cognitive, nonnative, attended, because]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c5"
-    char_span: [8496, 10232]
+    char_span: [8495, 10231]
     sentence_count: 8
     key_terms: [why-every-teacher-should-be-using-dual-coding, how-olicav-changed-way-i-present, learn, reflective-pedagogy, https, com, students, course]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c6"
-    char_span: [10234, 11772]
+    char_span: [10233, 11771]
     sentence_count: 13
     key_terms: [powerpoint, slides, information, students, adding, acrobatic-glass-8585, plantagenetprincess, class]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c7"
-    char_span: [11774, 12583]
+    char_span: [11773, 12582]
     sentence_count: 4
     key_terms: [discussion, chapter, class, lecturing, classes, minutes, tables, group]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c8"
-    char_span: [12585, 14780]
+    char_span: [12584, 14779]
     sentence_count: 16
     key_terms: [students, slides, notes, want, quizzes, class, tests, take]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c9"
-    char_span: [14475, 14781]
+    char_span: [14474, 14780]
     sentence_count: 4
     key_terms: [notes, information, real-world, incentive, otherwise, historic, scenario, students]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/professors/1qd9mtf.md#c10"
-    char_span: [14783, 17015]
+    char_span: [14782, 17014]
     sentence_count: 21
     key_terms: [notes, take, points, class, students, student, write, day]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tc84eh.md#c0"
-    char_span: [0, 1215]
+    char_span: [0, 1214]
     sentence_count: 7
     key_terms: ["i'm", engineeringstudents, courses, side, comments, student, reddit, doing]
-    token_count: 291
+    token_count: 290
 ---
 # Engineer student in need of some advice 🧍‍♂️🙏
 

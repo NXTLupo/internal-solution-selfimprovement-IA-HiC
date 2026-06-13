@@ -26,13 +26,13 @@ chunks:
     key_terms: [life, been, interesting, fourteen, being, build, years, find]
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c2"
-    char_span: [3764, 5346]
+    char_span: [3763, 5345]
     sentence_count: 6
     key_terms: [harvard, that-isnt-john-harvard, the-3-lies-of-harvard, pretend-cupcake-5057, thank, perfect, person, summer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronr3i.md#c3"
-    char_span: [5116, 5787]
+    char_span: [5115, 5786]
     sentence_count: 5
     key_terms: [opportunities, successes, failures, mistakes, thank, time, wins, disappointment]
     section: Comments

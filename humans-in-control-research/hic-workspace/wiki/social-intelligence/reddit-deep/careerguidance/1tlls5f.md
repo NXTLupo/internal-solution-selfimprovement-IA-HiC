@@ -26,37 +26,37 @@ chunks:
     key_terms: [environments, work, corporate, whether, simply, solution-oriented, fit, constructively]
     token_count: 174
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c2"
-    char_span: [3635, 5873]
+    char_span: [3634, 5872]
     sentence_count: 21
     key_terms: [companies, want, someone, "you're", too, describing, diagnosed, meetings]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c3"
-    char_span: [5875, 7695]
+    char_span: [5874, 7694]
     sentence_count: 11
     key_terms: [someone, performance, "i've", talk, want, promotion, getting, improve]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c4"
-    char_span: [7697, 9833]
+    char_span: [7696, 9832]
     sentence_count: 12
     key_terms: [get, projects, manager, project, performance, take, team, fantastic]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c5"
-    char_span: [9835, 11129]
+    char_span: [9834, 11128]
     sentence_count: 11
     key_terms: [corporate, environments, reality, never, want, severance, probably, company]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c6"
-    char_span: [11131, 13143]
+    char_span: [11130, 13142]
     sentence_count: 14
     key_terms: [company, myself, women, job, severance, people, thread, don]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1tlls5f.md#c7"
-    char_span: [13145, 14350]
+    char_span: [13144, 14349]
     sentence_count: 14
     key_terms: [job, work, factory, people, found, done, due, got]
     section: Comments

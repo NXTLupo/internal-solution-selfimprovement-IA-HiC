@@ -23,19 +23,19 @@ chunks:
     key_terms: [submitted, decisions, dec, gradadmissions, april, ece, uoft, rejection]
     token_count: 350
   - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c1"
-    char_span: [1354, 2312]
+    char_span: [1353, 2311]
     sentence_count: 7
     key_terms: [acceptance, rejection, students, funding, holding, waiting, assume, people]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c2"
-    char_span: [2314, 4255]
+    char_span: [2313, 4254]
     sentence_count: 9
     key_terms: [strawberryangel101, programs, schools, waiting, april, bugtrousers, rejection, accepted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sf2v8j.md#c3"
-    char_span: [4039, 5174]
+    char_span: [4038, 5173]
     sentence_count: 3
     key_terms: [pure-consequence7284, applied, back, different, waiting, letter, diligent-design-5019, prestigious-good8372]
     section: Comments

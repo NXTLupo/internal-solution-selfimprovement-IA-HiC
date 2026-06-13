@@ -28,7 +28,7 @@ chunks:
     key_terms: [work, without, management, translator, being, local, long-term, responsibilities]
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1q98bei.md#c2"
-    char_span: [2695, 3192]
+    char_span: [2694, 3191]
     sentence_count: 3
     key_terms: [imaginary-tax3580, scapegoated, experience, management, authority, long-term, something, managers]
     section: Comments

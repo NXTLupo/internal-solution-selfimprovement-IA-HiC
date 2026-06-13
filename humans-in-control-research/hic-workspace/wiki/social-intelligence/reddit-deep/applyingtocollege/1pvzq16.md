@@ -26,25 +26,25 @@ chunks:
     key_terms: [major, want, stanford, college, admit, furthermore, activities, admission]
     token_count: 190
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c2"
-    char_span: [2794, 4636]
+    char_span: [2793, 4635]
     sentence_count: 14
     key_terms: [narrative, disciplines, arc, unrelated, coherent, almost, henare, right]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c3"
-    char_span: [4638, 6708]
+    char_span: [4637, 6707]
     sentence_count: 16
     key_terms: [activities, narrative, form, completely, everything, curiosity, colleges, college]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c4"
-    char_span: [6710, 8609]
+    char_span: [6709, 8608]
     sentence_count: 15
     key_terms: [college, like, people, doing, narrative, want, "i'm", everything]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pvzq16.md#c5"
-    char_span: [8611, 10370]
+    char_span: [8610, 10369]
     sentence_count: 11
     key_terms: [narrative, school, want, activities, whatever, enthusiasmcomplete37, being, doing]
     section: Comments

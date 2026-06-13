@@ -26,73 +26,73 @@ chunks:
     key_terms: [company, quietly, review, being, never, stage, year, documentation]
     token_count: 186
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c2"
-    char_span: [2911, 4402]
+    char_span: [2910, 4401]
     sentence_count: 12
     key_terms: [performance, review, peers, leadership, achieving, glowing, reviews, sounds]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c3"
-    char_span: [4404, 6140]
+    char_span: [4403, 6139]
     sentence_count: 14
     key_terms: [discrimination, manager, pretty, start, performance, age, specific, review]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c4"
-    char_span: [6142, 8294]
+    char_span: [6141, 8293]
     sentence_count: 33
     key_terms: [everything, manager, unfortunately, relationship, going, sorry, times, document]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c5"
-    char_span: [8091, 9173]
+    char_span: [8090, 9172]
     sentence_count: 11
     key_terms: [retirement, retire, america, age, fast, job, bubblegumcats33, finalblackberry]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c6"
-    char_span: [9175, 10388]
+    char_span: [9174, 10387]
     sentence_count: 9
     key_terms: [employer, retirement, employee, security, enough, social, going, fund]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c7"
-    char_span: [10390, 12116]
+    char_span: [10389, 12115]
     sentence_count: 16
     key_terms: [retirement, company, unemployment, close, get, employees, another, anyone]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c8"
-    char_span: [12118, 13865]
+    char_span: [12117, 13864]
     sentence_count: 16
     key_terms: [keep, analyst, retire, boss, got, different, temporary, position]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c9"
-    char_span: [13867, 14975]
+    char_span: [13866, 14974]
     sentence_count: 11
     key_terms: [got, position, similar, retire, asked, maybe, back, get]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c10"
-    char_span: [14977, 16998]
+    char_span: [14976, 16997]
     sentence_count: 15
     key_terms: [company, discrimination, review, being, like, take, year, anything]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c11"
-    char_span: [17000, 18491]
+    char_span: [16999, 18490]
     sentence_count: 17
     key_terms: [don, people, anything, boss, fair, fire, high, jobs]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c12"
-    char_span: [18493, 19932]
+    char_span: [18492, 19931]
     sentence_count: 10
     key_terms: [great, director, sufficient-pin-1310, seems, day, got, like, pip]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/careerguidance/1lxnty6.md#c13"
-    char_span: [19934, 20812]
+    char_span: [19933, 20811]
     sentence_count: 12
     key_terms: [retire, great, look, expectations, preparedness, financially, improvement, replaceable]
     section: Comments

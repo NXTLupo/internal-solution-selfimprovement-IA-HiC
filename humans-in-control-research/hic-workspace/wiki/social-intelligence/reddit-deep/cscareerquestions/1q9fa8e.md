@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, internships, experience, freelance, comments, projects, stronger, working]
     token_count: 233
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9fa8e.md#c1"
-    char_span: [1011, 2902]
+    char_span: [1010, 2901]
     sentence_count: 8
     key_terms: [job, applying, resume, apply, start, different, like, actual]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9fa8e.md#c2"
-    char_span: [2904, 3500]
+    char_span: [2903, 3499]
     sentence_count: 6
     key_terms: [closer, blind-leading-blind, like, marathonmarathon, realistically, possibility, graduation, full-time]
     section: Comments

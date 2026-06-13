@@ -38,13 +38,13 @@ chunks:
     key_terms: [university, trump-says-jewish-voters-will-bear-lot-blame-loses-fighting-antisemiti-rcna171938, jewish, https, trump, camp-auschwitz-jan-6-rioter-trump-pardoned, com, www]
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c4"
-    char_span: [7984, 10217]
+    char_span: [7984, 10216]
     sentence_count: 12
     key_terms: [antisemitism, university, forward, jewish, people, organization, trump, themselves]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1ks7fb8.md#c5"
-    char_span: [10219, 10773]
+    char_span: [10218, 10772]
     sentence_count: 6
     key_terms: [hamas, fallingbrick, palestinians, carlitospig, hardliners, admitting, coworker, everyone]
     section: Comments

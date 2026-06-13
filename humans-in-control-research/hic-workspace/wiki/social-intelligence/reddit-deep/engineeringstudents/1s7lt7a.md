@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s7lt7a.md#c0"
-    char_span: [0, 310]
+    char_span: [0, 309]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, uzumakihuman, engineering, reddit-deep, internship, companies, embedded]
-    token_count: 86
+    token_count: 85
 ---
 # Internship in embedded companies for 2nd year engineering student?
 

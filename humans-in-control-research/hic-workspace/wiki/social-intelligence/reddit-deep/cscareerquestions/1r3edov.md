@@ -21,43 +21,43 @@ chunks:
     key_terms: [uc-major-computer-science-ai-21284464, college-admissions, cscareerquestions, article, market, https, sfchronicle, com]
     token_count: 264
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c1"
-    char_span: [1066, 2783]
+    char_span: [1065, 2782]
     sentence_count: 10
     key_terms: [major, contradiction, undeclared, berkeley, article, chatgpt, declare, dot-com]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c2"
-    char_span: [2785, 4935]
+    char_span: [2784, 4934]
     sentence_count: 11
     key_terms: [computer, science, cohort, salary, international, grads, easy, generation]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c3"
-    char_span: [4937, 6484]
+    char_span: [4936, 6483]
     sentence_count: 17
     key_terms: [healthcare-jobs-have-become-the-engine-of-americas-labor-market-114ffd34, get, nurse, healthcare, ldxrzqda41qadayemkojfufk7y-, hospital, become, doctor]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c4"
-    char_span: [6486, 7680]
+    char_span: [6485, 7679]
     sentence_count: 10
     key_terms: [remote, want, work, healthcare, nursing, grouchy-transition-7, original-measurement, labor]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c5"
-    char_span: [7683, 9589]
+    char_span: [7682, 9588]
     sentence_count: 6
     key_terms: [smaller, generation, years, genz, tho, enrollment, americans, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c6"
-    char_span: [9296, 9872]
+    char_span: [9295, 9871]
     sentence_count: 1
     key_terms: [because, consistently, considerbly, enrollment, generation, population, admission, financial]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r3edov.md#c7"
-    char_span: [9877, 10763]
+    char_span: [9876, 10762]
     sentence_count: 5
     key_terms: [offshoring, because, demand, significant-finding5, drop, grad, new, productivity]
     section: Comments

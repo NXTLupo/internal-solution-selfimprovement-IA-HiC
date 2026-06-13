@@ -38,31 +38,31 @@ chunks:
     key_terms: [sorry, lot, career, typing, alone, hope, "i'm", like]
     token_count: 173
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c4"
-    char_span: [6753, 8527]
+    char_span: [6752, 8526]
     sentence_count: 8
     key_terms: [like, software, games, platformer, something, everyone, complex, imagine]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c5"
-    char_span: [8529, 10053]
+    char_span: [8528, 10052]
     sentence_count: 8
     key_terms: ["i'm", coding, people, like, need, confident, guidance, complex]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c6"
-    char_span: [10056, 11935]
+    char_span: [10055, 11934]
     sentence_count: 14
     key_terms: [llm, dev, complexity, generating, understand, mastering, curious, shaders]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c7"
-    char_span: [11937, 14229]
+    char_span: [11936, 14228]
     sentence_count: 9
     key_terms: [judgment, somewhat, probably, because, career, got, "it's", job]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tai12z.md#c8"
-    char_span: [14231, 15613]
+    char_span: [14230, 15612]
     sentence_count: 8
     key_terms: ["it's", information, learning, longjumping-rate1948, never, get, like, side]
     section: Comments

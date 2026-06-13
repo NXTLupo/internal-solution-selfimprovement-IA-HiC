@@ -26,13 +26,13 @@ chunks:
     key_terms: [melvin, floor, gender, husky, card, residence, requires, people]
     token_count: 222
   - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c2"
-    char_span: [2987, 4878]
+    char_span: [2986, 4877]
     sentence_count: 13
     key_terms: [floor, melvin, loved, area, room, honestly, sitting, living]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1suvooa.md#c3"
-    char_span: [4628, 4905]
+    char_span: [4627, 4904]
     sentence_count: 1
     key_terms: [staff, sequencestatic, maintenance, anything, cleaning, friends, sitting, always]
     section: Comments

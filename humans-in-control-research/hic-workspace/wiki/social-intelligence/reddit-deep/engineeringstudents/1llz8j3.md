@@ -23,19 +23,19 @@ chunks:
     key_terms: ["master's", get, engineering, degree, engineeringstudents, internships, experience, comments]
     token_count: 297
   - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c1"
-    char_span: [1320, 3503]
+    char_span: [1319, 3502]
     sentence_count: 17
     key_terms: [engineeringstudents, masters, wiki, please, reddit, onlythephantomknows, https, com]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c2"
-    char_span: [3505, 5386]
+    char_span: [3504, 5385]
     sentence_count: 15
     key_terms: [get, lead, masters, eggindatchin, being, worth, engineering, work]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/engineeringstudents/1llz8j3.md#c3"
-    char_span: [5388, 6457]
+    char_span: [5387, 6456]
     sentence_count: 9
     key_terms: [pay, doublehexdrive, get, full-time, incorrect, employer, getting, masters]
     section: Comments

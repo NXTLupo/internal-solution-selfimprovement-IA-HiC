@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineering, internship, engineeringstudents, sub-saharan, don, especially, companies, something]
     token_count: 292
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s5v6fx.md#c1"
-    char_span: [1316, 1883]
+    char_span: [1315, 1882]
     sentence_count: 6
     key_terms: [applying, already, people, right, cold, warm, connections, engineering]
     section: Comments

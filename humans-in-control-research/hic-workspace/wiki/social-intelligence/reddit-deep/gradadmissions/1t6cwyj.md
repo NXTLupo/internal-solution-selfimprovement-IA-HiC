@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c0"
-    char_span: [0, 2325]
+    char_span: [0, 2324]
     sentence_count: 7
     key_terms: [finance, math, research, econ, self, gradadmissions, school, computational]
-    token_count: 486
+    token_count: 485
   - id: "social-intelligence/reddit-deep/gradadmissions/1t6cwyj.md#c1"
-    char_span: [2327, 4024]
+    char_span: [2326, 4023]
     sentence_count: 7
     key_terms: [finance, economics, like, research, insight, computational, path, appreciate]
     token_count: 345

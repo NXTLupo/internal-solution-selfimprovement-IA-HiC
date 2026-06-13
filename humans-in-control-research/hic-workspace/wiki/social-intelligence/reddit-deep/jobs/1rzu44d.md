@@ -26,31 +26,31 @@ chunks:
     key_terms: [entry-level, don, logistics, seeking, myself, life, like, look]
     token_count: 288
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c2"
-    char_span: [2514, 4057]
+    char_span: [2513, 4056]
     sentence_count: 18
     key_terms: [career, job, like, google, school, bachelors, postings, started]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c3"
-    char_span: [4059, 4706]
+    char_span: [4058, 4705]
     sentence_count: 6
     key_terms: [work, admissions, fucked, people, sure, dogsoverpeople26, career-dreamer, environment]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c4"
-    char_span: [4708, 6850]
+    char_span: [4707, 6849]
     sentence_count: 20
     key_terms: [chickenbean1101, job, never, don, personally, benefits, training, myself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c5"
-    char_span: [6556, 8046]
+    char_span: [6555, 8045]
     sentence_count: 16
     key_terms: [job, like, because, people, productivity, passion, bosses, cared]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/jobs/1rzu44d.md#c6"
-    char_span: [8048, 9982]
+    char_span: [8047, 9981]
     sentence_count: 20
     key_terms: [chickenbean1101, granted, passion, teacher, experiences, love, work, learned]
     section: Comments

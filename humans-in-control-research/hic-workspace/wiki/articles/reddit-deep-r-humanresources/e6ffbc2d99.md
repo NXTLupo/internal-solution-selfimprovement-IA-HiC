@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-humanresources/e6ffbc2d99.md#c0"
-    char_span: [0, 2118]
+    char_span: [0, 2117]
     sentence_count: 11
     key_terms: [information, use, using, chatgpt, humanresources, consistently, broad, tools]
-    token_count: 485
+    token_count: 484
   - id: "articles/reddit-deep-r-humanresources/e6ffbc2d99.md#c1"
-    char_span: [2120, 4427]
+    char_span: [2119, 4426]
     sentence_count: 18
     key_terms: [use, claude, recommend, model, without, constantly, drafting, policies]
     token_count: 504
   - id: "articles/reddit-deep-r-humanresources/e6ffbc2d99.md#c2"
-    char_span: [4429, 4768]
+    char_span: [4428, 4767]
     sentence_count: 4
     key_terms: ["don't", setup, need, structures, analytics, questions, embedded, already]
     token_count: 73

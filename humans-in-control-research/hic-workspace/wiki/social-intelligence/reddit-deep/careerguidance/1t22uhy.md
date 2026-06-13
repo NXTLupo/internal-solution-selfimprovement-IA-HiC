@@ -23,19 +23,19 @@ chunks:
     key_terms: [gaming, industry, good, development, preferably, reasonable, idea, year]
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c1"
-    char_span: [2027, 3265]
+    char_span: [2026, 3264]
     sentence_count: 8
     key_terms: [buntstick, quiet-compote4587, though, thank, like, long, time, roxoroxo]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c2"
-    char_span: [3267, 4573]
+    char_span: [3266, 4572]
     sentence_count: 6
     key_terms: [work, gaming, going, hours, year, buntstick, industry, company]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/careerguidance/1t22uhy.md#c3"
-    char_span: [4575, 5390]
+    char_span: [4574, 5389]
     sentence_count: 6
     key_terms: [maybe, good, jobs, guantanamobay1, jayant-74565, developing, reasonable, buntstick]
     section: Comments

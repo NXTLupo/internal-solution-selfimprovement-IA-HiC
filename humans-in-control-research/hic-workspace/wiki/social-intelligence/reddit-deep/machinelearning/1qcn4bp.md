@@ -21,37 +21,37 @@ chunks:
     key_terms: [cuda, local, silicon, apple, workstation, learning, machinelearning, used]
     token_count: 498
   - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c1"
-    char_span: [1909, 3739]
+    char_span: [1909, 3738]
     sentence_count: 18
     key_terms: [hobby, projects, "don't", portfolio, leetcode, project, contribution, work]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c2"
-    char_span: [3741, 5583]
+    char_span: [3740, 5582]
     sentence_count: 10
     key_terms: [github, faang, time, work, get, projects, relevant, serious-regular]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c3"
-    char_span: [5585, 7627]
+    char_span: [5584, 7626]
     sentence_count: 14
     key_terms: [because, systems, real, team, lessons, interviewing, learn, level]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c4"
-    char_span: [7629, 9429]
+    char_span: [7628, 9428]
     sentence_count: 18
     key_terms: [individual-school-07, getting, ram, different, without, market, build, learn]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c5"
-    char_span: [9431, 11562]
+    char_span: [9430, 11561]
     sentence_count: 25
     key_terms: ["it's", don, real, too, use, projects, training, hyperscalers]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/machinelearning/1qcn4bp.md#c6"
-    char_span: [11564, 13139]
+    char_span: [11563, 13138]
     sentence_count: 13
     key_terms: [cuda, serious, silicon, tooling, apple, local, inference, pipelines]
     section: Comments

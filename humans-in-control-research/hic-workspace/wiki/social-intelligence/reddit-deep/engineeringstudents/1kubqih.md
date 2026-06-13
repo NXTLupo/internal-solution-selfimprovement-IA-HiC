@@ -23,49 +23,49 @@ chunks:
     key_terms: [engineeringstudents, job, company, applications, "i'm", "i've", experience, aerospace]
     token_count: 424
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c1"
-    char_span: [1914, 2046]
+    char_span: [1913, 2045]
     sentence_count: 1
     key_terms: [engineeringresumes, shecosmique, reviewed, posting, resume, worth]
     section: Comments
     token_count: 34
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c2"
-    char_span: [2048, 4179]
+    char_span: [2047, 4178]
     sentence_count: 18
     key_terms: [someone, job, coding, ziprecruiter, engineering, experience, interviews, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c3"
-    char_span: [3917, 4313]
+    char_span: [3916, 4312]
     sentence_count: 4
     key_terms: [change, iterations, rearranged, reviewers, multiple, probably, reviewed, someone]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c4"
-    char_span: [4315, 6395]
+    char_span: [4314, 6394]
     sentence_count: 19
     key_terms: [market, companies, job, contract, resume, applications, tough, don]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c5"
-    char_span: [6397, 8596]
+    char_span: [6396, 8595]
     sentence_count: 20
     key_terms: [school, nukerocketscientist, get, grad, industry, nuclear, tuition, state]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c6"
-    char_span: [8598, 10972]
+    char_span: [8597, 10971]
     sentence_count: 24
     key_terms: [resume, companies, handshake, job, possible, alot, help, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c7"
-    char_span: [10682, 11917]
+    char_span: [10681, 11916]
     sentence_count: 11
     key_terms: [job, resume, technician, different, applying, advanced-guidance482, like, need]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kubqih.md#c8"
-    char_span: [11919, 13733]
+    char_span: [11918, 13732]
     sentence_count: 19
     key_terms: [aerospace, engineering, job, resume, jobs, experience, industry, masters]
     section: Comments

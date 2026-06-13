@@ -23,13 +23,13 @@ chunks:
     key_terms: [careerguidance, degree, opportunities, analytics, september, comments, starting, science]
     token_count: 218
   - id: "social-intelligence/reddit-deep/careerguidance/1t4hrq2.md#c1"
-    char_span: [949, 3363]
+    char_span: [948, 3362]
     sentence_count: 10
     key_terms: [data, good, building, focus, engineering, get, something, technical]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/careerguidance/1t4hrq2.md#c2"
-    char_span: [3365, 4188]
+    char_span: [3364, 4187]
     sentence_count: 7
     key_terms: [analytics, college, maybe, projs, start, communicate, competitive, connections]
     section: Comments

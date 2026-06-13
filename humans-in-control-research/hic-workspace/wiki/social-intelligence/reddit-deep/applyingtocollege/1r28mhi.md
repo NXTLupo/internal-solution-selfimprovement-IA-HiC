@@ -31,25 +31,25 @@ chunks:
     key_terms: [stanford, outcomes, extraordinary, "don't", been, "i've", issues, people]
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c3"
-    char_span: [5598, 7880]
+    char_span: [5597, 7879]
     sentence_count: 18
     key_terms: [stanford, recognized, because, hopkins, school, opportunities, brown, connections]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c4"
-    char_span: [7882, 10093]
+    char_span: [7881, 10092]
     sentence_count: 17
     key_terms: [stanford, intellectual, communities, connections, people, away-huckleberry1411, college, coast]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c5"
-    char_span: [9866, 11709]
+    char_span: [9865, 11708]
     sentence_count: 12
     key_terms: [stanford, school, motivated, neglected, diseases, schools, impact, away-huckleberry1411]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r28mhi.md#c6"
-    char_span: [11711, 13051]
+    char_span: [11710, 13050]
     sentence_count: 12
     key_terms: [knowledge, company, stanford, breadth, depth, start, phd, post]
     section: Comments

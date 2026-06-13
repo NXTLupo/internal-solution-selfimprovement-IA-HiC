@@ -23,7 +23,9 @@ const UNIVERSAL_TONE_RULES_INLINE = UNIVERSAL_TONE_RULES;
 
 // 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary; legacy
 // Gemini/GPT entries kept for backward-compat.
-export type FreeformGenerationModel = 'deepseek-v4-flash' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4';
+// 2026-06-12 - claude-opus-4-8 added: Designer-chat generation + revision
+// route to Opus 4.8 per Jonathan's directive (DesignDeskChat call sites).
+export type FreeformGenerationModel = 'deepseek-v4-flash' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'gpt-5.4' | 'claude-opus-4-8';
 
 export interface FreeformGenerateArgs {
     kind: FreeformKind;
@@ -98,7 +100,25 @@ function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
         case 'gpt-5.4':                return 'gpt-5.4';
         case 'gemini-3.5-flash':       return 'gemini-3.5-flash';
         case 'gemini-3.1-pro-preview': return 'gemini-3.1-pro-preview';
+        case 'claude-opus-4-8':         return 'claude-opus-4-8';
     }
+}
+
+// 2026-06-12 - Anthropic path (Claude Opus 4.8). Single-shot HTML body
+// generation via the proxy /api/ai/anthropic (key attached server-side,
+// retry/backoff handled by aiRetryClient). max_tokens cap unverified for
+// opus-4-8 - lower if the API 400s.
+async function callClaude(prompt: string, modelId: string): Promise<string> {
+    const { callAIWithRetry } = await import('../../services/aiRetryClient');
+    // No `temperature`: opus-4-8 400s on it ("deprecated for this model").
+    const data: any = await callAIWithRetry('anthropic', {
+        model: modelId,
+        max_tokens: MAX_TOKENS,
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: prompt }],
+    }, { label: `Freeform (Claude ${modelId})`, maxAttempts: 3 });
+    const blocks = Array.isArray(data?.content) ? data.content : [];
+    return blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('');
 }
 
 // 2026-05-05 - Azure DeepSeek-V4-Flash via /api/ai/deepseek.
@@ -163,6 +183,7 @@ async function callForModel(prompt: string, model: FreeformGenerationModel): Pro
     const providerId = resolveProviderModelId(model);
     if (model === 'deepseek-v4-flash') return callDeepSeek(prompt, providerId);
     if (model === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, providerId, MAX_TOKENS, TEMPERATURE);
+    if (model === 'claude-opus-4-8') return callClaude(prompt, providerId);
     return callGemini(prompt, providerId);
 }
 
@@ -966,12 +987,18 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
     if (ARTIFACT_ENGINE_KINDS.has(args.kind)) {
         const isRevision = !!args.currentArtifact && typeof (args.currentArtifact as any).html === 'string' && (args.currentArtifact as any).html.length > 100;
         const endpoint = isRevision ? '/api/artifact/revise' : (args.kind === 'journey' ? '/api/journey-map/generate' : '/api/artifact/generate');
+        // 2026-06-12 (audit gap #1 fix): args.model was silently DROPPED here -
+        // the proxy artifact engine defaulted to claude-sonnet-4-6 while the
+        // caller believed claude-opus-4-8 was generating. llm_model now rides
+        // both generate and revise bodies.
+        const llmModel = resolveProviderModelId(args.model);
         const reqBody = isRevision
             ? {
                   kind: args.kind,
                   brand: args.brand,
                   current_html: (args.currentArtifact as any).html,
                   revision_instruction: args.userPrompt,
+                  llm_model: llmModel,
               }
             : {
                   kind: args.kind,
@@ -980,6 +1007,7 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
                   description: '',
                   journey_type: 'general',
                   corpus: args.corpus || '',
+                  llm_model: llmModel,
               };
         try {
             const resp = await fetch(`http://127.0.0.1:5012${endpoint}`, {

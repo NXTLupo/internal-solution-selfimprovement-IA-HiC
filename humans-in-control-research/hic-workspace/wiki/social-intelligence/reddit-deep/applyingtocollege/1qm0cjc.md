@@ -23,31 +23,31 @@ chunks:
     key_terms: [extracurriculars, applyingtocollege, college, applications, along, math, currently, comments]
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c1"
-    char_span: [1765, 2338]
+    char_span: [1764, 2337]
     sentence_count: 3
     key_terms: [essays, applyingtocollege, wiki, reddit, collegeessays, https, com, www]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c2"
-    char_span: [2340, 4409]
+    char_span: [2339, 4408]
     sentence_count: 17
     key_terms: [colleges, engineering, "it's", students, music, application, interesting, activities]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c3"
-    char_span: [4411, 6790]
+    char_span: [4410, 6789]
     sentence_count: 20
     key_terms: [engineering, activity, commitment, stem, interest, "you're", application, requirement]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c4"
-    char_span: [6792, 9205]
+    char_span: [6791, 9204]
     sentence_count: 22
     key_terms: [music, schools, different, interdisciplinary, want, programs, georgia, universities]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qm0cjc.md#c5"
-    char_span: [9207, 9859]
+    char_span: [9206, 9858]
     sentence_count: 6
     key_terms: [opportunities, support, school, consistently, experiences, personally, community, endeavors]
     section: Comments

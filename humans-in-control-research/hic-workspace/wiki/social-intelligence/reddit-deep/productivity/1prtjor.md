@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, dashboards, comments, instead, systems, setup, tools, using]
     token_count: 236
   - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c1"
-    char_span: [1049, 2901]
+    char_span: [1048, 2900]
     sentence_count: 21
     key_terms: [google, simple, notion, setups, though, found, tasks, tools]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/productivity/1prtjor.md#c2"
-    char_span: [2903, 4230]
+    char_span: [2902, 4229]
     sentence_count: 3
     key_terms: [tools, f2d2f542f3ed1e11c7b6d1de5c5706ace223b303, notes, preview, actual, format, notion, pretty]
     section: Comments

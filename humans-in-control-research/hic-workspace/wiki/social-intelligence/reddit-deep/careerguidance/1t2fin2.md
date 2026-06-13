@@ -23,7 +23,7 @@ chunks:
     key_terms: [versatile, careerguidance, psychology, comments, because, anyone, "i'm", lost]
     token_count: 141
   - id: "social-intelligence/reddit-deep/careerguidance/1t2fin2.md#c1"
-    char_span: [607, 1601]
+    char_span: [606, 1600]
     sentence_count: 7
     key_terms: [find, feel, original-attorney-52, good, like, look, want, bulky-farmer-201]
     section: Comments

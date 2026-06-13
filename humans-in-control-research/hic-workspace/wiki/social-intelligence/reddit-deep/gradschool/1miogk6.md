@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1miogk6.md#c0"
-    char_span: [0, 1099]
+    char_span: [0, 1098]
     sentence_count: 9
     key_terms: [school, did, gradschool, comments, jealous, campus, being, face]
     token_count: 264

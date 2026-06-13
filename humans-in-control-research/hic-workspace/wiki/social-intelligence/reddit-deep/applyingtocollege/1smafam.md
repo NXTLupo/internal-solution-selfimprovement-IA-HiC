@@ -21,25 +21,25 @@ chunks:
     key_terms: [umass, scholarship, international, northeastern, purdue, expensive, applyingtocollege, madison]
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c1"
-    char_span: [1806, 3810]
+    char_span: [1805, 3809]
     sentence_count: 17
     key_terms: [umass, boston, internships, purdue, difficult, work, gautamagarwal75, graduation]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c2"
-    char_span: [3812, 4272]
+    char_span: [3811, 4271]
     sentence_count: 5
     key_terms: [phd, getting, being, international, competitive, employment, dependent, mentioned]
     section: Comments
     token_count: 106
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c3"
-    char_span: [4274, 6113]
+    char_span: [4273, 6112]
     sentence_count: 12
     key_terms: [boston, international, cherrychocolatepizza, internship, umass, gautamagarwal75, get, good]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smafam.md#c4"
-    char_span: [6115, 7886]
+    char_span: [6114, 7885]
     sentence_count: 11
     key_terms: [purdue, international, scholarships, admissions, colleges, students, plenty, co-op]
     section: Comments

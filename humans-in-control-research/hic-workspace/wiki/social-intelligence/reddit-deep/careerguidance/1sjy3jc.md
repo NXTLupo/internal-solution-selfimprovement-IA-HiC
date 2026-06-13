@@ -26,7 +26,7 @@ chunks:
     key_terms: [people, tech, something, decent, get, gpa, job, communicating]
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1sjy3jc.md#c2"
-    char_span: [3071, 4832]
+    char_span: [3070, 4831]
     sentence_count: 12
     key_terms: [roles, technical, like, engineering, find, stability, back-end, because]
     section: Comments

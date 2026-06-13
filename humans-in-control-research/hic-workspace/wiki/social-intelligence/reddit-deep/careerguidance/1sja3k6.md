@@ -21,7 +21,7 @@ chunks:
     key_terms: [product, careerguidance, "i'm", job, work, e-commerce, everything, industries]
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1sja3k6.md#c1"
-    char_span: [1801, 3236]
+    char_span: [1800, 3235]
     sentence_count: 7
     key_terms: [business-focused, people, roles, description, definitely, companies, directly, reaching]
     section: Comments

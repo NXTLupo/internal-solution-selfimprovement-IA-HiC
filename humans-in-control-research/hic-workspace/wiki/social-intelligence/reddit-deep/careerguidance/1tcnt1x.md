@@ -23,7 +23,7 @@ chunks:
     key_terms: [career, like, college, careerguidance, entertainment, interested, profession, direction]
     token_count: 324
   - id: "social-intelligence/reddit-deep/careerguidance/1tcnt1x.md#c1"
-    char_span: [1477, 3106]
+    char_span: [1476, 3105]
     sentence_count: 12
     key_terms: [people, different, work, looking, writing, communications, fields, check]
     section: Comments

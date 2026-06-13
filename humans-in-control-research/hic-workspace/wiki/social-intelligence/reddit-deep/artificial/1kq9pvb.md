@@ -23,73 +23,73 @@ chunks:
     key_terms: [labor, economic, white-collar, write, cost, artificial, classical, cognitive]
     token_count: 342
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c1"
-    char_span: [1598, 3810]
+    char_span: [1597, 3809]
     sentence_count: 18
     key_terms: [capital, labor, resources, economic, inputs, people, result, unemployment]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c2"
-    char_span: [3812, 5224]
+    char_span: [3811, 5223]
     sentence_count: 7
     key_terms: [theory, labor, increased, capital, traffic, something, economic, outcomes]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c3"
-    char_span: [5226, 7249]
+    char_span: [5225, 7248]
     sentence_count: 14
     key_terms: [labor, humans, entertainment, human, new, "people's", question, average]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c4"
-    char_span: [7251, 8656]
+    char_span: [7250, 8655]
     sentence_count: 11
     key_terms: [human, economics, capitalism, deleted, intelligence, labor, comment, "doesn't"]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c5"
-    char_span: [8658, 9784]
+    char_span: [8657, 9783]
     sentence_count: 11
     key_terms: [economics, replacement, capitalism, efficient, accuracy, biology, nervous, studies]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c6"
-    char_span: [9786, 11939]
+    char_span: [9785, 11938]
     sentence_count: 19
     key_terms: [get, good, work, industry, already, graphic, enough, people]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c7"
-    char_span: [11942, 13148]
+    char_span: [11941, 13147]
     sentence_count: 6
     key_terms: [level, cognitive, output, entry, guess, jobs, tonysoprano300, aureliusvarro]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c8"
-    char_span: [13150, 15185]
+    char_span: [13149, 15184]
     sentence_count: 16
     key_terms: [tasks, accuracy, new, time, preparing, required, correct, experts]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c9"
-    char_span: [15187, 17326]
+    char_span: [15186, 17325]
     sentence_count: 14
     key_terms: [compute, communication, human, replacement, zero, ultimately, assistive, community]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c10"
-    char_span: [17328, 19519]
+    char_span: [17327, 19518]
     sentence_count: 34
     key_terms: [pain, multiplier, customers, employees, sell, replacement, gets, another]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c11"
-    char_span: [19521, 21569]
+    char_span: [19520, 21568]
     sentence_count: 12
     key_terms: [labor, skill, years, fivenine235, tool, recommend, changes, project]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1kq9pvb.md#c12"
-    char_span: [21571, 23804]
+    char_span: [21570, 23803]
     sentence_count: 17
     key_terms: [day, different, significantly, work, physically, available, cognitive, internet]
     section: Comments

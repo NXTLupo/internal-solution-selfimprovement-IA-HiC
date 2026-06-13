@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/f6ac92e1eb.md#c0"
-    char_span: [0, 1986]
+    char_span: [0, 1985]
     sentence_count: 13
     key_terms: [gen-z-feels-financially-insecure-here-s-what-it-means-for-your-credit-choices, feels, credit, https, money, been, feel, like]
-    token_count: 459
+    token_count: 458
   - id: "articles/reddit-deep-r-genz/f6ac92e1eb.md#c1"
-    char_span: [1989, 3906]
+    char_span: [1988, 3905]
     sentence_count: 9
     key_terms: [enough, prosperity, money, food, good, generation, resources, anxiety]
     token_count: 425

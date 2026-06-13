@@ -20,37 +20,37 @@ chunks:
     key_terms: [alphaevolve, machinelearning, implementation, "deepmind's", openevolve, reddit, source, system]
     token_count: 125
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c1"
-    char_span: [567, 1144]
+    char_span: [566, 1143]
     sentence_count: 3
     key_terms: [programs, using, program, code, llms, modifications, context-rich, continuously]
     section: What is OpenEvolve?
     token_count: 111
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c2"
-    char_span: [1173, 1523]
+    char_span: [1172, 1522]
     sentence_count: 1
     key_terms: [gemini-flash-2, works, openai-compatible, multi-objective, checkpointing, optimization, distributed, engineering]
     section: What makes it special?
     token_count: 84
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c3"
-    char_span: [1566, 2268]
+    char_span: [1565, 2267]
     sentence_count: 3
     key_terms: [optimization, evolved, arrangements, mathematical, minimization, successfully, alphaevolve, constrained]
     section: "We replicated AlphaEvolve's results!"
     token_count: 131
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c4"
-    char_span: [2299, 2611]
+    char_span: [2298, 2610]
     sentence_count: 1
     key_terms: [openai-compatible, api, claude-sonnet-3, gemini-flash-2, architecture, generations, inference, cerebras]
     section: LLM Performance Insights
     token_count: 77
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c5"
-    char_span: [2634, 4753]
+    char_span: [2633, 4752]
     sentence_count: 10
     key_terms: [openevolve, github, codelion, https, examples, com, packing, optimization]
     section: "Try it yourself!"
     token_count: 503
   - id: "articles/reddit-deep-r-machinelearning/5ffff3ee23.md#c6"
-    char_span: [4755, 5899]
+    char_span: [4754, 5898]
     sentence_count: 9
     key_terms: [crossover, traditional, evaluation, operators, mutation, project, never, own]
     section: "Try it yourself!"

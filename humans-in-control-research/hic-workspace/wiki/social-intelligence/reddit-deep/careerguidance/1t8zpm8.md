@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t8zpm8.md#c0"
-    char_span: [0, 299]
+    char_span: [0, 298]
     sentence_count: 2
     key_terms: [careerguidance, comments, cultural-lead-3965, reddit-deep, posted, reddit, source, https]
-    token_count: 91
+    token_count: 90
 ---
 # Which skill should I learn or which job should I do now?
 

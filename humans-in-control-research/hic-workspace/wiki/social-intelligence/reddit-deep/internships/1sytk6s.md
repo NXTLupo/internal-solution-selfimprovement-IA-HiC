@@ -23,7 +23,7 @@ chunks:
     key_terms: [finance, mumbai, internships, com, accounts, analysis, "i'm", internship]
     token_count: 362
   - id: "social-intelligence/reddit-deep/internships/1sytk6s.md#c1"
-    char_span: [1480, 1783]
+    char_span: [1479, 1782]
     sentence_count: 1
     key_terms: [awful, job, no-anxiety2705, referrals, directly, fakeness, linkedin, startups]
     section: Comments

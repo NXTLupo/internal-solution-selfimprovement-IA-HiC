@@ -23,19 +23,19 @@ chunks:
     key_terms: [oakland, students, northeastern, classes, internships, available, comments, freshman]
     token_count: 265
   - id: "social-intelligence/reddit-deep/neu/1rdwrug.md#c1"
-    char_span: [1243, 3291]
+    char_span: [1242, 3290]
     sentence_count: 13
     key_terms: [oakland, https, students, faculty, espertus, neu-pdi, undergraduate-professional-practicum, campus]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/neu/1rdwrug.md#c2"
-    char_span: [3293, 5250]
+    char_span: [3292, 5249]
     sentence_count: 12
     key_terms: [teaching, professor, year, northeastern, faculty, oakland, tenured, khoury]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/neu/1rdwrug.md#c3"
-    char_span: [5252, 6105]
+    char_span: [5251, 6104]
     sentence_count: 7
     key_terms: [internship, oakland, huge, neu, knowledgeable, opportunities, overwhelming, experience]
     section: Comments

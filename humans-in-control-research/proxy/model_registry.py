@@ -17,14 +17,20 @@ log = logging.getLogger("model_registry")
 
 # status: "active"  -> use freely
 #         "sunset"   -> retired; requests should re-route to successor AND be flagged
+#         "banned"   -> provider temporarily disallowed it; re-route to successor AND flag
 # Kept in lockstep with services/aiRouter.ts MODEL_REGISTRY (active set) plus the
 # sunset IDs the cost meter still prices for back-compat.
 KNOWN_MODELS = {
+    # 2026-06-13 - Fable 5 TEMPORARILY BANNED by Anthropic. All routing was
+    # repointed to its stand-in claude-opus-4-8 across the SPA + proxy. Kept
+    # here as "banned" (not removed) so a stray Fable call is flagged with its
+    # successor instead of an opaque 400. Flip back to "active" + repoint the
+    # routing strings once the ban lifts; see plans/fable-to-opus-swap-2026-06-13.md.
+    "claude-fable-5":         {"provider": "anthropic", "status": "banned", "successor": "claude-opus-4-8"},
     "claude-opus-4-8":        {"provider": "anthropic", "status": "active"},
     "claude-sonnet-4-6":      {"provider": "anthropic", "status": "active"},
     "gemini-3.1-pro-preview": {"provider": "google",    "status": "active"},
     "gemini-3.5-flash":       {"provider": "google",    "status": "active"},
-    "gemini-2.5-flash":       {"provider": "google",    "status": "active"},
     "gpt-5.5":                {"provider": "openai",    "status": "active"},
     "gpt-5.4":                {"provider": "openai",    "status": "active"},
     "gpt-5.4-mini":           {"provider": "openai",    "status": "active"},
@@ -32,6 +38,10 @@ KNOWN_MODELS = {
     "deepseek-v4-pro":        {"provider": "deepseek",  "status": "active"},
     # Sunset — retained ONLY so a stale caller is flagged with a successor,
     # never silently 400'd. Do not route new work here.
+    # 2026-06-12 - gemini-2.5-flash moved to sunset: retired tier per the
+    # canonical-models standing rule; one escaped call site logged a raw key
+    # against it before the pin sweep.
+    "gemini-2.5-flash":       {"provider": "google",    "status": "sunset", "successor": "gemini-3.5-flash"},
     "claude-opus-4-7":        {"provider": "anthropic", "status": "sunset", "successor": "claude-opus-4-8"},
     "claude-opus-4-6":        {"provider": "anthropic", "status": "sunset", "successor": "claude-opus-4-8"},
 }
@@ -66,6 +76,8 @@ def check_model(model):
         return True, "active", ""
     if st == "sunset":
         return False, "sunset", f"{m} is sunset; route to successor {successor_of(m)!r}"
+    if st == "banned":
+        return False, "banned", f"{m} is temporarily banned by the provider; route to successor {successor_of(m)!r}"
     return False, "unknown", f"{m!r} is not in the model registry (possible vendor sunset, typo, or stale caller)"
 
 

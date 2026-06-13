@@ -1,0 +1,88 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: roth, traditional, traditional ira, basis, backdoor, year, tax
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Should those last two be "Roth IRA" instead of "traditional IRA"? If you did the backdoor Roth correctly your traditional IRA should be empty afterwards, or just a nominal amount of interest.
+I’m confused but it sounds like you are doing a Roth conversion not a backdoor Roth.  Backdoor Roths are for individuals making too much money to contribute to a Roth.  This year 153k for a single and 242k for a couple.  If you are below these amounts just put money directly in a Roth.
+
+EXAMPLE 2:
+For the future, it sounds like I could’ve contributed to my traditional, then IMMEDIATELY converted to a Roth and avoided any tax penalties by filing a specific IRS form at tax time…? You're asking this on December 31st after the market has closed for 2025?
+Yeah, I called and learned. I was told I could convert next year but no clue how that would impact me when it comes to taxes, penalties etc. suffice to say, I guess I now have a traditional IRA in addition to my Roth. Woo hoo. [...]
+
+EXAMPLE 3:
+Backdoor Roth confusion - help! Last year was my first year trying the backdoor Roth, and it is honestly still confusing to me despite reading information on several sites. I converted 7K from my traditional IRA to the Roth IRA, then bought 7k in stocks in my traditional IRA. My traditional IRA now has a total of 7,300 in stocks (given interest).
+
+EXAMPLE 4:
+What are my next steps for the backdoor Roth this year? I know the max is 7.5K. Below are specific questions and I appreciate any other guidance, thank you!
+
+EXAMPLE 5:
+I put in like $8500 over the limit last year so that doesn't really jive with the $21k increase in basis either.
+The basis is what you contributed but not the growth or conversions. You cannot take this out within the 401k without penalty if the value is greater than basis because distributions from a Roth 401k are on a pro rata basis (meaning if half the account is basis and half is gain, drawing any amount will be treated as half gain half basis). This is notably different from a Roth IRA where basis may be drawn out first with no tax or penalty at any age for any reason. [...]
+
+EXAMPLE 6:
+Form you file: Use Form 8606 whenever you make nondeductible traditional IRA contributions or do a Roth conversion.
+
+EXAMPLE 7:
+What is Roth Cost Basis on a 401k? I used to think the Roth Cost Basis was my Roth principle, ie the money I can take out whenever with no penalty. Comparing my end of 2024 and 2025 statements though the math didn't workout. I put in the $23.5K max as all Roth plus another $8.5K as an automatic After Tax Roth Conversion (MegaBackdoor Roth). My Roth Cost Basis only went up $21.8K though. So what is Roth Cost Basis and how do I find out my Total Roth Contributions for the account? The pic is on my quarterly 401K statement.  Commenting because I'm curious to see the answer. [...]
+
+EXAMPLE 8:
+Conversion deadline: Roth conversions must be completed by December 31 to count in that year’s income.
+
+EXAMPLE 9:
+Apologies if this is still unclear. Conversions in a Roth 401k are a weird pseudo situation that are technically not gain or basis. When explaining this normally, I am doing so to financial professionals with a solid working understanding of these terms and rules.
+
+EXAMPLE 10:
+This year to clean it up I would like to convert the existing AND the new 7.5K that I add if that is ok to do.
+> I converted 7K from my traditional IRA to the Roth IRA, then bought 7k in stocks in my traditional IRA. My traditional IRA now has a total of 7,300 in stocks (given interest).
+
+EXAMPLE 11:
+If the question is how much you may withdraw without early withdrawal penalty, it is the sum of the basis and all in plan conversion. Note this would still happen pro rata, triggering tax and penalty on gain If you plan to do that before a rollover to a Roth IRA and achieving age 59.5, because the pro rata rule will kick in. If the pro rata rule kicks in, your tax liability will be (basis + conversion) / total account basis * ordinary income tax rate + 10% penalty.
+
+EXAMPLE 12:
+* Do conversions have to be cash, or can I convert the stock to Roth? 
+* How is interest treated - does it count towards the 7.5k max or not (e.g., can I add $500 or just $200)?
+* Can I still add $ this year to my traditional IRA and if so how much? It is unusual because I already had 7K sitting in my traditional, which I converted last year and then added 7K to the traditional last year.
+
+EXAMPLE 13:
+Have cash in traditional Ira, want to move to Roth but I’m over income limit…what should I do? I somehow forget the rules around IRAs every year…but I contributed the max to my traditional IRA in the first quarter of the year. Subsequently, I never invested any of it. Now that it’s the last day of the year, I wanted to convert it to a Roth.
+
+EXAMPLE 14:
+Contribution deadline: You can make IRA contributions for a tax year up to the tax filing deadline (around April 15 of the following year).
+
+EXAMPLE 15:
+If the question is why is the 8.5k conversion not added to basis, it is because it is not basis, but it is also not taxable as gains for purposes of early withdrawal like normal gains from the account with the exception of the 10% penalty for the first 5 years.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

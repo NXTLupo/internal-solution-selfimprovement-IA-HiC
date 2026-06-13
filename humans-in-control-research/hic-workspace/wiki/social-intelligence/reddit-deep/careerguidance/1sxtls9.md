@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, easily, people, get, part, technical, comments, guidance]
     token_count: 308
   - id: "social-intelligence/reddit-deep/careerguidance/1sxtls9.md#c1"
-    char_span: [1379, 1773]
+    char_span: [1378, 1772]
     sentence_count: 3
     key_terms: [technical, people, "you're", recentgene5230, background, consultant, describing, vocabulary]
     section: Comments

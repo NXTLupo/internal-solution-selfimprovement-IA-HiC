@@ -10,13 +10,19 @@
 import React, { useState, useRef } from 'react';
 import { NxtBlockRenderer, type NxtBlock } from './NxtOutputRenderer';
 import {
-    SlideShell, PersonaCardSlide, RecommendationSlide, ThemeClusterSlide,
-    ThemeSpotlightSlide, ThemeArcSlide, ThemeMosaicSlide,
-    CompetitiveMatrixSlide, BlockQuoteSlide, CaseStudySlide, PrinciplesSlide,
-    StatRowSlide, TimelineSlide, SectionDividerFullBleed,
-    ServiceBlueprintSlide, GapMatrixSlide, ArchitectureMapSlide, PrdFeatureSlide, SystemsInventorySlide,
-    JourneyBriefSlide,
+    CaseStudySlide, ServiceBlueprintSlide, JourneyMapSlide, OrgChartSlide, ExecutiveBriefSlide,
+    SectionDividerFullBleed, JourneyBriefSlide, SlideShell,
 } from './slideTemplates/web';
+// 2026-06-11 (task #32) - the remaining 15 preview renderers moved onto the
+// GoldFrame chrome (goldPreviews.tsx), each the half-scale twin of its
+// 1920x1080 stage renderer, so preview = Figma = PPTX for every template.
+import {
+    PersonaCardSlide, RecommendationSlide, ThemeClusterSlide,
+    ThemeSpotlightSlide, ThemeArcSlide, ThemeMosaicSlide,
+    CompetitiveMatrixSlide, BlockQuoteSlide, PrinciplesSlide,
+    StatRowSlide, TimelineSlide, GapMatrixSlide, ArchitectureMapSlide,
+    PrdFeatureSlide, SystemsInventorySlide,
+} from './slideTemplates/goldPreviews';
 import type { JourneyBrief } from '../services/journeyBriefExporter';
 import { exportSlideToPPTX, preprocessImageCover } from './slideTemplates/pptx';
 import { TOKENS } from './slideTemplates/types';
@@ -25,7 +31,8 @@ import type {
     SlideTemplate, PersonaCardData, RecommendationData, ThemeClusterData,
     CompetitiveMatrixData, BlockQuoteData, CaseStudyData, PrinciplesData,
     StatRowData, TimelineData, SectionDividerData,
-    ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
+    ServiceBlueprintData, JourneyMapData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
+    OrgChartData, ExecutiveBriefData,
 } from './slideTemplates/types';
 
 export interface SlideData {
@@ -37,6 +44,12 @@ export interface SlideData {
     _evidenceGap?: { summary?: string; issues?: any[] };
     /** Visual brand: 'nxt' (default) or 'nu' (Northeastern). Set by hashtag detection in the parser. */
     brand?: BrandId;
+    /** Universal density axis (2026-06-10). 'dense' raises every template's
+     *  item ceilings per types.ts DENSITY_SPEC and renderers adapt type size
+     *  to the actual item count. Set by the model (fence attr density=dense or
+     *  JSON "density") when the request warrants a denser artifact, or forced
+     *  by the #dense hashtag. */
+    density?: 'base' | 'dense';
     title: string;
     subtitle?: string;
     sources?: string[];
@@ -54,6 +67,9 @@ export interface SlideData {
     timeline?: TimelineData;
     sectionDivider?: SectionDividerData;
     serviceBlueprint?: ServiceBlueprintData;
+    journeyMap?: JourneyMapData;
+    orgChart?: OrgChartData;
+    executiveBrief?: ExecutiveBriefData;
     gapMatrix?: GapMatrixData;
     architectureMap?: ArchitectureMapData;
     prdFeature?: PrdFeatureData;
@@ -96,73 +112,95 @@ function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNod
             return slide.sectionDivider ? <SectionDividerFullBleed data={slide.sectionDivider} brand={brand} /> : null;
         case 'persona-card':
             return slide.persona ? (
-                <SlideShell brand={brand} imageUrl={slide.imageUrl} imagePanel={isGenerating ? <GeneratingOverlay /> : undefined}>
-                    <PersonaCardSlide data={slide.persona} sources={sources} hasImage={!!slide.imageUrl} brand={brand} />
-                </SlideShell>
+                <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                    <PersonaCardSlide data={slide.persona} sources={sources} hasImage={!!slide.imageUrl} imageUrl={slide.imageUrl} density={slide.density} brand={brand} />
+                    {isGenerating && <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.6)', zIndex: 4 }}><GeneratingOverlay /></div>}
+                </div>
             ) : null;
         case 'recommendation':
             return slide.recommendation ? (
-                <SlideShell brand={brand}><RecommendationSlide title={slide.title} data={slide.recommendation} sources={sources} brand={brand} /></SlideShell>
+                <RecommendationSlide title={slide.title} density={slide.density} data={slide.recommendation} sources={sources} brand={brand} />
             ) : null;
         case 'theme-cluster':
             return slide.themeCluster ? (
-                <SlideShell brand={brand}><ThemeClusterSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+                <ThemeClusterSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
             ) : null;
         case 'theme-spotlight':
             return slide.themeCluster ? (
-                <SlideShell brand={brand}><ThemeSpotlightSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+                <ThemeSpotlightSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
             ) : null;
         case 'theme-arc':
             return slide.themeCluster ? (
-                <SlideShell brand={brand}><ThemeArcSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+                <ThemeArcSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
             ) : null;
         case 'theme-mosaic':
             return slide.themeCluster ? (
-                <SlideShell brand={brand}><ThemeMosaicSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} /></SlideShell>
+                <ThemeMosaicSlide title={slide.title} data={slide.themeCluster} sources={sources} brand={brand} />
             ) : null;
         case 'competitive-matrix':
             return slide.matrix ? (
-                <SlideShell brand={brand}><CompetitiveMatrixSlide title={slide.title} data={slide.matrix} sources={sources} brand={brand} /></SlideShell>
+                <CompetitiveMatrixSlide title={slide.title} density={slide.density} data={slide.matrix} sources={sources} brand={brand} />
             ) : null;
         case 'block-quote':
             return slide.quote ? (
-                <SlideShell brand={brand}><BlockQuoteSlide data={slide.quote} sources={sources} brand={brand} /></SlideShell>
+                <BlockQuoteSlide density={slide.density} data={slide.quote} sources={sources} brand={brand} />
             ) : null;
         case 'case-study':
+            // 2026-06-10 - CaseStudySlide renders the full-canvas GOLD frame
+            // (rail + dot mark + masthead + takeaway band) itself; wrapping it
+            // in the legacy SlideShell would double the chrome.
             return slide.caseStudy ? (
-                <SlideShell brand={brand}><CaseStudySlide title={slide.title} data={slide.caseStudy} sources={sources} brand={brand} /></SlideShell>
+                <CaseStudySlide title={slide.title} density={slide.density} data={slide.caseStudy} sources={sources} brand={brand} />
             ) : null;
         case 'principles':
             return slide.principles ? (
-                <SlideShell brand={brand}><PrinciplesSlide title={slide.title} data={slide.principles} sources={sources} brand={brand} /></SlideShell>
+                <PrinciplesSlide title={slide.title} density={slide.density} data={slide.principles} sources={sources} brand={brand} />
             ) : null;
         case 'stat-row':
             return slide.statRow ? (
-                <SlideShell brand={brand}><StatRowSlide title={slide.title} data={slide.statRow} sources={sources} brand={brand} /></SlideShell>
+                <StatRowSlide title={slide.title} density={slide.density} data={slide.statRow} sources={sources} brand={brand} />
             ) : null;
         case 'timeline':
             return slide.timeline ? (
-                <SlideShell brand={brand}><TimelineSlide title={slide.title} data={slide.timeline} sources={sources} brand={brand} /></SlideShell>
+                <TimelineSlide title={slide.title} density={slide.density} data={slide.timeline} sources={sources} brand={brand} />
             ) : null;
         case 'service-blueprint':
+            // 2026-06-11 - GOLD uplift: ServiceBlueprintSlide now renders the
+            // full-canvas GoldFrame itself (rail + dot mark + kicker + takeaway
+            // band); wrapping in SlideShell would double the chrome.
             return slide.serviceBlueprint ? (
-                <SlideShell brand={brand}><ServiceBlueprintSlide title={slide.title} data={slide.serviceBlueprint} sources={sources} brand={brand} /></SlideShell>
+                <ServiceBlueprintSlide title={slide.title} density={slide.density} data={slide.serviceBlueprint} sources={sources} brand={brand} />
+            ) : null;
+        case 'journey-map':
+            // GOLD actor-lane journey matrix - renders its own GoldFrame chrome.
+            return slide.journeyMap ? (
+                <JourneyMapSlide title={slide.title} density={slide.density} data={slide.journeyMap} sources={sources} brand={brand} />
+            ) : null;
+        case 'org-chart':
+            // GOLD reporting-tier org matrix - renders its own GoldFrame chrome.
+            return slide.orgChart ? (
+                <OrgChartSlide title={slide.title} density={slide.density} data={slide.orgChart} sources={sources} brand={brand} />
+            ) : null;
+        case 'executive-brief':
+            // GOLD #brief/#explainer/#report slide twin - renders its own GoldFrame chrome.
+            return slide.executiveBrief ? (
+                <ExecutiveBriefSlide title={slide.title} density={slide.density} data={slide.executiveBrief} sources={sources} brand={brand} />
             ) : null;
         case 'gap-matrix':
             return slide.gapMatrix ? (
-                <SlideShell brand={brand}><GapMatrixSlide title={slide.title} data={slide.gapMatrix} sources={sources} brand={brand} /></SlideShell>
+                <GapMatrixSlide title={slide.title} density={slide.density} data={slide.gapMatrix} sources={sources} brand={brand} />
             ) : null;
         case 'architecture-map':
             return slide.architectureMap ? (
-                <SlideShell brand={brand}><ArchitectureMapSlide title={slide.title} data={slide.architectureMap} sources={sources} brand={brand} /></SlideShell>
+                <ArchitectureMapSlide title={slide.title} data={slide.architectureMap} sources={sources} brand={brand} />
             ) : null;
         case 'prd-feature':
             return slide.prdFeature ? (
-                <SlideShell brand={brand}><PrdFeatureSlide title={slide.title} data={slide.prdFeature} sources={sources} brand={brand} /></SlideShell>
+                <PrdFeatureSlide title={slide.title} data={slide.prdFeature} sources={sources} brand={brand} />
             ) : null;
         case 'systems-inventory':
             return slide.systemsInventory ? (
-                <SlideShell brand={brand}><SystemsInventorySlide title={slide.title} data={slide.systemsInventory} sources={sources} brand={brand} /></SlideShell>
+                <SystemsInventorySlide title={slide.title} density={slide.density} data={slide.systemsInventory} sources={sources} brand={brand} />
             ) : null;
         case 'journey-brief':
             return slide.journeyBrief ? (
@@ -237,6 +275,9 @@ export const SlideCanvas: React.FC<Props> = ({
                 timeline: slide.timeline,
                 sectionDivider: slide.sectionDivider,
                 serviceBlueprint: slide.serviceBlueprint,
+                journeyMap: slide.journeyMap,
+                orgChart: slide.orgChart,
+                executiveBrief: slide.executiveBrief,
                 gapMatrix: slide.gapMatrix,
                 architectureMap: slide.architectureMap,
                 prdFeature: slide.prdFeature,
@@ -252,6 +293,25 @@ export const SlideCanvas: React.FC<Props> = ({
     // because the preview applies CSS scale() that would skew captured rects.
     const handleExportPPTX = async () => {
         setExporting(true);
+        // 2026-06-11 - ONE-ENGINE REWIRE. PRIMARY path is now the same gold
+        // stage pipeline the deck export uses: emit a fresh 1920x1080 #stage
+        // from SlideData via slideDataToStageHtml and ship through
+        // /api/gold/export-pptx (Playwright + native shapes + embedded brand
+        // fonts). The DOM-walker (/api/export-pptx) is demoted to fallback:
+        // walking the 960x540 preview captured stale CSS-variable fonts
+        // (Spectral) and rgba washes that the inverted alpha pipeline rendered
+        // as near-solid accent fills (the 2026-06-11 service-blueprint.pptx
+        // failure). Degradations are logged loudly, never silent.
+        try {
+            const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
+            const { exportGoldPptx } = await import('../services/goldArtifact');
+            const stageHtml = slideDataToStageHtml(slide as any);
+            await exportGoldPptx(stageHtml, `${slide.template}.pptx`);
+            setExporting(false);
+            return;
+        } catch (goldErr: any) {
+            console.error(`[slide-export] gold stage export failed (${goldErr?.message || goldErr}); falling back to DOM-walker`, goldErr);
+        }
         try {
             const el = slideRef.current;
             if (!el) throw new Error('slideRef missing');

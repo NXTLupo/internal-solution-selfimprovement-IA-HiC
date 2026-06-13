@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1ps3vff.md#c0"
-    char_span: [0, 300]
+    char_span: [0, 299]
     sentence_count: 2
     key_terms: [comments, jobs, reddit-deep, structured, developer, learning, backend, getting]
-    token_count: 86
+    token_count: 85
 ---
 # Is there a structured way of learning, for getting a job as a Backend Developer?
 

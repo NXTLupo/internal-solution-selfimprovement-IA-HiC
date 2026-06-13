@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", final, "i've", grade, been, got, professor, academic]
     token_count: 354
   - id: "social-intelligence/reddit-deep/neu/1sweoby.md#c1"
-    char_span: [1462, 2960]
+    char_span: [1461, 2959]
     sentence_count: 5
     key_terms: [sovereignphobia, grade, disfiguredcoconut, email, transcript, professor, replaces, problem]
     section: Comments

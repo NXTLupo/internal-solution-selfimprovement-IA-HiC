@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineeringstudents, comments, accomplished-bit8214, engineering, reddit-deep, freshman, honestly, nowadays]
     token_count: 106
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c1"
-    char_span: [422, 2280]
+    char_span: [421, 2279]
     sentence_count: 14
     key_terms: [classes, engineering, got, year, freshman, because, despite, decent]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c2"
-    char_span: [2282, 3973]
+    char_span: [2281, 3972]
     sentence_count: 18
     key_terms: [time, recruiters, dont, schedule, study, take, companies, freshman]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c3"
-    char_span: [3975, 6071]
+    char_span: [3974, 6070]
     sentence_count: 16
     key_terms: [college, "don't", engineering, program, abet, get, "it's", work]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/engineeringstudents/1myu8f0.md#c4"
-    char_span: [6073, 6960]
+    char_span: [6072, 6959]
     sentence_count: 7
     key_terms: [class, get, classes, better, plan, work, necessarily, professors]
     section: Comments

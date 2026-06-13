@@ -28,37 +28,37 @@ chunks:
     key_terms: [gotta, azure, pipelines, programming, aws, etc, "it's", knowledge]
     token_count: 356
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c2"
-    char_span: [3701, 5613]
+    char_span: [3700, 5612]
     sentence_count: 21
     key_terms: [get, keep, industry, enough, need, problems, because, manager]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c3"
-    char_span: [5615, 7685]
+    char_span: [5614, 7684]
     sentence_count: 11
     key_terms: [employers, engineers, software, get, articlehaunting3983, people, job, especially]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c4"
-    char_span: [7397, 7952]
+    char_span: [7396, 7951]
     sentence_count: 6
     key_terms: [employers, employer, degree, remote, articlehaunting3983, "it's", ones, requirement]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c5"
-    char_span: [7954, 9483]
+    char_span: [7953, 9482]
     sentence_count: 16
     key_terms: [job, employer, "isn't", "it's", project, articlehaunting3983, doing, find]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c6"
-    char_span: [9486, 11581]
+    char_span: [9485, 11580]
     sentence_count: 12
     key_terms: [expert, everything, "can't", simply, "don't", tracagnotto, dev, too]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ta6vir.md#c7"
-    char_span: [11583, 12600]
+    char_span: [11582, 12599]
     sentence_count: 8
     key_terms: [feel, work, intepid-discovery, like, top, contractually, overwhelming, completable]
     section: Comments

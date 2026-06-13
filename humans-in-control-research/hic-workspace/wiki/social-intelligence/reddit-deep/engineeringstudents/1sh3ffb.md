@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, comments, career, gave, get, want, opportunities, aeronautical]
     token_count: 204
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c1"
-    char_span: [858, 3024]
+    char_span: [857, 3023]
     sentence_count: 17
     key_terms: [engineeringstudents, wiki, engineering, lehigh, please, reddit, https, com]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c2"
-    char_span: [3026, 4894]
+    char_span: [3025, 4893]
     sentence_count: 13
     key_terms: [engineering, industry, defense, program, purdue, school, been, get]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sh3ffb.md#c3"
-    char_span: [4896, 5820]
+    char_span: [4895, 5819]
     sentence_count: 2
     key_terms: [engineering, experience, school, connections, moving, great, away, club]
     section: Comments

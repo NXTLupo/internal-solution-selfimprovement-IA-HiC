@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1qupzpd.md#c0"
-    char_span: [0, 2147]
+    char_span: [0, 2146]
     sentence_count: 14
     key_terms: [technologies, biolife, chatgpt, quantum, patent-bearing, c-corporation, voice, inc]
-    token_count: 479
+    token_count: 478
   - id: "social-intelligence/reddit-deep/gpt/1qupzpd.md#c1"
-    char_span: [2151, 4536]
+    char_span: [2150, 4535]
     sentence_count: 20
     key_terms: [technologies, trust, biolife, quantum, inc, because, visible, c-corporation]
     token_count: 484

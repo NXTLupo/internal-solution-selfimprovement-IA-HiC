@@ -21,25 +21,25 @@ chunks:
     key_terms: [cscareerquestions, swe, statistical, analysis, comments, working, fucked, practical-durian-593]
     token_count: 267
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c1"
-    char_span: [1081, 3153]
+    char_span: [1080, 3152]
     sentence_count: 17
     key_terms: [internships, practical-durian-593, phd, least, job, less, background, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c2"
-    char_span: [3155, 4778]
+    char_span: [3154, 4777]
     sentence_count: 14
     key_terms: [companies, overqualified, level, experience, company, practical-durian-593, spend, get]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c3"
-    char_span: [4780, 5964]
+    char_span: [4779, 5963]
     sentence_count: 5
     key_terms: [swe, generic, going, years, back, data, don, job]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sjhbq1.md#c4"
-    char_span: [5966, 7267]
+    char_span: [5965, 7266]
     sentence_count: 3
     key_terms: [given, code, get, job, mikeyzhong, research, comment, getting]
     section: Comments

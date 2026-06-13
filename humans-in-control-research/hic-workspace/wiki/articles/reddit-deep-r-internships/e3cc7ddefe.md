@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/e3cc7ddefe.md#c0"
-    char_span: [0, 1931]
+    char_span: [0, 1930]
     sentence_count: 13
     key_terms: [looking, shyam-sunder-reddy, linkedin, startup, https, internships, opportunity, com]
-    token_count: 483
+    token_count: 482
 ---
 # Startup Internship Opportunity (Paid – Post-Launch Payout) - Looking for Growth & Listening (or) Pilot Ops Interns
 

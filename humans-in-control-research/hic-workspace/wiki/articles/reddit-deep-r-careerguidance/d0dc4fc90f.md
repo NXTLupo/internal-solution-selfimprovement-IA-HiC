@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/d0dc4fc90f.md#c0"
-    char_span: [0, 1523]
+    char_span: [0, 1522]
     sentence_count: 21
     key_terms: [business, operations, nothing, careerguidance, internships, procurement, real, experience]
-    token_count: 344
+    token_count: 343
 ---
 # No internships, no connections, no corporate experience. Built a real business anyway. Now trying to break in. Anyone else on this path?
 

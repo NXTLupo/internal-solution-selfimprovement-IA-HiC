@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, undergrad, comments, accidentallyclingy, debt, high, horrifically, advertising]
     token_count: 314
   - id: "social-intelligence/reddit-deep/gradschool/1tj3uqn.md#c1"
-    char_span: [1335, 3471]
+    char_span: [1334, 3470]
     sentence_count: 15
     key_terms: [degree, want, help, working, career, plenty, academically, pivot]
     section: Comments

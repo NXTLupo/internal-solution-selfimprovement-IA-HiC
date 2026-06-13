@@ -7,7 +7,7 @@ industries: [dtc]
 status: active
 chunks:
   - id: "industries/dtc.md#c0"
-    char_span: [0, 711]
+    char_span: [0, 710]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-deep-r-careerguidance, reddit-digital-marketing, reddit-deep-r-investing, hic-theme-synthesis]
     section: Cross-over verticals (shared sources) / Representative sources

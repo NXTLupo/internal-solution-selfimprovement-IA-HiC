@@ -23,7 +23,7 @@ chunks:
     key_terms: [full-time, internship, co-op, looking, graduation, engineeringstudents, something, however]
     token_count: 515
   - id: "social-intelligence/reddit-deep/engineeringstudents/1otiaou.md#c1"
-    char_span: [2227, 3007]
+    char_span: [2227, 3006]
     sentence_count: 6
     key_terms: [year, throughout, classes, offered, spring, find, need, take]
     section: Comments

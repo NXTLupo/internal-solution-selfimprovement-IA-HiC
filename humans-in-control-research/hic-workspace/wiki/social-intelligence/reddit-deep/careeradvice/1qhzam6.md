@@ -18,10 +18,10 @@ industries: [ai_research, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1qhzam6.md#c0"
-    char_span: [0, 1215]
+    char_span: [0, 1214]
     sentence_count: 7
     key_terms: [people, careeradvice, early-career, like, different, something, comments, starting]
-    token_count: 294
+    token_count: 293
 ---
 # How AI is actually changing the way early-career people work
 

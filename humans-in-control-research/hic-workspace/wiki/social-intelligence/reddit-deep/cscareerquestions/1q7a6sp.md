@@ -23,19 +23,19 @@ chunks:
     key_terms: [biology, cscareerquestions, job, time, studying, programming, get, too]
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c1"
-    char_span: [1464, 2784]
+    char_span: [1463, 2783]
     sentence_count: 7
     key_terms: [work, degree, professional, biology, school, wanted, field, years]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c2"
-    char_span: [2786, 4822]
+    char_span: [2785, 4821]
     sentence_count: 13
     key_terms: [tipadditional4625, get, work, programming, job, impossible, projects, studying]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q7a6sp.md#c3"
-    char_span: [4824, 5902]
+    char_span: [4823, 5901]
     sentence_count: 5
     key_terms: [lab, recommend, projects, start, cscareerquestions, tipadditional4625, find, get]
     section: Comments

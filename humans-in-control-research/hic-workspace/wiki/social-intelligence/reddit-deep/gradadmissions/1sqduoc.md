@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1sqduoc.md#c0"
-    char_span: [0, 687]
+    char_span: [0, 686]
     sentence_count: 4
     key_terms: [gradadmissions, comments, prepare, rhodes, school, post-baccalaureate, etc, grad]
-    token_count: 160
+    token_count: 159
 ---
 # Question about prep for Grad School/Post-Baccalaureate Honors like Rhodes, Truman, Marshall, etc.
 

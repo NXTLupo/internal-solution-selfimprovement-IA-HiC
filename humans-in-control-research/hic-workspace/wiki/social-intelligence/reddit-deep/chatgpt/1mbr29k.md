@@ -28,85 +28,85 @@ chunks:
     key_terms: [operators, workers, equipment, helpers, medical, maintenance, gas, assistants]
     token_count: 380
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c2"
-    char_span: [3407, 5166]
+    char_span: [3406, 5165]
     sentence_count: 11
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, documents, motorboat, concerns]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c3"
-    char_span: [5168, 6761]
+    char_span: [5167, 6760]
     sentence_count: 10
     key_terms: ["it's", jobs, because, "don't", take, ludicrous, already, believe]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c4"
-    char_span: [6763, 8638]
+    char_span: [6762, 8637]
     sentence_count: 12
     key_terms: [occupations, new, capabilities, activities, work, research, "it's", time]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c5"
-    char_span: [8640, 10603]
+    char_span: [8639, 10602]
     sentence_count: 12
     key_terms: [occupations, operators, switchboard, activities, automated, include, night, recoveringasshole0]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c6"
-    char_span: [10605, 10902]
+    char_span: [10604, 10901]
     sentence_count: 3
     key_terms: [labor, automation, functional, functions, intensive, unskilled, androids, chopping]
     section: Comments
     token_count: 64
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c7"
-    char_span: [10904, 13117]
+    char_span: [10903, 13116]
     sentence_count: 14
     key_terms: [clean, list, probably, going, writing, anyone, dishes, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c8"
-    char_span: [12806, 14578]
+    char_span: [12805, 14577]
     sentence_count: 6
     key_terms: [sharklasers3000, author, list, replaced, c-suite, replace, writing, "ceo's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c9"
-    char_span: [14326, 16304]
+    char_span: [14325, 16303]
     sentence_count: 10
     key_terms: [archaeologists, history, historians, replacement, jobs, time, garbage, imagine]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c10"
-    char_span: [16083, 16954]
+    char_span: [16082, 16953]
     sentence_count: 5
     key_terms: [mathematician, customer, replaced, history, people, pattern-matching, under-estimating, telemarketers]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c11"
-    char_span: [16957, 18996]
+    char_span: [16956, 18995]
     sentence_count: 1
     key_terms: [call, company, telemarketers, want, research, back, etc, part]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c12"
-    char_span: [18998, 20935]
+    char_span: [18997, 20934]
     sentence_count: 14
     key_terms: [does, get, job, changed, company, someone, people, no-newspaper-7693]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c13"
-    char_span: [20940, 22990]
+    char_span: [20939, 22989]
     sentence_count: 15
     key_terms: [human, collar, blue, need, saw, precision, problems, surgical]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c14"
-    char_span: [22993, 24328]
+    char_span: [22992, 24327]
     sentence_count: 12
     key_terms: [collar, blue, consumers, jobs, white, because, workers, market]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/chatgpt/1mbr29k.md#c15"
-    char_span: [24330, 25959]
+    char_span: [24329, 25958]
     sentence_count: 12
     key_terms: [collar, relativecareless2192, house, jobs, robots, white, years, away]
     section: Comments

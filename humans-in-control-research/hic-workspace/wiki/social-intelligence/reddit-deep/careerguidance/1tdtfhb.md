@@ -21,7 +21,7 @@ chunks:
     key_terms: [switching, careerguidance, career, years, experience, comments, confused, growth]
     token_count: 274
   - id: "social-intelligence/reddit-deep/careerguidance/1tdtfhb.md#c1"
-    char_span: [1179, 2264]
+    char_span: [1178, 2263]
     sentence_count: 3
     key_terms: [expertwinter2709, got, pretty, depth, deep, good, sure, tech]
     section: Comments

@@ -15,27 +15,27 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c0"
-    char_span: [0, 2308]
+    char_span: [0, 2307]
     sentence_count: 14
     key_terms: [specific, college, applyingtocollege, track, find, deadlines, reference, robotics]
-    token_count: 492
+    token_count: 491
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c1"
-    char_span: [2310, 4596]
+    char_span: [2309, 4595]
     sentence_count: 19
     key_terms: [school, essay, applicants, "don't", write, professor, research, specific]
     token_count: 500
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c2"
-    char_span: [4598, 6451]
+    char_span: [4597, 6450]
     sentence_count: 7
     key_terms: [college-admission-essays-ive-heard-that-one-before, being, vibes, distinct, school, unique, seem, applicants]
     token_count: 416
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c3"
-    char_span: [6453, 8264]
+    char_span: [6452, 8263]
     sentence_count: 11
     key_terms: [college, like, schools, school, ucla, admissions, particular, different]
     token_count: 390
   - id: "articles/reddit-deep-r-applyingtocollege/dae73be0f7.md#c4"
-    char_span: [8266, 8982]
+    char_span: [8265, 8981]
     sentence_count: 2
     key_terms: [school, show, professor, essays, environmentactive325, essay, put, some-rub9614]
     token_count: 152

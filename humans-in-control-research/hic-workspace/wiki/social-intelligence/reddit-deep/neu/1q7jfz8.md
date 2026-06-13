@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, campus, remote, allthatearnswillburn, day, neu, reddit-deep, anticipate]
     token_count: 181
   - id: "social-intelligence/reddit-deep/neu/1q7jfz8.md#c1"
-    char_span: [773, 2200]
+    char_span: [772, 2199]
     sentence_count: 9
     key_terms: [staying, boston, stay, work, apartment, bostonnu, classes, friends]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/neu/1q7jfz8.md#c2"
-    char_span: [2202, 3402]
+    char_span: [2201, 3401]
     sentence_count: 8
     key_terms: [remote, work, hallsinmypocket, planning, friends, working, aswell, allthatearnswillburn]
     section: Comments

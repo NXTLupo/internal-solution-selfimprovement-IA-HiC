@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1nvbfrd.md
 url: "https://www.reddit.com/r/findapath/comments/1nvbfrd/landed_a_job_after_5_months_heres_exactly_how_i/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,46 @@ flair: "Success Story Post"
 extracted_at: "2026-06-06T23:22:15.460Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c0"
+    char_span: [0, 2240]
+    sentence_count: 10
+    key_terms: [applications, comments, months, worked, findapath, responses, emerging, exactly]
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c1"
+    char_span: [2242, 4738]
+    sentence_count: 9
+    key_terms: [security, roles, innovation, cybersecurity, interviews, companies, problem, system]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c2"
+    char_span: [4740, 7177]
+    sentence_count: 9
+    key_terms: [security, innovation, "you're", "i'd", assessment, compliance, networking, researched]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c3"
+    char_span: [7179, 8968]
+    sentence_count: 17
+    key_terms: [career, helped, understanding, assessment, innovation, cognitive, interview, questions]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c4"
+    char_span: [8983, 10414]
+    sentence_count: 12
+    key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
+    section: Comments
+    token_count: 332
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c5"
+    char_span: [10416, 12641]
+    sentence_count: 6
+    key_terms: [profile, applications, experience, temporarydevice7895, job, roles, innovation, strategic]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/findapath/1nvbfrd.md#c6"
+    char_span: [12643, 13696]
+    sentence_count: 7
+    key_terms: [job, keywords, sharing, across, thanks, legenddontwaitforit, never, "i've"]
+    section: Comments
+    token_count: 241
 ---
-
 # Landed a job after 5 months - Here's exactly how I did it (with actual frameworks that worked)
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1nvbfrd/landed_a_job_after_5_months_heres_exactly_how_i/)

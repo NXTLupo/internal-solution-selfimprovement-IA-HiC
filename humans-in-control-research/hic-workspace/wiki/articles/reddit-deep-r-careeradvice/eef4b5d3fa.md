@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/eef4b5d3fa.md#c0"
-    char_span: [0, 2166]
+    char_span: [0, 2165]
     sentence_count: 30
     key_terms: [career, careeradvice, engineering, experiences, felt, different, discover, startups]
-    token_count: 504
+    token_count: 503
   - id: "articles/reddit-deep-r-careeradvice/eef4b5d3fa.md#c1"
-    char_span: [2168, 4297]
+    char_span: [2167, 4296]
     sentence_count: 22
     key_terms: [career, thank, understand, rather, taking, educationinformal376, point, reach]
     token_count: 510

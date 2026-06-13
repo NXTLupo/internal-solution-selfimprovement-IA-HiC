@@ -21,7 +21,7 @@ chunks:
     key_terms: [early-stage, internships, chemicals, financial, comments, everyone, brandywinechemicalworks, finance]
     token_count: 384
   - id: "social-intelligence/reddit-deep/internships/1shnwfz.md#c1"
-    char_span: [1738, 2218]
+    char_span: [1737, 2217]
     sentence_count: 3
     key_terms: [brandywinechemworks, economics, studying, brandywinechemicalworks, junior, remote, yeah, interview]
     section: Comments

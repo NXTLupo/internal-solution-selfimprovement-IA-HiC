@@ -26,61 +26,61 @@ chunks:
     key_terms: ["i'm", duke, disappointed, admissions, hopefully, interview, anything, clutches]
     token_count: 93
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c2"
-    char_span: [2320, 3837]
+    char_span: [2319, 3836]
     sentence_count: 5
     key_terms: [too, comprehend, whatever, parent, reason, unable, physicalpangolin498, "don't"]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c3"
-    char_span: [3839, 5777]
+    char_span: [3838, 5776]
     sentence_count: 15
     key_terms: [few-scientist7178, purdue, connections, experience, corporate, already, nothing, asking]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c4"
-    char_span: [5779, 7453]
+    char_span: [5778, 7452]
     sentence_count: 3
     key_terms: [schools, duke, get, everyone, across, people, good, got]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c5"
-    char_span: [7455, 9512]
+    char_span: [7454, 9511]
     sentence_count: 18
     key_terms: [schools, kids, students, sat, milkchocolate21, differentiator, prep, applicants]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c6"
-    char_span: [9266, 9619]
+    char_span: [9265, 9618]
     sentence_count: 1
     key_terms: [students, schools, fishermansecret4854, full, expectations, competitive, willingness, counselors]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c7"
-    char_span: [9621, 11770]
+    char_span: [9620, 11769]
     sentence_count: 17
     key_terms: [schools, colleges, year, college, revenue, "don't", application, per]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c8"
-    char_span: [11505, 12842]
+    char_span: [11504, 12841]
     sentence_count: 15
     key_terms: [matter, college, purdue, application, does, rejected, people, consciousproblem8638]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c9"
-    char_span: [12844, 14505]
+    char_span: [12843, 14504]
     sentence_count: 9
     key_terms: [happycaterpillar2409, stanley-zhong-college-rejected-teen-full-time-job-google-admissions, major, "it's", universities, https, gwhryzs3rha, com]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c10"
-    char_span: [14507, 16476]
+    char_span: [14506, 16475]
     sentence_count: 25
     key_terms: [schools, attend, stats, admission, beginning, students, another, college]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8zqli.md#c11"
-    char_span: [16478, 17712]
+    char_span: [16477, 17711]
     sentence_count: 6
     key_terms: [business, admissions, because, forfeit, student, either, likely, ilovemyselfalways]
     section: Comments

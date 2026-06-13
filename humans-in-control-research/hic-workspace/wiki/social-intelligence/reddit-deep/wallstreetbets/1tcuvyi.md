@@ -48,19 +48,19 @@ chunks:
     key_terms: [nitrogen, customers, png, b275ed5025250dd924c1c222b81b62d4fb023f7f, gas, companies, contracts, another]
     token_count: 397
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c6"
-    char_span: [10282, 10892]
+    char_span: [10281, 10891]
     sentence_count: 1
     key_terms: [wallstreetbets, comments, reddit, https, com, www, total, years]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c7"
-    char_span: [10894, 11991]
+    char_span: [10893, 11990]
     sentence_count: 5
     key_terms: [post, regarded, discord, bought, https, egg, "i'm", last]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1tcuvyi.md#c8"
-    char_span: [11993, 13616]
+    char_span: [11992, 13615]
     sentence_count: 12
     key_terms: [either, supply, great, money, value, been, debt, gas]
     section: Comments

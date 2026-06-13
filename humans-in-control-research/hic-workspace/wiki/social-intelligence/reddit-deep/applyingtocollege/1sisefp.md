@@ -26,13 +26,13 @@ chunks:
     key_terms: [smith, wes, like, myself, school, strong, psych, feel]
     token_count: 305
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c2"
-    char_span: [3075, 4752]
+    char_span: [3074, 4751]
     sentence_count: 15
     key_terms: [smith, thank, wesleyan, school, pick, prestige, mopijy, trust]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sisefp.md#c3"
-    char_span: [4754, 6147]
+    char_span: [4753, 6146]
     sentence_count: 7
     key_terms: [smith, thank, schools, prestigious, top-feeders-phd-programs, people, school, technical-macaron705]
     section: Comments

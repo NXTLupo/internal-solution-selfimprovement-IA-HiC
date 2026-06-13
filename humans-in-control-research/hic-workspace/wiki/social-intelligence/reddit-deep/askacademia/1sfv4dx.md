@@ -28,7 +28,7 @@ chunks:
     key_terms: [research, supervisor, phd, academia, identify, journal, publish, wanting]
     token_count: 320
   - id: "social-intelligence/reddit-deep/askacademia/1sfv4dx.md#c2"
-    char_span: [3832, 6026]
+    char_span: [3831, 6025]
     sentence_count: 16
     key_terms: [publish, research, data, publication, better, university, dualprocessmodel, project]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [waterloo, social, uwaterloo, comments, campus, people, easy-suggestion8327, reddit-deep]
     token_count: 177
   - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c1"
-    char_span: [728, 2719]
+    char_span: [727, 2718]
     sentence_count: 13
     key_terms: [people, socialize, questionableparadigm, fun, like, time, school, "it's"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c2"
-    char_span: [2721, 4907]
+    char_span: [2720, 4906]
     sentence_count: 16
     key_terms: [campus, students, people, get, social, "it's", reputation, targetting]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/uwaterloo/1pof8zg.md#c3"
-    char_span: [4909, 5526]
+    char_span: [4908, 5525]
     sentence_count: 5
     key_terms: [campus, waterloo, pretty, ion, self-contained, architecture, connections, utilitarian]
     section: Comments

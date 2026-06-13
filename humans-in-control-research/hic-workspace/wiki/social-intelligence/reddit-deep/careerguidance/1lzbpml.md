@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1lzbpml.md#c0"
-    char_span: [0, 2121]
+    char_span: [0, 2120]
     sentence_count: 3
     key_terms: [basketball, nigerian-american, want, college, finance, looking, careerguidance, year]
-    token_count: 515
+    token_count: 514
   - id: "social-intelligence/reddit-deep/careerguidance/1lzbpml.md#c1"
-    char_span: [2123, 3606]
+    char_span: [2122, 3605]
     sentence_count: 7
     key_terms: [want, career, work, colleges, internships, ambitious, college, network]
     token_count: 391

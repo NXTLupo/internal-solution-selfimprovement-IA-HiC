@@ -18,7 +18,7 @@ industries: [workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/waterloo/1my4eb9.md#c0"
-    char_span: [0, 647]
+    char_span: [0, 646]
     sentence_count: 5
     key_terms: [comments, waterloo, looking, places, get, job, astopingalperto, specifically]
     token_count: 163

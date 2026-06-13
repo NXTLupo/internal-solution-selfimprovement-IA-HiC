@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineeringstudents, comments, public-hamster-9224, gym, time, work, engineering, reddit-deep]
     token_count: 154
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c1"
-    char_span: [659, 2276]
+    char_span: [658, 2275]
     sentence_count: 11
     key_terms: [life, conversations, relationship, engineering, heppernaut, important, struggles, schedule]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c2"
-    char_span: [2278, 4055]
+    char_span: [2277, 4054]
     sentence_count: 11
     key_terms: [work, finish, idea, like, "didn't", assignment, something, complete]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c3"
-    char_span: [4057, 6169]
+    char_span: [4056, 6168]
     sentence_count: 22
     key_terms: [time, work, life, engineering, absolutely, hours, straight-tower8776, full]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rci0e7.md#c4"
-    char_span: [6171, 8147]
+    char_span: [6170, 8146]
     sentence_count: 21
     key_terms: [time, school, hours, sleep, job, life, everything, sometimes]
     section: Comments

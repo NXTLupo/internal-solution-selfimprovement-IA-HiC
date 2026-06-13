@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, hospitality, internships, comments, been, opportunities, connections, opportunity]
     token_count: 205
   - id: "social-intelligence/reddit-deep/internships/1salcq4.md#c1"
-    char_span: [922, 1441]
+    char_span: [921, 1440]
     sentence_count: 2
     key_terms: [sweet-frosting4839, internshipdaily, cut-throat, dodofarter, everything, greenhouse, internship, graduated]
     section: Comments

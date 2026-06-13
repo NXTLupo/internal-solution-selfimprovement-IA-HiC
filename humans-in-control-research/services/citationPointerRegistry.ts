@@ -1,0 +1,105 @@
+/**
+ * citationPointerRegistry - render-time resolution of manifest chunk pointers.
+ *
+ * The retrieval layer (chunkRetrieval.ts) instructs models to cite evidence
+ * by stable pointer: [<wikiPath>#cN], e.g. [articles/client-uploads/4fe24ed6a9.md#c15].
+ * That contract is correct for VALIDATION (validate_chunk_citations.py checks
+ * pointers against the manifest), but raw pointers must NEVER reach a rendered
+ * surface - chat prose, slide JSON fields, exports. The 2026-06-11 #journey run
+ * leaked them into both the web blueprint and the PPTX.
+ *
+ * This module is the bridge: retrieval registers pointer -> source-name pairs
+ * at corpus-assembly time; every render/post-process surface calls
+ * resolveManifestPointers() to swap pointers for named sources.
+ *
+ * Resolution ladder per pointer:
+ *   1. Registered sourceTitle from the manifest catalog  -> "(Source: <title>)"
+ *   2. Prettified path stem (date prefix + hex ids removed) when meaningful
+ *   3. Directory-derived label ("client uploads", "wiki sources")
+ * Unresolvable brackets are stripped rather than leaked - a finished consulting
+ * artifact never shows file paths (.claude/CLAUDE.md citation protocol).
+ */
+
+const _pointerSources = new Map<string, string>(); // pagePath (no #cN) -> display name
+
+/** Register one page path -> human-readable source name. Idempotent. */
+export function registerPointerSource(pagePath: string, name: string): void {
+    if (!pagePath || !name) return;
+    const key = pagePath.replace(/#c\d+$/i, '').trim();
+    if (!key) return;
+    // Resolution output gets spliced into prose AND into :::slide JSON string
+    // fields - quotes/backslashes in a title would break JSON.parse downstream.
+    const safe = name.replace(/["\\]/g, '').replace(/\s{2,}/g, ' ').trim();
+    if (!safe) return;
+    // First registration wins unless the existing value is empty/identical-to-path.
+    const existing = _pointerSources.get(key);
+    if (!existing || existing === key) _pointerSources.set(key, safe);
+}
+
+/** Bulk-register from resolved chunks ({ id: 'path.md#cN', sourceTitle }). */
+export function registerResolvedChunks(chunks: Array<{ id?: string; sourceTitle?: string }>): void {
+    for (const c of chunks || []) {
+        if (c && c.id && c.sourceTitle) registerPointerSource(c.id, c.sourceTitle);
+    }
+}
+
+const HEXISH = /^[0-9a-f]{8,}$/i;
+
+/** Derive a readable label from a wiki page path when no registration exists. */
+function prettifyPath(pagePath: string): string | null {
+    const noExt = pagePath.replace(/\.md$/i, '');
+    const segs = noExt.split('/').filter(Boolean);
+    if (segs.length === 0) return null;
+    let stem = segs[segs.length - 1];
+    // Strip leading date stamps: 2026-04-21-foo -> foo
+    stem = stem.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+    if (HEXISH.test(stem)) {
+        // Content-hash filename carries no meaning; fall back to the directory.
+        const dir = segs.length >= 2 ? segs[segs.length - 2] : '';
+        if (!dir) return null;
+        const dirLabel = dir.replace(/[-_]+/g, ' ').trim();
+        return dirLabel ? dirLabel.replace(/\b\w/g, ch => ch.toUpperCase()) : null;
+    }
+    const label = stem.replace(/[-_]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (label.length < 4) return null;
+    return label.replace(/\b\w/g, ch => ch.toUpperCase());
+}
+
+function resolveOne(pointer: string): string | null {
+    const pagePath = pointer.replace(/#c\d+$/i, '').trim();
+    const hit = _pointerSources.get(pagePath);
+    if (hit) return hit;
+    return prettifyPath(pagePath);
+}
+
+// A bracket group of one or more comma/semicolon-separated pointers:
+// [articles/x.md#c15] or [sources/a.md#c3, sources/b.md#c9]
+const POINTER_GROUP_RE = /\[\s*((?:[\w./\\-]+\.md#c\d+)(?:\s*[,;]\s*[\w./\\-]+\.md#c\d+)*)\s*\]/gi;
+
+/**
+ * Replace every [path.md#cN(, ...)] bracket group with named-source attribution.
+ * Multiple pointers dedupe: [a#c1, b#c2] -> "(Sources: A; B)".
+ * Unresolvable groups are removed (path leakage is worse than no bracket).
+ */
+export function resolveManifestPointers(text: string): string {
+    if (!text || text.indexOf('.md#c') === -1) return text;
+    return text
+        .replace(POINTER_GROUP_RE, (_m, group: string) => {
+            const names: string[] = [];
+            for (const raw of group.split(/[,;]/)) {
+                const name = resolveOne(raw.trim());
+                if (name && !names.includes(name)) names.push(name);
+            }
+            if (names.length === 0) return '';
+            return names.length === 1
+                ? ` (Source: ${names[0]})`
+                : ` (Sources: ${names.join('; ')})`;
+        })
+        // Bare (unbracketed) pointers that slip through: strip the path, keep prose.
+        .replace(/(?<!\[)[\w./\\-]+\.md#c\d+/gi, '')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/\s+([.,;:])/g, '$1');
+}
+
+/** Test/diagnostic surface. */
+export function pointerRegistrySize(): number { return _pointerSources.size; }

@@ -1,0 +1,70 @@
+---
+id: articles/reddit-deep-r-stocks/cdaf1d908f.md
+url: "articles/reddit-deep-r-stocks/6e317a8fd8.md"
+url_hash: "cdaf1d908f"
+kind: "article"
+source: "Reddit Deep: r/stocks"
+title: "People are not ready for a Crash"
+author: ""
+date: ""
+tier: 3
+method: "cached"
+extracted_at: "2026-06-11T15:29:42.993148+00:00"
+chars: 3428
+engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+collected_at: "2026-06-11T15:29:42.951Z"
+relevance: 80
+engagement_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
+content_hash: "747a918bc04ad446"
+relevance_by_goal: {"46dec9599ad5":80}
+chunks:
+  - id: "articles/reddit-deep-r-stocks/cdaf1d908f.md#c0"
+    char_span: [0, 2018]
+    sentence_count: 11
+    key_terms: [people, stocks, because, buying, completely, market, complacency, dip]
+    token_count: 457
+  - id: "articles/reddit-deep-r-stocks/cdaf1d908f.md#c1"
+    char_span: [2020, 3544]
+    sentence_count: 14
+    key_terms: [market, stocks, cash, last, take, trillions, sitting, people]
+    token_count: 372
+---
+# People are not ready for a Crash
+
+Source: [Reddit Deep: r/stocks](articles/reddit-deep-r-stocks/6e317a8fd8.md)
+
+I think I’ll start with a quote “one thing we know is that people don’t learn from history” Charlie Munger
+
+Notice how sensitive people are with even a 5-6 percent pullback? How insecure everyone is about their stocks? The fact we look at Walmart at a 37PE, or even Meta at 26 PE and say “that’s a good deal” is historically and laughably inaccurate.
+
+I don’t see any good buying opportunities, I’d sold out of the stocks I recommended this year simply because I shouldn’t have made 15percent since March in Blue chip stocks that I feel are overvalued. because the signs of a crash are here and who knows when people will actually start panicking.
+
+1. Complacency is prevalent in this market, any time you suggest stocks are overvalued, point out economic weakness, growing wealth gap and middle class being completely wiped out since covid
+
+but many of us more wealthy people are completely complacent because we feel richer than ever.
+
+1. Buy the dip, a trend that showcases more complacency. Buying the dip is a great idea when stocks are at a great value, not because we had a small pullback. It’s worked out well for now, it will go terribly wrong when retail is used as cushioned money to exit a more serious problem e
+
+conomic problem. 
+
+Banks are defaulting. JPMorgan “ when there is one cockroach there is usually more” 
+
+Searches for I need help with my mortgage payment is higher than 2008
+
+Houses are not selling, nobody is buying cars if they don’t have too, people are taking everything on credit,record new investors in the market are at ATH, leverage is everywhere, US government is far more in Debt than it was in 2008, AI investment has gone completely stupid. Everyone is aware it’ll take just one critical unexpected move to break this market, you can feel anxiety
+
+Buffet is cash ATH as a percentage, hedge funds are positioned appropriately and retail is cluelessly buying any dip.
+
+I forgot my favourite line”the government will just print more money and stocks will be fine” that is a once in a millennium level of complacency😂? Do we really believe we’re different and better than our ancestors and couldn’t possibly make the same mistakes? How long do empires typically last? 250years? Happy 250th birthday USA 😁
+
+In conclusion we’ve had a bull run for 4 years it is time to take money off the table, even if stocks rebound briefly…when you zoom out This K Shaped economy will not last forever. When the tide goes out, people will be left naked and exposed.
+
+--- TOP COMMENTS ---
+[1839↑ Brave-Side-8945] People are never ready for a crash
+[756↑ r_silver1] Whats the alternative? Stay out of the market and guarantee being poor??
+[126↑ smokeajoint] Take your gains, hold cash, buy discount stocks.
+[76↑ Various-Struggle-714] The record trillions sitting in cash suggests otherwise
+[9↑ SalishShore] There’s trillions in cash sitting around? In US dollars?
+[5↑ whosthatguy123] Provide a source that this is unique compared to any other time in history. Literally no one knows what the market will do. The market can stay irrational longer than you can remain solvent. Which goes both ways.
+[8↑ ham_sandwedge] Speak for yourself, I got enough bonds to last me 5 years if I lose my income. Could stretch to 10 if I take the dividend checks instead of reinvest. And I almost certainly won't lose my job. But just in case
+[4↑ Possible_Ad_601] Can you walk me through how you accumulated this? I like this idea

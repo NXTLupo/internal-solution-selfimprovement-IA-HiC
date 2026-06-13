@@ -23,37 +23,37 @@ chunks:
     key_terms: [productivity, write, list, something, comments, deleted, system, doing]
     token_count: 317
   - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c1"
-    char_span: [1315, 2510]
+    char_span: [1314, 2509]
     sentence_count: 5
     key_terms: [like, rather, doing, feels, spent, think-success7946, "i'm", list]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c2"
-    char_span: [2512, 4544]
+    char_span: [2511, 4543]
     sentence_count: 21
     key_terms: [need, work, doing, tasks, "it's", important, sometimes, instead]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c3"
-    char_span: [4546, 5847]
+    char_span: [4545, 5846]
     sentence_count: 11
     key_terms: [task, list, pick, mountain, todoist, having, look, gutenachtjohanna]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c4"
-    char_span: [5849, 7425]
+    char_span: [5848, 7424]
     sentence_count: 12
     key_terms: [day, list, todoist, tasks, task, important, without, called]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c5"
-    char_span: [7427, 9386]
+    char_span: [7426, 9385]
     sentence_count: 11
     key_terms: [task, tasks, list, notion, big, get, rest, time]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1qvihmj.md#c6"
-    char_span: [9388, 10272]
+    char_span: [9387, 10271]
     sentence_count: 6
     key_terms: [simple, stimulants, through, todoist, cracks, brain, "don't", adhd]
     section: Comments

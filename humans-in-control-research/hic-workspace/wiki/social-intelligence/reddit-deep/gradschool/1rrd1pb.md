@@ -28,49 +28,49 @@ chunks:
     key_terms: [anymore, don, something, decision, change, degree, feel, like]
     token_count: 243
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c2"
-    char_span: [2666, 4918]
+    char_span: [2665, 4917]
     sentence_count: 18
     key_terms: [finish, degree, don, anymore, funding, going, sense, feel]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c3"
-    char_span: [4920, 7030]
+    char_span: [4919, 7029]
     sentence_count: 22
     key_terms: [because, time, degree, yourself, options, want, work, department]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c4"
-    char_span: [7032, 9166]
+    char_span: [7031, 9165]
     sentence_count: 22
     key_terms: [school, research, program, don, grad, additional, honestly, identity]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c5"
-    char_span: [9168, 10590]
+    char_span: [9167, 10589]
     sentence_count: 6
     key_terms: [mitchellcumstijn, masters, emotional-royal-9333, thank, good, life, need, work]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c6"
-    char_span: [10592, 12721]
+    char_span: [10591, 12720]
     sentence_count: 19
     key_terms: [degree, decision, vchickennuggets, thesis, opportunities, jobs, want, qualified]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c7"
-    char_span: [12723, 14404]
+    char_span: [12722, 14403]
     sentence_count: 13
     key_terms: [degree, research, through, get, because, mental, doing, youre]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c8"
-    char_span: [14406, 16456]
+    char_span: [14405, 16455]
     sentence_count: 20
     key_terms: [because, don, masters, did, time, years, want, work]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/gradschool/1rrd1pb.md#c9"
-    char_span: [16458, 17323]
+    char_span: [16457, 17322]
     sentence_count: 9
     key_terms: [program, courses, degree, doesn, don, get, need, phd]
     section: Comments

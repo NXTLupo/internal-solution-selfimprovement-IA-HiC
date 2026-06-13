@@ -23,25 +23,25 @@ chunks:
     key_terms: [careerguidance, suggestions, something, comments, careers, decent, day, good]
     token_count: 241
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c1"
-    char_span: [1087, 2930]
+    char_span: [1086, 2929]
     sentence_count: 10
     key_terms: [job, work, recession, get, proof, find, meaningful, difficult]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c2"
-    char_span: [2932, 4609]
+    char_span: [2931, 4608]
     sentence_count: 15
     key_terms: [social, work, opportunities, coordination, good, lcsw, clinical, because]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c3"
-    char_span: [4611, 6200]
+    char_span: [4610, 6199]
     sentence_count: 8
     key_terms: [people, nursing, find, job, losing, stuck, years, feel]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/careerguidance/1t6bmwn.md#c4"
-    char_span: [6202, 8049]
+    char_span: [6201, 8048]
     sentence_count: 14
     key_terms: [therapy, people, lot, work, rewarding, mountain, patience, sitting]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, never, campus, did, comments, commuter, crochet, friends]
     token_count: 295
   - id: "social-intelligence/reddit-deep/college/1mlh8er.md#c1"
-    char_span: [1265, 3547]
+    char_span: [1264, 3546]
     sentence_count: 17
     key_terms: [friends, commuter, campus, school, did, get, honestly, classes]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1mlh8er.md#c2"
-    char_span: [3549, 4627]
+    char_span: [3548, 4626]
     sentence_count: 7
     key_terms: [friends, campus, short-vermicelli-178, week, queenaemmaarryn, throwaway0-285, conversations, conversation]
     section: Comments

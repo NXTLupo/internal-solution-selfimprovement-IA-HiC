@@ -28,31 +28,31 @@ chunks:
     key_terms: [google, business, control, absurd, bubble, world, need, show]
     token_count: 220
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c2"
-    char_span: [2987, 3538]
+    char_span: [2986, 3537]
     sentence_count: 4
     key_terms: [total, discord, https, wsb, dru-p-wiener, submissions, karmacave, visualmod]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c3"
-    char_span: [3540, 5313]
+    char_span: [3539, 5312]
     sentence_count: 15
     key_terms: [like, take, conviction, bubble, people, profit, calls, enter]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c4"
-    char_span: [5315, 7017]
+    char_span: [5314, 7016]
     sentence_count: 12
     key_terms: [kylenothumbs319, bubble, google, going, crashes, recover, shares, plays]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c5"
-    char_span: [7019, 8732]
+    char_span: [7018, 8731]
     sentence_count: 10
     key_terms: [google, data, seanpuppy, crawling, already, llm, use, web]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/wallstreetbets/1onk7x3.md#c6"
-    char_span: [8734, 10374]
+    char_span: [8733, 10373]
     sentence_count: 7
     key_terms: [trentcoolyak, bubble, buying, opportunity, data, sell, position, selling]
     section: Comments

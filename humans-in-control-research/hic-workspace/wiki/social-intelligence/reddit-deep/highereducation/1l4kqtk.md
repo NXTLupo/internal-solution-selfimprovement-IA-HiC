@@ -21,31 +21,31 @@ chunks:
     key_terms: [advising, highereducation, outside, higher, transferable, "i'm", comments, skills]
     token_count: 294
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c1"
-    char_span: [1286, 2154]
+    char_span: [1285, 2153]
     sentence_count: 7
     key_terms: [institution, move, management, operations, advising, policy, skills, role]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c2"
-    char_span: [2156, 4563]
+    char_span: [2155, 4562]
     sentence_count: 15
     key_terms: [programs, manager, student, different, role, company, success, institution]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c3"
-    char_span: [4565, 6728]
+    char_span: [4564, 6727]
     sentence_count: 16
     key_terms: [responsibilities, job, advancement, staff, career, school, recruitment, "i've"]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c4"
-    char_span: [6730, 7784]
+    char_span: [6729, 7783]
     sentence_count: 12
     key_terms: [students, affairs, student, apprehensive-foot100, years, time, type, week]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/highereducation/1l4kqtk.md#c5"
-    char_span: [7786, 9451]
+    char_span: [7785, 9450]
     sentence_count: 15
     key_terms: [university, program, etc, itstonjohn, something, advising, apprehensive-foot100, years]
     section: Comments

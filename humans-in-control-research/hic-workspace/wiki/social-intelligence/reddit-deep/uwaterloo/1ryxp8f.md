@@ -23,19 +23,19 @@ chunks:
     key_terms: [waterloo, university, alberta, co-op, regular, scholarship, uwaterloo, comments]
     token_count: 311
   - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c1"
-    char_span: [1377, 3156]
+    char_span: [1376, 3155]
     sentence_count: 12
     key_terms: [co-op, coop, degree, posingmonkey, terms, uofa, graduate, waterloo]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c2"
-    char_span: [3161, 4360]
+    char_span: [3160, 4359]
     sentence_count: 5
     key_terms: [internships, posingmonkey, summer, waterloo, tech, probably, apply, did]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/uwaterloo/1ryxp8f.md#c3"
-    char_span: [4362, 5415]
+    char_span: [4361, 5414]
     sentence_count: 4
     key_terms: [waterloo, posingmonkey, alberta, quite, informal-layer2241, here, entrepreneurial, international]
     section: Comments

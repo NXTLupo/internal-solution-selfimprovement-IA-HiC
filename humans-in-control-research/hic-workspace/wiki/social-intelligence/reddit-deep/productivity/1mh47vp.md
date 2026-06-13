@@ -23,43 +23,43 @@ chunks:
     key_terms: [productivity, productive, identity, someone, person, trying, "i'm", consistent]
     token_count: 316
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c1"
-    char_span: [1513, 3253]
+    char_span: [1512, 3252]
     sentence_count: 9
     key_terms: [shame, get, uncertainty, eliminate, inability, want, designerspot1469, deleted]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c2"
-    char_span: [3255, 4369]
+    char_span: [3254, 4368]
     sentence_count: 13
     key_terms: [uncertainty, resistance, shame, constantly, inability, feel, eliminate, control]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c3"
-    char_span: [4371, 6344]
+    char_span: [4370, 6343]
     sentence_count: 11
     key_terms: [designerspot1469, feel, change, person, agree, thank, done, dont]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c4"
-    char_span: [6109, 6737]
+    char_span: [6108, 6736]
     sentence_count: 4
     key_terms: [night, neurodevelopmental, designerspot1469, person-specific, nona-sequitur, procrastinate, solutions--at, impenetrable]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c5"
-    char_span: [6739, 8347]
+    char_span: [6738, 8346]
     sentence_count: 10
     key_terms: [thoughts, myself, reframing, happened, identity, foresee, bad, past]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c6"
-    char_span: [8350, 10391]
+    char_span: [8349, 10390]
     sentence_count: 26
     key_terms: [work, people, network, budget, dishes, "it's", like, need]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/productivity/1mh47vp.md#c7"
-    char_span: [10393, 11191]
+    char_span: [10392, 11190]
     sentence_count: 9
     key_terms: [different, technique, everyone, designerspot1469, common, situations, useful, using]
     section: Comments

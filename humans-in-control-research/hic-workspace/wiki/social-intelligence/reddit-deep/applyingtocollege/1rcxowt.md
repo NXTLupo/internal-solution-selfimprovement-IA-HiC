@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rcxowt.md#c0"
-    char_span: [0, 866]
+    char_span: [0, 865]
     sentence_count: 6
     key_terms: [applyingtocollege, engineering, aerospace, counselor, comments, looking, state, stats]
-    token_count: 205
+    token_count: 204
 ---
 # Looking for a college counselor who is well experienced with aerospace engineering applications. Kid has average stats- 3.6 GPA, approx 1450 range SAT, PLTW Engineering 4years, two pending patents aerospace related, Eagle scout, currently in NASA HAS program.
 

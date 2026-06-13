@@ -26,49 +26,49 @@ chunks:
     key_terms: [students, involved, recorded, student, title, whole, representative, consequence]
     token_count: 219
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c2"
-    char_span: [3127, 5220]
+    char_span: [3126, 5219]
     sentence_count: 15
     key_terms: [student, students, investigation, faculty, title, complaint, sue, another]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c3"
-    char_span: [5222, 6651]
+    char_span: [5221, 6650]
     sentence_count: 7
     key_terms: [students, lalochezia1, code, like, enough, severe, otherwise-mirror-738, honor]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c4"
-    char_span: [6653, 8774]
+    char_span: [6652, 8773]
     sentence_count: 12
     key_terms: [students, like, being, queer, complaints, disturbing, supervisor, faculty]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c5"
-    char_span: [8776, 10984]
+    char_span: [8775, 10983]
     sentence_count: 14
     key_terms: [students, title, thatcheekychick, another, fascism, student, knowledge-as-commodity, class]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c6"
-    char_span: [10986, 12640]
+    char_span: [10985, 12639]
     sentence_count: 12
     key_terms: [professor, title, uncomfortable, "don't", "professor's", colleague, education, therefore]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c7"
-    char_span: [12642, 13903]
+    char_span: [12641, 13902]
     sentence_count: 6
     key_terms: [interactions, submitted, witnesses, acknowledgement, too-post-tenure, administrator, documentation, independently]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c8"
-    char_span: [13908, 16116]
+    char_span: [13907, 16115]
     sentence_count: 12
     key_terms: [students, get, "i've", seen, office, "false", sue, addressed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1rq2hsh.md#c9"
-    char_span: [15885, 16437]
+    char_span: [15884, 16436]
     sentence_count: 3
     key_terms: ["it's", sue, students, gravitysrainbow1979, administrators, expectations, complaining, incredibly]
     section: Comments

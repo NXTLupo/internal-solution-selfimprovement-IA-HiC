@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, exactly, school, understanding, comments, benefit, coming, myself]
     token_count: 294
   - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c1"
-    char_span: [1275, 2570]
+    char_span: [1274, 2569]
     sentence_count: 12
     key_terms: [kitchen-stick-6131, bachelor, everyone, honestly, student, school, age, high]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c2"
-    char_span: [2572, 4029]
+    char_span: [2571, 4028]
     sentence_count: 9
     key_terms: [back, old, year, experience, military, starting, because, younger]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/college/1rib9yh.md#c3"
-    char_span: [4031, 5619]
+    char_span: [4030, 5618]
     sentence_count: 10
     key_terms: [school, high, college, trying, right, encouraged, experience, different]
     section: Comments

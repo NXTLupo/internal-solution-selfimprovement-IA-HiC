@@ -21,25 +21,25 @@ chunks:
     key_terms: [internships, luck, hear, role, comments, everyone, stories, worked]
     token_count: 235
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c1"
-    char_span: [1035, 2458]
+    char_span: [1034, 2457]
     sentence_count: 12
     key_terms: [got, later, rashar-denk, interview, designer, everyone, company, opened]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c2"
-    char_span: [2460, 4618]
+    char_span: [2459, 4617]
     sentence_count: 9
     key_terms: [handshake, recruiter, company, team, uni, definitely, internship, congrats]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c3"
-    char_span: [4318, 5809]
+    char_span: [4317, 5808]
     sentence_count: 9
     key_terms: [intern, zacce, interviewed, luck, team, internship, companies, database]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/internships/1pulcck.md#c4"
-    char_span: [5811, 7337]
+    char_span: [5810, 7336]
     sentence_count: 13
     key_terms: [interview, luck, role, efforts, doing, internship, recruiter, question]
     section: Comments

@@ -48,25 +48,25 @@ chunks:
     key_terms: [taiwan, pedestrian, mountains, although, dynamic, variety, areas, comes]
     token_count: 400
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c6"
-    char_span: [10267, 11569]
+    char_span: [10266, 11568]
     sentence_count: 4
     key_terms: [ok-sherbert-3807, vibrantadder, year, steingar, months, never, theastroidiscoming, hungariannastyboy]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c7"
-    char_span: [11571, 13231]
+    char_span: [11570, 13230]
     sentence_count: 15
     key_terms: [been, wifi, available, regarding, steingar, details, speeds, taiwan]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c8"
-    char_span: [13233, 15218]
+    char_span: [13232, 15217]
     sentence_count: 19
     key_terms: [taipei, steingar, taiwan, culture, mention, cables, hidden, review]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1qh3ny6.md#c9"
-    char_span: [15220, 16779]
+    char_span: [15219, 16778]
     sentence_count: 13
     key_terms: [expensive, tokyo, compared, probably, cheaper, vietnam, enough, income]
     section: Comments

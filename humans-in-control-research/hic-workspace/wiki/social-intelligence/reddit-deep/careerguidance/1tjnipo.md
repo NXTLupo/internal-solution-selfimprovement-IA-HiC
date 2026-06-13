@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, opportunities, role, comments, growth, doomed-life, reddit-deep, experience]
     token_count: 131
   - id: "social-intelligence/reddit-deep/careerguidance/1tjnipo.md#c1"
-    char_span: [556, 1855]
+    char_span: [555, 1854]
     sentence_count: 11
     key_terms: [company, associate, manager, people, sales, outside, support, help]
     section: Comments

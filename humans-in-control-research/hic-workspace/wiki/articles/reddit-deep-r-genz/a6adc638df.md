@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/a6adc638df.md#c0"
-    char_span: [0, 2324]
+    char_span: [0, 2323]
     sentence_count: 12
     key_terms: [work, because, workers, day, end, genz, job, week]
-    token_count: 511
+    token_count: 510
   - id: "articles/reddit-deep-r-genz/a6adc638df.md#c1"
-    char_span: [2327, 3952]
+    char_span: [2326, 3951]
     sentence_count: 8
     key_terms: [power, public, "that's", leverage, ruling, social, class, altogether]
     token_count: 335
   - id: "articles/reddit-deep-r-genz/a6adc638df.md#c2"
-    char_span: [3954, 5623]
+    char_span: [3953, 5622]
     sentence_count: 8
     key_terms: [like, gonna, thr0away76, philosopherberzerer, going, years, receptionmuch3790, been]
     token_count: 393

@@ -23,19 +23,19 @@ chunks:
     key_terms: [entry-level, jobs, careerguidance, comments, careers, skills, many-economics-4326, build]
     token_count: 146
   - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c1"
-    char_span: [653, 2672]
+    char_span: [652, 2671]
     sentence_count: 11
     key_terms: [work, being, thekidfromhotaru, service, customer, company, credit, teller]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c2"
-    char_span: [2674, 4438]
+    char_span: [2673, 4437]
     sentence_count: 12
     key_terms: [service, degree, hotel, job, experience, customer, working, retail]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1rwpfzm.md#c3"
-    char_span: [4441, 6444]
+    char_span: [4440, 6443]
     sentence_count: 14
     key_terms: [help, work, grungecheap56119, company, support, call, lot, companies]
     section: Comments

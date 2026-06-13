@@ -15,12 +15,12 @@ relevance: 80
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/d62ff7d2bf.md#c0"
-    char_span: [0, 1208]
+    char_span: [0, 1207]
     sentence_count: 10
     key_terms: [cooked, cscareerquestions, myself, grad, like, new, setting, people]
-    token_count: 282
+    token_count: 281
   - id: "articles/reddit-deep-r-cscareerquestions/d62ff7d2bf.md#c1"
-    char_span: [1210, 2118]
+    char_span: [1209, 2117]
     sentence_count: 5
     key_terms: [code, industry, guineverefira, job, cooked, sounds, confident-green-9811, userwithaquestion12]
     token_count: 238

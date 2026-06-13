@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/02fbefcba6.md#c0"
-    char_span: [0, 1967]
+    char_span: [0, 1966]
     sentence_count: 14
     key_terms: [people, careerguidance, texas, opportunity, here, expensive, subreddit, comments]
-    token_count: 469
+    token_count: 468
   - id: "articles/reddit-deep-r-careerguidance/02fbefcba6.md#c1"
-    char_span: [1969, 2965]
+    char_span: [1968, 2964]
     sentence_count: 18
     key_terms: ["i'm", collapsing, successful, america, career, mostly, glittering-let-2888, "don't"]
     token_count: 239

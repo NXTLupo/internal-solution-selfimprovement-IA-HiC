@@ -7,7 +7,7 @@ industries: [energy]
 status: active
 chunks:
   - id: "industries/energy.md#c0"
-    char_span: [0, 670]
+    char_span: [0, 669]
     sentence_count: 2
     key_terms: [social-intelligence, sources, industries, reddit-deep, shared, reddit-deep-r-wallstreetbets, articles, reddit-deep-r-gradschool]
     section: Cross-over verticals (shared sources) / Representative sources

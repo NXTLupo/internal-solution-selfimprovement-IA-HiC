@@ -23,19 +23,19 @@ chunks:
     key_terms: [degree, skills, careerguidance, opportunities, comments, because, matters, being]
     token_count: 259
   - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c1"
-    char_span: [1195, 3282]
+    char_span: [1194, 3281]
     sentence_count: 11
     key_terms: [degree, masters, field, bachelors, companies, get, job, schools]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c2"
-    char_span: [3284, 5472]
+    char_span: [3283, 5471]
     sentence_count: 14
     key_terms: [degree, hiring, skills, skills-based, roles, engineering, candidates, important]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1sujk3f.md#c3"
-    char_span: [5474, 6491]
+    char_span: [5473, 6490]
     sentence_count: 11
     key_terms: [skills, degree, work, because, geologistvisual3097, going, speed, care]
     section: Comments

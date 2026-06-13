@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, job, comments, florida, degree, sales, find, get]
     token_count: 179
   - id: "social-intelligence/reddit-deep/careerguidance/1tabx9d.md#c1"
-    char_span: [750, 1436]
+    char_span: [749, 1435]
     sentence_count: 4
     key_terms: [communications, miami, broadboots, reasonable, marketing, political, distance, driving]
     section: Comments

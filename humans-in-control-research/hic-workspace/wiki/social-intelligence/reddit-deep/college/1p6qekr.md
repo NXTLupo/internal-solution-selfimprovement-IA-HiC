@@ -23,19 +23,19 @@ chunks:
     key_terms: [job, school, doing, college, hours, high, year, brother]
     token_count: 344
   - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c1"
-    char_span: [1499, 3193]
+    char_span: [1498, 3192]
     sentence_count: 14
     key_terms: [school, high, did, job, worked, years, able, college]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c2"
-    char_span: [3195, 5186]
+    char_span: [3194, 5185]
     sentence_count: 12
     key_terms: [college, school, working, high, job, dumbindian21, scholarships, helped]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1p6qekr.md#c3"
-    char_span: [4957, 5847]
+    char_span: [4956, 5846]
     sentence_count: 6
     key_terms: [school, college, working, saved, summer, money, never, octopuswithabanjo]
     section: Comments

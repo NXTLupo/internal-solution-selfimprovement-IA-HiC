@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rfik4b.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rfik4b/whatttt/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,25 @@ flair: "Social Sciences"
 extracted_at: "2026-06-06T23:23:15.585Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rfik4b.md#c0"
+    char_span: [0, 207]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, whatttt, nemosfishballs, reddit-deep, posted, reddit, source]
+    token_count: 67
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rfik4b.md#c1"
+    char_span: [222, 2063]
+    sentence_count: 15
+    key_terms: [congratulations, money-mountain5041, school, proud, congrats, "i'm", family, mother]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rfik4b.md#c2"
+    char_span: [1839, 2785]
+    sentence_count: 9
+    key_terms: [congratulations, amazing, nice, negative, comment, footsignificant6793, tamsisonherkeyboard, money-mountain5041]
+    section: Comments
+    token_count: 274
 ---
-
 # WHATTTT
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rfik4b/whatttt/)

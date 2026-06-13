@@ -21,13 +21,13 @@ chunks:
     key_terms: [internship, engineeringstudents, get, comments, ce-required, engineering, imthatvigga, internships]
     token_count: 209
   - id: "social-intelligence/reddit-deep/engineeringstudents/1na21iz.md#c1"
-    char_span: [894, 2679]
+    char_span: [893, 2678]
     sentence_count: 10
     key_terms: [engineeringstudents, imthatvigga, applications, engineering, wiki, please, reddit, civil]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1na21iz.md#c2"
-    char_span: [2681, 4048]
+    char_span: [2680, 4047]
     sentence_count: 11
     key_terms: [job, internship, graduate, imthatvigga, interned, landed, deep-technician-8568, civil]
     section: Comments

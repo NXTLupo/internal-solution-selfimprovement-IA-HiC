@@ -23,55 +23,55 @@ chunks:
     key_terms: [admission, applyingtocollege, system, comments, people, prefer, major, complicated]
     token_count: 179
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c1"
-    char_span: [811, 3125]
+    char_span: [810, 3124]
     sentence_count: 16
     key_terms: [people, diversity, income, meritocracy, correlated, different, argument, national]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c2"
-    char_span: [3127, 4668]
+    char_span: [3126, 4667]
     sentence_count: 16
     key_terms: [diversity, colleges, because, engineering, approach, amounts, example, schools]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c3"
-    char_span: [4671, 6966]
+    char_span: [4670, 6965]
     sentence_count: 13
     key_terms: [diversity, engineers, physicists, example, physics, good, experience, humanities]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c4"
-    char_span: [6968, 8780]
+    char_span: [6967, 8779]
     sentence_count: 16
     key_terms: [opportunities, connections, good, idea, scientists, accepted, einstein, because]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c5"
-    char_span: [8782, 10418]
+    char_span: [8781, 10417]
     sentence_count: 9
     key_terms: [admissions, system, grades, flawed, standardized, grade, like, side]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c6"
-    char_span: [10420, 12479]
+    char_span: [10419, 12478]
     sentence_count: 10
     key_terms: [system, china, worse, probably, extracurriculars, "china's", income, ecs]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c7"
-    char_span: [12481, 13637]
+    char_span: [12480, 13636]
     sentence_count: 8
     key_terms: [system, college, school, "it's", rest, packing-tape-man, standardized, competition]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c8"
-    char_span: [13639, 15716]
+    char_span: [13638, 15715]
     sentence_count: 12
     key_terms: [exam, entrance, system, "you're", life, colleges, parental, pressure]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pwwlck.md#c9"
-    char_span: [15718, 17749]
+    char_span: [15717, 17748]
     sentence_count: 9
     key_terms: [system, get, people, academics, ecs, test, because, prefer]
     section: Comments

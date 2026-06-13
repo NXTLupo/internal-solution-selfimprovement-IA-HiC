@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1snoeas.md
 url: "https://www.reddit.com/r/internships/comments/1snoeas/update_offer_deadline_tomorrow_vs_fortune_100/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,24 @@ flair: "Offers"
 extracted_at: "2026-06-06T23:20:46.222Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1snoeas.md#c0"
+    char_span: [0, 1918]
+    sentence_count: 13
+    key_terms: [internships, comments, company, reddit, https, com, week, www]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/internships/1snoeas.md#c1"
+    char_span: [1920, 4222]
+    sentence_count: 23
+    key_terms: [company, interview, director, supervisor, interviewers, "don't", end, internship]
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/internships/1snoeas.md#c2"
+    char_span: [4237, 5313]
+    sentence_count: 4
+    key_terms: [offer, company, experience, future, renege, resume, appropriate-tutor587, best]
+    section: Comments
+    token_count: 279
 ---
-
 # [Update] Offer deadline tomorrow vs Fortune 100 still in play after my interview this week. What would you do?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1snoeas/update_offer_deadline_tomorrow_vs_fortune_100/)

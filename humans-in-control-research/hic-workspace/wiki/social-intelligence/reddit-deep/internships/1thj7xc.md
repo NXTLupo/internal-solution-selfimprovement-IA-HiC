@@ -18,10 +18,10 @@ industries: [education, workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1thj7xc.md#c0"
-    char_span: [0, 1395]
+    char_span: [0, 1394]
     sentence_count: 2
     key_terms: [scholarship, session, coursera, learning, certifications, career, cohort, opportunities]
-    token_count: 345
+    token_count: 344
 ---
 # She Plus Tech – Coursera Scholarship Cohort 2 Info Session | Learn About Eligibility, Certifications & Career Growth
 

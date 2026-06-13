@@ -23,49 +23,49 @@ chunks:
     key_terms: [engineering, engineeringstudents, summer, comments, reddit, wellhotdiggitydong, semiconductor, development]
     token_count: 194
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c1"
-    char_span: [851, 3117]
+    char_span: [850, 3116]
     sentence_count: 16
     key_terms: [internship, equivalent-house8556, like, work, company, manager, hiring, engineering]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c2"
-    char_span: [3119, 5135]
+    char_span: [3118, 5134]
     sentence_count: 10
     key_terms: [lockheed, nvidia, average, school, internships, get, got, internship]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c3"
-    char_span: [5137, 7113]
+    char_span: [5136, 7112]
     sentence_count: 26
     key_terms: [utilities, interviews, industry, voltage, get, high, work, practice]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c4"
-    char_span: [7115, 8943]
+    char_span: [7114, 8942]
     sentence_count: 25
     key_terms: [manufacturing, job, summer, get, project, resume, good, work]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c5"
-    char_span: [8945, 10229]
+    char_span: [8944, 10228]
     sentence_count: 10
     key_terms: [research, interview, willing, family, member, resume, "they'd", "can't"]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c6"
-    char_span: [10231, 12617]
+    char_span: [10230, 12616]
     sentence_count: 15
     key_terms: [experience, internships, like, research, project, interviewers, engineering, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c7"
-    char_span: [12383, 12677]
+    char_span: [12382, 12676]
     sentence_count: 2
     key_terms: [year, internships, penultimate, recruiters, australia, sophomore, l3harris, deeks98]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tbn2y5.md#c8"
-    char_span: [12679, 13055]
+    char_span: [12678, 13054]
     sentence_count: 2
     key_terms: [year, freshman-sophomore-junior, large-cat-6468, opportunities, engineering, experience, providing, sophomore]
     section: Comments

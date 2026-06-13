@@ -23,7 +23,7 @@ chunks:
     key_terms: [uwaterloo, co-op, waterlooworks, "don't", fees, jobs, pay, comments]
     token_count: 440
   - id: "social-intelligence/reddit-deep/uwaterloo/1tajm2a.md#c1"
-    char_span: [1790, 3504]
+    char_span: [1789, 3503]
     sentence_count: 4
     key_terms: [students, job, school, delicious-site-2855, potential-drag9761, jobs, anime2221, mentioned]
     section: Comments

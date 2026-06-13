@@ -28,127 +28,127 @@ chunks:
     key_terms: [since, christmas, called, office, time, management, employees, approved]
     token_count: 114
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c2"
-    char_span: [2594, 4622]
+    char_span: [2593, 4621]
     sentence_count: 10
     key_terms: [employees, pto, asking, "i'm", either, work, understand, approved]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c3"
-    char_span: [4624, 6658]
+    char_span: [4623, 6657]
     sentence_count: 13
     key_terms: [company, employee, get, like, long, pto, work, percentage]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c4"
-    char_span: [6660, 8076]
+    char_span: [6659, 8075]
     sentence_count: 10
     key_terms: [years, call, xmas, coverage, early, lostintransaltions, need, ppl]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c5"
-    char_span: [8078, 10159]
+    char_span: [8077, 10158]
     sentence_count: 16
     key_terms: [pto, company, staffing, compensation, people, time, employee, "it's"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c6"
-    char_span: [10161, 12283]
+    char_span: [10160, 12282]
     sentence_count: 16
     key_terms: [time, terminated, company, manager, people, get, job, take]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c7"
-    char_span: [12285, 12844]
+    char_span: [12284, 12843]
     sentence_count: 7
     key_terms: [employers, "aren't", "don't", years, good, internships, previously, companies]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c8"
-    char_span: [12846, 15016]
+    char_span: [12845, 15015]
     sentence_count: 16
     key_terms: [workers, labor, right, management, workforce, employee, terrible, ignore]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c9"
-    char_span: [15019, 16987]
+    char_span: [15018, 16986]
     sentence_count: 15
     key_terms: [pto, approve, employee, "don't", time, want, situation, official]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c10"
-    char_span: [16989, 18213]
+    char_span: [16988, 18212]
     sentence_count: 6
     key_terms: [policies, employer, obsessed-with-bagels, agniantarvastejana, like, pto, intertubeluber, unfortunately]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c11"
-    char_span: [18215, 20233]
+    char_span: [18214, 20232]
     sentence_count: 17
     key_terms: [policy, people, being, hours, call, time, everyone, overtime]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c12"
-    char_span: [20235, 21884]
+    char_span: [20234, 21883]
     sentence_count: 9
     key_terms: [holidays, work, staffing, issue, leave, days, help, need]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c13"
-    char_span: [21887, 23644]
+    char_span: [21886, 23643]
     sentence_count: 10
     key_terms: [gets, requests, thanksgiving, days, down, get, sick, work]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c14"
-    char_span: [23646, 25759]
+    char_span: [23645, 25758]
     sentence_count: 18
     key_terms: [manager, people, get, time, christmas, companies, employees, requested]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c15"
-    char_span: [25761, 27777]
+    char_span: [25760, 27776]
     sentence_count: 23
     key_terms: [relationship, employees, workers, younger, been, companies, position, "wouldn't"]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c16"
-    char_span: [27779, 30111]
+    char_span: [27778, 30110]
     sentence_count: 26
     key_terms: [management, reasonable, employees, compensation, pto, team, high-demand, like]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c17"
-    char_span: [30113, 30991]
+    char_span: [30112, 30990]
     sentence_count: 8
     key_terms: [people, hard, team, operational, additional, guidelines, individual, management]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c18"
-    char_span: [30993, 32568]
+    char_span: [30992, 32567]
     sentence_count: 10
     key_terms: [day, holidays, because, wanted, worked, take, approved, criteria]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c19"
-    char_span: [32570, 34782]
+    char_span: [32569, 34781]
     sentence_count: 16
     key_terms: [christmas, work, get, everyone, requests, because, never, come]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c20"
-    char_span: [34526, 35760]
+    char_span: [34525, 35759]
     sentence_count: 9
     key_terms: [productivity, employee, training, company, hiring, people, going, lower]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c21"
-    char_span: [35763, 37353]
+    char_span: [35762, 37352]
     sentence_count: 15
     key_terms: [business, "it's", work, employees, employee, industry, schedule, "that's"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/managers/1pf16lt.md#c22"
-    char_span: [37358, 39042]
+    char_span: [37357, 39041]
     sentence_count: 13
     key_terms: [holiday, work, people, needs, required, around, person, academic-lobster3668]
     section: Comments

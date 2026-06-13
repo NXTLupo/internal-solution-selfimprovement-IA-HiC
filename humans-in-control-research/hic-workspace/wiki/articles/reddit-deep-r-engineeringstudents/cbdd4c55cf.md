@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c0"
-    char_span: [0, 1946]
+    char_span: [0, 1945]
     sentence_count: 6
     key_terms: [engineering, systems, technical, job, internship, engineeringstudents, role, raytheon]
-    token_count: 451
+    token_count: 450
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c1"
-    char_span: [1948, 2701]
+    char_span: [1947, 2700]
     sentence_count: 6
     key_terms: [defense, cross-transfer, hellraiserl33t, professional, standardized, departments, engineering, environment]
     token_count: 150
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c2"
-    char_span: [2703, 4888]
+    char_span: [2702, 4887]
     sentence_count: 18
     key_terms: [job, pretty, engineering, internships, "i've", jobs, life, like]
     token_count: 502
   - id: "articles/reddit-deep-r-engineeringstudents/cbdd4c55cf.md#c3"
-    char_span: [4890, 6572]
+    char_span: [4889, 6571]
     sentence_count: 11
     key_terms: [internship, get, engineering, experience, job, lot, northeast, technical]
     token_count: 374

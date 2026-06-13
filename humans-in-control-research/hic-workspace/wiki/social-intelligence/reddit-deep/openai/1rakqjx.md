@@ -23,13 +23,13 @@ chunks:
     key_terms: [context, openai, window, comments, thinking, chatgpt, reddit, soft-relief-9952]
     token_count: 114
   - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c1"
-    char_span: [467, 1496]
+    char_span: [466, 1495]
     sentence_count: 2
     key_terms: [context, window, free, crinkez, claude, gemini, higher, literaturemaximum125]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/openai/1rakqjx.md#c2"
-    char_span: [1498, 2685]
+    char_span: [1497, 2684]
     sentence_count: 3
     key_terms: [literaturemaximum125, https, a0986bf83b2a64e7608f60bbc6ef94a5c2ccdd6e, com, chatgptpro, comments, thinking, comment]
     section: Comments

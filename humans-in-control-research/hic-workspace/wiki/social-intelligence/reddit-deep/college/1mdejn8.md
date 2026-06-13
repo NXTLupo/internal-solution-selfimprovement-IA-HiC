@@ -21,37 +21,37 @@ chunks:
     key_terms: [college, parents, understand, comments, family, being, doing, major]
     token_count: 349
   - id: "social-intelligence/reddit-deep/college/1mdejn8.md#c1"
-    char_span: [1560, 3336]
+    char_span: [1559, 3335]
     sentence_count: 18
     key_terms: [help, moved, get, move, work, graduate, parental, college]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/college/1mdejn8.md#c2"
-    char_span: [3338, 4431]
+    char_span: [3337, 4430]
     sentence_count: 12
     key_terms: [want, job, time, parents, been, plus, generation, understand]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/college/1mdejn8.md#c3"
-    char_span: [4433, 6067]
+    char_span: [4432, 6066]
     sentence_count: 17
     key_terms: [instead, doing, act, date, studying, getting, parents, "you're"]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/college/1mdejn8.md#c4"
-    char_span: [6070, 6734]
+    char_span: [6069, 6733]
     sentence_count: 16
     key_terms: [get, take, celebrating, unprepared, admission, celebrate, meanwhile, seriously]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/college/1mdejn8.md#c5"
-    char_span: [6738, 8746]
+    char_span: [6737, 8745]
     sentence_count: 14
     key_terms: [time, hello36301, hours, get, credit, study, per, schedule]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mdejn8.md#c6"
-    char_span: [8501, 10336]
+    char_span: [8500, 10335]
     sentence_count: 20
     key_terms: [work, thank, time, parents, school, no-professional-9618, hello36301, job]
     section: Comments

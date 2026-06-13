@@ -26,37 +26,37 @@ chunks:
     key_terms: [financial, classes, aid, year, offered, extra, here, lost]
     token_count: 279
   - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c2"
-    char_span: [3174, 5067]
+    char_span: [3173, 5066]
     sentence_count: 20
     key_terms: [own, below, anything, transfer, accept, won, something, advisors]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c3"
-    char_span: [5069, 6603]
+    char_span: [5068, 6602]
     sentence_count: 10
     key_terms: [degree, requirements, track, plan, check, students, advisor, student]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c4"
-    char_span: [6605, 7832]
+    char_span: [6604, 7831]
     sentence_count: 8
     key_terms: [degree, passing, responsible, advisor, always, thepickleconnoisseur, below, grade]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c5"
-    char_span: [7834, 9110]
+    char_span: [7833, 9109]
     sentence_count: 10
     key_terms: [program, degree, bsc, because, meeting, application, department, graduation]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c6"
-    char_span: [9112, 11468]
+    char_span: [9111, 11467]
     sentence_count: 22
     key_terms: [advisor, degree, classes, college, student, responsibility, taking, check]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mtw6bp.md#c7"
-    char_span: [11225, 11909]
+    char_span: [11224, 11908]
     sentence_count: 7
     key_terms: [classes, courses, take, time, responsibility, transferring, acceptance, especially]
     section: Comments

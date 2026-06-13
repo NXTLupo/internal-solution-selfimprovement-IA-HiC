@@ -23,7 +23,7 @@ chunks:
     key_terms: [co-op, comments, uwaterloo, students, waterloo, current, program, student]
     token_count: 219
   - id: "social-intelligence/reddit-deep/uwaterloo/1tj3bgw.md#c1"
-    char_span: [941, 2161]
+    char_span: [940, 2160]
     sentence_count: 6
     key_terms: [admissions, uwaterloo, branding, automoderator, mdsai, data, moderators, relevant]
     section: Comments

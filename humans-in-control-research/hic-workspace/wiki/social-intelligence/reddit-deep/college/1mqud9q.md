@@ -26,13 +26,13 @@ chunks:
     key_terms: [submitted, exam, "i'm", specific, through, submit, feel, "i've"]
     token_count: 403
   - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c2"
-    char_span: [2790, 4532]
+    char_span: [2789, 4531]
     sentence_count: 12
     key_terms: [lms, submitted, name, canvas, either, school, specifically, says]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/college/1mqud9q.md#c3"
-    char_span: [4535, 5811]
+    char_span: [4534, 5810]
     sentence_count: 10
     key_terms: [lms, logs, submission, submitted, activity, "didn't", since, "won't"]
     section: Comments

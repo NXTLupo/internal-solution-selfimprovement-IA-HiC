@@ -23,25 +23,25 @@ chunks:
     key_terms: [gradadmissions, comments, school, grad, crushingsmoothie, application, reddit-deep, applying]
     token_count: 88
   - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c1"
-    char_span: [344, 943]
+    char_span: [343, 942]
     sentence_count: 4
     key_terms: [citations, school, applying, medical, cancer, number, papers, cure]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c2"
-    char_span: [945, 3013]
+    char_span: [944, 3012]
     sentence_count: 8
     key_terms: [publications, get, phd, undergrad, programs, crushingsmoothie, without, competitive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c3"
-    char_span: [2727, 4607]
+    char_span: [2726, 4606]
     sentence_count: 6
     key_terms: [undergrad, authorship, asking, papers, people, first-author, citations, lusealtwo]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/gradadmissions/1pe03fo.md#c4"
-    char_span: [4609, 6005]
+    char_span: [4608, 6004]
     sentence_count: 9
     key_terms: [author, credentials, paper, bachelor, credible, journal, publish, people]
     section: Comments

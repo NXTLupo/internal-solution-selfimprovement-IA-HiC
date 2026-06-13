@@ -9,10 +9,14 @@ author: ""
 date: "2026-03-22T16:48:23.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-04-29T18:55:54.849203+00:00"
+extracted_at: "2026-06-10T18:06:41.266943+00:00"
 chars: 772
-industries: [fundraising, nonprofit]
-industry_method: deterministic
+engagement: "identify-emerging-trends-in-higher-education-related-only-to"
+collected_at: "2026-06-10T18:06:40.875Z"
+relevance: 95
+engagement_goal: "Identify emerging trends in higher education related ONLY to fundraising, advancement, and donations in 2026. Include social media posts, academic articles, RSS News, government data, and uploaded documents related to Donation, Advancement, and Fundraising, to provide a robust set of comprehensive, strategic recommendations and a roadmap for higher education universities in 2026 "
+content_hash: "79d80ba925e48c6e"
+relevance_by_goal: {"8e9ecc469395":95}
 chunks:
   - id: "articles/reddit-philanthropy/efbd65b7d8.md#c0"
     char_span: [0, 983]

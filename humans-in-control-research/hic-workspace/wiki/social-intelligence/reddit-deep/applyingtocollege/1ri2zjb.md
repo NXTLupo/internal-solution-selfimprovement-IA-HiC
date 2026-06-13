@@ -23,31 +23,31 @@ chunks:
     key_terms: [umbc, applyingtocollege, virginia, applied, schools, choice, purdue, tech]
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c1"
-    char_span: [1911, 3511]
+    char_span: [1910, 3510]
     sentence_count: 18
     key_terms: [school, umbc, dental, like, definitely, experience, expensive, argument]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c2"
-    char_span: [3513, 5505]
+    char_span: [3512, 5504]
     sentence_count: 12
     key_terms: [engineering, school, dental, purdue, interested, something, biology, pre-dental]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c3"
-    char_span: [5507, 7559]
+    char_span: [5506, 7558]
     sentence_count: 14
     key_terms: [school, dental, get, major, engineering, want, dentists, deleted]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c4"
-    char_span: [7561, 9522]
+    char_span: [7560, 9521]
     sentence_count: 14
     key_terms: [school, year, important-drop-3338, umbc, pre-med, dental, towson, state]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ri2zjb.md#c5"
-    char_span: [9524, 10108]
+    char_span: [9523, 10107]
     sentence_count: 3
     key_terms: [important, medical, undergraduate, residency, parents, program, school, law]
     section: Comments

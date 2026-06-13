@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t0nvaz.md#c0"
-    char_span: [0, 304]
+    char_span: [0, 303]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, engineering, kujellyfish, reddit-deep, experience, college, posted]
-    token_count: 80
+    token_count: 79
 ---
 # Engineering Experience while in early college (Job reccs)
 

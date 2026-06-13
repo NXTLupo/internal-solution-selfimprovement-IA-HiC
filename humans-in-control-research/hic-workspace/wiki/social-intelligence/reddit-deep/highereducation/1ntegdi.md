@@ -31,25 +31,25 @@ chunks:
     key_terms: [terminations, kirk, comments, willing, across, people, cases, been]
     token_count: 258
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c3"
-    char_span: [5957, 7066]
+    char_span: [5956, 7065]
     sentence_count: 10
     key_terms: [conveniently, liberals, address, against, calling, author, doesn, tpusa]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c4"
-    char_span: [7068, 8375]
+    char_span: [7067, 8374]
     sentence_count: 6
     key_terms: [liberals, charlie-kirk-turning-point-usa-liberal, surprised, opinion, results, like, belatedgreeting, loselyconscious]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c5"
-    char_span: [8377, 9860]
+    char_span: [8376, 9859]
     sentence_count: 8
     key_terms: [unprofessional, free, "it's", different, politics, somebody, against, public]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/highereducation/1ntegdi.md#c6"
-    char_span: [9862, 12127]
+    char_span: [9861, 12126]
     sentence_count: 18
     key_terms: [conservative, because, students, liberal, viewpoints, education, anything, opposing]
     section: Comments

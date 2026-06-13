@@ -16,61 +16,61 @@ chunks:
     key_terms: [tier, source, credibility, research, system, data, aggregation, definitions]
     token_count: 84
   - id: "sources-registry/credibility-tiers.md#c1"
-    char_span: [475, 2409]
+    char_span: [474, 2408]
     sentence_count: 6
     key_terms: [data, sources, open, institutional, tier, credibility, government, gov]
     section: The Three Tiers
     token_count: 448
   - id: "sources-registry/credibility-tiers.md#c2"
-    char_span: [2411, 4424]
+    char_span: [2410, 4423]
     sentence_count: 3
     key_terms: [sources, reddit, community, news, tier, web-only, content, user-generated]
     section: The Three Tiers
     token_count: 485
   - id: "sources-registry/credibility-tiers.md#c3"
-    char_span: [4426, 6561]
+    char_span: [4425, 6560]
     sentence_count: 5
     key_terms: [string, credibilitytier, sourceprovenance, tier, export, typescript, publicationdate, content]
     section: The Three Tiers / Type Definitions
     token_count: 505
   - id: "sources-registry/credibility-tiers.md#c4"
-    char_span: [6563, 8116]
+    char_span: [6562, 8115]
     sentence_count: 2
     key_terms: [citationspan, output, source, string, generatedtextstart, generatedtextend, ai-generated, char]
     section: Type Definitions
     token_count: 344
   - id: "sources-registry/credibility-tiers.md#c5"
-    char_span: [8148, 9436]
+    char_span: [8147, 9435]
     sentence_count: 3
     key_terms: [return, date, agedays, days, score, computefreshnessscore, publication, freshness]
     section: Freshness Scoring Formula
     token_count: 370
   - id: "sources-registry/credibility-tiers.md#c6"
-    char_span: [9476, 10205]
+    char_span: [9475, 10204]
     sentence_count: 3
     key_terms: [hash, content, computecontenthash, string, research, corpus, cryptographically, char]
     section: Content Hashing for Deduplication
     token_count: 172
   - id: "sources-registry/credibility-tiers.md#c7"
-    char_span: [10238, 11639]
+    char_span: [10237, 11638]
     sentence_count: 3
     key_terms: [items, number, totalafterrelevancefilter, included, totalafteruserreview, averagefreshness, averagerelevance, tierdistribution]
     section: ResearchCorpus Aggregation
     token_count: 305
   - id: "sources-registry/credibility-tiers.md#c8"
-    char_span: [11675, 12531]
+    char_span: [11674, 12530]
     sentence_count: 4
     key_terms: [tier, sentiment, analysis, emerging, evidence, provides, current, factual]
     section: Tier Distribution in Practice
     token_count: 182
   - id: "sources-registry/credibility-tiers.md#c9"
-    char_span: [12572, 13814]
+    char_span: [12571, 13813]
     sentence_count: 2
     key_terms: [tier, credibility, researchfabricorchestrator, analysis, badges, corpus, export, scores]
     section: Integration with Research Workflow
     token_count: 280
   - id: "sources-registry/credibility-tiers.md#c10"
-    char_span: [13837, 14263]
+    char_span: [13836, 14262]
     sentence_count: 1
     key_terms: [research, tier, connector-catalog, deep, sources-registry, research-fabric, research-modes, specifications]
     section: Cross-References

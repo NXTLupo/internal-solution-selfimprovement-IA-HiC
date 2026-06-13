@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, albert, deposits, learned, don, ltb, comments, landlord]
     token_count: 378
   - id: "social-intelligence/reddit-deep/waterloo/1npzdbb.md#c1"
-    char_span: [1543, 3455]
+    char_span: [1542, 3454]
     sentence_count: 10
     key_terms: [are-key-deposits-legal-for-tenants-in-ontario, key, ontario, experience, deposits, waterloo, because, deposit]
     section: Comments

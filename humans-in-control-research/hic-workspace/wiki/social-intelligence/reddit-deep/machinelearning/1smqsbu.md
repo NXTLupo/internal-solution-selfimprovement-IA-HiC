@@ -36,19 +36,19 @@ chunks:
     key_terms: [llm-political-eval, dannyyaou, github, https, com, report, interesting, models]
     token_count: 214
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c4"
-    char_span: [6274, 7724]
+    char_span: [6273, 7723]
     sentence_count: 8
     key_terms: [chinese-llm-censorship-analysis, questions, geopolitical, question, models, huggingface, interesting, leonardlin]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c5"
-    char_span: [7726, 9895]
+    char_span: [7725, 9894]
     sentence_count: 6
     key_terms: [opinions, context, abliterated, interesting, political, axis, weights, nkondratyk93]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1smqsbu.md#c6"
-    char_span: [9601, 10338]
+    char_span: [9600, 10337]
     sentence_count: 6
     key_terms: [axis, authoritarian, conservative, libertarian, progressive, libertarian-authoritarian, progressive-conservative, social]
     section: Comments

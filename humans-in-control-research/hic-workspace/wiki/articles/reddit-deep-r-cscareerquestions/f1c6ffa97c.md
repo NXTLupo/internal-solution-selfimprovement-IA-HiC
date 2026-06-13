@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/f1c6ffa97c.md#c0"
-    char_span: [0, 2273]
+    char_span: [0, 2272]
     sentence_count: 19
     key_terms: [software, cscareerquestions, "didn't", significant, like, experience, interviews, operating]
-    token_count: 499
+    token_count: 498
   - id: "articles/reddit-deep-r-cscareerquestions/f1c6ffa97c.md#c1"
-    char_span: [2275, 3938]
+    char_span: [2274, 3937]
     sentence_count: 18
     key_terms: [hybrid, silicon, "didn't", remote, valley, fewer, development, engineering]
     token_count: 370

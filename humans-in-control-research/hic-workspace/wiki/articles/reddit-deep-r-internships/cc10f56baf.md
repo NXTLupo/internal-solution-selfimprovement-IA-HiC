@@ -15,17 +15,17 @@ relevance: 52
 engagement_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c0"
-    char_span: [0, 2174]
+    char_span: [0, 2173]
     sentence_count: 17
     key_terms: [internships, been, enough, internship, applications, feel, "i'm", "i've"]
-    token_count: 503
+    token_count: 502
   - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c1"
-    char_span: [2179, 3516]
+    char_span: [2178, 3515]
     sentence_count: 10
     key_terms: [companies, dialsoapbox, internships, students, company, apply, weeks, ago]
     token_count: 302
   - id: "articles/reddit-deep-r-internships/cc10f56baf.md#c2"
-    char_span: [3518, 5362]
+    char_span: [3517, 5361]
     sentence_count: 16
     key_terms: [internship, role, work, student, zettasyntax, grad, "i'm", "couldn't"]
     token_count: 442

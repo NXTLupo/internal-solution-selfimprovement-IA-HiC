@@ -21,25 +21,25 @@ chunks:
     key_terms: [jobs, white-collar, entry-level, comments, amodei, sugar-coating, unemployment, elimination]
     token_count: 168
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c1"
-    char_span: [700, 2640]
+    char_span: [699, 2639]
     sentence_count: 14
     key_terms: [always, company, people, human, "it's", new, tech, companies]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c2"
-    char_span: [2642, 3674]
+    char_span: [2641, 3673]
     sentence_count: 12
     key_terms: [boogeyman, customers, business, people, though, doing, ceo, etc]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c3"
-    char_span: [3676, 5564]
+    char_span: [3675, 5563]
     sentence_count: 15
     key_terms: [eighteen64, afartinanemptyroom, jobs, people, aaronfromky, companies, something, children]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lf9rbo.md#c4"
-    char_span: [5325, 5601]
+    char_span: [5324, 5600]
     sentence_count: 2
     key_terms: [upstairs-passion9421, dogmaticpeople, eliminated, offshoring, products, terrible, dollars, support]
     section: Comments

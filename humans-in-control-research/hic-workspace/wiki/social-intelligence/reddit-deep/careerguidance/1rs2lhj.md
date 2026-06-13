@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, someone, career, decide, trying, equivalent-doubt4932, begin]
     token_count: 133
   - id: "social-intelligence/reddit-deep/careerguidance/1rs2lhj.md#c1"
-    char_span: [494, 1758]
+    char_span: [493, 1757]
     sentence_count: 14
     key_terms: [money, careers, learn, launchpoint, find, marketing, possible, existing-ambition888]
     section: Comments

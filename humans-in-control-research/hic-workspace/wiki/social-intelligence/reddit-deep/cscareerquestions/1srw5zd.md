@@ -23,7 +23,7 @@ chunks:
     key_terms: [technical, internship, work, position, support, full-time, cscareerquestions, engineer]
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1srw5zd.md#c1"
-    char_span: [2426, 2908]
+    char_span: [2426, 2907]
     sentence_count: 2
     key_terms: [ibm, definitely, internship, taigahalla, converted, technical, relevant, training]
     section: Comments

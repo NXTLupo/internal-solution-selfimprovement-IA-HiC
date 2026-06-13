@@ -28,7 +28,7 @@ chunks:
     key_terms: [client-facing, perspective, enterprise, questions, situation, stability, structure, internal]
     token_count: 67
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lvngln.md#c2"
-    char_span: [2559, 4251]
+    char_span: [2558, 4250]
     sentence_count: 16
     key_terms: [startup, option, stability, flexible, startups, already, looking, growth]
     section: Comments

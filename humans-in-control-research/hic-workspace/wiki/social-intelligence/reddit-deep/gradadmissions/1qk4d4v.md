@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, randomlebaneseperson, reddit-deep, recommend, business, career, majors]
     token_count: 89
   - id: "social-intelligence/reddit-deep/gradadmissions/1qk4d4v.md#c1"
-    char_span: [328, 1397]
+    char_span: [327, 1396]
     sentence_count: 9
     key_terms: ["i'm", business, doing, years, job, recommend, looking, masters]
     section: Comments

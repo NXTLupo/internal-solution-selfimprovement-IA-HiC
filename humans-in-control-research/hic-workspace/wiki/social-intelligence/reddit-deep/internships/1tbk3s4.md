@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, internships, like, asked, days, too, response, conversation]
     token_count: 435
   - id: "social-intelligence/reddit-deep/internships/1tbk3s4.md#c1"
-    char_span: [1818, 2648]
+    char_span: [1817, 2647]
     sentence_count: 4
     key_terms: [harrystylesmexicangf, like, vague, j4qchjny38at8hqvsu, too, persuasiveass, thisisdumb228, application]
     section: Comments

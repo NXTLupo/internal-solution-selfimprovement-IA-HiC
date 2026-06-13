@@ -28,13 +28,13 @@ chunks:
     key_terms: [already, looking, professional, free, filtering, standards, technical, somebody]
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c2"
-    char_span: [3633, 5309]
+    char_span: [3632, 5308]
     sentence_count: 9
     key_terms: [practice, anybody, company, people, hopefullyagoodboomer, being, labor, free]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/jobs/1sjpwzh.md#c3"
-    char_span: [5311, 6804]
+    char_span: [5310, 6803]
     sentence_count: 10
     key_terms: [company, employees, wants, call, free, pay, show, respectful]
     section: Comments

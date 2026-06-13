@@ -28,37 +28,37 @@ chunks:
     key_terms: [company, free-cash-flow, equity-linked, share-buyback, particularly, shareholders, predictable, repurchases]
     token_count: 72
   - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c2"
-    char_span: [2456, 3944]
+    char_span: [2455, 3943]
     sentence_count: 6
     key_terms: [overvalued, been, "it's", since, obvious, stock, against, "doesn't"]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c3"
-    char_span: [3946, 5320]
+    char_span: [3945, 5319]
     sentence_count: 5
     key_terms: [compensation, people, redact, reddit, based, maybe, stack, stock]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c4"
-    char_span: [5322, 7169]
+    char_span: [5321, 7168]
     sentence_count: 8
     key_terms: [timing, early, wrong, bust, predicting, usually, educationcultural736, being]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c5"
-    char_span: [7172, 8080]
+    char_span: [7171, 8079]
     sentence_count: 9
     key_terms: [stock, "it's", shorted, right, tesla, wrong, devolutionator, unfortunately]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c6"
-    char_span: [8083, 9866]
+    char_span: [8082, 9865]
     sentence_count: 13
     key_terms: [right, stock, bad, lemons714, everyone, some-conversation613, money, tesla]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pbqhx4.md#c7"
-    char_span: [9617, 10517]
+    char_span: [9616, 10516]
     sentence_count: 10
     key_terms: [stock, tsla, overvalued, valuation, everyone, crazy, tesla, snoopingforpooping]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [job, around, money, careerguidance, making, australia, comments, january]
     token_count: 235
   - id: "social-intelligence/reddit-deep/careerguidance/1t9wcxv.md#c1"
-    char_span: [983, 1821]
+    char_span: [982, 1820]
     sentence_count: 7
     key_terms: [australia, fitting, kitchen, skills, electronic-bus-5350, frame, money, goal]
     section: Comments

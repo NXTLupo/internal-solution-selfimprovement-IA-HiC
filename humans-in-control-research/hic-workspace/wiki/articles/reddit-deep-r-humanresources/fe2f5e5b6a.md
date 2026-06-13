@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-humanresources/fe2f5e5b6a.md#c0"
-    char_span: [0, 2022]
+    char_span: [0, 2021]
     sentence_count: 16
     key_terms: [humanresources, book, program, post, work, leadership, management, psychology]
-    token_count: 481
+    token_count: 480
 ---
 # Best Book for New HR Professional [N/A]
 

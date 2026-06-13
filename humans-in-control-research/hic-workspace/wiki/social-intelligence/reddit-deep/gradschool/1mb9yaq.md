@@ -28,7 +28,7 @@ chunks:
     key_terms: ["i'm", work, disorganized, application, competitive, considered, experience, investment]
     token_count: 103
   - id: "social-intelligence/reddit-deep/gradschool/1mb9yaq.md#c2"
-    char_span: [2722, 4735]
+    char_span: [2721, 4734]
     sentence_count: 21
     key_terms: [school, best, programs, program, application, connections, grad, counseling]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [philippines, online, start, workonline, comments, working, skills, beginner-friendly]
     token_count: 216
   - id: "social-intelligence/reddit-deep/workonline/1o1x3vv.md#c1"
-    char_span: [937, 1785]
+    char_span: [936, 1784]
     sentence_count: 7
     key_terms: [experience, simple, apply, beginner-friendly, jobs, applications, philippines, unoriginal2]
     section: Comments

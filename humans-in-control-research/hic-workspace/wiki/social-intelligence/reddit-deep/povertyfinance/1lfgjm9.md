@@ -43,49 +43,49 @@ chunks:
     key_terms: [opportunities, combination, cosmetology, explanation, earlllyyyy, enrollment, parenting, subreddit]
     token_count: 104
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c5"
-    char_span: [10132, 12030]
+    char_span: [10131, 12029]
     sentence_count: 13
     key_terms: [tuition, reimburse, jobs, work, research, college, universities, etc]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c6"
-    char_span: [12032, 13102]
+    char_span: [12031, 13101]
     sentence_count: 7
     key_terms: [get, free, programs, through, degree, states, years, year]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c7"
-    char_span: [13104, 15299]
+    char_span: [13103, 15298]
     sentence_count: 12
     key_terms: [enrollment, dual, school, take, tuition, online, institutions, rural]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c8"
-    char_span: [15060, 16782]
+    char_span: [15059, 16781]
     sentence_count: 14
     key_terms: [children, students, college, clep-college-credit-policy-search, dual, enrollment, programs, schools]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c9"
-    char_span: [16784, 18400]
+    char_span: [16783, 18399]
     sentence_count: 12
     key_terms: [exams, community, clep, got, college, school, thesecondlead, absolutely]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c10"
-    char_span: [18402, 20165]
+    char_span: [18401, 20164]
     sentence_count: 14
     key_terms: [college, people, child, money, differently, dumb, kid, tax]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c11"
-    char_span: [20167, 22095]
+    char_span: [20166, 22094]
     sentence_count: 13
     key_terms: [tuition, dual, enrollment, credit, state, different, math, students]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/povertyfinance/1lfgjm9.md#c12"
-    char_span: [22097, 22600]
+    char_span: [22096, 22599]
     sentence_count: 5
     key_terms: [school, glittering-gur5513, nyu, scholarships, prestigious, technically, additional, admissions]
     section: Comments

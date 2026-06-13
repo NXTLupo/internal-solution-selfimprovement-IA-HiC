@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1rwb4q1.md#c0"
-    char_span: [0, 911]
+    char_span: [0, 910]
     sentence_count: 10
     key_terms: [careerguidance, gap, java, comments, learned, basic, dsa, eee]
-    token_count: 249
+    token_count: 248
 ---
 # EEE graduate (2023) with 3-year gap, learned Java, web dev & basic DSA – need guidance to land first IT job ?
 

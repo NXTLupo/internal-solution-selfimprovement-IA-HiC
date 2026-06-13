@@ -23,25 +23,25 @@ chunks:
     key_terms: [anthropic, comments, thehashimwarren, reddit-deep, winning, claude, posted, reddit]
     token_count: 77
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c1"
-    char_span: [267, 1787]
+    char_span: [266, 1786]
     sentence_count: 9
     key_terms: [claude, code, anthropic, users, like, features, tooling, adding]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c2"
-    char_span: [1789, 3138]
+    char_span: [1788, 3137]
     sentence_count: 9
     key_terms: [claude, code, breakthrough, anthropic, google, thathandsomehandsome, like, appropriately]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c3"
-    char_span: [3140, 5153]
+    char_span: [3139, 5152]
     sentence_count: 17
     key_terms: [like, agent, hook, gemini, pre, runs, win, womp]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/anthropic/1py01my.md#c4"
-    char_span: [5155, 5629]
+    char_span: [5154, 5628]
     sentence_count: 3
     key_terms: [hooks, useful, super, use, agent-specific, notification, especially, riotofmind]
     section: Comments

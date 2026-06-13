@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1oz30ih.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1oz30ih/i_am_currently_applying_to_the_cal_state/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.594Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1oz30ih.md#c0"
+    char_span: [0, 1322]
+    sentence_count: 11
+    key_terms: [experiences, application, conferences, volunteer, gradadmissions, events, school, state]
+    token_count: 283
 ---
-
 # I am currently applying to the cal state application for grad school. I am applying to school psychology programs and I had a few questions about the "experiences" section in the cal state application.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1oz30ih/i_am_currently_applying_to_the_cal_state/)

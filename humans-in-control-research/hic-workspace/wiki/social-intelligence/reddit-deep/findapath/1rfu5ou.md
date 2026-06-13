@@ -23,7 +23,7 @@ chunks:
     key_terms: [findapath, comments, professional, reddit-deep, compliance, realistic, customs, explore]
     token_count: 84
   - id: "social-intelligence/reddit-deep/findapath/1rfu5ou.md#c1"
-    char_span: [344, 1654]
+    char_span: [343, 1653]
     sentence_count: 10
     key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
     section: Comments

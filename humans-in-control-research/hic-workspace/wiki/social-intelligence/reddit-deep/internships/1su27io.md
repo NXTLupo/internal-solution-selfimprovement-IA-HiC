@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, impression, internships, good, want, questions, comments, summer]
     token_count: 252
   - id: "social-intelligence/reddit-deep/internships/1su27io.md#c1"
-    char_span: [1151, 1693]
+    char_span: [1150, 1692]
     sentence_count: 2
     key_terms: [did, helpful, manager, "you're", here, work, impression, check-ins]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [possible, careerguidance, "i'm", job, comments, nursing, aware, money]
     token_count: 273
   - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c1"
-    char_span: [1245, 3272]
+    char_span: [1244, 3271]
     sentence_count: 18
     key_terms: [nursing, pay, twinb-theniceone, rushing, people, nurse, right, years]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c2"
-    char_span: [3274, 5631]
+    char_span: [3273, 5630]
     sentence_count: 15
     key_terms: [nursing, software, people, because, market, years, overnight, shortage]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1tf50uz.md#c3"
-    char_span: [5633, 7110]
+    char_span: [5632, 7109]
     sentence_count: 4
     key_terms: [nursing, overtime, classes, regular, without, doctor, insane, nurses]
     section: Comments

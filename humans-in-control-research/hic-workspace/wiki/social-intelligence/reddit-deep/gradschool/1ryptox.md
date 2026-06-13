@@ -23,43 +23,43 @@ chunks:
     key_terms: [average, course, engineering, performance, considered, gradschool, comments, failing]
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c1"
-    char_span: [1137, 2858]
+    char_span: [1136, 2857]
     sentence_count: 9
     key_terms: [students, schools, get, probably, people, class, curve, grade]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c2"
-    char_span: [2860, 3892]
+    char_span: [2859, 3891]
     sentence_count: 6
     key_terms: [classes, students, core, got, program, quarters, sections, quarter]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c3"
-    char_span: [3894, 5913]
+    char_span: [3893, 5912]
     sentence_count: 16
     key_terms: [ru-tris-bpy, definitely, parrotwouldntvoom, grades, people, fellowships, didn, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c4"
-    char_span: [5683, 5969]
+    char_span: [5682, 5968]
     sentence_count: 2
     key_terms: [getting, parrotwouldntvoom, laziestindian, applications, fellowship, gradschool, biosketch, downvoted]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c5"
-    char_span: [5971, 7144]
+    char_span: [5970, 7143]
     sentence_count: 12
     key_terms: [average, traditionally, around, grades, middle, school, above, grade]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c6"
-    char_span: [7146, 8907]
+    char_span: [7145, 8906]
     sentence_count: 12
     key_terms: [class, grad, program, graduate, students, course, expectations, undergrad]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/gradschool/1ryptox.md#c7"
-    char_span: [8910, 10324]
+    char_span: [8909, 10323]
     sentence_count: 11
     key_terms: [mastery, grad, test, expected, students, tell, instructor, particular]
     section: Comments

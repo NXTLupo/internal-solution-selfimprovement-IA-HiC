@@ -28,73 +28,73 @@ chunks:
     key_terms: [accommodation, advantage, parent, weeks, accommodations, opportunities, non-disabled, assessments]
     token_count: 107
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c2"
-    char_span: [2938, 4801]
+    char_span: [2937, 4800]
     sentence_count: 8
     key_terms: [paper, professor, law, students, quesocadadia, specifically, class, exam]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c3"
-    char_span: [4803, 5441]
+    char_span: [4802, 5440]
     sentence_count: 3
     key_terms: [accommodations, helping, students, equitable, learn, voice-to-text, conversation, disabilities]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c4"
-    char_span: [5443, 7661]
+    char_span: [5442, 7660]
     sentence_count: 9
     key_terms: [accommodations, students, weeks, time, submitted, barriers, learning, material]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c5"
-    char_span: [7448, 7772]
+    char_span: [7447, 7771]
     sentence_count: 1
     key_terms: [papayatwentythree, accommodations, accommodation, downvoting, soonerred, universal, anything, approach]
     section: Comments
     token_count: 90
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c6"
-    char_span: [7774, 9322]
+    char_span: [7773, 9321]
     sentence_count: 8
     key_terms: [accommodation, office, weeks, allowed, friend, parent, assignment, disability]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c7"
-    char_span: [9324, 11669]
+    char_span: [9323, 11668]
     sentence_count: 17
     key_terms: [time, students, student, minutes, disabled, enough, disability, answers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c8"
-    char_span: [11370, 11950]
+    char_span: [11369, 11949]
     sentence_count: 3
     key_terms: [time, give, extra, answers, minutes, student, shit, approximately]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c9"
-    char_span: [11952, 14164]
+    char_span: [11951, 14163]
     sentence_count: 14
     key_terms: [accommodations, students, disabilities, time, premise, extra, learning, playing]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c10"
-    char_span: [14166, 15336]
+    char_span: [14165, 15335]
     sentence_count: 11
     key_terms: [question, student, minutes, incredibly, questions, dyslexic, in-class, "wouldn't"]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c11"
-    char_span: [15338, 17216]
+    char_span: [15337, 17215]
     sentence_count: 18
     key_terms: [time, student, dyslexic, hours, complete, everyone, problems, minutes]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c12"
-    char_span: [17218, 19257]
+    char_span: [17217, 19256]
     sentence_count: 10
     key_terms: [time, need, giving, accommodations, students, extra, exam, minutes]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/professors/1peijrv.md#c13"
-    char_span: [19259, 21032]
+    char_span: [19258, 21031]
     sentence_count: 14
     key_terms: [students, minutes, accommodations, accommodation, lab, time, design, disabilities]
     section: Comments

@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rwbrg3.md#c0"
-    char_span: [0, 337]
+    char_span: [0, 336]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, crush-name, gdscript, assets, builds, claude]
-    token_count: 95
+    token_count: 94
 ---
 # Claude Code now builds entire games from a single prompt — GDScript, assets, and visual QA to find its own bugs
 

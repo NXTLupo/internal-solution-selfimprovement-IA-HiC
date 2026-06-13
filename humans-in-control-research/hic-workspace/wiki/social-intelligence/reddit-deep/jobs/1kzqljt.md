@@ -28,25 +28,25 @@ chunks:
     key_terms: [new, opportunity, everything, experience, expected, grateful, grinding, industry]
     token_count: 86
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c2"
-    char_span: [2368, 4324]
+    char_span: [2367, 4323]
     sentence_count: 28
     key_terms: [enough, good, proud, thefuntruck, hold, work, mentally, yourself]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c3"
-    char_span: [4326, 6183]
+    char_span: [4325, 6182]
     sentence_count: 24
     key_terms: [get, new, hannahmayberry, thefuntruck, job, life, paycheck, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c4"
-    char_span: [5955, 6780]
+    char_span: [5954, 6779]
     sentence_count: 9
     key_terms: [like, hannahmayberry, back, anxiety, "karma's", bitch, anxious-slip-8955, get]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/jobs/1kzqljt.md#c5"
-    char_span: [6782, 7287]
+    char_span: [6781, 7286]
     sentence_count: 4
     key_terms: [people, familiar-range9014, pumpupthevaluum, thefuntruck, ridiculous, shittiest, congrats, leashing]
     section: Comments

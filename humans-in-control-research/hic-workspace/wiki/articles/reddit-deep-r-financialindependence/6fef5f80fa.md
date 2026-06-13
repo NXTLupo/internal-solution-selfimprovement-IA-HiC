@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c0"
-    char_span: [0, 1983]
+    char_span: [0, 1982]
     sentence_count: 22
     key_terms: [fire, financialindependence, worth, been, healthcare, retirement, currently, goalposts]
-    token_count: 463
+    token_count: 462
   - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c1"
-    char_span: [1985, 3418]
+    char_span: [1984, 3417]
     sentence_count: 8
     key_terms: [fire, number, people, bumping, curious, without, closer, others]
     token_count: 348
   - id: "articles/reddit-deep-r-financialindependence/6fef5f80fa.md#c2"
-    char_span: [3420, 4664]
+    char_span: [3419, 4663]
     sentence_count: 10
     key_terms: [husband, retiring, without, having, number, though, years, ago]
     token_count: 312

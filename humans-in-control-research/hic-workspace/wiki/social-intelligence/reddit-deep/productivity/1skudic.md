@@ -23,31 +23,31 @@ chunks:
     key_terms: [productivity, real-world, massive, "i'm", constantly, comments, thinking, deliver]
     token_count: 461
   - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c1"
-    char_span: [2076, 3964]
+    char_span: [2075, 3963]
     sentence_count: 20
     key_terms: [something, need, overthinking, like, step, tool, deadlines, mathematically-speaking]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c2"
-    char_span: [3966, 5995]
+    char_span: [3965, 5994]
     sentence_count: 16
     key_terms: [second-guessing, brain, adhd, "i'm", overthink, specific, rabbit, sounds]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c3"
-    char_span: [5997, 6215]
+    char_span: [5996, 6214]
     sentence_count: 4
     key_terms: [energy, day, guilt-free, execution, fighting, ruminate, yourself, figure]
     section: Comments
     token_count: 50
   - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c4"
-    char_span: [6217, 8433]
+    char_span: [6216, 8432]
     sentence_count: 12
     key_terms: [describing, "you're", right, adhd, big, need, task, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1skudic.md#c5"
-    char_span: [8092, 8535]
+    char_span: [8091, 8534]
     sentence_count: 1
     key_terms: [adhd, second-guessing, underperforming, productivity, describing, diagnosing, strategies, different]
     section: Comments

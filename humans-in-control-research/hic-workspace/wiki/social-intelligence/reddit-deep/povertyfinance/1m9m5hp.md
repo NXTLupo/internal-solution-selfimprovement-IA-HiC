@@ -23,43 +23,43 @@ chunks:
     key_terms: [living, costs, parents, husband, povertyfinance, money, everything, utilities]
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c1"
-    char_span: [2324, 3708]
+    char_span: [2323, 3707]
     sentence_count: 9
     key_terms: [opportunity, accident, railroad, exactly, parents, aromatic-warning1495, disastrous-deer-9137, important-aerie-5408]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c2"
-    char_span: [3710, 5508]
+    char_span: [3709, 5507]
     sentence_count: 8
     key_terms: [parents, living, relationship, shame, dont, home, sometimes, family]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c3"
-    char_span: [5510, 6193]
+    char_span: [5509, 6192]
     sentence_count: 8
     key_terms: [school, college, "that's", debt, job, old, time, independently]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c4"
-    char_span: [6195, 8293]
+    char_span: [6194, 8292]
     sentence_count: 15
     key_terms: [people, boundaries, parents, like, respect, individualism, "don't", get]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c5"
-    char_span: [8295, 9076]
+    char_span: [8294, 9075]
     sentence_count: 6
     key_terms: [parents, situation, grateful, aware-influence-8622, moonandstarstarot, hopeful-ant-3509, generational, helplessness]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c6"
-    char_span: [9078, 11094]
+    char_span: [9077, 11093]
     sentence_count: 14
     key_terms: [like, own, living, people, sounds, space, different, bathroom]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/povertyfinance/1m9m5hp.md#c7"
-    char_span: [11096, 11970]
+    char_span: [11095, 11969]
     sentence_count: 7
     key_terms: [month, moonandstarstarot, grandparents, significant, immigrants, tightening, different, explained]
     section: Comments

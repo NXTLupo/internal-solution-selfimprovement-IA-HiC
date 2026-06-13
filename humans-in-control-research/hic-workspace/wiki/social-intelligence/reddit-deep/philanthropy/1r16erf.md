@@ -1,0 +1,89 @@
+---
+id: social-intelligence/reddit-deep/philanthropy/1r16erf.md
+url: "https://www.reddit.com/r/Philanthropy/comments/1r16erf/mackenzie_scott_a_true_inspiration_but_why_arent/"
+kind: "social-post"
+source: "reddit-deep: r/philanthropy"
+subreddit: "philanthropy"
+title: "Mackenzie Scott: a true inspiration, but why aren’t more philanthropies demonstrating action and real changes?"
+author: "Match-Immediate"
+date: "2026-02-10T17:03:33.000Z"
+score: 24
+upvote_ratio: 1
+num_comments: 5
+flair: "Want your feedback / insights"
+extracted_at: "2026-06-10T18:04:18.305Z"
+extraction_method: "praw-deep"
+research_goal: "Identify emerging trends in higher education related ONLY to fundraising, advancement, and donations in 2026. Include social media posts, academic articles, RSS News, government data, and uploaded documents related to Donation, Advancement, and Fundraising, to provide a robust set of comprehensive, strategic recommendations and a roadmap for higher education universities in 2026\n"
+engagement: "identify-emerging-trends-in-higher-education-related-only-to"
+chunks:
+  - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c0"
+    char_span: [0, 1398]
+    sentence_count: 5
+    key_terms: [philanthropy, mackenzie, organizations, scott, gives, non-profit, impactful, comments]
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c1"
+    char_span: [1413, 3772]
+    sentence_count: 16
+    key_terms: [organization, control, what-evidence-is-there-on-the-impact-of-core-funding, money, match-immediate, giving, organizations, philanthropy]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c2"
+    char_span: [3774, 5863]
+    sentence_count: 16
+    key_terms: [organisations, funding, core, better, collaboration, staff, trust, development]
+    section: Comments
+    token_count: 355
+  - id: "social-intelligence/reddit-deep/philanthropy/1r16erf.md#c3"
+    char_span: [5865, 6842]
+    sentence_count: 8
+    key_terms: [organisations, unrestricted, funding, grants, losing, core, historically, organisation]
+    section: Comments
+    token_count: 175
+---
+# Mackenzie Scott: a true inspiration, but why aren’t more philanthropies demonstrating action and real changes?
+
+Source: [reddit-deep: r/philanthropy](https://www.reddit.com/r/Philanthropy/comments/1r16erf/mackenzie_scott_a_true_inspiration_but_why_arent/)
+Posted by **Match-Immediate** · **24↑** · **5 comments**
+
+As a non-profit worker, I am truly amazed by the way that Mackenzie Scott has revolutionized philanthropy with large, no-strings-attached flexible, unrestricted funding to impactful organizations: no endless grant reports to keep up with to the donor, no worries about keeping the electricity on or the office rent paid while running your programs because the donor refuses to pay “overhead.” Actual time to think strategically and longer-term. The WAY that Mackenzie Scott gives is just as impactful as how much she gives. 
+
+**My guess is that if you asked non-profit employees and executives, 100% of them would prefer gifts like this vs. any other type of funding.** 
+
+I’ve seen a few philanthropy organizations and leaders praising Mackenzie Scott‘s example on social media and how she’s so inspiring, yet I have not seen any philanthropy organizations actually shifting their giving model or terms to be more aligned to the way she gives. Why? 
+
+If you work at a philanthropy or funder, what’s stopping you from giving more flexibly, with few restrictions and strings attached?
+
+## Comments
+
+- **No_Routine_3295** (4↑): I work for a nonprofit organization that receives philanthropic support. I admire Ms. Scott’s style of philanthropy and yes, these unrestricted gifts are the preference overall. If you believe in an organization, there should be some level of trust between the org and the philanthropist where the endless strings attached are just unnecessary. Unfortunately, I have found that even our closest and most generous supporters don’t feel comfortable completely letting go of control of their money - even after they’ve donated it. It is probably some combination of factors, in my opinion:
+
+
+1) Philanthropists tend to be business people who are used to complex contracts, milestones, ROI reporting, etc. So they have come to expect this in their business life and those expectations carry over to their philanthropy. 
+
+2) They have been burned by an organization before or have seen someone burned by an organization where funds were spent improperly - or more likely, the organization just took some stance they were not happy with and the donor wished they could have more control. You are seeing this quite a bit right now with donors who have specific views on Middle East conflicts wanting organizations to publicly pick a side, even when that organization’s mission is removed from that conflict. Universities in the US are especially burdened by this donor expectation right now.
+
+3) Even very wealthy people feel attached to their money, and giving up control of anything is hard. If you make your giving known publicly, there is also a natural desire to control your own name and reputation.
+  - **Match-Immediate** (1↑): Yes I think you’re very right. At the end of the day, I think it boils down to control.
+- **Accomplished-Place29** (2↑): What does the data show?
+
+Are the organizations that received her money doing good things with it? Or is it being wasted and stolen by opportunists?
+
+It may be that it is a good thing, let's find out.
+  - **putonthehat** (1↑): This comment is aiming for the bulls eyes. Let’s first find out what outcomes this money helped achieve. Now who will throw the first stone?
+  - **Match-Immediate** (1↑): A fairly thorough assessment of the evidence of this giving style was done and found mostly positive results: 
+https://oakfnd.org/what-evidence-is-there-on-the-impact-of-core-funding/
+
+“ The overall assessment is that organisations receiving core funding report significant benefits, including:
+Bigger and better impact: organisations can expand their reach, engage in new projects, and better serve their communities. Unrestricted funds have allowed organisations to support hard-to-reach populations and address critical needs during crises like the Covid-19 pandemic.
+Strategic performance and innovation: core funding gives organisations and their leaders the bandwidth and mental space to focus on their mission, plan for the long-term and adapt quickly to changing circumstances. This flexibility fosters innovation, creativity, and risk-taking, allowing organisations the space they need to test new approaches and develop sustainable strategies.
+Financial stability and resilience: core funding enables long-term investments as well as time and resources to leverage additional funds. Organisations with strong financial health are then better positioned to attract further support and achieve their goals.
+Staff retention, development, and wellbeing: organisations can invest in their staff, offering competitive salaries and professional development opportunities. This leads to higher staff retention and a more motivated workforce.
+Builds trust: core funding can foster trust between funders and grantees. Partner organisations have more confidence to share ideas and outcomes without feeling pressured to satisfy funders’ accountability concerns or claim impact. Yet, trust is not a given outcome of core funding, as there could still be less visible and subtle power imbalances in play, which would require working on communication and making expectations explicit.
+Encourages collaboration: core funding promotes collaboration among grantees, leading to stronger networks and shared learning.
+Reduces administrative burden for funder and partners: core funding means lighter application and compliance processes. It also reduces the time the funder needs to follow up on multiple projects.
+Core funding is not without challenges. Some common concerns include:
+
+Length matters: unrestricted funding may need to be at least five years’ long for the full strategic planning benefits to materialise. One- or two-year grants can make it hard to recruit and keep staff; and even a three-year core grant only gives organisations an 18-month respite from fundraising.
+Measurement and attribution: core funding supports the overall organisation, rather than individual projects. This makes it challenging to attribute outcomes directly.
+Equity issues: historically, organisations led by Black and Indigenous communities and people of colour have had less access to unrestricted funding. Addressing these disparities is crucial to ensure equitable support for all organisations.
+Perceived risks: funders may worry about losing control, about the partner losing sight of its mission, or the misuse of funds. However, evidence suggests that these concerns are often unfounded, with most organisations managing large, unrestricted grants effectively.”

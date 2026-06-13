@@ -23,7 +23,7 @@ chunks:
     key_terms: [career, like, jobs, careerguidance, degree, idea, take, positions]
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1tldces.md#c1"
-    char_span: [2034, 3826]
+    char_span: [2033, 3825]
     sentence_count: 13
     key_terms: [analyst, business, product, implementation, branch, roles, since, ops]
     section: Comments

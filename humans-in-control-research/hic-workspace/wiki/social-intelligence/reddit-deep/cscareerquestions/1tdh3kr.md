@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, comments, campus, offer, miserabletrickster, next, reddit-deep, admittedly]
     token_count: 187
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tdh3kr.md#c1"
-    char_span: [744, 1616]
+    char_span: [743, 1615]
     sentence_count: 6
     key_terms: [job, applying, projects, campus, hiredu, resume, https, spend]
     section: Comments

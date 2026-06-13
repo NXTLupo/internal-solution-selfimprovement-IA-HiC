@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/a3c8c5e0af.md#c0"
-    char_span: [0, 2408]
+    char_span: [0, 2407]
     sentence_count: 7
     key_terms: [data, analytics, companies, need, security, careerguidance, market, reddit]
-    token_count: 512
+    token_count: 511
 ---
 # Which career path is better for bsc csit students currently in second year?
 

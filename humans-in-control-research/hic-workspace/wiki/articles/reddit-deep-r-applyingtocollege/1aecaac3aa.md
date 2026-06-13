@@ -15,22 +15,22 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c0"
-    char_span: [0, 2198]
+    char_span: [0, 2197]
     sentence_count: 25
     key_terms: [school, high, college, "don't", applyingtocollege, differently, university, teenagers]
-    token_count: 504
+    token_count: 503
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c1"
-    char_span: [2200, 4304]
+    char_span: [2199, 4303]
     sentence_count: 20
     key_terms: [year, school, high, highschool, academics, computer, already, college]
     token_count: 475
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c2"
-    char_span: [4306, 6639]
+    char_span: [4305, 6638]
     sentence_count: 19
     key_terms: [college, school, interests, schools, major, high, life, math]
     token_count: 502
   - id: "articles/reddit-deep-r-applyingtocollege/1aecaac3aa.md#c3"
-    char_span: [6641, 6745]
+    char_span: [6640, 6744]
     sentence_count: 1
     key_terms: [wonderful-click9431, hopeful, gaming, social, media, video, damn, less]
     token_count: 28

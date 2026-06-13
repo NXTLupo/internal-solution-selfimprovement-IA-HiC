@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/cfd4bda928.md#c0"
-    char_span: [0, 1721]
+    char_span: [0, 1720]
     sentence_count: 16
     key_terms: [apply, class, applyingtocollege, upper-middle, kid, year, colleges, comments]
-    token_count: 428
+    token_count: 427
   - id: "articles/reddit-deep-r-applyingtocollege/cfd4bda928.md#c1"
-    char_span: [1723, 3906]
+    char_span: [1722, 3905]
     sentence_count: 13
     key_terms: [income, paying, years, like, household, increased, getting, people]
     token_count: 508

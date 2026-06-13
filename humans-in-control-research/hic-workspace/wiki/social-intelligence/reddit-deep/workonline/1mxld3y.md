@@ -23,7 +23,7 @@ chunks:
     key_terms: [did, workonline, comments, feel, job, like, part, time]
     token_count: 159
   - id: "social-intelligence/reddit-deep/workonline/1mxld3y.md#c1"
-    char_span: [658, 2509]
+    char_span: [657, 2508]
     sentence_count: 12
     key_terms: [get, tasks, got, paid, want, work, additional, onboarding]
     section: Comments

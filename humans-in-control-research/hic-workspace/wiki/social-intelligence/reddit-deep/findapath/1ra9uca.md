@@ -23,49 +23,49 @@ chunks:
     key_terms: [get, parents, been, money, never, job, life, work]
     token_count: 489
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c1"
-    char_span: [1887, 2834]
+    char_span: [1886, 2833]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c2"
-    char_span: [2837, 4746]
+    char_span: [2836, 4745]
     sentence_count: 15
     key_terms: [volunteering, something, community, good, time, college, library, place]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c3"
-    char_span: [4748, 6522]
+    char_span: [4747, 6521]
     sentence_count: 12
     key_terms: [community, too, college, get, like, lot, education, degree]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c4"
-    char_span: [6524, 8409]
+    char_span: [6523, 8408]
     sentence_count: 22
     key_terms: [try, something, fail, immediately, addicted, anything, commando, realized]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c5"
-    char_span: [8411, 10482]
+    char_span: [8410, 10481]
     sentence_count: 26
     key_terms: [doing, something, get, nothing, trying, start, community, college]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c6"
-    char_span: [10484, 12211]
+    char_span: [10483, 12210]
     sentence_count: 10
     key_terms: [work, college, wizzlewazzel, good, job, community, education, classes]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c7"
-    char_span: [12213, 14222]
+    char_span: [12212, 14221]
     sentence_count: 11
     key_terms: [job, work, training, school, worked, study, part, time]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/findapath/1ra9uca.md#c8"
-    char_span: [14224, 15062]
+    char_span: [14223, 15061]
     sentence_count: 11
     key_terms: [get, experience, started, working, coffee, income, money, start]
     section: Comments

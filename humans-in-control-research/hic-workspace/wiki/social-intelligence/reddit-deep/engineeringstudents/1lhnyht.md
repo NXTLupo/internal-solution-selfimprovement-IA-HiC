@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineeringstudents, internship, full-time, comments, advice, google, hiring, lower]
     token_count: 185
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c1"
-    char_span: [860, 1650]
+    char_span: [859, 1649]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c2"
-    char_span: [1652, 3677]
+    char_span: [1651, 3676]
     sentence_count: 9
     key_terms: [hard, work, themselves, convince, nepotism, referral, because, "doesn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c3"
-    char_span: [3456, 3828]
+    char_span: [3455, 3827]
     sentence_count: 2
     key_terms: [experienced, necessarily, understands, co-workers, interviews, austin943, referrals, employee]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lhnyht.md#c4"
-    char_span: [3830, 5303]
+    char_span: [3829, 5302]
     sentence_count: 13
     key_terms: [get, likely, stevemcwonder, door, like, internship, graduate, certain]
     section: Comments

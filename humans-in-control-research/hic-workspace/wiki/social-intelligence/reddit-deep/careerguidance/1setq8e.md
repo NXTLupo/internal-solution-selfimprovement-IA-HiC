@@ -26,7 +26,7 @@ chunks:
     key_terms: [never, employers, worked, job, professionals, appreciated, challenging, specialized]
     token_count: 151
   - id: "social-intelligence/reddit-deep/careerguidance/1setq8e.md#c2"
-    char_span: [2859, 4198]
+    char_span: [2858, 4197]
     sentence_count: 6
     key_terms: [background, experience, companies, looking, advice, roles, solid, did]
     section: Comments

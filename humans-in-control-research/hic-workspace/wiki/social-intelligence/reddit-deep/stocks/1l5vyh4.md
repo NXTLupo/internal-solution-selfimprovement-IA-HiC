@@ -26,73 +26,73 @@ chunks:
     key_terms: [earnings, foreign, market, wrong, business-friendly, cuts, here, tax]
     token_count: 184
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c2"
-    char_span: [2986, 4193]
+    char_span: [2985, 4192]
     sentence_count: 5
     key_terms: [stocks, please, off-topic, political, specific, removed, reddit, "you're"]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c3"
-    char_span: [4195, 6151]
+    char_span: [4194, 6150]
     sentence_count: 16
     key_terms: [roulette, people, goebbels, flood, party, pizza, wheel, guy]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c4"
-    char_span: [6153, 7749]
+    char_span: [6152, 7748]
     sentence_count: 11
     key_terms: [something, media, quite, works, alone-in-a-crowd-1, been, news, wwe]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c5"
-    char_span: [7751, 9912]
+    char_span: [7750, 9911]
     sentence_count: 13
     key_terms: [market, economy, going, long, puts, allocation, inflation, subscribe]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c6"
-    char_span: [9914, 11962]
+    char_span: [9913, 11961]
     sentence_count: 18
     key_terms: [currency, devaluation, inflation, high, like, economic, economy, rates]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c7"
-    char_span: [11964, 14005]
+    char_span: [11963, 14004]
     sentence_count: 12
     key_terms: [poor, tax, taxes, working, republicans, benefits, gymtrovert1988, breaks]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c8"
-    char_span: [13753, 14024]
+    char_span: [13752, 14023]
     sentence_count: 2
     key_terms: [like, tax, tips, absolutely, deductions, overtime, credits, massive]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c9"
-    char_span: [14026, 15520]
+    char_span: [14025, 15519]
     sentence_count: 5
     key_terms: [being, "it's", seriously, probably, products, treasury, outside, stocks]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c10"
-    char_span: [15523, 16881]
+    char_span: [15522, 16880]
     sentence_count: 6
     key_terms: [people, money, star, trek, liz-truss-uk-economic-crisis, onarainyafternoon, gov, ww3]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c11"
-    char_span: [16883, 18819]
+    char_span: [16882, 18818]
     sentence_count: 13
     key_terms: [companies, makes, scam, months, people, crash, money, com]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c12"
-    char_span: [18821, 20303]
+    char_span: [18820, 20302]
     sentence_count: 2
     key_terms: [message, remindmebot, reddit, com, https, compose, subject, www]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/stocks/1l5vyh4.md#c13"
-    char_span: [20305, 21277]
+    char_span: [20304, 21276]
     sentence_count: 4
     key_terms: [stock, increase, market, price, cuts, get, tax, thus]
     section: Comments

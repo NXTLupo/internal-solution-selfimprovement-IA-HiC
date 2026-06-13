@@ -28,31 +28,31 @@ chunks:
     key_terms: [programs, lawschooladmissions, comments, responses, masters, schools, social, research-oriented]
     token_count: 212
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c2"
-    char_span: [2982, 4974]
+    char_span: [2981, 4973]
     sentence_count: 16
     key_terms: [student, grading, gpa, programs, faintedheart, grade, get, hard]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c3"
-    char_span: [4976, 6640]
+    char_span: [4975, 6639]
     sentence_count: 6
     key_terms: [like, students, grad, experience, themselves, research, failure, school]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c4"
-    char_span: [6642, 8632]
+    char_span: [6641, 8631]
     sentence_count: 14
     key_terms: [gpa, essays, factor, applicants, instructions, application, admissions, individual]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c5"
-    char_span: [8634, 10266]
+    char_span: [8633, 10265]
     sentence_count: 10
     key_terms: [get, gpa, programs, jewishtigerpup, international, grade, grad, applicants]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/gradadmissions/1siiqdq.md#c6"
-    char_span: [10268, 11761]
+    char_span: [10267, 11760]
     sentence_count: 11
     key_terms: [research, school, class, grade, means, gpa, proyects, because]
     section: Comments

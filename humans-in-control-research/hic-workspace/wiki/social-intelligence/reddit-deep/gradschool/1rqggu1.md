@@ -23,7 +23,7 @@ chunks:
     key_terms: [certifications, professional, school, experience, gradschool, clinical, comments, pre-grad]
     token_count: 274
   - id: "social-intelligence/reddit-deep/gradschool/1rqggu1.md#c1"
-    char_span: [1305, 1639]
+    char_span: [1304, 1638]
     sentence_count: 1
     key_terms: [confidentelevator239, cacrep-aligned, professionals, background, commitment, counseling, especially, scheduling]
     section: Comments

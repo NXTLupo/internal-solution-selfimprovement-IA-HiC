@@ -23,37 +23,37 @@ chunks:
     key_terms: [experience, gradschool, comments, rejected, applied, pretty, been, don]
     token_count: 206
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c1"
-    char_span: [847, 2224]
+    char_span: [846, 2223]
     sentence_count: 1
     key_terms: [cal, lachicafresita, reapplying, feedback, programs, applied, odinnw, did]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c2"
-    char_span: [2226, 4063]
+    char_span: [2225, 4062]
     sentence_count: 9
     key_terms: [program, jewishtigerpup, applied, year, accepted, rejected, sinnayre, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c3"
-    char_span: [3834, 4820]
+    char_span: [3833, 4819]
     sentence_count: 10
     key_terms: [don, year, programs, program, someone, school, best, did]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c4"
-    char_span: [4822, 4919]
+    char_span: [4821, 4918]
     sentence_count: 1
     key_terms: [perseverance, dictate, letting, lesson, stupid, paper, piece, worth]
     section: Comments
     token_count: 20
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c5"
-    char_span: [4921, 7126]
+    char_span: [4920, 7125]
     sentence_count: 15
     key_terms: [experience, applications, get, research, prestigious, try, work, year]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rohwqb.md#c6"
-    char_span: [6805, 8751]
+    char_span: [6804, 8750]
     sentence_count: 17
     key_terms: [recommendations, letters, records, recommendation, school, recommenders, since, did]
     section: Comments

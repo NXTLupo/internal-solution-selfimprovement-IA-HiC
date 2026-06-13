@@ -23,25 +23,25 @@ chunks:
     key_terms: [startup, google, internship, cscareerquestions, working, comp, down, get]
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c1"
-    char_span: [2019, 4048]
+    char_span: [2018, 4047]
     sentence_count: 15
     key_terms: [google, startup, thatsprettywild, avgvancouverperson, get, doing, competitive, anywhere]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c2"
-    char_span: [4050, 5461]
+    char_span: [4049, 5460]
     sentence_count: 10
     key_terms: [google, resume, "it's", anthropic, years, been, main, thatsprettywild]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c3"
-    char_span: [5463, 7175]
+    char_span: [5462, 7174]
     sentence_count: 10
     key_terms: [thatsprettywild, google, startup, startups, product, "it's", tech, elaborate]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1smdmkk.md#c4"
-    char_span: [7177, 7485]
+    char_span: [7176, 7484]
     sentence_count: 2
     key_terms: [google, thatsprettywild, equivalent, understand, question, somewhat, company, opposed]
     section: Comments

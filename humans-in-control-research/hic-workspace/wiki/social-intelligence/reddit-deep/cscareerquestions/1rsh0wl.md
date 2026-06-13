@@ -23,43 +23,43 @@ chunks:
     key_terms: [learning, cscareerquestions, tech, building, comments, confused, people, python]
     token_count: 189
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c1"
-    char_span: [860, 2322]
+    char_span: [859, 2321]
     sentence_count: 11
     key_terms: [job, productivity, awful, affected, replaced, workers, advice, people]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c2"
-    char_span: [2324, 4387]
+    char_span: [2323, 4386]
     sentence_count: 15
     key_terms: [math, hallthink6610, calculus, learn, career, fundamentals, start, perspective]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c3"
-    char_span: [4389, 5837]
+    char_span: [4388, 5836]
     sentence_count: 11
     key_terms: [learning, hallthink6610, born-rate-6692, advice, fundamentals, something, concepts, enjoying]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c4"
-    char_span: [5839, 7890]
+    char_span: [5838, 7889]
     sentence_count: 25
     key_terms: [something, fundamentals, better, "don't", focus, optimal, realize, "you'll"]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c5"
-    char_span: [7892, 10134]
+    char_span: [7891, 10133]
     sentence_count: 21
     key_terms: [building, understand, designing, something, "you'll", start, tutorials, "i'd"]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c6"
-    char_span: [10136, 12284]
+    char_span: [10135, 12283]
     sentence_count: 17
     key_terms: [like, understand, "you're", something, understanding, learn, years, technology]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsh0wl.md#c7"
-    char_span: [12286, 13341]
+    char_span: [12285, 13340]
     sentence_count: 10
     key_terms: [hallthink6610, dependent-cash-3405, thanks, keep, too, focusing, learning, getting]
     section: Comments

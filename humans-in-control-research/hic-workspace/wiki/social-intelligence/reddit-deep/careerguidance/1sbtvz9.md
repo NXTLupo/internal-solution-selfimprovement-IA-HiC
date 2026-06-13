@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sbtvz9.md#c0"
-    char_span: [0, 1115]
+    char_span: [0, 1114]
     sentence_count: 6
     key_terms: [exchange, college, program, careerguidance, multinational, professional, internship, comments]
-    token_count: 255
+    token_count: 254
 ---
 # When it comes to the job market and professional careers, in what ways can participating in work exchange programs be detrimental?
 

@@ -28,7 +28,7 @@ chunks:
     key_terms: [don, because, nothing, here, job, experience, miserable, underpaid]
     token_count: 484
   - id: "social-intelligence/reddit-deep/futureofwork/1t8ylqq.md#c2"
-    char_span: [3828, 5653]
+    char_span: [3827, 5652]
     sentence_count: 23
     key_terms: [job, market, yourself, "it's", something, alexrada, staying, expect]
     section: Comments

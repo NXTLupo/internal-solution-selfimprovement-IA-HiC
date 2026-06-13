@@ -23,7 +23,7 @@ chunks:
     key_terms: [conversation, like, specific, current, history, replies, out-of-context, conversations]
     token_count: 373
   - id: "social-intelligence/reddit-deep/openai/1mmncoi.md#c1"
-    char_span: [1709, 2195]
+    char_span: [1708, 2194]
     sentence_count: 4
     key_terms: [gpt, roblox, asi, game, okay, arkdevscantwipe, send-moobs-pls, shirochan404]
     section: Comments

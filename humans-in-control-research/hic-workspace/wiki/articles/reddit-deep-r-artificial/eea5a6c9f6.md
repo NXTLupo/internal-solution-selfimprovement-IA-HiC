@@ -15,15 +15,15 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-artificial/eea5a6c9f6.md#c0"
-    char_span: [0, 1711]
-    sentence_count: 12
-    key_terms: [code, ai-generated, reliable, testing, review, human, artificial, production]
-    token_count: 391
+    char_span: [0, 2260]
+    sentence_count: 15
+    key_terms: [code, ai-generated, reliable, production, human, "it's", testing, review]
+    token_count: 513
   - id: "articles/reddit-deep-r-artificial/eea5a6c9f6.md#c1"
-    char_span: [1713, 3196]
-    sentence_count: 13
-    key_terms: [code, time, people, "don't", good, "it's", production, deleted]
-    token_count: 321
+    char_span: [2262, 3195]
+    sentence_count: 10
+    key_terms: [code, people, "don't", time, product, etc, good, astronomical]
+    token_count: 198
 ---
 # How reliable is AI-generated code for production in 2025?
 

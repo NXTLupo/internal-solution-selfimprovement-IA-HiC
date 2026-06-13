@@ -28,31 +28,31 @@ chunks:
     key_terms: [did, writing, paper, want, complicated, effectively, prehistoric, admittedly]
     token_count: 132
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c2"
-    char_span: [2672, 4725]
+    char_span: [2671, 4724]
     sentence_count: 18
     key_terms: [writing, "it's", read, deleted, being, information, good, grad]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c3"
-    char_span: [4727, 6216]
+    char_span: [4726, 6215]
     sentence_count: 13
     key_terms: [explanation, job, thesis, additional, difference, reviewer, appears, article]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c4"
-    char_span: [6220, 7668]
+    char_span: [6219, 7667]
     sentence_count: 9
     key_terms: [relevant, information, difference, detail-oriented, "don't", authors, careful, comment]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c5"
-    char_span: [7670, 9513]
+    char_span: [7669, 9512]
     sentence_count: 11
     key_terms: [paper, student, everything, someone, review, field, bla, attitude]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/askacademia/1rbwxrk.md#c6"
-    char_span: [9518, 11270]
+    char_span: [9517, 11269]
     sentence_count: 12
     key_terms: ["you're", questions, talking, get, "i'm", sentences, slachack1, research]
     section: Comments

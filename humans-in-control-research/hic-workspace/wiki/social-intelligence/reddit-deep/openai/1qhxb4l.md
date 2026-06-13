@@ -23,7 +23,7 @@ chunks:
     key_terms: [performance, previously, context, away, window, laggy, comments, happens]
     token_count: 320
   - id: "social-intelligence/reddit-deep/openai/1qhxb4l.md#c1"
-    char_span: [1507, 1820]
+    char_span: [1506, 1819]
     sentence_count: 3
     key_terms: [chatgpt, rsyncmyhomiedrive, lightsession, ryanmonroe82, appreciate, difference, expecting, extension]
     section: Comments

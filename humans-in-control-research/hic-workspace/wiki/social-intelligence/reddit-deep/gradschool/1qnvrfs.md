@@ -23,19 +23,19 @@ chunks:
     key_terms: [letter, professor, student, asked, lab, gradschool, situations, comments]
     token_count: 323
   - id: "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c1"
-    char_span: [1430, 3012]
+    char_span: [1429, 3011]
     sentence_count: 12
     key_terms: [professor, letter, internship, student, willing, school, weight, klutzy-amount-1265]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c2"
-    char_span: [3014, 5095]
+    char_span: [3013, 5094]
     sentence_count: 14
     key_terms: [letter, professor, ask, prof, reu, draft, undergrad, markjay6]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1qnvrfs.md#c3"
-    char_span: [5097, 7000]
+    char_span: [5096, 6999]
     sentence_count: 12
     key_terms: [letter, students, student, grad, coursework, experience, instructor, reference]
     section: Comments

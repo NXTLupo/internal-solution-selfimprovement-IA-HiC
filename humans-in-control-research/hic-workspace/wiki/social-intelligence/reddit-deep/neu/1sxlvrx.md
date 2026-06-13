@@ -21,7 +21,7 @@ chunks:
     key_terms: [offer, comments, co-op, neu, worldexecute, reddit-deep, inaccurate, accepting]
     token_count: 165
   - id: "social-intelligence/reddit-deep/neu/1sxlvrx.md#c1"
-    char_span: [672, 1405]
+    char_span: [671, 1404]
     sentence_count: 2
     key_terms: [worldexecute, being, linkedin, payapya, lol, swe, living-sand18, open-ad-7216]
     section: Comments

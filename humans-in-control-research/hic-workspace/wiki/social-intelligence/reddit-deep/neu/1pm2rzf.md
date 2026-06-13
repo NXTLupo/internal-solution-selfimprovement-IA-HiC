@@ -23,13 +23,13 @@ chunks:
     key_terms: [northeastern, questions, appreciated, considering, been, easy, experience, comments]
     token_count: 237
   - id: "social-intelligence/reddit-deep/neu/1pm2rzf.md#c1"
-    char_span: [1066, 3392]
+    char_span: [1065, 3391]
     sentence_count: 1
     key_terms: [northeastern, experience, co-op, friends, professors, college, universities, life]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/neu/1pm2rzf.md#c2"
-    char_span: [3394, 3901]
+    char_span: [3393, 3900]
     sentence_count: 1
     key_terms: [business, please, communications, especially, highschool, passionate, unweighted, education]
     section: Comments

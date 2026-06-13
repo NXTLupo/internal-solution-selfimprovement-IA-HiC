@@ -23,7 +23,7 @@ chunks:
     key_terms: [kimi, opus, tasks, reasoning, comments, coding, deeplearning, interesting]
     token_count: 506
   - id: "social-intelligence/reddit-deep/deeplearning/1sx79xf.md#c1"
-    char_span: [1905, 2263]
+    char_span: [1905, 2262]
     sentence_count: 2
     key_terms: [kimi-k2-6-vs-opus-4-7, heyneo, https, blog, com, interesting, evaluation, benchmark]
     section: Comments

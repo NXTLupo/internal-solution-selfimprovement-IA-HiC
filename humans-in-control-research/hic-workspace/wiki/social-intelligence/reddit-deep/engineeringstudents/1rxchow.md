@@ -21,25 +21,25 @@ chunks:
     key_terms: [engineering, internship, engineeringstudents, mechanical, operations, accepted, comments, utility]
     token_count: 239
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c1"
-    char_span: [1219, 2640]
+    char_span: [1218, 2639]
     sentence_count: 22
     key_terms: [ask, work, everything, engineers, interest, ability, company, monkey]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c2"
-    char_span: [2642, 4982]
+    char_span: [2641, 4981]
     sentence_count: 20
     key_terms: [use, company, "don't", work, probably, anyone, never, ask]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c3"
-    char_span: [4678, 5674]
+    char_span: [4677, 5673]
     sentence_count: 11
     key_terms: [probably, use, database, outlook, profile, hours, photo, teams]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxchow.md#c4"
-    char_span: [5676, 6571]
+    char_span: [5675, 6570]
     sentence_count: 7
     key_terms: [mentor, work, assigned, career, "don't", hard, seek, departments]
     section: Comments

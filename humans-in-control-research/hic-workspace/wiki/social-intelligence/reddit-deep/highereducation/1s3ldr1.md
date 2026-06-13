@@ -23,25 +23,25 @@ chunks:
     key_terms: [highereducation, university, comments, asking, giving, money, day, reddit-deep]
     token_count: 151
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c1"
-    char_span: [632, 2426]
+    char_span: [631, 2425]
     sentence_count: 12
     key_terms: [donate, employees, "it's", because, donors, fundraising, soliciting, donations]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c2"
-    char_span: [2428, 3638]
+    char_span: [2427, 3637]
     sentence_count: 9
     key_terms: [staff, give, employees, mundanehuckleberry58, asked, hard, pay, work]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c3"
-    char_span: [3640, 5292]
+    char_span: [3639, 5291]
     sentence_count: 9
     key_terms: [giving, participation, staff, pay, enough, tmsdnr, helpful-passenger-12, money]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/highereducation/1s3ldr1.md#c4"
-    char_span: [5294, 6656]
+    char_span: [5293, 6655]
     sentence_count: 8
     key_terms: [year, fundraisers, end, time, thinking, donate, donors, imaginarycatdreams]
     section: Comments

@@ -28,7 +28,7 @@ chunks:
     key_terms: [corporate, because, world, pay, teaching, company, year, additional]
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1re7c6l.md#c2"
-    char_span: [4780, 5818]
+    char_span: [4780, 5817]
     sentence_count: 8
     key_terms: [like, gradsimple, feels, trial, run, slamdunksrock1, thepandapear, experiment]
     section: Comments

@@ -1,0 +1,64 @@
+---
+id: social-intelligence/reddit-deep/investing/1pthqwp.md
+url: "https://www.reddit.com/r/investing/comments/1pthqwp/is_there_a_brokerage_that_offers_m1style_pies_but/"
+kind: "social-post"
+source: "reddit-deep: r/investing"
+subreddit: "investing"
+title: "Is there a brokerage that offers M1-style \"Pies\" but with Robinhood’s control and UI?"
+author: "AnywhereSavings1710"
+date: "2025-12-23T02:04:00.000Z"
+score: 0
+upvote_ratio: 0.33
+num_comments: 11
+flair: ""
+extracted_at: "2026-06-11T15:26:11.550Z"
+extraction_method: "praw-deep"
+research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
+engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+chunks:
+  - id: "social-intelligence/reddit-deep/investing/1pthqwp.md#c0"
+    char_span: [0, 1724]
+    sentence_count: 15
+    key_terms: [set, robinhood, want, brokerage, investing, recurring, comments, m1-style]
+    token_count: 425
+  - id: "social-intelligence/reddit-deep/investing/1pthqwp.md#c1"
+    char_span: [1739, 3674]
+    sentence_count: 9
+    key_terms: [rebalancing, want, performance, like, week, conviction, percentage, portfolio]
+    section: Comments
+    token_count: 455
+---
+# Is there a brokerage that offers M1-style "Pies" but with Robinhood’s control and UI?
+
+Source: [reddit-deep: r/investing](https://www.reddit.com/r/investing/comments/1pthqwp/is_there_a_brokerage_that_offers_m1style_pies_but/)
+Posted by **AnywhereSavings1710** · **0↑** · **11 comments**
+
+Does a "perfect" brokerage actually exist?
+
+I’m currently split between M1 and Robinhood and it’s a massive headache. I’ve reached the point where I’m spread too thin and tracking everything on a manual spreadsheet just to see my actual allocation, which sucks.
+
+**The M1 side:** I love the "Pie" setup for organizing my long-term stuff, but I’m over the trading windows and the way their auto-investing works. If one of my high-conviction stocks starts ripping, M1’s "dynamic rebalancing" basically stops buying it because it’s now "overweight." I want my recurring buys to stay at the fixed % I set (e.g., if I set 10% to Apple, I want 10% of every deposit to go there regardless of the current price).
+
+**The Robinhood side:** The UI is obviously great and I love being able to set limit orders for flash crashes or just buy instantly. But managing a "custom index" of 15+ stocks on there is a nightmare. I don't want to set 15 separate recurring buy orders and manually rebalance them every month.
+
+Basically, I want:
+
+1. M1-style Pies/Baskets (for organization).
+2. Fixed-ratio DCA (every $100 deposit splits exactly how I set it).
+3. Instant execution / No trading windows.
+4. A UI that doesn't feel like it was built in 1995.
+
+I’ve looked at Public and Fidelity Solo Baskets but haven't pulled the trigger. Has anyone found a platform that actually hits all of these? Or a way to consolidate this without it being a second job?
+
+## Comments
+
+- **sirkarmalots** (2↑): Fidelity UI stuck in the 90s
+- **tyranids** (1↑): I like M1. If something in your portfolio is outperforming your conviction (growing faster than everything else, becoming overweight), why do you want to fomo an even greater percentage of your money into it? It’s ok to change your target allocations and initiate rebalances. I’ve always viewed M1 as offering more of a longer term asset allocation target, rather than “each deposit split as X/YZ% into these tickers.” You made it sound like what you want to do is already possible on Robinhood, but then you mentioned rebalancing. If you intend to manually rebalance every week, 2 week, month, etc… just keep on M1 and press the rebalance button. Which tickers get bought on any specific day don’t matter, by using a DCA buying pattern you will effectively buy in at the average price, getting closer and closer to realizing that ideal the longer your DCA continues.
+  - **AnywhereSavings1710** (1↑): Rebalancing every 2 weeks is significant tax consideration and very inefficient.
+
+I've looked more into [Public.com](http://Public.com) and it seems to be the best fit for what I want right now. They still have a few limitations but it's the best I can find.
+    - **tyranids** (1↑): I am still confused why the investment thesis is structured “buy $X of Y security every week” instead of “own X% exposure to Y security in my portfolio.” Obviously they are different goals.
+  - **Ill_Swimming_8296** (1↑): Yeah but the rebalancing thing is kinda the whole point though - OP wants their conviction plays to keep getting fed the same percentage regardless of performance. Like if you're bullish on NVDA at $200 and it runs to $400, M1 starts starving it while you're still convinced it's going higher
+
+  
+The "don't chase performance" logic makes sense for most people but some folks actually want to stick to their original thesis even when a stock is ripping

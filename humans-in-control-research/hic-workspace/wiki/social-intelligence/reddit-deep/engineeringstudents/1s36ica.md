@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineeringstudents, comments, seddikiadam14, applications, reddit-deep, candidates, internship, unbeatable]
     token_count: 112
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s36ica.md#c1"
-    char_span: [446, 2181]
+    char_span: [445, 2180]
     sentence_count: 13
     key_terms: [engineeringstudents, wiki, please, reddit, https, major, engineering, com]
     section: Comments

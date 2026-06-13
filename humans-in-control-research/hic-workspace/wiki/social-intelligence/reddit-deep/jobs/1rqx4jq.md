@@ -21,55 +21,55 @@ chunks:
     key_terms: [job, myself, money, jobs, because, back, restaurant, coworkers]
     token_count: 500
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c1"
-    char_span: [2164, 3211]
+    char_span: [2163, 3210]
     sentence_count: 8
     key_terms: [response, like, believe, forever, bills, "won't", plus-marzipan-3851, done]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c2"
-    char_span: [3213, 5135]
+    char_span: [3212, 5134]
     sentence_count: 11
     key_terms: [job, people, phlostonsparadise123, something, matter, find, interviews, burnout]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c3"
-    char_span: [5137, 7197]
+    char_span: [5136, 7196]
     sentence_count: 12
     key_terms: [interview, job, like, week, specific, "doesn't", however, "they'll"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c4"
-    char_span: [7199, 8870]
+    char_span: [7198, 8869]
     sentence_count: 12
     key_terms: [jobs, without, people, like, travelling, innocuous, children, disagree]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c5"
-    char_span: [8872, 10914]
+    char_span: [8871, 10913]
     sentence_count: 9
     key_terms: [job, health, mental, quit, probably, wishmunk, economy, caused]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c6"
-    char_span: [10686, 11215]
+    char_span: [10685, 11214]
     sentence_count: 5
     key_terms: [did, quit, wish, sunnyweather2121, watchingsunsets, tacolady1026, pretended, something]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c7"
-    char_span: [11217, 12926]
+    char_span: [11216, 12925]
     sentence_count: 13
     key_terms: [job, manager, work, everything, assistant, coworker, doing, employed]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c8"
-    char_span: [12928, 13948]
+    char_span: [12927, 13947]
     sentence_count: 5
     key_terms: [yourself, offer, start, until, job, quit, whatever, others]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/jobs/1rqx4jq.md#c9"
-    char_span: [13950, 15454]
+    char_span: [13949, 15453]
     sentence_count: 9
     key_terms: [job, find, rocksareonenow, going, financially, something, expenses, because]
     section: Comments

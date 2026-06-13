@@ -26,13 +26,13 @@ chunks:
     key_terms: [northeastern, aid, estimated, financial, cost, circumstances, realistically, contribution]
     token_count: 473
   - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c2"
-    char_span: [2499, 4653]
+    char_span: [2498, 4652]
     sentence_count: 13
     key_terms: [aid, slow-employment8774, usually, ok-banana-2859, unsubsidized, "don't", loans, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rt3tmz.md#c3"
-    char_span: [4375, 6481]
+    char_span: [4374, 6480]
     sentence_count: 18
     key_terms: [aid, financial, get, because, captain-marmot, ok-banana-2859, circumstances, major]
     section: Comments

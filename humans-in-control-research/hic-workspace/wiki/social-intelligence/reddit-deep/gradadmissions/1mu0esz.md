@@ -23,7 +23,7 @@ chunks:
     key_terms: [getting, gradadmissions, application, year, comments, learning, software, machine]
     token_count: 277
   - id: "social-intelligence/reddit-deep/gradadmissions/1mu0esz.md#c1"
-    char_span: [1171, 1380]
+    char_span: [1170, 1379]
     sentence_count: 5
     key_terms: [postbaccalaureate, application, otherwise, sna9py33, courses, depends, program, waiver]
     section: Comments

@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/college/1l53enb.md#c0"
-    char_span: [0, 1120]
+    char_span: [0, 1119]
     sentence_count: 4
     key_terms: [data, cheme, major, analysis, comments, majoring, biochem, college]
-    token_count: 264
+    token_count: 263
 ---
 # need advice: double major or chemE
 

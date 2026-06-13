@@ -21,13 +21,13 @@ chunks:
     key_terms: [jobs, job, like, currently, comments, degree, entry, level]
     token_count: 278
   - id: "social-intelligence/reddit-deep/jobs/1pmlssl.md#c1"
-    char_span: [1177, 3237]
+    char_span: [1176, 3236]
     sentence_count: 10
     key_terms: [being, job, receptionist, loved, groundsman, favorite, leverage, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pmlssl.md#c2"
-    char_span: [2995, 3944]
+    char_span: [2994, 3943]
     sentence_count: 10
     key_terms: [worked, college, grocery, school, throwawayfrompa1701, crafty-guest-2826, good, jobs]
     section: Comments

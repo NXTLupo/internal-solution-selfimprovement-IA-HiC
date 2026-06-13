@@ -26,49 +26,49 @@ chunks:
     key_terms: [years, work, get, jobs, underemployment, school, experiences, high]
     token_count: 482
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c2"
-    char_span: [4168, 5797]
+    char_span: [4167, 5796]
     sentence_count: 10
     key_terms: [bakery, degree, engineering, get, sepsis, emergency-march-911, thats, years]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c3"
-    char_span: [5799, 7467]
+    char_span: [5798, 7466]
     sentence_count: 11
     key_terms: [people, positions, because, science, degree, duties, remarkable-sand-5059, never]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c4"
-    char_span: [7469, 8910]
+    char_span: [7468, 8909]
     sentence_count: 13
     key_terms: [been, down, "i'm", making, years, sharkieshadooontt, high, job]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c5"
-    char_span: [8913, 10214]
+    char_span: [8912, 10213]
     sentence_count: 4
     key_terms: [biotech, marketing, been, since, time, company, five0clocksomewhere, going]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c6"
-    char_span: [10216, 12202]
+    char_span: [10215, 12201]
     sentence_count: 12
     key_terms: [civilian-labor-force-participation-rate, unemployed, "i'm", jobs, overseas, people, underemployed, industries]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c7"
-    char_span: [11937, 12763]
+    char_span: [11936, 12762]
     sentence_count: 14
     key_terms: [years, unemployed, worked, field, ago, job, last, thegoldenchad]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c8"
-    char_span: [12765, 14086]
+    char_span: [12764, 14085]
     sentence_count: 9
     key_terms: [degrees, around, millennials, genz, like, "bachelor's", graduated, degree]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/jobs/1qkw5p2.md#c9"
-    char_span: [14089, 15097]
+    char_span: [14088, 15096]
     sentence_count: 8
     key_terms: [like, millennial, working, never, right, boat, did, end]
     section: Comments

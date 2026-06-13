@@ -15,10 +15,10 @@ relevance: 48
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/c8ba8efcaf.md#c0"
-    char_span: [0, 1558]
+    char_span: [0, 1557]
     sentence_count: 12
     key_terms: [start, cscareerquestions, applying, personal, internships, experience, comments, semester]
-    token_count: 339
+    token_count: 338
 ---
 # About to start school for CS but have personal project experience already. Things like a Real-time messaging system that can handle multiple concurrent clients. How soon can I start applying for internships?
 

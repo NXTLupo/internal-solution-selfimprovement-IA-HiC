@@ -28,37 +28,37 @@ chunks:
     key_terms: ["don't", "i'm", because, "they're", care, debt, feel, like]
     token_count: 178
   - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c2"
-    char_span: [2866, 4452]
+    char_span: [2865, 4451]
     sentence_count: 9
     key_terms: ["don't", people, someone, change, circumstances, responsible, get, anything]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c3"
-    char_span: [4454, 5357]
+    char_span: [4453, 5356]
     sentence_count: 4
     key_terms: [together, "you're", manufacturerone6663, money, demitriousdonqual, communication, reconsidering, relationships]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c4"
-    char_span: [5359, 7584]
+    char_span: [5358, 7583]
     sentence_count: 20
     key_terms: [issue, like, "it's", together, communication, compatability, "don't", money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c5"
-    char_span: [7275, 8366]
+    char_span: [7274, 8365]
     sentence_count: 11
     key_terms: ["it's", like, current, partner, "didn't", figure, trying, never]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c6"
-    char_span: [8368, 10358]
+    char_span: [8367, 10357]
     sentence_count: 19
     key_terms: [financial, read, change, money, take, psychology, themselves, maintain]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/povertyfinance/1r3bcax.md#c7"
-    char_span: [10360, 11326]
+    char_span: [10359, 11325]
     sentence_count: 9
     key_terms: [hardship, interest, agree, being, "don't", debt, everything, insecurity]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [neu, students, co-op, employer, international, specifically, ece, automation]
     token_count: 400
   - id: "social-intelligence/reddit-deep/neu/1t9rbp8.md#c1"
-    char_span: [1764, 2086]
+    char_span: [1763, 2085]
     sentence_count: 5
     key_terms: [mostly, seems, area, pharmaceutical, purpleskies789, industries, undergrads, proximity]
     section: Comments

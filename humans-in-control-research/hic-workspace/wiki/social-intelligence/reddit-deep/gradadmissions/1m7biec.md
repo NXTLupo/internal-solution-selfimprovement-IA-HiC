@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, reddit-deep, finance, please, posted, reddit, source]
     token_count: 76
   - id: "social-intelligence/reddit-deep/gradadmissions/1m7biec.md#c1"
-    char_span: [267, 1009]
+    char_span: [266, 1008]
     sentence_count: 8
     key_terms: [masters, remove, internships, projects, project, bullet, grades, bulky-strawberry-110]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [gpt, comments, digital, karen, hypothetically, hypothetical, professional, acknowledge]
     token_count: 167
   - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c1"
-    char_span: [681, 1968]
+    char_span: [680, 1967]
     sentence_count: 20
     key_terms: [manager, doubtfive, karen, corporate-flavored, no-conclusion8653, big, mrs, rude]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/gpt/1r41npe.md#c2"
-    char_span: [1970, 3351]
+    char_span: [1969, 3350]
     sentence_count: 7
     key_terms: [annoying, fearless-sandwich823, great, karen, worse, various-smell-6900, been, "it's"]
     section: Comments

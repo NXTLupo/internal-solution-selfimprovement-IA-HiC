@@ -23,37 +23,37 @@ chunks:
     key_terms: ["i'm", "i've", time, benefits, because, qualify, povertyfinance, people]
     token_count: 461
   - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c1"
-    char_span: [2029, 3575]
+    char_span: [2029, 3574]
     sentence_count: 11
     key_terms: [state, qualify, healthcare, benefits, medicaid, probably, mathing, income]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c2"
-    char_span: [3577, 5363]
+    char_span: [3576, 5362]
     sentence_count: 10
     key_terms: [income, medicaid, snap, work, fit-combination-6211, state, high, concretecrusher]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c3"
-    char_span: [5365, 6682]
+    char_span: [5364, 6681]
     sentence_count: 5
     key_terms: [minimum, full, pay, time, commercial, insurance, medicaid, income]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c4"
-    char_span: [6684, 9015]
+    char_span: [6683, 9014]
     sentence_count: 19
     key_terms: [medicaid, getting, assistance, coworkers, insurance, get, week, health]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c5"
-    char_span: [8731, 9017]
+    char_span: [8730, 9016]
     sentence_count: 6
     key_terms: [right, whole, bill, assistance, definitely, question, offices, riddles]
     section: Comments
     token_count: 66
   - id: "social-intelligence/reddit-deep/povertyfinance/1s91gac.md#c6"
-    char_span: [9020, 10804]
+    char_span: [9019, 10803]
     sentence_count: 14
     key_terms: [qualify, "didn't", year, state, "it's", time, insurance, questions]
     section: Comments

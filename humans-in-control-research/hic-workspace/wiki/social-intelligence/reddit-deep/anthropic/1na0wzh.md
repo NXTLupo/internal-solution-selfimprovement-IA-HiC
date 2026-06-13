@@ -38,13 +38,13 @@ chunks:
     key_terms: [code, write, certainty, knowledge, process, working, fix, lot]
     token_count: 226
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c4"
-    char_span: [7104, 9015]
+    char_span: [7103, 9014]
     sentence_count: 16
     key_terms: [code, projects, understand, fosterkittenpurrs, work, outcome, project, working]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/anthropic/1na0wzh.md#c5"
-    char_span: [9017, 10440]
+    char_span: [9016, 10439]
     sentence_count: 14
     key_terms: [zen, definitely, expressly, myself, places, useful, "don't", needs]
     section: Comments

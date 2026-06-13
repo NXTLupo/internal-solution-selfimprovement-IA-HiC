@@ -23,25 +23,25 @@ chunks:
     key_terms: [like, college, scared, feel, comments, affect, future, trying]
     token_count: 274
   - id: "social-intelligence/reddit-deep/college/1lrexne.md#c1"
-    char_span: [1198, 2821]
+    char_span: [1197, 2820]
     sentence_count: 14
     key_terms: [something, like, students, tuition, international, local, want, government]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/college/1lrexne.md#c2"
-    char_span: [2823, 4088]
+    char_span: [2822, 4087]
     sentence_count: 11
     key_terms: [backlash, sucks, wonderful, "there's", always, back, "it's", iohannesrhetor]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/college/1lrexne.md#c3"
-    char_span: [4090, 6092]
+    char_span: [4089, 6091]
     sentence_count: 12
     key_terms: [removes, college, iohannesrhetor, get, here, "i'm", nolanc23, because]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1lrexne.md#c4"
-    char_span: [6094, 7499]
+    char_span: [6093, 7498]
     sentence_count: 12
     key_terms: [support, don, job, canada, trumps, professional-fuel889, great, start]
     section: Comments

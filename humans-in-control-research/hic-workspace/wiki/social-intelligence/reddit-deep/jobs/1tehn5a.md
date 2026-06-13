@@ -38,19 +38,19 @@ chunks:
     key_terms: [job, references, offer, start, get, "don't", day, "i'm"]
     token_count: 406
   - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c4"
-    char_span: [6791, 8501]
+    char_span: [6790, 8500]
     sentence_count: 10
     key_terms: [inventory, bullet, been, like, dodged, mindset, someone, el3gnt]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c5"
-    char_span: [8503, 10491]
+    char_span: [8502, 10490]
     sentence_count: 21
     key_terms: [inventory, audit, start, been, strategy, training, handle, places]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/jobs/1tehn5a.md#c6"
-    char_span: [10495, 12268]
+    char_span: [10494, 12267]
     sentence_count: 17
     key_terms: [inventory, mindset, start, startups, manager, months, people, "don't"]
     section: Comments

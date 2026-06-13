@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, advice, start, comments, projects, college, skills, "don't"]
     token_count: 228
   - id: "social-intelligence/reddit-deep/careerguidance/1t0xmgc.md#c1"
-    char_span: [918, 2458]
+    char_span: [917, 2457]
     sentence_count: 17
     key_terms: [laptop, starting, "don't", phone, everything, learning, projects, browser]
     section: Comments

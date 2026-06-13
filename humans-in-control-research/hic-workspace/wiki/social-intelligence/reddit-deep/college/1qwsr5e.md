@@ -23,7 +23,7 @@ chunks:
     key_terms: [major-changes-to-student-loan-borrowing-and-repayment-are-coming-heres-what-to-know, college, https, pbs, www, comments, newshour, federal]
     token_count: 207
   - id: "social-intelligence/reddit-deep/college/1qwsr5e.md#c1"
-    char_span: [741, 1445]
+    char_span: [740, 1444]
     sentence_count: 4
     key_terms: [going, able, year, sweetcosmicpope, grandfathered, land-grant, parentplus, university]
     section: Comments

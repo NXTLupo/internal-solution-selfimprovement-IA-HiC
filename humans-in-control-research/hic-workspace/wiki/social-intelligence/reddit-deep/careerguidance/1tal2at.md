@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, wise-economics6932, cybersecurity, internships, reddit-deep, looking, seeking]
     token_count: 96
   - id: "social-intelligence/reddit-deep/careerguidance/1tal2at.md#c1"
-    char_span: [361, 1019]
+    char_span: [360, 1018]
     sentence_count: 1
     key_terms: [internships, bullets, focused, dev, coursework, dippatel21, paragraphs, highlight]
     section: Comments

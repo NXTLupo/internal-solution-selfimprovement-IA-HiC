@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1qf9hez.md
 url: "https://www.reddit.com/r/careerguidance/comments/1qf9hez/if_you_had_to_recommend_1_career_path_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,97 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.880Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c0"
+    char_span: [0, 438]
+    sentence_count: 2
+    key_terms: [careerguidance, guaranteed, comments, market, job, overcrowded, reddit-deep, recommend]
+    token_count: 126
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c1"
+    char_span: [453, 2286]
+    sentence_count: 16
+    key_terms: [medical, people, healthcare, cytotech, job, lab, hospital, patients]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c2"
+    char_span: [2288, 3547]
+    sentence_count: 10
+    key_terms: [healthcare, jobs, medical, time, experience, assistant, training, because]
+    section: Comments
+    token_count: 273
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c3"
+    char_span: [3549, 4623]
+    sentence_count: 7
+    key_terms: [medical, people, healthcare, get, job, money, don, easy]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c4"
+    char_span: [4625, 6838]
+    sentence_count: 17
+    key_terms: [healthcare, experience, get, productivity, great, free, high, job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c5"
+    char_span: [6562, 7626]
+    sentence_count: 7
+    key_terms: [good, work, because, people, dry-translator4773, get, high, job]
+    section: Comments
+    token_count: 279
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c6"
+    char_span: [7628, 9770]
+    sentence_count: 11
+    key_terms: [trades, parents, "don't", experience, business, finances, question, skilled]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c7"
+    char_span: [9772, 11063]
+    sentence_count: 12
+    key_terms: [electrician, hvac, currently, working, worked, union, completelypositive, boss]
+    section: Comments
+    token_count: 314
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c8"
+    char_span: [11065, 12171]
+    sentence_count: 9
+    key_terms: [days, get, work, year, probably, because, someone, willing]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c9"
+    char_span: [12173, 14203]
+    sentence_count: 13
+    key_terms: [people, gonzothegreat22, banking, electricians, money, own, work, business]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c10"
+    char_span: [13933, 15218]
+    sentence_count: 11
+    key_terms: [banking, work, insurance, finance, prefer, career-development, get, high]
+    section: Comments
+    token_count: 316
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c11"
+    char_span: [15220, 16124]
+    sentence_count: 6
+    key_terms: [finance, degree, shitty, start, year, finance-specific, plentyad2818, charismatic]
+    section: Comments
+    token_count: 222
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c12"
+    char_span: [16126, 18259]
+    sentence_count: 11
+    key_terms: [engineering, nursing, curvefront7807, icecreamvalley, years, don, california, countries]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c13"
+    char_span: [18261, 19339]
+    sentence_count: 8
+    key_terms: [already, catfancier4393, engineering, "don't", new, opportunities, moxie-maniac, professional]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/careerguidance/1qf9hez.md#c14"
+    char_span: [19341, 20532]
+    sentence_count: 5
+    key_terms: [virtual-ducks, dispatcher, company, started, working, little, going, did]
+    section: Comments
+    token_count: 301
 ---
-
 # If you had to recommend 1 career path for guaranteed success and a job market that’s open and not overcrowded(guaranteed work) what would it be?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1qf9hez/if_you_had_to_recommend_1_career_path_for/)

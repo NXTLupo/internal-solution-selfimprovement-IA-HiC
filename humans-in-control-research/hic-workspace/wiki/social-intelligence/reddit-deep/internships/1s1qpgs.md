@@ -7,13 +7,13 @@ subreddit: "internships"
 title: "NVIDIA Solutions Architect Intern Interview Experience (NVIS Team)"
 author: "ExcitingSurprise8817"
 date: "2026-03-23T19:22:48.000Z"
-score: 7
-upvote_ratio: 0.9
+score: 8
+upvote_ratio: 1
 num_comments: 4
 flair: "General"
-extracted_at: "2026-06-03T17:24:13.604Z"
+extracted_at: "2026-06-08T17:32:14.347Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1s1qpgs.md#c0"
     char_span: [0, 1475]
@@ -30,7 +30,7 @@ chunks:
 # NVIDIA Solutions Architect Intern Interview Experience (NVIS Team)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s1qpgs/nvidia_solutions_architect_intern_interview/)
-Posted by **ExcitingSurprise8817** · **7↑** · **4 comments**
+Posted by **ExcitingSurprise8817** · **8↑** · **4 comments**
 
 Hey everyone,
 

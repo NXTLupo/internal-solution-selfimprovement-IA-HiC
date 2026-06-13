@@ -23,37 +23,37 @@ chunks:
     key_terms: ["don't", cscareerquestions, "i'm", anything, degree, "i've", "it's", considered]
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c1"
-    char_span: [1546, 3693]
+    char_span: [1545, 3692]
     sentence_count: 15
     key_terms: [getting, get, job, applications, roles, jobs, post, interviews]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c2"
-    char_span: [3695, 4706]
+    char_span: [3694, 4705]
     sentence_count: 11
     key_terms: [internships, graduated, projects, someone, hiring, exact, get, got]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c3"
-    char_span: [4708, 6514]
+    char_span: [4707, 6513]
     sentence_count: 12
     key_terms: [internships, throwaway10015982, grad, time, projects, new, companies, mediocre]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c4"
-    char_span: [6516, 7600]
+    char_span: [6515, 7599]
     sentence_count: 8
     key_terms: [anotheryadayada, did, graduating, economics, doesn, offer, code, econ]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c5"
-    char_span: [7602, 9254]
+    char_span: [7601, 9253]
     sentence_count: 18
     key_terms: [question, summer, get, interview, leetcode, projects, because, working]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ktz2xa.md#c6"
-    char_span: [9256, 10356]
+    char_span: [9255, 10355]
     sentence_count: 8
     key_terms: [person, behavioral, questions, getting, someone, likely, throwaway10015982, job]
     section: Comments

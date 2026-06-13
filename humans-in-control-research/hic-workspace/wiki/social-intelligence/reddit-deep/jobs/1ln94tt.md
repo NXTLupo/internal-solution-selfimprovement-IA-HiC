@@ -23,91 +23,91 @@ chunks:
     key_terms: [like, tired, job, pay, comments, jobs, want, work]
     token_count: 237
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c1"
-    char_span: [959, 2736]
+    char_span: [958, 2735]
     sentence_count: 12
     key_terms: [fulfilling, job, deleted, career, kataphractoi, fulfillment, pay, making]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c2"
-    char_span: [2738, 3817]
+    char_span: [2737, 3816]
     sentence_count: 9
     key_terms: [because, turnerciassicmovies, extra, back, been, "i'm", "i've", quit]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c3"
-    char_span: [3819, 4707]
+    char_span: [3818, 4706]
     sentence_count: 7
     key_terms: [valued, ls94egnfqqe, unnoticed, youtube, degree, turnerciassicmovies, "don't", https]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c4"
-    char_span: [4709, 6663]
+    char_span: [4708, 6662]
     sentence_count: 12
     key_terms: [work, company, because, "don't", money, job, pay, additional]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c5"
-    char_span: [6512, 6748]
+    char_span: [6511, 6747]
     sentence_count: 1
     key_terms: [turnerciassicmovies, fabricator, downsized, deleted, welder, giphy, heard, metal]
     section: Comments
     token_count: 93
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c6"
-    char_span: [6750, 8782]
+    char_span: [6749, 8781]
     sentence_count: 8
     key_terms: [people, job, new, quit, boss, give, pay, put]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c7"
-    char_span: [8784, 10561]
+    char_span: [8783, 10560]
     sentence_count: 10
     key_terms: [support, child, afford, shop, months, underworked, boss, new]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c8"
-    char_span: [10563, 12544]
+    char_span: [10562, 12543]
     sentence_count: 14
     key_terms: [money, something, prices, steel, down, else, get, part]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c9"
-    char_span: [12546, 14811]
+    char_span: [12545, 14810]
     sentence_count: 15
     key_terms: [job, jobs, requirements, like, pay, work, experience, realistic]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c10"
-    char_span: [14813, 16800]
+    char_span: [14812, 16799]
     sentence_count: 18
     key_terms: [like, going, didn, pay, deleted, "you're", icy-presentation3223, ask]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c11"
-    char_span: [16633, 17700]
+    char_span: [16632, 17699]
     sentence_count: 10
     key_terms: [icy-presentation3223, kids, numerous-anemone, mean-repair6017, discrimination, rainbowmaxxxed, quirkyside3, frequently]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c12"
-    char_span: [17703, 19534]
+    char_span: [17702, 19533]
     sentence_count: 16
     key_terms: [capitalism, management, mean-repair6017, efficiency, contracts, problem, quality, thinner]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c13"
-    char_span: [19536, 21644]
+    char_span: [19535, 21643]
     sentence_count: 22
     key_terms: [market, people, capitalism, money, wages, wage, labor, capitalists]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c14"
-    char_span: [21647, 23368]
+    char_span: [21646, 23367]
     sentence_count: 12
     key_terms: [pay, potential-sand8248, like, something, assumed, either, repair, seeing]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/jobs/1ln94tt.md#c15"
-    char_span: [23370, 24185]
+    char_span: [23369, 24184]
     sentence_count: 8
     key_terms: [nothing, buying, locals, land, americans, worth, area, live]
     section: Comments

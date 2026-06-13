@@ -18,7 +18,7 @@ industries: [workforce, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/workonline/1mweapl.md#c0"
-    char_span: [0, 1671]
+    char_span: [0, 1670]
     sentence_count: 11
     key_terms: [pgmainstreet, com, job, legitimate, workonline, comments, process, warning]
     token_count: 386

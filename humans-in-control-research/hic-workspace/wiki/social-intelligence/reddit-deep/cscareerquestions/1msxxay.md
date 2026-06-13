@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, doing, academics, questions, brutally, comments, projects, college]
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1msxxay.md#c1"
-    char_span: [1321, 2482]
+    char_span: [1320, 2481]
     sentence_count: 8
     key_terms: [doing, arkguardian, good, hackathons, kiirchoff, building, learning, projects]
     section: Comments

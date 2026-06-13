@@ -23,7 +23,7 @@ chunks:
     key_terms: [resume, internships, template, right, experience, interviews, comments, projects]
     token_count: 250
   - id: "social-intelligence/reddit-deep/internships/1shco66.md#c1"
-    char_span: [1106, 2196]
+    char_span: [1105, 2195]
     sentence_count: 2
     key_terms: [revorian, resume, free, like, experience, projects, people, simple]
     section: Comments

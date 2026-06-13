@@ -15,10 +15,10 @@ relevance: 82
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
 chunks:
   - id: "articles/reddit-deep-r-internships/c3aeec30b2.md#c0"
-    char_span: [0, 2210]
+    char_span: [0, 2209]
     sentence_count: 18
     key_terms: ["i'm", internship, intern, stay, company, manager, least, constraints]
-    token_count: 461
+    token_count: 460
 ---
 # Asking for a return offer?
 

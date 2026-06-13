@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, amazon, technicals, interview, comments, hardware, ago, behaviorals]
     token_count: 169
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qglneu.md#c1"
-    char_span: [761, 3305]
+    char_span: [760, 3304]
     sentence_count: 11
     key_terms: [questions, hardware, behavioral, want, design, fundamentals, leadership, situations]
     section: Comments

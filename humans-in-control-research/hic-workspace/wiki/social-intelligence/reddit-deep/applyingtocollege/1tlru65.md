@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tlru65.md#c0"
-    char_span: [0, 501]
+    char_span: [0, 500]
     sentence_count: 1
     key_terms: [college, applyingtocollege, prep, comments, programs, scholars, fancy-effective9724, matchlighters]
     token_count: 127

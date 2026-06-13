@@ -23,7 +23,7 @@ chunks:
     key_terms: [hirevue, nbcu, internships, year, marketing, comments, insight, consideration]
     token_count: 206
   - id: "social-intelligence/reddit-deep/internships/1thifu8.md#c1"
-    char_span: [885, 2605]
+    char_span: [884, 2604]
     sentence_count: 12
     key_terms: [interviews, "it's", practice, specific, because, company, feeling, instead]
     section: Comments

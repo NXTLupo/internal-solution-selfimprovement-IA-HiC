@@ -23,19 +23,19 @@ chunks:
     key_terms: [applyingtocollege, comments, application, reddit-deep, breakdowns, colleges, college, process]
     token_count: 89
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c1"
-    char_span: [348, 2504]
+    char_span: [347, 2503]
     sentence_count: 14
     key_terms: [colleges, year, people, years, gap, get, thehappytalent, "don't"]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c2"
-    char_span: [2506, 4537]
+    char_span: [2505, 4536]
     sentence_count: 18
     key_terms: [colleges, acceptance, deadlines, safeties, targets, like, list, rate]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o96ckm.md#c3"
-    char_span: [4539, 4887]
+    char_span: [4538, 4886]
     sentence_count: 4
     key_terms: [back, like, acceptance, reminding, seriously, something, yourself, clearer]
     section: Comments

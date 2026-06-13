@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rqcf3s.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rqcf3s/completely_lost_in_my_career_path_any_free_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,31 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.899Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c0"
+    char_span: [0, 2250]
+    sentence_count: 10
+    key_terms: ["i'm", like, work, "i've", careerguidance, career, enough, hairdressing]
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c1"
+    char_span: [2252, 4640]
+    sentence_count: 23
+    key_terms: [something, like, career, work, honestly, commit, learn, constantly]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c2"
+    char_span: [4642, 6622]
+    sentence_count: 15
+    key_terms: [like, completely, work, exaggerated, get, time, healthcare, something]
+    section: Comments
+    token_count: 443
+  - id: "social-intelligence/reddit-deep/careerguidance/1rqcf3s.md#c3"
+    char_span: [6624, 7614]
+    sentence_count: 7
+    key_terms: [exaggerating, getting, several, passionmysterious245, years, "i'm", understanding, difficulties]
+    section: Comments
+    token_count: 212
 ---
-
 # Completely lost in my career path any free advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rqcf3s/completely_lost_in_my_career_path_any_free_advice/)

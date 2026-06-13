@@ -23,31 +23,31 @@ chunks:
     key_terms: [positions, jobs, comments, posted, selenevomersv, manufacturer, non-advanced, professional]
     token_count: 176
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c1"
-    char_span: [728, 2755]
+    char_span: [727, 2754]
     sentence_count: 15
     key_terms: [level, roles, entry, company, data, people, senior, individual]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c2"
-    char_span: [2757, 4396]
+    char_span: [2756, 4395]
     sentence_count: 8
     key_terms: [experience, shyleoging, companies, require, people, redact, "that's", entry]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c3"
-    char_span: [4400, 6147]
+    char_span: [4399, 6146]
     sentence_count: 10
     key_terms: [entry, level, task, companies, currently, positions, deleted, throwawayfrompa1701]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c4"
-    char_span: [6149, 8342]
+    char_span: [6148, 8341]
     sentence_count: 25
     key_terms: [level, years, experience, company, workers, construction, entry, field]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/jobs/1oz1vb0.md#c5"
-    char_span: [8344, 8837]
+    char_span: [8343, 8836]
     sentence_count: 3
     key_terms: [years, non-senior, junior, senior, next, undoubtedly, completely, experience]
     section: Comments

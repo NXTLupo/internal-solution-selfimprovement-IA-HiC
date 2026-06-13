@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, sophomore, comments, https, png, dq7n3iltvetg1, engineering, reddit-deep]
     token_count: 144
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c1"
-    char_span: [471, 1364]
+    char_span: [470, 1363]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, www, index]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c2"
-    char_span: [1366, 3275]
+    char_span: [1365, 3274]
     sentence_count: 8
     key_terms: [numbers, connections, cold, autonomous, internship, different, startups, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sdagkt.md#c3"
-    char_span: [3063, 3287]
+    char_span: [3062, 3286]
     sentence_count: 3
     key_terms: [school, engineering, technical, involved, non-aero, company, jdwjxia, no-name]
     section: Comments

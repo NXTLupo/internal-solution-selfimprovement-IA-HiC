@@ -26,49 +26,49 @@ chunks:
     key_terms: [help, project, asking, face, "i've", meet, set, orchestrated]
     token_count: 220
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c2"
-    char_span: [3240, 4861]
+    char_span: [3239, 4860]
     sentence_count: 6
     key_terms: [work, complete, classic, manager, project, people, maleficentcherry7116, financial-grass6753]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c3"
-    char_span: [4863, 6826]
+    char_span: [4862, 6825]
     sentence_count: 14
     key_terms: [hours, maleficentcherry7116, "don't", start, agreement, burnout, company, "there's"]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c4"
-    char_span: [6828, 8998]
+    char_span: [6827, 8997]
     sentence_count: 19
     key_terms: ["i'm", work, mentioned, asked, hours, project, working, pulled]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c5"
-    char_span: [9000, 10943]
+    char_span: [8999, 10942]
     sentence_count: 9
     key_terms: [manager, going, "i'm", maleficentcherry7116, leaving, replied, good, work]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c6"
-    char_span: [10945, 13025]
+    char_span: [10944, 13024]
     sentence_count: 16
     key_terms: [business, company, "you're", money, get, "it's", wife, confided]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c7"
-    char_span: [13027, 14923]
+    char_span: [13026, 14922]
     sentence_count: 18
     key_terms: [working, hours, bonus, day, get, per, take, week]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c8"
-    char_span: [14925, 16899]
+    char_span: [14924, 16898]
     sentence_count: 14
     key_terms: [company, manager, immediately, unrealistic, job, contracts, employees, deadline]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spvcd7.md#c9"
-    char_span: [16901, 18901]
+    char_span: [16900, 18900]
     sentence_count: 12
     key_terms: [maleficentcherry7116, work, manager, austin, salary, unfortunately, offer, like]
     section: Comments

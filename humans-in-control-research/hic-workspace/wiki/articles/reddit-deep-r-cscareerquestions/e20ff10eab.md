@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/e20ff10eab.md#c0"
-    char_span: [0, 1010]
+    char_span: [0, 1009]
     sentence_count: 9
     key_terms: [cscareerquestions, job, comments, industry, ropefuel, number, reddit, gloomy-pineapple1729]
-    token_count: 257
+    token_count: 256
 ---
 # Hopefuel? Copefuel? Ropefuel? Which one should I choose in response to the modern day tech job market?
 

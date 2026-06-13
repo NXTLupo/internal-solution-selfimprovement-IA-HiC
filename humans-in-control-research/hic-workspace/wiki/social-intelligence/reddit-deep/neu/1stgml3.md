@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, research, co-op, adsubstantial3900, neu, undergraduate, reddit-deep, substitute]
     token_count: 96
   - id: "social-intelligence/reddit-deep/neu/1stgml3.md#c1"
-    char_span: [356, 829]
+    char_span: [355, 828]
     sentence_count: 3
     key_terms: [research, co-ops, though, promptresponsible123, co-op, "isn't", rubyjunerocket, requirements]
     section: Comments

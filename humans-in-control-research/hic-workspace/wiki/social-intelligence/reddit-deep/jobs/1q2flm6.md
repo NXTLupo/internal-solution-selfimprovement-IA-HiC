@@ -23,31 +23,31 @@ chunks:
     key_terms: [comments, guidance, myself, feel, job, jobs, like, lost]
     token_count: 180
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c1"
-    char_span: [735, 2724]
+    char_span: [734, 2723]
     sentence_count: 15
     key_terms: [letter, recommendation, get, help, job, like, use, reference]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c2"
-    char_span: [2726, 4606]
+    char_span: [2725, 4605]
     sentence_count: 14
     key_terms: [identity, yourself, unemployment, uncle, whatsapp, around, layoff, flatyogurtcloset2423]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c3"
-    char_span: [4332, 5053]
+    char_span: [4331, 5052]
     sentence_count: 7
     key_terms: [identity, around, flatyogurtcloset2423, never, clammyhandedfreak, job, wrap, relationships]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c4"
-    char_span: [5055, 6671]
+    char_span: [5054, 6670]
     sentence_count: 12
     key_terms: [family, job, anyone, people, never, state, double-area1152, disorientation]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1q2flm6.md#c5"
-    char_span: [6673, 8570]
+    char_span: [6672, 8569]
     sentence_count: 8
     key_terms: [dash, single, does, work, something, someone, manual, myself]
     section: Comments

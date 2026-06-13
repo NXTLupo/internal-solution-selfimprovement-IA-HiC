@@ -28,25 +28,25 @@ chunks:
     key_terms: [entry-level, consulting, advice, roles, analytical, analytics, off-cycle, possible]
     token_count: 365
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c2"
-    char_span: [3786, 5619]
+    char_span: [3785, 5618]
     sentence_count: 10
     key_terms: [something, company, good, like, use, yeah, anything, figured]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c3"
-    char_span: [5621, 6978]
+    char_span: [5620, 6977]
     sentence_count: 11
     key_terms: [recommendation, job, like, letter, ask, get, contacts, provide]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c4"
-    char_span: [6980, 8787]
+    char_span: [6979, 8786]
     sentence_count: 23
     key_terms: [job, step, take, time, backward, company, looking, naughty]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1mt7jwu.md#c5"
-    char_span: [8789, 10496]
+    char_span: [8788, 10495]
     sentence_count: 20
     key_terms: [network, ask, find, like, experience, companies, traction, contact]
     section: Comments

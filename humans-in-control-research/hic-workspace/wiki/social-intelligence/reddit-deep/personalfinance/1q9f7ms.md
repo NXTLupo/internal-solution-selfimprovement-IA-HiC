@@ -43,19 +43,19 @@ chunks:
     key_terms: [tattoo, "don't", total, over-budgeted, additionally, technically, ballparked, compensate]
     token_count: 183
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c5"
-    char_span: [7531, 9708]
+    char_span: [7530, 9707]
     sentence_count: 16
     key_terms: [budget, roth, savings, fund, "it's", expenses, minimum, anticipating]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c6"
-    char_span: [9710, 11740]
+    char_span: [9709, 11739]
     sentence_count: 16
     key_terms: [personalfinance, job, pay, experience, budgeting, currently, potential, something]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/personalfinance/1q9f7ms.md#c7"
-    char_span: [11743, 12547]
+    char_span: [11742, 12546]
     sentence_count: 8
     key_terms: [housing, costs, area, down, math, yeah, downpayment, potentially]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [did, path, careerguidance, career, feel, comments, figure, early]
     token_count: 321
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c1"
-    char_span: [1277, 2458]
+    char_span: [1276, 2457]
     sentence_count: 11
     key_terms: [young, emotionalanalyst1855, "don't", ok-development4027, rubmynippleplease, kids, sure, descriptions]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c2"
-    char_span: [2460, 3870]
+    char_span: [2459, 3869]
     sentence_count: 10
     key_terms: [career, want, because, passion, years, don, job, work]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c3"
-    char_span: [3872, 5314]
+    char_span: [3871, 5313]
     sentence_count: 9
     key_terms: [college, nursing, career, life, completely, stability, submitted, "didn't"]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c4"
-    char_span: [5316, 7144]
+    char_span: [5315, 7143]
     sentence_count: 11
     key_terms: [job, personal, ended, life, "didn't", "i'm", jobs, like]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c5"
-    char_span: [7146, 8023]
+    char_span: [7145, 8022]
     sentence_count: 12
     key_terms: [position, field, different, company, pivot, role, responsibilities, wonderone4320]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c6"
-    char_span: [8025, 10138]
+    char_span: [8024, 10137]
     sentence_count: 14
     key_terms: [job, figure, "don't", until, jobs, something, because, degrees]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1nhsd91.md#c7"
-    char_span: [10140, 11822]
+    char_span: [10139, 11821]
     sentence_count: 9
     key_terms: [job, life, like, want, people, feel, "it's", quit]
     section: Comments

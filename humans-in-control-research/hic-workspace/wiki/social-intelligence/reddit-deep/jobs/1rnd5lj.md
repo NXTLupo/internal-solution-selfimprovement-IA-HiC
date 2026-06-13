@@ -23,67 +23,67 @@ chunks:
     key_terms: [job, "i'm", feel, been, "i've", jobs, like, comments]
     token_count: 347
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c1"
-    char_span: [1487, 3364]
+    char_span: [1486, 3363]
     sentence_count: 14
     key_terms: [pay, company, raise, everyone, increase, kdav0823, possible, little]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c2"
-    char_span: [3125, 3846]
+    char_span: [3124, 3845]
     sentence_count: 8
     key_terms: [employee, company, ok-wolverine-4223, been, gets, pay, pool, endpotential3659]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c3"
-    char_span: [3848, 5861]
+    char_span: [3847, 5860]
     sentence_count: 11
     key_terms: [minimal, income, raises, raise, times, comfortable, cap, give]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c4"
-    char_span: [5863, 7884]
+    char_span: [5862, 7883]
     sentence_count: 12
     key_terms: [hour, today, rich, wage, minimal, enough, income, taxes]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c5"
-    char_span: [7886, 9804]
+    char_span: [7885, 9803]
     sentence_count: 13
     key_terms: [raise, raises, year, get, around, pretty, cost, jobs]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c6"
-    char_span: [9806, 10776]
+    char_span: [9805, 10775]
     sentence_count: 7
     key_terms: [company, raises, companies, years, raise, promotion, generous, bonuses]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c7"
-    char_span: [10778, 12245]
+    char_span: [10777, 12244]
     sentence_count: 7
     key_terms: [inflation, consumer-prices-up-2-4-percent-over-the-year-ended-january-2026, year, per, people, background-radish-63, organichistorian2576, willing-vegetable629]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c8"
-    char_span: [12247, 13812]
+    char_span: [12246, 13811]
     sentence_count: 11
     key_terms: [got, year, raise, any-mathematician946, thats, day, does, job]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c9"
-    char_span: [13814, 15240]
+    char_span: [13813, 15239]
     sentence_count: 7
     key_terms: [standard, inflation, deleted, year, percentage, generous, company, percent]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c10"
-    char_span: [15242, 17193]
+    char_span: [15241, 17192]
     sentence_count: 10
     key_terms: [job, good, get, field, raise, told, saturated, because]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1rnd5lj.md#c11"
-    char_span: [17195, 19469]
+    char_span: [17194, 19468]
     sentence_count: 17
     key_terms: [degree, business, job, degrees, english, because, useless, writing]
     section: Comments

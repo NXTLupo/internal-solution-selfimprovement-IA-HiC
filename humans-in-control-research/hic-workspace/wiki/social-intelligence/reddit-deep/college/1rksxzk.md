@@ -21,31 +21,31 @@ chunks:
     key_terms: [credits, school, short, experience, graduation, comments, semester, college]
     token_count: 304
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c1"
-    char_span: [1298, 2477]
+    char_span: [1297, 2476]
     sentence_count: 8
     key_terms: [work, option, full, time, amarbummer, semester, classes, credits]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c2"
-    char_span: [2479, 3483]
+    char_span: [2478, 3482]
     sentence_count: 8
     key_terms: [credit, clep, english, modernstates, composition, exam, "haven't", course]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c3"
-    char_span: [3485, 5544]
+    char_span: [3484, 5543]
     sentence_count: 20
     key_terms: [credits, school, classes, accept, check, class, clep, semester]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c4"
-    char_span: [5279, 5723]
+    char_span: [5278, 5722]
     sentence_count: 4
     key_terms: [credits, semester, empirepie499, weekly-ad353, lalalanari, academics, learning, overview]
     section: Comments
     token_count: 128
   - id: "social-intelligence/reddit-deep/college/1rksxzk.md#c5"
-    char_span: [5725, 6167]
+    char_span: [5724, 6166]
     sentence_count: 1
     key_terms: [credit, "you've", letterheadclassic306, independent, definitely, department, everywhere, experience]
     section: Comments

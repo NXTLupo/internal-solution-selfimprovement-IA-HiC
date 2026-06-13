@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, experience, internship, mechanical, gopi-hue]
     token_count: 120
   - id: "social-intelligence/reddit-deep/engineeringstudents/1thnhw4.md#c1"
-    char_span: [446, 1829]
+    char_span: [445, 1828]
     sentence_count: 8
     key_terms: [engineering, local, adoormarkedpirate420, internship, start, employees, internships, mean]
     section: Comments

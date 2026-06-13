@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1svjpin.md#c0"
-    char_span: [0, 990]
+    char_span: [0, 989]
     sentence_count: 5
     key_terms: [career, guidance, students, idea, ai-powered, careerguidance, good, comments]
-    token_count: 209
+    token_count: 208
 ---
 # “AI-powered career guidance for students — good idea or terrible idea?”
 

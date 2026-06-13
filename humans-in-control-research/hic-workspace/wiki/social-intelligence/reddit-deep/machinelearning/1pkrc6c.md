@@ -26,25 +26,25 @@ chunks:
     key_terms: [improvising, uncertainty, strategies, prompting, reliable, training, curious, current]
     token_count: 38
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c2"
-    char_span: [2566, 4595]
+    char_span: [2565, 4594]
     sentence_count: 9
     key_terms: [understand, agi, information, code, definition, research, "doesn't", useful]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c3"
-    char_span: [4597, 5956]
+    char_span: [4596, 5955]
     sentence_count: 8
     key_terms: [paper, training, gemini, search, information, because, details, cannot]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c4"
-    char_span: [5958, 7276]
+    char_span: [5957, 7275]
     sentence_count: 5
     key_terms: [arxiv, https, abs, org, fabricated, whether, better, models]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/machinelearning/1pkrc6c.md#c5"
-    char_span: [7278, 8394]
+    char_span: [7277, 8393]
     sentence_count: 8
     key_terms: [web, cascade, feature, exists, search, "that's", few-pomegranate4369, model]
     section: Comments

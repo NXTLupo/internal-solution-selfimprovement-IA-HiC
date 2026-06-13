@@ -28,19 +28,19 @@ chunks:
     key_terms: [math, majoring, projects, jobs, keep, swe, consideration, programming]
     token_count: 113
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c2"
-    char_span: [2749, 4471]
+    char_span: [2748, 4470]
     sentence_count: 9
     key_terms: [enough, major, math, bluerosesarefake, double, minor, like, recruiters]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c3"
-    char_span: [4473, 6060]
+    char_span: [4472, 6059]
     sentence_count: 9
     key_terms: [good, math, physics, majors, programmer, knowledge, getting, having]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pu15ox.md#c4"
-    char_span: [6062, 8218]
+    char_span: [6061, 8217]
     sentence_count: 9
     key_terms: [math, majors, never-trust-a-programmer-who-says-he-knows-c, quantitative, engineering, good, mit, cartoons]
     section: Comments

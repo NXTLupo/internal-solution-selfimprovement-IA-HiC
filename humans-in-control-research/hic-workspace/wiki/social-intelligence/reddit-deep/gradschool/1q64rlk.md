@@ -23,31 +23,31 @@ chunks:
     key_terms: [undergrad, "i'm", gradschool, comments, college, paying, school, bad]
     token_count: 260
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c1"
-    char_span: [1064, 2899]
+    char_span: [1063, 2898]
     sentence_count: 13
     key_terms: [amount, "that's", archaeology, "it's", job, academia, academic, industry]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c2"
-    char_span: [2901, 5148]
+    char_span: [2900, 5147]
     sentence_count: 14
     key_terms: [marine, field, lot, conservation, get, year, management, monitoring]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c3"
-    char_span: [5150, 7003]
+    char_span: [5149, 7002]
     sentence_count: 13
     key_terms: [program, working, assistance, "bachelor's", full-time, masters, hours, loans]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c4"
-    char_span: [7005, 9144]
+    char_span: [7004, 9143]
     sentence_count: 18
     key_terms: [school, loans, undergrad, grad, field, state, down, like]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1q64rlk.md#c5"
-    char_span: [9146, 10851]
+    char_span: [9145, 10850]
     sentence_count: 7
     key_terms: [grad, school, independent, experience, undergrad, familiar, students, cheaper]
     section: Comments

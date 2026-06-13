@@ -28,43 +28,43 @@ chunks:
     key_terms: [claude-code-source-leak-what-to-learn-ai-agents-2026, patterns, architecture, thoughts, design, memory, agent, https]
     token_count: 280
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c2"
-    char_span: [3625, 5356]
+    char_span: [3624, 5355]
     sentence_count: 13
     key_terms: ["it's", slop, content, getting, production, accurate, variance, written]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c3"
-    char_span: [5358, 7364]
+    char_span: [5357, 7363]
     sentence_count: 17
     key_terms: [hasfivevowels, wrong, like, comment, claude, winter-computer9809, learn, times]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c4"
-    char_span: [7366, 9719]
+    char_span: [7365, 9718]
     sentence_count: 10
     key_terms: [code, does, feature, people, agent, truncation, validation, honestly]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c5"
-    char_span: [9721, 11733]
+    char_span: [9720, 11732]
     sentence_count: 17
     key_terms: [semantic, drift, post, attack, legitimate, indistinguishable, agents, months]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c6"
-    char_span: [11735, 13684]
+    char_span: [11734, 13683]
     sentence_count: 10
     key_terms: [context, interesting, "it's", prompt, system, structure, semantic, specific]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c7"
-    char_span: [13686, 15722]
+    char_span: [13685, 15721]
     sentence_count: 17
     key_terms: [state, leak, agents, claude, worker, observations, agent, layer]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/artificial/1s9jprb.md#c8"
-    char_span: [15724, 16484]
+    char_span: [15723, 16483]
     sentence_count: 9
     key_terms: [cli, desktop, diverging, feature, claude, set, side, tool]
     section: Comments

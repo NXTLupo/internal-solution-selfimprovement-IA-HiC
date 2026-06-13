@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, engineeringstudents, "i'm", mechanical, comments, advice, world, internships]
     token_count: 231
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qbzj7p.md#c1"
-    char_span: [1002, 2367]
+    char_span: [1001, 2366]
     sentence_count: 18
     key_terms: [year, sophomore, semester, broadly, develop, habits, maybe, never]
     section: Comments

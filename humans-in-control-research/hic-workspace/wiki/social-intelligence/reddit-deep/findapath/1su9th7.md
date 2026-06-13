@@ -23,13 +23,13 @@ chunks:
     key_terms: [worth, learning, properly, career, trying, going, structured, findapath]
     token_count: 348
   - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c1"
-    char_span: [1599, 3867]
+    char_span: [1598, 3866]
     sentence_count: 19
     key_terms: [thank, helpful, please, comments, everyone, guidance, helped, upvote]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/findapath/1su9th7.md#c2"
-    char_span: [3870, 4992]
+    char_span: [3869, 4991]
     sentence_count: 6
     key_terms: [removed, reddit, prompts, learn, critical-pipe-8799, fit-ingenuity-2814, best, like]
     section: Comments

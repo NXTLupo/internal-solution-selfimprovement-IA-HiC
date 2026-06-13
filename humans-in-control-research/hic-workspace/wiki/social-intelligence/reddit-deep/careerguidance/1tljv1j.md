@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, interested, comments, career, collar, people, switch, point]
     token_count: 249
   - id: "social-intelligence/reddit-deep/careerguidance/1tljv1j.md#c1"
-    char_span: [1083, 2358]
+    char_span: [1082, 2357]
     sentence_count: 6
     key_terms: [electronics, work, instead, started, talking, repair, small, years]
     section: Comments

@@ -21,19 +21,19 @@ chunks:
     key_terms: [job, "wendy's", hired, comments, tuesday, build, "don't", drive]
     token_count: 247
   - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c1"
-    char_span: [982, 2658]
+    char_span: [981, 2657]
     sentence_count: 11
     key_terms: [rileyluvsventi, time, work, best, keep, thank, like, customers]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c2"
-    char_span: [2660, 4484]
+    char_span: [2659, 4483]
     sentence_count: 25
     key_terms: [time, get, promoted, rileyluvsventi, "don't", show, dependable, coworkers]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1sclm9d.md#c3"
-    char_span: [4486, 5835]
+    char_span: [4485, 5834]
     sentence_count: 11
     key_terms: [job, use, seriously, somebody, people, safety, drama, heart]
     section: Comments

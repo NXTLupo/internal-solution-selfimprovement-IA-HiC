@@ -23,25 +23,25 @@ chunks:
     key_terms: [phd, research, postdoc, programs, shorter, others, employability, productivity]
     token_count: 401
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c1"
-    char_span: [1873, 3784]
+    char_span: [1872, 3783]
     sentence_count: 10
     key_terms: [phd, teaching, experience, teach, years, requirements, candidates, knowledge]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c2"
-    char_span: [3786, 5325]
+    char_span: [3785, 5324]
     sentence_count: 10
     key_terms: [phd, research, "master's", masters, funded, publications, heavy, years]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c3"
-    char_span: [5327, 7299]
+    char_span: [5326, 7298]
     sentence_count: 11
     key_terms: [research, phd, american, position, disadvantage, expectations, productivity, time]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/askacademia/1oiyh05.md#c4"
-    char_span: [7301, 8716]
+    char_span: [7300, 8715]
     sentence_count: 10
     key_terms: [whether, publications, work, difference, potential, "master's", research, depends]
     section: Comments

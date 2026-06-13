@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1suzlvf.md#c0"
-    char_span: [0, 722]
+    char_span: [0, 721]
     sentence_count: 5
     key_terms: [gpt, prompt, comments, gallery, github, source, https, image]
-    token_count: 190
+    token_count: 189
 ---
 # I made a small GPT Image 2 prompt gallery
 

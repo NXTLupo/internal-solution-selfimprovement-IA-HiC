@@ -23,7 +23,7 @@ chunks:
     key_terms: [management, engineeringstudents, scm, college, career, school, engineering, undergrads]
     token_count: 344
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8rwrg.md#c1"
-    char_span: [1574, 3933]
+    char_span: [1573, 3932]
     sentence_count: 15
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, scm, posting]
     section: Comments

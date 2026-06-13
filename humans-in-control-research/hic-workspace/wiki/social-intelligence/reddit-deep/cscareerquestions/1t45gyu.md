@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, friend, job, comments, market, salary, dummy, help]
     token_count: 270
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t45gyu.md#c1"
-    char_span: [1075, 2586]
+    char_span: [1074, 2585]
     sentence_count: 5
     key_terms: [reference, get, manager, interviewers, like, companies, relieving, resume]
     section: Comments

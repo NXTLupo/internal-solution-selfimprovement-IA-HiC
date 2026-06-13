@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, comments, college, hiring, reddit, chipaccomplished840, camp, scam]
     token_count: 168
   - id: "social-intelligence/reddit-deep/internships/1r05vsx.md#c1"
-    char_span: [674, 2497]
+    char_span: [673, 2496]
     sentence_count: 7
     key_terms: [chipaccomplished840, camp, did, followed, selected, contest, course, total]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1r05vsx.md#c2"
-    char_span: [2304, 4423]
+    char_span: [2303, 4422]
     sentence_count: 9
     key_terms: [person, chipaccomplished840, like, insights, college, course, people, internship]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1r05vsx.md#c3"
-    char_span: [4145, 4809]
+    char_span: [4144, 4808]
     sentence_count: 6
     key_terms: [worst, give, like, scam, experiences, placements, different, generated]
     section: Comments

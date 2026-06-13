@@ -23,49 +23,49 @@ chunks:
     key_terms: [daycare, povertyfinance, comments, husband, people, month, been, down]
     token_count: 286
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c1"
-    char_span: [1078, 2321]
+    char_span: [1077, 2320]
     sentence_count: 12
     key_terms: [assuming, daycare, money, home, childcare, morbie5, losing, school]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c2"
-    char_span: [2323, 4149]
+    char_span: [2322, 4148]
     sentence_count: 16
     key_terms: [month, internet, phones, home, medical, almost, income, people]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c3"
-    char_span: [4151, 5104]
+    char_span: [4150, 5103]
     sentence_count: 7
     key_terms: [month, credit, subscriptions, medical, working, worked, card, debt]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c4"
-    char_span: [5106, 6942]
+    char_span: [5105, 6941]
     sentence_count: 20
     key_terms: [internet, daycare, "don't", never, years, electricity, cut, home]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c5"
-    char_span: [6944, 8880]
+    char_span: [6943, 8879]
     sentence_count: 16
     key_terms: [daycare, month, free, kids, passes, extra, debt, work]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c6"
-    char_span: [8882, 10612]
+    char_span: [8881, 10611]
     sentence_count: 17
     key_terms: [expenses, month, holytindertwig, ask, blessed, daycare, parents, bills]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c7"
-    char_span: [10614, 12783]
+    char_span: [10613, 12782]
     sentence_count: 17
     key_terms: [daycare, work, money, years, back, food, kids, like]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/povertyfinance/1kxt1ey.md#c8"
-    char_span: [12785, 13766]
+    char_span: [12784, 13765]
     sentence_count: 7
     key_terms: [daycare, working, pay, brilliant-flower-283, child, never, bill, cost]
     section: Comments

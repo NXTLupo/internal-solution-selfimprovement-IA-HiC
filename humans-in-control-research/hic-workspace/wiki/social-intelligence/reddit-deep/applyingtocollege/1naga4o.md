@@ -28,31 +28,31 @@ chunks:
     key_terms: [school, face, time, fulfilling, education, selective, something, accepted]
     token_count: 150
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c2"
-    char_span: [2893, 4448]
+    char_span: [2892, 4447]
     sentence_count: 16
     key_terms: [schools, school, get, state, selective, transfer, people, apply]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c3"
-    char_span: [4450, 5232]
+    char_span: [4449, 5231]
     sentence_count: 3
     key_terms: [law, school, hahahahahahaha, national-level, non-selective, well-regarded, absolutely, fellowship]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c4"
-    char_span: [5234, 7308]
+    char_span: [5233, 7307]
     sentence_count: 23
     key_terms: [college, fordham, school, northwestern, fit, confident, important, instead]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c5"
-    char_span: [7310, 9097]
+    char_span: [7309, 9096]
     sentence_count: 14
     key_terms: [applying, favorite, sub, college, acceptance, colleges, probably, profiles]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/applyingtocollege/1naga4o.md#c6"
-    char_span: [9099, 10426]
+    char_span: [9098, 10425]
     sentence_count: 10
     key_terms: [skiing, colleges, figure, comfortablepractice5, famous-college-essay, found, never, littlerootvillager]
     section: Comments

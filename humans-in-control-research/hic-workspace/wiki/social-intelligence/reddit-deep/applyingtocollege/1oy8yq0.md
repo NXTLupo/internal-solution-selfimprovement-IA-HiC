@@ -21,43 +21,43 @@ chunks:
     key_terms: [acceptance, schools, applyingtocollege, universities, prestigious, recognition, does, low]
     token_count: 382
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c1"
-    char_span: [1787, 3763]
+    char_span: [1786, 3762]
     sentence_count: 15
     key_terms: [prestige, known, school, get, lac, top, graduates, respected]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c2"
-    char_span: [3765, 5553]
+    char_span: [3764, 5552]
     sentence_count: 18
     key_terms: [lacs, top, students, faculty, universities, student, per, endowments]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c3"
-    char_span: [5555, 7422]
+    char_span: [5554, 7421]
     sentence_count: 15
     key_terms: [undergrads, different, tech, similar, feeder, people, universities, lacs]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c4"
-    char_span: [7424, 8732]
+    char_span: [7423, 8731]
     sentence_count: 21
     key_terms: [schools, students, typically, grad, undergraduates, resources, programs, research]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c5"
-    char_span: [8734, 10845]
+    char_span: [8733, 10844]
     sentence_count: 19
     key_terms: [schools, competitive, programs, look, ppl, want, academics, strengths]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c6"
-    char_span: [10847, 12633]
+    char_span: [10846, 12632]
     sentence_count: 20
     key_terms: [school, class, students, university, resources, because, professional, lacs]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/applyingtocollege/1oy8yq0.md#c7"
-    char_span: [12635, 14449]
+    char_span: [12634, 14448]
     sentence_count: 16
     key_terms: [college, smaller, school, relationships, lac, professors, professor, colleges]
     section: Comments

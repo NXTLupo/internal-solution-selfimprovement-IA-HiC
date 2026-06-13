@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, comments, industry, career, etc, unavailabelle, reddit-deep, experience]
     token_count: 182
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ns8rmw.md#c1"
-    char_span: [724, 2951]
+    char_span: [723, 2950]
     sentence_count: 19
     key_terms: [get, opt, like, projects, cloud, roles, engineering, job]
     section: Comments

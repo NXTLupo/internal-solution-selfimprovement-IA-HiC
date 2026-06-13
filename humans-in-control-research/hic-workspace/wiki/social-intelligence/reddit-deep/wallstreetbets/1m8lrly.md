@@ -23,25 +23,25 @@ chunks:
     key_terms: [wallstreetbets, comments, market, https, long-term, backlog, reddit, com]
     token_count: 503
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c1"
-    char_span: [1945, 3659]
+    char_span: [1944, 3658]
     sentence_count: 9
     key_terms: [driverless, wsb, calls, waymo, years, car, discord, problem]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c2"
-    char_span: [3661, 5492]
+    char_span: [3660, 5491]
     sentence_count: 10
     key_terms: [waymo, driving, self, unsuccessfully, thats, "it's", everywhere, expensive]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c3"
-    char_span: [5495, 7333]
+    char_span: [5494, 7332]
     sentence_count: 13
     key_terms: [tesla, waymo, wrong, reliability, cars, absolutely, geofenced, ghostjinn]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/wallstreetbets/1m8lrly.md#c4"
-    char_span: [7335, 8532]
+    char_span: [7334, 8531]
     sentence_count: 9
     key_terms: [traditionalmousse500, fee22710ed34f64815878785952662674d6805a6, wanderingtofu, dip, preview, buying, change, format]
     section: Comments

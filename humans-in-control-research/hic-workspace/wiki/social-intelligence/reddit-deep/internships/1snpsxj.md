@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, alberta, year, internship, comments, looking, summer, month]
     token_count: 256
   - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c1"
-    char_span: [1087, 3243]
+    char_span: [1086, 3242]
     sentence_count: 16
     key_terms: [companies, applying, postings, remote, resume, summer, roles, start]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/internships/1snpsxj.md#c2"
-    char_span: [3245, 3351]
+    char_span: [3244, 3350]
     sentence_count: 1
     key_terms: [bridoa15, thoughts, sprout, code, goes, hear, "i'd", lmk]
     section: Comments

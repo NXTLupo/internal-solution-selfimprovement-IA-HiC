@@ -13,17 +13,17 @@ extracted_at: "2026-05-31T21:52:18.709893+00:00"
 chars: 4450
 chunks:
   - id: "articles/reddit-deep-r-machinelearning/e0adeab66a.md#c0"
-    char_span: [0, 1962]
+    char_span: [0, 1961]
     sentence_count: 8
     key_terms: [cuda, local, silicon, apple, workstation, experience, learning, machinelearning]
-    token_count: 509
+    token_count: 508
   - id: "articles/reddit-deep-r-machinelearning/e0adeab66a.md#c1"
-    char_span: [1964, 3650]
+    char_span: [1963, 3649]
     sentence_count: 17
     key_terms: [hobby, projects, "don't", portfolio, leetcode, project, contribution, work]
     token_count: 376
   - id: "articles/reddit-deep-r-machinelearning/e0adeab66a.md#c2"
-    char_span: [3652, 4657]
+    char_span: [3651, 4656]
     sentence_count: 5
     key_terms: [work, faang, get, experience, projects, relevant, nothing, trying]
     token_count: 233

@@ -23,19 +23,19 @@ chunks:
     key_terms: [research, feel, phd, feeling, program, professional, roommates, like]
     token_count: 424
   - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c1"
-    char_span: [1924, 3711]
+    char_span: [1923, 3710]
     sentence_count: 24
     key_terms: [different, phd, stop, "master's", yourself, industry-focused, because, student]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c2"
-    char_span: [3713, 5478]
+    char_span: [3712, 5477]
     sentence_count: 19
     key_terms: [want, something, phd, thoughts, own, different, yourself, against]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/gradschool/1o3vyqe.md#c3"
-    char_span: [5480, 7454]
+    char_span: [5479, 7453]
     sentence_count: 13
     key_terms: [phd, experiences, different, "master's", yourself, jealous, masters, program]
     section: Comments

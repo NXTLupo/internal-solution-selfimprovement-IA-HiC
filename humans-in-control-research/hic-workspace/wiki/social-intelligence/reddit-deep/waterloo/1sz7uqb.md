@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, comments, student, point, "i'm", time, work, okchampion9592]
     token_count: 192
   - id: "social-intelligence/reddit-deep/waterloo/1sz7uqb.md#c1"
-    char_span: [799, 1142]
+    char_span: [798, 1141]
     sentence_count: 2
     key_terms: [wusa-student-life-centre-5-student-advocacy-support-2, job, finding-part-time-job-campus, https, future-students, missing-manual, applications, ilikestyx]
     section: Comments

@@ -23,49 +23,49 @@ chunks:
     key_terms: [market, burry, don, happen, real, economic, bubble, people]
     token_count: 511
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c1"
-    char_span: [2305, 4016]
+    char_span: [2304, 4015]
     sentence_count: 8
     key_terms: [guy, "it's", english, michael, people, gettingdumberwithage, clown, write]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c2"
-    char_span: [4018, 5799]
+    char_span: [4017, 5798]
     sentence_count: 11
     key_terms: [years, "he's", performance, portfolio, past, market, michael-burry, stockcircle]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c3"
-    char_span: [5801, 7187]
+    char_span: [5800, 7186]
     sentence_count: 12
     key_terms: [performance, michael-burry, hedge, wrong, stockcircle, been, understand, portfolio]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c4"
-    char_span: [7189, 8988]
+    char_span: [7188, 8987]
     sentence_count: 5
     key_terms: [utm, because, contracts, investors, money, share, lost, comments]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c5"
-    char_span: [8990, 10334]
+    char_span: [8989, 10333]
     sentence_count: 6
     key_terms: ["he's", burry, money, portfolio, people, like, against, premium]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c6"
-    char_span: [10336, 12284]
+    char_span: [10335, 12283]
     sentence_count: 8
     key_terms: [top, tell, dollars, started, better, people, wildly, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c7"
-    char_span: [12065, 12855]
+    char_span: [12064, 12854]
     sentence_count: 3
     key_terms: [professionalyellow55, right, time, lazy-gene-7284, koolaidman391, danknadoflex, oddchocolate, historical]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/investing/1ovhixs.md#c8"
-    char_span: [12857, 14442]
+    char_span: [12856, 14441]
     sentence_count: 8
     key_terms: [year, market, portfolio, years, performance, did, "he's", lol]
     section: Comments

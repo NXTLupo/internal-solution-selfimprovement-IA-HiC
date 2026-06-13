@@ -33,19 +33,19 @@ chunks:
     key_terms: [come, encouragement, discipline, naturally, personal, positive, struggle, closing]
     token_count: 90
   - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c3"
-    char_span: [4514, 6625]
+    char_span: [4513, 6624]
     sentence_count: 11
     key_terms: [routine, something, like, time, breakfast, important, indydiddy, consider]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c4"
-    char_span: [6366, 6651]
+    char_span: [6365, 6650]
     sentence_count: 4
     key_terms: [did, absolutely, incredible, indydiddy, overnight, something, mentally, better]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/productivity/1oesczb.md#c5"
-    char_span: [6653, 7547]
+    char_span: [6652, 7546]
     sentence_count: 9
     key_terms: [inspiring, morning, respect, routine, entertainerstatus910, calm-lavishness5918, notifications, unfortunately]
     section: Comments

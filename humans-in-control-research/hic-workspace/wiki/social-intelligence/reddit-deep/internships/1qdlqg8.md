@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1qdlqg8.md#c0"
-    char_span: [0, 895]
+    char_span: [0, 894]
     sentence_count: 3
     key_terms: [data, opportunities, internships, internship, exploring, comments, projects, student]
-    token_count: 213
+    token_count: 212
 ---
 # 4th-Year BTech AI & DS Student Exploring Paid Internship Opportunities (Web/Data) – India/Remote
 

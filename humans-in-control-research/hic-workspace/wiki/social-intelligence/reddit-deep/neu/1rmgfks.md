@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, academicweapon149, neu, northeastern, reddit-deep, familiar, students, closing]
     token_count: 92
   - id: "social-intelligence/reddit-deep/neu/1rmgfks.md#c1"
-    char_span: [333, 1680]
+    char_span: [332, 1679]
     sentence_count: 6
     key_terms: [ohe, rip, punters, closed, spiritual-march-5097, place, justoneotherschlub, back]
     section: Comments

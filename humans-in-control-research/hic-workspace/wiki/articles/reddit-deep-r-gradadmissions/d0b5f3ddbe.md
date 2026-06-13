@@ -15,32 +15,32 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c0"
-    char_span: [0, 2014]
+    char_span: [0, 2013]
     sentence_count: 9
     key_terms: [university, video, engineering, mechanical, gpa, phd, applied, florida]
-    token_count: 488
+    token_count: 487
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c1"
-    char_span: [2016, 4342]
+    char_span: [2015, 4341]
     sentence_count: 21
     key_terms: [get, because, school, information, interested, demanding, applying, invested]
     token_count: 512
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c2"
-    char_span: [4344, 6483]
+    char_span: [4343, 6482]
     sentence_count: 17
     key_terms: [professor, years, degree, field, get, phd, possible, research]
     token_count: 495
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c3"
-    char_span: [6485, 7483]
+    char_span: [6484, 7482]
     sentence_count: 6
     key_terms: [how-i-got-into-a-mechanical-engineering-phd-with-a-3-2-gpa-v0-x8s28hkaci8g1, fd090cf201fb6f8ff17ed3e11ef960d8560687bf, mech, preview, format, based, https, width]
     token_count: 290
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c4"
-    char_span: [7485, 9373]
+    char_span: [7484, 9372]
     sentence_count: 25
     key_terms: [research, accepted, schools, experience, professor, undergrad, school, application]
     token_count: 447
   - id: "articles/reddit-deep-r-gradadmissions/d0b5f3ddbe.md#c5"
-    char_span: [9375, 10638]
+    char_span: [9374, 10637]
     sentence_count: 9
     key_terms: [boskadoff, thank, university, professor, congrats, school, though, study]
     token_count: 317

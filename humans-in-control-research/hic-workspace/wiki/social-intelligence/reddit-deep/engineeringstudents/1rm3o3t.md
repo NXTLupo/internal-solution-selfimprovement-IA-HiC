@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineeringstudents, like, year, projects, experience, companies, comments, learning]
     token_count: 321
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c1"
-    char_span: [1429, 3375]
+    char_span: [1428, 3374]
     sentence_count: 18
     key_terms: [resume, write, software, yourself, resumes, learn, lab, something]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rm3o3t.md#c2"
-    char_span: [3377, 3980]
+    char_span: [3376, 3979]
     sentence_count: 7
     key_terms: [companies, months, co-op, understanding, establishing, application, competitors, recommended]
     section: Comments

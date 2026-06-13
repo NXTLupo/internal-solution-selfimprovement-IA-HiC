@@ -1,0 +1,86 @@
+---
+id: social-intelligence/reddit-deep/personalfinance/1sujom7.md
+url: "https://www.reddit.com/r/personalfinance/comments/1sujom7/investing_hsa_money_with_optum_financial/"
+kind: "social-post"
+source: "reddit-deep: r/personalfinance"
+subreddit: "personalfinance"
+title: "Investing HSA money with Optum Financial"
+author: "GoodEnoughGrapefruit"
+date: "2026-04-24T15:54:13.000Z"
+score: 0
+upvote_ratio: 0.5
+num_comments: 7
+flair: "Investing"
+extracted_at: "2026-06-11T15:26:16.546Z"
+extraction_method: "praw-deep"
+research_goal: "Produce the definitive guide to personal investing in 2026 by analyzing the current state of the fintech and financial industries. Evaluate retail investor behaviors, emerging asset classes, and platform shifts using 2026 market news, industry reports, and social media trends to identify actionable investment strategies and market opportunities."
+engagement: "produce-the-definitive-guide-to-personal-investing-in-2026-b"
+chunks:
+  - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c0"
+    char_span: [0, 2269]
+    sentence_count: 13
+    key_terms: [investing, optum, financial, money, hsa, bank, don, personalfinance]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c1"
+    char_span: [2284, 4143]
+    sentence_count: 14
+    key_terms: [fidelity, hsa, account, better, old, current, fees, investment]
+    section: Comments
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c2"
+    char_span: [4145, 6048]
+    sentence_count: 7
+    key_terms: [hsa, account, investment, personalfinance, funds, investing, options, contributions]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/personalfinance/1sujom7.md#c3"
+    char_span: [6050, 8228]
+    sentence_count: 21
+    key_terms: [transfer, fidelity, account, funds, hsa, trustee-to-trustee, cash, employer]
+    section: Comments
+    token_count: 465
+---
+# Investing HSA money with Optum Financial
+
+Source: [reddit-deep: r/personalfinance](https://www.reddit.com/r/personalfinance/comments/1sujom7/investing_hsa_money_with_optum_financial/)
+Posted by **GoodEnoughGrapefruit** · **0↑** · **7 comments**
+
+My current employer’s HSA is with Optum Financial and I have another HSA from a previous employee with Optum Bank. I tried to consolidate the accounts and move everything from Bank into my Financial acct and basically is impossible so I just sort of gave up on it (if anyone has successfully done this please lmk!!!). In Optum bank I don’t have too much money, so I’m just sort of leaving it there and use that if I ever have any relatively large medical bills and when that runs out I want to try and close that account (not sure if that’s possible but I’d assume so?). There is a $1 fee per month in Optum bank but that’s worth the trouble of not dealing with their customer service imo. 
+
+Anyways my question is about Optum Financial, where I am currently contributing and investing my HSA money. I don’t have a lot of experience in this so excuse if I’m using the wrong terms / my lack of education! The interface for investing in Optum Financial is not great at all. I don’t think theres even an option see a visual of how my invested money is growing, just statements with numbers and percentages (I’m a very visual person and appreciate a nice graph lol) anyways when I set up these investments I decided not to use betterment or Schwab to invest which were both options as I think they had fees, so I’m investing directly into funds through Optum financial. At least that’s how I think this works? I remember researching these three options when I first started investing in my HSA but forgot how exactly it works now. I thought this was sufficient until I saw a lot of people online that also have HSA’s with Optum moving their money into fidelity to invest. I don’t have a bunch of fees or anything either, at least that I can see as of right now. The investment funds seem to be anything i’d really need, I’m investing mostly in S&P 500 and some other riskier / smaller funds since I’m young lol Can anyone explain how moving the money and investing with fidelity might be better than what I’m currently doing?
+
+## Comments
+
+- **pk_12345** (2↑): Fidelity interface is much better and I think Optum has fees but fidelity doesn't?
+- **virtualchoirboy** (2↑): My previous employer had Optum and I wasn't fond of the investment aspect of the account. This could be dependent on employer and plan, but my fund options were pretty terrible. My current HSA isn't a lot better but at least it offers Vanguard Target Retirement funds as a "safe" option. Neither provided the kind of analysis that you would see at a major investment firm like Schwab, Vanguard, or Fidelity so it's on me to track how much I've contributed, reinvested dividends, and current value. Keep in mind that as long as you spend the money on qualified medical expenses, the exact detail of your gains is somewhat irrelevant since you won't have to pay capital gains tax.
+
+And finally, for your old HSA, you might want to look at setting up an HSA account at Fidelity. They offer an account with no minimum and no fees that you should be able to roll that old account over to. That at least would save you any old maintenance fees and give you better fund options. Plus, once it's established, you have someplace you could roll an HSA account over to from any future job changes.
+
+[https://www.fidelity.com/go/hsa/why-hsa](https://www.fidelity.com/go/hsa/why-hsa)
+  - **GoodEnoughGrapefruit** (1↑): That is a great idea to move my old HSA into fidelity! I never thought of this and will definitely be doing so. 
+
+For my current HSA, I mainly invest in the S&P 500 and would probably do something similar if I moved everything to fidelity just like I do with my fidelity IRA. I’m not the type to research specific funds or anything, I’m very much a “set it and forget it” person, aside from rebalancing every now and then. But having a better interface alone could be worth it so I’ll look into this too. Thanks so much!!
+
+Just curious - Can I ask how your fund options were terrible in your previous employer HSA? Just not much selection or not many diverse funds? This is my first time investing my HSA money so I only know of what my account now offers and it seemed like good options at least for a beginner like me lol
+    - **virtualchoirboy** (1↑): Mostly what I remember was either investment firms I wasn't familiar with or funds with higher than average expense ratios. Meant that if I wanted to invest, I had to accept worse than normal returns or do a bunch of research to figure out if I could trust the firm to invest according to my goals.
+
+My current employer has a full slate of Vanguard funds available so low expense ratios and a name I know.
+- **AutoModerator** (1↑): You may find these links helpful:
+
+- ["How to handle $"](/r/personalfinance/wiki/commontopics)
+- [Investing](/r/personalfinance/wiki/investing)
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/personalfinance) if you have any questions or concerns.*
+- **Hopeful_Tea_7551** (1↑): I think the optimal situation is an HSA provider that offers an investment option (NBS Benefits is an example I know of although certainly could be better options out there)...eg you have a cash HSA account that has 1K or so in it (or whatever the requirement is) and then surplus HSA contributions go to an investment account that has mutual funds etc. in it, that now allows those funds to compound over time, and you can move money periodically from the investment account into your HSA account when you need it, and when you're not using it, it's continuing to grow and to compound.  Otherwise, the HSA contributions are just sitting in cash at a bank etc. doing nothing.
+- **dingdong_doodlydoo** (1↑): I'll touch on a few different things just to give some more context.
+
+1. It's possible the specific employer plan you're currently on doesn't allow rollovers from an individual account, which your old plan would have turned into once you were no longer employed there. 
+2. As suggested elsewhere, you can still create a new account with Fidelity and do a trustee-to-trustee transfer of your old HSA to fidelity ([https://www.fidelity.com/go/hsa/transfer](https://www.fidelity.com/go/hsa/transfer)). This gives you access to basically all of the investment options you could want instead of the limited number typically chosen by employer benefit committees. 
+3. Be aware that you will also need to close the old account once the funds have transferred if the option is not included in the transfer request itself. Otherwise, you'll still be paying fees. 
+4. As for fees, Optum Bank will probably take out $25-$50 to do the fund transfer.
+5. If you like Fidelity, you can actually transfer your funds from your current Optum Financial account too and just leave it open for any employer paid contributions that might auto-deposit into the account. You have unlimited trustee-to-trustee transfers, so it's not really a problem. Just keep in mind any fees that might be incurred for each transfer. You would have to weigh the costs of doing this compared to just keeping the funds in the current HSA.
+6. Whatever you transfer into Fidelity will just sit as cash. It's up to you to specifically buy shares to invest it. In my experience, this is different than other HSA accounts I've used that allow automatic investing of funds above a certain cash threshold. 
+7. Fidelity also doesn't have a required minimum cash balance. I.e., you can invest literally all of the money in the account. However, if you are going to actually utilize the funds for medical expenses, then you should keep a cash balance so you don't have to liquidate invested money. 
+8. I've learned that sorting all of this stuff out takes a good bit of time. Working with multiple financial institutions is incredibly inefficient.
+
+Okay, done with my ramblings. I've been dealing with a lot of this stuff lately trying to manage/simplify multiple accounts for both the spouse and I.

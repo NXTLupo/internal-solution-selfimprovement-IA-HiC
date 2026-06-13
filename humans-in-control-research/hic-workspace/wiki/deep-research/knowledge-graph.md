@@ -16,37 +16,37 @@ chunks:
     key_terms: [evidence, source, graph, knowledge, knowledgegraphbuilder, themes, recommendations, recommendation]
     token_count: 90
   - id: "deep-research/knowledge-graph.md#c1"
-    char_span: [522, 2559]
+    char_span: [521, 2558]
     sentence_count: 13
     key_terms: [metadata, nodes, color, size, evidence, source, fields, label]
     section: Node Types
     token_count: 497
   - id: "deep-research/knowledge-graph.md#c2"
-    char_span: [2577, 3330]
+    char_span: [2576, 3329]
     sentence_count: 1
     key_terms: [evidence, links, themes, weight, theme, content, source, edge]
     section: Edge Types
     token_count: 189
   - id: "deep-research/knowledge-graph.md#c3"
-    char_span: [3350, 3946]
+    char_span: [3349, 3945]
     sentence_count: 1
     key_terms: [tier, tier-dependent, acacac, fd8e2e, evidence, sources, colors, source]
     section: Color Scheme
     token_count: 186
   - id: "deep-research/knowledge-graph.md#c4"
-    char_span: [3971, 6174]
+    char_span: [3970, 6173]
     sentence_count: 13
     key_terms: [evidence, source, create, node, theme, citation, graph, nodes]
     section: Builder Functions
     token_count: 487
   - id: "deep-research/knowledge-graph.md#c5"
-    char_span: [6176, 7827]
+    char_span: [6175, 7826]
     sentence_count: 10
     key_terms: [recommendation, string, node, number, source, theme, evidence, edges]
     section: Builder Functions / Evidence Traceability / Graph Data Model
     token_count: 376
   - id: "deep-research/knowledge-graph.md#c6"
-    char_span: [7859, 8657]
+    char_span: [7858, 8656]
     sentence_count: 5
     key_terms: [graph, knowledge, wiki, research, chains, accumulated, evidence, provides]
     section: Relationship to the Wiki

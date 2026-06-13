@@ -23,7 +23,7 @@ chunks:
     key_terms: [machinelearning, arxiv, https, comments, pages, abs, org, deepseek-r1]
     token_count: 141
   - id: "social-intelligence/reddit-deep/machinelearning/1q6cb0k.md#c1"
-    char_span: [437, 2347]
+    char_span: [436, 2346]
     sentence_count: 9
     key_terms: [paper, self-normalising, catch, calculation, grpo, hype, original, problems]
     section: Comments

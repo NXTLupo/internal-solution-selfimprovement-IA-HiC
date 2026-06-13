@@ -26,31 +26,31 @@ chunks:
     key_terms: [looking, career, perspectives, experience, privileged, certainly, currently, different]
     token_count: 122
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c2"
-    char_span: [2259, 4219]
+    char_span: [2258, 4218]
     sentence_count: 9
     key_terms: [job, valuable, better, skills, "you're", find, swe, term]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c3"
-    char_span: [4221, 5531]
+    char_span: [4220, 5530]
     sentence_count: 3
     key_terms: [chatgpt, anything, fucking, haha, says, take, term, use]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c4"
-    char_span: [5533, 7303]
+    char_span: [5532, 7302]
     sentence_count: 10
     key_terms: [trufajsivediet, research, chatgpt, working, written, difficult-cricket541, never, offer]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c5"
-    char_span: [7308, 8978]
+    char_span: [7307, 8977]
     sentence_count: 11
     key_terms: [contract, taxes, raise, dont, get, benefits, higher, likely]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rtjp4e.md#c6"
-    char_span: [8980, 10621]
+    char_span: [8979, 10620]
     sentence_count: 9
     key_terms: [contracting, development, offer, roles, like, companies, peligroso, contract]
     section: Comments

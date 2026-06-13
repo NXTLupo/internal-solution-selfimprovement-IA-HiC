@@ -23,7 +23,7 @@ chunks:
     key_terms: [chatgpt, comments, neverhighb4, reddit-deep, personal, account, connect, finance]
     token_count: 86
   - id: "social-intelligence/reddit-deep/chatgpt/1te0ygy.md#c1"
-    char_span: [327, 2052]
+    char_span: [326, 2051]
     sentence_count: 8
     key_terms: [openai, chatgpt, please, conversation, image, integration, post, r-chatgpt-1050422060352024636]
     section: Comments

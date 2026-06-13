@@ -23,67 +23,67 @@ chunks:
     key_terms: [students, nyu-professor-fired-maitland-jones-jr-student-petition, course, programming, probability, department, statistics, teaching]
     token_count: 508
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c1"
-    char_span: [2243, 4197]
+    char_span: [2243, 4196]
     sentence_count: 14
     key_terms: [teaching, years, efficient-border6863, students, another, "don't", too, tenured]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c2"
-    char_span: [4199, 6446]
+    char_span: [4198, 6445]
     sentence_count: 14
     key_terms: [programming, students, doing, "i've", job, use, work, efficient]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c3"
-    char_span: [6172, 6636]
+    char_span: [6171, 6635]
     sentence_count: 4
     key_terms: [programming, doing, job, demonstrations, prerequisite, screenshots, especially, iteachcsci]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c4"
-    char_span: [6638, 8685]
+    char_span: [6637, 8684]
     sentence_count: 14
     key_terms: [programming, students, because, student, teaching, science, fight, worth]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c5"
-    char_span: [8687, 10407]
+    char_span: [8686, 10406]
     sentence_count: 11
     key_terms: [students, mature, need, military, teaching, student, school, zestyclose-love-4952]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c6"
-    char_span: [10409, 12454]
+    char_span: [10408, 12453]
     sentence_count: 10
     key_terms: [students, experience, service, post-secondary, conclusion, highschool, education, everyone]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c7"
-    char_span: [12456, 15037]
+    char_span: [12455, 15036]
     sentence_count: 11
     key_terms: [issues, little, leading, social, "that's", consequences, being, self-esteem]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c8"
-    char_span: [15039, 17323]
+    char_span: [15038, 17322]
     sentence_count: 23
     key_terms: [students, programming, military, bioinformatic, course, chatgpt, causes, trying]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c9"
-    char_span: [17325, 19507]
+    char_span: [17324, 19506]
     sentence_count: 11
     key_terms: [students, student, course, idiot, thought, learn, something, pleasing]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c10"
-    char_span: [19510, 21549]
+    char_span: [19509, 21548]
     sentence_count: 16
     key_terms: [attendance, like, colleagues, notmrchips, mandatory, students, classes, course]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/professors/1lqnfmj.md#c11"
-    char_span: [21551, 22453]
+    char_span: [21550, 22452]
     sentence_count: 5
     key_terms: [students, attending, classes, pajamas, class, doing, "don't", "true"]
     section: Comments

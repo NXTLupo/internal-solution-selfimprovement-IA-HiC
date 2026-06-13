@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, civil, engineeringstudents, automation, engineers, comments, student, worried]
     token_count: 284
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ten23d.md#c1"
-    char_span: [1353, 2027]
+    char_span: [1352, 2026]
     sentence_count: 3
     key_terms: [studying, something, been, "i've", "it's", use, automatedbyali, efficiently]
     section: Comments

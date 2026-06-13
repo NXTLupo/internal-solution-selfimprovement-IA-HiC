@@ -11,9 +11,9 @@ score: 19
 upvote_ratio: 0.88
 num_comments: 30
 flair: "Recruitment & Talent Acquisition"
-extracted_at: "2026-06-06T17:42:52.448Z"
+extracted_at: "2026-06-08T17:32:00.978Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/humanresources/1r1xpsq.md#c0"
     char_span: [0, 2096]
@@ -80,12 +80,12 @@ https://preview.redd.it/94ok88p6dvig1.jpg?width=845&format=pjpg&auto=webp&s=48ea
 
 ## Comments
 
-- **Hunterofshadows** (43↑): Honestly I think you are just confusing positions here. 
+- **Hunterofshadows** (44↑): Honestly I think you are just confusing positions here. 
 
 That job description reads as an HR of One or otherwise part of a very small team. 
 
 Small teams aren’t able to specialize in the same way a larger team is.   I’m an HR of One and I technically manage everything you describe but the bulk of it is done at a very surface level because there is only so much time in the day.
-  - **11B_35P_35F** (4↑): In the same boat at my current and last company. HR of One does it all. Sometimes we may have things contracted out thru a vendor (i.e., workers comp, 3rd party benefits agency). As far as recruiting goes, the 2 companies ive worked/work at have not done local recruiting events at all. Its mostly thru our ATS with a few in house referrals. Otherwise, JDs, job postings, sometimes phone screens (I find those pointless to be honest. If the resume looks good for an interview then the HM should just conduct an interview. No point in me wasting time repeating the job posting and asking if they are good with it all.)
+  - **11B_35P_35F** (3↑): In the same boat at my current and last company. HR of One does it all. Sometimes we may have things contracted out thru a vendor (i.e., workers comp, 3rd party benefits agency). As far as recruiting goes, the 2 companies ive worked/work at have not done local recruiting events at all. Its mostly thru our ATS with a few in house referrals. Otherwise, JDs, job postings, sometimes phone screens (I find those pointless to be honest. If the resume looks good for an interview then the HM should just conduct an interview. No point in me wasting time repeating the job posting and asking if they are good with it all.)
     - **Hunterofshadows** (1↑): Agreed on the phone screenings. It just silly.   I’m dealing with them right now for a technical position but it’s technical skills I don’t have… all I can evaluate is their personality, which the HM could do just as easily. It’s so dumb. 
 
 
@@ -93,10 +93,10 @@ I’m also inclined to agree that job fairs aren’t worth it these days.   In e
 
 As with a lot of things, I can see it being more useful for larger companies that can do a lot more depth
   - **defucchi** (2↑): yea I'm an HR of one and this definitely reads a lot like my job. Payroll, benefits, recruiting, performance it's all part of the package. Hopefully it's a small team and not like some of these "HR of one but for 500 people" posts I've seen on here lately
-- **goodvibezone** (16↑): That's an HR manager role not an HRBP
+- **goodvibezone** (17↑): That's an HR manager role not an HRBP
   - **cruelhumor** (2↑): I have felt for a long time that HR Manager and HRBP are often used interchangeably even though they are technically very different positions. Some companies use the HRBP title as a simple re-brand of the HRM role to make it sound more attractive/business-focused. And like the previous commentor mentioned, I think scale has a lot to do with it, if you have a very small company/team, HRBP probably makes more sense even if functionally its an HRM position.
-    - **goodvibezone** (4↑): Somewhat. But a big red flag would be an HRBP that is responsible for all of HR. That's not an HRBP.
-  - **Original-Pomelo6241** (3↑): Right. I was looking for the HRBP JD, but this is for a manager role - and I don’t think this is a crazy ask for a manager.
+    - **goodvibezone** (5↑): Somewhat. But a big red flag would be an HRBP that is responsible for all of HR. That's not an HRBP.
+  - **Original-Pomelo6241** (4↑): Right. I was looking for the HRBP JD, but this is for a manager role - and I don’t think this is a crazy ask for a manager.
   - **Tricky_Ad_7918** (1↑): I have other examples of HRBP roles that have the similar responsibilities as this one, if not more - which is understandable. I've seen this type of JD for large and small companies. I guess my point is there seems to be a blending of roles to save money instead of seeing the value of having a dedicated person for each area.
     - **Hunterofshadows** (7↑): I mean… have you been paying attention to… well everything? 
 
@@ -112,7 +112,7 @@ All of which to say is that I don't feel like it's necessarily a blending of rol
 - **OneTwoSomethingNew** (6↑): Big Nope, I’m not doing all the HR -and- TA —- I ignore any JD that includes this as clearly their expectations are not based on reality!!! 
 
 To all my TA folks, thank you for what you do  -and- no I could not possibly do your job and mine — I got your back ❤️
-- **Fantastic-Hamster333** (7↑): TA person here and yeah this one hits close to home. I've seen it from the other side too, where companies lay off dedicated recruiters and dump the req load onto HRBPs because "how hard can it be."
+- **Fantastic-Hamster333** (8↑): TA person here and yeah this one hits close to home. I've seen it from the other side too, where companies lay off dedicated recruiters and dump the req load onto HRBPs because "how hard can it be."
 
 very hard, as it turns out.
 
@@ -124,7 +124,7 @@ the AI angle you mentioned is interesting. I've seen companies try to automate s
 
 fwiw the best companies I've worked at had dedicated TA even at 200-300 employees. the ones that tried to split it always ended up with mediocre recruiting AND mediocre HR support because you can't do both well at the same time.
 - **CarefulEmphasis9516** (3↑): I don’t think it’s actually new, this has always existed and depends on the context of the org. Very normal for smaller orgs to have the “HRBP” do everything as you won’t have justification to have dedicated CoEs.
-- **buckeyegurl1313** (5↑): I'm seeing a lot of this on the benefit side. Combining Payroll and Benefit functions. I avoid those. Those are two distinct areas and there should be more checks and balances with separate job roles. They are also both very compliance heavy roles. So. No. I dont apply. I think this comes from smaller businesses not fully understanding how diverse HR can be. I think there is just a lot of people thinking HRBP/HR Generalist roles are all inclusive of all things HR.
+- **buckeyegurl1313** (3↑): I'm seeing a lot of this on the benefit side. Combining Payroll and Benefit functions. I avoid those. Those are two distinct areas and there should be more checks and balances with separate job roles. They are also both very compliance heavy roles. So. No. I dont apply. I think this comes from smaller businesses not fully understanding how diverse HR can be. I think there is just a lot of people thinking HRBP/HR Generalist roles are all inclusive of all things HR.
   - **OneTwoSomethingNew** (2↑): I don’t have a problem with combining benefit and payroll functions, I actually prefer it as many times these two departments need to speak to each other regularly to get things done correctly….but TA is a hard pass
 - **Effective-Cap3718** (2↑): This JD seems reasonable as an HR Manager at what I imagine is a small company, but I am seeing more HR and TA roles combined in this market. I think a lot of companies are trying to keep headcount down by combining what should be two jobs. I see a lot of postings that I don’t apply to because I know they would lead to burnout, and I’ve been there, done that, too many times.
 - **mamalo13** (2↑): If you aren't hiring more than a handful of hires a year, yes, it's perfectly reasonable to put it under another HR function. Small to medium sized companies likely can't financially justify a full time TA person. 

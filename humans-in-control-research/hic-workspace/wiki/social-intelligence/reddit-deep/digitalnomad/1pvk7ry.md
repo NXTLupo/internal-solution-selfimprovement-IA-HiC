@@ -28,43 +28,43 @@ chunks:
     key_terms: [don, work, personal, control, focused, routine, though, far]
     token_count: 249
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c2"
-    char_span: [2931, 4928]
+    char_span: [2930, 4927]
     sentence_count: 20
     key_terms: [people, working, communal, connect, areas, solo, talkative, travelers]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c3"
-    char_span: [4930, 5732]
+    char_span: [4929, 5731]
     sentence_count: 5
     key_terms: [questions, working, hostel, captainobvious110, excessive-pooping, leadingbridge2456, fun, like]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c4"
-    char_span: [5737, 7726]
+    char_span: [5736, 7725]
     sentence_count: 14
     key_terms: [being, work, hostels, hostel, too, tolerance, control, leaving]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c5"
-    char_span: [7510, 8315]
+    char_span: [7509, 8314]
     sentence_count: 7
     key_terms: [months, place, setup, bar, exam, room, well-furnished, matehualastop]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c6"
-    char_span: [8317, 10258]
+    char_span: [8316, 10257]
     sentence_count: 14
     key_terms: [like, hostels, hostel, living, "that's", month, environment, long-term]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c7"
-    char_span: [10260, 12098]
+    char_span: [10259, 12097]
     sentence_count: 16
     key_terms: [people, questions, conversations, city, planning, country, explore, showing]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/digitalnomad/1pvk7ry.md#c8"
-    char_span: [12102, 13088]
+    char_span: [12101, 13087]
     sentence_count: 7
     key_terms: [hostel, trying, single-constant9518, chile, like, next, tranquilitics, overthinking]
     section: Comments

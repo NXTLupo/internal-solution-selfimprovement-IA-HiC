@@ -21,25 +21,25 @@ chunks:
     key_terms: [neu, comments, scholars, students, program, student, new-language-6515, nyc]
     token_count: 195
   - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c1"
-    char_span: [801, 2992]
+    char_span: [800, 2991]
     sentence_count: 19
     key_terms: [nyc, honestly, scholars, friends, parents, program, student, campus]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c2"
-    char_span: [2994, 3424]
+    char_span: [2993, 3423]
     sentence_count: 4
     key_terms: [activities, opportunities, convenient, companies, different, neu-based, starbucks, baseball]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c3"
-    char_span: [3426, 5762]
+    char_span: [3425, 5761]
     sentence_count: 19
     key_terms: [students, student, classes, engineering, like, opportunities, got, mmc]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sit5cw.md#c4"
-    char_span: [5495, 6446]
+    char_span: [5494, 6445]
     sentence_count: 12
     key_terms: [something, campus, did, like, scholar, boston, familiar-being-4981, nyc]
     section: Comments

@@ -21,55 +21,55 @@ chunks:
     key_terms: [full-time, internship, been, extended, manager, careerguidance, opportunities, performance]
     token_count: 393
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c1"
-    char_span: [1859, 4033]
+    char_span: [1858, 4032]
     sentence_count: 21
     key_terms: [internship, people, contract, companies, company, someone, offers, paying]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c2"
-    char_span: [4035, 4676]
+    char_span: [4034, 4675]
     sentence_count: 5
     key_terms: [business, else, keep, zomgitsduke, businesses, interested, separation, struggling]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c3"
-    char_span: [4678, 6372]
+    char_span: [4677, 6371]
     sentence_count: 10
     key_terms: [department, company, get, experience, headcount, approved, position, getting]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c4"
-    char_span: [6374, 8039]
+    char_span: [6373, 8038]
     sentence_count: 14
     key_terms: [opportunities, looking, "don't", right, headcount, permanent, clarity, control]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c5"
-    char_span: [8041, 9901]
+    char_span: [8040, 9900]
     sentence_count: 16
     key_terms: [full, job, months, time, budget, companies, contract, extended]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c6"
-    char_span: [9903, 11134]
+    char_span: [9902, 11133]
     sentence_count: 5
     key_terms: [people, economy, radical, someone, tariffs, rather, means, get]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c7"
-    char_span: [11136, 12758]
+    char_span: [11135, 12757]
     sentence_count: 12
     key_terms: [time, full, government, internship, extending, directly, comment, budget]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c8"
-    char_span: [12760, 14389]
+    char_span: [12759, 14388]
     sentence_count: 11
     key_terms: [elsewhere, job, get, want, work, experience, internship, something]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/careerguidance/1oqv3vz.md#c9"
-    char_span: [14391, 14939]
+    char_span: [14390, 14938]
     sentence_count: 7
     key_terms: [job, full, time, offer, does, want, opportunity, obligation]
     section: Comments

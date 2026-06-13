@@ -28,25 +28,25 @@ chunks:
     key_terms: [letters, cover, cookie-cutter, uncomfortable, unfortunately, absolutely, frustrated, community]
     token_count: 131
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c2"
-    char_span: [2357, 2775]
+    char_span: [2356, 2774]
     sentence_count: 5
     key_terms: [katinkavonhamhof, performative, application, half-truths, experience, indication, industries, paragraph]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c3"
-    char_span: [2777, 5024]
+    char_span: [2776, 5023]
     sentence_count: 8
     key_terms: [people, resumes, someone, experience, letters, cover, likely, application]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c4"
-    char_span: [4800, 6578]
+    char_span: [4799, 6577]
     sentence_count: 9
     key_terms: [cover, people, job, letters, hiring, application, technology, rejecting]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/humanresources/1lcn1fp.md#c5"
-    char_span: [6580, 8456]
+    char_span: [6579, 8455]
     sentence_count: 11
     key_terms: [cover, letter, interview, applying, letters, single, write, get]
     section: Comments

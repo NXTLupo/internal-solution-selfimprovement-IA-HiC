@@ -23,31 +23,31 @@ chunks:
     key_terms: [university, studied, undergraduate, did, good, gradschool, comments, renowned]
     token_count: 170
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c1"
-    char_span: [706, 2824]
+    char_span: [705, 2823]
     sentence_count: 22
     key_terms: [undergrad, institution, phd, university, prestige, masters, big, research]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c2"
-    char_span: [2826, 4665]
+    char_span: [2825, 4664]
     sentence_count: 18
     key_terms: [lot, faculty, opportunities, program, department, student, administration, field]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c3"
-    char_span: [4667, 6534]
+    char_span: [4666, 6533]
     sentence_count: 11
     key_terms: [school, world, time, research, biology, marine, known, bakersfield]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c4"
-    char_span: [6536, 8801]
+    char_span: [6535, 8800]
     sentence_count: 20
     key_terms: [school, undergrad, oriented, students, teaching, opportunities, institutions, good]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradschool/1onb2p1.md#c5"
-    char_span: [8803, 10160]
+    char_span: [8802, 10159]
     sentence_count: 13
     key_terms: [prestigious, reputable, programs, funding, getting, nervous, worked, back]
     section: Comments

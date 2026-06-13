@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-digitalnomad/f978ce8dca.md#c0"
-    char_span: [0, 1819]
+    char_span: [0, 1818]
     sentence_count: 12
     key_terms: [coverage, insurance, emergency, deductible, don, need, recommendations, looking]
-    token_count: 354
+    token_count: 353
   - id: "articles/reddit-deep-r-digitalnomad/f978ce8dca.md#c1"
-    char_span: [1821, 2769]
+    char_span: [1820, 2768]
     sentence_count: 7
     key_terms: [deductible, allianz, lot, insurances, coverage, directly, hospital, provider]
     token_count: 224

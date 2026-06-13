@@ -31,7 +31,7 @@ chunks:
     key_terms: [justin, version, years, grace, dog, ceremony, includes, standing]
     token_count: 267
   - id: "social-intelligence/reddit-deep/neu/1sejxib.md#c3"
-    char_span: [5163, 5710]
+    char_span: [5162, 5709]
     sentence_count: 7
     key_terms: [border-coffee, bostonnu, service, tassel, heytherebobitsmerob, extra, gave, too]
     section: Comments

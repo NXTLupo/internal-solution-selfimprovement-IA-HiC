@@ -21,25 +21,25 @@ chunks:
     key_terms: ["didn't", cscareerquestions, comments, ghosted, did, hard, "it's", darkishpath303]
     token_count: 240
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1gnz0.md#c1"
-    char_span: [925, 1756]
+    char_span: [924, 1755]
     sentence_count: 7
     key_terms: [interview, job, description, honestly, "i'm", darkishpath303, occasionally, interviewee]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1gnz0.md#c2"
-    char_span: [1758, 3646]
+    char_span: [1757, 3645]
     sentence_count: 16
     key_terms: [job, company, through, apply, internships, easy, fit, get]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1gnz0.md#c3"
-    char_span: [3648, 5558]
+    char_span: [3647, 5557]
     sentence_count: 13
     key_terms: [months, making, because, darkishpath303, internships, experience, graduated, hopefully]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1gnz0.md#c4"
-    char_span: [5312, 7047]
+    char_span: [5311, 7046]
     sentence_count: 14
     key_terms: [experience, darkishpath303, semester, job, congrats, graduate, early, did]
     section: Comments

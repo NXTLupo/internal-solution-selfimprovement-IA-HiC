@@ -28,73 +28,73 @@ chunks:
     key_terms: [school, grad, experience, completely, resilience, supervisor, understand, criticism]
     token_count: 95
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c2"
-    char_span: [2648, 4022]
+    char_span: [2647, 4021]
     sentence_count: 11
     key_terms: [school, grad, academia, class, get, lot, meetings, thought]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c3"
-    char_span: [4024, 6348]
+    char_span: [4023, 6347]
     sentence_count: 8
     key_terms: [like, school, grad, career, "you're", professional, ideas, seems]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c4"
-    char_span: [6092, 6772]
+    char_span: [6091, 6771]
     sentence_count: 7
     key_terms: [university, never, meowptimuspurrime, feel, let, responsibility, counseling, rumination]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c5"
-    char_span: [6774, 9282]
+    char_span: [6773, 9281]
     sentence_count: 14
     key_terms: [thoughts, different, seminar, collective, practice, speaking, conversation, comfortable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c6"
-    char_span: [8959, 9328]
+    char_span: [8958, 9327]
     sentence_count: 5
     key_terms: [professor, time, embarrassment, constructive, conversation, dialectical, classmates, half-baked]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c7"
-    char_span: [9330, 11560]
+    char_span: [9329, 11559]
     sentence_count: 15
     key_terms: [classmates, seminars, practiced, like, people, class, comfortable, get]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c8"
-    char_span: [11562, 13886]
+    char_span: [11561, 13885]
     sentence_count: 20
     key_terms: [yourself, people, something, through, better, little, myself, presentations]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c9"
-    char_span: [13621, 14032]
+    char_span: [13620, 14031]
     sentence_count: 3
     key_terms: [little, lol, time, disappointed, occasionally, comfortable, eventually, confident]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c10"
-    char_span: [14034, 15972]
+    char_span: [14033, 15971]
     sentence_count: 16
     key_terms: [yourself, work, like, don, therapist, comments, supposed, advice]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c11"
-    char_span: [15974, 17863]
+    char_span: [15973, 17862]
     sentence_count: 15
     key_terms: [asynchronous, like, right, good, life, consider, classes, feeling]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c12"
-    char_span: [17865, 18459]
+    char_span: [17864, 18458]
     sentence_count: 5
     key_terms: [get, "you're", practice, easier, like, time, maximum-hedgehog, comfortable]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/gradschool/1r3t5wm.md#c13"
-    char_span: [18461, 20558]
+    char_span: [18460, 20557]
     sentence_count: 17
     key_terms: [experience, because, class, seminars, together, people, "you're", take]
     section: Comments

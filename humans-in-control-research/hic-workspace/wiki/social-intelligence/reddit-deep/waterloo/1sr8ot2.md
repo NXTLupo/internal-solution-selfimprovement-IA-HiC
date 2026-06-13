@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, comments, reddit-deep, suggestions, kitchener, accepted, student, anyone]
     token_count: 107
   - id: "social-intelligence/reddit-deep/waterloo/1sr8ot2.md#c1"
-    char_span: [403, 2095]
+    char_span: [402, 2094]
     sentence_count: 9
     key_terms: [key-banana302, sumknowbuddy, like, unemployment, jobs, work, government, uwaterloo]
     section: Comments

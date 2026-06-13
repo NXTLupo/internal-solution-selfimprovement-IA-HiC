@@ -15,17 +15,17 @@ relevance: 30
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c0"
-    char_span: [0, 2068]
+    char_span: [0, 2067]
     sentence_count: 11
     key_terms: [women, degree, get, men, news, hired, job, college]
-    token_count: 485
+    token_count: 484
   - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c1"
-    char_span: [2070, 4250]
+    char_span: [2069, 4249]
     sentence_count: 15
     key_terms: [college, women, like, either, healthcare, degree, men, want]
     token_count: 492
   - id: "articles/reddit-deep-r-college/6b6dcda74b.md#c2"
-    char_span: [4252, 5054]
+    char_span: [4251, 5053]
     sentence_count: 6
     key_terms: [men, traditionally, engineering, business, correct, market, women, job]
     token_count: 163

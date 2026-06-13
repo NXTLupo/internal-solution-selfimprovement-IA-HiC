@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1kxzzml.md#c0"
-    char_span: [0, 1566]
+    char_span: [0, 1565]
     sentence_count: 10
     key_terms: [fashion, design, concepts, mockups, sneaker, guide, comments, creating]
-    token_count: 353
+    token_count: 352
 ---
 # Save Time on Mockups: Create detailed sneaker concepts using ChatGPT 4.0 in seconds
 

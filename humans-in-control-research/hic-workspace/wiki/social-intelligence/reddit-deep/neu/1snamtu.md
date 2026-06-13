@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, northeastern, professional, university, comments, studies, cps, neu]
     token_count: 127
   - id: "social-intelligence/reddit-deep/neu/1snamtu.md#c1"
-    char_span: [594, 1394]
+    char_span: [593, 1393]
     sentence_count: 6
     key_terms: [professional, degree, mobile-finding-3779, time, wateryphoenix750, instructional, international, professionals]
     section: Comments

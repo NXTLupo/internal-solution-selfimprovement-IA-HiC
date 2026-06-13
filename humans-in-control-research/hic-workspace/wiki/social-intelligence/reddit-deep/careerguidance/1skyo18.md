@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1skyo18.md#c0"
-    char_span: [0, 1248]
+    char_span: [0, 1247]
     sentence_count: 8
     key_terms: [careerguidance, recreational, "i've", management, comments, learning, skills, "i'm"]
     token_count: 281

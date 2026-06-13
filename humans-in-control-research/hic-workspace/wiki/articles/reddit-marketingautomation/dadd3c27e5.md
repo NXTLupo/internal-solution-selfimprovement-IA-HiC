@@ -15,10 +15,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-marketingautomation/dadd3c27e5.md#c0"
-    char_span: [0, 849]
+    char_span: [0, 848]
     sentence_count: 5
     key_terms: [marketingautomation, automation, marketing, workflows, others, reddit, tools, feel]
-    token_count: 176
+    token_count: 175
 ---
 # Recommended tools for marketing automation?
 

@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, comments, job, long, too, reddit-deep, happening, underpaid]
     token_count: 112
   - id: "social-intelligence/reddit-deep/careerguidance/1squ2ii.md#c1"
-    char_span: [422, 1900]
+    char_span: [421, 1899]
     sentence_count: 16
     key_terms: [job, title, new, stay, another, stayed, bump, ambitions]
     section: Comments

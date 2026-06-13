@@ -7,7 +7,7 @@ industries: [cpg]
 status: active
 chunks:
   - id: "industries/cpg.md#c0"
-    char_span: [0, 642]
+    char_span: [0, 641]
     sentence_count: 2
     key_terms: [articles, sources, industries, reddit-deep-r-wallstreetbets, shared, reddit-deep-r-povertyfinance, reddit-behavioraleconomics, reddit-deep-r-genz]
     section: Cross-over verticals (shared sources) / Representative sources

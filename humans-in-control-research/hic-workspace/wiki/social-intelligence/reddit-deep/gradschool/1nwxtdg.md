@@ -23,31 +23,31 @@ chunks:
     key_terms: [schools, applying, students, school, cut, gradschool, comments, federal]
     token_count: 279
   - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c1"
-    char_span: [1229, 3112]
+    char_span: [1228, 3111]
     sentence_count: 13
     key_terms: [pdxmusselcat, phd, government, research, applied, program, student, funded]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c2"
-    char_span: [3114, 5199]
+    char_span: [3113, 5198]
     sentence_count: 13
     key_terms: [access, better, redact, elsewhere, quality, tall-cat-8890, anonymized, mentorship]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c3"
-    char_span: [5201, 6950]
+    char_span: [5200, 6949]
     sentence_count: 10
     key_terms: [tall-cat-8890, redact, thesistears, anonymized, fearless, literate, deleted, funding]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c4"
-    char_span: [6952, 9176]
+    char_span: [6951, 9175]
     sentence_count: 13
     key_terms: [germany, programs, phd, masters, france, applying, abroad, living]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/gradschool/1nwxtdg.md#c5"
-    char_span: [9178, 10289]
+    char_span: [9177, 10288]
     sentence_count: 5
     key_terms: [birddogtx, graduate, because, deleted, program, redact, school, get]
     section: Comments

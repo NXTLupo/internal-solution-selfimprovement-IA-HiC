@@ -36,37 +36,37 @@ chunks:
     key_terms: [company, own, tell, collectively, dismissals, documented, investment, financing]
     token_count: 127
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c4"
-    char_span: [7039, 8600]
+    char_span: [7038, 8599]
     sentence_count: 13
     key_terms: [cost, amazon, cloud, zero, provide, basis, aws, big]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c5"
-    char_span: [8602, 10852]
+    char_span: [8601, 10851]
     sentence_count: 8
     key_terms: [spending, compute, infrastructure, demand, stock, zero, investment, anthropic]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c6"
-    char_span: [10854, 13031]
+    char_span: [10853, 13030]
     sentence_count: 24
     key_terms: [demand, datacenters, disruptors, "wouldn't", "doesn't", amazon, enough, equity]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c7"
-    char_span: [13033, 14326]
+    char_span: [13032, 14325]
     sentence_count: 10
     key_terms: [prem, expensive, gamblingpharmastocks, chips, cloud, hesitantinvestor0, plan, too]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c8"
-    char_span: [14328, 16126]
+    char_span: [14327, 16125]
     sentence_count: 14
     key_terms: [hesitantinvestor0, agree, companies, something, obsolete, "there's", beyond, thesis]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/stocks/1rdiinm.md#c9"
-    char_span: [16128, 17411]
+    char_span: [16127, 17410]
     sentence_count: 4
     key_terms: [burnercommenter, slop, provided, format, comfortable-copy-700, echidnamedical8375, back, cool]
     section: Comments

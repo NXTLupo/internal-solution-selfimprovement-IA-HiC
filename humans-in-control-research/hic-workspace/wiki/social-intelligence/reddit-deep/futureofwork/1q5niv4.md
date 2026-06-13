@@ -23,7 +23,7 @@ chunks:
     key_terms: [learning-and-development, work, future-of-work, futureofwork, https, www, comments, balance]
     token_count: 257
   - id: "social-intelligence/reddit-deep/futureofwork/1q5niv4.md#c1"
-    char_span: [1129, 1775]
+    char_span: [1128, 1774]
     sentence_count: 2
     key_terms: [future-of-work-trends-you-should-know-2025, consultport, future, future-of-consulting, thumbsdrivesmecrazy, new, work, problem-solving]
     section: Comments

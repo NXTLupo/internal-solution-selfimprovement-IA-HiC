@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, job, comments, get, hard, eggshellwalker4, reddit-deep, comparison]
     token_count: 138
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c1"
-    char_span: [518, 2294]
+    char_span: [517, 2293]
     sentence_count: 11
     key_terms: [job, people, market, years, time, subreddit, factors, getting]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c2"
-    char_span: [2296, 3873]
+    char_span: [2295, 3872]
     sentence_count: 16
     key_terms: [offshore, company, people, let, ones, competing, extremely, entirely]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c3"
-    char_span: [3875, 5336]
+    char_span: [3874, 5335]
     sentence_count: 10
     key_terms: [onsite, people, because, dooming, reality, describes, "shouldn't", coherent]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c4"
-    char_span: [5338, 7001]
+    char_span: [5337, 7000]
     sentence_count: 13
     key_terms: [job, years, get, tech, tough, outstanding, year, anyone]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c5"
-    char_span: [7003, 8807]
+    char_span: [7002, 8806]
     sentence_count: 8
     key_terms: [back, got, company, internship, terrany, hopper, people, summer]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s24srg.md#c6"
-    char_span: [8809, 10103]
+    char_span: [8808, 10102]
     sentence_count: 13
     key_terms: [job, sent, offer, assignment, recruiter, straight, getting, months]
     section: Comments

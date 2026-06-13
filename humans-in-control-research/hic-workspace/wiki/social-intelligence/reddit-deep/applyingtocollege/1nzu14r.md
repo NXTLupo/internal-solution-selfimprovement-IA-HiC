@@ -23,43 +23,43 @@ chunks:
     key_terms: [hamilton, different, like, admission, something, applyingtocollege, "i'm", college]
     token_count: 442
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c1"
-    char_span: [2083, 4038]
+    char_span: [2082, 4037]
     sentence_count: 12
     key_terms: [marketing, hamilton, students, another, college, office, advertising, less]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c2"
-    char_span: [4040, 5886]
+    char_span: [4039, 5885]
     sentence_count: 15
     key_terms: [college, parents, students, maybe, internships, ads, get, colleges]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c3"
-    char_span: [5888, 7715]
+    char_span: [5887, 7714]
     sentence_count: 10
     key_terms: [students, relationships, hamilton, college, aid, graduation, financial, graduate]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c4"
-    char_span: [7717, 9928]
+    char_span: [7716, 9927]
     sentence_count: 12
     key_terms: [emails, students, schools, school, colleges, hamilton, advice, dry-load-3649]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c5"
-    char_span: [9621, 10833]
+    char_span: [9620, 10832]
     sentence_count: 12
     key_terms: [like, emails, admissions, email, important, college, versus, personalized]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c6"
-    char_span: [10835, 12453]
+    char_span: [10834, 12452]
     sentence_count: 19
     key_terms: [college, snail, mail, real, academics, important, hamilton, students]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nzu14r.md#c7"
-    char_span: [12455, 13397]
+    char_span: [12454, 13396]
     sentence_count: 7
     key_terms: [learn, hamilton, schools, arts, here, talk, essaysplusmore, differentiate]
     section: Comments

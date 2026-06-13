@@ -23,31 +23,31 @@ chunks:
     key_terms: [careerguidance, school, competitive, considering, back, job, like, professor]
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c1"
-    char_span: [1843, 2985]
+    char_span: [1842, 2984]
     sentence_count: 10
     key_terms: [okaytouseatwork, people, need, comparing, yourself, denver, income, ilikesquirrrels1990]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c2"
-    char_span: [2987, 4482]
+    char_span: [2986, 4481]
     sentence_count: 19
     key_terms: [job, high, pay, yrs, need, expensive, average, denver]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c3"
-    char_span: [4484, 6533]
+    char_span: [4483, 6532]
     sentence_count: 14
     key_terms: [ilikesquirrrels1990, research, job, get, already, example, making, tiktok]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c4"
-    char_span: [6284, 6627]
+    char_span: [6283, 6626]
     sentence_count: 2
     key_terms: [ilikesquirrrels1990, oversaturated, superfluous, impossible, companies, positions, realllly, research]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/careerguidance/1tgay9x.md#c5"
-    char_span: [6629, 8052]
+    char_span: [6628, 8051]
     sentence_count: 13
     key_terms: [school, professional, admission, starting, family, ilikesquirrrels1990, great, years]
     section: Comments

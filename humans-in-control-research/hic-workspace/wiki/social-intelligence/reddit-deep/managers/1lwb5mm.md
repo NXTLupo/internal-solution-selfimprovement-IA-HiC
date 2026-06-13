@@ -33,13 +33,13 @@ chunks:
     key_terms: [productivity, tasks, chat, like, operators, something, "don't", sales]
     token_count: 385
   - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c3"
-    char_span: [5899, 8178]
+    char_span: [5898, 8177]
     sentence_count: 12
     key_terms: [company, slack, channels, discord, pricing, virtual, communications, plan]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/managers/1lwb5mm.md#c4"
-    char_span: [8180, 9840]
+    char_span: [8179, 9839]
     sentence_count: 10
     key_terms: [discord, like, solution, automatically, chat, lot, experience, features]
     section: Comments

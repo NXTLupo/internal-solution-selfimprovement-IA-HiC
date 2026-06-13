@@ -23,7 +23,7 @@ chunks:
     key_terms: [samples, times, lab, work, management, findapath, situation, comments]
     token_count: 295
   - id: "social-intelligence/reddit-deep/findapath/1szkfhh.md#c1"
-    char_span: [1351, 2483]
+    char_span: [1350, 2482]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

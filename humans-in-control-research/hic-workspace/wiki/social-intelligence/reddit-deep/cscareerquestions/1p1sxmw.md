@@ -21,49 +21,49 @@ chunks:
     key_terms: [cscareerquestions, applications, programming, back, population, comments, industry, around]
     token_count: 298
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c1"
-    char_span: [1281, 3246]
+    char_span: [1280, 3245]
     sentence_count: 15
     key_terms: [aerospace, business-hamster-105, get, engineering, swe, companies, program, asking]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c2"
-    char_span: [3249, 5026]
+    char_span: [3248, 5025]
     sentence_count: 18
     key_terms: [years, jobs, technology, new, experience, software, heisenbergscertainty, daily]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c3"
-    char_span: [5028, 6762]
+    char_span: [5027, 6761]
     sentence_count: 12
     key_terms: [working, accounting, years, business, trying, job, like, own]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c4"
-    char_span: [6764, 8380]
+    char_span: [6763, 8379]
     sentence_count: 10
     key_terms: [service, resume, customer, yoe, degree, hedgiehuntergme, finance, coding]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c5"
-    char_span: [8382, 10230]
+    char_span: [8381, 10229]
     sentence_count: 15
     key_terms: [get, don, got, try, another, getting, around, better]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c6"
-    char_span: [10232, 12312]
+    char_span: [10231, 12311]
     sentence_count: 10
     key_terms: [processing, mineral, wesxdz, residency, people, school, source, unless]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c7"
-    char_span: [12066, 13943]
+    char_span: [12065, 13942]
     sentence_count: 9
     key_terms: [experience, comments, common, people, denominators, here, job, work]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p1sxmw.md#c8"
-    char_span: [13946, 15307]
+    char_span: [13945, 15306]
     sentence_count: 12
     key_terms: [chili-lime-chihuahua, employed, career, unemployment, times, here, lot, opinions]
     section: Comments

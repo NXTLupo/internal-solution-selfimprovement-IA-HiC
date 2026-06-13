@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t3rps6.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t3rps6/advice_for_career_path_completely_lost/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.899Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3rps6.md#c0"
+    char_span: [0, 268]
+    sentence_count: 2
+    key_terms: [careerguidance, comments, reddit-deep, completely, advice, career, posted, reddit]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3rps6.md#c1"
+    char_span: [283, 1171]
+    sentence_count: 11
+    key_terms: [keep, writing, skills, taking, "you're", field, right, jobs]
+    section: Comments
+    token_count: 196
 ---
-
 # Advice for career path? Completely lost
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t3rps6/advice_for_career_path_completely_lost/)

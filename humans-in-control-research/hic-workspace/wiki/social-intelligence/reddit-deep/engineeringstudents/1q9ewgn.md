@@ -23,31 +23,31 @@ chunks:
     key_terms: [engineeringstudents, year, engineers, comments, chatgpt, started, coding, bit]
     token_count: 240
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c1"
-    char_span: [1023, 2755]
+    char_span: [1022, 2754]
     sentence_count: 13
     key_terms: [coding, matlab, being, engineering, data, use, programmer, necessary]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c2"
-    char_span: [2757, 4565]
+    char_span: [2756, 4564]
     sentence_count: 10
     key_terms: [led, thepowerfulpaet, arduino, digitalwrite, code, problem, voltage, "that's"]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c3"
-    char_span: [4567, 6634]
+    char_span: [4566, 6633]
     sentence_count: 10
     key_terms: [people, anexcitedpanda, weakechoregion, codes, professors, chatgpt, instead, syntax]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c4"
-    char_span: [6636, 8563]
+    char_span: [6635, 8562]
     sentence_count: 15
     key_terms: [code, using, different, something, programming, day, like, line]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q9ewgn.md#c5"
-    char_span: [8565, 9901]
+    char_span: [8564, 9900]
     sentence_count: 11
     key_terms: [write, specifically, code, use, matlab, school, "you're", "don't"]
     section: Comments

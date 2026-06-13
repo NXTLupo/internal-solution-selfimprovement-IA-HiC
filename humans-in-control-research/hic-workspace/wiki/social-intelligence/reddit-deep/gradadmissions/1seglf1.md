@@ -23,7 +23,7 @@ chunks:
     key_terms: [academic, development, analytical, lab, work, industry, application, different]
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradadmissions/1seglf1.md#c1"
-    char_span: [2376, 4644]
+    char_span: [2375, 4643]
     sentence_count: 14
     key_terms: [research, experience, industry, apply, important, academic, don, like]
     section: Comments

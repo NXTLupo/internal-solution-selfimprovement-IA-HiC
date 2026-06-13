@@ -21,7 +21,7 @@ chunks:
     key_terms: [interviewer, finance, try, learned, conversational, internships, role, internship]
     token_count: 505
   - id: "social-intelligence/reddit-deep/internships/1qjtqy2.md#c1"
-    char_span: [2365, 3370]
+    char_span: [2365, 3369]
     sentence_count: 8
     key_terms: [congrats, appreciate, advice, "that's", alarmed-efficiency92, imaginationhopeful94, manufacturerkind7009, zestyclose-swing-329]
     section: Comments

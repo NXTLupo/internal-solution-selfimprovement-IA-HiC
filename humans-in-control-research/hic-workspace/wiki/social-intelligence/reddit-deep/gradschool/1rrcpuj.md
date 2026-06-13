@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1rrcpuj.md#c0"
-    char_span: [0, 1334]
+    char_span: [0, 1333]
     sentence_count: 6
     key_terms: [looking, research, data, gradschool, volunteer, comments, engineer, science]
-    token_count: 312
+    token_count: 311
 ---
 # Looking for remote volunteer research opportunities for 2028 Grad School prep
 

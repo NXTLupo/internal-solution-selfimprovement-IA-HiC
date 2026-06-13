@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, waterloo, reddit-deep, happened, posted, reddit, source, https]
     token_count: 85
   - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c1"
-    char_span: [284, 2031]
+    char_span: [283, 2030]
     sentence_count: 17
     key_terms: [card, minimumrest7893, lyric, bigepidural, like, remember, teyhasfk, waterloo]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/waterloo/1mouqzh.md#c2"
-    char_span: [2033, 3112]
+    char_span: [2032, 3111]
     sentence_count: 3
     key_terms: [student, card, postgrad, punched, themanofstruggle, understanding, sarahstanley, unimaginable]
     section: Comments

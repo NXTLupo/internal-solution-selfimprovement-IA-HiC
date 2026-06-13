@@ -23,13 +23,13 @@ chunks:
     key_terms: [work, hate, year, findapath, anything, comments, because, started]
     token_count: 234
   - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c1"
-    char_span: [1038, 3252]
+    char_span: [1037, 3251]
     sentence_count: 16
     key_terms: [thank, helpful, please, find, findapath, marketing, comments, everyone]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/findapath/1lgtlrt.md#c2"
-    char_span: [3254, 3318]
+    char_span: [3253, 3317]
     sentence_count: 1
     key_terms: [requirements, educational, job, look]
     section: Comments

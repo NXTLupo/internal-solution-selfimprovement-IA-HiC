@@ -15,12 +15,12 @@ industries: [workforce, retail]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-digitalnomad/cd5f72aaea.md#c0"
-    char_span: [0, 2075]
+    char_span: [0, 2074]
     sentence_count: 20
     key_terms: [years, back, everyone, selling, months, digitalnomad, great, full]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-deep-r-digitalnomad/cd5f72aaea.md#c1"
-    char_span: [2077, 3828]
+    char_span: [2076, 3827]
     sentence_count: 17
     key_terms: [want, costa, morrigan613, love, rica, work, brazil, fellow]
     token_count: 439

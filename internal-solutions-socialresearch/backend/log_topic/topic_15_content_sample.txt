@@ -1,0 +1,16 @@
+Topic 15 - Content Sample
+Number of content items: 8
+Top words: 2025, contribution, ira, year, roth ira, maxed, prior
+
+Content 1 (length: 118 chars):
+I made an IRA contribution and selected it for the prior tax year (2025, because I still had room left for that year).
+
+Content 2 (length: 283 chars):
+Vanguard says I’ve “maxed out IRA contributions for 2025” even though I haven’t contributed anything? I’m super confused and hoping someone here has run into this before. I’m trying to open/fund a Roth IRA on Vanguard, and when I go to make the contribution it gives me this message:
+
+Content 3 (length: 455 chars):
+But I haven’t put any money into a Roth IRA this year or anywhere else. I don’t even think I’ve contributed to a Roth IRA in the past at all.
+Does this just mean I accidentally selected the wrong contribution year? Or is Vanguard glitching because 2025 contributions aren’t open yet? Did you put money into any IRA? 
+i’ve never opened an account for this before.
+Do you have a Traditional IRA?  How much have you put in that?  They aren't separate limits.
+

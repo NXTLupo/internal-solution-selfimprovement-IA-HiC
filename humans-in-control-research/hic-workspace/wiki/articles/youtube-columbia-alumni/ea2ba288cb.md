@@ -15,82 +15,82 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c0"
-    char_span: [0, 181]
+    char_span: [0, 180]
     sentence_count: 1
     key_terms: [youtube, columbia, journey, olympic, skating, alumni, expert, figure]
-    token_count: 49
+    token_count: 48
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c1"
-    char_span: [183, 2595]
+    char_span: [182, 2594]
     sentence_count: 26
     key_terms: [columbia, opened, sasha, today, door, skating, technologies, age]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c2"
-    char_span: [2314, 4624]
+    char_span: [2313, 4623]
     sentence_count: 16
     key_terms: [skating, energy, gymnastics, age, figure, school, homeschooled, early]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c3"
-    char_span: [4305, 6590]
+    char_span: [4304, 6589]
     sentence_count: 18
     key_terms: [experience, olympic, little, later, education, columbia, olympics, priority]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c4"
-    char_span: [6267, 8465]
+    char_span: [6266, 8464]
     sentence_count: 21
     key_terms: ["you're", program, going, year, injuries, performance, long, old]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c5"
-    char_span: [8208, 10438]
+    char_span: [8207, 10437]
     sentence_count: 18
     key_terms: [kind, career, going, night, performance, meaningful, mentorship, emotional]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c6"
-    char_span: [10152, 12425]
+    char_span: [10151, 12424]
     sentence_count: 15
     key_terms: [skating, figure, wonderful, kind, like, skaters, maybe, day]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c7"
-    char_span: [12143, 14418]
+    char_span: [12142, 14417]
     sentence_count: 21
     key_terms: [like, because, moscow, people, "you're", interesting, time, definitely]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c8"
-    char_span: [14161, 16405]
+    char_span: [14160, 16404]
     sentence_count: 20
     key_terms: ["you're", acting, person, words, away, like, put, vulnerable]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c9"
-    char_span: [16147, 18368]
+    char_span: [16146, 18367]
     sentence_count: 25
     key_terms: [like, kind, "you're", did, yourself, acting, autobiography, onion]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c10"
-    char_span: [18075, 20267]
+    char_span: [18074, 20266]
     sentence_count: 18
     key_terms: [kind, "you're", back, "i'm", getting, olympic, skating, opportunities]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c11"
-    char_span: [19992, 22307]
+    char_span: [19991, 22306]
     sentence_count: 24
     key_terms: [athletes, documentary, health, mental, time, olympic, issues, gold]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c12"
-    char_span: [22036, 24246]
+    char_span: [22035, 24245]
     sentence_count: 19
     key_terms: ["you're", because, day, like, athletes, friends, debate, "that's"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c13"
-    char_span: [23949, 26191]
+    char_span: [23948, 26190]
     sentence_count: 27
     key_terms: [kind, people, athlete, career, mental, wanted, peers, "it's"]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c14"
-    char_span: [25875, 28292]
+    char_span: [25874, 28291]
     sentence_count: 32
     key_terms: [classes, columbia, class, professor, time, people, loved, definitely]
     token_count: 512
   - id: "articles/youtube-columbia-alumni/ea2ba288cb.md#c15"
-    char_span: [27975, 30183]
+    char_span: [27974, 30182]
     sentence_count: 30
     key_terms: [columbia, "i'm", campus, back, because, classes, special, "you're"]
     token_count: 495

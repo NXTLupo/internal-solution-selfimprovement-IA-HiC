@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1oemgrv/reality_of_cs_students_in_this_subreddit/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,83 @@ flair: "Experienced"
 extracted_at: "2026-06-06T23:23:15.631Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c0"
+    char_span: [0, 2369]
+    sentence_count: 24
+    key_terms: [students, etc, talent, science, engineering, information, grads, cscareerquestions]
+    token_count: 513
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c1"
+    char_span: [2371, 4399]
+    sentence_count: 20
+    key_terms: [youtube, students, https, watch, com, www, interviews, etc]
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c2"
+    char_span: [4401, 6644]
+    sentence_count: 23
+    key_terms: [students, youtube, https, watch, years, been, com, www]
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c3"
+    char_span: [6659, 8697]
+    sentence_count: 17
+    key_terms: [candidates, experience, questions, bad, good, lot, interviews, companies]
+    section: Comments
+    token_count: 455
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c4"
+    char_span: [8699, 10612]
+    sentence_count: 18
+    key_terms: [get, instead, "it's", because, new, engineers, listening, engineer]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c5"
+    char_span: [10614, 11828]
+    sentence_count: 10
+    key_terms: [like, another, client, using, api, help, took, adobjective7323]
+    section: Comments
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c6"
+    char_span: [11830, 13701]
+    sentence_count: 16
+    key_terms: [engineering, something, get, learning, yourself, date, deep, implement]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c7"
+    char_span: [13703, 15924]
+    sentence_count: 13
+    key_terms: [learning, systems, focus, computing, get, adobjective7323, better, field]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c8"
+    char_span: [15926, 17754]
+    sentence_count: 16
+    key_terms: [going, roles, time, lot, new, candidates, something, leetcode]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c9"
+    char_span: [17756, 19916]
+    sentence_count: 22
+    key_terms: [students, company, "there's", people, python, significantly, cpp, like]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c10"
+    char_span: [19918, 21712]
+    sentence_count: 8
+    key_terms: [people, respectfully-quoted, https, com, www, students, someone, tablet-babylon]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c11"
+    char_span: [21714, 23614]
+    sentence_count: 14
+    key_terms: [like, python, interviews, questions, question, trivia, "can't", graduated]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1oemgrv.md#c12"
+    char_span: [23616, 24194]
+    sentence_count: 6
+    key_terms: [code, software, write, comfortable, feralwookie, discussion, historical, meaningful]
+    section: Comments
+    token_count: 124
 ---
-
 # Reality of CS Students in this Subreddit
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1oemgrv/reality_of_cs_students_in_this_subreddit/)

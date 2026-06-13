@@ -28,25 +28,25 @@ chunks:
     key_terms: [kelley, undergrad, admitted, business, program, campus, school, aside]
     token_count: 303
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c2"
-    char_span: [2371, 4299]
+    char_span: [2370, 4298]
     sentence_count: 14
     key_terms: [want, finance, program, schools, china, nyush, companies, competing]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c3"
-    char_span: [4301, 6314]
+    char_span: [4300, 6313]
     sentence_count: 17
     key_terms: [need, networking, companies, get, shanghai, network, people, nyush]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c4"
-    char_span: [6316, 8607]
+    char_span: [6315, 8606]
     sentence_count: 26
     key_terms: [information, get, semester, start, want, parents, alumni, relationships]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss2d2k.md#c5"
-    char_span: [8609, 10012]
+    char_span: [8608, 10011]
     sentence_count: 15
     key_terms: [fatima-zahra-foutouh-26-commencement-2026, people, want, shanghai, different, business, failure, student]
     section: Comments

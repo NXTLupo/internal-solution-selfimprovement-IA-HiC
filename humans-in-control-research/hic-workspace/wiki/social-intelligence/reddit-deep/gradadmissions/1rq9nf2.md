@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rq9nf2.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rq9nf2/grad_school_admissions/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Applied Sciences"
 extracted_at: "2026-06-06T23:23:15.583Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rq9nf2.md#c0"
+    char_span: [0, 428]
+    sentence_count: 3
+    key_terms: [gradadmissions, comments, pretty, school, grad, anybodytiny1572, application, reddit-deep]
+    token_count: 113
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rq9nf2.md#c1"
+    char_span: [443, 1707]
+    sentence_count: 10
+    key_terms: [programs, phd, applied, jewishtigerpup, apply, bad, applying, because]
+    section: Comments
+    token_count: 322
 ---
-
 # Grad School Admissions
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rq9nf2/grad_school_admissions/)

@@ -23,31 +23,31 @@ chunks:
     key_terms: [engineeringstudents, supply, chain, get, internship, aerospace, comments, honestly]
     token_count: 208
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c1"
-    char_span: [888, 1513]
+    char_span: [887, 1512]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, reddit, https, com, www, please, index]
     section: Comments
     token_count: 143
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c2"
-    char_span: [1515, 3545]
+    char_span: [1514, 3544]
     sentence_count: 10
     key_terms: [internship, interviews, applications, good, getting, market, like, post]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c3"
-    char_span: [3265, 5206]
+    char_span: [3264, 5205]
     sentence_count: 9
     key_terms: [interviews, industry, job, sweepdaddy, research, strategy, because, example]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c4"
-    char_span: [4972, 5732]
+    char_span: [4971, 5731]
     sentence_count: 4
     key_terms: [sophomore, offer, concerning, interviews, aerospace, companies, genuinely, mentioned]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4rj1r.md#c5"
-    char_span: [5734, 5960]
+    char_span: [5733, 5959]
     sentence_count: 1
     key_terms: [interviews, important, necessary, happened, probably, context, ghosted, offers]
     section: Comments

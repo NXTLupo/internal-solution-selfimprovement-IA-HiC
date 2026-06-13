@@ -21,7 +21,7 @@ chunks:
     key_terms: [choose, "don't", comments, college, minor, hand, year, intermediate]
     token_count: 146
   - id: "social-intelligence/reddit-deep/college/1l8co7v.md#c1"
-    char_span: [596, 1270]
+    char_span: [595, 1269]
     sentence_count: 5
     key_terms: [literature, english, adventurous-level831, major, thousandshardships, international, research-wise, background]
     section: Comments

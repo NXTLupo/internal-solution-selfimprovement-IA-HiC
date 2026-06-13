@@ -23,13 +23,13 @@ chunks:
     key_terms: [degree, engineeringstudents, job, real, unemployable, given, essentially, experience]
     token_count: 321
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lld2pf.md#c1"
-    char_span: [1461, 3538]
+    char_span: [1460, 3537]
     sentence_count: 18
     key_terms: [companies, time, work, find, linkedin, college, message, working]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lld2pf.md#c2"
-    char_span: [3540, 3897]
+    char_span: [3539, 3896]
     sentence_count: 5
     key_terms: [contracting, professors, relocating, clearance, companies, consider, defenses, initiate]
     section: Comments

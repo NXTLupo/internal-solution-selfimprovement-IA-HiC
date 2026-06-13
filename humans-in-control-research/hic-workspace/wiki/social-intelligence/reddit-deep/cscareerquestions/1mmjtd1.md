@@ -23,103 +23,103 @@ chunks:
     key_terms: [coding-ai-jobs-students, cscareerquestions, dzplh9uafdt5, https, com, www, technology, url-share]
     token_count: 232
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c1"
-    char_span: [706, 2660]
+    char_span: [705, 2659]
     sentence_count: 18
     key_terms: [companies, "i've", brazil, qualified, jobs, people, contractors, outsourcing]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c2"
-    char_span: [2662, 4662]
+    char_span: [2661, 4661]
     sentence_count: 13
     key_terms: [rates, entry-level, journalists, been, experience, positions, industry, new-grad]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c3"
-    char_span: [4664, 6042]
+    char_span: [4663, 6041]
     sentence_count: 10
     key_terms: [journalists, reporting, probably, exactly, experts, "they're", rather, "it's"]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c4"
-    char_span: [6044, 7546]
+    char_span: [6043, 7545]
     sentence_count: 9
     key_terms: [outsourcing, "it's", india, h1b, generate, people, personal-molasses537, "don't"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c5"
-    char_span: [7548, 9332]
+    char_span: [7547, 9331]
     sentence_count: 13
     key_terms: [gell-mann, effect, amnesia, article, murray, wrong, getting, nothing]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c6"
-    char_span: [9334, 10279]
+    char_span: [9333, 10278]
     sentence_count: 9
     key_terms: [read, untruthful, amnesia, media, life, page, turn, plug-and-pause]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c7"
-    char_span: [10281, 11699]
+    char_span: [10280, 11698]
     sentence_count: 7
     key_terms: [article, "doesn't", mention, market, people, illustrious-pound266, major, legitimate-mostlet]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c8"
-    char_span: [11701, 13476]
+    char_span: [11700, 13475]
     sentence_count: 8
     key_terms: [like, new, exceptional, hire, tech, experience, perfectly, college]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c9"
-    char_span: [13479, 14956]
+    char_span: [13478, 14955]
     sentence_count: 9
     key_terms: [outsource, expectation, competing, deleted, thought, hybrid, "you're", deliriousprecarious]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c10"
-    char_span: [14958, 17298]
+    char_span: [14957, 17297]
     sentence_count: 17
     key_terms: [like, probably, degree, programming, don, "it's", "true", experience]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c11"
-    char_span: [17300, 18922]
+    char_span: [17299, 18921]
     sentence_count: 11
     key_terms: [projects, doing, new, knowledge, fizzbuzz, create, enough, concernexpensive919]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c12"
-    char_span: [18924, 20852]
+    char_span: [18923, 20851]
     sentence_count: 8
     key_terms: [grads, college, "don't", bro, like, fizzbuzz, passion, either]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c13"
-    char_span: [20854, 22892]
+    char_span: [20853, 22891]
     sentence_count: 14
     key_terms: ["it's", bad, get, jobs, experience, employed, college, years]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c14"
-    char_span: [22894, 24120]
+    char_span: [22893, 24119]
     sentence_count: 11
     key_terms: [majors, underemployment, unemployed, number, recent, grads, average, college]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c15"
-    char_span: [24122, 25957]
+    char_span: [24121, 25956]
     sentence_count: 13
     key_terms: [people, opportunities, music, photography, "i'm", jobs, top, someone]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c16"
-    char_span: [25959, 28044]
+    char_span: [25958, 28043]
     sentence_count: 16
     key_terms: [eventually, population, overpopulation, market, petiterunner, get, job, work]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmjtd1.md#c17"
-    char_span: [28046, 28534]
+    char_span: [28045, 28533]
     sentence_count: 3
     key_terms: [cheaper, less, skilled, folks, especially, reputation, countries, engineers]
     section: Comments

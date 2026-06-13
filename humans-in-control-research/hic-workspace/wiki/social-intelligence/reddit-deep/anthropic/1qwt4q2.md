@@ -23,7 +23,7 @@ chunks:
     key_terms: [ca17b8d8e5098c4a652b5903f74cca59ec16ef7c, anthropic, comments, https, png, runzt61xxphg1, reddit-deep, sudo1385]
     token_count: 136
   - id: "social-intelligence/reddit-deep/anthropic/1qwt4q2.md#c1"
-    char_span: [360, 1326]
+    char_span: [359, 1325]
     sentence_count: 5
     key_terms: [narrow-belt-5030, claude-code, anthropics, sudo1385, github, issues, myself, paying]
     section: Comments

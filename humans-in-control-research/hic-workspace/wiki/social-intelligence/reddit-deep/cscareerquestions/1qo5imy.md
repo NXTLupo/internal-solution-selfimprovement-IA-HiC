@@ -26,43 +26,43 @@ chunks:
     key_terms: [career, appreciated, developing, different, together, credits, perhaps, recover]
     token_count: 55
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c2"
-    char_span: [2348, 4579]
+    char_span: [2347, 4578]
     sentence_count: 22
     key_terms: [interested, like, job, people, going, point, start, directjacob]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c3"
-    char_span: [4581, 6048]
+    char_span: [4580, 6047]
     sentence_count: 17
     key_terms: [job, people, build, study, use, want, another, having]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c4"
-    char_span: [6050, 7760]
+    char_span: [6049, 7759]
     sentence_count: 17
     key_terms: [advice, degree, get, committed, because, through, working, people]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c5"
-    char_span: [7763, 9011]
+    char_span: [7762, 9010]
     sentence_count: 11
     key_terms: [coyoteuseful8483, get, graduated, job, time, work, impressionable, suggestions]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c6"
-    char_span: [9013, 11135]
+    char_span: [9012, 11134]
     sentence_count: 16
     key_terms: ["don't", enjoy, tonyboy0924, job, lot, applying, projects, software]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c7"
-    char_span: [11137, 13193]
+    char_span: [11136, 13192]
     sentence_count: 18
     key_terms: [sacrifice, need, work, start, get, time, situation, industry]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qo5imy.md#c8"
-    char_span: [13195, 14282]
+    char_span: [13194, 14281]
     sentence_count: 7
     key_terms: [itcareerquestions, decision, reddit, specialties, while-fancy, like, own, mathmokiwi]
     section: Comments

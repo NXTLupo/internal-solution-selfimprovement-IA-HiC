@@ -23,7 +23,7 @@ chunks:
     key_terms: [school, want, grad, research, gradadmissions, environment, comments, ecology]
     token_count: 333
   - id: "social-intelligence/reddit-deep/gradadmissions/1pe5xf2.md#c1"
-    char_span: [1484, 2014]
+    char_span: [1483, 2013]
     sentence_count: 4
     key_terms: [question, specific, broad, imo, urbanization, professors, curiosity, important]
     section: Comments

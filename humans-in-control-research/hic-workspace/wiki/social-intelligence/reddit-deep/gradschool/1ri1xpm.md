@@ -23,25 +23,25 @@ chunks:
     key_terms: [accommodations, issues, "i'm", gradschool, comments, being, does, hide]
     token_count: 235
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c1"
-    char_span: [1061, 3272]
+    char_span: [1060, 3271]
     sentence_count: 22
     key_terms: [accommodations, disability, specialist, different, meeting, office, knowingcynic, easy]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c2"
-    char_span: [3274, 5561]
+    char_span: [3273, 5560]
     sentence_count: 14
     key_terms: [accommodations, disability, experience, hope, talk, reasonable, available, paperwork]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c3"
-    char_span: [5564, 7453]
+    char_span: [5563, 7452]
     sentence_count: 16
     key_terms: [accommodations, being, getting, please, able, need, benefits, employer]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradschool/1ri1xpm.md#c4"
-    char_span: [7455, 8615]
+    char_span: [7454, 8614]
     sentence_count: 7
     key_terms: [redact, deleted, expectations, encouraging, workplace, possibly, privacy, follow]
     section: Comments

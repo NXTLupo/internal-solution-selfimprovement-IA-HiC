@@ -23,67 +23,67 @@ chunks:
     key_terms: [chatgpt, engineers, cscareerquestions, like, diminishing, comments, software, hitting]
     token_count: 398
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c1"
-    char_span: [1809, 3504]
+    char_span: [1808, 3503]
     sentence_count: 10
     key_terms: [overflow, stack, decisions, without, happen, market, early, field]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c2"
-    char_span: [3506, 4281]
+    char_span: [3505, 4280]
     sentence_count: 6
     key_terms: [industry, gone, industries, websites, horses, pushing-ai-autonomy, tools, martinfowler]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c3"
-    char_span: [4283, 6585]
+    char_span: [4282, 6584]
     sentence_count: 13
     key_terms: [agents, engineers, workflows, creating, being, assumptions, ability, agentic]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c4"
-    char_span: [6587, 8973]
+    char_span: [6586, 8972]
     sentence_count: 16
     key_terms: [business, results, using, development, use, want, work, algorithms]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c5"
-    char_span: [8975, 11170]
+    char_span: [8974, 11169]
     sentence_count: 11
     key_terms: [application, been, "it's", like, anthropic, focusing, language, utilized]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c6"
-    char_span: [11172, 13156]
+    char_span: [11171, 13155]
     sentence_count: 17
     key_terms: [management, chatgpt, "they're", middle, theory, turing, "can't", correctness]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c7"
-    char_span: [13158, 14786]
+    char_span: [13157, 14785]
     sentence_count: 11
     key_terms: [tests, unit, test, claude, "it's", like, churning, chatgpt]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c8"
-    char_span: [14788, 16406]
+    char_span: [14787, 16405]
     sentence_count: 11
     key_terms: [claude, limitations, get, technology, something, inherent, possible, chatgpt]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c9"
-    char_span: [16408, 17430]
+    char_span: [16407, 17429]
     sentence_count: 7
     key_terms: [hallucination, improvement, comes, moves, code, elo, sanityasymptote, regurgitates]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c10"
-    char_span: [17433, 19458]
+    char_span: [17432, 19457]
     sentence_count: 9
     key_terms: [replace, programmers, programming, jobs, assembly, versions, already, because]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk8zj6.md#c11"
-    char_span: [19460, 21265]
+    char_span: [19459, 21264]
     sentence_count: 6
     key_terms: [code, something, describe, language, because, generated, approach, decision]
     section: Comments

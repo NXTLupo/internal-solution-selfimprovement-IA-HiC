@@ -33,13 +33,13 @@ chunks:
     key_terms: [broadcom, custom, accelerator, meta, tan, electrical, investing, packaging]
     token_count: 246
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c3"
-    char_span: [5402, 5615]
+    char_span: [5401, 5614]
     sentence_count: 1
     key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rl47nl.md#c4"
-    char_span: [5617, 7050]
+    char_span: [5616, 7049]
     sentence_count: 7
     key_terms: [hiro-nishi, earnings, discord, buying, illustrious-aside522, justbrowsinandvibin, going, learn]
     section: Comments

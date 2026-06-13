@@ -21,7 +21,7 @@ chunks:
     key_terms: [co-op, students, neu, current, program, get, tech, understand]
     token_count: 340
   - id: "social-intelligence/reddit-deep/neu/1roe0vp.md#c1"
-    char_span: [1402, 2397]
+    char_span: [1401, 2396]
     sentence_count: 9
     key_terms: [neu, friends, international, student, frontsatisfaction152, co-op, find, got]
     section: Comments

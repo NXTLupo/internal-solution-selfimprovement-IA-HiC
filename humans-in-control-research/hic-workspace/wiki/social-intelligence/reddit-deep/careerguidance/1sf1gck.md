@@ -23,7 +23,7 @@ chunks:
     key_terms: [maximize, careerguidance, political, comments, sphere, etc, reddit-deep, actionable]
     token_count: 148
   - id: "social-intelligence/reddit-deep/careerguidance/1sf1gck.md#c1"
-    char_span: [597, 1172]
+    char_span: [596, 1171]
     sentence_count: 5
     key_terms: [internship, clearance, summer, fun-culture492, connections, internships, candidates, government]
     section: Comments

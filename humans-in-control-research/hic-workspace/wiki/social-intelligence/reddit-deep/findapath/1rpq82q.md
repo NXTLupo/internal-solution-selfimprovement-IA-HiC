@@ -28,49 +28,49 @@ chunks:
     key_terms: [year, depression, financial, been, liberal, school, learn, money]
     token_count: 507
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c2"
-    char_span: [3967, 5009]
+    char_span: [3967, 5008]
     sentence_count: 10
     key_terms: [thank, helpful, comments, everyone, guidance, advice, helped, please]
     section: Comments
     token_count: 226
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c3"
-    char_span: [5012, 6670]
+    char_span: [5011, 6669]
     sentence_count: 11
     key_terms: [education, working, probability, experience, calculate, factors, success, advice]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c4"
-    char_span: [6672, 8730]
+    char_span: [6671, 8729]
     sentence_count: 16
     key_terms: [advice, devtrivi, understanding, world, dont, fortress, original, chinese]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c5"
-    char_span: [8732, 10983]
+    char_span: [8731, 10982]
     sentence_count: 20
     key_terms: [people, environment, life, lot, positive, mindset, always, change]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c6"
-    char_span: [10985, 12861]
+    char_span: [10984, 12860]
     sentence_count: 20
     key_terms: [sales, sell, money, products, working, buying, major, work]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c7"
-    char_span: [12863, 15068]
+    char_span: [12862, 15067]
     sentence_count: 14
     key_terms: [since, technical, jobs, computer, impact, engineering, restrictive, like]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c8"
-    char_span: [15070, 17426]
+    char_span: [15069, 17425]
     sentence_count: 18
     key_terms: [research, students, gis, like, used, cannot, repair, construction]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/findapath/1rpq82q.md#c9"
-    char_span: [17428, 18298]
+    char_span: [17427, 18297]
     sentence_count: 6
     key_terms: [university, state, distance, tuition, around, per, year, in-state]
     section: Comments

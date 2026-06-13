@@ -23,7 +23,7 @@ chunks:
     key_terms: [artificial, comments, ai-generated, metaknowing, reddit-deep, "robinhood's", majority, posted]
     token_count: 84
   - id: "social-intelligence/reddit-deep/artificial/1ncdg7a.md#c1"
-    char_span: [302, 1673]
+    char_span: [301, 1672]
     sentence_count: 7
     key_terms: [code, deleted, people, hello, world, boilerplate, like, automated]
     section: Comments

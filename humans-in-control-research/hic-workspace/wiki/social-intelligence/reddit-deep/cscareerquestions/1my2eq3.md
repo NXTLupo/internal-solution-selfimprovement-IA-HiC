@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1my2eq3/is_the_job_market_in_the_us_really_as_bad_as/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,55 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.643Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c0"
+    char_span: [0, 933]
+    sentence_count: 9
+    key_terms: [cscareerquestions, job, comments, nursing, degree, market, people, reddit]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c1"
+    char_span: [948, 2513]
+    sentence_count: 14
+    key_terms: [university, nobody, get, went, applying, got, experience, internship]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c2"
+    char_span: [2515, 4434]
+    sentence_count: 12
+    key_terms: [internships, experience, berkeley, students, matters, schools, state, years]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c3"
+    char_span: [4436, 6202]
+    sentence_count: 7
+    key_terms: [internships, market, people, getting, get, gpa, job, internship]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c4"
+    char_span: [6204, 8274]
+    sentence_count: 17
+    key_terms: [graduated, decent, market, rough, bad, jobs, experience, computer]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c5"
+    char_span: [8276, 10306]
+    sentence_count: 26
+    key_terms: [people, grads, new, underemployment, because, advice, degree, number]
+    section: Comments
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c6"
+    char_span: [10308, 11952]
+    sentence_count: 10
+    key_terms: [graduates, worse, numbers, market, computer, coding-ai-jobs-students, overall, percent]
+    section: Comments
+    token_count: 436
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1my2eq3.md#c7"
+    char_span: [11954, 13826]
+    sentence_count: 24
+    key_terms: [numbers, unemployment, "that's", like, getting, overwhelming, grads, makes]
+    section: Comments
+    token_count: 446
 ---
-
 # Is the job market in the us really as bad as people online make it out to be?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1my2eq3/is_the_job_market_in_the_us_really_as_bad_as/)

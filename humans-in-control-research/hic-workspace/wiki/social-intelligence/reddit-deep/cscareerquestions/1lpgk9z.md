@@ -21,49 +21,49 @@ chunks:
     key_terms: [unemployed, market, people, capitulate, cscareerquestions, "it's", job, eventually]
     token_count: 312
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c1"
-    char_span: [1400, 2791]
+    char_span: [1399, 2790]
     sentence_count: 9
     key_terms: [job, less, field, too, interviews, fields, people, leave]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c2"
-    char_span: [2793, 4794]
+    char_span: [2792, 4793]
     sentence_count: 12
     key_terms: [people, leave, software, because, better, engineering, job, unemployed]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c3"
-    char_span: [4796, 6838]
+    char_span: [4795, 6837]
     sentence_count: 14
     key_terms: [time, games, here, graduating, everyone, deleted, "doesn't", working]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c4"
-    char_span: [6840, 8595]
+    char_span: [6839, 8594]
     sentence_count: 9
     key_terms: [people, tech, job, less, bootcamp, career, market, never]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c5"
-    char_span: [8597, 10415]
+    char_span: [8596, 10414]
     sentence_count: 7
     key_terms: [people, job, anymore, going, available, disagree, better, paying]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c6"
-    char_span: [10417, 12564]
+    char_span: [10416, 12563]
     sentence_count: 18
     key_terms: [people, fields, because, passionate, clittoryhinton, doing, enjoy, development]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c7"
-    char_span: [12566, 14698]
+    char_span: [12565, 14697]
     sentence_count: 14
     key_terms: [get, fields, people, going, right, wage, oversupply, pivoting]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lpgk9z.md#c8"
-    char_span: [14700, 16422]
+    char_span: [14699, 16421]
     sentence_count: 9
     key_terms: [offshoring, years, been, market, "don't", else, anything, deleted]
     section: Comments

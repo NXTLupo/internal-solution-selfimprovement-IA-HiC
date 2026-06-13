@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1mh0frf.md#c0"
-    char_span: [0, 761]
+    char_span: [0, 760]
     sentence_count: 7
     key_terms: [first-year, internships, internship, comments, advice, secure, hope, connections]
-    token_count: 174
+    token_count: 173
 ---
 # Advice for first-year looking to secure an internship ASAP
 

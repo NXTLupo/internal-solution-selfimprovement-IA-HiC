@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, better, alignment, comments, instead, avoid, feels, focus]
     token_count: 225
   - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c1"
-    char_span: [1113, 3199]
+    char_span: [1112, 3198]
     sentence_count: 17
     key_terms: [discipline, readwithai, dews0, goals, value, alignment, goal, level]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c2"
-    char_span: [3201, 5327]
+    char_span: [3200, 5326]
     sentence_count: 23
     key_terms: [productivity, good, people, important, being, often, throughout, adherence]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/productivity/1pyxxuu.md#c3"
-    char_span: [5329, 7447]
+    char_span: [5328, 7446]
     sentence_count: 10
     key_terms: [something, friction, instead, indexintuition, uncomfortable, productivity, real, automation]
     section: Comments

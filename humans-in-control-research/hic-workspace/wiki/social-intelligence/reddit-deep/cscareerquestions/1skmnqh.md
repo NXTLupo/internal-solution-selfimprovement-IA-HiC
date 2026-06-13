@@ -26,49 +26,49 @@ chunks:
     key_terms: [understand, implementation, people, getting, career, takes, disproportionately, get]
     token_count: 247
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c2"
-    char_span: [3471, 4696]
+    char_span: [3470, 4695]
     sentence_count: 4
     key_terms: [understand, implementation, customers, honestly, mmprobablymakingitup, built, right, disproportionately]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c3"
-    char_span: [4698, 6656]
+    char_span: [4697, 6655]
     sentence_count: 9
     key_terms: [config, post, getting, "they're", monkey, people, industry, probably]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c4"
-    char_span: [6658, 8603]
+    char_span: [6657, 8602]
     sentence_count: 13
     key_terms: [people, context, flex, consider, southern, glazers, layoffs, someone]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c5"
-    char_span: [8605, 10398]
+    char_span: [8604, 10397]
     sentence_count: 18
     key_terms: [because, layoffs, utilize, workers, collar, productivity, fully, economic]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c6"
-    char_span: [10400, 12150]
+    char_span: [10399, 12149]
     sentence_count: 14
     key_terms: [get, power, copium, models, want, companies, downvote, already]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c7"
-    char_span: [12155, 12807]
+    char_span: [12154, 12806]
     sentence_count: 5
     key_terms: [models, mythos, effective-bee-7004, task, suggestions, accurately, benchmarks, interested]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c8"
-    char_span: [12809, 14637]
+    char_span: [12808, 14636]
     sentence_count: 14
     key_terms: [games, need, displacement, productivity, human, benchmark, problems, already]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skmnqh.md#c9"
-    char_span: [14640, 15279]
+    char_span: [14639, 15278]
     sentence_count: 5
     key_terms: [problems, "that's", works, sandersdelendaest, like, skellyjelly33, shareholders, executives]
     section: Comments

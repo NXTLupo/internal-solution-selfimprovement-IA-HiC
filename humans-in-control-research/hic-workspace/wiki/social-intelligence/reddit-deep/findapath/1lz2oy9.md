@@ -23,43 +23,43 @@ chunks:
     key_terms: [working, people, good, "i'm", jobs, findapath, comments, seeing]
     token_count: 214
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c1"
-    char_span: [920, 1867]
+    char_span: [919, 1866]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c2"
-    char_span: [1870, 3679]
+    char_span: [1869, 3678]
     sentence_count: 19
     key_terms: [job, "i'm", retail, ways, inescapablefree, makes, feel, life]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c3"
-    char_span: [3681, 4792]
+    char_span: [3680, 4791]
     sentence_count: 13
     key_terms: [school, buzzyscruggs94, trade, hvac, job, classes, doing, money]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c4"
-    char_span: [4794, 6577]
+    char_span: [4793, 6576]
     sentence_count: 12
     key_terms: [breakiteven, life, apprenticeship, tehtexasranger, school, going, get, time]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c5"
-    char_span: [6579, 8167]
+    char_span: [6578, 8166]
     sentence_count: 14
     key_terms: [spectrum1523, good, get, "it's", job, rewarding, something, sometimes]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c6"
-    char_span: [8169, 8882]
+    char_span: [8168, 8881]
     sentence_count: 8
     key_terms: [unlikely-loss5616, working, mid, time, confidence, determined, struggling, understand]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/findapath/1lz2oy9.md#c7"
-    char_span: [8884, 10194]
+    char_span: [8883, 10193]
     sentence_count: 5
     key_terms: [engineering, did, work, wildlife, certification, got, job, biologist]
     section: Comments

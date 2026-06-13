@@ -1,0 +1,13 @@
+Topic 12 - Content Sample
+Number of content items: 19
+Top words: vanguard, information, pe, account, database, vanguard main, ownyourfuture vanguard main
+
+Content 1 (length: 112 chars):
+Curious how you "discovered" you have a Vanguard account. Do you know who created it and when? Was it inherited?
+
+Content 2 (length: 681 chars):
+How to learn what kind of account you have from the Dashboard? I recently discovered that I have a Vanguard account, but I'm not sure what it is. I've managed to log into their site, but I can't find any mention of the actual type of account I have. Where would I be able to find out? My parents invested $7000 into a Vanguard account when I was born. I had no idea about it until a few days ago, when my mother mentioned it to me. I managed to set up a password, logged in and saw that it had grown to $19,000. That was pretty disappointing for forty-three years of it being untouched and reinvested, so I was wondering just what kind of account it was. SP 500, something else...?
+
+Content 3 (length: 115 chars):
+* https://ownyourfuture.vanguard.com/main/explore/iframing/rulesForPlan This gives me information for my 401k plan.
+

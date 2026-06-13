@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, entry-level, comments, requires, get, job, jobs, katyreddit00]
     token_count: 103
   - id: "social-intelligence/reddit-deep/jobs/1t4mq9f.md#c1"
-    char_span: [423, 988]
+    char_span: [422, 987]
     sentence_count: 4
     key_terms: [want, someone, people, train, don, hate, historicalchew10, katyreddit00]
     section: Comments

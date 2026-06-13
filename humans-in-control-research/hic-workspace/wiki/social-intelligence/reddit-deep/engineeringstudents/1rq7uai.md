@@ -21,37 +21,37 @@ chunks:
     key_terms: [worked, engineeringstudents, hours, like, week, pay, internship, comments]
     token_count: 491
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c1"
-    char_span: [1908, 3554]
+    char_span: [1907, 3553]
     sentence_count: 9
     key_terms: [college, school, jobs, worked, being, engineering, customer, engineer]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c2"
-    char_span: [3556, 5461]
+    char_span: [3555, 5460]
     sentence_count: 10
     key_terms: [nvidia-billionaire-ceo-went-denny-145530671, nvidia-dennys-trillion, https, com, engineering, experience, designed, supposed]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c3"
-    char_span: [5463, 6763]
+    char_span: [5462, 6762]
     sentence_count: 7
     key_terms: [get, engineers, euphoric-gazelle7264, welds, years, ambitionno834, unfortunately, acknowledges]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c4"
-    char_span: [6765, 7529]
+    char_span: [6764, 7528]
     sentence_count: 7
     key_terms: [work, benaiahofkabzeel, congratulations, sublimebaker120, experiences, interviewer, perspective, ellievader]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c5"
-    char_span: [7531, 9305]
+    char_span: [7530, 9304]
     sentence_count: 12
     key_terms: [congratulations, carpet, decade, worked, get, lab, life, long]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rq7uai.md#c6"
-    char_span: [9307, 10907]
+    char_span: [9306, 10906]
     sentence_count: 13
     key_terms: [beautifulcredit3672, want, brother, working, people, pretty, advanced-guidance482, next-explanation321]
     section: Comments

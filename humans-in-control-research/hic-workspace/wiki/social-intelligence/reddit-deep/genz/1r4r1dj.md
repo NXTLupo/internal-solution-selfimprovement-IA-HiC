@@ -23,13 +23,13 @@ chunks:
     key_terms: [financial, comments, habits, money, worst, ordinary-fish-9791, genz, too]
     token_count: 134
   - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c1"
-    char_span: [531, 2133]
+    char_span: [530, 2132]
     sentence_count: 7
     key_terms: [over-transition9609, lettuce, seriously, something, discord, eating, piedmontmountaineer, money]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/genz/1r4r1dj.md#c2"
-    char_span: [2135, 3836]
+    char_span: [2134, 3835]
     sentence_count: 15
     key_terms: [buying, financier92, man, collection, paycheque, flexing, family, invest]
     section: Comments

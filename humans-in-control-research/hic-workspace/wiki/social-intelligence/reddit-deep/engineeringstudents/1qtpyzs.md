@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qtpyzs.md#c0"
-    char_span: [0, 1244]
+    char_span: [0, 1243]
     sentence_count: 12
     key_terms: [projects, engineering, engineeringstudents, non-engineering, typical-user-87, "don't", unrelated, comments]
     token_count: 285

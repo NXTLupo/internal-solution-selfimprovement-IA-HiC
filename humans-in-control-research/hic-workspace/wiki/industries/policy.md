@@ -7,7 +7,7 @@ industries: [policy]
 status: active
 chunks:
   - id: "industries/policy.md#c0"
-    char_span: [0, 762]
+    char_span: [0, 761]
     sentence_count: 2
     key_terms: [industries, reddit-deep-r-careerguidance, sources, shared, articles, reddit-deep-r-applyingtocollege, reddit-deep-r-gradschool, policy]
     section: Cross-over verticals (shared sources) / Representative sources

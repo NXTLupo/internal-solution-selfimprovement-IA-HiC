@@ -31,61 +31,61 @@ chunks:
     key_terms: [admission, interest, officers, tracking, non-negotiables, demonstrated, supplemental, absolutely]
     token_count: 137
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c3"
-    char_span: [5196, 7589]
+    char_span: [5195, 7588]
     sentence_count: 15
     key_terms: [admissions, demonstrated, interest, decisions, departments, use, schools, college-confidential]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c4"
-    char_span: [7591, 8509]
+    char_span: [7590, 8508]
     sentence_count: 4
     key_terms: [consideration, demonstrated, decisions, interest, schools, college-confidential, environmentactive325, small-but-meaningful]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c5"
-    char_span: [8511, 10171]
+    char_span: [8510, 10170]
     sentence_count: 5
     key_terms: [schools, demonstrated, admissions, applicant, aos, interest, acknowledge, data]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c6"
-    char_span: [10173, 12427]
+    char_span: [10172, 12426]
     sentence_count: 16
     key_terms: [like, ben-ma, town, definitely, understand, selective, colleges, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c7"
-    char_span: [12127, 12595]
+    char_span: [12126, 12594]
     sentence_count: 6
     key_terms: [schools, factor, never, informational, frustrating, unsubscribe, understand, certainly]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c8"
-    char_span: [12597, 13132]
+    char_span: [12596, 13131]
     sentence_count: 5
     key_terms: [schools, email, because, demonstrated, application, information, unsubscribe, admissions]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c9"
-    char_span: [13134, 15004]
+    char_span: [13133, 15003]
     sentence_count: 18
     key_terms: [waitlist, got, schools, school, demonstrated, get, ivy, list]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c10"
-    char_span: [15006, 15895]
+    char_span: [15005, 15894]
     sentence_count: 8
     key_terms: [data, rate, acceptance, bigjeducationalconsulting, good, look, rea, scea]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c11"
-    char_span: [15897, 17530]
+    char_span: [15896, 17529]
     sentence_count: 13
     key_terms: [schools, salesforce, slate, collegevine, crm, does, like, privacy]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7go3t.md#c12"
-    char_span: [17532, 18771]
+    char_span: [17531, 18770]
     sentence_count: 8
     key_terms: [applicants, selective, business, highly, information, education, colleges, tracking]
     section: Comments

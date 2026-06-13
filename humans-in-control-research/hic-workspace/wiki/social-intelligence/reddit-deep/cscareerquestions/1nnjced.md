@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nnjced.md#c0"
-    char_span: [0, 1284]
+    char_span: [0, 1283]
     sentence_count: 11
     key_terms: [appworks, cscareerquestions, career, developer, viability, comments, official, courses]
-    token_count: 271
+    token_count: 270
 ---
 # Seeking Career Advice and Learning Path for OpenText AppWorks
 

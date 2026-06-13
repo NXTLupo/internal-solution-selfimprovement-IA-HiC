@@ -21,25 +21,25 @@ chunks:
     key_terms: [cscareerquestions, always, applications, find, job, time, unemployed, something]
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c1"
-    char_span: [1510, 3240]
+    char_span: [1509, 3239]
     sentence_count: 15
     key_terms: [job, unemployed, chubbyvegantravels, employed, people, get, leverage, because]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c2"
-    char_span: [3242, 5192]
+    char_span: [3241, 5191]
     sentence_count: 18
     key_terms: [get, reason, candidates, freeing, totally, decent, months, people]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c3"
-    char_span: [5197, 7214]
+    char_span: [5196, 7213]
     sentence_count: 13
     key_terms: [people, laid, managers, hiring, hire, tech, work, probably]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5vqj.md#c4"
-    char_span: [7217, 7976]
+    char_span: [7216, 7975]
     sentence_count: 2
     key_terms: [puzzleheadedguess435, happyirishman633210, job, new, ecethrowaway01, questionable, environment, everything]
     section: Comments

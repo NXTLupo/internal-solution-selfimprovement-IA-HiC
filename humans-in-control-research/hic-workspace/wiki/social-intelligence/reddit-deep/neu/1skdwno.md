@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1skdwno.md#c0"
-    char_span: [0, 697]
+    char_span: [0, 696]
     sentence_count: 8
     key_terms: [program, networking, comments, students, co-op, playful-rice-4063, neu, extracurricular]
-    token_count: 171
+    token_count: 170
 ---
 # MS CS (co-op participation, networking)
 

@@ -28,37 +28,37 @@ chunks:
     key_terms: [like, didn, getting, making, money, corporate, feel, love]
     token_count: 483
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c2"
-    char_span: [2443, 3983]
+    char_span: [2442, 3982]
     sentence_count: 12
     key_terms: [thank, helpful, people, please, help, supportive, findapath, comments]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c3"
-    char_span: [3985, 5495]
+    char_span: [3984, 5494]
     sentence_count: 11
     key_terms: [exist, good, especially, consider, honestly, monotony, toxicity, another]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c4"
-    char_span: [5497, 7393]
+    char_span: [5496, 7392]
     sentence_count: 18
     key_terms: [because, workforce, volunteering, heart, job, lol, compassion, corporate]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c5"
-    char_span: [7395, 9508]
+    char_span: [7394, 9507]
     sentence_count: 29
     key_terms: [people, principles, back, nursing, similar, school, specifically, narcissists]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c6"
-    char_span: [9510, 11531]
+    char_span: [9509, 11530]
     sentence_count: 18
     key_terms: [because, organization, human, agapeflood, unemployed, resources, starting, manager]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/findapath/1sdrq15.md#c7"
-    char_span: [11533, 12432]
+    char_span: [11532, 12431]
     sentence_count: 6
     key_terms: [something, friends, totally, working, myself, remind, trying, fresh-section-5575]
     section: Comments

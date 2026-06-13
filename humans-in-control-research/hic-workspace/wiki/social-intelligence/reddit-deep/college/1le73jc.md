@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, school, time, anyone, engineering, comments, continue, honestly]
     token_count: 461
   - id: "social-intelligence/reddit-deep/college/1le73jc.md#c1"
-    char_span: [2090, 3949]
+    char_span: [2089, 3948]
     sentence_count: 19
     key_terms: [school, money, years, "i'm", semester, going, back, went]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1le73jc.md#c2"
-    char_span: [3951, 5925]
+    char_span: [3950, 5924]
     sentence_count: 14
     key_terms: [full-time, work, classes, internships, semester, dode124, clearwaterrev, opportunity]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/college/1le73jc.md#c3"
-    char_span: [5927, 6159]
+    char_span: [5926, 6158]
     sentence_count: 2
     key_terms: [interviews, time, applications, internship, full-time, seriously, complete, program]
     section: Comments

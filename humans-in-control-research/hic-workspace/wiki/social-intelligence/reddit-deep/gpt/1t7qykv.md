@@ -33,7 +33,7 @@ chunks:
     key_terms: [prompt, image, relationships, layer, model, rules, understands, lot]
     token_count: 476
   - id: "social-intelligence/reddit-deep/gpt/1t7qykv.md#c3"
-    char_span: [6829, 6943]
+    char_span: [6828, 6942]
     sentence_count: 1
     key_terms: [hookedonpeptides, different, noticed, coming, mxby7e, back, "i've", nice]
     section: Comments

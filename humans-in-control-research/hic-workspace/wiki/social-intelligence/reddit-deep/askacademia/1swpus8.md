@@ -23,7 +23,7 @@ chunks:
     key_terms: [university, field, phd, overall, ranking, askacademia, "i'm", too]
     token_count: 349
   - id: "social-intelligence/reddit-deep/askacademia/1swpus8.md#c1"
-    char_span: [1481, 2812]
+    char_span: [1480, 2811]
     sentence_count: 10
     key_terms: [program, academia, want, matters, reputation, prestige, popstarkirbys, ranking]
     section: Comments

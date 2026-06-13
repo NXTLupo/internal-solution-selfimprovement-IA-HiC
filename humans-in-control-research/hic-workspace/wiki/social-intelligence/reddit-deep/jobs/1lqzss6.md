@@ -28,7 +28,7 @@ chunks:
     key_terms: [lucky, get, stay, congratulations, unfortunately, opportunity, supportive, breathing]
     token_count: 94
   - id: "social-intelligence/reddit-deep/jobs/1lqzss6.md#c2"
-    char_span: [2605, 3811]
+    char_span: [2604, 3810]
     sentence_count: 10
     key_terms: [congratulations, congrats, thanks, bigabbreviations5546, imaginary-version10, fight, happy, phone]
     section: Comments

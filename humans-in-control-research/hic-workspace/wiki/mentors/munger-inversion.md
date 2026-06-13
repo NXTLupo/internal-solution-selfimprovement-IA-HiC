@@ -6,7 +6,7 @@ mentor: Charlie Munger
 created: 2026-05-23
 chunks:
   - id: "mentors/munger-inversion.md#c0"
-    char_span: [0, 1686]
+    char_span: [0, 1685]
     sentence_count: 9
     key_terms: [recommendation, inversion, recommendations, second-order, model, skill, stakeholder, ask]
     section: Core question stems Munger asks / How HiC applies inversion / When NOT to apply inversion / Composes with

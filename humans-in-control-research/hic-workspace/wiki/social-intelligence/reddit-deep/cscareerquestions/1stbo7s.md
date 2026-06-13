@@ -38,7 +38,7 @@ chunks:
     key_terms: [get, "i'm", non-negotiable, load-bearing, assessments, opportunity, absolutely, allocation]
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1stbo7s.md#c4"
-    char_span: [7834, 8477]
+    char_span: [7833, 8476]
     sentence_count: 6
     key_terms: [sureassociation9708, part, encouraging, indomitable, internship, employers, published, regionals]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [job, "i'm", something, digitalnomad, learn, month, skill, new]
     token_count: 498
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c1"
-    char_span: [2093, 3745]
+    char_span: [2092, 3744]
     sentence_count: 10
     key_terms: [get, companies, something, personal, anxiety, because, become, people]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c2"
-    char_span: [3747, 5716]
+    char_span: [3746, 5715]
     sentence_count: 13
     key_terms: ["you're", international-fly735, doing, work, anywhere, language, position, current]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c3"
-    char_span: [5718, 7539]
+    char_span: [5717, 7538]
     sentence_count: 9
     key_terms: [situation, felixnoriel, back, get, "i'm", nomading, diving, remote]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/digitalnomad/1tf3rx4.md#c4"
-    char_span: [7541, 8145]
+    char_span: [7540, 8144]
     sentence_count: 4
     key_terms: [environment, considered, certainly, competing, corporate, employers, including, marketing]
     section: Comments

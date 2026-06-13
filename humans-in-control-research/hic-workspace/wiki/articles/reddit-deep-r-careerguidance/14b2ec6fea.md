@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/14b2ec6fea.md#c0"
-    char_span: [0, 1312]
+    char_span: [0, 1311]
     sentence_count: 10
     key_terms: [without, careerguidance, becoming, comments, honestly, "there's", anyone, career]
-    token_count: 283
+    token_count: 282
   - id: "articles/reddit-deep-r-careerguidance/14b2ec6fea.md#c1"
-    char_span: [1317, 2571]
+    char_span: [1316, 2570]
     sentence_count: 9
     key_terms: [without, everything, narrow-employee-824, small, years, formysaiquestions, ago, down]
     token_count: 258

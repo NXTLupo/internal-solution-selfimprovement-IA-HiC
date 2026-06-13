@@ -21,43 +21,43 @@ chunks:
     key_terms: [anymore, since, cscareerquestions, like, time, girlfriend, destroyed, comments]
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c1"
-    char_span: [2183, 4318]
+    char_span: [2182, 4317]
     sentence_count: 22
     key_terms: [get, exercise, toddler, vitamin, better, enough, having, supplements]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c2"
-    char_span: [4321, 5143]
+    char_span: [4320, 5142]
     sentence_count: 7
     key_terms: ["i'm", health, mental, myself, best, job, infrastructure, reconnecting]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c3"
-    char_span: [5145, 7171]
+    char_span: [5144, 7170]
     sentence_count: 17
     key_terms: [stopdrinking, rexcovering, strength, someone, please, issue, cscareerquestions, hope]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c4"
-    char_span: [6961, 7834]
+    char_span: [6960, 7833]
     sentence_count: 7
     key_terms: [something, probably, options, justleave-mealone, ok-process-2187, cucharamama, affordable, sonography]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c5"
-    char_span: [7836, 9833]
+    char_span: [7835, 9832]
     sentence_count: 19
     key_terms: [something, pain, year, working, needed, bit, deal, gets]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c6"
-    char_span: [9835, 10764]
+    char_span: [9834, 10763]
     sentence_count: 6
     key_terms: [program, decided, engineering, did, got, different, school, wanted]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opqxkh.md#c7"
-    char_span: [10766, 12159]
+    char_span: [10765, 12158]
     sentence_count: 4
     key_terms: [therapy, desperatesouthpark, right, experience, "doesn't", someone, cheap, grind]
     section: Comments

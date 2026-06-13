@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, internship, comments, student, school, sensitive-low-4359, high, engineering]
     token_count: 179
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdasjr.md#c1"
-    char_span: [748, 1090]
+    char_span: [747, 1089]
     sentence_count: 1
     key_terms: [internship, deluusonialbadger, integrators, programmers, integrator, undergrad, research, biotech]
     section: Comments

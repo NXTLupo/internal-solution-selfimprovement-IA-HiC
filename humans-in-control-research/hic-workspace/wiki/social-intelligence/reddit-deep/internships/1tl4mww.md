@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, internship, comments, landed, summer, start, fall, reddit-deep]
     token_count: 153
   - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c1"
-    char_span: [556, 2480]
+    char_span: [555, 2479]
     sentence_count: 9
     key_terms: [fall, spring, appropriate-tutor587, graduation, internship, postings, later, internships]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/internships/1tl4mww.md#c2"
-    char_span: [2482, 3980]
+    char_span: [2481, 3979]
     sentence_count: 10
     key_terms: [fall, start, internships, internship, different, september, already, companies]
     section: Comments

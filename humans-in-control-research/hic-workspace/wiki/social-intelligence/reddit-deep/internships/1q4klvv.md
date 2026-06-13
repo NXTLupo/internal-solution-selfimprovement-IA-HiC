@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1q4klvv.md#c0"
-    char_span: [0, 846]
+    char_span: [0, 845]
     sentence_count: 7
     key_terms: [internships, accounting, internship, finance, india, practical, comments, student]
-    token_count: 199
+    token_count: 198
 ---
 # Accounting / Finance Internship – BAF Student Seeking Opportunity (India / UAE).
 

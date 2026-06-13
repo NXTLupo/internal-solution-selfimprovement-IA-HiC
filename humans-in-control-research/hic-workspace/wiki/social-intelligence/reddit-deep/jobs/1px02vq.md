@@ -23,25 +23,25 @@ chunks:
     key_terms: [job, jobs, years, comments, bagging, because, college, looking]
     token_count: 332
   - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c1"
-    char_span: [1445, 2862]
+    char_span: [1444, 2861]
     sentence_count: 7
     key_terms: [jobs, people, job, work, inexperienced, level, year, especially]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c2"
-    char_span: [2864, 4961]
+    char_span: [2863, 4960]
     sentence_count: 10
     key_terms: [adventurous-boss-882, business, spending, people, christmas, extremely, "i'm", economy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c3"
-    char_span: [4761, 5417]
+    char_span: [4760, 5416]
     sentence_count: 11
     key_terms: ["i'm", tired, "i've", put, applications, opportunity, hcd123321, interview]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/jobs/1px02vq.md#c4"
-    char_span: [5419, 7410]
+    char_span: [5418, 7409]
     sentence_count: 16
     key_terms: [college, education, jobs, throwawayytessslaa, because, hiring, "you're", maryssmith]
     section: Comments

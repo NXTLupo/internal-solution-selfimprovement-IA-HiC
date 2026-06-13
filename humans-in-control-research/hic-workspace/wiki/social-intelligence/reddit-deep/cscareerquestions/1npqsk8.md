@@ -21,73 +21,73 @@ chunks:
     key_terms: [cscareerquestions, another, years, time, comments, complete, because, program]
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c1"
-    char_span: [1436, 3348]
+    char_span: [1435, 3347]
     sentence_count: 10
     key_terms: [people, money, transporting, tech, conditions, reliable, straight, baited]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c2"
-    char_span: [3350, 4579]
+    char_span: [3349, 4578]
     sentence_count: 9
     key_terms: [trades, people, journeymen, saying, learn, union, ignatiusofcrayloa, been]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c3"
-    char_span: [4581, 6526]
+    char_span: [4580, 6525]
     sentence_count: 13
     key_terms: [trades, work, deleted, "isn't", jobs, software, because, easier]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c4"
-    char_span: [6528, 8355]
+    char_span: [6527, 8354]
     sentence_count: 11
     key_terms: [day, disproportionate, because, working, career, stress, worked, conservative]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c5"
-    char_span: [8357, 9960]
+    char_span: [8356, 9959]
     sentence_count: 11
     key_terms: [trades, work, hours, back, job, fallback, because, culture]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c6"
-    char_span: [9962, 11019]
+    char_span: [9961, 11018]
     sentence_count: 8
     key_terms: [trades, back, day, encourage, generally, depends, always, people]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c7"
-    char_span: [11021, 12678]
+    char_span: [11020, 12677]
     sentence_count: 7
     key_terms: [hours, week, making, per, holidays, around, months, redact]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c8"
-    char_span: [12680, 13940]
+    char_span: [12679, 13939]
     sentence_count: 7
     key_terms: [people, learn, peekatchu1, forget, saying, trades, ruinadventurous1931, money]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c9"
-    char_span: [13942, 15890]
+    char_span: [13941, 15889]
     sentence_count: 15
     key_terms: [different, software, capable, started, driver, exist, truck, day]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c10"
-    char_span: [15892, 17470]
+    char_span: [15891, 17469]
     sentence_count: 11
     key_terms: [requires, "i'm", sunglasses, future, people, human, been, job]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c11"
-    char_span: [17472, 19551]
+    char_span: [17471, 19550]
     sentence_count: 16
     key_terms: [people, subreddit, don, like, industry, because, seattle, working]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npqsk8.md#c12"
-    char_span: [19553, 19699]
+    char_span: [19552, 19698]
     sentence_count: 3
     key_terms: [trades, recommends, slightly, anyone, poison, resort, means, touch]
     section: Comments

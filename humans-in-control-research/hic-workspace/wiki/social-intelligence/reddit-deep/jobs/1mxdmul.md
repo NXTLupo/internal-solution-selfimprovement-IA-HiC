@@ -23,37 +23,37 @@ chunks:
     key_terms: [interview, manager, application, get, want, experience, comments, applied]
     token_count: 454
   - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c1"
-    char_span: [1889, 3207]
+    char_span: [1888, 3206]
     sentence_count: 12
     key_terms: [hiring, availability, available, manager, opening, waiting, likely, cover]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c2"
-    char_span: [3209, 4867]
+    char_span: [3208, 4866]
     sentence_count: 17
     key_terms: [availability, job, need, time, looking, school, work, preference]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c3"
-    char_span: [4869, 5851]
+    char_span: [4868, 5850]
     sentence_count: 10
     key_terms: [eggtartlover4life, failure, places, waitingonmyletter, got, isn, need, try]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c4"
-    char_span: [5853, 7920]
+    char_span: [5852, 7919]
     sentence_count: 9
     key_terms: [eggtartlover4life, store, gatorbeetle, job, time, work, different, interview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c5"
-    char_span: [7673, 8593]
+    char_span: [7672, 8592]
     sentence_count: 2
     key_terms: [afternoons, evenings, mornings, hiring, school, years, eggtartlover4life, high]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/jobs/1mxdmul.md#c6"
-    char_span: [8595, 9111]
+    char_span: [8594, 9110]
     sentence_count: 5
     key_terms: ["mcdonald's", because, eggtartlover4life, job, like, tell, specifically, demonstrate]
     section: Comments

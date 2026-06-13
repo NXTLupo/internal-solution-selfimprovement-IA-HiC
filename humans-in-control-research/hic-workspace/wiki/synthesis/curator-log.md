@@ -14,55 +14,55 @@ chunks:
     key_terms: [curator, wiki, run, curator-log, frontmatter, unmeasured, directive, baseline]
     token_count: 64
   - id: "synthesis/curator-log.md#c1"
-    char_span: [309, 1710]
+    char_span: [308, 1709]
     sentence_count: 2
     key_terms: [run, pages, missing-frontmatter, findings, broken-link, scanned, linter, orphan]
     section: Run summary 2026-05-24
     token_count: 394
   - id: "synthesis/curator-log.md#c2"
-    char_span: [1712, 2236]
+    char_span: [1711, 2235]
     sentence_count: 4
     key_terms: [lint, broken-link, synthesis, reports, count, total, lint-2026-05-22, lint-2026-05-23]
     section: Run summary 2026-05-24
     token_count: 144
   - id: "synthesis/curator-log.md#c3"
-    char_span: [2270, 3962]
+    char_span: [2269, 3961]
     sentence_count: 8
     key_terms: [auto-fix, updated, type, pages, missing, benchmarks, synthesis, title]
     section: Auto-fixes applied this run / Triage — what a full curator run could auto-fix
     token_count: 416
   - id: "synthesis/curator-log.md#c4"
-    char_span: [3964, 5439]
+    char_span: [3963, 5438]
     sentence_count: 12
     key_terms: [pages, placeholder, auto-fix, citation, broken, create-a-comprehensive-strategy, serializer, evidence]
     section: Triage — what a full curator run could auto-fix
     token_count: 348
   - id: "synthesis/curator-log.md#c5"
-    char_span: [5441, 7201]
+    char_span: [5440, 7200]
     sentence_count: 17
     key_terms: [pages, engagements, index, auto-fixable, section, page, compile-history, sources]
     section: Triage — what a full curator run could auto-fix
     token_count: 429
   - id: "synthesis/curator-log.md#c6"
-    char_span: [7231, 8772]
+    char_span: [7230, 8771]
     sentence_count: 3
     key_terms: [create-a-comprehensive-strategy-and-road, findings, sources, placeholder, scaffolding, class, evidence, template]
     section: Flagged for user review
     token_count: 404
   - id: "synthesis/curator-log.md#c7"
-    char_span: [8774, 9981]
+    char_span: [8773, 9980]
     sentence_count: 1
     key_terms: [engagements, review, create-a-comprehensive-strategy-and-roadmap-of-tac, identify-named-university-case-studies-from-2025-a, role-you-are-an-elite-market-research-analyst-embe, possible, compile-history, auto-generated]
     section: Flagged for user review
     token_count: 297
   - id: "synthesis/curator-log.md#c8"
-    char_span: [10006, 10696]
+    char_span: [10005, 10695]
     sentence_count: 1
     key_terms: [pages, create-a-comprehensive-strategy, sources, compile-history, machine-managed, uploads-2026-04, citation-tuple, development]
     section: Proposed deletions
     token_count: 147
   - id: "synthesis/curator-log.md#c9"
-    char_span: [10715, 12120]
+    char_span: [10714, 12119]
     sentence_count: 14
     key_terms: [backlog, next, run, curator, non-baseline, broken-link, engagements, real]
     section: Trend signal

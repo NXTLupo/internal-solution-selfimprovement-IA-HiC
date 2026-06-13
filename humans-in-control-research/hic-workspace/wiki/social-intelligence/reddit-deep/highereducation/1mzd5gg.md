@@ -23,13 +23,13 @@ chunks:
     key_terms: [students, courses, student, enrolled, highereducation, thanks, undergraduate, class]
     token_count: 308
   - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c1"
-    char_span: [1271, 2719]
+    char_span: [1270, 2718]
     sentence_count: 8
     key_terms: [credit, class, per, institution, students, student, rate, department]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/highereducation/1mzd5gg.md#c2"
-    char_span: [2723, 4182]
+    char_span: [2722, 4181]
     sentence_count: 9
     key_terms: [class, students, credit, hour, per, anything, course, higher]
     section: Comments

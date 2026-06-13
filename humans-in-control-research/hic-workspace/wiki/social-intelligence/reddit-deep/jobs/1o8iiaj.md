@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, normal, chronicallylurkiing, check, jobs, like, administrator, reddit-deep]
     token_count: 164
   - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c1"
-    char_span: [710, 2282]
+    char_span: [709, 2281]
     sentence_count: 10
     key_terms: [ban-the-box-fair-chance-hiring-state-and-local-guide, background, scam, "doesn't", credit, states, no-understanding4968, chronicallylurkiing]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1o8iiaj.md#c2"
-    char_span: [2284, 4001]
+    char_span: [2283, 4000]
     sentence_count: 12
     key_terms: [credit, scam, pull, website, offer, applicant, instead, reports]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, research, summer, opportunities, internships, underclassmen-internships, comments, github]
     token_count: 293
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c1"
-    char_span: [1265, 3133]
+    char_span: [1264, 3132]
     sentence_count: 22
     key_terms: [information, doing, find, job, resume, "can't", "don't", pages]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qsb1fp.md#c2"
-    char_span: [3136, 4286]
+    char_span: [3135, 4285]
     sentence_count: 7
     key_terms: [knowledge, time, apply, job, automated, learning, problems, company]
     section: Comments

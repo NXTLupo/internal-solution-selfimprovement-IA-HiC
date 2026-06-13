@@ -26,49 +26,49 @@ chunks:
     key_terms: [frontend, skills, "i'm", backend, least, job, take, work]
     token_count: 311
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c2"
-    char_span: [2826, 4232]
+    char_span: [2825, 4231]
     sentence_count: 16
     key_terms: [experience, got, job, thought, money, dev, sometimes, little]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c3"
-    char_span: [4234, 6247]
+    char_span: [4233, 6246]
     sentence_count: 18
     key_terms: [java, for-loop, programming, syntax, shamanshaman123, job, learning, yourself]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c4"
-    char_span: [6249, 8213]
+    char_span: [6248, 8212]
     sentence_count: 17
     key_terms: [java, philosophies, javascript, understand, solid, community, fitgas7951, language]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c5"
-    char_span: [8215, 10192]
+    char_span: [8214, 10191]
     sentence_count: 12
     key_terms: [java, companies, legacy, use, software, right, programming, languages]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c6"
-    char_span: [10194, 11753]
+    char_span: [10193, 11752]
     sentence_count: 12
     key_terms: [shamanshaman123, beginning-comedian-2, "it's", apply, right, get, jobs, per]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c7"
-    char_span: [11755, 13896]
+    char_span: [11754, 13895]
     sentence_count: 23
     key_terms: [shamanshaman123, "don't", years, been, code, java, something, yourself]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c8"
-    char_span: [13898, 15966]
+    char_span: [13897, 15965]
     sentence_count: 24
     key_terms: [back, get, figure, programming, seanprefect, java, job, experience]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pjcwpi.md#c9"
-    char_span: [15968, 16868]
+    char_span: [15967, 16867]
     sentence_count: 11
     key_terms: [interviewers, persistence, competence, recommend, yourself, judging, get, "it's"]
     section: Comments

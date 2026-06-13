@@ -23,31 +23,31 @@ chunks:
     key_terms: [info, chat, gpt, "it's", time, suggested, comments, chatgpt]
     token_count: 208
   - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c1"
-    char_span: [782, 1996]
+    char_span: [781, 1995]
     sentence_count: 11
     key_terms: [please, conversation, image, post, concerns, chatgpt-shared-links-faq, chatgpt, discord]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c2"
-    char_span: [1998, 3358]
+    char_span: [1997, 3357]
     sentence_count: 13
     key_terms: [missjenn503, peltonchicago, instructions, gpt, log, anything, obsidian, chatgpt]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c3"
-    char_span: [3360, 5126]
+    char_span: [3359, 5125]
     sentence_count: 20
     key_terms: ["can't", "it's", missjenn503, like, "shouldn't", engaged, suggest, pleasant-shallot-707]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c4"
-    char_span: [5128, 6848]
+    char_span: [5127, 6847]
     sentence_count: 17
     key_terms: [png, "you're", missjenn503, ask, morning, preview, results, format]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/chatgpt/1kvvql3.md#c5"
-    char_span: [6850, 7237]
+    char_span: [6849, 7236]
     sentence_count: 6
     key_terms: [ready, discussions, missjenn503, something, figuring, learning, supposed, advance]
     section: Comments

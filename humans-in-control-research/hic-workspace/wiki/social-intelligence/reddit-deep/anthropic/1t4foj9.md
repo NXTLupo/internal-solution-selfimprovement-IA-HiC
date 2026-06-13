@@ -23,7 +23,7 @@ chunks:
     key_terms: [anthropic, comments, gaslighting, reddit-deep, assistant, deleting, uncover, claude]
     token_count: 93
   - id: "social-intelligence/reddit-deep/anthropic/1t4foj9.md#c1"
-    char_span: [346, 1244]
+    char_span: [345, 1243]
     sentence_count: 10
     key_terms: [blacklist, git, operations, approach, happened, confirmation, destructivly, implementing]
     section: Comments

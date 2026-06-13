@@ -23,19 +23,19 @@ chunks:
     key_terms: [taxes, invest, everything, high-yield, investing, comments, account, "doesn't"]
     token_count: 205
   - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c1"
-    char_span: [802, 1481]
+    char_span: [801, 1480]
     sentence_count: 3
     key_terms: [lab-gone-wrong, income, understood, brackets, consistentregion6184, never, gain, "i've"]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c2"
-    char_span: [1483, 3011]
+    char_span: [1482, 3010]
     sentence_count: 11
     key_terms: [taxes, pay, people, tax, investment, taxable, income, wealth]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/investing/1lm8l8t.md#c3"
-    char_span: [3013, 4539]
+    char_span: [3012, 4538]
     sentence_count: 11
     key_terms: [tax, longjumping-ice1171, income, advantage, municipal, albeit, around, yields]
     section: Comments

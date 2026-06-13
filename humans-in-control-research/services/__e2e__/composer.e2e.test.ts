@@ -124,7 +124,12 @@ describe('composer e2e (live proxy)', () => {
     expect(result.payload).toBeTruthy();
     expect(Array.isArray(result.payload.sections)).toBe(true);
     expect(result.payload.sections.length).toBeGreaterThanOrEqual(6);
-    // No emoji / em-dash leaked into the title (repo-wide ban).
-    expect(/[\u{1F000}-\u{1FAFF}-]/u.test(result.payload.meta?.title || '')).toBe(false);
+    // No emoji / em-dash / en-dash leaked into the title (repo-wide ban).
+    // NOTE: dashes are matched by CODEPOINT ESCAPE (en U+2013, em U+2014),
+    // NEVER as a literal character - a dash-strip pass once rewrote the
+    // em-dash in this regex to an ASCII "-", which made every title
+    // containing "co-op" fail falsely
+    // (feedback_em_dash_strip_must_not_touch_ascii_hyphen).
+    expect(/[\u{1F000}-\u{1FAFF}\u2013\u2014]/u.test(result.payload.meta?.title || '')).toBe(false);
   }, 360_000);
 });

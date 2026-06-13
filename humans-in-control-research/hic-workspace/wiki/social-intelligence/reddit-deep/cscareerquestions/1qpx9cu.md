@@ -28,25 +28,25 @@ chunks:
     key_terms: ["don't", something, "i'm", like, comfortably, potentially, absolutely, considered]
     token_count: 174
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c2"
-    char_span: [2991, 4493]
+    char_span: [2990, 4492]
     sentence_count: 11
     key_terms: [experience, companies, years, back, support, people, home, recommend]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c3"
-    char_span: [4496, 6554]
+    char_span: [4495, 6553]
     sentence_count: 20
     key_terms: [tech, something, job, doing, good, "i'm", isn, like]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c4"
-    char_span: [6556, 7004]
+    char_span: [6555, 7003]
     sentence_count: 4
     key_terms: [unemployment, applicants, difference, passionate, personally, transition, competing, positions]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpx9cu.md#c5"
-    char_span: [7006, 8894]
+    char_span: [7005, 8893]
     sentence_count: 11
     key_terms: [pivot, tech, cjlcjl12, "i'm", need, countries, deleted, afford]
     section: Comments

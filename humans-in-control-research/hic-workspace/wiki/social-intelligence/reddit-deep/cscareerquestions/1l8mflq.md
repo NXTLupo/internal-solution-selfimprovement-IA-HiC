@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, career, comments, computer, research, science, change, field]
     token_count: 172
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c1"
-    char_span: [771, 2985]
+    char_span: [770, 2984]
     sentence_count: 11
     key_terms: [problem, math, willing, going, get, "it's", practice, someone]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c2"
-    char_span: [2987, 4043]
+    char_span: [2986, 4042]
     sentence_count: 7
     key_terms: [because, move, nothing, hard, new, newchameleon, application, california]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c3"
-    char_span: [4045, 5885]
+    char_span: [4044, 5884]
     sentence_count: 14
     key_terms: [degree, get, try, difficult, probably, because, started, through]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l8mflq.md#c4"
-    char_span: [5889, 6735]
+    char_span: [5888, 6734]
     sentence_count: 6
     key_terms: [company, get, good, internship, probably, degree, lucky, bit]
     section: Comments

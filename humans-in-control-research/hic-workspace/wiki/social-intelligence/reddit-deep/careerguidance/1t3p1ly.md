@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t3p1ly.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t3p1ly/20m_feeling_lost_on_career_path_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,37 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.882Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c0"
+    char_span: [0, 941]
+    sentence_count: 6
+    key_terms: [career, looking, careerguidance, experience, comments, advice, people, trying]
+    token_count: 224
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c1"
+    char_span: [956, 2798]
+    sentence_count: 16
+    key_terms: [trades, hot-criticism8353, working, doing, years, like, work, ghawblin]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c2"
+    char_span: [2800, 4216]
+    sentence_count: 13
+    key_terms: [career, education, months, trades, moved, get, job, managing]
+    section: Comments
+    token_count: 327
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c3"
+    char_span: [4218, 6153]
+    sentence_count: 26
+    key_terms: [look, paying, community, good, college, recommendation, get, financial]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/careerguidance/1t3p1ly.md#c4"
+    char_span: [6155, 7413]
+    sentence_count: 11
+    key_terms: [technician, maintenance, school, tech, aircraft, desperate-sleep-6302, power, etc]
+    section: Comments
+    token_count: 292
 ---
-
 # 20M feeling lost on career path — looking for advice from people with experience?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t3p1ly/20m_feeling_lost_on_career_path_looking_for/)

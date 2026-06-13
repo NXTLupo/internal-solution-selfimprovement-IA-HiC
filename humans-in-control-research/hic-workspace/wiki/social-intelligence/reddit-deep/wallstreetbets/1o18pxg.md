@@ -38,31 +38,31 @@ chunks:
     key_terms: [png, preview, format, calls, https, width, auto, redd]
     token_count: 218
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c4"
-    char_span: [6197, 6739]
+    char_span: [6196, 6738]
     sentence_count: 1
     key_terms: [wallstreetbets, comments, reddit, https, com, www, total, years]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c5"
-    char_span: [6741, 8483]
+    char_span: [6740, 8482]
     sentence_count: 10
     key_terms: [kuliyayoi, nonetimeaccount, wsb, company, discord, support, shares, https]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c6"
-    char_span: [8290, 8611]
+    char_span: [8289, 8610]
     sentence_count: 3
     key_terms: [americanpatriot92, agentorange001, subsequent, kuliyayoi, anything, "doesn't", enough, except]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c7"
-    char_span: [8611, 9439]
+    char_span: [8610, 9438]
     sentence_count: 1
     key_terms: [apu823, path, sunnyt21, suspicious-pick3722, watch, agentorange001, chefboyrd-92, iannoyyou101]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o18pxg.md#c8"
-    char_span: [9441, 10731]
+    char_span: [9440, 10730]
     sentence_count: 10
     key_terms: [calls, let, company, shares, poopbucketchallenge, been, did, huge]
     section: Comments

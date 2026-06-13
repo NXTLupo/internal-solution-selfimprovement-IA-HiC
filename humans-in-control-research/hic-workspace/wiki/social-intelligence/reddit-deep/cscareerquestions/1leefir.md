@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, comments, disappearing, "university's", considering, reddit-deep, experience, specialize]
     token_count: 140
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c1"
-    char_span: [603, 1149]
+    char_span: [602, 1148]
     sentence_count: 3
     key_terms: [cybersecurity, get, fun-meringue-732, foreveryonge, programming, progression, impossible, networking]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c2"
-    char_span: [1151, 3251]
+    char_span: [1150, 3250]
     sentence_count: 16
     key_terms: [job, doing, get, need, continuing, honestly, language, personal]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c3"
-    char_span: [3004, 3894]
+    char_span: [3003, 3893]
     sentence_count: 5
     key_terms: [language, doing, silver-impact-1836, work, interestingly, consistently, specializing, competitive]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c4"
-    char_span: [3896, 5933]
+    char_span: [3895, 5932]
     sentence_count: 10
     key_terms: [language, like, working, resume, "don't", good, own, experience]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c5"
-    char_span: [5935, 8003]
+    char_span: [5934, 8002]
     sentence_count: 18
     key_terms: [experience, internship, get, internships, focus, job, try, cybersecurity]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leefir.md#c6"
-    char_span: [8005, 8898]
+    char_span: [8004, 8897]
     sentence_count: 3
     key_terms: [internships, dont, having, market, comfortablejacket429, years, alot, get]
     section: Comments

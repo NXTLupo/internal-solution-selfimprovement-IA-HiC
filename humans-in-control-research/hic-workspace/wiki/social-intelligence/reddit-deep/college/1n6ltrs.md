@@ -7,13 +7,13 @@ subreddit: "college"
 title: "I rushed, and I regret it (an alumnus' perspective)"
 author: "porcupine_snail"
 date: "2025-09-02T14:59:39.000Z"
-score: 1003
+score: 1007
 upvote_ratio: 0.97
 num_comments: 89
 flair: "Social Life"
-extracted_at: "2026-06-06T00:27:48.352Z"
+extracted_at: "2026-06-08T23:39:34.366Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Trends in alumni giving and donor retention for universities"
 chunks:
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c0"
     char_span: [0, 1812]
@@ -53,37 +53,37 @@ chunks:
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c7"
-    char_span: [10840, 13144]
+    char_span: [10840, 13145]
     sentence_count: 12
     key_terms: [frats, house, college, fraternities, sororities, positive, couple, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c8"
-    char_span: [12824, 15316]
+    char_span: [12825, 15317]
     sentence_count: 18
     key_terms: [expensive, franchise, "it's", like, "they're", frats, going, experiences]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c9"
-    char_span: [15004, 15982]
+    char_span: [15005, 15983]
     sentence_count: 9
     key_terms: [didn, expensive, better, cousin, going, years, keep, need]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c10"
-    char_span: [15984, 17765]
+    char_span: [15985, 17766]
     sentence_count: 13
     key_terms: ["didn't", get, life, like, wife, work, culture, anyone]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c11"
-    char_span: [17769, 19796]
+    char_span: [17770, 19797]
     sentence_count: 11
     key_terms: [sororities, seemed, experienced, get, something, support, "didn't", people]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/college/1n6ltrs.md#c12"
-    char_span: [19798, 21873]
+    char_span: [19799, 21874]
     sentence_count: 19
     key_terms: [frat, house, chapter, seating, take-em-in-the-back-and-make-em-bleed, game, old, experience]
     section: Comments
@@ -92,7 +92,7 @@ chunks:
 # I rushed, and I regret it (an alumnus' perspective)
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1n6ltrs/i_rushed_and_i_regret_it_an_alumnus_perspective/)
-Posted by **porcupine_snail** · **1003↑** · **89 comments**
+Posted by **porcupine_snail** · **1007↑** · **89 comments**
 
 Hey everybody. I'm 23M, and I graduated last year. I was in a frat, and I was very popular. I had leadership positions within Greek life and the house I was in specifically. My resume found great success, but I'm hear to say that - despite what your parents have said about their greek life experiences, despite what those energetic friends of yours are saying about greek life, despite what you see on barstool sports, and despite my opening couple of sentences - **please, please,** ***please*** **don't rush your freshman year if you can help it at all**. Honestly, whatever floats your boat, but if you're not the type to drink all the time, give zero shits about classes (and, by proxy, your future), or generally not care greatly about yourself and your life - please reconsider rushing, period.
 
@@ -134,38 +134,38 @@ I forgot to talk about the rampant - R A M P A N T - homophobia in Greek Life. L
 
 ## Comments
 
-- **cartslaw** (366↑): This was so thoughtful 
+- **cartslaw** (372↑): This was so thoughtful 
 
 Thanks for sharing
-  - **porcupine_snail** (103↑): Happy to oblige. I figured if it could help at least one person not follow my path, it's worth sharing.
+  - **porcupine_snail** (102↑): Happy to oblige. I figured if it could help at least one person not follow my path, it's worth sharing.
     - **hertziancone** (3↑): Thanks for sharing. As a professor, about half of the problematic, entitled, rude and misogynistic students I’ve encountered have been part of frats. They act as a pack and validate each others’ awful opinions and contemptuous behaviors. You wouldn’t believe the stuff they write about me, especially when they think they are anonymous. Not all frat brothers are this way, probably not even most outside of the frat context, but there is powerful groupthink in frats.
-- **Single-Ad-7792** (239↑): Hey, I appreciate the honest response. I’m from a big frat school so you normally only see the glamor as an outsider, but I knew I didn’t want to pay to get beat up lol
-  - **DargyBear** (131↑): I went to a big SEC school and knew a handful of people on my floor who didn’t get into the “right” fraternity or sorority and transferred out to a different school. Literally gave up on an education at a top ten public university because they didn’t get to sit at the cool kids table. It’s just pathetic because it’s not even that hard (and it’s free) to find your crowd at a big school and get the “college experience.”
-    - **Zestyclose-Smell4158** (39↑): My college closed all the frats 5 years after I graduated. I was a member of the frat the had the largest endowment on campus. Since the late 60s our chapter was different. The year the first woman was admitted to the college we allowed woman to become full members. The national headquarters did not find out about the local policy change until our chapter’s president who happened to be a woman showed up at the national convention. At our chapter pledging was nothing more than hanging out in the house and socializing. If you like what you saw you were you could join. Academics was the top priority along with recreational drugs. When the college announced they were thinking about closing the frats the current and past after some discussion voted to offer the house to the college. Then the house offers and the alumni council worked hard to convince the other fraternities to go along with College’s plan to shutter the fraternities. The impact of shutting the frats has been very positive. Several of the frats abused/tortured pledges, a couple were misogynistic and a couple were famous for repeatedly of doing major damage to their houses while under the influence of alcohol. I was present in a house when two member of the house decided it would be cool to throw a full size refrigerator from the third floor which ended destroying the balustrade and flooring in frats listed historic mansion. The closing of the fraternities has had a positive effect on student life.
+- **Single-Ad-7792** (244↑): Hey, I appreciate the honest response. I’m from a big frat school so you normally only see the glamor as an outsider, but I knew I didn’t want to pay to get beat up lol
+  - **DargyBear** (128↑): I went to a big SEC school and knew a handful of people on my floor who didn’t get into the “right” fraternity or sorority and transferred out to a different school. Literally gave up on an education at a top ten public university because they didn’t get to sit at the cool kids table. It’s just pathetic because it’s not even that hard (and it’s free) to find your crowd at a big school and get the “college experience.”
+    - **Zestyclose-Smell4158** (40↑): My college closed all the frats 5 years after I graduated. I was a member of the frat the had the largest endowment on campus. Since the late 60s our chapter was different. The year the first woman was admitted to the college we allowed woman to become full members. The national headquarters did not find out about the local policy change until our chapter’s president who happened to be a woman showed up at the national convention. At our chapter pledging was nothing more than hanging out in the house and socializing. If you like what you saw you were you could join. Academics was the top priority along with recreational drugs. When the college announced they were thinking about closing the frats the current and past after some discussion voted to offer the house to the college. Then the house offers and the alumni council worked hard to convince the other fraternities to go along with College’s plan to shutter the fraternities. The impact of shutting the frats has been very positive. Several of the frats abused/tortured pledges, a couple were misogynistic and a couple were famous for repeatedly of doing major damage to their houses while under the influence of alcohol. I was present in a house when two member of the house decided it would be cool to throw a full size refrigerator from the third floor which ended destroying the balustrade and flooring in frats listed historic mansion. The closing of the fraternities has had a positive effect on student life.
     - **imperator_homie** (12↑): I’ve heard a couple horror stories like that, but thankfully nobody i knew did it. i mean, my chapters’ GPA was below 2.5 (we had honors and cum laude grads for reference), so even if you stay at a school it’s way too easy to effectively give away your higher education. to the bottle, or otherwise.
-    - **DietCthulhu** (8↑): Let me guess, Ole Miss or Bama?
+    - **DietCthulhu** (10↑): Let me guess, Ole Miss or Bama?
   - **imperator_homie** (8↑): yes, you only see the glamor, and you hear the same things from everyone else - hazing on its way out/not tolerated, affordable dues, tight nit brotherhood etc (when i graduated, maybe 25% of my 100+ person house knew each person by name)
-- **supermechace** (92↑): I never understood why parents were so excited to get their kids into frats and sororities, especially sororities spending so much money to get in. But your post about your dad's experience enlightened me. It sounds like it was one of the happiest memories in their lives and I'm guessing for parents who were in a sorority possibly a lot of their social networks were in sororities and continue peer pressure to continue. Even in the 90s I thought it was nuts to consider frats just by how expensive and time consuming college is. But in terms of positive im guessing like everything the experience got worse over time while requiring more money. Maybe it's one of those boomer and successive boomer generational wealth experiences that are no longer valid(how can there be bidding wars for houses? You just don't know how to look for houses in the newspaper?). So it's a relic that the best experiences are reserved for the wealthy while others are grasping at deteriorating institutions run possibly by those who are trying to cash in on misguided nostalgia
+- **supermechace** (96↑): I never understood why parents were so excited to get their kids into frats and sororities, especially sororities spending so much money to get in. But your post about your dad's experience enlightened me. It sounds like it was one of the happiest memories in their lives and I'm guessing for parents who were in a sorority possibly a lot of their social networks were in sororities and continue peer pressure to continue. Even in the 90s I thought it was nuts to consider frats just by how expensive and time consuming college is. But in terms of positive im guessing like everything the experience got worse over time while requiring more money. Maybe it's one of those boomer and successive boomer generational wealth experiences that are no longer valid(how can there be bidding wars for houses? You just don't know how to look for houses in the newspaper?). So it's a relic that the best experiences are reserved for the wealthy while others are grasping at deteriorating institutions run possibly by those who are trying to cash in on misguided nostalgia
   - **porcupine_snail** (11↑): Thank you for your response! I think you're on to something with wealth. We had frats who's semesterly dues (just the dues - not rent, not extra payments for extra activities, and certainly excluding the cost of the actual education) were in excess of $9,000. that's insane. is it possible for someone to support themselves in college while being in an expensive ass frat? I mean, I guess...but damn would you have no social life. The biggest proponents of the system are, as you're saying, the few in the epicenter of it that derive the most enjoyment out of it, at the expense of most of us on the periphery.
-    - **supermechace** (4↑): outside of the movie stereotypes of partying and drinking and observing people on campus. From what I guess I would think that it's not much different than any other club or association depending on volunteers and member dues. Like any of those they need good and long term leaders not constantly shifting leaders. With inflation and other factors like real estate and labor costs I would assume they're subject same pressures. From another poster I get the impression they're similar to a franchise business except looser central controls. If a franchise expenses are increasing faster than income and there's labor issues, things start going downhill. But the franchise owner is loathe to shut down things because it's still bringing in some money but they're going to cut costs everywhere and not care about anything except keeping it going somehow. So that to me explains why to this day and age there's still out of control hazing rituals(come on theres a lot more fun and cooler ideas now like obstacle courses and rock climbing) in a very expensive educational environment. I'm guessing at the more well run frats the expenses are probably higher as you need to keep better leadership and everything is more expensive now so you need better leaders to keep things going well
+    - **supermechace** (3↑): outside of the movie stereotypes of partying and drinking and observing people on campus. From what I guess I would think that it's not much different than any other club or association depending on volunteers and member dues. Like any of those they need good and long term leaders not constantly shifting leaders. With inflation and other factors like real estate and labor costs I would assume they're subject same pressures. From another poster I get the impression they're similar to a franchise business except looser central controls. If a franchise expenses are increasing faster than income and there's labor issues, things start going downhill. But the franchise owner is loathe to shut down things because it's still bringing in some money but they're going to cut costs everywhere and not care about anything except keeping it going somehow. So that to me explains why to this day and age there's still out of control hazing rituals(come on theres a lot more fun and cooler ideas now like obstacle courses and rock climbing) in a very expensive educational environment. I'm guessing at the more well run frats the expenses are probably higher as you need to keep better leadership and everything is more expensive now so you need better leaders to keep things going well
 - **2020Hills** (63↑): My oldest cousin was rushing freshman year. He’s 9 years older than me. I knew he didn’t stay in the fray but I didn’t know why until years later. He was filled to be in a pill party. Every pledge gets a scoop of pills and take them together. I didn’t ask bigger details but within 2 hours of taking his “shot of medicine” he was in an ambulance and his stomach was getting pumped.
   - **imperator_homie** (19↑): Thank you for sharing. I’m sorry to hear about your cousin and I really hope he’s doing well. 
 
 I was fortunate in that my house was a booze culture and not a general substance culture like those that do pull parties. 
 
 it’s also incredibly hard to articulate how difficult it can be to get out of something like that. it’s like an abusive relationship in that way. you want out, but feel the paralysis. i’m glad your cousin snapped out of it.
-- **Wise_Winner_7108** (69↑): Ugh, my old boss was a frat boy. Encouraged his sons as well to join. He is so obsessed with his Alma Mater it is disturbing. I heard his youngest son accuse him of living vicariously thru him while attending university. His anniversary gift to his wife was a framed photo of the two of them at a homecoming game (he dressed in coon coat, pork pie hat etc.) she said you can hang it in your office at work. Glad to be away from that.
-  - **porcupine_snail** (7↑): I had a boss at an internship once who was in a frat at a big state school. This guy was the director of the department (in professional services/consulting, so raking in cash), had two kids, a wife, the house, the cars, etc. One day, at a work meeting, at work, he said to me, an intern he barely knew, 'don't tell my wife this but my college days were the best days of my life'. 
+- **Wise_Winner_7108** (70↑): Ugh, my old boss was a frat boy. Encouraged his sons as well to join. He is so obsessed with his Alma Mater it is disturbing. I heard his youngest son accuse him of living vicariously thru him while attending university. His anniversary gift to his wife was a framed photo of the two of them at a homecoming game (he dressed in coon coat, pork pie hat etc.) she said you can hang it in your office at work. Glad to be away from that.
+  - **porcupine_snail** (6↑): I had a boss at an internship once who was in a frat at a big state school. This guy was the director of the department (in professional services/consulting, so raking in cash), had two kids, a wife, the house, the cars, etc. One day, at a work meeting, at work, he said to me, an intern he barely knew, 'don't tell my wife this but my college days were the best days of my life'. 
 
 Now, anyone can interpret this however they want - and I hate to say it but I get the same undertones from my dad - that because at the time you decided that that was as good as it was going to get you didn't even try to qualify or quantify what came after as better in any way. It's weird, what greek life can do to a person's psyche.
-- **hornybutired** (63↑): When OP asked "how did you know" not to join, it really made me think. I never wanted to be in Greek life, but why not? Why didn't I? I didn't know any more than anyone else did when I was 18.  
+- **hornybutired** (65↑): When OP asked "how did you know" not to join, it really made me think. I never wanted to be in Greek life, but why not? Why didn't I? I didn't know any more than anyone else did when I was 18.  
   
 I guess I was lucky in that I was a weirdo and all the people who seemed interested in frats and sororities just seemed like "normies" to me, so I figured I wouldn't fit in anyway. But I didn't have some insight like OP is providing here. I wasn't special and smart for not rushing, I  just lucked out that I already didn't fit the profile and therefore had no interest.
-  - **Arnas_Z** (22↑): Yup, exactly this lol. I thought of them as the college extension of the "popular kids" crowd from HS, so I steered clear of that shit.
+  - **Arnas_Z** (20↑): Yup, exactly this lol. I thought of them as the college extension of the "popular kids" crowd from HS, so I steered clear of that shit.
     - **porcupine_snail** (7↑): That they were, unfortunately. I was not apart of the dude bro jock crowd, at any point in my life, so it was an uphill social battle. Unless folks were hammered. That was literally the only time I could hold a normal conversation with most of these guys, was when they had more booze than water (it seemed) in their system.
 - **MitchLeonardX** (30↑): “The beatings will continue until morale improves.”
   - **porcupine_snail** (4↑): and, as i experienced it (in a way), 'i got beat, so you get beat to'. there is no concern or rhyme or reason for why initiation rituals, pledge classes each week, or any number of frat events get violent, other than that's how it was always done and nobody wants to be the last group of those who experienced it. i remember getting initiated and immediately upon completion one of the full-timers said something to the effect of 'now just wait until you get to mess with pledges'.
-- **AgentOrange256** (18↑): I went to bama so it’s obviously very integrated (1/3 girls 1/5 boys or something)
+- **AgentOrange256** (19↑): I went to bama so it’s obviously very integrated (1/3 girls 1/5 boys or something)
 
 What I found was that frats best offer was some connections and networking. Sororities had waaaay more benefits in terms of academic support / requirements, volunteering reqs, etc. 
 
@@ -176,10 +176,10 @@ Most people I know either dropped by year 3 or just stayed in for the senior yea
 Also most people just go out to bars by 21. So ya you’ll miss game day parties at the frat, but so what just go to some house parties.
 
 Also block seating / frat and sorority seating is the worst of the student seating for football. It wasn’t even worth it. And anyone can get those seats as long as it’s an official club w/ the game numbers required.
-  - **porcupine_snail** (8↑): Southern Universities typically have stronger turnout, mostly due to generally conservative cultures in those parts (as I understand it and as I was educated by the frat system). they're also wildly, i guess you could say 'old school', violent. The bama chapter of our frat hosted a football game and a few of our guys flew down to party at their house (we're north of the mason-dixon). they came back a bit rattled. they said that regularly they would be approached by full members of that house who would ask them 'hey, do you want to beat up a pledge?' Like, really old-school, take-em-in-the-back-and-make-em-bleed BEATINGS. My guys said they never partook and honestly I believe them. That level of torment is foreign to us. I was extremely fortunate that my chapter viewed it that way.
-    - **AgentOrange256** (4↑): It also just depends on the frat. There is old row and new row, and they definitely have the old school style in place in some of them. Most of the hazing is rather light, and any significant issues that popped up often ended up with house suspensions and removals. But it does still happen.
-- **TehBrian** (12↑): > $900 a semester and $500+ a month for rent
+  - **porcupine_snail** (7↑): Southern Universities typically have stronger turnout, mostly due to generally conservative cultures in those parts (as I understand it and as I was educated by the frat system). they're also wildly, i guess you could say 'old school', violent. The bama chapter of our frat hosted a football game and a few of our guys flew down to party at their house (we're north of the mason-dixon). they came back a bit rattled. they said that regularly they would be approached by full members of that house who would ask them 'hey, do you want to beat up a pledge?' Like, really old-school, take-em-in-the-back-and-make-em-bleed BEATINGS. My guys said they never partook and honestly I believe them. That level of torment is foreign to us. I was extremely fortunate that my chapter viewed it that way.
+    - **AgentOrange256** (5↑): It also just depends on the frat. There is old row and new row, and they definitely have the old school style in place in some of them. Most of the hazing is rather light, and any significant issues that popped up often ended up with house suspensions and removals. But it does still happen.
+- **TehBrian** (11↑): > $900 a semester and $500+ a month for rent
 
 Woah! Where'd you go for university? I'd like to go there. My tuition's $9,000 a semester, and rent is $1,500 a month.
-- **xSparkShark** (16↑): Every chapter has a different culture. Joining my frat was the greatest decision I ever made. I was surrounded by 50+ great dudes who really brought out the best in me. I’m sorry your experience wasn’t great.
+- **xSparkShark** (14↑): Every chapter has a different culture. Joining my frat was the greatest decision I ever made. I was surrounded by 50+ great dudes who really brought out the best in me. I’m sorry your experience wasn’t great.
   - **porcupine_snail** (8↑): Thank you for the feedback! I'm really glad that you've had a positive experience, and I wish all Greek Life could be that way.

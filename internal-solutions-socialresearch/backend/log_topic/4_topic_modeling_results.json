@@ -1,183 +1,808 @@
 {
-  "total_topics": 4,
+  "total_topics": 19,
   "topics": [
     {
       "topic_id": 0,
-      "count": 7,
-      "name": "0_op_ops_accounting_gpa",
+      "count": 57,
+      "name": "0_fund_vanguard_etf_funds",
       "representation": [
         {
-          "term": "op",
-          "weight": 0.028290783346396457
+          "term": "fund",
+          "weight": 0.0178725681837141
         },
         {
-          "term": "ops",
-          "weight": 0.025110320719499906
+          "term": "vanguard",
+          "weight": 0.015434121915530728
         },
         {
-          "term": "accounting",
-          "weight": 0.02506717429473492
+          "term": "etf",
+          "weight": 0.013202578103927439
         },
         {
-          "term": "gpa",
-          "weight": 0.023944298300937538
+          "term": "market",
+          "weight": 0.010443455708047198
         },
         {
-          "term": "spring",
-          "weight": 0.02228193270643104
+          "term": "investing",
+          "weight": 0.008982020495075986
         },
         {
-          "term": "business",
-          "weight": 0.021757549542649902
+          "term": "years",
+          "weight": 0.008721628153802957
         },
         {
-          "term": "big",
-          "weight": 0.02059338888345251
+          "term": "index",
+          "weight": 0.008457685137643167
         },
         {
-          "term": "school",
-          "weight": 0.02059338888345251
-        },
-        {
-          "term": "year",
-          "weight": 0.020010312226950766
-        },
-        {
-          "term": "fall",
-          "weight": 0.017898241188039142
+          "term": "retirement",
+          "weight": 0.008411494698961517
         }
       ]
     },
     {
       "topic_id": 1,
-      "count": 4,
-      "name": "1_models_local_claude_finance",
+      "count": 32,
+      "name": "1_vanguard_fee_advisor_fees",
       "representation": [
         {
-          "term": "models",
-          "weight": 0.030324683956927702
+          "term": "vanguard",
+          "weight": 0.02387346726862453
         },
         {
-          "term": "local",
-          "weight": 0.026219093932908763
+          "term": "fee",
+          "weight": 0.022844264266474755
         },
         {
-          "term": "claude",
-          "weight": 0.026219093932908763
+          "term": "advisor",
+          "weight": 0.021390689665974176
         },
         {
-          "term": "finance",
-          "weight": 0.02190524814925731
+          "term": "program",
+          "weight": 0.009525308685859029
         },
         {
-          "term": "mahoraga",
-          "weight": 0.02190524814925731
+          "term": "account",
+          "weight": 0.008788741003143148
         },
         {
-          "term": "cs",
-          "weight": 0.02190524814925731
+          "term": "service",
+          "weight": 0.007714703802247223
         },
         {
-          "term": "run",
-          "weight": 0.02097527514632701
+          "term": "years",
+          "weight": 0.007683129718155503
         },
         {
-          "term": "able",
-          "weight": 0.02097527514632701
-        },
-        {
-          "term": "resume",
-          "weight": 0.01853324276997173
-        },
-        {
-          "term": "work",
-          "weight": 0.01809708130198396
+          "term": "personal advisor",
+          "weight": 0.007297309535218624
         }
       ]
     },
     {
       "topic_id": 2,
-      "count": 3,
-      "name": "2_op_search_im_linkedin",
+      "count": 30,
+      "name": "2_account_browser_app_online",
       "representation": [
         {
-          "term": "op",
-          "weight": 0.04100225860340746
+          "term": "account",
+          "weight": 0.027362457431460693
         },
         {
-          "term": "im",
-          "weight": 0.031807620600291436
+          "term": "browser",
+          "weight": 0.024806033111877398
         },
         {
-          "term": "linkedin",
-          "weight": 0.03045724884261182
+          "term": "app",
+          "weight": 0.019943306604881934
         },
         {
-          "term": "cooked",
-          "weight": 0.03045724884261182
+          "term": "online",
+          "weight": 0.01778720385016258
         },
         {
-          "term": "interviews",
-          "weight": 0.029355401821318138
+          "term": "vanguard",
+          "weight": 0.01668799298385594
         },
         {
-          "term": "op search",
-          "weight": 0.02842505601916863
+          "term": "log",
+          "weight": 0.01665755589898226
         },
         {
-          "term": "email",
-          "weight": 0.025163182440635937
+          "term": "tried",
+          "weight": 0.016604741687980457
         },
         {
-          "term": "applications",
-          "weight": 0.023855715450218577
+          "term": "set",
+          "weight": 0.015192629325025606
         },
         {
-          "term": "coop",
-          "weight": 0.0207151764541232
+          "term": "login",
+          "weight": 0.011693393248090326
         }
       ]
     },
     {
       "topic_id": 3,
-      "count": 3,
-      "name": "3_op_fall_fenway health_fenway",
+      "count": 25,
+      "name": "3_vanguard_ira_trust_account",
       "representation": [
         {
-          "term": "op",
-          "weight": 0.07740943650126064
+          "term": "vanguard",
+          "weight": 0.02372922768296979
         },
         {
-          "term": "fall",
-          "weight": 0.034980922124899165
+          "term": "ira",
+          "weight": 0.022445275818737655
         },
         {
-          "term": "fenway health",
-          "weight": 0.033993410601931846
+          "term": "trust",
+          "weight": 0.021903258576975334
         },
         {
-          "term": "walk",
-          "weight": 0.033993410601931846
+          "term": "account",
+          "weight": 0.021728679740961755
         },
         {
-          "term": "start",
-          "weight": 0.033993410601931846
+          "term": "transfer",
+          "weight": 0.019924379625402125
+        },
+        {
+          "term": "401k",
+          "weight": 0.017525785110546033
+        },
+        {
+          "term": "inherited",
+          "weight": 0.014446465679324949
+        },
+        {
+          "term": "rollover",
+          "weight": 0.013585683495850449
+        },
+        {
+          "term": "403b",
+          "weight": 0.01325370537052261
+        }
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 23,
+      "name": "4_vanguard_performance_returns_portfolio",
+      "representation": [
+        {
+          "term": "vanguard",
+          "weight": 0.020866793468088923
+        },
+        {
+          "term": "performance",
+          "weight": 0.01887215621867255
+        },
+        {
+          "term": "returns",
+          "weight": 0.01665898066215225
+        },
+        {
+          "term": "portfolio",
+          "weight": 0.015118136541922522
+        },
+        {
+          "term": "graph",
+          "weight": 0.013510478372305483
+        },
+        {
+          "term": "funds",
+          "weight": 0.01266944321479726
+        },
+        {
+          "term": "voo",
+          "weight": 0.010363807065499338
         },
         {
           "term": "end",
-          "weight": 0.03167090203735213
+          "weight": 0.010095484509250166
         },
         {
-          "term": "applying",
-          "weight": 0.030025297032171657
+          "term": "balance",
+          "weight": 0.009102685811523908
+        }
+      ]
+    },
+    {
+      "topic_id": 5,
+      "count": 21,
+      "name": "5_ira_roth_vanguard_taxes",
+      "representation": [
+        {
+          "term": "ira",
+          "weight": 0.028933978500545035
         },
         {
-          "term": "june",
-          "weight": 0.030025297032171657
+          "term": "roth",
+          "weight": 0.028814260468345686
         },
         {
-          "term": "date",
-          "weight": 0.030025297032171657
+          "term": "vanguard",
+          "weight": 0.019648059936074325
+        },
+        {
+          "term": "taxes",
+          "weight": 0.01934922483932307
+        },
+        {
+          "term": "rmd",
+          "weight": 0.016607749943392026
+        },
+        {
+          "term": "roth ira",
+          "weight": 0.01549286523604066
+        },
+        {
+          "term": "account",
+          "weight": 0.015404050109563057
+        },
+        {
+          "term": "withdraw",
+          "weight": 0.01502455270077899
+        },
+        {
+          "term": "conversion",
+          "weight": 0.013396732773596915
+        }
+      ]
+    },
+    {
+      "topic_id": 6,
+      "count": 18,
+      "name": "6_account_settlement_fund_transaction",
+      "representation": [
+        {
+          "term": "account",
+          "weight": 0.028691463157843274
+        },
+        {
+          "term": "transaction",
+          "weight": 0.018694959119611228
+        },
+        {
+          "term": "money",
+          "weight": 0.018614826910928313
+        },
+        {
+          "term": "purchase",
+          "weight": 0.0179844699403391
+        },
+        {
+          "term": "settlement fund",
+          "weight": 0.017342892340210834
+        },
+        {
+          "term": "vanguard",
+          "weight": 0.015381418860723176
+        },
+        {
+          "term": "brokerage",
+          "weight": 0.014281229251147025
+        },
+        {
+          "term": "days",
+          "weight": 0.014056660132411062
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "count": 16,
+      "name": "7_vanguard_issue_holdings_sync",
+      "representation": [
+        {
+          "term": "vanguard",
+          "weight": 0.027235701735305626
+        },
+        {
+          "term": "issue",
+          "weight": 0.021452368142892263
+        },
+        {
+          "term": "holdings",
+          "weight": 0.020539312002318223
+        },
+        {
+          "term": "sync",
+          "weight": 0.019026252165997636
+        },
+        {
+          "term": "plaid",
+          "weight": 0.018639788506665037
+        },
+        {
+          "term": "account",
+          "weight": 0.015930275423864902
+        },
+        {
+          "term": "quicken",
+          "weight": 0.015684833263930168
+        },
+        {
+          "term": "support",
+          "weight": 0.015068817492428286
+        },
+        {
+          "term": "browsers",
+          "weight": 0.01497159563183682
+        },
+        {
+          "term": "sa",
+          "weight": 0.01428597567664109
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "count": 11,
+      "name": "8_shares_method_term_sell",
+      "representation": [
+        {
+          "term": "shares",
+          "weight": 0.04546584601753301
+        },
+        {
+          "term": "method",
+          "weight": 0.026508433873023606
+        },
+        {
+          "term": "term",
+          "weight": 0.025894342799932444
+        },
+        {
+          "term": "sell",
+          "weight": 0.02553067582969398
+        },
+        {
+          "term": "gain",
+          "weight": 0.021972666005091804
+        },
+        {
+          "term": "tax",
+          "weight": 0.021766982725836936
+        },
+        {
+          "term": "cost",
+          "weight": 0.021578618999943705
+        },
+        {
+          "term": "basis",
+          "weight": 0.021164099592644002
+        },
+        {
+          "term": "mintax",
+          "weight": 0.020369152806634726
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "count": 11,
+      "name": "9_shares_fund_sell_mutual",
+      "representation": [
+        {
+          "term": "shares",
+          "weight": 0.027215104659801214
+        },
+        {
+          "term": "fund",
+          "weight": 0.02713885869849652
+        },
+        {
+          "term": "sell",
+          "weight": 0.027054496271885137
+        },
+        {
+          "term": "mutual",
+          "weight": 0.02090769467210186
+        },
+        {
+          "term": "buy",
+          "weight": 0.02019415250974925
+        },
+        {
+          "term": "sale",
+          "weight": 0.017292275640845022
+        },
+        {
+          "term": "mutual fund",
+          "weight": 0.016265990315289976
+        },
+        {
+          "term": "vanguard",
+          "weight": 0.015966920761053383
+        },
+        {
+          "term": "day",
+          "weight": 0.015058861690388918
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "count": 9,
+      "name": "10_vanguard_loan_plan_ups",
+      "representation": [
+        {
+          "term": "vanguard",
+          "weight": 0.020432215223011523
+        },
+        {
+          "term": "loan",
+          "weight": 0.013714861450127824
+        },
+        {
+          "term": "plan",
+          "weight": 0.013044518979808498
+        },
+        {
+          "term": "ups",
+          "weight": 0.012651795740190012
+        },
+        {
+          "term": "401k",
+          "weight": 0.01212955133951962
+        },
+        {
+          "term": "rollover",
+          "weight": 0.011154922924333193
+        },
+        {
+          "term": "check",
+          "weight": 0.010186411980653063
+        },
+        {
+          "term": "day",
+          "weight": 0.010185681996652606
+        },
+        {
+          "term": "vanguard chester",
+          "weight": 0.009696636104296861
+        },
+        {
+          "term": "chester funds",
+          "weight": 0.009696636104296861
+        }
+      ]
+    },
+    {
+      "topic_id": 11,
+      "count": 8,
+      "name": "11_dividends_year_tax_gains",
+      "representation": [
+        {
+          "term": "dividends",
+          "weight": 0.03469806553260456
+        },
+        {
+          "term": "year",
+          "weight": 0.02896313769283906
+        },
+        {
+          "term": "tax",
+          "weight": 0.028722810906831566
+        },
+        {
+          "term": "gains",
+          "weight": 0.02830301452320558
+        },
+        {
+          "term": "income",
+          "weight": 0.020139559474595913
+        },
+        {
+          "term": "capital gains",
+          "weight": 0.016881494032301273
+        },
+        {
+          "term": "exempt",
+          "weight": 0.01590431497593885
+        },
+        {
+          "term": "15",
+          "weight": 0.015101354946677283
+        },
+        {
+          "term": "term",
+          "weight": 0.015058499668215477
+        }
+      ]
+    },
+    {
+      "topic_id": 12,
+      "count": 8,
+      "name": "12_vanguard_information_pe_account",
+      "representation": [
+        {
+          "term": "vanguard",
+          "weight": 0.02617999620280825
+        },
+        {
+          "term": "information",
+          "weight": 0.023531089667687716
+        },
+        {
+          "term": "pe",
+          "weight": 0.020070175252523696
+        },
+        {
+          "term": "account",
+          "weight": 0.01865019155935318
+        },
+        {
+          "term": "database",
+          "weight": 0.01657491157924644
+        },
+        {
+          "term": "vanguard main",
+          "weight": 0.01657491157924644
+        },
+        {
+          "term": "ownyourfuture vanguard main",
+          "weight": 0.01657491157924644
+        },
+        {
+          "term": "ownyourfuture vanguard",
+          "weight": 0.01657491157924644
+        },
+        {
+          "term": "history",
+          "weight": 0.016517644794377933
+        }
+      ]
+    },
+    {
+      "topic_id": 13,
+      "count": 6,
+      "name": "13_cash plus_cash_plus_plus account",
+      "representation": [
+        {
+          "term": "cash plus",
+          "weight": 0.05866094800353607
+        },
+        {
+          "term": "plus account",
+          "weight": 0.04516148734054531
+        },
+        {
+          "term": "cash plus account",
+          "weight": 0.04516148734054531
+        },
+        {
+          "term": "card",
+          "weight": 0.044988583345181334
+        },
+        {
+          "term": "automatic",
+          "weight": 0.039565483984352924
+        },
+        {
+          "term": "vanguard cash plus",
+          "weight": 0.030729848897308207
+        },
+        {
+          "term": "vanguard cash",
+          "weight": 0.029992388896787556
+        }
+      ]
+    },
+    {
+      "topic_id": 14,
+      "count": 6,
+      "name": "14_roth_traditional_ira_traditional ira",
+      "representation": [
+        {
+          "term": "roth",
+          "weight": 0.0690298470212886
+        },
+        {
+          "term": "traditional",
+          "weight": 0.05463920813163259
+        },
+        {
+          "term": "traditional ira",
+          "weight": 0.03839505231567218
+        },
+        {
+          "term": "basis",
+          "weight": 0.033706493146198314
+        },
+        {
+          "term": "backdoor",
+          "weight": 0.03228939961669903
+        },
+        {
+          "term": "year",
+          "weight": 0.031853894984867744
+        },
+        {
+          "term": "tax",
+          "weight": 0.03169523240078702
+        },
+        {
+          "term": "conversion",
+          "weight": 0.02600235153148682
+        },
+        {
+          "term": "backdoor roth",
+          "weight": 0.02579228275342709
+        }
+      ]
+    },
+    {
+      "topic_id": 15,
+      "count": 6,
+      "name": "15_2025_contribution_ira_2026",
+      "representation": [
+        {
+          "term": "2025",
+          "weight": 0.056772014140293856
+        },
+        {
+          "term": "contribution",
+          "weight": 0.04864993709389295
+        },
+        {
+          "term": "ira",
+          "weight": 0.04720269861200028
+        },
+        {
+          "term": "year",
+          "weight": 0.03763320577813404
+        },
+        {
+          "term": "roth ira",
+          "weight": 0.030786037257438476
+        },
+        {
+          "term": "maxed",
+          "weight": 0.027418784449745964
+        },
+        {
+          "term": "prior",
+          "weight": 0.020427326151428383
+        }
+      ]
+    },
+    {
+      "topic_id": 16,
+      "count": 6,
+      "name": "16_try_account_vanguard_bank",
+      "representation": [
+        {
+          "term": "try",
+          "weight": 0.024537483025770402
+        },
+        {
+          "term": "account",
+          "weight": 0.02168287488248278
+        },
+        {
+          "term": "vanguard",
+          "weight": 0.01839604415454854
+        },
+        {
+          "term": "bank",
+          "weight": 0.0176035483404761
+        },
+        {
+          "term": "fails",
+          "weight": 0.016666971622747936
+        },
+        {
+          "term": "money",
+          "weight": 0.01534265537352343
+        },
+        {
+          "term": "handling",
+          "weight": 0.013764383094069872
+        },
+        {
+          "term": "splc",
+          "weight": 0.013764383094069872
+        },
+        {
+          "term": "hate groups",
+          "weight": 0.013764383094069872
+        },
+        {
+          "term": "workers",
+          "weight": 0.013333577298198349
+        }
+      ]
+    },
+    {
+      "topic_id": 17,
+      "count": 6,
+      "name": "17_security_keys_key_security key",
+      "representation": [
+        {
+          "term": "security",
+          "weight": 0.07885290619475215
+        },
+        {
+          "term": "keys",
+          "weight": 0.036967406354106
+        },
+        {
+          "term": "security key",
+          "weight": 0.031119539010136386
+        },
+        {
+          "term": "sms",
+          "weight": 0.031119539010136386
+        },
+        {
+          "term": "2fa",
+          "weight": 0.031093359208640852
+        },
+        {
+          "term": "vanguard",
+          "weight": 0.02787279417355839
+        },
+        {
+          "term": "security keys",
+          "weight": 0.027069907753206272
+        },
+        {
+          "term": "yubikey",
+          "weight": 0.020332191268057624
+        },
+        {
+          "term": "login",
+          "weight": 0.019856172592771736
+        }
+      ]
+    },
+    {
+      "topic_id": 18,
+      "count": 6,
+      "name": "18_lock_hold_vanguard_buy",
+      "representation": [
+        {
+          "term": "lock",
+          "weight": 0.0355520191257482
+        },
+        {
+          "term": "hold",
+          "weight": 0.033827184956162305
+        },
+        {
+          "term": "vanguard",
+          "weight": 0.031911882709770946
+        },
+        {
+          "term": "buy",
+          "weight": 0.025600109265677694
+        },
+        {
+          "term": "clark",
+          "weight": 0.02101200074094737
+        },
+        {
+          "term": "rule",
+          "weight": 0.02093940368844813
+        },
+        {
+          "term": "acats",
+          "weight": 0.020530762003143715
+        },
+        {
+          "term": "otc",
+          "weight": 0.020354354725125798
+        },
+        {
+          "term": "extended",
+          "weight": 0.01981712745238757
+        },
+        {
+          "term": "request",
+          "weight": 0.01711954941453803
         }
       ]
     }

@@ -23,31 +23,31 @@ chunks:
     key_terms: [help, waterloo, anything, comments, because, student, money, been]
     token_count: 222
   - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c1"
-    char_span: [914, 2969]
+    char_span: [913, 2968]
     sentence_count: 12
     key_terms: [guitarbright, don, give, need, pay, cautious, facebook, services]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c2"
-    char_span: [2971, 4569]
+    char_span: [2970, 4568]
     sentence_count: 1
     key_terms: [sell, items, pay, early, job, because, worked, money]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c3"
-    char_span: [4571, 6062]
+    char_span: [4570, 6061]
     sentence_count: 9
     key_terms: [payment, pay, guitarbright, collections, back, bank, call, day]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c4"
-    char_span: [6064, 7210]
+    char_span: [6063, 7209]
     sentence_count: 12
     key_terms: [verify, call, company, someone, number, zestyclosebathroom31, waste, bank]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/waterloo/1s2elmi.md#c5"
-    char_span: [7212, 8184]
+    char_span: [7211, 8183]
     sentence_count: 8
     key_terms: ["you'll", maybe, offer, expresskitchen235, dog, full, help, pay]
     section: Comments

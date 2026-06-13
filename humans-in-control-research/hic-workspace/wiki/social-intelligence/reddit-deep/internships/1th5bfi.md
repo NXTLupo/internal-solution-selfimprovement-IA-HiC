@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1th5bfi.md#c0"
-    char_span: [0, 1859]
+    char_span: [0, 1858]
     sentence_count: 4
     key_terms: [opportunities, analytics, strategy, market, internships, data, frameworks, internship]
     token_count: 394

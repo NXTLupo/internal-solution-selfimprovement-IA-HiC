@@ -15,10 +15,10 @@ industries: [workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-internships/b6a0fba1c1.md#c0"
-    char_span: [0, 1293]
+    char_span: [0, 1292]
     sentence_count: 9
     key_terms: [interview, internship, internships, tell, position, students, anymore, program]
-    token_count: 278
+    token_count: 277
 ---
 # Are undergrads not taught how to interview anymore?
 

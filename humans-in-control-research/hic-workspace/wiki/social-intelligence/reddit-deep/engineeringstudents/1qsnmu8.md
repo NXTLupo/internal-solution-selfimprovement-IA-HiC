@@ -21,31 +21,31 @@ chunks:
     key_terms: [like, people, experience, learning, already, engineeringstudents, years, been]
     token_count: 489
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qsnmu8.md#c1"
-    char_span: [2138, 4319]
+    char_span: [2137, 4318]
     sentence_count: 11
     key_terms: [college, engineering, rahulyouareacheater, because, people, start, hard, too]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qsnmu8.md#c2"
-    char_span: [4321, 6498]
+    char_span: [4320, 6497]
     sentence_count: 17
     key_terms: [whereismyplacehere, different, hard, yourself, process, right, part, important]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qsnmu8.md#c3"
-    char_span: [6500, 8557]
+    char_span: [6499, 8556]
     sentence_count: 11
     key_terms: [people, lot, engineering, realistic-basil1286, transfer, college, older, comparisons]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qsnmu8.md#c4"
-    char_span: [8309, 8574]
+    char_span: [8308, 8573]
     sentence_count: 3
     key_terms: [engineering, wanted, car, engineer, because, classes, natural, rewired]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qsnmu8.md#c5"
-    char_span: [8576, 8887]
+    char_span: [8575, 8886]
     sentence_count: 3
     key_terms: [people, teach, practiced, practice, struggle, "wouldn't", classes, college]
     section: Comments

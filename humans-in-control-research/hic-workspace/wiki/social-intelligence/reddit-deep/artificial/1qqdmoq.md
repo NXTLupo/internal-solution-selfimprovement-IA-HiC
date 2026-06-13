@@ -23,49 +23,49 @@ chunks:
     key_terms: [security, moltbot, concerns, article, artificial, comments, hesitant, personal]
     token_count: 307
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c1"
-    char_span: [1351, 2807]
+    char_span: [1350, 2806]
     sentence_count: 2
     key_terms: [functionality, e125-4934-a0fc-1b35bb1a98cd, developed, something, security, command, moltbot, internal-passage5756]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c2"
-    char_span: [2809, 4883]
+    char_span: [2808, 4882]
     sentence_count: 13
     key_terms: [access, grok, account, employee, another, network, enough, google]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c3"
-    char_span: [4669, 5327]
+    char_span: [4668, 5326]
     sentence_count: 6
     key_terms: [account, something, access, google, give, work, stardockengineer, environment]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c4"
-    char_span: [5329, 7236]
+    char_span: [5328, 7235]
     sentence_count: 10
     key_terms: [claude, code, weusedtobeacountry, program, own, want, agent-sdk, overview]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c5"
-    char_span: [7238, 9289]
+    char_span: [7237, 9288]
     sentence_count: 11
     key_terms: [local, agents, like, llms, connect, without, claude, makes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c6"
-    char_span: [9006, 9320]
+    char_span: [9005, 9319]
     sentence_count: 2
     key_terms: [like, via, time-consuming, uncomfortable, navigating, organizing, outsource, providing]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c7"
-    char_span: [9322, 11486]
+    char_span: [9321, 11485]
     sentence_count: 16
     key_terms: [like, api, use, people, reservation, send, definitely, assistant]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/artificial/1qqdmoq.md#c8"
-    char_span: [11488, 12578]
+    char_span: [11487, 12577]
     sentence_count: 5
     key_terms: [claude, business-weekend-537, run, use, practical, browser, skills, chromium-based]
     section: Comments

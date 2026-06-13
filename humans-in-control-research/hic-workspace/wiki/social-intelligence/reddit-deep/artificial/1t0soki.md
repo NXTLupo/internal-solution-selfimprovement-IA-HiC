@@ -23,25 +23,25 @@ chunks:
     key_terms: [followloop, tasks, claude, model, app, cost, actual, automatically]
     token_count: 376
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c1"
-    char_span: [1520, 3752]
+    char_span: [1519, 3751]
     sentence_count: 17
     key_terms: [openrouter, route, routing, model, queeflatinahog, automatically, subscription, auto-router]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c2"
-    char_span: [3754, 5576]
+    char_span: [3753, 5575]
     sentence_count: 18
     key_terms: [queeflatinahog, openrouter, because, router, bot, does, difference, comment]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c3"
-    char_span: [5578, 7886]
+    char_span: [5577, 7885]
     sentence_count: 16
     key_terms: [model, complexity, coder, routing, classification, queeflatinahog, switchboard, confidence]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/artificial/1t0soki.md#c4"
-    char_span: [7888, 10074]
+    char_span: [7887, 10073]
     sentence_count: 9
     key_terms: [models, tasks, frontier, routing, task, quality, classification, simple]
     section: Comments

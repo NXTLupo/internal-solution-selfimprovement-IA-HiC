@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, career, cybersecurity, opportunities, poojasuthar, reddit-deep, difficulty]
     token_count: 137
   - id: "social-intelligence/reddit-deep/careerguidance/1tbspit.md#c1"
-    char_span: [537, 1804]
+    char_span: [536, 1803]
     sentence_count: 1
     key_terms: [data, need, entry, foundation, analytics, companies, different, probably]
     section: Comments

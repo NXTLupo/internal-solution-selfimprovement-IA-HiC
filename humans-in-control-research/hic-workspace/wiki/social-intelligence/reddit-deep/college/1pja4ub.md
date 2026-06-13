@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, something, want, degree, associates, experience, bachelors, unrelated]
     token_count: 266
   - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c1"
-    char_span: [1200, 3322]
+    char_span: [1199, 3321]
     sentence_count: 12
     key_terms: [linguistics, classes, credits, wanted, honestly, connect, degrees, majors]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c2"
-    char_span: [3324, 4692]
+    char_span: [3323, 4691]
     sentence_count: 11
     key_terms: [language, majors, major, linguistics, common, biology, doubles, doable]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/college/1pja4ub.md#c3"
-    char_span: [4695, 5939]
+    char_span: [4694, 5938]
     sentence_count: 11
     key_terms: [engineering, "it's", "wouldn't", another, example, overlap, related, common]
     section: Comments

@@ -1,0 +1,29 @@
+Documents for Topic 7 (showing first 3):
+
+Document 1:
+Why are all my Retirement Fund Accounts down today when their non-retirement equivalents are all up?  This morning it has!
+
+Mystery solved. Don't believe the "As of" date.
+I posted around 10:30PM Eastern.
+It appears something has not updated today either on your device or somewhere. Price changes for those securities in your screenshot do not reflect what happened on May 8. For example, the Vanguard 2035 fund should be up around 0.55%....
+
+Document 2:
+Problems with access to vg accounts? I have been a VG client for over 20 years. Yesterday I got this message when I tried to access my Vanguard accounts: "Access Denied.  You don't have permission to access "http://logon.vanguard.com/logon?" on this server."
+
+I called VG, and when they couldn't figure out why this was happening, they submitted an IT request to investigate, and said it could take 5-7 days to resolve.  This seems totally unacceptable to me that it would take so long - has anyone o...
+
+Document 3:
+Can’t withdraw cash from Vanguard ISA (UK) - “Withdrawal is not available for selected account” Hi all,
+
+I’ve got a Stocks & Shares ISA with Vanguard. My bank account is linked and fully verified (shows the green status in my profile), so that part seems fine.
+
+However, when I try to withdraw cash, I get a message saying:  
+“Withdrawal is not available for selected account.”
+
+Has anyone come across this before?
+
+For context:
+
+* This is an Invest ISA (not a pension)
+* Bank account is linked and v...
+

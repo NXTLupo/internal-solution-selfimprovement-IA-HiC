@@ -21,25 +21,25 @@ chunks:
     key_terms: [job, january, resume, right, internships, internship, everybody, comments]
     token_count: 304
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c1"
-    char_span: [1381, 3149]
+    char_span: [1380, 3148]
     sentence_count: 10
     key_terms: [recruiter, email, recruiters, directors, got, ghosted, manager, get]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c2"
-    char_span: [3151, 4644]
+    char_span: [3150, 4643]
     sentence_count: 9
     key_terms: [analytics, got, applications, data, good, applied, jdwjxia, better]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c3"
-    char_span: [4646, 6787]
+    char_span: [4645, 6786]
     sentence_count: 10
     key_terms: [new-carpenter-6300, internship, international, got, internships, opportunity, yourself, applied]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1qmoixk.md#c4"
-    char_span: [6560, 6924]
+    char_span: [6559, 6923]
     sentence_count: 1
     key_terms: [nationalbluebird3420, new-carpenter-6300, eventually, experience, interviews, jobright, messaged, company]
     section: Comments

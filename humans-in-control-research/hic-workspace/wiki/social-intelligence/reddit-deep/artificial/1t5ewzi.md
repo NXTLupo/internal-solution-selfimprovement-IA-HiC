@@ -33,55 +33,55 @@ chunks:
     key_terms: [layer, prompt-architecture-as-product, risk, industries, regulated, wrapper, middle, "isn't"]
     token_count: 276
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c3"
-    char_span: [5791, 7402]
+    char_span: [5790, 7401]
     sentence_count: 11
     key_terms: [replacementready394, likely, critical, agentic, because, systems, whether, agents]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c4"
-    char_span: [7404, 8637]
+    char_span: [7403, 8636]
     sentence_count: 7
     key_terms: [replacementready394, agentic, bright-secretary-710, does, full, gets, jobs, png]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c5"
-    char_span: [8639, 10789]
+    char_span: [8638, 10788]
     sentence_count: 13
     key_terms: [mcp, systems, integrations, legacy, problem, implemented, integration, data]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c6"
-    char_span: [10791, 12966]
+    char_span: [10790, 12965]
     sentence_count: 17
     key_terms: ["it's", coding, different, use, good, hard, want, understand]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c7"
-    char_span: [12968, 15027]
+    char_span: [12967, 15026]
     sentence_count: 15
     key_terms: [programming, because, people, going, "doesn't", having, "don't", programmers]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c8"
-    char_span: [15029, 16324]
+    char_span: [15028, 16323]
     sentence_count: 7
     key_terms: [something, common, system, integration, understand, different, substrate, enough]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c9"
-    char_span: [16326, 18000]
+    char_span: [16325, 17999]
     sentence_count: 8
     key_terms: [software, own, connectors, companies, database, players, early, means]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c10"
-    char_span: [18002, 19396]
+    char_span: [18001, 19395]
     sentence_count: 9
     key_terms: [knowledge, converts, software, startup, domain, people, demonstrate, effectively]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/artificial/1t5ewzi.md#c11"
-    char_span: [19398, 21615]
+    char_span: [19397, 21614]
     sentence_count: 18
     key_terms: [saas, cloud, companies, costs, company, "you're", doubling, industry]
     section: Comments

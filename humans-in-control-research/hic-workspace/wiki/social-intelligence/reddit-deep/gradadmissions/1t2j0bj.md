@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1t2j0bj.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1t2j0bj/how_much_old_lor_can_be_used_in_grad_school/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t2j0bj.md#c0"
+    char_span: [0, 1215]
+    sentence_count: 10
+    key_terms: [lor, gradadmissions, old, university, comments, programs, school, wanted]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/gradadmissions/1t2j0bj.md#c1"
+    char_span: [1230, 2300]
+    sentence_count: 10
+    key_terms: [assassinbywords, lor, directly, programs, usually, school, professor, submitted]
+    section: Comments
+    token_count: 250
 ---
-
 # How much old LOR can be used in Grad School Admissions?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1t2j0bj/how_much_old_lor_can_be_used_in_grad_school/)

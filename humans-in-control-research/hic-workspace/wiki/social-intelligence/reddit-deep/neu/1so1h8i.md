@@ -21,7 +21,7 @@ chunks:
     key_terms: [professional, studies, didnt, job, cps, got, mps, neu]
     token_count: 323
   - id: "social-intelligence/reddit-deep/neu/1so1h8i.md#c1"
-    char_span: [1217, 1793]
+    char_span: [1216, 1792]
     sentence_count: 5
     key_terms: [wateryphoenix750, professional, studies, striking-escape-1812, advertisement, functionally, northeastern, rhynocerous]
     section: Comments

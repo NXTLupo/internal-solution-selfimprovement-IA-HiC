@@ -26,13 +26,13 @@ chunks:
     key_terms: [law, ireland, compliance, international, roles, legal, companies, tech]
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c2"
-    char_span: [4281, 6420]
+    char_span: [4281, 6419]
     sentence_count: 14
     key_terms: [solicitor, law, "don't", etc, training, service, international, areas]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1mp3pm7.md#c3"
-    char_span: [6422, 8108]
+    char_span: [6421, 8107]
     sentence_count: 14
     key_terms: [law, experience, get, italianirish99, qualifications, degree, firms, world]
     section: Comments

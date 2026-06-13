@@ -31,61 +31,61 @@ chunks:
     key_terms: ["don't", already, "you're", doing, like, personal, students, pre-med]
     token_count: 356
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c3"
-    char_span: [5789, 7015]
+    char_span: [5788, 7014]
     sentence_count: 8
     key_terms: [year, school, emt, high, "it's", real, sophomore, medicine]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c4"
-    char_span: [7019, 9238]
+    char_span: [7018, 9237]
     sentence_count: 11
     key_terms: [college, medical, emt, specialties, did, like, work, committee]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c5"
-    char_span: [9240, 11671]
+    char_span: [9239, 11670]
     sentence_count: 11
     key_terms: [students, pre-med, committee, advising, school, programs, schools, office]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c6"
-    char_span: [11673, 13688]
+    char_span: [11672, 13687]
     sentence_count: 16
     key_terms: [students, college, advice, "you're", pre-med, schools, email, right]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c7"
-    char_span: [13690, 15799]
+    char_span: [13689, 15798]
     sentence_count: 12
     key_terms: [experience, school, shadowing, get, cna, emt, high, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c8"
-    char_span: [15519, 16371]
+    char_span: [15518, 16370]
     sentence_count: 3
     key_terms: [shadowing, hospital, college, impact, year, admissions, experience, impossible]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c9"
-    char_span: [16373, 18110]
+    char_span: [16372, 18109]
     sentence_count: 18
     key_terms: [happens, interesting, shadowing, bullshit, research, pre-med, cooked, people]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c10"
-    char_span: [18112, 19440]
+    char_span: [18111, 19439]
     sentence_count: 7
     key_terms: [undergraduate, schools, white-coats-launch-a-yale-classs-medical-education, vp-s-white-coat-ceremony-welcomes-class-2027, states, institutions, https, represented]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c11"
-    char_span: [19442, 21795]
+    char_span: [19441, 21794]
     sentence_count: 15
     key_terms: [schools, top, school, students, undergraduate, south, med, medical]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t57kmj.md#c12"
-    char_span: [21798, 23463]
+    char_span: [21797, 23462]
     sentence_count: 14
     key_terms: [research, college, got, year, schools, wanting, easier, school]
     section: Comments

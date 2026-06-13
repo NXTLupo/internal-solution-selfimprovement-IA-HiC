@@ -28,7 +28,7 @@ chunks:
     key_terms: [master, roles, time, whether, funded, offer, right, back]
     token_count: 196
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6tbik.md#c2"
-    char_span: [2936, 3609]
+    char_span: [2935, 3608]
     sentence_count: 6
     key_terms: [probably, going, best, get, catsdrinkingbeer, application, engineering, experience]
     section: Comments

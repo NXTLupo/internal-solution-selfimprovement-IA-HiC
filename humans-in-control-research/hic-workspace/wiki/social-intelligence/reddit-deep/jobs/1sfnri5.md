@@ -21,79 +21,79 @@ chunks:
     key_terms: [comments, jobs, job, years, unemployed, multiple, reddit, resume]
     token_count: 325
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c1"
-    char_span: [1468, 3411]
+    char_span: [1467, 3410]
     sentence_count: 17
     key_terms: [ambulancefactory, being, years, job, interviews, because, instead, nothing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c2"
-    char_span: [3145, 3886]
+    char_span: [3144, 3885]
     sentence_count: 6
     key_terms: [government, business, myself, world, "i'm", look, ambulancefactory, occasionally]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c3"
-    char_span: [3888, 4147]
+    char_span: [3887, 4146]
     sentence_count: 3
     key_terms: [like, employment, ingenuity, platforms, something, linkedin, position, cooking]
     section: Comments
     token_count: 55
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c4"
-    char_span: [4149, 6082]
+    char_span: [4148, 6081]
     sentence_count: 16
     key_terms: [parents, surfing, career, people, please, resume, big-establishment707, glittering-music-818]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c5"
-    char_span: [5825, 6146]
+    char_span: [5824, 6145]
     sentence_count: 3
     key_terms: [thegoldinthemountain, accountant, restaurant, thankfully, interview, something, applying, daycare]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c6"
-    char_span: [6148, 8094]
+    char_span: [6147, 8093]
     sentence_count: 9
     key_terms: [because, quickly, being, experience, getting, resume, "you're", doing]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c7"
-    char_span: [8096, 10039]
+    char_span: [8095, 10038]
     sentence_count: 13
     key_terms: [resume, like, management, positions, getting, usually, higher, people]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c8"
-    char_span: [10041, 11429]
+    char_span: [10040, 11428]
     sentence_count: 14
     key_terms: [canimakeyouhurtmore, job, like, applications, unemployment, experience, better, "can't"]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c9"
-    char_span: [11431, 12269]
+    char_span: [11430, 12268]
     sentence_count: 4
     key_terms: [canimakeyouhurtmore, qualifications, suggestion, melodiccontact2560, hide, idea, circumstances, dontholdback1]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c10"
-    char_span: [12271, 14358]
+    char_span: [12270, 14357]
     sentence_count: 14
     key_terms: [business, degrees, market, resume, consulting, everything, experience, recruiters]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c11"
-    char_span: [14075, 16184]
+    char_span: [14074, 16183]
     sentence_count: 25
     key_terms: [years, retirement, adept-donkey, life, time, consulting, everything, successful]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c12"
-    char_span: [15907, 16618]
+    char_span: [15906, 16617]
     sentence_count: 7
     key_terms: [job, nephew, canimakeyouhurtmore, "it's", time, necessarily, curveballs, deductible]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/jobs/1sfnri5.md#c13"
-    char_span: [16620, 18352]
+    char_span: [16619, 18351]
     sentence_count: 19
     key_terms: [canimakeyouhurtmore, freelance, unemployment, work, missteee2, honestly, looking, through]
     section: Comments

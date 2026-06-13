@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-college/ab534ba6af.md#c0"
-    char_span: [0, 1515]
+    char_span: [0, 1514]
     sentence_count: 30
     key_terms: [students, here, time, college, increase, midsems, without, papers]
-    token_count: 374
+    token_count: 373
 ---
 # Prof nearly made me tear up in class
 

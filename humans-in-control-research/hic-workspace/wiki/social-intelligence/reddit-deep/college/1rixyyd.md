@@ -23,19 +23,19 @@ chunks:
     key_terms: [working, "i'm", college, online, available, classes, school, requirements]
     token_count: 280
   - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c1"
-    char_span: [1272, 3140]
+    char_span: [1271, 3139]
     sentence_count: 12
     key_terms: [job, time, classes, "it's", transfer, afford, school, full]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c2"
-    char_span: [3142, 5234]
+    char_span: [3141, 5233]
     sentence_count: 13
     key_terms: [classes, working, time, credits, school, different, like, advisor]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1rixyyd.md#c3"
-    char_span: [5236, 7256]
+    char_span: [5235, 7255]
     sentence_count: 19
     key_terms: [classes, community, schedule, online, work, something, semester, transfer]
     section: Comments

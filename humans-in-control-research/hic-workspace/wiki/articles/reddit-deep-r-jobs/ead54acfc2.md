@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/ead54acfc2.md#c0"
-    char_span: [0, 1233]
+    char_span: [0, 1232]
     sentence_count: 11
     key_terms: [jobs, like, job, long-term, comments, anymore, working, reddit]
-    token_count: 311
+    token_count: 310
   - id: "articles/reddit-deep-r-jobs/ead54acfc2.md#c1"
-    char_span: [1235, 2070]
+    char_span: [1234, 2069]
     sentence_count: 4
     key_terms: [job, stay, staying, career, get, jobs, long, henrykimzgh]
     token_count: 205

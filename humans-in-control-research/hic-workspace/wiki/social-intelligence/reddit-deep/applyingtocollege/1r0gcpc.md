@@ -23,7 +23,7 @@ chunks:
     key_terms: [application, applyingtocollege, college, qualities, comments, personal, internal-remove7223, stand]
     token_count: 205
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r0gcpc.md#c1"
-    char_span: [987, 3374]
+    char_span: [986, 3373]
     sentence_count: 25
     key_terms: [college, activities, teacher, important, realistic, readers, essays, "you'd"]
     section: Comments

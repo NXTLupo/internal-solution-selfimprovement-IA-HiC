@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/5dcced0eda.md#c0"
-    char_span: [0, 1969]
+    char_span: [0, 1968]
     sentence_count: 15
     key_terms: [internships, available, jobs, experience, because, looking, able, job]
-    token_count: 425
+    token_count: 424
 ---
 # Internships only available for students. Need experience for entry level jobs.
 

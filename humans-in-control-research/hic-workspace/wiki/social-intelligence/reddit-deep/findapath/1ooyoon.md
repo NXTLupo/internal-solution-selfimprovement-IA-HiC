@@ -23,7 +23,7 @@ chunks:
     key_terms: [work-from-home, career, findapath, comments, paths, roles, data, job]
     token_count: 295
   - id: "social-intelligence/reddit-deep/findapath/1ooyoon.md#c1"
-    char_span: [1327, 2595]
+    char_span: [1326, 2594]
     sentence_count: 11
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

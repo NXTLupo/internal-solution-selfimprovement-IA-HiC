@@ -23,13 +23,13 @@ chunks:
     key_terms: [nerf, clear, comments, emotions, function, chatgpt, recipes, making]
     token_count: 284
   - id: "social-intelligence/reddit-deep/chatgpt/1mnfidd.md#c1"
-    char_span: [1186, 3288]
+    char_span: [1185, 3287]
     sentence_count: 9
     key_terms: [model, users, asked, simply, books, check, bad, feel]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/chatgpt/1mnfidd.md#c2"
-    char_span: [3290, 4469]
+    char_span: [3289, 4468]
     sentence_count: 6
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq]
     section: Comments

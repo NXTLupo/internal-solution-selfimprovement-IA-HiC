@@ -15,10 +15,10 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "articles/reddit-claude/bf8fbf15e3.md#c0"
-    char_span: [0, 842]
+    char_span: [0, 841]
     sentence_count: 10
     key_terms: [model, absolutely, problems, schedule, claude, reddit, month, today]
-    token_count: 217
+    token_count: 216
 ---
 # There is absolutely no way this is the same Opus 4.6 from a month ago
 

@@ -28,7 +28,7 @@ chunks:
     key_terms: [year, junior, coursework, confident, strongest, concerns, algebra, biggest]
     token_count: 84
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvvrvu.md#c2"
-    char_span: [2271, 2833]
+    char_span: [2270, 2832]
     sentence_count: 7
     key_terms: [competitive, questbridge, optional, applied, rare-frosting-3514, got, sat, test]
     section: Comments

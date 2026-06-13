@@ -23,31 +23,31 @@ chunks:
     key_terms: [degree, findapath, something, anything, comments, because, college, getting]
     token_count: 349
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c1"
-    char_span: [1535, 3670]
+    char_span: [1534, 3669]
     sentence_count: 15
     key_terms: [thank, everyone, helpful, advice, please, community, findapath, practical]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c2"
-    char_span: [3672, 5339]
+    char_span: [3671, 5338]
     sentence_count: 19
     key_terms: [get, example, wanted, local, healthcare, leveraged, positions, clinics]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c3"
-    char_span: [5341, 6609]
+    char_span: [5340, 6608]
     sentence_count: 15
     key_terms: [justrandom119, local, always, internetnavigator23, maybe, small, start, bar]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c4"
-    char_span: [6611, 8623]
+    char_span: [6610, 8622]
     sentence_count: 17
     key_terms: [because, nevada, justrandom119, bathroom, together, cheaper, getting, making]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1sfzqls.md#c5"
-    char_span: [8625, 8815]
+    char_span: [8624, 8814]
     sentence_count: 2
     key_terms: [short-term, substitute, cellphone, resources, expenses, teaching, reduced, agency]
     section: Comments

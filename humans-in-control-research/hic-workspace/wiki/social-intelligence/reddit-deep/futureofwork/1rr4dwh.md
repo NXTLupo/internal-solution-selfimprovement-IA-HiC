@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/futureofwork/1rr4dwh.md#c0"
-    char_span: [0, 2073]
+    char_span: [0, 2072]
     sentence_count: 12
     key_terms: [machines, currently, sovereign, administrative, people, futureofwork, saas, apocalypse]
-    token_count: 457
+    token_count: 456
 ---
 # Beyond the "Task" Economy: Why the future belongs to the Sovereign Operator.
 

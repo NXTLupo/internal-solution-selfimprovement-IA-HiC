@@ -21,43 +21,43 @@ chunks:
     key_terms: [get, degree, women, college, hired, job, men, comments]
     token_count: 304
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c1"
-    char_span: [1278, 2971]
+    char_span: [1277, 2970]
     sentence_count: 12
     key_terms: [women, healthcare, either, men, degree, news, childcare, college]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c2"
-    char_span: [2973, 4726]
+    char_span: [2972, 4725]
     sentence_count: 12
     key_terms: [dominated, like, college, market, traditionally, engineering, job, want]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c3"
-    char_span: [4728, 6841]
+    char_span: [4727, 6840]
     sentence_count: 11
     key_terms: [women, men, young, age, fact, education, educated, college]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c4"
-    char_span: [6843, 8873]
+    char_span: [6842, 8872]
     sentence_count: 15
     key_terms: [women, men, education, college, circumstantial, leave, average-college-gpa-statistics, take]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c5"
-    char_span: [8875, 11089]
+    char_span: [8874, 11088]
     sentence_count: 12
     key_terms: [academic-achievement-isnt-reason-there-are-more-men-women-majoring-physics-engineering-and, wide-and-lasting-consequences-teachers-give-girls-higher-grades-than-boys, teachers, gender, internships, got, like, professor]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c6"
-    char_span: [11091, 13372]
+    char_span: [11090, 13371]
     sentence_count: 17
     key_terms: [financial, college, getting, support, through, people, school, women]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1ms5vg1.md#c7"
-    char_span: [13376, 15109]
+    char_span: [13375, 15108]
     sentence_count: 9
     key_terms: [college, friends, ropethefreeze, participated, job, stem, impressive, getting]
     section: Comments

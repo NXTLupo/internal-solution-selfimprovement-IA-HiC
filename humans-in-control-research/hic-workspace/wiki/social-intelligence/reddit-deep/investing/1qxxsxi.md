@@ -23,25 +23,25 @@ chunks:
     key_terms: [investors, stock, market, investing, ownership, comments, nations, rather]
     token_count: 154
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c1"
-    char_span: [727, 2494]
+    char_span: [726, 2493]
     sentence_count: 26
     key_terms: [estate, real, countries, easier, easy, business, deleted, having]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c2"
-    char_span: [2496, 4427]
+    char_span: [2495, 4426]
     sentence_count: 16
     key_terms: [estate, real, returns, stocks, wealth, did, here, tax]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c3"
-    char_span: [4429, 6217]
+    char_span: [4428, 6216]
     sentence_count: 12
     key_terms: [investing, percent, being, stock, inflation, portfolio, business, probably]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/investing/1qxxsxi.md#c4"
-    char_span: [6219, 7080]
+    char_span: [6218, 7079]
     sentence_count: 2
     key_terms: [don, invest, property, gamble, put, paperhandsthedip, prolapsejerky, preservation]
     section: Comments

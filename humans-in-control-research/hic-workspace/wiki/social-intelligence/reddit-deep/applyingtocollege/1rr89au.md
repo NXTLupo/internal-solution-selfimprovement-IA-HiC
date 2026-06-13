@@ -21,13 +21,13 @@ chunks:
     key_terms: [sure, applyingtocollege, like, stanford, classes, culture, friends, premed]
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rr89au.md#c1"
-    char_span: [2292, 2598]
+    char_span: [2292, 2597]
     sentence_count: 1
     key_terms: [throwawaygremlins, sure, opportunities, pretentious, inflation, prevalent, relevant, research]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rr89au.md#c2"
-    char_span: [2600, 4364]
+    char_span: [2599, 4363]
     sentence_count: 7
     key_terms: [stanford, far-condition-56, yale, likely, like, rea, congrats, schools]
     section: Comments

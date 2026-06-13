@@ -23,13 +23,13 @@ chunks:
     key_terms: [export, contracts, invoicing, workspace, invoices, recommended, need, freelance]
     token_count: 382
   - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c1"
-    char_span: [1540, 3565]
+    char_span: [1539, 3564]
     sentence_count: 13
     key_terms: [workspace, features, because, subscription, moxie, price, crm, considered]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/freelance/1rh8naj.md#c2"
-    char_span: [3567, 4988]
+    char_span: [3566, 4987]
     sentence_count: 13
     key_terms: [invoicing, good, instead, records, export-to-two-places, using, been, "i've"]
     section: Comments

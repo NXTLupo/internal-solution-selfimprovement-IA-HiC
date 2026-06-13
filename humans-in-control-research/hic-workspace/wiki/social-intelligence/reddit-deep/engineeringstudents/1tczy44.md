@@ -23,31 +23,31 @@ chunks:
     key_terms: [engineering, umich, worth, debt, engineeringstudents, prestige, "i'm", mechanical]
     token_count: 334
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c1"
-    char_span: [1528, 3534]
+    char_span: [1527, 3533]
     sentence_count: 19
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, students, posting]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c2"
-    char_span: [3537, 5503]
+    char_span: [3536, 5502]
     sentence_count: 14
     key_terms: [portfolio, debt, well-regarded, peterverdone, windjetman62, worth, good, look]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c3"
-    char_span: [5505, 7200]
+    char_span: [5504, 7199]
     sentence_count: 21
     key_terms: [want, msu, companies, michigan, going, like, guessing, prestige]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c4"
-    char_span: [7202, 8684]
+    char_span: [7201, 8683]
     sentence_count: 10
     key_terms: [difference, debt, msu, isn, probably, future, pretty, adoormarkedpirate420]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tczy44.md#c5"
-    char_span: [8686, 9507]
+    char_span: [8685, 9506]
     sentence_count: 5
     key_terms: [difference, program, smaller, support, umass, get, significantly, counterpoint]
     section: Comments

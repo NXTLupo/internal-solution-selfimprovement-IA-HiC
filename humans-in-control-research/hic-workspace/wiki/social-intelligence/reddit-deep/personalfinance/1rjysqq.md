@@ -28,37 +28,37 @@ chunks:
     key_terms: [interest, loans, student, funds, best, appreciated, regardless, currently]
     token_count: 160
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c2"
-    char_span: [2367, 4128]
+    char_span: [2366, 4127]
     sentence_count: 17
     key_terms: [paying, too, anything, significantly, "don't", money, debt, down]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c3"
-    char_span: [4130, 5961]
+    char_span: [4129, 5960]
     sentence_count: 17
     key_terms: [big, law, return, firms, loans, investments, risk, gauranteed]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c4"
-    char_span: [5963, 7250]
+    char_span: [5962, 7249]
     sentence_count: 6
     key_terms: [work, messem10, insurance, attorney, estate, months, policy, correct-mail-1942]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c5"
-    char_span: [7252, 9376]
+    char_span: [7251, 9375]
     sentence_count: 19
     key_terms: [get, coverage, yourself, income, right, "i'm", keep, contact]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c6"
-    char_span: [9379, 11520]
+    char_span: [9378, 11519]
     sentence_count: 18
     key_terms: [benefits, kids, money, survivor, sorry, forgiveness, free, loss]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/personalfinance/1rjysqq.md#c7"
-    char_span: [11522, 12405]
+    char_span: [11521, 12404]
     sentence_count: 9
     key_terms: [least, money, aguyandhiscat, comfortable, traditional, investment, operations, decisions]
     section: Comments

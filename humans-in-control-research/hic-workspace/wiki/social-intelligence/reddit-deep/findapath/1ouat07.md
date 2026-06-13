@@ -23,13 +23,13 @@ chunks:
     key_terms: [months, something, creative, learn, experience, corporate, findapath, ai-proof]
     token_count: 378
   - id: "social-intelligence/reddit-deep/findapath/1ouat07.md#c1"
-    char_span: [1591, 3033]
+    char_span: [1590, 3032]
     sentence_count: 11
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/findapath/1ouat07.md#c2"
-    char_span: [3035, 4516]
+    char_span: [3034, 4515]
     sentence_count: 9
     key_terms: [downtown-doubt4353, work, deleted, almost, couldn, market, months, sudden-pineapple-793]
     section: Comments

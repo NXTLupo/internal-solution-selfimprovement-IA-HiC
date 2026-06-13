@@ -23,25 +23,25 @@ chunks:
     key_terms: [school, career, back, kids, working, careerguidance, suggestions, get]
     token_count: 428
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c1"
-    char_span: [1801, 2661]
+    char_span: [1800, 2660]
     sentence_count: 6
     key_terms: [maintenance, industrial, someone, ihatechoosngusername, fan, good, hits, shit]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c2"
-    char_span: [2663, 4192]
+    char_span: [2662, 4191]
     sentence_count: 13
     key_terms: [runningsquirrels, girlgangx3, assistant, community, positions, adjuster, probably, timeline]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c3"
-    char_span: [4195, 5665]
+    char_span: [4194, 5664]
     sentence_count: 16
     key_terms: [don, good, become, degree, cna, pay, meepoclock, training]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/careerguidance/1najnc6.md#c4"
-    char_span: [5667, 6234]
+    char_span: [5666, 6233]
     sentence_count: 4
     key_terms: [pay, management, nursing, brand, good, mynameishuman42, greta-garbage, advancement]
     section: Comments

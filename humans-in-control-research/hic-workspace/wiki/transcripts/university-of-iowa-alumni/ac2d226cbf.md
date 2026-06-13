@@ -1,4 +1,5 @@
 ---
+id: transcripts/university-of-iowa-alumni/ac2d226cbf.md
 url: "https://www.youtube.com/watch?v=5dV_A6tJ6-w"
 url_hash: "ac2d226cbf"
 kind: "transcript"
@@ -8,14 +9,28 @@ author: ""
 date: "20260106"
 tier: 2
 method: "whisper"
-extracted_at: "2026-04-29T23:56:37.776351+00:00"
+extracted_at: "2026-06-12T21:43:55.494927+00:00"
 chars: 4073
 channel: "University of Iowa Alumni"
 duration_sec: 232
-industries: [higher_ed]
-industry_method: deterministic
+content_hash: "5ea5c2f1158ea9d5"
+chunks:
+  - id: "transcripts/university-of-iowa-alumni/ac2d226cbf.md#c0"
+    char_span: [0, 132]
+    sentence_count: 1
+    key_terms: [university, iowa, libraries, youtube, alumni, hidden, source, https]
+    token_count: 37
+  - id: "transcripts/university-of-iowa-alumni/ac2d226cbf.md#c1"
+    char_span: [134, 2528]
+    sentence_count: 26
+    key_terms: [library, collection, libraries, illustrations, book, "it's", university, amazing]
+    token_count: 512
+  - id: "transcripts/university-of-iowa-alumni/ac2d226cbf.md#c2"
+    char_span: [2235, 4208]
+    sentence_count: 20
+    key_terms: ["it's", exhibition, manuscript, gallery, library, books, collection, everything]
+    token_count: 408
 ---
-
 # Hidden Gems of the University of Iowa Libraries
 
 Source: [University of Iowa Alumni](https://www.youtube.com/watch?v=5dV_A6tJ6-w)

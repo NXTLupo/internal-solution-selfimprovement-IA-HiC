@@ -21,7 +21,7 @@ chunks:
     key_terms: [learning, feel, engineering, something, like, embedded, careerguidance, career]
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1rlqva5.md#c1"
-    char_span: [2030, 2776]
+    char_span: [2030, 2775]
     sentence_count: 8
     key_terms: [something, embedded, ece, opportunities, realistically, competition, internships, background]
     token_count: 158

@@ -23,13 +23,13 @@ chunks:
     key_terms: [search, applications, co-op, keep, comments, cos, "i've", "it's"]
     token_count: 258
   - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c1"
-    char_span: [1062, 3184]
+    char_span: [1061, 3183]
     sentence_count: 17
     key_terms: [experience, market, applications, coop, job, applying, opportunity, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1tcdfqv.md#c2"
-    char_span: [2918, 4784]
+    char_span: [2917, 4783]
     sentence_count: 16
     key_terms: [applying, applications, got, jobs, experience, positions, already, whining]
     section: Comments

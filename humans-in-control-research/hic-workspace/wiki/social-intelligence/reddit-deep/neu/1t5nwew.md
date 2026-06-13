@@ -23,7 +23,7 @@ chunks:
     key_terms: [neu-course-explorer, course, https, neu, explorer, section, xianruizhong, com]
     token_count: 301
   - id: "social-intelligence/reddit-deep/neu/1t5nwew.md#c1"
-    char_span: [1228, 2447]
+    char_span: [1227, 2446]
     sentence_count: 6
     key_terms: [topics, conversational, banner, northeastern, topic, designing, different, amazing]
     section: Comments

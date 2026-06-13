@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, gpa, time, comments, engineer, because, finding, degree]
     token_count: 303
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sx7pz2.md#c1"
-    char_span: [1303, 1784]
+    char_span: [1302, 1783]
     sentence_count: 5
     key_terms: [differentiate, gpa, matters, job, engineering, irrelevant, themselves, employers]
     section: Comments

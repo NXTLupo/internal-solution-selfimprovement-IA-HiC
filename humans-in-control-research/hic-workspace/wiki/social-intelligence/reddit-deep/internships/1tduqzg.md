@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1tduqzg.md
 url: "https://www.reddit.com/r/internships/comments/1tduqzg/the_untold_reality_of_international_students_in/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,13 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.224Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1tduqzg.md#c0"
+    char_span: [0, 1794]
+    sentence_count: 19
+    key_terms: [internships, international, confidence, communication, opportunities, keep, understood, companies]
+    token_count: 358
 ---
-
 # The Untold Reality of International Students in the UK
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1tduqzg/the_untold_reality_of_international_students_in/)

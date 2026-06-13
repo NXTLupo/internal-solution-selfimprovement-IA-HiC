@@ -28,31 +28,31 @@ chunks:
     key_terms: [level, project, cycle, ects, educational, high-stakes, requirement, assessment]
     token_count: 101
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c2"
-    char_span: [2675, 4744]
+    char_span: [2674, 4743]
     sentence_count: 13
     key_terms: [experience, another, perspective, good, "bachelor's", motivation, university, programme]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c3"
-    char_span: [4748, 5912]
+    char_span: [4747, 5911]
     sentence_count: 8
     key_terms: [university, experience, another, because, doing, administrative, accreditation, unnecessarily]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c4"
-    char_span: [5914, 7857]
+    char_span: [5913, 7856]
     sentence_count: 16
     key_terms: [like, degree, thesis, exception, bachelor, complete, another, enough]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c5"
-    char_span: [7859, 9823]
+    char_span: [7858, 9822]
     sentence_count: 16
     key_terms: [thesis, work, university, did, alaskawolfjoe, requirements, "don't", institution]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/askacademia/1rjn6ga.md#c6"
-    char_span: [9825, 11717]
+    char_span: [9824, 11716]
     sentence_count: 12
     key_terms: [course, degree, university, program, thesis, retroactively, part, situations]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, reddit-deep, everywhere, shoulders, applying, rejected, applied]
     token_count: 96
   - id: "social-intelligence/reddit-deep/gradadmissions/1qumcei.md#c1"
-    char_span: [409, 1092]
+    char_span: [408, 1091]
     sentence_count: 3
     key_terms: [congrats, congratulations, okconclusion2289, amazing, electrical-water-891, dulceignorancia, noprobllama9898, extra-put-7374]
     section: Comments

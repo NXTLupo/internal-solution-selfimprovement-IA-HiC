@@ -23,7 +23,7 @@ chunks:
     key_terms: [openai, pro, gpt-5-in-chatgpt, https, com, articles, comments, context]
     token_count: 163
   - id: "social-intelligence/reddit-deep/openai/1n3tsg9.md#c1"
-    char_span: [563, 1697]
+    char_span: [562, 1696]
     sentence_count: 3
     key_terms: [category, pro, thinking, context, model, fast, subscription, austeane]
     section: Comments

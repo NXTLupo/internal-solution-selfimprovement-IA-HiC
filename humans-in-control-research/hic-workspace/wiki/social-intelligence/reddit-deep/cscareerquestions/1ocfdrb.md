@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ocfdrb.md#c0"
-    char_span: [0, 2057]
+    char_span: [0, 2056]
     sentence_count: 9
     key_terms: [automation, uipath, automations, rpa, years, cscareerquestions, data, next]
-    token_count: 499
+    token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ocfdrb.md#c1"
-    char_span: [2059, 2256]
+    char_span: [2058, 2255]
     sentence_count: 2
     key_terms: [future-proof, experiences, automation, long-term, resources, building, insights, personal]
     token_count: 43

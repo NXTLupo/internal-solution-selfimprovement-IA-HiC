@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/32dd6acdf1.md#c0"
-    char_span: [0, 1962]
+    char_span: [0, 1961]
     sentence_count: 29
     key_terms: [like, work, cscareerquestions, role, everything, comments, employed, backend]
-    token_count: 435
+    token_count: 434
   - id: "articles/reddit-deep-r-cscareerquestions/32dd6acdf1.md#c1"
-    char_span: [1964, 3290]
+    char_span: [1963, 3289]
     sentence_count: 7
     key_terms: [definitely, company, altertableusernames, get, give, want, work, yetmorespacedust]
     token_count: 323

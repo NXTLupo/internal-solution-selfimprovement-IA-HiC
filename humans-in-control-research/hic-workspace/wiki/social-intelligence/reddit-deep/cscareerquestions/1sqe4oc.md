@@ -21,43 +21,43 @@ chunks:
     key_terms: [cscareerquestions, yourself, "i'm", want, comments, industry, career, mudane]
     token_count: 241
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c1"
-    char_span: [1022, 2382]
+    char_span: [1021, 2381]
     sentence_count: 7
     key_terms: [government, software, special, skills, entrypuzzleheaded670, admin, get, job]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c2"
-    char_span: [2384, 4519]
+    char_span: [2383, 4518]
     sentence_count: 11
     key_terms: [people, work, software, essentially, god, developer, probably, another]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c3"
-    char_span: [4521, 6635]
+    char_span: [4520, 6634]
     sentence_count: 14
     key_terms: [software, like, development, "don't", tech, different, petroleum, something]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c4"
-    char_span: [6637, 8725]
+    char_span: [6636, 8724]
     sentence_count: 16
     key_terms: [software, design, crashes, caused, max, boeing, system, aeronautical]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c5"
-    char_span: [8727, 10662]
+    char_span: [8726, 10661]
     sentence_count: 13
     key_terms: [business, mundane, support, transitioned, learned, management, attendant, require]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c6"
-    char_span: [10664, 12575]
+    char_span: [10663, 12574]
     sentence_count: 16
     key_terms: [legal, understanding, job, pay, supported, problems, ability, support]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sqe4oc.md#c7"
-    char_span: [12577, 12905]
+    char_span: [12576, 12904]
     sentence_count: 4
     key_terms: [jobs, harder, pineapplelemur, everything, surprise, whatever, finding, getting]
     section: Comments

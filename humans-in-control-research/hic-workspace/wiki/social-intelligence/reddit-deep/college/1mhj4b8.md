@@ -23,55 +23,55 @@ chunks:
     key_terms: [college, bag, dorm, dumb, shit, comments, students, safely]
     token_count: 251
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c1"
-    char_span: [1006, 2169]
+    char_span: [1005, 2168]
     sentence_count: 4
     key_terms: [free, info, aceyaceyacey, painted, crisis, paint, antiquegarliclover, done]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c2"
-    char_span: [2171, 3251]
+    char_span: [2170, 3250]
     sentence_count: 3
     key_terms: [emergency, paint, small, tests, years, excellent-ear9433, add, get]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c3"
-    char_span: [3253, 4947]
+    char_span: [3252, 4946]
     sentence_count: 9
     key_terms: [aceyaceyacey, already, wood, include, someone, narcan, pepper, repair]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c4"
-    char_span: [4949, 5259]
+    char_span: [4948, 5258]
     sentence_count: 1
     key_terms: [age, require, card, aceyaceyacey, restricted, firearms, "doesn't", license]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c5"
-    char_span: [5261, 7246]
+    char_span: [5260, 7245]
     sentence_count: 19
     key_terms: [people, fentanyl, signalmotor6609, narcan, state, lot, safe, everyone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c6"
-    char_span: [6992, 7788]
+    char_span: [6991, 7787]
     sentence_count: 14
     key_terms: [narcan, please, child, don, need, signalmotor6609, generations, curricular]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c7"
-    char_span: [7790, 9774]
+    char_span: [7789, 9773]
     sentence_count: 15
     key_terms: [thank, free, get, use, delivered, cocaine, parties, friend]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c8"
-    char_span: [9534, 11062]
+    char_span: [9533, 11061]
     sentence_count: 5
     key_terms: [drink, something, test, roseccmuzak, muscles666, knowingly, parties, common]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/college/1mhj4b8.md#c9"
-    char_span: [11064, 11684]
+    char_span: [11063, 11683]
     sentence_count: 6
     key_terms: [drugged, people, phone, bar, need, underestimating, predictable, shenanigans]
     section: Comments

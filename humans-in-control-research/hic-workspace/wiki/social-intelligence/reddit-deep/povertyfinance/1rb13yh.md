@@ -28,19 +28,19 @@ chunks:
     key_terms: [celebrated, avalanche, illinois, michigan, snowball, timeline, together, whatever]
     token_count: 97
   - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c2"
-    char_span: [2409, 4348]
+    char_span: [2408, 4347]
     sentence_count: 30
     key_terms: [money, debt, increase, focused, income, method, people, loans]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c3"
-    char_span: [4350, 6206]
+    char_span: [4349, 6205]
     sentence_count: 9
     key_terms: [emergency, debt, fund, synocrat, paying, low, investment, something]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rb13yh.md#c4"
-    char_span: [5994, 7295]
+    char_span: [5993, 7294]
     sentence_count: 13
     key_terms: [expenses, easy-active-1546, car, keep, congrats, adorable-suspect-810, costs, month]
     section: Comments

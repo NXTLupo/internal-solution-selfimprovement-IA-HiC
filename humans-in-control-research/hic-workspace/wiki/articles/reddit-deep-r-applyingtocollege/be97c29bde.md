@@ -15,12 +15,12 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/be97c29bde.md#c0"
-    char_span: [0, 1988]
+    char_span: [0, 1987]
     sentence_count: 9
     key_terms: [school, parents, student, interests, applyingtocollege, college, earlier, started]
-    token_count: 433
+    token_count: 432
   - id: "articles/reddit-deep-r-applyingtocollege/be97c29bde.md#c1"
-    char_span: [1990, 3853]
+    char_span: [1989, 3852]
     sentence_count: 15
     key_terms: [visit, pretty, shared, essay, scholarship, spreadsheet, college, parents]
     token_count: 444

@@ -26,61 +26,61 @@ chunks:
     key_terms: [market, job, consistent, internship, privileged, companies, dichotomy, interview]
     token_count: 110
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c2"
-    char_span: [2621, 4627]
+    char_span: [2620, 4626]
     sentence_count: 13
     key_terms: [people, available, "it's", mba, market, years, get, jobs]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c3"
-    char_span: [4629, 6474]
+    char_span: [4628, 6473]
     sentence_count: 13
     key_terms: [wrong, bubble, feels, using, been, "it's", definitely, companies]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c4"
-    char_span: [6476, 7779]
+    char_span: [6475, 7778]
     sentence_count: 10
     key_terms: [been, companies, applications, wlb, interviews, applying, coinbase-discrd-rddt, awesomeoverwhelming]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c5"
-    char_span: [7781, 9697]
+    char_span: [7780, 9696]
     sentence_count: 6
     key_terms: [because, senior, meta, especially, companies, applying, probably, company]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c6"
-    char_span: [9699, 11696]
+    char_span: [9698, 11695]
     sentence_count: 10
     key_terms: [candidates, companies, usestate, python, react, interviews, implement, interview]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c7"
-    char_span: [11698, 13765]
+    char_span: [11697, 13764]
     sentence_count: 19
     key_terms: [like, people, syntax, usestate, conversational, good, interview, minutes]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c8"
-    char_span: [13767, 15192]
+    char_span: [13766, 15191]
     sentence_count: 10
     key_terms: [candidates, react, challenges, terrible, usestate, because, coding, filter]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c9"
-    char_span: [15194, 17227]
+    char_span: [15193, 17226]
     sentence_count: 17
     key_terms: [candidates, bad, time, fake, year, covid, last, candidate]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c10"
-    char_span: [17229, 19138]
+    char_span: [17228, 19137]
     sentence_count: 14
     key_terms: [experience, faang, market, people, "don't", work, absolutely, anti-ai]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qy2hu5.md#c11"
-    char_span: [19140, 21066]
+    char_span: [19139, 21065]
     sentence_count: 12
     key_terms: [political, job, been, nonsense, work, coworkers, horrible, company]
     section: Comments

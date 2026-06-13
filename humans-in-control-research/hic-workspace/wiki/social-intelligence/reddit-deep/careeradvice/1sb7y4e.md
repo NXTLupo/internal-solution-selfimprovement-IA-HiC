@@ -23,7 +23,7 @@ chunks:
     key_terms: [work, skills, careeradvice, accelerate, leveraging, comments, learning, career]
     token_count: 246
   - id: "social-intelligence/reddit-deep/careeradvice/1sb7y4e.md#c1"
-    char_span: [1055, 2445]
+    char_span: [1054, 2444]
     sentence_count: 4
     key_terms: [workflows, replace, agents, agent, quick, doc, real, seen]
     section: Comments

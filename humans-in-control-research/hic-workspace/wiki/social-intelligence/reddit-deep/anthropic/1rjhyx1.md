@@ -18,10 +18,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rjhyx1.md#c0"
-    char_span: [0, 316]
+    char_span: [0, 315]
     sentence_count: 1
     key_terms: [anthropic, comments, shanraisshan, engineering, reddit-deep, changed, rakuten, shopify]
-    token_count: 91
+    token_count: 90
 ---
 # Claude Code has changed engineering at inside Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify
 

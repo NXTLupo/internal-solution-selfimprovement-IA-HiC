@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rdu0vd.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rdu0vd/any_advice_for_excheffood_sales_on_new_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,25 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.901Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c0"
+    char_span: [0, 1271]
+    sentence_count: 16
+    key_terms: [been, careerguidance, sales, years, comments, employed, advice, doing]
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c1"
+    char_span: [1286, 3655]
+    sentence_count: 3
+    key_terms: [maintenance, building, facilities, chef, manufacturers, engineer, roles, sales]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1rdu0vd.md#c2"
+    char_span: [3392, 4105]
+    sentence_count: 1
+    key_terms: [locally, network, indeed, manufacturers, chefs, super, maintenance, def]
+    section: Comments
+    token_count: 170
 ---
-
 # Any advice for ex-Chef/Food Sales on new career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rdu0vd/any_advice_for_excheffood_sales_on_new_career_path/)

@@ -23,55 +23,55 @@ chunks:
     key_terms: [anthropic, comments, engineer, code, "it's", comfortable, reddit-deep, absolutely]
     token_count: 208
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c1"
-    char_span: [858, 1941]
+    char_span: [857, 1940]
     sentence_count: 7
     key_terms: [writing, productivity, stackowoflow, engineer, frontend, projects, backend, "don't"]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c2"
-    char_span: [1943, 3898]
+    char_span: [1942, 3897]
     sentence_count: 11
     key_terms: [requirements, delegate, comment, opus, interface, comments, web3xcss, "haven't"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c3"
-    char_span: [3900, 5515]
+    char_span: [3899, 5514]
     sentence_count: 11
     key_terms: [context, quality, results, design, typing, lines, tests, code]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c4"
-    char_span: [5517, 7356]
+    char_span: [5516, 7355]
     sentence_count: 12
     key_terms: [code, claude, work, implementation, ask, day, use, addicted]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c5"
-    char_span: [7358, 9236]
+    char_span: [7357, 9235]
     sentence_count: 14
     key_terms: [use, stackowoflow, claude, chatgpt, write, get, approaches, sometimes]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c6"
-    char_span: [9238, 11162]
+    char_span: [9237, 11161]
     sentence_count: 13
     key_terms: [like, people, treat, get, discussing, human-like, backend, context]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c7"
-    char_span: [11164, 13245]
+    char_span: [11163, 13244]
     sentence_count: 20
     key_terms: [claude, get, repositories, use, "don't", tests, complaining, like]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c8"
-    char_span: [13247, 15114]
+    char_span: [13246, 15113]
     sentence_count: 11
     key_terms: [missing, here, plan, beginning, totally, design, ok-adhesiveness-4141, "don't"]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/anthropic/1meei6u.md#c9"
-    char_span: [15116, 16322]
+    char_span: [15115, 16321]
     sentence_count: 8
     key_terms: [mistakes, rewarded, crayola, deleted, design, people, redact, build]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [careeradvice, comments, learning, careers, switch, space, development, implemented]
     token_count: 210
   - id: "social-intelligence/reddit-deep/careeradvice/1ta9pxd.md#c1"
-    char_span: [856, 1219]
+    char_span: [855, 1218]
     sentence_count: 1
     key_terms: [grouchy-jacket9528, structured, advantage, correctly, switching, learning, careers, looking]
     section: Comments

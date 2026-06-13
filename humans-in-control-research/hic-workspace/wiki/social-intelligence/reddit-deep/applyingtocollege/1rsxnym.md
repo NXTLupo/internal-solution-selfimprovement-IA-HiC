@@ -23,49 +23,49 @@ chunks:
     key_terms: [rankings, applyingtocollege, everyone, wants, news, colleges, comments, prestige]
     token_count: 212
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c1"
-    char_span: [1095, 2087]
+    char_span: [1094, 2086]
     sentence_count: 9
     key_terms: [top, news, school, admit, back, sat, college, current]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c2"
-    char_span: [2089, 3613]
+    char_span: [2088, 3612]
     sentence_count: 11
     key_terms: [rankings, because, school, information, matters, schools, chaunceythegardiner, like]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c3"
-    char_span: [3615, 5008]
+    char_span: [3614, 5007]
     sentence_count: 9
     key_terms: [applicants, admit, rate, business, like, attracts, colleges, prestige]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c4"
-    char_span: [5010, 7266]
+    char_span: [5009, 7265]
     sentence_count: 33
     key_terms: [rankings, school, basketball, news, colleges, uchicago, harvard, always]
     section: Comments
     token_count: 519
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c5"
-    char_span: [7268, 8511]
+    char_span: [7267, 8510]
     sentence_count: 12
     key_terms: [colleges, justcommenting98765, rankings, closing, long, campuses, probably, regional]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c6"
-    char_span: [8513, 10375]
+    char_span: [8512, 10374]
     sentence_count: 14
     key_terms: [average-and-year-by-year-u-s-news-rankings-for-123-national-universities-2017-2024-big-changes, schools, colleges, like, prestige, rankings, breakbig6197, competition]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c7"
-    char_span: [10377, 12052]
+    char_span: [10376, 12051]
     sentence_count: 15
     key_terms: [schools, private, alumni, public, rankings, giving, rate, resources]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rsxnym.md#c8"
-    char_span: [12054, 14219]
+    char_span: [12053, 14218]
     sentence_count: 19
     key_terms: [schools, rankings, applied, college, disagree, factors, ranking, nature]
     section: Comments

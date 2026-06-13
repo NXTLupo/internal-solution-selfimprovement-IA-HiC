@@ -23,19 +23,19 @@ chunks:
     key_terms: [company, internships, cscareerquestions, job, removing, months, considering, experiences]
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c1"
-    char_span: [1931, 4233]
+    char_span: [1930, 4232]
     sentence_count: 2
     key_terms: [experience, company, something, keep, like, similar, working, anyway]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c2"
-    char_span: [4235, 5760]
+    char_span: [4234, 5759]
     sentence_count: 6
     key_terms: [job, months, get, interview, backend, company, matters, school]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4vad1.md#c3"
-    char_span: [5762, 6976]
+    char_span: [5761, 6975]
     sentence_count: 4
     key_terms: [experience, company, company-wide, engineering, software, layoff, right, get]
     section: Comments

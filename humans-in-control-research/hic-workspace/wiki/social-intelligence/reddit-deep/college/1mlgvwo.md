@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1mlgvwo.md
 url: "https://www.reddit.com/r/college/comments/1mlgvwo/advice_for_anyone_entering_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,24 @@ flair: "Academic Life"
 extracted_at: "2026-06-06T23:23:15.571Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1mlgvwo.md#c0"
+    char_span: [0, 2061]
+    sentence_count: 11
+    key_terms: [important, college, teach, teachers, yourself, class, good, life]
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/college/1mlgvwo.md#c1"
+    char_span: [2064, 3178]
+    sentence_count: 10
+    key_terms: [experience, learn, learning, teachers, college, people, email, life]
+    token_count: 242
+  - id: "social-intelligence/reddit-deep/college/1mlgvwo.md#c2"
+    char_span: [3193, 4411]
+    sentence_count: 10
+    key_terms: [fragrantdifficulty68, scholarship, traditional, exospike99, compound, younger, opened, thanks]
+    section: Comments
+    token_count: 327
 ---
-
 # Advice for anyone entering college
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1mlgvwo/advice_for_anyone_entering_college/)

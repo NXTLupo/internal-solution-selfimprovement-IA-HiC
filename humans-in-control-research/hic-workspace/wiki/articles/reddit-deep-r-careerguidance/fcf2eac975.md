@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/fcf2eac975.md#c0"
-    char_span: [0, 1875]
+    char_span: [0, 1874]
     sentence_count: 12
     key_terms: [years, coimbatore, bangalore, company, project, careerguidance, role, engineer]
-    token_count: 481
+    token_count: 480
   - id: "articles/reddit-deep-r-careerguidance/fcf2eac975.md#c1"
-    char_span: [1877, 2973]
+    char_span: [1876, 2972]
     sentence_count: 11
     key_terms: [project, move, role, developer, internal, transfer, career, devops]
     token_count: 282

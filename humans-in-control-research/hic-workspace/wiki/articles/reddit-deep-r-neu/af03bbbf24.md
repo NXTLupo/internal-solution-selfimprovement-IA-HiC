@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-neu/af03bbbf24.md#c0"
-    char_span: [0, 1390]
+    char_span: [0, 1389]
     sentence_count: 20
     key_terms: ["i'm", final, "i've", grade, been, got, professor, academic]
-    token_count: 336
+    token_count: 335
   - id: "articles/reddit-deep-r-neu/af03bbbf24.md#c1"
-    char_span: [1392, 2665]
+    char_span: [1391, 2664]
     sentence_count: 5
     key_terms: [grade, disfiguredcoconut, sovereignphobia, transcript, replaces, affect, grades, people]
     token_count: 307

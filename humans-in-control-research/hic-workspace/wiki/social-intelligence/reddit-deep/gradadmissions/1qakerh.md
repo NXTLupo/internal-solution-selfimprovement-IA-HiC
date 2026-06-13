@@ -23,25 +23,25 @@ chunks:
     key_terms: [gradadmissions, admissions, comments, programs, school, grad, like, seem]
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c1"
-    char_span: [885, 2658]
+    char_span: [884, 2657]
     sentence_count: 11
     key_terms: [people, program, top, work, prestige, schools, phd, academia]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c2"
-    char_span: [2660, 4494]
+    char_span: [2659, 4493]
     sentence_count: 10
     key_terms: [research, people, gurprofessional9534, academic, application, phd, admissions, potential]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c3"
-    char_span: [4496, 6400]
+    char_span: [4495, 6399]
     sentence_count: 12
     key_terms: [programs, faculty, professional, fit, help, committee, advisor, program]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/gradadmissions/1qakerh.md#c4"
-    char_span: [6402, 7271]
+    char_span: [6401, 7270]
     sentence_count: 8
     key_terms: [department, stats, fit, get, program, makes, like, specifically]
     section: Comments

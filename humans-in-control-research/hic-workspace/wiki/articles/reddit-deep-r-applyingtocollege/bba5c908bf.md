@@ -15,22 +15,22 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c0"
-    char_span: [0, 2023]
+    char_span: [0, 2022]
     sentence_count: 18
     key_terms: [applying, schools, applyingtocollege, state, like, yale, disclosure, december]
-    token_count: 505
+    token_count: 504
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c1"
-    char_span: [2025, 3792]
+    char_span: [2024, 3791]
     sentence_count: 20
     key_terms: [interview, "i'm", like, selected, stanford, college, acres, forty]
     token_count: 385
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c2"
-    char_span: [3794, 6070]
+    char_span: [3793, 6069]
     sentence_count: 13
     key_terms: [engineering, college, biomedical, rejected, scholar, honors, neuroscience, scholarship]
     token_count: 553
   - id: "articles/reddit-deep-r-applyingtocollege/bba5c908bf.md#c3"
-    char_span: [6072, 7813]
+    char_span: [6071, 7812]
     sentence_count: 11
     key_terms: [rejected, scholarship, day, research, didn, like, time, foundation]
     token_count: 427

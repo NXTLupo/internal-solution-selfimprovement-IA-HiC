@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1q76ctj.md
 url: "https://www.reddit.com/r/jobs/comments/1q76ctj/this_is_hard_to_post_tbh_im_about_to_give_up_and/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,43 @@ flair: "Job searching"
 extracted_at: "2026-06-06T23:23:15.614Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c0"
+    char_span: [0, 2050]
+    sentence_count: 12
+    key_terms: [beauty, background, struggling, don, want, myself, international, interviews]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c1"
+    char_span: [2065, 4209]
+    sentence_count: 13
+    key_terms: [sponsorship, want, because, reason, international, right, bigopossums, don]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c2"
+    char_span: [4211, 6410]
+    sentence_count: 14
+    key_terms: [international, beauty, industry, fashion, opportunities, sponsorship, job, time]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c3"
+    char_span: [6412, 8486]
+    sentence_count: 12
+    key_terms: [marketing, people, resume, annienotmean, roles, like, background, experience]
+    section: Comments
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c4"
+    char_span: [8488, 10064]
+    sentence_count: 15
+    key_terms: [resume, data, achievements, linkedin, specific, action, people, result]
+    section: Comments
+    token_count: 330
+  - id: "social-intelligence/reddit-deep/jobs/1q76ctj.md#c5"
+    char_span: [10066, 11554]
+    sentence_count: 17
+    key_terms: [info, resume, job, background, analytics, companies, moidberg, imagine]
+    section: Comments
+    token_count: 362
 ---
-
 # This is hard to post, tbh im about to give up and I’m really struggling to find a job and don’t know what I’m doing wrong
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1q76ctj/this_is_hard_to_post_tbh_im_about_to_give_up_and/)

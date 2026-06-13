@@ -31,7 +31,7 @@ chunks:
     key_terms: [feedback, startup, work, international, appreciated, early-stage, proposition, contractor]
     token_count: 146
   - id: "social-intelligence/reddit-deep/careerguidance/1qxstbe.md#c3"
-    char_span: [5445, 6604]
+    char_span: [5444, 6603]
     sentence_count: 4
     key_terms: [personal-mistake-957, like, startups, doing, early, email, going, stage]
     section: Comments

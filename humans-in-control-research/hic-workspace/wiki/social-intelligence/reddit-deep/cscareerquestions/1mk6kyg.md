@@ -21,25 +21,25 @@ chunks:
     key_terms: [us-tech-job-postings-remain-below-pre-pandemic-levels, since, cscareerquestions, global-daily-news, tech, postings, staffingindustry, hiring]
     token_count: 344
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c1"
-    char_span: [1437, 2912]
+    char_span: [1436, 2911]
     sentence_count: 8
     key_terms: [experience, deleted, years, ding, job, offshoring, market, been]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c2"
-    char_span: [2914, 4694]
+    char_span: [2913, 4693]
     sentence_count: 14
     key_terms: [job, fucked, people, tech, healthcare, offshoring, companies, argument]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c3"
-    char_span: [4696, 6448]
+    char_span: [4695, 6447]
     sentence_count: 10
     key_terms: [job, healthcare, tech, people, unemployed, medicaid, looking, workers]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mk6kyg.md#c4"
-    char_span: [6450, 8027]
+    char_span: [6449, 8026]
     sentence_count: 9
     key_terms: [state, "it's", recessions, ignores, carelesspackage1982, desperate-till-9228, grads, international-bed9]
     section: Comments

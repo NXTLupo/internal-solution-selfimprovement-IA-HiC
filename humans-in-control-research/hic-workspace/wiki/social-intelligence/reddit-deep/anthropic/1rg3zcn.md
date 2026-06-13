@@ -18,10 +18,10 @@ industries: [ai_research, enterprise_it, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rg3zcn.md#c0"
-    char_span: [0, 368]
+    char_span: [0, 367]
     sentence_count: 1
     key_terms: [anthropic, comments, cve-2025-59536, cve-2026-21852, exfiltration, reddit-deep, texasguy911, research]
-    token_count: 111
+    token_count: 110
 ---
 # Caught in the Hook: RCE and API Token Exfiltration Through Claude Code Project Files | CVE-2025-59536 | CVE-2026-21852 - Check Point Research
 

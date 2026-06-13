@@ -21,37 +21,37 @@ chunks:
     key_terms: [sports, never, college, student, school, work, education, athletes]
     token_count: 265
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c1"
-    char_span: [1159, 3393]
+    char_span: [1158, 3392]
     sentence_count: 26
     key_terms: [work, get, easier, "don't", hours, help, time, students]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c2"
-    char_span: [3395, 5515]
+    char_span: [3394, 5514]
     sentence_count: 32
     key_terms: [time, work, study, keep, classes, study-techniques-backed-by-science, assignments, enough]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c3"
-    char_span: [5517, 6204]
+    char_span: [5516, 6203]
     sentence_count: 8
     key_terms: [hours, athletes, going, get, instructions, melodypowers, princess5903, scholarship]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c4"
-    char_span: [6206, 8296]
+    char_span: [6205, 8295]
     sentence_count: 16
     key_terms: [work, time, schedule, college, season, soccer, sports, hours]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c5"
-    char_span: [8298, 9566]
+    char_span: [8297, 9565]
     sentence_count: 14
     key_terms: [scholarships, work, school, athletic, allowed, curious, student, likely]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/college/1o87jwh.md#c6"
-    char_span: [9568, 11573]
+    char_span: [9567, 11572]
     sentence_count: 13
     key_terms: [definitely, week, hours, day, practice, because, easier, did]
     section: Comments

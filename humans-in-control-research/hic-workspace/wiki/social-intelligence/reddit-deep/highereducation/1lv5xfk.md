@@ -26,19 +26,19 @@ chunks:
     key_terms: [interactions, different, friends, private, working, school, social, admin]
     token_count: 47
   - id: "social-intelligence/reddit-deep/highereducation/1lv5xfk.md#c2"
-    char_span: [2249, 4300]
+    char_span: [2248, 4299]
     sentence_count: 17
     key_terms: [better, community, tuition, working, degree, opportunities, group, staff]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/highereducation/1lv5xfk.md#c3"
-    char_span: [4302, 6539]
+    char_span: [4301, 6538]
     sentence_count: 17
     key_terms: [time, school, work, coffeequeen28, get, experience, university, remission]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/highereducation/1lv5xfk.md#c4"
-    char_span: [6541, 8410]
+    char_span: [6540, 8409]
     sentence_count: 11
     key_terms: [time, students, school, job, mba, new, programs, staff]
     section: Comments

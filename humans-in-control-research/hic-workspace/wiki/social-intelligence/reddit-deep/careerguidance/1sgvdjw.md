@@ -31,19 +31,19 @@ chunks:
     key_terms: [because, "don't", "i'm", rhetorically, genuinely, questions, honestly, playbook]
     token_count: 110
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c3"
-    char_span: [4824, 6801]
+    char_span: [4823, 6800]
     sentence_count: 14
     key_terms: [industries, companies, company, like, mazz001717, different, industry, working]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c4"
-    char_span: [6803, 8812]
+    char_span: [6802, 8811]
     sentence_count: 13
     key_terms: [years, aerospace, moved, job, commercial, executive, stability, building]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1sgvdjw.md#c5"
-    char_span: [8814, 9559]
+    char_span: [8813, 9558]
     sentence_count: 7
     key_terms: [control, getting, having, keep, conversations, anticipating, sailyourface, boredtiger2]
     section: Comments

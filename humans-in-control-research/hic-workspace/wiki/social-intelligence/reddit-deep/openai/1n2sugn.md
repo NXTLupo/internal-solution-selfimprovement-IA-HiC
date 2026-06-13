@@ -18,52 +18,52 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c0"
-    char_span: [0, 288]
+    char_span: [0, 287]
     sentence_count: 2
     key_terms: [mainstream, comments, openai, reddit-deep, supermike6, timeline, history, present]
-    token_count: 97
+    token_count: 96
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c1"
-    char_span: [290, 2008]
+    char_span: [289, 2007]
     sentence_count: 6
     key_terms: [googles-bard-chatbot-gets-the-gemini-pro-update-globally, com, microsoft, techcrunch, pope-francis-puffer-jacket-fake-photos-deepfake-power-peril-of-ai, google, bard, https]
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c2"
-    char_span: [1728, 3305]
+    char_span: [1727, 3304]
     sentence_count: 4
     key_terms: [theverge, google-ai-features-docs-gmail-slides-sheets-workspace, com, microsoft, microsoft-365-ai-copilot-word-outlook-teams, text, https, www]
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c3"
-    char_span: [3120, 4945]
+    char_span: [3119, 4944]
     sentence_count: 7
     key_terms: [datasciencedojo, the-complete-history-of-openai-models, com, elon-mu***REDACTED-KEY***, text, openai, gpt-4, https]
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c4"
-    char_span: [4654, 6284]
+    char_span: [4653, 6283]
     sentence_count: 5
     key_terms: [elon-mu***REDACTED-KEY***, theguardian, com, technology, https, mar, text, www]
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c5"
-    char_span: [6119, 6396]
+    char_span: [6118, 6395]
     sentence_count: 2
     key_terms: [ai-digital-minds, mainstream, responded, signaled, training, altman, openai, rising]
     token_count: 92
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c6"
-    char_span: [6398, 6419]
+    char_span: [6397, 6418]
     sentence_count: 1
     key_terms: [apr, jun]
     token_count: 11
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c7"
-    char_span: [6421, 8180]
+    char_span: [6420, 8179]
     sentence_count: 6
     key_terms: [elon-mu***REDACTED-KEY***, theguardian, com, why-is-meta-releasing-llama-2-open-source-ai-model-mark-zuckerberg, technology, https, text, privacy]
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c8"
-    char_span: [8018, 9570]
+    char_span: [8017, 9569]
     sentence_count: 4
     key_terms: [why-is-meta-releasing-llama-2-open-source-ai-model-mark-zuckerberg, theguardian, com, wikipedia, https, llama, text, technology]
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1n2sugn.md#c9"
-    char_span: [9382, 10224]
+    char_span: [9381, 10223]
     sentence_count: 4
     key_terms: [search, googles-search-generative-experience-isnt-a-replacement-its-an-evolution, why-is-meta-releasing-llama-2-open-source-ai-model-mark-zuckerberg, collectivemeasures, com, theguardian, google, https]
     token_count: 237

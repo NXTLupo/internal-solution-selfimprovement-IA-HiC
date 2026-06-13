@@ -23,7 +23,7 @@ chunks:
     key_terms: [economics, masters, master, finance, careerguidance, international, internship, economist]
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1th26io.md#c1"
-    char_span: [1685, 3326]
+    char_span: [1684, 3325]
     sentence_count: 10
     key_terms: [economics, finance, international, alumni, recruiting, program, western, strong]
     section: Comments

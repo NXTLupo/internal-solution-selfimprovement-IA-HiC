@@ -23,19 +23,19 @@ chunks:
     key_terms: [comments, waterloo, necessarytasty6972, snow, contracting, reddit-deep, remembers, clearing]
     token_count: 100
   - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c1"
-    char_span: [385, 2286]
+    char_span: [384, 2285]
     sentence_count: 16
     key_terms: [forsaken-witch461, pay, multiple, brother, review, paid, put, jaytreeman]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c2"
-    char_span: [2288, 3847]
+    char_span: [2287, 3846]
     sentence_count: 9
     key_terms: [v-general-labour-jobs, report, necessarytasty6972, company, workers-needed, kijiji, ignored, guelph]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/waterloo/1pdfd70.md#c3"
-    char_span: [3849, 4760]
+    char_span: [3848, 4759]
     sentence_count: 3
     key_terms: [eyjhy3rpb24ioiaidmlld19wb3n0iiwginbvc3qioia1mjc3nju2ntg0otu5oh0, cuuitxfgc4y3jtz2xrbyqscedvfj1pladeeeo8rw-uw, nextdoor, comment, cageqe-hryvkeefpxcmh, https, worried-force-1821, com]
     section: Comments

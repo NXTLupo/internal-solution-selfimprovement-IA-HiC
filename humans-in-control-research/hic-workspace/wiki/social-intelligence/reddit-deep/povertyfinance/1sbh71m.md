@@ -28,43 +28,43 @@ chunks:
     key_terms: [money, feel, get, want, brother, mental, "don't", away]
     token_count: 491
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c2"
-    char_span: [4357, 6457]
+    char_span: [4357, 6456]
     sentence_count: 32
     key_terms: [partner, get, please, "you're", spent, down, "i'm", talk]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c3"
-    char_span: [6459, 7943]
+    char_span: [6458, 7942]
     sentence_count: 19
     key_terms: [start, budget, world, like, definitely, patience, because, husband]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c4"
-    char_span: [7945, 10084]
+    char_span: [7944, 10083]
     sentence_count: 13
     key_terms: [psychiatrist, like, talkiatry, therapy, meds, through, afford, "wasn't"]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c5"
-    char_span: [10086, 12127]
+    char_span: [10085, 12126]
     sentence_count: 11
     key_terms: [people, probably, money, start, regulations, get, like, try]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c6"
-    char_span: [12129, 14057]
+    char_span: [12128, 14056]
     sentence_count: 9
     key_terms: [want, goals, financial, generally, dynamic, partner, quarter, therapy]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c7"
-    char_span: [14059, 15568]
+    char_span: [14058, 15567]
     sentence_count: 18
     key_terms: [thehitmanbravo, trauma, definitely, brother, mothers, therapy, mother, knows]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/povertyfinance/1sbh71m.md#c8"
-    char_span: [15570, 16918]
+    char_span: [15569, 16917]
     sentence_count: 9
     key_terms: [money, financial, "you're", something, partner, trying, being, learn]
     section: Comments

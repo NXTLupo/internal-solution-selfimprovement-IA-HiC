@@ -23,49 +23,49 @@ chunks:
     key_terms: [comments, chatgpt, ads, instructions, reddit-deep, unsubscribe, xaljiemxhaj, correctly]
     token_count: 121
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c1"
-    char_span: [442, 1290]
+    char_span: [441, 1289]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c2"
-    char_span: [1292, 3001]
+    char_span: [1291, 3000]
     sentence_count: 11
     key_terms: [users, information, ads, user, advertisers, targeted, micro-targeting, openai]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c3"
-    char_span: [3003, 4912]
+    char_span: [3002, 4911]
     sentence_count: 15
     key_terms: [ads, advertisers, targeted, being, money, surveillance, doing, data]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c4"
-    char_span: [4915, 6277]
+    char_span: [4914, 6276]
     sentence_count: 10
     key_terms: [advertisers, information, "don't", superintelligence, people, going, ads, sell]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c5"
-    char_span: [6279, 8577]
+    char_span: [6278, 8576]
     sentence_count: 23
     key_terms: [data, advertisers, sell, ads, algorithms, individual, "don't", level]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c6"
-    char_span: [8579, 8770]
+    char_span: [8578, 8769]
     sentence_count: 3
     key_terms: [money, conversations, personally, influence, highest, accept, answer, bidder]
     section: Comments
     token_count: 42
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c7"
-    char_span: [8772, 10559]
+    char_span: [8771, 10558]
     sentence_count: 11
     key_terms: [ads, like, pay, xaljiemxhaj, free, less, mean, want]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/chatgpt/1qf1g7c.md#c8"
-    char_span: [10561, 10760]
+    char_span: [10560, 10759]
     sentence_count: 1
     key_terms: [technology, impressed, capital, chatgpt, comment, deleted, instead, cancel]
     section: Comments

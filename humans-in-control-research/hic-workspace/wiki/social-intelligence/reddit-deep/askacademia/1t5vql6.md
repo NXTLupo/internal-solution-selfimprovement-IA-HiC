@@ -28,13 +28,13 @@ chunks:
     key_terms: [disseration, whether, people, occasionally, needs, years, "i'm", research]
     token_count: 398
   - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c2"
-    char_span: [3568, 5177]
+    char_span: [3567, 5176]
     sentence_count: 15
     key_terms: [through, leave, important, tonos468, absence, advisor, "can't", "don't"]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/askacademia/1t5vql6.md#c3"
-    char_span: [5179, 6304]
+    char_span: [5178, 6303]
     sentence_count: 9
     key_terms: [conditions, academia, semester, burnout, working, afford, breaks, sounds]
     section: Comments

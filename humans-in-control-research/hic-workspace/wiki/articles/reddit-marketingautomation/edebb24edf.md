@@ -15,10 +15,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-marketingautomation/edebb24edf.md#c0"
-    char_span: [0, 1302]
+    char_span: [0, 1301]
     sentence_count: 16
     key_terms: [marketingautomation, creatives, honestly, thinking, another, reddit, right, solid]
-    token_count: 292
+    token_count: 291
 ---
 # AI tools for making ad creatives… actual game changer or just another money trap?
 

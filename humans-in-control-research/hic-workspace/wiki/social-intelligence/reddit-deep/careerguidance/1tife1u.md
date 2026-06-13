@@ -21,13 +21,13 @@ chunks:
     key_terms: [get, visa, work, someone, careerguidance, career, recommended, universites]
     token_count: 407
   - id: "social-intelligence/reddit-deep/careerguidance/1tife1u.md#c1"
-    char_span: [1724, 2938]
+    char_span: [1723, 2937]
     sentence_count: 9
     key_terms: [need, impression, pakistan, europe, german, skills, "can't", level]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/careerguidance/1tife1u.md#c2"
-    char_span: [2940, 4160]
+    char_span: [2939, 4159]
     sentence_count: 7
     key_terms: [economy, germany, support, better, career, trying, maybe, route]
     section: Comments

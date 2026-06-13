@@ -23,7 +23,7 @@ chunks:
     key_terms: [feel, learn, job, working, help, "it's", project, careerguidance]
     token_count: 449
   - id: "social-intelligence/reddit-deep/careerguidance/1regq4g.md#c1"
-    char_span: [1973, 3606]
+    char_span: [1972, 3605]
     sentence_count: 10
     key_terms: [people, skills, solid, start, interesting, bit, networking, mentioned]
     section: Comments

@@ -26,31 +26,31 @@ chunks:
     key_terms: [occupations, displaced, jobs, demand, productivity, swes, automation, aggregate]
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c2"
-    char_span: [3844, 5785]
+    char_span: [3843, 5784]
     sentence_count: 5
     key_terms: [jobs, eliminated, economy, lambdawaves, here, read, interpret, evidence]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c3"
-    char_span: [5787, 6017]
+    char_span: [5786, 6016]
     sentence_count: 1
     key_terms: [occupations, jobs, good, occupational, well-matched, possibly, average, matches]
     section: Comments
     token_count: 49
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c4"
-    char_span: [6019, 8260]
+    char_span: [6018, 8259]
     sentence_count: 11
     key_terms: [jobs, coder, been, "it's", like, engineers, because, chatgpt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c5"
-    char_span: [7955, 8943]
+    char_span: [7954, 8942]
     sentence_count: 1
     key_terms: [like, architecture, seeing, maybe, "we're", mediocre-pizza-guy, data, jobs]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sld4le.md#c6"
-    char_span: [8945, 11136]
+    char_span: [8944, 11135]
     sentence_count: 10
     key_terms: [quantumpencil, non-technical, right, "it's", everywhere, employees, clueless, codebase]
     section: Comments

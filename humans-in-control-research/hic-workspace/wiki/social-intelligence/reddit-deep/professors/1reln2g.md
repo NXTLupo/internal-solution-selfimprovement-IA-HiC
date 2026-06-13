@@ -31,61 +31,61 @@ chunks:
     key_terms: [looking, thought, feel, like, room, powerpoints, engagement, especially]
     token_count: 152
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c3"
-    char_span: [5041, 7076]
+    char_span: [5040, 7075]
     sentence_count: 15
     key_terms: [students, student, "don't", evaluations, best, "didn't", anger, evals]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c4"
-    char_span: [7078, 8649]
+    char_span: [7077, 8648]
     sentence_count: 13
     key_terms: [commendable, "it's", something, trolling, perhaps, online, person, "that's"]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c5"
-    char_span: [8651, 9805]
+    char_span: [8650, 9804]
     sentence_count: 9
     key_terms: [anonymous, don, mid-semester, class, evals, feedback, students, change]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c6"
-    char_span: [9807, 11450]
+    char_span: [9806, 11449]
     sentence_count: 15
     key_terms: [like, kids, everything, students, parents, issues, brain, dead]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c7"
-    char_span: [11452, 12863]
+    char_span: [11451, 12862]
     sentence_count: 12
     key_terms: [student, suggestions, students, classes, substantial-dust5219, class, tears, years]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c8"
-    char_span: [12865, 14083]
+    char_span: [12864, 14082]
     sentence_count: 12
     key_terms: ["didn't", class, lecturing, student, better, enough, "you'll", board]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c9"
-    char_span: [14085, 16066]
+    char_span: [14084, 16065]
     sentence_count: 18
     key_terms: [class, "i'm", students, bad, time, wonderful, example, student]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c10"
-    char_span: [16068, 17179]
+    char_span: [16067, 17178]
     sentence_count: 9
     key_terms: [genuinely, comments, success, snarky, puzzleheaded-job2505, angry, class, worst]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c11"
-    char_span: [17181, 19356]
+    char_span: [17180, 19355]
     sentence_count: 18
     key_terms: [class, writing, morning, doing, "hijacked-because-it's-hijackable", evaluations, completely, professor]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/professors/1reln2g.md#c12"
-    char_span: [19358, 21149]
+    char_span: [19357, 21148]
     sentence_count: 12
     key_terms: [students, self-administered, progress, student, class, point, conferences, evaluations]
     section: Comments

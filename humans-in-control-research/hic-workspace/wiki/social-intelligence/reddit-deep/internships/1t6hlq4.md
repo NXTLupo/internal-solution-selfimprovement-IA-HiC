@@ -28,7 +28,7 @@ chunks:
     key_terms: [internship, because, job, experience, told, work, future, months]
     token_count: 487
   - id: "social-intelligence/reddit-deep/internships/1t6hlq4.md#c2"
-    char_span: [3079, 3826]
+    char_span: [3079, 3825]
     sentence_count: 1
     key_terms: [because, family, look, opportunity, accounting, experience, repetitive, academics]
     section: Comments

@@ -26,61 +26,61 @@ chunks:
     key_terms: [refusing, anyone, else, process, hiring, years, participate, challenges]
     token_count: 155
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c2"
-    char_span: [2718, 4163]
+    char_span: [2717, 4162]
     sentence_count: 11
     key_terms: [puzzles, "person's", skills, good, evaluating, experience, practical, leetcode]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c3"
-    char_span: [4165, 6152]
+    char_span: [4164, 6151]
     sentence_count: 9
     key_terms: [like, get, hours, hour, experience, interview, objective, screening]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c4"
-    char_span: [6154, 8049]
+    char_span: [6153, 8048]
     sentence_count: 10
     key_terms: ["it's", approach, bugs, real, approaches, candidates, defensible, hackerrank]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c5"
-    char_span: [8051, 10256]
+    char_span: [8050, 10255]
     sentence_count: 17
     key_terms: [candidates, "it's", people, market, good, used, igotskills, qualified]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c6"
-    char_span: [10258, 11809]
+    char_span: [10257, 11808]
     sentence_count: 9
     key_terms: [hiring, get, position, intrinsically, "don't", "we're", educational, professions]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c7"
-    char_span: [11811, 13690]
+    char_span: [11810, 13689]
     sentence_count: 12
     key_terms: [get, questions, fail, leetcode, "don't", assessments, demonstrate, "developer's"]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c8"
-    char_span: [13694, 15417]
+    char_span: [13693, 15416]
     sentence_count: 15
     key_terms: [interviews, technical, participate, confidence, investment, understand, informed, "they're"]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c9"
-    char_span: [15419, 17221]
+    char_span: [15418, 17220]
     sentence_count: 16
     key_terms: [minimum, coding, tasks, like, time, work, candidates, hackerrank]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c10"
-    char_span: [17223, 19184]
+    char_span: [17222, 19183]
     sentence_count: 20
     key_terms: [better, code, job, leet, like, shit, problems, question]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qknml5.md#c11"
-    char_span: [19186, 19488]
+    char_span: [19185, 19487]
     sentence_count: 3
     key_terms: [problem, statement, keep, thinkingthong, hackerranker, deciphering, hackerrank, statements]
     section: Comments

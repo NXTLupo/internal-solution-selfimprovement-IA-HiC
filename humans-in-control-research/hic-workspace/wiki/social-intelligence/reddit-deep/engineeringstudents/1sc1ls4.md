@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineeringstudents, engineering, princeton, anything, comments, students, studying, classes]
     token_count: 168
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sc1ls4.md#c1"
-    char_span: [789, 1084]
+    char_span: [788, 1083]
     sentence_count: 3
     key_terms: [princeton, physics, fundamentals, definitely, experience, different, freshman, probably]
     section: Comments

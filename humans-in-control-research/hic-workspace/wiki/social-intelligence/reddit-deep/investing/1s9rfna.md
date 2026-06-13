@@ -23,43 +23,43 @@ chunks:
     key_terms: [spacex-ipo-nasdaq-anthropic-openai-index-investing, investors, https, com, "i'm", www, investing, comments]
     token_count: 294
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c1"
-    char_span: [1121, 2076]
+    char_span: [1120, 2075]
     sentence_count: 8
     key_terms: [been, "i've", bit, market, prestigiouspen-2468, good, concentration, interestingly]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c2"
-    char_span: [2078, 3889]
+    char_span: [2077, 3888]
     sentence_count: 10
     key_terms: [funds, rationalreminder, podcast, concentration, index, like, decided, bubble]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c3"
-    char_span: [3891, 5460]
+    char_span: [3890, 5459]
     sentence_count: 6
     key_terms: [index, funds, qqq, nasdaq, spacex, considering, tech, companies]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c4"
-    char_span: [5462, 7146]
+    char_span: [5461, 7145]
     sentence_count: 7
     key_terms: [pretty, retirement, prestigiouspen-2468, index, fund, "i'm", parents, kenjiurada]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c5"
-    char_span: [7148, 9189]
+    char_span: [7147, 9188]
     sentence_count: 14
     key_terms: [distributionbroad173, spacex, contributions, down, ipo, year, investors, employer]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c6"
-    char_span: [9191, 11163]
+    char_span: [9190, 11162]
     sentence_count: 7
     key_terms: [ipo, prestigiouspen-2468, get, companies, investors, liquidity, anything, indexing]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/investing/1s9rfna.md#c7"
-    char_span: [11165, 12506]
+    char_span: [11164, 12505]
     sentence_count: 5
     key_terms: [like, minimums, vanguard, minimum, funds, holdings, indexing, johnson]
     section: Comments

@@ -21,25 +21,25 @@ chunks:
     key_terms: [appreciate, applyingtocollege, met, berkeley, columbia, career, international, cmu]
     token_count: 351
   - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c1"
-    char_span: [1595, 3128]
+    char_span: [1594, 3127]
     sentence_count: 6
     key_terms: [cmu, met, better, perks, since, harmthebees, "berkeley's", comparable]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c2"
-    char_span: [3130, 4085]
+    char_span: [3129, 4084]
     sentence_count: 9
     key_terms: [cmu, met, berkeley, because, usually, brand, like, name]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c3"
-    char_span: [4087, 6170]
+    char_span: [4086, 6169]
     sentence_count: 13
     key_terms: [cmu, met, zealousideal-sky1121, like, "i'm", name, beautiful, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1samlh4.md#c4"
-    char_span: [5946, 6220]
+    char_span: [5945, 6219]
     sentence_count: 2
     key_terms: [ideal-sky1121, prestigious, ultimately, undoubtely, strongest, location, prestige, because]
     section: Comments

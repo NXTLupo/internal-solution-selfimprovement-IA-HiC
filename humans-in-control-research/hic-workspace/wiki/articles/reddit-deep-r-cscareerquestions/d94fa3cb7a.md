@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/d94fa3cb7a.md#c0"
-    char_span: [0, 1568]
+    char_span: [0, 1567]
     sentence_count: 5
     key_terms: [trump-green-cards-gradutate-college, talent, cscareerquestions, irresponsible, https, com, guy, www]
-    token_count: 382
+    token_count: 381
   - id: "articles/reddit-deep-r-cscareerquestions/d94fa3cb7a.md#c1"
-    char_span: [1570, 3421]
+    char_span: [1569, 3420]
     sentence_count: 22
     key_terms: [party, h-1bs, against, parties, action, people, least, taken]
     token_count: 420

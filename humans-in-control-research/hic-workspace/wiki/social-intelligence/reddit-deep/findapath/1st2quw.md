@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1st2quw.md
 url: "https://www.reddit.com/r/findapath/comments/1st2quw/is_fiber_technician_work_a_realistic_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,19 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.453Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1st2quw.md#c0"
+    char_span: [0, 1200]
+    sentence_count: 10
+    key_terms: [meta-levelup, fibercareer, com, experience, technician, findapath, comments, someone]
+    token_count: 275
+  - id: "social-intelligence/reddit-deep/findapath/1st2quw.md#c1"
+    char_span: [1215, 2556]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
+    section: Comments
+    token_count: 297
 ---
-
 # Is fiber technician work a realistic career path for someone with no experience or degree?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1st2quw/is_fiber_technician_work_a_realistic_career_path/)

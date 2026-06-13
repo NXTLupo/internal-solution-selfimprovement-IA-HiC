@@ -16,7 +16,7 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pndnmd.md#c0"
-    char_span: [0, 1346]
+    char_span: [0, 1345]
     sentence_count: 8
     key_terms: [poster, experiment, chemistry, engineeringstudents, project, engineering, first-year, scientific]
     token_count: 287

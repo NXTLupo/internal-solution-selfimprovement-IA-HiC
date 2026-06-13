@@ -23,7 +23,7 @@ chunks:
     key_terms: ["what's", highereducation, reddit, accounts, comments, account, working, admins]
     token_count: 240
   - id: "social-intelligence/reddit-deep/highereducation/1ocgyof.md#c1"
-    char_span: [1020, 3190]
+    char_span: [1019, 3189]
     sentence_count: 11
     key_terms: [lost-content-visibility-got-you-spooked, university, reddit, users, universityofmiami, get, here, www]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [fanfiction, wrote, applyingtocollege, got, admission, comments, officers, college]
     token_count: 271
   - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c1"
-    char_span: [1016, 2053]
+    char_span: [1015, 2052]
     sentence_count: 1
     key_terms: [internationalgap2326, wrote, get, committeeeuphoric255, melodic-signature-45, south-highlight-1630, "don't", harry]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/applyingtocollege/1me7om8.md#c2"
-    char_span: [2055, 3105]
+    char_span: [2054, 3104]
     sentence_count: 4
     key_terms: [writing, similar, fanfic, school, unique, apprehensive-mix4383, flamingoordinary2965, essay]
     section: Comments

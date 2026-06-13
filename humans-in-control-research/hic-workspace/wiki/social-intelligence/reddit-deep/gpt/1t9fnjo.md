@@ -18,17 +18,17 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c0"
-    char_span: [0, 1739]
+    char_span: [0, 1738]
     sentence_count: 14
     key_terms: [like, "i'm", "they're", never, voice, women, gpt, guys]
-    token_count: 472
+    token_count: 471
   - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c1"
-    char_span: [1741, 3947]
+    char_span: [1740, 3946]
     sentence_count: 26
     key_terms: [became, "wasn't", women, fear, help, read, experience, "couldn't"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/gpt/1t9fnjo.md#c2"
-    char_span: [3949, 5375]
+    char_span: [3948, 5374]
     sentence_count: 19
     key_terms: [conversation, without, "wasn't", night, experience, technical, "doesn't", design]
     token_count: 296

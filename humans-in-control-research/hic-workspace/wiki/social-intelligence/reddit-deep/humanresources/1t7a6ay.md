@@ -23,13 +23,13 @@ chunks:
     key_terms: [prep, aphr, hrci, materials, official, humanresources, study, worth]
     token_count: 365
   - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c1"
-    char_span: [1459, 3159]
+    char_span: [1458, 3158]
     sentence_count: 18
     key_terms: [hrci, like, recommendations, itskitsuhun, ok-exam8271, aphr, especially, expensive]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/humanresources/1t7a6ay.md#c2"
-    char_span: [3161, 3446]
+    char_span: [3160, 3445]
     sentence_count: 4
     key_terms: [didn, experience, materials, everyone, purchase, company, nothing, passing]
     section: Comments

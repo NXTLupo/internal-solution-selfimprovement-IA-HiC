@@ -23,19 +23,19 @@ chunks:
     key_terms: [degree, school, "master's", working, allowance, end, nyc, "bachelor's"]
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c1"
-    char_span: [2237, 4457]
+    char_span: [2236, 4456]
     sentence_count: 10
     key_terms: [opportunities, years, watership-down, anyway, school, internships, job, like]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c2"
-    char_span: [4459, 6435]
+    char_span: [4458, 6434]
     sentence_count: 16
     key_terms: ["master's", field, "don't", personal, old-parking8765, watership-down, right, mia]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/gradschool/1sras06.md#c3"
-    char_span: [6437, 8127]
+    char_span: [6436, 8126]
     sentence_count: 9
     key_terms: [program, education, masters, like, mia, something, probably, network]
     section: Comments

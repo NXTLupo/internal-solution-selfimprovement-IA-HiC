@@ -23,43 +23,43 @@ chunks:
     key_terms: [applyingtocollege, "doesn't", school, act, comments, devilfishlane1975, good, applications]
     token_count: 216
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c1"
-    char_span: [885, 2513]
+    char_span: [884, 2512]
     sentence_count: 12
     key_terms: [competitive, schools, safeties, state, university, rejected, student, reason]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c2"
-    char_span: [2515, 3497]
+    char_span: [2514, 3496]
     sentence_count: 6
     key_terms: [school, law, formal-research4531, schools, competitive, dame, oos, catholic]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c3"
-    char_span: [3499, 5342]
+    char_span: [3498, 5341]
     sentence_count: 15
     key_terms: [school, schools, prestigious, apply, state, law, authority, parental]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c4"
-    char_span: [5344, 6930]
+    char_span: [5343, 6929]
     sentence_count: 10
     key_terms: [safety, school, time, apply, transfer, college, forward, schools]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c5"
-    char_span: [6932, 8758]
+    char_span: [6931, 8757]
     sentence_count: 15
     key_terms: [applicants, schools, denied, years, admission, florida, student, denial]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c6"
-    char_span: [8760, 9638]
+    char_span: [8759, 9637]
     sentence_count: 9
     key_terms: [unc, counselor, selective, harder, school, reach, state, devilfishlane1975]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/applyingtocollege/1og8zz3.md#c7"
-    char_span: [9640, 11392]
+    char_span: [9639, 11391]
     sentence_count: 13
     key_terms: [application, safety, school, going, page, unc, athletes, applied]
     section: Comments

@@ -23,31 +23,31 @@ chunks:
     key_terms: [school, applyingtocollege, students, hopkins, though, clubs, love, indecisive]
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c1"
-    char_span: [1629, 2937]
+    char_span: [1628, 2936]
     sentence_count: 13
     key_terms: [school, students, hopkins, caltech, bme, phd, went, subreddits]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c2"
-    char_span: [2939, 4982]
+    char_span: [2938, 4981]
     sentence_count: 18
     key_terms: [hopkins, caltech, undergrad, research, lab, people, school, engineering]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c3"
-    char_span: [4984, 6596]
+    char_span: [4983, 6595]
     sentence_count: 7
     key_terms: [caltech, bigger, great, day, want, another, hopkins, school]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c4"
-    char_span: [6598, 8485]
+    char_span: [6597, 8484]
     sentence_count: 6
     key_terms: [caltech, campus, school, available-jeweler452, baltimore, best, jhu, like]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sws8s8.md#c5"
-    char_span: [8487, 8668]
+    char_span: [8486, 8667]
     sentence_count: 3
     key_terms: [penn, wise, generalist, indecisive, something, academic, everyone, honestly]
     section: Comments

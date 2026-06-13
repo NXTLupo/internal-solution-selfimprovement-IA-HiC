@@ -67,13 +67,21 @@ def _actual_chunk_count(wiki_path: str) -> int | None:
     if not p.is_file():
         return None
     try:
-        head = p.read_text(encoding="utf-8", errors="replace")[:20000]
+        text = p.read_text(encoding="utf-8", errors="replace")[:300000]
     except Exception:
         return None
-    # Count `- id:` lines inside the leading frontmatter chunks: block.
-    if "\nchunks:" not in head and not head.startswith("chunks:"):
+    # 2026-06-11 parity fix (mirrors proxy _manifest_record): scope the count
+    # to the FRONTMATTER and to chunk-pointer-shaped ids ("...#cN"). The old
+    # 20K head-cap truncated 32-47KB chunks blocks (false drift), and the
+    # unanchored `- id:` count picked up body pointer lists (lint reports,
+    # theme-synthesis pages).
+    if text.startswith("---"):
+        fm_end = text.find("\n---\n", 4)
+        if fm_end > 0:
+            text = text[:fm_end]
+    if "\nchunks:" not in text and not text.startswith("chunks:"):
         return 0
-    return len(_CHUNK_ID_RE.findall(head))
+    return len(re.findall(r'^\s*- id:\s*"[^"\n]*#c\d+"', text, re.MULTILINE))
 
 
 def main() -> int:
@@ -108,6 +116,30 @@ def main() -> int:
         if actual != mcount:
             drift.append((wp, mcount, actual))
 
+    # 2026-06-08 PATH UNIFICATION (Layer 5): untagged-corpus audit. A chunked
+    # article/social-post/transcript record with engagement=='' is INVISIBLE to
+    # tier-1 retrieval (/api/manifest/chunks?engagement=<slug>), which forces the
+    # run onto the raw-blob fallback that repetition-collapses Gemini. This is the
+    # regression signal if collection ever stops stamping `engagement`. We report
+    # it (not fail) since the legacy backlog is large and untagged shared-corpus
+    # articles are still reachable via the KL-selection union; what matters is that
+    # NEW collected articles carry the tag. A spike here run-over-run = regression.
+    _CORPUS_TYPES = {"article", "social-post", "transcript"}
+    untagged = 0
+    tagged = 0
+    untagged_samples = []
+    for wp, rec in records.items():
+        if int(rec.get("chunk_count") or 0) <= 0:
+            continue
+        if rec.get("type") not in _CORPUS_TYPES:
+            continue
+        if str(rec.get("engagement") or "").strip():
+            tagged += 1
+        else:
+            untagged += 1
+            if len(untagged_samples) < 25:
+                untagged_samples.append(wp)
+
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     lines = [
         f"# Manifest chunk-parity audit ({ts})",
@@ -118,7 +150,17 @@ def main() -> int:
         f"- pages missing on disk: {missing_page}",
         f"- parity mismatches: {len([d for d in drift if d[2] >= 0])}",
         "",
+        "## Engagement-tag coverage (path-unification, Layer 5)",
+        f"- chunked corpus records (article/social-post/transcript): {tagged + untagged}",
+        f"- tagged with engagement (tier-1 retrievable): {tagged}",
+        f"- UNTAGGED (engagement==''; tier-1 invisible): {untagged}",
+        "",
     ]
+    if untagged_samples:
+        lines.append("### Untagged corpus sample (first 25)")
+        for wp in untagged_samples:
+            lines.append(f"- {wp}")
+        lines.append("")
     if drift:
         lines.append("## Drift (wikiPath | manifest_count | actual)")
         for wp, mc, ac in drift[:200]:

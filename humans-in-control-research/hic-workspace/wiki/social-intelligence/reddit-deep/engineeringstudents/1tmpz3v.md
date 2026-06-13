@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, interested, comments, college, advice, anyone, enough, school]
     token_count: 355
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c1"
-    char_span: [1558, 3647]
+    char_span: [1557, 3646]
     sentence_count: 16
     key_terms: [material, job, internship, learning, extracurriculars, project, internships, good]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c2"
-    char_span: [3649, 5919]
+    char_span: [3648, 5918]
     sentence_count: 18
     key_terms: [design, work, changes, engineering, like, safety, school, issue]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmpz3v.md#c3"
-    char_span: [5921, 6931]
+    char_span: [5920, 6930]
     sentence_count: 12
     key_terms: [change, design, safety, issue, engineer, caused, enjoy, later]
     section: Comments

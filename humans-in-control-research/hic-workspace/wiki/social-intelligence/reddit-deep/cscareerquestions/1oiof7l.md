@@ -21,67 +21,67 @@ chunks:
     key_terms: [grads, majors, college, decided, started, apply, cscareerquestions, market]
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c1"
-    char_span: [1543, 2896]
+    char_span: [1542, 2895]
     sentence_count: 3
     key_terms: [people, high, talking, worth, back, tech, interviews, candidate]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c2"
-    char_span: [2899, 4830]
+    char_span: [2898, 4829]
     sentence_count: 8
     key_terms: [bubble, years, tech, marketing, bootcamp, expect, market, travel]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c3"
-    char_span: [4832, 7064]
+    char_span: [4831, 7063]
     sentence_count: 15
     key_terms: [countries, companies, people, street, manufacturing, gap, wall, advantage]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c4"
-    char_span: [7066, 9287]
+    char_span: [7065, 9286]
     sentence_count: 22
     key_terms: [companies, country, countries, foreign, western, workers, talent, thecamerlengo]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c5"
-    char_span: [9289, 11501]
+    char_span: [9288, 11500]
     sentence_count: 14
     key_terms: [europe, companies, years, asia, tech, because, infrastructure, africa]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c6"
-    char_span: [11503, 13659]
+    char_span: [11502, 13658]
     sentence_count: 17
     key_terms: [nebulousnitrate, been, large, right, development, continuing, companies, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c7"
-    char_span: [13410, 14185]
+    char_span: [13409, 14184]
     sentence_count: 7
     key_terms: [been, get, states, doing, hit, job, like, availability]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c8"
-    char_span: [14187, 15569]
+    char_span: [14186, 15568]
     sentence_count: 11
     key_terms: [senior, engineers, engineer, years, software, career, lot, everyone]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c9"
-    char_span: [15571, 16428]
+    char_span: [15570, 16427]
     sentence_count: 7
     key_terms: [seniors, senior, roles, "it's", level, chubbyvegantravels, timmyturnahp21, disappearing]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c10"
-    char_span: [16430, 17946]
+    char_span: [16429, 17945]
     sentence_count: 9
     key_terms: [because, comment, seniors, sources, higher, turbulent-pattern653, years, get]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oiof7l.md#c11"
-    char_span: [17948, 18494]
+    char_span: [17947, 18493]
     sentence_count: 1
     key_terms: [people, omqitzmilkyway, alternative, macrowaving, significant, kevinossia, staggering, currently]
     section: Comments

@@ -21,43 +21,43 @@ chunks:
     key_terms: [cscareerquestions, people, got, grad, new, comments, honestly, software]
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c1"
-    char_span: [1665, 1924]
+    char_span: [1664, 1923]
     sentence_count: 3
     key_terms: [amazon, recognize, spicebox, layoffs, thought, caught, future, hiring]
     section: Comments
     token_count: 61
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c2"
-    char_span: [1926, 3841]
+    char_span: [1925, 3840]
     sentence_count: 12
     key_terms: [people, rich-put4159, layoff, got, amazon, months, great, never]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c3"
-    char_span: [3622, 3962]
+    char_span: [3621, 3961]
     sentence_count: 1
     key_terms: [got, anticipation, rich-put4159, happening, applying, hdreadit, possibly, rejected]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c4"
-    char_span: [3964, 5333]
+    char_span: [3963, 5332]
     sentence_count: 7
     key_terms: [applying, happened, smartest, career, gold-collection2513, early, start, felt]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c5"
-    char_span: [5337, 6677]
+    char_span: [5336, 6676]
     sentence_count: 6
     key_terms: [applications, people, got, rich-put4159, mean, rejections, something, anything]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c6"
-    char_span: [6681, 8478]
+    char_span: [6680, 8477]
     sentence_count: 17
     key_terms: [get, something, find, job, together, around, saying, shitty]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qpdxps.md#c7"
-    char_span: [8480, 9496]
+    char_span: [8479, 9495]
     sentence_count: 3
     key_terms: [project, working, hired, clients, nothing, client, python, alone]
     section: Comments

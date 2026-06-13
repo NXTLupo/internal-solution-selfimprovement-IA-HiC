@@ -23,13 +23,13 @@ chunks:
     key_terms: [health, comments, support, mental, helpful, personal-entrance390, "i've", neu]
     token_count: 160
   - id: "social-intelligence/reddit-deep/neu/1r9dn1u.md#c1"
-    char_span: [700, 2734]
+    char_span: [699, 2733]
     sentence_count: 1
     key_terms: [psychiatrist, northeastern, like, leanonme, hotline, therapy, health, mental]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/neu/1r9dn1u.md#c2"
-    char_span: [2736, 3682]
+    char_span: [2735, 3681]
     sentence_count: 7
     key_terms: [uhcs, therapy, health, services, students, support, through, mental]
     section: Comments

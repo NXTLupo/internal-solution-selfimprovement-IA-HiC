@@ -28,19 +28,19 @@ chunks:
     key_terms: [rising-cost-dating-millennials-gen-z-soaring-cost-love-apps-2024-8, options, dates, https, need, businessinsider, alternatives, lower-cost]
     token_count: 175
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c2"
-    char_span: [2733, 3969]
+    char_span: [2732, 3968]
     sentence_count: 9
     key_terms: [immortalvanquish, expensive, discord, dating, people, downtowngrocery6945, dates, night]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c3"
-    char_span: [3971, 5246]
+    char_span: [3970, 5245]
     sentence_count: 10
     key_terms: [dates, night, date, spending, stranger, strictly, dollars, coffee]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/genz/1tajw0q.md#c4"
-    char_span: [5248, 6650]
+    char_span: [5247, 6649]
     sentence_count: 11
     key_terms: [dates, over-transition9609, date, plus, korean-themed, v2h0v0noxl0h1, snowstorm556, convenience]
     section: Comments

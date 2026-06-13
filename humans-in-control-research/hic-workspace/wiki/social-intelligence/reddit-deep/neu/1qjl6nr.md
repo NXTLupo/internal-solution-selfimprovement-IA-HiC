@@ -23,13 +23,13 @@ chunks:
     key_terms: [professors, courses, gpa, grading, northeastern, experiences, especially, experience]
     token_count: 417
   - id: "social-intelligence/reddit-deep/neu/1qjl6nr.md#c1"
-    char_span: [1844, 3914]
+    char_span: [1843, 3913]
     sentence_count: 23
     key_terms: [course, "it's", take, courses, prof, took, another, prerequisite]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/neu/1qjl6nr.md#c2"
-    char_span: [3916, 4156]
+    char_span: [3915, 4155]
     sentence_count: 3
     key_terms: [curve, "don't", garageagitated5201, professors, probably, overall, grades, people]
     section: Comments

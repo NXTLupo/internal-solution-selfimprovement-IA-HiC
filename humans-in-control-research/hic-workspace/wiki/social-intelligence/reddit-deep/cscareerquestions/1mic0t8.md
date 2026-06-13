@@ -21,85 +21,85 @@ chunks:
     key_terms: [cscareerquestions, programming, "i'm", job, comments, career, market, being]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c1"
-    char_span: [862, 2141]
+    char_span: [861, 2140]
     sentence_count: 10
     key_terms: [hours, programming, like, computers, because, people, "don't", world]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c2"
-    char_span: [2143, 4294]
+    char_span: [2142, 4293]
     sentence_count: 22
     key_terms: ["it's", programming, job, time, school, get, like, projects]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c3"
-    char_span: [4296, 5777]
+    char_span: [4295, 5776]
     sentence_count: 10
     key_terms: [job, people, get, employment, graduation, probably, market, though]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c4"
-    char_span: [5779, 7777]
+    char_span: [5778, 7776]
     sentence_count: 14
     key_terms: [job, like, market, internship, cscareerquestions, applications, field, bad]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c5"
-    char_span: [7779, 9897]
+    char_span: [7778, 9896]
     sentence_count: 24
     key_terms: [job, sub, career, careers, people, been, experience, generally]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c6"
-    char_span: [9899, 11821]
+    char_span: [9898, 11820]
     sentence_count: 17
     key_terms: [people, software, trades, engineers, pay, engineering, hard, highly]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c7"
-    char_span: [11823, 14021]
+    char_span: [11822, 14020]
     sentence_count: 16
     key_terms: [experience, people, loves, startup, recommend, growing, groups, likely]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c8"
-    char_span: [14023, 16328]
+    char_span: [14022, 16327]
     sentence_count: 21
     key_terms: [always, roughly, significantly, been, get, told, understand, difficult]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c9"
-    char_span: [16330, 18562]
+    char_span: [16329, 18561]
     sentence_count: 34
     key_terms: [learn, college, don, work, majors, cloud, field, comfortable]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c10"
-    char_span: [18564, 20334]
+    char_span: [18563, 20333]
     sentence_count: 19
     key_terms: [jesta1215, industry, point, experience, rewritten, keeping, science, advice]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c11"
-    char_span: [20336, 21998]
+    char_span: [20335, 21997]
     sentence_count: 14
     key_terms: [market, get, people, students, always, comfortable-insect-7, comes, going]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c12"
-    char_span: [22000, 23661]
+    char_span: [21999, 23660]
     sentence_count: 14
     key_terms: [get, because, degree, knows, years, "it's", companies, getting]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c13"
-    char_span: [23663, 25356]
+    char_span: [23662, 25355]
     sentence_count: 11
     key_terms: [big, definitely, graduates, frontend, "would've", backend, towards, coding]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mic0t8.md#c14"
-    char_span: [25358, 26480]
+    char_span: [25357, 26479]
     sentence_count: 17
     key_terms: [enjoy, already, rethink, people, considerationtiny511, best, don, good]
     section: Comments

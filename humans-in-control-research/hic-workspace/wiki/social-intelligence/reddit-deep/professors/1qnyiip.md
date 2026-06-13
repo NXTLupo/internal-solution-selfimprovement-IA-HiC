@@ -23,49 +23,49 @@ chunks:
     key_terms: [conferences, conference, mid-career, professors, comments, global-sandwich5281, got, "i'm"]
     token_count: 225
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c1"
-    char_span: [960, 2955]
+    char_span: [959, 2954]
     sentence_count: 16
     key_terms: [conference, conferences, great, local, interesting, ding, talk, went]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c2"
-    char_span: [2957, 4026]
+    char_span: [2956, 4025]
     sentence_count: 12
     key_terms: [students, conference, conferences, been, emergency, never, time, decompressing]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c3"
-    char_span: [4028, 5955]
+    char_span: [4027, 5954]
     sentence_count: 14
     key_terms: [registration, conferences, conference, national, expense, almost, pocket, travel]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c4"
-    char_span: [5692, 7157]
+    char_span: [5691, 7156]
     sentence_count: 12
     key_terms: [conferences, research, registration, recognition, university, anything, approach, service]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c5"
-    char_span: [7159, 7919]
+    char_span: [7158, 7918]
     sentence_count: 8
     key_terms: [travel, "it's", anymore, "i'm", like, snowblindalbino, professional, interesting]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c6"
-    char_span: [7921, 9946]
+    char_span: [7920, 9945]
     sentence_count: 13
     key_terms: [conferences, work, felixir-the-cat, full, need, year, conference, friends]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c7"
-    char_span: [9657, 11252]
+    char_span: [9656, 11251]
     sentence_count: 16
     key_terms: [conferences, scholarship, anybody, learned, someone, events, myself, social]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/professors/1qnyiip.md#c8"
-    char_span: [11254, 11806]
+    char_span: [11253, 11805]
     sentence_count: 8
     key_terms: [money, paying, "i'm", professional, conferences, development, kaesekopfnw, absolutely]
     section: Comments

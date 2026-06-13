@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1opc2eu.md#c0"
-    char_span: [0, 1064]
+    char_span: [0, 1063]
     sentence_count: 6
     key_terms: [artificial-intelligence-development-company-in-dubai, artificial, development, intelligent, brew, code, labs, comments]
-    token_count: 257
+    token_count: 256
 ---
 # Dubai’s AI Boom: Why Code Brew Labs Is Emerging as a Top AI App Development Company
 

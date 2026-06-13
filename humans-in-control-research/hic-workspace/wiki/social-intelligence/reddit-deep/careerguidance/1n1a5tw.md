@@ -21,19 +21,19 @@ chunks:
     key_terms: [career, feel, careerguidance, data, gap, comments, science, advice]
     token_count: 310
   - id: "social-intelligence/reddit-deep/careerguidance/1n1a5tw.md#c1"
-    char_span: [1266, 2815]
+    char_span: [1265, 2814]
     sentence_count: 20
     key_terms: [don, finance, jobs, like, work, gabag000l, pressure, analyst]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/careerguidance/1n1a5tw.md#c2"
-    char_span: [2817, 4756]
+    char_span: [2816, 4755]
     sentence_count: 17
     key_terms: [data, like, civil, power, science, better, specifically, gap]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1n1a5tw.md#c3"
-    char_span: [4760, 6581]
+    char_span: [4759, 6580]
     sentence_count: 18
     key_terms: [bulliedatmicrosoft, work, founder, myself, competitive, something, reading, startup]
     section: Comments

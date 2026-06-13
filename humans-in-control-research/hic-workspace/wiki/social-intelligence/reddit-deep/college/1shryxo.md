@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, friends, social, went, graduated, comments, because, "i'm"]
     token_count: 217
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c1"
-    char_span: [944, 2512]
+    char_span: [943, 2511]
     sentence_count: 17
     key_terms: [people, bar, yourself, city, day, like, week, regular]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c2"
-    char_span: [2514, 4144]
+    char_span: [2513, 4143]
     sentence_count: 15
     key_terms: [people, friends, like, new, something, probably, college, feeling]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c3"
-    char_span: [4147, 6073]
+    char_span: [4146, 6072]
     sentence_count: 14
     key_terms: [people, friends, social, new, position, college, "there's", better]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/college/1shryxo.md#c4"
-    char_span: [6075, 6793]
+    char_span: [6074, 6792]
     sentence_count: 12
     key_terms: [join, college, group, current, groups, young, club, cross-stitch]
     section: Comments

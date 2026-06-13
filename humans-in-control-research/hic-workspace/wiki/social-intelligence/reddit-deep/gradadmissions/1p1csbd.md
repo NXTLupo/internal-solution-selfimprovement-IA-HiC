@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, https, no-chemistry-3354, biochemistry, reddit-deep, requesting, feedback]
     token_count: 130
   - id: "social-intelligence/reddit-deep/gradadmissions/1p1csbd.md#c1"
-    char_span: [420, 1087]
+    char_span: [419, 1086]
     sentence_count: 7
     key_terms: [research, paragraphs, fun-concentrate2992, no-chemistry-3354, get, like, main, want]
     section: Comments

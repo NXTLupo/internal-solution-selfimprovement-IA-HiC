@@ -18,7 +18,7 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gemini/1stazu8.md#c0"
-    char_span: [0, 1158]
+    char_span: [0, 1157]
     sentence_count: 9
     key_terms: [gemini, app, data, different, comments, nothing, project, canvas]
     token_count: 263

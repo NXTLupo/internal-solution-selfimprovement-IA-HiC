@@ -23,7 +23,7 @@ chunks:
     key_terms: [courses, classes, week, comments, college, half, engineering, reddit-deep]
     token_count: 133
   - id: "social-intelligence/reddit-deep/college/1of5atl.md#c1"
-    char_span: [531, 2013]
+    char_span: [530, 2012]
     sentence_count: 8
     key_terms: [classes, easier, cragdragon511, did, good, time, week, semester]
     section: Comments

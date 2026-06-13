@@ -23,7 +23,7 @@ chunks:
     key_terms: [companies, ojt, engineeringstudents, looking, opportunities, "don't", engineering, mechanical]
     token_count: 326
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qj2ts1.md#c1"
-    char_span: [1439, 1861]
+    char_span: [1438, 1860]
     sentence_count: 6
     key_terms: [companies, internship, applications, individual, otherwise, recommend, anything, linkedin]
     section: Comments

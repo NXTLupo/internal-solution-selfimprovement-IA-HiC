@@ -21,13 +21,13 @@ chunks:
     key_terms: [internship, enrolment, solutions, internships, apexsquare, developer, comments, details]
     token_count: 239
   - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c1"
-    char_span: [1077, 2761]
+    char_span: [1076, 2760]
     sentence_count: 9
     key_terms: [scam, got, mail, "it's", received, no-remote-3116, "don't", email]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/internships/1s3d5oj.md#c2"
-    char_span: [2763, 2902]
+    char_span: [2762, 2901]
     sentence_count: 2
     key_terms: [account, letter, marked, aware, gmail, rest, scam, spam]
     section: Comments

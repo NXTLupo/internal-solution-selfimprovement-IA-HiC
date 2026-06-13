@@ -23,7 +23,7 @@ chunks:
     key_terms: [content, careerguidance, "i'm", like, look, poli, sci, want]
     token_count: 353
   - id: "social-intelligence/reddit-deep/careerguidance/1tjdg3i.md#c1"
-    char_span: [1451, 3017]
+    char_span: [1450, 3016]
     sentence_count: 1
     key_terms: [skills, writing, through, betaartistic9, like, redditters, analytics, multiple]
     section: Comments

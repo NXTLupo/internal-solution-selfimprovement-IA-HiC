@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1rsh1w2.md#c0"
-    char_span: [0, 299]
+    char_span: [0, 298]
     sentence_count: 2
     key_terms: [careerguidance, comments, hallthink6610, reddit-deep, confused, learning, career, posted]
-    token_count: 89
+    token_count: 88
 ---
 # 16yo learning Python & ML but confused about tech career path?
 

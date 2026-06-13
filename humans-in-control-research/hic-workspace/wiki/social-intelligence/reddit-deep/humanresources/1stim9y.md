@@ -28,43 +28,43 @@ chunks:
     key_terms: [people, experience, like, because, maybe, feel, height, though]
     token_count: 276
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c2"
-    char_span: [3172, 4827]
+    char_span: [3171, 4826]
     sentence_count: 14
     key_terms: [men, working, shorter, people, worked, "i've", role, labourers]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c3"
-    char_span: [4830, 6510]
+    char_span: [4829, 6509]
     sentence_count: 16
     key_terms: [people, because, don, like, anything, advice, height, being]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c4"
-    char_span: [6512, 8575]
+    char_span: [6511, 8574]
     sentence_count: 18
     key_terms: [work, person, seriously, worked, taken, teams, get, meet]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c5"
-    char_span: [8343, 9603]
+    char_span: [8342, 9602]
     sentence_count: 9
     key_terms: [height, because, always, people, strategyancient6770, being, advertisingkey1675, hard]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c6"
-    char_span: [9605, 11875]
+    char_span: [9604, 11874]
     sentence_count: 28
     key_terms: [company, understanding, experience, believe, reasons, ideas, tried, get]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c7"
-    char_span: [11877, 14036]
+    char_span: [11876, 14035]
     sentence_count: 17
     key_terms: [people, height, "i'm", like, maybe, did, "it's", internship]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/humanresources/1stim9y.md#c8"
-    char_span: [14038, 14193]
+    char_span: [14037, 14192]
     sentence_count: 4
     key_terms: [lifetime, talented, maybe, taken, been, fail, good, list]
     section: Comments

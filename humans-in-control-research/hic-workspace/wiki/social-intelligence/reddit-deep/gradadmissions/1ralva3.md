@@ -23,19 +23,19 @@ chunks:
     key_terms: [gradadmissions, comments, reddit-deep, feedback, helpful, someone, writing, posted]
     token_count: 91
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c1"
-    char_span: [348, 2465]
+    char_span: [347, 2464]
     sentence_count: 16
     key_terms: [want, experience, past, because, neuroscience, experiences, etc, like]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c2"
-    char_span: [2467, 4145]
+    char_span: [2466, 4144]
     sentence_count: 14
     key_terms: [program, degree, paragraph, interest, include, exeter, start, creatororinsanity]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralva3.md#c3"
-    char_span: [4150, 4911]
+    char_span: [4149, 4910]
     sentence_count: 5
     key_terms: [like, phrasing, noticed, errors, space, start, good, observer-ship]
     section: Comments

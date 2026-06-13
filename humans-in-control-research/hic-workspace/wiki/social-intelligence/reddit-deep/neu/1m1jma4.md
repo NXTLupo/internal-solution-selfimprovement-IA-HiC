@@ -21,7 +21,7 @@ chunks:
     key_terms: [comments, oakland, campus, acrobatic-teach-9373, clubs, doing, tamid, neu]
     token_count: 147
   - id: "social-intelligence/reddit-deep/neu/1m1jma4.md#c1"
-    char_span: [605, 1277]
+    char_span: [604, 1276]
     sentence_count: 9
     key_terms: [clubs, club, business, possible, good, competitive, experiences, interesting]
     section: Comments

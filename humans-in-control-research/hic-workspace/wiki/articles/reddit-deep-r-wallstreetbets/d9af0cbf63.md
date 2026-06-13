@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-wallstreetbets/d9af0cbf63.md#c0"
-    char_span: [0, 1679]
+    char_span: [0, 1678]
     sentence_count: 20
     key_terms: [silver, shiny, rock, calls, comments, wallstreetbets, ago, portfolio]
-    token_count: 458
+    token_count: 457
   - id: "articles/reddit-deep-r-wallstreetbets/d9af0cbf63.md#c1"
-    char_span: [1681, 2519]
+    char_span: [1680, 2518]
     sentence_count: 7
     key_terms: [buying, silver, everyone, discord, throwawaywhiteguy333, frostymarsupial1486, millenialismistical, last]
     token_count: 241

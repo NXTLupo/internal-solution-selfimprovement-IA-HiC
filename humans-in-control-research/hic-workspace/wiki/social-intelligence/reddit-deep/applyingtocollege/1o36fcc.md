@@ -28,73 +28,73 @@ chunks:
     key_terms: [transcript, understand, colleges, district, clarify, playing, putting, "they're"]
     token_count: 74
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c2"
-    char_span: [2342, 4490]
+    char_span: [2341, 4489]
     sentence_count: 18
     key_terms: [school, class, grades, middle, child, accelerated, frustrating, math]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c3"
-    char_span: [4492, 6490]
+    char_span: [4491, 6489]
     sentence_count: 16
     key_terms: [college, school, classes, high, son, transcript, math, program]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c4"
-    char_span: [6492, 8834]
+    char_span: [6491, 8833]
     sentence_count: 24
     key_terms: [daughter, college, kids, school, "it's", class, application, high]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c5"
-    char_span: [8836, 10553]
+    char_span: [8835, 10552]
     sentence_count: 11
     key_terms: [kids, rankings, too, classes, parents, "don't", high, admissions]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c6"
-    char_span: [10555, 12766]
+    char_span: [10554, 12765]
     sentence_count: 15
     key_terms: [aid, financial, merit, colleges, scholarships, need, families, majority]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c7"
-    char_span: [12768, 14983]
+    char_span: [12767, 14982]
     sentence_count: 18
     key_terms: [grade, parents, grades, "daughter's", choices, student, "there's", school]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c8"
-    char_span: [14985, 17120]
+    char_span: [14984, 17119]
     sentence_count: 12
     key_terms: [school, high, transcript, classes, grade, student, class, works]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c9"
-    char_span: [17122, 19216]
+    char_span: [17121, 19215]
     sentence_count: 14
     key_terms: [calculus, advanced, students, admissions, take, class, college, grade]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c10"
-    char_span: [19218, 20803]
+    char_span: [19217, 20802]
     sentence_count: 13
     key_terms: [school, high, calculus, math, classes, grades, multivariable, achievements]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c11"
-    char_span: [20805, 22588]
+    char_span: [20804, 22587]
     sentence_count: 7
     key_terms: [classes, math, take, school, courses, ability, requirements, grade]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c12"
-    char_span: [22590, 24547]
+    char_span: [22589, 24546]
     sentence_count: 14
     key_terms: [school, high, prescribed, class, math, material, algebra, classes]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o36fcc.md#c13"
-    char_span: [24549, 26108]
+    char_span: [24548, 26107]
     sentence_count: 12
     key_terms: [school, grade, high, classes, middle, transcript, fulfilled, pre-ninth]
     section: Comments

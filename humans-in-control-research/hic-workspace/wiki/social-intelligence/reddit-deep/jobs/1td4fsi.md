@@ -23,43 +23,43 @@ chunks:
     key_terms: [comments, jobs, maryjane7399420, reddit-deep, question, posting, posted, reddit]
     token_count: 73
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c1"
-    char_span: [268, 1938]
+    char_span: [267, 1937]
     sentence_count: 13
     key_terms: [question, company, illegal, throwawayfrompa1701, organization, legal, "it's", retirement]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c2"
-    char_span: [1940, 3576]
+    char_span: [1939, 3575]
     sentence_count: 9
     key_terms: [company, work, christian, startup, people, throwawayfrompa1701, cult, don]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c3"
-    char_span: [3578, 5598]
+    char_span: [3577, 5597]
     sentence_count: 14
     key_terms: [conservative, question, christian, cousin, company, "isn't", discourages, did]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c4"
-    char_span: [5600, 7639]
+    char_span: [5599, 7638]
     sentence_count: 10
     key_terms: [question, lawyer, backgrounds, flag, different, sentence, company, grammar]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c5"
-    char_span: [7641, 9310]
+    char_span: [7640, 9309]
     sentence_count: 8
     key_terms: [christian, question, process, answer, conservative, information, "it's", religious]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c6"
-    char_span: [9312, 11073]
+    char_span: [9311, 11072]
     sentence_count: 8
     key_terms: [conservative, question, company, accept, values, christian, business, religion]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1td4fsi.md#c7"
-    char_span: [11075, 11996]
+    char_span: [11074, 11995]
     sentence_count: 5
     key_terms: [retirement, planning, worded, large, point, fightinghellfish12, ivar-the-bonefull, ick]
     section: Comments

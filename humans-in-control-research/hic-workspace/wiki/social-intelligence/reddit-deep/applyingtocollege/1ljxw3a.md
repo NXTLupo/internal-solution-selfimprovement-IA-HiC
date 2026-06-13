@@ -23,13 +23,13 @@ chunks:
     key_terms: [learning, disability, applyingtocollege, anyone, disabilities, particularly, somewhere, comments]
     token_count: 275
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c1"
-    char_span: [1335, 3575]
+    char_span: [1334, 3574]
     sentence_count: 17
     key_terms: [students, applyingtocollege, disabled, college, mention, disabilities, learning, schools]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ljxw3a.md#c2"
-    char_span: [3577, 4824]
+    char_span: [3576, 4823]
     sentence_count: 11
     key_terms: [school, extra, learning, time, disabilities, "don't", admissions, disability]
     section: Comments

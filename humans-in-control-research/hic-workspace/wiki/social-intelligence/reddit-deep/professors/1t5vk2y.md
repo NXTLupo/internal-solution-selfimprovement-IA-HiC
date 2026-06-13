@@ -23,55 +23,55 @@ chunks:
     key_terms: [student, finance, did, post, professors, recommend, comments, somebody]
     token_count: 283
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c1"
-    char_span: [1274, 3234]
+    char_span: [1273, 3233]
     sentence_count: 12
     key_terms: [students, letter, recommendation, ask, program, asking, person, skills]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c2"
-    char_span: [3236, 5574]
+    char_span: [3235, 5573]
     sentence_count: 17
     key_terms: [recommendation, course, student, letter, letters, confidential, class, did]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c3"
-    char_span: [5576, 6485]
+    char_span: [5575, 6484]
     sentence_count: 10
     key_terms: [reviews, students, negative, usually, better, letter, profdoesntsleepenuff, left]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c4"
-    char_span: [6487, 8482]
+    char_span: [6486, 8481]
     sentence_count: 19
     key_terms: [student, left, professor, address, reviews, similar, profdoesntsleepenuff, public-minimum1650]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c5"
-    char_span: [8484, 9132]
+    char_span: [8483, 9131]
     sentence_count: 6
     key_terms: [don, fun, job, need, sue, notlikeotherai, appropriate, appreciate]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c6"
-    char_span: [9134, 11113]
+    char_span: [9133, 11112]
     sentence_count: 12
     key_terms: [colleague, professor, seriously, reviews, student, review, wonder, fresh-requirement862]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c7"
-    char_span: [10904, 12257]
+    char_span: [10903, 12256]
     sentence_count: 8
     key_terms: [grade, orangecatisback, student, people, class, students, because, posted]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c8"
-    char_span: [12262, 13037]
+    char_span: [12261, 13036]
     sentence_count: 10
     key_terms: [rule, finance, corporations, business, people, "don't", liabilities, obsessively]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/professors/1t5vk2y.md#c9"
-    char_span: [13041, 14484]
+    char_span: [13040, 14483]
     sentence_count: 12
     key_terms: [liabilities, fair-garlic8240, finance, notlikeotherai, good, rmp, student, assets]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [career, remote, job, role, careerguidance, offer, negatively, analytics]
     token_count: 365
   - id: "social-intelligence/reddit-deep/careerguidance/1n1posl.md#c1"
-    char_span: [1652, 2244]
+    char_span: [1651, 2243]
     sentence_count: 7
     key_terms: [repulsive-minute-559, "don't", job, freshmctendies, absolutely, experience, overthink, questions]
     section: Comments

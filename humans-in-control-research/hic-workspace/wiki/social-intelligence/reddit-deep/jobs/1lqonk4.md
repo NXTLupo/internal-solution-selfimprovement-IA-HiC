@@ -23,37 +23,37 @@ chunks:
     key_terms: [working, day, work, guess, money, job, jobs, apparently]
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c1"
-    char_span: [2053, 3646]
+    char_span: [2052, 3645]
     sentence_count: 8
     key_terms: [day, chocchipbananamuffin, meant, hour, per, europe, later, post]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c2"
-    char_span: [3648, 5366]
+    char_span: [3647, 5365]
     sentence_count: 15
     key_terms: [day, "you're", legal, like, take, okheat9987, getting, minimum]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c3"
-    char_span: [5368, 7364]
+    char_span: [5367, 7363]
     sentence_count: 18
     key_terms: [minimum, money, job, wage, melodic-hat-2875, day, work, reasonable]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c4"
-    char_span: [7366, 8816]
+    char_span: [7365, 8815]
     sentence_count: 9
     key_terms: [people, significantly, pay, investing, anywhere, because, country, suggest]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c5"
-    char_span: [8818, 10549]
+    char_span: [8817, 10548]
     sentence_count: 14
     key_terms: [mongolia, age, day, here, jobs, life, assuming, monthly]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/jobs/1lqonk4.md#c6"
-    char_span: [10551, 11627]
+    char_span: [10550, 11626]
     sentence_count: 13
     key_terms: [days, adjust, todaysthrowaway0110, far, job, uni, work, alternative]
     section: Comments

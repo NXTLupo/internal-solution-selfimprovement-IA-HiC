@@ -23,25 +23,25 @@ chunks:
     key_terms: [nomad, bali, digital, looking, people, digitalnomad, month, experiences]
     token_count: 361
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c1"
-    char_span: [1487, 3308]
+    char_span: [1486, 3307]
     sentence_count: 24
     key_terms: [bali, place, good, drugged, got, want, negatives, everyone]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c2"
-    char_span: [3310, 4834]
+    char_span: [3309, 4833]
     sentence_count: 23
     key_terms: [bali, want, better, been, get, take, advantage, working]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c3"
-    char_span: [4836, 6626]
+    char_span: [4835, 6625]
     sentence_count: 32
     key_terms: [worse, medellin, spiritno2533, people, death, going, city, time]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/digitalnomad/1pxig8o.md#c4"
-    char_span: [6628, 7440]
+    char_span: [6627, 7439]
     sentence_count: 9
     key_terms: [better, bali, medellin, chatgpt, spanish, speak, openwidecomeinside, stay]
     section: Comments

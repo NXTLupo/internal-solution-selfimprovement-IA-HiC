@@ -26,7 +26,7 @@ chunks:
     key_terms: [transition, seeing, cause, able, knew, conversations, additionally, construction]
     token_count: 212
   - id: "social-intelligence/reddit-deep/internships/1stut1g.md#c2"
-    char_span: [2905, 3629]
+    char_span: [2904, 3628]
     sentence_count: 4
     key_terms: [engineering, swigofravioli349, civil, been, transitioning, internships, connection, electrical]
     section: Comments

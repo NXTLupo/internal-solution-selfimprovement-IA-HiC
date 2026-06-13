@@ -451,16 +451,30 @@ export class GenAISession {
      * contract. Returns '' on empty catalog (caller falls back / flags); never
      * throws into a generation path. Stores resolved ids on lastCorpusChunkIds.
      */
-    private async buildChunkCorpusBlock(promptText: string, opts: { tokenBudget?: number; excludeIds?: string[]; skipAutoPin?: boolean } = {}): Promise<string> {
+    private async buildChunkCorpusBlock(promptText: string, opts: { tokenBudget?: number; excludeIds?: string[]; skipAutoPin?: boolean; broaden?: boolean } = {}): Promise<string> {
         try {
             const { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions, DEFAULT_CORPUS_TOKEN_BUDGET } = await import('./chunkRetrieval');
             const { resolveChunks } = await import('./wikiPointerResolver');
-            const slug = (this.goal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80) || 'default';
+            // 2026-06-08 - Use the CANONICAL engagement slug (buildEngagementSlug:
+            // extractResearchObjective + 60-char) so the retrieval slug matches the
+            // ARCHIVAL slug exactly. Previously this hand-rolled a raw-goal 80-char
+            // slug, so it could never match the 60-char objective-extracted slug the
+            // wiki was written under (the catalog=0 mismatch). For fresh runs MCR is
+            // still empty by design (articles aren't engagement-scoped), but on
+            // cached/KL runs this guarantees archival===retrieval.
+            let slug = 'default';
+            try {
+                const { buildEngagementSlug } = await import('./wikiService');
+                slug = buildEngagementSlug(this.goal || 'default', 60) || 'default';
+            } catch {
+                slug = (this.goal || 'default').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60) || 'default';
+            }
             const picked = await pickChunksForPrompt(promptText, slug, {
                 tokenBudget: opts.tokenBudget ?? DEFAULT_CORPUS_TOKEN_BUDGET,
                 extraContext: this.goal || '',
                 excludeIds: opts.excludeIds,       // shard window: skip prior-shard chunks
                 skipAutoPin: opts.skipAutoPin,     // shards 1..K do not re-pin cached selection
+                broaden: opts.broaden,             // Phase 2: floor-retry widens to relevance-ranked backfill
             });
             if (!picked.chunkIds.length) {
                 console.warn(`[MCR] no chunks selected for slug "${slug}" (catalog=${picked.catalogSize}) - corpus block empty; caller falls back to legacy path`);
@@ -482,6 +496,92 @@ export class GenAISession {
             this.lastCorpusChunkIds = [];
             return '';
         }
+    }
+
+    /**
+     * 2026-06-09 STANDING RULE (memory: deliverables assemble from wiki+MANIFEST, not RAG).
+     * Single grounding chokepoint for ON-DEMAND deliverables (personas, journey, recs, PRD,
+     * roadmap, gap, tech-audit, competitive, tech-arch, report). Prefers manifest-chunk
+     * retrieval (the SAME clean-chunk path generateThemes uses, cite-by-pointer, resilient to
+     * an empty in-memory rawSources on a re-opened chat session). Falls back to the legacy
+     * rawSources evidence catalog ONLY when the manifest yields nothing (brand-new engagement
+     * with nothing tagged yet). This replaces the per-generator buildEvidenceCatalogBlock(
+     * this.rawSources) / getGoalEvidenceBlock bulk-injection that produced hollow deliverables.
+     */
+    private async assembleDeliverableCorpus(label: string, opts: { tokenBudget?: number; minDistinctSources?: number } = {}): Promise<string> {
+        // 2026-06-09 - prepend the brand DESIGN SYSTEM to EVERY deliverable's grounding
+        // block (single chokepoint). All generators call this for evidenceBlock, so this
+        // one prepend wires the design-system pull into all of them - the artifact uses
+        // actual brand tokens + per-format dimensions regardless of deliverable type.
+        let ds = '';
+        try { ds = await this.assembleDesignSystem(); } catch { /* non-fatal */ }
+        let corpus = '';
+        try {
+            const mcr = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, { tokenBudget: opts.tokenBudget ?? 30_000 });
+            if (mcr && mcr.length > 0) {
+                console.log(`[assembleDeliverableCorpus/${label}] grounded from MANIFEST (${mcr.length} chars)`);
+                corpus = mcr;
+            } else {
+                console.warn(`[assembleDeliverableCorpus/${label}] manifest empty - falling back to legacy rawSources catalog`);
+            }
+        } catch (e: any) {
+            console.warn(`[assembleDeliverableCorpus/${label}] manifest path failed, legacy fallback:`, e?.message || e);
+        }
+        if (!corpus) {
+            try { corpus = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: label, minDistinctSources: opts.minDistinctSources ?? 8 }); } catch { corpus = ''; }
+        }
+        return ds ? `${ds}\n${corpus}` : corpus;
+    }
+
+    /**
+     * 2026-06-09 DESIGN-SYSTEM PULL (the per-deliverable Figma-sourced design rule).
+     * Every on-demand deliverable pulls its brand's design-system corpus from the wiki
+     * (wiki/brand/{nxt|nu}/design-system.md - the manifest-retrievable mirror of the
+     * Figma design system: exact color/type tokens, the font-role contract, and the
+     * per-format dimensions HTML 960x540 16:9 / PPTX 13.33x7.5in / PDF Letter-A4) so the
+     * composed artifact uses ACTUAL design-system elements at the correct dimensions.
+     * Brand resolves from the prompt (#NU/#NXT/#northeastern); default NXT. Cached per brand.
+     */
+    private _designSystemCache: Record<string, string> = {};
+    private async assembleDesignSystem(brandHint?: string): Promise<string> {
+        let brandId = 'nxt';
+        try {
+            const { detectBrandFromText } = await import('../components/slideTemplates/brands');
+            brandId = detectBrandFromText(`${brandHint || ''} ${this.goal || ''} ${this.approach || ''}`) || 'nxt';
+        } catch { /* default nxt */ }
+        if (this._designSystemCache[brandId]) return this._designSystemCache[brandId];
+        const PROXY = (process.env.VITE_PROXY_URL as string) || 'http://127.0.0.1:5012';
+        try {
+            const resp = await fetch(`${PROXY}/api/wiki/read/brand/${brandId}/design-system.md`);
+            if (resp.ok) {
+                const data: any = await resp.json().catch(() => null);
+                const body = (data && (data.content || data.body || data.text)) || (typeof data === 'string' ? data : '');
+                if (body && body.length > 0) {
+                    let block = `=== ${brandId.toUpperCase()} DESIGN SYSTEM (use these EXACT tokens, font roles, and per-format dimensions in the artifact) ===\n${body}\n`;
+                    // 2026-06-09 - append the SHARED element-twins (HTML preview + PPTX twin per element)
+                    // and the Figma node map so the composer pulls ACTUAL design-system elements and the
+                    // self-improvement loop can resolve element-name -> live Figma node id.
+                    for (const shared of ['element-twins.md', 'deliverable-atomic-model.md', 'figma-node-map.md', 'logos.md']) {
+                        try {
+                            const r2 = await fetch(`${PROXY}/api/wiki/read/brand/${shared}`);
+                            if (r2.ok) {
+                                const d2: any = await r2.json().catch(() => null);
+                                const b2 = (d2 && (d2.content || d2.body || d2.text)) || (typeof d2 === 'string' ? d2 : '');
+                                if (b2 && b2.length > 0) block += `\n${b2}\n`;
+                            }
+                        } catch { /* non-fatal */ }
+                    }
+                    block += `=== END DESIGN SYSTEM ===\n`;
+                    this._designSystemCache[brandId] = block;
+                    console.log(`[assembleDesignSystem] pulled ${brandId} design system + element twins + node map (${block.length} chars)`);
+                    return block;
+                }
+            }
+            console.warn(`[assembleDesignSystem] wiki/brand/${brandId}/design-system.md unavailable - artifact uses in-code brand tokens`);
+        } catch (e: any) {
+            console.warn('[assembleDesignSystem] failed (non-fatal):', e?.message || e);
+        }
+        return '';
     }
 
     private async getGoalEvidenceBlock(): Promise<string> {
@@ -1662,7 +1762,9 @@ Re-do the extraction. APPLY THE SECONDARY GATE EXPLICITLY:
 
 Now extract the FULL theme set. Do not under-emit again.`;
             try {
-                const earlyRetry = await this._runBreadthPass(earlyReprompt, schema, onStream, 'Themes-EarlyRetry');
+                // Phase 2 (broader retrieval): broaden=true so the early retry also sees a
+                // widened evidence window, not just a re-prompt of the same narrow chunks.
+                const earlyRetry = await this._runBreadthPass(earlyReprompt, schema, onStream, 'Themes-EarlyRetry', true);
                 if (Array.isArray(earlyRetry?.themes) && earlyRetry.themes.length > result.themes.length) {
                     console.log(`[Themes] Early retry produced ${earlyRetry.themes.length} themes (was ${result.themes.length})`);
                     result = earlyRetry;
@@ -1888,28 +1990,28 @@ Now extract the FULL theme set. Do not under-emit again.`;
                 `[Themes] BREADTH FLOOR VIOLATION - only ${themeCount} themes returned (floor=${BREADTH_FLOOR}). ` +
                 `Re-prompting with under-extraction feedback.`
             );
-            const reprompt = `Your previous theme extraction returned only ${themeCount} themes from a substantial corpus.
-That is BELOW the breadth floor of ${BREADTH_FLOOR} for any non-trivial corpus and is UNACCEPTABLE for consulting-grade analysis.
+            const reprompt = `Your previous theme extraction returned only ${themeCount} themes.
+That is BELOW the breadth floor of ${BREADTH_FLOOR}. This pass gives you a WIDER slice of the
+corpus: the evidence window has been BROADENED to include adjacent, relevance-ranked chunks that
+the focused first pass excluded. The additional evidence is real corpus, not filler.
 
-You under-extracted. Likely causes:
-  • You aggregated distinct findings into umbrella themes (e.g., one "AI in Higher Ed"
-    theme covering what should be 4-6 distinct AI sub-patterns).
-  • You stopped reading after the first ~100 chunks and missed the rest of the corpus.
-  • You over-invested depth in too few themes instead of generating breadth.
+Extract themes spanning the FULL widened evidence set:
+  1. Read EVERY chunk in this widened window, including the newly-included adjacent evidence.
+  2. The adjacent evidence surfaces themes the narrow first pass could not see - find them.
+  3. Where a single umbrella theme conflates distinct evidenced findings, separate them
+     (e.g. "AI in Fundraising" -> "AI wealth screening", "AI donor-history summarization",
+     "AI email personalization") ONLY when each split is independently supported by a chunk.
+  4. Each theme MUST cite at least one chunk; do NOT invent themes to hit a number. If the
+     widened corpus genuinely supports fewer than ${BREADTH_FLOOR}, return what the evidence
+     supports - an honest count from real evidence beats a padded one.
+  5. Each theme can carry THINNER depth this round - BREADTH OVER DEPTH.
 
-Re-do the analysis. SPECIFIC INSTRUCTIONS:
-  1. Re-read the corpus FROM CHUNK_001 through the LAST chunk. Do not stop early.
-  2. Each previous theme: split it into 2-4 distinct sub-themes if the evidence
-     supports it. "AI in Fundraising" -> "AI-driven wealth screening", "AI summarization
-     of donor history", "AI personalization in email campaigns", etc.
-  3. Find AT LEAST ${Math.max(BREADTH_FLOOR + 5, themeCount * 3)} distinct themes this pass.
-  4. Each theme can have THINNER depth (subThemes/dimensions/contradictions/temporalArc/
-     implications fields can be empty) - BREADTH OVER DEPTH this round.
-  5. The hard floor is ${BREADTH_FLOOR}. You will be re-prompted again if you under-extract.
-
-Now extract the FULL theme set.`;
+Now extract the full theme set from the widened evidence.`;
             try {
-                const retry = await this._runBreadthPass(reprompt, schema, onStream, 'Themes-Retry');
+                // Phase 2 (broader retrieval): broaden=true widens the chunk window to
+                // relevance-ranked backfill so the model sees MORE evidence, rather than
+                // re-prompting the same narrow set to manufacture splits.
+                const retry = await this._runBreadthPass(reprompt, schema, onStream, 'Themes-Retry', true);
                 if (Array.isArray(retry?.themes) && retry.themes.length > themeCount) {
                     console.log(`[Themes] Retry produced ${retry.themes.length} themes (was ${themeCount})`);
                     // Apply meta-theme filter to retry result too
@@ -2075,7 +2177,7 @@ Now extract the FULL theme set.`;
      * Pro call routes us to the chat path, so behavior is never worse than
      * the previous single-pass implementation.
      */
-    private async _runBreadthPass(prompt: string, schema: Schema, onStream: (t: string) => void, label: string = 'Themes'): Promise<StepResult_Themes> {
+    private async _runBreadthPass(prompt: string, schema: Schema, onStream: (t: string) => void, label: string = 'Themes', broaden: boolean = false): Promise<StepResult_Themes> {
         // 2026-05-19 - NotebookLM-style goal-evidence injection on the Pro
         // breadth path. Mirrors the injection in executeStep / executeStepViaGPT
         // so the Pro one-shot sees the same goal-anchored chunks the chat-
@@ -2100,7 +2202,7 @@ Now extract the FULL theme set.`;
         // back to the legacy bulk evidence so themes never generate from nothing.
         let mcrCorpusBlock = '';
         if (this.useMcrCorpus) {
-            mcrCorpusBlock = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, { tokenBudget: 30_000 });
+            mcrCorpusBlock = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, { tokenBudget: 30_000, broaden });
         }
         const useMcr = this.useMcrCorpus && mcrCorpusBlock.length > 0;
         const effectivePrompt = useMcr
@@ -2116,11 +2218,35 @@ Now extract the FULL theme set.`;
         // the relevance-ranked catalog is exhausted (relevance coverage is the lever).
         // Falls through to the proven single-pass below only if EVERY shard fails.
         if (useMcr) {
-            const sharded = await this._runShardedBreadth(prompt, schema, onStream, label);
+            const sharded = await this._runShardedBreadth(prompt, schema, onStream, label, broaden);
             if (sharded && Array.isArray((sharded as any).themes) && (sharded as any).themes.length > 0) {
                 return sharded;
             }
             onStream(`[${label}] Sharded breadth yielded nothing; falling back to single-pass.`);
+        }
+
+        // 2026-06-08 - LEGACY-CORPUS SHARDING (the fresh-run keystone). MCR is
+        // structurally empty on a FRESH run: collected articles live under
+        // articles/<source>/ with NO engagement scoping, so the manifest
+        // engagement-filter returns catalog=0 BY DESIGN (articles are a cross-
+        // engagement shared corpus retrieved by relevance, not engagement). That
+        // forced every fresh/upload run onto the single one-shot below, which
+        // COLLAPSES Gemini 3.1 Pro (observed live 2026-06-08: 1 theme in 453s from
+        // a 927KB prompt; retries limped to 38, floor=28). The corpus still lives
+        // in corpusFileParts, so shard THOSE into ~30K-token windows and run the
+        // SAME parallel-wave breadth the MCR path gets - collapse-avoidance for
+        // fresh runs too. Each shard drops the bulk goal-evidence/substrate blocks
+        // (its window IS its evidence), keeping shards small.
+        if (!useMcr) {
+            // The collapse-driving BULK is the goal-evidence pack (observed
+            // ~804KB / 120 chunks), injected into the prompt TEXT - NOT
+            // corpusFileParts (often just 1-2 small parts). Window the combined
+            // evidence text and shard it.
+            const shardedLegacy = await this._runShardedBreadthFromCorpus(prompt, schema, onStream, label, goalEvidenceBlock, substrateBlock);
+            if (shardedLegacy && Array.isArray((shardedLegacy as any).themes) && (shardedLegacy as any).themes.length > 0) {
+                return shardedLegacy;
+            }
+            // null => evidence small enough for one-shot (no collapse risk), or every shard failed; single-pass below handles it.
         }
 
         // Step 1: try Gemini 3.1 Pro one-shot with the cached corpus parts.
@@ -2264,6 +2390,43 @@ Now extract the FULL theme set.`;
      */
     private async _runBreadthShard(contents: any[], effectivePrompt: string, schema: Schema, onStream: (t: string) => void, label: string): Promise<StepResult_Themes | null> {
         const started = Date.now();
+        // 2026-06-13 - OPUS 4.8 PRIMARY (temp stand-in for the banned Fable 5).
+        // Gemini 3.1 Pro shards repetition-collapse under structured-JSON +
+        // greedy decoding ("1111" x66, "blockquote" x51 - observed on every
+        // large run), and the GPT-5.5 recovery is post-hoc latency. Claude
+        // Opus 4.8 does not share the collapse failure mode and already writes
+        // the deliverables this corpus feeds. Try Opus first (schema described
+        // in-prompt; no temperature - opus-4-8 400s on it); on ANY failure fall
+        // through to the existing Gemini -> GPT-5.5 chain unchanged, so
+        // reliability is strictly added.
+        try {
+            if ((process.env as any).ANTHROPIC_API_KEY) {
+                const { callAIWithRetry } = await import('./aiRetryClient');
+                const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
+                onStream(`[${label}] generating via Claude Opus 4.8...`);
+                const data: any = await callAIWithRetry('anthropic', {
+                    model: 'claude-opus-4-8',
+                    max_tokens: 32_000,
+                    system: this.systemInstructionCached,
+                    messages: [{ role: 'user', content: effectivePrompt + schemaDescription }],
+                }, { label: `Themes ${label} SHARD (Opus 4.8)`, maxAttempts: 2, requestTimeoutMs: 240_000 });
+                const text = (Array.isArray(data?.content) ? data.content : [])
+                    .map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('').trim();
+                const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '');
+                const fableParsed = JSON.parse(tryRepairJson(cleaned)) as StepResult_Themes;
+                if (fableParsed && Array.isArray((fableParsed as any).themes) && (fableParsed as any).themes.length > 0) {
+                    onStream(`[${label}] Opus 4.8 produced ${(fableParsed as any).themes.length} themes.`);
+                    try {
+                        const { recordTurn } = await import('./traceRecorder');
+                        recordTurn({ step_label: `${label} SHARD`, model_id: 'claude-opus-4-8', prompt: effectivePrompt, response: text.slice(0, 200_000), started_at: started, note: 'deliverable=#themes | shard primary=opus-4-8 (temp stand-in for banned fable-5; no seed support; determinism via fixed catalog windows)' });
+                    } catch { /* non-fatal */ }
+                    return fableParsed;
+                }
+                console.warn(`[${label}] Opus 4.8 shard returned no themes; falling back to Gemini chain.`);
+            }
+        } catch (fableErr: any) {
+            console.warn(`[${label}] Opus 4.8 shard failed (${(fableErr?.message || String(fableErr)).slice(0, 120)}); falling back to Gemini chain.`);
+        }
         try {
             const proResult = await withRetry(async () => {
                 const result: any = await this.ai.models.generateContentStream({
@@ -2310,10 +2473,43 @@ Now extract the FULL theme set.`;
             return parsed;
         } catch (err: any) {
             const msg = err?.message || String(err);
-            console.warn(`[${label}] shard failed (local, skipped):`, msg.slice(0, 140));
+            // 2026-06-08 - COLLAPSE RECOVERY (the 13-theme fix). A Gemini 3.1 Pro
+            // shard that repetition-collapses (". . ." / "1111" output degeneration)
+            // used to return 0 themes and silently drop its entire evidence window.
+            // On the 2026-06-08 alumni-giving run, LP1 + LP4 collapsed this way and
+            // the union fell to 13 themes (WORSE than the 38 we were fixing). GPT-5.5
+            // does NOT share Gemini's repetition-collapse failure mode, so retry the
+            // SAME window on GPT-5.5 before giving up. This converts a half-collapsed
+            // run into full evidence coverage. Same fix benefits both shard drivers
+            // (_runShardedBreadth + _runShardedBreadthFromCorpus share this method).
+            console.warn(`[${label}] Gemini shard failed (${msg.slice(0, 100)}); recovering same window via GPT-5.5...`);
+            onStream(`[${label}] Gemini shard collapsed; recovering this evidence window via GPT-5.5...`);
+            try {
+                const { analyzeTextJSON } = await import('./openaiService');
+                const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
+                const gptResult = await analyzeTextJSON<StepResult_Themes>(
+                    this.systemInstructionCached,
+                    effectivePrompt + schemaDescription,
+                    'gpt-5.5',
+                    32_000,
+                    0.2,
+                );
+                if (gptResult && typeof gptResult === 'object' && Array.isArray((gptResult as any).themes) && (gptResult as any).themes.length > 0) {
+                    console.log(`[${label}] GPT-5.5 recovered ${(gptResult as any).themes.length} themes from the collapsed window.`);
+                    onStream(`[${label}] GPT-5.5 recovered ${(gptResult as any).themes.length} themes from the collapsed window.`);
+                    try {
+                        const { recordTurn } = await import('./traceRecorder');
+                        recordTurn({ step_label: `${label} SHARD`, model_id: 'gpt-5.5', prompt: effectivePrompt, response: (() => { try { return JSON.stringify(gptResult); } catch { return '[unserializable]'; } })(), started_at: started, temperature: 0.2, fallback_chain: ['gemini-3.1-pro-preview', 'gpt-5.5'], fallback_fired: true, note: 'deliverable=#themes | shard recovered via GPT-5.5' });
+                    } catch { /* non-fatal */ }
+                    return gptResult as StepResult_Themes;
+                }
+                console.warn(`[${label}] GPT-5.5 recovery returned no themes; skipping window.`);
+            } catch (gerr: any) {
+                console.warn(`[${label}] GPT-5.5 shard recovery also failed:`, (gerr?.message || String(gerr)).slice(0, 120));
+            }
             try {
                 const { recordTurn } = await import('./traceRecorder');
-                recordTurn({ step_label: `${label} SHARD`, model_id: 'gemini-3.1-pro-preview', prompt: effectivePrompt, response: '', started_at: started, failed: true, error: msg, temperature: 0, seed: 42, note: 'deliverable=#themes | shard failed (local)' });
+                recordTurn({ step_label: `${label} SHARD`, model_id: 'gemini-3.1-pro-preview', prompt: effectivePrompt, response: '', started_at: started, failed: true, error: msg, temperature: 0, seed: 42, fallback_chain: ['gemini-3.1-pro-preview', 'gpt-5.5'], fallback_fired: true, note: 'deliverable=#themes | shard failed (Gemini collapse + GPT recovery both failed)' });
             } catch { /* non-fatal */ }
             return null;
         }
@@ -2329,7 +2525,7 @@ Now extract the FULL theme set.`;
      * expensive Pro calls run in parallel per wave. Returns unioned + deduped themes,
      * or null if every shard failed (caller then runs the single-pass fallback).
      */
-    private async _runShardedBreadth(prompt: string, schema: Schema, onStream: (t: string) => void, label: string): Promise<StepResult_Themes | null> {
+    private async _runShardedBreadth(prompt: string, schema: Schema, onStream: (t: string) => void, label: string, broaden: boolean = false): Promise<StepResult_Themes | null> {
         const SAFETY_MAX_SHARDS = 10;   // cost guard, NOT the lever
         const WAVE_SIZE = 3;            // shards run in parallel per wave
         const SATURATION_NEW = 3;       // a wave adding < this many new themes => saturated
@@ -2352,6 +2548,7 @@ Now extract the FULL theme set.`;
                     tokenBudget: SHARD_TOKENS,
                     excludeIds: Array.from(usedChunks),
                     skipAutoPin: idx > 0,
+                    broaden,   // Phase 2: floor-retry widens to relevance-ranked backfill
                 });
                 if (!block) break;   // catalog exhausted
                 const winChunks = this.lastCorpusChunkIds.slice();
@@ -2390,6 +2587,87 @@ Now extract the FULL theme set.`;
         console.log(`[${label}] Sharded breadth complete: ${allThemes.length} unique themes across ${shardsRun} shards (${wave} waves), ${usedChunks.size} chunks covered.`);
         onStream(`[${label}] Sharded breadth complete: ${allThemes.length} unique themes across ${shardsRun} shards covering ${usedChunks.size} corpus chunks.`);
         return { themes: allThemes, methodology: methodology || `Sharded breadth across ${shardsRun} relevance-ranked corpus windows (${usedChunks.size} chunks), unioned and deduped to ${allThemes.length} themes.` } as any;
+    }
+
+    /**
+     * 2026-06-08 - LEGACY-CORPUS sharded breadth. The fresh-run twin of
+     * _runShardedBreadth: when the MCR catalog is empty (fresh/upload runs, where
+     * collected articles are not engagement-scoped), the corpus lives in
+     * this.corpusFileParts. A single one-shot over ALL parts collapses Gemini 3.1
+     * Pro (the 38-theme / 453s / 927KB failure). This packs the parts into
+     * ~30K-token windows (mirroring the proven MCR SHARD_TOKENS) and runs breadth
+     * in parallel waves over EVERY window, unioning + deduping by theme name. Each
+     * shard's prompt is just objective-anchor + the breadth prompt; the window's
+     * corpus parts ARE its evidence (no 800KB goal-evidence block per shard).
+     * Returns unioned themes, or null if every shard failed (caller single-passes).
+     */
+    private async _runShardedBreadthFromCorpus(prompt: string, schema: Schema, onStream: (t: string) => void, label: string, goalEvidenceBlock: string, substrateBlock: string): Promise<StepResult_Themes | null> {
+        // 2026-06-08 - Window reduced 120K -> 80K chars (~20K tokens, BELOW the MCR
+        // path's proven 30K-token shard). The 2026-06-08 alumni run collapsed 2 of 4
+        // 120K-char shards (LP1: ". . ." x35; LP4: "1111" x66) -> union fell to 13
+        // themes. Smaller windows produce smaller output JSON, which materially lowers
+        // the odds of entering Gemini 3.1 Pro's repetition basin. Residual collapses
+        // are recovered per-shard on GPT-5.5 in _runBreadthShard, so a shard that still
+        // degenerates contributes its themes instead of 0.
+        const WINDOW_CHARS = 80_000;    // ~20K tokens/shard (was 120K; halved collapse pressure)
+        const WAVE_SIZE = 3;            // shards per parallel wave
+        const SAFETY_MAX_SHARDS = 14;   // cost guard (raised 12->14 to cover ~1.1MB evidence at the smaller window)
+        // The collapse-driving bulk is the EVIDENCE TEXT (goal-evidence pack +
+        // substrate). Combine, then split into size-bounded windows on chunk/
+        // paragraph boundaries so each shard sees coherent, intact evidence.
+        const evidenceText = [goalEvidenceBlock || '', substrateBlock || ''].filter(s => s && s.trim().length > 0).join('\n\n');
+        if (evidenceText.length <= WINDOW_CHARS) return null;   // small enough for one-shot; no collapse risk
+        // Split on blank-line boundaries (chunk separators); greedily pack into windows.
+        const blocks = evidenceText.split(/\n\s*\n/);
+        const windows: string[] = [];
+        let cur = '';
+        for (const b of blocks) {
+            if (cur.length > 0 && cur.length + b.length + 2 > WINDOW_CHARS) { windows.push(cur); cur = ''; }
+            cur = cur ? `${cur}\n\n${b}` : b;
+            // a single block bigger than the window: hard-split it so no shard is oversized
+            while (cur.length > WINDOW_CHARS) { windows.push(cur.slice(0, WINDOW_CHARS)); cur = cur.slice(WINDOW_CHARS); }
+        }
+        if (cur.trim().length > 0) windows.push(cur);
+        if (windows.length <= 1) return null;   // single window == one-shot; let the single-pass handle it
+        const anchor = this.buildObjectiveAnchor();
+        // Small corpusFileParts (if any) ride along in every shard - they're the
+        // client uploads / file corpus, cheap to include and shouldn't be lost.
+        const fileParts = (this.corpusFileParts && this.corpusFileParts.length > 0) ? this.corpusFileParts : [];
+        const seen = new Set<string>();
+        const allThemes: any[] = [];
+        let methodology = '';
+        let anyOk = false;
+        let shardsRun = 0;
+        // Cover EVERY window (capped at SAFETY_MAX_SHARDS). Windows are corpus-order
+        // (not relevance-ranked), so we do NOT early-saturate - covering all windows
+        // maximizes breadth, which is the goal.
+        const capped = windows.slice(0, SAFETY_MAX_SHARDS);
+        for (let base = 0; base < capped.length; base += WAVE_SIZE) {
+            const waveWindows = capped.slice(base, base + WAVE_SIZE);
+            onStream(`[${label}] Legacy-corpus breadth wave ${Math.floor(base / WAVE_SIZE) + 1}: ${waveWindows.length} shard(s) in parallel (evidence too large for one-shot; sharding to avoid Pro collapse)...`);
+            const results = await Promise.all(waveWindows.map((win, i) => {
+                const eff = [anchor, win, prompt].filter(s => s && s.length > 0).join('\n');
+                return this._runBreadthShard([{ role: 'user', parts: [...fileParts, { text: eff }] }], eff, schema, onStream, `${label}-LP${shardsRun + i + 1}`);
+            }));
+            shardsRun += waveWindows.length;
+            let waveNew = 0;
+            for (const r of results) {
+                if (!r || !Array.isArray((r as any).themes)) continue;
+                anyOk = true;
+                if (!methodology && (r as any).methodology) methodology = (r as any).methodology;
+                for (const t of (r as any).themes) {
+                    const key = String(t?.name || '').trim().toLowerCase();
+                    if (key && !seen.has(key)) { seen.add(key); allThemes.push(t); waveNew++; }
+                }
+            }
+            console.log(`[${label}] legacy-corpus breadth wave: +${waveNew} new themes (total ${allThemes.length}); shards run=${shardsRun}/${capped.length} of ${windows.length} windows`);
+            onStream(`[${label}] Wave: +${waveNew} new themes (running total ${allThemes.length}).`);
+            if (waveNew > 0) { try { this.onThemeProgress?.(allThemes.slice()); } catch { /* non-fatal */ } }
+        }
+        if (!anyOk || allThemes.length === 0) return null;
+        console.log(`[${label}] Legacy-corpus sharded breadth complete: ${allThemes.length} unique themes across ${shardsRun} shards (${windows.length} evidence windows).`);
+        onStream(`[${label}] Legacy-corpus sharded breadth: ${allThemes.length} unique themes across ${shardsRun} evidence windows.`);
+        return { themes: allThemes, methodology: methodology || `Sharded breadth across ${shardsRun} evidence windows, unioned and deduped to ${allThemes.length} themes.` } as any;
     }
 
     /**
@@ -2458,6 +2736,28 @@ Now extract the FULL theme set.`;
      * Fire-and-forget; never throws into the generation path.
      */
     private _finalizeDeliverable(kind: string, result: any): void {
+        // 2026-06-11 - universal em-dash sweep BEFORE grounding/scoring. The
+        // themes run persisted 858 em-dashes (quality 69/100, em_dash_absent
+        // failure) because the strip only existed on the slide pipeline, not
+        // on deliverable JSON. Walk every string field; pointer-bearing fields
+        // (chunk ids, citations) are untouched - stripEmDashes only rewrites
+        // U+2014/U+2013, never ASCII hyphens (standing rule) or paths.
+        try {
+            const dashRe = /[—–]/;
+            const sweep = (v: any): any => {
+                if (typeof v === 'string') {
+                    if (!dashRe.test(v)) return v;
+                    return v.replace(/\s*—\s*/g, '; ').replace(/\s*–\s*/g, '-');
+                }
+                if (Array.isArray(v)) { for (let i = 0; i < v.length; i++) v[i] = sweep(v[i]); return v; }
+                if (v && typeof v === 'object') { for (const k of Object.keys(v)) v[k] = sweep(v[k]); return v; }
+                return v;
+            };
+            sweep(result);
+        } catch (e: any) {
+            console.warn(`[${kind}] em-dash sweep failed (non-fatal):`, e?.message || e);
+        }
+
         // (#2 / A1) universal hard-rule citation grounding + (A3) fabrication gate.
         try {
             const g = verifyDeliverableCitations(result, this.corpusGroundingText);
@@ -2942,8 +3242,9 @@ Output JSON.`;
         // the goal-evidence pack ONCE (cached) + the objective anchor and inject
         // them into every enrich prompt so personas are grounded in real
         // on-objective evidence, not just theme labels.
+        // 2026-06-09 manifest migration: ground personas from wiki+MANIFEST (not embedding-RAG bulk-inject).
         let personaGoalEvidence = '';
-        try { personaGoalEvidence = await this.getGoalEvidenceBlock(); } catch { /* best-effort */ }
+        try { personaGoalEvidence = await this.assembleDeliverableCorpus('Personas pain points motivations verbatim quotes', { tokenBudget: 30_000, minDistinctSources: 8 }); } catch { /* best-effort */ }
         const personaObjectiveAnchor = this.buildObjectiveAnchor();
 
         for (let i = 0; i < roster.personas.length; i++) {
@@ -3217,7 +3518,7 @@ REQUIRED JSON FIELDS (populate EVERY field - empty fields are a failure):
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('STRATEGIC_RECS'); } catch (e) { /* skill unavailable */ }
 
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Strategic Recommendations', minDistinctSources: 8 });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Strategic Recommendations', { tokenBudget: 30_000, minDistinctSources: 8 });
         this.registerGroundingText(evidenceBlock);   // Phase 1 corpus-identity: recs quote from this catalog
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
@@ -3545,8 +3846,13 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('JOURNEY_MAP'); } catch (e) { /* skill unavailable */ }
 
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Service Blueprint', minDistinctSources: 8 });
+        // 2026-06-09 manifest migration: ground from wiki+MANIFEST (not rawSources bulk-inject).
+        const evidenceBlock = await this.assembleDeliverableCorpus('Service Blueprint journey stages pain points', { tokenBudget: 30_000, minDistinctSources: 8 });
         this.registerGroundingText(evidenceBlock);   // Phase 1 corpus-identity: journey/blueprint quotes from this catalog
+        // 2026-06-09 design-system pull is now carried by assembleDeliverableCorpus (shared chokepoint),
+        // so evidenceBlock already includes the brand tokens + element twins + node map. Empty here to
+        // avoid double-injecting the (now larger) design block into this one prompt.
+        const designSystemBlock = '';
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
@@ -3560,7 +3866,7 @@ Output JSON.`;
             claimNounPlural: 'stages',
             maxHighFraction: 0.55,
         });
-        const prompt = `${skillInstructions ? `=== AGENT SKILL: SERVICE BLUEPRINT MAPPER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${journeyVcDirective}\nCRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
+        const prompt = `${designSystemBlock}${skillInstructions ? `=== AGENT SKILL: SERVICE BLUEPRINT MAPPER ===\n${skillInstructions}\n=== END SKILL ===\n\n` : ''}${journeyVcDirective}\nCRITICAL REQUIREMENTS FOR BLUEPRINT QUALITY:
 
 SWIMLANE CELL CONTENT (B-01): Every intersection of [Persona] x [Stage] MUST have content.
 For each cell, describe: what this persona does at this stage, their emotional state, and their key need.
@@ -3912,7 +4218,7 @@ Plain text only in every string. No markdown, no emoji. Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('PRD'); } catch (e) { /* skill unavailable */ }
 
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Product Requirements Document', minDistinctSources: 6 });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Product Requirements Document', { tokenBudget: 30_000, minDistinctSources: 6 });
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
@@ -4218,7 +4524,7 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('ROADMAP'); } catch (e) { /* skill unavailable */ }
 
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Roadmap', minDistinctSources: 6 });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Roadmap', { tokenBudget: 30_000, minDistinctSources: 6 });
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
@@ -4468,7 +4774,7 @@ Output JSON.`;
         try {
             let _skill = '';
             try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); _skill = await loadSkillPrompt('TECH_ARCHITECTURE'); } catch { /* skill unavailable */ }
-            const _ev = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Technical Architecture', minDistinctSources: 6 });
+            const _ev = await this.assembleDeliverableCorpus('Technical Architecture', { tokenBudget: 30_000, minDistinctSources: 6 });
             const _ctx = renderDeliverableContextBlock(await loadDeliverableContext(this.goal));
             const accumulatedContextBlock = this.accumulatedContext.length > 0
                 ? '=== PRIOR STAGES ===\n' +
@@ -4499,7 +4805,7 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('TECH_ARCH'); } catch (e) { /* skill unavailable */ }
 
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Technology Architecture', minDistinctSources: 6 });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Technology Architecture', { tokenBudget: 30_000, minDistinctSources: 6 });
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
@@ -5303,11 +5609,7 @@ Output JSON.`;
         // 2026-05-22 - Tight evidence-catalog cap because gap_analysis runs
         // late in the chain. 600K-char cap leaves headroom inside the 1M-token
         // model limit.
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, {
-            deliverableName: 'Gap Analysis',
-            minDistinctSources: 8,
-            maxTotalChars: 600_000,
-        });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Gap Analysis', { tokenBudget: 50_000, minDistinctSources: 8 });
         this.registerGroundingText(evidenceBlock);   // Phase 1 corpus-identity: gap quotes from this catalog
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
@@ -5515,7 +5817,7 @@ Output JSON.`;
         let skillInstructions = '';
         try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); skillInstructions = await loadSkillPrompt('TECH_AUDIT'); } catch (e) { /* skill unavailable */ }
 
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Technology Audit', minDistinctSources: 6 });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Technology Audit', { tokenBudget: 30_000, minDistinctSources: 6 });
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 
@@ -5705,7 +6007,7 @@ Output JSON.`;
         try {
             let _skill = '';
             try { const { loadSkillPrompt } = await import('./deliverableFrameworks'); _skill = await loadSkillPrompt('COMPETITIVE'); } catch { /* skill unavailable */ }
-            const _ev = buildEvidenceCatalogBlock(this.rawSources, { deliverableName: 'Competitive Analysis', minDistinctSources: 8, maxTotalChars: 600_000 });
+            const _ev = await this.assembleDeliverableCorpus('Competitive Analysis', { tokenBudget: 50_000, minDistinctSources: 8 });
             const _ctx = renderDeliverableContextBlock(await loadDeliverableContext(this.goal));
             const accumulatedContextBlock = this.accumulatedContext.length > 0
                 ? '=== PRIOR STAGES ===\n' +
@@ -5750,11 +6052,7 @@ Output JSON.`;
         // 2026-05-22 - Same evidence-catalog cap rationale as gap_analysis.
         // Competitive analysis is the LAST deliverable in the auto-chain, so
         // accumulated state is at its largest. 600K-char cap.
-        const evidenceBlock = buildEvidenceCatalogBlock(this.rawSources, {
-            deliverableName: 'Competitive Analysis',
-            minDistinctSources: 8,
-            maxTotalChars: 600_000,
-        });
+        const evidenceBlock = await this.assembleDeliverableCorpus('Competitive Analysis', { tokenBudget: 50_000, minDistinctSources: 8 });
         const ctx = await loadDeliverableContext(this.goal);
         const ctxBlock = renderDeliverableContextBlock(ctx);
 

@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, overqualified, something, comments, "i'd", job, jobs, low]
     token_count: 238
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c1"
-    char_span: [1023, 3037]
+    char_span: [1022, 3036]
     sentence_count: 17
     key_terms: [experience, job, bar, work, tech, worked, college, mention]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c2"
-    char_span: [3039, 5228]
+    char_span: [3038, 5227]
     sentence_count: 15
     key_terms: [autonomous, abowlofnicerice, certifications, admental1387, contracting, engineering, did, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c3"
-    char_span: [4972, 5519]
+    char_span: [4971, 5518]
     sentence_count: 7
     key_terms: [drive, test, autonomous, robotaxis, gave, overqualified, collection, companies]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c4"
-    char_span: [5521, 6860]
+    char_span: [5520, 6859]
     sentence_count: 9
     key_terms: [experience, therealbigback91, entry-level, stressful, murky-elderberry-761, "don't", prior, residentad132]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qujmry.md#c5"
-    char_span: [6862, 8169]
+    char_span: [6861, 8168]
     sentence_count: 12
     key_terms: [did, interview, needed, school, mysterious-rock-7754, chill, maybe, since]
     section: Comments

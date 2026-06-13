@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, prospects, comments, negative, positive, career, course, domain]
     token_count: 163
   - id: "social-intelligence/reddit-deep/careerguidance/1supken.md#c1"
-    char_span: [724, 1621]
+    char_span: [723, 1620]
     sentence_count: 7
     key_terms: [working, people, interdisciplinary, day, "it's", look, thepandapear, internships]
     section: Comments

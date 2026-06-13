@@ -28,49 +28,49 @@ chunks:
     key_terms: [initiatives, coordinate, prioritize, alongside, companies, deadlines, desperate, genuinely]
     token_count: 77
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c2"
-    char_span: [2747, 4097]
+    char_span: [2746, 4096]
     sentence_count: 7
     key_terms: [management, people, project, answer, redact, professionallet4612, "don't", tasks]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c3"
-    char_span: [4100, 6036]
+    char_span: [4099, 6035]
     sentence_count: 9
     key_terms: [going, project, management, people, stakeholder, engineer, philosopherstoned12, professionallet4612]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c4"
-    char_span: [5800, 6854]
+    char_span: [5799, 6853]
     sentence_count: 7
     key_terms: [people, sales, important, project, professionallet4612, scale, buy, deal]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c5"
-    char_span: [6856, 8862]
+    char_span: [6855, 8861]
     sentence_count: 9
     key_terms: [sales, person, customer, somecontext346, wednesday, coming, flight, intake]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c6"
-    char_span: [8864, 10843]
+    char_span: [8863, 10842]
     sentence_count: 13
     key_terms: [management, project, code, "it's", austin1975, developers, offshoring, security]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c7"
-    char_span: [10845, 12774]
+    char_span: [10844, 12773]
     sentence_count: 11
     key_terms: [management, project, construction, coordinator, professionallet4612, role, degree, lab]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c8"
-    char_span: [12776, 14879]
+    char_span: [12775, 14878]
     sentence_count: 11
     key_terms: [people, like, jobs, data, annotation, engineer, project, without]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careeradvice/1qbqvb4.md#c9"
-    char_span: [14881, 16390]
+    char_span: [14880, 16389]
     sentence_count: 8
     key_terms: ["i'm", find, expected, market, trying, good, work, mechanical]
     section: Comments

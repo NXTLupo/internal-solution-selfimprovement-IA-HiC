@@ -74,6 +74,11 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
     const [vote, setVote] = useState<'up' | 'down' | null>(null);
     const [stars, setStars] = useState<number | null>(null);
     const [text, setText] = useState('');
+    // 2026-06-12 - User option: feed this feedback into SkillOpt training so
+    // the active skill improves for FUTURE generations (not just this regen).
+    // Default ON - the validation gate still protects skill quality; the
+    // checkbox lets the user exclude one-off feedback from training.
+    const [trainSkill, setTrainSkill] = useState(true);
     const [priorCount, setPriorCount] = useState<number>(0);
     const [lastResult, setLastResult] = useState<{ ok: boolean; id?: string; error?: string } | null>(null);
     // 2026-05-23 - Visible proof that feedback drove a skill patch / chunk
@@ -89,7 +94,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
 
     const submit = async (
         signal_type: FeedbackEvent['signal_type'],
-        extra: Partial<Pick<FeedbackEvent, 'vote_value' | 'stars_value' | 'text_value' | 'applied_immediately'>>,
+        extra: Partial<Pick<FeedbackEvent, 'vote_value' | 'stars_value' | 'text_value' | 'applied_immediately' | 'train_skill'>>,
     ): Promise<{ ok: boolean; id: string | null }> => {
         setStage('submitting');
         const result = await submitFeedback({
@@ -143,14 +148,14 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
 
     const handleSaveForNextTime = async () => {
         if (!text.trim()) return;
-        await submit('text', { text_value: text, applied_immediately: false });
+        await submit('text', { text_value: text, applied_immediately: false, train_skill: trainSkill });
         setText('');
     };
 
     const handleApplyNow = async () => {
         if (!text.trim()) return;
         setStage('applying');
-        const submitResult = await submit('text', { text_value: text, applied_immediately: true });
+        const submitResult = await submit('text', { text_value: text, applied_immediately: true, train_skill: trainSkill });
         if (onApplyNow && submitResult.id) {
             try {
                 await onApplyNow({ feedbackId: submitResult.id, text, sectionScope: section_scope });
@@ -233,6 +238,17 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     rows={2}
                     disabled={stage === 'submitting' || stage === 'applying'}
                 />
+                <label style={styles.trainRow} title="When checked, this feedback also becomes a SkillOpt training signal: the next skillopt batch run sees it as a failure trajectory for the active skill and proposes gated skill edits addressing it. Unchecked = this regeneration only.">
+                    <input
+                        type="checkbox"
+                        checked={trainSkill}
+                        onChange={e => setTrainSkill(e.target.checked)}
+                        style={{ margin: 0 }}
+                    />
+                    <span>
+                        Also train the {skill_version_active ? `"${skill_version_active}"` : 'active'} skill for future generations (SkillOpt, gated)
+                    </span>
+                </label>
                 <div style={styles.actionRow}>
                     <button
                         style={{ ...styles.applyBtn, ...(text.trim() && onApplyNow ? {} : styles.applyBtnDisabled) }}
@@ -510,6 +526,15 @@ const styles: Record<string, React.CSSProperties> = {
         display: 'flex',
         gap: 6,
         justifyContent: 'flex-end',
+    },
+    trainRow: {
+        display: 'flex',
+        gap: 6,
+        alignItems: 'center',
+        fontSize: 10,
+        color: NXT.muted,
+        cursor: 'pointer',
+        userSelect: 'none',
     },
     applyBtn: {
         padding: '4px 12px',

@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1o4oek8.md#c0"
-    char_span: [0, 1879]
+    char_span: [0, 1878]
     sentence_count: 8
     key_terms: [step, profit, financial, business-focused, interpretation, entrepreneurs, performance, data]
-    token_count: 459
+    token_count: 458
   - id: "social-intelligence/reddit-deep/gpt/1o4oek8.md#c1"
-    char_span: [1881, 2754]
+    char_span: [1880, 2753]
     sentence_count: 5
     key_terms: [eur, financial, revenue, table, business-specific, use, depreciation, reinvestment]
     token_count: 217

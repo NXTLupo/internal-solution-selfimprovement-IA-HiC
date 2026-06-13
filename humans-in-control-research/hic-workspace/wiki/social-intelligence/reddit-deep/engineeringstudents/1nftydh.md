@@ -21,37 +21,37 @@ chunks:
     key_terms: [engineeringstudents, comments, carefulelderberry896, engineering, reddit-deep, first-year, something, students]
     token_count: 89
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c1"
-    char_span: [390, 1992]
+    char_span: [389, 1991]
     sentence_count: 11
     key_terms: [lecture, "that's", like, work, doing, until, assignments, job]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c2"
-    char_span: [1994, 3100]
+    char_span: [1993, 3099]
     sentence_count: 8
     key_terms: [people, don, time, lectures, classes, intern, slots, lot]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c3"
-    char_span: [3102, 5147]
+    char_span: [3101, 5146]
     sentence_count: 9
     key_terms: [chemistry, calculus, courses, organic, learning, mastery, school, differential]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c4"
-    char_span: [5149, 7319]
+    char_span: [5148, 7318]
     sentence_count: 5
     key_terms: [differential, equations, equation, solve, tasks, integrate, find, symbolic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c5"
-    char_span: [7098, 7901]
+    char_span: [7097, 7900]
     sentence_count: 6
     key_terms: [hard, material, because, student, carefulelderberry896, worldtallestengineer, "isn't", learn]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nftydh.md#c6"
-    char_span: [7904, 8616]
+    char_span: [7903, 8615]
     sentence_count: 3
     key_terms: [https, com, youtube, playlist, tests, train, watch, thecrashcourse]
     section: Comments

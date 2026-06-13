@@ -21,25 +21,25 @@ chunks:
     key_terms: ["i'm", co-op, get, year, financial, something, comments, myself]
     token_count: 312
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c1"
-    char_span: [1205, 3372]
+    char_span: [1204, 3371]
     sentence_count: 8
     key_terms: [co-op, experience, summer, going, advisor, however, iloveveigarlol, internships]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c2"
-    char_span: [3120, 4032]
+    char_span: [3119, 4031]
     sentence_count: 2
     key_terms: [internship, iloveveigarlol, summer, co-op, choose, doing, "i'm", year]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c3"
-    char_span: [4034, 5547]
+    char_span: [4033, 5546]
     sentence_count: 1
     key_terms: [co-op, semester, thats, finish, like, experience, roommate, college]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/neu/1mdaj6e.md#c4"
-    char_span: [5549, 7498]
+    char_span: [5548, 7497]
     sentence_count: 17
     key_terms: [grant, grants, co-op, coop, semester, rainbow1222, pell, classes]
     section: Comments

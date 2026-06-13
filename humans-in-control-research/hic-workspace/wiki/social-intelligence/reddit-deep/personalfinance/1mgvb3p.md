@@ -28,49 +28,49 @@ chunks:
     key_terms: [combined, "spouse's", savings, spouses, student, income, loans, traditional]
     token_count: 134
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c2"
-    char_span: [2530, 4520]
+    char_span: [2529, 4519]
     sentence_count: 16
     key_terms: [personalfinance, consider, retirement, fiduciary, financial, subreddit, helpful, advice]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c3"
-    char_span: [4522, 6357]
+    char_span: [4521, 6356]
     sentence_count: 17
     key_terms: [voice, als, cloning, people, offer, support, working, family]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c4"
-    char_span: [6359, 7885]
+    char_span: [6358, 7884]
     sentence_count: 12
     key_terms: [support, apple, passed, en-us, folks, https, voice, als]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c5"
-    char_span: [7888, 10104]
+    char_span: [7887, 10103]
     sentence_count: 17
     key_terms: [spouse, taxes, beneficiary, inheritance, care, get, tax, want]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c6"
-    char_span: [10108, 12352]
+    char_span: [10107, 12351]
     sentence_count: 16
     key_terms: [strategically, "don't", life, absolutely, directives, dependent, diagnosis, naneeja]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c7"
-    char_span: [12356, 13668]
+    char_span: [12355, 13667]
     sentence_count: 12
     key_terms: [care, financial, attorney, related, lawyer, elder, state, best]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c8"
-    char_span: [13670, 15534]
+    char_span: [13669, 15533]
     sentence_count: 17
     key_terms: ["i'm", working, als, like, retirement, diagnosis, financial, questions]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/personalfinance/1mgvb3p.md#c9"
-    char_span: [15536, 17518]
+    char_span: [15535, 17517]
     sentence_count: 13
     key_terms: [family, disease, hungryl1kewolf, care, life, vent, want, volunteer]
     section: Comments

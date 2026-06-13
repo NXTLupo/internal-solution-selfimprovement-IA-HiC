@@ -1,0 +1,122 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: dividends, year, tax, gains, income, capital gains, exempt
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+I'm working on taxes to make sure I'm not under-withholding.  Had a sizable (for me) LT capital gains event in August.  I looked at the monthly statements and was surprised that all they showed were dividends.
+
+EXAMPLE 2:
+For VMFXX it's 66.61%. so if you had $10000 of dividends from VMFXX you would do $10000 x 66.61% = $6661 dollars would be exempt from state taxes.
+
+EXAMPLE 3:
+* short term gains or losses are counted against income, and subject to your marginal income tax rates
+* long term gains or losses are counted against capital gains or losses, at the capital gains tax rate
+the dividend income is tax exempt, but any capital gain or loss on the fund is not
+(so yes you can sell it at a loss to offset capital gains - or ordinary income subject to the 3k limit with the rest carried over for future years)
+
+EXAMPLE 4:
+FreeTaxUSA is telling me to use the total dividends, $1357, to compute what portion is state-exempt, but wouldn't that mess things up and make some of my federal tax-exempt, too? I know this is pennies, but if I ever do have anything significant, I really want to learn what I should be looking at. There IS a breakdown on the Vanguard statement of the ETFs I own and how much interest came from each.
+
+EXAMPLE 5:
+I received my tax form from Vanguard. It must be consolidated because I need a magnifying glass to read anything on it. I'm trying to figure out which number I'm supposed to be using to calculate Pennsylvania tax-exempt dividends, total dividends or the particular ETFs? I have a variety of ETFs from Vanguard, as well as VMFXX. The TOTAL dividends are $1357, but only two of them (VTI & VYM) have interest in government securities.
+
+EXAMPLE 6:
+My sizable Capital Gains event occurred in August, and I have paid estimated taxes before the Sep 15 deadline.
+
+EXAMPLE 7:
+While you've got the 1099 open, also look for Section 199A dividends and Foreign Tax Paid. If you have either of those, FreeTaxUSA will let you enter those, too.
+
+EXAMPLE 8:
+TLDR:  If you're trying to look at taxable events in your taxable Vanguard accounts, search for "Year-to-date tax activity" in the Vanguard search field.  You will get a link to that function for your taxable accounts.
+
+EXAMPLE 9:
+Estimating Taxes near year end at Vanguard This post is meant to be a tip, but also hope to get some useful comments.
+
+EXAMPLE 10:
+Here is Vanguards: https://investor.vanguard.com/content/dam/retail/publicsite/en/documents/taxes/usgo-2025.pdf
+
+EXAMPLE 11:
+VWLUX Long term tax exempt fund If you bought this but the price went down and now you are in negative territory, and then you sell for a loss, does this fall in the category of reducing your income?  Such as if you bought United Airlines and the stock went down, you can take the loss as a deduction.   Or is this fund different somehow because it said "tax exempt fund."   In this context "tax exempt" means that distributions are not taxed. For VWLUX, it's because the fund invests in municipal bonds that aren't taxable by the IRS.
+
+EXAMPLE 12:
+Each fund has their own percentage of dividends from government securities, so you would have entered the total in FreeTaxUSA previously, but you don't use the total for these calculations, calculate for each fund separately and add them together at the end.
+
+EXAMPLE 13:
+ℹ️ Important Notes
+ * Who Pays: These payments are typically required for individuals who expect to owe at least $1,000 in taxes for the year and whose tax liability is not covered by wage withholding (e.g., self-employed individuals, those with substantial investment or rental income).
+ * Final Payment Exception: You don't have to make the fourth payment (due in January) if you file your annual tax return (Form 1040) and pay the entire balance due by January 31 of the following year. [...]
+
+EXAMPLE 14:
+Now that you have the totals for each fund, add them together. In this case, it's $337.45. That's the number that you enter into FreeTaxUSA for dividends from federal government obligations.
+
+EXAMPLE 15:
+I use FreeTaxUSA and that has just been updated for 2025 taxes, so I'm plugging in estimates to make the Jan 15 payment if needed.
+
+EXAMPLE 16:
+| Quarter | Period When Income Was Earned | Payment Due Date |
+|---|---|---|
+| 1st Quarter | January 1 to March 31, 2026 | April 15, 2026 |
+| 2nd Quarter | April 1 to May 31, 2026 | June 15, 2026 |
+| 3rd Quarter | June 1 to August 31, 2026 | September 15, 2026 |
+| 4th Quarter | September 1 to December 31, 2026 | January 15, 2027 |
+
+EXAMPLE 17:
+Thanks for the comment!
+Just know that the US uses an idiotic system that doesn't align on quarter boundaries for half of the year, and unfortunately Vanguard doesn't have a report structured around this payment schedule. To avoid risk of penalties, you should make quarterly estimated payments based on investment income per reporting period.
+
+EXAMPLE 18:
+For some reason, the Federal Money Market (settlement fund) is listed differently, and you'll find a reference to Note: 99 by those dividends. If you look for Note 99 on a later page, you'll see that VMFXX was 66.61% from U.S. government obligations. So, if you have $500 in dividends there, you'd have $333.05 from government obligations.
+
+EXAMPLE 19:
+The quarterly estimated US income tax payments are due on a rolling basis, meaning the due dates do not align perfectly with calendar quarters. If a due date falls on a weekend or legal holiday, the deadline is shifted to the next business day.
+Here are the typical due dates and the corresponding income periods for the 2026 tax year:
+
+EXAMPLE 20:
+Most of the funds are on a page where each fund has a heading called "PERCENTAGE OF INCOME FROM US GOVERNMENT SECURITIES". For example, I have VTI. It lists "Fed Source Total" as 0.44%. That's the only number you need. (Ignore the breakdown with U.S. Treasury, Fed Home Lone, etc..) So, if you have $1,000 in income from that fund, you'd have $4.40 from government obligations. (That's multiplying $1,000 by 0.0044.)
+
+EXAMPLE 21:
+Edit: Actually, is my math still wrong? Should I be multiplying $1357 x 0.0004? $7.55 x 0.0004? You need to find the end of the year US obligations documentation for your funds.
+
+EXAMPLE 22:
+In NY I have to make sure the fund met the >50% requirements for all 4 quarters.
+I'll chime in here, in case you still need help. If you get it figured out, please respond.
+
+EXAMPLE 23:
+I was told to move the decimal point and multiply with that extra 0. Sorry. My math brain was fried from epilepsy.
+
+EXAMPLE 24:
+Sorry I can't figure out how to guide you to that function via the website, if you know how please post in comments.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -21,13 +21,13 @@ chunks:
     key_terms: [internships, internship, comments, students, application, experiences, individuals, oppurtunity]
     token_count: 152
   - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c1"
-    char_span: [676, 2660]
+    char_span: [675, 2659]
     sentence_count: 18
     key_terms: [nobel, internship, tacoman9112012, because, coach, connections, get, like]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/internships/1nldl9d.md#c2"
-    char_span: [2662, 3225]
+    char_span: [2661, 3224]
     sentence_count: 2
     key_terms: [interested, even-resident-8683, small-outside-4596, potential-key2141, coldcoffeepilado, communication, unsocialadult, internships]
     section: Comments

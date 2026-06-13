@@ -23,37 +23,37 @@ chunks:
     key_terms: [careerguidance, comments, historyhot2807, reddit-deep, learning, posted, reddit, skills]
     token_count: 86
   - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c1"
-    char_span: [305, 886]
+    char_span: [304, 885]
     sentence_count: 6
     key_terms: [better, excel, job, contrenox, leverage, finding, slothysundaysession, "i'm"]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c2"
-    char_span: [888, 2960]
+    char_span: [887, 2959]
     sentence_count: 8
     key_terms: [skills, office, communication, understanding, excel, learn, tools, tech-sensei]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c3"
-    char_span: [2691, 4744]
+    char_span: [2690, 4743]
     sentence_count: 15
     key_terms: [excel, get, job, sap, getting, without, course, communication]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c4"
-    char_span: [4500, 6790]
+    char_span: [4499, 6789]
     sentence_count: 17
     key_terms: [like, communication, tools, "it's", people, communicate, automation, aadamkhor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c5"
-    char_span: [6432, 7643]
+    char_span: [6431, 7642]
     sentence_count: 10
     key_terms: [skills, perspective, like, automation, thinking, puzzleheadedself3631, human, hey]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/careerguidance/1oal9ol.md#c6"
-    char_span: [7646, 8912]
+    char_span: [7645, 8911]
     sentence_count: 5
     key_terms: [live, friend, get, related, resume, skills, going, sense]
     section: Comments

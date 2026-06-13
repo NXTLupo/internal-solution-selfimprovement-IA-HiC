@@ -23,7 +23,7 @@ chunks:
     key_terms: [year, international, grad, student, school, graduate, opt, work]
     token_count: 331
   - id: "social-intelligence/reddit-deep/gradschool/1m9hzo0.md#c1"
-    char_span: [1435, 2196]
+    char_span: [1434, 2195]
     sentence_count: 11
     key_terms: [school, grad, working, people, resume, try, international, undergraduate]
     section: Comments

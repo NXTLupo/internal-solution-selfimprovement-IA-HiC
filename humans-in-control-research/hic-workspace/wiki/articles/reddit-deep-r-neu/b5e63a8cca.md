@@ -15,10 +15,10 @@ relevance: 60
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
 chunks:
   - id: "articles/reddit-deep-r-neu/b5e63a8cca.md#c0"
-    char_span: [0, 1951]
+    char_span: [0, 1950]
     sentence_count: 17
     key_terms: [something, law, interested, major, neu, security, school, hard]
-    token_count: 466
+    token_count: 465
 ---
 # Best major for law school (PLEASEEEE HELPPP)
 

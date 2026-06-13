@@ -28,25 +28,25 @@ chunks:
     key_terms: [wake, tour, unc, parents, chapel, hill, forest, aid]
     token_count: 168
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c2"
-    char_span: [2801, 4810]
+    char_span: [2800, 4809]
     sentence_count: 22
     key_terms: [wake, unc, student, life, decision, people, school, greek]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c3"
-    char_span: [4812, 6432]
+    char_span: [4811, 6431]
     sentence_count: 14
     key_terms: [smaller, campus, chapel, hill, unc, experience, yourself, college]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c4"
-    char_span: [6434, 8109]
+    char_span: [6433, 8108]
     sentence_count: 11
     key_terms: [wake, schools, drive, probably, chapel, hill, unc, student]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skcb5m.md#c5"
-    char_span: [8111, 9397]
+    char_span: [8110, 9396]
     sentence_count: 9
     key_terms: [school, conservatives, like, college, better, preppy, makes, visit]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1q4mxsi.md#c0"
-    char_span: [0, 307]
+    char_span: [0, 306]
     sentence_count: 2
     key_terms: [gradschool, comments, randomlebaneseperson, reddit-deep, recommend, business, career, majors]
-    token_count: 87
+    token_count: 86
 ---
 # Which Majors/Career paths would you recommend a business grad to pursue?
 

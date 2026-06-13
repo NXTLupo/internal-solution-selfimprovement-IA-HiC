@@ -23,19 +23,19 @@ chunks:
     key_terms: ["i'm", work, getting, time, gradschool, balancing, bullshit, comments]
     token_count: 341
   - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c1"
-    char_span: [1503, 3444]
+    char_span: [1502, 3443]
     sentence_count: 9
     key_terms: [actual, part, meetings, research, classes, finish, phd, work]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c2"
-    char_span: [3447, 5459]
+    char_span: [3446, 5458]
     sentence_count: 14
     key_terms: [research, hours, day, want, work, professional, "i'm", like]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1rs32aq.md#c3"
-    char_span: [5461, 6458]
+    char_span: [5460, 6457]
     sentence_count: 7
     key_terms: [research, pipette, likely, others, school, though, grad, work]
     section: Comments

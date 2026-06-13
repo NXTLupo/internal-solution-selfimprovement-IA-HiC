@@ -23,7 +23,7 @@ chunks:
     key_terms: [service, role, long-term, in-house, careerguidance, moving, been, technician]
     token_count: 410
   - id: "social-intelligence/reddit-deep/careerguidance/1sdhv11.md#c1"
-    char_span: [1935, 3374]
+    char_span: [1934, 3373]
     sentence_count: 9
     key_terms: [role, manager, service, people, environments, life, like, structured]
     section: Comments

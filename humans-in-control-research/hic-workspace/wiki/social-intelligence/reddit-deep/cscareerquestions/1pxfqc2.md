@@ -23,19 +23,19 @@ chunks:
     key_terms: [years, gym, bench, cscareerquestions, get, similar, press, correlation]
     token_count: 380
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c1"
-    char_span: [1735, 3826]
+    char_span: [1734, 3825]
     sentence_count: 9
     key_terms: [mediocre-ebb9862, people, engineers, like, disposepriority, figures, making, flair]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c2"
-    char_span: [3828, 5955]
+    char_span: [3827, 5954]
     sentence_count: 13
     key_terms: [years, experience, figures, experienced, reference, "i've", luck, seen]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxfqc2.md#c3"
-    char_span: [5957, 7027]
+    char_span: [5956, 7026]
     sentence_count: 4
     key_terms: [several, people, guess, heavy, right, good, none, team]
     section: Comments

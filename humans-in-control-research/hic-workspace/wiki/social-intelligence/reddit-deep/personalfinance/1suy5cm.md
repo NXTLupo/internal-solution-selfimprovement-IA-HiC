@@ -23,7 +23,7 @@ chunks:
     key_terms: [savings, fun, account, currently, insurance, personalfinance, contributing, money]
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1suy5cm.md#c1"
-    char_span: [2110, 2867]
+    char_span: [2109, 2866]
     sentence_count: 6
     key_terms: [yourself, expenses, whatever, numbers, picture, paying, massivedeparture9287, https]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, programming, comments, computer, areas, architecture, cryptography, chembrodude]
     token_count: 114
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c1"
-    char_span: [519, 1272]
+    char_span: [518, 1271]
     sentence_count: 6
     key_terms: [embedded, market, "it's", systems, usually, pretty, juggernautguilty566, month]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c2"
-    char_span: [1274, 3250]
+    char_span: [1273, 3249]
     sentence_count: 9
     key_terms: [company, chembrodude, rapidroastingham, cybersecurity, competitive, applicants, outsourced, insurance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c3"
-    char_span: [2988, 3592]
+    char_span: [2987, 3591]
     sentence_count: 2
     key_terms: [people, occurrenceoverlap, dev, like, web, rapidroastingham, disposepriority, clearancejobs]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c4"
-    char_span: [3595, 5782]
+    char_span: [3594, 5781]
     sentence_count: 11
     key_terms: [web, dev, frontend, backend, like, lot, work, companies]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c5"
-    char_span: [5784, 7680]
+    char_span: [5783, 7679]
     sentence_count: 18
     key_terms: [graphics, experience, work, challenging, chembrodude, "it's", definitely, interviews]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c6"
-    char_span: [7683, 9308]
+    char_span: [7682, 9307]
     sentence_count: 10
     key_terms: [people, experience, graphics, mostly, skills, implementing, portfolio, applying]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mdfnru.md#c7"
-    char_span: [9311, 10189]
+    char_span: [9310, 10188]
     sentence_count: 8
     key_terms: [robotics, cybersecurity, companies, engineer, hardcore, research, like, chembrodude]
     section: Comments

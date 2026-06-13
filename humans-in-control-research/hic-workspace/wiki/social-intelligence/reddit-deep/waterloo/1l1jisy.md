@@ -18,10 +18,10 @@ industries: [workforce, manufacturing]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/waterloo/1l1jisy.md#c0"
-    char_span: [0, 461]
+    char_span: [0, 460]
     sentence_count: 2
     key_terms: [experience, comments, waterloo, roles, sales, job, manufacturing, reddit-deep]
-    token_count: 114
+    token_count: 113
 ---
 # Job search
 

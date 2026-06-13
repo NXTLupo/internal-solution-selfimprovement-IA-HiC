@@ -21,25 +21,25 @@ chunks:
     key_terms: [like, college, always, school, everything, business, comments, major]
     token_count: 298
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c1"
-    char_span: [1315, 2196]
+    char_span: [1314, 2195]
     sentence_count: 7
     key_terms: [people, world, choice-coffee-9741, job, schizoaffective, prettyandright, undergraduate, connections]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c2"
-    char_span: [2198, 4155]
+    char_span: [2197, 4154]
     sentence_count: 23
     key_terms: [being, "don't", great, work, definitely, friends, jealous, nursing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c3"
-    char_span: [3943, 5838]
+    char_span: [3942, 5837]
     sentence_count: 11
     key_terms: [good, created, deleted, nursing, making, years, like, working]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m6hfk2.md#c4"
-    char_span: [5592, 7194]
+    char_span: [5591, 7193]
     sentence_count: 6
     key_terms: [because, lawyer, management, business, career, excellent-letter-780, year, certifications]
     section: Comments

@@ -28,7 +28,7 @@ chunks:
     key_terms: [application, schools, here, late, successfully, experiences, admissions, appreciate]
     token_count: 113
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkr3oz.md#c2"
-    char_span: [2972, 3786]
+    char_span: [2971, 3785]
     sentence_count: 4
     key_terms: [supplement, couple, tho, yucky-yummy-6767, ok-ganache6369, nonetheless, scholarship, applicants]
     section: Comments

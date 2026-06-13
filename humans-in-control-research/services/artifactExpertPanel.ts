@@ -501,10 +501,20 @@ const _EMOJI_RE_INPLACE = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF
 export function stripEmDashesInPlace<T>(obj: T): T {
     if (obj === null || obj === undefined) return obj;
     if (typeof obj === 'string') {
+        // 2026-06-09 - CRITICAL FIX. The prior rule `.replace(/-/g, ', ')`
+        // replaced EVERY ASCII hyphen with ", ", which corrupted HTML artifacts:
+        // `UTF-8`->`UTF, 8`, `device-width`->`device, width`, and every design-
+        // system class name `nxt-slide`/`nxt-masthead`/`nxt-block`->`nxt, slide`,
+        // destroying the entire NXT component system in #journey/#blueprint/freeform
+        // HTML (user: "devoid of design system components"). The em-dash ban targets
+        // U+2014 (and U+2013 en-dash) ONLY; ASCII hyphens are explicitly fine
+        // (.claude/CLAUDE.md: "ASCII hyphens in compound words remain fine"). Mirror
+        // the proxy's proven-clean rules: spaced em/en-dash -> ", "; word-joined ->
+        // ASCII hyphen; any remaining -> ", ". NEVER touch the ASCII hyphen.
         return (obj as string)
-            .replace(/ - /g, ', ')
-            .replace(/(\w)-(\w)/g, '$1-$2')
-            .replace(/-/g, ', ')
+            .replace(/\s+[—–]\s+/g, ', ')
+            .replace(/(\w)[—–](\w)/g, '$1-$2')
+            .replace(/[—–]/g, ', ')
             .replace(_EMOJI_RE_INPLACE, '')
             .replace(/[ \t]{2,}/g, ' ')
             .replace(/ +([.,;:!?])/g, '$1') as unknown as T;

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmc42t.md#c0"
-    char_span: [0, 1737]
+    char_span: [0, 1736]
     sentence_count: 11
     key_terms: [mechatronics, skills, concentration, engineeringstudents, related, student, school, engineering]
-    token_count: 369
+    token_count: 368
 ---
 # Which Skills should I develop to Land a Job in Mechatronics as  Mechanical Engineering Student?
 

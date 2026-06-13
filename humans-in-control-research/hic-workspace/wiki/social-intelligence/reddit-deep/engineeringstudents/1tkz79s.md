@@ -21,13 +21,13 @@ chunks:
     key_terms: [engineeringstudents, comments, through, passed, senior, works, gpa, heat]
     token_count: 226
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tkz79s.md#c1"
-    char_span: [931, 2754]
+    char_span: [930, 2753]
     sentence_count: 14
     key_terms: [engineeringstudents, nice, wiki, please, reddit, applications, https, information]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tkz79s.md#c2"
-    char_span: [2756, 3597]
+    char_span: [2755, 3596]
     sentence_count: 7
     key_terms: [sonofdesun, companies, different, rainx5000, transfer, applied, excited, "that's"]
     section: Comments

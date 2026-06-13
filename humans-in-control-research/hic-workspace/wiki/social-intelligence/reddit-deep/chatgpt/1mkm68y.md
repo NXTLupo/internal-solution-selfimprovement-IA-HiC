@@ -23,61 +23,61 @@ chunks:
     key_terms: [model, suppression, models, multiple, sure, creativity, comments, provided]
     token_count: 444
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c1"
-    char_span: [2000, 3799]
+    char_span: [1999, 3798]
     sentence_count: 13
     key_terms: [limit, been, "it's", paying, professional, model, r-chatgpt-1050422060352024636, work]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c2"
-    char_span: [3801, 5985]
+    char_span: [3800, 5984]
     sentence_count: 17
     key_terms: [hemorrhaging, model, money, interface, amount, api, synonymous, tremendous]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c3"
-    char_span: [5987, 7926]
+    char_span: [5986, 7925]
     sentence_count: 16
     key_terms: [chat, project, limit, drop, multiple, software, chatgpt, getting]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c4"
-    char_span: [7928, 8647]
+    char_span: [7927, 8646]
     sentence_count: 10
     key_terms: [because, cotton-candy-dreams, chat, unfortunately, allucinating, unsubscribed, work-around, manuscript]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c5"
-    char_span: [8649, 10628]
+    char_span: [8648, 10627]
     sentence_count: 12
     key_terms: [copilot, last, already, subscriptions, deleted, started, paying, botomsdntdeservright]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c6"
-    char_span: [10371, 10824]
+    char_span: [10370, 10823]
     sentence_count: 4
     key_terms: [particular-crow-1799, model, get, enshittification, considering, guaranteed, switching, cheapest]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c7"
-    char_span: [10828, 12412]
+    char_span: [10827, 12411]
     sentence_count: 9
     key_terms: [model, routing, select, gpt-5, want, mentioning, selection, because]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c8"
-    char_span: [12414, 14145]
+    char_span: [12413, 14144]
     sentence_count: 12
     key_terms: [like, everything, "didn't", faster, models, acrobatic-paint7185, asked, books]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c9"
-    char_span: [14147, 15901]
+    char_span: [14146, 15900]
     sentence_count: 5
     key_terms: ["it's", character, villain, collaborative, storytelling, back, time, characters]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/chatgpt/1mkm68y.md#c10"
-    char_span: [15903, 16988]
+    char_span: [15902, 16987]
     sentence_count: 4
     key_terms: [details, writing, cancel, claude, gemini, stephenkingending, gpt, use]
     section: Comments

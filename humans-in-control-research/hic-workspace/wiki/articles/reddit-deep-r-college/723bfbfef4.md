@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c0"
-    char_span: [0, 1103]
+    char_span: [0, 1102]
     sentence_count: 9
     key_terms: [class, questions, college, "it's", accounting, engagement, classroom, professor]
-    token_count: 257
+    token_count: 256
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c1"
-    char_span: [1105, 3200]
+    char_span: [1104, 3199]
     sentence_count: 18
     key_terms: [students, student, participate, class, years, bad, been, discussion]
     token_count: 467
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c2"
-    char_span: [3202, 5421]
+    char_span: [3201, 5420]
     sentence_count: 20
     key_terms: ["it's", participate, feel, students, school, class, high, like]
     token_count: 486
   - id: "articles/reddit-deep-r-college/723bfbfef4.md#c3"
-    char_span: [5423, 5685]
+    char_span: [5422, 5684]
     sentence_count: 2
     key_terms: [questions, homework, normally, remember, students, endless, answer, "when's"]
     token_count: 62

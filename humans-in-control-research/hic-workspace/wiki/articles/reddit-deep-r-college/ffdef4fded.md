@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/ffdef4fded.md#c0"
-    char_span: [0, 2072]
+    char_span: [0, 2071]
     sentence_count: 14
     key_terms: [college, community, want, money, don, get, going, fall]
-    token_count: 465
+    token_count: 464
   - id: "articles/reddit-deep-r-college/ffdef4fded.md#c1"
-    char_span: [2074, 4046]
+    char_span: [2073, 4045]
     sentence_count: 9
     key_terms: [transfer, college, community, classes, take, university, studies, office]
     token_count: 428
   - id: "articles/reddit-deep-r-college/ffdef4fded.md#c2"
-    char_span: [4048, 4755]
+    char_span: [4047, 4754]
     sentence_count: 4
     key_terms: [opportunities, get, students, transfer, social, happylifecoffeehelps, good, want]
     token_count: 143

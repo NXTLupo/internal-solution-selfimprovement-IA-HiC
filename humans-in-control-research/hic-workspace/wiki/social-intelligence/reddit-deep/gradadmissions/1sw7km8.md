@@ -28,43 +28,43 @@ chunks:
     key_terms: [academic, programs, research, industry-only, affiliation, internships, did, lor]
     token_count: 295
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c2"
-    char_span: [2861, 3840]
+    char_span: [2860, 3839]
     sentence_count: 4
     key_terms: [candidates, because, funding, enough, simply, apply, spots, idustriousraccoon]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c3"
-    char_span: [3842, 6142]
+    char_span: [3841, 6141]
     sentence_count: 18
     key_terms: [students, schools, best, research, program, administration, institution, fit]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c4"
-    char_span: [5886, 6605]
+    char_span: [5885, 6604]
     sentence_count: 5
     key_terms: [administration, cut, students, foreign, canada, "visa's", doing, mysterious-art8838]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c5"
-    char_span: [6607, 7434]
+    char_span: [6606, 7433]
     sentence_count: 4
     key_terms: [research, something, academic, programs, whether, given, like, lor]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c6"
-    char_span: [7436, 9598]
+    char_span: [7435, 9597]
     sentence_count: 14
     key_terms: [profile, competitive, "master's", schools, papers, universities, competition, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c7"
-    char_span: [9346, 11283]
+    char_span: [9345, 11282]
     sentence_count: 12
     key_terms: [low-contribution-266, research, applied, no-quality5546, international, accepted, profile, schools]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sw7km8.md#c8"
-    char_span: [10979, 11417]
+    char_span: [10978, 11416]
     sentence_count: 3
     key_terms: [getting, international, self-funded, applicants, government, iletienne, published, receiving]
     section: Comments

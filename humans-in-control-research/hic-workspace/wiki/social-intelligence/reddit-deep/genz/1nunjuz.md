@@ -23,37 +23,37 @@ chunks:
     key_terms: [money, start, comments, talking, whether, reddit, bucks, adamantheusenigma]
     token_count: 320
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c1"
-    char_span: [1352, 2905]
+    char_span: [1351, 2904]
     sentence_count: 8
     key_terms: [money, interest, deltaforce632, account, because, discord, earning, person]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c2"
-    char_span: [2907, 4566]
+    char_span: [2906, 4565]
     sentence_count: 9
     key_terms: [interest, got, employed, personal, question, finance, teacher, answer]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c3"
-    char_span: [4568, 5465]
+    char_span: [4567, 5464]
     sentence_count: 7
     key_terms: [business, having, taxes, "i'm", need, self, non-traditional, penguintheyeti]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c4"
-    char_span: [5475, 7468]
+    char_span: [5474, 7467]
     sentence_count: 8
     key_terms: [money, foxwyrd, responsibility, people, going, "it's", retirement, financial]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c5"
-    char_span: [7470, 8913]
+    char_span: [7469, 8912]
     sentence_count: 11
     key_terms: [thecitizenxane, reality, telling, impressivepapercut, adamantheusenigma, own, put, work]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/genz/1nunjuz.md#c6"
-    char_span: [8915, 9935]
+    char_span: [8914, 9934]
     sentence_count: 2
     key_terms: [thecitizenxane, greater, purpose, swimmingbarracuda182, naive, point, grandchildren, mqzcoihs1esf1]
     section: Comments

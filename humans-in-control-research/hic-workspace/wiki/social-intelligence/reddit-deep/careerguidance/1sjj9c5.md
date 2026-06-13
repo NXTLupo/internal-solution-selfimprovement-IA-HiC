@@ -26,43 +26,43 @@ chunks:
     key_terms: [job, physics, career, big, part, time, want, appreciated]
     token_count: 184
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c2"
-    char_span: [2770, 3630]
+    char_span: [2769, 3629]
     sentence_count: 6
     key_terms: [affectionate-pin5205, prior-soil, having, no-seaworthiness969, right, job, life, like]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c3"
-    char_span: [3632, 5709]
+    char_span: [3631, 5708]
     sentence_count: 21
     key_terms: [always, take, work, job, avoid, overperform, get, life]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c4"
-    char_span: [5711, 7575]
+    char_span: [5710, 7574]
     sentence_count: 22
     key_terms: [job, manager, never, "i'm", jobs, work, supported, charity]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c5"
-    char_span: [7577, 9793]
+    char_span: [7576, 9792]
     sentence_count: 15
     key_terms: [people, own, want, work, management, billable, garbage, suspect]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c6"
-    char_span: [9795, 11179]
+    char_span: [9794, 11178]
     sentence_count: 10
     key_terms: [work, correct, created, towards, called, myself, affectionate-pin5205, being]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c7"
-    char_span: [11181, 13428]
+    char_span: [11180, 13427]
     sentence_count: 18
     key_terms: [find, teaching, because, burnout, always, job, efficiency, honeymoon]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1sjj9c5.md#c8"
-    char_span: [13430, 14221]
+    char_span: [13429, 14220]
     sentence_count: 8
     key_terms: [work, economic, yourself, service, people, public, values, organization]
     section: Comments

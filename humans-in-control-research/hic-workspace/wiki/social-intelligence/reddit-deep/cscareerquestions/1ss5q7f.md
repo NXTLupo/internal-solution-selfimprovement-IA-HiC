@@ -21,37 +21,37 @@ chunks:
     key_terms: ["i'm", been, "i've", cscareerquestions, comments, going, tomorrow, manager]
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c1"
-    char_span: [1957, 3807]
+    char_span: [1956, 3806]
     sentence_count: 9
     key_terms: [like, manager, something, stop, normal, "it's", treating, already]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c2"
-    char_span: [3812, 5704]
+    char_span: [3811, 5703]
     sentence_count: 14
     key_terms: [fire, coasting, company, nothing, handle, until, job, work]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c3"
-    char_span: [5706, 6843]
+    char_span: [5705, 6842]
     sentence_count: 9
     key_terms: [chubbyvegantravels, fire, micromanaged, relentlessly, unemployment, deployments, development, environment]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c4"
-    char_span: [6845, 8849]
+    char_span: [6844, 8848]
     sentence_count: 20
     key_terms: [work, job, people, unemployment, "don't", state, look, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c5"
-    char_span: [8612, 8903]
+    char_span: [8611, 8902]
     sentence_count: 1
     key_terms: [unemployment, inspiration, fasterbrew, whootdat, collect, caring, enough, months]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ss5q7f.md#c6"
-    char_span: [8906, 10272]
+    char_span: [8905, 10271]
     sentence_count: 11
     key_terms: [unemployment, getting, health, job, need, coasting, quitting, working]
     section: Comments

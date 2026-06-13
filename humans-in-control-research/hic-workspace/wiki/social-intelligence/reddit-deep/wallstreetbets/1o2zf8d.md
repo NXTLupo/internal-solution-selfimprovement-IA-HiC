@@ -53,25 +53,25 @@ chunks:
     key_terms: [reddit, antifun, meta, companies, sentiment, analysis, valuable, reviews]
     token_count: 284
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c7"
-    char_span: [10298, 11900]
+    char_span: [10297, 11899]
     sentence_count: 1
     key_terms: [reddit-down-as-aws-outages-are-mitigating, https, windowscentral, reddit, software-apps, com, www, comments]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c8"
-    char_span: [11902, 13487]
+    char_span: [11901, 13486]
     sentence_count: 4
     key_terms: [omgitsmrtinkles, either, individualground2418, antique-sundae-8842, calls, words, multigenerational, ceo]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c9"
-    char_span: [13303, 13545]
+    char_span: [13302, 13544]
     sentence_count: 1
     key_terms: [omgitsmrtinkles, definitely, preview, "there's", bottom, format, https, today]
     section: Comments
     token_count: 98
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o2zf8d.md#c10"
-    char_span: [13547, 15185]
+    char_span: [13546, 15184]
     sentence_count: 18
     key_terms: [post, read, definitely, believe, chatgpt, money, alwayscursingaoe4, gone]
     section: Comments

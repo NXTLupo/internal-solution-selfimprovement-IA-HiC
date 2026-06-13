@@ -28,7 +28,7 @@ chunks:
     key_terms: [economics, advice, papers, cycle, gpa, low, next, auto-filtering]
     token_count: 255
   - id: "social-intelligence/reddit-deep/gradadmissions/1tdalms.md#c2"
-    char_span: [3138, 5169]
+    char_span: [3137, 5168]
     sentence_count: 20
     key_terms: [programs, econ, math, advanced, grades, want, calculus, courses]
     section: Comments

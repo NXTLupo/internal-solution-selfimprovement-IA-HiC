@@ -23,67 +23,67 @@ chunks:
     key_terms: [cscareerquestions, graduates, comments, recent, source, college-labor-market, https, outcomes-by-major]
     token_count: 207
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c1"
-    char_span: [805, 2164]
+    char_span: [804, 2163]
     sentence_count: 12
     key_terms: [jealous-adeptness-16, doomer, data, jobs, talented, people, taking, flamingovisible1947]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c2"
-    char_span: [2166, 3771]
+    char_span: [2165, 3770]
     sentence_count: 6
     key_terms: [field, job, major, get, rate, used, education, entirety]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c3"
-    char_span: [3773, 5717]
+    char_span: [3772, 5716]
     sentence_count: 9
     key_terms: [job, getting, data, "true", graduate, harder, higher, people]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c4"
-    char_span: [5720, 7823]
+    char_span: [5719, 7822]
     sentence_count: 12
     key_terms: [people, projects, like, pretty, grads, job, new, competent]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c5"
-    char_span: [7537, 8154]
+    char_span: [7536, 8153]
     sentence_count: 5
     key_terms: [job, "couldn't", college, degree, shortcurrytruecel, like, misunderstanding, underemployment]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c6"
-    char_span: [8156, 9949]
+    char_span: [8155, 9948]
     sentence_count: 7
     key_terms: [job, requirement, degree, posts, getting, decent, jobs, because]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c7"
-    char_span: [9951, 12130]
+    char_span: [9950, 12129]
     sentence_count: 10
     key_terms: [graduates, underemployment, "don't", companies, computer, stanford, college, science]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c8"
-    char_span: [12132, 14031]
+    char_span: [12131, 14030]
     sentence_count: 9
     key_terms: [job, university, engineers, graduates, jobs, computer, stanford, getting]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c9"
-    char_span: [14033, 15665]
+    char_span: [14032, 15664]
     sentence_count: 8
     key_terms: [like, underemployment, people, get, technically-demanding, actual, cooked, number]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c10"
-    char_span: [15667, 16981]
+    char_span: [15666, 16980]
     sentence_count: 5
     key_terms: [companies, steviamcqueen, recession, someone, round-possible-5632, job, like, "true"]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rvuafa.md#c11"
-    char_span: [16983, 17853]
+    char_span: [16982, 17852]
     sentence_count: 7
     key_terms: [recession, everyone, recovery, "aren't", people, doesn, no-sleep-only-code, like]
     section: Comments

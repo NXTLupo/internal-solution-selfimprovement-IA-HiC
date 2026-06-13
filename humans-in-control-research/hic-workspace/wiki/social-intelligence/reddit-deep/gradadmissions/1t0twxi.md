@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, astrophysicist, gradadmissions, accepted, finally, masters, program, through]
     token_count: 317
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c1"
-    char_span: [1426, 3134]
+    char_span: [1425, 3133]
     sentence_count: 17
     key_terms: [congratulations, gay, winner, thank, hope, congrats, deserved, erasmus]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1t0twxi.md#c2"
-    char_span: [2874, 3935]
+    char_span: [2873, 3934]
     sentence_count: 9
     key_terms: [congratulations, funded, programs, masters, program, stats, get, good]
     section: Comments

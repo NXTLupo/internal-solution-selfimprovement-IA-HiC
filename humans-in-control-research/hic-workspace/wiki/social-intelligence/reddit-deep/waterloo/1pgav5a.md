@@ -23,25 +23,25 @@ chunks:
     key_terms: [waterloo, mental-health, psychologist, assessments, adhd, referrals, comments, helpful]
     token_count: 258
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c1"
-    char_span: [1204, 2656]
+    char_span: [1203, 2655]
     sentence_count: 11
     key_terms: [children-youth-families, assessment, definitely, services, therapy, through, cmhaww, search]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c2"
-    char_span: [2658, 4890]
+    char_span: [2657, 4889]
     sentence_count: 23
     key_terms: [psychiatrist, free, therapy, health, trying, visits, insurances, like]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c3"
-    char_span: [4892, 6980]
+    char_span: [4891, 6979]
     sentence_count: 7
     key_terms: [get, help, assessment, medication, therapist, able, started, therapy]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/waterloo/1pgav5a.md#c4"
-    char_span: [6982, 7055]
+    char_span: [6981, 7054]
     sentence_count: 1
     key_terms: [options, process, speed, yours, pay, want]
     section: Comments

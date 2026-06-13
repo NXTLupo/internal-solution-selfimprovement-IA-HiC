@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q61tuw.md#c0"
-    char_span: [0, 800]
+    char_span: [0, 799]
     sentence_count: 8
     key_terms: [university, applyingtocollege, program, pre-college, comments, academy, anyone, online]
-    token_count: 190
+    token_count: 189
 ---
 # Anyone have experience with Academy of Art University’s online Pre-College program?
 

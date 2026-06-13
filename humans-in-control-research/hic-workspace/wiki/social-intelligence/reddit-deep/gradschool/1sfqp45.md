@@ -23,19 +23,19 @@ chunks:
     key_terms: [degree, "master's", program, fully-funded, friend, pursue, offer, opportunity]
     token_count: 356
   - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c1"
-    char_span: [1597, 3038]
+    char_span: [1596, 3037]
     sentence_count: 9
     key_terms: [international, like, applicants, education, reaching, shithole, "wouldn't", degree]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c2"
-    char_span: [3040, 4848]
+    char_span: [3039, 4847]
     sentence_count: 8
     key_terms: [masters, programs, program, one-year, student, school, situation, american]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/gradschool/1sfqp45.md#c3"
-    char_span: [4850, 6109]
+    char_span: [4849, 6108]
     sentence_count: 7
     key_terms: [masters, year, programs, general, degree, people, super, value]
     section: Comments

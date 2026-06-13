@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/bb1bbd9e08.md#c0"
-    char_span: [0, 1959]
+    char_span: [0, 1958]
     sentence_count: 15
     key_terms: [careers, careerguidance, career, did, something, comments, possible, already]
-    token_count: 442
+    token_count: 441
 ---
 # Do people actually rebuild their careers in their 30s, or do most just learn to live with the path they chose?
 

@@ -21,25 +21,25 @@ chunks:
     key_terms: [college, school, because, years, done, something, comments, reddit]
     token_count: 450
   - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c1"
-    char_span: [1960, 3754]
+    char_span: [1959, 3753]
     sentence_count: 15
     key_terms: [hours, college, students, apply-for-aid, waterhorse816, fafsa, alien919191, commitment]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c2"
-    char_span: [3756, 5992]
+    char_span: [3755, 5991]
     sentence_count: 19
     key_terms: [because, lot, take, "they're", family, grants, school, unfortunately]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c3"
-    char_span: [5994, 7914]
+    char_span: [5993, 7913]
     sentence_count: 12
     key_terms: [scholarships, themselves, scholarship, etc, get, take, available, students]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/college/1oy3bjd.md#c4"
-    char_span: [7916, 9991]
+    char_span: [7915, 9990]
     sentence_count: 22
     key_terms: [college, students, school, classes, went, success, oldest, class]
     section: Comments

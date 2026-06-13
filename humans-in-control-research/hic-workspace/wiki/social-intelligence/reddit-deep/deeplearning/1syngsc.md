@@ -23,7 +23,7 @@ chunks:
     key_terms: [prompts, layer, negatives, precision, data, hard, roleplay, prompt]
     token_count: 498
   - id: "social-intelligence/reddit-deep/deeplearning/1syngsc.md#c1"
-    char_span: [2151, 3855]
+    char_span: [2150, 3854]
     sentence_count: 13
     key_terms: [prompts, benign, ambiguous, "false", ones, classifier, compliance, legitimate]
     section: Comments

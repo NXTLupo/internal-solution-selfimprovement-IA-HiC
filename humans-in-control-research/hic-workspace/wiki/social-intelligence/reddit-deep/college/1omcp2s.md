@@ -28,25 +28,25 @@ chunks:
     key_terms: [paycheck, student, living, being, bad, got, job, life]
     token_count: 162
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c2"
-    char_span: [2386, 3584]
+    char_span: [2385, 3583]
     sentence_count: 11
     key_terms: [food, year, insurance, whenever, student, health, banks, since]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c3"
-    char_span: [3586, 5685]
+    char_span: [3585, 5684]
     sentence_count: 19
     key_terms: [already, university, semester, home, taking, enrollment, decent-muffin9530, classes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c4"
-    char_span: [5427, 7046]
+    char_span: [5426, 7045]
     sentence_count: 19
     key_terms: [loans, time, hours, discojellyfisho, private, week, classes, towards]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/college/1omcp2s.md#c5"
-    char_span: [7048, 8163]
+    char_span: [7047, 8162]
     sentence_count: 11
     key_terms: [time, website, books, hours, provided, classes, version, school]
     section: Comments

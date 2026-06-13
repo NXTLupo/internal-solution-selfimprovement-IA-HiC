@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o7nw0g.md#c0"
-    char_span: [0, 2190]
+    char_span: [0, 2189]
     sentence_count: 10
     key_terms: [product, testing, design, "i'm", development, engineering, engineeringstudents, position]
     token_count: 430

@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/87a1adb0bc.md#c0"
-    char_span: [0, 2179]
+    char_span: [0, 2178]
     sentence_count: 11
     key_terms: [career, projects, development, engineeringstudents, country, apply, learn, sense]
-    token_count: 491
+    token_count: 490
 ---
 # Don't know what to do for next internship and career development, ECE student
 

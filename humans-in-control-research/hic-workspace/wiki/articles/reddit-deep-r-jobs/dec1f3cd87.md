@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/dec1f3cd87.md#c0"
-    char_span: [0, 2026]
+    char_span: [0, 2025]
     sentence_count: 10
     key_terms: [like, pay, fulfilling, job, tired, career, fulfillment, want]
-    token_count: 512
+    token_count: 511
 ---
 # Anyone else feel like every job now wants way too much for what they pay?
 

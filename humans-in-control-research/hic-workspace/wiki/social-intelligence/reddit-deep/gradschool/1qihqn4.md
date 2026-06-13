@@ -23,7 +23,7 @@ chunks:
     key_terms: [school, classes, online, asynchronous, best, grad, gradschool, comments]
     token_count: 279
   - id: "social-intelligence/reddit-deep/gradschool/1qihqn4.md#c1"
-    char_span: [1187, 2403]
+    char_span: [1186, 2402]
     sentence_count: 11
     key_terms: [work, study, time, sometimes, library, spaces, hours, home]
     section: Comments

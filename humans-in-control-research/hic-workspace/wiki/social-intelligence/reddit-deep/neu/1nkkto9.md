@@ -21,19 +21,19 @@ chunks:
     key_terms: [co-op, course, drop, need, something, academic, approval, comments]
     token_count: 301
   - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c1"
-    char_span: [1257, 2427]
+    char_span: [1256, 2426]
     sentence_count: 9
     key_terms: [start, job, work, everyone, yourself, company, school, co-op]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c2"
-    char_span: [2429, 4553]
+    char_span: [2428, 4552]
     sentence_count: 16
     key_terms: [school, co-op, "it's", offer, graduate, courses, feisty-salt377, unable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1nkkto9.md#c3"
-    char_span: [4308, 4889]
+    char_span: [4307, 4888]
     sentence_count: 6
     key_terms: [longjumpingcorgi813, co-op, offer, post, consideration, international, consequences, graduation]
     section: Comments

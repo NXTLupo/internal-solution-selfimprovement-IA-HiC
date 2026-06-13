@@ -26,55 +26,55 @@ chunks:
     key_terms: [generative, making, contribution, development, somewhere, subreddit, creating, entirely]
     token_count: 86
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c2"
-    char_span: [2432, 4634]
+    char_span: [2431, 4633]
     sentence_count: 13
     key_terms: [people, retire, like, money, early, obviously, expenses, security]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c3"
-    char_span: [4636, 5988]
+    char_span: [4635, 5987]
     sentence_count: 16
     key_terms: [years, "i'm", talking, people, "don't", words, euphoric-stock9065, "i've"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c4"
-    char_span: [5990, 8101]
+    char_span: [5989, 8100]
     sentence_count: 15
     key_terms: ["don't", companies, engineers, practices, use, people, best, want]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c5"
-    char_span: [8103, 10019]
+    char_span: [8102, 10018]
     sentence_count: 13
     key_terms: [learn, deleted, don, like, understand, everyone, tooling, agents]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c6"
-    char_span: [10021, 12159]
+    char_span: [10020, 12158]
     sentence_count: 13
     key_terms: [used, mccringleberried, attract, always, better, making, people, turned]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c7"
-    char_span: [12161, 14366]
+    char_span: [12160, 14365]
     sentence_count: 11
     key_terms: [like, generative, always, contributing, money, corporatism, emikawakita, tech]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c8"
-    char_span: [14370, 15817]
+    char_span: [14369, 15816]
     sentence_count: 5
     key_terms: [good, blockchain, complicity, excited, bubble, point, hype, "it's"]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c9"
-    char_span: [15819, 18034]
+    char_span: [15818, 18033]
     sentence_count: 16
     key_terms: [bubble, blockchain, requirements, day, use, scenarios, business, guessing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1leolz9.md#c10"
-    char_span: [17772, 18342]
+    char_span: [17771, 18341]
     sentence_count: 7
     key_terms: [brutal, lawyer, field, sky-limit-5473, opportunities, ironically, "wouldn't", abandon]
     section: Comments

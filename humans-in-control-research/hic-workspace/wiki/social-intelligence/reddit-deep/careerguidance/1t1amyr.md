@@ -23,7 +23,7 @@ chunks:
     key_terms: [administration, careerguidance, engineering, "i'm", ive, comments, switched, college]
     token_count: 281
   - id: "social-intelligence/reddit-deep/careerguidance/1t1amyr.md#c1"
-    char_span: [1208, 2600]
+    char_span: [1207, 2599]
     sentence_count: 6
     key_terms: ["you're", engineering, something, helpful, fields, figure, people, skills]
     section: Comments

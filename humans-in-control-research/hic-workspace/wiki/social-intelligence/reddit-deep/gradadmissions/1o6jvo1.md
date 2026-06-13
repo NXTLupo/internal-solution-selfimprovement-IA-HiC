@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1o6jvo1.md#c0"
-    char_span: [0, 1619]
+    char_span: [0, 1618]
     sentence_count: 12
     key_terms: [school, gradadmissions, credibility, hult, want, experience, academic, comments]
-    token_count: 340
+    token_count: 339
 ---
 # Regret choosing Hult — how can I rebuild credibility for my career or grad school?
 

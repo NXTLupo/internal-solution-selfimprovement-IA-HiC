@@ -28,13 +28,13 @@ chunks:
     key_terms: [within, experience, wonderful, persona, openai, "you're", makes, day]
     token_count: 268
   - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c2"
-    char_span: [3517, 5078]
+    char_span: [3516, 5077]
     sentence_count: 10
     key_terms: [openai, please, prompt, conversation, image, post, concerns, chatgpt-shared-links-faq]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/chatgpt/1kjzh57.md#c3"
-    char_span: [5080, 5714]
+    char_span: [5079, 5713]
     sentence_count: 5
     key_terms: [instructions, custom, conversation, use, seabearsfoam, instruction, personality, scaffolding]
     section: Comments

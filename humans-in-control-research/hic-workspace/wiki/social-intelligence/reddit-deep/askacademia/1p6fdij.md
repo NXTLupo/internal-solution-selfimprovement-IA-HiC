@@ -23,37 +23,37 @@ chunks:
     key_terms: [askacademia, corporate, different, academia, academic, comments, people, model]
     token_count: 283
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c1"
-    char_span: [1266, 3330]
+    char_span: [1265, 3329]
     sentence_count: 17
     key_terms: [research, lab, organization, build, academics, corporate, academic, because]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c2"
-    char_span: [3332, 5322]
+    char_span: [3331, 5321]
     sentence_count: 10
     key_terms: [successful, lab, business, entrepreneur, being, small, like, mentorship]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c3"
-    char_span: [5324, 7124]
+    char_span: [5323, 7123]
     sentence_count: 16
     key_terms: [need, someone, startup, presenting, long-term, strategy, "doesn't", experts]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c4"
-    char_span: [7126, 9092]
+    char_span: [7125, 9091]
     sentence_count: 12
     key_terms: [learn, academia, company, project, comparable, corporate, identify, research]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c5"
-    char_span: [9094, 11097]
+    char_span: [9093, 11096]
     sentence_count: 14
     key_terms: [good, difference, defined, people, been, less, experience, company]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/askacademia/1p6fdij.md#c6"
-    char_span: [11099, 11596]
+    char_span: [11098, 11595]
     sentence_count: 3
     key_terms: [different, pressure, takes, day, work, experience, percentage, understand]
     section: Comments

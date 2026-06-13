@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qeg9ut.md#c0"
-    char_span: [0, 1933]
+    char_span: [0, 1932]
     sentence_count: 14
     key_terms: [learn, start, cscareerquestions, getting, build, don, something, anything]
     token_count: 441

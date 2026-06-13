@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, remote, async, teams, work, comments, office, quick]
     token_count: 349
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slftx7.md#c1"
-    char_span: [1460, 2331]
+    char_span: [1459, 2330]
     sentence_count: 4
     key_terms: [doing, work, looking, "you're", "don't", crazypirranhha, quantumpencil, advantageous]
     section: Comments

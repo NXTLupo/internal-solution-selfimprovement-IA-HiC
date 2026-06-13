@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, co-op, experience, internship, "i'm", applying, summer, offer]
     token_count: 433
   - id: "social-intelligence/reddit-deep/internships/1ragjku.md#c1"
-    char_span: [1942, 2506]
+    char_span: [1941, 2505]
     sentence_count: 5
     key_terms: [graduate, experiences, graduation, semester, appropriate-tutor587, co-op, years, year]
     section: Comments

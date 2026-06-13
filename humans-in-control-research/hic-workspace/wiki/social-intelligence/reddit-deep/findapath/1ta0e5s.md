@@ -23,25 +23,25 @@ chunks:
     key_terms: [good, did, life, people, relationship, feel, findapath, something]
     token_count: 376
   - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c1"
-    char_span: [1694, 3735]
+    char_span: [1693, 3734]
     sentence_count: 16
     key_terms: [good, thank, everyone, helpful, people, please, being, difference]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c2"
-    char_span: [3737, 5995]
+    char_span: [3736, 5994]
     sentence_count: 17
     key_terms: [interested, yourself, boredom, "you're", breakthrough, like, side, genuinely]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c3"
-    char_span: [5997, 8172]
+    char_span: [5996, 8171]
     sentence_count: 20
     key_terms: [people, started, myself, working, environments, never, head, draining]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/findapath/1ta0e5s.md#c4"
-    char_span: [8174, 10124]
+    char_span: [8173, 10123]
     sentence_count: 18
     key_terms: [something, people, "i've", own, assessment, interested, different, everyone]
     section: Comments

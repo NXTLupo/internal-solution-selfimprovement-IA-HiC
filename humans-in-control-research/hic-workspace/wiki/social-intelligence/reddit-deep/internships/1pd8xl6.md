@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, looking, someone, equity, exceptional, internships, paid, developer]
     token_count: 305
   - id: "social-intelligence/reddit-deep/internships/1pd8xl6.md#c1"
-    char_span: [1324, 2229]
+    char_span: [1323, 2228]
     sentence_count: 4
     key_terms: [zuck, wants, pay, building, exactly, looking, someone, born-requirement-303]
     section: Comments

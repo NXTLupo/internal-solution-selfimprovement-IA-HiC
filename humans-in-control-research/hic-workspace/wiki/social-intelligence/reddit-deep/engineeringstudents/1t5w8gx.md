@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, comments, universitystrange705, job, applications, engineering, internships, reddit-deep]
     token_count: 121
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c1"
-    char_span: [525, 1031]
+    char_span: [524, 1030]
     sentence_count: 4
     key_terms: [companies, job, investmentgreen, definitely, handshake, linkedin, prepared, starting]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c2"
-    char_span: [1033, 3168]
+    char_span: [1032, 3167]
     sentence_count: 12
     key_terms: [universitystrange705, shot-violinist4069, luck, applying, network, advice, disappointed, apply]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5w8gx.md#c3"
-    char_span: [2867, 4027]
+    char_span: [2866, 4026]
     sentence_count: 9
     key_terms: [engineering, applying, sure, everything, graduate, company, project, market]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, engineeringstudents, opportunities, internships, interested, chemical, comments, nuclear]
     token_count: 140
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mvzs6q.md#c1"
-    char_span: [669, 2183]
+    char_span: [668, 2182]
     sentence_count: 4
     key_terms: [engineeringstudents, https, wiki, reddit, com, adult, "it's", read]
     section: Comments

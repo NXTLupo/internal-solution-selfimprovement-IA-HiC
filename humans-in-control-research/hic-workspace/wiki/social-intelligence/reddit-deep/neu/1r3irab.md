@@ -23,7 +23,7 @@ chunks:
     key_terms: [northeastern, scholarship, applicant, admitted, comments, guidance, recently, students]
     token_count: 286
   - id: "social-intelligence/reddit-deep/neu/1r3irab.md#c1"
-    char_span: [1278, 1949]
+    char_span: [1277, 1948]
     sentence_count: 8
     key_terms: [common-science-7643, visa, smartandstupid3, campus, housing, options, around, loan]
     section: Comments

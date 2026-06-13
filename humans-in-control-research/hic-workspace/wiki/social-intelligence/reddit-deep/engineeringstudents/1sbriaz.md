@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, comments, reddit-deep, experience, internship, community, research, college]
     token_count: 77
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sbriaz.md#c1"
-    char_span: [324, 616]
+    char_span: [323, 615]
     sentence_count: 2
     key_terms: [candid-ear-4840, laboratories, specifically, internships, department, community, kalex8876, professor]
     section: Comments

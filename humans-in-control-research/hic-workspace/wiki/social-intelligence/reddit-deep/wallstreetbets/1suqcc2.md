@@ -23,19 +23,19 @@ chunks:
     key_terms: [highs, time, all-time, wallstreetbets, ride, robinhood, comments, getting]
     token_count: 347
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c1"
-    char_span: [1262, 2671]
+    char_span: [1261, 2670]
     sentence_count: 4
     key_terms: [https, years, put, discord, payment, preview, format, foreverythingthatis]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c2"
-    char_span: [2673, 4221]
+    char_span: [2672, 4220]
     sentence_count: 8
     key_terms: [house, boomer, market, awetfartruinedmylife, oblivious-speculator, money, buy, day]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/wallstreetbets/1suqcc2.md#c3"
-    char_span: [4223, 4381]
+    char_span: [4222, 4380]
     sentence_count: 2
     key_terms: [igleodee11, youngster, congrats, externox, holding, thanks, weight, gonna]
     section: Comments

@@ -15,27 +15,27 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c0"
-    char_span: [0, 1773]
+    char_span: [0, 1772]
     sentence_count: 11
     key_terms: [repost, questions, reddit, phd, gradadmissions, school, migorrortis96, https]
-    token_count: 419
+    token_count: 418
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c1"
-    char_span: [1775, 4344]
+    char_span: [1774, 4343]
     sentence_count: 1
     key_terms: [research, institution, program, interests, questions, work, funding, project]
     token_count: 508
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c2"
-    char_span: [4346, 6337]
+    char_span: [4345, 6336]
     sentence_count: 6
     key_terms: [research, teaching, experience, lab, disagreement, combination, did, time]
     token_count: 414
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c3"
-    char_span: [6339, 8705]
+    char_span: [6338, 8704]
     sentence_count: 1
     key_terms: [research, students, program, grad, advisor, working, people, environment]
     token_count: 511
   - id: "articles/reddit-deep-r-gradadmissions/f44f4abec6.md#c4"
-    char_span: [8707, 11006]
+    char_span: [8706, 11005]
     sentence_count: 10
     key_terms: [students, lab, questions, program, interview, projects, research, thank]
     token_count: 512

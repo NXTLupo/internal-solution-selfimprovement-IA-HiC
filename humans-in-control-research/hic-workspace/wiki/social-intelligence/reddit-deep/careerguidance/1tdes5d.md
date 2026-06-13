@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, internship, comments, months, summer, switch, roles, fall]
     token_count: 193
   - id: "social-intelligence/reddit-deep/careerguidance/1tdes5d.md#c1"
-    char_span: [832, 1496]
+    char_span: [831, 1495]
     sentence_count: 1
     key_terms: [strategy, antique-search-4653, fall, work, opportunities, happyloverss, departments, connection]
     section: Comments

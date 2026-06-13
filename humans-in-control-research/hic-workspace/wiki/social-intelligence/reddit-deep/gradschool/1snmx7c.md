@@ -23,25 +23,25 @@ chunks:
     key_terms: [sit-in-front-ofa-blank-wall-for-a-while-because-what, professor, program, gradschool, something, comments, semester, friends]
     token_count: 319
   - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c1"
-    char_span: [1409, 2368]
+    char_span: [1408, 2367]
     sentence_count: 5
     key_terms: [read, dirtrepresentative9, "i've", like, talk, searchatlantis, bigfrondnicky, employment]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c2"
-    char_span: [2370, 4601]
+    char_span: [2369, 4600]
     sentence_count: 15
     key_terms: [intellectual, professor, interest, students, faculty, "that's", bigfrondnicky, peers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c3"
-    char_span: [4318, 4643]
+    char_span: [4317, 4642]
     sentence_count: 2
     key_terms: [interested, classroom, primarily, classes, created, program, campus, gotten]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/gradschool/1snmx7c.md#c4"
-    char_span: [4645, 5998]
+    char_span: [4644, 5997]
     sentence_count: 7
     key_terms: [like, interesting, find, professors, something, someone, always, texted]
     section: Comments

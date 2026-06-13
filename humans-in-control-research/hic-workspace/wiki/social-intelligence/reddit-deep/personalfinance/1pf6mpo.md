@@ -33,79 +33,79 @@ chunks:
     key_terms: [months, time, spend, years, hell, "it's", last, year]
     token_count: 490
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c3"
-    char_span: [6089, 7753]
+    char_span: [6088, 7752]
     sentence_count: 10
     key_terms: [house, people, rent, person, bobcharlesss, room, somethings, remove]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c4"
-    char_span: [7755, 8975]
+    char_span: [7754, 8974]
     sentence_count: 9
     key_terms: [roommate, got, room, roommates, income, rooms, tried, years]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c5"
-    char_span: [8977, 10507]
+    char_span: [8976, 10506]
     sentence_count: 16
     key_terms: [get, don, "i'd", like, finding, renting, better, system]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c6"
-    char_span: [10509, 12284]
+    char_span: [10508, 12283]
     sentence_count: 12
     key_terms: [retirement, house, savings, bobcharlesss, contribution, month, reach, years]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c7"
-    char_span: [12286, 13238]
+    char_span: [12285, 13237]
     sentence_count: 5
     key_terms: [retirement, home, budget, equity, gentrifiertechscum, plan, rent, sell]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c8"
-    char_span: [13240, 15336]
+    char_span: [13239, 15335]
     sentence_count: 14
     key_terms: [retirement, house, american, renting, americans, subreddit, terrible, jcpopm]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c9"
-    char_span: [15338, 16934]
+    char_span: [15337, 16933]
     sentence_count: 14
     key_terms: [house, renting, houses, calculator, investment, interest, market, owning]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c10"
-    char_span: [16936, 18457]
+    char_span: [16935, 18456]
     sentence_count: 13
     key_terms: [house, money, need, renting, buying, years, investments, buy]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c11"
-    char_span: [18459, 20573]
+    char_span: [18458, 20572]
     sentence_count: 19
     key_terms: [time, years, mortgage, maintenance, home, retirement, financial, something]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c12"
-    char_span: [20575, 22723]
+    char_span: [20574, 22722]
     sentence_count: 10
     key_terms: [renting, owning, mortgage, payment, money, rent, rich, retirement]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c13"
-    char_span: [22725, 24151]
+    char_span: [22724, 24150]
     sentence_count: 11
     key_terms: ["that's", month, expense, payment, budget, house, down, home]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c14"
-    char_span: [24153, 24789]
+    char_span: [24152, 24788]
     sentence_count: 6
     key_terms: [mortgage, least, retirement, housing, "you'll", month, spend, "i'd"]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/personalfinance/1pf6mpo.md#c15"
-    char_span: [24791, 26509]
+    char_span: [24790, 26508]
     sentence_count: 19
     key_terms: [house, roommates, always, able, gotsnails, daughter, bought, people]
     section: Comments

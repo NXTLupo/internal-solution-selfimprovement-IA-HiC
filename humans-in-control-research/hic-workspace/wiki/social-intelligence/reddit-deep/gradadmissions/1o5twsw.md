@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1o5twsw.md#c0"
-    char_span: [0, 1762]
+    char_span: [0, 1761]
     sentence_count: 11
     key_terms: [research, gradadmissions, career, pharmacology, publications, been, phd, admissions]
-    token_count: 383
+    token_count: 382
 ---
 # Considering grad school (PhD in pharmacology or related field) after a non-linear career path — advice?
 

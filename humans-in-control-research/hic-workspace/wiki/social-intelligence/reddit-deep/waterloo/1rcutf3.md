@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, headhunters, "i'm", comments, hiring, lately, sales, data]
     token_count: 235
   - id: "social-intelligence/reddit-deep/waterloo/1rcutf3.md#c1"
-    char_span: [955, 2007]
+    char_span: [954, 2006]
     sentence_count: 9
     key_terms: [jobs, sales, data, b2709d6c-e6cf-4de6-b2b7-7812fd05256a, https, tech, mindbridge, companies]
     section: Comments

@@ -15,17 +15,17 @@ industries: [higher_ed, education, government]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c0"
-    char_span: [0, 2020]
+    char_span: [0, 2019]
     sentence_count: 11
     key_terms: [stanford, social, applyingtocollege, "i'm", less, schools, school, "i'd"]
-    token_count: 468
+    token_count: 467
   - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c1"
-    char_span: [2022, 4148]
+    char_span: [2021, 4147]
     sentence_count: 9
     key_terms: [culture, stanford, mit, sure, either, intellectual, admin, years]
     token_count: 464
   - id: "articles/reddit-deep-r-applyingtocollege/df0b4cbb43.md#c2"
-    char_span: [4150, 6164]
+    char_span: [4149, 6163]
     sentence_count: 11
     key_terms: [stanford, scholarship, "i'm", taking, dod, commitment, potential, deeptech]
     token_count: 481

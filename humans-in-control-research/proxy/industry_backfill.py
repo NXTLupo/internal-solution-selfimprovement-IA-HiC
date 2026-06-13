@@ -38,7 +38,9 @@ WIKI = next((p for p in (
 
 CORPUS_DIRS = ["articles", "social-intelligence", "evidence", "transcripts"]
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY", "")
-GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent"
+# 2026-06-12 - was gemini-2.5-flash (retired tier) with ?key= in the URL;
+# canonical fast-text model + x-goog-api-key header per the A2 redaction rule.
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent"
 
 FM_RE = re.compile(r"^---\n([\s\S]*?)\n---\n?", re.M)
 
@@ -86,8 +88,9 @@ def classify_llm_batch(items):
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
     }).encode()
-    req = urllib.request.Request(f"{GEMINI_URL}?key={GEMINI_KEY}", data=body,
-                                 headers={"Content-Type": "application/json"})
+    req = urllib.request.Request(GEMINI_URL, data=body,
+                                 headers={"Content-Type": "application/json",
+                                          "x-goog-api-key": GEMINI_KEY})
     try:
         with urllib.request.urlopen(req, timeout=90) as r:
             data = json.loads(r.read().decode())

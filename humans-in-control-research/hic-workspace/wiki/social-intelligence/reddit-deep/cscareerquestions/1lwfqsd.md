@@ -21,31 +21,31 @@ chunks:
     key_terms: [years, cscareerquestions, college, career, experience, currently, marketing, comments]
     token_count: 251
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwfqsd.md#c1"
-    char_span: [1076, 2204]
+    char_span: [1075, 2203]
     sentence_count: 9
     key_terms: [marketing, tech, coding, years, job, software, because, started]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwfqsd.md#c2"
-    char_span: [2206, 3598]
+    char_span: [2205, 3597]
     sentence_count: 7
     key_terms: [dev, experience, production, careers, looking, product, unicorn, degree]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwfqsd.md#c3"
-    char_span: [3600, 4367]
+    char_span: [3599, 4366]
     sentence_count: 6
     key_terms: [people, able, work, feisty-saturn, digmonsdrill, environments, necessities, production]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwfqsd.md#c4"
-    char_span: [4369, 6357]
+    char_span: [4368, 6356]
     sentence_count: 17
     key_terms: [experience, career, years, going, ending, people, "it's", department]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwfqsd.md#c5"
-    char_span: [6359, 7265]
+    char_span: [6358, 7264]
     sentence_count: 7
     key_terms: [experience, skills, gaining, "you're", administrativehost15, get, keep, life]
     section: Comments

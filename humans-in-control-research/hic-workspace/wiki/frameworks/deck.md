@@ -11,61 +11,61 @@ tags: [deck, minto, pyramid-principle, scr, presentations, mckinsey]
 evidence_count: 0
 chunks:
   - id: "frameworks/deck.md#c0"
-    char_span: [0, 365]
+    char_span: [0, 364]
     sentence_count: 3
     key_terms: [deck, strategy, anti-patterns, authoritative, specification, deliverable, methodology, generating]
     section: Purpose
     token_count: 60
   - id: "frameworks/deck.md#c1"
-    char_span: [391, 2892]
+    char_span: [390, 2891]
     sentence_count: 13
     key_terms: [complete, complication, conclusion, group, slide, arguments, assertion, component]
     section: Canonical Framework
     token_count: 503
   - id: "frameworks/deck.md#c2"
-    char_span: [2894, 4655]
+    char_span: [2893, 4654]
     sentence_count: 6
     key_terms: [chart, bar, data, charts, presentations, visualization, never, state]
     section: Canonical Framework
     token_count: 399
   - id: "frameworks/deck.md#c3"
-    char_span: [4680, 6831]
+    char_span: [4679, 6830]
     sentence_count: 6
     key_terms: [slide, chapter, component, executive, title, evidence, sentences, complete]
     section: Required Structure
     token_count: 437
   - id: "frameworks/deck.md#c4"
-    char_span: [6833, 7824]
+    char_span: [6832, 7823]
     sentence_count: 1
     key_terms: [recommendation, methodology, appendix, digital, impact, data, bibliography, dependencies]
     section: Required Structure
     token_count: 208
   - id: "frameworks/deck.md#c5"
-    char_span: [7844, 9433]
+    char_span: [7843, 9432]
     sentence_count: 8
     key_terms: [partner, slide, test, restructure, charts, titles, narrative, client]
     section: Quality Gates
     token_count: 337
   - id: "frameworks/deck.md#c6"
-    char_span: [9463, 10536]
+    char_span: [9462, 10535]
     sentence_count: 4
     key_terms: [chart, title, annotations, information, footnotes, hierarchy, standards, insight]
     section: Slide Design Principles
     token_count: 255
   - id: "frameworks/deck.md#c7"
-    char_span: [10556, 12353]
+    char_span: [10555, 12352]
     sentence_count: 22
     key_terms: [audience, evidence, slide, data, rather, slides, titles, alternatives]
     section: Anti-Patterns
     token_count: 373
   - id: "frameworks/deck.md#c8"
-    char_span: [12383, 14098]
+    char_span: [12382, 14097]
     sentence_count: 9
     key_terms: [slide, pyramid, recommendation, titles, chart, generating, appendix, argument]
     section: Generation Instructions
     token_count: 356
   - id: "frameworks/deck.md#c9"
-    char_span: [14121, 14568]
+    char_span: [14120, 14567]
     sentence_count: 1
     key_terms: [deck, frameworks, personas, brand, industry-specific, chart-standards, client-specific, layout-patterns]
     section: Cross-References

@@ -21,13 +21,13 @@ chunks:
     key_terms: [attribution, machinelearning, automatically, deterministic, trade, llm, commentary, precision]
     token_count: 408
   - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c1"
-    char_span: [1953, 4281]
+    char_span: [1952, 4280]
     sentence_count: 21
     key_terms: [deterministic, llm, spot, hallucinated, verification, calculation, determinism, challenge]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/machinelearning/1sv3cnm.md#c2"
-    char_span: [4283, 6035]
+    char_span: [4282, 6034]
     sentence_count: 13
     key_terms: [model, use, data, language, specific, natural, handle, output]
     section: Comments

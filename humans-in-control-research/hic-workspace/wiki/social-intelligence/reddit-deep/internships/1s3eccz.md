@@ -23,7 +23,7 @@ chunks:
     key_terms: [opportunities, internships, science, data, internship, comments, looking, student]
     token_count: 206
   - id: "social-intelligence/reddit-deep/internships/1s3eccz.md#c1"
-    char_span: [912, 1113]
+    char_span: [911, 1112]
     sentence_count: 1
     key_terms: [okcranberry7013, interveiws, anything, getting, gunuine, looking, bubble, people]
     section: Comments

@@ -31,37 +31,37 @@ chunks:
     key_terms: [school, balanced, schools, names, connections, big, feel, prob]
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c3"
-    char_span: [5698, 6598]
+    char_span: [5697, 6597]
     sentence_count: 7
     key_terms: [prestige, general, getting, matters, schools, matter, option, comfortable-fun1718]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c4"
-    char_span: [6600, 8247]
+    char_span: [6599, 8246]
     sentence_count: 8
     key_terms: [prestige, prestigious, afford, georgetown, affordability, cew-reports, perspective, does]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c5"
-    char_span: [8249, 10522]
+    char_span: [8248, 10521]
     sentence_count: 13
     key_terms: [prestige, here, notavalgrinder, school, undergraduate, "don't", university, realized]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c6"
-    char_span: [10256, 12356]
+    char_span: [10255, 12355]
     sentence_count: 15
     key_terms: [school, prestige, prestigious, t20, different, outcomes, positive, matters]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c7"
-    char_span: [12071, 12914]
+    char_span: [12070, 12913]
     sentence_count: 6
     key_terms: [everything, understand, college, working, school, single, "don't", else]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8v1zm.md#c8"
-    char_span: [12916, 14158]
+    char_span: [12915, 14157]
     sentence_count: 8
     key_terms: [applyingtocollege, essays, wiki, boomers, reddit, collegeessays, https, com]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1ssute2.md
 url: "https://www.reddit.com/r/careerguidance/comments/1ssute2/im_almost_22_and_feel_lost_about_my_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.893Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1ssute2.md#c0"
+    char_span: [0, 2058]
+    sentence_count: 20
+    key_terms: [careerguidance, trying, bachelor, comments, current, started, advice, almost]
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/careerguidance/1ssute2.md#c1"
+    char_span: [2073, 3922]
+    sentence_count: 14
+    key_terms: [interviews, frontend, applications, stack, feel, look, plus, hackathons]
+    section: Comments
+    token_count: 404
 ---
-
 # I'm almost 22 and feel lost about my career path. Any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1ssute2/im_almost_22_and_feel_lost_about_my_career_path/)

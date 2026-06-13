@@ -23,7 +23,7 @@ chunks:
     key_terms: [programs, gradadmissions, international, columbia, comments, outcomes, career, expect]
     token_count: 146
   - id: "social-intelligence/reddit-deep/gradadmissions/1sglp6c.md#c1"
-    char_span: [601, 996]
+    char_span: [600, 995]
     sentence_count: 4
     key_terms: [international, essentially, graduating, pepinilllo, certainly, columbia, semester, students]
     section: Comments

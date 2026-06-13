@@ -23,25 +23,25 @@ chunks:
     key_terms: [don, loans, degree, school, bill, let, gradschool, stormalynn]
     token_count: 491
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c1"
-    char_span: [2014, 2396]
+    char_span: [2013, 2395]
     sentence_count: 2
     key_terms: [studentloanprofessor, bbb-passes, https, years, com, loan, www, additional]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c2"
-    char_span: [2398, 4457]
+    char_span: [2397, 4456]
     sentence_count: 20
     key_terms: [students, scholarships, based, youzernayme, got, situation, current, nasfaa]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c3"
-    char_span: [4459, 6537]
+    char_span: [4458, 6536]
     sentence_count: 14
     key_terms: [loans, private, stormalynn, student, johnapple42, everyone, students, option]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1m13vps.md#c4"
-    char_span: [6539, 7595]
+    char_span: [6538, 7594]
     sentence_count: 11
     key_terms: [graduate, because, program, afford, failed, paced, been, debt]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [back, questions, comments, friends, oakland, coop, find, guys]
     token_count: 185
   - id: "social-intelligence/reddit-deep/neu/1s3x6wr.md#c1"
-    char_span: [712, 2335]
+    char_span: [711, 2334]
     sentence_count: 3
     key_terms: [people, boston, coop, oakland, everyone, friends, going, yunshen1102]
     section: Comments

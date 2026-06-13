@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t0wmz9.md#c0"
-    char_span: [0, 1613]
+    char_span: [0, 1612]
     sentence_count: 14
     key_terms: [agriculture, agri, bpo, like, careerguidance, demand, philippines, graduates]
-    token_count: 349
+    token_count: 348
 ---
 # Agri student dilemma: stay in farming or shift to BPO?
 

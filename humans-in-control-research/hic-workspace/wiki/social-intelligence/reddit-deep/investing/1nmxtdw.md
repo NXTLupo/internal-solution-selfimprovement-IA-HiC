@@ -23,31 +23,31 @@ chunks:
     key_terms: [stocks, investing, "i'm", comments, consider, started, buying, oklo]
     token_count: 210
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c1"
-    char_span: [853, 2639]
+    char_span: [852, 2638]
     sentence_count: 16
     key_terms: [company, take, yourself, another, believe, depends, kicking, revenue]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c2"
-    char_span: [2641, 4282]
+    char_span: [2640, 4281]
     sentence_count: 12
     key_terms: [bought, share, years, next, take, deleted, friends, course]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c3"
-    char_span: [4284, 5546]
+    char_span: [4283, 5545]
     sentence_count: 12
     key_terms: [sell, stocks, speculative, get, principle, "wouldn't", company, selling]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c4"
-    char_span: [5548, 7440]
+    char_span: [5547, 7439]
     sentence_count: 15
     key_terms: [environmentcareful71, total, pay, year, portfolio, changed, company, million]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nmxtdw.md#c5"
-    char_span: [7204, 7548]
+    char_span: [7203, 7547]
     sentence_count: 3
     key_terms: [credit, limit, comfortable, remaining, strategy, capital, however, hoping]
     section: Comments

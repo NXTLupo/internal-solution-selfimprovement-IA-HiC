@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/9ccb932fdb.md#c0"
-    char_span: [0, 1892]
+    char_span: [0, 1891]
     sentence_count: 22
     key_terms: [resume, experience, job, strawberrydewdrops3, interview, did, degree, entry]
-    token_count: 450
+    token_count: 449
 ---
 # Rejected for an entry level job
 

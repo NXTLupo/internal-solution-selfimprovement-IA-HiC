@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/6da2de6b9f.md#c0"
-    char_span: [0, 2292]
+    char_span: [0, 2291]
     sentence_count: 21
     key_terms: [cscareerquestions, expectations, sufficiently, diversified, friendships, like, everything, happiness]
-    token_count: 494
+    token_count: 493
   - id: "articles/reddit-deep-r-cscareerquestions/6da2de6b9f.md#c1"
-    char_span: [2294, 3316]
+    char_span: [2293, 3315]
     sentence_count: 9
     key_terms: [work, describing, person, redact, needs, value, put, fulfillment]
     token_count: 254

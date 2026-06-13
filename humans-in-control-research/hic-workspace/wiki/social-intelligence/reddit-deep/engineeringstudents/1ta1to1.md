@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ta1to1.md#c0"
-    char_span: [0, 517]
+    char_span: [0, 516]
     sentence_count: 4
     key_terms: [experience, internship, engineeringstudents, comments, fresher, months, abap, get]
-    token_count: 139
+    token_count: 138
 ---
 # How to get a job in SAP ABAP as a fresher with 6 months internship experience.
 

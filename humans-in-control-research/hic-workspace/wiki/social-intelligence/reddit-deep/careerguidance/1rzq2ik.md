@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1rzq2ik.md
 url: "https://www.reddit.com/r/careerguidance/comments/1rzq2ik/i_am_wanting_to_change_career_paths_any_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.902Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzq2ik.md#c0"
+    char_span: [0, 1489]
+    sentence_count: 13
+    key_terms: [careerguidance, good, job, want, counseling, experience, pittsburgh, business]
+    token_count: 362
+  - id: "social-intelligence/reddit-deep/careerguidance/1rzq2ik.md#c1"
+    char_span: [1504, 3158]
+    sentence_count: 11
+    key_terms: [management, look, project, administration, certifications, degree, roles, experience]
+    section: Comments
+    token_count: 335
 ---
-
 # I am wanting to change career paths, any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1rzq2ik/i_am_wanting_to_change_career_paths_any_advice/)

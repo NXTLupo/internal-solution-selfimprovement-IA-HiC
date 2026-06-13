@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1qkndtx.md#c0"
-    char_span: [0, 1150]
+    char_span: [0, 1149]
     sentence_count: 5
     key_terms: [program, northeastern, experiences, experience, academic, admitted, comments, everyone]
-    token_count: 262
+    token_count: 261
 ---
 # Admitted to Northeastern MSBA (Fall 2026) – Looking for student experiences & program insights
 

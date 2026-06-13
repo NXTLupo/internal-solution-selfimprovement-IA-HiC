@@ -28,7 +28,7 @@ chunks:
     key_terms: [actors, change, surveillance, verification, bad, biometrics, companies, platform]
     token_count: 337
   - id: "social-intelligence/reddit-deep/workonline/1szoupn.md#c2"
-    char_span: [3649, 4383]
+    char_span: [3648, 4382]
     sentence_count: 7
     key_terms: [deleted, picture, wanted, being, easelegitimate7404, like, information, collecting]
     section: Comments

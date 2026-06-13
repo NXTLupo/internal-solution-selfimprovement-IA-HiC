@@ -23,55 +23,55 @@ chunks:
     key_terms: [knowledge, comments, train, using, job, jobs, reddit-deep, experience]
     token_count: 190
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c1"
-    char_span: [757, 1858]
+    char_span: [756, 1857]
     sentence_count: 7
     key_terms: [computers, computer, people, classes, teaches, basic, local, snootangerines4359]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c2"
-    char_span: [1860, 3787]
+    char_span: [1859, 3786]
     sentence_count: 19
     key_terms: [computer, skills, like, constantly, instructor, computers, classes, started]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c3"
-    char_span: [3789, 5538]
+    char_span: [3788, 5537]
     sentence_count: 15
     key_terms: [games, video, everything, language, college, english, friends, getting]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c4"
-    char_span: [5540, 6850]
+    char_span: [5539, 6849]
     sentence_count: 7
     key_terms: [computer, folks, literacy, people, deal, because, younger, others]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c5"
-    char_span: [6852, 8730]
+    char_span: [6851, 8729]
     sentence_count: 15
     key_terms: [understanding, computers, people, kids, everything, experience, computer, "didn't"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c6"
-    char_span: [8732, 10479]
+    char_span: [8731, 10478]
     sentence_count: 16
     key_terms: [computer, never, did, hire, job, japanese, basic85, company]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c7"
-    char_span: [10481, 12069]
+    char_span: [10480, 12068]
     sentence_count: 9
     key_terms: [english, completely, underpaid, because, "doesn't", workers, unless, ok-neighborhood2109]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c8"
-    char_span: [12071, 13745]
+    char_span: [12070, 13744]
     sentence_count: 11
     key_terms: [train, computer, classes, courses, online, did, free, job]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/jobs/1ks0hgq.md#c9"
-    char_span: [13747, 15311]
+    char_span: [13746, 15310]
     sentence_count: 6
     key_terms: [use, jbjhill, someone, chromebooks, good, computers, browser, getting]
     section: Comments

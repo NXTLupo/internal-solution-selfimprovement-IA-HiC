@@ -28,7 +28,7 @@ chunks:
     key_terms: [here, "i'm", charleston, elsewhere, insurance, graduate, firms, "i've"]
     token_count: 260
   - id: "social-intelligence/reddit-deep/careerguidance/1sf8ycs.md#c2"
-    char_span: [3244, 5249]
+    char_span: [3243, 5248]
     sentence_count: 7
     key_terms: ["you're", estate, real, market, people, "charleston's", firms, since]
     section: Comments

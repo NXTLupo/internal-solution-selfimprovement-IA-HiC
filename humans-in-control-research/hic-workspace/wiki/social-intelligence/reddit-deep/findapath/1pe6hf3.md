@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, europe, opportunities, did, operations, findapath, germany, career]
     token_count: 239
   - id: "social-intelligence/reddit-deep/findapath/1pe6hf3.md#c1"
-    char_span: [1017, 2334]
+    char_span: [1016, 2333]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

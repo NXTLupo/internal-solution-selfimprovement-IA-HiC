@@ -31,61 +31,61 @@ chunks:
     key_terms: [magically, "can't", going, mad, situation, everyone, because, private]
     token_count: 115
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c3"
-    char_span: [4414, 5059]
+    char_span: [4413, 5058]
     sentence_count: 5
     key_terms: [year, business, gap, challenging, congressman, internships, everything, experience]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c4"
-    char_span: [5061, 7249]
+    char_span: [5060, 7248]
     sentence_count: 17
     key_terms: [school, schools, years, colleges, underrepresented, "that's", "congressman's", congressman]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c5"
-    char_span: [7251, 9207]
+    char_span: [7250, 9206]
     sentence_count: 12
     key_terms: [ucs, guarantee, recommendation, letter, congressional, like, referral, thinking]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c6"
-    char_span: [9209, 11206]
+    char_span: [9208, 11205]
     sentence_count: 14
     key_terms: [college, trytwiceashard, experience, years, community, get, transfer, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c7"
-    char_span: [10906, 12080]
+    char_span: [10905, 12079]
     sentence_count: 9
     key_terms: [recommendation, experience, college, unless, acanthaceaestunning7, value, get, good]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c8"
-    char_span: [12082, 12508]
+    char_span: [12081, 12507]
     sentence_count: 3
     key_terms: [cherrychocolatepizza, recommendation, connections, admissions, advantages, especially, business, identify]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c9"
-    char_span: [12510, 14458]
+    char_span: [12509, 14457]
     sentence_count: 17
     key_terms: [money, student-loan-calculator, "he's", calculator, get, good, job, investment]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c10"
-    char_span: [14460, 15991]
+    char_span: [14459, 15990]
     sentence_count: 14
     key_terms: [congressman, school, internship, business, schools, great, years, get]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c11"
-    char_span: [15993, 18161]
+    char_span: [15992, 18160]
     sentence_count: 21
     key_terms: [schools, year, state, counselor, get, trytwiceashard, others, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1roh0qs.md#c12"
-    char_span: [17872, 18322]
+    char_span: [17871, 18321]
     sentence_count: 6
     key_terms: [schools, ones, experience, population, fantastic, wingbatso, commuter, humboldt]
     section: Comments

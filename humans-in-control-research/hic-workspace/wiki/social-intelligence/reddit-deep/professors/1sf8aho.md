@@ -23,85 +23,85 @@ chunks:
     key_terms: [students, class, study, exam, professors, comments, student, entire]
     token_count: 309
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c1"
-    char_span: [1348, 1382]
+    char_span: [1347, 1381]
     sentence_count: 1
     key_terms: [jaguaraugaj, college]
     section: Comments
     token_count: 14
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c2"
-    char_span: [1384, 3318]
+    char_span: [1383, 3317]
     sentence_count: 15
     key_terms: [study, associsteprofessor, guide, students, responded, favorite, thursday, animal]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c3"
-    char_span: [3102, 3461]
+    char_span: [3101, 3460]
     sentence_count: 4
     key_terms: [asked, guide, study, never, universities, themselves, homework, studying]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c4"
-    char_span: [3463, 5301]
+    char_span: [3462, 5300]
     sentence_count: 16
     key_terms: [week, responded, e9935829f8a47b097416d90b021697958eacb7c7, f1498f2230fd48dd552115c16448e6816728faa0, problem-solving, class, "don't", assignments]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c5"
-    char_span: [5303, 7123]
+    char_span: [5302, 7122]
     sentence_count: 16
     key_terms: [assignments, did, work, students, regular, course, announcements, announcement]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c6"
-    char_span: [7125, 8626]
+    char_span: [7124, 8625]
     sentence_count: 12
     key_terms: ["don't", view, announcements, list, read, students, instructions, regular]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c7"
-    char_span: [8628, 9846]
+    char_span: [8627, 9845]
     sentence_count: 8
     key_terms: [study, answers, average, little, bunch, lower, associsteprofessor, dgaf]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c8"
-    char_span: [9848, 11823]
+    char_span: [9847, 11822]
     sentence_count: 20
     key_terms: [students, accept, gatekeeping, late, test, told, work, committee]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c9"
-    char_span: [11825, 12801]
+    char_span: [11824, 12800]
     sentence_count: 9
     key_terms: [classes, questions, question, students, guide, study, badwithnamesagain, wheezygonzalez]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c10"
-    char_span: [12803, 14148]
+    char_span: [12802, 14147]
     sentence_count: 14
     key_terms: [questions, give, students, answers, several, class, topic, exam]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c11"
-    char_span: [14150, 15783]
+    char_span: [14149, 15782]
     sentence_count: 13
     key_terms: [students, education, questions, american, teaching, answers, session, common]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c12"
-    char_span: [15785, 16984]
+    char_span: [15784, 16983]
     sentence_count: 8
     key_terms: [students, french, educational, americans, clearly, become, entire, far]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c13"
-    char_span: [16986, 18510]
+    char_span: [16985, 18509]
     sentence_count: 7
     key_terms: [leifragnarsson, responsibility, something, ornery-anteater1934, thank, helpful-orchid2710, armchairdetective, squatbootyjezebel]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1sf8aho.md#c14"
-    char_span: [18512, 19214]
+    char_span: [18511, 19213]
     sentence_count: 5
     key_terms: [difficult, conversations, insanityaproaches, like, safe, conversation, complaining, entitlement]
     section: Comments

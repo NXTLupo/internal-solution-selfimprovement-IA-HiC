@@ -21,7 +21,7 @@ chunks:
     key_terms: [college, internship, student, internships, look, comments, debating, advice]
     token_count: 282
   - id: "social-intelligence/reddit-deep/internships/1t9tw8s.md#c1"
-    char_span: [1257, 2964]
+    char_span: [1256, 2963]
     sentence_count: 16
     key_terms: [like, healthy-ad-423, cybersecurity, certs, internships, security, project, better]
     section: Comments

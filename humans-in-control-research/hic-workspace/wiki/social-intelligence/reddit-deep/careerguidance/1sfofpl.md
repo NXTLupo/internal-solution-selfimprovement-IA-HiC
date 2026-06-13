@@ -21,13 +21,13 @@ chunks:
     key_terms: [projects, careerguidance, growth, independently, integrations, pay, comments, guidance]
     token_count: 402
   - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c1"
-    char_span: [1709, 3532]
+    char_span: [1708, 3531]
     sentence_count: 1
     key_terms: [projects, better, environment, don, need, explaining, companies, position]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/careerguidance/1sfofpl.md#c2"
-    char_span: [3534, 5068]
+    char_span: [3533, 5067]
     sentence_count: 13
     key_terms: [certificate, environment, job, year, employer, realised, already, banking]
     section: Comments

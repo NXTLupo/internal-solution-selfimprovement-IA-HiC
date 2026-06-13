@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c0"
-    char_span: [0, 2049]
+    char_span: [0, 2048]
     sentence_count: 6
     key_terms: [personal, personalfinance, unfortunately, cards, debt, rest, anything, looking]
-    token_count: 479
+    token_count: 478
   - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c1"
-    char_span: [2051, 4144]
+    char_span: [2050, 4143]
     sentence_count: 14
     key_terms: [car, cheaper, "don't", going, money, find, get, rent]
     token_count: 486
   - id: "articles/reddit-deep-r-personalfinance/e3c9fe6bd2.md#c2"
-    char_span: [4146, 5666]
+    char_span: [4145, 5665]
     sentence_count: 10
     key_terms: [learning, learn, learned, excuse, money, back, been, hard]
     token_count: 367

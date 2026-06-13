@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1qte9l8.md#c0"
-    char_span: [0, 1880]
+    char_span: [0, 1879]
     sentence_count: 13
     key_terms: [wait, year, personal, market, sprint, careeradvice, comments, running]
-    token_count: 512
+    token_count: 511
   - id: "social-intelligence/reddit-deep/careeradvice/1qte9l8.md#c1"
-    char_span: [1882, 2981]
+    char_span: [1881, 2980]
     sentence_count: 9
     key_terms: [specific, people, timing, help, like, year, ai-saturated, offerfortune]
     token_count: 269

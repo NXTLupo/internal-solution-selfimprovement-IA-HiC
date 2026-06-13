@@ -23,13 +23,13 @@ chunks:
     key_terms: [admissions, consultant, people, school, apply, consultants, did, grad]
     token_count: 358
   - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c1"
-    char_span: [1551, 2543]
+    char_span: [1550, 2542]
     sentence_count: 7
     key_terms: [deleted, heard, never, programs, anyone, redact, post, real]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/gradschool/1m9ayea.md#c2"
-    char_span: [2545, 4467]
+    char_span: [2544, 4466]
     sentence_count: 17
     key_terms: [heard, consultant, something, get, grad, programs, school, never]
     section: Comments

@@ -26,19 +26,19 @@ chunks:
     key_terms: ["i'm", completely, going, last, tell, day, lab, plan]
     token_count: 431
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c2"
-    char_span: [4011, 5352]
+    char_span: [4010, 5351]
     sentence_count: 14
     key_terms: [rejection, read, comment, says, scared, lackinsocialawarenes, dissertation-pundit, didnt]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c3"
-    char_span: [5354, 6298]
+    char_span: [5353, 6297]
     sentence_count: 8
     key_terms: ["there's", coffee, "she's", woman, ask, good, says, froggyribbits]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tibw1a.md#c4"
-    char_span: [6300, 8215]
+    char_span: [6299, 8214]
     sentence_count: 11
     key_terms: [says, hallway, student, heads, nerdy, "she's", shoot, quick-presence518]
     section: Comments

@@ -28,7 +28,7 @@ chunks:
     key_terms: [student, valedictorian, appreciate, leadership, psychology, waitlisted, haverford, societies]
     token_count: 152
   - id: "social-intelligence/reddit-deep/gradschool/1npnbao.md#c2"
-    char_span: [2652, 3917]
+    char_span: [2651, 3916]
     sentence_count: 9
     key_terms: [research, experience, clinical, electrical-finger-11, participants, phd, interested, empirical]
     section: Comments

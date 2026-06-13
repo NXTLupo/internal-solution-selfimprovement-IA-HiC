@@ -28,37 +28,37 @@ chunks:
     key_terms: [traveling, dating, build, base, lean, want, opportunities, experiences]
     token_count: 233
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c2"
-    char_span: [3385, 4904]
+    char_span: [3384, 4903]
     sentence_count: 12
     key_terms: [citizenship, german, get, "it's", canada, europe, great, bit]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c3"
-    char_span: [4906, 6890]
+    char_span: [4905, 6889]
     sentence_count: 11
     key_terms: ["it's", house, equity, "there's", happen, important, although, "sister's"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c4"
-    char_span: [6892, 8993]
+    char_span: [6891, 8992]
     sentence_count: 12
     key_terms: [property, citizenship, especially, need, canada, place, buy, want]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c5"
-    char_span: [8995, 10842]
+    char_span: [8994, 10841]
     sentence_count: 12
     key_terms: [like, citizenship, europe, until, "it's", lot, yetimaverick, get]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c6"
-    char_span: [10844, 13003]
+    char_span: [10843, 13002]
     sentence_count: 13
     key_terms: [country, poland, ukrainian, probably, context, someone, ukraine, europe]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/digitalnomad/1r93zts.md#c7"
-    char_span: [13005, 14173]
+    char_span: [13004, 14172]
     sentence_count: 9
     key_terms: [canada, here, stabilize, bought, making, moving, month, place]
     section: Comments

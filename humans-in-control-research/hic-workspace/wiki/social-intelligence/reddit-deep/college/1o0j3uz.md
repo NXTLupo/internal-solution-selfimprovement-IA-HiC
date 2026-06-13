@@ -23,7 +23,7 @@ chunks:
     key_terms: [best-colleges-america-2026-f64d590e, college, wsj, https, com, www, education, wsjreddit]
     token_count: 246
   - id: "social-intelligence/reddit-deep/college/1o0j3uz.md#c1"
-    char_span: [901, 1407]
+    char_span: [900, 1406]
     sentence_count: 3
     key_terms: [school, authoritarian, automatically, hannahneedle, university, political, academic, business]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rk4pg8.md
 url: "https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,24 @@ flair: "Resume"
 extracted_at: "2026-06-06T23:20:46.215Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c0"
+    char_span: [0, 2004]
+    sentence_count: 11
+    key_terms: [resume, internships, intern, ats, comments, built, like, use]
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c1"
+    char_span: [2006, 2717]
+    sentence_count: 5
+    key_terms: [resume, experience, formatting, projects, dates, consistent, difference, especially]
+    token_count: 148
+  - id: "social-intelligence/reddit-deep/internships/1rk4pg8.md#c2"
+    char_span: [2732, 3905]
+    sentence_count: 5
+    key_terms: [skills, experience, explaining, recruiters, ddddeeeeg, keywords, section, resume]
+    section: Comments
+    token_count: 295
 ---
-
 # Tips to make your resume ATS friendly
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rk4pg8/tips_to_make_your_resume_ats_friendly/)

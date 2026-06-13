@@ -21,7 +21,7 @@ chunks:
     key_terms: [offer, internships, experience, internship, interviews, comments, "don't", best]
     token_count: 302
   - id: "social-intelligence/reddit-deep/internships/1si4bqh.md#c1"
-    char_span: [1404, 1751]
+    char_span: [1403, 1750]
     sentence_count: 3
     key_terms: [impossible-fix-2552, rare-one-3302, interactive, interviews, "website's", congrats, generate, practice]
     section: Comments

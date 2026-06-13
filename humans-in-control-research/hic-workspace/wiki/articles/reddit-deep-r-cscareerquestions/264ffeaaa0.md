@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md#c0"
-    char_span: [0, 1345]
+    char_span: [0, 2069]
     sentence_count: 4
-    key_terms: [offer, cscareerquestions, "it's", canadian, canada, big, rsus, tech]
-    token_count: 339
+    key_terms: [canada, tech, work, company, offer, cscareerquestions, big, "it's"]
+    token_count: 516
   - id: "articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md#c1"
-    char_span: [1347, 3387]
+    char_span: [2071, 3386]
     sentence_count: 9
-    key_terms: [company, canada, startup, "i'm", tech, canadian, career, growth]
-    token_count: 476
+    key_terms: [company, "i'm", canadian, startup, edit, especially, engineer, software]
+    token_count: 298
   - id: "articles/reddit-deep-r-cscareerquestions/264ffeaaa0.md#c2"
-    char_span: [3389, 4203]
+    char_span: [3388, 4202]
     sentence_count: 7
     key_terms: [big, tech, surelynotlikethis, startup, grad, lead, new, experience]
     token_count: 218

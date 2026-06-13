@@ -31,31 +31,31 @@ chunks:
     key_terms: [fuck, whatever, stop, get-rich-quick, algorithm, bernstein, recommend, gambling]
     token_count: 91
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c3"
-    char_span: [4350, 5352]
+    char_span: [4349, 5351]
     sentence_count: 12
     key_terms: [percent, maxing, big, get, went, year, forgivemefashion, get-rich-quick]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c4"
-    char_span: [5354, 7298]
+    char_span: [5353, 7297]
     sentence_count: 15
     key_terms: [like, roth, backdoor, invest, job, post-tax, staying, maxed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c5"
-    char_span: [7003, 7321]
+    char_span: [7002, 7320]
     sentence_count: 3
     key_terms: [wrong, additionally, satisfaction, absolutely, everything, elsewhere, financial, nothing]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c6"
-    char_span: [7323, 9017]
+    char_span: [7322, 9016]
     sentence_count: 14
     key_terms: [been, good, job, like, get, paid, work, situations]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/financialindependence/1os4cj4.md#c7"
-    char_span: [9019, 10242]
+    char_span: [9018, 10241]
     sentence_count: 9
     key_terms: [job, "i'm", good, huge, work, difference, talking, working]
     section: Comments

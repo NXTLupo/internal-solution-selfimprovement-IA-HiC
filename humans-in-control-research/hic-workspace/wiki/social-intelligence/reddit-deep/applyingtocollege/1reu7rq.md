@@ -21,13 +21,13 @@ chunks:
     key_terms: [bunche, colby, applyingtocollege, program, opportunities, application, admissions, engagement]
     token_count: 299
   - id: "social-intelligence/reddit-deep/applyingtocollege/1reu7rq.md#c1"
-    char_span: [1440, 2431]
+    char_span: [1439, 2430]
     sentence_count: 7
     key_terms: [presidential, scholars, foreign-shopping-139, curiousstatement700, email, got, personalized, bunche]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/applyingtocollege/1reu7rq.md#c2"
-    char_span: [2433, 4079]
+    char_span: [2432, 4078]
     sentence_count: 2
     key_terms: [got, scholarship, brilliant-dealer9965, curiousstatement700, email, ok-resource-5005, presidential, apply]
     section: Comments

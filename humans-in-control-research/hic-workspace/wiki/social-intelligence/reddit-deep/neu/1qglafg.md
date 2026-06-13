@@ -23,7 +23,7 @@ chunks:
     key_terms: [neu, ambassadors, app, comments, details, student, dating, social]
     token_count: 268
   - id: "social-intelligence/reddit-deep/neu/1qglafg.md#c1"
-    char_span: [1098, 2080]
+    char_span: [1097, 2079]
     sentence_count: 4
     key_terms: ["company's", socials, personal, content, app, too, ugc, magmakidreddit]
     section: Comments

@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-machinelearning/d0eeecaa2b.md#c0"
-    char_span: [0, 2305]
+    char_span: [0, 2304]
     sentence_count: 24
     key_terms: [paper, issue, bug, got, machinelearning, quality, hallucinations, model]
-    token_count: 501
+    token_count: 500
   - id: "articles/reddit-machinelearning/d0eeecaa2b.md#c1"
-    char_span: [2307, 3940]
+    char_span: [2306, 3939]
     sentence_count: 12
     key_terms: [paper, community, quality, irresponsible, been, reviewers, because, comment]
     token_count: 318

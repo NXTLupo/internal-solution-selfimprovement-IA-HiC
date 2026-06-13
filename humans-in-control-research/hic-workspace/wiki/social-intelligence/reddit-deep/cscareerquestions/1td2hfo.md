@@ -21,7 +21,7 @@ chunks:
     key_terms: [math, semester, statistical, cscareerquestions, algebra, theory, algorithms, statistics]
     token_count: 270
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td2hfo.md#c1"
-    char_span: [1054, 1767]
+    char_span: [1053, 1766]
     sentence_count: 5
     key_terms: [analysis, algebra, real, algorithms, courses, "what's", asked, mother-click-4465]
     section: Comments

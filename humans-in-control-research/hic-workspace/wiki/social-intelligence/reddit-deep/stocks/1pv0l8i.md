@@ -23,49 +23,49 @@ chunks:
     key_terms: [long-term, comments, google, nvidia, stocks, stock, pick, controversial]
     token_count: 235
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c1"
-    char_span: [1029, 2872]
+    char_span: [1028, 2871]
     sentence_count: 4
     key_terms: [google, company, reddit, year, people, worst, ago, investment]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c2"
-    char_span: [2874, 4623]
+    char_span: [2873, 4622]
     sentence_count: 16
     key_terms: [google, shit, because, bought, transformers, fking, everyone, people]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c3"
-    char_span: [4625, 5005]
+    char_span: [4624, 5004]
     sentence_count: 3
     key_terms: [yk5djvx2mh, wikipedia, anything, designed, geniuses, hardware, invented, position]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c4"
-    char_span: [5007, 7004]
+    char_span: [5006, 7003]
     sentence_count: 11
     key_terms: [google, always, wikipedia, monopoly, against, bought, pmmeuroneweirdtrick, https]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c5"
-    char_span: [6749, 7386]
+    char_span: [6748, 7385]
     sentence_count: 5
     key_terms: [google, etc, throwawaynewc, applications, continuously, companies, immediate, long-term]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c6"
-    char_span: [7388, 9097]
+    char_span: [7387, 9096]
     sentence_count: 13
     key_terms: [nvidia, business, market, time, google, trying, going, buy]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c7"
-    char_span: [9099, 10966]
+    char_span: [9098, 10965]
     sentence_count: 17
     key_terms: [google, nvidia, data, driving, self, yrrrrrrrr, behavior, example]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/stocks/1pv0l8i.md#c8"
-    char_span: [10968, 12942]
+    char_span: [10967, 12941]
     sentence_count: 27
     key_terms: [google, nvidia, tpus, use, twice, multiple, research, atleast]
     section: Comments

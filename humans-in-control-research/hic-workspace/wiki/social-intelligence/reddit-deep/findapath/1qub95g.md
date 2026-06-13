@@ -23,67 +23,67 @@ chunks:
     key_terms: [something, life, obsessed, people, did, rich, tell, findapath]
     token_count: 365
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c1"
-    char_span: [1626, 2573]
+    char_span: [1625, 2572]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c2"
-    char_span: [2576, 4154]
+    char_span: [2575, 4153]
     sentence_count: 7
     key_terms: [sircicsensation, filthy, conventional, comfortable, day, rich, vacations, collar]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c3"
-    char_span: [4156, 5722]
+    char_span: [4155, 5721]
     sentence_count: 14
     key_terms: [years, time, struggling, million, enough, myself, throwawaylurker012, classic-night-611]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c4"
-    char_span: [5724, 7907]
+    char_span: [5723, 7906]
     sentence_count: 27
     key_terms: [investments, something, whole-amount-3577, business, another, startup, years, back]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c5"
-    char_span: [7651, 8447]
+    char_span: [7650, 8446]
     sentence_count: 8
     key_terms: [like, myself, others, whole-amount-3577, get, jobs, time, accumulated]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c6"
-    char_span: [8449, 8914]
+    char_span: [8448, 8913]
     sentence_count: 7
     key_terms: [jumped, interviewed, businesses, confidence, engineer, another, problem, income]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c7"
-    char_span: [8916, 10806]
+    char_span: [8915, 10805]
     sentence_count: 17
     key_terms: [money, answer, sircicsensation, freedom, life, time, business, question]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c8"
-    char_span: [10563, 10985]
+    char_span: [10562, 10984]
     sentence_count: 1
     key_terms: [money, then-feedback7751, performative, financially, fulfillment, business, mattered, mentally]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c9"
-    char_span: [10987, 12501]
+    char_span: [10986, 12500]
     sentence_count: 6
     key_terms: [sacrificed, money, years, trading, stress, system, being, early]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c10"
-    char_span: [12503, 14161]
+    char_span: [12502, 14160]
     sentence_count: 13
     key_terms: [then-feedback7751, did, "don't", worth, because, cutting, "didn't", regret]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/findapath/1qub95g.md#c11"
-    char_span: [14163, 15927]
+    char_span: [14162, 15926]
     sentence_count: 12
     key_terms: ["i'm", trading, mathematicians, money, been, find, like, something]
     section: Comments

@@ -26,31 +26,31 @@ chunks:
     key_terms: ["can't", better, myself, school, scholarships, doing, stop, year]
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c2"
-    char_span: [3879, 5075]
+    char_span: [3878, 5074]
     sentence_count: 7
     key_terms: [school, excellent, law, college, non-selective, state, experiences, flagships]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c3"
-    char_span: [5077, 7100]
+    char_span: [5076, 7099]
     sentence_count: 12
     key_terms: [score, college, end, key-singer-7657, great, counselor, happycava, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c4"
-    char_span: [6810, 8565]
+    char_span: [6809, 8564]
     sentence_count: 11
     key_terms: [purdue, school, jrsygirlsdontpumpgas, classicart3777, better, didn, studying, because]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c5"
-    char_span: [8567, 8941]
+    char_span: [8566, 8940]
     sentence_count: 6
     key_terms: [kids, time, school, extra, get, high, maturity, straight]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkj2ej.md#c6"
-    char_span: [8943, 10642]
+    char_span: [8942, 10641]
     sentence_count: 18
     key_terms: [classicart3777, purdue, life, school, everything, loved, offer, state]
     section: Comments

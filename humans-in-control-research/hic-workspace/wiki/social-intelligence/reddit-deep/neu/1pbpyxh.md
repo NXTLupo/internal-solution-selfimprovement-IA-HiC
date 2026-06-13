@@ -33,7 +33,7 @@ chunks:
     key_terms: [project, course, students, final, team, country, cohort, collaborative]
     token_count: 511
   - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c3"
-    char_span: [6960, 7423]
+    char_span: [6960, 7422]
     sentence_count: 2
     key_terms: [course, stocktelephone11, global-issue, requirement, discussion, everything, experience, one-credit]
     section: Comments

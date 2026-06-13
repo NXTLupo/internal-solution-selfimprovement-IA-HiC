@@ -23,7 +23,7 @@ chunks:
     key_terms: [cycle, uwaterloo, comments, students, system, co-op, new, waterlooworks]
     token_count: 156
   - id: "social-intelligence/reddit-deep/uwaterloo/1q4bt9r.md#c1"
-    char_span: [624, 1017]
+    char_span: [623, 1016]
     sentence_count: 1
     key_terms: [aaaaaaaaaaaaaauuuuuuuuuuuuuuuuuugggggggggggghhhhhhhhhhhhhhhhhhhhhhhhhhh, fengtai, dazedtoaster158, employed, believe, changed, earlier, instead]
     section: Comments

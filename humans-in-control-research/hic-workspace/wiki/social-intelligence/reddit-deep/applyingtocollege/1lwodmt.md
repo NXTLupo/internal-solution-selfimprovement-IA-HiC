@@ -28,43 +28,43 @@ chunks:
     key_terms: [specifically, admissions, interdisciplinary, mega-strategic, conversation, bellweather, interesting, business]
     token_count: 105
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c2"
-    char_span: [2862, 4944]
+    char_span: [2861, 4943]
     sentence_count: 13
     key_terms: [schools, applying, agricultural, people, sentenceicy8629, competitive, majors, state]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c3"
-    char_span: [4946, 6854]
+    char_span: [4945, 6853]
     sentence_count: 12
     key_terms: [ibe, program, different-regret1439, umich, purdue, major, engineering, coe]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c4"
-    char_span: [6579, 7401]
+    char_span: [6578, 7400]
     sentence_count: 8
     key_terms: [honors, program, apply, major, engineering, ibe, business, different-regret1439]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c5"
-    char_span: [7403, 8895]
+    char_span: [7402, 8894]
     sentence_count: 11
     key_terms: [option, complaints, virginians, deadline, uvadeanj, virginia, schools, sharing]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c6"
-    char_span: [8897, 10409]
+    char_span: [8896, 10408]
     sentence_count: 11
     key_terms: [michigan, guess, mega-strategic, doing, stem, ucs, decision, probably]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c7"
-    char_span: [10411, 12408]
+    char_span: [10410, 12407]
     sentence_count: 3
     key_terms: [schools, umich, get, different-regret1439, applicants, michigan, going, want]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lwodmt.md#c8"
-    char_span: [12115, 12609]
+    char_span: [12114, 12608]
     sentence_count: 3
     key_terms: [schools, applicants, michigan, above, mcneiladmissions, non-michigan, otherwise, selective]
     section: Comments

@@ -28,49 +28,49 @@ chunks:
     key_terms: [students, experience, doing, given, guest, learn, long, disheartening]
     token_count: 248
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c2"
-    char_span: [3496, 5282]
+    char_span: [3495, 5281]
     sentence_count: 15
     key_terms: ["it's", sciences, students, health, dollyjade89, experience, different, already]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c3"
-    char_span: [5284, 7101]
+    char_span: [5283, 7100]
     sentence_count: 19
     key_terms: [faculty, back, students, admin, customer-service, grade-grubbing, looked, salary]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c4"
-    char_span: [7103, 8536]
+    char_span: [7102, 8535]
     sentence_count: 11
     key_terms: [students, life-education-8030, staff, thank, get, because, faculty, support]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c5"
-    char_span: [8538, 9465]
+    char_span: [8537, 9464]
     sentence_count: 4
     key_terms: [time, like, students, faculty, life-education-8030, "don't", work, tongue-lashing]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c6"
-    char_span: [9467, 11539]
+    char_span: [9466, 11538]
     sentence_count: 19
     key_terms: [people, online, asynchronous, staff, synchronous, job, desktop-of-a-thousand-files, students]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c7"
-    char_span: [11541, 13713]
+    char_span: [11540, 13712]
     sentence_count: 15
     key_terms: [students, speakers, classes, online, class, "it's", too, fortunate]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c8"
-    char_span: [13715, 15209]
+    char_span: [13714, 15208]
     sentence_count: 15
     key_terms: [call, afraid, course, people, blah, talk, respond, anyone]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/professors/1oy2tst.md#c9"
-    char_span: [15211, 17223]
+    char_span: [15210, 17222]
     sentence_count: 16
     key_terms: [class, students, student, thought, practicum, kimber80, teaching, however]
     section: Comments

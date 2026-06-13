@@ -21,25 +21,25 @@ chunks:
     key_terms: [math, co-ops, people, major, engineering, neu, comments, boston]
     token_count: 309
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c1"
-    char_span: [1284, 3442]
+    char_span: [1283, 3441]
     sentence_count: 11
     key_terms: [people, concentration, math, work, roles, give, here, foundation]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c2"
-    char_span: [3444, 4258]
+    char_span: [3443, 4257]
     sentence_count: 5
     key_terms: [boston, here, live, completely, honest, being, moved, city]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c3"
-    char_span: [4260, 6321]
+    char_span: [4259, 6320]
     sentence_count: 11
     key_terms: [fun-succotash-7160, here, "i'm", math, major, minor, engineering, take]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/neu/1qyu9if.md#c4"
-    char_span: [6323, 8493]
+    char_span: [6322, 8492]
     sentence_count: 16
     key_terms: [semester, math, glitteringmaybe4121, clubs, fun-succotash-7160, courses, instead, major]
     section: Comments

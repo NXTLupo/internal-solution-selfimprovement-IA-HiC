@@ -23,73 +23,73 @@ chunks:
     key_terms: [amazon, amazon-exec-explains-layoff-california-21129467, california, cscareerquestions, cuts, layoffs, game, category]
     token_count: 311
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c1"
-    char_span: [1309, 2369]
+    char_span: [1308, 2368]
     sentence_count: 5
     key_terms: [layoffs, voluntary, followed, market, teeing, means, been, thenewladhere]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c2"
-    char_span: [2371, 4080]
+    char_span: [2370, 4079]
     sentence_count: 7
     key_terms: [org, another, because, year, people, years, day, else]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c3"
-    char_span: [4082, 6138]
+    char_span: [4081, 6137]
     sentence_count: 10
     key_terms: [themselves, internal, pulling, whitchorence, evaluations, bootstraps, struggling, ladder]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c4"
-    char_span: [6140, 7937]
+    char_span: [6139, 7936]
     sentence_count: 9
     key_terms: [headcount, like, devices, alexa, "don't", smart, need, maintain]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c5"
-    char_span: [7939, 9932]
+    char_span: [7938, 9931]
     sentence_count: 11
     key_terms: [aws, amazon, alexa, everyone, whitchorence, org, profitable, engineers]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c6"
-    char_span: [9934, 11383]
+    char_span: [9933, 11382]
     sentence_count: 16
     key_terms: [amazon, efficiency, projects, weekends, working, anyone, making, months]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c7"
-    char_span: [11385, 12258]
+    char_span: [11384, 12257]
     sentence_count: 9
     key_terms: [engineers, company, ended, unfortunately, interested, alignment, codebases, optimized]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c8"
-    char_span: [12260, 13979]
+    char_span: [12259, 13978]
     sentence_count: 14
     key_terms: [deleted, deadlinesglow, doing, last, probably, company, january, number]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c9"
-    char_span: [13981, 15203]
+    char_span: [13980, 15202]
     sentence_count: 8
     key_terms: [business, background, brainpower, obvious, hiring, people, saying, illustrious-pound266]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c10"
-    char_span: [15205, 16867]
+    char_span: [15204, 16866]
     sentence_count: 8
     key_terms: [cscareerquestions, "it's", swes, interest, students, deleted, layoffs, passion]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c11"
-    char_span: [16869, 18684]
+    char_span: [16868, 18683]
     sentence_count: 5
     key_terms: ["can't", market, job, definitely, engineers, software, because, illustrious-pound266]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ol1dfl.md#c12"
-    char_span: [18686, 19890]
+    char_span: [18685, 19889]
     sentence_count: 7
     key_terms: [lower, layoffs, amazon, people, thinks, tight-requirement-15, percentagesouth4173, round]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [internships, experience, interview, wondering, comments, tiktok, planeaccomplished489, round]
     token_count: 118
   - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c1"
-    char_span: [512, 2404]
+    char_span: [511, 2403]
     sentence_count: 19
     key_terms: [interview, bluemoon35, round, planeaccomplished489, team, rounds, like, tech]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c2"
-    char_span: [2406, 4318]
+    char_span: [2405, 4317]
     sentence_count: 8
     key_terms: [round, planeaccomplished489, back, interview, heard, days, did, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1rpllh7.md#c3"
-    char_span: [4113, 5427]
+    char_span: [4112, 5426]
     sentence_count: 8
     key_terms: [interview, seattle, everyone, because, candidates, willing, update, planeaccomplished489]
     section: Comments

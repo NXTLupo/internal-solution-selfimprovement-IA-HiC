@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1skmy9k.md#c0"
-    char_span: [0, 2134]
+    char_span: [0, 2133]
     sentence_count: 5
     key_terms: [job, applications, resume, right, careerguidance, market, exact, "i'd"]
-    token_count: 479
+    token_count: 478
   - id: "social-intelligence/reddit-deep/careerguidance/1skmy9k.md#c1"
-    char_span: [2136, 4320]
+    char_span: [2135, 4319]
     sentence_count: 8
     key_terms: [applications, people, "you're", feels, works, job, networking, submitted]
     token_count: 451

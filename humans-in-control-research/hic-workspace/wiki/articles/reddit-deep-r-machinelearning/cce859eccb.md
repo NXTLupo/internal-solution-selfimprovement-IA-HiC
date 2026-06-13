@@ -15,22 +15,22 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c0"
-    char_span: [0, 2081]
+    char_span: [0, 2080]
     sentence_count: 12
     key_terms: [compression, machinelearning, english, tokens, demonstration, model, capability, experiment]
-    token_count: 440
+    token_count: 439
   - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c1"
-    char_span: [2083, 4446]
+    char_span: [2082, 4445]
     sentence_count: 19
     key_terms: [model, language, compress, context, message, something, user, sample]
     token_count: 513
   - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c2"
-    char_span: [4448, 5804]
+    char_span: [4447, 5803]
     sentence_count: 9
     key_terms: [hidden, tokens, token, space, state, mapping, weights, states]
     token_count: 286
   - id: "articles/reddit-deep-r-machinelearning/cce859eccb.md#c3"
-    char_span: [5807, 6997]
+    char_span: [5806, 6996]
     sentence_count: 7
     key_terms: [tokens, model, compression, dimensional, continuous, understand, radarsat1, thought]
     token_count: 236

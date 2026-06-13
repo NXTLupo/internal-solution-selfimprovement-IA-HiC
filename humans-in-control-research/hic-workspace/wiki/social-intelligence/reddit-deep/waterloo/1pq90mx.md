@@ -23,19 +23,19 @@ chunks:
     key_terms: [waterloo, ayr, commuting, comments, adhesivenessmain1012, co-op, car, realistically]
     token_count: 186
   - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c1"
-    char_span: [757, 2494]
+    char_span: [756, 2493]
     sentence_count: 18
     key_terms: [car, uber, cheaper, greatkangaroo, ayr, commuting, negotiate, co-op]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c2"
-    char_span: [2496, 3640]
+    char_span: [2495, 3639]
     sentence_count: 11
     key_terms: [membership, "it's", communauto, commuting, included, access, months, "don't"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/waterloo/1pq90mx.md#c3"
-    char_span: [3642, 4457]
+    char_span: [3641, 4456]
     sentence_count: 3
     key_terms: [poparide, commuting, environmentalway327, bus, car, cost, "i've", lyft]
     section: Comments

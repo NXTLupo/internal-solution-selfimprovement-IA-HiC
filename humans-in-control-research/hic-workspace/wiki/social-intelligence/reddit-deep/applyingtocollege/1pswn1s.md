@@ -23,25 +23,25 @@ chunks:
     key_terms: [schools, environmental, "i'm", applyingtocollege, policy, considering, suggestions, appreciate]
     token_count: 392
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c1"
-    char_span: [1587, 3789]
+    char_span: [1586, 3788]
     sentence_count: 13
     key_terms: [environmental, impressive-tie-7385, schools, program, great, pygmyowl1, selective, studies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c2"
-    char_span: [3494, 4725]
+    char_span: [3493, 4724]
     sentence_count: 7
     key_terms: [environmental, school, impressive-tie-7385, science, connections, esf, want, definitely]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c3"
-    char_span: [4727, 6147]
+    char_span: [4726, 6146]
     sentence_count: 6
     key_terms: [university, impressive-tie-7385, lacs, ucs, policy, umaine, supplements, list]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pswn1s.md#c4"
-    char_span: [6149, 7087]
+    char_span: [6148, 7086]
     sentence_count: 6
     key_terms: [impressive-tie-7385, wisconsin, sfdc2017, applied, abroad, policy, safety, school]
     section: Comments

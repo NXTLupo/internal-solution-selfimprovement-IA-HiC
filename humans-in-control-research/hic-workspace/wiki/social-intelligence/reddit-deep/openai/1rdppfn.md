@@ -43,7 +43,7 @@ chunks:
     key_terms: [seconds, bit, accuracy, tables, quantization, maintaining, correctly, documents]
     token_count: 457
   - id: "social-intelligence/reddit-deep/openai/1rdppfn.md#c5"
-    char_span: [8713, 10399]
+    char_span: [8713, 10398]
     sentence_count: 6
     key_terms: [system, architecture, orchestrator, characters, blueprint, inference, langgraph, chunking]
     token_count: 445

@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1s8epvd.md#c0"
-    char_span: [0, 1123]
+    char_span: [0, 1122]
     sentence_count: 5
     key_terms: [interviewed, job, jobs, graduating, comments, rejected, anyone, co-op]
     token_count: 270

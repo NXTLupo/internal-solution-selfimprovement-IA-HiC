@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t1ms4x.md#c0"
-    char_span: [0, 1207]
+    char_span: [0, 1206]
     sentence_count: 11
     key_terms: [mainframe, technical, careerguidance, service-based, role, long-term, comments, staying]
-    token_count: 288
+    token_count: 287
 ---
 # Need Advice for Switching Early - Am I Limiting My Career by Staying in Mainframe?
 

@@ -23,19 +23,19 @@ chunks:
     key_terms: [gradadmissions, comments, ananamuffin, reddit-deep, everything, incredibly, screaming, grateful]
     token_count: 154
   - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c1"
-    char_span: [556, 1293]
+    char_span: [555, 1292]
     sentence_count: 7
     key_terms: [congrats, contractually, international, ananamuffin, no-test6484, scholarship, canobeesus, deductions]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c2"
-    char_span: [1295, 3065]
+    char_span: [1294, 3064]
     sentence_count: 16
     key_terms: [congrats, ananamuffin, phd, tutornervous8312, congratulations, engineering, saw, time]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1r8hwiy.md#c3"
-    char_span: [2838, 3221]
+    char_span: [2837, 3220]
     sentence_count: 4
     key_terms: [interview, congratulations, ananamuffin, congratsss, interviews, motivating, contacted, september]
     section: Comments

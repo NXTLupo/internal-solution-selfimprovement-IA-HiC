@@ -21,13 +21,13 @@ chunks:
     key_terms: [global, international, introduction, pols, american, comments, class, neu]
     token_count: 249
   - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c1"
-    char_span: [959, 2795]
+    char_span: [958, 2794]
     sentence_count: 10
     key_terms: [classes, intro, took, american, english, session, summer, taking]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/neu/1rczzn2.md#c2"
-    char_span: [2797, 4763]
+    char_span: [2796, 4762]
     sentence_count: 21
     key_terms: [classes, take, requirements, work, class, don, easy, like]
     section: Comments

@@ -21,49 +21,49 @@ chunks:
     key_terms: [people, going, connections, applyingtocollege, top, colleges, wealth, generational]
     token_count: 508
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c1"
-    char_span: [2292, 4064]
+    char_span: [2291, 4063]
     sentence_count: 8
     key_terms: [extension-inside-826, like, sometimes, fst8y9, league, saying, school, social]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c2"
-    char_span: [4066, 6084]
+    char_span: [4065, 6083]
     sentence_count: 17
     key_terms: [alumni, people, network, generational, wealth, kids, post, industry]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c3"
-    char_span: [6086, 8421]
+    char_span: [6085, 8420]
     sentence_count: 18
     key_terms: [students, rich, networking, people, lol, connections, alumni, ivy]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c4"
-    char_span: [8423, 9936]
+    char_span: [8422, 9935]
     sentence_count: 7
     key_terms: [connections, people, rich, neuroltree, certainly, extremely, apparent, alumni]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c5"
-    char_span: [9938, 11667]
+    char_span: [9937, 11666]
     sentence_count: 12
     key_terms: [southern-werewolf386, successful, social, connections, gets, something, weekends, already]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c6"
-    char_span: [11669, 12730]
+    char_span: [11668, 12729]
     sentence_count: 8
     key_terms: [students, student, income, middle, school, doing, terms, full]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c7"
-    char_span: [12732, 14779]
+    char_span: [12731, 14778]
     sentence_count: 15
     key_terms: [wealthy, rich, colleges, middle, people, like, look, classmates]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spnzyr.md#c8"
-    char_span: [14781, 15294]
+    char_span: [14780, 15293]
     sentence_count: 6
     key_terms: [willing, years, good, connections, department, professor, company, getting]
     section: Comments

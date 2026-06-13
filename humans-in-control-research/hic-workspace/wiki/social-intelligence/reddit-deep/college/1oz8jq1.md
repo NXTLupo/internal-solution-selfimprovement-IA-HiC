@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1oz8jq1.md
 url: "https://www.reddit.com/r/college/comments/1oz8jq1/i_ruined_my_college_life/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,49 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.568Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c0"
+    char_span: [0, 1467]
+    sentence_count: 13
+    key_terms: ["don't", "i'm", college, years, comments, writing, anyone, grades]
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c1"
+    char_span: [1482, 2160]
+    sentence_count: 6
+    key_terms: [get, grades, intelligentwill2665, ask, too, differently, experience, counselor]
+    section: Comments
+    token_count: 155
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c2"
+    char_span: [2162, 4257]
+    sentence_count: 12
+    key_terms: [been, get, testing, psychiatrist, major, adhd, help, like]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c3"
+    char_span: [3969, 4933]
+    sentence_count: 10
+    key_terms: [com, help, psychologytoday, difficulties, student, support, testing, center]
+    section: Comments
+    token_count: 220
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c4"
+    char_span: [4936, 6584]
+    sentence_count: 15
+    key_terms: [start, day, try, motivation, difficult, semester, routine, around]
+    section: Comments
+    token_count: 360
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c5"
+    char_span: [6587, 8612]
+    sentence_count: 14
+    key_terms: [college, going, back, hard, look, time, work, everyone]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/college/1oz8jq1.md#c6"
+    char_span: [8370, 10164]
+    sentence_count: 21
+    key_terms: [college, scholarships, like, talk, tutoring, already, parents, trying]
+    section: Comments
+    token_count: 440
 ---
-
 # I ruined my college life.
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oz8jq1/i_ruined_my_college_life/)

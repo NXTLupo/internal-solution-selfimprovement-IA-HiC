@@ -23,49 +23,49 @@ chunks:
     key_terms: [agents, building, comments, browser, michael, cursor, openai, source]
     token_count: 188
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c1"
-    char_span: [785, 2439]
+    char_span: [784, 2438]
     sentence_count: 6
     key_terms: [efff88b1e3fa3e5ea671d40064cca12073ad400c, browser, code, https, recoveringasshole0, done, less, png]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c2"
-    char_span: [2441, 3569]
+    char_span: [2440, 3568]
     sentence_count: 8
     key_terms: [dependencies, code, work, agents, lines, right, png, marathonhampster]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c3"
-    char_span: [3571, 4577]
+    char_span: [3570, 4576]
     sentence_count: 8
     key_terms: [job, project, zerozachzilchzealot, cause, care, huge, new, redvelvetcake42]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c4"
-    char_span: [4579, 6218]
+    char_span: [4578, 6217]
     sentence_count: 12
     key_terms: [amazing, zerozachzilchzealot, fucking, tech, reference, browser, person, sounds]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c5"
-    char_span: [6220, 8056]
+    char_span: [6219, 8055]
     sentence_count: 13
     key_terms: [browser, work, debatable, good, whether, demonstration, point, code]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c6"
-    char_span: [8058, 9999]
+    char_span: [8057, 9998]
     sentence_count: 9
     key_terms: [lines, improvement, practical, browser, chatgpt, growth, linear, paying]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c7"
-    char_span: [10001, 11887]
+    char_span: [10000, 11886]
     sentence_count: 3
     key_terms: [ycombinator, code, software, https, lines, com, day, item]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/openai/1qgbfpb.md#c8"
-    char_span: [11889, 12373]
+    char_span: [11888, 12372]
     sentence_count: 1
     key_terms: [d1a7172e7ef6dc3d67472afb23ad2511071380d4, recoveringasshole0, insert-trend-here, png, bxkxukpmsbeg1, screenshot, archetype, existence]
     section: Comments

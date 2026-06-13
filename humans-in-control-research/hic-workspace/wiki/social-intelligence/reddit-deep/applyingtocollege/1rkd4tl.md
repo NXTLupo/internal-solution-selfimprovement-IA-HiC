@@ -18,27 +18,27 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c0"
-    char_span: [0, 1489]
+    char_span: [0, 1488]
     sentence_count: 12
     key_terms: [school, applyingtocollege, best, take, schools, years, application, comments]
-    token_count: 361
+    token_count: 360
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c1"
-    char_span: [1491, 3882]
+    char_span: [1490, 3881]
     sentence_count: 14
     key_terms: [year, school, college, something, club, unfortunately, years, fundraising]
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c2"
-    char_span: [3884, 6053]
+    char_span: [3883, 6052]
     sentence_count: 11
     key_terms: [volunteer, school, year, outside, honors, summer, years, job]
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c3"
-    char_span: [6055, 7973]
+    char_span: [6054, 7972]
     sentence_count: 12
     key_terms: [honors, english, class, theology, anyway, since, take, required]
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rkd4tl.md#c4"
-    char_span: [7975, 8855]
+    char_span: [7974, 8854]
     sentence_count: 6
     key_terms: [english, lit, challenge, writing, anyway, chance, grades, don]
     token_count: 205

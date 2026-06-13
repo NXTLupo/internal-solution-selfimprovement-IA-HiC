@@ -23,73 +23,73 @@ chunks:
     key_terms: [stock-market-dow-record-economy-jobs-inflation, inflation, cuts, rate, investing, business, comments, consumer]
     token_count: 285
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c1"
-    char_span: [1374, 3393]
+    char_span: [1373, 3392]
     sentence_count: 12
     key_terms: [market, indicator, "it's", economy, forward, stock, depression, officially]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c2"
-    char_span: [3097, 3562]
+    char_span: [3096, 3561]
     sentence_count: 3
     key_terms: [market, lower, rates, immodestpolitician, gerrymandarling, algorithm, companies, indicator]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c3"
-    char_span: [3564, 5244]
+    char_span: [3563, 5243]
     sentence_count: 8
     key_terms: [market, the-big-picture, sp500, steveslewis, shiller-pe, inflation, currency, weakness]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c4"
-    char_span: [5246, 6371]
+    char_span: [5245, 6370]
     sentence_count: 6
     key_terms: [stock, currency, weakness, "they're", workers, collar, cause, like]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c5"
-    char_span: [6373, 8330]
+    char_span: [6372, 8329]
     sentence_count: 20
     key_terms: [people, less, service, retail, earnings, cancels, economy, costco]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c6"
-    char_span: [8332, 9243]
+    char_span: [8331, 9242]
     sentence_count: 6
     key_terms: [stock, buybacks, company, shares, weeniswrinkle, share, artificial, higher]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c7"
-    char_span: [9245, 11354]
+    char_span: [9244, 11353]
     sentence_count: 11
     key_terms: [market, retail, buy, cash, "it's", traders, buying, stock]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c8"
-    char_span: [11037, 11615]
+    char_span: [11036, 11614]
     sentence_count: 4
     key_terms: [market, buy, pump, counterparts, encourages, psychology, reinforces, afternoon]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c9"
-    char_span: [11617, 13538]
+    char_span: [11616, 13537]
     sentence_count: 12
     key_terms: [price, like, being, buying, market, prices, volume, institutions]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c10"
-    char_span: [13540, 15167]
+    char_span: [13539, 15166]
     sentence_count: 11
     key_terms: [rising, going, stock, year, because, markets, dollar, future]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c11"
-    char_span: [15169, 17132]
+    char_span: [15168, 17131]
     sentence_count: 16
     key_terms: [going, been, because, market, reddit, lookipickedausername, zestyclose-living-80, games]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1ni6kr5.md#c12"
-    char_span: [17134, 19138]
+    char_span: [17133, 19137]
     sentence_count: 17
     key_terms: [discretionary, less, spending, market, top, worth, dollars, economy]
     section: Comments

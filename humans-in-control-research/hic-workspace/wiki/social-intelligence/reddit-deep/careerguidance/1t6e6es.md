@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t6e6es.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6e6es/career_path_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.898Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6e6es.md#c0"
+    char_span: [0, 1505]
+    sentence_count: 6
+    key_terms: [engineering, careerguidance, career, opportunities, mechatronics, work, biomedical, university]
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6e6es.md#c1"
+    char_span: [1520, 2229]
+    sentence_count: 7
+    key_terms: [since, tech, work, introductory, mechatronics, thepandapear, engineering, interesting]
+    section: Comments
+    token_count: 146
 ---
-
 # ? Career path advice
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6e6es/career_path_advice/)

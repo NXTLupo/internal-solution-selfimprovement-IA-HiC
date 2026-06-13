@@ -21,49 +21,49 @@ chunks:
     key_terms: [new, chicago, offer, cscareerquestions, edit, grad, pay, expectations]
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c1"
-    char_span: [1660, 3320]
+    char_span: [1659, 3319]
     sentence_count: 8
     key_terms: [faang, senior, level, base, new, startup, decade, pretty]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c2"
-    char_span: [3322, 4732]
+    char_span: [3321, 4731]
     sentence_count: 10
     key_terms: [offer, expectations, "you'd", job, take, mathmokiwi, surprised, intern]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c3"
-    char_span: [4734, 6756]
+    char_span: [4733, 6755]
     sentence_count: 16
     key_terms: [offer, get, new, take, sponsoring, companies, extended, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c4"
-    char_span: [6474, 7019]
+    char_span: [6473, 7018]
     sentence_count: 5
     key_terms: [pheonixblade9, expectations, negotiation, sponsorship, experience, companies, continued, greencard]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c5"
-    char_span: [7021, 8915]
+    char_span: [7020, 8914]
     sentence_count: 14
     key_terms: [grad, new, market, years, real, experience, reasonable, surprised]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c6"
-    char_span: [8917, 10297]
+    char_span: [8916, 10296]
     sentence_count: 8
     key_terms: [chicago, definitely, low, sponsorship, difference, deleted, living, suburb]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c7"
-    char_span: [10299, 11785]
+    char_span: [10298, 11784]
     sentence_count: 10
     key_terms: [company, sponsoring, salary, non, benefits, downtown, starting, chicago]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ndutfx.md#c8"
-    char_span: [11787, 13556]
+    char_span: [11786, 13555]
     sentence_count: 12
     key_terms: [suburbs, senior, salty-ganache3068, low, getting, level, sponsorship, delusional]
     section: Comments

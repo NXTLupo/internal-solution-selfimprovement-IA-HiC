@@ -23,37 +23,37 @@ chunks:
     key_terms: [like, college, money, technically, feel, comments, paycheck, anyone]
     token_count: 254
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c1"
-    char_span: [1128, 3124]
+    char_span: [1127, 3123]
     sentence_count: 17
     key_terms: [money, experience, "i'm", like, always, because, relaxed, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c2"
-    char_span: [2871, 3492]
+    char_span: [2870, 3491]
     sentence_count: 4
     key_terms: [school, non-financial, electrician, obligations, financial, interests, kragaster, something]
     section: Comments
     token_count: 143
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c3"
-    char_span: [3494, 4579]
+    char_span: [3493, 4578]
     sentence_count: 9
     key_terms: [best, feel, like, security, yourself, invest, "can't", lot]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c4"
-    char_span: [4581, 6666]
+    char_span: [4580, 6665]
     sentence_count: 17
     key_terms: [food, perishables, don, live, time, wife, work, paycheck]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c5"
-    char_span: [6408, 7043]
+    char_span: [6407, 7042]
     sentence_count: 7
     key_terms: [emergency, sinking, budget, costs, funds, point, etc, like]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/college/1ohgn4i.md#c6"
-    char_span: [7045, 7791]
+    char_span: [7044, 7790]
     sentence_count: 7
     key_terms: [money, being, able, month-to-month, conceptualize, subscriptions, lackluster, retirement]
     section: Comments

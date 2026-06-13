@@ -28,7 +28,7 @@ chunks:
     key_terms: [online, get, part, opportunities, candidates, everything, networking, education]
     token_count: 130
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kw5mrk.md#c2"
-    char_span: [2398, 4057]
+    char_span: [2397, 4056]
     sentence_count: 16
     key_terms: [aspects, domains, masters, someone, person, illustrious-pound266, great, here]
     section: Comments

@@ -33,49 +33,49 @@ chunks:
     key_terms: [fucking, exam, because, english, pass, take, fucker, "can't"]
     token_count: 247
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c3"
-    char_span: [4423, 5803]
+    char_span: [4422, 5802]
     sentence_count: 11
     key_terms: [problems, questions, "you're", doing, alot, understand, practice, remember]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c4"
-    char_span: [5805, 7077]
+    char_span: [5804, 7076]
     sentence_count: 12
     key_terms: [approach, engineer, rewrite, easier, repeat, doing, least, get]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c5"
-    char_span: [7079, 9221]
+    char_span: [7078, 9220]
     sentence_count: 20
     key_terms: [good, something, need, calculus, understanding, parts, start, developing]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c6"
-    char_span: [9223, 11454]
+    char_span: [9222, 11453]
     sentence_count: 21
     key_terms: [silent-warning9028, good, rewriting, anything, engineer, practice, problems, formula]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c7"
-    char_span: [11456, 13130]
+    char_span: [11455, 13129]
     sentence_count: 10
     key_terms: [don, memorization, get, till, engineers, calculus, practice, problems]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c8"
-    char_span: [13132, 15194]
+    char_span: [13131, 15193]
     sentence_count: 17
     key_terms: [calculus, blocks, basic, engineering, "it's", like, everything, building]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c9"
-    char_span: [15196, 17367]
+    char_span: [15195, 17366]
     sentence_count: 15
     key_terms: [engineering, calculus, understanding, explanation, job, kind, use, experience]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lgxnv9.md#c10"
-    char_span: [17369, 18861]
+    char_span: [17368, 18860]
     sentence_count: 14
     key_terms: [silent-warning9028, plzhqobowtqdmsr9k-rj53dwvrmyo3t5yr, instantbeef, able, week, calculus, memorize, being]
     section: Comments

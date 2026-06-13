@@ -23,13 +23,13 @@ chunks:
     key_terms: [everything, applyingtocollege, feel, like, genuinely, anything, comments, hopeless]
     token_count: 282
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2zbiu.md#c1"
-    char_span: [1248, 2668]
+    char_span: [1247, 2667]
     sentence_count: 17
     key_terms: [college, community, focusing, yourself, better, health, listen, mental]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2zbiu.md#c2"
-    char_span: [2670, 4315]
+    char_span: [2669, 4314]
     sentence_count: 12
     key_terms: [applyingtocollege, essays, help, wiki, please, reddit, collegeessays, psychiatrist]
     section: Comments

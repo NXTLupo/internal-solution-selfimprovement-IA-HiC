@@ -23,19 +23,19 @@ chunks:
     key_terms: [money, spending, personalfinance, discipline, comments, problem, advice, individual-turn6417]
     token_count: 221
   - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c1"
-    char_span: [902, 2378]
+    char_span: [901, 2377]
     sentence_count: 17
     key_terms: [spending, spend, good, want, eating, days, expensive, something]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c2"
-    char_span: [2382, 4346]
+    char_span: [2381, 4345]
     sentence_count: 14
     key_terms: [money, personal, cash, month, quick, eat, plan, envelopes]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/personalfinance/1s1y2vr.md#c3"
-    char_span: [4348, 5110]
+    char_span: [4347, 5109]
     sentence_count: 5
     key_terms: [others, "that's", extra, "isn't", oktechnician636, flexibility, practically, sustainable]
     section: Comments

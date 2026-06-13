@@ -28,19 +28,19 @@ chunks:
     key_terms: [circumstance, completely, understand, financial, subreddit, majority, strategy, reasons]
     token_count: 41
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c2"
-    char_span: [2285, 4119]
+    char_span: [2284, 4118]
     sentence_count: 7
     key_terms: [merit, safeties, state, good, different, prestige, deleted, iris700]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c3"
-    char_span: [3949, 5929]
+    char_span: [3948, 5928]
     sentence_count: 10
     key_terms: [friends, safety, admission, gpa, apply, based, got, elixirceo]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qrog2x.md#c4"
-    char_span: [5669, 6828]
+    char_span: [5668, 6827]
     sentence_count: 6
     key_terms: [safety, different, people, school, apply, don, safeties, strategy]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [careeradvice, comments, reddit-deep, automate, learned, posted, reddit, search]
     token_count: 90
   - id: "social-intelligence/reddit-deep/careeradvice/1n0pl7e.md#c1"
-    char_span: [311, 845]
+    char_span: [310, 844]
     sentence_count: 4
     key_terms: [like, tool, use, amiriacentani, specifically, considering, interesting, interested]
     section: Comments

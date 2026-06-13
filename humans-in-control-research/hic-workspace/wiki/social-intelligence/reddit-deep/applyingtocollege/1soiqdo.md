@@ -23,19 +23,19 @@ chunks:
     key_terms: [school, umich, applyingtocollege, in-state, pharmacy, state, get, want]
     token_count: 357
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c1"
-    char_span: [1460, 3525]
+    char_span: [1459, 3524]
     sentence_count: 18
     key_terms: [years, debt, lot, college, school, "you'll", least, like]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c2"
-    char_span: [3527, 5373]
+    char_span: [3526, 5372]
     sentence_count: 14
     key_terms: [school, state, umich, get, want, education, in-state, pharmacy]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soiqdo.md#c3"
-    char_span: [5375, 6816]
+    char_span: [5374, 6815]
     sentence_count: 10
     key_terms: [school, state, pharmacist, mph, people, imaginary-sherbet370, busy-particular5119, maybe]
     section: Comments

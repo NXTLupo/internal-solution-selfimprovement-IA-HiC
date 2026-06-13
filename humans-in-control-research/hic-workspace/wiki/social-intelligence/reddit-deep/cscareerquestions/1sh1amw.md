@@ -23,55 +23,55 @@ chunks:
     key_terms: [customer, bulletpoint, resume, cscareerquestions, duties, does, philosophy, recruiting]
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c1"
-    char_span: [1732, 2470]
+    char_span: [1731, 2469]
     sentence_count: 7
     key_terms: [skkkrrrrrrrrrrrrrrrr, work, impact, companies, people, disconnected, structural, principle]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c2"
-    char_span: [2472, 4517]
+    char_span: [2471, 4516]
     sentence_count: 18
     key_terms: [company, resume, companies, metrics, asked, tech, questions, acquired]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c3"
-    char_span: [4519, 6380]
+    char_span: [4518, 6379]
     sentence_count: 12
     key_terms: [recruiter, certain, quantifiable, get, experience, lluciferl, rejection, coverage]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c4"
-    char_span: [6382, 8597]
+    char_span: [6381, 8596]
     sentence_count: 13
     key_terms: [recruiter, resume, definitive, companies, different, answer, "isn't", role]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c5"
-    char_span: [8599, 10250]
+    char_span: [8598, 10249]
     sentence_count: 11
     key_terms: [candidates, questions, inauthentic, like, rejected, answers, cookie, cutter]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c6"
-    char_span: [10252, 12592]
+    char_span: [10251, 12591]
     sentence_count: 13
     key_terms: [people, candidates, recruiters, work, bullshit, looking, coming, intelligence]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c7"
-    char_span: [12594, 14277]
+    char_span: [12593, 14276]
     sentence_count: 11
     key_terms: ["i'm", sure, because, claims, find, candidates, recruiters, azuredota]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c8"
-    char_span: [14279, 16526]
+    char_span: [14278, 16525]
     sentence_count: 20
     key_terms: [people, resume, "you're", reconstruct, applicants, experience, recruiters, understand]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh1amw.md#c9"
-    char_span: [16528, 18089]
+    char_span: [16527, 18088]
     sentence_count: 17
     key_terms: [did, responsibilities, people, role, want, candidate, qualified, business]
     section: Comments

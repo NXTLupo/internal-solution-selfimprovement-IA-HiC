@@ -23,25 +23,25 @@ chunks:
     key_terms: [research, papers, gradschool, returning, seriously, comments, thoughts, become]
     token_count: 441
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c1"
-    char_span: [1872, 3774]
+    char_span: [1871, 3773]
     sentence_count: 22
     key_terms: [research, phd, "you're", opportunities, find, job, like, lot]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c2"
-    char_span: [3779, 5211]
+    char_span: [3778, 5210]
     sentence_count: 12
     key_terms: [phd, "don't", want, year, decide, finish, "you're", human-anything5295]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c3"
-    char_span: [5213, 7306]
+    char_span: [5212, 7305]
     sentence_count: 14
     key_terms: [balance, through, time, hobbies, like, need, outdoorsy, research]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/gradschool/1lnudw5.md#c4"
-    char_span: [7308, 7718]
+    char_span: [7307, 7717]
     sentence_count: 2
     key_terms: [environment, institution, counsellor, realistic, academia, consider, entering, students]
     section: Comments

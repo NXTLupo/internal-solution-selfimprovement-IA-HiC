@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, student, loans, comments, little, regret, taking, illustrious-mango536]
     token_count: 357
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c1"
-    char_span: [1525, 3412]
+    char_span: [1524, 3411]
     sentence_count: 13
     key_terms: [education, loans, howlingfantods5564, college, "don't", get, loan, pay]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c2"
-    char_span: [3414, 4456]
+    char_span: [3413, 4455]
     sentence_count: 6
     key_terms: [debt, loans, part-time, possible, college, student, campus, people]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c3"
-    char_span: [4458, 6563]
+    char_span: [4457, 6562]
     sentence_count: 14
     key_terms: [loans, student, year, total, high, loan, take, wasn]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1qlibs9.md#c4"
-    char_span: [6329, 7823]
+    char_span: [6328, 7822]
     sentence_count: 14
     key_terms: [college, years, degree, regret, school, loans, debt, student]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [experience, high-level, uwaterloo, comments, securing, chances, improve, looking]
     token_count: 242
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c1"
-    char_span: [968, 3147]
+    char_span: [967, 3146]
     sentence_count: 15
     key_terms: [projects, points, stretchedwasfresh, bullet, apply, take, externally, high-level]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c2"
-    char_span: [3149, 5061]
+    char_span: [3148, 5060]
     sentence_count: 18
     key_terms: [quant, year, clean-ad-7364, mean, top, waterloo, results, unless]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c3"
-    char_span: [4828, 6104]
+    char_span: [4827, 6103]
     sentence_count: 8
     key_terms: [striking-setting-560, quant, projects, put, especially, transcript, necessary, probably]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/uwaterloo/1q2ghe9.md#c4"
-    char_span: [6106, 7172]
+    char_span: [6105, 7171]
     sentence_count: 6
     key_terms: [good, learning, awards, concepts, section, "you're", funrecommendation298, misakamikasa10086]
     section: Comments

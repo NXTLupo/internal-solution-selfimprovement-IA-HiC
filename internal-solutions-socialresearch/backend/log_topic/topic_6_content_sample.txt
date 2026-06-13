@@ -1,0 +1,13 @@
+Topic 6 - Content Sample
+Number of content items: 22
+Top words: account, transaction, money, purchase, settlement fund, vanguard, brokerage
+
+Content 1 (length: 219 chars):
+Click on your account. Click on Transact. Select Buy Mutual Funds or Trade ETFs and Stocks. From there, you're just buying what you want and the amount available for purchases is just the amount in your Settlement Fund.
+
+Content 2 (length: 433 chars):
+As to your question, if you successfully deposited $200 into your Vanguard brokerage account, it should still be there in some form. What does the account balance say at the top level? Vanguard brokerage accounts don't hold 'cash' -- any funds not allocated to a particular investment are held in a money market account (VMFXX) until you need them, but that is for all intents and purposes basically cash with a decent interest rate.
+
+Content 3 (length: 863 chars):
+Buying funds through my Roth IRA I thought it was possible to purchase funds through my Vanguard Roth IRA account. But When I try to do so, it tells me I must go through my settlement fund to do so as I've already maxed out my contribution for this year. Understandable. But I cannot seem to access this option to use the settlement on the "trade mutual funds" page for this account. I have more than enough money in the Roth settlements fund, and no pending purchases. So, the money is there. I can see it on the page. I just cannot access the option to use this as a funding source. Does anyone have any advice? Am I incorrect in thinking I can purchase separate funds through my Rother IRA brokerage account? It might actually be simpler than you think. You don't have to explicitly select the Settlement Fund for your purchase, it just happpens automatically.
+

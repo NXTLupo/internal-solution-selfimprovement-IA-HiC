@@ -28,25 +28,25 @@ chunks:
     key_terms: [purchasing, time, private, afford, cannot, equity, firms, homes]
     token_count: 222
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c2"
-    char_span: [2882, 4662]
+    char_span: [2881, 4661]
     sentence_count: 12
     key_terms: [income, market, https, i2at3msc-se, "it's", old, household, billions]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c3"
-    char_span: [4664, 6766]
+    char_span: [4663, 6765]
     sentence_count: 18
     key_terms: [right, want, going, need, because, housing, "you're", asset]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c4"
-    char_span: [6768, 8697]
+    char_span: [6767, 8696]
     sentence_count: 23
     key_terms: [stocks, market, eastern-joke-7537, cash, get, keep, live, hopefully]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/genz/1nt4wrb.md#c5"
-    char_span: [8699, 10186]
+    char_span: [8698, 10185]
     sentence_count: 13
     key_terms: [freakazoidon, live, million, state, big, buy, did, etc]
     section: Comments

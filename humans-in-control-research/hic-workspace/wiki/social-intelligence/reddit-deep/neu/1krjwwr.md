@@ -23,7 +23,7 @@ chunks:
     key_terms: [pre-med, courses, science, health, classes, summer, co-ops, northeastern]
     token_count: 434
   - id: "social-intelligence/reddit-deep/neu/1krjwwr.md#c1"
-    char_span: [1883, 2679]
+    char_span: [1882, 2678]
     sentence_count: 5
     key_terms: [credit, experience, semester, summer, going, big, coop, get]
     section: Comments

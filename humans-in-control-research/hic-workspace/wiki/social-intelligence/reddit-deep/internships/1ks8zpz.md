@@ -28,13 +28,13 @@ chunks:
     key_terms: [through, apply, considering, here, experience, market, master, hurts]
     token_count: 315
   - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c2"
-    char_span: [3498, 4554]
+    char_span: [3497, 4553]
     sentence_count: 7
     key_terms: [congratulations, interview, deleted, round, complex-poet-6809, keytradition2051, unfortunately, questioning]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/internships/1ks8zpz.md#c3"
-    char_span: [4556, 5444]
+    char_span: [4555, 5443]
     sentence_count: 9
     key_terms: [deleted, thanks, international, offer, linkedin, revoked, student, apply]
     section: Comments

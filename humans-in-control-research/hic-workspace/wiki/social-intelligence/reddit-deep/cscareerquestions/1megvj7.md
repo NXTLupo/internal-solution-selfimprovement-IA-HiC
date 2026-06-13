@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, cscareerquestions, swe, dont, interview, comments, "master's", worked]
     token_count: 254
   - id: "social-intelligence/reddit-deep/cscareerquestions/1megvj7.md#c1"
-    char_span: [1058, 1956]
+    char_span: [1057, 1955]
     sentence_count: 9
     key_terms: [swe, especially, "you're", superb-education-992, genai, roles, bar, visa]
     section: Comments

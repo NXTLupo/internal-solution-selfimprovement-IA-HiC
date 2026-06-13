@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, graduation, colleges, comments, students, degree, increasingly, institutions]
     token_count: 145
   - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c1"
-    char_span: [626, 2633]
+    char_span: [625, 2632]
     sentence_count: 12
     key_terms: [engineering, understand, semester, because, degree, semesters, computer, required]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c2"
-    char_span: [2635, 4702]
+    char_span: [2634, 4701]
     sentence_count: 13
     key_terms: [people, education, "can't", credits, definitely, higher, specifically, well-rounded]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/college/1ti8p0z.md#c3"
-    char_span: [4704, 5839]
+    char_span: [4703, 5838]
     sentence_count: 7
     key_terms: [colleges, shorter, student, degree, adapt, howdoievenenglish, help, certifications]
     section: Comments

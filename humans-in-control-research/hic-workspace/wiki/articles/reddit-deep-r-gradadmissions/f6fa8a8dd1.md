@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/f6fa8a8dd1.md#c0"
-    char_span: [0, 1906]
+    char_span: [0, 1905]
     sentence_count: 14
     key_terms: [experience, because, gradadmissions, myself, school, apply, roles, years]
-    token_count: 423
+    token_count: 422
   - id: "articles/reddit-deep-r-gradadmissions/f6fa8a8dd1.md#c1"
-    char_span: [1908, 2300]
+    char_span: [1907, 2299]
     sentence_count: 3
     key_terms: [certificates, diplomas, grad, swissalpseal, especially, comments, reapply, studies]
     token_count: 97

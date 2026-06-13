@@ -23,7 +23,7 @@ chunks:
     key_terms: [blacklist, candidates, uwaterloo, salaries, co-operative-education, experience, https, mod]
     token_count: 504
   - id: "social-intelligence/reddit-deep/uwaterloo/1q39nma.md#c1"
-    char_span: [2009, 3286]
+    char_span: [2008, 3285]
     sentence_count: 1
     key_terms: [anyone, watrank, watrank-devs, heard, back, com, decisions, interview]
     section: Comments

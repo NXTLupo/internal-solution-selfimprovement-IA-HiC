@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, managerial, comments, job, role, work, reddit-deep, delegates]
     token_count: 123
   - id: "social-intelligence/reddit-deep/careerguidance/1rnbu4n.md#c1"
-    char_span: [489, 1063]
+    char_span: [488, 1062]
     sentence_count: 3
     key_terms: [taboverspaces, work, perform, middle-management, less, accordingly, management, recognized]
     section: Comments

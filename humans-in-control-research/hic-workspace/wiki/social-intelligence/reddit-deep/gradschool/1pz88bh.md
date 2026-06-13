@@ -23,31 +23,31 @@ chunks:
     key_terms: [gradschool, comments, grad, jobs, few-sky-3793, reddit-deep, full-time, "master's"]
     token_count: 92
   - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c1"
-    char_span: [363, 2377]
+    char_span: [362, 2376]
     sentence_count: 17
     key_terms: [work, get, tutors, tutor, "won't", grad, time, part]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c2"
-    char_span: [2379, 4464]
+    char_span: [2378, 4463]
     sentence_count: 8
     key_terms: [disastrous-pair-9466, worked, few-sky-3793, good, kept, phd, assistant, positions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c3"
-    char_span: [4216, 4860]
+    char_span: [4215, 4859]
     sentence_count: 4
     key_terms: [either, worked, disastrous-pair-9466, work, consulting, academics, coworkers, probably]
     section: Comments
     token_count: 163
   - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c4"
-    char_span: [4862, 6787]
+    char_span: [4861, 6786]
     sentence_count: 8
     key_terms: [full-time, few-sky-3793, research, because, grad, work, probably, cflow26]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1pz88bh.md#c5"
-    char_span: [6520, 8240]
+    char_span: [6519, 8239]
     sentence_count: 10
     key_terms: [work, program, serotonin, because, meowmeowbiatch, few-sky-3793, flexibility, time]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sfk6xv.md#c0"
-    char_span: [0, 348]
+    char_span: [0, 347]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, especially, aerospace, student, posted]
-    token_count: 91
+    token_count: 90
 ---
 # Final year Aerospace Engineering student (UK) — where do I even start with jobs, especially in Japan?
 

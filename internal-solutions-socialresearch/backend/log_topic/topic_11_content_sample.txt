@@ -1,0 +1,16 @@
+Topic 11 - Content Sample
+Number of content items: 24
+Top words: dividends, year, tax, gains, income, capital gains, exempt
+
+Content 1 (length: 209 chars):
+I'm working on taxes to make sure I'm not under-withholding.  Had a sizable (for me) LT capital gains event in August.  I looked at the monthly statements and was surprised that all they showed were dividends.
+
+Content 2 (length: 146 chars):
+For VMFXX it's 66.61%. so if you had $10000 of dividends from VMFXX you would do $10000 x 66.61% = $6661 dollars would be exempt from state taxes.
+
+Content 3 (length: 436 chars):
+* short term gains or losses are counted against income, and subject to your marginal income tax rates
+* long term gains or losses are counted against capital gains or losses, at the capital gains tax rate
+the dividend income is tax exempt, but any capital gain or loss on the fund is not
+(so yes you can sell it at a loss to offset capital gains - or ordinary income subject to the 3k limit with the rest carried over for future years)
+

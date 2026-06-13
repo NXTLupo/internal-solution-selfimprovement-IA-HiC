@@ -21,13 +21,13 @@ chunks:
     key_terms: [school, college, "i've", something, been, years, get, high]
     token_count: 491
   - id: "social-intelligence/reddit-deep/college/1qwacug.md#c1"
-    char_span: [2190, 4392]
+    char_span: [2189, 4391]
     sentence_count: 15
     key_terms: [school, dropping, back, because, classes, college, going, get]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/college/1qwacug.md#c2"
-    char_span: [4394, 6119]
+    char_span: [4393, 6118]
     sentence_count: 13
     key_terms: [because, classes, subjects, years, back, advisor, college, intrest]
     section: Comments

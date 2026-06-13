@@ -23,25 +23,25 @@ chunks:
     key_terms: [card, month, debt, personalfinance, credit, car, pay, save]
     token_count: 273
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c1"
-    char_span: [1138, 3036]
+    char_span: [1137, 3035]
     sentence_count: 15
     key_terms: [car, live, public, transport, corolla, without, transportation, going]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c2"
-    char_span: [3038, 4537]
+    char_span: [3037, 4536]
     sentence_count: 10
     key_terms: [car, debt, need, credit, great, get, loan, transport]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c3"
-    char_span: [4539, 6517]
+    char_span: [4538, 6516]
     sentence_count: 15
     key_terms: [car, transfer, without, pay, sell, absolutely, roommates, yoooedwin]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/personalfinance/1nn0zi9.md#c4"
-    char_span: [6519, 6903]
+    char_span: [6518, 6902]
     sentence_count: 3
     key_terms: [inconsistent, minimized, transport, provided, spending, struggle, numbers, selling]
     section: Comments

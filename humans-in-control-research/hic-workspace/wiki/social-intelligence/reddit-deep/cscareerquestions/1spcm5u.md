@@ -21,19 +21,19 @@ chunks:
     key_terms: [experience, cscareerquestions, tech, company, startup, cut, pay, take]
     token_count: 236
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c1"
-    char_span: [934, 2881]
+    char_span: [933, 2880]
     sentence_count: 15
     key_terms: [startup, big, pay, tech, higher, faang, anthropic, cut]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c2"
-    char_span: [2883, 4527]
+    char_span: [2882, 4526]
     sentence_count: 15
     key_terms: [startup, pixelphoenixforce, years, experience, startups, company, usually, reason]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1spcm5u.md#c3"
-    char_span: [4529, 5991]
+    char_span: [4528, 5990]
     sentence_count: 12
     key_terms: [experience, money, tech, jsdodgers, probably, startup, better, helped]
     section: Comments

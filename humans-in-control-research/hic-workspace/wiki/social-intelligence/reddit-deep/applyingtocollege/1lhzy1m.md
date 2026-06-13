@@ -23,43 +23,43 @@ chunks:
     key_terms: [applyingtocollege, prelaw, prestigious, comments, prestige, decided, people, premed]
     token_count: 164
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c1"
-    char_span: [747, 2527]
+    char_span: [746, 2526]
     sentence_count: 11
     key_terms: [applyingtocollege, undergrad, grad, school, maybe, recognition, attended, comments]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c2"
-    char_span: [2529, 4483]
+    char_span: [2528, 4482]
     sentence_count: 21
     key_terms: [school, people, law, state, best, lot, went, undergrad]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c3"
-    char_span: [4485, 6268]
+    char_span: [4484, 6267]
     sentence_count: 13
     key_terms: [work, law, prestige, school, big, good, lawyers, schools]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c4"
-    char_span: [6270, 7880]
+    char_span: [6269, 7879]
     sentence_count: 7
     key_terms: [schools, students, middle, scholarships, institution, aid, undergrad, because]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c5"
-    char_span: [7882, 9021]
+    char_span: [7881, 9020]
     sentence_count: 8
     key_terms: [colleges, top, law, students, undergraduate, elite, college, schools]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c6"
-    char_span: [9023, 10890]
+    char_span: [9022, 10889]
     sentence_count: 12
     key_terms: [school, schools, top, state, come, grad, odds, undergrad]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lhzy1m.md#c7"
-    char_span: [10892, 11347]
+    char_span: [10891, 11346]
     sentence_count: 2
     key_terms: [school, undergraduate, association, potentially, affordable, experience, rewarding, graduate]
     section: Comments

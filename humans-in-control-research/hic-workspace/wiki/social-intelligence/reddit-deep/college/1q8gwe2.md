@@ -21,43 +21,43 @@ chunks:
     key_terms: [class, questions, college, "it's", accounting, engagement, classroom, professor]
     token_count: 276
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c1"
-    char_span: [1178, 3295]
+    char_span: [1177, 3294]
     sentence_count: 18
     key_terms: [students, student, participate, class, years, bad, been, discussion]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c2"
-    char_span: [3297, 5547]
+    char_span: [3296, 5546]
     sentence_count: 20
     key_terms: ["it's", participate, feel, students, school, class, high, like]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c3"
-    char_span: [5549, 6831]
+    char_span: [5548, 6830]
     sentence_count: 14
     key_terms: ["i'm", "don't", ask, questions, students, talking, answer, human]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c4"
-    char_span: [6833, 9167]
+    char_span: [6832, 9166]
     sentence_count: 15
     key_terms: [majors, classes, english, eds, gen, get, stem, skills]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c5"
-    char_span: [9169, 10150]
+    char_span: [9168, 10149]
     sentence_count: 3
     key_terms: [classes, like, definitely, frequently, percentage, students, because, get]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c6"
-    char_span: [10152, 12234]
+    char_span: [10151, 12233]
     sentence_count: 14
     key_terms: [class, professor, students, communications, completely, learning, semester, college]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1q8gwe2.md#c7"
-    char_span: [12236, 12493]
+    char_span: [12235, 12492]
     sentence_count: 3
     key_terms: [least, completely, understand, something, everyone, pressure, question, readings]
     section: Comments

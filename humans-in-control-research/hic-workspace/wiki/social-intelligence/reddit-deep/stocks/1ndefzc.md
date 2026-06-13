@@ -23,49 +23,49 @@ chunks:
     key_terms: [billion, oracle-stock-cloud-backlog-ai, oracle, cnbc, company, cloud, https, com]
     token_count: 385
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c1"
-    char_span: [1572, 2977]
+    char_span: [1571, 2976]
     sentence_count: 7
     key_terms: [revenue, going, company, market, agitatedstranger9698, ilillilllilllillllii, ok-comfortable-3174, based]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c2"
-    char_span: [2980, 4853]
+    char_span: [2979, 4852]
     sentence_count: 10
     key_terms: [ellison, projections, larry, luv2block, bullshit, massive, bigger, years]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c3"
-    char_span: [4855, 6779]
+    char_span: [4854, 6778]
     sentence_count: 10
     key_terms: [control, bullshitting, definitely, democrats, financial, already, getting, numbers]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c4"
-    char_span: [6781, 8734]
+    char_span: [6780, 8733]
     sentence_count: 10
     key_terms: [understandingthin40, wrong, technology, everyone, nananahx, trillion, numbers, dinner]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c5"
-    char_span: [8736, 10457]
+    char_span: [8735, 10456]
     sentence_count: 8
     key_terms: [infrastructure, market, oracle, assumption, companies, because, bubble, growth]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c6"
-    char_span: [10459, 12291]
+    char_span: [10458, 12290]
     sentence_count: 10
     key_terms: [oracle, conspiracy, earnings, stargate, because, deleted, funding, numbers]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c7"
-    char_span: [12293, 13914]
+    char_span: [12292, 13913]
     sentence_count: 11
     key_terms: [oracle, reddit, comments, https, com, www, depends, because]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/stocks/1ndefzc.md#c8"
-    char_span: [13916, 14598]
+    char_span: [13915, 14597]
     sentence_count: 6
     key_terms: [layoffs, oracle, been, haikusfrombuddha, astronomical, operational, challenges, enterprise]
     section: Comments

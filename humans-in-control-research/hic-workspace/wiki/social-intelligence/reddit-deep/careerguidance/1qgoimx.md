@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1qgoimx.md#c0"
-    char_span: [0, 947]
+    char_span: [0, 946]
     sentence_count: 7
     key_terms: [timeshare, careerguidance, sales, years, marketing, comments, advice, switch]
     token_count: 232

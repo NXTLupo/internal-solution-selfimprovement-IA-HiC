@@ -21,73 +21,73 @@ chunks:
     key_terms: [cscareerquestions, comments, problem, enough, being, grads, roles, didn]
     token_count: 178
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c1"
-    char_span: [734, 1960]
+    char_span: [733, 1959]
     sentence_count: 11
     key_terms: [saturated, company, talent, top, companies, fighting, salaries, software]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c2"
-    char_span: [1962, 4077]
+    char_span: [1961, 4076]
     sentence_count: 14
     key_terms: [because, engineers, industry, salaries, company, happen, tech, millions]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c3"
-    char_span: [4080, 5313]
+    char_span: [4079, 5312]
     sentence_count: 9
     key_terms: [people, because, "it's", beautiful, average, degree, goes, good]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c4"
-    char_span: [5315, 7278]
+    char_span: [5314, 7277]
     sentence_count: 12
     key_terms: [imhighoncocaine, circuits, thick-ask5250, hardware, network, design, pressureavailable615, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c5"
-    char_span: [7018, 7556]
+    char_span: [7017, 7555]
     sentence_count: 3
     key_terms: [shortage, work, idiots, fairjournalist6092, imhighoncocaine, comparatively, calculation, developers]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c6"
-    char_span: [7558, 9330]
+    char_span: [7557, 9329]
     sentence_count: 14
     key_terms: [graduated, fatiguedshrimp, get, "i'm", college, looking, degree, enough]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c7"
-    char_span: [9332, 11543]
+    char_span: [9331, 11542]
     sentence_count: 5
     key_terms: [want, work, unbelievable, "don't", start, job, like, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c8"
-    char_span: [11323, 13025]
+    char_span: [11322, 13024]
     sentence_count: 17
     key_terms: ["don't", going, job, college, enough, class, did, get]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c9"
-    char_span: [13027, 15006]
+    char_span: [13026, 15005]
     sentence_count: 17
     key_terms: [job, get, work, projects, aendoarphinio, did, lot, employers]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c10"
-    char_span: [15008, 15923]
+    char_span: [15007, 15922]
     sentence_count: 8
     key_terms: [applications, industry, keeping, people, jobs, breakthrough, connections, internships]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c11"
-    char_span: [15926, 17822]
+    char_span: [15925, 17821]
     sentence_count: 16
     key_terms: [networking, college, market, gaslighting, job, need, business, whatever]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sco3bj.md#c12"
-    char_span: [17824, 18127]
+    char_span: [17823, 18126]
     sentence_count: 1
     key_terms: [misterchestnut87, connections, networking, privileges, neighbors, "shouldn't", networks, friends]
     section: Comments

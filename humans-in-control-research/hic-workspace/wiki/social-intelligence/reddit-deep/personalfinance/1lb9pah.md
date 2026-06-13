@@ -23,91 +23,91 @@ chunks:
     key_terms: [money, personalfinance, grandparents, inheritance, gave, year, investing, comments]
     token_count: 436
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c1"
-    char_span: [1900, 3932]
+    char_span: [1899, 3931]
     sentence_count: 11
     key_terms: [college, scholarships, attached, family, school, going, state, scholarship]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c2"
-    char_span: [3934, 5523]
+    char_span: [3933, 5522]
     sentence_count: 14
     key_terms: [college, get, like, however, student, tuition, people, particular-macaron35]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c3"
-    char_span: [5525, 7697]
+    char_span: [5524, 7696]
     sentence_count: 20
     key_terms: [college, scholarships, students, tuition, kids, need, generation, interest]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c4"
-    char_span: [7699, 9854]
+    char_span: [7698, 9853]
     sentence_count: 15
     key_terms: [starting, scholarship, college, money, inheritance, fund, live, university]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c5"
-    char_span: [9856, 11240]
+    char_span: [9855, 11239]
     sentence_count: 16
     key_terms: [big, furniture, parties, needed, beach, years, care, home]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c6"
-    char_span: [11242, 13033]
+    char_span: [11241, 13032]
     sentence_count: 21
     key_terms: [kids, like, anything, saving, money, got, mom, budgeting]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c7"
-    char_span: [13035, 13881]
+    char_span: [13034, 13880]
     sentence_count: 8
     key_terms: [inheritance, degrees, "don't", slight-studio-7667, gave, huge, life, need]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c8"
-    char_span: [13883, 15875]
+    char_span: [13882, 15874]
     sentence_count: 14
     key_terms: [college, did, parents, school, debt, used, retirement, education]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c9"
-    char_span: [15582, 16511]
+    char_span: [15581, 16510]
     sentence_count: 8
     key_terms: ["don't", car, care, give, got, want, lumberjack2008, nonresponsive]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c10"
-    char_span: [16513, 17867]
+    char_span: [16512, 17866]
     sentence_count: 12
     key_terms: [max, benefit, payout, costs, years, care, need, generally]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c11"
-    char_span: [17869, 18611]
+    char_span: [17868, 18610]
     sentence_count: 4
     key_terms: [long-term-care-insurance-rates, saving, thedrunkscientist, kids, pay, time, imperialbeach, associations]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c12"
-    char_span: [18613, 20558]
+    char_span: [18612, 20557]
     sentence_count: 19
     key_terms: [kids, insurance, week, family, funds, grandkids, memories, parents]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c13"
-    char_span: [20560, 22424]
+    char_span: [20559, 22423]
     sentence_count: 15
     key_terms: [kids, college, "you're", kid, need, "bachelor's", definitely, disability]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c14"
-    char_span: [22426, 24266]
+    char_span: [22425, 24265]
     sentence_count: 14
     key_terms: [parents, money, pay, received, account, because, "there's", caveat]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/personalfinance/1lb9pah.md#c15"
-    char_span: [24268, 25186]
+    char_span: [24267, 25185]
     sentence_count: 9
     key_terms: [children, comments, parents, idea, like, take, year, craftasaurus]
     section: Comments

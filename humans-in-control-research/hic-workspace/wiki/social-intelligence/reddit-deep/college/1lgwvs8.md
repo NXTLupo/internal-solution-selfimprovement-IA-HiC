@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/college/1lgwvs8.md#c0"
-    char_span: [0, 1458]
+    char_span: [0, 1457]
     sentence_count: 8
     key_terms: [projects, helping, assignments, struggling, understand, comments, students, college]
-    token_count: 317
+    token_count: 316
 ---
 # How I started helping other students with coding projects & assignments
 

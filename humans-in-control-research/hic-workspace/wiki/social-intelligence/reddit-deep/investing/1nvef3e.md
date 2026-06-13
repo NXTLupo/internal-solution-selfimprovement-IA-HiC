@@ -23,31 +23,31 @@ chunks:
     key_terms: ["i'm", investing, comments, invest, money, since, entrepreneurs, investments]
     token_count: 212
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c1"
-    char_span: [869, 2518]
+    char_span: [868, 2517]
     sentence_count: 11
     key_terms: [ira, roth, investing, etf, plasticbug, schedule, large, money]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c2"
-    char_span: [2520, 4738]
+    char_span: [2519, 4737]
     sentence_count: 23
     key_terms: [stocks, bonds, corporation, back, gold, long, time, government]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c3"
-    char_span: [4740, 6825]
+    char_span: [4739, 6824]
     sentence_count: 21
     key_terms: [crypto, stocks, "don't", like, cryptocurrencies, age, buy, etfs]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c4"
-    char_span: [6828, 8893]
+    char_span: [6827, 8892]
     sentence_count: 21
     key_terms: [future, something, investing, get, take, want, impossible, amounts]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/investing/1nvef3e.md#c5"
-    char_span: [8895, 9320]
+    char_span: [8894, 9319]
     sentence_count: 4
     key_terms: [start, yourself, roboinvesting, wholesomebob, disagreeing, investment, knowledge, passively]
     section: Comments

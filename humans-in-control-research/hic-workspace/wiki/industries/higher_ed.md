@@ -7,7 +7,7 @@ industries: [higher_ed]
 status: active
 chunks:
   - id: "industries/higher_ed.md#c0"
-    char_span: [0, 705]
+    char_span: [0, 704]
     sentence_count: 2
     key_terms: [client-uploads, industries, sources, shared, articles, auto-generated, fundraising, education]
     section: Cross-over verticals (shared sources) / Representative sources

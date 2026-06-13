@@ -23,19 +23,19 @@ chunks:
     key_terms: [fortune500, humanresources, comments, company, master, feels, great, known]
     token_count: 318
   - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c1"
-    char_span: [1326, 2137]
+    char_span: [1325, 2136]
     sentence_count: 8
     key_terms: [hrci, shrm, certified, tons, membership-based, certifications, gingerfringe88, professionals]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c2"
-    char_span: [2139, 4184]
+    char_span: [2138, 4183]
     sentence_count: 15
     key_terms: [shrm, certification, phr, get, money, sphr, because, getting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1sradyy.md#c3"
-    char_span: [3939, 5427]
+    char_span: [3938, 5426]
     sentence_count: 10
     key_terms: [shrm, certification, phr, sphr, broader, adventurous-cat8847, money, cert]
     section: Comments

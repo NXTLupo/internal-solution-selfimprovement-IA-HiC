@@ -23,73 +23,73 @@ chunks:
     key_terms: [dont, personalfinance, account, been, last, comments, withdraw, savings]
     token_count: 464
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c1"
-    char_span: [1912, 3981]
+    char_span: [1911, 3980]
     sentence_count: 16
     key_terms: [money, time, account, thought, dad, lot, seriously, research]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c2"
-    char_span: [3983, 5882]
+    char_span: [3982, 5881]
     sentence_count: 20
     key_terms: [dad, yourself, money, ask, hysa, investment, research, crypto]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c3"
-    char_span: [5884, 6734]
+    char_span: [5883, 6733]
     sentence_count: 7
     key_terms: [wrong, dad, money, been, vulnerability, overwhelmed, recognizing, appreciate]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c4"
-    char_span: [6736, 8337]
+    char_span: [6735, 8336]
     sentence_count: 11
     key_terms: [did, kids, dad, something, wisely, facebookgivesmeangst, due-particular-2245, spend]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c5"
-    char_span: [8339, 10264]
+    char_span: [8338, 10263]
     sentence_count: 11
     key_terms: [dad, without, because, deleted, mention, father, manage, nenekpakaicombatboot]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c6"
-    char_span: [10005, 10596]
+    char_span: [10004, 10595]
     sentence_count: 1
     key_terms: [dad, because, thenetworksdownagain, money, investments, immediate, mrlazyboy, somewhere]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c7"
-    char_span: [10598, 12428]
+    char_span: [10597, 12427]
     sentence_count: 16
     key_terms: [definitely, gold, silver, money, read, investing, because, crypto]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c8"
-    char_span: [12431, 13873]
+    char_span: [12430, 13872]
     sentence_count: 15
     key_terms: [silver, gold, people, buy, investment, property, assets, buying]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c9"
-    char_span: [13875, 15986]
+    char_span: [13874, 15985]
     sentence_count: 22
     key_terms: [crypto, gold, stock, portfolio, metals, money, bit, real]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c10"
-    char_span: [15988, 18028]
+    char_span: [15987, 18027]
     sentence_count: 15
     key_terms: [interest, going, maybe, personalfinance, hecs, high, like, wiki]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c11"
-    char_span: [18030, 20126]
+    char_span: [18029, 20125]
     sentence_count: 19
     key_terms: [shootinallmychisolm, podcasts, crypto, listen, money, good, own, investing]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/personalfinance/1mxw81u.md#c12"
-    char_span: [20128, 20785]
+    char_span: [20127, 20784]
     sentence_count: 11
     key_terms: [retirement, account, nothing, invest, life, read, perspectives, considered]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, year, co-op, portfolio, comments, projects, another, degrees]
     token_count: 313
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c1"
-    char_span: [1269, 3199]
+    char_span: [1268, 3198]
     sentence_count: 13
     key_terms: [projects, co-op, specialization, experience, internship, full, time, coding]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t9w9sb.md#c2"
-    char_span: [3201, 4391]
+    char_span: [3200, 4390]
     sentence_count: 5
     key_terms: [experience, internship, job, graduating, without, choose, insane, co-op]
     section: Comments

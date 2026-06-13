@@ -38,31 +38,31 @@ chunks:
     key_terms: [feel, "i've", like, build, never, bill, egg, home]
     token_count: 261
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c4"
-    char_span: [6214, 7161]
+    char_span: [6213, 7160]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c5"
-    char_span: [7164, 8940]
+    char_span: [7163, 8939]
     sentence_count: 14
     key_terms: ["i'm", ddrf1re, money, good, deleted, finding, making, intelligent-bite-717]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c6"
-    char_span: [8688, 10113]
+    char_span: [8687, 10112]
     sentence_count: 15
     key_terms: [job, new, year, anywhere, specific, talking, resume, "i'm"]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c7"
-    char_span: [10115, 11900]
+    char_span: [10114, 11899]
     sentence_count: 23
     key_terms: [feel, job, keep, new, understand, tejones01, drinking, "you're"]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/findapath/1l8wdgi.md#c8"
-    char_span: [11902, 13038]
+    char_span: [11901, 13037]
     sentence_count: 5
     key_terms: [got, situation, better, makes, age, cant, day, feel]
     section: Comments

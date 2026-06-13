@@ -28,7 +28,7 @@ chunks:
     key_terms: [another, job, career, future, "i'd", "i'm", like, side]
     token_count: 360
   - id: "social-intelligence/reddit-deep/jobs/1q4tdan.md#c2"
-    char_span: [3802, 4302]
+    char_span: [3801, 4301]
     sentence_count: 6
     key_terms: [get, potentially, bankruptcy, personally, companies, happening, mrsam1998, recommend]
     section: Comments

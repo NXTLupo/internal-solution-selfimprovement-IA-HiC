@@ -23,67 +23,67 @@ chunks:
     key_terms: [reddit, jobs, like, people, saturated, here, comments, get]
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c1"
-    char_span: [2060, 4095]
+    char_span: [2059, 4094]
     sentence_count: 10
     key_terms: [nursing, get, something, deleted, highest, nurses, people, havingsomedifficulty]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c2"
-    char_span: [4097, 5719]
+    char_span: [4096, 5718]
     sentence_count: 18
     key_terms: [getting, being, nearshoring, kids, tech, experience, offshoring, software]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c3"
-    char_span: [5721, 7903]
+    char_span: [5720, 7902]
     sentence_count: 20
     key_terms: [years, salaries, flooded, nursing, market, people, money, ago]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c4"
-    char_span: [7905, 9954]
+    char_span: [7904, 9953]
     sentence_count: 13
     key_terms: [people, white-collar-jobs-disappearing-2031221, applications, https, since, job-openings-and-labor-turnover, "i'm", jobs]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c5"
-    char_span: [9956, 12152]
+    char_span: [9955, 12151]
     sentence_count: 16
     key_terms: [being, like, unemployment, people, tech, reddit, electricone55, been]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c6"
-    char_span: [12154, 14070]
+    char_span: [12153, 14069]
     sentence_count: 12
     key_terms: [people, job, through, get, because, deleted, being, going]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c7"
-    char_span: [14072, 15549]
+    char_span: [14071, 15548]
     sentence_count: 9
     key_terms: [experience, school, job, underpaid, teachers, "doesn't", teacher, hiring]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c8"
-    char_span: [15551, 17228]
+    char_span: [15550, 17227]
     sentence_count: 12
     key_terms: [ideological, like, education, position, little, public, "you're", skilled-experienced]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c9"
-    char_span: [17230, 18587]
+    char_span: [17229, 18586]
     sentence_count: 11
     key_terms: [food, fast, job, postings, looking, usually, either, matter]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c10"
-    char_span: [18589, 20713]
+    char_span: [18588, 20712]
     sentence_count: 13
     key_terms: [job, people, advice, always, field, get, high, post]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/jobs/1levt2q.md#c11"
-    char_span: [20716, 22157]
+    char_span: [20715, 22156]
     sentence_count: 13
     key_terms: [teaching, jobs, english, get, teachers, areas, job, population]
     section: Comments

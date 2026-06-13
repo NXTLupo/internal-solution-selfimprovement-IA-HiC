@@ -23,67 +23,67 @@ chunks:
     key_terms: [waitlist, applyingtocollege, "i'm", low, trinity, international, efc, take]
     token_count: 410
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c1"
-    char_span: [1551, 3658]
+    char_span: [1550, 3657]
     sentence_count: 19
     key_terms: [internationals, colleges, brown, own, foreigners, qualified, college, educate]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c2"
-    char_span: [3660, 5601]
+    char_span: [3659, 5600]
     sentence_count: 21
     key_terms: [education, college, germans, citizenship, free, something, delusion, fairness]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c3"
-    char_span: [5603, 7477]
+    char_span: [5602, 7476]
     sentence_count: 12
     key_terms: [students, disappointment, international, feel, line, own, standards, thousands]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c4"
-    char_span: [7479, 9798]
+    char_span: [7478, 9797]
     sentence_count: 34
     key_terms: [domestic, applicants, colleges, "that's", does, private, international, encouraging]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c5"
-    char_span: [9800, 11595]
+    char_span: [9799, 11594]
     sentence_count: 17
     key_terms: [internationals, global, entitlement, free, isn, applicants, foreigners, millions]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c6"
-    char_span: [11598, 13692]
+    char_span: [11597, 13691]
     sentence_count: 10
     key_terms: [students, fresh-baked-bread, high, colleges, parents, schools, though, international]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c7"
-    char_span: [13393, 13868]
+    char_span: [13392, 13867]
     sentence_count: 1
     key_terms: [active-judgment-250, full, admissions, automatic, dimension, financial, rejection, selection]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c8"
-    char_span: [13870, 14906]
+    char_span: [13869, 14905]
     sentence_count: 9
     key_terms: [got, aid, cornell, duke, financial, accepted, active-judgment-250, india]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c9"
-    char_span: [14908, 16937]
+    char_span: [14907, 16936]
     sentence_count: 10
     key_terms: [schools, india, accepted, got, finaid, rejected, republicbig9608, internationals]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c10"
-    char_span: [16716, 17860]
+    char_span: [16715, 17859]
     sentence_count: 6
     key_terms: [schools, historical-key5613, republicbig9608, good, cosmonae, canada, india, got]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t4de5u.md#c11"
-    char_span: [17863, 18409]
+    char_span: [17862, 18408]
     sentence_count: 2
     key_terms: [colleges, drive, applyingtocollege, need, automatically, international, historically, universities]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [part, digitalnomad, talk, countries, comments, digital, friends, started]
     token_count: 372
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c1"
-    char_span: [1561, 3478]
+    char_span: [1560, 3477]
     sentence_count: 9
     key_terms: [connection, "there's", lonely, social, "isn't", loneliness, aspects, exactly]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c2"
-    char_span: [3480, 3870]
+    char_span: [3479, 3869]
     sentence_count: 2
     key_terms: [person, place, stay, definitely, personally, connected, everyone, nomading]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c3"
-    char_span: [3872, 6032]
+    char_span: [3871, 6031]
     sentence_count: 8
     key_terms: [slothysundaysession, different, get, feel, like, completely, community, culture]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c4"
-    char_span: [5788, 6616]
+    char_span: [5787, 6615]
     sentence_count: 4
     key_terms: [connections, different, abroad, accomplishedcorgi399, local, good, eventually, volleyball]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c5"
-    char_span: [6618, 8489]
+    char_span: [6617, 8488]
     sentence_count: 16
     key_terms: [experience, home, like, "i'm", different, country, growing, through]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c6"
-    char_span: [8491, 10302]
+    char_span: [8490, 10301]
     sentence_count: 12
     key_terms: [aqualinenimblechops, meetups, place, constantly, because, totally, harder, moving]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/digitalnomad/1lvgz81.md#c7"
-    char_span: [10304, 10751]
+    char_span: [10303, 10750]
     sentence_count: 3
     key_terms: [related, neat-composer4619, get, left, confident, financial, lifestyle, adulting]
     section: Comments

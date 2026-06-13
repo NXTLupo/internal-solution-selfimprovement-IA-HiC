@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1qlcw6i.md#c0"
-    char_span: [0, 1779]
+    char_span: [0, 1778]
     sentence_count: 8
     key_terms: [international, students, co-op, engineering, northeastern, msem, scm, background]
-    token_count: 373
+    token_count: 372
 ---
 # Admitted MSEM (SCM concentration) – Is the Co-op advantage real for international students given the recent merger?
 

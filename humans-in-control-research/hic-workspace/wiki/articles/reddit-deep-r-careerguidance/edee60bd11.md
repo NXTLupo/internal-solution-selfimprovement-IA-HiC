@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/edee60bd11.md#c0"
-    char_span: [0, 1054]
+    char_span: [0, 1053]
     sentence_count: 8
     key_terms: [job, careerguidance, receptionist, get, experience, comments, careers, medical]
-    token_count: 257
+    token_count: 256
   - id: "articles/reddit-deep-r-careerguidance/edee60bd11.md#c1"
-    char_span: [1056, 2413]
+    char_span: [1055, 2412]
     sentence_count: 10
     key_terms: [receptionist, healthcare, positions, administrative, get, jobs, hospital, careers]
     token_count: 305

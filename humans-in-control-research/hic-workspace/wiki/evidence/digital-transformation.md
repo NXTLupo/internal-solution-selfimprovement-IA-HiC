@@ -18,19 +18,19 @@ chunks:
     key_terms: [transformation, evidence, digital, benchmark, evidenced, ingested, research, entries]
     token_count: 146
   - id: "evidence/digital-transformation.md#c1"
-    char_span: [779, 1390]
+    char_span: [778, 1389]
     sentence_count: 1
     key_terms: [evidenced, evidence, source, confidence, hypothesis, partially, supported, finding]
     section: Evidence Entry Format
     token_count: 156
   - id: "evidence/digital-transformation.md#c2"
-    char_span: [1424, 2327]
+    char_span: [1423, 2326]
     sentence_count: 1
     key_terms: [failure, transformation, management, technology, adoption, culture, primary, change]
     section: Pending Evidence Categories
     token_count: 197
   - id: "evidence/digital-transformation.md#c3"
-    char_span: [2350, 3239]
+    char_span: [2349, 3238]
     sentence_count: 2
     key_terms: [benchmarks, transformation, frameworks, digital, technology, adoption, evidence, maturity]
     section: Cross-References

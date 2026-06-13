@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, applyingtocollege, college, international, affordable, comments, options, student]
     token_count: 256
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snmp08.md#c1"
-    char_span: [1122, 1341]
+    char_span: [1121, 1340]
     sentence_count: 3
     key_terms: [throwawaygremlins, conversion, realistic, aussies, thought, maybe, price, thank]
     section: Comments

@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-neu/21dc19abbb.md#c0"
-    char_span: [0, 2193]
+    char_span: [0, 2192]
     sentence_count: 19
     key_terms: [northeastern, prestigious, residential, year, boston, universities, being, competitive]
-    token_count: 469
+    token_count: 468
 ---
 # To everyone who didn't get into Boston...
 

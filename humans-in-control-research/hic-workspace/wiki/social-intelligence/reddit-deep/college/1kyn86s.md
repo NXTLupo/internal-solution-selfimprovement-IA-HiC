@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/college/1kyn86s.md#c0"
-    char_span: [0, 1222]
+    char_span: [0, 1221]
     sentence_count: 9
     key_terms: [gen, college, community, ideas, theme, something, affinity, comments]
     token_count: 259

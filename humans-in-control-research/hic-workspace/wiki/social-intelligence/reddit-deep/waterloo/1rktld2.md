@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, work, anyone, suggestions, here, hour, side, kitchener]
     token_count: 368
   - id: "social-intelligence/reddit-deep/waterloo/1rktld2.md#c1"
-    char_span: [1568, 3240]
+    char_span: [1567, 3239]
     sentence_count: 13
     key_terms: [visible-essay9728, home, days, jobs, time, work, working, around]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rydeqc.md
 url: "https://www.reddit.com/r/internships/comments/1rydeqc/accounting_intern_doesnt_think_theyre_getting_an/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,41 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.213Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c0"
+    char_span: [0, 2206]
+    sentence_count: 19
+    key_terms: [ask, questions, internships, accounting, internship, beginning, work, intern]
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c1"
+    char_span: [2208, 4392]
+    sentence_count: 16
+    key_terms: [internship, client, comments, feedback, understanding, work, expectations, review]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c2"
+    char_span: [4394, 5888]
+    sentence_count: 12
+    key_terms: [work, feedback, expectations, important, cultural, great, fact, fit]
+    token_count: 334
+  - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c3"
+    char_span: [5903, 8020]
+    sentence_count: 26
+    key_terms: [internship, questions, impossible-fix-2552, corporate, feedback, research, self-reflection, get]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c4"
+    char_span: [8022, 8617]
+    sentence_count: 4
+    key_terms: [internship, assumed, doing, appreciated, development, internships, corporate, question]
+    section: Comments
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/internships/1rydeqc.md#c5"
+    char_span: [8619, 10649]
+    sentence_count: 17
+    key_terms: [questions, only-tumbleweed-6562, ask, intern, good, everything, clients, reviews]
+    section: Comments
+    token_count: 478
 ---
-
 # accounting intern doesn't think they're getting an offer at the end of this
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rydeqc/accounting_intern_doesnt_think_theyre_getting_an/)

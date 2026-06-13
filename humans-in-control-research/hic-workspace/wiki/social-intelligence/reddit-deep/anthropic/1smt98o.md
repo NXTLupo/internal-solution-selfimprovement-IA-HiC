@@ -23,7 +23,7 @@ chunks:
     key_terms: [anthropic, comments, claude, team, development, reddit-deep, posted, reddit]
     token_count: 94
   - id: "social-intelligence/reddit-deep/anthropic/1smt98o.md#c1"
-    char_span: [345, 1051]
+    char_span: [344, 1050]
     sentence_count: 3
     key_terms: [anthropic, pricing, non, goodstacks, company, profit, vxmjcf, valuable-account-362]
     section: Comments

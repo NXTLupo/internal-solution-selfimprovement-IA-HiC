@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1rwurlf.md#c0"
-    char_span: [0, 2060]
+    char_span: [0, 2059]
     sentence_count: 2
     key_terms: [chatgpt, less, wrong, coding, starts, debugging, txt, router]
-    token_count: 481
+    token_count: 480
   - id: "social-intelligence/reddit-deep/gpt/1rwurlf.md#c1"
-    char_span: [2062, 3977]
+    char_span: [2061, 3976]
     sentence_count: 1
     key_terms: [point, did, workflows, txt, wfgy-ai-problem-map-troubleshooting-atlas, earlier, entry, wrong]
     token_count: 481

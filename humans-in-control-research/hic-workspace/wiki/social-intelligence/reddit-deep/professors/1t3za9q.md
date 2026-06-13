@@ -23,55 +23,55 @@ chunks:
     key_terms: [students, assignment, uncomfortability, topics, class, opportunity, like, misgivings]
     token_count: 487
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c1"
-    char_span: [2148, 3471]
+    char_span: [2147, 3470]
     sentence_count: 10
     key_terms: [glass-nectarine-3282, adversarial, like, students, changed, assume, office, person]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c2"
-    char_span: [3473, 5548]
+    char_span: [3472, 5547]
     sentence_count: 10
     key_terms: [nationalism, because, myth, creation, teaching, believe, society, student]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c3"
-    char_span: [5550, 7471]
+    char_span: [5549, 7470]
     sentence_count: 11
     key_terms: [day, always, class, own, religious, teaching, college, context]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c4"
-    char_span: [7473, 9496]
+    char_span: [7472, 9495]
     sentence_count: 16
     key_terms: [students, told, come, etc, exam, like, complaints, everything]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c5"
-    char_span: [9498, 11546]
+    char_span: [9497, 11545]
     sentence_count: 13
     key_terms: [evolution, believe, asked, students, savings-bee-4993, course, class, assignment]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c6"
-    char_span: [11548, 12484]
+    char_span: [11547, 12483]
     sentence_count: 6
     key_terms: [adults, does, safe, dangerous, school, feel, kids, savings-bee-4993]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c7"
-    char_span: [12486, 14208]
+    char_span: [12485, 14207]
     sentence_count: 6
     key_terms: [students, rare, anything, children, happen, agreeable-ladder-433, discerningbarbarian, "don't"]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c8"
-    char_span: [14210, 16514]
+    char_span: [14209, 16513]
     sentence_count: 20
     key_terms: [religious, student, school, class, teach, history, course, university]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1t3za9q.md#c9"
-    char_span: [16516, 17008]
+    char_span: [16515, 17007]
     sentence_count: 3
     key_terms: [sabertoothlotus, no-wish-4854, controlling, constantly, critically, destroying, interested, manipulate]
     section: Comments

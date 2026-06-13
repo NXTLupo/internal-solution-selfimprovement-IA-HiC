@@ -7,15 +7,13 @@ subreddit: "cscareerquestions"
 title: "Need Advice - Struggling after mass layoff and feeling lost in my career"
 author: "Bamboo_Boi"
 date: "2026-02-26T23:01:58.000Z"
-score: 19
-upvote_ratio: 0.84
+score: 20
+upvote_ratio: 0.86
 num_comments: 27
 flair: ""
-extracted_at: "2026-05-22T23:33:42.280Z"
+extracted_at: "2026-06-08T18:49:42.907Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfph6p.md#c0"
     char_span: [0, 1827]
@@ -61,7 +59,7 @@ chunks:
 # Need Advice - Struggling after mass layoff and feeling lost in my career
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rfph6p/need_advice_struggling_after_mass_layoff_and/)
-Posted by **Bamboo_Boi** · **19↑** · **27 comments**
+Posted by **Bamboo_Boi** · **20↑** · **27 comments**
 
 Hi everyone,
 
@@ -79,11 +77,11 @@ I don't really know what excites me anymore in this field. I just want to be abl
 
 ## Comments
 
-- **RapidRoastingHam** (16↑): Get rid of “software tester” and just list that entire time under the fist job
+- **RapidRoastingHam** (18↑): Get rid of “software tester” and just list that entire time under the fist job
   - **RapidRoastingHam** (3↑): And remove summary
     - **Bamboo_Boi** (1↑): Thank you for the tip. I've been going back and forth on keeping and removing the summary. I'll congregate the tester and engineer bullet points like you suggested.
 - **Latter-Risk-7215** (9↑): tying more debt to a field you already feel meh about sounds risky ask what roles you actually want first maybe qa automation+swe grind while applying it’s insanely hard finding anything now
-- **foo-bar-nlogn-100** (4↑): If you want a comfortable middle class life, you dont need to be in SW
+- **foo-bar-nlogn-100** (7↑): If you want a comfortable middle class life, you dont need to be in SW
 
 SWE is like Detroit auto industry before all the good jobs left.
 

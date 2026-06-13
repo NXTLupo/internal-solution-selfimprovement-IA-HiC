@@ -15,10 +15,10 @@ industries: [retail, dtc, media]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-marketingautomation/a4d87e4cff.md#c0"
-    char_span: [0, 2400]
+    char_span: [0, 2399]
     sentence_count: 24
     key_terms: [chatgpt, like, industry, because, content, marketingautomation, morning, months]
-    token_count: 505
+    token_count: 504
 ---
 # Finally cracked the social media content problem after wasting 3 months on ChatGPT alone
 

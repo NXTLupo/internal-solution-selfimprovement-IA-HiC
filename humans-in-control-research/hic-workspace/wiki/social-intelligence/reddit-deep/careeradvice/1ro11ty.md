@@ -18,10 +18,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1ro11ty.md#c0"
-    char_span: [0, 2019]
+    char_span: [0, 2018]
     sentence_count: 17
     key_terms: [customer, retail, success, role, career, opportunity, optical, advice]
-    token_count: 422
+    token_count: 421
 ---
 # Need Career Advice: Stay in Retail or Move to Customer Success Role in Spain?
 

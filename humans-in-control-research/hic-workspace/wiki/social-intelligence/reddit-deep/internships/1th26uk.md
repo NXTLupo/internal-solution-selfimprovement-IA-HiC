@@ -18,10 +18,10 @@ industries: [ai_research, workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1th26uk.md#c0"
-    char_span: [0, 1074]
+    char_span: [0, 1073]
     sentence_count: 9
     key_terms: [internships, opportunity, comments, looking, through, anyone, learn, been]
-    token_count: 253
+    token_count: 252
 ---
 # AI/ML Fresher Looking for Opportunity
 

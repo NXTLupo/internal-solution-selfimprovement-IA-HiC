@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1skqfps.md
 url: "https://www.reddit.com/r/careerguidance/comments/1skqfps/i_am_a_recently_admitted_sociology_student_at_uc/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.903Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1skqfps.md#c0"
+    char_span: [0, 1222]
+    sentence_count: 10
+    key_terms: [sociology, student, careerguidance, internships, successful, comments, chances, davis]
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/careerguidance/1skqfps.md#c1"
+    char_span: [1237, 1881]
+    sentence_count: 6
+    key_terms: [help, thepandapear, differently, perspective, gradsimple, graduation, interviews, analytics]
+    section: Comments
+    token_count: 130
 ---
-
 # I am a recently admitted sociology student at UC Davis, how can I ensure/elevate my chances at a successful career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1skqfps/i_am_a_recently_admitted_sociology_student_at_uc/)

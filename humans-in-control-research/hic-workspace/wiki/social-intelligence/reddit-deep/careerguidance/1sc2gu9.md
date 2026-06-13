@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sc2gu9.md#c0"
-    char_span: [0, 1219]
+    char_span: [0, 1218]
     sentence_count: 12
     key_terms: [job, careerguidance, java, role, developer, comments, engineer, company]
-    token_count: 291
+    token_count: 290
 ---
 # Which career path—Java development or DevOps/Cloud—will give me better long-term salary growth and job stability, considering I want to switch from QA early in my career?
 

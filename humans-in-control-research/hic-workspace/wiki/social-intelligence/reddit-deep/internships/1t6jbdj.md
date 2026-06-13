@@ -21,25 +21,25 @@ chunks:
     key_terms: [internships, internship, retail, undergraduate, volunteering, experience, research, working]
     token_count: 361
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c1"
-    char_span: [1666, 3595]
+    char_span: [1665, 3594]
     sentence_count: 12
     key_terms: [internship, unpaid, students, internships, summer, appropriate-tutor587, companies, getting]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c2"
-    char_span: [3597, 5697]
+    char_span: [3596, 5696]
     sentence_count: 8
     key_terms: [experience, unpaid, internship, hours, get, doing, "don't", great]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c3"
-    char_span: [5414, 7494]
+    char_span: [5413, 7493]
     sentence_count: 10
     key_terms: [unpaid, experience, appropriate-tutor587, internship, doing, job, internships, undergraduate]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/internships/1t6jbdj.md#c4"
-    char_span: [7496, 7845]
+    char_span: [7495, 7844]
     sentence_count: 2
     key_terms: [filmrevolutionary853, internships, internship, understood, nonprofit, "couldn't", dedicate, possibly]
     section: Comments

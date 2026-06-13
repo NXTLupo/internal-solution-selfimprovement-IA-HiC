@@ -23,19 +23,19 @@ chunks:
     key_terms: [love, findapath, comments, thinking, advice, though, "don't", great]
     token_count: 327
   - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c1"
-    char_span: [1382, 2329]
+    char_span: [1381, 2328]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c2"
-    char_span: [2332, 4429]
+    char_span: [2331, 4428]
     sentence_count: 17
     key_terms: [assistant, job, work, hospital, good, experience, management, questions]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/findapath/1rlu99v.md#c3"
-    char_span: [4432, 5789]
+    char_span: [4431, 5788]
     sentence_count: 10
     key_terms: [nursing, people, sales, get, work, rewarded, degree, number]
     section: Comments

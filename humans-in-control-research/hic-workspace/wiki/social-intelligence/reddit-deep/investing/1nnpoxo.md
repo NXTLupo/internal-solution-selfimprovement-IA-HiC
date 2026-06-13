@@ -23,7 +23,7 @@ chunks:
     key_terms: [investing, invest, companies, money, day, tsmc, comments, continue]
     token_count: 488
   - id: "social-intelligence/reddit-deep/investing/1nnpoxo.md#c1"
-    char_span: [2096, 3076]
+    char_span: [2095, 3075]
     sentence_count: 4
     key_terms: [investing, infrastructure, investing-technological-revolutions, companies, "you're", financial-respond-37, justbrowsinandvibin, right]
     section: Comments

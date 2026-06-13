@@ -23,19 +23,19 @@ chunks:
     key_terms: [digital, digitalnomad, down, comments, country, however, nomads, settle]
     token_count: 246
   - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c1"
-    char_span: [1032, 3194]
+    char_span: [1031, 3193]
     sentence_count: 21
     key_terms: [home, life, location, people, time, explorers, situation, changing]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c2"
-    char_span: [3196, 5154]
+    char_span: [3195, 5153]
     sentence_count: 15
     key_terms: [nomad, years, life, nomadism, months, traditional, foreigners-in-your-own-country, lifestyle]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/digitalnomad/1mzkhp7.md#c3"
-    char_span: [5156, 5596]
+    char_span: [5155, 5595]
     sentence_count: 4
     key_terms: [different, equivalent, everything, concerned, liquidity, wondering, dopamine, maggieyw]
     section: Comments

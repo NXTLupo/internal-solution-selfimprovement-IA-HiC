@@ -23,7 +23,7 @@ chunks:
     key_terms: [requirements, engineering, summer, comments, credits, general, session, nupath]
     token_count: 222
   - id: "social-intelligence/reddit-deep/neu/1sjvnyd.md#c1"
-    char_span: [946, 2732]
+    char_span: [945, 2731]
     sentence_count: 10
     key_terms: [requirements, degree, classes, major, "it's", summer, northeastern, take]
     section: Comments

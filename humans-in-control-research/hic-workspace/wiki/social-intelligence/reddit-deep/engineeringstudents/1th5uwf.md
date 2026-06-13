@@ -23,7 +23,7 @@ chunks:
     key_terms: [reservoir, engineering, international, master, engineeringstudents, petroleum, student, skills]
     token_count: 296
   - id: "social-intelligence/reddit-deep/engineeringstudents/1th5uwf.md#c1"
-    char_span: [1557, 2546]
+    char_span: [1556, 2545]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

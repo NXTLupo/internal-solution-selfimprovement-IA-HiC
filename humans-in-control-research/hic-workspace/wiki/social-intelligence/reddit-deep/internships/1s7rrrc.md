@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1s7rrrc.md
 url: "https://www.reddit.com/r/internships/comments/1s7rrrc/seeking_genuine_internship_opportunities_open_to/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,13 @@ flair: "Applications"
 extracted_at: "2026-06-06T23:20:46.228Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1s7rrrc.md#c0"
+    char_span: [0, 1336]
+    sentence_count: 2
+    key_terms: [opportunities, internships, analysis, internship, currently, comments, feedback, learning]
+    token_count: 322
 ---
-
 # Seeking Genuine Internship Opportunities | Open to Feedback & Connections
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1s7rrrc/seeking_genuine_internship_opportunities_open_to/)

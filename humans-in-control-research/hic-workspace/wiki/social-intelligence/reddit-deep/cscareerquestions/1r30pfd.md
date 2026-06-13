@@ -23,7 +23,7 @@ chunks:
     key_terms: [recruitment, msp, consultancy, client, experience, cscareerquestions, tech, staffing]
     token_count: 345
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r30pfd.md#c1"
-    char_span: [1629, 2251]
+    char_span: [1628, 2250]
     sentence_count: 3
     key_terms: [positive-art-378, exposure, career, process-driven, opportunities, large-scale, recruitment, stakeholder]
     section: Comments

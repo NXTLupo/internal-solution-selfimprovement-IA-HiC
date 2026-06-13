@@ -23,49 +23,49 @@ chunks:
     key_terms: [like, credit, money, people, financially, been, flex, comments]
     token_count: 477
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c1"
-    char_span: [2081, 4008]
+    char_span: [2080, 4007]
     sentence_count: 7
     key_terms: [people, cars, month, debt, lifestyle, cheapest, deleted, discord]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c2"
-    char_span: [4018, 6534]
+    char_span: [4017, 6533]
     sentence_count: 15
     key_terms: [consumption, status, marx, capitalism, social, production, sake, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c3"
-    char_span: [6150, 6588]
+    char_span: [6149, 6587]
     sentence_count: 3
     key_terms: [consumption, capitalism, critique, marx, authoritarian, explanatory, governments, prescribing]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c4"
-    char_span: [6590, 7480]
+    char_span: [6589, 7479]
     sentence_count: 5
     key_terms: [someone, propaganda, communism, communist, parroting, economic, spectrum, system]
     section: Comments
     token_count: 205
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c5"
-    char_span: [7482, 9511]
+    char_span: [7481, 9510]
     sentence_count: 16
     key_terms: [like, gen, income, people, money, capitalism, successful, investing]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c6"
-    char_span: [9513, 11409]
+    char_span: [9512, 11408]
     sentence_count: 14
     key_terms: [chocolate, bar, picture, people, "it's", talking, point, whole]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c7"
-    char_span: [11411, 13295]
+    char_span: [11410, 13294]
     sentence_count: 15
     key_terms: ["don't", people, instagram, anything, rich, successful, afford, couldn]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/genz/1noeb6p.md#c8"
-    char_span: [13297, 14860]
+    char_span: [13296, 14859]
     sentence_count: 10
     key_terms: [people, income, sustainable, thinking, because, certain, feeling, thought]
     section: Comments

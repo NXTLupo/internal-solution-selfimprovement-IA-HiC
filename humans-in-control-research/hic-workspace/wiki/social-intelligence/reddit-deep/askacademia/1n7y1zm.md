@@ -23,7 +23,7 @@ chunks:
     key_terms: [experiential, learning, organization, internship, "master's", research, askacademia, political]
     token_count: 250
   - id: "social-intelligence/reddit-deep/askacademia/1n7y1zm.md#c1"
-    char_span: [1163, 2304]
+    char_span: [1162, 2303]
     sentence_count: 7
     key_terms: [experience, relevant, applied, applicants, program, experiential, considered, academia]
     section: Comments

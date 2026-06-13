@@ -23,7 +23,7 @@ chunks:
     key_terms: [market, job, audio, careerguidance, change, cyber, comments, musician]
     token_count: 459
   - id: "social-intelligence/reddit-deep/careerguidance/1slwfrm.md#c1"
-    char_span: [1934, 2609]
+    char_span: [1933, 2608]
     sentence_count: 5
     key_terms: [question, perfect, waiting, whether, change, timing, sea-photograph-4515, never]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [comments, hired, internships, everyone, position, process, started, share]
     token_count: 249
   - id: "social-intelligence/reddit-deep/internships/1ti7wyn.md#c1"
-    char_span: [1121, 2737]
+    char_span: [1120, 2736]
     sentence_count: 13
     key_terms: [unprofessional, got, internship, best, focus, hired, get, job]
     section: Comments

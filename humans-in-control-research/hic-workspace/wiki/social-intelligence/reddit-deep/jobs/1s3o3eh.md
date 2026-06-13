@@ -23,19 +23,19 @@ chunks:
     key_terms: [work, don, jobs, decent, experience, comments, college, feeling]
     token_count: 246
   - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c1"
-    char_span: [984, 2757]
+    char_span: [983, 2756]
     sentence_count: 20
     key_terms: [trades, work, experience, wage, anything, recommending, been, don]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c2"
-    char_span: [2759, 4401]
+    char_span: [2758, 4400]
     sentence_count: 18
     key_terms: [people, get, someone, trying, getting, degree, resume, doing]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/jobs/1s3o3eh.md#c3"
-    char_span: [4403, 6017]
+    char_span: [4402, 6016]
     sentence_count: 9
     key_terms: [employment, work, programs, getting, without, working, degree, skills]
     section: Comments

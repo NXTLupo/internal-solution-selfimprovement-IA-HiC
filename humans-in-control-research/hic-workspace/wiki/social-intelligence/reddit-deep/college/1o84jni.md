@@ -28,13 +28,13 @@ chunks:
     key_terms: [anyone, relate, deal]
     token_count: 11
   - id: "social-intelligence/reddit-deep/college/1o84jni.md#c2"
-    char_span: [2212, 4258]
+    char_span: [2211, 4257]
     sentence_count: 27
     key_terms: [through, "don't", degree, throwyaaydnks, thank, take, year, possible]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1o84jni.md#c3"
-    char_span: [3965, 4900]
+    char_span: [3964, 4899]
     sentence_count: 7
     key_terms: [degree, college, finish, "don't", like, full-time, longer, school]
     section: Comments

@@ -28,19 +28,19 @@ chunks:
     key_terms: [management, event, communications, accreditation, encouragement, arrangements, coordination, registration]
     token_count: 110
   - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c2"
-    char_span: [2647, 3826]
+    char_span: [2646, 3825]
     sentence_count: 9
     key_terms: [training, since, corporate, teaching, face, find, keep, look]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c3"
-    char_span: [3831, 5991]
+    char_span: [3830, 5990]
     sentence_count: 14
     key_terms: [teaching, corporate, lovelyladylilac, teacher, move, work, because, intellectually]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1rlsayk.md#c4"
-    char_span: [5993, 6925]
+    char_span: [5992, 6924]
     sentence_count: 8
     key_terms: [work, lovelyladylilac, outside, experience, fulfilled, teachers, least, does]
     section: Comments

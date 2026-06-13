@@ -33,13 +33,13 @@ chunks:
     key_terms: [new, skills, "that's", "don't", niche, price, get, work]
     token_count: 331
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c3"
-    char_span: [6040, 8034]
+    char_span: [6039, 8033]
     sentence_count: 16
     key_terms: [work, clients, upwork, advertising, "i've", job, bertranddo, something]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/freelance/1qtzknv.md#c4"
-    char_span: [8036, 10208]
+    char_span: [8035, 10207]
     sentence_count: 12
     key_terms: [work, bertranddo, bottom, people, bookkeeping, positioning, like, ones]
     section: Comments

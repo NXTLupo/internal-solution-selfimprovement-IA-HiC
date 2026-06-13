@@ -23,19 +23,19 @@ chunks:
     key_terms: [waterloo, toronto, comments, downtown, closer, moving, been, days]
     token_count: 272
   - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c1"
-    char_span: [1108, 2653]
+    char_span: [1107, 2652]
     sentence_count: 15
     key_terms: [train, move, time, week, commute, closer, days, did]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c2"
-    char_span: [2655, 4108]
+    char_span: [2654, 4107]
     sentence_count: 9
     key_terms: [family, took, work, decision, vehicle, bigger, closer, paycut]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/waterloo/1nd1a1a.md#c3"
-    char_span: [4110, 5850]
+    char_span: [4109, 5849]
     sentence_count: 16
     key_terms: [toronto, living, work, waterloo, snooradishes9685, "it's", week, expensive]
     section: Comments

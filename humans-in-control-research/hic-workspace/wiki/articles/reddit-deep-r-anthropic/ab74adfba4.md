@@ -15,10 +15,10 @@ industries: [ai_research, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-anthropic/ab74adfba4.md#c0"
-    char_span: [0, 1662]
+    char_span: [0, 1661]
     sentence_count: 7
     key_terms: [claude, going, code, anthropic, comments, anyone, deluge, period]
-    token_count: 411
+    token_count: 410
 ---
 # Spotify says its best developers use Claude and haven't written a single line of code since December
 

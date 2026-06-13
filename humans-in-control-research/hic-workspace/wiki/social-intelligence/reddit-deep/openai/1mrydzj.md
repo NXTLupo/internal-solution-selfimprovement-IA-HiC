@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineering, comments, openai, prompt, gpt, particularly, slowfail2433, reddit-deep]
     token_count: 83
   - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c1"
-    char_span: [318, 2330]
+    char_span: [317, 2329]
     sentence_count: 20
     key_terms: [avoid, description, optional, o1-mini, prompts, full, grimreefer, different]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/openai/1mrydzj.md#c2"
-    char_span: [2332, 3470]
+    char_span: [2331, 3469]
     sentence_count: 9
     key_terms: [prompt-optimizer-automated-meta-prompting, ferenczai, substack, example, explain, prompts, expect, prompt]
     section: Comments

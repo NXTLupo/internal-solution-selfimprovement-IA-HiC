@@ -1,0 +1,16 @@
+Documents for Topic 11 (showing first 3):
+
+Document 1:
+Does selling a money market fund (like vusxx), trigger a taxable event? Or is it just selling at your cost basis because you pay taxes on the yield/dividends when they are distributed? It would only do that if you were realizing gains by selling. Which you’re not, because indeed, gains are all distributed as dividends along the way
+No. A fund like VUSXX distributes dividends along the way in the same way that a savings account distributes interest. 
+Interest from savings accounts is taxed...
+
+Document 2:
+I received my tax form from Vanguard. It must be consolidated because I need a magnifying glass to read anything on it. I'm trying to figure out which number I'm supposed to be using to calculate Pennsylvania tax-exempt dividends, total dividends or the particular ETFs? I have a variety of ETFs from Vanguard, as well as VMFXX. The TOTAL dividends are $1357, but only two of them (VTI & VYM) have interest in government securities.
+
+FreeTaxUSA is telling me to use the total dividends, $1357, to com...
+
+Document 3:
+Estimated dividends for tax planning? I have a Vanguard taxable account that contains Vanguard ETFs only. What is the best way to estimate annual dividends in the account for tax planning? Also, is there a good way to estimate which portions are qualified versus unqualified dividends? Thanks for the info! I purchased all my shares long ago so that is thankfully not an issue.
+There's a decent calculator at [DividendWatch](https://dividend.watch/dividend-calculator). The official Vanguard year-end...
+

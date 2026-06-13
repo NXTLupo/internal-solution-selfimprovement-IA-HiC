@@ -33,19 +33,19 @@ chunks:
     key_terms: [university, applying, hearing, give, job, year, recommendations, communications]
     token_count: 213
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c3"
-    char_span: [4795, 6936]
+    char_span: [4794, 6935]
     sentence_count: 16
     key_terms: [writing, mfa, phd, benefit, schools, want, university, electives]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c4"
-    char_span: [6939, 9083]
+    char_span: [6938, 9082]
     sentence_count: 16
     key_terms: [students, visiting, writer, relationships, lot, too, beneficial, respected]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1tc9ef7.md#c5"
-    char_span: [9085, 10423]
+    char_span: [9084, 10422]
     sentence_count: 8
     key_terms: [phd, mfa, canadian, research, medical, advice, doing, lot]
     section: Comments

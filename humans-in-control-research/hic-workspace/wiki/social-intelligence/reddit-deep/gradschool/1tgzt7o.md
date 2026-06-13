@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1tgzt7o.md#c0"
-    char_span: [0, 297]
+    char_span: [0, 296]
     sentence_count: 1
     key_terms: [gradschool, comments, randomjriekskdn, reddit-deep, admission, advisors, emailing, general]
-    token_count: 83
+    token_count: 82
 ---
 # Help with emailing PhD advisors and general grad school admission
 

@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, extracurriculars, overwhelming, application, comments, showcase, college, without]
     token_count: 220
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pq1mii.md#c1"
-    char_span: [1035, 2513]
+    char_span: [1034, 2512]
     sentence_count: 14
     key_terms: [activities, common, instructions, significance, "don't", app, character, specific]
     section: Comments

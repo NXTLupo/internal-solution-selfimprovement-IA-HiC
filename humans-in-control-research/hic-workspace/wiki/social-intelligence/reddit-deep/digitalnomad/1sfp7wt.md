@@ -28,37 +28,37 @@ chunks:
     key_terms: [people, sound, does, like, move, real, underestimate, bureaucracy]
     token_count: 119
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c2"
-    char_span: [2864, 4902]
+    char_span: [2863, 4901]
     sentence_count: 17
     key_terms: [london, bangkok, syllabubexpensive663, right, move, consistent, creati-hu, probably]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c3"
-    char_span: [4904, 6908]
+    char_span: [4903, 6907]
     sentence_count: 10
     key_terms: [syllabubexpensive663, income, bali, part, work, coworking, creati-hu, probably]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c4"
-    char_span: [6910, 8944]
+    char_span: [6909, 8943]
     sentence_count: 16
     key_terms: [chiang, mai, "you're", city, lots, around, coffee, slower]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c5"
-    char_span: [8946, 10973]
+    char_span: [8945, 10972]
     sentence_count: 15
     key_terms: [syllabubexpensive663, whether, income, ready, something, probably, already, produce]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c6"
-    char_span: [10975, 12928]
+    char_span: [10974, 12927]
     sentence_count: 17
     key_terms: [syllabubexpensive663, london, months, thanks, "it's", life, optimistic, burning]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/digitalnomad/1sfp7wt.md#c7"
-    char_span: [12930, 14295]
+    char_span: [12929, 14294]
     sentence_count: 10
     key_terms: [philippines, less, like, probably, around, making, people, syllabubexpensive663]
     section: Comments

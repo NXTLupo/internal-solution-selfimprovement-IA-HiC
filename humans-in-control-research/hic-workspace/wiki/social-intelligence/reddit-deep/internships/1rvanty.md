@@ -21,7 +21,7 @@ chunks:
     key_terms: [data, internships, science, currently, learning, machine, engineering, paid]
     token_count: 271
   - id: "social-intelligence/reddit-deep/internships/1rvanty.md#c1"
-    char_span: [1256, 1552]
+    char_span: [1255, 1551]
     sentence_count: 1
     key_terms: [sweet-frosting4839, internshipdaily, constantly, everything, foundation, portfolio, applying, dropouts]
     section: Comments

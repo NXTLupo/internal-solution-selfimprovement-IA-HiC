@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/deeplearning/1t3oro6.md#c0"
-    char_span: [0, 1611]
+    char_span: [0, 1610]
     sentence_count: 12
     key_terms: [enhancing-reasoning-small-language-models, https, model, matteosaponati, deeplearning, com, data, generator]
     token_count: 418

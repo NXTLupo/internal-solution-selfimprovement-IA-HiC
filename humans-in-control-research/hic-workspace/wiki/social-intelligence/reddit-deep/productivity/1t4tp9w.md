@@ -23,25 +23,25 @@ chunks:
     key_terms: [productivity, systems, simplified, structure, comments, planning, workflow, did]
     token_count: 234
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c1"
-    char_span: [1043, 2920]
+    char_span: [1042, 2919]
     sentence_count: 14
     key_terms: [everything, because, review, weekly, simplifying, big, week, especially]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c2"
-    char_span: [2922, 5025]
+    char_span: [2921, 5024]
     sentence_count: 16
     key_terms: [systems, day, morning, night, plan, planning, productivity, helps]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c3"
-    char_span: [5027, 7396]
+    char_span: [5026, 7395]
     sentence_count: 14
     key_terms: [instead, something, week, systems, enough, review, system, trying]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/productivity/1t4tp9w.md#c4"
-    char_span: [7398, 7511]
+    char_span: [7397, 7510]
     sentence_count: 1
     key_terms: [template, exposes, pattern, shorter, usually, version, easier, faster]
     section: Comments

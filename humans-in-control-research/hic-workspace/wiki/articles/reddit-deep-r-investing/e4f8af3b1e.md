@@ -15,10 +15,10 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/e4f8af3b1e.md#c0"
-    char_span: [0, 2125]
+    char_span: [0, 2124]
     sentence_count: 9
     key_terms: [market, stock-market-dow-record-economy-jobs-inflation, inflation, "it's", stock, cuts, rate, top]
-    token_count: 490
+    token_count: 489
 ---
 # Article: Why are stocks setting records when the economy feels down in the dumps?
 

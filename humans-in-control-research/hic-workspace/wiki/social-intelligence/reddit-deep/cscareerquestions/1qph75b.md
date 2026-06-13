@@ -23,31 +23,31 @@ chunks:
     key_terms: [wgu, cscareerquestions, because, jobs, year, struggling, comments, applied]
     token_count: 282
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c1"
-    char_span: [1064, 2294]
+    char_span: [1063, 2293]
     sentence_count: 12
     key_terms: [resume, "don't", applications, interviews, different, market, matter, school]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c2"
-    char_span: [2296, 4155]
+    char_span: [2295, 4154]
     sentence_count: 12
     key_terms: [swe, coinbase-discrd-rddt, didn, "it's", job, time, internship, companies]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c3"
-    char_span: [4157, 5659]
+    char_span: [4156, 5658]
     sentence_count: 15
     key_terms: [market, going, credentials, like, headhunted, companies, interview, struggle]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c4"
-    char_span: [5661, 7722]
+    char_span: [5660, 7721]
     sentence_count: 22
     key_terms: [market, people, instruction, schools, bunnytiger23, prestigious, "it's", job]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qph75b.md#c5"
-    char_span: [7724, 8336]
+    char_span: [7723, 8335]
     sentence_count: 5
     key_terms: [professors, abraineatingamoeboid, teach, specifically, experienced, instruction, internships, curriculum]
     section: Comments

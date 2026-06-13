@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1qfrdbk.md#c0"
-    char_span: [0, 1964]
+    char_span: [0, 1963]
     sentence_count: 14
     key_terms: [work, careerguidance, advice, career, skills, time, employment, management]
-    token_count: 417
+    token_count: 416
 ---
 # Seeking Career Guidance and Direction. Will a get learn from your experiences?
 

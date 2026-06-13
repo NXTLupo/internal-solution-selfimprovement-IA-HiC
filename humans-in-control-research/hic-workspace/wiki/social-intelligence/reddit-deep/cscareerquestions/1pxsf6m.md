@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, software, comments, pretty, one-specialist2785, get, job, low]
     token_count: 256
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxsf6m.md#c1"
-    char_span: [1105, 1630]
+    char_span: [1104, 1629]
     sentence_count: 3
     key_terms: [invented, act, tax, went, reconciliation, sext-scientist, quantitative, reinvestment]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxsf6m.md#c2"
-    char_span: [1632, 3931]
+    char_span: [1631, 3930]
     sentence_count: 14
     key_terms: [people, students, network, opportunities, time, blockchain, humanguise, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxsf6m.md#c3"
-    char_span: [3626, 3951]
+    char_span: [3625, 3950]
     sentence_count: 2
     key_terms: [opportunities, nonstandard, understand, available, candidate, contested, pedigree, visceral]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxsf6m.md#c4"
-    char_span: [3953, 6150]
+    char_span: [3952, 6149]
     sentence_count: 12
     key_terms: [people, networking, don, like, presentations, being, going, proactive]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxsf6m.md#c5"
-    char_span: [6152, 8440]
+    char_span: [6151, 8439]
     sentence_count: 6
     key_terms: [job, great, opportunity, good, work, interested, networking, although]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pxsf6m.md#c6"
-    char_span: [8442, 10129]
+    char_span: [8441, 10128]
     sentence_count: 8
     key_terms: [interviews, rawreffincake, right, like, offshoring, generally, america, getting]
     section: Comments

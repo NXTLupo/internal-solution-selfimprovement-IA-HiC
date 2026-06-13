@@ -21,7 +21,7 @@ chunks:
     key_terms: [international, internships, need, internship, comments, company, pretty, offer]
     token_count: 281
   - id: "social-intelligence/reddit-deep/internships/1su6d3w.md#c1"
-    char_span: [1175, 2580]
+    char_span: [1174, 2579]
     sentence_count: 3
     key_terms: ["it's", take, student, summer, offer, get, got, look]
     section: Comments

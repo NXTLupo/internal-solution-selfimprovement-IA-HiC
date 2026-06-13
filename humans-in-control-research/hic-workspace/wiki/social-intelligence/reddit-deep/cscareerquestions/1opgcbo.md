@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, comments, job, reddit-deep, increase, majoring, chances, getting]
     token_count: 85
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c1"
-    char_span: [334, 2415]
+    char_span: [333, 2414]
     sentence_count: 19
     key_terms: [useful, double, sub, job, jobs, fintech, science, "there's"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c2"
-    char_span: [2417, 4229]
+    char_span: [2416, 4228]
     sentence_count: 16
     key_terms: [degree, get, job, like, "you'll", jobs, math, definitely]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c3"
-    char_span: [4231, 6280]
+    char_span: [4230, 6279]
     sentence_count: 16
     key_terms: [work, taught, like, use, masters, math, technical, classes]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1opgcbo.md#c4"
-    char_span: [6282, 6916]
+    char_span: [6281, 6915]
     sentence_count: 7
     key_terms: [get, communication, universities, tuckfrump69, experience, interested, internship, interviews]
     section: Comments

@@ -26,13 +26,13 @@ chunks:
     key_terms: [email, columbia, receiving, ugrad-asp, address, program, best, edu]
     token_count: 159
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c2"
-    char_span: [3343, 5115]
+    char_span: [3342, 5114]
     sentence_count: 7
     key_terms: [dramatic-simple2783, got, good, email, sign, columbia, anyone, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r9i0eh.md#c3"
-    char_span: [4871, 5131]
+    char_span: [4870, 5130]
     sentence_count: 1
     key_terms: [people, email, got, rejected, waitlist, anyone, future, letter]
     section: Comments

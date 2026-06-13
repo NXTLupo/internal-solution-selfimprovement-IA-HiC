@@ -23,7 +23,7 @@ chunks:
     key_terms: [organizing, careerguidance, good, comments, career, photos, ok-philosophy-7756, lot]
     token_count: 186
   - id: "social-intelligence/reddit-deep/careerguidance/1sorte9.md#c1"
-    char_span: [847, 1421]
+    char_span: [846, 1420]
     sentence_count: 4
     key_terms: [technical-entry9372, later, documentation, inspiration, everything, organizing, screenshot, reference]
     section: Comments

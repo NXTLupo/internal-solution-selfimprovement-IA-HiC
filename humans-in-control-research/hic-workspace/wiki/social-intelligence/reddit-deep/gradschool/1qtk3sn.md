@@ -23,13 +23,13 @@ chunks:
     key_terms: [school, research, grad, experience, berkeley, gradschool, comments, graduate]
     token_count: 184
   - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c1"
-    char_span: [828, 1606]
+    char_span: [827, 1605]
     sentence_count: 6
     key_terms: [research, experience, programs, applied, did, phd, time, year]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/gradschool/1qtk3sn.md#c2"
-    char_span: [1608, 3439]
+    char_span: [1607, 3438]
     sentence_count: 13
     key_terms: [research, junior, experience, professors, intelligentcat3311, students, babygoldenbear, thelastnoelll]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, working, hsbc, placement, comments, offer, hong, kong]
     token_count: 131
   - id: "social-intelligence/reddit-deep/internships/1sl1me2.md#c1"
-    char_span: [524, 2150]
+    char_span: [523, 2149]
     sentence_count: 6
     key_terms: [sure, congrats, thanks, authorization, here, hey, visa, work]
     section: Comments

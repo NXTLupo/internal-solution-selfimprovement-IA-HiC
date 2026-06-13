@@ -23,7 +23,7 @@ chunks:
     key_terms: [gemini, app, comments, passkey, iphone, authy, windows, chrome]
     token_count: 292
   - id: "social-intelligence/reddit-deep/gemini/1lfzhgw.md#c1"
-    char_span: [1160, 2630]
+    char_span: [1159, 2629]
     sentence_count: 15
     key_terms: [auntietd, windows, access, ticket, authy, email, games, never]
     section: Comments

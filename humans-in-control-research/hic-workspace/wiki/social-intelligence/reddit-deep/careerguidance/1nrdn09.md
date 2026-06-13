@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1nrdn09.md#c0"
-    char_span: [0, 1013]
+    char_span: [0, 1012]
     sentence_count: 12
     key_terms: [careerguidance, career, job, comments, like, new, strategy-focused, communication]
-    token_count: 252
+    token_count: 251
 ---
 # AI ate my job. Do you have any ideas for a new strategy-focused career?
 

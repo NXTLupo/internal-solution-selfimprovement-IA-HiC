@@ -28,55 +28,55 @@ chunks:
     key_terms: [credit, card, payment, around, never, new, rent, available]
     token_count: 351
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c2"
-    char_span: [3720, 5780]
+    char_span: [3719, 5779]
     sentence_count: 18
     key_terms: [credit, interest, pay, balance, paying, cards, downvotes, full]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c3"
-    char_span: [5782, 7875]
+    char_span: [5781, 7874]
     sentence_count: 15
     key_terms: [balance, statement, pay, date, credit, interest, card, want]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c4"
-    char_span: [7877, 9618]
+    char_span: [7876, 9617]
     sentence_count: 16
     key_terms: [credit, balance, interest, pay, full, paying, score, card]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c5"
-    char_span: [9620, 11583]
+    char_span: [9619, 11582]
     sentence_count: 17
     key_terms: [savings, accounts, like, pay, yourself, credit, future, financially]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c6"
-    char_span: [11585, 13097]
+    char_span: [11584, 13096]
     sentence_count: 10
     key_terms: ["you're", brain, "i've", balance, cutting, better, credit, such-cartographer425]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c7"
-    char_span: [13099, 14768]
+    char_span: [13098, 14767]
     sentence_count: 10
     key_terms: [rent, thousands, bababoey219, away, home, move, year, students]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c8"
-    char_span: [14770, 16535]
+    char_span: [14769, 16534]
     sentence_count: 14
     key_terms: [landlord, goal, home, being, big, like, knowledge, friends]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c9"
-    char_span: [16537, 18554]
+    char_span: [16536, 18553]
     sentence_count: 15
     key_terms: [substantialbass9524, resource, personalfinance, house, month, bababoey219, save, wiki]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1pqxmd2.md#c10"
-    char_span: [18556, 19829]
+    char_span: [18555, 19828]
     sentence_count: 15
     key_terms: ["you're", personalfinance, income, increasing, credit, emperoroftheuniverse, focus, need]
     section: Comments

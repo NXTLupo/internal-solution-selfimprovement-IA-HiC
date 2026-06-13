@@ -23,19 +23,19 @@ chunks:
     key_terms: [free, college, textbooks, comments, books, money, texts, brainphysical6238]
     token_count: 188
   - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c1"
-    char_span: [805, 2890]
+    char_span: [804, 2889]
     sentence_count: 10
     key_terms: [textbooks, homework, textbook, automoderator, class, assignments, duplication, bookfinder]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c2"
-    char_span: [2892, 4899]
+    char_span: [2891, 4898]
     sentence_count: 12
     key_terms: [books, class, professor, physical, textbook, because, book, "i'm"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/college/1n1u6vo.md#c3"
-    char_span: [4901, 5725]
+    char_span: [4900, 5724]
     sentence_count: 5
     key_terms: [professors, get, textbook, industry, class, back, free, alternatives]
     section: Comments

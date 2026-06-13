@@ -23,7 +23,7 @@ chunks:
     key_terms: [ece, cse, college, careerguidance, better, engineering, placement, prospects]
     token_count: 348
   - id: "social-intelligence/reddit-deep/careerguidance/1mk5rcv.md#c1"
-    char_span: [1561, 2031]
+    char_span: [1560, 2030]
     sentence_count: 3
     key_terms: [thoughtmiddle6765, self-learners, fundamentals, personalized, identifying, outperform, regardless, knowledge]
     section: Comments

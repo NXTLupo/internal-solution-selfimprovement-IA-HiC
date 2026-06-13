@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1osn72m.md#c0"
-    char_span: [0, 756]
+    char_span: [0, 755]
     sentence_count: 1
     key_terms: [learn, com, www, developer, comments, career, google, cloud]
     token_count: 189

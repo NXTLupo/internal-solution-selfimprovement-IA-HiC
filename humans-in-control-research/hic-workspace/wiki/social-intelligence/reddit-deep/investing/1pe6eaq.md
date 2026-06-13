@@ -23,43 +23,43 @@ chunks:
     key_terms: [investing, "i'm", real, comments, estate, solana, stocks, like]
     token_count: 236
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c1"
-    char_span: [924, 2087]
+    char_span: [923, 2086]
     sentence_count: 11
     key_terms: [investment, target, nullification, speculative, "i'm", rule, tsla, nothing]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c2"
-    char_span: [2089, 3595]
+    char_span: [2088, 3594]
     sentence_count: 12
     key_terms: ["there's", people, medonsirius, sell, sometimes, taplar, cards, packs]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c3"
-    char_span: [3597, 5726]
+    char_span: [3596, 5725]
     sentence_count: 14
     key_terms: [market, investors, gains, company, buying, future, retail, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c4"
-    char_span: [5728, 6874]
+    char_span: [5727, 6873]
     sentence_count: 12
     key_terms: [embarrassedrole3299, investors, insanely, serious, wealthy, bought, market, method]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c5"
-    char_span: [6876, 7897]
+    char_span: [6875, 7896]
     sentence_count: 6
     key_terms: [definitely, doubled, selling, solana, good, saw, time, butterpotatohead]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c6"
-    char_span: [7899, 9779]
+    char_span: [7898, 9778]
     sentence_count: 14
     key_terms: [probably, holding, fundamentals, hold, "it's", like, set, community]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pe6eaq.md#c7"
-    char_span: [9562, 10048]
+    char_span: [9561, 10047]
     sentence_count: 4
     key_terms: [koblihadestroyer, assumptions, reasonable, suspicious, volatility, auto-sell, community, stop-loss]
     section: Comments

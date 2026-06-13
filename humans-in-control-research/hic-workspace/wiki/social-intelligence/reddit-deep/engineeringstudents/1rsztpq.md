@@ -23,49 +23,49 @@ chunks:
     key_terms: [mechatronics, mechanical, engineeringstudents, salary, civil, allowances, currently, engineers]
     token_count: 307
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c1"
-    char_span: [1399, 3460]
+    char_span: [1398, 3459]
     sentence_count: 18
     key_terms: [civil, lot, getting, hot, per, want, discipline, mechanical]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c2"
-    char_span: [3462, 4552]
+    char_span: [3461, 4551]
     sentence_count: 9
     key_terms: [definitely, backwards, instead, school, "that's", becominganastronaut, start, area]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c3"
-    char_span: [4554, 6618]
+    char_span: [4553, 6617]
     sentence_count: 14
     key_terms: [engineer, engineering, lawyer, pay, year, hours, hard, unlimited]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c4"
-    char_span: [6349, 7763]
+    char_span: [6348, 7762]
     sentence_count: 10
     key_terms: [financial, engineering, because, passion, illogical, argument, interest, medicine]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c5"
-    char_span: [7765, 9613]
+    char_span: [7764, 9612]
     sentence_count: 15
     key_terms: [engineer, structural, civil, mechanical, engineering, leadership, analysis, industry]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c6"
-    char_span: [9616, 11793]
+    char_span: [9615, 11792]
     sentence_count: 16
     key_terms: [mechanical, life, mechatronics, civil, paycheck, bigger, opportunities, engineering]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c7"
-    char_span: [11795, 12319]
+    char_span: [11794, 12318]
     sentence_count: 5
     key_terms: [money, engineering, "i'm", job, senior-dog-9735, considering, everything, passionate]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rsztpq.md#c8"
-    char_span: [12321, 14035]
+    char_span: [12320, 14034]
     sentence_count: 8
     key_terms: [engineering, question, financial, passion, thinking, because, "doesn't", matter]
     section: Comments

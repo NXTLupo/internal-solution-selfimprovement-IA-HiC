@@ -15,12 +15,12 @@ industries: [saas, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-productivity/15fab7c2df.md#c0"
-    char_span: [0, 1972]
+    char_span: [0, 1971]
     sentence_count: 14
     key_terms: [productivity, need, been, new, trap, everything, comments, without]
-    token_count: 483
+    token_count: 482
   - id: "articles/reddit-deep-r-productivity/15fab7c2df.md#c1"
-    char_span: [1974, 2690]
+    char_span: [1973, 2689]
     sentence_count: 6
     key_terms: [subconscious, flow, because, instead, myself, special-succotash688, mind, productivity]
     token_count: 160

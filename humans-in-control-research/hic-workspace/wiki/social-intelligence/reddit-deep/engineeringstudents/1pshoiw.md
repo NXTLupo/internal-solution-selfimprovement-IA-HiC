@@ -7,13 +7,13 @@ subreddit: "engineeringstudents"
 title: "how i got into a mechanical engineering PhD with a 3.2 gpa (and other suboptimal credentials)"
 author: "Boskadoff"
 date: "2025-12-21T21:32:19.000Z"
-score: 141
+score: 143
 upvote_ratio: 0.94
 num_comments: 37
 flair: "Career Advice"
-extracted_at: "2026-06-06T17:43:22.927Z"
+extracted_at: "2026-06-08T18:49:20.732Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pshoiw.md#c0"
     char_span: [0, 1906]
@@ -86,7 +86,7 @@ chunks:
 # how i got into a mechanical engineering PhD with a 3.2 gpa (and other suboptimal credentials)
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1pshoiw/how_i_got_into_a_mechanical_engineering_phd_with/)
-Posted by **Boskadoff** · **141↑** · **37 comments**
+Posted by **Boskadoff** · **143↑** · **37 comments**
 
 # Hi
 
@@ -241,7 +241,7 @@ So instead what I did was filter out which schools my credentials (my GPA and GR
 
 ## Comments
 
-- **Tall-Cat-8890** (28↑): Great guide! Congrats on getting in. I applied to 5–really only expecting to get into 1. *Maybe* 2. But my field is also very niche (I mean like… subfield within a subfield within a subfield niche)  and I had long zoom chats with professors from 3 out of those 5 schools. That one school’s professor is really excited and I’m really excited. It literally is like dating or courtship. “I can offer you a dowry of 5 mules and an ox in exchange for 5 years of your life…”  
+- **Tall-Cat-8890** (29↑): Great guide! Congrats on getting in. I applied to 5–really only expecting to get into 1. *Maybe* 2. But my field is also very niche (I mean like… subfield within a subfield within a subfield niche)  and I had long zoom chats with professors from 3 out of those 5 schools. That one school’s professor is really excited and I’m really excited. It literally is like dating or courtship. “I can offer you a dowry of 5 mules and an ox in exchange for 5 years of your life…”  
 
 My only advice to those reading: 
 
@@ -252,17 +252,17 @@ In fact, if you are a decent candidate for doing a PhD, you should have to be co
 PhDs also do not guarantee immediate long term employment. Schools will also pressure you to do a postdoc and reality is, if you wanna be a professor or any sort of high level research: you gotta do a postdoc. Which means you may be looking at close to another decade of school *after* your bachelors. It’s not for the faint of heart. Just the smart dumb people who like research purely for the love of the game.
   - **Boskadoff** (3↑): Thank you sm!! Congrats to you as well!! The ox thing is so real lolol. And for sure, thanks for highlighting that this shouldnt be a plan B, I completely agree you need to be somewhat invested to get through!
   - **Crash-55** (3↑): I did a PhD because I couldn’t get a job.  I found an area I liked and have been working in research ever since.
-- **Moist_Ordinary6457** (23↑): *Likely will climb the career ladder much faster (an example I was told it will take ~20 years as a bachelors to get the same place as immediately after your doctorate)*
+- **Moist_Ordinary6457** (22↑): *Likely will climb the career ladder much faster (an example I was told it will take ~20 years as a bachelors to get the same place as immediately after your doctorate)*
 
 
 This is not accurate
-  - **Tall-Cat-8890** (7↑): I’m in the US fwiw and I’ve heard this as well. I’m sure it’s not the same for all industries and is more or less an exaggeration or isn’t super applicable nowadays because people put much more stock into having a degree (compared to 50 years ago for example). 
+  - **Tall-Cat-8890** (6↑): I’m in the US fwiw and I’ve heard this as well. I’m sure it’s not the same for all industries and is more or less an exaggeration or isn’t super applicable nowadays because people put much more stock into having a degree (compared to 50 years ago for example). 
 
 But like, if you’re applying to a staff scientist position at a national lab, a bachelors degree holder could get into it with 20 years of research experience or a PhD holder could get into it without those 20 additional YOE. Which is generally true for those types of positions and I feel like that’s what people are referring to when they say that in the context of research positions.
   - **Crash-55** (4↑): It varies greatly by field / job type.  Where I am we have to submit proposals for funding the PhD makes it far easier to get those submitted.  Also a PhD lets you question the greybeards in most organizations.
   - **BooBot97** (1↑): It is accurate in many situations
   - **Boskadoff** (1↑): Yeah I guess it varies by position lolol
-- **Crash-55** (8↑): There is another path for PhD if in the US.  The Federal Government sponsors several different programs to get PhDs. All of these come with work requirements afterwards but will pay for grad school and provide a stipend. This can make it easier to get the thesis advisor you want as they don’t have to pay for you.  
+- **Crash-55** (7↑): There is another path for PhD if in the US.  The Federal Government sponsors several different programs to get PhDs. All of these come with work requirements afterwards but will pay for grad school and provide a stipend. This can make it easier to get the thesis advisor you want as they don’t have to pay for you.  
 
 The SMART program  (https://www.smartscholarship.org/smart/en) is the one for DoD.  
 

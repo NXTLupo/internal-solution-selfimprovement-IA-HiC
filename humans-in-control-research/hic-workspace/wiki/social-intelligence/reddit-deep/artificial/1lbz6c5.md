@@ -28,67 +28,67 @@ chunks:
     key_terms: [tools, "it's", encourage, practices, industry, experts, become, "don't"]
     token_count: 246
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c2"
-    char_span: [3331, 5310]
+    char_span: [3330, 5309]
     sentence_count: 22
     key_terms: [tools, people, analysis, years, corrections, math, time, developers]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c3"
-    char_span: [5312, 6957]
+    char_span: [5311, 6956]
     sentence_count: 9
     key_terms: [experts, tools, front-end, knowledge, expert, developing, disappear, probably]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c4"
-    char_span: [6959, 8684]
+    char_span: [6958, 8683]
     sentence_count: 12
     key_terms: [happen, intelligence, artificial, different, genuinely, amazing, smorgasconfigurator, ideas]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c5"
-    char_span: [8686, 10919]
+    char_span: [8685, 10918]
     sentence_count: 6
     key_terms: [decisions, economic, ethical, accountability, misinformation, displacement, significant, data]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c6"
-    char_span: [10921, 12769]
+    char_span: [10920, 12768]
     sentence_count: 7
     key_terms: [human, data, systems, significant, problem-solving, privacy, sophisticated, cyberattacks]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c7"
-    char_span: [12771, 15086]
+    char_span: [12770, 15085]
     sentence_count: 9
     key_terms: [writing, thoughts, better, ideas, emotional, emotions, thinking, ability]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c8"
-    char_span: [15088, 17429]
+    char_span: [15087, 17428]
     sentence_count: 12
     key_terms: [writing, experimentation, intelligence, achievement, discipline, authentic, personal, provides]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c9"
-    char_span: [17431, 19046]
+    char_span: [17430, 19045]
     sentence_count: 10
     key_terms: [benchmarking, "that's", requirement, analysis, solution, started, systems, coding]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c10"
-    char_span: [19048, 21416]
+    char_span: [19047, 21415]
     sentence_count: 19
     key_terms: [specialization, people, drive, curiosity, knowledge, anything, combat, fast-satisfaction482]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c11"
-    char_span: [21132, 22362]
+    char_span: [21131, 22361]
     sentence_count: 10
     key_terms: [isnt, combat, profit, phone, power, translatorrude4917, been, idk]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/artificial/1lbz6c5.md#c12"
-    char_span: [22364, 23966]
+    char_span: [22363, 23965]
     sentence_count: 5
     key_terms: [translatorrude4917, learning, started, learn, capability, cognitive, augment, human]
     section: Comments

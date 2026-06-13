@@ -23,13 +23,13 @@ chunks:
     key_terms: [college, school, dorm, like, comments, minutes, living, rooms]
     token_count: 255
   - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c1"
-    char_span: [1031, 1864]
+    char_span: [1030, 1863]
     sentence_count: 6
     key_terms: [free, living, moving, school, choicereflection965, going, grad, home]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/college/1qq12wj.md#c2"
-    char_span: [1866, 3419]
+    char_span: [1865, 3418]
     sentence_count: 11
     key_terms: [living, campus, experience, trustmeiknowthings, get, parents, people, away]
     section: Comments

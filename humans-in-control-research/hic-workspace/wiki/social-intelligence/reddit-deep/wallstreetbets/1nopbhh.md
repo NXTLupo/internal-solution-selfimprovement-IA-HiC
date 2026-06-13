@@ -23,19 +23,19 @@ chunks:
     key_terms: [gains, wallstreetbets, big, combined, comments, lucky, plays, years]
     token_count: 295
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c1"
-    char_span: [1056, 2267]
+    char_span: [1055, 2266]
     sentence_count: 5
     key_terms: [get, hard, hump, past, deleted, hitting, discord, https]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c2"
-    char_span: [2269, 3040]
+    char_span: [2268, 3039]
     sentence_count: 8
     key_terms: [shares, big-baller-47, man, port, boston-bets, deceptifob, dudermagee, depending]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nopbhh.md#c3"
-    char_span: [3042, 4513]
+    char_span: [3041, 4512]
     sentence_count: 17
     key_terms: [company, years, kids, put, through, retail, school, money]
     section: Comments

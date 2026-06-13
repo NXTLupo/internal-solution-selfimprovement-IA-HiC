@@ -26,13 +26,13 @@ chunks:
     key_terms: [semester, systems, career, distributed, "i'm", compilers, school, seems]
     token_count: 236
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c2"
-    char_span: [2918, 3455]
+    char_span: [2917, 3454]
     sentence_count: 1
     key_terms: [engineering, systems, formal, good, wild-ganache3061, infrastructure, verification, distributed]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tg0q6t.md#c3"
-    char_span: [3460, 5542]
+    char_span: [3459, 5541]
     sentence_count: 8
     key_terms: [systems, distributed, like, infrastructure, cloud, engineering, jobs, want]
     section: Comments

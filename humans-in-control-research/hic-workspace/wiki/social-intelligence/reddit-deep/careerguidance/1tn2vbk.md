@@ -23,31 +23,31 @@ chunks:
     key_terms: [finance, experience, investment, roles, management, like, research, careerguidance]
     token_count: 516
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c1"
-    char_span: [2465, 4214]
+    char_span: [2465, 4213]
     sentence_count: 22
     key_terms: [applications, networking, unconventional, top-ground22, club, appreciate, targeted, looking]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c2"
-    char_span: [4216, 6773]
+    char_span: [4215, 6772]
     sentence_count: 19
     key_terms: [advice, networking, because, finance, generic, opportunities, applications, top-ground22]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c3"
-    char_span: [6438, 8793]
+    char_span: [6437, 8792]
     sentence_count: 18
     key_terms: [experience, consulting, get, because, finance, people, top-ground22, competitive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c4"
-    char_span: [8524, 10139]
+    char_span: [8523, 10138]
     sentence_count: 11
     key_terms: [top-ground22, field, because, finance, advice, similarcomfortable69, asked, women]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1tn2vbk.md#c5"
-    char_span: [10141, 10929]
+    char_span: [10140, 10928]
     sentence_count: 8
     key_terms: [entry, level, city, jobs, move, nyc, connection, personal]
     section: Comments

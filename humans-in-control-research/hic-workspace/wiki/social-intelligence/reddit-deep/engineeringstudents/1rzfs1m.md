@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, students, career, engineering, like, university, wisconsin, comments]
     token_count: 214
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rzfs1m.md#c1"
-    char_span: [1026, 1266]
+    char_span: [1025, 1265]
     sentence_count: 4
     key_terms: [sherbertquirky3789, classmates, guarantee, answer, anyone, detail, along, clubs]
     section: Comments

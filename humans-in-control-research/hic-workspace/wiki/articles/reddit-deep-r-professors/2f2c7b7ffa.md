@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/2f2c7b7ffa.md#c0"
-    char_span: [0, 2293]
+    char_span: [0, 2292]
     sentence_count: 19
     key_terms: [authorization, professors, parent, tutoring, "he's", advice, conversations, class]
-    token_count: 508
+    token_count: 507
   - id: "articles/reddit-deep-r-professors/2f2c7b7ffa.md#c1"
-    char_span: [2295, 4050]
+    char_span: [2294, 4049]
     sentence_count: 17
     key_terms: [student, college, students, parent, adult, ferpa, himself, meeting]
     token_count: 414

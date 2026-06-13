@@ -21,7 +21,7 @@ chunks:
     key_terms: ["i'm", "i've", working, degree, school, job, want, comments]
     token_count: 460
   - id: "social-intelligence/reddit-deep/college/1matdvi.md#c1"
-    char_span: [1904, 3665]
+    char_span: [1903, 3664]
     sentence_count: 25
     key_terms: [time, full, school, psychology, did, college, through, feel]
     section: Comments

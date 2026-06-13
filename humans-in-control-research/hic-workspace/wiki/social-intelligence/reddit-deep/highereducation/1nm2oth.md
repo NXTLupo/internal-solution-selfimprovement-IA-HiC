@@ -23,25 +23,25 @@ chunks:
     key_terms: [higher, highereducation, salary, comments, quality, without, thesecretlifeofnani, ideas]
     token_count: 264
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c1"
-    char_span: [1231, 3444]
+    char_span: [1230, 3443]
     sentence_count: 23
     key_terms: [university, support, management, pay, project, student, administration, roles]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c2"
-    char_span: [3446, 4316]
+    char_span: [3445, 4315]
     sentence_count: 8
     key_terms: [higher, month, southerncalifornia, foreignlibrary424, work, instructional, professionals, realistically]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c3"
-    char_span: [4318, 5910]
+    char_span: [4317, 5909]
     sentence_count: 14
     key_terms: [higher, working, "don't", environment, move, retirement, inflation, students]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/highereducation/1nm2oth.md#c4"
-    char_span: [5912, 7559]
+    char_span: [5911, 7558]
     sentence_count: 11
     key_terms: [higher, supervisory, jobs, management, university, education, technical, analysts]
     section: Comments

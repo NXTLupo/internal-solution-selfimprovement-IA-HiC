@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, back, comments, program, landed, years, post, mission-ad-5869]
     token_count: 161
   - id: "social-intelligence/reddit-deep/gradadmissions/1s8agrg.md#c1"
-    char_span: [636, 1662]
+    char_span: [635, 1661]
     sentence_count: 6
     key_terms: [congrats, mission-ad-5869, years, because, program, brook, stony, agitatedmuscle1252]
     section: Comments

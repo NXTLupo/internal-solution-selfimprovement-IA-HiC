@@ -23,13 +23,13 @@ chunks:
     key_terms: [investigations, school, careerguidance, shoplifters, associates, prevention, auditing, comments]
     token_count: 371
   - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c1"
-    char_span: [1581, 3791]
+    char_span: [1580, 3790]
     sentence_count: 18
     key_terms: [security, analyst, work, background, compliance, roles, get, next-garbage9163]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1qgheyc.md#c2"
-    char_span: [3793, 4928]
+    char_span: [3792, 4927]
     sentence_count: 10
     key_terms: [spend, time, coding, people, hours, often, roles, like]
     section: Comments

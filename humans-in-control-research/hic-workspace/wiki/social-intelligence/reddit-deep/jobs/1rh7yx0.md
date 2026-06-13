@@ -23,19 +23,19 @@ chunks:
     key_terms: [job, curriculum, monday, considering, comments, lesson, pretty, reason]
     token_count: 292
   - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c1"
-    char_span: [1210, 3116]
+    char_span: [1209, 3115]
     sentence_count: 25
     key_terms: [day, new, yourself, mistakes, pressure, starting, working, always]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c2"
-    char_span: [3119, 4690]
+    char_span: [3118, 4689]
     sentence_count: 21
     key_terms: [anxious, anxiety, thinking, training, yourself, student, matter, "you're"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/jobs/1rh7yx0.md#c3"
-    char_span: [4692, 5900]
+    char_span: [4691, 5899]
     sentence_count: 10
     key_terms: [school, principal, job, happened, incident, present, sufficient-arm3645, feel]
     section: Comments

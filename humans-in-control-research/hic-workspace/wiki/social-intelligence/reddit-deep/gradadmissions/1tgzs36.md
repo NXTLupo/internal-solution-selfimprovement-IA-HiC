@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1tgzs36.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1tgzs36/help_with_emailing_phd_advisors_and_general_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.584Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1tgzs36.md#c0"
+    char_span: [0, 1850]
+    sentence_count: 11
+    key_terms: [school, phd, gradadmissions, health, issues, back, reference, comments]
+    token_count: 406
 ---
-
 # Help with emailing PhD advisors and general grad school admission
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1tgzs36/help_with_emailing_phd_advisors_and_general_grad/)

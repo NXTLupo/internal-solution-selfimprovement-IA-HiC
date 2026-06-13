@@ -26,13 +26,13 @@ chunks:
     key_terms: [internships, com, internship, google, https, city, day, use]
     token_count: 503
   - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c2"
-    char_span: [3979, 5860]
+    char_span: [3979, 5859]
     sentence_count: 17
     key_terms: [suitable-jelly-3693, emergency-mixture500, companies, thanks, opportunities, thank, job, work]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/internships/1r6qhto.md#c3"
-    char_span: [5862, 6060]
+    char_span: [5861, 6059]
     sentence_count: 2
     key_terms: [temporary-poetry-362, competitions, experience, displayed, employers, mindsett7, seriously, multiple]
     section: Comments

@@ -15,10 +15,10 @@ industries: [higher_ed, education, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/dc689fd3fb.md#c0"
-    char_span: [0, 1347]
+    char_span: [0, 1346]
     sentence_count: 2
     key_terms: [internship, internships, lernx, opportunity, marketing, resources, comments, freshers]
-    token_count: 366
+    token_count: 365
 ---
 # Summer internships for Indian girls
 

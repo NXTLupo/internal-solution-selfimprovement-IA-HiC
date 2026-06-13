@@ -23,25 +23,25 @@ chunks:
     key_terms: [school, semester, through, neu, seriously, comments, teaching, college]
     token_count: 380
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c1"
-    char_span: [1717, 3476]
+    char_span: [1716, 3475]
     sentence_count: 10
     key_terms: [professors, classes, good, choose, school, northeastern, been, definitely]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c2"
-    char_span: [3478, 4589]
+    char_span: [3477, 4588]
     sentence_count: 9
     key_terms: [professors, been, classes, ratings, better, choose, based, get]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c3"
-    char_span: [4591, 6876]
+    char_span: [4590, 6875]
     sentence_count: 19
     key_terms: [professors, here, time, classes, knowledgeable, architecture, northeastern, loved]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1lgjl8y.md#c4"
-    char_span: [6587, 6887]
+    char_span: [6586, 6886]
     sentence_count: 1
     key_terms: [architecture, professors, design, cryptography, northeastern, computation, elegantly, around]
     section: Comments

@@ -21,115 +21,115 @@ chunks:
     key_terms: [careerguidance, comments, nexuscellular0, surprisingly, experienced, high-paying, reddit-deep, definitely]
     token_count: 135
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c1"
-    char_span: [565, 2454]
+    char_span: [564, 2453]
     sentence_count: 14
     key_terms: [money, competitive, electrician, piloted, cousin, pilots, being, pilot]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c2"
-    char_span: [2227, 3165]
+    char_span: [2226, 3164]
     sentence_count: 7
     key_terms: [being, electrician, bad, "it's", datesandcornfused, electrocution, waterproofers, construction]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c3"
-    char_span: [3167, 4548]
+    char_span: [3166, 4547]
     sentence_count: 7
     key_terms: [marketing, finance, because, years, here, too, went, wise]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c4"
-    char_span: [4550, 6489]
+    char_span: [4549, 6488]
     sentence_count: 12
     key_terms: [aircraft, plenty-village1610, work, mechanic, certifications, paying, hours, mechanics]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c5"
-    char_span: [6191, 6843]
+    char_span: [6190, 6842]
     sentence_count: 3
     key_terms: [years, experience, get, stay, work, certifications, cheesesweats, honoratodoto]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c6"
-    char_span: [6845, 9038]
+    char_span: [6844, 9037]
     sentence_count: 14
     key_terms: [executive, assistant, need, personality, "it's", take, everything, depending]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c7"
-    char_span: [9040, 11211]
+    char_span: [9039, 11210]
     sentence_count: 19
     key_terms: [job, did, experience, successful, assistant, executive, company, worked]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c8"
-    char_span: [11213, 13088]
+    char_span: [11212, 13087]
     sentence_count: 11
     key_terms: [transmission, truautorepair000, break, industries, cardone, rtshtbtshtdrtyldtwt, woman, butthatshitsbroken]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c9"
-    char_span: [13093, 13499]
+    char_span: [13092, 13498]
     sentence_count: 1
     key_terms: [industry, evs, transmissions, pixelplanet5, hoborambler, goddammit, migration, sdsurules]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c10"
-    char_span: [13501, 15544]
+    char_span: [13500, 15543]
     sentence_count: 25
     key_terms: [get, truautorepair000, hybrid, transmissions, cars, job, standard, selling]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c11"
-    char_span: [15284, 17159]
+    char_span: [15283, 17158]
     sentence_count: 13
     key_terms: [california, living, makes, years, guaranteed, conductor, metrolink, southern]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c12"
-    char_span: [16891, 17248]
+    char_span: [16890, 17247]
     sentence_count: 3
     key_terms: [income, living, stop, calculators, slippysnoop, disposable, according, household]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c13"
-    char_span: [17250, 19177]
+    char_span: [17249, 19176]
     sentence_count: 17
     key_terms: [work, inshore, divers, life, like, underwater, offshore, welding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c14"
-    char_span: [18909, 19359]
+    char_span: [18908, 19358]
     sentence_count: 4
     key_terms: [disproportionate, certifications, bordergrens, everywhere, perception, physically, technician, underrated]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c15"
-    char_span: [19361, 21213]
+    char_span: [19360, 21212]
     sentence_count: 10
     key_terms: [industrial, hygienist, engineering, get, like, role, side, profession]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c16"
-    char_span: [21215, 23261]
+    char_span: [21214, 23260]
     sentence_count: 10
     key_terms: [company, supply, eventually, experience, management, corporate, career, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c17"
-    char_span: [22996, 23460]
+    char_span: [22995, 23459]
     sentence_count: 3
     key_terms: [level, pixelplanet5, department, eventually, journeyman, management, supervisor, companies]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c18"
-    char_span: [23462, 25656]
+    char_span: [23461, 25655]
     sentence_count: 13
     key_terms: [crane, specific, doing, union, like, lot, operators, industry]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1sqqxxs.md#c19"
-    char_span: [25658, 25826]
+    char_span: [25657, 25825]
     sentence_count: 2
     key_terms: [qualifications, education, lucrative, positions, despite, lottery, needing, break]
     section: Comments

@@ -28,25 +28,25 @@ chunks:
     key_terms: [work, like, don, time, creative, because, design, normal]
     token_count: 449
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c2"
-    char_span: [4174, 6313]
+    char_span: [4173, 6312]
     sentence_count: 16
     key_terms: [new, looking, afford, hours, negotiation, partnership, "i'd", time]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c3"
-    char_span: [6315, 8405]
+    char_span: [6314, 8404]
     sentence_count: 16
     key_terms: [hours, something, contract, wants, rate, time, everything, mentorship]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c4"
-    char_span: [8407, 10182]
+    char_span: [8406, 10181]
     sentence_count: 13
     key_terms: [time, client, hours, learn, set, boundaries, especially, business]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/freelance/1p3d2yp.md#c5"
-    char_span: [10184, 11129]
+    char_span: [10183, 11128]
     sentence_count: 6
     key_terms: [com, freelance-rate-calculator, freelancehourlyrate, creative, director, better, http, lancecalc]
     section: Comments

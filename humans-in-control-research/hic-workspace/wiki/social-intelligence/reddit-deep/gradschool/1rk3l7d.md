@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1rk3l7d.md#c0"
-    char_span: [0, 230]
+    char_span: [0, 229]
     sentence_count: 1
     key_terms: [gradschool, comments, glitteringdoughnut61, reddit-deep, research, posted, reddit, school]
-    token_count: 72
+    token_count: 71
 ---
 # Grad School -Research
 

@@ -28,25 +28,25 @@ chunks:
     key_terms: [learn, industry, better, struggles, climate, stand, don, role]
     token_count: 263
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c2"
-    char_span: [3577, 5215]
+    char_span: [3576, 5214]
     sentence_count: 10
     key_terms: [jobs, being, experienced, get, job, definitely, networking, hardcore]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c3"
-    char_span: [5217, 6911]
+    char_span: [5216, 6910]
     sentence_count: 9
     key_terms: [myself, people, introverted, been, keep, networking, always, events]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c4"
-    char_span: [6913, 8739]
+    char_span: [6912, 8738]
     sentence_count: 13
     key_terms: [businesses, "i'm", job, nothing, people, "don't", "it's", experience]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/jobs/1msg9fj.md#c5"
-    char_span: [8741, 10050]
+    char_span: [8740, 10049]
     sentence_count: 9
     key_terms: [recommendation, applications, free, because, network, trusted, hiring, people]
     section: Comments

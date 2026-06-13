@@ -15,17 +15,17 @@ industries: [higher_ed, education, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/dc3cae04ff.md#c0"
-    char_span: [0, 1346]
+    char_span: [0, 1345]
     sentence_count: 10
     key_terms: [getting, program, years, less, gradschool, bachelors, reddit, cost]
-    token_count: 318
+    token_count: 317
   - id: "articles/reddit-deep-r-gradschool/dc3cae04ff.md#c1"
-    char_span: [1348, 3140]
+    char_span: [1347, 3139]
     sentence_count: 14
     key_terms: [work, masters, years, field, need, time, graduated, programs]
     token_count: 412
   - id: "articles/reddit-deep-r-gradschool/dc3cae04ff.md#c2"
-    char_span: [3142, 4008]
+    char_span: [3141, 4007]
     sentence_count: 5
     key_terms: [working, get, experience, straight, masters, school, years, grad]
     token_count: 216

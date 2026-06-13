@@ -26,19 +26,19 @@ chunks:
     key_terms: [berkeley, culture, recruiting, people, especially, justify, access, choose]
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c2"
-    char_span: [3709, 5542]
+    char_span: [3708, 5541]
     sentence_count: 10
     key_terms: [berkeley, steaker144449, quant, peak, difference, research, looking, rsha256]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c3"
-    char_span: [5544, 7377]
+    char_span: [5543, 7376]
     sentence_count: 9
     key_terms: [berkeley, engineering, oriented, around, people, quant, less, deflation]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skoo03.md#c4"
-    char_span: [7379, 8582]
+    char_span: [7378, 8581]
     sentence_count: 12
     key_terms: [berkeley, ok-store-2788, internships, definitely, consider, prachub, quality, campus]
     section: Comments

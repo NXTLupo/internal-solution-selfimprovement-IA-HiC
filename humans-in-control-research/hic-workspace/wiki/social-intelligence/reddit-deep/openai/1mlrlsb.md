@@ -38,43 +38,43 @@ chunks:
     key_terms: [services, notice, openai, "you're", get, "it's", infrastructure, businesses]
     token_count: 117
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c4"
-    char_span: [5582, 7362]
+    char_span: [5581, 7361]
     sentence_count: 16
     key_terms: [models, larger, local, get, building, deleted, prompts, running]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c5"
-    char_span: [7364, 8878]
+    char_span: [7363, 8877]
     sentence_count: 11
     key_terms: [use, resources, getting, locally, access, having, models, people]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c6"
-    char_span: [8880, 10175]
+    char_span: [8879, 10174]
     sentence_count: 9
     key_terms: [like, use, compute, limits, model, tasks, lyra-in-the-flesh, "i've"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c7"
-    char_span: [10177, 12231]
+    char_span: [10176, 12230]
     sentence_count: 12
     key_terms: [models, open, llm, accounts, consumer, chatgpt, problem, access]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c8"
-    char_span: [12233, 13342]
+    char_span: [12232, 13341]
     sentence_count: 6
     key_terms: [google, integration, etc, pro, requests, research, supports, chatgpt]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c9"
-    char_span: [13344, 15116]
+    char_span: [13343, 15115]
     sentence_count: 16
     key_terms: [api, tokens, being, assistant, chat-gpt, response, chatgpt, "doesn't"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/openai/1mlrlsb.md#c10"
-    char_span: [15118, 16030]
+    char_span: [15117, 16029]
     sentence_count: 7
     key_terms: [google, foundational, arbitrarily, advance, choose, models, please, model]
     section: Comments

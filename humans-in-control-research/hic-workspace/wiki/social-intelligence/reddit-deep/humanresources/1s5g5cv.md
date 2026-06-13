@@ -23,19 +23,19 @@ chunks:
     key_terms: [humanresources, comments, anyone, trying, going, using, leveldisastrous945, been]
     token_count: 354
   - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c1"
-    char_span: [1582, 2964]
+    char_span: [1581, 2963]
     sentence_count: 9
     key_terms: [leveldisastrous945, deel, find, companies, countries, employer, called, former]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c2"
-    char_span: [2966, 4745]
+    char_span: [2965, 4744]
     sentence_count: 11
     key_terms: ["don't", deel, year, experience, another, counsel, always, issues]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/humanresources/1s5g5cv.md#c3"
-    char_span: [4747, 5514]
+    char_span: [4746, 5513]
     sentence_count: 4
     key_terms: [remote, contractors, workmotion, deel, own, pay, adactylousalien, responsibility]
     section: Comments

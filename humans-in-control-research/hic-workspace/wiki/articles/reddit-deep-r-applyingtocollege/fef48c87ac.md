@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/fef48c87ac.md#c0"
-    char_span: [0, 1566]
+    char_span: [0, 1565]
     sentence_count: 12
     key_terms: [applyingtocollege, college, colleges, comments, research, service, deeper, reddit]
-    token_count: 351
+    token_count: 350
   - id: "articles/reddit-deep-r-applyingtocollege/fef48c87ac.md#c1"
-    char_span: [1568, 2582]
+    char_span: [1567, 2581]
     sentence_count: 10
     key_terms: [puzzleheaded-tear283, encouragement, get, continue, stanford, forward, working, matter]
     token_count: 233

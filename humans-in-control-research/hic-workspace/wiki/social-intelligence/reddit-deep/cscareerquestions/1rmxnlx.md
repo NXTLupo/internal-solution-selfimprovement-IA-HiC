@@ -26,31 +26,31 @@ chunks:
     key_terms: [nothing, "i've", genuinely, something, thousands, "don't", been, code]
     token_count: 295
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c2"
-    char_span: [2427, 4540]
+    char_span: [2426, 4539]
     sentence_count: 16
     key_terms: [benefits, payments, like, eligible, deserve, always, degree, cantgrowneckbeardama]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c3"
-    char_span: [4542, 6033]
+    char_span: [4541, 6032]
     sentence_count: 17
     key_terms: [people, school, internships, honestly, masters, apply, class, according-emu-8721]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c4"
-    char_span: [6035, 7082]
+    char_span: [6034, 7081]
     sentence_count: 11
     key_terms: [started, school, enjoy, got, went, contractors, development, educational]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c5"
-    char_span: [7084, 9148]
+    char_span: [7083, 9147]
     sentence_count: 17
     key_terms: [keywords, resume, etc, like, linkedin, people, blog, here]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmxnlx.md#c6"
-    char_span: [9150, 9994]
+    char_span: [9149, 9993]
     sentence_count: 6
     key_terms: [get, level, cert, professional, unemployment, anonymized, confidence, experience]
     section: Comments

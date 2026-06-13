@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, common-payment9984, reddit-deep, posted, reddit, source, https]
     token_count: 67
   - id: "social-intelligence/reddit-deep/gradadmissions/1rlb46k.md#c1"
-    char_span: [230, 1449]
+    char_span: [229, 1448]
     sentence_count: 8
     key_terms: [congratulations, congrats, common-payment9984, like, emeraldmeetsauburn, starryeyedwings, amazing, profile]
     section: Comments

@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/cfcba8291b.md#c0"
-    char_span: [0, 700]
+    char_span: [0, 699]
     sentence_count: 4
     key_terms: [comments, reddit, cscareerquestions, https, com, www, internship, developer]
-    token_count: 194
+    token_count: 193
 ---
 # SEO Tech Developer vs. Summer Internship?
 

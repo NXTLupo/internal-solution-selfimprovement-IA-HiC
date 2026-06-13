@@ -28,7 +28,7 @@ chunks:
     key_terms: [significantly, courses, engineering, gsi, program, career, school, technical]
     token_count: 367
   - id: "social-intelligence/reddit-deep/gradadmissions/1ralmgr.md#c2"
-    char_span: [4026, 4333]
+    char_span: [4025, 4332]
     sentence_count: 2
     key_terms: [quinqueis-giyph-i728, got, cloudmaster6277, consider, because, tuition, insane, making]
     section: Comments

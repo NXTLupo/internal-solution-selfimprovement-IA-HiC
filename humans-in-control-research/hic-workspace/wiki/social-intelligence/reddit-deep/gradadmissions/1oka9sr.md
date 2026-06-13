@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1oka9sr.md#c0"
-    char_span: [0, 323]
+    char_span: [0, 322]
     sentence_count: 2
     key_terms: [gradadmissions, comments, reddit-deep, statistics, career, impact, posted, reddit]
-    token_count: 87
+    token_count: 86
 ---
 # Career pivot to statistics for social impact - does this grad school plan make sense?
 

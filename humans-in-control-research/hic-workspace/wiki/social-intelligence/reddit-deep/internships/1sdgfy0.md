@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1sdgfy0.md#c0"
-    char_span: [0, 1192]
+    char_span: [0, 1191]
     sentence_count: 4
     key_terms: [internships, robotics, extra-alps-3127, comments, current, student, impedance-controlled, mid-tier-engineering]
     token_count: 286

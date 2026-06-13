@@ -21,7 +21,7 @@ chunks:
     key_terms: [university, careerguidance, career, paths, "i'm", economics, comments, college]
     token_count: 333
   - id: "social-intelligence/reddit-deep/careerguidance/1qsqq8d.md#c1"
-    char_span: [1481, 2427]
+    char_span: [1480, 2426]
     sentence_count: 7
     key_terms: [skills, business, consider, learning, coding, "you're", maybe, sales]
     section: Comments

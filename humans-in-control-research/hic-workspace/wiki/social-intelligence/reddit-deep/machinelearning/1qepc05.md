@@ -26,49 +26,49 @@ chunks:
     key_terms: ["i'm", technical, research, process, "don't", gonna, get, researcher]
     token_count: 184
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c2"
-    char_span: [2985, 4667]
+    char_span: [2984, 4666]
     sentence_count: 16
     key_terms: [companies, frontier, warning, expert, slayahheuw, expected, general, months]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c3"
-    char_span: [4669, 6581]
+    char_span: [4668, 6580]
     sentence_count: 8
     key_terms: ["it's", get, expectation, time, slayahheuw, experts, enough, even-inevitable-7243]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c4"
-    char_span: [6583, 7986]
+    char_span: [6582, 7985]
     sentence_count: 5
     key_terms: [candidates, coding, ability, code, projects, entarko, metric, research]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c5"
-    char_span: [7988, 10168]
+    char_span: [7987, 10167]
     sentence_count: 15
     key_terms: [agent, different, important, questions, code, data, challenges, projects]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c6"
-    char_span: [10175, 11978]
+    char_span: [10174, 11977]
     sentence_count: 21
     key_terms: [ask, company, design, "it's", always, people, interview, recruiter]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c7"
-    char_span: [11981, 14076]
+    char_span: [11980, 14075]
     sentence_count: 15
     key_terms: [market, "you're", understanding, top, everything, interviews, impacted, research]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c8"
-    char_span: [14078, 16290]
+    char_span: [14077, 16289]
     sentence_count: 10
     key_terms: [engineering, research, people, competitive, too, interviews, something, academia]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1qepc05.md#c9"
-    char_span: [16037, 16616]
+    char_span: [16036, 16615]
     sentence_count: 5
     key_terms: [engineering, something, coding, roles, round, tehfunkwagnalls, ilovecookies14, internships]
     section: Comments

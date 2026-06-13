@@ -28,49 +28,49 @@ chunks:
     key_terms: [companies, company, work, because, going, take, around, risks]
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c2"
-    char_span: [4161, 5935]
+    char_span: [4160, 5934]
     sentence_count: 7
     key_terms: [people, pretty, code, free, llms, lot, statement, example]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c3"
-    char_span: [5937, 8105]
+    char_span: [5936, 8104]
     sentence_count: 9
     key_terms: [like, python, code, software, because, getting, people, devs]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c4"
-    char_span: [8107, 10232]
+    char_span: [8106, 10231]
     sentence_count: 7
     key_terms: [regulations, industries, companies, security, company, cyber, tech, use]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c5"
-    char_span: [10234, 12425]
+    char_span: [10233, 12424]
     sentence_count: 15
     key_terms: [because, models, "it's", work, difference, predictive, understand, companies]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c6"
-    char_span: [12428, 14399]
+    char_span: [12427, 14398]
     sentence_count: 17
     key_terms: [billions, openai, because, models, interesting, like, llms, lose]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c7"
-    char_span: [14401, 16501]
+    char_span: [14400, 16500]
     sentence_count: 15
     key_terms: [something, people, source, development, personality, open, developing, eventually]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c8"
-    char_span: [16503, 18649]
+    char_span: [16502, 18648]
     sentence_count: 23
     key_terms: [work, stickers, people, engineers, "it's", because, company, seems]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t3vmgs.md#c9"
-    char_span: [18651, 19514]
+    char_span: [18650, 19513]
     sentence_count: 8
     key_terms: [risk, completely, governance, different, envelope, "enthusiasmtop8815's", model, regulator-readable]
     section: Comments

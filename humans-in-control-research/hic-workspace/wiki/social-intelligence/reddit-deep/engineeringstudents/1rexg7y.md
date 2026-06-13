@@ -21,49 +21,49 @@ chunks:
     key_terms: [engineering, engineeringstudents, because, through, degree, something, comments, parental]
     token_count: 429
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c1"
-    char_span: [1981, 3788]
+    char_span: [1980, 3787]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, please, reddit, throwawayhackintosh, https, suffering, com]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c2"
-    char_span: [3790, 5458]
+    char_span: [3789, 5457]
     sentence_count: 11
     key_terms: [engineering, degree, throwawayhackintosh, finance, time, others, aside, reptilianover1ord]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c3"
-    char_span: [5460, 7762]
+    char_span: [5459, 7761]
     sentence_count: 41
     key_terms: [engineer, engineering, living, school, programming, specialized, did, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c4"
-    char_span: [7450, 8219]
+    char_span: [7449, 8218]
     sentence_count: 8
     key_terms: [programming, directions, changed, throwawayhackintosh, marry, lot, microbiologist, interestingly]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c5"
-    char_span: [8221, 9480]
+    char_span: [8220, 9479]
     sentence_count: 9
     key_terms: [engineering, something, signals, ctoatb, throwawayhackintosh, https, music, hate]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c6"
-    char_span: [9482, 10753]
+    char_span: [9481, 10752]
     sentence_count: 10
     key_terms: [throwawayhackintosh, adhd, enjoy, here, developer, minimum, mr-short-circuit-ee, find]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c7"
-    char_span: [10755, 12674]
+    char_span: [10754, 12673]
     sentence_count: 16
     key_terms: [engineering, degree, year, working, get, like, time, wish]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rexg7y.md#c8"
-    char_span: [12676, 13121]
+    char_span: [12675, 13120]
     sentence_count: 3
     key_terms: [company, better, design, throwawayhackintosh, unknownfortune2345, time, definitely, knowledge]
     section: Comments

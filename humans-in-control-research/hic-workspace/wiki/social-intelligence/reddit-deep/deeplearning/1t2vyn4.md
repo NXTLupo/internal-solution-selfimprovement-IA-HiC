@@ -18,17 +18,17 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c0"
-    char_span: [0, 2170]
+    char_span: [0, 2169]
     sentence_count: 12
     key_terms: [transformer, interfaces, orientation, diagnostic, invariants, scope, contract, architecture]
-    token_count: 512
+    token_count: 511
   - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c1"
-    char_span: [2172, 3911]
+    char_span: [2171, 3910]
     sentence_count: 9
     key_terms: [transformer, intelligence, invariants, invariant, attention, lens, model, explicitly]
     token_count: 417
   - id: "social-intelligence/reddit-deep/deeplearning/1t2vyn4.md#c2"
-    char_span: [3913, 5836]
+    char_span: [3912, 5835]
     sentence_count: 10
     key_terms: [transformer, intelligence, attention, diagnostic, gradient, sensing, weights, system]
     token_count: 448

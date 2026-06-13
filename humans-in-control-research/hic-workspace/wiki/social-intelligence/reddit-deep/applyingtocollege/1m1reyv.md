@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, comments, chapter, college, letterexpert3849, reddit-deep, apprentice, benefits]
     token_count: 157
   - id: "social-intelligence/reddit-deep/applyingtocollege/1m1reyv.md#c1"
-    char_span: [613, 935]
+    char_span: [612, 934]
     sentence_count: 3
     key_terms: [letterexpert3849, understanding, considering, associated, jump-start, education, benefits, plumbing]
     section: Comments

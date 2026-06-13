@@ -23,61 +23,61 @@ chunks:
     key_terms: [emergency, job, husband, money, fund, expenses, personalfinance, year]
     token_count: 391
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c1"
-    char_span: [1754, 3716]
+    char_span: [1753, 3715]
     sentence_count: 12
     key_terms: [emergency, fund, years, job, find, jobs, work, deersindal]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c2"
-    char_span: [3718, 5178]
+    char_span: [3717, 5177]
     sentence_count: 9
     key_terms: [income, emergency, job, investments, fund, loss, plan, household]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c3"
-    char_span: [5180, 6245]
+    char_span: [5179, 6244]
     sentence_count: 4
     key_terms: [job, year, easily, being, case, get, "it's", like]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c4"
-    char_span: [6247, 8334]
+    char_span: [6246, 8333]
     sentence_count: 15
     key_terms: [contribute, years, aggressively, money, iras, year, investing, expenses]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c5"
-    char_span: [8064, 8339]
+    char_span: [8063, 8338]
     sentence_count: 5
     key_terms: [job, available, certainly, liability, consider, loading, penalty, access]
     section: Comments
     token_count: 66
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c6"
-    char_span: [8341, 10378]
+    char_span: [8340, 10377]
     sentence_count: 17
     key_terms: [job, year, years, emergency, jobs, husband, without, people]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c7"
-    char_span: [10380, 12244]
+    char_span: [10379, 12243]
     sentence_count: 13
     key_terms: [emergency, fund, happiness, expenses, factor, year, considered, finances]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c8"
-    char_span: [12246, 13653]
+    char_span: [12245, 13652]
     sentence_count: 15
     key_terms: [emergency, employment, expenses, probably, monthly, "that's", forgo, money]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c9"
-    char_span: [13655, 15421]
+    char_span: [13654, 15420]
     sentence_count: 14
     key_terms: [roth, ira, contribute, contributions, money, take, difference, volatility]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/personalfinance/1skmu57.md#c10"
-    char_span: [15424, 15986]
+    char_span: [15423, 15985]
     sentence_count: 4
     key_terms: [backdoor, roth, sportsballburner, digmonsdrill, investments, nickelmedia, compromise, something]
     section: Comments

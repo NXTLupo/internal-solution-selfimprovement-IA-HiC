@@ -23,37 +23,37 @@ chunks:
     key_terms: [months, people, digitalnomad, comments, crisis, myself, person, being]
     token_count: 292
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c1"
-    char_span: [1219, 2752]
+    char_span: [1218, 2751]
     sentence_count: 11
     key_terms: [character-ad-4021, flick, home, too, bangkok, country, message, phangan]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c2"
-    char_span: [2754, 3897]
+    char_span: [2753, 3896]
     sentence_count: 15
     key_terms: [feel, right, something, because, comment, friends, germany, totally]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c3"
-    char_span: [3899, 5303]
+    char_span: [3898, 5302]
     sentence_count: 6
     key_terms: [being, emotions, problems, others, people, feeling-attention43, nicotinecravings, opportunities]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c4"
-    char_span: [5305, 6465]
+    char_span: [5304, 6464]
     sentence_count: 8
     key_terms: [relationship, yourself, serious, alternativefuture155, odd-recognition4120, death, ended, loved]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c5"
-    char_span: [6467, 8418]
+    char_span: [6466, 8417]
     sentence_count: 27
     key_terms: [get, people, day, being, nomad, did, feel, home]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/digitalnomad/1mproeq.md#c6"
-    char_span: [8420, 9393]
+    char_span: [8419, 9392]
     sentence_count: 10
     key_terms: [home, yourself, "you're", "don't", "it's", week, meaningless, consenting]
     section: Comments

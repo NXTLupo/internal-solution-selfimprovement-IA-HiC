@@ -15,12 +15,12 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/bcba4f3b10.md#c0"
-    char_span: [0, 2279]
+    char_span: [0, 2278]
     sentence_count: 9
     key_terms: [admissions, year, cycle, colleges, college, applicant, school, apply]
-    token_count: 483
+    token_count: 482
   - id: "articles/reddit-deep-r-applyingtocollege/bcba4f3b10.md#c1"
-    char_span: [2282, 3627]
+    char_span: [2281, 3626]
     sentence_count: 11
     key_terms: [transfer, year, apply, different, college, schools, gap, first-year]
     token_count: 311

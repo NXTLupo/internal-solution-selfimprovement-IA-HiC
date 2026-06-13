@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/college/1lheahl.md#c0"
-    char_span: [0, 1078]
+    char_span: [0, 1077]
     sentence_count: 5
     key_terms: [program, online, able, financial, situation, comments, college, housing]
-    token_count: 248
+    token_count: 247
 ---
 # Were you able to get financial aid/student loans for housing?
 

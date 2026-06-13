@@ -23,7 +23,7 @@ chunks:
     key_terms: [because, math, accounting, class, "i'm", degree, "that's", grade]
     token_count: 398
   - id: "social-intelligence/reddit-deep/college/1l9zvrr.md#c1"
-    char_span: [1739, 2376]
+    char_span: [1738, 2375]
     sentence_count: 5
     key_terms: [dyscalculia, math, recommend, get, "i'm", accessibility, requirement, substituted]
     section: Comments

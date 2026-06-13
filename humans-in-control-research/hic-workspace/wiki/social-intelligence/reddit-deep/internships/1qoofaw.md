@@ -23,13 +23,13 @@ chunks:
     key_terms: [technical, systems, internships, reliability, less, bloomberg, comments, employee]
     token_count: 287
   - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c1"
-    char_span: [1211, 2451]
+    char_span: [1210, 2450]
     sentence_count: 9
     key_terms: [less, nutanix, technical, ok-building-4079, higher, internships, role, decision]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/internships/1qoofaw.md#c2"
-    char_span: [2453, 3315]
+    char_span: [2452, 3314]
     sentence_count: 9
     key_terms: [nutanix, technical, compared, support, appropriate-tutor587, more-requirement1214, later, got]
     section: Comments

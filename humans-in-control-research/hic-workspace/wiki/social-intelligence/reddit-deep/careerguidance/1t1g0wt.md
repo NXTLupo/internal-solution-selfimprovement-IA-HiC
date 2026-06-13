@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t1g0wt.md#c0"
-    char_span: [0, 263]
+    char_span: [0, 262]
     sentence_count: 2
     key_terms: [careerguidance, comments, willingnessgreat2641, reddit-deep, student, advice, career, newbie]
-    token_count: 81
+    token_count: 80
 ---
 # Career Advice for Newbie Student??
 

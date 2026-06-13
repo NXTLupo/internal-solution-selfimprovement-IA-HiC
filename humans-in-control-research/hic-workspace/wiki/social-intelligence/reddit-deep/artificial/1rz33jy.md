@@ -23,7 +23,7 @@ chunks:
     key_terms: [configuration, claude, trust, workspace, security, cve-2026-33068, attack, raxe-2026-040]
     token_count: 387
   - id: "social-intelligence/reddit-deep/artificial/1rz33jy.md#c1"
-    char_span: [1644, 3058]
+    char_span: [1643, 3057]
     sentence_count: 14
     key_terms: [definetlyrandom, config-before-trust-dialog, code, interesting, arbitrary, executing, workspace, settings]
     section: Comments

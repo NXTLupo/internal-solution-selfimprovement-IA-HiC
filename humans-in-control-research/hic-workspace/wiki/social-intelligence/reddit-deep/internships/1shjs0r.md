@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, interview, intern, "i'm", internship, companies, full-time, questions]
     token_count: 383
   - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c1"
-    char_span: [1732, 3885]
+    char_span: [1731, 3884]
     sentence_count: 13
     key_terms: [unpaid, time, get, internships, don, company, free, internship]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c2"
-    char_span: [3668, 4792]
+    char_span: [3667, 4791]
     sentence_count: 5
     key_terms: [video, give, interview, complete, answers, company, content, itself]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/internships/1shjs0r.md#c3"
-    char_span: [4796, 6016]
+    char_span: [4795, 6015]
     sentence_count: 7
     key_terms: [round, confident, interview, skills, brandywinechemworks, areas, opportunities, capabilities]
     section: Comments

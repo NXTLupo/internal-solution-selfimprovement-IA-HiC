@@ -21,7 +21,7 @@ chunks:
     key_terms: [corporate, don, careerguidance, times, want, graduated, comments, forever]
     token_count: 310
   - id: "social-intelligence/reddit-deep/careerguidance/1t03qsi.md#c1"
-    char_span: [1230, 3287]
+    char_span: [1229, 3286]
     sentence_count: 18
     key_terms: [passion, step, discover, help, look, experience, personal, yourself]
     section: Comments

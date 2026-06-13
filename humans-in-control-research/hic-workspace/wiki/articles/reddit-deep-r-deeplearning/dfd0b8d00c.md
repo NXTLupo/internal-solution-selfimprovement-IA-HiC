@@ -15,17 +15,17 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/dfd0b8d00c.md#c0"
-    char_span: [0, 2119]
+    char_span: [0, 2118]
     sentence_count: 12
     key_terms: [transformer, interfaces, orientation, diagnostic, invariants, scope, contract, architecture]
-    token_count: 494
+    token_count: 493
   - id: "articles/reddit-deep-r-deeplearning/dfd0b8d00c.md#c1"
-    char_span: [2121, 3860]
+    char_span: [2120, 3859]
     sentence_count: 9
     key_terms: [transformer, intelligence, invariants, invariant, attention, lens, model, explicitly]
     token_count: 417
   - id: "articles/reddit-deep-r-deeplearning/dfd0b8d00c.md#c2"
-    char_span: [3862, 5785]
+    char_span: [3861, 5784]
     sentence_count: 10
     key_terms: [transformer, intelligence, attention, diagnostic, gradient, sensing, weights, system]
     token_count: 448

@@ -23,49 +23,49 @@ chunks:
     key_terms: [work, manager, employee, managers, approved, comments, pregnant, company]
     token_count: 345
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c1"
-    char_span: [1697, 3344]
+    char_span: [1696, 3343]
     sentence_count: 12
     key_terms: [pregnant, leave, work, maternity, pregnancy, manager, affectionate-sir-784, comes]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c2"
-    char_span: [3346, 5210]
+    char_span: [3345, 5209]
     sentence_count: 15
     key_terms: [precedent, pregnant, start, women, decision, approve, deleted, manager]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c3"
-    char_span: [5212, 7201]
+    char_span: [5211, 7200]
     sentence_count: 13
     key_terms: [deleted, redact, working, covid, home, anonymized, suggested, employee]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c4"
-    char_span: [7203, 9426]
+    char_span: [7202, 9425]
     sentence_count: 12
     key_terms: [because, manager, someone, wfh, department, people, leave, permanently]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c5"
-    char_span: [9428, 9849]
+    char_span: [9427, 9848]
     sentence_count: 3
     key_terms: [fair, everyone, accountability, precipitously, unambiguous, unreachable, standards, outlined]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c6"
-    char_span: [9851, 11583]
+    char_span: [9850, 11582]
     sentence_count: 11
     key_terms: [people, pregnant, village, consideration, leave, subjective, precedent, situation]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c7"
-    char_span: [11585, 13671]
+    char_span: [11584, 13670]
     sentence_count: 10
     key_terms: [precedent, employees, work, setting, like, wfh, productive, otherwise]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/managers/1maqbqw.md#c8"
-    char_span: [13673, 14850]
+    char_span: [13672, 14849]
     sentence_count: 8
     key_terms: [decent-historian-207, flexibility, ada, exemption, approved, workers, affectionate-sir-784, conscious-train-5816]
     section: Comments

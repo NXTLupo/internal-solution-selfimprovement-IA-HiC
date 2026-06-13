@@ -28,19 +28,19 @@ chunks:
     key_terms: [job, want, myself, strong, since, tired, gig, hard]
     token_count: 225
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c2"
-    char_span: [2833, 4312]
+    char_span: [2832, 4311]
     sentence_count: 10
     key_terms: [thank, helpful, please, help, findapath, comments, everyone, guidance]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c3"
-    char_span: [4316, 6250]
+    char_span: [4315, 6249]
     sentence_count: 21
     key_terms: [gpa, build, degree, fundamentals, opportunity, like, principles, employer]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/findapath/1sg4g1e.md#c4"
-    char_span: [6252, 6792]
+    char_span: [6251, 6791]
     sentence_count: 3
     key_terms: [use, iodinekaiju83, okokcoolguy, brainstorm, situation, syndromes, honestly, imposter]
     section: Comments

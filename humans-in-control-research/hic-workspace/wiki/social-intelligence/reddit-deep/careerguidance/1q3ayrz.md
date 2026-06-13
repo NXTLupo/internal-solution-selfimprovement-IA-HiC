@@ -36,25 +36,25 @@ chunks:
     key_terms: [carlos, going, knowledge, agreed, better, single, opportunities, professional]
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c4"
-    char_span: [4137, 4584]
+    char_span: [4136, 4583]
     sentence_count: 5
     key_terms: [golden, resume, time, contributions, recognition, daughter, leverage, promoted]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c5"
-    char_span: [4586, 6340]
+    char_span: [4585, 6339]
     sentence_count: 12
     key_terms: [like, carlos, look, "i'd", "it's", everything, company, learned]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c6"
-    char_span: [6342, 8034]
+    char_span: [6341, 8033]
     sentence_count: 20
     key_terms: [few-painting-8096, good, job, answers, "don't", "it's", yourself, carlos]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1q3ayrz.md#c7"
-    char_span: [8036, 8371]
+    char_span: [8035, 8370]
     sentence_count: 4
     key_terms: [get, somewhere, sashasidelcoaching, thelearningjourney, appreciated, promotion, message, thought]
     section: Comments

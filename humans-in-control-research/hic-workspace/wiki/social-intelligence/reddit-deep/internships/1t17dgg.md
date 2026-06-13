@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t17dgg.md
 url: "https://www.reddit.com/r/internships/comments/1t17dgg/please_keep_trying_im_with_you/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,18 @@ flair: "Applications"
 extracted_at: "2026-06-06T23:20:46.218Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t17dgg.md#c0"
+    char_span: [0, 2011]
+    sentence_count: 21
+    key_terms: [experience, "i'm", professional, internships, everything, comments, nothing, market]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/internships/1t17dgg.md#c1"
+    char_span: [2013, 3836]
+    sentence_count: 22
+    key_terms: [give, job, people, good, land, work, yourself, chance]
+    token_count: 433
 ---
-
 # Please keep trying, I'm with you.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t17dgg/please_keep_trying_im_with_you/)

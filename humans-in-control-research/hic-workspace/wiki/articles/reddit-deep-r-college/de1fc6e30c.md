@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/de1fc6e30c.md#c0"
-    char_span: [0, 2354]
+    char_span: [0, 2353]
     sentence_count: 17
     key_terms: [accounting, college, internship, job, graduate, degree, "you'll", internships]
-    token_count: 511
+    token_count: 510
 ---
 # Is it worth switching to business (accounting)even though I'm already a sophmore
 

@@ -23,13 +23,13 @@ chunks:
     key_terms: [growth, careeradvice, executive, comments, career, reddit-deep, experience, fulfilling]
     token_count: 178
   - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c1"
-    char_span: [684, 2054]
+    char_span: [683, 2053]
     sentence_count: 10
     key_terms: [software, development, programming, been, ones, experience, guaranteed, technology]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/careeradvice/1q6jv7z.md#c2"
-    char_span: [2056, 2754]
+    char_span: [2055, 2753]
     sentence_count: 7
     key_terms: [executive, growth, former-wolverine8859, limp-plantain3824, luckyfritzbear, own-theory1962, subscribers, influencer]
     section: Comments

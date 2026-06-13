@@ -23,43 +23,43 @@ chunks:
     key_terms: [like, gold, year, investing, comments, through, tradfi, banks]
     token_count: 333
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c1"
-    char_span: [1509, 3575]
+    char_span: [1508, 3574]
     sentence_count: 12
     key_terms: [gold, dollar, scenario, reserve, banks, bonds, down, less]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c2"
-    char_span: [3578, 5738]
+    char_span: [3577, 5737]
     sentence_count: 17
     key_terms: [gold, dollar, china, looks, means, republicans, like, increasing]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c3"
-    char_span: [5741, 7476]
+    char_span: [5740, 7475]
     sentence_count: 10
     key_terms: [dollar, gold, collapse, people, narrative, assuming, increase, another]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c4"
-    char_span: [7478, 9452]
+    char_span: [7477, 9451]
     sentence_count: 9
     key_terms: [tax, dollar, currency, long, yada, washington, everyone, printing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c5"
-    char_span: [9217, 11177]
+    char_span: [9216, 11176]
     sentence_count: 13
     key_terms: [gold, tax, stability, market, investors, something, quickly, adventurous-guava374]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c6"
-    char_span: [10945, 11349]
+    char_span: [10944, 11348]
     sentence_count: 3
     key_terms: [federal, reserve, adventurous-guava374, fed, automoderator, appropriate, initialisms, amendment]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/investing/1qkutlg.md#c7"
-    char_span: [11351, 12102]
+    char_span: [11350, 12101]
     sentence_count: 4
     key_terms: [bought, going, gold, year, psychologically, automatically, allocations, effectively]
     section: Comments

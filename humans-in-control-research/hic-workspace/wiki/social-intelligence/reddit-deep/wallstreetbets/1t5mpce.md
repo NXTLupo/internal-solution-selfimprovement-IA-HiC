@@ -23,25 +23,25 @@ chunks:
     key_terms: [finally, wallstreetbets, calls, short-dated, been, like, comments, honestly]
     token_count: 382
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c1"
-    char_span: [1562, 2444]
+    char_span: [1561, 2443]
     sentence_count: 6
     key_terms: [buy, year, discord, million, slowly, total, years, dude]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c2"
-    char_span: [2446, 4031]
+    char_span: [2445, 4030]
     sentence_count: 7
     key_terms: [rollercoaster, year, investment, strength, selling, electronic-worry4077, being, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c3"
-    char_span: [3851, 4293]
+    char_span: [3850, 4292]
     sentence_count: 3
     key_terms: [priorityhungry2151, blendedbaconsyrup, png, equalno2867, ebonvvings, impressive, biography, happened]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t5mpce.md#c4"
-    char_span: [4295, 5580]
+    char_span: [4294, 5579]
     sentence_count: 10
     key_terms: [bubble, year, congrats, realized, account, compute, "there's", enough]
     section: Comments

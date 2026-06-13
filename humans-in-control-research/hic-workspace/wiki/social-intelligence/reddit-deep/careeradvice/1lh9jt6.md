@@ -28,25 +28,25 @@ chunks:
     key_terms: [change, population, important, miserable, anything, complain, figuring, anyways]
     token_count: 98
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c2"
-    char_span: [2493, 3250]
+    char_span: [2492, 3249]
     sentence_count: 8
     key_terms: [rather, taking, lonely-ad-5410, opportunities, experiences, exploration, comforting, completely]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c3"
-    char_span: [3252, 5161]
+    char_span: [3251, 5160]
     sentence_count: 20
     key_terms: ["master's", thank, internship, career, thanks, educationinformal376, purdueglobalofficial, reach]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c4"
-    char_span: [4907, 5533]
+    char_span: [4906, 5532]
     sentence_count: 5
     key_terms: [technical, grades, thesis, build, credentials, engineering, suggestions, especially]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/careeradvice/1lh9jt6.md#c5"
-    char_span: [5535, 7169]
+    char_span: [5534, 7168]
     sentence_count: 16
     key_terms: [path, try, reflection, expenses, industry, substack, applied, support]
     section: Comments

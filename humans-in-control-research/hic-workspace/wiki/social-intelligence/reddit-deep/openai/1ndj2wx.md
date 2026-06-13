@@ -23,43 +23,43 @@ chunks:
     key_terms: [day, isitnerfed, code, quality, august, claude, openai, next]
     token_count: 478
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c1"
-    char_span: [1916, 3141]
+    char_span: [1915, 3140]
     sentence_count: 7
     key_terms: [ambientocclusion, guardrails, response, already, imagine, latency, purple, black]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c2"
-    char_span: [3143, 4810]
+    char_span: [3142, 4809]
     sentence_count: 7
     key_terms: [ambientocclusion, because, imagine, humans, models, challengesweaty4462, juicy, use]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c3"
-    char_span: [4812, 6402]
+    char_span: [4811, 6401]
     sentence_count: 11
     key_terms: [results, people, check, feel, gut, vibe, benchmarks, deleted]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c4"
-    char_span: [6404, 8347]
+    char_span: [6403, 8346]
     sentence_count: 14
     key_terms: [models, deterministic, temperature, volatility, different, rorowhat, non-determinism-in-gpt-4, demand]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c5"
-    char_span: [8349, 8517]
+    char_span: [8348, 8516]
     sentence_count: 2
     key_terms: [anthropic, status, feepingcreature, performance, follows, "that's", https, issue]
     section: Comments
     token_count: 45
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c6"
-    char_span: [8519, 10672]
+    char_span: [8518, 10671]
     sentence_count: 11
     key_terms: [performance, claude, volatility, exbarboss, intensive, anything, resolved, quality]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1ndj2wx.md#c7"
-    char_span: [10346, 11032]
+    char_span: [10345, 11031]
     sentence_count: 5
     key_terms: [ae1-tom-benchmark-2025, huggingface, performance, aidoctrine, reasoning, stability, datasets, tracking]
     section: Comments

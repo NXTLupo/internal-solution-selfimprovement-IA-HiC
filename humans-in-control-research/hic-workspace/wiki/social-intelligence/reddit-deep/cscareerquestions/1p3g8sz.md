@@ -23,91 +23,91 @@ chunks:
     key_terms: [cscareerquestions, get, like, companies, comments, students, culture, killing]
     token_count: 239
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c1"
-    char_span: [1068, 2854]
+    char_span: [1067, 2853]
     sentence_count: 9
     key_terms: [time, defiant-bed2501, face-to-face, like, sent, assessment, commitment, reasonable]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c2"
-    char_span: [2856, 5062]
+    char_span: [2855, 5061]
     sentence_count: 9
     key_terms: [exam, code, take, assessments, bar, jobs, work, companies]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c3"
-    char_span: [5066, 5951]
+    char_span: [5065, 5950]
     sentence_count: 6
     key_terms: [disrespectful, engineering, applicants, difference, software, process, roles, oas]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c4"
-    char_span: [5953, 8114]
+    char_span: [5952, 8113]
     sentence_count: 10
     key_terms: [job, practice, lawyer, state, "it's", take, test, algorithm]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c5"
-    char_span: [7832, 8666]
+    char_span: [7831, 8665]
     sentence_count: 4
     key_terms: [algorithm, questions, probably, minutes, implementation, digmonsdrill, bigshotbosh, ridiculous]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c6"
-    char_span: [8669, 9809]
+    char_span: [8668, 9808]
     sentence_count: 7
     key_terms: [position, barrier, medical, school, entry, put, time, entitles]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c7"
-    char_span: [9811, 11936]
+    char_span: [9810, 11935]
     sentence_count: 12
     key_terms: [get, school, job, like, leetcode, interview, anything, control]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c8"
-    char_span: [11938, 13965]
+    char_span: [11937, 13964]
     sentence_count: 21
     key_terms: [school, medical, people, residency, trying, field, get, fellowship]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c9"
-    char_span: [13967, 15705]
+    char_span: [13966, 15704]
     sentence_count: 11
     key_terms: [years, medicine, students, conconxweewee1, school, get, meanwhile, undergrad]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c10"
-    char_span: [15707, 17594]
+    char_span: [15706, 17593]
     sentence_count: 16
     key_terms: [feedback, sometimes, company, spend, interview, technical, rejected, hours]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c11"
-    char_span: [17596, 19580]
+    char_span: [17595, 19579]
     sentence_count: 14
     key_terms: [applicants, interviews, since, engineers, "it's", tech, positions, questions]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c12"
-    char_span: [19582, 21471]
+    char_span: [19581, 21470]
     sentence_count: 12
     key_terms: [candidates, hiring, "don't", far, candidate, companies, competent, already]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c13"
-    char_span: [21473, 23105]
+    char_span: [21472, 23104]
     sentence_count: 7
     key_terms: [candidates, time, experience, interviews, college, coding, having, hiring]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c14"
-    char_span: [23107, 24823]
+    char_span: [23106, 24822]
     sentence_count: 9
     key_terms: [experience, companies, work, interview, industry, already, someone, little]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p3g8sz.md#c15"
-    char_span: [24825, 26147]
+    char_span: [24824, 26146]
     sentence_count: 8
     key_terms: [projects, like, ignore, people, does, done, show, wesborland1234]
     section: Comments

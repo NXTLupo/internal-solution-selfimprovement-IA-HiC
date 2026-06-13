@@ -23,61 +23,61 @@ chunks:
     key_terms: ["i'm", povertyfinance, lucky, apartment, comments, student, budget, "didn't"]
     token_count: 237
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c1"
-    char_span: [956, 3040]
+    char_span: [955, 3039]
     sentence_count: 18
     key_terms: [people, roommates, cushion, doing, get, corners, poverty, savings]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c2"
-    char_span: [3042, 3499]
+    char_span: [3041, 3498]
     sentence_count: 6
     key_terms: [job, possible, fuck, requirements, education, cheapest, listings, training]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c3"
-    char_span: [3501, 5855]
+    char_span: [3500, 5854]
     sentence_count: 25
     key_terms: [finances, like, figure, dad, got, help, mom, tech]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c4"
-    char_span: [5595, 5989]
+    char_span: [5594, 5988]
     sentence_count: 7
     key_terms: [figure, shit, beagleguy26, experience, knowledge, advanced, continue, leverage]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c5"
-    char_span: [5991, 6767]
+    char_span: [5990, 6766]
     sentence_count: 6
     key_terms: [thenletskeepdancing, down, trickle, advice, people, competitive-work-382, "don't", creditcontentmaker]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c6"
-    char_span: [6769, 8378]
+    char_span: [6768, 8377]
     sentence_count: 8
     key_terms: [insurance, rising--dawn, cover, offer, plans, until, cost, plan]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c7"
-    char_span: [8380, 9110]
+    char_span: [8379, 9109]
     sentence_count: 6
     key_terms: [coverage, urgent, care, get, plan, time, appointments, prescription]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c8"
-    char_span: [9112, 10692]
+    char_span: [9111, 10691]
     sentence_count: 12
     key_terms: [insurance, coverage, enrollment, medication, probably, partner, budget, enroll]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c9"
-    char_span: [10694, 11848]
+    char_span: [10693, 11847]
     sentence_count: 15
     key_terms: [month, don, buy, categories, utilities, lastunbannedaccount, money, spend]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/povertyfinance/1snbb2v.md#c10"
-    char_span: [11850, 13224]
+    char_span: [11849, 13223]
     sentence_count: 9
     key_terms: [chicken, living, people, comfortable, beef, live, roommates, electric]
     section: Comments

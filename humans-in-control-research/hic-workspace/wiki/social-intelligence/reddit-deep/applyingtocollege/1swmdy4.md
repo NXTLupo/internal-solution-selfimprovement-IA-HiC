@@ -28,13 +28,13 @@ chunks:
     key_terms: ["i'm", like, college, "don't", ccs, good, "it's", understand]
     token_count: 430
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c2"
-    char_span: [3659, 5307]
+    char_span: [3658, 5306]
     sentence_count: 9
     key_terms: [schools, get, "you're", did, med, college, afford, school]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swmdy4.md#c3"
-    char_span: [5309, 6896]
+    char_span: [5308, 6895]
     sentence_count: 8
     key_terms: [school, college, schools, good, med, want, undergrad, premed]
     section: Comments

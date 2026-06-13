@@ -21,7 +21,7 @@ chunks:
     key_terms: [e-commerce, career, management, business, careerguidance, marketplace, like, comments]
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1rtsmyk.md#c1"
-    char_span: [1937, 3208]
+    char_span: [1936, 3207]
     sentence_count: 12
     key_terms: [e-commerce, business, path, work, different, switching, continue, customer]
     section: Comments

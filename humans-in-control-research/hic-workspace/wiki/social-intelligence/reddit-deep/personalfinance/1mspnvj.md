@@ -18,12 +18,12 @@ industries: [financial_services, nonprofit]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1mspnvj.md#c0"
-    char_span: [0, 1294]
+    char_span: [0, 1293]
     sentence_count: 8
     key_terms: [adults, young, financial, debt, personalfinance, programme, wellbeing, comments]
-    token_count: 271
+    token_count: 270
   - id: "social-intelligence/reddit-deep/personalfinance/1mspnvj.md#c1"
-    char_span: [1296, 3524]
+    char_span: [1295, 3523]
     sentence_count: 10
     key_terms: [financial, support, structured, debt, participants, participant, challenges, peer]
     token_count: 414

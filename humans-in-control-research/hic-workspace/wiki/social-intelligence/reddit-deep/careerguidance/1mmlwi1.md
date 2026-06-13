@@ -23,43 +23,43 @@ chunks:
     key_terms: [feel, careerguidance, like, comments, better, get, path, reddit-deep]
     token_count: 155
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c1"
-    char_span: [554, 1810]
+    char_span: [553, 1809]
     sentence_count: 14
     key_terms: [degree, x-ray, "i'm", tech, work, school, back, days]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c2"
-    char_span: [1812, 3662]
+    char_span: [1811, 3661]
     sentence_count: 11
     key_terms: [comfortpurchases, school, respiratory, get, schooling, something, congrats, dental]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c3"
-    char_span: [3433, 5168]
+    char_span: [3432, 5167]
     sentence_count: 10
     key_terms: [brockclan216, degrading, time, life, nursing, therapy, people, international-bird17]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c4"
-    char_span: [4991, 5900]
+    char_span: [4990, 5899]
     sentence_count: 8
     key_terms: [brockclan216, adn, bsn, programs, getting, youngladyofmidnight, help, year]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c5"
-    char_span: [5902, 7928]
+    char_span: [5901, 7927]
     sentence_count: 27
     key_terms: [work, skills, want, better, jobs, plan, valuable, knowing]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c6"
-    char_span: [7930, 9713]
+    char_span: [7929, 9712]
     sentence_count: 21
     key_terms: [job, time, better, full, astounding, sometimes, remember, college]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1mmlwi1.md#c7"
-    char_span: [9715, 10444]
+    char_span: [9714, 10443]
     sentence_count: 3
     key_terms: [learning, program, like, year, clearabroad2965, personalized, successfully, certificate]
     section: Comments

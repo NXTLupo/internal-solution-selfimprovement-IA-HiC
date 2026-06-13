@@ -18,17 +18,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c0"
-    char_span: [0, 1993]
+    char_span: [0, 1992]
     sentence_count: 14
     key_terms: [careerguidance, enjoy, felt, accounting, automation, interested, designing, comments]
-    token_count: 475
+    token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c1"
-    char_span: [1995, 4484]
+    char_span: [1994, 4483]
     sentence_count: 5
     key_terms: [leadership, people, power, long-term, don, want, impact, cybersecurity]
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1q9xrft.md#c2"
-    char_span: [4487, 4767]
+    char_span: [4486, 4766]
     sentence_count: 3
     key_terms: [uncomfortable, thoughtfully, criticism, chatgpt, clearly, express, message, reality]
     token_count: 61

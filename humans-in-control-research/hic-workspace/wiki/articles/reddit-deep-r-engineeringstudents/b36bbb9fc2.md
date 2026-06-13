@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/b36bbb9fc2.md#c0"
-    char_span: [0, 1728]
+    char_span: [0, 1727]
     sentence_count: 10
     key_terms: [already, "i'm", engineeringstudents, "i'd", "it's", masters, school, undergrad]
-    token_count: 418
+    token_count: 417
   - id: "articles/reddit-deep-r-engineeringstudents/b36bbb9fc2.md#c1"
-    char_span: [1730, 3655]
+    char_span: [1729, 3654]
     sentence_count: 16
     key_terms: [being, doing, "i'm", program, school, opportunity, grad, lot]
     token_count: 456

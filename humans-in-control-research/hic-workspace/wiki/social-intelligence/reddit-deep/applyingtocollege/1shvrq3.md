@@ -23,19 +23,19 @@ chunks:
     key_terms: [applyingtocollege, get, "i'm", "didn't", comments, college, through, around]
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c1"
-    char_span: [1570, 3359]
+    char_span: [1569, 3358]
     sentence_count: 14
     key_terms: [heartzealousideal967, princeton, college, scholarship, beautiful, "that's", traditional-fix-5205, polevaultingishard]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c2"
-    char_span: [3361, 5160]
+    char_span: [3360, 5159]
     sentence_count: 12
     key_terms: [admissions, measurementtop2885, applyingtocollege, high, shes, undergraduate, karen, kids]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shvrq3.md#c3"
-    char_span: [5162, 6007]
+    char_span: [5161, 6006]
     sentence_count: 7
     key_terms: [patronizing, empathy, people, party, measurementtop2885, judgmentalism, recognizable, sonnyiniesta]
     section: Comments

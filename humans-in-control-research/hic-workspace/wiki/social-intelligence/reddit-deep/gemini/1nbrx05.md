@@ -23,7 +23,7 @@ chunks:
     key_terms: [withdraw, gemini, security, account, cryptocurrency, able, hold, comments]
     token_count: 262
   - id: "social-intelligence/reddit-deep/gemini/1nbrx05.md#c1"
-    char_span: [1244, 2175]
+    char_span: [1243, 2174]
     sentence_count: 8
     key_terms: [account, crypto, thebackupkid, response, support, future, ticket, fiat]
     section: Comments

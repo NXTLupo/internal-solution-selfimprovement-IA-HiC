@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, long-term, something, comments, system, stick, too, emersonblaketkl]
     token_count: 158
   - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c1"
-    char_span: [724, 2876]
+    char_span: [723, 2875]
     sentence_count: 11
     key_terms: [productivity, progress, system, easy, planning, trigger, like, simplicity]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/productivity/1t1cjzh.md#c2"
-    char_span: [2878, 4525]
+    char_span: [2877, 4524]
     sentence_count: 13
     key_terms: [system, friction, productivity, the-30m-promise, working, time, utm, planning]
     section: Comments

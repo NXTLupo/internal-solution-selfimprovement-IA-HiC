@@ -23,7 +23,7 @@ chunks:
     key_terms: [resume, comments, https, grad, neu, new, png, androidslash]
     token_count: 207
   - id: "social-intelligence/reddit-deep/neu/1pef1we.md#c1"
-    char_span: [722, 1676]
+    char_span: [721, 1675]
     sentence_count: 2
     key_terms: [androidslash, oddactive2516, experience, fatkitty72, technical, template, skills, impossible-medium204]
     section: Comments

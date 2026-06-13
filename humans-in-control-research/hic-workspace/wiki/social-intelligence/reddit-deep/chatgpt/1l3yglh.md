@@ -23,91 +23,91 @@ chunks:
     key_terms: [emotional, symbolic, chatgpt, visual, user, symbolism, comments, prompt]
     token_count: 258
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c1"
-    char_span: [1234, 2489]
+    char_span: [1233, 2488]
     sentence_count: 6
     key_terms: [https, c1e9e97240f7b3cd4604354d9d3c65d99bd5ee1f, please, conversation, image, post, concerns, chatgpt-shared-links-faq]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c2"
-    char_span: [2491, 3559]
+    char_span: [2490, 3558]
     sentence_count: 2
     key_terms: [ijusttellthetruthbro, mine, preview, format, https, width, auto, end]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c3"
-    char_span: [3561, 4911]
+    char_span: [3560, 4910]
     sentence_count: 4
     key_terms: [png, preview, format, https, width, auto, redd, webp]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c4"
-    char_span: [4913, 6358]
+    char_span: [4912, 6357]
     sentence_count: 14
     key_terms: [echosleeper, like, because, deleted, cool, inwivdsx945f1, interactions, emotionally]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c5"
-    char_span: [6360, 7643]
+    char_span: [6359, 7642]
     sentence_count: 7
     key_terms: [preview, format, https, width, auto, png, redd, webp]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c6"
-    char_span: [7645, 8846]
+    char_span: [7644, 8845]
     sentence_count: 3
     key_terms: [preview, png, format, https, width, auto, redd, webp]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c7"
-    char_span: [8848, 10316]
+    char_span: [8847, 10315]
     sentence_count: 10
     key_terms: [png, preview, format, https, width, auto, redd, webp]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c8"
-    char_span: [10318, 11797]
+    char_span: [10317, 11796]
     sentence_count: 7
     key_terms: [like, mine, similar, format, looks, tarot, hollythedovahkiin, here]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c9"
-    char_span: [11799, 13454]
+    char_span: [11798, 13453]
     sentence_count: 15
     key_terms: [deleted, lol, toaster, madonna-meets-machine, chest, got, halo, like]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c10"
-    char_span: [13456, 14839]
+    char_span: [13455, 14838]
     sentence_count: 23
     key_terms: [emotional, something, machine, real, trained, asked, being, cost]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c11"
-    char_span: [14841, 16070]
+    char_span: [14840, 16069]
     sentence_count: 7
     key_terms: [preview, format, https, width, auto, redd, webp, similar]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c12"
-    char_span: [16072, 18186]
+    char_span: [16071, 18185]
     sentence_count: 19
     key_terms: [like, mirror, emotional, sometimes, cracked, worship, upward, don]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c13"
-    char_span: [18188, 19724]
+    char_span: [18187, 19723]
     sentence_count: 8
     key_terms: [preview, format, https, truth, width, auto, png, redd]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c14"
-    char_span: [19726, 21521]
+    char_span: [19725, 21520]
     sentence_count: 12
     key_terms: [people, like, because, chatgpt, preview, cosmic, format, little]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1l3yglh.md#c15"
-    char_span: [21523, 22542]
+    char_span: [21522, 22541]
     sentence_count: 9
     key_terms: [interesting, boomtwn, halo, chatgpt, deleted, people, halos, unhappy-peach-8369]
     section: Comments

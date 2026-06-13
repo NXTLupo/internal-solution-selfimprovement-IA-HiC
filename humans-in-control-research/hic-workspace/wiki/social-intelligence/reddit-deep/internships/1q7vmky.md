@@ -21,13 +21,13 @@ chunks:
     key_terms: [resume, applications, com, internships, internship, https, www, tracked]
     token_count: 533
   - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c1"
-    char_span: [2189, 4045]
+    char_span: [2189, 4044]
     sentence_count: 11
     key_terms: [roles, job, like, applicants, internship, saturated, reposted, looking]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/internships/1q7vmky.md#c2"
-    char_span: [4047, 4861]
+    char_span: [4046, 4860]
     sentence_count: 3
     key_terms: [applying, jobs, interviews, systematically, pingpongmanny, competitions, application, conclusions]
     section: Comments

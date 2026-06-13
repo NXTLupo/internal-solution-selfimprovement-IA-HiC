@@ -23,25 +23,25 @@ chunks:
     key_terms: [employees, company, humanresources, acquisition, coordinator, assistant, companies, comments]
     token_count: 322
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c1"
-    char_span: [1355, 2991]
+    char_span: [1354, 2990]
     sentence_count: 12
     key_terms: [company, including, payroll, goodvibezone, wrong, benicebuddy, superhuman, employees]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c2"
-    char_span: [2993, 4157]
+    char_span: [2992, 4156]
     sentence_count: 10
     key_terms: [benefits, manager, director, coordinator, comp, hris, processing, recruiting]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c3"
-    char_span: [4159, 6055]
+    char_span: [4158, 6054]
     sentence_count: 14
     key_terms: [employees, people, admin, organization, understaffed, hrbp, hris, work]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1ntm8j0.md#c4"
-    char_span: [6057, 6184]
+    char_span: [6056, 6183]
     sentence_count: 2
     key_terms: [fractional, companies, employees, meinsc40, value, don, ftes]
     section: Comments

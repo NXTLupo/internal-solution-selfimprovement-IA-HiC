@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, career, good, path, engineering, reddit-deep, interested]
     token_count: 132
   - id: "social-intelligence/reddit-deep/careerguidance/1stbc9d.md#c1"
-    char_span: [511, 874]
+    char_span: [510, 873]
     sentence_count: 1
     key_terms: [eastern-decision-449, internships, different, interests, naturally, something, deciding, figuring]
     section: Comments

@@ -28,25 +28,25 @@ chunks:
     key_terms: ["i'm", umich, cornell, scholarships, vibes, big, credits, outside]
     token_count: 432
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c2"
-    char_span: [3655, 5550]
+    char_span: [3654, 5549]
     sentence_count: 15
     key_terms: [cornell, umich, engineering, like, ok-contract-756, better, reject, peers]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c3"
-    char_span: [5552, 7811]
+    char_span: [5551, 7810]
     sentence_count: 18
     key_terms: [cornell, engineering, umich, better, sat, college, higher, school]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c4"
-    char_span: [7813, 9427]
+    char_span: [7812, 9426]
     sentence_count: 16
     key_terms: [better, school, arbor, ann, "don't", management, cornell, hiking]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tedzeg.md#c5"
-    char_span: [9429, 10389]
+    char_span: [9428, 10388]
     sentence_count: 9
     key_terms: [cornell, kids, engineering, mich, prob, recently, wanted, specifically]
     section: Comments

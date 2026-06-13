@@ -23,25 +23,25 @@ chunks:
     key_terms: [sports, gambling, bets, betting, inside, contracts, comments, offering]
     token_count: 360
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c1"
-    char_span: [1577, 3536]
+    char_span: [1576, 3535]
     sentence_count: 19
     key_terms: ["it's", like, government, regulation, internet, "don't", money, fun]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c2"
-    char_span: [3539, 4991]
+    char_span: [3538, 4990]
     sentence_count: 12
     key_terms: [australia, gambling, robinhood, because, betting, "doesn't", app, "it's"]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c3"
-    char_span: [4993, 6530]
+    char_span: [4992, 6529]
     sentence_count: 9
     key_terms: [gambling, because, money, interesting, good, haikusbot, newad5289, separate]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/genz/1prudsz.md#c4"
-    char_span: [6532, 6957]
+    char_span: [6531, 6956]
     sentence_count: 2
     key_terms: [haikusbot, delete, opt, regulations, investment, companies, worthless, accounts]
     section: Comments

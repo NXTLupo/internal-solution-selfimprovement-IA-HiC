@@ -28,43 +28,43 @@ chunks:
     key_terms: ["don't", accept, prove, gre, demonstrate, dejected, material, mistakes]
     token_count: 93
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c2"
-    char_span: [2247, 4229]
+    char_span: [2246, 4228]
     sentence_count: 12
     key_terms: [experience, gpa, programs, research, program, schools, school, demonstrate]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c3"
-    char_span: [4231, 5964]
+    char_span: [4230, 5963]
     sentence_count: 12
     key_terms: [experience, statement, research, purpose, personal, get, sure, something]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c4"
-    char_span: [5966, 8151]
+    char_span: [5965, 8150]
     sentence_count: 20
     key_terms: [research, good, program, don, experience, admitted, planning, probably]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c5"
-    char_span: [8153, 10106]
+    char_span: [8152, 10105]
     sentence_count: 13
     key_terms: [c159cc55-b4ad-730f-9d45-7abfef0d8feb, experience, lowiqtrader, iamanairplaneiswear, gre, optional, program-info, standardized]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c6"
-    char_span: [9901, 10374]
+    char_span: [9900, 10373]
     sentence_count: 4
     key_terms: [experience, ad-730f-9d45-7abfef0d8feb, relevant, never, gre, publications, lowiqtrader, difference]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c7"
-    char_span: [10376, 12668]
+    char_span: [10375, 12667]
     sentence_count: 5
     key_terms: [program, research, people, get, programs, writing, good, sop]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gradschool/1ppytgc.md#c8"
-    char_span: [12673, 13168]
+    char_span: [12672, 13167]
     sentence_count: 6
     key_terms: [get, lors, prestigiouscarob5450, gpa, try, accommodating, application, lowiqtrader]
     section: Comments

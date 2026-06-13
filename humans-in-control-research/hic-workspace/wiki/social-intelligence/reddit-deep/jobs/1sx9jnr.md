@@ -23,13 +23,13 @@ chunks:
     key_terms: [e-commerce, software, years, engineering, been, experience, job, feeling]
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c1"
-    char_span: [2200, 4322]
+    char_span: [2199, 4321]
     sentence_count: 14
     key_terms: [swe, resume, headlessheadhunter, been, backend, getting, stacks, applications]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/jobs/1sx9jnr.md#c2"
-    char_span: [4326, 4664]
+    char_span: [4325, 4663]
     sentence_count: 2
     key_terms: [check, different, platforms, everyone, honestly, linkedin, standout, startups]
     section: Comments

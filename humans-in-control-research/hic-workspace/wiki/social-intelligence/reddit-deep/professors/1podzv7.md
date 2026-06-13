@@ -23,49 +23,49 @@ chunks:
     key_terms: [basic, comments, things-you-should-learn-in-high-school, level, assessments, professors, students, content]
     token_count: 261
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c1"
-    char_span: [1143, 2985]
+    char_span: [1142, 2984]
     sentence_count: 15
     key_terms: [faculty, students, admin, terrified, get, student, evals, exam]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c2"
-    char_span: [2987, 4785]
+    char_span: [2986, 4784]
     sentence_count: 14
     key_terms: [education, students, because, universities, being, retention, college, florida]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c3"
-    char_span: [4787, 6872]
+    char_span: [4786, 6871]
     sentence_count: 12
     key_terms: [student, going, semester, students, despite, too, professor, woefully]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c4"
-    char_span: [6874, 8777]
+    char_span: [6873, 8776]
     sentence_count: 8
     key_terms: [classes, boss, went, because, undergraduate, "i'm", curriculum, university]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c5"
-    char_span: [8779, 10451]
+    char_span: [8778, 10450]
     sentence_count: 8
     key_terms: [class, students, courses, "they're", week, sequencing, chemistry, committee]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c6"
-    char_span: [10455, 12230]
+    char_span: [10454, 12229]
     sentence_count: 14
     key_terms: [different, like, students, problem, course, assessments, upper-level, quiz]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c7"
-    char_span: [12232, 13933]
+    char_span: [12231, 13932]
     sentence_count: 7
     key_terms: [physics, application, curve, exam, professors, material, because, learned]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/professors/1podzv7.md#c8"
-    char_span: [13935, 15775]
+    char_span: [13934, 15774]
     sentence_count: 17
     key_terms: [physics, physicists, professors, part, knowledge, attracts, awardees, students]
     section: Comments

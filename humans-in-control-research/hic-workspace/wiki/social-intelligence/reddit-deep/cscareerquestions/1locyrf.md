@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, computer, science, "i'm", currently, comments, software, career]
     token_count: 244
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c1"
-    char_span: [1048, 3042]
+    char_span: [1047, 3041]
     sentence_count: 15
     key_terms: [better, people, years, get, "it's", like, lot, something]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c2"
-    char_span: [3044, 5043]
+    char_span: [3043, 5042]
     sentence_count: 23
     key_terms: [junior, roles, engineering, like, stay, tech, considered, engineers]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c3"
-    char_span: [5045, 7152]
+    char_span: [5044, 7151]
     sentence_count: 22
     key_terms: [job, passion, programming, did, degree, "don't", programmers, developer]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1locyrf.md#c4"
-    char_span: [7154, 8254]
+    char_span: [7153, 8253]
     sentence_count: 8
     key_terms: [market, years, educationalmud5010, earn, "he's", job, next, donut-disastrous]
     section: Comments

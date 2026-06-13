@@ -28,7 +28,7 @@ chunks:
     key_terms: [school, suggestions, help, owe, "haven't", return, low, university]
     token_count: 394
   - id: "social-intelligence/reddit-deep/college/1o6qb3e.md#c2"
-    char_span: [3843, 4227]
+    char_span: [3842, 4226]
     sentence_count: 5
     key_terms: [job, best, want, educational, experience, witherino, honestly, burying]
     section: Comments

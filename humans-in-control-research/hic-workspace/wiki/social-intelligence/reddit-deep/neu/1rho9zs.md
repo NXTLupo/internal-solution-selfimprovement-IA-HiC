@@ -23,7 +23,7 @@ chunks:
     key_terms: [international, financial, student, refund, cybersecurity, late, comments, deadline]
     token_count: 274
   - id: "social-intelligence/reddit-deep/neu/1rho9zs.md#c1"
-    char_span: [1280, 1917]
+    char_span: [1279, 1916]
     sentence_count: 3
     key_terms: [tough-surprise4298, ordinary-bird5170, course, drop, semester, january, started, doing]
     section: Comments

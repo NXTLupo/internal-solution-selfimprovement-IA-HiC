@@ -21,7 +21,7 @@ chunks:
     key_terms: [research, professional, internships, economics, political, year, science, proficiency]
     token_count: 268
   - id: "social-intelligence/reddit-deep/internships/1t0pmh3.md#c1"
-    char_span: [1247, 1608]
+    char_span: [1246, 1607]
     sentence_count: 2
     key_terms: [internshipdaily, daily, sweet-frosting4839, com, day, reassurance, dante86966, definitely]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, years, job, summer, "it's", comments, student, posted]
     token_count: 231
   - id: "social-intelligence/reddit-deep/engineeringstudents/1te5irh.md#c1"
-    char_span: [971, 2057]
+    char_span: [970, 2056]
     sentence_count: 9
     key_terms: [engineeringstudents, advanced-gain-2201, wiki, please, reddit, https, com, www]
     section: Comments

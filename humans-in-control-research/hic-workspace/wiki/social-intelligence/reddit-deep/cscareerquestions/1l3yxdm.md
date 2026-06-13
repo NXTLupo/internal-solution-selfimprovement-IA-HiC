@@ -21,19 +21,19 @@ chunks:
     key_terms: [exams, actuarial, cscareerquestions, like, comments, software, actuary, seeking]
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c1"
-    char_span: [1523, 3628]
+    char_span: [1522, 3627]
     sentence_count: 11
     key_terms: [software, average, masters, job, new, big, deleted, applications]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c2"
-    char_span: [3630, 5207]
+    char_span: [3629, 5206]
     sentence_count: 12
     key_terms: [get, job, actuarial, knowledge, engineer, software, specific, actuary]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l3yxdm.md#c3"
-    char_span: [5209, 6619]
+    char_span: [5208, 6618]
     sentence_count: 13
     key_terms: [keep, quant, job, recruiter, needleworkerwhich350, personalityelegant52, break, ask]
     section: Comments

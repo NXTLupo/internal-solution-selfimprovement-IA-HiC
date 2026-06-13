@@ -28,19 +28,19 @@ chunks:
     key_terms: [don, been, feel, kind, like, essentially, compared, interest]
     token_count: 139
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c2"
-    char_span: [2670, 4749]
+    char_span: [2669, 4748]
     sentence_count: 30
     key_terms: [discipline, doing, don, whatever, cares, enjoy, start, lost]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c3"
-    char_span: [4751, 6745]
+    char_span: [4750, 6744]
     sentence_count: 19
     key_terms: [don, pivot, everyone, start, like, need, okay, management]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ml0zcj.md#c4"
-    char_span: [6747, 8679]
+    char_span: [6746, 8678]
     sentence_count: 13
     key_terms: [management, career, projects, coordination, roles, need, want, strengths]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1tccc9j.md#c0"
-    char_span: [0, 970]
+    char_span: [0, 969]
     sentence_count: 7
     key_terms: [gradadmissions, degree, programming, data, like, interested, analytics, comments]
-    token_count: 205
+    token_count: 204
 ---
 # Computer Science graduate exploring data focused career paths.
 

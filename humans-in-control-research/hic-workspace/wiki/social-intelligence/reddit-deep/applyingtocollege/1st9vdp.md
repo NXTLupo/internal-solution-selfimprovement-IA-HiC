@@ -23,37 +23,37 @@ chunks:
     key_terms: ["isn't", applyingtocollege, college, grades, grade, get, "i'm", like]
     token_count: 328
   - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c1"
-    char_span: [1393, 3677]
+    char_span: [1392, 3676]
     sentence_count: 14
     key_terms: [get, people, orthopedicdishonesty, sometimes, through, grades, good, everything]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c2"
-    char_span: [3679, 5231]
+    char_span: [3678, 5230]
     sentence_count: 5
     key_terms: [happens, slack, transcript, concerned, rescinded, semester, students, college]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c3"
-    char_span: [5233, 7331]
+    char_span: [5232, 7330]
     sentence_count: 14
     key_terms: [people, because, getting, valuableassociate505, "you're", especially, classes, letting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c4"
-    char_span: [7024, 7418]
+    char_span: [7023, 7417]
     sentence_count: 1
     key_terms: [environment, constantly, physically, top-ranked, generally, treatment, families, followed]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c5"
-    char_span: [7420, 9636]
+    char_span: [7419, 9635]
     sentence_count: 9
     key_terms: [college, like, responsibilities, process, people, etc, senioritis, anything]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1st9vdp.md#c6"
-    char_span: [9638, 9816]
+    char_span: [9637, 9815]
     sentence_count: 1
     key_terms: [got, probably, syllabus, already, history, looking, couple, guess]
     section: Comments

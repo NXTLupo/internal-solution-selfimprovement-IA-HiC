@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-askacademia/f8f5dab35c.md#c0"
-    char_span: [0, 2230]
+    char_span: [0, 2229]
     sentence_count: 12
     key_terms: [experiential, experience, learning, relevant, internship, applied, program, organization]
-    token_count: 472
+    token_count: 471
 ---
 # How is experiential learning viewed in higher levels of academia?
 

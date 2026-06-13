@@ -21,31 +21,31 @@ chunks:
     key_terms: ["i'm", college, comments, passed, person, dad, help, like]
     token_count: 265
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c1"
-    char_span: [1060, 2392]
+    char_span: [1059, 2391]
     sentence_count: 14
     key_terms: [breakup, give, different, college, exactly, through, losing, parent]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c2"
-    char_span: [2394, 4427]
+    char_span: [2393, 4426]
     sentence_count: 16
     key_terms: [work, because, etc, withdraw, missed, weeks, got, lot]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c3"
-    char_span: [4429, 6554]
+    char_span: [4428, 6553]
     sentence_count: 14
     key_terms: [professors, students, final, good, "it's", tell, ultimately, professor]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c4"
-    char_span: [6556, 8475]
+    char_span: [6555, 8474]
     sentence_count: 15
     key_terms: [professor, unfortunately, class, email, comfortable, need, exceptions, forwarded]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/college/1so8sgm.md#c5"
-    char_span: [8477, 8867]
+    char_span: [8476, 8866]
     sentence_count: 3
     key_terms: [student, loss, communication, rock-paper-o, comfortable, flexibility, coordinate, situations]
     section: Comments

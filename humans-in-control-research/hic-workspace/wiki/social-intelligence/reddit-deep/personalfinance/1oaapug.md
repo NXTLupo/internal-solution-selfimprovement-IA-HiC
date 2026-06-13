@@ -23,7 +23,7 @@ chunks:
     key_terms: [around, investments, personalfinance, earning, partner, pension, savings, investment]
     token_count: 428
   - id: "social-intelligence/reddit-deep/personalfinance/1oaapug.md#c1"
-    char_span: [1795, 2456]
+    char_span: [1794, 2455]
     sentence_count: 3
     key_terms: [personalfinance, automatically, automoderator, wiki, moderators, investing, performed, questions]
     section: Comments

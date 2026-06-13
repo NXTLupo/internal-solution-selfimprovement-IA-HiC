@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c0"
-    char_span: [0, 2231]
+    char_span: [0, 2230]
     sentence_count: 17
     key_terms: [design, company, role, manufacturing, work, product, careerguidance, visual]
-    token_count: 486
+    token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1t7vmwt.md#c1"
-    char_span: [2233, 3493]
+    char_span: [2232, 3492]
     sentence_count: 11
     key_terms: [role, salary, commute, company, leaving, design, people, engineering-focused]
     token_count: 260

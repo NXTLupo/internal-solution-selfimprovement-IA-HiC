@@ -21,31 +21,31 @@ chunks:
     key_terms: [interns, university, cscareerquestions, top, schools, comments, amazon, intern]
     token_count: 248
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9xpmx.md#c1"
-    char_span: [860, 2998]
+    char_span: [859, 2997]
     sentence_count: 8
     key_terms: [amazon, people, recruiting, gold-flatworm-4313, prestige, interesting, recruits, whatever]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9xpmx.md#c2"
-    char_span: [2742, 3150]
+    char_span: [2741, 3149]
     sentence_count: 2
     key_terms: [because, people, gold-flatworm-4313, onceonthisisland, participants, interesting, meritocracy, industries]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9xpmx.md#c3"
-    char_span: [3152, 4238]
+    char_span: [3151, 4237]
     sentence_count: 11
     key_terms: [guy, prestige, castes, grades, white, percentagesouth4173, asian, girl]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9xpmx.md#c4"
-    char_span: [4240, 5621]
+    char_span: [4239, 5620]
     sentence_count: 15
     key_terms: [schools, ends, top, getting, always, class, quant, mit]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9xpmx.md#c5"
-    char_span: [5623, 6827]
+    char_span: [5622, 6826]
     sentence_count: 7
     key_terms: [students, companies, interns, "there's", ruinadventurous1931, altruisticend5168, mit, t20]
     section: Comments

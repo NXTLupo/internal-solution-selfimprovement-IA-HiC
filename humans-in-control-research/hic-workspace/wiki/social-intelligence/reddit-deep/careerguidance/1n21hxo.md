@@ -26,31 +26,31 @@ chunks:
     key_terms: [require, plus, significantly, challenging, opportunity, experience, childcare, described]
     token_count: 111
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c2"
-    char_span: [2506, 4283]
+    char_span: [2505, 4282]
     sentence_count: 11
     key_terms: [childcare, flexibility, career, money, additional, schedule, forever, making]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c3"
-    char_span: [4285, 6160]
+    char_span: [4284, 6159]
     sentence_count: 14
     key_terms: [flexibility, job, kids, current, get, especially, different, employer]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c4"
-    char_span: [6162, 7631]
+    char_span: [6161, 7630]
     sentence_count: 11
     key_terms: [flexibility, commute, current, difference, calaf2525, anything, travel, great]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c5"
-    char_span: [7633, 9442]
+    char_span: [7632, 9441]
     sentence_count: 13
     key_terms: [times, flexibility, get, different, commute, company, concern, current]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/careerguidance/1n21hxo.md#c6"
-    char_span: [9444, 10059]
+    char_span: [9443, 10058]
     sentence_count: 5
     key_terms: [flexibility, interview, flexible, find, job, new, role, readsalotman]
     section: Comments

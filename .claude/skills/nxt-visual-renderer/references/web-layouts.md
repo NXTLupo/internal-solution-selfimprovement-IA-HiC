@@ -158,7 +158,50 @@ Use when themes build sequentially (cause → effect → response). Numbered cha
 
 ---
 
-## case-study — v3.0 DENSIFIED
+## UNIVERSAL DENSITY AXIS (2026-06-10) — applies to EVERY template
+
+Every slide accepts a density: `base` (default) or `dense`. Declare it on the
+fence (`:::slide template=NAME density=dense`) or as a top-level JSON field
+(`"density": "dense"`). The renderers raise per-template item ceilings under
+dense and adapt type size to the actual item count, in BOTH the web preview
+and the 1920x1080 PPTX stage twin, so a dense slide exports correctly.
+
+EMIT `density=dense` WHEN:
+- The user asks for more detail, more lines, more quotes, more rows, "all of
+  the evidence", "the full list", or uses the #dense hashtag.
+- The user MODIFIES a prior generation by asking to add items beyond the base
+  ceiling (interpret the addition as a dense regeneration, never drop items).
+- The corpus is rich enough that cutting to the base ceiling would discard
+  named, evidenced items the user explicitly asked to see.
+
+STAY at base when the request is a summary, an overview slide, or an executive
+cover. Density raises CEILINGS, not floors: never pad with filler to reach the
+dense ceiling; every added item must be evidenced (verbatim quote or named
+entity). Dense ceilings per template (base -> dense, items / sub-items):
+persona-card 3->5 pains · recommendation 3->5 actions, 2->4 evidence ·
+theme-cluster/spotlight 4->6 themes · theme-arc 4->5 · competitive-matrix
+7->10 rows · block-quote 3->5 corroborating data · case-study 4->5 bullets,
+3->4 evidence rows · principles 5->8 · stat-row 3->4 · timeline 5->6 phases,
+5->7 items each · service-blueprint 6->7 stages · journey-map 5->6 stages,
+3->4 actor lanes · gap-matrix 7->10 gaps ·
+architecture-map 8->12 nodes per layer · prd-feature 4->6 features ·
+systems-inventory 10->14 systems.
+
+---
+
+## case-study — v4.0 GOLD VARIANTS (2026-06-10)
+
+Case-study renders on the GOLD frame (rail + dot mark + IBM Plex Mono kicker +
+action title + meta row + takeaway band) in THREE deep-dive layout variants.
+DIVERSIFY variants across a deck: when emitting multiple case studies, never
+repeat one layout (per the case-study learned constraint). Subjects MUST be
+NAMED real entities (institution / company / program), never archetypes.
+
+| `variant` | When to use | Payload |
+|---|---|---|
+| `four-block` (default) | Single rich case: challenge, approach, outcome + metrics panel | `challenge`/`approach`/`outcome` + `keyMetric`/`supportingMetrics`/`pullQuote`/`comparables` |
+| `before-after` | The case is an operating-model SHIFT (old way vs new way) | `beforeAfter` + optional `pullQuote` |
+| `evidence-stack` | The case rests on convergent verbatim quotes from named sources | `evidence[]` (3 quotes) |
 
 | Field | Budget | Required |
 |---|---|---|
@@ -166,21 +209,79 @@ Use when themes build sequentially (cause → effect → response). Numbered cha
 | `subjectMeta` | 90 chars | industry / region / size |
 | `timeframe` | 40 chars | e.g. "18 months" |
 | `investment` | 40 chars | e.g. "$2.4M, 12-person team" |
-| `challenge` | 340 chars | 2-3 sentences |
-| `approach` | 340 chars | 2-3 sentences |
-| `outcome` | 340 chars | 2-3 sentences |
+| `variant` | enum | `four-block` / `before-after` / `evidence-stack` |
+| `challenge` | 460 chars | four-block: 3-4 full sentences (density floor: do not write one-liners) |
+| `approach` | 460 chars | four-block: 3-4 full sentences describing what they actually did |
+| `outcome` | 460 chars | four-block: 3-4 full sentences; numbers only inside cited quotes |
+| `lesson` | 380 chars | four-block: renders as the 4th accent-bar block (LESSON), 2-3 sentences |
+| `beforeAfter.before.headline` | 60 chars | before-after: the old operating model, named |
+| `beforeAfter.before.points[i]` | 140 chars | 3-5 points, QUALITATIVE patterns (numbers only inside cited quotes) |
+| `beforeAfter.after.headline` | 60 chars | before-after: the new operating model, named |
+| `beforeAfter.after.points[i]` | 140 chars | 3-5 points, mirror the before list one-for-one where possible |
+| `beforeAfter.result` | 220 chars | one or two sentences, what changed |
+| `evidence[i].quote` | 220 chars | evidence-stack: 3-4 rows, VERBATIM quote, never paraphrase, never a title |
+| `evidence[i].source` | 60 chars | named source (SOURCE: line) |
+| `evidence[i].shows` | 160 chars | one-line interpretation (WHAT IT SHOWS) |
+| `takeaway` | 220 chars | the GOLD takeaway band: ONE bold phrase or sentence |
 | `pullQuote.text` | 200 chars | full sentence |
 | `pullQuote.attribution` | 60 chars | yes |
-| `pullQuote.role` | 60 chars | NEW — ALWAYS include speaker's role |
-| `keyMetric.value` | 12 chars | |
+| `pullQuote.role` | 60 chars | ALWAYS include speaker's role |
+| `keyMetric.value` | 12 chars | qualitative hero phrase preferred |
 | `keyMetric.label` | 90 chars | |
 | `supportingMetrics[i].value` | 12 chars | up to 4 |
 | `supportingMetrics[i].label` | 60 chars | |
-| `lesson` | 280 chars | NEW — LESSON FOR ADVANCEMENT, generalizes the takeaway |
-| `comparables[i].name` | 48 chars | NEW — 2-3 other orgs with adjacent results |
-| `comparables[i].outcome` | 80 chars | NEW |
-| `comparables[i].source` | 40 chars | NEW |
-| `implication` | 260 chars | NEW |
+| `lesson` | 280 chars | generalizes the takeaway (band fallback) |
+| `comparables[i].name` | 48 chars | 2-3 other orgs with adjacent results |
+| `comparables[i].outcome` | 80 chars | |
+| `comparables[i].source` | 40 chars | |
+| `implication` | 260 chars | |
+
+### JSON shape — before-after variant
+```
+:::slide template=case-study
+{
+  "title": "Amazon designs the top contact reasons out of existence instead of staffing up to answer them",
+  "sources": ["Amazon Shareholder Letter","HBR Service Operations 2024"],
+  "caseStudy": {
+    "subject": "Amazon",
+    "subjectMeta": "The self-serve model · Global e-commerce · Self-service CX",
+    "timeframe": "Sustained operating model",
+    "investment": "Upstream defect fixes + self-serve surfaces",
+    "variant": "before-after",
+    "beforeAfter": {
+      "before": { "headline": "Staff to the volume", "points": ["Every contact reason is answered by adding more agents","The same defect generates the same call every week","Tickets closed is the scoreboard, not contacts avoided"] },
+      "after": { "headline": "Design the contact away", "points": ["The top contact reasons are traced to an upstream defect and fixed","The answer is surfaced before the contact form","Contacts that never had to happen become the scoreboard"] },
+      "result": "Routine contacts fall away as the underlying defects disappear, so capacity shifts to the genuinely novel problem."
+    },
+    "pullQuote": { "text": "The best customer service is if the customer doesn't need to call.", "attribution": "Amazon Shareholder Letter" },
+    "takeaway": "The lever is not more agents; it is fewer reasons to make contact. Removing the defect beats answering the call."
+  }
+}
+:::
+```
+
+### JSON shape — evidence-stack variant
+```
+:::slide template=case-study
+{
+  "title": "Stripe makes the documentation the first responder, so most questions never become tickets",
+  "sources": ["Stripe Docs","Developer Survey","Stripe Engineering"],
+  "caseStudy": {
+    "subject": "Stripe",
+    "subjectMeta": "The documentation model · Developer platform · Self-service CX",
+    "timeframe": "Sustained operating model",
+    "investment": "Versioned docs + search relevance",
+    "variant": "evidence-stack",
+    "evidence": [
+      { "quote": "If it's in the docs, the question usually never becomes a ticket.", "source": "Stripe Docs", "shows": "The documentation resolves at the point of need, before a queue exists." },
+      { "quote": "I found the integration answer faster than I could have filed a ticket.", "source": "Developer Survey", "shows": "For the developer, findability beats even the fastest queue." },
+      { "quote": "We version the docs with the API, so the answer is never stale.", "source": "Stripe Engineering", "shows": "Freshness is what keeps the documented fix trustworthy." }
+    ],
+    "takeaway": "The first responder is the document, not the agent. Invest in search relevance and version freshness, and the ticket becomes the exception."
+  }
+}
+:::
+```
 
 ### JSON shape
 ```
@@ -193,9 +294,10 @@ Use when themes build sequentially (cause → effect → response). Numbered cha
     "subjectMeta": "Ivy League · Ithaca, NY · 26K students · $2.4B endowment",
     "timeframe": "18 months (Q2 2023 → Q4 2024)",
     "investment": "$7.2M program cost · 14-person program team + 3 Salesforce SIs",
-    "challenge": "Cornell's Advancement operated 4 disconnected CRMs across colleges — each with its own data model and stewardship cadence. Major-gift officers reconciled donor profiles manually, cycle time averaged 90 days longer than peer benchmarks, and prospects known to one college were invisible to the rest.",
-    "approach": "College-by-college consolidation to a single Salesforce Advancement Cloud instance. Phase 1: 3-month data-quality remediation (dedup 140K records, resolve 4K conflicts). Phase 2: sequenced migration — smallest college first — with 6-week user training per wave. Phase 3: retire legacy, launch unified propensity scoring.",
-    "outcome": "Major-gift conversion rate rose 34% (13.8% → 18.5%). Average cycle time dropped 90 days. Officer administrative time fell from 22 hrs/wk to 10 hrs/wk — reclaiming ~624 hrs per officer per year. Year-one ROI: 2.1× program cost.",
+    "variant": "four-block",
+    "challenge": "Cornell's Advancement operated 4 disconnected CRMs across colleges, each with its own data model and stewardship cadence. Major-gift officers reconciled donor profiles manually, cycle time averaged 90 days longer than peer benchmarks, and prospects known to one college were invisible to the rest.",
+    "approach": "College-by-college consolidation to a single Salesforce Advancement Cloud instance. Phase 1: 3-month data-quality remediation (dedup 140K records, resolve 4K conflicts). Phase 2: sequenced migration, smallest college first, with 6-week user training per wave. Phase 3: retire legacy, launch unified propensity scoring.",
+    "outcome": "Major-gift conversion rate rose 34% (13.8% → 18.5%). Average cycle time dropped 90 days. Officer administrative time fell from 22 hrs/wk to 10 hrs/wk, reclaiming ~624 hrs per officer per year. Year-one ROI: 2.1× program cost.",
     "keyMetric": {"value":"+34%","label":"major-gift conversion rate, 12 months post-cutover"},
     "supportingMetrics": [
       {"value":"-90 days","label":"cycle time reduction"},
@@ -204,17 +306,17 @@ Use when themes build sequentially (cause → effect → response). Numbered cha
       {"value":"2.1×","label":"program-cost ROI, Year 1"}
     ],
     "pullQuote": {
-      "text":"Within six months we stopped asking 'do we know this donor?' — we already knew, and we knew the next best action.",
+      "text":"Within six months we stopped asking 'do we know this donor?' We already knew, and we knew the next best action.",
       "attribution":"VP Advancement Services, Cornell",
       "role":"17-year Advancement veteran, CASE 2024 panelist"
     },
-    "lesson": "Consolidation pays back fastest when the smallest college migrates first — it validates the data model at low risk and creates internal champions who sell the remaining cutovers.",
+    "lesson": "Consolidation pays back fastest when the smallest college migrates first: it validates the data model at low risk and creates internal champions who sell the remaining cutovers.",
     "comparables": [
       {"name":"BU Advancement (2022)","outcome":"Consolidated 3 orgs → 1 in 14 months; 28% major-gift conversion lift","source":"CASE 2024"},
       {"name":"NYU (2023)","outcome":"Unified 6 colleges into single Salesforce org; +$18M annual giving YoY","source":"NYU Annual Report 2024"},
       {"name":"Michigan (2024)","outcome":"2.4× officer productivity post-consolidation, 12-month program","source":"Gartner Higher-Ed CRM 2025"}
     ],
-    "implication":"The pattern holds across every peer case: consolidation is not a CRM project — it is the prerequisite for every AI-driven advancement initiative in the next 24 months."
+    "implication":"The pattern holds across every peer case: consolidation is not a CRM project; it is the prerequisite for every AI-driven advancement initiative in the next 24 months."
   }
 }
 :::
@@ -337,6 +439,39 @@ See existing schema. Reminder: column definitions go under each header; every ro
 ## principles / timeline / section-divider / service-blueprint / gap-matrix / architecture-map / prd-feature / systems-inventory
 
 See existing schemas in `types.ts`. Not part of the v3.0 density upgrade — retain their existing budgets.
+
+## journey-map (#journey) — GOLD actor-lane journey matrix (2026-06-11)
+
+`#journey` is a JOURNEY MAP, not a Bitner blueprint (`#blueprint` owns frontstage/backstage).
+Source of truth: the Figma GOLD journey frames (NU page 53:159, T3 exemplar 156:2; NXT page
+75:2) and `JourneyMapData` in `types.ts`. Anatomy on the GOLD shell:
+
+- Kicker: `JOURNEY MAP · <journeyType>` · mono meta row `SCOPE · ACTORS · PHASES`
+- Optional dashboard: PERSONAS / OVERALL PAIN POINTS / STRATEGIC OPPORTUNITIES (3 items
+  each, opportunities carry "(Named Source)" attributions)
+- Up to 3 KPI tiles: mono label + QUALITATIVE hero word ("Routed", "Doc-first") + mono sub.
+  First tile may be `isHeadline` (dark band treatment). Never a naked number in a tile.
+- Matrix: stage columns (5 base / 6 dense) x ACTOR lanes (3 base / 4 dense). Stage headers
+  ink; mark AT MOST 1-2 stages `critical: true` (accent header). Cells = one short clause of
+  what that actor does at that stage; `"not engaged"` renders greyed italic.
+- PAIN POINTS row (accent) aligned to stages · `keyInsight` rides the takeaway band.
+
+```
+:::slide template=journey-map brand=nu
+{ "title": "<action title>", "sources": ["<named source>"], "journeyMap": {
+    "journeyType": "ADVANCEMENT STAFF VIEW", "scope": "One donor pipeline",
+    "actors": "Staff · Officers · Data team", "phasesLabel": "Five, matriculation to giving",
+    "stages": [{"name": "Matriculation"}, {"name": "Co-op", "critical": true}, {"name": "Graduation"}, {"name": "Early alumni"}, {"name": "Giving"}],
+    "lanes": [
+      {"actor": "Advancement staff", "role": "owns the pipeline", "cells": ["...", "...", "...", "...", "..."]},
+      {"actor": "Gift officers", "role": "carries the ask", "cells": ["not engaged", "...", "...", "...", "..."]},
+      {"actor": "Data team", "role": "owns the records", "cells": ["...", "...", "...", "not engaged", "..."]}
+    ],
+    "painPoints": ["...", "...", "...", "...", "..."],
+    "kpiTiles": [{"label": "KEY FINDING", "value": "Siloed", "sub": "ADMISSIONS DATA NEVER REACHES ADVANCEMENT", "isHeadline": true}],
+    "keyInsight": "<structural cost, qualitative>" } }
+:::
+```
 
 ---
 

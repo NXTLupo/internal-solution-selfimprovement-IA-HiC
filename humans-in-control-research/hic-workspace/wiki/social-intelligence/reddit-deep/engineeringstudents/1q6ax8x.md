@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineeringstudents, comments, greyeyeannabeth, engineering, opportunity, reddit-deep, internship, excited]
     token_count: 85
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q6ax8x.md#c1"
-    char_span: [340, 1526]
+    char_span: [339, 1525]
     sentence_count: 10
     key_terms: [engineeringstudents, wiki, greyeyeannabeth, please, reddit, https, com, www]
     section: Comments

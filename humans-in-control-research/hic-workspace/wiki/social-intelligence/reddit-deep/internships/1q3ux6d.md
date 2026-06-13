@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, comments, experience, referrals, projects, content, instead, anyone]
     token_count: 491
   - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c1"
-    char_span: [2047, 3482]
+    char_span: [2047, 3481]
     sentence_count: 8
     key_terms: [job, applying, frontend, backend, boards, thanks, apply, app]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/internships/1q3ux6d.md#c2"
-    char_span: [3484, 5132]
+    char_span: [3483, 5131]
     sentence_count: 12
     key_terms: [did, job, use, early, like, something, template, backend]
     section: Comments

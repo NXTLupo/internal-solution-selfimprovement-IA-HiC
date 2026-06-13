@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, careerguidance, career, been, want, behavioral, everything, incredibly]
     token_count: 461
   - id: "social-intelligence/reddit-deep/careerguidance/1sv0rcf.md#c1"
-    char_span: [2105, 3860]
+    char_span: [2105, 3859]
     sentence_count: 17
     key_terms: [internship, part-time, want, unprofessional, opportunity, don, work, commitment]
     token_count: 364

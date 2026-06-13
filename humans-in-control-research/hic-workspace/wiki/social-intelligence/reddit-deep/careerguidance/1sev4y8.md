@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, early-career, feel, job, like, role, work, boundaries]
     token_count: 384
   - id: "social-intelligence/reddit-deep/careerguidance/1sev4y8.md#c1"
-    char_span: [1638, 3387]
+    char_span: [1637, 3386]
     sentence_count: 11
     key_terms: [job, everything, "that's", "you're", "i'd", like, boundaries, normal]
     section: Comments

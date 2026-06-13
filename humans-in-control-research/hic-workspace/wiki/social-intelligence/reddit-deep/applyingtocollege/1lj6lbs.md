@@ -23,55 +23,55 @@ chunks:
     key_terms: [application, applyingtocollege, college, incredible, comments, parent, commercial-plenty-45, merit]
     token_count: 207
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c1"
-    char_span: [916, 2918]
+    char_span: [915, 2917]
     sentence_count: 18
     key_terms: [college, commercial-plenty-45, applyingtocollege, merit, aid, helpful, group, thank]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c2"
-    char_span: [2920, 4572]
+    char_span: [2919, 4571]
     sentence_count: 8
     key_terms: [here, college, passion, book, affordable, anything, baking, common]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c3"
-    char_span: [4574, 6835]
+    char_span: [4573, 6834]
     sentence_count: 20
     key_terms: [top, universities, commercial-plenty-45, going, rankings, looking, schools, focus]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c4"
-    char_span: [6570, 7322]
+    char_span: [6569, 7321]
     sentence_count: 9
     key_terms: [fit, early, top, opportunity, best, advantage, decision, looking]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c5"
-    char_span: [7324, 8716]
+    char_span: [7323, 8715]
     sentence_count: 8
     key_terms: [best, accepted, school, aid, get, college, student, resources]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c6"
-    char_span: [8718, 10468]
+    char_span: [8717, 10467]
     sentence_count: 10
     key_terms: [get, money, freshman, schools, follow, johnny, little, school]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c7"
-    char_span: [10471, 11947]
+    char_span: [10470, 11946]
     sentence_count: 7
     key_terms: [offering, because, college, schools, advice, johnny, search, "you're"]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c8"
-    char_span: [11949, 14060]
+    char_span: [11948, 14059]
     sentence_count: 13
     key_terms: [admissions, school, merit, college, podcasts, higher, get, good]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lj6lbs.md#c9"
-    char_span: [14062, 15396]
+    char_span: [14061, 15395]
     sentence_count: 14
     key_terms: [merit, aid, offered, schools, commercial-plenty-45, students, discojellyfisho, applicant]
     section: Comments

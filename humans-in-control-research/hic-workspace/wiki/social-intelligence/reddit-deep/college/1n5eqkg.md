@@ -23,13 +23,13 @@ chunks:
     key_terms: ["i'm", money, college, parents, bad, feel, job, comments]
     token_count: 294
   - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c1"
-    char_span: [1210, 2944]
+    char_span: [1209, 2943]
     sentence_count: 18
     key_terms: [expensive, get, like, parents, back, pay, potatoes, working]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1n5eqkg.md#c2"
-    char_span: [2946, 4274]
+    char_span: [2945, 4273]
     sentence_count: 15
     key_terms: [parents, job, get, like, anything, highlightfickle7290, otherwise-ruin-7808, happy]
     section: Comments

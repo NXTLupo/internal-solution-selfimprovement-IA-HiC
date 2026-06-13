@@ -36,25 +36,25 @@ chunks:
     key_terms: [people, "i'm", gatekeeping, got, life, decisions, anything, everyone]
     token_count: 310
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c4"
-    char_span: [7774, 8942]
+    char_span: [7773, 8941]
     sentence_count: 3
     key_terms: [gatekeep, school, thats, get, everyone, people, intelligent-web-8017, crazy]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c5"
-    char_span: [8944, 10758]
+    char_span: [8943, 10757]
     sentence_count: 10
     key_terms: [people, soup, friends, bean, life, disagree, nothing, theory]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c6"
-    char_span: [10760, 11781]
+    char_span: [10759, 11780]
     sentence_count: 4
     key_terms: [schools, school, admissions, everyone, college, culture, little, people]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ruf3i4.md#c7"
-    char_span: [11783, 13288]
+    char_span: [11782, 13287]
     sentence_count: 9
     key_terms: [like, people, state, don, honest, school, senior, intelligent-web-8017]
     section: Comments

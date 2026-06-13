@@ -21,43 +21,43 @@ chunks:
     key_terms: [applyingtocollege, stanford, get, rah, comments, sibling, oldest, summer]
     token_count: 373
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c1"
-    char_span: [1558, 2663]
+    char_span: [1557, 2662]
     sentence_count: 8
     key_terms: [college, prepared, sounds, content-calendar5535, billie087ffranklin, get, like, accomplishment]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c2"
-    char_span: [2667, 4750]
+    char_span: [2666, 4749]
     sentence_count: 12
     key_terms: [get, disappointment, "it's", like, own, anything, pressure, making]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c3"
-    char_span: [4752, 6206]
+    char_span: [4751, 6205]
     sentence_count: 12
     key_terms: [prepared, want, expectations, get, careful, college, outcome, always]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c4"
-    char_span: [6208, 8368]
+    char_span: [6207, 8367]
     sentence_count: 11
     key_terms: [especially, younger, parent, truly, entitlement, age, get, intentions]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c5"
-    char_span: [8370, 10400]
+    char_span: [8369, 10399]
     sentence_count: 13
     key_terms: [ucla, want, college, student, "they're", "you're", "don't", right]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c6"
-    char_span: [10402, 11890]
+    char_span: [10401, 11889]
     sentence_count: 13
     key_terms: [college, expectations, being, short, kids, paranoid, sibling, essay]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr2epr.md#c7"
-    char_span: [11895, 12634]
+    char_span: [11894, 12633]
     sentence_count: 3
     key_terms: [college, going, realize, little, school, older, whole, dangerous-cup-1114]
     section: Comments

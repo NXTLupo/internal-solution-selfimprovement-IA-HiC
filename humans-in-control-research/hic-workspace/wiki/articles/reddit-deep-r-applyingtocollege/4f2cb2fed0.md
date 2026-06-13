@@ -15,22 +15,22 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c0"
-    char_span: [0, 2094]
+    char_span: [0, 2093]
     sentence_count: 18
     key_terms: [college, applyingtocollege, school, significantly, get, love, benefits, comments]
-    token_count: 484
+    token_count: 483
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c1"
-    char_span: [2096, 3287]
+    char_span: [2095, 3286]
     sentence_count: 9
     key_terms: [school, experience, especially, selective, "you're", point, years, penguinpumpkin1701]
     token_count: 277
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c2"
-    char_span: [3289, 5128]
+    char_span: [3288, 5127]
     sentence_count: 14
     key_terms: [undergraduate, students, school, graduate, universities, grade, top, colleges]
     token_count: 412
   - id: "articles/reddit-deep-r-applyingtocollege/4f2cb2fed0.md#c3"
-    char_span: [5130, 5964]
+    char_span: [5129, 5963]
     sentence_count: 5
     key_terms: [ivy, grad, flagship, random, state, university, colleges, person]
     token_count: 176

@@ -1,26 +1,80 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: co-op, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: op, fall, fenway health, walk, start, end, applying
+- Top keywords: vanguard, ira, trust, account, transfer, 401k, inherited
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Walk-in Dentistry at Fenway Health? Hi guys! I know Fenway health does walk in dentist appts but I was wondering if anyone has had luck with that in the past? I wanted to try, but I’d have to take the morning off of co-op in order to go. Is it worth trying, or would I have to wait a while? Thanks :)  Sample size of one, but I got in within 20 minutes of arriving at the front desk.
+I opened an inherited IRA and submitted the paperwork to vanguard to get everything moved over to it.
 
 EXAMPLE 2:
-Need advise regarding duration of co-op Hey guys, my co-op start date was originally supposed to be June 1st and end on Aug 21st, but yesterday HR called and said the timeline has changed to July 6th – Sep 25th due to a clearance issue at the lab.
+Back to the OP's question, if they have a trust already setup, they should be able to retitle their brokerage accounts without any issue. I am not sure offhand if Vanguard charges for this, but if even if they do it should not be much and there should be no additional taxes. Just like how you can move a house into a trust, though that usually has some costs with the doc stamps, etc.
+For people where a trust makes sense in the first place, moving assets like a home, brokerage account, etc. usually is a good idea if you want to have the money there as part of the purpose of the trust. [...]
 
 EXAMPLE 3:
-Fall 2026 co-op, too late ? I’m in the MS Biotechnology program and need to do a co-op to graduate. It looks like everyone has one except me. I’m doing everything, applying, connecting.
+Transferring Brokerage Accounts to a Trust M wife and I have a trust that we created after we bought our home. And we have two separate brokerage accounts with Vanguard, that are not in the trust.  How do you move brokerage accounts funds to a trust? Does doing so generate any taxes? What are the advantages or disadvantages of putting the accounts into the trust?  Copying my applicable reply here to ensure the OP sees it:
 
 EXAMPLE 4:
-Has anyone here dealt with something similar at NEU? Was OGS/co-op office okay with a Summer + partial Fall co-op like this? Trying to understand whether this is generally allowed before I proceed further. I guess your end date won’t change
+Back to the OP's question, if they have a trust already setup, they should be able to retitle their brokerage accounts without any issue. I am not sure offhand if Vanguard charges for this, but if even if they do it should not be much and there should be no additional taxes. Just like how you can move a house into a trust, though that usually has some costs with the doc stamps, etc.
 
 EXAMPLE 5:
-I’m an F-1 student at Northeastern, so I’m a bit concerned because this would mean extending the co-op into the Fall semester and potentially skipping the start of classes.
+There are sometimes funds that don't translate. Like Primerica and Ameriprise is famous for having funds that are similar to VOO but have one thing in them that doesn't translate. So to escape them you have to sell up and incur taxes. Not an accident on Primerica's part.They want to make it hard for you to leave. Is it possible your Mom's employer had some 401k that was specific to them and does not translate to Vanguard? Some proprietary mix that was only available to those employees?
 
 EXAMPLE 6:
-I still haven’t been able to secure one. Is it too late to get a coop? I really need one  Not sure when the deadline for masters students is, but I got my last co-op in mid-June after 80+ applications! Keep applying!
+Or should it have never gone into the sweep account in the first place and something has gone wrong?  Your two options were to keep the 401k or roll it over to an inherited ira.  
+They should have moved it over "in kind" into an inherited ira account. The portion they moved over to a regular brokerage account would have needed to be sold and taxes have now been incurred as it's officially a distribution. You need to have opened an inherited ira account (beneficiary ira account) for the other portion to rollover to happen and it has to be a trustee to trustee transfer. [...]
+
+EXAMPLE 7:
+Inherited traditional 401k question My mom passed away a few months ago and had a traditional 401k and had me as the beneficiary.
+
+EXAMPLE 8:
+They wouldn't have done anything that you did not specify on your paperwork. What did you write down? Did you open an inherited ira account for them to roll it into? Sounds like you did. I can only guess that it didn't get rolled over because it was a fund that did not have anything at VG that was similar. I guess there is some possibility it's sitting in sweep until the in kind is purchased, but I don't think so. How long has it been sitting there?
+I opened an inherited IRA. They didn’t move anything to my standard brokerage account. The sweep account in question is in the inherited IRA.
+
+EXAMPLE 9:
+No matter what, none of it's going to be easy because Vanguard's customer service is atrocious. Some of the worst in the business imho.
+
+EXAMPLE 10:
+Also, at the passing of the first spouse, the remaining spouse will have to open a new account and OP will have to set up powers of attorney again and add the trust as beneficiary of the new account. It might be easier to just retitle into the trust now.
+
+EXAMPLE 11:
+Full Agent Access I am taking over financial management for my elderly parents (voluntary DPOA, trustee etc) my dad have two vanguard accounts. we’re trying to ensure that I take over all financial communication and coordination.
+
+EXAMPLE 12:
+——  
+And that’s it so far. I’m hoping it’s just part of the process and that it will eventually be “in kind” but just stressing out about a huge tax bill or something. 
+What kind of account did you open exactly and from where was the inherited account being transferred?
+
+EXAMPLE 13:
+Her 401k was at vanguard already so I doubt it’s anything they wouldn’t be familiar with in her portfolio.
+
+EXAMPLE 14:
+You will have to send in paperwork to retitle brokerage acct. Has your dad thought about changing beneficiary for brokerage to Trust acct? This will ensure that brokerage acct assets will pass to the Trust upon his death. This can be done online and changes nothing with title of the acct, and can be included in full agent auth paperwork.
+If they add the trust as a beneficiary and use a power of attorney to manage the assets while the parents are still alive, they will lose access to the account when the second spouse passes. [...]
+
+EXAMPLE 15:
+2. brokerage account- my brother and I are trustees- (can act independently and bro doesn’t participate in any of the management 🫠), can I just submit the signed/notarized Trust Certificate from our lawyer to have this account retitled? is there a specific process here?
+
+EXAMPLE 16:
+For people where a trust makes sense in the first place, moving assets like a home, brokerage account, etc. usually is a good idea if you want to have the money there as part of the purpose of the trust. Brokerage accounts normally don't go through probate, so there isn't the same advantage there like there is for your house, but it still can simplify your estate planning, especially with young children (if applicable).
+
+EXAMPLE 17:
+If the trust eventually became non-revokable, like if the OP and his wife died and it became effectively inheritance for their child(ren), etc., at that point the trust would need to establish a TIN and it would be taxed directly.
+
+EXAMPLE 18:
+As long as it is a 'living trust' and revokable, any taxable income would be a passthru to the trustees and reported on their social security number (generally the primary person's just like now). So there would be no adverse tax consequences, assuming it was setup correctly.
+
+EXAMPLE 19:
+There are sometimes reasons to have investment accounts in trusts anyways, but you should be sure they apply in your case.
+Yes and no.
+
+EXAMPLE 20:
+Thank you!! Full agent auth for VG acct needs to be signed and notarized by acct holder. Your dad's phone and email should not change because it is still his acct. VG expects agents to access client's acct through separate acct login and not client's login.
+
+EXAMPLE 21:
+1. IRA- I’m aware I need to submit full agent access and set up my own login here, he’s updated me to the trusted contact and backup phone number. He wants me to be the primary contact and take over meetings with his “personal advisor”- should he be switching the phone and email in his account to mine?
+
+EXAMPLE 22:
+While you you are waiting to get this processed by VG you can ask if dad wants to provide limited agent auth to you. This can be done online without any paperwork. As the name suggests, limited agent auth has some limitations but you can do quite a few things.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

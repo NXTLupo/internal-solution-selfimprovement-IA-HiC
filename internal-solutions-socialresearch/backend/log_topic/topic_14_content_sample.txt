@@ -1,0 +1,16 @@
+Topic 14 - Content Sample
+Number of content items: 15
+Top words: roth, traditional, traditional ira, basis, backdoor, year, tax
+
+Content 1 (length: 478 chars):
+Should those last two be "Roth IRA" instead of "traditional IRA"? If you did the backdoor Roth correctly your traditional IRA should be empty afterwards, or just a nominal amount of interest.
+I’m confused but it sounds like you are doing a Roth conversion not a backdoor Roth.  Backdoor Roths are for individuals making too much money to contribute to a Roth.  This year 153k for a single and 242k for a couple.  If you are below these amounts just put money directly in a Roth.
+
+Content 2 (length: 893 chars):
+For the future, it sounds like I could’ve contributed to my traditional, then IMMEDIATELY converted to a Roth and avoided any tax penalties by filing a specific IRS form at tax time…? You're asking this on December 31st after the market has closed for 2025?
+Yeah, I called and learned. I was told I could convert next year but no clue how that would impact me when it comes to taxes, penalties etc. suffice to say, I guess I now have a traditional IRA in addition to my Roth. Woo hoo.
+You can still convert that traditional IRA to Roth today with no penalty; you’ll just owe ordinary income tax on whatever portion of the conversion is pre‑tax, and you’ll report it on Form 8606 with your return.  For future years, you can absolutely do the “contribute to traditional, immediately convert to Roth” approach (backdoor Roth) as long as you handle the pro‑rata rule and file Form 8606 correctly.
+
+Content 3 (length: 348 chars):
+Backdoor Roth confusion - help! Last year was my first year trying the backdoor Roth, and it is honestly still confusing to me despite reading information on several sites. I converted 7K from my traditional IRA to the Roth IRA, then bought 7k in stocks in my traditional IRA. My traditional IRA now has a total of 7,300 in stocks (given interest).
+

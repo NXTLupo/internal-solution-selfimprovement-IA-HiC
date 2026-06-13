@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t9u4ra.md#c0"
-    char_span: [0, 1403]
+    char_span: [0, 1402]
     sentence_count: 16
     key_terms: [like, english, careerguidance, career, need, comments, guidance, earning]
-    token_count: 331
+    token_count: 330
 ---
 # 22 Years Old, BA English Graduate, No Job, No Direction — Need Genuine Career Advice 2. Feeling Like a Failure After BA English Honours — What Should I Do Next? 3. Arts Student Feeling Lost in Life — Need Guidance From Experienced People 4. I’m 22 and Still Not Earning Anything — Need Career A
 

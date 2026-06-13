@@ -23,13 +23,13 @@ chunks:
     key_terms: [anthropic, comments, reddit-deep, context, claude, posted, reddit, source]
     token_count: 79
   - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c1"
-    char_span: [276, 1919]
+    char_span: [275, 1918]
     sentence_count: 7
     key_terms: [stingraycharles, mcp, tokens, tools, anthropic, already, certain, context]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/anthropic/1mvxpqt.md#c2"
-    char_span: [1921, 3501]
+    char_span: [1920, 3500]
     sentence_count: 8
     key_terms: [github, https, com, bitching, jomon003, moaning, playmcp, useful]
     section: Comments

@@ -43,31 +43,31 @@ chunks:
     key_terms: [often, destination, generally, language, through, without, arabic, people]
     token_count: 350
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c5"
-    char_span: [10258, 11120]
+    char_span: [10257, 11119]
     sentence_count: 7
     key_terms: [protoplanetarynebula, issue, right, seems, tunis, "it's", read, too]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c6"
-    char_span: [11122, 13045]
+    char_span: [11121, 13044]
     sentence_count: 16
     key_terms: [useful, jonwillington, tunis, ichelures, slightly, tunisia, working, written]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c7"
-    char_span: [13047, 15078]
+    char_span: [13046, 15077]
     sentence_count: 15
     key_terms: [tunis, did, down, like, "wouldn't", several, tunisia, around]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c8"
-    char_span: [15080, 17077]
+    char_span: [15079, 17076]
     sentence_count: 19
     key_terms: [carthage, tunis, guy, country, thanks, ruins, did, like]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/digitalnomad/1nskcl5.md#c9"
-    char_span: [17079, 18383]
+    char_span: [17078, 18382]
     sentence_count: 12
     key_terms: [dysfunctional, roman, thank, carthage, adf21a, tunis, jonwillington, mediterranean]
     section: Comments

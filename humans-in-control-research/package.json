@@ -14,7 +14,7 @@
     "test:ui": "vitest --ui",
     "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "skillopt:extract": "python scripts/extract-rollouts.py --workspace hic-workspace --out-dir ../tmp/skillopt-rollouts",
-    "skillopt:build-training": "python scripts/build-training-set.py --real-rollouts-dir ../tmp/skillopt-rollouts --out-dir ../tmp/skillopt-training",
+    "skillopt:build-training": "python scripts/build-training-set.py --real-rollouts-dir ../tmp/skillopt-rollouts --out-dir ../tmp/skillopt-training --feedback-base hic-workspace/wiki/feedback",
     "skillopt:train": "bash scripts/skillopt-batch.sh",
     "skillopt:train-promote": "bash scripts/skillopt-batch.sh --auto-promote",
     "skillopt:dry-run": "bash scripts/skillopt-batch.sh --dry-run",

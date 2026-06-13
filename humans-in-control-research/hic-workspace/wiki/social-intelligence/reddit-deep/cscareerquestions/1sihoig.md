@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, people, prospects, comments, hiring, market, offers, doing]
     token_count: 261
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c1"
-    char_span: [1073, 2566]
+    char_span: [1072, 2565]
     sentence_count: 12
     key_terms: [newzstockchick, job, did, move, healthcare, industry, another, layoffs]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c2"
-    char_span: [2568, 4174]
+    char_span: [2567, 4173]
     sentence_count: 13
     key_terms: [company, new, feel, decent, hiring, faang, sunsgettinreallow, been]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c3"
-    char_span: [4177, 5163]
+    char_span: [4176, 5162]
     sentence_count: 7
     key_terms: [chocolate--chip, llms, health, right, feel, any-range9932, inevitability, regretno6554]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c4"
-    char_span: [5165, 6486]
+    char_span: [5164, 6485]
     sentence_count: 8
     key_terms: [half, took, generate, anyone, skkkrrrrrrrrrrrrrrrr, pressureappropriate, foo-bar-nlogn-100, good]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sihoig.md#c5"
-    char_span: [6488, 7715]
+    char_span: [6487, 7714]
     sentence_count: 8
     key_terms: [gen3archive, like, bootcamps, probably, courses, minimum, skkkrrrrrrrrrrrrrrrr, offer]
     section: Comments

@@ -28,31 +28,31 @@ chunks:
     key_terms: ["don't", away, come, pop, read, douchebaggery, actionable, something]
     token_count: 71
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c2"
-    char_span: [2710, 4802]
+    char_span: [2709, 4801]
     sentence_count: 13
     key_terms: [feedback, students, evals, often, asturiusmatamoros, constructive, like, colleagues]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c3"
-    char_span: [4804, 6933]
+    char_span: [4803, 6932]
     sentence_count: 10
     key_terms: [feedback, student, useful, students, response, reading, shitty, "don't"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c4"
-    char_span: [6935, 8632]
+    char_span: [6934, 8631]
     sentence_count: 11
     key_terms: [students, teaching, evaluation, s0272775714000417, comments, sciencedirect, evaluations, help]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c5"
-    char_span: [8634, 10781]
+    char_span: [8633, 10780]
     sentence_count: 15
     key_terms: [evaluations, students, teaching, student, comments, hateful, realize, course]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1phiwbl.md#c6"
-    char_span: [10783, 11770]
+    char_span: [10782, 11769]
     sentence_count: 3
     key_terms: [students, looking, student, canvas, level, didn, encouragement, consistently]
     section: Comments

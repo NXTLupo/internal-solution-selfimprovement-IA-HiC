@@ -23,25 +23,25 @@ chunks:
     key_terms: [representations, feedback, detection, models, hallucination, deeplearning, arxiv, https]
     token_count: 426
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c1"
-    char_span: [1902, 3743]
+    char_span: [1901, 3742]
     sentence_count: 18
     key_terms: [https, org, aclanthology, paper, better, papers, arxiv, conferences]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c2"
-    char_span: [3745, 5781]
+    char_span: [3744, 5780]
     sentence_count: 26
     key_terms: [paper, important, abstract, writing, introduction, formatting, like, equation]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c3"
-    char_span: [5783, 8010]
+    char_span: [5782, 8009]
     sentence_count: 19
     key_terms: [internal, divergence, features, figures, sparse, interpretable, state, uncertainty]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/deeplearning/1sgwlt8.md#c4"
-    char_span: [8012, 8642]
+    char_span: [8011, 8641]
     sentence_count: 5
     key_terms: [github, individual-ice4288, computational, contribution, correctness, demonstrate, scalability, supervision]
     section: Comments

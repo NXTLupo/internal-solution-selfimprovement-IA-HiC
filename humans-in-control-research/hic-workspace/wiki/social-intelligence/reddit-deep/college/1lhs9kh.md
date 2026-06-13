@@ -26,13 +26,13 @@ chunks:
     key_terms: [don, graphic, career, major, debt, anything, decided, design]
     token_count: 416
   - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c2"
-    char_span: [4126, 5936]
+    char_span: [4125, 5935]
     sentence_count: 10
     key_terms: [yourself, maybe, creative, answers, quite, seems, experiences, practical]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/college/1lhs9kh.md#c3"
-    char_span: [5938, 8032]
+    char_span: [5937, 8031]
     sentence_count: 18
     key_terms: [art, design, school, job, graphic, favor, don, find]
     section: Comments

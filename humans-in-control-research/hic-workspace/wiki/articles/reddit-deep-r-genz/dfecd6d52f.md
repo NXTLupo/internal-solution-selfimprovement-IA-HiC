@@ -15,17 +15,17 @@ industries: [healthcare]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/dfecd6d52f.md#c0"
-    char_span: [0, 2091]
+    char_span: [0, 2090]
     sentence_count: 25
     key_terms: [supposed, because, feel, job, like, manufacturing, idea, comments]
-    token_count: 513
+    token_count: 512
   - id: "articles/reddit-deep-r-genz/dfecd6d52f.md#c1"
-    char_span: [2094, 3766]
+    char_span: [2093, 3765]
     sentence_count: 12
     key_terms: [apartmentworried5692, far, feel, less, work, american, already, working]
     token_count: 411
   - id: "articles/reddit-deep-r-genz/dfecd6d52f.md#c2"
-    char_span: [3768, 4492]
+    char_span: [3767, 4491]
     sentence_count: 8
     key_terms: [dream, life, teaching, repair, enjoy, own, billionaires, essentially]
     token_count: 168

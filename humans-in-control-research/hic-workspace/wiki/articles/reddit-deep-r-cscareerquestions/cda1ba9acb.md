@@ -15,27 +15,27 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c0"
-    char_span: [0, 1803]
+    char_span: [0, 1802]
     sentence_count: 21
     key_terms: [cgpa, cscareerquestions, projects, wrong, internships, full-stack, internship, understand]
-    token_count: 453
+    token_count: 452
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c1"
-    char_span: [1805, 4080]
+    char_span: [1804, 4079]
     sentence_count: 33
     key_terms: [ceo, loudly, months, office, "he'd", like, employee, startup]
     token_count: 505
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c2"
-    char_span: [4082, 6251]
+    char_span: [4081, 6250]
     sentence_count: 40
     key_terms: [lpa, company, witch, recognition, allocation, interview, building, engineer]
     token_count: 483
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c3"
-    char_span: [6253, 7768]
+    char_span: [6252, 7767]
     sentence_count: 17
     key_terms: [get, "i'm", non-negotiable, load-bearing, assessments, opportunity, absolutely, allocation]
     token_count: 374
   - id: "articles/reddit-deep-r-cscareerquestions/cda1ba9acb.md#c4"
-    char_span: [7770, 8405]
+    char_span: [7769, 8404]
     sentence_count: 6
     key_terms: [sureassociation9708, part, encouraging, indomitable, internship, employers, published, regionals]
     token_count: 157

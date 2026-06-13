@@ -23,13 +23,13 @@ chunks:
     key_terms: [gradadmissions, comments, negative-entrance-78, got, reddit-deep, scholarship, resources, computer]
     token_count: 93
   - id: "social-intelligence/reddit-deep/gradadmissions/1s0u0xn.md#c1"
-    char_span: [341, 1864]
+    char_span: [340, 1863]
     sentence_count: 18
     key_terms: [congratulations, confident-physics956, congrats, take, exactly, frankly, getting, competitive-bag-3514]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/gradadmissions/1s0u0xn.md#c2"
-    char_span: [1866, 2599]
+    char_span: [1865, 2598]
     sentence_count: 8
     key_terms: [get, semester, depends, per, universities, chowder1054, genuinely, immensely]
     section: Comments

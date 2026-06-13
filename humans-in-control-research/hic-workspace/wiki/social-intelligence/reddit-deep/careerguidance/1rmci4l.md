@@ -38,7 +38,7 @@ chunks:
     key_terms: [careers, "i'm", certification, opportunities, development, interacting, progression, suggestions]
     token_count: 148
   - id: "social-intelligence/reddit-deep/careerguidance/1rmci4l.md#c4"
-    char_span: [3778, 5029]
+    char_span: [3777, 5028]
     sentence_count: 6
     key_terms: [management, companies, background, training, someone, pretty, roles, pay]
     section: Comments

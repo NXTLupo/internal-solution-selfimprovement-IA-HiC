@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, party, "i'm", comments, invited, student, "don't", older]
     token_count: 180
   - id: "social-intelligence/reddit-deep/college/1nqhdnt.md#c1"
-    char_span: [696, 1468]
+    char_span: [695, 1467]
     sentence_count: 7
     key_terms: [fun, whether, unless, older, weird, care, end, no-software254]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/college/1nqhdnt.md#c2"
-    char_span: [1470, 2722]
+    char_span: [1469, 2721]
     sentence_count: 11
     key_terms: ["you're", weird, friends, hanging, "don't", older, throwaway44556879, feel]
     section: Comments

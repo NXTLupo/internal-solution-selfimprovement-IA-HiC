@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rz7qky.md
 url: "https://www.reddit.com/r/internships/comments/1rz7qky/asking_for_a_return_offer/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -6,19 +7,24 @@ subreddit: "internships"
 title: "Asking for a return offer?"
 author: "throwmeaway2305"
 date: "2026-03-20T20:44:15.000Z"
-score: 7
-upvote_ratio: 1
+score: 5
+upvote_ratio: 0.86
 num_comments: 0
 flair: "Post-Internship"
-extracted_at: "2026-06-06T23:20:46.232Z"
+extracted_at: "2026-06-08T18:49:20.587Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rz7qky.md#c0"
+    char_span: [0, 2266]
+    sentence_count: 18
+    key_terms: ["i'm", internship, intern, stay, company, manager, least, constraints]
+    token_count: 480
 ---
-
 # Asking for a return offer?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rz7qky/asking_for_a_return_offer/)
-Posted by **throwmeaway2305** · **7↑** · **0 comments**
+Posted by **throwmeaway2305** · **5↑** · **0 comments**
 
 I'm over a month out before I end my year long internship. For context this is a co-op that is integrated with my Master's program, and I will also be graduating by the end of this term. I've performed quite well at least according to the evaluations and feedback I've received from my manager. From my conversations with HR, the company is going through budget constraints and headcount scrutiny. Regardless, my manager figured out a way to extend me after saying he would advocate strongly for me. I'm at a point where I have to figure out my next steps. Ideally, I would like to stay and grow within the company since I've enjoyed my team and work. 
 

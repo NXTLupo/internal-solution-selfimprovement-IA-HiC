@@ -15,12 +15,12 @@ industries: [financial_services, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-wallstreetbets/e57ca4aa0a.md#c0"
-    char_span: [0, 1873]
+    char_span: [0, 1872]
     sentence_count: 14
     key_terms: [wallstreetbets, market, reddit, https, long-term, comments, backlog, com]
-    token_count: 486
+    token_count: 485
   - id: "articles/reddit-deep-r-wallstreetbets/e57ca4aa0a.md#c1"
-    char_span: [1875, 3021]
+    char_span: [1874, 3020]
     sentence_count: 6
     key_terms: [wsb, calls, waymo, years, driverless, comments, discord, problem]
     token_count: 330

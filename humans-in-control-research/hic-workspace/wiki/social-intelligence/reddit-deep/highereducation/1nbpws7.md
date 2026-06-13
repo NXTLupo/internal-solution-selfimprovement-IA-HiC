@@ -23,25 +23,25 @@ chunks:
     key_terms: [highereducation, been, admissions, comments, curious, student, working, around]
     token_count: 324
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c1"
-    char_span: [1459, 3189]
+    char_span: [1458, 3188]
     sentence_count: 13
     key_terms: [conversation, agent, call, time, admissions, interested, college, someone]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c2"
-    char_span: [3191, 4956]
+    char_span: [3190, 4955]
     sentence_count: 12
     key_terms: [human, admissions, people, sound, save, use, anything, students]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c3"
-    char_span: [4958, 7175]
+    char_span: [4957, 7174]
     sentence_count: 12
     key_terms: [product, clear, service, institutions, commercial, market, nicholas-dm, soliciting]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/highereducation/1nbpws7.md#c4"
-    char_span: [7177, 8191]
+    char_span: [7176, 8190]
     sentence_count: 6
     key_terms: [approach, puzzleheaded-fan2721, want, whistleblower, akshatsh1234, carlitospig, credibility, immediately]
     section: Comments

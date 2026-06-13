@@ -23,19 +23,19 @@ chunks:
     key_terms: [job, never, got, full-time, comments, finally, myself, offer]
     token_count: 329
   - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c1"
-    char_span: [1320, 2370]
+    char_span: [1319, 2369]
     sentence_count: 6
     key_terms: [queasybee8221, too, standards, congrats, finding, requirementroyal8666, sense, familiar-range9014]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c2"
-    char_span: [2372, 4077]
+    char_span: [2371, 4076]
     sentence_count: 10
     key_terms: [queasybee8221, thank, job, congrats, been, nessa0707, facebook, nervous]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mlw70e.md#c3"
-    char_span: [3860, 4198]
+    char_span: [3859, 4197]
     sentence_count: 5
     key_terms: [calm-wrongdoer-1988, queasybee8221, hopefully, tootoo513, congrats, grinding, pushing, success]
     section: Comments

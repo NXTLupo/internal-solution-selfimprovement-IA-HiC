@@ -23,19 +23,19 @@ chunks:
     key_terms: [povertyfinance, childcare, comments, thebudgetdeveloper, reddit-deep, applicable, households, different]
     token_count: 121
   - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c1"
-    char_span: [519, 2409]
+    char_span: [518, 2408]
     sentence_count: 10
     key_terms: [month, assistance, daycare, paying, child, kid, because, mamaknowsbest2]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c2"
-    char_span: [2237, 2697]
+    char_span: [2236, 2696]
     sentence_count: 2
     key_terms: [month, child, decent-flamingo289, universalchildcare, days, per, week, appointments]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/povertyfinance/1nnosit.md#c3"
-    char_span: [2699, 3527]
+    char_span: [2698, 3526]
     sentence_count: 6
     key_terms: [hours, free, amount, nursery, month, pay, government, childcare]
     section: Comments

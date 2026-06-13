@@ -23,7 +23,7 @@ chunks:
     key_terms: [decoding, speculative, draft, methods, implementation, proposer, shreyansh26, speculative-decoding]
     token_count: 488
   - id: "social-intelligence/reddit-deep/machinelearning/1swfftl.md#c1"
-    char_span: [2279, 3171]
+    char_span: [2278, 3170]
     sentence_count: 6
     key_terms: [implementation, been, like, east-muffin-6472, architectures, thedailyspank, wise-dust8070, interesting]
     section: Comments

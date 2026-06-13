@@ -28,31 +28,31 @@ chunks:
     key_terms: [doesn, feels, trust, like, pseudo-emotional, overprotective, hallucinates, apparently]
     token_count: 167
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c2"
-    char_span: [2641, 3611]
+    char_span: [2640, 3610]
     sentence_count: 9
     key_terms: [gaslighting, abuser, chatgpt, gemini, proof, lieutenant-columbo, org, time]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c3"
-    char_span: [3613, 5257]
+    char_span: [3612, 5256]
     sentence_count: 16
     key_terms: [claude, "don't", "it's", like, because, problem, agree, medium-theme-4611]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c4"
-    char_span: [5259, 6142]
+    char_span: [5258, 6141]
     sentence_count: 7
     key_terms: [being, jailbroken, because, better, "don't", care, like, encabulatorturbo]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c5"
-    char_span: [6144, 7990]
+    char_span: [6143, 7989]
     sentence_count: 13
     key_terms: [code, line, changes, assist, works, app, web, explain]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/openai/1qpxr5o.md#c6"
-    char_span: [7992, 9854]
+    char_span: [7991, 9853]
     sentence_count: 11
     key_terms: [explanation, been, like, arguing, change, myself, safety, switch]
     section: Comments

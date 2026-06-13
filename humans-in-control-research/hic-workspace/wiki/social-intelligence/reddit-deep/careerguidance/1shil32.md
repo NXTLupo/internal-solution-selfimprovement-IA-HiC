@@ -23,61 +23,61 @@ chunks:
     key_terms: [don, work, find, careerguidance, questionnaires, career, people, worked]
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c1"
-    char_span: [2103, 4209]
+    char_span: [2102, 4208]
     sentence_count: 18
     key_terms: [work, medicated, job, settledownbessye, office, adhd, day, like]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c2"
-    char_span: [4211, 6227]
+    char_span: [4210, 6226]
     sentence_count: 21
     key_terms: [something, jobs, work, state, did, get, like, experience]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c3"
-    char_span: [6229, 7693]
+    char_span: [6228, 7692]
     sentence_count: 16
     key_terms: [service, better-paying, did, jobs, especially, strengths, doing, maybe]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c4"
-    char_span: [7695, 9191]
+    char_span: [7694, 9190]
     sentence_count: 13
     key_terms: [need, healthcare, mechanic, paycheck, already, problem, credit, decent]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c5"
-    char_span: [9193, 11459]
+    char_span: [9192, 11458]
     sentence_count: 16
     key_terms: [dopamine, skills, being, amazing-injury8078, different, loved, necessarily, hit]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c6"
-    char_span: [11461, 13280]
+    char_span: [11460, 13279]
     sentence_count: 5
     key_terms: [because, field, like, requires, almost, school, prerequisites, construction]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c7"
-    char_span: [13282, 15246]
+    char_span: [13281, 15245]
     sentence_count: 12
     key_terms: [job, adhd, definitely, gives, because, people, get, equipment]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c8"
-    char_span: [15248, 16927]
+    char_span: [15247, 16926]
     sentence_count: 13
     key_terms: ["don't", career, maybe, adhd, people, phlebotomist, guess, find]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c9"
-    char_span: [16929, 18649]
+    char_span: [16928, 18648]
     sentence_count: 16
     key_terms: [get, because, truck, bartending, phlebotomy, dopamine, working, ruined]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/careerguidance/1shil32.md#c10"
-    char_span: [18651, 19539]
+    char_span: [18650, 19538]
     sentence_count: 11
     key_terms: [degree, college, opportunities, engineering, job, lots, community, prereqs]
     section: Comments

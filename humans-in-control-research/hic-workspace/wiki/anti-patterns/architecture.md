@@ -11,55 +11,55 @@ tags: [anti-patterns, architecture, quality-gates]
 evidence_count: 0
 chunks:
   - id: "anti-patterns/architecture.md#c0"
-    char_span: [0, 2546]
+    char_span: [0, 2545]
     sentence_count: 9
     key_terms: [architecture, service, technology, components, component, contracts, framework, data]
     section: "AP-ARCH-001: Big Ball of Mud / AP-ARCH-002: Golden Hammer"
     token_count: 431
   - id: "anti-patterns/architecture.md#c1"
-    char_span: [2590, 3743]
+    char_span: [2589, 3742]
     sentence_count: 3
     key_terms: [security, architecture, authentication, section, considerations, authorization, integrated, decision]
     section: "AP-ARCH-003: Security as Afterthought"
     token_count: 208
   - id: "anti-patterns/architecture.md#c2"
-    char_span: [3798, 4851]
+    char_span: [3797, 4850]
     sentence_count: 5
     key_terms: [targets, system, architecture, availability, quantitative, concurrent, recovery, latency]
     section: "AP-ARCH-004: Missing Non-Functional Requirements"
     token_count: 226
   - id: "anti-patterns/architecture.md#c3"
-    char_span: [4903, 6005]
+    char_span: [4902, 6004]
     sentence_count: 6
     key_terms: [alternatives, throughput, replay, kafka, adr, considered, rationale, streaming]
     section: "AP-ARCH-005: No Architecture Decision Records"
     token_count: 212
   - id: "anti-patterns/architecture.md#c4"
-    char_span: [6050, 7108]
+    char_span: [6049, 7107]
     sentence_count: 2
     key_terms: [diagram, written, architecture, constraints, operational, diagrams, design, deliverable]
     section: "AP-ARCH-006: Diagram-Only Architecture"
     token_count: 189
   - id: "anti-patterns/architecture.md#c5"
-    char_span: [7161, 8344]
+    char_span: [7160, 8343]
     sentence_count: 4
     key_terms: [lock-in, migration, abstraction, proprietary, aws, risk, documentation, architecture]
     section: "AP-ARCH-007: Vendor Lock-In Without Evaluation"
     token_count: 220
   - id: "anti-patterns/architecture.md#c6"
-    char_span: [8386, 9405]
+    char_span: [8385, 9404]
     sentence_count: 5
     key_terms: [architecture, target, migration, current-state, state, coexistence, plan, strangler]
     section: "AP-ARCH-008: Missing Migration Path"
     token_count: 184
   - id: "anti-patterns/architecture.md#c7"
-    char_span: [9447, 10539]
+    char_span: [9446, 10538]
     sentence_count: 4
     key_terms: [scaling, scalable, architecture, bottlenecks, concurrent, dimensions, horizontal, throughput]
     section: "AP-ARCH-009: No Scalability Targets"
     token_count: 223
   - id: "anti-patterns/architecture.md#c8"
-    char_span: [10582, 11616]
+    char_span: [10581, 11615]
     sentence_count: 2
     key_terms: [debt, architecture, technical, compromises, remediation, new, deliberate, inventory]
     section: "AP-ARCH-010: Ignoring Technical Debt"

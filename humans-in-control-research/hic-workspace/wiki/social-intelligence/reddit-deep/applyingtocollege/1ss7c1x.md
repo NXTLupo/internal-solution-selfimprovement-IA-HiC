@@ -21,13 +21,13 @@ chunks:
     key_terms: [brown, applyingtocollege, duke, engineering, comments, software, startups, factors]
     token_count: 190
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss7c1x.md#c1"
-    char_span: [812, 2357]
+    char_span: [811, 2356]
     sentence_count: 4
     key_terms: [duke, brown, friends, professorroyal6807, enough, connections, internships, undergrad]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss7c1x.md#c2"
-    char_span: [2359, 4318]
+    char_span: [2358, 4317]
     sentence_count: 9
     key_terms: [duke, brown, cornell, programs, college, prestigious, get, too]
     section: Comments

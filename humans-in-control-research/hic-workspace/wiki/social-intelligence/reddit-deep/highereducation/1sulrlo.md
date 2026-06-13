@@ -41,37 +41,37 @@ chunks:
     key_terms: [community-colleges-cost-bachelors-degrees-csu-says-no-to-some, california-community-colleges-approve-3-new-bachelors-degrees-over-csus-objections, https, adc4709f688295d75b9ee418de2592862c765027d50d901fdd8c3faeb2b5939f, newsom-rejects-bill-for-community-college-nursing-programs, california-community-colleges-approve-3-new-bachelors-deg, csu, community]
     token_count: 446
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c5"
-    char_span: [10300, 12647]
+    char_span: [10299, 12646]
     sentence_count: 9
     key_terms: [colleges, community, traditional, degrees, programs, students, institutions, year]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c6"
-    char_span: [12341, 14438]
+    char_span: [12340, 14437]
     sentence_count: 12
     key_terms: [community, universities, degrees, state, colleges, get, students, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c7"
-    char_span: [14207, 14500]
+    char_span: [14206, 14499]
     sentence_count: 2
     key_terms: [working, anesthesia, bigfitmama, university, advantage, part-time, critical, getting]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c8"
-    char_span: [14502, 15748]
+    char_span: [14501, 15747]
     sentence_count: 6
     key_terms: [year, students, making, universities, admin, big, job, low]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c9"
-    char_span: [15750, 17681]
+    char_span: [15749, 17680]
     sentence_count: 10
     key_terms: [students-at-this-community-college-can-earn-a-bachelors-and-help-prevent-wildfires, amputatorbot, https, state, comments, degrees, florida, reddit]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/highereducation/1sulrlo.md#c10"
-    char_span: [17683, 18830]
+    char_span: [17682, 18829]
     sentence_count: 7
     key_terms: [bachelors, college, value, gatekeeping, different, increased, everyone, access]
     section: Comments

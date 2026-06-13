@@ -18,7 +18,7 @@ industries: [workforce, enterprise_it, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1r4j8eo.md#c0"
-    char_span: [0, 878]
+    char_span: [0, 877]
     sentence_count: 5
     key_terms: [internships, apps, comments, flamingominute1454, opportunities, applications, competitions, environments]
     token_count: 205

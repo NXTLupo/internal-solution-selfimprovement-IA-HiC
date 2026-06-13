@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1st8axk.md
 url: "https://www.reddit.com/r/careerguidance/comments/1st8axk/its_hard_to_choose_my_career_path_need_some_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,13 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.901Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1st8axk.md#c0"
+    char_span: [0, 1171]
+    sentence_count: 13
+    key_terms: [cybersecurity, path, careerguidance, comments, because, career, start, bit]
+    token_count: 273
 ---
-
 # It's hard to choose my career path, need some advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1st8axk/its_hard_to_choose_my_career_path_need_some_advice/)

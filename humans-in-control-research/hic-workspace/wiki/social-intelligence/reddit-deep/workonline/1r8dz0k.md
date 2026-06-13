@@ -23,7 +23,7 @@ chunks:
     key_terms: [work, online, coordination, background, operations, workonline, exploring, comments]
     token_count: 258
   - id: "social-intelligence/reddit-deep/workonline/1r8dz0k.md#c1"
-    char_span: [1261, 1769]
+    char_span: [1260, 1768]
     sentence_count: 5
     key_terms: [online, good, job, luck, work, opportunities, charmingiris, contracting]
     section: Comments

@@ -21,25 +21,25 @@ chunks:
     key_terms: [applyingtocollege, year, college, colby, plan, definitely, comments, thoughts]
     token_count: 354
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c1"
-    char_span: [1517, 3686]
+    char_span: [1516, 3685]
     sentence_count: 15
     key_terms: [transfer, college, niceunparticularman, colby, year, admitted, circles, people]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c2"
-    char_span: [3688, 5718]
+    char_span: [3687, 5717]
     sentence_count: 9
     key_terms: [transfer, school, year, grocerycharacter, apply, money, state, sponsorship]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c3"
-    char_span: [5720, 7368]
+    char_span: [5719, 7367]
     sentence_count: 11
     key_terms: [schools, apply, northwestern, colby, been, "it's", less, admitted]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thu3w1.md#c4"
-    char_span: [7370, 8754]
+    char_span: [7369, 8753]
     sentence_count: 10
     key_terms: [colby, transfer, strong, applicant, excellent, financial, college, country]
     section: Comments

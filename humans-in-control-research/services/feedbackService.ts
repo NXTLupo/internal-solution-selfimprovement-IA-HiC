@@ -24,6 +24,12 @@ export interface FeedbackEvent {
     skill_version_active: string | null;
     constraints_active: string[];
     user_id_or_anon: string;
+    /** 2026-06-12 - User opted to feed this signal into SkillOpt training
+     *  for the active skill. build-training-set.py folds train_skill=true
+     *  text events into the skill's rollout set as failure trajectories
+     *  (verbatim feedback in failures[]), so the next skillopt batch run
+     *  proposes edits addressing it - still gated by validate-candidate. */
+    train_skill?: boolean;
 }
 
 export interface FeedbackSummary {
@@ -126,6 +132,7 @@ export async function submitFeedback(input: {
     skill_version_active?: string | null;
     constraints_active?: string[];
     user_id_or_anon?: string;
+    train_skill?: boolean;
 }): Promise<{ ok: boolean; id: string | null; path?: string; error?: string }> {
     const event: FeedbackEvent = {
         id: generateEventId(),
@@ -142,6 +149,7 @@ export async function submitFeedback(input: {
         skill_version_active: input.skill_version_active || null,
         constraints_active: input.constraints_active || [],
         user_id_or_anon: input.user_id_or_anon || 'anon',
+        train_skill: input.train_skill || false,
     };
 
     try {

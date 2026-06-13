@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tcl1rz.md#c0"
-    char_span: [0, 375]
+    char_span: [0, 374]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, computer-related, engineering, reddit-deep, struggles, options, overall]
-    token_count: 93
+    token_count: 92
 ---
 # Need advice on engineering / computer-related degree options for a student who scores well overall but struggles with Maths
 

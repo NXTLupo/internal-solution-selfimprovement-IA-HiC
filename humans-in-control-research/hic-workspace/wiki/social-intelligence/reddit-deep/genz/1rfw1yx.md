@@ -23,37 +23,37 @@ chunks:
     key_terms: [generation, gen, hate, like, people, without, trends, adhd]
     token_count: 469
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c1"
-    char_span: [2039, 2168]
+    char_span: [2038, 2167]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c2"
-    char_span: [2171, 4315]
+    char_span: [2170, 4314]
     sentence_count: 15
     key_terms: [people, talk, chanceotherwise, social, especially, real, college, media-centric]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c3"
-    char_span: [4012, 4610]
+    char_span: [4011, 4609]
     sentence_count: 6
     key_terms: [people, talk, college, owemdc1zqylg1, incompetent, describing, especially, generation]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c4"
-    char_span: [4612, 5188]
+    char_span: [4611, 5187]
     sentence_count: 6
     key_terms: [younger, friends, opinion, zoomers, old, especially, generation, cattiness]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c5"
-    char_span: [5190, 7075]
+    char_span: [5189, 7074]
     sentence_count: 15
     key_terms: [people, working, status, doing, years, quo, shit, generation]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/genz/1rfw1yx.md#c6"
-    char_span: [7077, 8603]
+    char_span: [7076, 8602]
     sentence_count: 8
     key_terms: [minimum-rough-9442, gen, millennials, been, remember, course, saying, wanted]
     section: Comments

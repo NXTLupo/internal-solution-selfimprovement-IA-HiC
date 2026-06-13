@@ -23,7 +23,7 @@ chunks:
     key_terms: [received, onboarding, offer, confused, zorvyn, sent, comments, concerns]
     token_count: 353
   - id: "social-intelligence/reddit-deep/jobs/1sj9oes.md#c1"
-    char_span: [1620, 3443]
+    char_span: [1619, 3442]
     sentence_count: 12
     key_terms: [bengaluru-techie-calls-out-hiring-scam-after-spotting-fake-employee-profiles-dont-waste-your-time-101775650579679-amp, interview, details, check, scams, bank, fake, job]
     section: Comments

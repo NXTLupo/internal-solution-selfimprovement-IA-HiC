@@ -36,19 +36,19 @@ chunks:
     key_terms: [law, assignment, instructor, professor, bluesky, college, wrote, constitutional]
     token_count: 185
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c4"
-    char_span: [7891, 10138]
+    char_span: [7890, 10137]
     sentence_count: 10
     key_terms: [article, whether, evidence, response, students, student, paper, assignment]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c5"
-    char_span: [10140, 11695]
+    char_span: [10139, 11694]
     sentence_count: 13
     key_terms: [article, student, grade, personal, actual, prompt, using, done]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/highereducation/1pd3cx3.md#c6"
-    char_span: [11697, 12695]
+    char_span: [11696, 12694]
     sentence_count: 7
     key_terms: [assignment, article, designed, teasing, "didn't", description, incorrectly, technically]
     section: Comments

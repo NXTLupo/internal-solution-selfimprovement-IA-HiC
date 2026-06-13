@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/c7a3fcab54.md#c0"
-    char_span: [0, 1911]
+    char_span: [0, 1910]
     sentence_count: 17
     key_terms: [engineer, job, chatgpt, openai, portfolio, bootcamp, comments, changed]
-    token_count: 497
+    token_count: 496
 ---
 # ChatGPT changed my life.
 

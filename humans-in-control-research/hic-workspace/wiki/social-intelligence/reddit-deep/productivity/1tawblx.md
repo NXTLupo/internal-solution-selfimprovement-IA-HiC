@@ -23,13 +23,13 @@ chunks:
     key_terms: [ipad, use, productivity, work, something, comments, because, todoist]
     token_count: 248
   - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c1"
-    char_span: [1033, 3197]
+    char_span: [1032, 3196]
     sentence_count: 16
     key_terms: [everything, notes, grouchy-storm-8155, ipad, digital, onenote, tasks, mini]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/productivity/1tawblx.md#c2"
-    char_span: [3199, 3622]
+    char_span: [3198, 3621]
     sentence_count: 5
     key_terms: [calendar, onenote, preplanned, streamline, looking, meeting, outlook, quickly]
     section: Comments

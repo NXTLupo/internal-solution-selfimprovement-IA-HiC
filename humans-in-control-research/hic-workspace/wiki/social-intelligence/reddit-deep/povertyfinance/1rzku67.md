@@ -23,37 +23,37 @@ chunks:
     key_terms: [povertyfinance, month, comments, income, loans, asparagusinner6577, done, handwriting]
     token_count: 215
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c1"
-    char_span: [898, 2833]
+    char_span: [897, 2832]
     sentence_count: 10
     key_terms: [asparagusinner6577, usually, hsa, max, work, tribbans95, breakfast, dinner]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c2"
-    char_span: [2835, 4263]
+    char_span: [2834, 4262]
     sentence_count: 8
     key_terms: [ill-jellyfish6101, get, spectrum, spotify, strict-confusion-570, month, phone, asparagusinner6577]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c3"
-    char_span: [4265, 4906]
+    char_span: [4264, 4905]
     sentence_count: 5
     key_terms: [spectrum, internet, spectrum-internet-assist, don, fireprostan, nationalize, depending, emergency]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c4"
-    char_span: [4908, 7009]
+    char_span: [4907, 7008]
     sentence_count: 12
     key_terms: [spotify, get, cheaper, budget, family, job, plan, situation]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c5"
-    char_span: [6752, 7953]
+    char_span: [6751, 7952]
     sentence_count: 8
     key_terms: [spotify, music, family, friends, student, wentoburningmanonce, never, ads]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/povertyfinance/1rzku67.md#c6"
-    char_span: [7955, 8434]
+    char_span: [7954, 8433]
     sentence_count: 4
     key_terms: [spotify, okresolution4275, queenarreic, probably, iphones, mention, student, towards]
     section: Comments

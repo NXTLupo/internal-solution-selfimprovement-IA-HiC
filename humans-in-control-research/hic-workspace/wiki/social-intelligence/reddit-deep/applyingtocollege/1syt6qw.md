@@ -23,37 +23,37 @@ chunks:
     key_terms: [college, feel, like, swarthmore, applyingtocollege, decision, because, committed]
     token_count: 386
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c1"
-    char_span: [1682, 4041]
+    char_span: [1681, 4040]
     sentence_count: 15
     key_terms: [friends, school, campus, clubs, feel, kids, whatever, college]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c2"
-    char_span: [4043, 5997]
+    char_span: [4042, 5996]
     sentence_count: 12
     key_terms: [college, family, good, belongings, students, friends, leaving, drive]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c3"
-    char_span: [5999, 7199]
+    char_span: [5998, 7198]
     sentence_count: 8
     key_terms: [break, college, home, spring, summer, aren, bus, hour]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c4"
-    char_span: [7201, 9465]
+    char_span: [7200, 9464]
     sentence_count: 20
     key_terms: [college, swarthmore, instinct, friends, around, kids, new, activities]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c5"
-    char_span: [9467, 11456]
+    char_span: [9466, 11455]
     sentence_count: 12
     key_terms: [felt, college, process, alone, feels, days, committing, choosing]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syt6qw.md#c6"
-    char_span: [11458, 12236]
+    char_span: [11457, 12235]
     sentence_count: 5
     key_terms: [school, work, comes, dream, ago, anticlimactic, international, flexibility]
     section: Comments

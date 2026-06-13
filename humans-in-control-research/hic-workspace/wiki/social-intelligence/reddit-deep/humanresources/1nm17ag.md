@@ -23,37 +23,37 @@ chunks:
     key_terms: [humanresources, strategic, comments, planning, around, cost, h-1b, new]
     token_count: 256
   - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c1"
-    char_span: [1034, 2064]
+    char_span: [1033, 2063]
     sentence_count: 6
     key_terms: [company, anyone, canada, right, "we're", rto, humanresources, low-tackle2543]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c2"
-    char_span: [2066, 4172]
+    char_span: [2065, 4171]
     sentence_count: 13
     key_terms: [healthcare, going, deleted, "it's", labelwhore, hospitals, anything, already]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c3"
-    char_span: [3918, 4656]
+    char_span: [3917, 4655]
     sentence_count: 5
     key_terms: [country, work, employees, options, office, keep, unfortunately, asynchronous]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c4"
-    char_span: [4658, 5513]
+    char_span: [4657, 5512]
     sentence_count: 6
     key_terms: [question, spending, program, often, rlyjustheretolurk, hunterofshadows, goodvibezone, professional]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c5"
-    char_span: [5515, 7138]
+    char_span: [5514, 7137]
     sentence_count: 12
     key_terms: [epi-comment-on-prevailing-wage-levels-determination-for-h-1b-visas-and-permanent-labor-certifications-for-green-cards, software-engineer-ew2xrn7q23, https, salaries, software, job-titles, prevailing, companies]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/humanresources/1nm17ag.md#c6"
-    char_span: [7140, 8987]
+    char_span: [7139, 8986]
     sentence_count: 9
     key_terms: [visa, pay, green, leave, eligibility, fees, employees, important]
     section: Comments

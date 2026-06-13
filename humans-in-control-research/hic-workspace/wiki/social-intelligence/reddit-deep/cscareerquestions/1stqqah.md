@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, comments, learning, machine, worried, deliverables, engineering, reddit-deep]
     token_count: 161
   - id: "social-intelligence/reddit-deep/cscareerquestions/1stqqah.md#c1"
-    char_span: [682, 2012]
+    char_span: [681, 2011]
     sentence_count: 3
     key_terms: [team, offer, company, return, "you're", happyirishman633210, markzuccsforeskin, here]
     section: Comments

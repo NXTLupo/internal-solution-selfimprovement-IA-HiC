@@ -23,7 +23,7 @@ chunks:
     key_terms: [accounting, looking, careerguidance, get, comments, careers, switch, start]
     token_count: 183
   - id: "social-intelligence/reddit-deep/careerguidance/1r0iqx3.md#c1"
-    char_span: [769, 1360]
+    char_span: [768, 1359]
     sentence_count: 3
     key_terms: [quickbooks, work, certification, accounting, especially, filmskeez, worthless, continue]
     section: Comments

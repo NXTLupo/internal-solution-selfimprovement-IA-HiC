@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, engineeringstudents, looking, engineering, experience, comments, research, student]
     token_count: 196
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pnmrfo.md#c1"
-    char_span: [937, 2189]
+    char_span: [936, 2188]
     sentence_count: 8
     key_terms: [prepare-your-application-mites-summer-and-mites-semester, internship, program, apply-to-mites, discover-mites, https, internships, free]
     section: Comments

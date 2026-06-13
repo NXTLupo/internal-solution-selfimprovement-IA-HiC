@@ -33,43 +33,43 @@ chunks:
     key_terms: [million, don, monetization, advertising, stock-based, conclusion, especially, management]
     token_count: 162
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c3"
-    char_span: [5406, 6617]
+    char_span: [5405, 6616]
     sentence_count: 5
     key_terms: [retarded, chix, content, discord, accomplished-exit822, https, total, bad]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c4"
-    char_span: [6619, 8533]
+    char_span: [6618, 8532]
     sentence_count: 30
     key_terms: [success, profits, looked, significantly, "don't", going, teams, good]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c5"
-    char_span: [8535, 10568]
+    char_span: [8534, 10567]
     sentence_count: 20
     key_terms: [companies, users, been, company, "haven't", invest, vision, "don't"]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c6"
-    char_span: [10570, 12416]
+    char_span: [10569, 12415]
     sentence_count: 17
     key_terms: [accomplished-exit822, revenue, regardo-8907, subscription, read, snap, increasing, addressed]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c7"
-    char_span: [12418, 12980]
+    char_span: [12417, 12979]
     sentence_count: 3
     key_terms: [revenue, india, hospitalizedzombie, mill, comparison, regardless, something, earnings]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c8"
-    char_span: [12982, 14897]
+    char_span: [12981, 14896]
     sentence_count: 7
     key_terms: [accomplished-exit822, apple, mediocredesigner88, gen, snap, get, life, set]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pcfpqy.md#c9"
-    char_span: [14720, 14946]
+    char_span: [14719, 14945]
     sentence_count: 1
     key_terms: [harrypottersmother, instagram, instead, tiktok, bro, bruh, does, gen]
     section: Comments

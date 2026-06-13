@@ -26,85 +26,85 @@ chunks:
     key_terms: [people, trades, guaranteed, anti-college, conversation, romanticized, absolutely, direction]
     token_count: 79
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c2"
-    char_span: [2903, 4384]
+    char_span: [2902, 4383]
     sentence_count: 7
     key_terms: [jmclondon97, company, human, point, need, responsible-net8594, end, loop]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c3"
-    char_span: [4386, 5784]
+    char_span: [4385, 5783]
     sentence_count: 9
     key_terms: [enough, management, college, great, lucky, charming-ebb-1981, get, long]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c4"
-    char_span: [5786, 7492]
+    char_span: [5785, 7491]
     sentence_count: 9
     key_terms: [collar, union, white, people, bigtiddyhimbo, completely, finding, nursing]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c5"
-    char_span: [7494, 8439]
+    char_span: [7493, 8438]
     sentence_count: 7
     key_terms: [healthcare, people, question, largely, collar, get, hard, real]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c6"
-    char_span: [8441, 10431]
+    char_span: [8440, 10430]
     sentence_count: 11
     key_terms: [people, trades, get, pushing, collar, hour, overtime, workers]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c7"
-    char_span: [10433, 11915]
+    char_span: [10432, 11914]
     sentence_count: 14
     key_terms: [trades, making, people, hour, own, told, work, something]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c8"
-    char_span: [11917, 13876]
+    char_span: [11916, 13875]
     sentence_count: 12
     key_terms: [trades, work, people, bigtiddyhimbo, electricians, going, job, jobs]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c9"
-    char_span: [13878, 15914]
+    char_span: [13877, 15913]
     sentence_count: 15
     key_terms: [people, trades, work, college, working, having, nurse, don]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c10"
-    char_span: [15916, 17407]
+    char_span: [15915, 17406]
     sentence_count: 13
     key_terms: [good, people, power, engineer, deliver, without, build, saltedporcupine217]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c11"
-    char_span: [17409, 18454]
+    char_span: [17408, 18453]
     sentence_count: 9
     key_terms: [installed, response, people, great, done, lot, own, shit]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c12"
-    char_span: [18456, 20473]
+    char_span: [18455, 20472]
     sentence_count: 15
     key_terms: [engineering, manufacturing, apprentices, "it's", like, trandabear, industry, recently]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c13"
-    char_span: [20475, 21256]
+    char_span: [20474, 21255]
     sentence_count: 3
     key_terms: [high, salary, years, theliiusion0fseif, able, line, past, work]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c14"
-    char_span: [21258, 23488]
+    char_span: [21257, 23487]
     sentence_count: 13
     key_terms: [people, years, good, like, habits, never, trade, been]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1thvdbp.md#c15"
-    char_span: [23216, 23939]
+    char_span: [23215, 23938]
     sentence_count: 8
     key_terms: [been, job, trades, responsible-net8594, "don't", telecommunications, done, long]
     section: Comments

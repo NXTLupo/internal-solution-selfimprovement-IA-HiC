@@ -23,13 +23,13 @@ chunks:
     key_terms: [getting, program, years, less, gradschool, bachelors, comments, cost]
     token_count: 334
   - id: "social-intelligence/reddit-deep/gradschool/1sch2ov.md#c1"
-    char_span: [1410, 3218]
+    char_span: [1409, 3217]
     sentence_count: 14
     key_terms: [work, masters, years, field, need, time, graduated, programs]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradschool/1sch2ov.md#c2"
-    char_span: [3220, 5229]
+    char_span: [3219, 5228]
     sentence_count: 14
     key_terms: [masters, experience, working, school, program, straight, degree, years]
     section: Comments

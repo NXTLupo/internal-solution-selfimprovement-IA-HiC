@@ -23,19 +23,19 @@ chunks:
     key_terms: [spy, wallstreetbets, loss, bottomed, comments, recovery, thinking, greedy]
     token_count: 330
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c1"
-    char_span: [1187, 2496]
+    char_span: [1186, 2495]
     sentence_count: 4
     key_terms: [https, cf50c2bd07f79caa545209f87b89d255ab42b983, backfire10z, guy, discord, nearly, money, total]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c2"
-    char_span: [2498, 4052]
+    char_span: [2497, 4051]
     sentence_count: 5
     key_terms: [a7da5f713e131607d55183998912082d68776b47, dreamvveaver, bad, day, dip, shit, absolute, weekend]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o3ca2b.md#c3"
-    char_span: [4054, 5467]
+    char_span: [4053, 5466]
     sentence_count: 12
     key_terms: [nostraskolmusii, monday, d4e560275cda0ce53883305bb90afee2fee6192b, bounce, extremeaddict, highs, deleted, antique-sundae-8842]
     section: Comments

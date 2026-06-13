@@ -28,31 +28,31 @@ chunks:
     key_terms: [through, never, feel, hope, "i'm", understanding, heartbreak, particular]
     token_count: 168
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c2"
-    char_span: [2748, 3528]
+    char_span: [2747, 3527]
     sentence_count: 3
     key_terms: [writing, roles, academic-adjacent, work, remotejobseekers, university-side, administrative, interesting]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c3"
-    char_span: [3530, 5729]
+    char_span: [3529, 5728]
     sentence_count: 11
     key_terms: [schools, too, independent, good, jobs, visiting, faculty, private]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c4"
-    char_span: [5503, 6772]
+    char_span: [5502, 6771]
     sentence_count: 18
     key_terms: [move, history, least, loved, good, ones, too, responsibilities]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c5"
-    char_span: [6774, 8669]
+    char_span: [6773, 8668]
     sentence_count: 16
     key_terms: [historian, dutchdynasty, community, like, work, scholar, totally, bakery]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/askacademia/1st1k1y.md#c6"
-    char_span: [8671, 10563]
+    char_span: [8670, 10562]
     sentence_count: 15
     key_terms: [publishing, immediatebet6198, job, individual, positions, academic, tonos468, society]
     section: Comments

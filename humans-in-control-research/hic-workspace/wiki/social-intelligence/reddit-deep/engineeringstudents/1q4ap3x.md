@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q4ap3x.md#c0"
-    char_span: [0, 307]
+    char_span: [0, 306]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, academic, current, student, advice]
-    token_count: 83
+    token_count: 82
 ---
 # engineering student (21f) current academic/career advice?
 

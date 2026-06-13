@@ -7,15 +7,13 @@ subreddit: "college"
 title: "Prof nearly made me tear up in class"
 author: "hp_pjo_anime"
 date: "2025-11-01T11:16:16.000Z"
-score: 1172
+score: 1177
 upvote_ratio: 0.99
 num_comments: 53
 flair: "Academic Life"
-extracted_at: "2026-05-19T17:57:40.131Z"
+extracted_at: "2026-06-08T23:39:34.368Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis."
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Trends in alumni giving and donor retention for universities"
 chunks:
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c0"
     char_span: [0, 1581]
@@ -23,25 +21,25 @@ chunks:
     key_terms: [students, here, time, college, comments, increase, midsems, without]
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c1"
-    char_span: [1596, 3720]
+    char_span: [1596, 3721]
     sentence_count: 11
     key_terms: [college, like, people, chocokissses, fact, high, lot, professors]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c2"
-    char_span: [3507, 5670]
+    char_span: [3508, 5671]
     sentence_count: 19
     key_terms: [teachers, teacher, student, strict, best, highschool, strictest, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c3"
-    char_span: [5372, 6762]
+    char_span: [5373, 6763]
     sentence_count: 13
     key_terms: [people, strict, creative, failures, teachers, because, classes, failure]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/college/1oll9cb.md#c4"
-    char_span: [6764, 8758]
+    char_span: [6765, 8759]
     sentence_count: 18
     key_terms: [time, "don't", grade, learn, right, internships, exam, give]
     section: Comments
@@ -50,7 +48,7 @@ chunks:
 # Prof nearly made me tear up in class
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1oll9cb/prof_nearly_made_me_tear_up_in_class/)
-Posted by **hp_pjo_anime** · **1172↑** · **53 comments**
+Posted by **hp_pjo_anime** · **1177↑** · **53 comments**
 
 So. Here it goes. I am currently in the first semester and we got handed the results for our this one subject's midsems a day or so back.
 
@@ -68,23 +66,23 @@ I wasn't even one of the students extremely disappointed with my grades, but gos
 
 ## Comments
 
-- **ChocoKissses** (652↑): Honestly, this sentiment is something I was trying to explain on a different post. When people tell you in college, after you fail something or you get a really low grade, to let it go, this is what they mean. Not necessarily to not care about your performance in that class, but to not let one failure consume you and blind you from the fact that you're going to have countless others and this one hiccup isnt going to derail everything.
-  - **alt-mswzebo** (61↑): Good advice for life in general.
-  - **supergoober11** (53↑): I think the accessibility of college (AMAZING) has led a lot of people to sort of lose sight of the fact that college is very hard! That’s why not EVERYBODY goes even if they can. It’s a lot of mental effort and imo highschool doesn’t prepare you much at all even if they say that they do.
-    - **ChocoKissses** (21↑): I completely agree. As a matter of fact, alot of professors and other college faculty, like writing centers (and they actually had an article come out about their complaints), said the same thing that students are coming to them from high school not prepared with certain basic skills like how to write an essay or formulate a thesis. Depending on what subs you're in, there is also always the obligatory appearance of posts of students talking about how the workload and hardness of college shocks them or people needing to be taught how to study because they just skated by in high school and never had to study. Though I can recognize that some high schools will do quite a good job of it, especially if they have higher standards for their classes, like all of the classes are practically AP class level difficulty.
-  - **hp_pjo_anime** (9↑): Exactly.
+- **ChocoKissses** (646↑): Honestly, this sentiment is something I was trying to explain on a different post. When people tell you in college, after you fail something or you get a really low grade, to let it go, this is what they mean. Not necessarily to not care about your performance in that class, but to not let one failure consume you and blind you from the fact that you're going to have countless others and this one hiccup isnt going to derail everything.
+  - **alt-mswzebo** (62↑): Good advice for life in general.
+  - **supergoober11** (52↑): I think the accessibility of college (AMAZING) has led a lot of people to sort of lose sight of the fact that college is very hard! That’s why not EVERYBODY goes even if they can. It’s a lot of mental effort and imo highschool doesn’t prepare you much at all even if they say that they do.
+    - **ChocoKissses** (19↑): I completely agree. As a matter of fact, alot of professors and other college faculty, like writing centers (and they actually had an article come out about their complaints), said the same thing that students are coming to them from high school not prepared with certain basic skills like how to write an essay or formulate a thesis. Depending on what subs you're in, there is also always the obligatory appearance of posts of students talking about how the workload and hardness of college shocks them or people needing to be taught how to study because they just skated by in high school and never had to study. Though I can recognize that some high schools will do quite a good job of it, especially if they have higher standards for their classes, like all of the classes are practically AP class level difficulty.
+  - **hp_pjo_anime** (10↑): Exactly.
 - **Miserable-Ant-938** (167↑): She sounds like a kind and fair professor.
-  - **hp_pjo_anime** (44↑): She is a very awesome person. Very kind and smart. I aspire to be like her tbh.
-    - **throwaway_bfgift** (16↑): You should tell her that at the end of the semester. I’m sure it would mean a lot to her!
+  - **hp_pjo_anime** (40↑): She is a very awesome person. Very kind and smart. I aspire to be like her tbh.
+    - **throwaway_bfgift** (19↑): You should tell her that at the end of the semester. I’m sure it would mean a lot to her!
     - **Sure_Fly_5332** (5↑): Often the best professors can have this sort of effect.  Since you look up to her, you value what she has to say.  If you disliked the professor, it would be easily ignore as justification for the dislike.
-- **blacktip102** (46↑): Seems like a nice prof based on this little bit. It's pretty normal for the change from highschool to college to be difficult. Some freshmen classes are also pretty hard and will have lots of people fail. Just kinda how it is.
+- **blacktip102** (43↑): Seems like a nice prof based on this little bit. It's pretty normal for the change from highschool to college to be difficult. Some freshmen classes are also pretty hard and will have lots of people fail. Just kinda how it is.
 - **Exciting_Basket_2440** (17↑): Thanks for this post and thank you for understanding. As a teacher, I don’t expect my students to be perfect on every assessment I give them, even though I want them to do their utmost best while doing them. I want students to see their growth as they build their throughout the course of study. Writing is a very complex task. There are many sub-skills that need to be taught along the way. It’s about the process as well as the end test, both in the student writing and the student’s overall growth.
   - **hp_pjo_anime** (5↑): As a student, I really appreciate teachers like you :)
-- **8-HP** (14↑): My old math teacher in highschool had something similar. Despite being one of the strictest teachers I've ever had, at the beginning of every year, when the results for our first exam would come and we all mostly had terrible results he would tell us "the first one is for the devil" (translated expression). Basically telling us to throw this one to the wind and move on to do better in the next one. I always appreciated the sentiment. He was definitely the best teacher I've ever had and helped me become so much better at math. Which really served me in life
-  - **hp_pjo_anime** (9↑): And that is why I ask my peers to not have distaste for strict teachers just because they are strict. Some of the most caring teachers I have met along the way were the strictest. My extremely strict maths teacher back in HS who I took extra classes from- she basically made me fall for the subject.
+- **8-HP** (13↑): My old math teacher in highschool had something similar. Despite being one of the strictest teachers I've ever had, at the beginning of every year, when the results for our first exam would come and we all mostly had terrible results he would tell us "the first one is for the devil" (translated expression). Basically telling us to throw this one to the wind and move on to do better in the next one. I always appreciated the sentiment. He was definitely the best teacher I've ever had and helped me become so much better at math. Which really served me in life
+  - **hp_pjo_anime** (8↑): And that is why I ask my peers to not have distaste for strict teachers just because they are strict. Some of the most caring teachers I have met along the way were the strictest. My extremely strict maths teacher back in HS who I took extra classes from- she basically made me fall for the subject.
 - **Agreeable-Process-56** (20↑): And here’s another bit of advice from a former college professor. Be organized about your time. Manage your school work and study schedule.
 - **jastop94** (8↑): Especially in this modern age where AI exists, kids have to be given a reality check that failures do exist. That there isn't always a tool to help you to get the answer. As someone who used to work in confidential places, I couldn't use things like my cell phone or laptop to get the answers or do things as easily. It's a good reality to know that you tried, you might have failed, but that failure does not mean the end. Just means you can persevere. People forget that many of worlds wealthiest people were actually awful in academia. Some people that landed mars rovers barely got Cs in their classes. Sometimes the most creative minds are those that were borderline failures because they had to be creative in how they navigate to success. A singular failure isn't enough to be cataclysmic unless you yourself allow it to be.
-- **SetoKeating** (7↑): It’s a nice platitude if so many things weren’t tied to grades.
+- **SetoKeating** (6↑): It’s a nice platitude if so many things weren’t tied to grades.
 
 I would have been more inclined to listen to advice like that and follow it if the professor wasn’t talking to us about how it’s ok we failed one exam worth 25% of our grade. Like what am I supposed to do with those good feelings when some of the jobs I want to go into have gpa minimums or the internships I’m thinking of applying to have gpa cutoffs.
 

@@ -21,13 +21,13 @@ chunks:
     key_terms: [internships, comments, question, students, helped, landed, conversation, successfully]
     token_count: 108
   - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c1"
-    char_span: [469, 809]
+    char_span: [468, 808]
     sentence_count: 3
     key_terms: [interviewer, job, mentioned, interview, questions, previous, focused, generic]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/internships/1rquwkf.md#c2"
-    char_span: [811, 2836]
+    char_span: [810, 2835]
     sentence_count: 9
     key_terms: [questions, interviewer, great, skills, conversation, ask, experience, sometimes]
     section: Comments

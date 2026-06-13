@@ -21,25 +21,25 @@ chunks:
     key_terms: [research, college, look, want, university, professor, undergrad, comments]
     token_count: 366
   - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c1"
-    char_span: [1543, 2344]
+    char_span: [1542, 2343]
     sentence_count: 5
     key_terms: [research, opportunities, undergraduate, university, programs, students, schools, someone]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c2"
-    char_span: [2346, 4609]
+    char_span: [2345, 4608]
     sentence_count: 11
     key_terms: [research, opportunities, "i'm", college, coordinator, internships, good, non]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c3"
-    char_span: [4313, 5245]
+    char_span: [4312, 5244]
     sentence_count: 8
     key_terms: [research, "i'm", interested, recommend, college, "that's", small, help]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/college/1ph3eii.md#c4"
-    char_span: [5247, 6743]
+    char_span: [5246, 6742]
     sentence_count: 9
     key_terms: [research, either, summer, opportunities, "i'm", like, programs, around]
     section: Comments

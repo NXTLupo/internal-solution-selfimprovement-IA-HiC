@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-artificial/eecb4ce667.md#c0"
-    char_span: [0, 2250]
+    char_span: [0, 2249]
     sentence_count: 31
     key_terms: [years, myself, something, without, maybe, been, bug, use]
-    token_count: 481
+    token_count: 480
   - id: "articles/reddit-deep-r-artificial/eecb4ce667.md#c1"
-    char_span: [2252, 3651]
+    char_span: [2251, 3650]
     sentence_count: 8
     key_terms: [myself, people, years, problem, enough, figure, though, good]
     token_count: 353

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/ffff2c2b5e.md#c0"
-    char_span: [0, 1115]
+    char_span: [0, 1114]
     sentence_count: 9
     key_terms: [college-labor-market, cscareerquestions, outcomes-by-major, https, "it's", www, newyorkfed, subreddit]
-    token_count: 282
+    token_count: 281
   - id: "articles/reddit-deep-r-cscareerquestions/ffff2c2b5e.md#c1"
-    char_span: [1117, 2673]
+    char_span: [1116, 2672]
     sentence_count: 11
     key_terms: [github, git, use, job, like, learn, "it's", mind]
     token_count: 377

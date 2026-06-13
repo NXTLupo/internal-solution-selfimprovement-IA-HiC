@@ -28,13 +28,13 @@ chunks:
     key_terms: ["it's", selling, job, everyone, "they're", pushy, get, like]
     token_count: 491
   - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c2"
-    char_span: [4177, 6049]
+    char_span: [4176, 6048]
     sentence_count: 19
     key_terms: [concentrix, center, recommend, call, job, like, department, horrible]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/workonline/1nvi0lb.md#c3"
-    char_span: [6051, 7226]
+    char_span: [6050, 7225]
     sentence_count: 9
     key_terms: [work, months, good, "i'm", concentrix, problems, regular-cheetah-7407, leave]
     section: Comments

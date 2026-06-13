@@ -7,7 +7,7 @@ industries: [workforce]
 status: active
 chunks:
   - id: "industries/workforce.md#c0"
-    char_span: [0, 739]
+    char_span: [0, 738]
     sentence_count: 2
     key_terms: [reddit-careerguidance, industries, sources, shared, articles, workforce, auto-generated, education]
     section: Cross-over verticals (shared sources) / Representative sources

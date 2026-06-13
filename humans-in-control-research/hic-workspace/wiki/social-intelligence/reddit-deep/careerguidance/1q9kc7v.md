@@ -23,43 +23,43 @@ chunks:
     key_terms: [company, current, flexibility, role, careerguidance, job, new, comments]
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c1"
-    char_span: [2146, 2775]
+    char_span: [2146, 2774]
     sentence_count: 4
     key_terms: [pay, stay, bearwithabeard, comfortable, flexibility, opportunity, appreciate, supportive]
     section: Comments
     token_count: 163
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c2"
-    char_span: [2777, 4355]
+    char_span: [2776, 4354]
     sentence_count: 18
     key_terms: [bearwithabeard, opportunities, job, new, time, companies, negotiate, increase]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c3"
-    char_span: [4357, 6523]
+    char_span: [4356, 6522]
     sentence_count: 17
     key_terms: [flexibility, bearwithabeard, role, current, change, super, wfh, work]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c4"
-    char_span: [6280, 7496]
+    char_span: [6279, 7495]
     sentence_count: 9
     key_terms: [going, commute, bearwithabeard, hours, week, tzukiyomi, job, role]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c5"
-    char_span: [7498, 8269]
+    char_span: [7497, 8268]
     sentence_count: 7
     key_terms: [reviews, yearly, cash, bearwithabeard, compensation, oldmamallama, flexibility, opportunity]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c6"
-    char_span: [8271, 10289]
+    char_span: [8270, 10288]
     sentence_count: 16
     key_terms: [work, being, home, working, kids, like, time, understand]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/careerguidance/1q9kc7v.md#c7"
-    char_span: [10291, 10821]
+    char_span: [10290, 10820]
     sentence_count: 3
     key_terms: [good, home, job, comfortable, personally, childcare, something, flexible]
     section: Comments

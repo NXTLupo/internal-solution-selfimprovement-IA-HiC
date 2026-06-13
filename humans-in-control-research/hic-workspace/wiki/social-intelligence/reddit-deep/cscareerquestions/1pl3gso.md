@@ -21,31 +21,31 @@ chunks:
     key_terms: [university, cscareerquestions, question, career, "i'm", subreddit, comments, matter]
     token_count: 324
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c1"
-    char_span: [1303, 3241]
+    char_span: [1302, 3240]
     sentence_count: 9
     key_terms: [school, went, big, tech, top, schools, junior, internships]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c2"
-    char_span: [3243, 5283]
+    char_span: [3242, 5282]
     sentence_count: 15
     key_terms: [school, good, swe, considering, need, university, technical, probably]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c3"
-    char_span: [5285, 7477]
+    char_span: [5284, 7476]
     sentence_count: 17
     key_terms: [competence, smart, immediately, blah, get, swe, uni, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c4"
-    char_span: [7479, 9567]
+    char_span: [7478, 9566]
     sentence_count: 15
     key_terms: [school, job, helped, companies, easier, though, big, security]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pl3gso.md#c5"
-    char_span: [9569, 9929]
+    char_span: [9568, 9928]
     sentence_count: 4
     key_terms: [feel, specifically, competitive, persistence, tribaldevil, compared, listings, "doesn't"]
     section: Comments

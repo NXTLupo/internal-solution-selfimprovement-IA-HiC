@@ -23,37 +23,37 @@ chunks:
     key_terms: [company, cscareerquestions, interns, internships, positions, comments, normal, new]
     token_count: 189
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c1"
-    char_span: [816, 2055]
+    char_span: [815, 2054]
     sentence_count: 5
     key_terms: [internships, offshore, hire, company, interns, later, time, ynotbbrave]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c2"
-    char_span: [2059, 3883]
+    char_span: [2058, 3882]
     sentence_count: 9
     key_terms: [india, usa, internships, hire, because, company, indians, canada]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c3"
-    char_span: [3885, 6057]
+    char_span: [3884, 6056]
     sentence_count: 16
     key_terms: [infosys, contracting, government, "can't", software, because, indian, random]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c4"
-    char_span: [6059, 7694]
+    char_span: [6058, 7693]
     sentence_count: 14
     key_terms: [crime, money, best, "there's", get, citadel, getting, always]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c5"
-    char_span: [7696, 9734]
+    char_span: [7695, 9733]
     sentence_count: 14
     key_terms: [companies, indians, because, fortune, does, keep, like, getting]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkagkd.md#c6"
-    char_span: [9736, 11139]
+    char_span: [9735, 11138]
     sentence_count: 5
     key_terms: [interests, goods, enjoy, bigshotbosh, cost, "it's", job, low]
     section: Comments

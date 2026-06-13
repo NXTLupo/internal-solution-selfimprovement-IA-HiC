@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, advice, comments, career, donts, dos, catsweaty4883, reddit-deep]
     token_count: 186
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td9fu5.md#c1"
-    char_span: [764, 2320]
+    char_span: [763, 2319]
     sentence_count: 12
     key_terms: [catsweaty4883, technical, managers, decided, "doesn't", manager, impact, matter]
     section: Comments

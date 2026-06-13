@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, career, comments, everyone, personal, studying, already, student]
     token_count: 304
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tcn2tx.md#c1"
-    char_span: [1316, 2700]
+    char_span: [1315, 2699]
     sentence_count: 4
     key_terms: [like, research, getting, systems, behind, people, being, build]
     section: Comments

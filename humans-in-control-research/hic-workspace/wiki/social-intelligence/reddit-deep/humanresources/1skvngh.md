@@ -23,13 +23,13 @@ chunks:
     key_terms: [information, humanresources, background, personnel, comments, director, cleared, through]
     token_count: 247
   - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c1"
-    char_span: [1130, 2787]
+    char_span: [1129, 2786]
     sentence_count: 16
     key_terms: [risk, something, director, job, personnel, anything, mitigate, company]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/humanresources/1skvngh.md#c2"
-    char_span: [2789, 4915]
+    char_span: [2788, 4914]
     sentence_count: 22
     key_terms: [information, going, boss, "it's", kid, post, requirement, here]
     section: Comments

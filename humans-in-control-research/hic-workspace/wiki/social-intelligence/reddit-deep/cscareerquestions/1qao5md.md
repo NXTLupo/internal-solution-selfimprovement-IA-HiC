@@ -21,73 +21,73 @@ chunks:
     key_terms: ["i'm", "don't", anything, cscareerquestions, because, getting, degree, right]
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c1"
-    char_span: [2110, 3088]
+    char_span: [2109, 3087]
     sentence_count: 12
     key_terms: [retail, bay, dollars, career, "it's", min, post, wage]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c2"
-    char_span: [3090, 4744]
+    char_span: [3089, 4743]
     sentence_count: 8
     key_terms: [enough, "don't", because, start, internships, get, "i'm", like]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c3"
-    char_span: [4746, 6774]
+    char_span: [4745, 6773]
     sentence_count: 21
     key_terms: [get, like, plenty, going, small, help, life, year]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c4"
-    char_span: [6776, 8744]
+    char_span: [6775, 8743]
     sentence_count: 20
     key_terms: [experience, jobs, work, college, people, resume, "that's", "you're"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c5"
-    char_span: [8746, 10781]
+    char_span: [8745, 10780]
     sentence_count: 18
     key_terms: [resume, work, "don't", "you'd", application, get, real, something]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c6"
-    char_span: [10783, 12644]
+    char_span: [10782, 12643]
     sentence_count: 14
     key_terms: [years, get, like, degree, non-traditional, "you're", got, job]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c7"
-    char_span: [12646, 14669]
+    char_span: [12645, 14668]
     sentence_count: 13
     key_terms: [graduated, "you're", time, work, projects, working, wanted, years]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c8"
-    char_span: [14671, 16824]
+    char_span: [14670, 16823]
     sentence_count: 19
     key_terms: [degree, get, masters, something, customer, complex, willing, coding]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c9"
-    char_span: [16826, 18931]
+    char_span: [16825, 18930]
     sentence_count: 18
     key_terms: [offer, yourself, "you're", renege, shinylugia3, bay, move, risk]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c10"
-    char_span: [18933, 21259]
+    char_span: [18932, 21258]
     sentence_count: 19
     key_terms: ["you're", get, need, experience, something, getting, happen, opportunities]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c11"
-    char_span: [21261, 23108]
+    char_span: [21260, 23107]
     sentence_count: 24
     key_terms: [degree, resume, gap, like, employers, projects, barrier, bolt408]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qao5md.md#c12"
-    char_span: [23110, 23543]
+    char_span: [23109, 23542]
     sentence_count: 4
     key_terms: [remote, rustyshacklefordcs, competition, competitive, insurance, positions, witherino, applying]
     section: Comments

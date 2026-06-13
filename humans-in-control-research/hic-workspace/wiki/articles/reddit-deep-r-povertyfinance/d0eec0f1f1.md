@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/d0eec0f1f1.md#c0"
-    char_span: [0, 1923]
+    char_span: [0, 1922]
     sentence_count: 18
     key_terms: [everything, money, spending, something, like, povertyfinance, credit, brain]
-    token_count: 432
+    token_count: 431
   - id: "articles/reddit-deep-r-povertyfinance/d0eec0f1f1.md#c1"
-    char_span: [1925, 4086]
+    char_span: [1924, 4085]
     sentence_count: 23
     key_terms: [therapy, deleted, get, need, feeling, budget, guilt, saved]
     token_count: 499
   - id: "articles/reddit-deep-r-povertyfinance/d0eec0f1f1.md#c2"
-    char_span: [4088, 5711]
+    char_span: [4087, 5710]
     sentence_count: 13
     key_terms: [fun, because, lot, money, feel, household, instead, therapy]
     token_count: 371

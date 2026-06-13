@@ -15,32 +15,32 @@ relevance: 50
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c0"
-    char_span: [0, 2140]
+    char_span: [0, 2139]
     sentence_count: 11
     key_terms: [job, experience, internships, internship, aerospace, uah, company, cfd]
-    token_count: 497
+    token_count: 496
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c1"
-    char_span: [2142, 4145]
+    char_span: [2141, 4144]
     sentence_count: 15
     key_terms: [fraternity, email, friend, told, because, works, connections, interview]
     token_count: 461
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c2"
-    char_span: [4147, 6343]
+    char_span: [4146, 6342]
     sentence_count: 15
     key_terms: [school, people, companies, connections, engineering, fraternity, aerospace, recommend]
     token_count: 455
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c3"
-    char_span: [6345, 8656]
+    char_span: [6344, 8655]
     sentence_count: 15
     key_terms: [get, connections, because, working, hypnotic8008, clubs, email, definitely]
     token_count: 512
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c4"
-    char_span: [8386, 8685]
+    char_span: [8385, 8684]
     sentence_count: 2
     key_terms: [eveninginevitable240, get, hard, applications, normally, personal, projects, through]
     token_count: 72
   - id: "articles/reddit-deep-r-internships/1f541cfbee.md#c5"
-    char_span: [8687, 9618]
+    char_span: [8686, 9617]
     sentence_count: 10
     key_terms: [connections, "it's", portfolio, something, building, skills, "you're", get]
     token_count: 193

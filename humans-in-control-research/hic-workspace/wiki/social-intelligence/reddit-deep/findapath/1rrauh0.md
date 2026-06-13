@@ -23,25 +23,25 @@ chunks:
     key_terms: [don, job, findapath, comments, besides, degree, people, twenty]
     token_count: 323
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c1"
-    char_span: [1327, 3228]
+    char_span: [1326, 3227]
     sentence_count: 20
     key_terms: [behind, thank, helpful, please, thebigcicero, help, findapath, comments]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c2"
-    char_span: [3230, 4378]
+    char_span: [3229, 4377]
     sentence_count: 13
     key_terms: [people, taptheforwardassist, being, early, older, raspberryteakettle, need, thekenji2004]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c3"
-    char_span: [4380, 5262]
+    char_span: [4379, 5261]
     sentence_count: 13
     key_terms: [college, "you're", pitiful-quality1628, don, get, good, help, life]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/findapath/1rrauh0.md#c4"
-    char_span: [5264, 6511]
+    char_span: [5263, 6510]
     sentence_count: 17
     key_terms: [degree, college, "i'm", something, competitive-safe-452, years, like, want]
     section: Comments

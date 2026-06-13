@@ -23,7 +23,7 @@ chunks:
     key_terms: [department, careerguidance, job, comments, position, advice, anyone, degree]
     token_count: 279
   - id: "social-intelligence/reddit-deep/careerguidance/1swk8j3.md#c1"
-    char_span: [1121, 1786]
+    char_span: [1120, 1785]
     sentence_count: 9
     key_terms: [iiimpiii, get, quit, work, accredited, discourage, nationally, certified]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, neu, perspectives, coordinator, reddit-deep, contribute, experience, "people's"]
     token_count: 103
   - id: "social-intelligence/reddit-deep/neu/1kmt74a.md#c1"
-    char_span: [408, 1336]
+    char_span: [407, 1335]
     sentence_count: 2
     key_terms: [family, students, events, group, questions, shopping, similar, abroad]
     section: Comments

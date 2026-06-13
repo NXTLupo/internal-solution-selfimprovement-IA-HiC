@@ -23,97 +23,97 @@ chunks:
     key_terms: [companies, year, being, investing, market, let, time, comments]
     token_count: 324
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c1"
-    char_span: [1351, 2147]
+    char_span: [1350, 2146]
     sentence_count: 2
     key_terms: [company, wage, employees, business, minimum, "don't", job, open]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c2"
-    char_span: [2152, 3804]
+    char_span: [2151, 3803]
     sentence_count: 4
     key_terms: [burger, inflation, cost, time, affected, currency, company, reverse]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c3"
-    char_span: [3806, 5473]
+    char_span: [3805, 5472]
     sentence_count: 7
     key_terms: [inflation, interest, chapwoodindex, compound, pickup, hulksinvinciblepants, preferred-til-newops, mrjohnnydangerously]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c4"
-    char_span: [5475, 7412]
+    char_span: [5474, 7411]
     sentence_count: 15
     key_terms: [inflation, growth, average, valuations, years, dividends, subtract, year]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c5"
-    char_span: [7414, 9410]
+    char_span: [7413, 9409]
     sentence_count: 11
     key_terms: [inflation, worth, trillion, dollar, "that's", years, ago, year]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c6"
-    char_span: [9412, 11226]
+    char_span: [9411, 11225]
     sentence_count: 16
     key_terms: [inflation, quadrillion, today, worth, companies, long, company, billion]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c7"
-    char_span: [11229, 12756]
+    char_span: [11228, 12755]
     sentence_count: 11
     key_terms: [stock, inflation, earnings, markets, stocks, money, shifting, factor]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c8"
-    char_span: [12758, 14545]
+    char_span: [12757, 14544]
     sentence_count: 12
     key_terms: [today, worth, market, exaggeration, stock, huge, ridiculous, inflation]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c9"
-    char_span: [14547, 16070]
+    char_span: [14546, 16069]
     sentence_count: 8
     key_terms: [people, gdp, market, cap, larger, money, "household's", everything]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c10"
-    char_span: [16072, 17799]
+    char_span: [16071, 17798]
     sentence_count: 14
     key_terms: [inflation, companies, commonly-confused-words, shear-vs-sheer, profit, gdp, "it's", grammarly]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c11"
-    char_span: [17801, 19093]
+    char_span: [17800, 19092]
     sentence_count: 10
     key_terms: [everything, crazy, money, earnings, nvidia, people, stupid, basis]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c12"
-    char_span: [19095, 21025]
+    char_span: [19094, 21024]
     sentence_count: 12
     key_terms: [years, crazy, trillion, because, choicethegame, exist, today, companies]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c13"
-    char_span: [21027, 22959]
+    char_span: [21026, 22958]
     sentence_count: 15
     key_terms: ["company's", market, remember, today, average, federal, minimum, touched]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c14"
-    char_span: [22961, 24033]
+    char_span: [22960, 24032]
     sentence_count: 9
     key_terms: [companies, leverage, trillion, million, dollar, exist, enshittification, malinvestments]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c15"
-    char_span: [24035, 26183]
+    char_span: [24034, 26182]
     sentence_count: 19
     key_terms: [like, top, companies, consumers, year, years, lot, nvda]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pg9e4i.md#c16"
-    char_span: [25895, 26497]
+    char_span: [25894, 26496]
     sentence_count: 12
     key_terms: [companies, bricksufficient6938, transactions, willingness, engagement, exxonmobil, citygroup, consumers]
     section: Comments

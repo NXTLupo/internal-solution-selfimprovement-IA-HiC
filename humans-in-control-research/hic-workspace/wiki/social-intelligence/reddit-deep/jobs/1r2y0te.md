@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1r2y0te.md#c0"
-    char_span: [0, 789]
+    char_span: [0, 788]
     sentence_count: 3
     key_terms: [career, jobs, fair, mentorship, comments, referral, students, "india's"]
-    token_count: 238
+    token_count: 237
 ---
 # Career Fair 2026 is India's largest virtual career fair for students, offering access to 25,000+ entry-level jobs, free AI career tools, and expert mentorship. It helps college students and freshers explore jobs, improve skills, and become career-ready.
 

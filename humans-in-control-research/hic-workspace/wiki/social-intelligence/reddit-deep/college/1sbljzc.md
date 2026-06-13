@@ -21,19 +21,19 @@ chunks:
     key_terms: [essay, argumentative, taught, communication, seems, voice, engineering, information]
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c1"
-    char_span: [2267, 4616]
+    char_span: [2266, 4615]
     sentence_count: 14
     key_terms: [opposing, argumentative, perspectives, being, paper, like, teacher, defend]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c2"
-    char_span: [4618, 6787]
+    char_span: [4617, 6786]
     sentence_count: 7
     key_terms: [time, classes, "you're", class, essay, assignments, "it's", expository]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/college/1sbljzc.md#c3"
-    char_span: [6789, 7206]
+    char_span: [6788, 7205]
     sentence_count: 4
     key_terms: [defending, position, counterarguments, argumentation, discovering, articulate, influences, presenting]
     section: Comments

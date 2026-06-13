@@ -30,43 +30,43 @@ chunks:
     key_terms: [president, purdue, https, edu, www, chiang, mung, lorem]
     token_count: 437
   - id: "articles/jina-reader/eaa4e1a9f6.md#c3"
-    char_span: [4649, 4920]
+    char_span: [4648, 4919]
     sentence_count: 1
     key_terms: [president, messages, purdue, strategic-initiatives-storyline, https, edu, www, presidential]
     section: Presidential Messages
     token_count: 65
   - id: "articles/jina-reader/eaa4e1a9f6.md#c4"
-    char_span: [4948, 5339]
+    char_span: [4947, 5338]
     sentence_count: 1
     key_terms: [purdue, president, initiatives, presidential-lecture-series, strategic-initiatives, https, edu, key]
     section: Strategic Initiatives
     token_count: 90
   - id: "articles/jina-reader/eaa4e1a9f6.md#c5"
-    char_span: [5373, 7124]
+    char_span: [5372, 7123]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, purdue-and-google-public-sector-partner-to-scale-ai-integration-and-accelerate-education-and-research-across-the-institution, purdue-celebrates-its-contributions-to-the-american-dream-as-nation-turns-250, purdue-president-3-alumni-elected-to-national-academy-of-engineering, president]
     section: Presidential Lecture Series / Top News / CAMPUS
     token_count: 455
   - id: "articles/jina-reader/eaa4e1a9f6.md#c6"
-    char_span: [7144, 7442]
+    char_span: [7143, 7441]
     sentence_count: 1
     key_terms: [https, purdue, office, boilerconnect, brightspace, com, edu, mypurdue]
     section: COMMUNICATION
     token_count: 99
   - id: "articles/jina-reader/eaa4e1a9f6.md#c7"
-    char_span: [7460, 7859]
+    char_span: [7459, 7858]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, construction, tuition, events, physicalfacilities]
     section: Information
     token_count: 120
   - id: "articles/jina-reader/eaa4e1a9f6.md#c8"
-    char_span: [7872, 8223]
+    char_span: [7871, 8222]
     sentence_count: 1
     key_terms: [purdue, https, edu, www, hotline, ethics, police, statistics-policies]
     section: PEOPLE
     token_count: 108
   - id: "articles/jina-reader/eaa4e1a9f6.md#c9"
-    char_span: [8237, 9783]
+    char_span: [8236, 9782]
     sentence_count: 2
     key_terms: [purdue, https, www, edu, com, university, php, lifeatpurdue]
     section: Address

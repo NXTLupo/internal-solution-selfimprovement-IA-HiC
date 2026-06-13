@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/e8adc9e2e5.md#c0"
-    char_span: [0, 1342]
+    char_span: [0, 1341]
     sentence_count: 16
     key_terms: [career, want, careerguidance, like, accountant, chartered, family, reddit]
-    token_count: 314
+    token_count: 313
 ---
 # Career path while family planning as a Chartered Accountant with ambitions to be successful but feeling lost?
 

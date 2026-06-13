@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ockzrn.md
 url: "https://www.reddit.com/r/college/comments/1ockzrn/still_feel_stuckjunior_in_college/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,19 @@ flair: "Academic Life"
 extracted_at: "2026-06-06T23:23:15.572Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ockzrn.md#c0"
+    char_span: [0, 1123]
+    sentence_count: 6
+    key_terms: [college, feel, courses, apply, like, comments, learning, junior]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/college/1ockzrn.md#c1"
+    char_span: [1138, 1521]
+    sentence_count: 5
+    key_terms: [college, job, glimmeringsea, self-studying, descriptions, emphasizing, perceptive, specifics]
+    section: Comments
+    token_count: 84
 ---
-
 # Still feel stuck(Junior In College)
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ockzrn/still_feel_stuckjunior_in_college/)

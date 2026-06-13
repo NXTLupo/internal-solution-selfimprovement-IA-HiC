@@ -200,7 +200,7 @@ export async function captureSlideAsStageHtml(
         const brand = (opts.brand || 'nxt').toLowerCase();
         const title = (opts.title || 'Slide').replace(/</g, '&lt;');
         const stageOuter = stage.outerHTML;
-        const fontsHref = 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@200;300;400;500;700;900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap';
+        const fontsHref = 'https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap';
         const html = `<!DOCTYPE html>
 <html lang="en" data-brand="${brand}">
 <head>
@@ -258,33 +258,40 @@ export interface JourneyBriefLike {
     sources?: string[];
 }
 
+// 2026-06-10 - Reconciled to the LIVE Figma design-system files (NXT
+// iSQhAVM7SI4QHAWB7y9C2z node 223:2, NU z2v9Pvhg23hlljEitPBdAt node 97:2).
+// NU rail is the navy #0E1626 (not teal), ink #16233C, cool accent is the
+// source teal #1D6E64, display is Lora + body Archivo + IBM Plex Mono.
+// Mirrors components/slideTemplates/brands.ts and services/slideToStageHtml.ts.
 const _NXT_TOKENS = {
     rail: '#0D0D0D',
     paper: '#FFFFFF',
     ink: '#141414',
     accent: '#B8B800',   // chartreuse
     accent2: '#00B7C3',  // cyan
-    muted: '#525252',
+    muted: '#73757A',
     hair: '#DDDDD6',
-    band: '#0D0D0D',
-    bandText: '#F5F5F0',
-    displayFont: "'Bebas Neue', sans-serif",
+    band: '#B8B800',
+    bandText: '#0D0D0D',
+    // 2026-06-13 - NXT display = Saira Condensed (replaced Bebas Neue).
+    displayFont: "'Saira Condensed', sans-serif",
     bodyFont: "'Archivo', sans-serif",
-    monoFont: "'JetBrains Mono', monospace",
+    monoFont: "'IBM Plex Mono', monospace",
 };
 const _NU_TOKENS = {
-    rail: '#115054',
+    rail: '#0E1626',
     paper: '#FFFFFF',
-    ink: '#0D0D0D',
+    ink: '#16233C',
     accent: '#C8102E',   // huskies red
-    accent2: '#115054',  // teal
-    muted: '#525252',
+    accent2: '#1D6E64',  // source teal
+    muted: '#73757A',
     hair: '#DDDDD6',
-    band: '#115054',
+    band: '#16233C',
     bandText: '#FFFFFF',
-    displayFont: "'Spectral', serif",
-    bodyFont: "'Roboto', sans-serif",
-    monoFont: "'Roboto Mono', monospace",
+    // 2026-06-13 - NU single-typeface system: Lato everywhere (weight = hierarchy).
+    displayFont: "'Lato', sans-serif",
+    bodyFont: "'Lato', sans-serif",
+    monoFont: "'Lato', sans-serif",
 };
 
 function _esc(s: string | undefined): string {
@@ -312,7 +319,7 @@ export function journeyBriefToStageHtml(brief: JourneyBriefLike, brand: GoldBran
 <title>${_esc(brief.diagnostic_title || 'Journey Brief')}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@200;300;400;500;700;900&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#080808;overflow:hidden}

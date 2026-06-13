@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1oxkvqw.md#c0"
-    char_span: [0, 912]
+    char_span: [0, 911]
     sentence_count: 10
     key_terms: [marketing, career, skills, careeradvice, today, comments, content, restart]
-    token_count: 203
+    token_count: 202
 ---
 # If you had to restart your marketing career today, what 5 skills would you learn first and why?
 

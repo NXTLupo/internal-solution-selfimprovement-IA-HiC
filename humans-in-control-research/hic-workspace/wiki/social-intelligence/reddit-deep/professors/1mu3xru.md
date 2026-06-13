@@ -23,43 +23,43 @@ chunks:
     key_terms: [professors, assignment, submission, grade, high, put, work, comments]
     token_count: 338
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c1"
-    char_span: [1448, 1635]
+    char_span: [1447, 1634]
     sentence_count: 2
     key_terms: [give, cruxavespesunica, starbucks, although, dollars, student, lattes, points]
     section: Comments
     token_count: 58
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c2"
-    char_span: [1637, 3567]
+    char_span: [1636, 3566]
     sentence_count: 11
     key_terms: [give, life-education-8030, coffee, latte, free, like, nothing, public]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c3"
-    char_span: [3319, 4272]
+    char_span: [3318, 4271]
     sentence_count: 5
     key_terms: [analogy, youtube, https, money, watch, com, give, turn]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c4"
-    char_span: [4274, 6250]
+    char_span: [4273, 6249]
     sentence_count: 12
     key_terms: [students, get, life-education-8030, work, because, giving, unsuspecting, nope]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c5"
-    char_span: [6077, 6627]
+    char_span: [6076, 6626]
     sentence_count: 5
     key_terms: [nope, concerned, schools, life-education-8030, valedictorians, lovelydani20, jun1p3rsm0m, assignment]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c6"
-    char_span: [6629, 8168]
+    char_span: [6628, 8167]
     sentence_count: 7
     key_terms: [equity, alreadytired2025-26, work, because, students, primary, school, "can't"]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/professors/1mu3xru.md#c7"
-    char_span: [8170, 9529]
+    char_span: [8169, 9528]
     sentence_count: 8
     key_terms: [student, work, damaging, students, deleted, better, points, class]
     section: Comments

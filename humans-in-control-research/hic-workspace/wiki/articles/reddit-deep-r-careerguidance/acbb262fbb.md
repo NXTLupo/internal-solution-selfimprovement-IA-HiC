@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c0"
-    char_span: [0, 1667]
+    char_span: [0, 1666]
     sentence_count: 21
     key_terms: [job, careerguidance, lady, new, situation, company, bother, demand]
-    token_count: 448
+    token_count: 447
   - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c1"
-    char_span: [1669, 3479]
+    char_span: [1668, 3478]
     sentence_count: 26
     key_terms: [bermuda, islands, environment, kids, work, researched, residency, bahamas]
     token_count: 445
   - id: "articles/reddit-deep-r-careerguidance/acbb262fbb.md#c2"
-    char_span: [3481, 5106]
+    char_span: [3480, 5105]
     sentence_count: 10
     key_terms: [investment, onlythephantomknows, spanish, probably, question, speaking, health, living]
     token_count: 392

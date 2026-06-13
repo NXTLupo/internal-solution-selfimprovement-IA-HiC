@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c0"
-    char_span: [0, 2315]
+    char_span: [0, 2314]
     sentence_count: 18
     key_terms: [students, accommodations, accommodation, complete, time, disabilities, grades, extra]
-    token_count: 483
+    token_count: 482
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c1"
-    char_span: [2317, 3417]
+    char_span: [2316, 3416]
     sentence_count: 8
     key_terms: [accommodation, class, exam, advantage, students, friend, giving, parent]
     token_count: 243
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c2"
-    char_span: [3419, 5331]
+    char_span: [3418, 5330]
     sentence_count: 6
     key_terms: [students, helping, accommodations, equitable, professor, law, specifically, needed]
     token_count: 405
   - id: "articles/reddit-deep-r-professors/760aacee4c.md#c3"
-    char_span: [5333, 6782]
+    char_span: [5332, 6781]
     sentence_count: 8
     key_terms: [accommodations, students, weeks, submitted, barriers, material, schedule, semester]
     token_count: 309

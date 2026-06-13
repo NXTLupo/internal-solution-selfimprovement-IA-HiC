@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, here, uni, knowledge, comments, projects, already, getting]
     token_count: 419
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c1"
-    char_span: [1826, 3814]
+    char_span: [1825, 3813]
     sentence_count: 21
     key_terms: [something, "don't", done, get, job, use, projects, already]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s5ncx5.md#c2"
-    char_span: [3816, 5043]
+    char_span: [3815, 5042]
     sentence_count: 6
     key_terms: [referral, already, nothing, meaningrealistic5561, job, fundamentals, comfortable, interesting]
     section: Comments

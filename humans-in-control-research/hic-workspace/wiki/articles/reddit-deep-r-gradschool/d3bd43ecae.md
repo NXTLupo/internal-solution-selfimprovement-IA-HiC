@@ -15,32 +15,32 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c0"
-    char_span: [0, 1705]
+    char_span: [0, 1704]
     sentence_count: 17
     key_terms: [advisor, phd, prospective, "i've", want, year, gradschool, situation]
-    token_count: 381
+    token_count: 380
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c1"
-    char_span: [1707, 4133]
+    char_span: [1706, 4132]
     sentence_count: 19
     key_terms: [advisor, funding, health, issues, told, because, time, director]
     token_count: 501
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c2"
-    char_span: [4135, 6316]
+    char_span: [4134, 6315]
     sentence_count: 24
     key_terms: [advisor, "it's", situation, "i'm", new, everything, harassment, university]
     token_count: 470
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c3"
-    char_span: [6318, 7745]
+    char_span: [6317, 7744]
     sentence_count: 12
     key_terms: [funding, legal, experiences, grad, programs, unlikely, advisor, against]
     token_count: 302
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c4"
-    char_span: [7747, 9931]
+    char_span: [7746, 9930]
     sentence_count: 16
     key_terms: [students, advisor, union, help, new, because, program, student]
     token_count: 495
   - id: "articles/reddit-deep-r-gradschool/d3bd43ecae.md#c5"
-    char_span: [9933, 12061]
+    char_span: [9932, 12060]
     sentence_count: 25
     key_terms: [accommodations, official, disability, reasonable, advisor, office, documentation, legal]
     token_count: 437

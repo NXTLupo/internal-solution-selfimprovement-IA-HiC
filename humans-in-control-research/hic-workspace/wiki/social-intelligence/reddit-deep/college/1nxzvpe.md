@@ -23,37 +23,37 @@ chunks:
     key_terms: [college, comments, because, school, money, proof, home, work]
     token_count: 223
   - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c1"
-    char_span: [857, 2610]
+    char_span: [856, 2609]
     sentence_count: 14
     key_terms: [college, like, insurance, paycheck, because, working, much-recognition-180, nightdiscombobulated]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c2"
-    char_span: [2612, 3182]
+    char_span: [2611, 3181]
     sentence_count: 5
     key_terms: [getting, administrationtop303, cybersecurity, lightsout5774, certificates, white-collar, definitely, retirement]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c3"
-    char_span: [3184, 5309]
+    char_span: [3183, 5308]
     sentence_count: 16
     key_terms: [construction, recession, service, need, anyone, market, years, job]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c4"
-    char_span: [5058, 5627]
+    char_span: [5057, 5626]
     sentence_count: 7
     key_terms: [glazes, get, trades, did, job, like, inconvenience, construction]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c5"
-    char_span: [5629, 7670]
+    char_span: [5628, 7669]
     sentence_count: 9
     key_terms: [college, trades, "it's", work, always, people, get, job]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/college/1nxzvpe.md#c6"
-    char_span: [7672, 9362]
+    char_span: [7671, 9361]
     sentence_count: 10
     key_terms: [trades, money, working, "you're", like, making, people, accounting]
     section: Comments

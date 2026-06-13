@@ -26,7 +26,7 @@ chunks:
     key_terms: [motivational, direction, grinding, industry, starting, advance, already, edited]
     token_count: 66
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpstdf.md#c2"
-    char_span: [2442, 3324]
+    char_span: [2441, 3323]
     sentence_count: 11
     key_terms: [vigilante, discipline, super, done, face, hard, "i'm", ocix]
     section: Comments

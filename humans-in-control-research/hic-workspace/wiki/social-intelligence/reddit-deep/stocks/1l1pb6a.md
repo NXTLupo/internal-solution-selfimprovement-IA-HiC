@@ -28,37 +28,37 @@ chunks:
     key_terms: [alphabet, stock, shares, case, sandler, decide, google, monday]
     token_count: 262
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c2"
-    char_span: [3207, 4429]
+    char_span: [3206, 4428]
     sentence_count: 9
     key_terms: [google, better, claude, experience, another, chatgpt, forward, gemini]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c3"
-    char_span: [4431, 6474]
+    char_span: [4430, 6473]
     sentence_count: 13
     key_terms: [google, search, default, buying, engine, people, dip, products]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c4"
-    char_span: [6476, 8225]
+    char_span: [6475, 8224]
     sentence_count: 9
     key_terms: [google, chrome, something, sell, browser, happens, search, makes]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c5"
-    char_span: [8227, 10137]
+    char_span: [8226, 10136]
     sentence_count: 14
     key_terms: [google, chatgpt, don, company, happens, chrome, search, few-lingonberry2315]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c6"
-    char_span: [10139, 11981]
+    char_span: [10138, 11980]
     sentence_count: 7
     key_terms: [google, deleted, search, makes, sense, like, realize, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1l1pb6a.md#c7"
-    char_span: [11720, 12289]
+    char_span: [11719, 12288]
     sentence_count: 2
     key_terms: [search, browsers, results, makes, sense, "it's", basilthebatlord, groceriesn1trip]
     section: Comments

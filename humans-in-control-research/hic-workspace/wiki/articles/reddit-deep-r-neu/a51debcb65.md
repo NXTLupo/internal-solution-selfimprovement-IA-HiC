@@ -15,10 +15,10 @@ industries: [higher_ed, fundraising]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-neu/a51debcb65.md#c0"
-    char_span: [0, 1880]
+    char_span: [0, 1879]
     sentence_count: 15
     key_terms: [scholarship, indian, students, scholarships, got, international, student, cash]
-    token_count: 450
+    token_count: 449
 ---
 # Scholarships
 

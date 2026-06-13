@@ -3452,6 +3452,7 @@ async def session_save(req: Request):
 
     section_keys = ("metadata", "state", "chat", "topic_model", "knowledge_graph", "corpus", "reddit_deep")
     written = []
+    failed = []
     for key in section_keys:
         if key == "metadata":
             payload = merged_meta
@@ -3463,10 +3464,21 @@ async def session_save(req: Request):
                 continue
         path = os.path.join(folder, SESSION_SECTION_FILES[key])
         try:
-            _robust_write_text_sync(path, json.dumps(payload, ensure_ascii=False, indent=2))
+            # 2026-06-08 (#3 fix): default=str tolerates non-JSON-serializable values
+            # (Sets, datetimes, etc.) that previously hard-500'd the entire save and
+            # surfaced as "SAVE FAILED" in the UI. A serialization quirk in ONE large
+            # section (typically corpus/knowledge_graph) must not lose the whole session.
+            _robust_write_text_sync(path, json.dumps(payload, ensure_ascii=False, indent=2, default=str))
             written.append(key)
         except Exception as e:
-            return JSONResponse({"error": f"write {key} failed: {e}"}, status_code=500)
+            # Per-section resilience: log the traceback (so the real cause is
+            # diagnosable) and continue. metadata is the only section whose loss
+            # is fatal (the list endpoint needs it); everything else degrades to
+            # a partial save rather than a total failure.
+            logger.error(f"[session_save] write {key} failed for slug={slug}: {e}", exc_info=True)
+            failed.append(key)
+            if key == "metadata":
+                return JSONResponse({"error": f"write metadata failed: {e}"}, status_code=500)
 
     # Learned constraints get their own markdown file
     lc = sections.get("learned_constraints")
@@ -3484,6 +3496,7 @@ async def session_save(req: Request):
         "title": merged_meta["title"],
         "saved_at": now,
         "sections_written": written,
+        "sections_failed": failed,
     }
 
 
@@ -4775,6 +4788,77 @@ button.__hic_primary:hover { background: var(--nxt-text-primary); color: var(--n
   .__hic_artifact_footer { padding: 16px; }
 }
 """
+
+
+@app.get("/api/design-tokens")
+async def design_tokens(brand: str = "", format: str = "json"):
+    """Serve the Figma-MCP-sourced design tokens (NXT + NU) for runtime grounding.
+
+    Source: /hic-workspace/design-system/figma-tokens.json, refreshed by the agent via
+    Figma MCP get_variable_defs on the token-sheet nodes (NXT 223:2 / NU 97:2). The PAT
+    lacks file_variables:read (Enterprise-gated), so the Figma REST variables API 403s on
+    the Pro tier; the MCP-OAuth read is the working path and the agent is the bridge.
+    NEVER hardcode these into types.ts - this endpoint is the runtime token source the
+    Analyst Desk + Designer Chat inject as nxtDesignSystemRules, keeping Figma the source.
+      - format=json (default): full token object, or one brand if ?brand=NXT|NU.
+      - format=prompt: a ready-to-inject text block instructing the LLM to use these exact tokens.
+    """
+    import json as _json
+    tok_path = "/hic-workspace/design-system/figma-tokens.json"
+    if not os.path.exists(tok_path):
+        tok_path = os.path.join(os.path.dirname(__file__), "..", "hic-workspace", "design-system", "figma-tokens.json")
+    try:
+        with open(tok_path, "r", encoding="utf-8") as f:
+            tokens = _json.load(f)
+    except Exception as e:
+        return JSONResponse({"error": f"figma-tokens.json unavailable: {e}"}, status_code=503)
+    b = (brand or "").strip().upper()
+
+    def _block(bn, t):
+        c = t.get("color", {}) or {}
+        fo = t.get("font", {}) or {}
+        sp = t.get("space", {}) or {}
+        rad = (t.get("radius", {}) or {}).get("base")
+        lines = [
+            f"=== FIGMA DESIGN TOKENS ({bn}) - the design-system source of truth, pulled from Figma via MCP ===",
+            "Use these EXACT values for every color/font/spacing decision. Do NOT invent hex codes or fonts.",
+            "Colors: " + ", ".join(f"{k}={v}" for k, v in c.items()),
+            "Fonts: " + ", ".join(f"{k}={v}" for k, v in fo.items()),
+            "Spacing(px): " + ", ".join(f"{k}={v}" for k, v in sp.items()) + (f"; radius={rad}" if rad is not None else ""),
+        ]
+        return "\n".join(lines)
+
+    def _grid_block():
+        g = tokens.get("_grid", {}) or {}
+        if not g:
+            return ""
+        cv = g.get("canvas", {}) or {}
+        pg = g.get("page", {}) or {}
+        jm = g.get("journeyMatrix", {}) or {}
+        pc = jm.get("phaseCols", {}) or {}
+        sl = jm.get("swimlanes", {}) or {}
+        lines = [
+            "=== LAYOUT GRID (EXACT spacing/padding - use when adding/removing/changing elements) ===",
+            f"Canvas PPTX: {cv.get('pptx',{}).get('w')}x{cv.get('pptx',{}).get('h')} 16:9 STRICT - everything fits in {cv.get('pptx',{}).get('h')}px height, never overflow a slide.",
+            f"Canvas HTML: width {cv.get('html',{}).get('w')}, height FLEXIBLE (may scroll); same horizontal grid as PPTX.",
+            f"Page: rail={pg.get('rail')} contentLeft={pg.get('contentLeft')} contentWidth={pg.get('contentWidth')} marginRight={pg.get('marginRight')} top={pg.get('top')}.",
+            f"Journey matrix: labelGutter={jm.get('labelGutter')} matrixStartX={jm.get('matrixStartX')}; phase columns default={pc.get('default')} (variable {pc.get('min')}-{pc.get('max')}) width={pc.get('width')} gutter={pc.get('gutter')}; swimlanes default={sl.get('default')} rowHeight={sl.get('rowHeight')} rowGutter={sl.get('rowGutter')}; phaseHeaderH={jm.get('phaseHeaderH')} painRowH={jm.get('painRowH')} cellPadding={jm.get('cellPadding')}.",
+            f"Extend rule: {jm.get('_extend','')}",
+        ]
+        return "\n".join(lines)
+
+    if format == "prompt":
+        grid = _grid_block()
+        suffix = ("\n\n" + grid) if grid else ""
+        if b in ("NXT", "NU"):
+            return Response(_block(b, tokens.get(b, {})) + suffix, media_type="text/plain")
+        return Response(
+            _block("NXT", tokens.get("NXT", {})) + "\n\n" + _block("NU", tokens.get("NU", {})) + suffix,
+            media_type="text/plain",
+        )
+    if b in ("NXT", "NU"):
+        return JSONResponse(tokens.get(b, {}))
+    return JSONResponse(tokens)
 
 
 @app.post("/api/artifacts")
@@ -8314,7 +8398,9 @@ async def proxy_anthropic(request: Request):
         # ("temperature is deprecated for this model"). Strip it at this chokepoint
         # so NO client-side deliverable that routes opus through this proxy can 400
         # (it previously failed the primary attempt on every such call).
-        if isinstance(body, dict) and "temperature" in body and re.search(r"opus-4-[789]", str(model)):
+        # 2026-06-12 — claude-opus-4-8 rejects `temperature` the same way (confirmed
+        # live: 400 "temperature is deprecated for this model"); added to the strip.
+        if isinstance(body, dict) and "temperature" in body and re.search(r"opus-4-[789]|fable", str(model)):
             body.pop("temperature", None)
             for _k in ("config", "generationConfig"):
                 if isinstance(body.get(_k), dict):
@@ -8374,7 +8460,9 @@ async def proxy_gemini(request: Request):
 
     try:
         body = await request.json()
-        model = body.get("model", "gemini-2.5-flash")
+        # 2026-06-12 - default swapped off the retired gemini-2.5-flash tier
+        # to the canonical fast-text model (canonical-models standing rule).
+        model = body.get("model", "gemini-3.5-flash")
         contents = body.get("contents", "")
         config = body.get("config", {})
 
@@ -9007,6 +9095,16 @@ from pydantic import BaseModel
 class WikiWriteRequest(BaseModel):
     path: str       # Relative path within wiki/ (e.g., "anti-patterns/personas.md")
     content: str    # Full content to write
+    # 2026-06-08 PATH UNIFICATION: opt-in write-time chunking. Reddit-deep social
+    # posts persist via this generic endpoint (not write-article), so without this
+    # they land with chunk_count=0 and are excluded by tier-1's chunk_count>0 gate
+    # even when engagement-tagged. Callers persisting retrievable corpus pass chunk=true.
+    chunk: Optional[bool] = False
+    # 2026-06-12 ENGAGEMENT-TAG GUARANTEE (supercharge 1.1): generic writes can
+    # carry the session slug so the manifest record is tier-1 visible. Injected
+    # into frontmatter as `engagement:` when absent (live evidence 2026-06-12:
+    # an active session owned 0/10,407 tagged records -> tier-3 fallback).
+    engagement: Optional[str] = None
 
 class WikiAppendRequest(BaseModel):
     path: str       # Relative path within wiki/
@@ -9045,6 +9143,10 @@ class FeedbackEvent(BaseModel):
     skill_version_active: Optional[str] = None
     constraints_active: list = []
     user_id_or_anon: str = "anon"
+    # 2026-06-12 - user opted to feed this signal into SkillOpt training.
+    # build-training-set.py --feedback-base folds train_skill=true text
+    # events into the matching skill's rollouts as failure trajectories.
+    train_skill: bool = False
 
 
 def _safe_feedback_path(engagement_slug: str, deliverable_id: str) -> Optional[str]:
@@ -9400,10 +9502,42 @@ async def wiki_write(req: WikiWriteRequest):
     if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
         return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
     try:
-        await _robust_write_text(safe_path, req.content)
-        _manifest_upsert(req.path, text=req.content)  # 2026-06-03 incremental manifest
-        logger.info(f"Wiki write: {req.path} ({len(req.content)} chars)")
-        return {"status": "ok", "path": req.path, "chars": len(req.content)}
+        content = req.content
+        # 2026-06-08 PATH UNIFICATION: write-time chunking for retrievable corpus
+        # (reddit-deep social posts). Mirrors write-article's ingest chunking so the
+        # page carries a `chunks:` frontmatter block -> manifest chunk_count>0 ->
+        # tier-1 retrievable. Idempotent + non-fatal; the body is in hand so no re-read.
+        if req.chunk:
+            try:
+                from wiki_chunker import chunk_for_manifest, upsert_chunks_into_frontmatter
+                _ptrs = chunk_for_manifest(content, req.path)
+                if _ptrs:
+                    content = upsert_chunks_into_frontmatter(content, _ptrs, page_id=req.path)
+            except Exception as _cw_err:
+                logger.warning(f"[wiki-write] write-time chunk failed for {req.path}: {_cw_err}")
+        # 2026-06-12 - inject the engagement slug into frontmatter (idempotent;
+        # appends to an existing space-joined slug list like write-article does)
+        if req.engagement:
+            try:
+                _slug = re.sub(r"[^a-z0-9-]", "", req.engagement.lower().replace(" ", "-"))[:80]
+                if _slug:
+                    _fm = re.match(r"^---\n([\s\S]*?)\n---\n", content)
+                    if _fm:
+                        _head = _fm.group(0)
+                        _em = re.search(r'^engagement:\s*"?([^"\n]*)"?\s*$', _fm.group(1), re.M)
+                        if _em is None:
+                            # _head ends "\n---\n"; keep the preceding newline intact
+                            content = content.replace(_head, _head[:-4] + f'engagement: "{_slug}"\n---\n', 1)
+                        elif _slug not in _em.group(1):
+                            content = content.replace(_em.group(0), f'engagement: "{(_em.group(1) + " " + _slug).strip()}"', 1)
+                    else:
+                        content = f'---\nengagement: "{_slug}"\n---\n\n' + content
+            except Exception as _et_err:
+                logger.warning(f"[wiki-write] engagement-tag inject failed for {req.path}: {_et_err}")
+        await _robust_write_text(safe_path, content)
+        _manifest_upsert(req.path, text=content)  # 2026-06-03 incremental manifest
+        logger.info(f"Wiki write: {req.path} ({len(content)} chars{', chunked' if req.chunk else ''})")
+        return {"status": "ok", "path": req.path, "chars": len(content)}
     except Exception as e:
         logger.error(f"Wiki write failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
@@ -9421,6 +9555,31 @@ async def wiki_append(req: WikiAppendRequest):
         # rewrite — which is what was EINVAL-ing on the hot, constantly-growing
         # log.md under a Windows bind mount.
         exists = os.path.exists(safe_path)
+        # 2026-06-12 - CONSTRAINT DEDUP (supercharge 6.1). learned-constraints.md
+        # accumulated duplicate rules (same CONSTRAINT [key] appended 3x). For
+        # appends to that ledger, drop any "- CONSTRAINT [key]:" line whose key
+        # already exists in the file; if everything in the append is duplicate,
+        # return ok with deduped=true instead of writing.
+        if req.path.endswith("learned-constraints.md") and exists and "CONSTRAINT [" in (req.content or ""):
+            try:
+                _existing_text = await _robust_read_text(safe_path)
+                _existing_keys = set(re.findall(r"CONSTRAINT \[([^\]]+)\]", _existing_text))
+                _kept_lines = []
+                _dropped = 0
+                for _line in (req.content or "").splitlines():
+                    _m = re.search(r"CONSTRAINT \[([^\]]+)\]", _line)
+                    if _m and _m.group(1) in _existing_keys:
+                        _dropped += 1
+                        continue
+                    _kept_lines.append(_line)
+                if _dropped:
+                    logger.info(f"[wiki/append] constraint dedup: dropped {_dropped} duplicate key(s) for {req.path}")
+                    _kept = "\n".join(_kept_lines)
+                    if not re.search(r"CONSTRAINT \[", _kept) and not _kept.strip().strip('#').strip():
+                        return {"status": "ok", "path": req.path, "deduped": True, "dropped": _dropped}
+                    req.content = _kept
+            except Exception as _dedup_err:
+                logger.warning(f"[wiki/append] constraint dedup skipped (non-fatal): {_dedup_err}")
         if req.section:
             existing = await _robust_read_text(safe_path) if exists else ""
             if req.section in existing:
@@ -9653,6 +9812,12 @@ class WikiArticleWriteRequest(BaseModel):
     # URLs a synthesis was derived from, persisted to frontmatter so a
     # synthetic-URL synthesis still links back to its real sources.
     derivedFrom: Optional[list] = None
+    # 2026-06-08 PATH UNIFICATION (Layer 2): chain-of-custody source metadata.
+    # sourcePack = which Intelligence Data Source pack surfaced this item;
+    # collectedAt = ISO timestamp of collection. `engagement` (the load-bearing
+    # retrieval key) already exists on this model above.
+    sourcePack: Optional[str] = None
+    collectedAt: Optional[str] = None
 
 def _article_wiki_path(kind: str, source: str, engagement: Optional[str], channel: Optional[str], h: str) -> str:
     """Build the canonical wiki path for an article based on its kind."""
@@ -9693,6 +9858,11 @@ def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: s
         lines.append(f'channel: {esc(req.channel)}')
     if req.engagement:
         lines.append(f'engagement: {esc(req.engagement)}')
+    # 2026-06-08 PATH UNIFICATION (Layer 2): chain-of-custody source metadata.
+    if getattr(req, 'sourcePack', None):
+        lines.append(f'source_pack: {esc(req.sourcePack)}')
+    if getattr(req, 'collectedAt', None):
+        lines.append(f'collected_at: {esc(req.collectedAt)}')
     if req.duration_sec is not None:
         lines.append(f'duration_sec: {req.duration_sec}')
     if req.page_count is not None:
@@ -9717,6 +9887,58 @@ def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: s
             lines.append(f'derived_from: {json.dumps(_df, separators=(",", ":"))}')
     lines.append('---')
     return '\n'.join(lines)
+
+def _ensure_canonical_engagement(canonical_abs: str, slug: str) -> bool:
+    """2026-06-08 PATH UNIFICATION: ensure the canonical page's leading
+    frontmatter `engagement:` line includes `slug`. On content-hash dedup a
+    re-collected article aliases to an existing canonical whose frontmatter is
+    NOT otherwise touched; without this, a canonical first collected untagged (or
+    under a different goal) stays invisible to THIS run's tier-1 retrieval. Stored
+    as a space-joined slug list so an article collected by multiple engagements is
+    retrievable under each (the /api/manifest/chunks filter is a substring match).
+    Sync + atomic; touches ONLY the engagement frontmatter line. Returns True iff
+    the file changed."""
+    slug = (slug or '').strip()
+    if not slug:
+        return False
+    try:
+        with open(canonical_abs, 'r', encoding='utf-8') as f:
+            text = f.read()
+    except Exception:
+        return False
+    if not text.startswith('---'):
+        return False
+    end = text.find('\n---', 3)
+    if end < 0:
+        return False
+    head, rest = text[:end], text[end:]
+    import re as _re_eng
+    m = _re_eng.search(r'(?m)^engagement:[ \t]*(.*)$', head)
+    if m:
+        cur = m.group(1).strip().strip('"')
+        slugs = [s for s in cur.split() if s]
+        if slug in slugs:
+            return False
+        slugs.append(slug)
+        new_head = head[:m.start()] + f'engagement: "{" ".join(slugs)}"' + head[m.end():]
+    else:
+        nl = head.find('\n')
+        if nl < 0:
+            return False
+        new_head = head[:nl] + f'\nengagement: "{slug}"' + head[nl:]
+    tmp = canonical_abs + '.tmp'
+    try:
+        with open(tmp, 'w', encoding='utf-8') as f:
+            f.write(new_head + rest)
+        os.replace(tmp, canonical_abs)
+        return True
+    except Exception:
+        try:
+            if os.path.exists(tmp):
+                os.remove(tmp)
+        except Exception:
+            pass
+        return False
 
 @app.post("/api/wiki/write-article")
 async def wiki_write_article(req: WikiArticleWriteRequest):
@@ -9754,6 +9976,17 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
             canonical_abs = os.path.normpath(os.path.join(WIKI_BASE, canonical)) if canonical else None
             if canonical and canonical != path_rel and canonical_abs and os.path.exists(canonical_abs):
                 try:
+                    # 2026-06-08 PATH UNIFICATION: re-tag the canonical with THIS run's
+                    # engagement slug so a re-collected article (deduped to an existing,
+                    # possibly-untagged canonical) becomes tier-1 retrievable under this
+                    # run too. Only writes when the slug is not already present.
+                    if req.engagement:
+                        try:
+                            if _ensure_canonical_engagement(canonical_abs, req.engagement):
+                                _manifest_upsert(canonical, abs_path=canonical_abs)
+                                logger.info(f"[wiki-write-article] retagged canonical {canonical} += engagement '{req.engagement}'")
+                        except Exception as _rt_err:
+                            logger.warning(f"[wiki-write-article] canonical retag failed for {canonical}: {_rt_err}")
                     alias_fm = _build_alias_frontmatter(req, h, content_hash, canonical)
                     await _robust_write_text(safe_path, alias_fm + "\n")
                     logger.info(f"[wiki-write-article] content dup: {path_rel} aliases {canonical}")
@@ -9961,13 +10194,21 @@ async def source_resolve(request: Request):
     return {"resolved": out, "index_size": len(_SOURCE_INDEX)}
 
 @app.get("/api/wiki/check-article")
-async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DEDUP):
+async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DEDUP, engagement: str = ""):
     """Dedup check: does the wiki already hold ≥ min_chars of extracted
     content for this URL? Orchestrator calls this before Jina/PDF fetch
-    to skip redundant re-extraction across engagements."""
+    to skip redundant re-extraction across engagements.
+
+    2026-06-08 PATH UNIFICATION: when `engagement` is passed and the article is
+    a cache HIT, RE-TAG the cached page with that engagement slug. A cache hit
+    means the orchestrator will reuse the body WITHOUT calling write-article, so
+    this is the only place a re-run of a previously-collected goal can tag its
+    reused corpus. Without it, re-runs stay invisible to tier-1 retrieval and
+    fall back to the raw-blob path. Tag write is fire-and-forget (best effort)."""
     if not url:
         return JSONResponse({"error": "url required"}, status_code=400)
     h = _url_hash(url)
+    eng_slug = (engagement or "").strip()
     # Walk the same three namespaces as read-article
     for namespace in ('articles', 'transcripts', 'uploads'):
         ns_root = os.path.join(WIKI_BASE, namespace)
@@ -9980,6 +10221,12 @@ async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DE
                 # Rough char estimate — bytes ≈ chars for markdown
                 if size >= min_chars:
                     rel = os.path.relpath(candidate, WIKI_BASE).replace(os.sep, '/')
+                    if eng_slug:
+                        try:
+                            if _ensure_canonical_engagement(candidate, eng_slug):
+                                _manifest_upsert(rel, abs_path=candidate)
+                        except Exception as _tag_err:
+                            logger.warning(f"[wiki-check-article] cache-hit retag failed for {rel}: {_tag_err}")
                     return {
                         "cached": True,
                         "wikiPath": rel,
@@ -10156,13 +10403,21 @@ def _manifest_record(rel: str, mtime: float, text: str) -> dict:
     needed (cheap, single-file read)."""
     fm = _parse_wiki_frontmatter(text)
     summary = _extract_wiki_body(text, max_chars=200)
-    # Count chunks declared in frontmatter. Cheap regex; runs only on the
-    # head-read text, so a page with 100+ chunks past the head still
-    # reports its head-visible count (acceptable for the manifest's role
-    # as a coarse pre-filter).
+    # Count chunks declared in frontmatter. 2026-06-11 parity fix: scope the
+    # count to the FRONTMATTER ONLY and to chunk-pointer-shaped ids
+    # ("...#cN"). The old whole-text `- id:` count double-dipped on pages
+    # whose BODY quotes chunk pointers (lint reports, theme-synthesis pointer
+    # lists), inflating chunk_count and emitting manifest pointers that fail
+    # to resolve.
     try:
         import re as _re_chunks_count
-        _chunk_count = len(_re_chunks_count.findall(r"^\s*- id:\s", text or "", flags=_re_chunks_count.MULTILINE))
+        _t = text or ""
+        if _t.startswith("---"):
+            _fm_end = _t.find("\n---\n", 4)
+            if _fm_end > 0:
+                _t = _t[:_fm_end]
+        _chunk_count = len(_re_chunks_count.findall(
+            r'^\s*- id:\s*"[^"\n]*#c\d+"', _t, flags=_re_chunks_count.MULTILINE))
     except Exception:
         _chunk_count = 0
     try:
@@ -10201,6 +10456,9 @@ def _manifest_record(rel: str, mtime: float, text: str) -> dict:
         'channel': fm.get('channel') or '',
         'engagement': fm.get('engagement') or '',
         'engagement_goal': fm.get('engagement_goal') or fm.get('research_goal') or '',
+        # 2026-06-08 PATH UNIFICATION (Layer 3): chain-of-custody for audits.
+        'source_pack': fm.get('source_pack') or '',
+        'collected_at': fm.get('collected_at') or '',
         'industries': industries,
         'confidence': fm.get('confidence') or '',
         'status': fm.get('status') or '',
@@ -10327,7 +10585,22 @@ def _manifest_backfill() -> dict:
         ap, rel, mt = item
         try:
             with open(ap, 'r', encoding='utf-8') as f:
-                return (rel, mt, f.read(8000))
+                head = f.read(8000)
+                # 2026-06-11 parity fix: a chunks: frontmatter block can exceed
+                # 8KB (hic-theme-synthesis pages carry 25-67 chunks). If the
+                # head hasn't reached the closing --- yet, keep reading until
+                # it does (capped) so _manifest_record counts EVERY chunk item;
+                # an undercounted manifest leaves real chunks tier-1 invisible.
+                # This was the residual 86-page drift after the 2026-06-11
+                # duplicate-frontmatter repair.
+                if head.startswith('---') and '\n---\n' not in head:
+                    extra_cap = 256_000
+                    while '\n---\n' not in head and len(head) < extra_cap:
+                        more = f.read(16_000)
+                        if not more:
+                            break
+                        head += more
+                return (rel, mt, head)
         except Exception:
             return None
 
@@ -11548,9 +11821,9 @@ async def _validate_model_registry() -> None:
         # The model IDs the proxy itself defaults to across its generation paths.
         assert_startup([
             "claude-sonnet-4-6",        # artifact-generate default
-            "claude-opus-4-8",          # deep-reasoning / journey-mapper dispatch
+            "claude-opus-4-8",          # deep-reasoning / journey-mapper + chat-surface deliverable gen (Fable 5 stand-in, 2026-06-13)
             "gemini-3.1-pro-preview",   # deliverable router primary
-            "gemini-2.5-flash",         # fast-tier / fallback
+            "gemini-3.5-flash",         # fast-tier / fallback (2.5-flash sunset 2026-06-12)
         ])
     except Exception as e:
         logger.warning(f"[model-registry] startup validation skipped: {e}")
@@ -12386,7 +12659,7 @@ async def skillopt_trajectory_append(req: Request):
 # ================================================================
 
 @app.get("/api/manifest/chunks")
-async def manifest_chunk_pointers(engagement: str = "", types: str = "social-post,article", min_relevance: int = 0):
+async def manifest_chunk_pointers(engagement: str = "", types: str = "social-post,article", min_relevance: int = 0, include_pages: bool = False):
     """Return every chunk-pointer the manifest knows about for an engagement.
 
     Query params:
@@ -12416,6 +12689,11 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
     eng = (engagement or "").strip().lower()
     seen_paths: set[str] = set()
     chunk_ids: list[str] = []
+    # 2026-06-08 - include_pages: per-page {title, relevance, key_terms} so a
+    # WHOLE-CORPUS fresh-run catalog (engagement="") is rankable by the client's
+    # pickChunksForPrompt. Without title/relevance, every record pre-ranks at 0
+    # overlap and chunk selection degrades to arbitrary order.
+    pages: dict = {}
     for wp, rec in records.items():
         chunk_count = int(rec.get("chunk_count") or 0)
         if chunk_count <= 0:
@@ -12434,12 +12712,22 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
         seen_paths.add(wp)
         for i in range(chunk_count):
             chunk_ids.append(f"{wp}#c{i}")
-    return {
+        if include_pages:
+            kt = rec.get("key_terms") or rec.get("keyTerms") or []
+            pages[wp] = {
+                "title": str(rec.get("title") or ""),
+                "relevance": rs,
+                "key_terms": list(kt) if isinstance(kt, (list, tuple)) else [],
+            }
+    out = {
         "engagement": engagement,
         "source_count": len(seen_paths),
         "chunk_id_count": len(chunk_ids),
         "chunk_ids": chunk_ids,
     }
+    if include_pages:
+        out["pages"] = pages
+    return out
 
 
 # =========================================================================
@@ -13441,7 +13729,7 @@ async def wiki_rerank(payload: dict):
             "source_name": "<readable source name>" },
           ...
         ],
-        "model": "gpt-5.5" | "gemini-2.5-flash" | "gemini-3.1-pro-preview" (optional, default gemini-2.5-flash)
+        "model": "gpt-5.5" | "gemini-3.5-flash" | "gemini-3.1-pro-preview" (optional, default gemini-3.5-flash)
       }
 
     Response:
@@ -13470,11 +13758,12 @@ async def wiki_rerank(payload: dict):
     goal = (payload.get("goal") or "").strip()
     question = (payload.get("question") or "").strip()
     candidates = payload.get("candidates") or []
-    # 2026-05-03 — Default rerank model swapped from claude-opus to
-    # gemini-2.5-flash. Reranking 6 chunks 0-1 doesn't need Opus reasoning
-    # depth; Flash handles it correctly at ~3% of the cost. Callers can
-    # still override via the `model` field in the request body.
-    model_id = payload.get("model") or "gemini-2.5-flash"
+    # 2026-05-03 — Default rerank model swapped from claude-opus to Flash.
+    # Reranking 6 chunks 0-1 doesn't need Opus reasoning depth; Flash handles
+    # it correctly at ~3% of the cost. Callers can still override via the
+    # `model` field in the request body.
+    # 2026-06-12 — pin moved off the retired gemini-2.5-flash tier.
+    model_id = payload.get("model") or "gemini-3.5-flash"
 
     if not isinstance(candidates, list) or len(candidates) == 0:
         return JSONResponse({"error": "candidates must be a non-empty array"}, status_code=400)
@@ -13821,8 +14110,11 @@ async def wiki_regrade_relevance(payload: dict):
         # remains visible.
         try:
             gemini_url = (
+                # 2026-06-12 — pin moved off the retired gemini-2.5-flash tier
+                # (canonical-models standing rule). Key already rides the
+                # x-goog-api-key header here.
                 f"https://generativelanguage.googleapis.com/v1beta/models/"
-                f"gemini-2.5-flash:generateContent"
+                f"gemini-3.5-flash:generateContent"
             )
             gemini_body = {
                 "contents": [{"parts": [{"text": prompt}]}],

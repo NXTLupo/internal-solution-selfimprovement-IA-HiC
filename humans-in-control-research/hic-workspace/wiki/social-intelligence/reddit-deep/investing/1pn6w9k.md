@@ -28,55 +28,55 @@ chunks:
     key_terms: [sell, democratization, assets, market, funds, investors, pockets, public]
     token_count: 217
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c2"
-    char_span: [3167, 5074]
+    char_span: [3166, 5073]
     sentence_count: 14
     key_terms: [retail, pseudonominom, right, fund, new, aerotyne, mckinsey, company]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c3"
-    char_span: [5076, 7088]
+    char_span: [5075, 7087]
     sentence_count: 10
     key_terms: [private, get, tax, boutique, planner, credit, enough, hurdle]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c4"
-    char_span: [6840, 8808]
+    char_span: [6839, 8807]
     sentence_count: 13
     key_terms: [private, bag, starship, exactly, someone, always, assets, enough]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c5"
-    char_span: [8812, 9763]
+    char_span: [8811, 9762]
     sentence_count: 4
     key_terms: [investors, "it's", democratization, institutional, market, never, lollipopsaurus, mark-to-market]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c6"
-    char_span: [9765, 11872]
+    char_span: [9764, 11871]
     sentence_count: 15
     key_terms: [whiskey, barrels, "i'm", lollipopsaurus, barrel, going, years, ones]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c7"
-    char_span: [11612, 12185]
+    char_span: [11611, 12184]
     sentence_count: 4
     key_terms: [going, anything, benefit, good, caughtyalookin69, opportunities, democratized, themselves]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c8"
-    char_span: [12187, 12649]
+    char_span: [12186, 12648]
     sentence_count: 3
     key_terms: [shadowliberal, artificially, completely, investment, mismanaged, companies, investing, portfolio]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c9"
-    char_span: [12651, 14836]
+    char_span: [12650, 14835]
     sentence_count: 13
     key_terms: [businesses, been, medium, ferociouskuma, professional, small, get, destroying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pn6w9k.md#c10"
-    char_span: [14597, 15011]
+    char_span: [14596, 15010]
     sentence_count: 5
     key_terms: ["we're", been, investments, interested, community, included, official, murraco]
     section: Comments

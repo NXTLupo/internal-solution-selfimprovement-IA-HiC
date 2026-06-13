@@ -23,67 +23,67 @@ chunks:
     key_terms: [prompt, breakpoint, component, data-binding, subscription, razor, base, page]
     token_count: 438
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c1"
-    char_span: [1814, 2085]
+    char_span: [1813, 2084]
     sentence_count: 3
     key_terms: [create, torwinmarkov, something, stoichk0v, develop, minutes, prompts, weekend]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c2"
-    char_span: [2087, 3897]
+    char_span: [2086, 3896]
     sentence_count: 11
     key_terms: [refund, month, "i'm", max, account, credit, dead0k87, cancel]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c3"
-    char_span: [3671, 4811]
+    char_span: [3670, 4810]
     sentence_count: 6
     key_terms: [imagine, without, claude, design, prompt, "can't", share, usage]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c4"
-    char_span: [4813, 6872]
+    char_span: [4812, 6871]
     sentence_count: 10
     key_terms: [claude, prompt, codex, using, problem, better, limit, specific]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c5"
-    char_span: [6874, 8616]
+    char_span: [6873, 8615]
     sentence_count: 4
     key_terms: [claude-prompting-best-practices, code, prompt-engineering, build-with-claude, claude, prompt, source, paper]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c6"
-    char_span: [8618, 10695]
+    char_span: [8617, 10694]
     sentence_count: 14
     key_terms: [claude, singularity42, build, "don't", good, stop, contractor, community]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c7"
-    char_span: [10370, 11911]
+    char_span: [10369, 11910]
     sentence_count: 10
     key_terms: ["shouldn't", sometimes, solution, another, because, githubs, perfect, "they're"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c8"
-    char_span: [11913, 13947]
+    char_span: [11912, 13946]
     sentence_count: 14
     key_terms: [file, claude, prompt, truthputer, something, desktop, minutes, nothing]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c9"
-    char_span: [13949, 15864]
+    char_span: [13948, 15863]
     sentence_count: 18
     key_terms: [minutes, claude, best-practices, server, wanted, code, extremely, pitfalls]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c10"
-    char_span: [15866, 17568]
+    char_span: [15865, 17567]
     sentence_count: 12
     key_terms: [context, claude, plan, used, jcradio, amazon, blazor, prompt]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/anthropic/1sqcfvp.md#c11"
-    char_span: [17570, 19035]
+    char_span: [17569, 19034]
     sentence_count: 11
     key_terms: [claude, settings, long, adaptive, friendly, thinking, prompt, trying]
     section: Comments

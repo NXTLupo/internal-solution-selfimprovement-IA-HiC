@@ -21,19 +21,19 @@ chunks:
     key_terms: [internship, internships, interview, "i've", comments, because, cybersecurity, positions]
     token_count: 386
   - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c1"
-    char_span: [1720, 3770]
+    char_span: [1719, 3769]
     sentence_count: 8
     key_terms: [dew-spider, internship, companies, student, school, encouragement, get, got]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c2"
-    char_span: [3547, 4577]
+    char_span: [3546, 4576]
     sentence_count: 6
     key_terms: [dew-spider, fuckedddupfr, fantastic-suit-6634, apply, offer, did, good, got]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/internships/1pzvt0m.md#c3"
-    char_span: [4579, 5525]
+    char_span: [4578, 5524]
     sentence_count: 6
     key_terms: [dew-spider, analytics, specific, january, fiscal, "that's", apply, round-ocelot4129]
     section: Comments

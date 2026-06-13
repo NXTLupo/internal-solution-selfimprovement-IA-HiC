@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1pxrd8n.md#c0"
-    char_span: [0, 1815]
+    char_span: [0, 1814]
     sentence_count: 18
     key_terms: [experience, backend, careerguidance, offer, like, off-campus, placements, comments]
     token_count: 416

@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/deaaeee3eb.md#c0"
-    char_span: [0, 1794]
+    char_span: [0, 1793]
     sentence_count: 11
     key_terms: [car, transportation, interview, job, reliable, whatever32657, asked, ask]
-    token_count: 475
+    token_count: 474
   - id: "articles/reddit-deep-r-jobs/deaaeee3eb.md#c1"
-    char_span: [1796, 2073]
+    char_span: [1795, 2072]
     sentence_count: 2
     key_terms: [walk, remarkable-soil-2997, terrible, getting, problem, transit, enough, minute]
     token_count: 75

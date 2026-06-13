@@ -23,7 +23,7 @@ chunks:
     key_terms: [something, career, careeradvice, work, technical, comments, already, because]
     token_count: 400
   - id: "social-intelligence/reddit-deep/careeradvice/1qhzslh.md#c1"
-    char_span: [1796, 2198]
+    char_span: [1795, 2197]
     sentence_count: 3
     key_terms: [linkedin, people, reddit, perspectives, workshopping, absolutely, community, different]
     section: Comments

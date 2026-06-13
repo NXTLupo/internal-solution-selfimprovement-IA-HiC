@@ -21,7 +21,7 @@ chunks:
     key_terms: [leadership, early, careerguidance, career, professionals, management, education, programme]
     token_count: 255
   - id: "social-intelligence/reddit-deep/careerguidance/1rq5thi.md#c1"
-    char_span: [1237, 2359]
+    char_span: [1236, 2358]
     sentence_count: 11
     key_terms: [work, experience, leadership, early, learn, ok-juggernaut8061, did, don]
     section: Comments

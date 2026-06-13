@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, internship, comments, "i'm", job, engineering, environment, reddit-deep]
     token_count: 134
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nxaapw.md#c1"
-    char_span: [543, 1108]
+    char_span: [542, 1107]
     sentence_count: 5
     key_terms: [companies, job, need, ones, year, apelikeartisan, application, experience]
     section: Comments

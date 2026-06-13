@@ -23,37 +23,37 @@ chunks:
     key_terms: [personalfinance, taxable, tax-advantaged, cash, "i'm", comments, paycheck, account]
     token_count: 326
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c1"
-    char_span: [1304, 2360]
+    char_span: [1303, 2359]
     sentence_count: 7
     key_terms: [comments, post, already, number, "you're", hsa, move, next]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c2"
-    char_span: [2362, 4138]
+    char_span: [2361, 4137]
     sentence_count: 13
     key_terms: [housing, market, investment, buy, buying, saving, house, years]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c3"
-    char_span: [4140, 5802]
+    char_span: [4139, 5801]
     sentence_count: 12
     key_terms: [nothing, easily, market, place, time, spending, housing, rough-importance-822]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c4"
-    char_span: [5804, 7785]
+    char_span: [5803, 7784]
     sentence_count: 18
     key_terms: [help, parents, financial, feel, spending, discretionary, money, etc]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c5"
-    char_span: [7787, 9774]
+    char_span: [7786, 9773]
     sentence_count: 12
     key_terms: ["it's", spending, savings, "you're", historically, money, max, definitely]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/personalfinance/1s5rotz.md#c6"
-    char_span: [9776, 10728]
+    char_span: [9775, 10727]
     sentence_count: 10
     key_terms: [parents, bills, going, live, spending, living, paying, "that's"]
     section: Comments

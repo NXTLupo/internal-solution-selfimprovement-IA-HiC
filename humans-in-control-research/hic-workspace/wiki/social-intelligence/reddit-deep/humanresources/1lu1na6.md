@@ -23,31 +23,31 @@ chunks:
     key_terms: [questions, exam, shrm-cp, through, humanresources, helped, didn, like]
     token_count: 501
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c1"
-    char_span: [2243, 4121]
+    char_span: [2242, 4120]
     sentence_count: 24
     key_terms: [test, exam, questions, got, tomorrow, coffeecookie101, congratulations, felt]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c2"
-    char_span: [4123, 5892]
+    char_span: [4122, 5891]
     sentence_count: 20
     key_terms: [taking, got, help, congrats, remember, saturday, nervous, anyone]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c3"
-    char_span: [5894, 7436]
+    char_span: [5893, 7435]
     sentence_count: 14
     key_terms: [exam, questions, calculation, preliminary, got, like, time, through]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c4"
-    char_span: [7438, 9313]
+    char_span: [7437, 9312]
     sentence_count: 18
     key_terms: [test, felt, phr, question, passed, letschatt23, scp, shrm]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/humanresources/1lu1na6.md#c5"
-    char_span: [9315, 10675]
+    char_span: [9314, 10674]
     sentence_count: 7
     key_terms: [questions, helpful, found, answers, maybe, exam, read, shrm]
     section: Comments

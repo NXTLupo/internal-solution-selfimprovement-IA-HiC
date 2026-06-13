@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/cad8bdecc2.md#c0"
-    char_span: [0, 1023]
+    char_span: [0, 1022]
     sentence_count: 8
     key_terms: [research, gradadmissions, paragraphs, comments, feedback, reddit, fun-concentrate2992, https]
-    token_count: 269
+    token_count: 268
 ---
 # Requesting feedback: What are the weak areas in my SOP for Biochemistry PhD?
 

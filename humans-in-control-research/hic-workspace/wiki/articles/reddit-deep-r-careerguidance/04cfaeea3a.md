@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/04cfaeea3a.md#c0"
-    char_span: [0, 2030]
+    char_span: [0, 2029]
     sentence_count: 18
     key_terms: [learn, valuable, student, careerguidance, matter, school, skills, summer]
-    token_count: 464
+    token_count: 463
   - id: "articles/reddit-deep-r-careerguidance/04cfaeea3a.md#c1"
-    char_span: [2032, 2651]
+    char_span: [2031, 2650]
     sentence_count: 6
     key_terms: [looking, fluffypreparation150, grads, ideas, find, get, path, self-reflect]
     token_count: 131

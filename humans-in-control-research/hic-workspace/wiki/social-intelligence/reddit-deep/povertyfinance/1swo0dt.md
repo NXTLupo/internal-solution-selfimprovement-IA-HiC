@@ -23,121 +23,121 @@ chunks:
     key_terms: [time, povertyfinance, making, comments, everyone, position, people, simply]
     token_count: 303
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c1"
-    char_span: [1214, 2429]
+    char_span: [1213, 2428]
     sentence_count: 9
     key_terms: [income, dual, nowordsjustdogs, household, having, spacedesignwarehouse, dual-income-no-kids, dink]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c2"
-    char_span: [2431, 3883]
+    char_span: [2430, 3882]
     sentence_count: 11
     key_terms: [bartending, job, week, household, insurance, bartend, income, people]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c3"
-    char_span: [3885, 5754]
+    char_span: [3884, 5753]
     sentence_count: 21
     key_terms: [roommates, house, family, living, making, middle, shifts, single]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c4"
-    char_span: [5756, 6483]
+    char_span: [5755, 6482]
     sentence_count: 7
     key_terms: [people, debt, "that's", being, cranberrykey9865, necessities, well-rested, healthcare]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c5"
-    char_span: [6485, 8660]
+    char_span: [6484, 8659]
     sentence_count: 20
     key_terms: [pay, car, own, afford, income, living, single, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c6"
-    char_span: [8378, 8680]
+    char_span: [8377, 8679]
     sentence_count: 3
     key_terms: [plenty, unknownapkin, opportunity, affordable, university, education, otherwise, college]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c7"
-    char_span: [8682, 9220]
+    char_span: [8681, 9219]
     sentence_count: 4
     key_terms: ["i'm", alive-lead-9028, haveabiscuitday, revolution, struggling, laughably, likealamb, struggle]
     section: Comments
     token_count: 158
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c8"
-    char_span: [9222, 11138]
+    char_span: [9221, 11137]
     sentence_count: 20
     key_terms: [multiple, jobs, job, mom, doing, generations, like, time]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c9"
-    char_span: [10896, 12246]
+    char_span: [10895, 12245]
     sentence_count: 13
     key_terms: [job, worked, time, dad, jobs, mom, part, mortgage]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c10"
-    char_span: [12248, 14310]
+    char_span: [12247, 14309]
     sentence_count: 9
     key_terms: [job, time, full, work, working, socialism, jobs, illegal]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c11"
-    char_span: [14312, 14950]
+    char_span: [14311, 14949]
     sentence_count: 6
     key_terms: [food, universal, meal, work, loose-dirt-brick, restrictions, tracey-ann12, appreciated]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c12"
-    char_span: [14952, 16813]
+    char_span: [14951, 16812]
     sentence_count: 16
     key_terms: [upstate, paycheck, hour, years, "i've", account, minimum, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c13"
-    char_span: [16581, 17043]
+    char_span: [16580, 17042]
     sentence_count: 2
     key_terms: [disgusting, whitewitchwannabe, food, ballskindrapes, delivering, employer, company, startup]
     section: Comments
     token_count: 138
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c14"
-    char_span: [17045, 18586]
+    char_span: [17044, 18585]
     sentence_count: 8
     key_terms: [minimum, wage, budgeting, like, places, level, hour, "it's"]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c15"
-    char_span: [18588, 19908]
+    char_span: [18587, 19907]
     sentence_count: 16
     key_terms: [people, wages, jobs, want, healthcare, bachelors, everyone, making]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c16"
-    char_span: [19910, 21736]
+    char_span: [19909, 21735]
     sentence_count: 12
     key_terms: [experience, people, engineer, work, service, someone, skill, specialized]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c17"
-    char_span: [21738, 22997]
+    char_span: [21737, 22996]
     sentence_count: 9
     key_terms: [making, taxes, like, need, retirement, employees, paying, people]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c18"
-    char_span: [22999, 24699]
+    char_span: [22998, 24698]
     sentence_count: 18
     key_terms: [apartment, roommates, better, space, government, subsidized, expenses, roommate]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c19"
-    char_span: [24701, 25364]
+    char_span: [24700, 25363]
     sentence_count: 7
     key_terms: ["i'm", rent, having, amarilloarmadillos, increases, protected, requiring, roommates]
     section: Comments
     token_count: 163
   - id: "social-intelligence/reddit-deep/povertyfinance/1swo0dt.md#c20"
-    char_span: [25366, 27255]
+    char_span: [25365, 27254]
     sentence_count: 19
     key_terms: [live, work, house, own, affordable, electrical, cintegra, kentucky]
     section: Comments

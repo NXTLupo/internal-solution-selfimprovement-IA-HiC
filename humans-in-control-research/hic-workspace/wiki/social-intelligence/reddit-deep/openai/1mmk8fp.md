@@ -23,91 +23,91 @@ chunks:
     key_terms: [gpt5, fine, prompting, comments, prompts, openai, get, instructions]
     token_count: 239
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c1"
-    char_span: [890, 2542]
+    char_span: [889, 2541]
     sentence_count: 6
     key_terms: [different, prompting, instructions, wrong, "it's", response, gpt-5, peripateticman2026]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c2"
-    char_span: [2545, 4414]
+    char_span: [2544, 4413]
     sentence_count: 5
     key_terms: [ask, text, long, detailed, memory, prompt, gave, gpt5]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c3"
-    char_span: [4416, 5806]
+    char_span: [4415, 5805]
     sentence_count: 7
     key_terms: [gpt5, prompt, instructions, got, prompting, anything, account, require]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c4"
-    char_span: [5809, 7781]
+    char_span: [5808, 7780]
     sentence_count: 14
     key_terms: ["that's", ask, etc, gpt5, use, background, constantly, explicitly]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c5"
-    char_span: [7783, 9866]
+    char_span: [7782, 9865]
     sentence_count: 14
     key_terms: ["it's", prompting, because, people, model, everyone, chrismcelroyseo, companionship]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c6"
-    char_span: [9869, 11937]
+    char_span: [9868, 11936]
     sentence_count: 23
     key_terms: [gpt-5, help, phd, something, birthday, because, picture, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c7"
-    char_span: [11663, 12094]
+    char_span: [11662, 12093]
     sentence_count: 2
     key_terms: [talking, automatically, screenshots, completely, laboratory, different, reasoning, something]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c8"
-    char_span: [12096, 13654]
+    char_span: [12095, 13653]
     sentence_count: 9
     key_terms: [people, something, users, echothought, answer, asking, giving, openai]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c9"
-    char_span: [13656, 15582]
+    char_span: [13655, 15581]
     sentence_count: 12
     key_terms: [users, product, spadaa, user, representative, everyday, learning, comment]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c10"
-    char_span: [15584, 16324]
+    char_span: [15583, 16323]
     sentence_count: 7
     key_terms: [people, product, users, use, been, cherry-picking, hishazelglance, insufferable]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c11"
-    char_span: [16328, 18151]
+    char_span: [16327, 18150]
     sentence_count: 9
     key_terms: [problem, models, spreadsheet, does, work, reasoning, document, revolutionary-gold44]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c12"
-    char_span: [18153, 19859]
+    char_span: [18152, 19858]
     sentence_count: 7
     key_terms: [like, instructions, custom, personality, "it's", nice, try, thinking]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c13"
-    char_span: [19861, 20440]
+    char_span: [19860, 20439]
     sentence_count: 4
     key_terms: ["it's", having, people, model, relationship, difference, human-like, ridiculous]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c14"
-    char_span: [20442, 22230]
+    char_span: [20441, 22229]
     sentence_count: 14
     key_terms: [like, people, down, drop, earlier, prompts, "there's", answer]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/openai/1mmk8fp.md#c15"
-    char_span: [22232, 23225]
+    char_span: [22231, 23224]
     sentence_count: 6
     key_terms: ["you're", worse, bad, prompts, models, people, wrong, like]
     section: Comments

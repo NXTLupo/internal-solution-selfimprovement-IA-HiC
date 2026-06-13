@@ -23,19 +23,19 @@ chunks:
     key_terms: [waterloo, money, been, anything, comments, anyone, right, help]
     token_count: 300
   - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c1"
-    char_span: [1276, 3098]
+    char_span: [1275, 3097]
     sentence_count: 24
     key_terms: [hiring, lot, retail, employment, suggest, youth-programs, people, places]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c2"
-    char_span: [3100, 4989]
+    char_span: [3099, 4988]
     sentence_count: 9
     key_terms: [snooploopssecret, need, employment, llunedd, centre, resume, skills, great]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/waterloo/1oj9h9t.md#c3"
-    char_span: [4992, 6976]
+    char_span: [4991, 6975]
     sentence_count: 17
     key_terms: [work, snooploopssecret, looking, hiring, people, skills, construction, usually]
     section: Comments

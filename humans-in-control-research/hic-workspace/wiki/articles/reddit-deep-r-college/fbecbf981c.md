@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/fbecbf981c.md#c0"
-    char_span: [0, 2118]
+    char_span: [0, 2117]
     sentence_count: 16
     key_terms: [undergrad, advisor, club, college, student, office, hours, help]
-    token_count: 449
+    token_count: 448
 ---
 # How to find advisors for an Undergrad Student Club
 

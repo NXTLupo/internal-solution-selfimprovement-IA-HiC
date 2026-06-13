@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-neu/b1670cdddc.md#c0"
-    char_span: [0, 992]
+    char_span: [0, 991]
     sentence_count: 6
     key_terms: [international, engineering, scholarship, neu, mechanical, comments, congrats, honors]
-    token_count: 268
+    token_count: 267
 ---
 # got into northeastern!!! applied EA
 

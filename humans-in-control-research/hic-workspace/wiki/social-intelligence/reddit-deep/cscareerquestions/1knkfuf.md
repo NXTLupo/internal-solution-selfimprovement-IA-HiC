@@ -23,67 +23,67 @@ chunks:
     key_terms: [source, like, resume, undeniable, potential, something, cscareerquestions, open]
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c1"
-    char_span: [2214, 3928]
+    char_span: [2214, 3927]
     sentence_count: 15
     key_terms: [roadmap, send, undeniable, something, latency, someone, advice, thread]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c2"
-    char_span: [3930, 6045]
+    char_span: [3929, 6044]
     sentence_count: 17
     key_terms: [cyberneticvoodoo, places, maybe, developers, experience, impossible, companies, something]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c3"
-    char_span: [6047, 7538]
+    char_span: [6046, 7537]
     sentence_count: 10
     key_terms: [experience, companies, internships, languages, something, looking, primary-walrus-5623, prior]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c4"
-    char_span: [7543, 9469]
+    char_span: [7542, 9468]
     sentence_count: 18
     key_terms: [experience, years, primary-walrus-5623, "i'm", "don't", going, year, graduation]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c5"
-    char_span: [9471, 11482]
+    char_span: [9470, 11481]
     sentence_count: 19
     key_terms: [build, year, contributions, sufficiently, get, job, experience, impressive]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c6"
-    char_span: [11484, 13284]
+    char_span: [11483, 13283]
     sentence_count: 13
     key_terms: [logger, contribution, nebulalogger, yada, contribute, frontend, failing, jongpie]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c7"
-    char_span: [13286, 15410]
+    char_span: [13285, 15409]
     sentence_count: 14
     key_terms: [https, salesforce-moxygen, problem, project, github, build, "it's", like]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c8"
-    char_span: [15412, 17357]
+    char_span: [15411, 17356]
     sentence_count: 14
     key_terms: [goodfirstissue, making, salesforce, leetcode, "wouldn't", getting, project, enough]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c9"
-    char_span: [17359, 19286]
+    char_span: [17358, 19285]
     sentence_count: 17
     key_terms: [training, applied, revature, through, unpaid, assessment, background, interview]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c10"
-    char_span: [19288, 21541]
+    char_span: [19287, 21540]
     sentence_count: 9
     key_terms: [work, people, "don't", years, nothing, time, parents, obligations]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1knkfuf.md#c11"
-    char_span: [21543, 23247]
+    char_span: [21542, 23246]
     sentence_count: 8
     key_terms: [i-am-not-that-duck, probably, advice, back, like, another, deleted, masters]
     section: Comments

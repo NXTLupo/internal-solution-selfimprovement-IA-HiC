@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, comments, language, learning, mandarin, like, tech, collaboration]
     token_count: 164
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c1"
-    char_span: [787, 2752]
+    char_span: [786, 2751]
     sentence_count: 12
     key_terms: [english, proficient, time, native, goldenpedro, languages, singapore, technical]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c2"
-    char_span: [2754, 4497]
+    char_span: [2753, 4496]
     sentence_count: 15
     key_terms: [english-most-spoken-at-home-for-nearly-half-of-spore-residents-population-census, mandarin, english, career, global, like, companies, marketing]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c3"
-    char_span: [4499, 6453]
+    char_span: [4498, 6452]
     sentence_count: 15
     key_terms: [english, mandarin, fluency, professional, learn, development, perspective, relatively]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lslyhk.md#c4"
-    char_span: [6455, 7368]
+    char_span: [6454, 7367]
     sentence_count: 6
     key_terms: [language, foreign, interest, english, thatmanwiththefedora, life, ways, communicating]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [tools, team, microsoft, comments, managers, manage, tasks, using]
     token_count: 161
   - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c1"
-    char_span: [715, 2714]
+    char_span: [714, 2713]
     sentence_count: 10
     key_terms: [tasks, meetings, videokilledmyzzz, tools, use, work, microsoft, multiple]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/managers/1smz8ld.md#c2"
-    char_span: [2716, 3229]
+    char_span: [2715, 3228]
     sentence_count: 5
     key_terms: [huckleberryknown9288, excel, videokilledmyzzz, revolutionized, accountable, completely, formatting, customize]
     section: Comments

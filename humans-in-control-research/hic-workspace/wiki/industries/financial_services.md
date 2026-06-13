@@ -7,7 +7,7 @@ industries: [financial_services]
 status: active
 chunks:
   - id: "industries/financial_services.md#c0"
-    char_span: [0, 774]
+    char_span: [0, 773]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-deep-r-digitalnomad, reddit-deep-r-cscareerquestions, reddit-deep-r-careerguidance, reddit-deep-r-chatgpt]
     section: Cross-over verticals (shared sources) / Representative sources

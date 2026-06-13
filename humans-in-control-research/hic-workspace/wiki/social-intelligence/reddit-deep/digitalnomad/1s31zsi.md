@@ -23,37 +23,37 @@ chunks:
     key_terms: [thailand, cheaper, months, chi, day, minh, because, digitalnomad]
     token_count: 492
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c1"
-    char_span: [2096, 2772]
+    char_span: [2096, 2771]
     sentence_count: 2
     key_terms: [cheaper, masterpiecemundane80, somethingaboutupdawg, terms, hcm, aspirations, adventure, affirming]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c2"
-    char_span: [2774, 4651]
+    char_span: [2773, 4650]
     sentence_count: 12
     key_terms: [gameover281997, bangkok, vietnam, somethingaboutupdawg, convenient, foreigner, pattaya, quality]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c3"
-    char_span: [4653, 5679]
+    char_span: [4652, 5678]
     sentence_count: 8
     key_terms: [thailand, high-rise, bangkok, around, somethingaboutupdawg, great, seems, here]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c4"
-    char_span: [5681, 7625]
+    char_span: [5680, 7624]
     sentence_count: 16
     key_terms: [pattaya, been, don, motorbike, thailand, "haven't", comfortablemoney1888, somethingaboutupdawg]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c5"
-    char_span: [7372, 7730]
+    char_span: [7371, 7729]
     sentence_count: 3
     key_terms: [being, onedweezy, directly, humidity, northern, stunning, superior, terraces]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/digitalnomad/1s31zsi.md#c6"
-    char_span: [7732, 9063]
+    char_span: [7731, 9062]
     sentence_count: 7
     key_terms: [somethingaboutupdawg, bkk, bangkok, hcm, budget, months, though, range]
     section: Comments

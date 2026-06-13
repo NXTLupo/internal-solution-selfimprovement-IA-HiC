@@ -23,61 +23,61 @@ chunks:
     key_terms: [english, humanities, professors, value, askacademia, "i'm", completely, professor]
     token_count: 433
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c1"
-    char_span: [2031, 2166]
+    char_span: [2030, 2165]
     sentence_count: 2
     key_terms: [suggestion, different, undergrad, explore, options, years, job, take]
     section: Comments
     token_count: 35
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c2"
-    char_span: [2168, 4475]
+    char_span: [2167, 4474]
     sentence_count: 17
     key_terms: [phd, years, getting, career, right, "i'm", job, humanities]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c3"
-    char_span: [4204, 5557]
+    char_span: [4203, 5556]
     sentence_count: 9
     key_terms: [income, school, opportunities, years, grad, year, experience, investment]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c4"
-    char_span: [5559, 7437]
+    char_span: [5558, 7436]
     sentence_count: 16
     key_terms: [because, english, school, skills, job, another, "didn't", going]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c5"
-    char_span: [7439, 9330]
+    char_span: [7438, 9329]
     sentence_count: 14
     key_terms: [people, academic, learn, completely, incredibly, difficult, ai-proof, anything]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c6"
-    char_span: [9332, 11274]
+    char_span: [9331, 11273]
     sentence_count: 14
     key_terms: [lost, humanities, years, getting, school, get, academic, prepared]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c7"
-    char_span: [11276, 12781]
+    char_span: [11275, 12780]
     sentence_count: 8
     key_terms: [careers, school, work, especially, teachers, friends, worked, "don't"]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c8"
-    char_span: [12783, 14514]
+    char_span: [12782, 14513]
     sentence_count: 15
     key_terms: [education, phd, program, competitive, "it's", professor, pursuing, english]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c9"
-    char_span: [14517, 16528]
+    char_span: [14516, 16527]
     sentence_count: 20
     key_terms: [english, professors, practitioner, doctorates, humanities, doctorate, positive, passion]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/askacademia/1riuhxu.md#c10"
-    char_span: [16530, 17047]
+    char_span: [16529, 17046]
     sentence_count: 5
     key_terms: [english, enter, phd, communications, accomplished, bestsellers, previously, professors]
     section: Comments

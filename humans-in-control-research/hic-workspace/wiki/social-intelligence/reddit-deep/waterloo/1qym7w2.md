@@ -43,13 +43,13 @@ chunks:
     key_terms: [victory, journey, decide, time, experienced, fellowship, conquered, hopefully]
     token_count: 238
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c5"
-    char_span: [9021, 11153]
+    char_span: [9020, 11152]
     sentence_count: 11
     key_terms: [teachers, teacher, consent, opinions-only, realistically, professional, trust, age]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/waterloo/1qym7w2.md#c6"
-    char_span: [11155, 11994]
+    char_span: [11154, 11993]
     sentence_count: 13
     key_terms: [teacher, touch, demonstrate, kid, "doesn't", checks, "i'm", communicate]
     section: Comments

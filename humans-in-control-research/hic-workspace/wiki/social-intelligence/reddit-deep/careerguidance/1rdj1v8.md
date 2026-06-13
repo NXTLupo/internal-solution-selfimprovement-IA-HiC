@@ -23,7 +23,7 @@ chunks:
     key_terms: [want, "i'm", careerguidance, role, experience, assistant, education, comments]
     token_count: 442
   - id: "social-intelligence/reddit-deep/careerguidance/1rdj1v8.md#c1"
-    char_span: [1927, 2705]
+    char_span: [1926, 2704]
     sentence_count: 2
     key_terms: [experience, few-maintenance-7320, illustrious-tower951, roles, gap, get, latter-risk-7215, communication]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [across, context, claude, shared, https, code, sessions, memory]
     token_count: 491
   - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c1"
-    char_span: [2169, 3788]
+    char_span: [2168, 3787]
     sentence_count: 12
     key_terms: [context, chunkhound, burning, deleted, through, claude, demand, notion]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/anthropic/1qet10k.md#c2"
-    char_span: [3790, 4569]
+    char_span: [3789, 4568]
     sentence_count: 6
     key_terms: [markdown, claude, folder, shared, file, mutationobserver, documentation, local-first]
     section: Comments

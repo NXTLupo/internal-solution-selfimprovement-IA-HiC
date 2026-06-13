@@ -26,19 +26,19 @@ chunks:
     key_terms: [time, job, second-guessing, subscriptions, emotionally, entry-level, predictable, recommended]
     token_count: 169
   - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c2"
-    char_span: [3266, 5339]
+    char_span: [3265, 5338]
     sentence_count: 15
     key_terms: [rounds, candidates, interviews, process, hiring, level, went, companies]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c3"
-    char_span: [5344, 7283]
+    char_span: [5343, 7282]
     sentence_count: 18
     key_terms: [interview, people, interviews, recruiter, job, rounds, entry, hired]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1qcuu8c.md#c4"
-    char_span: [7285, 8418]
+    char_span: [7284, 8417]
     sentence_count: 8
     key_terms: [interview, role, entry, level, required, hour, recruiter, morbidobsession6958]
     section: Comments

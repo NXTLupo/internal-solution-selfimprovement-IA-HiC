@@ -23,7 +23,7 @@ chunks:
     key_terms: [model, detection, injection, prompt, source, deeplearning, https, never]
     token_count: 445
   - id: "social-intelligence/reddit-deep/deeplearning/1skv8tw.md#c1"
-    char_span: [1819, 4046]
+    char_span: [1818, 4045]
     sentence_count: 16
     key_terms: [injection, turbulent-tap6723, residual, against, stream, benchmarks, prompt, supply]
     section: Comments

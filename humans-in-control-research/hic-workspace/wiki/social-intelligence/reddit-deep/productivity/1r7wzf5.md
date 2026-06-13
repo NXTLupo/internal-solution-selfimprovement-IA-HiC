@@ -23,7 +23,7 @@ chunks:
     key_terms: [accents, productivity, tools, understand, comments, meetings, issue, help]
     token_count: 203
   - id: "social-intelligence/reddit-deep/productivity/1r7wzf5.md#c1"
-    char_span: [969, 2537]
+    char_span: [968, 2536]
     sentence_count: 11
     key_terms: [accent, understanding, krisp, try, meetings, accents, meeting, indian]
     section: Comments

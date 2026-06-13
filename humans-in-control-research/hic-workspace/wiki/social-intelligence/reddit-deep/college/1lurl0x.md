@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, because, need, take, currently, semesters, comments, parents]
     token_count: 301
   - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c1"
-    char_span: [1313, 2092]
+    char_span: [1312, 2091]
     sentence_count: 8
     key_terms: [take, semesters, parents, yourself, okay, tell, time, told]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c2"
-    char_span: [2094, 3903]
+    char_span: [2093, 3902]
     sentence_count: 20
     key_terms: [time, tell, needed, dad, okay, because, classes, behind]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/college/1lurl0x.md#c3"
-    char_span: [3905, 5419]
+    char_span: [3904, 5418]
     sentence_count: 11
     key_terms: [because, college, parents, need, told, already, career, guilty]
     section: Comments

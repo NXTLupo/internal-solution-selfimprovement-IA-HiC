@@ -23,31 +23,31 @@ chunks:
     key_terms: [school, applyingtocollege, high, applications, grade, comments, students, college]
     token_count: 223
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c1"
-    char_span: [1019, 2957]
+    char_span: [1018, 2956]
     sentence_count: 13
     key_terms: [grade, entrance, college, gifted, userwest-0317, different, advanced, everyone]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c2"
-    char_span: [2959, 4588]
+    char_span: [2958, 4587]
     sentence_count: 11
     key_terms: [school, mit, ago, high, too, year, experience, graduated]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c3"
-    char_span: [4590, 6783]
+    char_span: [4589, 6782]
     sentence_count: 10
     key_terms: [less, time, top, year, because, admission, different, country]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c4"
-    char_span: [6523, 6833]
+    char_span: [6522, 6832]
     sentence_count: 2
     key_terms: [complicated, "you're", going, international, ilovecats39, birthday, overseas, college]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qmlgp5.md#c5"
-    char_span: [6836, 7192]
+    char_span: [6835, 7191]
     sentence_count: 5
     key_terms: [students, guardianship, accommodate, complicated, supervision, especially, obviously, boarding]
     section: Comments

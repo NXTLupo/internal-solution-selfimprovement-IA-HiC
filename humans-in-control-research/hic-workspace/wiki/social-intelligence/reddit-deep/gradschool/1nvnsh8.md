@@ -23,43 +23,43 @@ chunks:
     key_terms: [gradschool, comments, program, people, "don't", use, distribution, exponentials]
     token_count: 169
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c1"
-    char_span: [750, 1637]
+    char_span: [749, 1636]
     sentence_count: 8
     key_terms: [exactly, years, job, math, old-parking8765, undereducated, engineering, graduating]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c2"
-    char_span: [1639, 3725]
+    char_span: [1638, 3724]
     sentence_count: 13
     key_terms: [math, algebra, people, calculus, semester, because, school, taught]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c3"
-    char_span: [3727, 5657]
+    char_span: [3726, 5656]
     sentence_count: 18
     key_terms: ["don't", "i'm", taught, conditioning, like, test, use, understood]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c4"
-    char_span: [5659, 7368]
+    char_span: [5658, 7367]
     sentence_count: 7
     key_terms: [education, "it's", system, lot, algebra, because, problem, student]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c5"
-    char_span: [7370, 8824]
+    char_span: [7369, 8823]
     sentence_count: 7
     key_terms: [algebra, school, semester, grade, logarithms, geometry, graduate, because]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c6"
-    char_span: [8826, 10219]
+    char_span: [8825, 10218]
     sentence_count: 2
     key_terms: [everything, get, teacher, because, numbers, problem, "didn't", passed]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/gradschool/1nvnsh8.md#c7"
-    char_span: [10224, 11108]
+    char_span: [10223, 11107]
     sentence_count: 8
     key_terms: [school, bio, high, statistics, calculus, required, program, level]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [sliding, povertyfinance, afford, health, mental, scale, comments, session]
     token_count: 250
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c1"
-    char_span: [1042, 2666]
+    char_span: [1041, 2665]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c2"
-    char_span: [2668, 4640]
+    char_span: [2667, 4639]
     sentence_count: 16
     key_terms: [university, receipts, notyourlionheart, session, near, household, medicaid, because]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c3"
-    char_span: [4642, 4837]
+    char_span: [4641, 4836]
     sentence_count: 2
     key_terms: [counseling, different, sometimes, assigned, randomly, received, students, options]
     section: Comments
     token_count: 36
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c4"
-    char_span: [4839, 6995]
+    char_span: [4838, 6994]
     sentence_count: 19
     key_terms: [mental, services, health, get, nami, something, worthless, honestly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c5"
-    char_span: [6758, 7098]
+    char_span: [6757, 7097]
     sentence_count: 2
     key_terms: [advertised, throughout, available, community, knitwit3, pharmacy, services, virginia]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/povertyfinance/1rw69te.md#c6"
-    char_span: [7100, 8807]
+    char_span: [7099, 8806]
     sentence_count: 14
     key_terms: [too, get, assistance, kimkam1898, services, sliding, afford, health]
     section: Comments

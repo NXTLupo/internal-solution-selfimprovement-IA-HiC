@@ -23,25 +23,25 @@ chunks:
     key_terms: [students, professors, comments, teacher, class, come, help, job]
     token_count: 163
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c1"
-    char_span: [657, 1124]
+    char_span: [656, 1123]
     sentence_count: 3
     key_terms: [professor-genxer, encourage, attend, office, hours, advantage, professor, semester]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c2"
-    char_span: [1126, 3413]
+    char_span: [1125, 3412]
     sentence_count: 13
     key_terms: [students, teach, instructor, math, tutoring, college, instructors, cool]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c3"
-    char_span: [3415, 4869]
+    char_span: [3414, 4868]
     sentence_count: 10
     key_terms: [students, student, office, colleague, help, "i'm", going, concepts]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/professors/1qxth9d.md#c4"
-    char_span: [4871, 5639]
+    char_span: [4870, 5638]
     sentence_count: 6
     key_terms: [crisscrosscoyote, professor, exams, ask, qualitative, zoomtoastem, colleagues, othertimes]
     section: Comments

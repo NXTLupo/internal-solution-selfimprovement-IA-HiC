@@ -15,17 +15,17 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c0"
-    char_span: [0, 2185]
+    char_span: [0, 2184]
     sentence_count: 15
     key_terms: [college, people, university, something, applyingtocollege, going, prestigious, top]
-    token_count: 488
+    token_count: 487
   - id: "articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c1"
-    char_span: [2187, 4009]
+    char_span: [2186, 4008]
     sentence_count: 13
     key_terms: [kids, law, candidates, university, business, graduate, parents, school]
     token_count: 402
   - id: "articles/reddit-deep-r-applyingtocollege/725fcacda0.md#c2"
-    char_span: [4011, 6199]
+    char_span: [4010, 6198]
     sentence_count: 12
     key_terms: [attended, college, schools, colleagues, university, students, friends, attend]
     token_count: 445

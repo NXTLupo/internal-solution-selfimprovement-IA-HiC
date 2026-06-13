@@ -23,7 +23,7 @@ chunks:
     key_terms: ["we're", looking, double, housing, sublets, advice, neu, experience]
     token_count: 336
   - id: "social-intelligence/reddit-deep/neu/1o84wza.md#c1"
-    char_span: [1435, 1844]
+    char_span: [1434, 1843]
     sentence_count: 2
     key_terms: [double, redditor82536, solicitation, especially, facebook, jdsmagic, probably, whatever]
     section: Comments

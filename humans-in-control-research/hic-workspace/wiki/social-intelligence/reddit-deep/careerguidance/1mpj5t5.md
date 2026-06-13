@@ -23,13 +23,13 @@ chunks:
     key_terms: [careerguidance, advice, career, aged, comments, reddit-deep, popular, common]
     token_count: 117
   - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c1"
-    char_span: [436, 1916]
+    char_span: [435, 1915]
     sentence_count: 7
     key_terms: [people, since, like, anymore, because, working, advice, hiring]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1mpj5t5.md#c2"
-    char_span: [1918, 3304]
+    char_span: [1917, 3303]
     sentence_count: 12
     key_terms: [get, "you're", braincovey32, good, like, interviews, hundreds, degrees]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [tuition, comments, co-op, help, neu, influenceno442, reddit-deep, financial]
     token_count: 102
   - id: "social-intelligence/reddit-deep/neu/1samq5x.md#c1"
-    char_span: [377, 1672]
+    char_span: [376, 1671]
     sentence_count: 4
     key_terms: [adtough2930, influenceno442, classes, heard, money, take, yeah, graduate]
     section: Comments

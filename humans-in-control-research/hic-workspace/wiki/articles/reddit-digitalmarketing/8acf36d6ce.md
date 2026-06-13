@@ -15,10 +15,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-digitalmarketing/8acf36d6ce.md#c0"
-    char_span: [0, 1246]
+    char_span: [0, 1245]
     sentence_count: 8
     key_terms: [web, google, digitalmarketing, mode, own, overviews, reddit, search]
-    token_count: 279
+    token_count: 278
 ---
 # Google is quietly burying the internet
 

@@ -23,19 +23,19 @@ chunks:
     key_terms: [cps, comments, student, fenway, neu, disappointing, celebration, contributed]
     token_count: 147
   - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c1"
-    char_span: [623, 2708]
+    char_span: [622, 2707]
     sentence_count: 6
     key_terms: [cps, professionals, students, degree, time, admissions, education, undergrad]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c2"
-    char_span: [2434, 3756]
+    char_span: [2433, 3755]
     sentence_count: 10
     key_terms: [cps, "it's", programs, spawnofangels, part, time, different, college]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/neu/1kmh4dr.md#c3"
-    char_span: [3758, 4762]
+    char_span: [3757, 4761]
     sentence_count: 7
     key_terms: [cps, different, northeastern, graduation, colleges, students, fenway, "it's"]
     section: Comments

@@ -26,31 +26,31 @@ chunks:
     key_terms: [like, automate, saying, "you're", going, car, jobs, keep]
     token_count: 196
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c2"
-    char_span: [2980, 5054]
+    char_span: [2979, 5053]
     sentence_count: 13
     key_terms: [reset, going, makes, get, efficiency, mortgage, perfect, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c3"
-    char_span: [4818, 5577]
+    char_span: [4817, 5576]
     sentence_count: 5
     key_terms: [salary, reset, mortgage, security, lowest, prices, wonderfulvariation93, good]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c4"
-    char_span: [5579, 7466]
+    char_span: [5578, 7465]
     sentence_count: 13
     key_terms: [hiring, salaries, back, new, juniors, senior, alaskaexplorationgeo, available-range-5341]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c5"
-    char_span: [7468, 9489]
+    char_span: [7467, 9488]
     sentence_count: 11
     key_terms: [ibm, talent, earnings, company, senior, "don't", like, management]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r6hrfj.md#c6"
-    char_span: [9214, 10665]
+    char_span: [9213, 10664]
     sentence_count: 8
     key_terms: [appropriate-leg3965, fromafooltoawiseman, "don't", house, own, conversations, oz7tyubbs5sh6, appreciation]
     section: Comments

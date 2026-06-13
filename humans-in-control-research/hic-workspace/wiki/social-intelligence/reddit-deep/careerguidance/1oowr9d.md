@@ -23,7 +23,7 @@ chunks:
     key_terms: [future, get, careerguidance, design, remote, years, job, mechanical]
     token_count: 308
   - id: "social-intelligence/reddit-deep/careerguidance/1oowr9d.md#c1"
-    char_span: [1345, 1896]
+    char_span: [1344, 1895]
     sentence_count: 1
     key_terms: [engineering, remote, roles, like, computational, opportunities, development, automation]
     section: Comments

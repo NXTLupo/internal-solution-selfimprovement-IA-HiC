@@ -407,6 +407,11 @@ export const MODEL_REGISTRY: Record<string, ModelInfo> = {
     // upgrade over 4.7. Standard $5/$25 per 1M tokens, adaptive thinking by default,
     // 1M context window on the Anthropic API. Used by the journey-mapper service and
     // by anything that wants Opus-class reasoning at the new cheaper standard price.
+    // 2026-06-13 - Opus 4.8 is the chat-surface deliverable-generation model for
+    // artifact hashtags (Analyst Desk + Design Desk), a TEMPORARY stand-in for
+    // Claude Fable 5 (Anthropic temporarily banned Fable 5). Swap back to a
+    // 'claude-fable-5' entry + repoint the routing strings once the ban lifts;
+    // see plans/fable-to-opus-swap-2026-06-13.md.
     'claude-opus-4-8': {
         id: 'claude-opus-4-8', provider: 'anthropic', displayName: 'Claude Opus 4.8',
         vision: true, maxContext: 1_000_000, maxOutput: 64_000, costTier: 'premium'

@@ -28,49 +28,49 @@ chunks:
     key_terms: [job, month, pay, getting, afford, myself, people, trying]
     token_count: 278
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c2"
-    char_span: [2389, 3369]
+    char_span: [2388, 3368]
     sentence_count: 5
     key_terms: [public, physical-vapor, loans, work, forgiven, history, service, degree]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c3"
-    char_span: [3371, 5528]
+    char_span: [3370, 5527]
     sentence_count: 11
     key_terms: [student, discharged, loans, administration, public, trying, discharge, payment]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c4"
-    char_span: [5530, 7272]
+    char_span: [5529, 7271]
     sentence_count: 9
     key_terms: [loans, lender, credit, bankruptcy, student, circumstances, discharged, co-signer]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c5"
-    char_span: [7274, 9291]
+    char_span: [7273, 9290]
     sentence_count: 27
     key_terms: [loans, school, didn, loan, bankruptcy, financial, interest, military]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c6"
-    char_span: [9293, 11134]
+    char_span: [9292, 11133]
     sentence_count: 29
     key_terms: [loan, loans, garnishment, didn, like, per, manageable, something]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c7"
-    char_span: [11136, 13262]
+    char_span: [11135, 13261]
     sentence_count: 30
     key_terms: [year, abroad, moving, option, jobs, visa, countries, undergrad]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c8"
-    char_span: [13264, 14468]
+    char_span: [13263, 14467]
     sentence_count: 8
     key_terms: [private, loans, don, students, paying, job, pay, side]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/povertyfinance/1rpvuhv.md#c9"
-    char_span: [14470, 16476]
+    char_span: [14469, 16475]
     sentence_count: 17
     key_terms: [school, expensive, time, throwaway098424, degree, state, cost, get]
     section: Comments

@@ -31,49 +31,49 @@ chunks:
     key_terms: [logic, because, engineers, always, architecture, new, playground, hardware]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c3"
-    char_span: [5303, 7299]
+    char_span: [5302, 7298]
     sentence_count: 7
     key_terms: [because, chatgpt, hiring, senior, engineering, new, completely, companies]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c4"
-    char_span: [7301, 8492]
+    char_span: [7300, 8491]
     sentence_count: 8
     key_terms: [job, like, everyone, jamming, laying, string, original-poet1825, else]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c5"
-    char_span: [8495, 10471]
+    char_span: [8494, 10470]
     sentence_count: 13
     key_terms: [work, people, deterministic, bottlenecked, productivity, programmers, code, understand]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c6"
-    char_span: [10473, 12827]
+    char_span: [10472, 12826]
     sentence_count: 14
     key_terms: [quantum, deterministic, because, black, box, human, macroscopic, observation]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c7"
-    char_span: [12829, 15074]
+    char_span: [12828, 15073]
     sentence_count: 17
     key_terms: [probabilistic, deterministic, companies, "it's", system, need, subsystem, entirely]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c8"
-    char_span: [15076, 17168]
+    char_span: [15075, 17167]
     sentence_count: 10
     key_terms: [probability, "that's", engineers, correct, probabilistic, never, job, executives]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c9"
-    char_span: [17170, 19075]
+    char_span: [17169, 19074]
     sentence_count: 9
     key_terms: [expected, increase, replace, output, hyperaeolian, dev, decrease, possible]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq2wng.md#c10"
-    char_span: [19077, 20643]
+    char_span: [19076, 20642]
     sentence_count: 15
     key_terms: [need, developers, industries, production, demands, tractor, demand, farmer]
     section: Comments

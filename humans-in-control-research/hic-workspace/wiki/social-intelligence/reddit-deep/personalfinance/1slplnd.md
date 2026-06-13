@@ -23,7 +23,7 @@ chunks:
     key_terms: [personalfinance, looking, comments, finances, student, money, young, help]
     token_count: 182
   - id: "social-intelligence/reddit-deep/personalfinance/1slplnd.md#c1"
-    char_span: [794, 1958]
+    char_span: [793, 1957]
     sentence_count: 8
     key_terms: [personalfinance, budget, wiki, map, plan, bouncyegg, budgeting, financial]
     section: Comments

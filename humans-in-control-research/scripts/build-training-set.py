@@ -145,15 +145,85 @@ FAILURE_TEMPLATES = {
 }
 
 
+# ─── User-feedback folding (2026-06-12) ────────────────────────────────────
+# The FeedbackWidget's "Also train the skill (SkillOpt)" option marks text
+# feedback events with train_skill=true. They live in the wiki feedback
+# ledger (wiki/feedback/<engagement>/<deliverable_id>.jsonl). Fold them into
+# the matching kind's training set as LOW-SCORE failure trajectories carrying
+# the user's verbatim words in failures[] - the SkillOpt failure analyst sees
+# exactly what the user asked to change, and the proposed skill edits remain
+# gated by validate-candidate.
+
+# deliverable_type strings the widget emits -> training kinds.
+FEEDBACK_TYPE_TO_KIND = {
+    'journey': 'journey', 'journey-map': 'journey', 'journey_map': 'journey',
+    'blueprint': 'blueprint', 'service-blueprint': 'blueprint', 'service_blueprint': 'blueprint',
+    'persona': 'persona', 'personas': 'persona', 'persona-card': 'persona',
+    'gap': 'gap-analysis', 'gap-analysis': 'gap-analysis', 'gap_analysis': 'gap-analysis',
+    'roadmap': 'roadmap', 'timeline': 'roadmap',
+    'recommendation': 'recommendation', 'recommendations': 'recommendation', 'recs': 'recommendation',
+    'deck': 'strategy-slide', 'slides': 'strategy-slide', 'themes': 'strategy-slide',
+    'theme-cluster': 'strategy-slide', 'strategy-slide': 'strategy-slide',
+}
+
+
+def collect_feedback_trajectories(feedback_base):
+    """Walk the feedback ledger; return {kind: [trajectory, ...]} for
+    train_skill=true text events. Malformed lines are skipped silently
+    (the ledger is append-only JSONL written by many sessions)."""
+    by_kind = {}
+    if not feedback_base or not os.path.isdir(feedback_base):
+        return by_kind
+    for root, _dirs, files in os.walk(feedback_base):
+        for fn in files:
+            if not fn.endswith('.jsonl'):
+                continue
+            try:
+                with open(os.path.join(root, fn), 'r', encoding='utf-8') as f:
+                    for line in f:
+                        line = line.strip()
+                        if not line:
+                            continue
+                        try:
+                            ev = json.loads(line)
+                        except Exception:
+                            continue
+                        if not ev.get('train_skill') or not (ev.get('text_value') or '').strip():
+                            continue
+                        kind = FEEDBACK_TYPE_TO_KIND.get(str(ev.get('deliverable_type') or '').lower())
+                        if not kind:
+                            continue
+                        scope = ev.get('section_scope')
+                        by_kind.setdefault(kind, []).append({
+                            'id': f"user-feedback-{ev.get('id') or 'unknown'}",
+                            'task_summary': f"Generate {kind} artifact (user feedback signal"
+                                            f"{', section: ' + scope if scope else ''})",
+                            'output': '',
+                            'score': 0.3,  # below the 0.6 failure threshold -> failure pool
+                            'sub_scores': {},
+                            'failures': [f"USER FEEDBACK (verbatim): {ev['text_value'].strip()}"],
+                        })
+            except Exception:
+                continue
+    return by_kind
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--real-rollouts-dir', required=True)
     p.add_argument('--out-dir', required=True)
     p.add_argument('--kinds', default='journey,blueprint,persona,gap-analysis,roadmap,recommendation,strategy-slide')
+    p.add_argument('--feedback-base', default=None,
+                   help='wiki/feedback ledger root; train_skill=true text events fold in as failure trajectories')
     args = p.parse_args()
 
     kinds = [k.strip() for k in args.kinds.split(',') if k.strip()]
     os.makedirs(args.out_dir, exist_ok=True)
+
+    feedback_by_kind = collect_feedback_trajectories(args.feedback_base)
+    if feedback_by_kind:
+        total_fb = sum(len(v) for v in feedback_by_kind.values())
+        print(f'user-feedback signals folded in: {total_fb} across {sorted(feedback_by_kind.keys())}')
 
     # Load scorer
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -183,7 +253,7 @@ def main():
                 'failures': score['failures'],
             })
 
-        merged = real_rollouts + synthetic_rollouts
+        merged = real_rollouts + synthetic_rollouts + feedback_by_kind.get(kind, [])
         if not merged:
             print(f'SKIP {kind}: no rollouts to merge')
             continue

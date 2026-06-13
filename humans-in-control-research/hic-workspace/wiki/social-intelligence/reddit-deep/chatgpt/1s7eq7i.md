@@ -23,13 +23,13 @@ chunks:
     key_terms: [chatgpt, comments, reddit-deep, vibecoding, research, obvious, absurd, agents]
     token_count: 115
   - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c1"
-    char_span: [407, 2336]
+    char_span: [406, 2335]
     sentence_count: 13
     key_terms: [openai, please, conversation, image, post, r-chatgpt-1050422060352024636, everything, subreddit]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/chatgpt/1s7eq7i.md#c2"
-    char_span: [2338, 2722]
+    char_span: [2337, 2721]
     sentence_count: 3
     key_terms: [work, parallelization, configurations, simultaneously, sub-agents, synthesize, different, storming]
     section: Comments

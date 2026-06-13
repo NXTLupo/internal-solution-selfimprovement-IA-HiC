@@ -15,17 +15,17 @@ industries: [financial_services, real_estate]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c0"
-    char_span: [0, 2057]
+    char_span: [0, 2056]
     sentence_count: 18
     key_terms: [crypto, coin, meme, because, value, generations, genz, new]
-    token_count: 447
+    token_count: 446
   - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c1"
-    char_span: [2059, 3854]
+    char_span: [2058, 3853]
     sentence_count: 16
     key_terms: [spx6900, financial, dissatisfaction, stopped, occupy, street, system, wall]
     token_count: 419
   - id: "articles/reddit-deep-r-genz/67f5e4adbb.md#c2"
-    char_span: [3856, 4555]
+    char_span: [3855, 4554]
     sentence_count: 1
     key_terms: [pull, rug, future-bet4783, because, simple-designer-4121, lol, cs81jh434mpf1, investigate]
     token_count: 217

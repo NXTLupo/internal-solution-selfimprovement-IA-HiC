@@ -23,19 +23,19 @@ chunks:
     key_terms: [passion, people, work, "doesn't", careerguidance, career, enough, job]
     token_count: 279
   - id: "social-intelligence/reddit-deep/careerguidance/1rfnbp8.md#c1"
-    char_span: [1230, 3157]
+    char_span: [1229, 3156]
     sentence_count: 7
     key_terms: [passion, people, something, advice, good, like, work, asking]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1rfnbp8.md#c2"
-    char_span: [3159, 5217]
+    char_span: [3158, 5216]
     sentence_count: 13
     key_terms: [passion, job, tolerate, work, best, feel, people, passionate]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careerguidance/1rfnbp8.md#c3"
-    char_span: [5219, 6005]
+    char_span: [5218, 6004]
     sentence_count: 4
     key_terms: [something, want, interested, enough, skills, forsaken-garlic817, love, time]
     section: Comments

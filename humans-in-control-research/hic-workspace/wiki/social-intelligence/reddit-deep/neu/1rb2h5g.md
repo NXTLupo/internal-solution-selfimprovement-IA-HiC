@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rb2h5g.md#c0"
-    char_span: [0, 1233]
+    char_span: [0, 1232]
     sentence_count: 10
     key_terms: [scholars, nyc, scholarships, accepted, comments, daughter, external, programs]
-    token_count: 282
+    token_count: 281
 ---
 # External Scholarships accepted for NYC Scholars, London Scholars, Oakland campus, etc?
 

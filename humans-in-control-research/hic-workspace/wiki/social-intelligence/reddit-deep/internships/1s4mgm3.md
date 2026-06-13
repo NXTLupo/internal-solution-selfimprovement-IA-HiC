@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, comments, reddit-deep, advice, posted, reddit, source, co-op]
     token_count: 84
   - id: "social-intelligence/reddit-deep/internships/1s4mgm3.md#c1"
-    char_span: [279, 664]
+    char_span: [278, 663]
     sentence_count: 1
     key_terms: [companies, sweet-frosting4839, fall, internshipdaily, international, sponsorship, definitely, targeting]
     section: Comments

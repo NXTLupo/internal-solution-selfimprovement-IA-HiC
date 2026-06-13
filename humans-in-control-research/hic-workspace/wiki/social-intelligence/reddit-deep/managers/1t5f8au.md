@@ -23,31 +23,31 @@ chunks:
     key_terms: [director, managers, been, team, comments, sitting, reddit, early]
     token_count: 222
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c1"
-    char_span: [981, 2475]
+    char_span: [980, 2474]
     sentence_count: 9
     key_terms: [director, employee, termination, cause, doing, atty, case, documentation]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c2"
-    char_span: [2477, 4018]
+    char_span: [2476, 4017]
     sentence_count: 8
     key_terms: [director, employee, accountable, team, situation, company, teams, thekingofswing777]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c3"
-    char_span: [4021, 5982]
+    char_span: [4020, 5981]
     sentence_count: 8
     key_terms: [time, team, employees, business, director, employee, allow, doing]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c4"
-    char_span: [5984, 8050]
+    char_span: [5983, 8049]
     sentence_count: 15
     key_terms: [good, time, because, behavior, employee, manager, always, longer]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/managers/1t5f8au.md#c5"
-    char_span: [8052, 9128]
+    char_span: [8051, 9127]
     sentence_count: 9
     key_terms: [early, employee, leaves, worked, came, late, soupboyfanclub, conversation]
     section: Comments

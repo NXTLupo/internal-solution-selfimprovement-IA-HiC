@@ -28,7 +28,7 @@ chunks:
     key_terms: [passed, leadership, surprised, strategy, highest, talent, acquisition, management]
     token_count: 125
   - id: "social-intelligence/reddit-deep/humanresources/1seagcl.md#c2"
-    char_span: [2445, 3301]
+    char_span: [2444, 3300]
     sentence_count: 8
     key_terms: [congratulations, glum-manufacturer-21, congrats, thank, mine, greedy-canary-5807, salty-mortgage9738, hope]
     section: Comments

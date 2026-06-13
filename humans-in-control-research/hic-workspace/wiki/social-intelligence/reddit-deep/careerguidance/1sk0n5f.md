@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, underqualified, engineering, reddit-deep, guidance, provide, someone]
     token_count: 96
   - id: "social-intelligence/reddit-deep/careerguidance/1sk0n5f.md#c1"
-    char_span: [356, 1339]
+    char_span: [355, 1338]
     sentence_count: 5
     key_terms: [want, strengths, current, problem-action-result, feel, job, role, underqualified]
     section: Comments

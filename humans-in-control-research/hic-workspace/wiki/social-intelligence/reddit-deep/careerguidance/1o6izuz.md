@@ -23,7 +23,7 @@ chunks:
     key_terms: [job, careerguidance, career, error, comments, learning, costing, costed]
     token_count: 222
   - id: "social-intelligence/reddit-deep/careerguidance/1o6izuz.md#c1"
-    char_span: [953, 2740]
+    char_span: [952, 2739]
     sentence_count: 15
     key_terms: [talltelevision4121, response, taboverspaces, fired, interviews, because, geocsw, resume]
     section: Comments

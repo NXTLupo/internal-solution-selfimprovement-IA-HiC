@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, applications, internship, comments, next-garbage9163, unfortunately, reddit-deep, applicants]
     token_count: 162
   - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c1"
-    char_span: [694, 2215]
+    char_span: [693, 2214]
     sentence_count: 4
     key_terms: [apps, hazeltail13, major, offer, conversion, internship, interview, something]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c2"
-    char_span: [2218, 4182]
+    char_span: [2217, 4181]
     sentence_count: 13
     key_terms: [resume, tailor, resumes, applications, applying, applied, science, "didn't"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/internships/1rasxsm.md#c3"
-    char_span: [4184, 5424]
+    char_span: [4183, 5423]
     sentence_count: 5
     key_terms: [got, internships, applying, applied, months, offer, takes, askaltruistic4582]
     section: Comments

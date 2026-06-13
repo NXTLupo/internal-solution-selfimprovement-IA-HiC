@@ -23,31 +23,31 @@ chunks:
     key_terms: [wallstreetbets, months, going, good, comments, chatgpt, savings, youtube]
     token_count: 390
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c1"
-    char_span: [1643, 1847]
+    char_span: [1642, 1846]
     sentence_count: 1
     key_terms: [total, years, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c2"
-    char_span: [1849, 3542]
+    char_span: [1848, 3541]
     sentence_count: 6
     key_terms: [half, wife, pegging, girlfriend, splitting, accident, deleted, discord]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c3"
-    char_span: [3333, 4401]
+    char_span: [3332, 4400]
     sentence_count: 3
     key_terms: [png, f6fb9bb46d2a5836ff8ae28c739bab62b3598143, post, wife, deleted, preview, format, aussie-mountainbiker]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c4"
-    char_span: [4403, 5672]
+    char_span: [4402, 5671]
     sentence_count: 8
     key_terms: [chatgpt, regarded, jjolliffe, imagine, "it's", png, fliesenschieber, self-fulfilling]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o5swmc.md#c5"
-    char_span: [5674, 7077]
+    char_span: [5673, 7076]
     sentence_count: 5
     key_terms: [congrats, jjolliffe, deleted, quantum, miktoo, alternative-park-841, couch, gunnawunna1111117]
     section: Comments

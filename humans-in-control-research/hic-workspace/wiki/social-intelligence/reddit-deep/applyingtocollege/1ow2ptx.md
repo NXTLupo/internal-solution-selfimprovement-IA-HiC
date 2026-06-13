@@ -23,13 +23,13 @@ chunks:
     key_terms: [applyingtocollege, college, got, acceptance, comments, reaction, "i'm", international]
     token_count: 178
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c1"
-    char_span: [748, 2628]
+    char_span: [747, 2627]
     sentence_count: 13
     key_terms: [congratulations, state, school, penn, congrats, happy, fall, fun]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ow2ptx.md#c2"
-    char_span: [2393, 3105]
+    char_span: [2392, 3104]
     sentence_count: 6
     key_terms: [congrats, congratulations, got, acceptance, state, aureliaaubreeastor, haunting-fruit7154, secrerofficeninja]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [current, like, careerguidance, opportunity, feel, aerospace, choosing, comments]
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c1"
-    char_span: [1405, 3030]
+    char_span: [1404, 3029]
     sentence_count: 13
     key_terms: [respect, answer, place, stay, question, new, want, counter]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c2"
-    char_span: [3032, 5371]
+    char_span: [3031, 5370]
     sentence_count: 12
     key_terms: [commute, current, systems, family, years, good, job, life]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c3"
-    char_span: [5373, 6473]
+    char_span: [5372, 6472]
     sentence_count: 8
     key_terms: [anything, decision, future, raises, value, did, pay, year]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c4"
-    char_span: [6475, 7820]
+    char_span: [6474, 7819]
     sentence_count: 11
     key_terms: [higher, offer, new, increase, current, sense, hcol, rent]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c5"
-    char_span: [7822, 9778]
+    char_span: [7821, 9777]
     sentence_count: 13
     key_terms: [offer, company, keep, because, counter, years, job, aerospace]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/careerguidance/1mrxspz.md#c6"
-    char_span: [9780, 10767]
+    char_span: [9779, 10766]
     sentence_count: 7
     key_terms: [professional, current, asking, career, enjoy, looking-to-improve, good, "it's"]
     section: Comments

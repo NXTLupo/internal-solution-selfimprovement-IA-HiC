@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1rp6x0f.md#c0"
-    char_span: [0, 1860]
+    char_span: [0, 1859]
     sentence_count: 11
     key_terms: [codegraphcontext, code, playground, github, graph, https, agents, relationships]
-    token_count: 416
+    token_count: 415
 ---
 # CodeGraphContext (An MCP server that indexes local code into a graph database) now has a website playground for experiments
 

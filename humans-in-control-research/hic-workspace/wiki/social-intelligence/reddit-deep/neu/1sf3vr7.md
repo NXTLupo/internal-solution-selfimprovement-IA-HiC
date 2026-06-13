@@ -21,13 +21,13 @@ chunks:
     key_terms: [semesters, tuition, years, comments, total, adsubstantial3900, neu, international]
     token_count: 166
   - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c1"
-    char_span: [666, 2282]
+    char_span: [665, 2281]
     sentence_count: 7
     key_terms: [undergraduate-co-op-process, credits, northeastern, summer, semesters, scholarships, https, years]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/neu/1sf3vr7.md#c2"
-    char_span: [2284, 3806]
+    char_span: [2283, 3805]
     sentence_count: 6
     key_terms: [requirements, classes, credits, summer, adsubstantial3900, semester, crashanicoot, semesters]
     section: Comments

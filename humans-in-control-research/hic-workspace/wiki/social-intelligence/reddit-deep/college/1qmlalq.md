@@ -26,19 +26,19 @@ chunks:
     key_terms: [degree, emails, email, university, receiving, requirements, list, graduation]
     token_count: 459
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c2"
-    char_span: [4132, 6387]
+    char_span: [4131, 6386]
     sentence_count: 16
     key_terms: [advisor, graduation, graduate, application, active, semester, applied, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c3"
-    char_span: [6102, 7123]
+    char_span: [6101, 7122]
     sentence_count: 11
     key_terms: [graduation, degree, grades, institution, "registrar's", depending, graduated, registrar]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/college/1qmlalq.md#c4"
-    char_span: [7125, 9276]
+    char_span: [7124, 9275]
     sentence_count: 14
     key_terms: [graduation, "i've", requirements, students, courses, degree, "you're", hours]
     section: Comments

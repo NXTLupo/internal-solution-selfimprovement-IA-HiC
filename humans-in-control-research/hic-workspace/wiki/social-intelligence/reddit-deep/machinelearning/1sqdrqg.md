@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/machinelearning/1sqdrqg.md#c0"
-    char_span: [0, 1702]
+    char_span: [0, 1701]
     sentence_count: 6
     key_terms: [spatially-grounded, text, machinelearning, dataset, verification, flash, https, model]
-    token_count: 413
+    token_count: 412
   - id: "social-intelligence/reddit-deep/machinelearning/1sqdrqg.md#c1"
-    char_span: [1704, 2542]
+    char_span: [1703, 2541]
     sentence_count: 5
     key_terms: [looking, process, hyperparameter-searchy, less, loop, human-grounded, autoresearch, bootstrapped]
     token_count: 170

@@ -21,43 +21,43 @@ chunks:
     key_terms: [careerguidance, comments, doubling, career, salary, worth, years, away]
     token_count: 316
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c1"
-    char_span: [1205, 2410]
+    char_span: [1204, 2409]
     sentence_count: 9
     key_terms: [years, school, med, neglected, together, careers, anyway, either]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c2"
-    char_span: [2412, 4452]
+    char_span: [2411, 4451]
     sentence_count: 12
     key_terms: [years, school, like, time, work, long-distance, crazy, hours]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c3"
-    char_span: [4177, 4467]
+    char_span: [4176, 4466]
     sentence_count: 1
     key_terms: [probably, anyway, crazy, hours, perspective, resentful, grinding, honestly]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c4"
-    char_span: [4472, 6237]
+    char_span: [4471, 6236]
     sentence_count: 13
     key_terms: [relationship, school, want, retirement, different, telling, either, people]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c5"
-    char_span: [6239, 7042]
+    char_span: [6238, 7041]
     sentence_count: 5
     key_terms: [early, sub, no-garlic-4713, okcomputer1996, rockerlitter, tunesoft7119, hawthorne3d, tankorsmash]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c6"
-    char_span: [7044, 8664]
+    char_span: [7043, 8663]
     sentence_count: 15
     key_terms: [fiance, weekend, fezcabdriver, pay, spot, motorcycle, residency, because]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1qx2e1i.md#c7"
-    char_span: [8666, 9399]
+    char_span: [8665, 9398]
     sentence_count: 9
     key_terms: [residency, personal-cucumber-63, "true", overestimating, chocomcchunky, selectcattle, specialties, helicopter]
     section: Comments

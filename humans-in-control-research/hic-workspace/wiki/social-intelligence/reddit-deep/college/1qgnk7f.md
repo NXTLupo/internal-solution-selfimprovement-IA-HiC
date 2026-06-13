@@ -26,31 +26,31 @@ chunks:
     key_terms: [somebody, get, like, ridiculous, something, undergrad, anything, checking]
     token_count: 73
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c2"
-    char_span: [2392, 4245]
+    char_span: [2391, 4244]
     sentence_count: 18
     key_terms: [class, syllabus, slowishsheepherder, ccs, real, classes, college, faculty]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c3"
-    char_span: [4247, 6300]
+    char_span: [4246, 6299]
     sentence_count: 20
     key_terms: [professors, syllabus, reviews, school, best, department, everybody, sometimes]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c4"
-    char_span: [6302, 7070]
+    char_span: [6301, 7069]
     sentence_count: 5
     key_terms: [course, focused, always, professional-117, materials--you, interpersonal, evolutionary, evaluations]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c5"
-    char_span: [7072, 8704]
+    char_span: [7071, 8703]
     sentence_count: 15
     key_terms: [department, major, get, psychology, different, disagree, "you're", chair]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/college/1qgnk7f.md#c6"
-    char_span: [8706, 10901]
+    char_span: [8705, 10900]
     sentence_count: 15
     key_terms: [people, course, cream, correlation, eat, get, ice, like]
     section: Comments

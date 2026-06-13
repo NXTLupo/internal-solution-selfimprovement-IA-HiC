@@ -23,13 +23,13 @@ chunks:
     key_terms: [experience, internship, engineeringstudents, unpaid, like, work, comments, everyone]
     token_count: 296
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8ndq2.md#c1"
-    char_span: [1311, 2919]
+    char_span: [1310, 2918]
     sentence_count: 12
     key_terms: [research, undergraduate, internship, something, minimum, looked, opportunities, tortoise4132]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t8ndq2.md#c2"
-    char_span: [2922, 4347]
+    char_span: [2921, 4346]
     sentence_count: 9
     key_terms: [experience, internship, summer, "you're", like, especially, freshman, company]
     section: Comments

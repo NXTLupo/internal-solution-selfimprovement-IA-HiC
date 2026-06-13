@@ -28,49 +28,49 @@ chunks:
     key_terms: [university, community, across, state, california, together, mission, working]
     token_count: 287
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c2"
-    char_span: [3817, 5281]
+    char_span: [3816, 5280]
     sentence_count: 6
     key_terms: [faculty, names, ubiquity75, berkeley, several, trying, beneficial-jump-3877, university-business]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c3"
-    char_span: [5283, 7267]
+    char_span: [5282, 7266]
     sentence_count: 12
     key_terms: [harvard, columbia, people, system, whole, believe, public, unfuckingbelievable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c4"
-    char_span: [6998, 8743]
+    char_span: [6997, 8742]
     sentence_count: 10
     key_terms: [enrollment, students, harvard, leaning, speech, system, beneficial-jump-3877, behind-the-scenes]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c5"
-    char_span: [8745, 10441]
+    char_span: [8744, 10440]
     sentence_count: 7
     key_terms: [speech, free, conservative, disparaged, leaning, popular, reality, cityofdestinyunbound]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c6"
-    char_span: [10443, 11821]
+    char_span: [10442, 11820]
     sentence_count: 11
     key_terms: [federal, demand, trump, federally-demanded, rinsedryrepeat, second-largest, long-standing, constitution]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c7"
-    char_span: [11823, 13014]
+    char_span: [11822, 13013]
     sentence_count: 8
     key_terms: [people, cityofdestinyunbound, being, fact, nocuzzlikeyea13, administration, darthjarjarjar, rinsedryrepeat]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c8"
-    char_span: [13016, 15289]
+    char_span: [13015, 15288]
     sentence_count: 21
     key_terms: [power, congressional, republicans, dems, democracy, essie7888, anything, serving]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/professors/1ni21do.md#c9"
-    char_span: [15291, 17204]
+    char_span: [15290, 17203]
     sentence_count: 18
     key_terms: [don, ubiquity75, post, "i'm", harvard, supreme, behind, social]
     section: Comments

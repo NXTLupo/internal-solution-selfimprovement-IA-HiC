@@ -23,19 +23,19 @@ chunks:
     key_terms: [gemini, login, passkey, stuck, able, app, browser, chrome]
     token_count: 399
   - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c1"
-    char_span: [1744, 3526]
+    char_span: [1743, 3525]
     sentence_count: 16
     key_terms: [passkey, mobile, app, device, device-specific, devices, create, auntietd]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c2"
-    char_span: [3529, 5322]
+    char_span: [3528, 5321]
     sentence_count: 21
     key_terms: [auntietd, email, passkey, locked, account, gemini, hey, rooting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gemini/1lf9e1z.md#c3"
-    char_span: [5089, 5347]
+    char_span: [5088, 5346]
     sentence_count: 5
     key_terms: [iphone, locked, clarify, passkey, windows, laptop, thanks, brain]
     section: Comments

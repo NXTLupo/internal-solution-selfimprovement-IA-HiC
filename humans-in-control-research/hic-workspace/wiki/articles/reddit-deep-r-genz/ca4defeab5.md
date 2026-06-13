@@ -15,12 +15,12 @@ industries: [financial_services, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/ca4defeab5.md#c0"
-    char_span: [0, 1915]
+    char_span: [0, 1914]
     sentence_count: 14
     key_terms: [nobody, school, teach, genz, comments, contract, marriage, property]
-    token_count: 429
+    token_count: 428
   - id: "articles/reddit-deep-r-genz/ca4defeab5.md#c1"
-    char_span: [1917, 2676]
+    char_span: [1916, 2675]
     sentence_count: 5
     key_terms: [school, too, teaching, alegbra, because, people, apartmentworried5692, yeah]
     token_count: 192

@@ -33,31 +33,31 @@ chunks:
     key_terms: [energy, oil, renewable, large, whilst, reductions, trump, term]
     token_count: 484
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c3"
-    char_span: [7137, 7226]
+    char_span: [7136, 7225]
     sentence_count: 1
     key_terms: [including, positions, "should've", removed, ago, been]
     section: Comments
     token_count: 26
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c4"
-    char_span: [7228, 9036]
+    char_span: [7227, 9035]
     sentence_count: 4
     key_terms: [iran, oil, companies, insider, comprehensivedoor130, no-understanding2406, price, sectorratiogeneral]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c5"
-    char_span: [8849, 9207]
+    char_span: [8848, 9206]
     sentence_count: 1
     key_terms: [iran, no-understanding2406, museum-quality, shotbandicoot7, overpriced, genuinely, headlines, bombing]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c6"
-    char_span: [9209, 11308]
+    char_span: [9208, 11307]
     sentence_count: 7
     key_terms: [years, oil, "you're", fundamentals, gonna, gdp, perfectly, probably]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rgt09f.md#c7"
-    char_span: [11310, 11805]
+    char_span: [11309, 11804]
     sentence_count: 1
     key_terms: [like, aged, milk, astronomical, invalidated, sillyhands1, definitely, enfuego138]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: ["don't", "i'm", like, gradschool, statement, comments, personal, because]
     token_count: 189
   - id: "social-intelligence/reddit-deep/gradschool/1p15zzz.md#c1"
-    char_span: [817, 3132]
+    char_span: [816, 3131]
     sentence_count: 13
     key_terms: [field, top, school, grades, unique, undergrad, passion, experiences]
     section: Comments

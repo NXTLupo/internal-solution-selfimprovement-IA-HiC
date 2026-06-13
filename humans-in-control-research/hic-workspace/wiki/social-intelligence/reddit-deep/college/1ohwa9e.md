@@ -23,7 +23,7 @@ chunks:
     key_terms: [online, class, in-person, question, college, psych, been, does]
     token_count: 410
   - id: "social-intelligence/reddit-deep/college/1ohwa9e.md#c1"
-    char_span: [1879, 2852]
+    char_span: [1878, 2851]
     sentence_count: 8
     key_terms: [doing, lab, research, phd, knewtoff, because, program, around]
     section: Comments

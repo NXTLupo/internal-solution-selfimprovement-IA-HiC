@@ -7,15 +7,13 @@ subreddit: "engineeringstudents"
 title: "Sick of being unable to get an internship"
 author: "Mediocre_Let4544"
 date: "2026-03-17T20:33:55.000Z"
-score: 133
+score: 136
 upvote_ratio: 1
 num_comments: 42
 flair: "Rant/Vent"
-extracted_at: "2026-05-25T18:32:19.219Z"
+extracted_at: "2026-06-08T18:49:20.730Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c0"
     char_span: [0, 1806]
@@ -23,31 +21,31 @@ chunks:
     key_terms: [internships, engineeringstudents, connections, get, got, internship, interviews, comments]
     token_count: 410
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c1"
-    char_span: [1821, 3567]
+    char_span: [1821, 3566]
     sentence_count: 20
     key_terms: [resume, probably, better, apply, cycle, space, white, job]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c2"
-    char_span: [3569, 5166]
+    char_span: [3568, 5165]
     sentence_count: 14
     key_terms: [resume, semiconductors, industry, semiconductor, experience, don, put, coursework]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c3"
-    char_span: [5168, 6381]
+    char_span: [5167, 6380]
     sentence_count: 9
     key_terms: [job, applying, nepotism, better, market, sucks, get, like]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c4"
-    char_span: [6383, 8608]
+    char_span: [6382, 8607]
     sentence_count: 14
     key_terms: [research, engineering, internships, positions, did, get, differentlow4875, don]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwijul.md#c5"
-    char_span: [8610, 9947]
+    char_span: [8609, 9946]
     sentence_count: 10
     key_terms: [engineering, work, interview, industry, personal, students, anyone, doesn]
     section: Comments
@@ -56,7 +54,7 @@ chunks:
 # Sick of being unable to get an internship
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rwijul/sick_of_being_unable_to_get_an_internship/)
-Posted by **Mediocre_Let4544** · **133↑** · **42 comments**
+Posted by **Mediocre_Let4544** · **136↑** · **42 comments**
 
 I’m 22F and in my last semester of ME. I’m pursuing my master’s and still cannot get a single internship. I’ve applied to nearly 200+ since Oct/Nov and it’s so discouraging. Always either ghosted or I get an email something along the lines of “We regret to inform you…”I know people who have less experience and connections than me and got internships even when only applying to less than ten positions. It’s pissing me off so much seeing freshman who barely have any engineering knowledge land technical internships that I would be perfect for. 
 
@@ -73,8 +71,8 @@ I personally felt it too for a while. I eventually did learn how to apply better
 There is resume advice you’ll get at a career center - but there is a better way to do it. Trust me, there are very specific rules I found to write one that’s highly effective both visually and technically. You also must apply very early if you apply online and hopefully to a role with some degree of MechE relevance with a resume that clearly sells you to that industry. Trust me, you can do it even without direct experience.
 
 I personally got 20 ish interview invites this cycle, and my friends who I did their resumes for also got 15+. There’s a way. DM me.
-  - **Sad-Split-7115** (10↑): Can you give us general methods
-    - **Thicc-Zacc** (40↑): Well, this may be a long read.
+  - **Sad-Split-7115** (9↑): Can you give us general methods
+    - **Thicc-Zacc** (39↑): Well, this may be a long read.
 
 Formatting:
 
@@ -106,16 +104,16 @@ Tailoring and content:
 
 -Key takeaway: Tailor to the industry you are applying to, not the particular job description by finding random keywords you think may or may not be valuable. It’ll be much more genuine when you do that, and that works.
 - **Forsaken_Alps_4421** (17↑): It sucks man, unfortunately I see that with a lot of other MEs at my school. Like the other comment said, I think you should look into branching out, see if you have better luck with tangential industries that have a better market right now
-  - **Mediocre_Let4544** (4↑): This job market sucks so much. I tried applying to stuff engineering adjacent, like consulting, technical work, lab assistant, etc..but nothing yet :(
-- **Ray_RG_YT** (13↑): I totally get the feeling. I’m a third year ME with a minor in Materials. I quite literally applied to the same job as my friend and he gets an interview while I get auto rejected by the system despite me having more experience, references, and projects. We even made our resumes and cover letters together (as in, we used the same techniques we learned). I’ve even pulled the nepotism card and it didn’t help, so other nepotism cases must be extraordinarily rare. It’s just painful numbers game in today’s economy.
+  - **Mediocre_Let4544** (6↑): This job market sucks so much. I tried applying to stuff engineering adjacent, like consulting, technical work, lab assistant, etc..but nothing yet :(
+- **Ray_RG_YT** (14↑): I totally get the feeling. I’m a third year ME with a minor in Materials. I quite literally applied to the same job as my friend and he gets an interview while I get auto rejected by the system despite me having more experience, references, and projects. We even made our resumes and cover letters together (as in, we used the same techniques we learned). I’ve even pulled the nepotism card and it didn’t help, so other nepotism cases must be extraordinarily rare. It’s just painful numbers game in today’s economy.
 
 My 2¢ on interning before graduation is that I’ve pretty much decided if I don’t get an internship I’ll just become an engineering technician post-graduation and get an engineering job with an internal application.
 - **nctrnalantern** (18↑): Genuinely fuck internship hunting, I honestly agree with just shooting random applications, would shoot for early/mid career positions too atp, after 200+ you’re really not losing anything especially if you’ve already expanded your career/geographical area and still haven’t gotten a bite back
-- **Lysol3435** (7↑): It’s a little late now, but next year look into national labs. Lots of them take summer students or even have summer school programs (they pay you to attend) that will help you make connections and get experience.
-- **AnxiousthrowawayME** (2↑): Look into marine engineering
-- **DifferentLow4875** (2↑): Did college without any internships and landed interviews with apple, spacex blueorigin tesla and Amazon for full time positions after college. Companies just care about experience. In my case i had some circumstances why i couldnt do internships so i was heavily involved in clubs/research. Didnt do grad studies either. There are a lot more full time positions than there are internships anyways so mass apply when u graduate and u should be good
+- **Lysol3435** (9↑): It’s a little late now, but next year look into national labs. Lots of them take summer students or even have summer school programs (they pay you to attend) that will help you make connections and get experience.
+- **DifferentLow4875** (3↑): Did college without any internships and landed interviews with apple, spacex blueorigin tesla and Amazon for full time positions after college. Companies just care about experience. In my case i had some circumstances why i couldnt do internships so i was heavily involved in clubs/research. Didnt do grad studies either. There are a lot more full time positions than there are internships anyways so mass apply when u graduate and u should be good
   - **Mediocre_Let4544** (1↑): What kinds of clubs/research did you do? One of my interests is pharmaceuticals but I’ve found it difficult to find anything that combines ME and bio, much less even landing a position. I’m planning to do research when I start my master’s next semester and I need some ideas.
-    - **DifferentLow4875** (2↑): Im EE not ME. My school had a club where they built a car. Was the electrical lead for that. Also did research with a professor. Then did some personal projects which was just me doing stuff off of youtube video.
+    - **DifferentLow4875** (3↑): Im EE not ME. My school had a club where they built a car. Was the electrical lead for that. Also did research with a professor. Then did some personal projects which was just me doing stuff off of youtube video.
+- **AnxiousthrowawayME** (2↑): Look into marine engineering
 - **Dangerous_Session612** (2↑): 😂 that’s Life Pal…. Don’t believe the identity politics….. and don’t let it get you down….. when I graduated in 2004 there were over 70,000 competitors in my field…. And when I finally got a job my “work was perfect” - and I looked at the floor there were over 200 ppl more qualified and more discipline than me for management…. 
 
 We may have a spot, let’s jump on a call to see if there’s a fit.

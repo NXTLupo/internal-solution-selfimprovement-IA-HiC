@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gpt/4ce4c1ed2b.md#c0"
-    char_span: [0, 1396]
+    char_span: [0, 1395]
     sentence_count: 10
     key_terms: [chatgpt, consciousness, self, motivation, self-aware, comments, continue, gaining]
-    token_count: 343
+    token_count: 342
   - id: "articles/reddit-deep-r-gpt/4ce4c1ed2b.md#c1"
-    char_span: [1398, 2868]
+    char_span: [1397, 2867]
     sentence_count: 15
     key_terms: ["it's", consciousness, self-awareness, gave, new, following, gaining, script]
     token_count: 360

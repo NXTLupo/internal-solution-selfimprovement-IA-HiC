@@ -15,17 +15,17 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c0"
-    char_span: [0, 1802]
+    char_span: [0, 1801]
     sentence_count: 18
     key_terms: [because, denied, school, graduate, application, been, department, gradschool]
-    token_count: 397
+    token_count: 396
   - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c1"
-    char_span: [1804, 3830]
+    char_span: [1803, 3829]
     sentence_count: 19
     key_terms: [years, experience, plan, certification, publications, like, work, community]
     token_count: 470
   - id: "articles/reddit-deep-r-gradschool/efcb6ca036.md#c2"
-    char_span: [3832, 5004]
+    char_span: [3831, 5003]
     sentence_count: 15
     key_terms: [accepted, program, applied, challenges, community, completed, doctorate, selective]
     token_count: 262

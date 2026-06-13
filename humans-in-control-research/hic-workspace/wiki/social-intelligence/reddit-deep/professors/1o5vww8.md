@@ -21,43 +21,43 @@ chunks:
     key_terms: [drive, google, professors, university, comments, onedrive, students, terrible]
     token_count: 264
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c1"
-    char_span: [1173, 3279]
+    char_span: [1172, 3278]
     sentence_count: 15
     key_terms: [exactly, shitty, data, don, work, migration, research, migrate]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c2"
-    char_span: [3281, 4312]
+    char_span: [3280, 4311]
     sentence_count: 10
     key_terms: [google, products, microsoft, deleted, better, because, forced, people]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c3"
-    char_span: [4314, 6478]
+    char_span: [4313, 6477]
     sentence_count: 15
     key_terms: [email, like, access, people, scroll, application, permissions, file]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c4"
-    char_span: [6192, 6560]
+    char_span: [6191, 6559]
     sentence_count: 6
     key_terms: [like, web, half-joking, decisions, direction, crackpot, followed, inspired]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c5"
-    char_span: [6562, 8536]
+    char_span: [6561, 8535]
     sentence_count: 13
     key_terms: [crowdsourced, drive, dropbox, etancrazynpoor, google, microsoft, onedrive, terrible]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c6"
-    char_span: [8538, 10331]
+    char_span: [8537, 10330]
     sentence_count: 20
     key_terms: [students, google, need, microsoft, use, sharing, collaborative, excel]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/professors/1o5vww8.md#c7"
-    char_span: [10333, 11989]
+    char_span: [10332, 11988]
     sentence_count: 15
     key_terms: [google, crowdsourced, school, docs, link, use, university, microsoft]
     section: Comments

@@ -28,49 +28,49 @@ chunks:
     key_terms: [told, ultimately, opportunity, get, new, company, current, course]
     token_count: 319
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c2"
-    char_span: [3499, 4049]
+    char_span: [3498, 4048]
     sentence_count: 6
     key_terms: [secrecy, subtle, swear, sopwithturtle, orangeflos, situations, important, wednesday]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c3"
-    char_span: [4051, 6194]
+    char_span: [4050, 6193]
     sentence_count: 15
     key_terms: [boss, told, relationship, good, job, new, take, management]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c4"
-    char_span: [5892, 7151]
+    char_span: [5891, 7150]
     sentence_count: 7
     key_terms: [talk, tell, better, according-today-4971, excellentbreakfasts, seriousclothes111, back, help]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c5"
-    char_span: [7153, 9098]
+    char_span: [7152, 9097]
     sentence_count: 14
     key_terms: [told, opportunity, new, ultimately, whatever, company, current, cannot]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c6"
-    char_span: [9100, 10925]
+    char_span: [9099, 10924]
     sentence_count: 14
     key_terms: [seriousclothes111, team, thunderdefunder, good, like, supported, employee, position]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c7"
-    char_span: [10927, 12069]
+    char_span: [10926, 12068]
     sentence_count: 6
     key_terms: [promotion, employee, position, new, available, employer, sounds, fragilousspectunkery]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c8"
-    char_span: [12071, 14021]
+    char_span: [12070, 14020]
     sentence_count: 14
     key_terms: [going, tell, leaving, destination, jenikovista, position, practice, telling]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/managers/1r8jacl.md#c9"
-    char_span: [14023, 15524]
+    char_span: [14022, 15523]
     sentence_count: 11
     key_terms: [promotion, offer, got, employee, company, manager, raises, been]
     section: Comments

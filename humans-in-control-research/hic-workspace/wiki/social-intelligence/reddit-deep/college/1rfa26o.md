@@ -23,37 +23,37 @@ chunks:
     key_terms: [college, get, comments, enjoy, back, dont, dorm, find]
     token_count: 255
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c1"
-    char_span: [1065, 2263]
+    char_span: [1064, 2262]
     sentence_count: 12
     key_terms: [college, aceyaceyacey, get, job, already, reasons, seeing, leave]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c2"
-    char_span: [2265, 4345]
+    char_span: [2264, 4344]
     sentence_count: 7
     key_terms: [trhlaslecna, been, leagues, better, assignments, semester, skipping, classes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c3"
-    char_span: [4098, 4346]
+    char_span: [4097, 4345]
     sentence_count: 1
     key_terms: [regular-dirt2826, clearwaterrev, highschool, semester, terribly, anymore, instead, opinion]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c4"
-    char_span: [4348, 6043]
+    char_span: [4347, 6042]
     sentence_count: 14
     key_terms: [school, semester, friends, grades, time, college, "it's", too]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c5"
-    char_span: [6046, 8443]
+    char_span: [6045, 8442]
     sentence_count: 14
     key_terms: [school, college, commuter, harder, feel, connection, counseling, eventually]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/college/1rfa26o.md#c6"
-    char_span: [8445, 9331]
+    char_span: [8444, 9330]
     sentence_count: 9
     key_terms: [activities, doing, social, enjoying, college, ideally, people, "that's"]
     section: Comments

@@ -23,31 +23,31 @@ chunks:
     key_terms: [career, like, apprenticeship, careerguidance, "i'm", business, comments, employee]
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c1"
-    char_span: [1400, 1613]
+    char_span: [1399, 1612]
     sentence_count: 2
     key_terms: [student, debt, voodoofat, college, degrees, follows, forever, mention]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c2"
-    char_span: [1615, 3738]
+    char_span: [1614, 3737]
     sentence_count: 13
     key_terms: [software, degree, "you're", later, good, management, business, computer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c3"
-    char_span: [3492, 3783]
+    char_span: [3491, 3782]
     sentence_count: 3
     key_terms: [spreadsheets, accounting, computer, continue, everyday, iisquats, learning, progress]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c4"
-    char_span: [3785, 5791]
+    char_span: [3784, 5790]
     sentence_count: 21
     key_terms: [people, college, learning, job, enough, feel, "you're", happy]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1sje6k5.md#c5"
-    char_span: [5793, 7672]
+    char_span: [5792, 7671]
     sentence_count: 13
     key_terms: [college, business, own, want, degree, start, requirement, good]
     section: Comments

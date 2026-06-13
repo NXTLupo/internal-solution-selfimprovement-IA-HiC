@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/dac145ac3c.md#c0"
-    char_span: [0, 1490]
+    char_span: [0, 1489]
     sentence_count: 7
     key_terms: [job, realized, careerguidance, comments, deleted, thought, career, define]
-    token_count: 377
+    token_count: 376
 ---
 # When did you realize your first job wasn’t going to define your career?
 

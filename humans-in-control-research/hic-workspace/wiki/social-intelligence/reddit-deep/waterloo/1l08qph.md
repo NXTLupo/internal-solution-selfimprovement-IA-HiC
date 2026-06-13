@@ -23,7 +23,7 @@ chunks:
     key_terms: [juice, waterloo, someone, juicer, home, comments, veggies, fruits]
     token_count: 359
   - id: "social-intelligence/reddit-deep/waterloo/1l08qph.md#c1"
-    char_span: [1395, 2588]
+    char_span: [1394, 2587]
     sentence_count: 4
     key_terms: [deleted, help, juicers, minimum, pristine-version2069, curiouscoderspace, like, live]
     section: Comments

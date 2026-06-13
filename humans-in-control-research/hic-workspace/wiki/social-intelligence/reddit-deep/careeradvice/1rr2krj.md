@@ -18,12 +18,12 @@ industries: [workforce, ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1rr2krj.md#c0"
-    char_span: [0, 2171]
+    char_span: [0, 2170]
     sentence_count: 21
     key_terms: [sap, apo, monitoring, career, years, careeradvice, team, comments]
-    token_count: 510
+    token_count: 509
   - id: "social-intelligence/reddit-deep/careeradvice/1rr2krj.md#c1"
-    char_span: [2173, 2275]
+    char_span: [2172, 2274]
     sentence_count: 1
     key_terms: [experienced, consulting, direction, best, move, sap, tech]
     token_count: 21

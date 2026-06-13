@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-humanresources/fb2f9e9b7e.md#c0"
-    char_span: [0, 1108]
+    char_span: [0, 1107]
     sentence_count: 8
     key_terms: [studying, humanresources, little, exam, experience, employer, shrm-cp, advice]
-    token_count: 253
+    token_count: 252
   - id: "articles/reddit-deep-r-humanresources/fb2f9e9b7e.md#c1"
-    char_span: [1110, 3321]
+    char_span: [1109, 3320]
     sentence_count: 19
     key_terms: [questions, shrm, learning, practice, quizzes, system, get, post]
     token_count: 507
   - id: "articles/reddit-deep-r-humanresources/fb2f9e9b7e.md#c2"
-    char_span: [3323, 3965]
+    char_span: [3322, 3964]
     sentence_count: 5
     key_terms: [recruiting, generalist, sense, moldy-nectarine, humanresources, automatically, unconfirmed, moderators]
     token_count: 153

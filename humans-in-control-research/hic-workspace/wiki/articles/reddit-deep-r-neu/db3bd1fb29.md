@@ -15,10 +15,10 @@ relevance: 50
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-neu/db3bd1fb29.md#c0"
-    char_span: [0, 987]
+    char_span: [0, 986]
     sentence_count: 8
     key_terms: [advice, mscs, neu, khoury, reddit, co-op, take, wish]
-    token_count: 245
+    token_count: 244
 ---
 # things i  wish i knew before starting mscs at khoury.[ Advice needed]
 

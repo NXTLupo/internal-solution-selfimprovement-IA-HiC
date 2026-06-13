@@ -7,7 +7,7 @@ industries: [real_estate]
 status: active
 chunks:
   - id: "industries/real_estate.md#c0"
-    char_span: [0, 775]
+    char_span: [0, 774]
     sentence_count: 2
     key_terms: [industries, sources, shared, reddit-deep-r-careerguidance, social-intelligence, articles, careerguidance, reddit-deep]
     section: Cross-over verticals (shared sources) / Representative sources

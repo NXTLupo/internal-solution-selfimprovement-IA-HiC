@@ -23,31 +23,31 @@ chunks:
     key_terms: [college, applyingtocollege, significantly, get, benefits, comments, classes, credits]
     token_count: 450
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c1"
-    char_span: [1938, 3364]
+    char_span: [1937, 3363]
     sentence_count: 14
     key_terms: [school, experience, especially, selective, ben-ma, "you're", point, years]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c2"
-    char_span: [3366, 5234]
+    char_span: [3365, 5233]
     sentence_count: 14
     key_terms: [undergraduate, students, school, graduate, universities, grade, top, colleges]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c3"
-    char_span: [5236, 7442]
+    char_span: [5235, 7441]
     sentence_count: 15
     key_terms: [ivy, honors, state, grad, university, colleges, flagship, programs]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c4"
-    char_span: [7444, 8256]
+    char_span: [7443, 8255]
     sentence_count: 7
     key_terms: [carnegie, because, getting, rutgers, either, mellon, opportunities, undergraduate]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ncpte2.md#c5"
-    char_span: [8258, 9876]
+    char_span: [8257, 9875]
     sentence_count: 4
     key_terms: [school, kooky-task-7582, college, credits, rutgers, chose, state, scholarship]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, engineeringstudents, job, work, currently, comments, related, student]
     token_count: 186
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rdc1qm.md#c1"
-    char_span: [796, 1893]
+    char_span: [795, 1892]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments

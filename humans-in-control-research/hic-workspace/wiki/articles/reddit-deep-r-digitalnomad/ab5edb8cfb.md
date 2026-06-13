@@ -15,32 +15,32 @@ industries: [media, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c0"
-    char_span: [0, 2323]
+    char_span: [0, 2322]
     sentence_count: 21
     key_terms: [tunis, "i'd", like, digitalnomad, waste, destination, residential, trip]
-    token_count: 513
+    token_count: 512
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c1"
-    char_span: [2325, 4590]
+    char_span: [2324, 4589]
     sentence_count: 20
     key_terms: [downtown, around, like, beachside, different, guidance, upmarket, coastal]
     token_count: 474
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c2"
-    char_span: [4592, 6990]
+    char_span: [4591, 6989]
     sentence_count: 20
     key_terms: ["it's", internet, particularly, been, connection, coworking, elsewhere, downtown]
     token_count: 502
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c3"
-    char_span: [6992, 8962]
+    char_span: [6991, 8961]
     sentence_count: 15
     key_terms: [food, restaurants, local, often, style, day, everywhere, entering]
     token_count: 416
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c4"
-    char_span: [8964, 11045]
+    char_span: [8963, 11044]
     sentence_count: 13
     key_terms: [people, often, destination, directions, generally, language, driver, "you're"]
     token_count: 468
   - id: "articles/reddit-deep-r-digitalnomad/ab5edb8cfb.md#c5"
-    char_span: [11047, 12187]
+    char_span: [11046, 12186]
     sentence_count: 9
     key_terms: [slightly, written, "that's", useful, whitecollarbohemian, baku, infrastructure, jonwillington]
     token_count: 278

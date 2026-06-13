@@ -23,7 +23,7 @@ chunks:
     key_terms: [precision, openai, recall, moderation, injection, comments, indirect, prompts]
     token_count: 273
   - id: "social-intelligence/reddit-deep/openai/1sym3x7.md#c1"
-    char_span: [1020, 2517]
+    char_span: [1019, 2516]
     sentence_count: 7
     key_terms: [prompts, precision, roleplay, blocked, latency, benign, recall, "false"]
     section: Comments

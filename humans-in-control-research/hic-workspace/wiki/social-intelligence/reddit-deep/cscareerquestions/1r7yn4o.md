@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, comments, marathonmarathon, millennials, perspective, reddit-deep, bootstraps, variations]
     token_count: 141
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c1"
-    char_span: [535, 2361]
+    char_span: [534, 2360]
     sentence_count: 8
     key_terms: [years, graduated, highschool, job, software, got, tech, experience]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c2"
-    char_span: [2363, 3793]
+    char_span: [2362, 3792]
     sentence_count: 6
     key_terms: [work, companies, decisions, different, covid, small, look, time]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c3"
-    char_span: [3795, 5536]
+    char_span: [3794, 5535]
     sentence_count: 12
     key_terms: [outsourcing, marathonmarathon, market, "don't", like, "true", immigrants, companies]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c4"
-    char_span: [5540, 7353]
+    char_span: [5539, 7352]
     sentence_count: 15
     key_terms: [job, graduated, suffering, market, like, because, seniors, offers]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c5"
-    char_span: [7355, 9037]
+    char_span: [7354, 9036]
     sentence_count: 14
     key_terms: [people, worked, years, outsourcing, find, "couldn't", because, decline]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c6"
-    char_span: [9039, 10322]
+    char_span: [9038, 10321]
     sentence_count: 9
     key_terms: [going, engineering, job, enrollment, computer, junior, market, skills]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r7yn4o.md#c7"
-    char_span: [10324, 12375]
+    char_span: [10323, 12374]
     sentence_count: 17
     key_terms: [masters, degree, like, engineering, people, got, "it's", went]
     section: Comments

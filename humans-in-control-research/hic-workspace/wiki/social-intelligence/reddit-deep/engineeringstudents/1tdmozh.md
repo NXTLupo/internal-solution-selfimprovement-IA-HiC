@@ -23,13 +23,13 @@ chunks:
     key_terms: [spacex, engineering, engineeringstudents, comments, space, tesla, interesting, like]
     token_count: 277
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c1"
-    char_span: [1224, 3184]
+    char_span: [1223, 3183]
     sentence_count: 18
     key_terms: [working, starlink, quality, experience, space, tesla, spacex, constraints]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmozh.md#c2"
-    char_span: [3186, 3891]
+    char_span: [3185, 3890]
     sentence_count: 5
     key_terms: [path, hardware, flight, spacex, space, illustrious-limit160, put, work]
     section: Comments

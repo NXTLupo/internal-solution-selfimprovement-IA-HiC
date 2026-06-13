@@ -21,25 +21,25 @@ chunks:
     key_terms: [northeastern, co-op, co-ops, guaranteed, never, get, instead, half]
     token_count: 389
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c1"
-    char_span: [1772, 3744]
+    char_span: [1771, 3743]
     sentence_count: 13
     key_terms: [co-ops, program, student, masters, master, northeastern, experience, internship]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c2"
-    char_span: [3746, 6159]
+    char_span: [3745, 6158]
     sentence_count: 20
     key_terms: [students, international, guaranteed, graduate, student, feels, makes, sense]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c3"
-    char_span: [6161, 8413]
+    char_span: [6160, 8412]
     sentence_count: 20
     key_terms: [northeastern, co-op, internationals, students, international, undergraduate, grad, "it's"]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/neu/1ti1qsc.md#c4"
-    char_span: [8415, 9404]
+    char_span: [8414, 9403]
     sentence_count: 4
     key_terms: [applications, feel, employers, number, saying, negotiationcute5341, being, level]
     section: Comments

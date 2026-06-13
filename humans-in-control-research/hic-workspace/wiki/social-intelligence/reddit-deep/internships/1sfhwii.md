@@ -21,13 +21,13 @@ chunks:
     key_terms: [internship, internships, summer, "i'm", "i've", experience, part-time, comments]
     token_count: 302
   - id: "social-intelligence/reddit-deep/internships/1sfhwii.md#c1"
-    char_span: [1266, 2732]
+    char_span: [1265, 2731]
     sentence_count: 9
     key_terms: [internship, months, summer, been, everything, experience, appropriate-tutor587, no-independence-1605]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/internships/1sfhwii.md#c2"
-    char_span: [2734, 3492]
+    char_span: [2733, 3491]
     sentence_count: 3
     key_terms: [internship, worried, gas, "it's", paid, take, idkwhatiwant23, key-volume6496]
     section: Comments

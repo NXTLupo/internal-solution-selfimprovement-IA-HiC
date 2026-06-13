@@ -11,11 +11,9 @@ score: 0
 upvote_ratio: 0.21
 num_comments: 13
 flair: ""
-extracted_at: "2026-05-25T18:32:49.821Z"
+extracted_at: "2026-06-08T18:49:42.909Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tic9hh.md#c0"
     char_span: [0, 2061]
@@ -58,7 +56,7 @@ TL;DR: Sophomore CS student at a top Indian university with a 6.5 GPA and no cod
 ## Comments
 
 - **ghost-engineer** (12↑): ai is going to eat you bro
-- **AfrikanCorpse** (7↑): In 2019-2021 you’d still be fine. Now, ppl with 8+ FAANG yoes are competing against you. What do you think?
+- **AfrikanCorpse** (5↑): In 2019-2021 you’d still be fine. Now, ppl with 8+ FAANG yoes are competing against you. What do you think?
   - **Entire-Amount-5288** (2↑): umm yeah that's why I asked advice regarding change of careers, I dont see myself doing any good in this
 - **SourceAwkward** (1↑): The market is the worst I ever seen,
 

@@ -28,85 +28,85 @@ chunks:
     key_terms: [believe, chatgpt, mother, circumstances, court, been, case, experience]
     token_count: 466
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c2"
-    char_span: [4237, 5670]
+    char_span: [4236, 5669]
     sentence_count: 11
     key_terms: [lawyer, please, conversation, image, post, r-chatgpt-1050422060352024636, attorneys, concerns]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c3"
-    char_span: [5672, 7550]
+    char_span: [5671, 7549]
     sentence_count: 17
     key_terms: [research, clients, gemini, deep, chatgpt, hallucinations, better, bad]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c4"
-    char_span: [7552, 7892]
+    char_span: [7551, 7891]
     sentence_count: 2
     key_terms: [propriety, titan1846, internal, because, chatgpt, concise, exposed, reports]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c5"
-    char_span: [7894, 9901]
+    char_span: [7893, 9900]
     sentence_count: 12
     key_terms: [use, lawyers, enough, information, work, experience, question, chatgpt]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c6"
-    char_span: [9903, 11920]
+    char_span: [9902, 11919]
     sentence_count: 18
     key_terms: [hallucinations, source, principles, info, following, response, because, chatgpt]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c7"
-    char_span: [11922, 13737]
+    char_span: [11921, 13736]
     sentence_count: 13
     key_terms: [infamous-future6906, charges, considerations, dry-peanut6627, needs, like, competent, courtroom]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c8"
-    char_span: [13739, 15324]
+    char_span: [13738, 15323]
     sentence_count: 11
     key_terms: [infamous-future6906, custody, court, case, obviously, surprised, divorced, chatbot]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c9"
-    char_span: [15326, 16339]
+    char_span: [15325, 16338]
     sentence_count: 4
     key_terms: [infamous-future6906, statistics, domestic, violence, against, correct, custody, fathers]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c10"
-    char_span: [16341, 18226]
+    char_span: [16340, 18225]
     sentence_count: 15
     key_terms: [metstows, feedback, people, territories, against, chatgpt, sharing, helped]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c11"
-    char_span: [18228, 20286]
+    char_span: [18227, 20285]
     sentence_count: 34
     key_terms: [people, everything, freedemandletter, matters, family, law, real, themselves]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c12"
-    char_span: [20288, 22314]
+    char_span: [20287, 22313]
     sentence_count: 11
     key_terms: [law, screw, represent, get, representation, wrong, years, case]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c13"
-    char_span: [22316, 23651]
+    char_span: [22315, 23650]
     sentence_count: 18
     key_terms: [experience, didn, attorney, private, "didn't", people, trying, willing-ship-6235]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c14"
-    char_span: [23653, 25734]
+    char_span: [23652, 25733]
     sentence_count: 14
     key_terms: [lawyer, people, pro, yourself, doing, years, ago, case]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/chatgpt/1ovafq9.md#c15"
-    char_span: [25736, 27182]
+    char_span: [25735, 27181]
     sentence_count: 7
     key_terms: [characterbird2283, testament, congrats, worked, trial, nandodecolonoscopy, ask, disneylegalteam]
     section: Comments

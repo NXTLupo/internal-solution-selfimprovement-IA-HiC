@@ -23,55 +23,55 @@ chunks:
     key_terms: [wife, personalfinance, house, month, contributes, debt, help, year]
     token_count: 394
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c1"
-    char_span: [1443, 3110]
+    char_span: [1442, 3109]
     sentence_count: 12
     key_terms: [get, help, mentioned, debt, spending, burneradvice2, track, financial]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c2"
-    char_span: [3113, 5069]
+    char_span: [3112, 5068]
     sentence_count: 12
     key_terms: [burneradvice2, "she's", debt, help, apresledepart, wife, contribute, retirement]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c3"
-    char_span: [4827, 5222]
+    char_span: [4826, 5221]
     sentence_count: 5
     key_terms: [burneradvice2, contractually, silvertripod, contribute, eventually, promotion, paycheck, company]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c4"
-    char_span: [5224, 7084]
+    char_span: [5223, 7083]
     sentence_count: 10
     key_terms: [help, provide, likely, money, rates, stay, thoughts, airing]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c5"
-    char_span: [7088, 8902]
+    char_span: [7087, 8901]
     sentence_count: 15
     key_terms: [wife, help, burneradvice2, month, financially, ask, something, literate]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c6"
-    char_span: [8904, 10800]
+    char_span: [8903, 10799]
     sentence_count: 16
     key_terms: [month, wife, relationship, going, help, burneradvice2, discretionary, offer]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c7"
-    char_span: [10802, 12801]
+    char_span: [10801, 12800]
     sentence_count: 17
     key_terms: [financial, help, sil, "don't", going, down, understand, different]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c8"
-    char_span: [12803, 14803]
+    char_span: [12802, 14802]
     sentence_count: 20
     key_terms: [help, like, plan, sister, going, money, right, let]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/personalfinance/1scj8b5.md#c9"
-    char_span: [14805, 16565]
+    char_span: [14804, 16564]
     sentence_count: 15
     key_terms: [otherwise, debt, down, "she's", job, pay, alcohol, context]
     section: Comments

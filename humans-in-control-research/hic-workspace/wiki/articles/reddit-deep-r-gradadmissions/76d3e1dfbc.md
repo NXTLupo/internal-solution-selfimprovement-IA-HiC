@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c0"
-    char_span: [0, 1810]
+    char_span: [0, 1809]
     sentence_count: 10
     key_terms: [people, group, interview, gradadmissions, get, admissions, colleagues, incentive]
-    token_count: 382
+    token_count: 381
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c1"
-    char_span: [1812, 3972]
+    char_span: [1811, 3971]
     sentence_count: 24
     key_terms: [students, people, expectations, lab, want, questions, outcomes, personal]
     token_count: 456
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c2"
-    char_span: [3974, 5742]
+    char_span: [3973, 5741]
     sentence_count: 18
     key_terms: [professor, questions, pivoting, "it's", interpret, interview, situation, because]
     token_count: 375
   - id: "articles/reddit-deep-r-gradadmissions/76d3e1dfbc.md#c3"
-    char_span: [5744, 7309]
+    char_span: [5743, 7308]
     sentence_count: 9
     key_terms: [questions, private, faculty, program, ask, like, zoom, interviews]
     token_count: 344

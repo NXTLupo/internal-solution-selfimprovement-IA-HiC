@@ -21,7 +21,7 @@ chunks:
     key_terms: [music, internships, internship, publishing, company, concord, anyone, gotten]
     token_count: 241
   - id: "social-intelligence/reddit-deep/internships/1o8avx6.md#c1"
-    char_span: [1070, 2498]
+    char_span: [1069, 2497]
     sentence_count: 8
     key_terms: [connections, resume, because, posting, joinjukebox, hear, job, like]
     section: Comments

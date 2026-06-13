@@ -7,7 +7,7 @@ industries: [media]
 status: active
 chunks:
   - id: "industries/media.md#c0"
-    char_span: [0, 710]
+    char_span: [0, 709]
     sentence_count: 2
     key_terms: [industries, sources, shared, articles, reddit-deep-r-internships, reddit-digital-marketing, reddit-deep-r-stocks, media]
     section: Cross-over verticals (shared sources) / Representative sources

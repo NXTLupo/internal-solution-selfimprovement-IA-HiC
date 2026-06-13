@@ -23,19 +23,19 @@ chunks:
     key_terms: [grad, gradschool, resources, comments, helped, communication, bagofdicksss, instructors]
     token_count: 108
   - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c1"
-    char_span: [499, 2372]
+    char_span: [498, 2371]
     sentence_count: 13
     key_terms: [similar, ipad, especially, everything, goodnotes, meetings, organize, readings]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c2"
-    char_span: [2374, 4341]
+    char_span: [2373, 4340]
     sentence_count: 19
     key_terms: ["don't", communication, get, like, time, use, especially, experiment]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/gradschool/1m51ekk.md#c3"
-    char_span: [4343, 5875]
+    char_span: [4342, 5874]
     sentence_count: 10
     key_terms: [textbooks, digital, zotero, bagofdicksss, done, need, howtobegeo, google]
     section: Comments

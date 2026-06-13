@@ -21,13 +21,13 @@ chunks:
     key_terms: [internship, internships, comments, computer, please, email, hours, need]
     token_count: 354
   - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c1"
-    char_span: [1595, 3578]
+    char_span: [1594, 3577]
     sentence_count: 10
     key_terms: [applied, internship, exerciseoutside8409, probably, unpaid, last-stick406, media, got]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1rdwhcv.md#c2"
-    char_span: [3291, 4557]
+    char_span: [3290, 4556]
     sentence_count: 2
     key_terms: [company, called, dakdan, applied, because, founder, someone, website]
     section: Comments

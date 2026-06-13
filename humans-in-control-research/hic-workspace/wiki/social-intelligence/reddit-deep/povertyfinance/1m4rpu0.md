@@ -28,43 +28,43 @@ chunks:
     key_terms: [bathrooms, myself, work, expensive, house, water, fix, got]
     token_count: 240
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c2"
-    char_span: [2808, 4637]
+    char_span: [2807, 4636]
     sentence_count: 20
     key_terms: [keep, house, cool, bug, down, need, used, control]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c3"
-    char_span: [4639, 6686]
+    char_span: [4638, 6685]
     sentence_count: 13
     key_terms: [dehumidifier, attic, room, putting, area, heat, used, insulation]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c4"
-    char_span: [6688, 8793]
+    char_span: [6687, 8792]
     sentence_count: 28
     key_terms: [windows, fans, reflective, air, ice, put, use, couple]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c5"
-    char_span: [8795, 10323]
+    char_span: [8794, 10322]
     sentence_count: 17
     key_terms: [room, windows, curtains, living, window, air, cool, door]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c6"
-    char_span: [10326, 12059]
+    char_span: [10325, 12058]
     sentence_count: 19
     key_terms: [air, room, window, keep, cool, get, bedroom, kitchen]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c7"
-    char_span: [12061, 12578]
+    char_span: [12060, 12577]
     sentence_count: 4
     key_terms: [cheap, theater, blakecarconstruction, movie, like, thankfully, microwave, something]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/povertyfinance/1m4rpu0.md#c8"
-    char_span: [12580, 14406]
+    char_span: [12579, 14405]
     sentence_count: 16
     key_terms: [blakecarconstruction, playful-mastodon9251, house, fix, leak, like, clearesult, focus-ira]
     section: Comments

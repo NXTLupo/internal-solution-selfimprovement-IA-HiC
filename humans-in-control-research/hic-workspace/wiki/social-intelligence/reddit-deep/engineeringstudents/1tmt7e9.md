@@ -26,25 +26,25 @@ chunks:
     key_terms: [get, school, years, lot, year, graduated, obviously, returning]
     token_count: 382
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmt7e9.md#c2"
-    char_span: [3737, 4338]
+    char_span: [3736, 4337]
     sentence_count: 5
     key_terms: [failed, year, thepowerfulpaet, fundamentals, advertising, considering, engineering, considered]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmt7e9.md#c3"
-    char_span: [4340, 6096]
+    char_span: [4339, 6095]
     sentence_count: 17
     key_terms: [back, went, school, zestyclose-fig3229, got, time, didn, mechanical]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmt7e9.md#c4"
-    char_span: [6098, 8238]
+    char_span: [6097, 8237]
     sentence_count: 21
     key_terms: [school, fall, full, lol, time, semester, working, years]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tmt7e9.md#c5"
-    char_span: [8240, 10061]
+    char_span: [8239, 10060]
     sentence_count: 18
     key_terms: [graduated, covid, age, back, graduate, college, through, degree]
     section: Comments

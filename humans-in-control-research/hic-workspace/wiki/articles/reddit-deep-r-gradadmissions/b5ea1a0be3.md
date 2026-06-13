@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/b5ea1a0be3.md#c0"
-    char_span: [0, 1308]
+    char_span: [0, 1307]
     sentence_count: 10
     key_terms: [business, "i'm", recommend, gradadmissions, doing, years, job, comments]
-    token_count: 305
+    token_count: 304
 ---
 # Which Majors/Career paths would you recommend a business grad to pursue?
 

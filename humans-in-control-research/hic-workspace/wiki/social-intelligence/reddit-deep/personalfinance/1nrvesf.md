@@ -23,19 +23,19 @@ chunks:
     key_terms: [personalfinance, got, financial, comments, classes, avoid, debt, time]
     token_count: 201
   - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c1"
-    char_span: [858, 2110]
+    char_span: [857, 2109]
     sentence_count: 12
     key_terms: [car, "it's", buying, cars, buy, cash, fine, save]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c2"
-    char_span: [2112, 3610]
+    char_span: [2111, 3609]
     sentence_count: 15
     key_terms: [car, people, cars, paycheck, buy, get, new, insurance]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/personalfinance/1nrvesf.md#c3"
-    char_span: [3613, 5571]
+    char_span: [3612, 5570]
     sentence_count: 18
     key_terms: [don, maintenance, buy, pay, credit, expensive, car, cars]
     section: Comments

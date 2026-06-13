@@ -21,19 +21,19 @@ chunks:
     key_terms: [work, unsatisfactory, co-op, doing, letter, grade, offer, description]
     token_count: 440
   - id: "social-intelligence/reddit-deep/neu/1qs6czs.md#c1"
-    char_span: [2026, 4251]
+    char_span: [2025, 4250]
     sentence_count: 17
     key_terms: [co-op, situation, early, case, due, documented, employer, advisor]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/neu/1qs6czs.md#c2"
-    char_span: [4253, 4975]
+    char_span: [4252, 4974]
     sentence_count: 4
     key_terms: [employer, because, outside, trouble, offer, scope, cpt, get]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/neu/1qs6czs.md#c3"
-    char_span: [4977, 7253]
+    char_span: [4976, 7252]
     sentence_count: 15
     key_terms: [advisor, co-op, through, northeastern, coop, help, absolutely, contract]
     section: Comments

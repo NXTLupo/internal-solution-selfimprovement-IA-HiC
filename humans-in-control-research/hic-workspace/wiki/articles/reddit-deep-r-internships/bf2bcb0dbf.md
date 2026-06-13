@@ -15,10 +15,10 @@ industries: [workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/bf2bcb0dbf.md#c0"
-    char_span: [0, 1330]
+    char_span: [0, 1329]
     sentence_count: 5
     key_terms: [did, internships, referrals, linkedin, network, successfully, engineering, engineers]
-    token_count: 295
+    token_count: 294
 ---
 # How do engineering students actually network with engineers for referrals?
 

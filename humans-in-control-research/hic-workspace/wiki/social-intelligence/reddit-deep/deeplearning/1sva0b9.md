@@ -28,7 +28,7 @@ chunks:
     key_terms: [fp8, bf16, moe, does, end, qwen, bandwidth-bound, experimentation]
     token_count: 187
   - id: "social-intelligence/reddit-deep/deeplearning/1sva0b9.md#c2"
-    char_span: [2207, 3070]
+    char_span: [2206, 3069]
     sentence_count: 8
     key_terms: [token, numbers, prompt, concurrent, throughput, prefilled, cache, means]
     section: Comments

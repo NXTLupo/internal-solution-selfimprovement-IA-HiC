@@ -15,12 +15,12 @@ industries: [workforce, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/e85a3ad7ca.md#c0"
-    char_span: [0, 2223]
+    char_span: [0, 2222]
     sentence_count: 16
     key_terms: ["i'm", work, design, learning, troubleshooting, careeradvice, engineering, maintenance]
-    token_count: 464
+    token_count: 463
   - id: "articles/reddit-deep-r-careeradvice/e85a3ad7ca.md#c1"
-    char_span: [2225, 2727]
+    char_span: [2224, 2726]
     sentence_count: 4
     key_terms: [competitors, equipment, zizzianyouthminister, administration, capitalist, collected, customers, marketing]
     token_count: 102

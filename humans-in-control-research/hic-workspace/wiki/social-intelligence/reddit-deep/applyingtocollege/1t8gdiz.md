@@ -36,109 +36,109 @@ chunks:
     key_terms: [realize, venting, sorry, irk, kind, sort, sub]
     token_count: 34
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c4"
-    char_span: [5833, 8047]
+    char_span: [5832, 8046]
     sentence_count: 11
     key_terms: [people, school, thecentercannotscold, get, admitted, theatlantic, motivated, business]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c5"
-    char_span: [7757, 8691]
+    char_span: [7756, 8690]
     sentence_count: 5
     key_terms: [school, admitted, process, apples, based, measurementtop2885, realistic-tap2828, fair]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c6"
-    char_span: [8693, 10268]
+    char_span: [8692, 10267]
     sentence_count: 7
     key_terms: [applied, whether, chetty, income, early, clap, data, arbitrary]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c7"
-    char_span: [10270, 11592]
+    char_span: [10269, 11591]
     sentence_count: 10
     key_terms: [different, chetty, been, average, cornell, sharing, better, school]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c8"
-    char_span: [11594, 13370]
+    char_span: [11593, 13369]
     sentence_count: 7
     key_terms: [people, schools, chetty, early, selective, institutions, study, backgrounds]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c9"
-    char_span: [13372, 14872]
+    char_span: [13371, 14871]
     sentence_count: 10
     key_terms: [college, effect, opportunities, got, like, ivy-league-education-income, "weren't", attend]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c10"
-    char_span: [14874, 17060]
+    char_span: [14873, 17059]
     sentence_count: 8
     key_terms: [school, top, especially, schools, student, state, life, like]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c11"
-    char_span: [17064, 18945]
+    char_span: [17063, 18944]
     sentence_count: 12
     key_terms: [elite-colleges-are-back-at-the-top-of-the-list-for-company-recruiters-ad9526ac, attended, stanford, outcome, working, school, top, individual]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c12"
-    char_span: [18947, 21110]
+    char_span: [18946, 21109]
     sentence_count: 19
     key_terms: [school, top, umich, like, mediocre, schools, student, hypsm]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c13"
-    char_span: [21112, 23158]
+    char_span: [21111, 23157]
     sentence_count: 21
     key_terms: [stanford, aisle, schools, grads, students, masters, like, time]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c14"
-    char_span: [23160, 25262]
+    char_span: [23159, 25261]
     sentence_count: 9
     key_terms: [stanford, graduates, effects, people, attending, certainly, colleges, school]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c15"
-    char_span: [25264, 27224]
+    char_span: [25263, 27223]
     sentence_count: 16
     key_terms: [individual, outcomes, school, stanford, college, someone, better, this-is-not-a-drill]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c16"
-    char_span: [27226, 28120]
+    char_span: [27225, 28119]
     sentence_count: 7
     key_terms: [decision, career, professional, different, question, school, been, cost]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c17"
-    char_span: [28122, 30400]
+    char_span: [28121, 30399]
     sentence_count: 19
     key_terms: [law, school, kids, prestige, stetson, big, lot, successful]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c18"
-    char_span: [30109, 31599]
+    char_span: [30108, 31598]
     sentence_count: 7
     key_terms: [school, stanford, state, flagship, matter, paying, doing, "don't"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c19"
-    char_span: [31601, 32934]
+    char_span: [31600, 32933]
     sentence_count: 6
     key_terms: [williams, school, ashleyainak, job, without, like, radicalcandor77, callatecabezon]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c20"
-    char_span: [32936, 34531]
+    char_span: [32935, 34530]
     sentence_count: 10
     key_terms: [top, school, jobs, qualities, williams, college, schools, people]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8gdiz.md#c21"
-    char_span: [34533, 36620]
+    char_span: [34532, 36619]
     sentence_count: 16
     key_terms: ["it's", went, school, doors, state, competitive, institution, got]
     section: Comments

@@ -21,73 +21,73 @@ chunks:
     key_terms: [students, professors, different, comments, emotionally, assignment, feedback, template]
     token_count: 346
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c1"
-    char_span: [1678, 3305]
+    char_span: [1677, 3304]
     sentence_count: 11
     key_terms: [students, week, initiative, resilience, equipment, student, willing, pencil]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c2"
-    char_span: [3307, 4730]
+    char_span: [3306, 4729]
     sentence_count: 8
     key_terms: [flylikeanearworm, themselves, students, because, people, trades, did, end]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c3"
-    char_span: [4732, 6592]
+    char_span: [4731, 6591]
     sentence_count: 11
     key_terms: [students, devices, progression, get, generally, thinking, read-reflect-write-cite, through]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c4"
-    char_span: [6594, 7121]
+    char_span: [6593, 7120]
     sentence_count: 5
     key_terms: [helpful-orchid2710, born, lead, "generation's", technologies, everything, preschool, catering]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c5"
-    char_span: [7123, 9328]
+    char_span: [7122, 9327]
     sentence_count: 23
     key_terms: [students, assignments, time, explains, semester, syllabus, teaching, prison]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c6"
-    char_span: [9065, 10124]
+    char_span: [9064, 10123]
     sentence_count: 6
     key_terms: [students, like, instead, nothing, helpful-orchid2710, feel, jail, ones]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c7"
-    char_span: [10126, 11696]
+    char_span: [10125, 11695]
     sentence_count: 12
     key_terms: [students, teaching, prison, years, together, because, message, wanted]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c8"
-    char_span: [11698, 13725]
+    char_span: [11697, 13724]
     sentence_count: 18
     key_terms: [cheating, students, helpful-orchid2710, "it's", syllabus, been, "i've", question]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c9"
-    char_span: [13727, 15432]
+    char_span: [13726, 15431]
     sentence_count: 13
     key_terms: [assignment, class, like, something, students, answers, because, student]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c10"
-    char_span: [15434, 17329]
+    char_span: [15433, 17328]
     sentence_count: 12
     key_terms: [students, student, system, want, experience, education, something, because]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c11"
-    char_span: [17331, 19526]
+    char_span: [17330, 19525]
     sentence_count: 19
     key_terms: [college, students, transactional, comfortable, been, get, completely, education]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/professors/1pj55kq.md#c12"
-    char_span: [19528, 20227]
+    char_span: [19527, 20226]
     sentence_count: 7
     key_terms: [want, problem, degree, solve, helpful-orchid2710, get, transactional, h0pelessnerd]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [admissions, applyingtocollege, whether, northwestern, email, late, need, explaining]
     token_count: 361
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q3gaq8.md#c1"
-    char_span: [1658, 3610]
+    char_span: [1657, 3609]
     sentence_count: 16
     key_terms: [submitted, application, late, illustrious-award-55, time, lustfullana214, review, applications]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q3gaq8.md#c2"
-    char_span: [3612, 4519]
+    char_span: [3611, 4518]
     sentence_count: 3
     key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, bellbirdboom, https, com]
     section: Comments

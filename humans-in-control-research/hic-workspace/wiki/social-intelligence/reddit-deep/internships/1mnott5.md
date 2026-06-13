@@ -23,7 +23,7 @@ chunks:
     key_terms: [international, internships, experience, internship, comments, mathematics, reddit-deep, background]
     token_count: 120
   - id: "social-intelligence/reddit-deep/internships/1mnott5.md#c1"
-    char_span: [545, 1417]
+    char_span: [544, 1416]
     sentence_count: 7
     key_terms: [internship, competitive, especially, analysis, projects, market, major, tough]
     section: Comments

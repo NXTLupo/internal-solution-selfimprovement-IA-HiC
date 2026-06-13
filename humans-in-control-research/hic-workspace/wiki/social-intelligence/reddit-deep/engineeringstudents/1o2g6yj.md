@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, internship, something, comments, engineering-specific, propulsion-oriented, got, "i'm"]
     token_count: 175
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o2g6yj.md#c1"
-    char_span: [756, 1443]
+    char_span: [755, 1442]
     sentence_count: 4
     key_terms: [work, experience, something, learn, appropriatetwo9038, "it's", r0ck3tsc13nc3, dramatically]
     section: Comments

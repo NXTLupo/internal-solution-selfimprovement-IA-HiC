@@ -23,49 +23,49 @@ chunks:
     key_terms: [cscareerquestions, "i'm", folks, comments, thanks, years, here, experimenting]
     token_count: 246
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c1"
-    char_span: [1104, 1722]
+    char_span: [1103, 1721]
     sentence_count: 2
     key_terms: [roles, less, work, meaningfully, transitioned, autonomous, difficult, knowledge]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c2"
-    char_span: [1724, 3887]
+    char_span: [1723, 3886]
     sentence_count: 11
     key_terms: [engineer, "i'm", years, aws, did, absolutely, interview, solutions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c3"
-    char_span: [3597, 4792]
+    char_span: [3596, 4791]
     sentence_count: 8
     key_terms: [magicsign, software, years, "i'm", solutions, skills, post-acceleration, sure]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c4"
-    char_span: [4794, 6721]
+    char_span: [4793, 6720]
     sentence_count: 10
     key_terms: [lot, tech, people, specialized, profession, companies, software, becomes]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c5"
-    char_span: [6723, 8570]
+    char_span: [6722, 8569]
     sentence_count: 14
     key_terms: [business, already, wages, able, "i'm", "i've", work, industry]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c6"
-    char_span: [8572, 10519]
+    char_span: [8571, 10518]
     sentence_count: 11
     key_terms: [years, people, collar, "you're", electricians, get, "it's", like]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c7"
-    char_span: [10521, 12534]
+    char_span: [10520, 12533]
     sentence_count: 8
     key_terms: [tatankaymontiay, people, year, services, because, driving, "there's", bubble]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rcieuy.md#c8"
-    char_span: [12536, 14331]
+    char_span: [12535, 14330]
     sentence_count: 15
     key_terms: [minuetinursamajor, "you're", tech, someone, redact, skills, maybe, pivot]
     section: Comments

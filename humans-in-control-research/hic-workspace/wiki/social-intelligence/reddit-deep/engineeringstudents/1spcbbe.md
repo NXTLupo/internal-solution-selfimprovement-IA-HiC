@@ -23,13 +23,13 @@ chunks:
     key_terms: [startup, university, engineering, potentially, boston, engineeringstudents, been, lab]
     token_count: 513
   - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c1"
-    char_span: [2600, 4318]
+    char_span: [2599, 4317]
     sentence_count: 11
     key_terms: [startup, sbron8, especially, elsewhere, options, boston, equity, patent]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/engineeringstudents/1spcbbe.md#c2"
-    char_span: [4320, 4782]
+    char_span: [4319, 4781]
     sentence_count: 3
     key_terms: [experience, "doesn't", illustrious-limit160, worth, anywhere, benefit, company, startup]
     section: Comments

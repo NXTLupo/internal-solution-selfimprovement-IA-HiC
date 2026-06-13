@@ -21,7 +21,7 @@ chunks:
     key_terms: [fall, nuworks, co-op, data, interview, comments, looking, student]
     token_count: 318
   - id: "social-intelligence/reddit-deep/neu/1rvkwpb.md#c1"
-    char_span: [1283, 2309]
+    char_span: [1282, 2308]
     sentence_count: 11
     key_terms: [draweramazing6498, got, applying, interview, something, offer, "i'm", job]
     section: Comments

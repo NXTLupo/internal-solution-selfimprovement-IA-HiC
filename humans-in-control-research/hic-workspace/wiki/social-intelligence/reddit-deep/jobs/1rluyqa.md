@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1rluyqa.md
 url: "https://www.reddit.com/r/jobs/comments/1rluyqa/im_going_to_lose_it/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,48 @@ flair: "Job searching"
 extracted_at: "2026-06-06T23:23:15.612Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c0"
+    char_span: [0, 1675]
+    sentence_count: 14
+    key_terms: [job, rejection, jobs, feel, get, give, like, benefits]
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c1"
+    char_span: [1677, 2677]
+    sentence_count: 8
+    key_terms: [benefits, job, working, having, living, pretty, since, been]
+    token_count: 233
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c2"
+    char_span: [2692, 4507]
+    sentence_count: 12
+    key_terms: [get, people, etc, interviews, happening, momentum, started, better]
+    section: Comments
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c3"
+    char_span: [4510, 6403]
+    sentence_count: 14
+    key_terms: [experience, "it's", require, better, daliflowers46, been, feel, get]
+    section: Comments
+    token_count: 481
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c4"
+    char_span: [6405, 8364]
+    sentence_count: 13
+    key_terms: [few-painting-8096, apply, because, jobs, like, applying, company, daliflowers46]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c5"
+    char_span: [8112, 9087]
+    sentence_count: 9
+    key_terms: [apply, find, experience, education, technical, industry, writing, looked]
+    section: Comments
+    token_count: 229
+  - id: "social-intelligence/reddit-deep/jobs/1rluyqa.md#c6"
+    char_span: [9089, 10810]
+    sentence_count: 16
+    key_terms: [experience, people, get, lot, paid, applying, changing, looking]
+    section: Comments
+    token_count: 415
 ---
-
 # I’m going to lose it
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1rluyqa/im_going_to_lose_it/)

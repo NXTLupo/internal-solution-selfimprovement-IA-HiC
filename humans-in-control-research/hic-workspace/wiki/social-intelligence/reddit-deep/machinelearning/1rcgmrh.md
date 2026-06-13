@@ -36,25 +36,25 @@ chunks:
     key_terms: [model, poseidon, rollouts, "there's", pub-4782cd68fddd4ce0af349ef3d1c56b27, long, dataset, perform]
     token_count: 436
   - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c4"
-    char_span: [6840, 8456]
+    char_span: [6839, 8455]
     sentence_count: 10
     key_terms: [throughput, lot, efficiently, poseidon, problems, question, solution, kernels]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c5"
-    char_span: [8458, 9142]
+    char_span: [8457, 9141]
     sentence_count: 5
     key_terms: [paper, competitively, architecture, demonstrate, performance, approaches, prediction, serikkehva]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c6"
-    char_span: [9144, 11303]
+    char_span: [9143, 11302]
     sentence_count: 17
     key_terms: [problems, smooth, work, autoregressive, warps, interesting, here, relu]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1rcgmrh.md#c7"
-    char_span: [11088, 12432]
+    char_span: [11087, 12431]
     sentence_count: 8
     key_terms: [intermittent, work, non-rectangular, events, modifications, nooo-one, pullback, bit]
     section: Comments

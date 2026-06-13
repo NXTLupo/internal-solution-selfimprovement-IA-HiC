@@ -21,37 +21,37 @@ chunks:
     key_terms: [neu, comments, question, worth, retrospectives, northeastern, considering, reddit-deep]
     token_count: 255
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c1"
-    char_span: [1083, 2821]
+    char_span: [1082, 2820]
     sentence_count: 7
     key_terms: [co-op, like, neu, genuinely, graduated, honestly, million, "there's"]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c2"
-    char_span: [2823, 4818]
+    char_span: [2822, 4817]
     sentence_count: 15
     key_terms: [graduated, co-op, coop, advantage, full-time, wouldn, major, here]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c3"
-    char_span: [4820, 5603]
+    char_span: [4819, 5602]
     sentence_count: 6
     key_terms: [school, clean, until, ratemyprofessor, nontraditional, border-coffee, refreshingly, departments]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c4"
-    char_span: [5605, 7676]
+    char_span: [5604, 7675]
     sentence_count: 14
     key_terms: [program, clinical, got, job, getting, northeastern, co-op, doctorate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c5"
-    char_span: [7435, 7978]
+    char_span: [7434, 7977]
     sentence_count: 5
     key_terms: [co-op, because, been, job, engineering, experience, healthcare, unemployed]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/neu/1t0x9dz.md#c6"
-    char_span: [7980, 8806]
+    char_span: [7979, 8805]
     sentence_count: 7
     key_terms: [opportunities, phd, zakattack1120, northeastern, absolutely, especially, experience, incredibly]
     section: Comments

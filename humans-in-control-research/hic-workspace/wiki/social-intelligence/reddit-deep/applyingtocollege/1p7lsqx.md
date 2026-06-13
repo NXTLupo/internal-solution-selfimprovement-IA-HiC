@@ -23,19 +23,19 @@ chunks:
     key_terms: [applyingtocollege, comments, ill-equivalent8316, reddit-deep, admissions, programs, college, posted]
     token_count: 79
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c1"
-    char_span: [307, 2046]
+    char_span: [306, 2045]
     sentence_count: 4
     key_terms: [nation, summer, girls, boys, admitted-students, programs, uchicago, people]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c2"
-    char_span: [2048, 3823]
+    char_span: [2047, 3822]
     sentence_count: 9
     key_terms: [competitive, aid, here, international, free, programs, research, student]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p7lsqx.md#c3"
-    char_span: [3825, 4544]
+    char_span: [3824, 4543]
     sentence_count: 4
     key_terms: [program, programs, competitive, certainly, college, potentialanywhere779, don, pre]
     section: Comments

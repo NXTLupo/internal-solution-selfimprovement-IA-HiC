@@ -23,13 +23,13 @@ chunks:
     key_terms: [offer, conditional, gpa, requirement, admissions, equivalent, semester, like]
     token_count: 477
   - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c1"
-    char_span: [2052, 3672]
+    char_span: [2051, 3671]
     sentence_count: 9
     key_terms: [program, requirement, department, offer, like, talk, checked, contact]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/gradschool/1rrszs9.md#c2"
-    char_span: [3674, 5346]
+    char_span: [3673, 5345]
     sentence_count: 11
     key_terms: [class, upper, gpa, rescind, "they'll", "they're", usually, degree]
     section: Comments

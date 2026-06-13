@@ -23,25 +23,25 @@ chunks:
     key_terms: [like, people, trying, being, cards, building, comments, honestly]
     token_count: 428
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c1"
-    char_span: [1836, 1965]
+    char_span: [1835, 1964]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c2"
-    char_span: [1968, 3762]
+    char_span: [1967, 3761]
     sentence_count: 12
     key_terms: [positiveswimming4755, everyone, broke, money, hit, rich, people, adamantheusenigma]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c3"
-    char_span: [3764, 5832]
+    char_span: [3763, 5831]
     sentence_count: 22
     key_terms: [life, later, living, people, broke, cash, don, live]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/genz/1ntnp3k.md#c4"
-    char_span: [5834, 6532]
+    char_span: [5833, 6531]
     sentence_count: 4
     key_terms: [spending, because, "isn't", gen, environment, difference, everything, prioritize]
     section: Comments

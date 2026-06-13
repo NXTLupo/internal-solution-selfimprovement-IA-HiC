@@ -23,7 +23,7 @@ chunks:
     key_terms: [science, careerguidance, career, skills, agriculture, bsc, financial, long-term]
     token_count: 341
   - id: "social-intelligence/reddit-deep/careerguidance/1s4zt4k.md#c1"
-    char_span: [1434, 3806]
+    char_span: [1433, 3805]
     sentence_count: 15
     key_terms: [problems, skills, solve, specific, agriculture, freelancing, feeling-cell-2264, want]
     section: Comments

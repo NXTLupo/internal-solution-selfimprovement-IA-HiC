@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1pa7r4q.md#c0"
-    char_span: [0, 1213]
+    char_span: [0, 1212]
     sentence_count: 7
     key_terms: [careerguidance, health, issues, wise, comments, severe, least, need]
-    token_count: 289
+    token_count: 288
 ---
 # what could I do career wise with my health issues, need advice/ guidance? [UK]
 

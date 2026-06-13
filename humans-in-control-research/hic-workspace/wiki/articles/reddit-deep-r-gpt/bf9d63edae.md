@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gpt/bf9d63edae.md#c0"
-    char_span: [0, 863]
+    char_span: [0, 862]
     sentence_count: 9
     key_terms: [delete, data, cancer, codex, gpt, archive, "haven't", reddit]
-    token_count: 233
+    token_count: 232
 ---
 # Codex: is Delete chat/room supported (beyond Archive)? - IP & Copyright Cancer.
 

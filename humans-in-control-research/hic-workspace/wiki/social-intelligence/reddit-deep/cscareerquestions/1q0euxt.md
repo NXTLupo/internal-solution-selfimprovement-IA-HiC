@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, market, comments, years, job, oversaturated, significantly, reddit-deep]
     token_count: 126
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c1"
-    char_span: [527, 2395]
+    char_span: [526, 2394]
     sentence_count: 15
     key_terms: [money, happen, get, toy, anxiety, drauren, passion, bubble]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c2"
-    char_span: [2397, 4420]
+    char_span: [2396, 4419]
     sentence_count: 18
     key_terms: [money, job, because, future, years, paid, tech, jimbo831]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c3"
-    char_span: [4422, 6428]
+    char_span: [4421, 6427]
     sentence_count: 12
     key_terms: [people, learning, because, market, school, interested, don, skills]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c4"
-    char_span: [6430, 8624]
+    char_span: [6429, 8623]
     sentence_count: 17
     key_terms: [software, time, enough, good, through, point, work, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c5"
-    char_span: [8315, 9902]
+    char_span: [8314, 9901]
     sentence_count: 15
     key_terms: [manufacturing, quixlequaxle, "don't", going, "it's", like, need, engineers]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q0euxt.md#c6"
-    char_span: [9904, 10501]
+    char_span: [9903, 10500]
     sentence_count: 5
     key_terms: [like, careers, career, pursue, post-secondary, snackatttack, considering, industry]
     section: Comments

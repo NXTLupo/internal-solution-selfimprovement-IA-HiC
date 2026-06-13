@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/8bba91add5.md#c0"
-    char_span: [0, 1235]
+    char_span: [0, 1234]
     sentence_count: 10
     key_terms: [startup, experience, investment, engineeringstudents, wanted, engineering, comments, platform]
-    token_count: 283
+    token_count: 282
 ---
 # Any Engineering Students Looking For Internships/Experience?
 

@@ -28,7 +28,7 @@ chunks:
     key_terms: [statistical, did, fwg3tlmrirmg1, probabilistic, statsmodels, approached, statistics, practical]
     token_count: 170
   - id: "social-intelligence/reddit-deep/deeplearning/1rjggh8.md#c2"
-    char_span: [2529, 4050]
+    char_span: [2528, 4049]
     sentence_count: 5
     key_terms: [pl-f5kyfvrciuzh3w5kqm4equp9ijllhp4, suspiciousbrain6027, playlist, siogixv8lstee9q, python, learn, post, downvoting]
     section: Comments

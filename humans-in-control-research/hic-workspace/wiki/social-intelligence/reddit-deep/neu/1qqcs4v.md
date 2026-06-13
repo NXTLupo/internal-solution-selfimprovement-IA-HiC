@@ -21,13 +21,13 @@ chunks:
     key_terms: [semester, been, accepted, comments, starting, program, got, neu]
     token_count: 204
   - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c1"
-    char_span: [895, 2743]
+    char_span: [894, 2742]
     sentence_count: 9
     key_terms: [got, campus, did, semester, spending, program, abroad, boston]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/neu/1qqcs4v.md#c2"
-    char_span: [2745, 3669]
+    char_span: [2744, 3668]
     sentence_count: 7
     key_terms: [nuin, friends, program, people, did, feel, life, too]
     section: Comments

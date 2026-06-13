@@ -15,37 +15,37 @@ industries: [financial_services, media]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c0"
-    char_span: [0, 1556]
+    char_span: [0, 1555]
     sentence_count: 8
     key_terms: [influencer, wallstreetbets, post, "tiktok's", biggest, reddit, comments, "there's"]
-    token_count: 391
+    token_count: 390
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c1"
-    char_span: [1558, 3357]
+    char_span: [1557, 3356]
     sentence_count: 4
     key_terms: [https, com, fundcertify-cpa, company, statements, financial, facebook, linkedin]
     token_count: 453
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c2"
-    char_span: [3359, 5340]
+    char_span: [3358, 5339]
     sentence_count: 10
     key_terms: [tiktok-influencer-khaby-lame-ai-avatar-deported-trump-creator-economy-975-million-deal, tiktok-star-khaby-lame-signs-975-million-deal-to-monetize-global-fan-base, tiktoker-khaby-lame-975-million-deal-riding-on-falling-stock-2026-2, https, price, com, bloomberg, offering]
     token_count: 485
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c3"
-    char_span: [5342, 7376]
+    char_span: [5341, 7375]
     sentence_count: 7
     key_terms: [how-a-tiny-hong-kong-firm-grew-bigger-than-goldman-then-began-to-plunge, ex-ubs-banker-s-parents-bought-into-china-ipos-he-helped-arrange, https, underwriters, book, american, e25240d7cfd79e105472e322f82cafd59efa1400, "hkd's"]
     token_count: 511
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c4"
-    char_span: [7378, 8925]
+    char_span: [7377, 8924]
     sentence_count: 8
     key_terms: [influencer, prospectus, company, sparkle, crypto, events, within, brain]
     token_count: 417
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c5"
-    char_span: [8927, 10464]
+    char_span: [8926, 10463]
     sentence_count: 5
     key_terms: [haliey-welch-aka-hawk-tuah-tries-to-explain-herself, https, comments, achieve, article, massive, "there's", reach]
     token_count: 421
   - id: "articles/reddit-deep-r-wallstreetbets/0aee8bcd55.md#c6"
-    char_span: [10466, 11201]
+    char_span: [10465, 11200]
     sentence_count: 3
     key_terms: [mithyyyy, discord, freshcheesepie, investigative, pre-gamecock, minecraft, positions, presented]
     token_count: 203

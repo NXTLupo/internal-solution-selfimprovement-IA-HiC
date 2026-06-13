@@ -15,12 +15,12 @@ industries: [higher_ed, fundraising, nonprofit]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-highereducation/0acb8fe5f3.md#c0"
-    char_span: [0, 2076]
+    char_span: [0, 2075]
     sentence_count: 17
     key_terms: [donate, employees, "it's", highereducation, because, donors, higher, money]
-    token_count: 491
+    token_count: 490
   - id: "articles/reddit-deep-r-highereducation/0acb8fe5f3.md#c1"
-    char_span: [2078, 3240]
+    char_span: [2077, 3239]
     sentence_count: 8
     key_terms: [employees, asked, staff, not-for-profit, inappropriate, "institution's", organizations, participation]
     token_count: 248

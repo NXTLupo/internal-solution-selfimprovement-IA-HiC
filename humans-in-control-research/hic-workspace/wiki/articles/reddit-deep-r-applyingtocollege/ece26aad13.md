@@ -15,17 +15,17 @@ industries: [higher_ed, education, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/ece26aad13.md#c0"
-    char_span: [0, 1366]
+    char_span: [0, 1365]
     sentence_count: 13
     key_terms: [umd, alabama, applyingtocollege, career, opportunities, comments, computer, because]
-    token_count: 334
+    token_count: 333
   - id: "articles/reddit-deep-r-applyingtocollege/ece26aad13.md#c1"
-    char_span: [1369, 3293]
+    char_span: [1368, 3292]
     sentence_count: 13
     key_terms: [education, take, money, lot, pay, rate, umd, difference]
     token_count: 455
   - id: "articles/reddit-deep-r-applyingtocollege/ece26aad13.md#c2"
-    char_span: [3295, 4676]
+    char_span: [3294, 4675]
     sentence_count: 8
     key_terms: [umd, get, alabama, opportunities, job, motivated, students, average]
     token_count: 308

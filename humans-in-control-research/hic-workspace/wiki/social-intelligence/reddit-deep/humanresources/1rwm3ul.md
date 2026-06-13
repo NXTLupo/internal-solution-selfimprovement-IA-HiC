@@ -23,19 +23,19 @@ chunks:
     key_terms: [humanresources, comments, senior, study, years, hrbp, need, sphr]
     token_count: 149
   - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c1"
-    char_span: [567, 2679]
+    char_span: [566, 2678]
     sentence_count: 19
     key_terms: [study, prep, practice, problem, answer, got, pass, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c2"
-    char_span: [2440, 3594]
+    char_span: [2439, 3593]
     sentence_count: 12
     key_terms: [post, practice, cantaloupepublic2539, consistent-sun-4360, tests, book, case, hrci]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/humanresources/1rwm3ul.md#c3"
-    char_span: [3596, 4445]
+    char_span: [3595, 4444]
     sentence_count: 7
     key_terms: [longjumpingarcher628, level, workflowsidechat, differentiator, humanresources, automatically, certification, nice-to-have]
     section: Comments

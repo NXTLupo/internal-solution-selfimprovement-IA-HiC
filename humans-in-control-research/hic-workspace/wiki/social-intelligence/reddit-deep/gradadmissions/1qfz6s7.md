@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, charlespotts64, reddit-deep, breathe, posted, reddit, source]
     token_count: 77
   - id: "social-intelligence/reddit-deep/gradadmissions/1qfz6s7.md#c1"
-    char_span: [247, 1420]
+    char_span: [246, 1419]
     sentence_count: 7
     key_terms: [charlespotts64, thank, congratulations, congrats, amazing, somewillingness2503, great, top]
     section: Comments

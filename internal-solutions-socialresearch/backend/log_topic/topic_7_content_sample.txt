@@ -1,0 +1,17 @@
+Topic 7 - Content Sample
+Number of content items: 10
+Top words: vanguard, issue, holdings, sync, plaid, account, quicken
+
+Content 1 (length: 566 chars):
+I have had good luck with Plaid.
+Plaid is the service that connects SA to Vanguard. I liked SA's platform but when I cant see my investments its not worth it
+I just posted nearly the exact same message titled “Data Sync”.  I’m using Divtracker which also uses Plaid for sync’ing. Worked well (understanding that Vanguard can take some time with settlement) until a few months ago. Something changed and Vanguard tech support is non-existent but im looking to escalate. I’m following this thread to see if you get any answers and I’ll post on my thread if I get some.
+
+Content 2 (length: 1068 chars):
+Data Sync I’m an income focused investor using my Vanguard self-directed IRA in retirement. I use Divtracker to monitor and record the dividends, Exdiv dates, dividend calendar and NAVs. Divtracker is designed to sync once per day to my Vanguard account using Plaid. This setup worked well up to about 2 months ago but lately the connection often times breaks, data is incomplete or non-existent. Plaid tech support blames Vanguard and Vanguard tech support is weak. Does anyone else have similar issues and/or solutions? If it is Plaid I’m open to using a different dividend tracking software although I love Divtracker. TIA. You can try an investment tracker that uses something different than Plaid, Snaptrade is a good alternative. Allinvestview.com syncs through Snaptrade, so you can check it out
+Thanks, will take a look.
+Vanguard limits the times that third parties can download information to outside market hours and peak hours. I track all my accounts on Fidelity's website and Vanguard's data doesn't populate until I think a half hour after market closes.
+
+Content 3 (length: 117 chars):
+No issues with Fidelity or Schwab.  After spending 90 minutes with quicken support it is an issue with Vanguard data.
+

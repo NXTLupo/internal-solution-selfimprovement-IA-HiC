@@ -23,85 +23,85 @@ chunks:
     key_terms: [cscareerquestions, "it's", people, time, companies, different, comments, pattern]
     token_count: 271
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c1"
-    char_span: [1053, 2864]
+    char_span: [1052, 2863]
     sentence_count: 13
     key_terms: [people, unqualified, being, hired, building, making, job, droves]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c2"
-    char_span: [2866, 4735]
+    char_span: [2865, 4734]
     sentence_count: 16
     key_terms: [tech, underqualified, government, position, doing, sites, years, c-u-in-da-ballpit]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c3"
-    char_span: [4737, 6643]
+    char_span: [4736, 6642]
     sentence_count: 14
     key_terms: [making, being, wrong, handholding, something, because, people, spring]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c4"
-    char_span: [6645, 8404]
+    char_span: [6644, 8403]
     sentence_count: 11
     key_terms: [work, form, everyone, backend, fields, talent, values, videos]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c5"
-    char_span: [8406, 10239]
+    char_span: [8405, 10238]
     sentence_count: 12
     key_terms: [people, because, got, chili-lime-chihuahua, agree, place, years, billyblobsabillion]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c6"
-    char_span: [10241, 12389]
+    char_span: [10240, 12388]
     sentence_count: 19
     key_terms: [people, market, job, companies, administration, trying, "i've", "it's"]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c7"
-    char_span: [12391, 13896]
+    char_span: [12390, 13895]
     sentence_count: 9
     key_terms: [lol, inflation, actively, economic, trying, chili-lime-chihuahua, white, years]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c8"
-    char_span: [13898, 15718]
+    char_span: [13897, 15717]
     sentence_count: 20
     key_terms: ["it's", like, hired, distraction, job, investment, people, any-competition8494]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c9"
-    char_span: [15720, 17861]
+    char_span: [15719, 17860]
     sentence_count: 17
     key_terms: [hiring, "don't", investment, companies, huge, lot, bubble, market]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c10"
-    char_span: [17864, 19407]
+    char_span: [17863, 19406]
     sentence_count: 10
     key_terms: [layoffs, companies, company, junior, market, people, money, stock]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c11"
-    char_span: [19409, 21591]
+    char_span: [19408, 21590]
     sentence_count: 22
     key_terms: [people, headcount, products, layoffs, months, time, offshoring, companies]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c12"
-    char_span: [21593, 23047]
+    char_span: [21592, 23046]
     sentence_count: 9
     key_terms: [work, people, lot, companies, needed, built, going, early-surround7413]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c13"
-    char_span: [23049, 25164]
+    char_span: [23048, 25163]
     sentence_count: 10
     key_terms: [deleted, time, applicants, companies, talking, around, hiring, market]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mlrhlj.md#c14"
-    char_span: [25166, 26236]
+    char_span: [25165, 26235]
     sentence_count: 9
     key_terms: [tech, interest, getting, thatfeelingisbliss88, rates, train, job, like]
     section: Comments

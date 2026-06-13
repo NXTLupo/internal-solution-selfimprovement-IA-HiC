@@ -23,7 +23,7 @@ chunks:
     key_terms: [account, gemini, experience, unsettling, comments, someone, seems, administrator]
     token_count: 181
   - id: "social-intelligence/reddit-deep/gemini/1mw6pn6.md#c1"
-    char_span: [797, 1606]
+    char_span: [796, 1605]
     sentence_count: 9
     key_terms: [humblead6496, ticket, thank, been, escalated, account, gianna, please]
     section: Comments

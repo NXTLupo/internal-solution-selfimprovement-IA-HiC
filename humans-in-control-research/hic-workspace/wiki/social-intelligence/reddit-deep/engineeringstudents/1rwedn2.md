@@ -7,15 +7,13 @@ subreddit: "engineeringstudents"
 title: "I might lose financial aid if I do a co-op"
 author: "GlumSort7910"
 date: "2026-03-17T18:09:43.000Z"
-score: 17
+score: 16
 upvote_ratio: 0.91
 num_comments: 19
 flair: "Academic Advice"
-extracted_at: "2026-05-22T23:33:46.992Z"
+extracted_at: "2026-06-08T18:49:20.741Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rwedn2.md#c0"
     char_span: [0, 1751]
@@ -38,7 +36,7 @@ chunks:
 # I might lose financial aid if I do a co-op
 
 Source: [reddit-deep: r/engineeringstudents](https://www.reddit.com/r/EngineeringStudents/comments/1rwedn2/i_might_lose_financial_aid_if_i_do_a_coop/)
-Posted by **GlumSort7910** · **17↑** · **19 comments**
+Posted by **GlumSort7910** · **16↑** · **19 comments**
 
 I just received a full-time co-op offer for the fall semester with a really good company (good pay, great experience, exactly what I want to do), and I was super excited about it at first. But I found out it might affect my financial aid, and now I feel completely stuck. I’m currently in a program that covers my tuition, but it requires me to be enrolled in at least 12 credit hours every semester. Since this co-op is full-time, I wouldn’t be able to take classes at all, which could make me lose that benefit. If that happens, I honestly don’t know if I could afford the rest of my degree.
 
@@ -65,16 +63,16 @@ Read our [F.A.Q](https://www.reddit.com/r/EngineeringStudents/wiki/index/faq)
 Check our [Resources Landing Page](https://reddit.com/r/EngineeringStudents/wiki/resources)
 
 *I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/EngineeringStudents) if you have any questions or concerns.*
-- **Tall-Cat-8890** (24↑): Sometimes schools will allow you to enroll in research hours to cover this. Worst case you can enroll in one or two bs online asynchronous classes and see if they can do 3-6 hours of a research class. I haven’t been in this particular situation but a lot of schools try to work with their students when situations like this happen. 
+- **Tall-Cat-8890** (23↑): Sometimes schools will allow you to enroll in research hours to cover this. Worst case you can enroll in one or two bs online asynchronous classes and see if they can do 3-6 hours of a research class. I haven’t been in this particular situation but a lot of schools try to work with their students when situations like this happen. 
 
 If you don’t hear back just talk to them in person. I’m sure they’ll be able to work something out
 - **Ok-Store-2788** (12↑): My school has a co-op program that allows me to retain the full-time student status with my university. All of my scholarship programs were simply paused during the rotations and resumed as normal when I returned to school.
-- **zacce** (11↑): same situation. decided to risk the scholarships b/c of not maintaining full-time student status. finaid office said we can appeal for renewal but nothing is guaranteed. I suppose you can appeal too.  
+- **zacce** (10↑): same situation. decided to risk the scholarships b/c of not maintaining full-time student status. finaid office said we can appeal for renewal but nothing is guaranteed. I suppose you can appeal too.  
 
 Ofc, you need to weigh the pros and cons of your co-op.
 - **ConcernedKitty** (5↑): That doesn’t sound right. This was never an issue and I did 4 co-ops.
   - **GlumSort7910** (2↑): just found out the college of engineering at my school doesn’t have a co-op program… Looks like I’ll be skipping the offer
-    - **Ok-Store-2788** (5↑): Would you be able to save up as much money from the co-op as the scholarship would give you?
+    - **Ok-Store-2788** (6↑): Would you be able to save up as much money from the co-op as the scholarship would give you?
     - **Frequent_Foot_7332** (1↑): That’s unfortunate. Co-ops can be great experience builders and really help when it comes time to job hunt
 - **spongeysquarepantis** (3↑): If your university does co-ops right, you shouldn’t be losing your scholarships as they will make you still “full-time status”. Talk to your director
 - **EroticElon** (3↑): I don’t know where you are, but at Georgia Tech we have the ability to enroll in audit hours for internships and co-op programs. These count for nothing, cost nothing, and simply exist to retain financial aid status. I would talk to an advisor because many universities have a system like this.

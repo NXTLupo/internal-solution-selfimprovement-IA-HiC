@@ -23,7 +23,7 @@ chunks:
     key_terms: [cybersecurity, company, devops, logistics, option, opportunities, careeradvice, experienced]
     token_count: 469
   - id: "social-intelligence/reddit-deep/careeradvice/1p4dwdl.md#c1"
-    char_span: [2183, 2736]
+    char_span: [2182, 2735]
     sentence_count: 8
     key_terms: [become, people, hired, big, irreplaceable, accounting, difference, learning]
     section: Comments

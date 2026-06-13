@@ -18,19 +18,19 @@ chunks:
     key_terms: [evidence, maturity, benchmark, evidenced, ingested, entries, maturity-to-outcome, data]
     token_count: 130
   - id: "evidence/cx-maturity.md#c1"
-    char_span: [664, 1275]
+    char_span: [663, 1274]
     sentence_count: 1
     key_terms: [evidenced, evidence, source, confidence, hypothesis, partially, supported, finding]
     section: Evidence Entry Format
     token_count: 156
   - id: "evidence/cx-maturity.md#c2"
-    char_span: [1309, 2036]
+    char_span: [1308, 2035]
     sentence_count: 2
     key_terms: [maturity, organizations, correlation, structures, correlate, employee, maturity-to-revenue, level]
     section: Pending Evidence Categories
     token_count: 150
   - id: "evidence/cx-maturity.md#c3"
-    char_span: [2059, 2791]
+    char_span: [2058, 2790]
     sentence_count: 2
     key_terms: [benchmarks, maturity, evidence, digital-transformation, source, financial-impact, maturity-models, gap-analysis]
     section: Cross-References

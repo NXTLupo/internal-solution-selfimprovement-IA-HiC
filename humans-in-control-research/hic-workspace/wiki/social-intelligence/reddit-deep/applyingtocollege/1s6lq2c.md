@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6lq2c.md#c0"
-    char_span: [0, 734]
+    char_span: [0, 733]
     sentence_count: 6
     key_terms: [applyingtocollege, comments, criminal, justice, stick, wanna, love, reddit-deep]
-    token_count: 183
+    token_count: 182
 ---
 # Career/Major incoming college student
 

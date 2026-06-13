@@ -23,13 +23,13 @@ chunks:
     key_terms: [own, professors, comments, college, school, "i'm", professional, appropriate]
     token_count: 169
   - id: "social-intelligence/reddit-deep/college/1skdv75.md#c1"
-    char_span: [775, 2932]
+    char_span: [774, 2931]
     sentence_count: 16
     key_terms: [ask, office, reach, research, hours, appropriate, professors, question]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1skdv75.md#c2"
-    char_span: [2631, 3641]
+    char_span: [2630, 3640]
     sentence_count: 5
     key_terms: [reaching, specific, office, email, professional, salutations, appreciate, completely]
     section: Comments

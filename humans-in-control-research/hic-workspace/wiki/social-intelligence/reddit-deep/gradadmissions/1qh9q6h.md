@@ -23,7 +23,7 @@ chunks:
     key_terms: [phd, admissions, committee, gradadmissions, group, independent, acceptance, mentioning]
     token_count: 262
   - id: "social-intelligence/reddit-deep/gradadmissions/1qh9q6h.md#c1"
-    char_span: [1255, 3432]
+    char_span: [1254, 3431]
     sentence_count: 15
     key_terms: [phd, research, "don't", independent, lead, want, phds, because]
     section: Comments

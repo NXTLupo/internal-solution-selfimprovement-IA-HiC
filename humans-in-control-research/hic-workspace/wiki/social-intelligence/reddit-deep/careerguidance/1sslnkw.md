@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sslnkw.md#c0"
-    char_span: [0, 1340]
+    char_span: [0, 1339]
     sentence_count: 8
     key_terms: [data, skills, science, careerguidance, career, interested, relatively, analysis]
-    token_count: 296
+    token_count: 295
 ---
 # Class 12 student - which career paths are relatively safe from AI and Interested in data science but unsure ?
 

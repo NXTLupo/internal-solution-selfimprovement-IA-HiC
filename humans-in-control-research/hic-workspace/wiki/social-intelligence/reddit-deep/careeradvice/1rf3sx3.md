@@ -23,7 +23,7 @@ chunks:
     key_terms: [careeradvice, comments, hype, job, ai-resistant, engineering, reddit-deep, automation]
     token_count: 222
   - id: "social-intelligence/reddit-deep/careeradvice/1rf3sx3.md#c1"
-    char_span: [853, 1476]
+    char_span: [852, 1475]
     sentence_count: 2
     key_terms: [myself, mobile-temperature36, like, use, presentations, automations, combination, implemented]
     section: Comments

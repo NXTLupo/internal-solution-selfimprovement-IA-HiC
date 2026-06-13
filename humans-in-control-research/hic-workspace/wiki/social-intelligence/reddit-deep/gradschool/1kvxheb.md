@@ -23,13 +23,13 @@ chunks:
     key_terms: [gradschool, comments, job, like, slutforguacamole, reddit-deep, employment, especially]
     token_count: 190
   - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c1"
-    char_span: [793, 2229]
+    char_span: [792, 2228]
     sentence_count: 12
     key_terms: [congratulations, slutforguacamole, exciting, job, thank, interview, thepaintedfern, congrats]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/gradschool/1kvxheb.md#c2"
-    char_span: [2231, 3352]
+    char_span: [2230, 3351]
     sentence_count: 8
     key_terms: [slutforguacamole, congratulations, congrats, never, thank, been, did, done]
     section: Comments

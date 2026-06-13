@@ -11,9 +11,9 @@ score: 1
 upvote_ratio: 1
 num_comments: 1
 flair: "Career/work"
-extracted_at: "2026-06-05T16:17:48.499Z"
+extracted_at: "2026-06-08T17:32:14.368Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/college/1m2tobm.md#c0"
     char_span: [0, 2160]

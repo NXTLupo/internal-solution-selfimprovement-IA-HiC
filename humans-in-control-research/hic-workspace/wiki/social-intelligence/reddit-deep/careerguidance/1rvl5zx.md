@@ -33,7 +33,7 @@ chunks:
     key_terms: [appreciate, consulting, interests, resources, responses, something, guidance, programs]
     token_count: 77
   - id: "social-intelligence/reddit-deep/careerguidance/1rvl5zx.md#c3"
-    char_span: [5056, 6084]
+    char_span: [5055, 6083]
     sentence_count: 10
     key_terms: [product, newsletter, psychologicalask6716, ideas, roles, tasks, thepandapear, experiences]
     section: Comments

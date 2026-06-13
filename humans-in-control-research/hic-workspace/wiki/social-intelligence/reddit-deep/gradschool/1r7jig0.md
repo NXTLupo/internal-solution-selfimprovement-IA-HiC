@@ -23,19 +23,19 @@ chunks:
     key_terms: [degree, gradschool, graduate, "master's", program, undergraduate, experience, typically]
     token_count: 231
   - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c1"
-    char_span: [1053, 2849]
+    char_span: [1052, 2848]
     sentence_count: 16
     key_terms: [undergrad, college, school, grad, courses, because, classes, program]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c2"
-    char_span: [2851, 4329]
+    char_span: [2850, 4328]
     sentence_count: 5
     key_terms: [gpa, school, lasixsteroidsabx, "master's", lot, wondering, ireland, matters]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/gradschool/1r7jig0.md#c3"
-    char_span: [4331, 6265]
+    char_span: [4330, 6264]
     sentence_count: 16
     key_terms: [gpa, undergrad, graduate, school, grad, different, graduated, location]
     section: Comments

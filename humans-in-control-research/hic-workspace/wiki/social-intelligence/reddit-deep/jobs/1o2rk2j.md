@@ -21,19 +21,19 @@ chunks:
     key_terms: [jobs, comments, recently, however, career, energy, sector, embarrassedeffect705]
     token_count: 225
   - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c1"
-    char_span: [982, 3135]
+    char_span: [981, 3134]
     sentence_count: 20
     key_terms: [degree, something, job, time, upstairs-screen-4200, apply, energy, sector]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c2"
-    char_span: [2887, 3473]
+    char_span: [2886, 3472]
     sentence_count: 4
     key_terms: [experience, get, "it's", sustainability, engineering, internships, traditional, prioritize]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/jobs/1o2rk2j.md#c3"
-    char_span: [3475, 4099]
+    char_span: [3474, 4098]
     sentence_count: 1
     key_terms: [experience, career, unconventional, engineering, perspective, attractive, unemployed, companies]
     section: Comments

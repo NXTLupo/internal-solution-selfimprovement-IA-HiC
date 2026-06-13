@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1ne2dy2.md#c0"
-    char_span: [0, 1445]
+    char_span: [0, 1444]
     sentence_count: 7
     key_terms: ["i'm", experience, research, gradadmissions, gpa, candidates, including, comments]
     token_count: 322

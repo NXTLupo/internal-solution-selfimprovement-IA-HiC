@@ -15,12 +15,12 @@ industries: [workforce, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-digitalnomad/a1cebc2dfc.md#c0"
-    char_span: [0, 1266]
+    char_span: [0, 1265]
     sentence_count: 10
     key_terms: [number, digitalnomad, data, whatsapp, account, verizon, without, losing]
-    token_count: 311
+    token_count: 310
   - id: "articles/reddit-deep-r-digitalnomad/a1cebc2dfc.md#c1"
-    char_span: [1268, 2448]
+    char_span: [1267, 2447]
     sentence_count: 14
     key_terms: [google, voice, country, works, receive, charge, number, thefullyloadednachos]
     token_count: 306

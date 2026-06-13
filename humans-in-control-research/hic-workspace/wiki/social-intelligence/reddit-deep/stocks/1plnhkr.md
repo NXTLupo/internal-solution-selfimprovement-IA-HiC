@@ -23,49 +23,49 @@ chunks:
     key_terms: [oracle-runs-into-more-bond-trouble-evening-briefing-americas, oracle, billion, bonds, https, com, junk, www]
     token_count: 477
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c1"
-    char_span: [1910, 3729]
+    char_span: [1909, 3728]
     sentence_count: 12
     key_terms: [billion, bonds, debt, oracle, issue, financial, issuances, already]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c2"
-    char_span: [3734, 5564]
+    char_span: [3733, 5563]
     sentence_count: 17
     key_terms: [meta-musks-xai-tap-off-175253347, lease, debt, like, investors, billion, centers, ellison]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c3"
-    char_span: [5566, 6955]
+    char_span: [5565, 6954]
     sentence_count: 9
     key_terms: [oracle, myironlung6, fellow, "isn't", issue, here, keep, kids]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c4"
-    char_span: [6957, 8884]
+    char_span: [6956, 8883]
     sentence_count: 5
     key_terms: [company, exactly, oracle, going, get, meta, products, because]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c5"
-    char_span: [8886, 9669]
+    char_span: [8885, 9668]
     sentence_count: 5
     key_terms: [oracle, charges, company, foreign, "i'd", corporations, subsidiaries, corporation]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c6"
-    char_span: [9671, 11363]
+    char_span: [9670, 11362]
     sentence_count: 7
     key_terms: [oracle-says-there-have-been-no-delays-in-openai-arrangement, cnbc, get, new, probably, android, because, drivers]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c7"
-    char_span: [11365, 13560]
+    char_span: [11364, 13559]
     sentence_count: 12
     key_terms: [banks-prep-series-of-multibillion-dollar-debt-offerings-for-oracle, oracle, offerings, been, billion, centers, sources, banks]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/stocks/1plnhkr.md#c8"
-    char_span: [13562, 14136]
+    char_span: [13561, 14135]
     sentence_count: 3
     key_terms: [according, financing, sources, friday, awkward-painter-2024, oracle-affiliated, development, anyhat8807]
     section: Comments

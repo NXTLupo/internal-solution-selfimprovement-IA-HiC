@@ -7,13 +7,13 @@ subreddit: "professors"
 title: "I’m a young professor who is thinking of becoming *the worst*"
 author: "majoras-other-mask"
 date: "2025-08-18T19:45:10.000Z"
-score: 244
+score: 242
 upvote_ratio: 0.89
 num_comments: 157
 flair: "Teaching / Pedagogy"
-extracted_at: "2026-06-06T16:39:04.354Z"
+extracted_at: "2026-06-08T18:50:07.181Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/professors/1mtwcoz.md#c0"
     char_span: [0, 1914]
@@ -113,7 +113,7 @@ chunks:
 # I’m a young professor who is thinking of becoming *the worst*
 
 Source: [reddit-deep: r/professors](https://www.reddit.com/r/Professors/comments/1mtwcoz/im_a_young_professor_who_is_thinking_of_becoming/)
-Posted by **majoras-other-mask** · **244↑** · **157 comments**
+Posted by **majoras-other-mask** · **242↑** · **157 comments**
 
 TLDR: thinking about implementing a punch of practices I don’t like because of how students are engaging with classes. Looking for feedback on what has worked well with STEM freshmen/sophomores over the last two years. 
 
@@ -139,16 +139,16 @@ Based on initial comments I am very open to advice on ways to incentivize office
 
 ## Comments
 
-- **wharleeprof** (691↑): Lectures during office hours - no, do not do that.
-  - **lickety_split_100** (129↑): Absolutely do not. Your entire office hours will devolve into this. Make them get notes from a classmate.
-  - **Ancient_Midnight5222** (119↑): Yeah hell naw. That sounds absolutely exhausting lol
+- **wharleeprof** (695↑): Lectures during office hours - no, do not do that.
+  - **lickety_split_100** (128↑): Absolutely do not. Your entire office hours will devolve into this. Make them get notes from a classmate.
+  - **Ancient_Midnight5222** (118↑): Yeah hell naw. That sounds absolutely exhausting lol
     - **Economy_Match_3958** (58↑): Makes no sense. They chose to miss a class or had to miss for reasons outside of their control. Regardless, the Professor or Instructor has no reason or role - in a sane world - in giving his time to do lectures during office hours. These are adults, the students. Remember that
-  - **NotAFlatSquirrel** (33↑): Glad to see you nixed this above. You will 100% end up with a half dozen students who will basically make you reteach the entire effing course privately in office hours. I already have students attempt this, because they (insert reason for skipping class/ not liking course schedule/athletics/vacations to lord knows where).
+  - **NotAFlatSquirrel** (35↑): Glad to see you nixed this above. You will 100% end up with a half dozen students who will basically make you reteach the entire effing course privately in office hours. I already have students attempt this, because they (insert reason for skipping class/ not liking course schedule/athletics/vacations to lord knows where).
   - **Anonphilosophia** (3↑): My syllabus says, “I will happily answer any questions you have on the reading, but I will NOT reteach.”  Op is about to open a 24 hour repeat lecture shop.
 - **harvard378** (60↑): How much do teaching evaluations matter when it comes to promotion/tenure?  Avoid doing anything really unpopular (phone = kicked out, for example) unless you're sure it won't come back to bite you.
-  - **majoras-other-mask** (22↑): I’m adjunct and already know I can’t work at this university next semester (I would be considered full time if I teach another class within a calendar year which they can’t have 🙄) so not at all lol
-    - **kodakrat74** (33↑): Do you hope to adjunct or get a TT job somewhere else in the future? If yes, then I would not do anything that could tank my student evals. It's just not worth it.
-- **ybetaepsilon** (234↑): My two-cents on some of these points;
+  - **majoras-other-mask** (23↑): I’m adjunct and already know I can’t work at this university next semester (I would be considered full time if I teach another class within a calendar year which they can’t have 🙄) so not at all lol
+    - **kodakrat74** (35↑): Do you hope to adjunct or get a TT job somewhere else in the future? If yes, then I would not do anything that could tank my student evals. It's just not worth it.
+- **ybetaepsilon** (235↑): My two-cents on some of these points;
 
 * If I see phone or headphones you will be asked to leave the class. *This is going to get you complained on to the dean. My rule is if you don't want to pay attention, fine, but don't distract the class and sit at the back. If I am distracted, I'll ask you to leave.*
 
@@ -158,20 +158,20 @@ Based on initial comments I am very open to advice on ways to incentivize office
 * If you want the solutions to the hw you will need to come to office hours to discuss the problem (will randomly grade 1 problem per a week). *Limiting the number of problems you help grade for students disadvantages the students if they are struggling and all you will do is make students feel they are unwelcomed to office hours. Then they will use AI to help them and get more confused or lost. You want to give a welcoming office hour environment to disincentivize the use of AI.* 
 * If you aren’t coming to office hours I will have zero grade flexibility and will strictly curve grades on 0.50+- rounding so yeah, a 0.49 will result in a lower grade. *I did this once and they all would come to office hours to just say hi because they thought it earned them brownie points and prevent them from getting a round-down. Then I'd get emails about how they came to office hours so they are entitled to the round up. Don't give them something they can pull on.*
   - **majoras-other-mask** (61↑): You are so right, can’t give them anything to pull on and definitely limits access to learning from the HW. Hmm. I’ll have to think through this more! Thank you for your thoughts!!!
-  - **CynicalCandyCanes** (25↑): Asking them to leave for using a phone or headphones would result in a complaint to the Dean?! On what basis?
-    - **BluProfessor** (54↑): "My mom is sick and went to the doctor. She texted me an update and I got kicked out of class"
+  - **CynicalCandyCanes** (27↑): Asking them to leave for using a phone or headphones would result in a complaint to the Dean?! On what basis?
+    - **BluProfessor** (57↑): "My mom is sick and went to the doctor. She texted me an update and I got kicked out of class"
 
 "I've been waiting on this test result and got kicked out of class for checking my phone when I got the notification"
 
 "My little brother called me twice so I texted to make sure he was ok and let him know I was in class and then I got kicked out"
 
 I just made those up on the fly and they're all plausible and would make you look like an ass if you're the professor.
-    - **Adept_Tree4693** (7↑): Agreed Cynical Candy. I have a similar policy but give a warning first “if you would to participate in class, great. If you want to wear headphones, use your phone, etc. please go somewhere else. It is a distraction to me and if it distracts me then everyone is affected. And everyone has paid to be here”.
+    - **Adept_Tree4693** (6↑): Agreed Cynical Candy. I have a similar policy but give a warning first “if you would to participate in class, great. If you want to wear headphones, use your phone, etc. please go somewhere else. It is a distraction to me and if it distracts me then everyone is affected. And everyone has paid to be here”.
 
 I have not had any complaints.
     - **itsswavybaby** (3↑): In the accommodation letters I've been getting, most now have an accommodation that allows the student to use headphones/earbuds in class. Although it states that students will not use these devices for music listening, their use of these devices is part of their accommodation, and I must permit it. It's now on about 7 out of 10 of the accommodation letters I've received. So yeah, this rule would get a complaint to the Dean.
   - **Astra_Starr** (4↑): Sorry, headphones is a no. Plain and simple.
-  - **RightWingVeganUS** (10↑): I generally agree with many of your recommendations. Here are exceptions:
+  - **RightWingVeganUS** (11↑): I generally agree with many of your recommendations. Here are exceptions:
 
 >Midterm, final and project are 80% of grade and there are just the two exams. *Yes. I've limited my assignment weight because of AI. I've also incorporated the assignment into the exams and will check with student submissions if they fail the assignment part of the tests as that is evidence that they did not create the work that they submitted.*
 
@@ -184,7 +184,7 @@ I actually encourage students to use AI for assistance and help them craft good 
 >If you aren’t coming to office hours I will have zero grade flexibility and will strictly curve grades on 0.50+- rounding so yeah, a 0.49 will result in a lower grade. *I did this once and they all would come to office hours to just say hi because they thought it earned them brownie points and prevent them from getting a round-down. Then I'd get emails about how they came to office hours so they are entitled to the round up. Don't give them something they can pull on.*
 
 I'd welcome that! I won't give points for simply social calls and flattery, but will use the time to engage the students, understand their perspective, and dig into the issues and blockers that may keep them from success. I underscore the clause where the award of such points are solely at my discretion so it doesn't really matter what they *think* they're entitled to.
-    - **twomayaderens** (14↑): I’d be curious how you distinguish ethical use of AI (if such a thing is possible) from AI misuse and abuse when the students share their prompt history. 
+    - **twomayaderens** (13↑): I’d be curious how you distinguish ethical use of AI (if such a thing is possible) from AI misuse and abuse when the students share their prompt history. 
 
 In my minds eye, students who abuse AI arrive at an assignment doing little to no preparatory work, studying or reading. They plug the assignment prompt into ChatGPT and voila! They submit AI slop without even barely reviewing the factual content or organization of what gets spit out. 
 
@@ -196,7 +196,7 @@ Still, apart from the structural problems with AI, placing a big red line betwee
     - **Much2learn_2day** (1↑): I would add to this - have students email their question beforehand so it increases the authentic engagement type of drop in. Don’t do more work than the student but give them opportunities to do more work if they’re looking for deeper understanding or clarity
   - **supremewuster** (2↑): Let them " complain to the Dean" all they want about being kicked out for.puone use. You have to hold that line.
   - **Both-Razzmatazz-5243** (1↑): I'm mid-career. I support some of these, but I think it will be very hard for you to make these changes on your own. If you're the only professor doing this, you will find it blows back on you from students and, probably, many of your colleagues who will resent that you're implicitly judging what they do. I don't know what the answer is, but it's more of a collective action problem than an individual one.
-- **Essie7888** (33↑): I’m there with you. I love teaching and have been a really student focused teacher most of my career. Until now. Things have changed and I’m considering or have put in use, some form of many of these practices. 
+- **Essie7888** (32↑): I’m there with you. I love teaching and have been a really student focused teacher most of my career. Until now. Things have changed and I’m considering or have put in use, some form of many of these practices. 
 
 Some thoughts:
 -I do mainly paper, always have- students complain early on but get used to it. Mainly they complain that the due dates are not on canvas since they have never learned to keep a schedule. The complains on this one will drive you to the edge of sanity when you have to explain what a planner is..lol
@@ -210,21 +210,21 @@ Some thoughts:
 -the office hour requirement is a bit too far for me from an equity standpoint. Some students with jobs or kids won’t be able to fit into this mold and you’ll never know who they are. Instead I would make one required office hour in the first two months of class so you can get to know them. Get the shy students out of their bubble, see what’s going on with your groups. 
 
 Anyways- I wrote this fast and English isn’t my first language so sorry if it’s jumbled. Just thought it might help tho. Solidarity!!
-  - **majoras-other-mask** (3↑): This is really helpful! I think blanket tech ban else accommodations from a disability resource center might be a better way to approach it. I will need to look up campus policies now to ensure this is in line with things. 
+  - **majoras-other-mask** (7↑): This is really helpful! I think blanket tech ban else accommodations from a disability resource center might be a better way to approach it. I will need to look up campus policies now to ensure this is in line with things. 
 
 I’m planning to still put due dates online so hopefully that eliminates some stuff. Or at least the syllabus will be online because that’s required. Good to know they will complain about that. 
 
 That is great alternatives to 1-1, I think this is what I was looking for was feedback on other options. 
 
 I like the mandatory 1-1 in the first two months. I try to put a lot of focus on equity in my teaching and have an extremely flexible office hours where I can meet with our if the standard time doesn’t work. Doing the 1-1 might also encourage students to actually message me to ask for a time to meet if they can’t make office hours. Hmm.
-    - **phapalla101** (7↑): I had a professor who made visiting him for office hours a quiz grade. This could be a freebie HW grade and where they either need to come with something to discuss, or just so that you can meet them as a person (but not mention that just showing up qualifies).   
+    - **phapalla101** (6↑): I had a professor who made visiting him for office hours a quiz grade. This could be a freebie HW grade and where they either need to come with something to discuss, or just so that you can meet them as a person (but not mention that just showing up qualifies).   
   
 I asked so many questions during class that I ended up going to his office hours on the last day of class (4 week summer course), so setting the deadline of 50-60% of the semester could avoid an end of semester swarm. In the case that students do swarm that week, perhaps the deadline could coincide with a class milestone, like 1-2 weeks after the midterm. That way if they do show up, their questions could be related to review of midterm material rather than nonsense.
     - **Much2learn_2day** (1↑): I schedule a class or 2 for 1-1 quick meetings - I do have smaller classes (20-30) and they’re 3 hours long so it’s easy. I ask what they need for success, how they’re managing the class and term, what strategies they have and offer tips if needed. It’s a chance to humanize each other and increase personal accountability.
-- **43_Fizzy_Bottom** (28↑): Do not provide 1-1 lectures for students. Tell them to get the notes from another student and see you if they have specific questions about what was covered.
+- **43_Fizzy_Bottom** (27↑): Do not provide 1-1 lectures for students. Tell them to get the notes from another student and see you if they have specific questions about what was covered.
   - **Resident-Donut5151** (2↑): I do this.  I also tell them they need to find a class study buddy for this purpose and I do think pair shares where they need to start by introducing themselves to someone new.
   - **Dreamsincolor20** (2↑): Right. This would very quickly become a total nightmare.
-- **CharacteristicPea** (28↑): Longtime mathematics professor here (40 yrs teaching). My first suggestion is to not have any policies that are so draconian that you will be unwilling to enforce them for any and all students (including the sympathetic ones). Think carefully about this. You think you are making policies to eliminate bad behavior, but you can never totally eliminate it. So you *will* have to enforce your policy or else not. If not, you may lose all credibility with your students. (This sub is full of posts by people in that predicament.)
+- **CharacteristicPea** (30↑): Longtime mathematics professor here (40 yrs teaching). My first suggestion is to not have any policies that are so draconian that you will be unwilling to enforce them for any and all students (including the sympathetic ones). Think carefully about this. You think you are making policies to eliminate bad behavior, but you can never totally eliminate it. So you *will* have to enforce your policy or else not. If not, you may lose all credibility with your students. (This sub is full of posts by people in that predicament.)
 
 Another strong suggestion is to have more assessments (exams and/or quizzes).  In a first or second year mathematics class at a non-elite university, just one midterm would mean very high failure rates. I would imagine physics is similar. 
 
@@ -237,9 +237,9 @@ You’re right about only allowing calculators that do not connect to the outsid
 Good luck! 
 
 (And, by the way, there was no golden age, say when you were a student, when all students were eager to learn and willing to work, nobody cheated, and nobody complained about their professors to the department chair.)
-  - **van_gogh_the_cat** (3↑): I doubt anyone here, including the OP, thinks there was a time when no one cheated &tc.
+  - **van_gogh_the_cat** (4↑): I doubt anyone here, including the OP, thinks there was a time when no one cheated &tc.
     - **CharacteristicPea** (3↑): Many people assume their behavior was typical and most students in those days were like them. In fact, most students were not like those of us who went on to become professors.
-- **No_Work295** (20↑): I try to keep in mind for any course policies whether they’ll create more work for me. I would not offer make up lectures in office hours for this reason. I also wouldn’t curve the grades of students who attend office hours, because that requires keeping track of who comes. (Maybe your classes are small enough for that to be easy, but many of mine are huge.)
+- **No_Work295** (21↑): I try to keep in mind for any course policies whether they’ll create more work for me. I would not offer make up lectures in office hours for this reason. I also wouldn’t curve the grades of students who attend office hours, because that requires keeping track of who comes. (Maybe your classes are small enough for that to be easy, but many of mine are huge.)
 
 I really hear you on the challenges with students right now. My advice is to set some policies that make sense with your philosophy and be transparent and firm with them. I just recently heard a talk at a teaching and learning conference where the speaker advised “building for the best.” What he meant was to build your course around the most engaged (whatever that means for your classroom) students and don’t try to account for all the problems. I think that’s overly simplistic and optimistic, but I think he had a point that sometimes we worry too much about the disengaged students and don’t enjoy the engaged ones.
 - **Altruistic-Mouse372** (11↑): Please, no lectures during office hours - they are grown ups. Only answer specific questions they bring to you.
@@ -257,7 +257,7 @@ You cannot motivate the unmotivated. If they don’t want it, you can’t give i
 I also was giving students a problem 1 week ahead of time then they would learn the problem and be able to teach it to their small group. Found out that the students would try to throw together an answer 10mins before class which was usually wrong and then their group was frustrated since they didn’t learn the problem. Repeat to the next week when the next student did the same thing to their group members. 
 
 I really don’t want to be punitive and really trying to glean from all these interactions how to approach the problems I’m facing with engagement.
-- **synchronicitistic** (8↑): * If I see phone or headphones you will be asked to leave the class - **I don't care, as long as it doesn't distract me and no one can hear what you're doing.**
+- **synchronicitistic** (6↑): * If I see phone or headphones you will be asked to leave the class - **I don't care, as long as it doesn't distract me and no one can hear what you're doing.**
 * Physical calculators instead of phones - **Abso-mother-fucking-lutely.  This the way.**
 * Nothing on canvas and hand written lectures only (minus computer programming) - **Yep.  Notes on the board.**
 * Having student names in a random order, when I have a question for the class I ask the next person on the list and that counts as your attendance (so random sampling throughout the semester) - **More trouble than it's worth.**

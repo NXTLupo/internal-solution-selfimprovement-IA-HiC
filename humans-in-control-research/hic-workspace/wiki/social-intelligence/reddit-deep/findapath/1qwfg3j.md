@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1qwfg3j.md
 url: "https://www.reddit.com/r/findapath/comments/1qwfg3j/cant_find_a_job_after_graduating/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,60 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.461Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c0"
+    char_span: [0, 2063]
+    sentence_count: 20
+    key_terms: [interview, nonprofit, job, company, despite, nothing, offered, get]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c1"
+    char_span: [2065, 3545]
+    sentence_count: 19
+    key_terms: [experience, anything, network, work, rewarding, resorted, actual, please]
+    token_count: 342
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c2"
+    char_span: [3560, 5796]
+    sentence_count: 19
+    key_terms: [thank, helpful, please, roles, operations, findapath, comments, everyone]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c3"
+    char_span: [5798, 7721]
+    sentence_count: 17
+    key_terms: [government, healthcare, anything, consider, options, change, choice, school]
+    section: Comments
+    token_count: 426
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c4"
+    char_span: [7723, 9048]
+    sentence_count: 11
+    key_terms: [nonprofit, right, work, experience, nonprofits, history, wokeup2, degree]
+    section: Comments
+    token_count: 324
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c5"
+    char_span: [9050, 10179]
+    sentence_count: 8
+    key_terms: [anthropology, nonprofits, museums, provide, people, places, level, live]
+    section: Comments
+    token_count: 267
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c6"
+    char_span: [10181, 12266]
+    sentence_count: 19
+    key_terms: [experience, sector, private, people, pienercleaner, years, used, california]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c7"
+    char_span: [11989, 13437]
+    sentence_count: 13
+    key_terms: [private, sector, degree, thank, years, considering, considered, experience]
+    section: Comments
+    token_count: 353
+  - id: "social-intelligence/reddit-deep/findapath/1qwfg3j.md#c8"
+    char_span: [13439, 15313]
+    sentence_count: 8
+    key_terms: [degree, teaching, master, appropriate-tutor587, experience, get, assistantship, internship]
+    section: Comments
+    token_count: 460
 ---
-
 # Cant find a job after graduating
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1qwfg3j/cant_find_a_job_after_graduating/)

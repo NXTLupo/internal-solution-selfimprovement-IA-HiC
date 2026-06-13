@@ -18,17 +18,17 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c0"
-    char_span: [0, 1956]
+    char_span: [0, 1955]
     sentence_count: 1
     key_terms: [gpt, firewall, semantic, answer, small, state, map, comments]
-    token_count: 479
+    token_count: 478
   - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c1"
-    char_span: [1958, 3967]
+    char_span: [1957, 3966]
     sentence_count: 1
     key_terms: [fix, add, metric, normalization, map, page, checkpoint, onestardao]
     token_count: 467
   - id: "social-intelligence/reddit-deep/gpt/1nebqn9.md#c2"
-    char_span: [3969, 4933]
+    char_span: [3968, 4932]
     sentence_count: 1
     key_terms: [map, question, because, answer, number, people, trace, before-generation]
     token_count: 238

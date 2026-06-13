@@ -28,31 +28,31 @@ chunks:
     key_terms: [something, totally, school, skills, since, speaking-adjacent, grad, "i'm"]
     token_count: 199
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c2"
-    char_span: [2728, 4990]
+    char_span: [2727, 4989]
     sentence_count: 17
     key_terms: [myself, people, found, better, beta, like, blockers, project]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c3"
-    char_span: [4992, 5727]
+    char_span: [4991, 5726]
     sentence_count: 6
     key_terms: [easier, rejection, practice, speaking, talking, little, public, phone]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c4"
-    char_span: [5729, 7912]
+    char_span: [5728, 7911]
     sentence_count: 13
     key_terms: [public, speaking, better, highschool, feel, like, remember, little]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c5"
-    char_span: [7621, 8051]
+    char_span: [7620, 8050]
     sentence_count: 3
     key_terms: [read, highschool, horrendous, something, probably, religion, remember, anxiety]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/gradschool/1phxc1u.md#c6"
-    char_span: [8053, 9531]
+    char_span: [8052, 9530]
     sentence_count: 10
     key_terms: [blockers, beta, something, honestly, whatever, helpful, people, though]
     section: Comments

@@ -18,12 +18,12 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1t2jhrt.md#c0"
-    char_span: [0, 312]
+    char_span: [0, 311]
     sentence_count: 2
     key_terms: [careeradvice, comments, legitimate-meat-2720, realistically, reddit-deep, building, complete, career]
-    token_count: 87
+    token_count: 86
   - id: "social-intelligence/reddit-deep/careeradvice/1t2jhrt.md#c1"
-    char_span: [314, 2597]
+    char_span: [313, 2596]
     sentence_count: 21
     key_terms: [acca, focus, learning, qualification, exemptions, structured, data, complete]
     token_count: 495

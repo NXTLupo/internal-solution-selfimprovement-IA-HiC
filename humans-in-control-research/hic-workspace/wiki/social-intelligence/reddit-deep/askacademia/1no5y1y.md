@@ -23,49 +23,49 @@ chunks:
     key_terms: [program, another, university, advice, phd, given, askacademia, told]
     token_count: 505
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c1"
-    char_span: [2316, 4187]
+    char_span: [2315, 4186]
     sentence_count: 15
     key_terms: [student, someone, spiritualamoeba84, lab, another, program, like, co-mentor]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c2"
-    char_span: [4189, 5606]
+    char_span: [4188, 5605]
     sentence_count: 13
     key_terms: [degree, exceptions, different, someone, future, able, get, grad]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c3"
-    char_span: [5608, 6970]
+    char_span: [5607, 6969]
     sentence_count: 11
     key_terms: [sometimes, program, several, student, supervisor, university, something, students]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c4"
-    char_span: [6972, 9127]
+    char_span: [6971, 9126]
     sentence_count: 14
     key_terms: [university, take, another, funding, student, mentor, work, graduate]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c5"
-    char_span: [9129, 10294]
+    char_span: [9128, 10293]
     sentence_count: 6
     key_terms: [funding, dean, reasonable, graduate, funded, passed, find, hell]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c6"
-    char_span: [10296, 12695]
+    char_span: [10295, 12694]
     sentence_count: 19
     key_terms: [grant, another, funding, institution, faculty, through, indefinitely, universities]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c7"
-    char_span: [12403, 13078]
+    char_span: [12402, 13077]
     sentence_count: 6
     key_terms: [another, faculty, maybe, work, co-supervisors, collaborators, accommodate, angrypuggle]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/askacademia/1no5y1y.md#c8"
-    char_span: [13080, 15025]
+    char_span: [13079, 15024]
     sentence_count: 18
     key_terms: [dean, students, graduate, research, funding, program, someone, office]
     section: Comments

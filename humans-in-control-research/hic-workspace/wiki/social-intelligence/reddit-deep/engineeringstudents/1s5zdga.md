@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s5zdga.md#c0"
-    char_span: [0, 788]
+    char_span: [0, 787]
     sentence_count: 5
     key_terms: [engineeringstudents, international, mechanical, cambridge, comments, imperial, students, lazyintroduction9269]
-    token_count: 176
+    token_count: 175
 ---
 # What is the career prospects for mechanical engineering / EEE for international students in the UK (particularly Cambridge, Imperial)?
 

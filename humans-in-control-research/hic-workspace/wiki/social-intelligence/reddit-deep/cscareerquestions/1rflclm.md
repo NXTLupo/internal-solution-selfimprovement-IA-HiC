@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, comments, reddit-deep, espeically, hackathon, lune-soft, possible, friends]
     token_count: 118
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c1"
-    char_span: [456, 1891]
+    char_span: [455, 1890]
     sentence_count: 10
     key_terms: [life, enjoy, college, hackathons, something, friends, coding, couple]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c2"
-    char_span: [1893, 3326]
+    char_span: [1892, 3325]
     sentence_count: 14
     key_terms: [opportunities, did, like, hackathons, network, school, "you're", value]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rflclm.md#c3"
-    char_span: [3328, 4999]
+    char_span: [3327, 4998]
     sentence_count: 10
     key_terms: [internships, highest, value, experience, networking, hackathon, something, building]
     section: Comments

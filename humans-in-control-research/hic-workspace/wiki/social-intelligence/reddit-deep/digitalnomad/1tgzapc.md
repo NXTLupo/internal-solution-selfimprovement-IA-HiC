@@ -23,13 +23,13 @@ chunks:
     key_terms: [digitalnomad, business, comments, clients, always, mostly, people, "you're"]
     token_count: 261
   - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c1"
-    char_span: [1170, 2954]
+    char_span: [1169, 2953]
     sentence_count: 8
     key_terms: [online, "you're", dumpsterslunt, niche, seller-rich, linkedin, referral, remember]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/digitalnomad/1tgzapc.md#c2"
-    char_span: [2956, 3361]
+    char_span: [2955, 3360]
     sentence_count: 3
     key_terms: [clients, geographical, restriction, competing, different, scaleable, agencies, industry]
     section: Comments

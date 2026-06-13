@@ -33,85 +33,85 @@ chunks:
     key_terms: [hearing, court, associate, case, october, "false", did, law]
     token_count: 366
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c3"
-    char_span: [5352, 5934]
+    char_span: [5351, 5933]
     sentence_count: 5
     key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
     section: Comments
     token_count: 154
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c4"
-    char_span: [5937, 7424]
+    char_span: [5936, 7423]
     sentence_count: 6
     key_terms: [please, update, remindme, chatgpt, nwmimms, been, rupertthecactus, automatically]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c5"
-    char_span: [7426, 8786]
+    char_span: [7425, 8785]
     sentence_count: 8
     key_terms: [irreconcilable, differences, client, basis, "he's", chatgpt, good, says]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c6"
-    char_span: [8788, 10318]
+    char_span: [8787, 10317]
     sentence_count: 7
     key_terms: [like, client, withdraw, chatgpt, sounds, mercurialmadnessman, cases, makes]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c7"
-    char_span: [10320, 12216]
+    char_span: [10319, 12215]
     sentence_count: 9
     key_terms: [court-rejects-monetary-sanctions-for-ai-generated-fake-cases-citing-lawyers-tragic-personal-circumstances, illegal, jurisdiction, like, attorney, counsel, otherwisealbatross14, basis]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c8"
-    char_span: [12218, 14520]
+    char_span: [12217, 14519]
     sentence_count: 11
     key_terms: [filings, lawyer, lawyers, license, motion, judge, law, courthouse]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c9"
-    char_span: [14522, 16270]
+    char_span: [14521, 16269]
     sentence_count: 10
     key_terms: [writing, hallucinate, "it's", own, introduced, university, meanwhile, required]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c10"
-    char_span: [16272, 17377]
+    char_span: [16271, 17376]
     sentence_count: 6
     key_terms: [information, assignment, like, site, archaeological, hallucinations, autumn1eaves, embarrassing]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c11"
-    char_span: [17379, 19090]
+    char_span: [17378, 19089]
     sentence_count: 11
     key_terms: [people, like, completely, understand, realizing, because, chatgpt, without]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c12"
-    char_span: [19092, 21151]
+    char_span: [19091, 21150]
     sentence_count: 18
     key_terms: [attorneys, chatgpt, filed, page, text, time, citations, numbers]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c13"
-    char_span: [21154, 22316]
+    char_span: [21153, 22315]
     sentence_count: 4
     key_terms: [ask, "it's", real, text, use, retrosenescent, hallucinating, misrepresents]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c14"
-    char_span: [22318, 24200]
+    char_span: [22317, 24199]
     sentence_count: 6
     key_terms: [letter, motion, notifications, withdraw, chatgpt, dismiss, getting, lawyers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c15"
-    char_span: [24039, 24361]
+    char_span: [24038, 24360]
     sentence_count: 2
     key_terms: [lopsided-letter1353, ok-detective-5687, floriane007, absolutely, following, kragenbar, nickname, caption]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/chatgpt/1n7ucjj.md#c16"
-    char_span: [24363, 24692]
+    char_span: [24362, 24691]
     sentence_count: 1
     key_terms: [julie, judge, jiveturkey927, hallucinated, julianne, pleading, putting, setting]
     section: Comments

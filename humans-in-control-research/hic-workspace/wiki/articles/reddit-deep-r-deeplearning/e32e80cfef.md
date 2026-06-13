@@ -15,12 +15,12 @@ industries: [ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/e32e80cfef.md#c0"
-    char_span: [0, 1404]
+    char_span: [0, 1403]
     sentence_count: 5
     key_terms: [gemma, qwen, throughput, a3b, deeplearning, dense, fp8, moe]
-    token_count: 525
+    token_count: 524
   - id: "articles/reddit-deep-r-deeplearning/e32e80cfef.md#c1"
-    char_span: [1406, 3011]
+    char_span: [1405, 3010]
     sentence_count: 12
     key_terms: [prompt, token, numbers, cache, does, fp8, moe, concurrent]
     token_count: 386

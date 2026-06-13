@@ -28,13 +28,13 @@ chunks:
     key_terms: [kanon-2-enricher, regulatory, including, technical, analysis, isaacus, graph, https]
     token_count: 211
   - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c2"
-    char_span: [3549, 4705]
+    char_span: [3548, 4704]
     sentence_count: 12
     key_terms: [features, legal, paris, citations, implies, france, cases, edges]
     section: Comments
     token_count: 248
   - id: "social-intelligence/reddit-deep/deeplearning/1rmbbf3.md#c3"
-    char_span: [4707, 5925]
+    char_span: [4706, 5924]
     sentence_count: 10
     key_terms: [model, ontology, source, hierarchical, work, venpuravi, learning, closed]
     section: Comments

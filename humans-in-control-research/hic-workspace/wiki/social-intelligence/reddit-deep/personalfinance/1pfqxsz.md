@@ -33,43 +33,43 @@ chunks:
     key_terms: [company, owner, wife, terminated, employees, including, income, state]
     token_count: 273
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c3"
-    char_span: [4735, 6656]
+    char_span: [4734, 6655]
     sentence_count: 14
     key_terms: [job, comments, maternity, practice, leave, month, shift, new]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c4"
-    char_span: [6659, 8646]
+    char_span: [6658, 8645]
     sentence_count: 16
     key_terms: [work, get, benefits, interest, position, practice, transfer, patient]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c5"
-    char_span: [8648, 9005]
+    char_span: [8647, 9004]
     sentence_count: 6
     key_terms: [everything, insurance, hospital, anyways, systems, working, around, months]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c6"
-    char_span: [9007, 11184]
+    char_span: [9006, 11183]
     sentence_count: 20
     key_terms: [whatever, income, potentially, home, everything, situation, goodwill, possible]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c7"
-    char_span: [10953, 11749]
+    char_span: [10952, 11748]
     sentence_count: 9
     key_terms: [practice, hours, gardeniaroseviolet, days, time, availability, practitioner, commenting]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c8"
-    char_span: [11751, 13918]
+    char_span: [11750, 13917]
     sentence_count: 24
     key_terms: [insurance, get, wife, covering, going, right, until, years]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/personalfinance/1pfqxsz.md#c9"
-    char_span: [13920, 14250]
+    char_span: [13919, 14249]
     sentence_count: 3
     key_terms: [inpatient, primary, care, hippoofdoom, significant, outpatient, schedules, settings]
     section: Comments

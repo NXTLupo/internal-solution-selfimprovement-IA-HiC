@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sxy76y.md#c0"
-    char_span: [0, 314]
+    char_span: [0, 313]
     sentence_count: 2
     key_terms: [careerguidance, comments, snoopeppers3873, accountancy, reddit-deep, someone, advice, career]
-    token_count: 93
+    token_count: 92
 ---
 # career advice for someone that wants to enter the accountancy job market?
 

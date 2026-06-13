@@ -23,43 +23,43 @@ chunks:
     key_terms: [wildlife, careerguidance, competitive, pay, biologist, interests, comments, "that's"]
     token_count: 288
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c1"
-    char_span: [1298, 3242]
+    char_span: [1297, 3241]
     sentence_count: 15
     key_terms: [work, wildlife, field, time, school, doing, "don't", environment]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c2"
-    char_span: [3244, 5383]
+    char_span: [3243, 5382]
     sentence_count: 15
     key_terms: ["you're", compromise, get, list, career, being, desk, good]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c3"
-    char_span: [5385, 7814]
+    char_span: [5384, 7813]
     sentence_count: 23
     key_terms: ["you'll", clients, time, get, example, work, construction, interesting]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c4"
-    char_span: [7816, 9836]
+    char_span: [7815, 9835]
     sentence_count: 12
     key_terms: [get, short, different, lot, want, people, work, example]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c5"
-    char_span: [9838, 10806]
+    char_span: [9837, 10805]
     sentence_count: 9
     key_terms: [want, day, fields, field, looks, get, like, sure]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c6"
-    char_span: [10808, 13016]
+    char_span: [10807, 13015]
     sentence_count: 13
     key_terms: [utility, design, field, find, epicuretrekker2, idea, work, everything]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1qqyt3u.md#c7"
-    char_span: [13019, 14742]
+    char_span: [13018, 14741]
     sentence_count: 20
     key_terms: [school, business, classes, field, high, jobs, marketing, whatever]
     section: Comments

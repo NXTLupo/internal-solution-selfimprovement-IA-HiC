@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, comments, habit, procrastinating, devmakasana, reddit-deep, everything, productive]
     token_count: 159
   - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c1"
-    char_span: [659, 1453]
+    char_span: [658, 1452]
     sentence_count: 7
     key_terms: ["i'll", time, work, cool-joke2996, block, day, like, timeblocking]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c2"
-    char_span: [1455, 3112]
+    char_span: [1454, 3111]
     sentence_count: 9
     key_terms: [procrastinating, finding, time, listened, planning, building-sandcastles, doing, right]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/productivity/1lw3pj6.md#c3"
-    char_span: [3114, 5100]
+    char_span: [3113, 5099]
     sentence_count: 17
     key_terms: [thinking, system, automatically, brain, book, like, time, too]
     section: Comments

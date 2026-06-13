@@ -43,7 +43,7 @@ chunks:
     key_terms: [integrity, review, processing, academic, prompt, peer, manipulation, prioritizing]
     token_count: 121
   - id: "social-intelligence/reddit-deep/artificial/1lwy05a.md#c5"
-    char_span: [10279, 12454]
+    char_span: [10278, 12453]
     sentence_count: 15
     key_terms: [prompt, chaitanya-growthmarketing, instructions, doing, https, odchplliabghblnlfalamofnnlghbmab, new-meeting, com]
     section: Comments

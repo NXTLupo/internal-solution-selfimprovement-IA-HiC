@@ -28,19 +28,19 @@ chunks:
     key_terms: [reddit, stocks, https, com, www, author, search, indicator]
     token_count: 305
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c2"
-    char_span: [3013, 4155]
+    char_span: [3012, 4154]
     sentence_count: 4
     key_terms: [congress, farrisat, idiot, sheep, fact, plan, dementia-riddled, elgrandorado]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c3"
-    char_span: [4157, 5720]
+    char_span: [4156, 5719]
     sentence_count: 8
     key_terms: [market, going, something, bullish, "there's", happen, reddit, stocks]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/stocks/1ser3y1.md#c4"
-    char_span: [5722, 7153]
+    char_span: [5721, 7152]
     sentence_count: 5
     key_terms: [raptorsfan93849, trump, market, reddit, bears, times, empathyfabrication, good]
     section: Comments

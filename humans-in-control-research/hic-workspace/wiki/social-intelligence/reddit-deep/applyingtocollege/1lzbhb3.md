@@ -18,12 +18,12 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzbhb3.md#c0"
-    char_span: [0, 2152]
+    char_span: [0, 2151]
     sentence_count: 2
     key_terms: [college, basketball, applyingtocollege, nigerian-american, want, finance, looking, year]
-    token_count: 502
+    token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzbhb3.md#c1"
-    char_span: [2154, 3611]
+    char_span: [2153, 3610]
     sentence_count: 7
     key_terms: [want, career, work, colleges, internships, ambitious, network, around]
     token_count: 360

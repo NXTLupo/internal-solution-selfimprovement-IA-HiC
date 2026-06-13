@@ -18,10 +18,10 @@ industries: [higher_ed, life_sciences, healthcare]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1srv3gk.md#c0"
-    char_span: [0, 369]
+    char_span: [0, 368]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, swimmingengineering6, pharmaceutical, considering, engineering, reddit-deep, university]
-    token_count: 91
+    token_count: 90
 ---
 # Considering MSc in Pharmaceutical Engineering at Ghent University – career prospects in pharma/cosmetics industry?
 

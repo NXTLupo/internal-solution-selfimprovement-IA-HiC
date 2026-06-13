@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, year, projects, internships, experience, comments, students, firms]
     token_count: 195
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4els0.md#c1"
-    char_span: [968, 1572]
+    char_span: [967, 1571]
     sentence_count: 8
     key_terms: [year, experience, harder, resume, summer, get, need, engineering]
     section: Comments

@@ -15,10 +15,10 @@ industries: [enterprise_it, financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-wallstreetbets/b4c1acbbd0.md#c0"
-    char_span: [0, 1176]
+    char_span: [0, 1175]
     sentence_count: 3
     key_terms: [comments, wallstreetbets, coin, strategy, discord, reddit, youlikeblockingsodoi, https]
-    token_count: 348
+    token_count: 347
 ---
 # MSTR ( Saylor with his dilation strategy )
 

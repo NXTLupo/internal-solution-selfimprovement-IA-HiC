@@ -23,7 +23,7 @@ chunks:
     key_terms: [passkey, account, security, settings, passwords, sign, considering, experience]
     token_count: 501
   - id: "social-intelligence/reddit-deep/gemini/1ksv5wp.md#c1"
-    char_span: [2597, 3111]
+    char_span: [2596, 3110]
     sentence_count: 2
     key_terms: [passkey, infinitecontrol9574, key, indefinitely, specifically, generation, answering, presented]
     section: Comments

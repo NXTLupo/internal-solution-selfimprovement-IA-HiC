@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, internship, developer, software, students, remote, skills, engineering]
     token_count: 290
   - id: "social-intelligence/reddit-deep/internships/1s1glil.md#c1"
-    char_span: [1383, 2338]
+    char_span: [1382, 2337]
     sentence_count: 9
     key_terms: [usually, intern-to-hire, independently, jemeshunt1003, understanding, specifically, description, environment]
     section: Comments

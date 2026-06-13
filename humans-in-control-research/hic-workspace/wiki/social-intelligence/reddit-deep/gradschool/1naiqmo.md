@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1naiqmo.md#c0"
-    char_span: [0, 1162]
+    char_span: [0, 1161]
     sentence_count: 7
     key_terms: [applications, internships, internship, gradschool, graduation, applying, comments, school]
-    token_count: 244
+    token_count: 243
 ---
 # Applying to Internships for the Summer before Grad School
 

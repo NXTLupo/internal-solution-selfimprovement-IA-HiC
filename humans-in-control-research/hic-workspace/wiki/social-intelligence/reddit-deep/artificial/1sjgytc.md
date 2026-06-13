@@ -23,19 +23,19 @@ chunks:
     key_terms: [claude, thinking, workflow, engineering, model, anthropic, amd, code]
     token_count: 441
   - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c1"
-    char_span: [2016, 3485]
+    char_span: [2015, 3484]
     sentence_count: 5
     key_terms: [infinite-pheonix, insight, expensive, providing, increase, optimize, workflow, company]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c2"
-    char_span: [3488, 5468]
+    char_span: [3487, 5467]
     sentence_count: 9
     key_terms: [claude-code, anthropics, https, com, github, issues, nborwankar, constant]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/artificial/1sjgytc.md#c3"
-    char_span: [5470, 7651]
+    char_span: [5469, 7650]
     sentence_count: 11
     key_terms: [through, mcp, claude, keyhole, limited, running, access, people]
     section: Comments

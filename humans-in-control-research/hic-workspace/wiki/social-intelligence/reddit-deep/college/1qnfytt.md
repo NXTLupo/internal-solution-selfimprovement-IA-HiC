@@ -21,55 +21,55 @@ chunks:
     key_terms: [students, comments, college, assignment, noticed, writing, school, skills]
     token_count: 372
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c1"
-    char_span: [1709, 3481]
+    char_span: [1708, 3480]
     sentence_count: 17
     key_terms: [age, college, friends, people, key-wash-1573, undergrad, freshman, started]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c2"
-    char_span: [3483, 5385]
+    char_span: [3482, 5384]
     sentence_count: 14
     key_terms: [college, friends, being, older, freshman, younger, anyone, little]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c3"
-    char_span: [5387, 7367]
+    char_span: [5386, 7366]
     sentence_count: 10
     key_terms: [students, professor, college, people, covid, fail, brovo911, because]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c4"
-    char_span: [7369, 9369]
+    char_span: [7368, 9368]
     sentence_count: 17
     key_terms: [students, school, explain, "they're", high, sure, year, learning]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c5"
-    char_span: [9371, 11583]
+    char_span: [9370, 11582]
     sentence_count: 22
     key_terms: [use, people, account, desktop, game, help, learning, students]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c6"
-    char_span: [11586, 11975]
+    char_span: [11585, 11974]
     sentence_count: 4
     key_terms: [showed, never, appreciated, algorithm, searching, relevant, revelant, specific]
     section: Comments
     token_count: 83
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c7"
-    char_span: [11978, 14007]
+    char_span: [11977, 14006]
     sentence_count: 21
     key_terms: [students, classes, "don't", get, college, "aren't", class, part]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c8"
-    char_span: [14009, 15318]
+    char_span: [14008, 15317]
     sentence_count: 9
     key_terms: [learning, people, computer, because, getting, stopped, through, dumber]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/college/1qnfytt.md#c9"
-    char_span: [15320, 17312]
+    char_span: [15319, 17311]
     sentence_count: 18
     key_terms: [students, back, school, don, like, education, semester, because]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, internships, comments, exposure, industry, stipend, atleos, better]
     token_count: 186
   - id: "social-intelligence/reddit-deep/internships/1t7vg3h.md#c1"
-    char_span: [772, 1256]
+    char_span: [771, 1255]
     sentence_count: 1
     key_terms: [isro, roles, core, name, interviewers, electronics, catsdayout, difference]
     section: Comments

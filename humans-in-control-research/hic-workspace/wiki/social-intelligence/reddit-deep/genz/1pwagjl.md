@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, spending, saving, gen-z, genz, illustration, reddit-deep, points]
     token_count: 93
   - id: "social-intelligence/reddit-deep/genz/1pwagjl.md#c1"
-    char_span: [354, 1895]
+    char_span: [353, 1894]
     sentence_count: 6
     key_terms: [money, dependent, majority, discord, savings, little, trying, chemical-village-211]
     section: Comments

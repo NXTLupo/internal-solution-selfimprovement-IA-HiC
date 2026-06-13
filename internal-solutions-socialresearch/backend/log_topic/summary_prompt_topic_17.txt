@@ -1,0 +1,116 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: security, keys, security key, sms, 2fa, vanguard, security keys
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+1. I went into Vanguard and added a Bitwarden Passkey to my account by selecting Security Key in 2FA. This somewhat surprisingly (to me) counts as one Security Key.
+2. I added my YubiKey as the second Security Key.
+3. The two security keys allowed me to disable Security Codes (SMS codes).
+
+EXAMPLE 2:
+- How do I disable SMS 2FA in favor of more secure methods?
+     - Register two FIDO2 keys and the option will become available. ^[Source](https://www.reddit.com/r/VanguardInvestments/comments/1nyscgm/comment/ni0hfll/) I just added Security Keys to my Vanguard account and I want to share what I learned. I had the following configuration:
+
+EXAMPLE 3:
+Vanguard Weakens Account 2FA Security TLDR; Management at Vanguard doesn't seem to understand computer security, and just weakened their security posture by forcing SMS backup codes, defeating the point of physical security keys.
+
+EXAMPLE 4:
+Looking around on Vanguard now on my account, yeah, I don't see security key anywhere on the security tab of my profile. But I may have found a roundabout way to get to security key registration. But I can't test it, since I don't have a security key yet.
+
+EXAMPLE 5:
+Anyone with a little knowledge, and/or social engineering skill to trick your phone carrier, can now break into Vanguard accounts with just your password. Physical security keys won't help you. Someone at Vanguard with security policy authority doesn't seem to understand computer security.
+
+EXAMPLE 6:
+Vanguard still allows you to add physical security keys to your account. However, within the last month they made a change. Vanguard now forces customers to have a phone number setup for "backup security codes" over SMS. There is no way to turn this off and force the use of the physical security keys. This was previously supported as long as you had 2 or more physical keys linked to your account.
+
+EXAMPLE 7:
+1. I logged into the Vanguard website on my desktop with Bitwarden and Vanguard successfully used my Bitwarden Passkey for 2FA. I noticed that logging into Vanguard with Username and Password now ALWAYS requires a Security Key to complete the login. This is a good thing!
+2. I logged into the Vanguard website on my desktop with Bitwarden, bypassed my Bitwarden Passkey, and used YubiKey to complete 2FA.
+3. I performed 1 and 2 on my Chromebook and it worked as expected.
+4. I scanned the QR code on the web page and logged in with the Vanguard Android App. [...]
+
+EXAMPLE 8:
+How is it possible Vanguard took this important security feature away right now? Not an idle threat, today we move the money to Fidelity if we can't get answers here or by calling them. Can confirm this did work, thank you! We also used an incognito window to filter out cookies, etc. Not sure if that was a factor or not, but it worked to configure two keys.
+Yeah we're trying this exclusively on the desktop and browser (Windows 11 & Chrome, nothing exciting) as it was never available on the app (a security problem, we want to use a hardware key on the app also!).
+
+EXAMPLE 9:
+What does this mean? SIM swap attacks are now a viable way to attack Vanguard accounts for all customers, regardless of whether they use hardware security keys. In fact, this policy change completely negates the benefits of having a U2F security key linked to Vanguard, because an attacker can just resort to using the fallback SMS verification method, which is far less secure.
+
+EXAMPLE 10:
+Overall, I think this is a significant improvement to my Vanguard security!
+Your test #5 is where I think things need to improve. I no longer use Vanguard's app as it is missing some things, so I'm now only using their website via my Android browser. 
+I would love to be able to use a passkey while using the browser. This is clearly something wrong on Vanguard's end, as passkeys/yubikeys are definitely supported in most major Android browsers.
+
+EXAMPLE 11:
+It took me about 5 minutes total to get them on the phone and have it sorted. They removed the ability to use SMS 2fa for login.
+
+EXAMPLE 12:
+I am a longtime Vanguard Personal Investment customer. I am a security conscious individual. One of the reasons I chose Vanguard as my brokerage is because of their support for U2F hardware security keys, such as the YubiKey line of products.
+
+EXAMPLE 13:
+Dumbing down security while we're facing cyber attacks? We added hardware keys to our banks, Fidelity, medical site logins as the strongest security available. However, it seems Vanguard has removed this capability from its security page. Iran is attacking right now, just put a medical company basically out of business yesterday.
+
+EXAMPLE 14:
+Thanks for that workaround, we will try it and report back.
+I'm planning on getting a Yubico security key, for Vanguard and a few other sites I use, but haven't done so yet.
+
+EXAMPLE 15:
+Hope they get this sorted out shortly. 
+Just adding the YubiKeys did not remove the ability to SMS 2fa as a fallback. In Profile>Security on the website I saw no way to remove the SMS 2fa. While logging in I could X out of the Pinentry dialogue for the YubiKey and the option to use SMS as a fall back was still on the page.
+
+EXAMPLE 16:
+Go to the Support page, scroll down to Technical Support & Security, click on Security & Fraud.  
+Under "Need to report suspected fraud?", click on the link to "Security Center". Scroll down to the section on "Security key & passkey", and click the link for "Register a Security key & passkey". No idea if that actually works, tho, since I can't test it, yet. (this is all on desktop, no idea about the app)
+
+EXAMPLE 17:
+1. Linux Mint desktop
+2. Chromebook
+3. Pixel 9 Android Phone
+4. Bitwarden password manager on all devices
+5. 1 YubiKey 5 NFC
+
+EXAMPLE 18:
+We finally got a callback from Vanguard. At first they tried saying it was my wife's problem, until she explained many more folks are complaining about this capability never really working right, then suddenly disappearing altogether.
+
+EXAMPLE 19:
+Oh, and as an added bonus, they also removed the ability to submit written tickets via their "Secure Message Center." Now you get to enjoy chatbots, generic help center articles, and automated phone support that if you are persistent enough eventually connects you to a demoralized human being with no authority to do anything, and who expects to soon be replaced by an AI agent.
+
+EXAMPLE 20:
+Then they said they could turn it back on but they'd have to "go into your account" which seems to indicate they're selectively turning it on for people? Why is that? Why was it removed? Not feeling too warm and fuzzy about having the money here with all the cyber attacks going on right now.
+
+EXAMPLE 21:
+Is nothing safe from enshittification? I filed a complaint with FINRA, but it's like shouting into the void. I hate this timeline. Your post was removed for being extremely likely to become spam. If you significantly reduce your use of Redact, you can appeal this with the links to a few 2-6 month old, non-Redacted comments you've made.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

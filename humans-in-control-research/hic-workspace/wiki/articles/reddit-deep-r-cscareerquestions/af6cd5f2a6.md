@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/af6cd5f2a6.md#c0"
-    char_span: [0, 1784]
+    char_span: [0, 1783]
     sentence_count: 16
     key_terms: [projects, don, certs, cscareerquestions, certifications, github, roles, internships]
-    token_count: 421
+    token_count: 420
 ---
 # Community college CS student looking for advice on internships
 

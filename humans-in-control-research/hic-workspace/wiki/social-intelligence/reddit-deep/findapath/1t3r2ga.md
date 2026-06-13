@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1t3r2ga.md
 url: "https://www.reddit.com/r/findapath/comments/1t3r2ga/20m_feeling_lost_on_career_path_looking_for/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,25 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.450Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1t3r2ga.md#c0"
+    char_span: [0, 924]
+    sentence_count: 7
+    key_terms: [career, looking, experience, findapath, comments, advice, people, trying]
+    token_count: 217
+  - id: "social-intelligence/reddit-deep/findapath/1t3r2ga.md#c1"
+    char_span: [939, 2330]
+    sentence_count: 10
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, support]
+    section: Comments
+    token_count: 315
+  - id: "social-intelligence/reddit-deep/findapath/1t3r2ga.md#c2"
+    char_span: [2332, 3553]
+    sentence_count: 7
+    key_terms: [inoscopepuppies, get, jobs, healthcare, college, specialistraisin2680, hot-criticism8353, job]
+    section: Comments
+    token_count: 292
 ---
-
 # 20M feeling lost on career path — looking for advice from people with experience?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1t3r2ga/20m_feeling_lost_on_career_path_looking_for/)

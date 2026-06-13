@@ -23,49 +23,49 @@ chunks:
     key_terms: [school, comments, independent, grad, need, time, gradschool, profession]
     token_count: 311
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c1"
-    char_span: [1502, 3214]
+    char_span: [1501, 3213]
     sentence_count: 10
     key_terms: [people, imunderyourbeddude, students, get, loud, own, everyone, positive]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c2"
-    char_span: [3216, 4658]
+    char_span: [3215, 4657]
     sentence_count: 17
     key_terms: [students, parents, heard, assignments, help, "i've", education, hyperbole]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c3"
-    char_span: [4660, 7035]
+    char_span: [4659, 7034]
     sentence_count: 14
     key_terms: [students, school, because, "didn't", older, understand, undergrad, chatgpt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c4"
-    char_span: [6750, 8735]
+    char_span: [6749, 8734]
     sentence_count: 9
     key_terms: ["master's", life, time, academia, academic, students, because, interests]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c5"
-    char_span: [8737, 10799]
+    char_span: [8736, 10798]
     sentence_count: 16
     key_terms: [professional, program, competitive, people, school, did, curiosity, everyone]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c6"
-    char_span: [10804, 12589]
+    char_span: [10803, 12588]
     sentence_count: 8
     key_terms: [instructors, grad, incredibly, deadlines, behavior, students, program, student]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c7"
-    char_span: [12591, 15073]
+    char_span: [12590, 15072]
     sentence_count: 9
     key_terms: [accuracy, through, school, efficiency, subject, highly, professional, time]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/gradschool/1lbd8mg.md#c8"
-    char_span: [15075, 17163]
+    char_span: [15074, 17162]
     sentence_count: 14
     key_terms: [students, school, everyone, college, grad, read, time, important]
     section: Comments

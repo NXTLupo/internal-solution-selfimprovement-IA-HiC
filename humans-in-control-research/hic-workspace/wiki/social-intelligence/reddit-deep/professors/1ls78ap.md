@@ -23,61 +23,61 @@ chunks:
     key_terms: [department, comments, professors, students, meeting, chair, class, improvement]
     token_count: 513
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c1"
-    char_span: [2353, 4465]
+    char_span: [2352, 4464]
     sentence_count: 24
     key_terms: [student, students, unhappy, teaching, validated, absences, amount, copied]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c2"
-    char_span: [4467, 5208]
+    char_span: [4466, 5207]
     sentence_count: 6
     key_terms: [parent, especially, "unhappy's", final, exam, read, extracurricular, announcements]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c3"
-    char_span: [5210, 7467]
+    char_span: [5209, 7466]
     sentence_count: 15
     key_terms: [students, evaluations, control, student, called, kindergarten, good, promotion]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c4"
-    char_span: [7469, 9299]
+    char_span: [7468, 9298]
     sentence_count: 14
     key_terms: [students, comments, meeting, get, everyone, kimber80, because, online]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c5"
-    char_span: [9301, 10799]
+    char_span: [9300, 10798]
     sentence_count: 14
     key_terms: [students, uncomfortable, intimidating, feel, anything, senior, illustrious-land-594, black]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c6"
-    char_span: [10801, 12954]
+    char_span: [10800, 12953]
     sentence_count: 15
     key_terms: [teaching, here, student, popstarkirbys, admin, thadizzledd, evaluation, comments]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c7"
-    char_span: [12956, 14544]
+    char_span: [12955, 14543]
     sentence_count: 13
     key_terms: [students, accent, profs, backgrounds, adjunct, because, similar, working]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c8"
-    char_span: [14546, 16481]
+    char_span: [14545, 16480]
     sentence_count: 10
     key_terms: [students, complained, class, because, minutes, better, policy, colleagues]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c9"
-    char_span: [16483, 18158]
+    char_span: [16482, 18157]
     sentence_count: 24
     key_terms: [did, students, grades, essentially, something, "they're", likely, people]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/professors/1ls78ap.md#c10"
-    char_span: [18160, 18990]
+    char_span: [18159, 18989]
     sentence_count: 6
     key_terms: [like, situation, students, getting, "don't", administration, armoredtweed, enrollment]
     section: Comments

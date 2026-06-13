@@ -21,19 +21,19 @@ chunks:
     key_terms: [final, neu, comments, semester, student, scared, school, mocks]
     token_count: 229
   - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c1"
-    char_span: [870, 942]
+    char_span: [869, 941]
     sentence_count: 1
     key_terms: [year]
     section: Comments
     token_count: 23
   - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c2"
-    char_span: [944, 2979]
+    char_span: [943, 2978]
     sentence_count: 8
     key_terms: [fine, get, email, final, freshman, yourself, america, average]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sej5tn.md#c3"
-    char_span: [2696, 3962]
+    char_span: [2695, 3961]
     sentence_count: 15
     key_terms: [lot, transcript, student, finals, school, "don't", place, potential-visit741]
     section: Comments

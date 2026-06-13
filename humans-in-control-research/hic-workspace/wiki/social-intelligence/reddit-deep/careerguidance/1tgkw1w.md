@@ -23,7 +23,7 @@ chunks:
     key_terms: [roles, customer, careerguidance, paths, experience, operations, long-term, realistic]
     token_count: 274
   - id: "social-intelligence/reddit-deep/careerguidance/1tgkw1w.md#c1"
-    char_span: [1331, 3010]
+    char_span: [1330, 3009]
     sentence_count: 8
     key_terms: [customer, coordinator, success, sociology, degree, background, fast-paced, assistant]
     section: Comments

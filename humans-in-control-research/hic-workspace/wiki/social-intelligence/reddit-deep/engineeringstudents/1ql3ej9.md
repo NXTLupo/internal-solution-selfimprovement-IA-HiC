@@ -23,37 +23,37 @@ chunks:
     key_terms: [serious, engineeringstudents, certainly, gpa, engineer, doesn, makes, graduating]
     token_count: 274
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c1"
-    char_span: [1215, 1629]
+    char_span: [1214, 1628]
     sentence_count: 6
     key_terms: [gpa, experience, graduate, "you've", paleontologistfirm13, built, typical-user-87, transcendent]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c2"
-    char_span: [1631, 3422]
+    char_span: [1630, 3421]
     sentence_count: 13
     key_terms: [graduating, gpa, people, engineering, spikeytree, something, kievz007, easily]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c3"
-    char_span: [3424, 4863]
+    char_span: [3423, 4862]
     sentence_count: 12
     key_terms: [get, college, gpa, job, companies, academic, company, require]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c4"
-    char_span: [4865, 5973]
+    char_span: [4864, 5972]
     sentence_count: 13
     key_terms: [matters, degree, enough, matter, grade, never, get, gpa]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c5"
-    char_span: [5975, 7939]
+    char_span: [5974, 7938]
     sentence_count: 12
     key_terms: [matter, matters, school, get, gpa, time, definitely, semester]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ql3ej9.md#c6"
-    char_span: [7747, 8010]
+    char_span: [7746, 8009]
     sentence_count: 3
     key_terms: [in-staters, something, colleges, semester, "there's", around, google, living]
     section: Comments

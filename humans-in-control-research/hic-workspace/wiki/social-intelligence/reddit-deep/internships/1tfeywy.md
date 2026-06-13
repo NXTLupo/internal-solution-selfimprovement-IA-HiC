@@ -23,25 +23,25 @@ chunks:
     key_terms: [getting, opportunities, internships, internship, applying, comments, already, please]
     token_count: 247
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c1"
-    char_span: [1036, 2603]
+    char_span: [1035, 2602]
     sentence_count: 10
     key_terms: [applied, lafjiaflpnifhglhjcolidljogmbigco, application, competitive, need, internship, sponsoring, extremely]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c2"
-    char_span: [2605, 3952]
+    char_span: [2604, 3951]
     sentence_count: 6
     key_terms: [smaller, programs, startups, interns, through, offers, do-or-die-do-or-die, international]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c3"
-    char_span: [3954, 5789]
+    char_span: [3953, 5788]
     sentence_count: 11
     key_terms: [apply, assessments, international, corporations, specifically, lafjiaflpnifhglhjcolidljogmbigco, roles, com]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/internships/1tfeywy.md#c4"
-    char_span: [5791, 6227]
+    char_span: [5790, 6226]
     sentence_count: 1
     key_terms: [startups, great, high, pay, risk, side, opportunities, internship]
     section: Comments

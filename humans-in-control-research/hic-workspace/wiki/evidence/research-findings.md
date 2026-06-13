@@ -9,355 +9,355 @@ industries: [ai_research, policy]
 industry_method: llm
 chunks:
   - id: "evidence/research-findings.md#c0"
-    char_span: [0, 2545]
+    char_span: [0, 2544]
     sentence_count: 10
     key_terms: [student, citations, priority, research, across, status, privacy-preserving, privacy]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 447
   - id: "evidence/research-findings.md#c1"
-    char_span: [2547, 5005]
+    char_span: [2546, 5004]
     sentence_count: 9
     key_terms: [citations, priority, significant, status, donor, learning, cost-efficiency, digital]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 438
   - id: "evidence/research-findings.md#c2"
-    char_span: [5007, 7573]
+    char_span: [5006, 7572]
     sentence_count: 10
     key_terms: [student, learning, citations, co-op, priority, institutional, experiential, northeastern]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 457
   - id: "evidence/research-findings.md#c3"
-    char_span: [7575, 10137]
+    char_span: [7574, 10136]
     sentence_count: 9
     key_terms: [learning, competitive, digital, citations, outcomes, priority, institutional, roadmap]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 431
   - id: "evidence/research-findings.md#c4"
-    char_span: [10139, 11538]
+    char_span: [10138, 11537]
     sentence_count: 7
     key_terms: [co-op, infrastructure, interoperable, information, logistical, citations, academic, planning]
     section: "Research Run: 2026-04-12 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 228
   - id: "evidence/research-findings.md#c5"
-    char_span: [11633, 14370]
+    char_span: [11632, 14369]
     sentence_count: 9
     key_terms: [advancement, citations, priority, cybersecurity, opportunities, digital, northeastern, development]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 481
   - id: "evidence/research-findings.md#c6"
-    char_span: [14372, 17221]
+    char_span: [14371, 17220]
     sentence_count: 12
     key_terms: [student, students, retention, co-op, support, citations, success, fundraising]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 487
   - id: "evidence/research-findings.md#c7"
-    char_span: [17223, 20032]
+    char_span: [17222, 20031]
     sentence_count: 11
     key_terms: [international, student, citations, support, northeastern, status, enterprise, innovation]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 481
   - id: "evidence/research-findings.md#c8"
-    char_span: [20034, 22805]
+    char_span: [20033, 22804]
     sentence_count: 10
     key_terms: [co-op, university, "northeastern's", competitive, citations, digital, advancement, status]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 490
   - id: "evidence/research-findings.md#c9"
-    char_span: [22807, 24368]
+    char_span: [22806, 24367]
     sentence_count: 6
     key_terms: [digital, workforce, learning, experiential, advancement, initiatives, significant, stakeholder]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 285
   - id: "evidence/research-findings.md#c10"
-    char_span: [24463, 27199]
+    char_span: [24462, 27198]
     sentence_count: 8
     key_terms: [student, northeastern, citations, priority, digital, support, personalized, status]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 480
   - id: "evidence/research-findings.md#c11"
-    char_span: [27201, 29877]
+    char_span: [27200, 29876]
     sentence_count: 10
     key_terms: [student, citations, students, support, status, fostering, priority, impact]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 482
   - id: "evidence/research-findings.md#c12"
-    char_span: [29879, 32584]
+    char_span: [29878, 32583]
     sentence_count: 9
     key_terms: [engagement, learning, experiential, citations, relations, "northeastern's", priority, experiences]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 470
   - id: "evidence/research-findings.md#c13"
-    char_span: [32586, 35387]
+    char_span: [32585, 35386]
     sentence_count: 8
     key_terms: [comprehensive, student, citations, learning, priority, experiential, development, skills]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 486
   - id: "evidence/research-findings.md#c14"
-    char_span: [35482, 38406]
+    char_span: [35481, 38405]
     sentence_count: 12
     key_terms: [education, international, co-op, citations, federal, student, higher, status]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 504
   - id: "evidence/research-findings.md#c15"
-    char_span: [38408, 40727]
+    char_span: [38407, 40726]
     sentence_count: 9
     key_terms: [co-op, employment, infrastructure, student, institutions, investment, citations, strategic]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 396
   - id: "evidence/research-findings.md#c16"
-    char_span: [40729, 43066]
+    char_span: [40728, 43065]
     sentence_count: 8
     key_terms: [institutions, enrollment, funding, student, citations, like, external, holistic]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 391
   - id: "evidence/research-findings.md#c17"
-    char_span: [43068, 45457]
+    char_span: [43067, 45456]
     sentence_count: 8
     key_terms: [support, engagement, experience, co-op, "northeastern's", faculty, student, competitive]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 414
   - id: "evidence/research-findings.md#c18"
-    char_span: [45459, 47797]
+    char_span: [45458, 47796]
     sentence_count: 8
     key_terms: [students, experiential, co-op, learning, advancement, citations, effective, strategic]
     section: "Research Run: 2026-04-13 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 396
   - id: "evidence/research-findings.md#c19"
-    char_span: [47892, 50456]
+    char_span: [47891, 50455]
     sentence_count: 9
     key_terms: [learning, experiential, status, student, citations, co-op, comprehensive, international]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 439
   - id: "evidence/research-findings.md#c20"
-    char_span: [50458, 53074]
+    char_span: [50457, 53073]
     sentence_count: 10
     key_terms: [advancement, digital, initiatives, citations, priority, strategy, institutional, philanthropic]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 445
   - id: "evidence/research-findings.md#c21"
-    char_span: [53076, 55753]
+    char_span: [53075, 55752]
     sentence_count: 11
     key_terms: [student, readiness, experiential, northeastern, citations, employer, learning, priority]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 464
   - id: "evidence/research-findings.md#c22"
-    char_span: [55755, 58499]
+    char_span: [55754, 58498]
     sentence_count: 9
     key_terms: [data, governance, structured, citations, strategic, implementation, "northeastern's", priority]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 469
   - id: "evidence/research-findings.md#c23"
-    char_span: [58594, 61347]
+    char_span: [58593, 61346]
     sentence_count: 10
     key_terms: [experiential, policy, status, citations, learning, priority, comprehensive, clr]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 489
   - id: "evidence/research-findings.md#c24"
-    char_span: [61349, 64326]
+    char_span: [61348, 64325]
     sentence_count: 10
     key_terms: [student, citations, "northeastern's", priority, data, digital, advancement, status]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 502
   - id: "evidence/research-findings.md#c25"
-    char_span: [64328, 67300]
+    char_span: [64327, 67299]
     sentence_count: 9
     key_terms: [student, learning, experiential, clr, citations, priority, initiatives, stakeholder]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 515
   - id: "evidence/research-findings.md#c26"
-    char_span: [67302, 69663]
+    char_span: [67301, 69662]
     sentence_count: 8
     key_terms: [skills, outcomes, competitiveness, learning, partnerships, co-op, citations, employers]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 389
   - id: "evidence/research-findings.md#c27"
-    char_span: [69665, 71859]
+    char_span: [69664, 71858]
     sentence_count: 8
     key_terms: [data, project, governance, management, pilot, citations, clr, priority]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 395
   - id: "evidence/research-findings.md#c28"
-    char_span: [71954, 74679]
+    char_span: [71953, 74678]
     sentence_count: 10
     key_terms: [university, citations, priority, students, student, status, academic, funding]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 481
   - id: "evidence/research-findings.md#c29"
-    char_span: [74681, 76928]
+    char_span: [74680, 76927]
     sentence_count: 8
     key_terms: [student, students, co-op, citations, financial, inclusive, priority, campus]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 411
   - id: "evidence/research-findings.md#c30"
-    char_span: [76930, 79323]
+    char_span: [76929, 79322]
     sentence_count: 10
     key_terms: [students, co-op, market, student, needs, citations, priority, regional]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 415
   - id: "evidence/research-findings.md#c31"
-    char_span: [79325, 82138]
+    char_span: [79324, 82137]
     sentence_count: 10
     key_terms: [social, citations, priority, advancement, application, fundraising, status, data]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 483
   - id: "evidence/research-findings.md#c32"
-    char_span: [82140, 85043]
+    char_span: [82139, 85042]
     sentence_count: 14
     key_terms: [student, alumni, digital, engagement, citations, priority, students, status]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 499
   - id: "evidence/research-findings.md#c33"
-    char_span: [85045, 87238]
+    char_span: [85044, 87237]
     sentence_count: 8
     key_terms: [students, status, citations, cross-functional, student, alumni, participation, experiential]
     section: "Research Run: 2026-04-14 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 394
   - id: "evidence/research-findings.md#c34"
-    char_span: [87333, 90342]
+    char_span: [87332, 90341]
     sentence_count: 9
     key_terms: [student, learning, experiential, international, governance, status, citations, co-op]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 504
   - id: "evidence/research-findings.md#c35"
-    char_span: [90344, 92918]
+    char_span: [90343, 92917]
     sentence_count: 7
     key_terms: [financial, alumni, giving, status, donor, citations, academic, priority]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 445
   - id: "evidence/research-findings.md#c36"
-    char_span: [92920, 95463]
+    char_span: [92919, 95462]
     sentence_count: 7
     key_terms: [student, learning, comprehensive, institutional, initiatives, perceptions, alumni, citations]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 428
   - id: "evidence/research-findings.md#c37"
-    char_span: [95465, 98121]
+    char_span: [95464, 98120]
     sentence_count: 8
     key_terms: [comprehensive, student, advancement, career, co-op, citations, readiness, reporting]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 442
   - id: "evidence/research-findings.md#c38"
-    char_span: [98123, 99714]
+    char_span: [98122, 99713]
     sentence_count: 5
     key_terms: [operational, planned, giving, communication, pilot, scaffolding, small-scale, citations]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 273
   - id: "evidence/research-findings.md#c39"
-    char_span: [99809, 102473]
+    char_span: [99808, 102472]
     sentence_count: 9
     key_terms: [citations, priority, digital, status, learning, accessibility, student, experiential]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 466
   - id: "evidence/research-findings.md#c40"
-    char_span: [102475, 104972]
+    char_span: [102474, 104971]
     sentence_count: 8
     key_terms: [citations, priority, status, donor, advancement, higher, co-op, education]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 453
   - id: "evidence/research-findings.md#c41"
-    char_span: [104974, 107501]
+    char_span: [104973, 107500]
     sentence_count: 5
     key_terms: [citations, student, status, comprehensive, experiential, competitive, confidence, co-op]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 453
   - id: "evidence/research-findings.md#c42"
-    char_span: [107503, 108545]
+    char_span: [107502, 108544]
     sentence_count: 4
     key_terms: [comprehensive, multi-faceted, advancement, development, evaluation, structured, citations, discovery]
     section: "Research Run: 2026-04-15 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 188
   - id: "evidence/research-findings.md#c43"
-    char_span: [108640, 111304]
+    char_span: [108639, 111303]
     sentence_count: 7
     key_terms: [citations, status, data, northeastern, advancement, priority, strategy, transformative]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 496
   - id: "evidence/research-findings.md#c44"
-    char_span: [111306, 113566]
+    char_span: [111305, 113565]
     sentence_count: 7
     key_terms: [donors, citations, insights, advancement, credibility, status, donor, frontline]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 436
   - id: "evidence/research-findings.md#c45"
-    char_span: [113568, 116413]
+    char_span: [113567, 116412]
     sentence_count: 7
     key_terms: [co-op, citations, institutional, northeastern, status, academic, success, development]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 506
   - id: "evidence/research-findings.md#c46"
-    char_span: [116415, 118641]
+    char_span: [116414, 118640]
     sentence_count: 5
     key_terms: [alumni, citations, communication, data, stewardship, status, engagement, management]
     section: "Research Run: 2026-04-16 — Create a comprehensive strategy and roadmap of tactics for N"
     token_count: 397
   - id: "evidence/research-findings.md#c47"
-    char_span: [118736, 121309]
+    char_span: [118735, 121308]
     sentence_count: 8
     key_terms: [data, fundraising, citations, infrastructure, priority, philanthropic, advancement, status]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 461
   - id: "evidence/research-findings.md#c48"
-    char_span: [121311, 123310]
+    char_span: [121310, 123309]
     sentence_count: 7
     key_terms: [reporting, alumni, engagement, analytics, citations, priority, status, opportunities]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 377
   - id: "evidence/research-findings.md#c49"
-    char_span: [123312, 125327]
+    char_span: [123311, 125326]
     sentence_count: 8
     key_terms: [donors, "northeastern's", retention, citations, data, priority, status, high-capacity]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 399
   - id: "evidence/research-findings.md#c50"
-    char_span: [125329, 128063]
+    char_span: [125328, 128062]
     sentence_count: 8
     key_terms: [northeastern, fundraising, alumni, citations, resources, priority, college, status]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 484
   - id: "evidence/research-findings.md#c51"
-    char_span: [128065, 130846]
+    char_span: [128064, 130845]
     sentence_count: 9
     key_terms: [data, advancement, "northeastern's", citations, reporting, priority, status, critical]
     section: "Research Run: 2026-04-20 — ROLE You are an elite market research analyst embedded with"
     token_count: 488
   - id: "evidence/research-findings.md#c52"
-    char_span: [130941, 133409]
+    char_span: [130940, 133408]
     sentence_count: 7
     key_terms: [digital, citations, priority, status, universities, fundraising, across, giving]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 483
   - id: "evidence/research-findings.md#c53"
-    char_span: [133411, 135735]
+    char_span: [133410, 135734]
     sentence_count: 8
     key_terms: [donors, citations, priority, giving, status, recurring, engagement, donor]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 437
   - id: "evidence/research-findings.md#c54"
-    char_span: [135737, 138323]
+    char_span: [135736, 138322]
     sentence_count: 7
     key_terms: [citations, priority, status, fundraising, campaign, institutional, data, alumni]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 499
   - id: "evidence/research-findings.md#c55"
-    char_span: [138325, 140645]
+    char_span: [138324, 140644]
     sentence_count: 6
     key_terms: [citations, advancement, digital, status, transparency, endowments, engagement, technology]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 440
   - id: "evidence/research-findings.md#c56"
-    char_span: [140647, 143038]
+    char_span: [140646, 143037]
     sentence_count: 7
     key_terms: [digital, citations, advancement, status, social, technology, donor, matching]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 458
   - id: "evidence/research-findings.md#c57"
-    char_span: [143040, 145278]
+    char_span: [143039, 145277]
     sentence_count: 6
     key_terms: [citations, priority, daf, data, status, campaign, gifts, giving]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"
     token_count: 442
   - id: "evidence/research-findings.md#c58"
-    char_span: [145280, 146561]
+    char_span: [145279, 146560]
     sentence_count: 4
     key_terms: [fundraising, deductions, endowments, citations, tax, priority, through, status]
     section: "Research Run: 2026-04-21 — Identify named university case studies from 2025 and 2026, s"

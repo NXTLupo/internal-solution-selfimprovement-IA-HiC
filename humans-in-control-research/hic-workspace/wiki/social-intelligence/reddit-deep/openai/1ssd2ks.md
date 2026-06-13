@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, openai, reddit-deep, imagen, posted, reddit, source, https]
     token_count: 67
   - id: "social-intelligence/reddit-deep/openai/1ssd2ks.md#c1"
-    char_span: [215, 1411]
+    char_span: [214, 1410]
     sentence_count: 9
     key_terms: [claude, month, like, openai, longbreaddinosaur, fair, "it's", max]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/openai/1ssd2ks.md#c2"
-    char_span: [1413, 2176]
+    char_span: [1412, 2175]
     sentence_count: 5
     key_terms: [healthy-nebula-3603, prompt, love, laonionlaunion, claudie-cli, enterprise, eventually, gemini-cli]
     section: Comments

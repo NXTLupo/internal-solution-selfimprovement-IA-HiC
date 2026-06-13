@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ss8pjx.md#c0"
-    char_span: [0, 431]
+    char_span: [0, 430]
     sentence_count: 3
     key_terms: [applyingtocollege, comments, challenging, reddit-deep, skieurope12, admissions, psychology, important]
     token_count: 109

@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/fb51d3c1bf.md#c0"
-    char_span: [0, 1746]
+    char_span: [0, 1745]
     sentence_count: 8
     key_terms: [year, cscareerquestions, backlogs, considering, back, currently, preparing, comments]
-    token_count: 439
+    token_count: 438
 ---
 # Feeling lost in 8th semester (CS) with year back due to backlogs – Need serious career advice
 

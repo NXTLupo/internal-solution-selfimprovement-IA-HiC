@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, gemini, number, various-parfait-6477, phone, reddit-deep, changing, paranoid]
     token_count: 79
   - id: "social-intelligence/reddit-deep/gemini/1kytxag.md#c1"
-    char_span: [304, 1195]
+    char_span: [303, 1194]
     sentence_count: 6
     key_terms: [email, gemini, phishing, mediocrewowtank, report, various-parfait-6477, got, too]
     section: Comments

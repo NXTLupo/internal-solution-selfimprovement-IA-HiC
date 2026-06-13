@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1r0rzlv.md#c0"
-    char_span: [0, 1375]
+    char_span: [0, 1374]
     sentence_count: 1
     key_terms: [undergrad, masters, something, gradadmissions, school, grad, like, want]
-    token_count: 310
+    token_count: 309
 ---
 # help deciding grad school path
 

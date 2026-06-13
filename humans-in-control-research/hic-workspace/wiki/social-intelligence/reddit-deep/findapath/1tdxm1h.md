@@ -23,43 +23,43 @@ chunks:
     key_terms: [years, back, hard, jobs, findapath, comments, because, always]
     token_count: 439
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c1"
-    char_span: [1811, 3535]
+    char_span: [1810, 3534]
     sentence_count: 12
     key_terms: [thank, helpful, please, here, findapath, comments, everyone, guidance]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c2"
-    char_span: [3537, 4280]
+    char_span: [3536, 4279]
     sentence_count: 7
     key_terms: [distributionrare5409, build, local, thank, winningthegame100, superslugsister, flairpointsbot, certification]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c3"
-    char_span: [4282, 6370]
+    char_span: [4281, 6369]
     sentence_count: 19
     key_terms: [superslugsister, trading, management, wastewater, look, good, like, already]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c4"
-    char_span: [6103, 6462]
+    char_span: [6102, 6461]
     sentence_count: 3
     key_terms: [meritocracy-based, demonstrate, education, generally, landscape, mirroring, situation, bachelor]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c5"
-    char_span: [6464, 8424]
+    char_span: [6463, 8423]
     sentence_count: 14
     key_terms: [bls, look, use, want, different, interest, opiates, always]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c6"
-    char_span: [8426, 10712]
+    char_span: [8425, 10711]
     sentence_count: 28
     key_terms: [business, people, like, work, yourself, scholarships, niche, own]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/findapath/1tdxm1h.md#c7"
-    char_span: [10714, 11347]
+    char_span: [10713, 11346]
     sentence_count: 10
     key_terms: [like, winningthegame100, "goldman's", already, capital, checked, crawled, dealing]
     section: Comments

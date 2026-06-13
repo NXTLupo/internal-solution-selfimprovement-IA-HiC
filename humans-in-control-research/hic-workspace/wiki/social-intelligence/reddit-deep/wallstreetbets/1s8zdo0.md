@@ -23,37 +23,37 @@ chunks:
     key_terms: [position, loss, wallstreetbets, comments, started, being, got, kept]
     token_count: 323
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c1"
-    char_span: [1105, 1614]
+    char_span: [1104, 1613]
     sentence_count: 2
     key_terms: [discord, total, years, wsb, bamboonicorn, submissions, richard587, successful]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c2"
-    char_span: [1617, 2856]
+    char_span: [1616, 2855]
     sentence_count: 2
     key_terms: [preview, format, https, width, auto, jpeg, pjpg, redd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c3"
-    char_span: [2660, 3193]
+    char_span: [2659, 3192]
     sentence_count: 3
     key_terms: [de916ddfe9e280f290b1e211646c03dbe4bedab3, dishes, illustriousslice2655, doing, hacking99percent, thehandsoap, brock2063, tomorrow]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c4"
-    char_span: [3195, 3437]
+    char_span: [3194, 3436]
     sentence_count: 1
     key_terms: [d53a496f310de8ee64ca595ad4db1258750b7ed4, illustriousslice2655, lol, r1pllcfb0gsg1, thehandsoap, sweating, preview, through]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c5"
-    char_span: [3439, 4968]
+    char_span: [3438, 4967]
     sentence_count: 5
     key_terms: [exit, lost, profits, always, market, unless, bayouboybussybusters, ok-seaworthiness4488]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/wallstreetbets/1s8zdo0.md#c6"
-    char_span: [4970, 5437]
+    char_span: [4969, 5436]
     sentence_count: 1
     key_terms: [dae4017b9db921eddc129910555f542680c42162, thehandsoap, realistic-tank809, png, nlkitsd92gsg1, continues, congrats, against]
     section: Comments

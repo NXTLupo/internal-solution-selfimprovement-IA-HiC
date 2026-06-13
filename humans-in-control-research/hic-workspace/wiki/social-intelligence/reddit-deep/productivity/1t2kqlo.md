@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, time, systems, day, like, ngl, decisions, something]
     token_count: 294
   - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c1"
-    char_span: [1341, 3303]
+    char_span: [1340, 3302]
     sentence_count: 11
     key_terms: [reminders, calflow, time, action, system, track, list, work]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c2"
-    char_span: [3305, 5127]
+    char_span: [3304, 5126]
     sentence_count: 5
     key_terms: [week, prioritisation, system, "don't", done, get, individual, productive]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/productivity/1t2kqlo.md#c3"
-    char_span: [5129, 6311]
+    char_span: [5128, 6310]
     sentence_count: 10
     key_terms: [day, don, re-evaluating, simplifying, definitely, especially, everything, optimizing]
     section: Comments

@@ -15,10 +15,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-digitalmarketing/9f4b93aaff.md#c0"
-    char_span: [0, 1442]
+    char_span: [0, 1441]
     sentence_count: 14
     key_terms: [like, digitalmarketing, looking, corporate, models, reddit, sounds, brand]
-    token_count: 313
+    token_count: 312
 ---
 # We are officially entering the era of the dead internet and marketing is the first victim
 

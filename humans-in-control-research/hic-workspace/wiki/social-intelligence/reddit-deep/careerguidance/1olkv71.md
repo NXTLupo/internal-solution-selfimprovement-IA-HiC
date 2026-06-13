@@ -23,85 +23,85 @@ chunks:
     key_terms: [decision, careerguidance, job, comments, changed, better, career, back]
     token_count: 252
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c1"
-    char_span: [1077, 1877]
+    char_span: [1076, 1876]
     sentence_count: 11
     key_terms: [work, wanted, engineering, field, did, role, opportunities, bimmerjustin]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c2"
-    char_span: [1879, 4125]
+    char_span: [1878, 4124]
     sentence_count: 13
     key_terms: [analysis, environmental, city, properties, different, leaders, looking, systems]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c3"
-    char_span: [3826, 4341]
+    char_span: [3825, 4340]
     sentence_count: 4
     key_terms: [properties, city, etc, applications, requirements, consulting, contracts, decisions]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c4"
-    char_span: [4343, 5761]
+    char_span: [4342, 5760]
     sentence_count: 11
     key_terms: [data, gis, navigon, certification, job, management, research, manager]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c5"
-    char_span: [5763, 7375]
+    char_span: [5762, 7374]
     sentence_count: 14
     key_terms: [google, work, thanks, revolutionaryegg4399, sufficient-hawk-7245, historicaldrawing29, field, learn]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c6"
-    char_span: [7377, 8835]
+    char_span: [7376, 8834]
     sentence_count: 15
     key_terms: [work, new, career, retail, asked, field, weeks, call]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c7"
-    char_span: [8837, 10514]
+    char_span: [8836, 10513]
     sentence_count: 17
     key_terms: [wherewegoingto, years, people, led, var, asked, house, later]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c8"
-    char_span: [10516, 11415]
+    char_span: [10515, 11414]
     sentence_count: 9
     key_terms: [bulliedatmicrosoft, people, years, pale-weather-2328, best, day, dog, led]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c9"
-    char_span: [11417, 12972]
+    char_span: [11416, 12971]
     sentence_count: 9
     key_terms: [bulliedatmicrosoft, microsoft, working, better, global, dream, heard, since]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c10"
-    char_span: [12974, 15038]
+    char_span: [12973, 15037]
     sentence_count: 16
     key_terms: [pay, cut, job, marketing, college, better, career, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c11"
-    char_span: [14779, 15752]
+    char_span: [14778, 15751]
     sentence_count: 9
     key_terms: [get, marketing, teacher, decade, school, no-communication2190, long, administrative]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c12"
-    char_span: [15754, 17569]
+    char_span: [15753, 17568]
     sentence_count: 14
     key_terms: [teaching, years, back, new, boyfriend, services, station, moving]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c13"
-    char_span: [17571, 19092]
+    char_span: [17570, 19091]
     sentence_count: 9
     key_terms: [doing, edinburgh, better, city, "he's", son, london, adventurous-wolf777]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/careerguidance/1olkv71.md#c14"
-    char_span: [19094, 20376]
+    char_span: [19093, 20375]
     sentence_count: 12
     key_terms: [work, refugees, job, edinburgh, expensive, french, needed, back]
     section: Comments

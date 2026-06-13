@@ -38,19 +38,19 @@ chunks:
     key_terms: [don, yourself, need, everything, different, everyone, positive, thinking]
     token_count: 89
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c4"
-    char_span: [5677, 6620]
+    char_span: [5676, 6619]
     sentence_count: 5
     key_terms: [feel, gpa, undergrad, never, super, thank, glitteringpeaches, been]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c5"
-    char_span: [6622, 8635]
+    char_span: [6621, 8634]
     sentence_count: 15
     key_terms: [undergrad, did, got, phd, thank, get, gpa, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1sjnd0j.md#c6"
-    char_span: [8360, 9144]
+    char_span: [8359, 9143]
     sentence_count: 7
     key_terms: [completely, support, been, gpa, hope, phd, year, inspectornaive2]
     section: Comments

@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c0"
-    char_span: [0, 1952]
+    char_span: [0, 1951]
     sentence_count: 14
     key_terms: [financialindependence, divorce, became, career, driver, reddit, worth, years]
-    token_count: 490
+    token_count: 489
   - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c1"
-    char_span: [1954, 4051]
+    char_span: [1953, 4050]
     sentence_count: 15
     key_terms: [year, percent, bonus, plus, pastor, salary, budget, income]
     token_count: 482
   - id: "articles/reddit-deep-r-financialindependence/b0d1fcf23c.md#c2"
-    char_span: [4053, 6277]
+    char_span: [4052, 6276]
     sentence_count: 24
     key_terms: [keep, significant, hard, work, inspiring, congrats, staying, almost]
     token_count: 511

@@ -26,7 +26,7 @@ chunks:
     key_terms: [company, resume, fact, get, time, manufacturing, complaining, engineering]
     token_count: 234
   - id: "social-intelligence/reddit-deep/internships/1tew1ch.md#c2"
-    char_span: [2682, 4096]
+    char_span: [2681, 4095]
     sentence_count: 4
     key_terms: [experience, chemical, like, supervisor, success, choice, resume, don]
     section: Comments

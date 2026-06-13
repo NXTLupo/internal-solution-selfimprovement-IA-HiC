@@ -15,17 +15,17 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c0"
-    char_span: [0, 2003]
+    char_span: [0, 2002]
     sentence_count: 16
     key_terms: [worth, stress, college, applyingtocollege, want, younger, health, get]
-    token_count: 479
+    token_count: 478
   - id: "articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c1"
-    char_span: [2006, 4158]
+    char_span: [2005, 4157]
     sentence_count: 14
     key_terms: [health, don, get, yourself, college, school, competitive, too]
     token_count: 480
   - id: "articles/reddit-deep-r-applyingtocollege/e51a1bebcc.md#c2"
-    char_span: [4160, 5545]
+    char_span: [4159, 5544]
     sentence_count: 16
     key_terms: [stress, health, "there's", people, worth, ivy, yourself, getting]
     token_count: 311

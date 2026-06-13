@@ -21,7 +21,7 @@ chunks:
     key_terms: [science, years, college, data, computer, data-scientists, master, https]
     token_count: 446
   - id: "social-intelligence/reddit-deep/college/1lbfto6.md#c1"
-    char_span: [1903, 2315]
+    char_span: [1902, 2314]
     sentence_count: 1
     key_terms: [deleted, redact, ill-map-1024, anonymized, continue, hospital, shocking, applied]
     section: Comments

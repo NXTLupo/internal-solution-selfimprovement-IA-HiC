@@ -15,12 +15,12 @@ industries: [financial_services, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/3c33cdcabd.md#c0"
-    char_span: [0, 706]
+    char_span: [0, 705]
     sentence_count: 5
     key_terms: [comments, discord, reddit, https, money, genz, like, time]
-    token_count: 186
+    token_count: 185
   - id: "articles/reddit-deep-r-genz/3c33cdcabd.md#c1"
-    char_span: [709, 2603]
+    char_span: [708, 2602]
     sentence_count: 11
     key_terms: [account, savings, bills, checking, automatically, pay, year, attractive]
     token_count: 467

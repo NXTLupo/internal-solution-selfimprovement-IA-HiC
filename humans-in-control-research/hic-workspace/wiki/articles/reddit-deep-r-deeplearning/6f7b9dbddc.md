@@ -15,37 +15,37 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c0"
-    char_span: [0, 2452]
+    char_span: [0, 2451]
     sentence_count: 20
     key_terms: [training, model, texture, erm, distribution, directions, supervised, data]
-    token_count: 516
+    token_count: 515
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c1"
-    char_span: [2454, 4189]
+    char_span: [2453, 4188]
     sentence_count: 14
     key_terms: [jacobian, erm, pgd, directions, representations, adversarial, tdi, robustness]
     token_count: 454
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c2"
-    char_span: [4191, 6096]
+    char_span: [4190, 6095]
     sentence_count: 8
     key_terms: [blind, ratio, spot, jacobian, nuisance, geometric-analysis-of-deep-learning, model, erm]
     token_count: 498
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c3"
-    char_span: [6098, 7809]
+    char_span: [6097, 7808]
     sentence_count: 15
     key_terms: [directions, preference, uniformly, across, correlations, distribution, adversarial, rlhf]
     token_count: 402
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c4"
-    char_span: [7811, 9721]
+    char_span: [7810, 9720]
     sentence_count: 10
     key_terms: [tdi, model, frobenius, jacobian, theorem, distribution, "it's", norm]
     token_count: 509
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c5"
-    char_span: [9723, 11537]
+    char_span: [9722, 11536]
     sentence_count: 8
     key_terms: [picture, adversarial, learn, "it's", always, grass, fine-tuning, specific]
     token_count: 418
   - id: "articles/reddit-deep-r-deeplearning/6f7b9dbddc.md#c6"
-    char_span: [11539, 12287]
+    char_span: [11538, 12286]
     sentence_count: 5
     key_terms: [models, nightmarelogic420, generalisation, intraluminal, self-driving, taranpula39, confidence, end-to-end]
     token_count: 189

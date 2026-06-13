@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qodthj.md#c0"
-    char_span: [0, 735]
+    char_span: [0, 734]
     sentence_count: 5
     key_terms: [engineering, student, engineeringstudents, civil, comments, possible, delayed, intern]
-    token_count: 181
+    token_count: 180
 ---
 # Internships in the philippines as a civil engineering student
 

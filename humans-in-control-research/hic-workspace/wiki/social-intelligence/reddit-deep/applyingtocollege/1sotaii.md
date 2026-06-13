@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, cons, pros, strong, admission, cheapish, comments, options]
     token_count: 330
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sotaii.md#c1"
-    char_span: [1229, 2904]
+    char_span: [1228, 2903]
     sentence_count: 13
     key_terms: [uiuc, factworking1097, significancebig7903, school, get, pay, parents, neckbackground5184]
     section: Comments

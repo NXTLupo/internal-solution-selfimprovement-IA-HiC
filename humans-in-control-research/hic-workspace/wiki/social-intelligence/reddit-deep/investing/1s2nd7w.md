@@ -28,19 +28,19 @@ chunks:
     key_terms: [search, tool, web, "anthropic's", anthropic, advocate, analysis, anything]
     token_count: 86
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c2"
-    char_span: [2156, 3524]
+    char_span: [2155, 3523]
     sentence_count: 7
     key_terms: ["you're", anthropic, data, marwkaw, device, money, neophyte12, account]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c3"
-    char_span: [3526, 5311]
+    char_span: [3525, 5310]
     sentence_count: 17
     key_terms: [marwkaw, https, imgur, com, single, agent, analysis, helps]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1s2nd7w.md#c4"
-    char_span: [5077, 6068]
+    char_span: [5076, 6067]
     sentence_count: 10
     key_terms: [because, picking, get, "i'm", like, backtesting, fundamental, integrated]
     section: Comments

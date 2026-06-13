@@ -26,91 +26,91 @@ chunks:
     key_terms: [devs, far, high, reduction, effects, less, opportunities, compensation]
     token_count: 135
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c2"
-    char_span: [2832, 4978]
+    char_span: [2831, 4977]
     sentence_count: 13
     key_terms: [because, did, demand, productive, "it's", software, workers, stackoverflow]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c3"
-    char_span: [4980, 6588]
+    char_span: [4979, 6587]
     sentence_count: 9
     key_terms: ["it's", "true", interchangeable, engineering, assumption, incorrect, software, because]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c4"
-    char_span: [6590, 8220]
+    char_span: [6589, 8219]
     sentence_count: 8
     key_terms: [market, engineers, capitalists, job, tech, companies, clearing, figures]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c5"
-    char_span: [8222, 10231]
+    char_span: [8221, 10230]
     sentence_count: 7
     key_terms: [workers, productivity, resume, people, gains, companies, increases, argument]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c6"
-    char_span: [10233, 12426]
+    char_span: [10232, 12425]
     sentence_count: 15
     key_terms: [applicants, job, resumes, better, people, resume, write, tell]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c7"
-    char_span: [12428, 14530]
+    char_span: [12427, 14529]
     sentence_count: 13
     key_terms: [resume, write, get, job, description, lol, completely, applicant]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c8"
-    char_span: [14532, 16214]
+    char_span: [14531, 16213]
     sentence_count: 11
     key_terms: [people, paid, tech, million, detail, subs, employee, finance]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c9"
-    char_span: [16217, 18293]
+    char_span: [16216, 18292]
     sentence_count: 16
     key_terms: [easier, people, job, companies, performer, employee, fungible, valuable]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c10"
-    char_span: [18295, 18958]
+    char_span: [18294, 18957]
     sentence_count: 5
     key_terms: [mythos, grok, use, year, enough, higher, impact, right]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c11"
-    char_span: [18960, 20924]
+    char_span: [18959, 20923]
     sentence_count: 7
     key_terms: [works, infrastructure, basics, great, good, difference, ignorance, specifics]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c12"
-    char_span: [20928, 23079]
+    char_span: [20927, 23078]
     sentence_count: 10
     key_terms: [degree, basic, people, "don't", never, home, own, graduates]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c13"
-    char_span: [23081, 23498]
+    char_span: [23080, 23497]
     sentence_count: 3
     key_terms: [sputnikcucumber, deprioritized, institutions, difference, individual, interested, passionate, interest]
     section: Comments
     token_count: 94
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c14"
-    char_span: [23500, 25216]
+    char_span: [23499, 25215]
     sentence_count: 16
     key_terms: [magormaximus, job, taught, shareholders, required, students, "didn't", grads]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c15"
-    char_span: [25218, 27193]
+    char_span: [25217, 27192]
     sentence_count: 14
     key_terms: [going, gold-flatworm-4313, less, juniors, companies, assuming, invaded, savings]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slfnks.md#c16"
-    char_span: [27195, 28606]
+    char_span: [27194, 28605]
     sentence_count: 7
     key_terms: [students, college, talent, using, top, assumption, education, schoolers]
     section: Comments

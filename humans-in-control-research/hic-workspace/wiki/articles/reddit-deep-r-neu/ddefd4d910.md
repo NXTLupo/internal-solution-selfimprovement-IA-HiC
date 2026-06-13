@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-neu/ddefd4d910.md#c0"
-    char_span: [0, 1790]
+    char_span: [0, 1789]
     sentence_count: 8
     key_terms: [roommate, "i'm", neu, medical, oakland, random, condition, because]
-    token_count: 411
+    token_count: 410
   - id: "articles/reddit-deep-r-neu/ddefd4d910.md#c1"
-    char_span: [1792, 3421]
+    char_span: [1791, 3420]
     sentence_count: 11
     key_terms: [single, dorms, miathekoala, get, friends, oakland, singles, minifridge]
     token_count: 406

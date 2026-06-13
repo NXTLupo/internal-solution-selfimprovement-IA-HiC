@@ -23,25 +23,25 @@ chunks:
     key_terms: [internships, internship, comments, advice, kind-acanthisitta735, engineering, reddit-deep, appreciate]
     token_count: 126
   - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c1"
-    char_span: [531, 858]
+    char_span: [530, 857]
     sentence_count: 2
     key_terms: [internship, moonhive, startup, real, mentorship, dhanoojbs, ecosystem, front-row]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c2"
-    char_span: [860, 2900]
+    char_span: [859, 2899]
     sentence_count: 14
     key_terms: [internship, linkedin, apply, offer, get, job, portfolio, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c3"
-    char_span: [2644, 3062]
+    char_span: [2643, 3061]
     sentence_count: 7
     key_terms: [applying, kind-acanthisitta735, cold, get, opportunities, consistency, discouraged, intenshala]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/internships/1leo94y.md#c4"
-    char_span: [3064, 4383]
+    char_span: [3063, 4382]
     sentence_count: 5
     key_terms: [internship, moonhive, startup, offer, real, work, mentorship, projects]
     section: Comments

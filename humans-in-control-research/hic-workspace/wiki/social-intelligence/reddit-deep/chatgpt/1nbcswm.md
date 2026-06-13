@@ -23,91 +23,91 @@ chunks:
     key_terms: ["i'm", "it's", chatgpt, comments, ask, get, backwards, defender]
     token_count: 440
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c1"
-    char_span: [1808, 3559]
+    char_span: [1807, 3558]
     sentence_count: 13
     key_terms: [correct, please, conversation, image, reply, like, post, r-chatgpt-1050422060352024636]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c2"
-    char_span: [3561, 4170]
+    char_span: [3560, 4169]
     sentence_count: 6
     key_terms: [gaslighting, like, wrong, weary-comedian2054, rattuspuer, scratching, something, truncated]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c3"
-    char_span: [4172, 6097]
+    char_span: [4171, 6096]
     sentence_count: 12
     key_terms: ["it's", something, ask, deleted, info, question, chatgpt, exactly]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c4"
-    char_span: [6099, 8213]
+    char_span: [6098, 8212]
     sentence_count: 17
     key_terms: [information, knowledge, chatgpt, search, right, wrong, hallucinate, does]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c5"
-    char_span: [7923, 9957]
+    char_span: [7922, 9956]
     sentence_count: 15
     key_terms: [wrong, information, "it's", like, collapse, content, making, imwhatswrongwithyou]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c6"
-    char_span: [9685, 10052]
+    char_span: [9684, 10051]
     sentence_count: 3
     key_terms: [thalassicus1, advertisers, information, introduce, mmageezer, consent, content, example]
     section: Comments
     token_count: 93
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c7"
-    char_span: [10054, 11959]
+    char_span: [10053, 11958]
     sentence_count: 7
     key_terms: [openai-looks-to-online-advertising-deal-ai-driven-ads-will-be-hard-for-consumers-to-spot-264377, money, accounts, memories, assumed, product, pushed, recipe]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c8"
-    char_span: [11961, 13699]
+    char_span: [11960, 13698]
     sentence_count: 12
     key_terms: [like, remember, synthetic-self-awareness, person, seemed, doesn, gpt-5, model]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c9"
-    char_span: [13701, 15338]
+    char_span: [13700, 15337]
     sentence_count: 11
     key_terms: [memory, like, "it's", redact, effective-celery8053, power, ragingintrovert57, been]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c10"
-    char_span: [15340, 16303]
+    char_span: [15339, 16302]
     sentence_count: 11
     key_terms: [almost, answer, been, exceptionally, subscription, crowdstrike, programmers, president]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c11"
-    char_span: [16305, 17985]
+    char_span: [16304, 17984]
     sentence_count: 15
     key_terms: [gemini, claude, like, use, chat-gpt, answers, chatgpt, coding]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c12"
-    char_span: [17987, 19429]
+    char_span: [17986, 19428]
     sentence_count: 12
     key_terms: [guardrails, limitations, experiencing, asked, everyone, honestly, models, rydout]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c13"
-    char_span: [19431, 21354]
+    char_span: [19430, 21353]
     sentence_count: 11
     key_terms: [need, problem, going, step, guardrails, paragraphs, thinking, useless]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c14"
-    char_span: [21356, 23229]
+    char_span: [21355, 23228]
     sentence_count: 18
     key_terms: [already, people, finished, answers, finally, doing, tasks, using]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/chatgpt/1nbcswm.md#c15"
-    char_span: [23231, 23943]
+    char_span: [23230, 23942]
     sentence_count: 6
     key_terms: [model, virtual-resource-583, professionalart5698, self-contradictory, time, hallucinations, incorporating, destroying]
     section: Comments

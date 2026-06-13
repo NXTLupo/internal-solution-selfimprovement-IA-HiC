@@ -23,31 +23,31 @@ chunks:
     key_terms: [comments, careers, findapath, https, best-ai-proof-no-degree-careers, com, eta, jobs]
     token_count: 376
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c1"
-    char_span: [1457, 2404]
+    char_span: [1456, 2403]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c2"
-    char_span: [2407, 4340]
+    char_span: [2406, 4339]
     sentence_count: 11
     key_terms: [like, care, work, elderly, health, poster, responsible-lunch552, dontfeedagalasponge]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c3"
-    char_span: [4342, 6195]
+    char_span: [4341, 6194]
     sentence_count: 11
     key_terms: [people, dontfeedagalasponge, collectively, list, brahnbrahl, technician, mechanic, thinking]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c4"
-    char_span: [6198, 7807]
+    char_span: [6197, 7806]
     sentence_count: 11
     key_terms: [dontfeedagalasponge, jobs, pay, officers, teach-xx, become, people, wooden-background107]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/findapath/1rp8iny.md#c5"
-    char_span: [7809, 8713]
+    char_span: [7808, 8712]
     sentence_count: 6
     key_terms: [controller, traffic, apples, people, "don't", unknownunknowns11, air, get]
     section: Comments

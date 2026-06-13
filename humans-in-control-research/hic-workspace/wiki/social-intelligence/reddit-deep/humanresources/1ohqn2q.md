@@ -23,31 +23,31 @@ chunks:
     key_terms: [humanresources, stressful, comments, development, reddit-deep, management, recruiting, relations]
     token_count: 111
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c1"
-    char_span: [439, 500]
+    char_span: [438, 499]
     sentence_count: 1
     key_terms: [sitheref0874, depends, define, stress]
     section: Comments
     token_count: 20
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c2"
-    char_span: [502, 2467]
+    char_span: [501, 2466]
     sentence_count: 12
     key_terms: [business, payroll, messed, track, hrbp, pay, employee, thinking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c3"
-    char_span: [2187, 2554]
+    char_span: [2186, 2553]
     sentence_count: 3
     key_terms: [legitimate-sun-4581, accommodations, lukeydukey2024, transparent, appreciate, overnight, employee, mistakes]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c4"
-    char_span: [2556, 4379]
+    char_span: [2555, 4378]
     sentence_count: 14
     key_terms: [accommodations, payroll, issues, time, business, employee, remember, company]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/humanresources/1ohqn2q.md#c5"
-    char_span: [4381, 5480]
+    char_span: [4380, 5479]
     sentence_count: 6
     key_terms: [benefits, employee, areas, recruiting, relations, ada, cat, come]
     section: Comments

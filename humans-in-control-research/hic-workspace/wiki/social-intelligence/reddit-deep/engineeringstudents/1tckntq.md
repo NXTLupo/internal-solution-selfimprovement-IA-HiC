@@ -28,7 +28,7 @@ chunks:
     key_terms: [like, job, mean, research, because, fucking, looking, several]
     token_count: 288
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tckntq.md#c2"
-    char_span: [3189, 4358]
+    char_span: [3188, 4357]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [jobs, internships, dec, years, year, comments, applied, august]
     token_count: 259
   - id: "social-intelligence/reddit-deep/jobs/1nwl5lx.md#c1"
-    char_span: [1057, 1746]
+    char_span: [1056, 1745]
     sentence_count: 5
     key_terms: [enter, odds, employment, especially, wouldn, years, self, slim]
     section: Comments

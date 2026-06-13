@@ -28,37 +28,37 @@ chunks:
     key_terms: [bsky, oklasotagal, university, comments, oklahoma, profile, social, https]
     token_count: 187
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c2"
-    char_span: [2439, 4083]
+    char_span: [2438, 4082]
     sentence_count: 8
     key_terms: [institutions, "it's", academic, programs, deleted, getting, offers, states]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c3"
-    char_span: [4085, 5632]
+    char_span: [4084, 5631]
     sentence_count: 14
     key_terms: [bsky, school, oklasotagal, post, graduated, profile, student, social]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c4"
-    char_span: [5634, 7623]
+    char_span: [5633, 7622]
     sentence_count: 8
     key_terms: [autisticrocheter, student, lawyer, trans, absolutely, permissive, already, treated]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c5"
-    char_span: [7358, 8699]
+    char_span: [7357, 8698]
     sentence_count: 10
     key_terms: [people, erwinheisenberg, permissive, directly, grading, within, far, kind]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c6"
-    char_span: [8701, 10615]
+    char_span: [8700, 10614]
     sentence_count: 16
     key_terms: [agree, student, grading, cite, assignment, discussion, university, important]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/gradschool/1px6ybx.md#c7"
-    char_span: [10617, 10904]
+    char_span: [10616, 10903]
     sentence_count: 2
     key_terms: [intellectualism, accreditation, universities, educational, institution, questioned, education, credibly]
     section: Comments

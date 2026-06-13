@@ -23,31 +23,31 @@ chunks:
     key_terms: [time, student, aid, college, bill, full, need, comments]
     token_count: 348
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c1"
-    char_span: [1441, 2277]
+    char_span: [1440, 2276]
     sentence_count: 5
     key_terms: [senate-republican-megabill, interactive, url-share, nytimes, student, upshot, clear-grapefruit4902, electronic-face3553]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c2"
-    char_span: [2279, 3930]
+    char_span: [2278, 3929]
     sentence_count: 8
     key_terms: [studentloans, grad, country, degrees, reddit, school, unlucky-champion288, "can't"]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c3"
-    char_span: [3932, 4897]
+    char_span: [3931, 4896]
     sentence_count: 7
     key_terms: [pell-grants-escape-one-big-beautiful-bill-act-mostly-unscathed, sanantonioreport, version, undeadism144, bill, mentioned, update, electronic-face3553]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c4"
-    char_span: [4899, 6770]
+    char_span: [4898, 6769]
     sentence_count: 9
     key_terms: [version, bill, full, time, credits, senate, grants, passed]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/college/1lrwvyn.md#c5"
-    char_span: [6772, 7395]
+    char_span: [6771, 7394]
     sentence_count: 2
     key_terms: [government, financial, semester, credits, credit, electronic-face3553, take, time]
     section: Comments

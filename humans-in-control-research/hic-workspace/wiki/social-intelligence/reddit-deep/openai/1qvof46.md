@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1qvof46.md#c0"
-    char_span: [0, 1652]
+    char_span: [0, 1651]
     sentence_count: 17
     key_terms: [chatgpt, gemini, extensions, queue, projects, browser, openai, ahmdidjajeicoopcdpablhecokaepofl]
-    token_count: 412
+    token_count: 411
 ---
 # I switched from ChatGPT to Gemini for the context window, but the UI felt ancient. So I built an extension to fix it.
 

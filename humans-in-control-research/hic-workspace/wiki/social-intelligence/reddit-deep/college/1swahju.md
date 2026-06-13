@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, move, "don't", studies, hours, money, give, "i'm"]
     token_count: 459
   - id: "social-intelligence/reddit-deep/college/1swahju.md#c1"
-    char_span: [1954, 3815]
+    char_span: [1953, 3814]
     sentence_count: 14
     key_terms: [work, school, don, full, time, year, personally, snelephant]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/college/1swahju.md#c2"
-    char_span: [3817, 5788]
+    char_span: [3816, 5787]
     sentence_count: 10
     key_terms: [going, until, got, roommates, honestly, syestiax, because, friends]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1swahju.md#c3"
-    char_span: [5790, 6813]
+    char_span: [5789, 6812]
     sentence_count: 23
     key_terms: [school, immediately, day, anything, classes, college, through, loans]
     section: Comments

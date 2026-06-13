@@ -23,7 +23,7 @@ chunks:
     key_terms: [ai-generated, artificial, "company's", comments, google, number, code, reddit-deep]
     token_count: 123
   - id: "social-intelligence/reddit-deep/artificial/1stj8wc.md#c1"
-    char_span: [464, 1409]
+    char_span: [463, 1408]
     sentence_count: 5
     key_terms: [like, explains, protobuf, buggier, detouristcollective, tanishkacantcopee, code, temporaryuser10]
     section: Comments

@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1pi3kjf.md#c0"
-    char_span: [0, 1586]
+    char_span: [0, 1585]
     sentence_count: 13
     key_terms: [company, careerguidance, years, comments, learning, current, similar, advice]
     token_count: 371

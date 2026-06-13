@@ -23,7 +23,7 @@ chunks:
     key_terms: [personalfinance, advice, debt, comments, paying, house, realistically, reddit-deep]
     token_count: 188
   - id: "social-intelligence/reddit-deep/personalfinance/1ro8who.md#c1"
-    char_span: [811, 1898]
+    char_span: [810, 1897]
     sentence_count: 3
     key_terms: ["there's", get, paying, substantial-pop-7529, basic, least, debt, down]
     section: Comments

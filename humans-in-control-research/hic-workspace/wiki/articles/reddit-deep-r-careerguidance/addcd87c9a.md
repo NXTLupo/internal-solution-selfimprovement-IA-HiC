@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/addcd87c9a.md#c0"
-    char_span: [0, 2340]
+    char_span: [0, 2339]
     sentence_count: 13
     key_terms: [background, experience, communication, work, without, cat, sciences, profile]
-    token_count: 499
+    token_count: 498
   - id: "articles/reddit-deep-r-careerguidance/addcd87c9a.md#c1"
-    char_span: [2342, 3464]
+    char_span: [2341, 3463]
     sentence_count: 5
     key_terms: [career, india, long-term, stability, decision, guidance, limited, mba]
     token_count: 206

@@ -21,55 +21,55 @@ chunks:
     key_terms: [enough, cscareerquestions, feel, job, software, years, outsourcing, been]
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c1"
-    char_span: [1759, 2809]
+    char_span: [1758, 2808]
     sentence_count: 8
     key_terms: [interviews, rejection, postgres, get, net, filter-spam, frustrating, interviewed]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c2"
-    char_span: [2811, 4928]
+    char_span: [2810, 4927]
     sentence_count: 11
     key_terms: [construction, "don't", constantly, experience, interviews, situation, brother, company]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c3"
-    char_span: [4930, 6870]
+    char_span: [4929, 6869]
     sentence_count: 17
     key_terms: [years, market, companies, better, something, right, time, honestly]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c4"
-    char_span: [6872, 8350]
+    char_span: [6871, 8349]
     sentence_count: 9
     key_terms: [engineer, software, people, technical, roles, years, engineers, because]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c5"
-    char_span: [8352, 9846]
+    char_span: [8351, 9845]
     sentence_count: 11
     key_terms: [fire, like, forgotmynameeee, early, approach, retiring, pension, enough]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c6"
-    char_span: [9848, 10849]
+    char_span: [9847, 10848]
     sentence_count: 7
     key_terms: [fire, companies, pension, significant-leg1070, stopelectingwealthy, years, done, swe]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c7"
-    char_span: [10851, 13003]
+    char_span: [10850, 13002]
     sentence_count: 20
     key_terms: [healthcare, nursing, people, school, lot, different, lifestyle, expenses]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c8"
-    char_span: [13005, 14637]
+    char_span: [13004, 14636]
     sentence_count: 12
     key_terms: [nursing, job, hospital, because, degree, hire, like, experience]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p4sw6q.md#c9"
-    char_span: [14639, 16159]
+    char_span: [14638, 16158]
     sentence_count: 14
     key_terms: [software, years, contracting, performance, work, graduated, industry, because]
     section: Comments

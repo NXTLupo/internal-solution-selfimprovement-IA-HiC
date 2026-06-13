@@ -23,25 +23,25 @@ chunks:
     key_terms: [get, engineeringstudents, classmates, depressed, comments, around, people, stupid]
     token_count: 284
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c1"
-    char_span: [1280, 2710]
+    char_span: [1279, 2709]
     sentence_count: 8
     key_terms: [class, questions, ask, fun, engineers, something, sometimes, learning]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c2"
-    char_span: [2712, 4704]
+    char_span: [2711, 4703]
     sentence_count: 16
     key_terms: [questions, class, year, people, "you're", ask, job, professor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c3"
-    char_span: [4488, 5332]
+    char_span: [4487, 5331]
     sentence_count: 5
     key_terms: [ask, questions, since, suspiciousbnnuy, relationship, everything, interested, professors]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqwt8q.md#c4"
-    char_span: [5334, 6175]
+    char_span: [5333, 6174]
     sentence_count: 7
     key_terms: ["it's", get, problems, dream, steps, time, classmates, experience]
     section: Comments

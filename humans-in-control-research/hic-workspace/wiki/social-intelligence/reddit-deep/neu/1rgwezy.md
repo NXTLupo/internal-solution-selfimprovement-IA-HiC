@@ -18,10 +18,10 @@ industries: [higher_ed, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rgwezy.md#c0"
-    char_span: [0, 1722]
+    char_span: [0, 1721]
     sentence_count: 21
     key_terms: [robotics, concentration, quite, scholarship, mscs, neu, comments, received]
-    token_count: 396
+    token_count: 395
 ---
 # NEU MS Robotics (CS concentration) vs MS CS?
 

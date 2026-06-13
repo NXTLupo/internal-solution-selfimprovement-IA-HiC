@@ -21,13 +21,13 @@ chunks:
     key_terms: [career, like, path, cscareerquestions, software, "don't", struggling, something]
     token_count: 344
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c1"
-    char_span: [1529, 3327]
+    char_span: [1528, 3326]
     sentence_count: 14
     key_terms: [job, different, work, gardening-gnome, enough, time, projects, manager]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l88ehx.md#c2"
-    char_span: [3332, 4287]
+    char_span: [3331, 4286]
     sentence_count: 5
     key_terms: [like, embedded, software, engineering, something, controls, illustrious-pound266, among]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [roles, learning, analyst, skills, careerguidance, supply, international, chain]
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1osehpn.md#c1"
-    char_span: [1630, 2398]
+    char_span: [1629, 2397]
     sentence_count: 6
     key_terms: [learning, excel, power, sql, formulas, through, focus, help]
     section: Comments

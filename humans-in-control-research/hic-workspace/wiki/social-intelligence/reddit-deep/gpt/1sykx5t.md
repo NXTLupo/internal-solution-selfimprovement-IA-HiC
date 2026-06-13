@@ -33,7 +33,7 @@ chunks:
     key_terms: [sponsored, massive, network, privacy-conscious, dns, network-level, ad-blocking, blackholing]
     token_count: 238
   - id: "social-intelligence/reddit-deep/gpt/1sykx5t.md#c3"
-    char_span: [5515, 6120]
+    char_span: [5514, 6119]
     sentence_count: 4
     key_terms: [mentiondesk, optimizing, discovery, better, organically, documented, visibility, effective]
     section: Comments

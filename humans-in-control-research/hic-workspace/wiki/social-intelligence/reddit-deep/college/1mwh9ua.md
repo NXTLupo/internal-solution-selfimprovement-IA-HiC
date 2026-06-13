@@ -23,43 +23,43 @@ chunks:
     key_terms: [death, another, college, content, course, comments, students, general]
     token_count: 275
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c1"
-    char_span: [1324, 3099]
+    char_span: [1323, 3098]
     sentence_count: 13
     key_terms: [students, violence, suicide, appropriately, being, gore, warn, professor]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c2"
-    char_span: [3101, 4153]
+    char_span: [3100, 4152]
     sentence_count: 6
     key_terms: [violence, warnings, trigger, like, personal, against, animals, suicide]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c3"
-    char_span: [4155, 6305]
+    char_span: [4154, 6304]
     sentence_count: 11
     key_terms: [want, content, warning, "i'm", syllabus, warnings, because, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c4"
-    char_span: [6035, 6325]
+    char_span: [6034, 6324]
     sentence_count: 3
     key_terms: [chapter, exploring, generally, domestic, upcoming, violence, content, anyone]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c5"
-    char_span: [6327, 6616]
+    char_span: [6326, 6615]
     sentence_count: 2
     key_terms: [book, additionally, definitely, prepared, students, helpful, knowing, reading]
     section: Comments
     token_count: 61
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c6"
-    char_span: [6618, 8867]
+    char_span: [6617, 8866]
     sentence_count: 10
     key_terms: [syllabus, course, class, like, students, add, day, note]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/college/1mwh9ua.md#c7"
-    char_span: [8869, 10554]
+    char_span: [8868, 10553]
     sentence_count: 9
     key_terms: [certain, trigger, people, please, topics, understanding, real, material]
     section: Comments

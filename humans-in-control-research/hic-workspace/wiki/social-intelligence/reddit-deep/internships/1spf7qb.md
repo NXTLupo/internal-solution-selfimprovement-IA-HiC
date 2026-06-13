@@ -21,7 +21,7 @@ chunks:
     key_terms: [like, robots, wear-leveling, internships, developing, internship, comments, honestly]
     token_count: 487
   - id: "social-intelligence/reddit-deep/internships/1spf7qb.md#c1"
-    char_span: [2229, 2721]
+    char_span: [2228, 2720]
     sentence_count: 3
     key_terms: [yourself, spiritual-manner-548, experienced, undoubtably, sophomore, undersell, impostor, syndrome]
     section: Comments

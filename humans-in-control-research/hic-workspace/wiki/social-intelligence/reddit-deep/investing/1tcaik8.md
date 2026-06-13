@@ -28,31 +28,31 @@ chunks:
     key_terms: [financials, korea, south, materials, heavily, energy, global, market]
     token_count: 259
   - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c2"
-    char_span: [2550, 4609]
+    char_span: [2549, 4608]
     sentence_count: 13
     key_terms: [birth, korean, korea, companies, economy, rates, years, back]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c3"
-    char_span: [4611, 6027]
+    char_span: [4610, 6026]
     sentence_count: 7
     key_terms: [population, less, developed, problem, around, canada, europe, academicastronomer71]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c4"
-    char_span: [6029, 7238]
+    char_span: [6028, 7237]
     sentence_count: 13
     key_terms: [china, india, skilliard7, market, reddit, secretpantyworshiper, japan, moojo]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c5"
-    char_span: [7240, 9431]
+    char_span: [7239, 9430]
     sentence_count: 9
     key_terms: [reunification, scared-discussion443, korea, economic, people, north, long-term, south]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1tcaik8.md#c6"
-    char_span: [9433, 10086]
+    char_span: [9432, 10085]
     sentence_count: 2
     key_terms: [secretpantyworshiper, longconsideration662, reunification, economically, vegasbjorne1, politically, difference, meaningful]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, job, software, descriptions, engineering, something, comments, nothing]
     token_count: 224
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ot94kl.md#c1"
-    char_span: [995, 2480]
+    char_span: [994, 2479]
     sentence_count: 13
     key_terms: [job, knowing, "you'll", "you're", stack, tools, good, something]
     section: Comments

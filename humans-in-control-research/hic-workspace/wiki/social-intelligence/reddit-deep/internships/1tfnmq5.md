@@ -23,7 +23,7 @@ chunks:
     key_terms: [content, remote, availability, internships, role, experience, moderators, comments]
     token_count: 249
   - id: "social-intelligence/reddit-deep/internships/1tfnmq5.md#c1"
-    char_span: [1114, 2072]
+    char_span: [1113, 2071]
     sentence_count: 3
     key_terms: [interested, outrageousnet4541, okbluejay3743, aloohingee, experience, looking, student, intelligent-dust4376]
     section: Comments

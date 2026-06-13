@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1svcn7e.md
 url: "https://www.reddit.com/r/internships/comments/1svcn7e/its_april_and_you_still_dont_have_a_summer/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,37 @@ flair: "Applications"
 extracted_at: "2026-06-06T23:20:46.206Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c0"
+    char_span: [0, 2194]
+    sentence_count: 24
+    key_terms: [internships, summer, experience, recruiting, week, asking, get, job]
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c1"
+    char_span: [2209, 4136]
+    sentence_count: 12
+    key_terms: [resume, connection, recruiters, through, asking, career, job, recruiter]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c2"
+    char_span: [4140, 5862]
+    sentence_count: 17
+    key_terms: [internships, people, networking, resume, something, college, events, doing]
+    section: Comments
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c3"
+    char_span: [5865, 7401]
+    sentence_count: 13
+    key_terms: [interviews, "you're", international, "i'm", responses, believe, market, rounds]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/internships/1svcn7e.md#c4"
+    char_span: [7403, 8343]
+    sentence_count: 6
+    key_terms: [internship, tried, profilehot8214, demonstrating, conversation, thecasepick, institutes, interviews]
+    section: Comments
+    token_count: 209
 ---
-
 # It's April and you still don't have a summer internship: Here's what to do ASAP
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1svcn7e/its_april_and_you_still_dont_have_a_summer/)

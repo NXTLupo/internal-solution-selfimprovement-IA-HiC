@@ -21,31 +21,31 @@ chunks:
     key_terms: [applyingtocollege, colleges, comments, because, major, more-rounded, overreacting, reassurance]
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c1"
-    char_span: [1033, 1795]
+    char_span: [1032, 1794]
     sentence_count: 5
     key_terms: [candidates, companies, paul721, problem, ilovebaconeggncheese, folks, years, main]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c2"
-    char_span: [1797, 3319]
+    char_span: [1796, 3318]
     sentence_count: 13
     key_terms: [oversaturation, people, need, college, hiring, school, bathroommaximum1721, money]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c3"
-    char_span: [3321, 5338]
+    char_span: [3320, 5337]
     sentence_count: 16
     key_terms: [humanities, jobs, tech, coding, people, skills, well-rounded, uncle]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c4"
-    char_span: [5340, 7273]
+    char_span: [5339, 7272]
     sentence_count: 7
     key_terms: [computer, science, chadwithzipp2, specifically, major, love, humanities, knowledge]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thfuzw.md#c5"
-    char_span: [7275, 7762]
+    char_span: [7274, 7761]
     sentence_count: 6
     key_terms: [college, learn, information, accelerate, experience, humanities, critical, learning]
     section: Comments

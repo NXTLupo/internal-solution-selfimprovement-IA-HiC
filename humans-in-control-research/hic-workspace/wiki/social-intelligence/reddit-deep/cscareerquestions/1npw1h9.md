@@ -26,79 +26,79 @@ chunks:
     key_terms: [applications, interviewing, freelancers, approached, outsource, preparing, company, decided]
     token_count: 70
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c2"
-    char_span: [2259, 3935]
+    char_span: [2258, 3934]
     sentence_count: 14
     key_terms: [linkedin, experience, competitive-one441, premium, market, got, job, work]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c3"
-    char_span: [3937, 5684]
+    char_span: [3936, 5683]
     sentence_count: 14
     key_terms: [remote, lot, outside, resume, offer, find, work, interviews]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c4"
-    char_span: [5687, 7513]
+    char_span: [5686, 7512]
     sentence_count: 12
     key_terms: [people, going, internships, jobs, experience, positions, position, hybrid]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c5"
-    char_span: [7515, 8857]
+    char_span: [7514, 8856]
     sentence_count: 11
     key_terms: [interviews, work, company, outside, hybrid, little, office, trying]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c6"
-    char_span: [8859, 10874]
+    char_span: [8858, 10873]
     sentence_count: 17
     key_terms: [easy, hepennypacker1131, solve, get, too, appreciate, questions, getting]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c7"
-    char_span: [10876, 13112]
+    char_span: [10875, 13111]
     sentence_count: 16
     key_terms: [people, "don't", experience, get, "it's", work, eliminated, companies]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c8"
-    char_span: [13114, 13445]
+    char_span: [13113, 13444]
     sentence_count: 1
     key_terms: ["doesn't", "aren't", simultaneously, ridiculous, competent, perfectly, engineer, familiar]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c9"
-    char_span: [13447, 15684]
+    char_span: [13446, 15683]
     sentence_count: 20
     key_terms: [interviews, "i'm", resume, "i've", job, definitely, experience, companies]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c10"
-    char_span: [15424, 15827]
+    char_span: [15423, 15826]
     sentence_count: 5
     key_terms: [good, career, "don't", like, changing, everyone, unlikely, deserve]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c11"
-    char_span: [15829, 17101]
+    char_span: [15828, 17100]
     sentence_count: 14
     key_terms: [devs, "that's", filtering, industry, getting, "they're", "aren't", cooked]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c12"
-    char_span: [17103, 18970]
+    char_span: [17102, 18969]
     sentence_count: 13
     key_terms: [like, year, market, people, ago, job, fuckoholic, challenge]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c13"
-    char_span: [18972, 20492]
+    char_span: [18971, 20491]
     sentence_count: 22
     key_terms: [gotten, interviews, higher, offers, didn, background, looking, similar]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1npw1h9.md#c14"
-    char_span: [20494, 21180]
+    char_span: [20493, 21179]
     sentence_count: 6
     key_terms: [feedback, started, going, get, bluesquare2543, interviews, throughout, beginning]
     section: Comments

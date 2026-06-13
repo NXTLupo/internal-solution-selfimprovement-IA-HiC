@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1qs52xv.md#c0"
-    char_span: [0, 1574]
+    char_span: [0, 1573]
     sentence_count: 7
     key_terms: [internships, virtual, benefits-of-virtual-internships-malaysia, experiences, especially, comments, learning, on-site]
     token_count: 350

@@ -23,7 +23,7 @@ chunks:
     key_terms: [been, multiple, careerguidance, opportunities, being, interested, different, comments]
     token_count: 309
   - id: "social-intelligence/reddit-deep/careerguidance/1pcuanc.md#c1"
-    char_span: [1444, 3379]
+    char_span: [1443, 3378]
     sentence_count: 18
     key_terms: ["i'm", get, noinitiative1439, being, comfortable, perspective, "it's", appreciate]
     section: Comments

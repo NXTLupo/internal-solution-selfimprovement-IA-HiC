@@ -23,7 +23,7 @@ chunks:
     key_terms: [deeplearning, cloud, local, model, using, downloaded, processing, comments]
     token_count: 265
   - id: "social-intelligence/reddit-deep/deeplearning/1rw6pkp.md#c1"
-    char_span: [989, 2595]
+    char_span: [988, 2594]
     sentence_count: 2
     key_terms: [gemma, summaries, context, gpt, oss, pdf, reasoning, research]
     section: Comments

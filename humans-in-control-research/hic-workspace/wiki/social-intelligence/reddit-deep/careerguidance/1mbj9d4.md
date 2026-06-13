@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1mbj9d4.md#c0"
-    char_span: [0, 2061]
+    char_span: [0, 2060]
     sentence_count: 13
     key_terms: [business, financial, careerguidance, data, comments, recently, strategy, student]
-    token_count: 451
+    token_count: 450
 ---
 # How can I build a successful career path toward financial freedom and wealth as a business student? What core skills should I focus on and where should I start?
 

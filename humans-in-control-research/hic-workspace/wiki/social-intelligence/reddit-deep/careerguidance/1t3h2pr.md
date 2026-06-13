@@ -26,67 +26,67 @@ chunks:
     key_terms: [school, job, something, doing, good, high, mom, too]
     token_count: 186
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c2"
-    char_span: [2661, 4207]
+    char_span: [2660, 4206]
     sentence_count: 8
     key_terms: [flight, school, something, current, driving, trucks, east-technician2015, truck]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c3"
-    char_span: [4209, 5555]
+    char_span: [4208, 5554]
     sentence_count: 9
     key_terms: [years, return, approximately, guaranteed, flying, being, job, look]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c4"
-    char_span: [5557, 7370]
+    char_span: [5556, 7369]
     sentence_count: 8
     key_terms: [business, insurance, year, probably, someone, amount, collar, "don't"]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c5"
-    char_span: [7372, 9513]
+    char_span: [7371, 9512]
     sentence_count: 17
     key_terms: [business, "it's", run, because, flood, complicated, lot, put]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c6"
-    char_span: [9515, 11276]
+    char_span: [9514, 11275]
     sentence_count: 21
     key_terms: [enough, get, hvac, classroom, regarding, college, setting, without]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c7"
-    char_span: [11278, 13135]
+    char_span: [11277, 13134]
     sentence_count: 13
     key_terms: [money, working, good, like, put, work, population, thinking]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c8"
-    char_span: [13140, 14782]
+    char_span: [13139, 14781]
     sentence_count: 12
     key_terms: [years, people, inheritance, don, put, possible, visiting, million]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c9"
-    char_span: [14784, 17052]
+    char_span: [14783, 17051]
     sentence_count: 15
     key_terms: [away, inheritance, put, savings, extremecod2999, always, figure, trying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c10"
-    char_span: [16777, 17772]
+    char_span: [16776, 17771]
     sentence_count: 4
     key_terms: [year, decided, advice, invest, big-engineering-5323, dannyjsinclairhotma, solid, associates]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c11"
-    char_span: [17774, 19760]
+    char_span: [17773, 19759]
     sentence_count: 12
     key_terms: [flight, pilot, school, need, people, force, competitive, air]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1t3h2pr.md#c12"
-    char_span: [19762, 21138]
+    char_span: [19761, 21137]
     sentence_count: 19
     key_terms: [flight, dream, live, school, get, own, business, regret]
     section: Comments

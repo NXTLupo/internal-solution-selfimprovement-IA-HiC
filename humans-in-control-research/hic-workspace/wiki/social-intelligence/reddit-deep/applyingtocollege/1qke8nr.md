@@ -23,13 +23,13 @@ chunks:
     key_terms: [applyingtocollege, college, applications, viola, orchestra, comments, highly, school]
     token_count: 223
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qke8nr.md#c1"
-    char_span: [1012, 3018]
+    char_span: [1011, 3017]
     sentence_count: 17
     key_terms: [viola, prizerepublic5176, bluefloridadream, extracurriculars, college, schools, switch, music]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qke8nr.md#c2"
-    char_span: [3020, 5433]
+    char_span: [3019, 5432]
     sentence_count: 20
     key_terms: [admissions, most-selective, viola, "it's", having, college, schools, school]
     section: Comments

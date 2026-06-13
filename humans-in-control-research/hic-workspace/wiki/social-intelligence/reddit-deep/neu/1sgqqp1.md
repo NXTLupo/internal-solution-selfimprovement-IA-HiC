@@ -21,19 +21,19 @@ chunks:
     key_terms: [professors, comments, gh0stlyvisitation, chem, fall, "i'm", neu, photojournalism]
     token_count: 256
   - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c1"
-    char_span: [905, 2426]
+    char_span: [904, 2425]
     sentence_count: 9
     key_terms: [satvat, transport, classes, thermo, revolutionary-tone51, exams, exam, equation]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c2"
-    char_span: [2428, 4577]
+    char_span: [2427, 4576]
     sentence_count: 9
     key_terms: [hoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooorrible, exams, get, usually, class, like, possible, average]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sgqqp1.md#c3"
-    char_span: [4275, 4672]
+    char_span: [4274, 4671]
     sentence_count: 1
     key_terms: [down, possible, problem, copy, derivations, something, problems, correct]
     section: Comments

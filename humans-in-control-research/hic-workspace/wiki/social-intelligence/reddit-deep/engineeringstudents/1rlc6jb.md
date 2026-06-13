@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", summer, internship, engineeringstudents, actual, offer, engineering, counselors]
     token_count: 366
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rlc6jb.md#c1"
-    char_span: [1661, 2769]
+    char_span: [1660, 2768]
     sentence_count: 8
     key_terms: [internship, job, applying, jdwjxia, resume, review, offer, engineeringresumes]
     section: Comments

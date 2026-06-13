@@ -23,7 +23,7 @@ chunks:
     key_terms: [finally, guys, job, comments, trying, did, give, good]
     token_count: 158
   - id: "social-intelligence/reddit-deep/jobs/1s22nzk.md#c1"
-    char_span: [596, 1635]
+    char_span: [595, 1634]
     sentence_count: 9
     key_terms: [congrats, congratulations, happy, good, practical-lawyer4328, separate-relative-83, great, thank]
     section: Comments

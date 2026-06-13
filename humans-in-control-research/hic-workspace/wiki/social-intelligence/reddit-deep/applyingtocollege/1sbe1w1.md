@@ -31,7 +31,7 @@ chunks:
     key_terms: [better, school, professors, research, funding, contracts, schools, honors]
     token_count: 276
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sbe1w1.md#c3"
-    char_span: [5586, 7346]
+    char_span: [5585, 7345]
     sentence_count: 7
     key_terms: [people, going, year, because, school, perspective, rejected, thinking]
     section: Comments

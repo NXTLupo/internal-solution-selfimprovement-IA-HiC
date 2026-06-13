@@ -23,31 +23,31 @@ chunks:
     key_terms: [financialindependence, incredibly, time, spend, financial, comments, reminder, doing]
     token_count: 343
   - id: "social-intelligence/reddit-deep/financialindependence/1o2e7dp.md#c1"
-    char_span: [1515, 2915]
+    char_span: [1514, 2914]
     sentence_count: 14
     key_terms: [fireyauthor, poggendorff, inflation, necessary, accounts, takes, "i'm", net]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/financialindependence/1o2e7dp.md#c2"
-    char_span: [2917, 4158]
+    char_span: [2916, 4157]
     sentence_count: 6
     key_terms: [another, boring, subredditcensorship, gives, helps, bro, "i'm", "it's"]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/financialindependence/1o2e7dp.md#c3"
-    char_span: [4160, 6072]
+    char_span: [4159, 6071]
     sentence_count: 12
     key_terms: [market, simple, years, confidence, retirement, learning, history, someone]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/financialindependence/1o2e7dp.md#c4"
-    char_span: [6075, 7633]
+    char_span: [6074, 7632]
     sentence_count: 7
     key_terms: [earlyretirementnow, retirement, simple, why-is-retirement-harder-than-saving-for-retirement-swr-series-part-27, the-need-for-precision-in-an-uncertain-world-swr-series-part-46, com, accumulation, implications]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/financialindependence/1o2e7dp.md#c5"
-    char_span: [7635, 8760]
+    char_span: [7634, 8759]
     sentence_count: 10
     key_terms: [retirement, nearsite, because, fire, time, firechoice85, certainties, expectation]
     section: Comments

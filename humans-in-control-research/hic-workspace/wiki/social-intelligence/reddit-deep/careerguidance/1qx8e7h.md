@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, career, define, job, reddit-deep, beginning, realized]
     token_count: 106
   - id: "social-intelligence/reddit-deep/careerguidance/1qx8e7h.md#c1"
-    char_span: [391, 1592]
+    char_span: [390, 1591]
     sentence_count: 5
     key_terms: [job, realized, deleted, retail, skills, years, initial-bread6135, like]
     section: Comments

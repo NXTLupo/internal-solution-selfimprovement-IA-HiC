@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/a6f3fff83e.md#c0"
-    char_span: [0, 1311]
+    char_span: [0, 1310]
     sentence_count: 4
     key_terms: [applyingtocollege, comments, officers, "didn't", reddit, professional-net1776, showbusinessforyou67, funny]
-    token_count: 348
+    token_count: 347
 ---
 # Jokes too hot for admission officers
 

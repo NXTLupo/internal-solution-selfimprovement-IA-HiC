@@ -33,13 +33,13 @@ chunks:
     key_terms: [iwy2xjawrd27dlehrua2flbqixmqbzcnrjbmfwcf9pzbaymjiwmzkxnzg4mjawodkyaaee-wkkp6fkzrmaaunvtn6bjknoligcftgu0-, fkzrmaaunvtn6bjknoligcftgu0-clfs6cc49kz1gcr6ccdcariwa, e88186, fbclid, mental, https, jmir, org]
     token_count: 196
   - id: "social-intelligence/reddit-deep/machinelearning/1syc6ee.md#c3"
-    char_span: [3168, 4780]
+    char_span: [3167, 4779]
     sentence_count: 9
     key_terms: [rorschach, value, scientific, c840-83e8-9749-aea5f1bc96fc, generate, lipflip, "there's", researchrelevant9083]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/machinelearning/1syc6ee.md#c4"
-    char_span: [4782, 5563]
+    char_span: [4781, 5562]
     sentence_count: 2
     key_terms: [rorschach, answers, ambiguity, inkblots, evident, full-sprinkles-2653, whole, idea]
     section: Comments

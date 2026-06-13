@@ -23,19 +23,19 @@ chunks:
     key_terms: [comments, because, college, failed, having, "don't", money, point]
     token_count: 226
   - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c1"
-    char_span: [923, 2509]
+    char_span: [922, 2508]
     sentence_count: 13
     key_terms: [try, freakysnake102, degree, people, noongaming, because, discord, makes]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c2"
-    char_span: [2511, 4300]
+    char_span: [2510, 4299]
     sentence_count: 10
     key_terms: [freakysnake102, because, job, time, apprenticeships, pyschofangirl, maybe, debt]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/genz/1su2uvj.md#c3"
-    char_span: [4303, 5508]
+    char_span: [4302, 5507]
     sentence_count: 11
     key_terms: [freakysnake102, colognegod, college, anyone, motion, going, eclecticevergreen, hire]
     section: Comments

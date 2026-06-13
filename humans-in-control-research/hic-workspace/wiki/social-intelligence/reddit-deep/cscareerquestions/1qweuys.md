@@ -7,13 +7,13 @@ subreddit: "cscareerquestions"
 title: "I don't enjoy CS anymore"
 author: "ShakesR12"
 date: "2026-02-05T07:27:03.000Z"
-score: 79
+score: 82
 upvote_ratio: 0.89
 num_comments: 38
 flair: ""
-extracted_at: "2026-06-06T16:39:04.110Z"
+extracted_at: "2026-06-08T18:49:42.899Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qweuys.md#c0"
     char_span: [0, 2298]
@@ -53,7 +53,7 @@ chunks:
 # I don't enjoy CS anymore
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qweuys/i_dont_enjoy_cs_anymore/)
-Posted by **ShakesR12** · **79↑** · **38 comments**
+Posted by **ShakesR12** · **82↑** · **38 comments**
 
 I am currently in my last year of a Computer Science degree at a T10 public university and will be graduating this June after finishing the degree in three years. I am also minoring in Statistics and Management and have applied for a Master's program as a backup.
 
@@ -78,7 +78,7 @@ I know I am just ranting and will probably just get flamed in the comments (plea
 During school I struggled believing I could do CS for a career. I’ve found myself shuffle into Management because I’ve become product focused and truly and now I use only some CS skills, but a lot more EQ than IQ and more listening and organizing than coding up front. 
 
 The challenges in the process is ensuring your doing what is right by the customer as well as the system implementation. Anything can be done… but it won’t always sit right for the customer’s needs.
-- **ZombieMadness99** (13↑): Unless you're writing the most boring boilerplate code all the time, I find there is a lot of satisfaction to be had from coding itself even with a clear solution already in mind. Just like it can be fun writing even though you know the plot in your head. You can try using new language features, more idiomatic or elegant code, put in effort to make it easily readable by others etc. Subjective of course but there are fun problems to solve even on this micro level in my experience.
+- **ZombieMadness99** (12↑): Unless you're writing the most boring boilerplate code all the time, I find there is a lot of satisfaction to be had from coding itself even with a clear solution already in mind. Just like it can be fun writing even though you know the plot in your head. You can try using new language features, more idiomatic or elegant code, put in effort to make it easily readable by others etc. Subjective of course but there are fun problems to solve even on this micro level in my experience.
 
 The burnout due to your grind not paying off is totally fair though, unfortunately out of your control with the way the industry has been the only advice I can give you is don't treat is as a personal failure. If you have the skill you just need to get lucky once and break in after which it gets expotentially easier to move up. Even if you "lose" years now you'll easily catch up with how big the pay jumps are between levels, stock appreciation etc.
 - **smashthebirdy** (9↑): Sounds like burnout.
@@ -94,7 +94,7 @@ Good luck.
   - **ShakesR12** (2↑): Will look into that fs
     - **qrcode23** (3↑): Yeah a SWE job is like CS. It’s a team sport when you coordinate but the act of software engineering is mentally taxing. If you don’t like CS don’t get a job at fast pace companies. But the pay is very nice.
 - **lunaticAKE** (4↑): Vibe coding is becoming the norm nowadays; with good prompting, you often don’t need to write everything line by line. Speaking from my personal experience, even after graduating from a top CS program, I still find programming boring most of the time; and honestly, that’s because it’s just a tool; what matters is what you build with it and whether it sparks your passion. The only times I truly enjoy coding are when I’m working on projects I genuinely care about, where I’m eager to see the product come to life and constantly improve it. And honestly, landing a big tech job shouldn’t be the ultimate goal either; I’m working in one now, and parts of it can feel soul-draining, filled with tedious tasks and long waiting cycles, so focus on building things that actually excite you rather than chasing titles alone.
-- **SamurottX** (4↑): I think the biggest reason you're burning out is that you were pushing yourself too hard in school. A constant 20+ credits is insane. Once you start working you'll realize that sometimes getting 95% of the results for 70% of the effort is worth it. 
+- **SamurottX** (3↑): I think the biggest reason you're burning out is that you were pushing yourself too hard in school. A constant 20+ credits is insane. Once you start working you'll realize that sometimes getting 95% of the results for 70% of the effort is worth it. 
 
 
 Finding a job will be a little bit more of a grind but you should still celebrate all the effort you've put in so far. You might not be able to fall in love with your job but you will find something, and you'll be able to relax a little and put time into hobbies.
@@ -126,6 +126,6 @@ Predictably, if you fundamentally aren't interested in CS you will face a hard t
 This has happened to every field that got popular and had people getting into it for the money.
 - **zachal_26** (2↑): You can still be in CS without coding.
   - **ShakesR12** (1↑): do you know of any other roles apart from SWE?
-    - **zachal_26** (4↑): It baffles me that people are still working through their CS degrees without knowing what it actually means. CS is not software engineering. Other roles include Product Manager, Data Scientist/Analyst, UX/UI Designer, Technical Writer, IT roles, cloud computing, site reliability, devops, cybersecurity, and countless others.
+    - **zachal_26** (3↑): It baffles me that people are still working through their CS degrees without knowing what it actually means. CS is not software engineering. Other roles include Product Manager, Data Scientist/Analyst, UX/UI Designer, Technical Writer, IT roles, cloud computing, site reliability, devops, cybersecurity, and countless others.
 - **jownz** (1↑): https://i.redd.it/0ud5s93y28tz.jpg
 - **Astraltraumagarden** (1↑): Man, the fun isn’t even starting. I used to get excited jitters at the thought of a new ticket. There’s bits everyone hates. For me, it was maintainence of legacy code, writing these long form AI prompts for another team, doing ANY legal/admin work like even filing for my own damn visa LMAO.

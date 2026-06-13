@@ -28,31 +28,31 @@ chunks:
     key_terms: [job, because, get, charged, despite, either, places, legal]
     token_count: 300
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c2"
-    char_span: [2321, 3843]
+    char_span: [2320, 3842]
     sentence_count: 11
     key_terms: [server, job, incredibly, felonies, charged, advice, people, hired]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c3"
-    char_span: [3845, 5868]
+    char_span: [3844, 5867]
     sentence_count: 10
     key_terms: [because, people, get, python, interview, sql, ok-flower2584, basic]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c4"
-    char_span: [5870, 7655]
+    char_span: [5869, 7654]
     sentence_count: 17
     key_terms: [ok-flower2584, yeetyateyote666, lonely, going, get, like, try, realistic]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c5"
-    char_span: [7657, 9889]
+    char_span: [7656, 9888]
     sentence_count: 19
     key_terms: [like, people, rich, straight, got, guy, influence, laughing]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1rrrkg1.md#c6"
-    char_span: [9891, 11246]
+    char_span: [9890, 11245]
     sentence_count: 9
     key_terms: [ok-flower2584, maybe, job, something, customer, america, doctors, service]
     section: Comments

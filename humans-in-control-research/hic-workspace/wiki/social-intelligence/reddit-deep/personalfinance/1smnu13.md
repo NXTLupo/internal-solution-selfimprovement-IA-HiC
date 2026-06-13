@@ -23,43 +23,43 @@ chunks:
     key_terms: [month, personalfinance, comments, enrolled, expenses, military, college, working]
     token_count: 401
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c1"
-    char_span: [1628, 2384]
+    char_span: [1627, 2383]
     sentence_count: 6
     key_terms: [credit, card, flat, get, back, cash, history, bubbaneedsnewshoes]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c2"
-    char_span: [2386, 4452]
+    char_span: [2385, 4451]
     sentence_count: 18
     key_terms: [roth, ira, maxing, xyourenotthatguypal, money, custodial, emergency, start]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c3"
-    char_span: [4454, 5656]
+    char_span: [4453, 5655]
     sentence_count: 5
     key_terms: [savings, financial, expenses, current, highly, major, money, debt]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c4"
-    char_span: [5658, 7672]
+    char_span: [5657, 7671]
     sentence_count: 12
     key_terms: [nonprofitpro007, "it's", like, loan, benefits, income, school, need]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c5"
-    char_span: [7476, 8727]
+    char_span: [7475, 8726]
     sentence_count: 10
     key_terms: [calculator, years, "you'll", investment, monthly, investment-calculator, adding, cstartingprinciplev]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c6"
-    char_span: [8729, 10789]
+    char_span: [8728, 10788]
     sentence_count: 25
     key_terms: [fidelity, roth, money, investments, account, invest, market, fund]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/personalfinance/1smnu13.md#c7"
-    char_span: [10791, 12233]
+    char_span: [10790, 12232]
     sentence_count: 16
     key_terms: [like, account, essentially, time, use, retirement, anything, consider]
     section: Comments

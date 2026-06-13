@@ -28,19 +28,19 @@ chunks:
     key_terms: [management, like, company, project, abroad, opportunities, feels, offer]
     token_count: 401
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c2"
-    char_span: [4026, 5918]
+    char_span: [4025, 5917]
     sentence_count: 16
     key_terms: [company, accomplished-bowl300, faang, like, abroad, relationship, great, long]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c3"
-    char_span: [5920, 8078]
+    char_span: [5919, 8077]
     sentence_count: 21
     key_terms: [opportunities, abroad, work, hometown, kid-on-the-block, company, staying, city]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/internships/1kv7ehi.md#c4"
-    char_span: [8080, 9720]
+    char_span: [8079, 9719]
     sentence_count: 20
     key_terms: [accomplished-bowl300, faang, opportunity, life, new, take, want, experience]
     section: Comments

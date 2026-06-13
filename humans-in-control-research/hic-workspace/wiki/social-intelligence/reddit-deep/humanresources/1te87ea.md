@@ -21,7 +21,7 @@ chunks:
     key_terms: [humanresources, "i'm", marketing, comments, services, content, anyone, career]
     token_count: 303
   - id: "social-intelligence/reddit-deep/humanresources/1te87ea.md#c1"
-    char_span: [1352, 3190]
+    char_span: [1351, 3189]
     sentence_count: 15
     key_terms: [roles, thank, certification, applications, years, definitely, management, marketing]
     section: Comments

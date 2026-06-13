@@ -23,7 +23,7 @@ chunks:
     key_terms: [gpt-5, gpt-4o, benchmarks, emotional, comments, mostly, using, been]
     token_count: 307
   - id: "social-intelligence/reddit-deep/gpt/1mlv4fs.md#c1"
-    char_span: [1267, 3023]
+    char_span: [1266, 3022]
     sentence_count: 20
     key_terms: [better, grok, information, gpt5, implementation, instructions, using, complicated]
     section: Comments

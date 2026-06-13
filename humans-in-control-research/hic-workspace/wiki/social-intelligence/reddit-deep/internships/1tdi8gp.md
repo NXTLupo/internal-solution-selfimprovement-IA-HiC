@@ -11,9 +11,9 @@ score: 71
 upvote_ratio: 1
 num_comments: 42
 flair: "General"
-extracted_at: "2026-06-06T17:41:06.727Z"
+extracted_at: "2026-06-08T17:32:14.346Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1tdi8gp.md#c0"
     char_span: [0, 1645]
@@ -46,11 +46,11 @@ If you've any questions on how to network/reach out to alumn feel free to commen
 
 ## Comments
 
-- **CommonOption8539** (24↑): I was offered an internship through an alum via a job posting on handshake. After I accepted it I mentioned that I was looking forward to the mentorship and being around people who are in the exact line of work I’m in (media) and she rescinded the offer. Literally. She said she’s allergic to the word mentorship.
-  - **MajorPrestigious168** (7↑): Yeah I don’t think you wanna work with someone who is immature enough to say I’m allergic to a word, dumb ass bitch
+- **CommonOption8539** (27↑): I was offered an internship through an alum via a job posting on handshake. After I accepted it I mentioned that I was looking forward to the mentorship and being around people who are in the exact line of work I’m in (media) and she rescinded the offer. Literally. She said she’s allergic to the word mentorship.
+  - **MajorPrestigious168** (6↑): Yeah I don’t think you wanna work with someone who is immature enough to say I’m allergic to a word, dumb ass bitch
     - **CommonOption8539** (3↑): That is big facts!!
-  - **Easy_Knee_3729** (-3↑): I'm sorry that happened to you, I understand a bit where she bit be coming from, specially if she's from an older generation(also maybe many people have asked her about that topic), but rescinding an offer simply isn't professional behavior from her. so don't take it personal bc this isn't your fault at all. don't feel discourage at reaching out to other alum, i'm sure they'd happy to help you out, one bad apple doesn't make the whole bunch bad so keep trying: )
-    - **PhyzixsRL** (9↑): nobody can understand where she’s coming from 😭😭😭
+  - **Easy_Knee_3729** (-5↑): I'm sorry that happened to you, I understand a bit where she bit be coming from, specially if she's from an older generation(also maybe many people have asked her about that topic), but rescinding an offer simply isn't professional behavior from her. so don't take it personal bc this isn't your fault at all. don't feel discourage at reaching out to other alum, i'm sure they'd happy to help you out, one bad apple doesn't make the whole bunch bad so keep trying: )
+    - **PhyzixsRL** (8↑): nobody can understand where she’s coming from 😭😭😭
 - **Imaginary_Run4354** (3↑): I had a few students at my Alma mater reach out about an internship opportunity at my company. In the past, I’ve also been keen to help people who ask for help and are genuine. But now I get LinkedIn messages and replies from students that are written by AI… this is the quickest way to get me to not respond. What’s genuine about having me talk to a robot?
   - **Easy_Knee_3729** (1↑): i feel many students not all are rlly just afraid of talking to people, and have no idea what to essentially say. i personally don't use AI to write messages for linkedln, I prefer doing my own research and then send a quick message since as you mention it sounds genuine interest from my side.
     - **Imaginary_Run4354** (2↑): Unfortunately those who are really just afraid of talking to people are not the ones I’d want to work with… So that’s even more of a nail in the coffin.

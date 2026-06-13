@@ -28,31 +28,31 @@ chunks:
     key_terms: [because, primary, supervisor, issue, like, work, incredibly, deadlines]
     token_count: 507
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c2"
-    char_span: [4398, 5720]
+    char_span: [4397, 5719]
     sentence_count: 7
     key_terms: [student, issues, help, already, unable, antiquearachnid9380, back, step]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c3"
-    char_span: [5722, 7527]
+    char_span: [5721, 7526]
     sentence_count: 20
     key_terms: [students, professional, struggling, mentoring, learning, because, choices, faculty]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c4"
-    char_span: [7529, 9779]
+    char_span: [7528, 9778]
     sentence_count: 19
     key_terms: [student, health, issues, mental, sounds, communicate, interaction, does]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c5"
-    char_span: [9781, 11513]
+    char_span: [9780, 11512]
     sentence_count: 13
     key_terms: [student, imagine, doing, adhd, back, let, like, accomodations]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/askacademia/1lqo9qy.md#c6"
-    char_span: [11515, 13440]
+    char_span: [11514, 13439]
     sentence_count: 18
     key_terms: [student, support, experience, phd, english, master, topic, years]
     section: Comments

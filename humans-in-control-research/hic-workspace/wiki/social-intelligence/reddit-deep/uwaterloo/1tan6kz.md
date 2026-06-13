@@ -23,13 +23,13 @@ chunks:
     key_terms: [summer, trying, start, programming, seriously, uwaterloo, comments, incoming]
     token_count: 290
   - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c1"
-    char_span: [1331, 3428]
+    char_span: [1330, 3427]
     sentence_count: 9
     key_terms: [learn, project, python, summer, try, computer, learning, projects]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/uwaterloo/1tan6kz.md#c2"
-    char_span: [3430, 3893]
+    char_span: [3429, 3892]
     sentence_count: 3
     key_terms: [projects, learning, learn, take, technologies, spectacular, frameworks, unfamiliar]
     section: Comments

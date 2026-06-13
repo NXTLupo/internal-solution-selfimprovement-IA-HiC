@@ -23,85 +23,85 @@ chunks:
     key_terms: [careerguidance, comments, feeling, career, lost, year, new-penalty-4448, reddit-deep]
     token_count: 147
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c1"
-    char_span: [516, 2321]
+    char_span: [515, 2320]
     sentence_count: 12
     key_terms: [greatest, entrepreneurship, dealership, potential, money, car, owns, business]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c2"
-    char_span: [2323, 4307]
+    char_span: [2322, 4306]
     sentence_count: 11
     key_terms: [business, fail, restaurant, architect, millions, being, "can't", "isn't"]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c3"
-    char_span: [4309, 6316]
+    char_span: [4308, 6315]
     sentence_count: 14
     key_terms: [companies, something, get, team, extremely, replaced, company, always]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c4"
-    char_span: [6318, 8349]
+    char_span: [6317, 8348]
     sentence_count: 26
     key_terms: [sales, introverts, business, listen, people, skills, level, pivotcareer]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c5"
-    char_span: [8351, 9875]
+    char_span: [8350, 9874]
     sentence_count: 22
     key_terms: [advice, good, "i'm", per, read, biotech, company, started]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c6"
-    char_span: [9877, 11701]
+    char_span: [9876, 11700]
     sentence_count: 19
     key_terms: [take, house, hour, extra, friend, back, day, less]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c7"
-    char_span: [11703, 12772]
+    char_span: [11702, 12771]
     sentence_count: 4
     key_terms: [experience, business, started, vending, large, kind, dicksdraggon, right-ad8261]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c8"
-    char_span: [12774, 14663]
+    char_span: [12773, 14662]
     sentence_count: 9
     key_terms: [nyc, top, different, quarters, orleans, doctor, figure, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c9"
-    char_span: [14425, 14749]
+    char_span: [14424, 14748]
     sentence_count: 2
     key_terms: [patrickwhelan, competitive, grandfather, expression, certainly, demanding, inflation, lucrative]
     section: Comments
     token_count: 82
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c10"
-    char_span: [14751, 15085]
+    char_span: [14750, 15084]
     sentence_count: 4
     key_terms: ["it's", work, experience, direction, extremely, unhealthy, everyone, central]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c11"
-    char_span: [15087, 17047]
+    char_span: [15086, 17046]
     sentence_count: 13
     key_terms: [work, life, days, corporate, grueling, already, growing, looked]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c12"
-    char_span: [16867, 17843]
+    char_span: [16866, 17842]
     sentence_count: 6
     key_terms: [hanjaseightfive, pilot, days, job, seniority, become, flying, tough]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c13"
-    char_span: [17845, 18020]
+    char_span: [17844, 18019]
     sentence_count: 1
     key_terms: [everything, part-time, american, legacy, united, delta, point, today]
     section: Comments
     token_count: 45
   - id: "social-intelligence/reddit-deep/careerguidance/1ndrk9t.md#c14"
-    char_span: [18022, 19984]
+    char_span: [18021, 19983]
     sentence_count: 19
     key_terms: [doublebagger123, trading, based, development, like, background, undergrad, business]
     section: Comments

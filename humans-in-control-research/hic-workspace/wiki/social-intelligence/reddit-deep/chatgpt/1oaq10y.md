@@ -23,7 +23,7 @@ chunks:
     key_terms: [chatgpt, please, save, comments, disabled, created, memory, openai]
     token_count: 167
   - id: "social-intelligence/reddit-deep/chatgpt/1oaq10y.md#c1"
-    char_span: [689, 1981]
+    char_span: [688, 1980]
     sentence_count: 8
     key_terms: [please, concerns, chatgpt, message, automatically, automoderator, conversation, image]
     section: Comments

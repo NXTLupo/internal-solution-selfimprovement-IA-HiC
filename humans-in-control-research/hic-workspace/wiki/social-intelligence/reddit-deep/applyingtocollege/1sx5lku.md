@@ -28,25 +28,25 @@ chunks:
     key_terms: [school, get, med, scholarship, major, difficult, cons, college]
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c2"
-    char_span: [4094, 6073]
+    char_span: [4093, 6072]
     sentence_count: 10
     key_terms: [medical, school, college, student, campus, home, like, university]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c3"
-    char_span: [6075, 7555]
+    char_span: [6074, 7554]
     sentence_count: 11
     key_terms: [clemson, national, school, perspective, get, "it's", scholars, students]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c4"
-    char_span: [7557, 9380]
+    char_span: [7556, 9379]
     sentence_count: 16
     key_terms: [clemson, class, a-self-imposed-exile-independents-at-wl, get, gpa, unc, students, college]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx5lku.md#c5"
-    char_span: [9382, 11169]
+    char_span: [9381, 11168]
     sentence_count: 9
     key_terms: [clemson, https, meet-the-scholars, national-scholars, web, archive, full, biological]
     section: Comments

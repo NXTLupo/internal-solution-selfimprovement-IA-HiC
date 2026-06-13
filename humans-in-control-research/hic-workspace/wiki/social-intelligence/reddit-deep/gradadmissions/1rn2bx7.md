@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, beyond, comments, applied, excited, got, reddit-deep, experience]
     token_count: 135
   - id: "social-intelligence/reddit-deep/gradadmissions/1rn2bx7.md#c1"
-    char_span: [564, 1731]
+    char_span: [563, 1730]
     sentence_count: 7
     key_terms: [congratulations, thank, fsan13, wonderful, connect, welcome, "you're", ambitious-soil1229]
     section: Comments

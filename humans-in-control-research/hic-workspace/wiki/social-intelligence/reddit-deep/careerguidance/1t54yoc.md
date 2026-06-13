@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, feel, consuming, comments, passion, career, paying, groundbreakingsky791]
     token_count: 212
   - id: "social-intelligence/reddit-deep/careerguidance/1t54yoc.md#c1"
-    char_span: [840, 2439]
+    char_span: [839, 2438]
     sentence_count: 12
     key_terms: [people, psychology, marketing, "you're", work, creativity, interest, research]
     section: Comments

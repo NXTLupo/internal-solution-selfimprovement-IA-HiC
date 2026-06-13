@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, applicants, comments, "you're", goes, virtualrun706, interviewers, reddit-deep]
     token_count: 147
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c1"
-    char_span: [571, 2242]
+    char_span: [570, 2241]
     sentence_count: 11
     key_terms: [leetcode, companies, deleted, medium, "you're", repulsive-hurry8172, great, c-u-in-da-ballpit]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c2"
-    char_span: [2244, 3947]
+    char_span: [2243, 3946]
     sentence_count: 9
     key_terms: [pants, shit, unshit, good, job, developers, conflictpotential204, dragonlordkingslayer]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c3"
-    char_span: [3949, 5775]
+    char_span: [3948, 5774]
     sentence_count: 15
     key_terms: [engineering, turing-complete, software, people, engineers, languages, complete, because]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c4"
-    char_span: [5777, 7575]
+    char_span: [5776, 7574]
     sentence_count: 15
     key_terms: [complete, curious, turing, probably, company, learned, banner, people]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3dqoa.md#c5"
-    char_span: [7577, 9473]
+    char_span: [7576, 9472]
     sentence_count: 11
     key_terms: [hybrid, job, remote, fully, going, been, page, companies]
     section: Comments

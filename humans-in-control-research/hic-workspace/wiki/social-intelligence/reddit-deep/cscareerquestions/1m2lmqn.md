@@ -21,37 +21,37 @@ chunks:
     key_terms: [school, swe, success, cscareerquestions, research, never, law, comments]
     token_count: 394
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c1"
-    char_span: [1594, 3020]
+    char_span: [1593, 3019]
     sentence_count: 8
     key_terms: [swe, school, "don't", law, work, because, giving, illustrious-pound266]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c2"
-    char_span: [3022, 4763]
+    char_span: [3021, 4762]
     sentence_count: 8
     key_terms: [whathaveicontinued, jobs, embedded, either, engineering, "it's", swe, consulting]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c3"
-    char_span: [4765, 7040]
+    char_span: [4764, 7039]
     sentence_count: 15
     key_terms: ["you're", roles, like, swe, skills, citizenship, jobs, engineers]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c4"
-    char_span: [7042, 8519]
+    char_span: [7041, 8518]
     sentence_count: 9
     key_terms: [people, money, sub, passionate, passion, selling, always, become]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c5"
-    char_span: [8521, 9930]
+    char_span: [8520, 9929]
     sentence_count: 16
     key_terms: [engineer, mentalextensi0n, job, software, school, managementmedical138, maybe, areamaleficent4593]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2lmqn.md#c6"
-    char_span: [9932, 10951]
+    char_span: [9931, 10950]
     sentence_count: 1
     key_terms: [applicants, school, good, law, killesau, areamaleficent4593, best, last]
     section: Comments

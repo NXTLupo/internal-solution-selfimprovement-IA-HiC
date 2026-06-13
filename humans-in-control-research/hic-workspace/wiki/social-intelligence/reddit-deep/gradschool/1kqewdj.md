@@ -23,43 +23,43 @@ chunks:
     key_terms: [presentation, like, didn, gradschool, professor, comments, else, room]
     token_count: 273
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c1"
-    char_span: [1256, 2784]
+    char_span: [1255, 2783]
     sentence_count: 15
     key_terms: [professor, ask, hear, feedback, students, grilled, reading, repeat]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c2"
-    char_span: [2786, 4875]
+    char_span: [2785, 4874]
     sentence_count: 18
     key_terms: [professor, questions, students, mocking, asking, ask, "i'm", question]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c3"
-    char_span: [4596, 5596]
+    char_span: [4595, 5595]
     sentence_count: 11
     key_terms: [something, people, overcome, front, point, "i'm", decoherentdoc, assumptions]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c4"
-    char_span: [5598, 7804]
+    char_span: [5597, 7803]
     sentence_count: 17
     key_terms: [presentation, disability, standing, presentations, interpreting, right, weird, "professor's"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c5"
-    char_span: [7806, 10158]
+    char_span: [7805, 10157]
     sentence_count: 17
     key_terms: [presentation, professor, thought, disability, discussion, experience, important, stressful]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c6"
-    char_span: [10160, 12299]
+    char_span: [10159, 12298]
     sentence_count: 15
     key_terms: [presentation, people, habit, unconscious, stop, work, okmain3645, presenting]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/gradschool/1kqewdj.md#c7"
-    char_span: [12301, 12593]
+    char_span: [12300, 12592]
     sentence_count: 3
     key_terms: [presentation, performance, reflection, successful, ultimately, confident, important, professor]
     section: Comments

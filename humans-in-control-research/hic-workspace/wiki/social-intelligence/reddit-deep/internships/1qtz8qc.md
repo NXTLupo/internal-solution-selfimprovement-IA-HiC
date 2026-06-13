@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1qtz8qc.md#c0"
-    char_span: [0, 311]
+    char_span: [0, 310]
     sentence_count: 1
     key_terms: [internships, comments, fishermanhuge127, experiences, reddit-deep, student-led, community, building]
-    token_count: 81
+    token_count: 80
 ---
 # Building a student-led learning community – looking for advice & experiences
 

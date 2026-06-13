@@ -23,31 +23,31 @@ chunks:
     key_terms: [people, gradadmissions, acceptances, win, comments, school, none, cellphonecase123]
     token_count: 201
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c1"
-    char_span: [837, 910]
+    char_span: [836, 909]
     sentence_count: 1
     key_terms: [venting, ghostcupcake1404, love, meta]
     section: Comments
     token_count: 25
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c2"
-    char_span: [912, 3106]
+    char_span: [911, 3105]
     sentence_count: 12
     key_terms: [people, get, vent, mongoisappaiied, school, acceptances, want, acceptance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c3"
-    char_span: [2824, 3426]
+    char_span: [2823, 3425]
     sentence_count: 4
     key_terms: [having, educational-kale-567, whose, mongoisappaiied, complaining, insensitive, subjective, attaining]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c4"
-    char_span: [3428, 5663]
+    char_span: [3427, 5662]
     sentence_count: 15
     key_terms: [offer, school, accepted, getting, disappointed, distasteful, choice, apply]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjc8so.md#c5"
-    char_span: [5665, 7623]
+    char_span: [5664, 7622]
     sentence_count: 11
     key_terms: [acceptance, applying, subreddit, undergrad, gradapplicantswhodidntgetinanywhere, worked, chestfree776, acceptances]
     section: Comments

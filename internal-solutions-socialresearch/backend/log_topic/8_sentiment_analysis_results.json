@@ -1,22 +1,212 @@
 [
   {
     "topic_id": 0,
-    "sentiment_category": "neutral",
-    "sentiment_score": 0.24890242304120744
+    "sentiment_category": "positive",
+    "sentiment_score": 0.1286556624784949,
+    "sentiment_meta": {
+      "nss": 0.1378,
+      "weighted_mean": 0.115,
+      "controversy": 0.5778,
+      "pos_share": 0.4267,
+      "neg_share": 0.2889,
+      "neutral_share": 0.2844,
+      "n_units": 189
+    }
   },
   {
     "topic_id": 1,
-    "sentiment_category": "positive",
-    "sentiment_score": 0.3199808821082115
+    "sentiment_category": "neutral",
+    "sentiment_score": 0.086079937197385,
+    "sentiment_meta": {
+      "nss": 0.0963,
+      "weighted_mean": 0.0708,
+      "controversy": 0.536,
+      "pos_share": 0.3643,
+      "neg_share": 0.268,
+      "neutral_share": 0.3677,
+      "n_units": 109
+    }
   },
   {
     "topic_id": 2,
-    "sentiment_category": "neutral",
-    "sentiment_score": -0.030911048253377277
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6754012317871368,
+    "sentiment_meta": {
+      "nss": -0.7899,
+      "weighted_mean": -0.5037,
+      "controversy": 0.1163,
+      "pos_share": 0.0581,
+      "neg_share": 0.848,
+      "neutral_share": 0.0938,
+      "n_units": 102
+    }
   },
   {
     "topic_id": 3,
-    "sentiment_category": "neutral",
-    "sentiment_score": -0.1538136104742686
+    "sentiment_category": "negative",
+    "sentiment_score": -0.284327959277804,
+    "sentiment_meta": {
+      "nss": -0.351,
+      "weighted_mean": -0.1844,
+      "controversy": 0.3135,
+      "pos_share": 0.1568,
+      "neg_share": 0.5077,
+      "neutral_share": 0.3355,
+      "n_units": 83
+    }
+  },
+  {
+    "topic_id": 4,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.460453251889623,
+    "sentiment_meta": {
+      "nss": -0.578,
+      "weighted_mean": -0.2841,
+      "controversy": 0.1549,
+      "pos_share": 0.0775,
+      "neg_share": 0.6555,
+      "neutral_share": 0.267,
+      "n_units": 74
+    }
+  },
+  {
+    "topic_id": 5,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.39969690906006344,
+    "sentiment_meta": {
+      "nss": -0.521,
+      "weighted_mean": -0.2178,
+      "controversy": 0.2112,
+      "pos_share": 0.1056,
+      "neg_share": 0.6266,
+      "neutral_share": 0.2678,
+      "n_units": 70
+    }
+  },
+  {
+    "topic_id": 6,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5150156607038553,
+    "sentiment_meta": {
+      "nss": -0.6258,
+      "weighted_mean": -0.3489,
+      "controversy": 0.1689,
+      "pos_share": 0.0844,
+      "neg_share": 0.7102,
+      "neutral_share": 0.2053,
+      "n_units": 60
+    }
+  },
+  {
+    "topic_id": 7,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5562084563506273,
+    "sentiment_meta": {
+      "nss": -0.6302,
+      "weighted_mean": -0.4452,
+      "controversy": 0.2017,
+      "pos_share": 0.1008,
+      "neg_share": 0.731,
+      "neutral_share": 0.1681,
+      "n_units": 48
+    }
+  },
+  {
+    "topic_id": 8,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.2311133527840978,
+    "sentiment_meta": {
+      "nss": -0.2815,
+      "weighted_mean": -0.1555,
+      "controversy": 0.4137,
+      "pos_share": 0.2069,
+      "neg_share": 0.4884,
+      "neutral_share": 0.3047,
+      "n_units": 36
+    }
+  },
+  {
+    "topic_id": 9,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.4048612362373397,
+    "sentiment_meta": {
+      "nss": -0.5114,
+      "weighted_mean": -0.2451,
+      "controversy": 0.1111,
+      "pos_share": 0.0555,
+      "neg_share": 0.5669,
+      "neutral_share": 0.3776,
+      "n_units": 37
+    }
+  },
+  {
+    "topic_id": 10,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.672177146987932,
+    "sentiment_meta": {
+      "nss": -0.8248,
+      "weighted_mean": -0.4432,
+      "controversy": 0.1204,
+      "pos_share": 0.0602,
+      "neg_share": 0.885,
+      "neutral_share": 0.0547,
+      "n_units": 27
+    }
+  },
+  {
+    "topic_id": 11,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.2479466496551468,
+    "sentiment_meta": {
+      "nss": -0.3464,
+      "weighted_mean": -0.1002,
+      "controversy": 0.287,
+      "pos_share": 0.1435,
+      "neg_share": 0.4899,
+      "neutral_share": 0.3666,
+      "n_units": 27
+    }
+  },
+  {
+    "topic_id": 12,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.48789835430383066,
+    "sentiment_meta": {
+      "nss": -0.6018,
+      "weighted_mean": -0.317,
+      "controversy": 0.0753,
+      "pos_share": 0.0377,
+      "neg_share": 0.6395,
+      "neutral_share": 0.3228,
+      "n_units": 24
+    }
+  },
+  {
+    "topic_id": 13,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.25426876544501725,
+    "sentiment_meta": {
+      "nss": -0.3488,
+      "weighted_mean": -0.1125,
+      "controversy": 0.28,
+      "pos_share": 0.14,
+      "neg_share": 0.4888,
+      "neutral_share": 0.3712,
+      "n_units": 20
+    }
+  },
+  {
+    "topic_id": 14,
+    "sentiment_category": "negative",
+    "sentiment_score": -0.20353163699044352,
+    "sentiment_meta": {
+      "nss": -0.26,
+      "weighted_mean": -0.1189,
+      "controversy": 0.2252,
+      "pos_share": 0.1126,
+      "neg_share": 0.3726,
+      "neutral_share": 0.5148,
+      "n_units": 24
+    }
   }
 ]

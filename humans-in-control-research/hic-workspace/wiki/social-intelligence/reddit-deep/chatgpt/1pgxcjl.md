@@ -23,19 +23,19 @@ chunks:
     key_terms: [chatgpt, questions, answer, continuation, want, comments, training, users]
     token_count: 316
   - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c1"
-    char_span: [1381, 2413]
+    char_span: [1380, 2412]
     sentence_count: 7
     key_terms: [engagement, comments, serious, bakraofwallstreet, did, keep, tag, automatically]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c2"
-    char_span: [2415, 4359]
+    char_span: [2414, 4358]
     sentence_count: 17
     key_terms: [money, reddit, engagement, million, costs, serve, times, get]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/chatgpt/1pgxcjl.md#c3"
-    char_span: [4361, 5959]
+    char_span: [4360, 5958]
     sentence_count: 18
     key_terms: [reddit, expensive, inference, cost, instructions, pay, per, user]
     section: Comments

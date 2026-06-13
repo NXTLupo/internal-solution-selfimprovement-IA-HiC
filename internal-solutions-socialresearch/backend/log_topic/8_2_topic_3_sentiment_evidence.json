@@ -1,5 +1,58 @@
 {
-  "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-  "positive": [],
-  "negative": []
+  "positive": [
+    {
+      "point": "Transferring brokerage accounts to a trust can simplify estate planning, especially for those with young children.",
+      "post_refs": [
+        "1nh55cr"
+      ]
+    },
+    {
+      "point": "No adverse tax consequences for transferring brokerage accounts to a living trust, as taxable income is a passthrough to trustees.",
+      "post_refs": [
+        "1nh55cr"
+      ]
+    },
+    {
+      "point": "Vanguard's process for setting up trust accounts was easy for some users.",
+      "post_refs": [
+        "1retrot"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard's customer service is difficult to deal with, requiring long phone calls and multiple attempts to set up accounts.",
+      "post_refs": [
+        "1retrot"
+      ]
+    },
+    {
+      "point": "Vanguard's process for transferring accounts is outdated, requiring faxing and mailing of forms.",
+      "post_refs": [
+        "1t5mie5",
+        "1retrot"
+      ]
+    },
+    {
+      "point": "Vanguard's refusal to provide necessary documentation for rollovers can complicate the process.",
+      "post_refs": [
+        "1sx7qom",
+        "1rhgl76"
+      ]
+    },
+    {
+      "point": "Vanguard's inability to accept ACATS transfers complicates the process of transferring accounts from other brokers.",
+      "post_refs": [
+        "1pk9n2a",
+        "1pk9d58",
+        "1pk8z03"
+      ]
+    },
+    {
+      "point": "Vanguard's slow processing of inherited accounts compared to other firms like Schwab.",
+      "post_refs": [
+        "1sobuid"
+      ]
+    }
+  ]
 }

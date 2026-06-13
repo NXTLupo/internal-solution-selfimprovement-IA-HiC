@@ -23,49 +23,49 @@ chunks:
     key_terms: [travel, living, years, life, digitalnomad, back, jobs, year]
     token_count: 434
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c1"
-    char_span: [1836, 3758]
+    char_span: [1835, 3757]
     sentence_count: 24
     key_terms: [websites, gun3ro, seo, started, wordpress, work, because, coding]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c2"
-    char_span: [3531, 4335]
+    char_span: [3530, 4334]
     sentence_count: 7
     key_terms: [because, freely, comprehensive-phase3, start, work, recommendations, oversaturated, photography]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c3"
-    char_span: [4337, 6263]
+    char_span: [4336, 6262]
     sentence_count: 26
     key_terms: [tech, couldn, months, found, money, take, tool, developer]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c4"
-    char_span: [6265, 7426]
+    char_span: [6264, 7425]
     sentence_count: 11
     key_terms: [new-jeweler1363, problem, product, market, redact, miu-miu-miu-miu-miu, steve, did]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c5"
-    char_span: [7428, 9187]
+    char_span: [7427, 9186]
     sentence_count: 19
     key_terms: [mdeeebeee-101, backpack, english, minored, startup, through, travel, doing]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c6"
-    char_span: [9189, 11338]
+    char_span: [9188, 11337]
     sentence_count: 33
     key_terms: [condition, get, together, health, years, applying, thailand, serious]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c7"
-    char_span: [11340, 12594]
+    char_span: [11339, 12593]
     sentence_count: 14
     key_terms: [company, work, software, finding, diegofromwifitribe, best, long, requirements]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/digitalnomad/1o71iwx.md#c8"
-    char_span: [12596, 14452]
+    char_span: [12595, 14451]
     sentence_count: 11
     key_terms: [good, going, life, own, time, iceydiceyz, something, positive]
     section: Comments

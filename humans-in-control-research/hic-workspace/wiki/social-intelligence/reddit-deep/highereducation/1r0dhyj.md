@@ -21,49 +21,49 @@ chunks:
     key_terms: [higher, work, people, get, job, highereducation, cannot, never]
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c1"
-    char_span: [2097, 4077]
+    char_span: [2097, 4076]
     sentence_count: 11
     key_terms: [higher, century, education, corporation, description, like, economics, product]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c2"
-    char_span: [4081, 5853]
+    char_span: [4080, 5852]
     sentence_count: 15
     key_terms: [retirement, college, "that's", universities, going, kids, benefits, children]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c3"
-    char_span: [5855, 6661]
+    char_span: [5854, 6660]
     sentence_count: 11
     key_terms: [education, someone, higher, spouse, helpful-passenger-12, life, significantly, determining]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c4"
-    char_span: [6663, 8557]
+    char_span: [6662, 8556]
     sentence_count: 15
     key_terms: [work, remote, foreignlibrary424, time, theatregeeke, job, like, getting]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c5"
-    char_span: [8559, 10483]
+    char_span: [8558, 10482]
     sentence_count: 19
     key_terms: [foreignlibrary424, raise, work, raises, years, job, supervisor, soulless]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c6"
-    char_span: [10262, 12377]
+    char_span: [10261, 12376]
     sentence_count: 22
     key_terms: [higher, work, going, back, best, don, understand, corporate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c7"
-    char_span: [12128, 12638]
+    char_span: [12127, 12637]
     sentence_count: 4
     key_terms: [rest, nubianbyrd920, institutions, flexibility, industries, aftercare, stability, flexible]
     section: Comments
     token_count: 129
   - id: "social-intelligence/reddit-deep/highereducation/1r0dhyj.md#c8"
-    char_span: [12640, 13066]
+    char_span: [12639, 13065]
     sentence_count: 6
     key_terms: [unfortunately, institution, industries, education, stability, expected, research, because]
     section: Comments

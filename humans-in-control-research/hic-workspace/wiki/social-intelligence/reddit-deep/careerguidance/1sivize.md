@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sivize.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sivize/freshman_trying_to_figure_out_a_stable_career/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.902Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sivize.md#c0"
+    char_span: [0, 2288]
+    sentence_count: 13
+    key_terms: [like, healthcare, law, administration, don, supply, chain, feel]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/careerguidance/1sivize.md#c1"
+    char_span: [2290, 3467]
+    sentence_count: 10
+    key_terms: [people, try, specific, helpful, asking, maybe, like, b0uldersh0ulders]
+    section: Comments
+    token_count: 246
 ---
-
 # Freshman trying to figure out a stable career path (healthcare admin, supply chain, law?) – need real advice
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sivize/freshman_trying_to_figure_out_a_stable_career/)

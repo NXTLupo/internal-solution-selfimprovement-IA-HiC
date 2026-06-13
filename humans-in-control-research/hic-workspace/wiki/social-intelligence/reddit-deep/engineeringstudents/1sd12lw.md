@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sd12lw.md#c0"
-    char_span: [0, 1107]
+    char_span: [0, 1106]
     sentence_count: 6
     key_terms: [automotive, engineeringstudents, electronics, "i'm", work, comments, always, maths]
-    token_count: 257
+    token_count: 256
 ---
 # Automotive Engineering Career Advice
 

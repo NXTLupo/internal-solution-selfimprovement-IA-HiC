@@ -23,13 +23,13 @@ chunks:
     key_terms: [math, degree, engineering, engineeringstudents, year, comments, remember, learned]
     token_count: 239
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c1"
-    char_span: [1069, 3095]
+    char_span: [1068, 3094]
     sentence_count: 12
     key_terms: [math, courses, calc, "you'll", specific, classes, fundamentals, level]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r3i4nl.md#c2"
-    char_span: [3097, 4334]
+    char_span: [3096, 4333]
     sentence_count: 7
     key_terms: [need, building, materials, mechanics, something, equation, handbook, learned]
     section: Comments

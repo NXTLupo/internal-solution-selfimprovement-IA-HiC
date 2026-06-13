@@ -21,25 +21,25 @@ chunks:
     key_terms: [entry, level, got, job, degree, manufacturing, find, business]
     token_count: 229
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c1"
-    char_span: [944, 2435]
+    char_span: [943, 2434]
     sentence_count: 9
     key_terms: [cooked, entrepreneurhuge5008, degrees, better, means, projects, entry, level]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c2"
-    char_span: [2438, 3716]
+    char_span: [2437, 3715]
     sentence_count: 10
     key_terms: [sales, get, experience, job, company, managerial, laterally, positions]
     section: Comments
     token_count: 310
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c3"
-    char_span: [3718, 5188]
+    char_span: [3717, 5187]
     sentence_count: 11
     key_terms: [entry, level, sales, job, business, unrealistic, get, jobs]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/jobs/1notpa6.md#c4"
-    char_span: [5190, 7404]
+    char_span: [5189, 7403]
     sentence_count: 20
     key_terms: [sales, because, "you're", something, job, took, relative, company]
     section: Comments

@@ -43,25 +43,25 @@ chunks:
     key_terms: [people, got, ready, real, won, feedback, politics, reality]
     token_count: 237
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c5"
-    char_span: [10289, 12048]
+    char_span: [10288, 12047]
     sentence_count: 9
     key_terms: [people, being, likable, extremely, nothing, working, artistic-staff-8611, enjoy]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c6"
-    char_span: [12050, 13960]
+    char_span: [12049, 13959]
     sentence_count: 12
     key_terms: [get, being, management, important, network, advice, around, either]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c7"
-    char_span: [13962, 15415]
+    char_span: [13961, 15414]
     sentence_count: 14
     key_terms: [promotion, get, role, work, co-worker, effective, recommend, promoted]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/careeradvice/1qv82oc.md#c8"
-    char_span: [15417, 16103]
+    char_span: [15416, 16102]
     sentence_count: 2
     key_terms: [enough, material-dream-4976, cases, ladyfisherbuckeye, boss, vivalajester1114, unfortunately, starting]
     section: Comments

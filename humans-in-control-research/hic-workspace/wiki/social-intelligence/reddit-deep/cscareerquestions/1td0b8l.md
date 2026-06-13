@@ -23,55 +23,55 @@ chunks:
     key_terms: [jobs, cscareerquestions, majority, rather, comments, because, crisis, people]
     token_count: 264
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c1"
-    char_span: [1162, 3193]
+    char_span: [1161, 3192]
     sentence_count: 15
     key_terms: [because, people, "don't", business, economic, industry, pandemic, possible]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c2"
-    char_span: [3195, 4913]
+    char_span: [3194, 4912]
     sentence_count: 18
     key_terms: [productivity, companies, development, company, similar, larger, picked, "can't"]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c3"
-    char_span: [4915, 7026]
+    char_span: [4914, 7025]
     sentence_count: 15
     key_terms: [people, jobs, juniors, pressureappropriate, because, senior, furryballs239, fresh]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c4"
-    char_span: [6784, 7280]
+    char_span: [6783, 7279]
     sentence_count: 4
     key_terms: [junior, hired, chubbyvegantravels, unquestionably, furryballs239, apparently, swordlaker, continue]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c5"
-    char_span: [7282, 8955]
+    char_span: [7281, 8954]
     sentence_count: 12
     key_terms: [services, software, towards, macktheknife13, companies, existing, another, because]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c6"
-    char_span: [8957, 10415]
+    char_span: [8956, 10414]
     sentence_count: 9
     key_terms: [people, future, market, presentationitchy127, evening-living842, yet-to-be-defined, did, good]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c7"
-    char_span: [10417, 11642]
+    char_span: [10416, 11641]
     sentence_count: 7
     key_terms: [people, because, new-drop-7414, like, new, take, knowledge, several]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c8"
-    char_span: [11644, 13878]
+    char_span: [11643, 13877]
     sentence_count: 11
     key_terms: [people, new, using, like, victimization, grads, able, code]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1td0b8l.md#c9"
-    char_span: [13880, 14548]
+    char_span: [13879, 14547]
     sentence_count: 6
     key_terms: [like, experienced, want, instead, coding, people, right, works]
     section: Comments

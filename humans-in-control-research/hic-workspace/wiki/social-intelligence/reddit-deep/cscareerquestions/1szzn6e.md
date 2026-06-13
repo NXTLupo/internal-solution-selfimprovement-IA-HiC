@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, job, tech, associates, experience, companies, completed, extremely]
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c1"
-    char_span: [1544, 1941]
+    char_span: [1543, 1940]
     sentence_count: 1
     key_terms: [posts, white, women, like, eldric-darkfire, tuckfrump69, generation, assisted]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c2"
-    char_span: [1943, 3655]
+    char_span: [1942, 3654]
     sentence_count: 10
     key_terms: [cscareerquestions, salamazmlekom, applications, anyone, pretty, reddit, maybe, offer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c3"
-    char_span: [3421, 4770]
+    char_span: [3420, 4769]
     sentence_count: 8
     key_terms: [something, cscareerquestions, certs, experience, vtarxelus, "wouldn't", posting, degree]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szzn6e.md#c4"
-    char_span: [4772, 5293]
+    char_span: [4771, 5292]
     sentence_count: 5
     key_terms: [resume, template, internship, guarantee, feedback, linkedin, managers, mcdonald]
     section: Comments

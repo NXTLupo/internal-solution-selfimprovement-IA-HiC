@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, comments, service, puzzleheaded-tear283, international-level, guess, state, isef]
     token_count: 195
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s4osob.md#c1"
-    char_span: [810, 2684]
+    char_span: [809, 2683]
     sentence_count: 18
     key_terms: [puzzleheaded-tear283, life, college, matter, encouragement, peacockintime, relationships, opportunity]
     section: Comments

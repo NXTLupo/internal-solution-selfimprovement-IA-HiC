@@ -23,7 +23,7 @@ chunks:
     key_terms: [autonomy, machinelearning, applied, comments, engineer, robotics, radar, years]
     token_count: 244
   - id: "social-intelligence/reddit-deep/machinelearning/1t4ombd.md#c1"
-    char_span: [1024, 2314]
+    char_span: [1023, 2313]
     sentence_count: 7
     key_terms: [people, understanding, radar, model, paper, start, end, lot]
     section: Comments

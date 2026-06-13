@@ -15,17 +15,17 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c0"
-    char_span: [0, 1941]
+    char_span: [0, 1940]
     sentence_count: 20
     key_terms: [everyone, here, northeastern, people, experience, year, friends, support]
-    token_count: 453
+    token_count: 452
   - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c1"
-    char_span: [1943, 4148]
+    char_span: [1942, 4147]
     sentence_count: 24
     key_terms: [experience, don, like, year, because, campus, people, whole]
     token_count: 505
   - id: "articles/reddit-deep-r-neu/a20dcd5dbb.md#c2"
-    char_span: [4150, 5528]
+    char_span: [4149, 5527]
     sentence_count: 11
     key_terms: [explore, northeastern, bay, take, programs, "doesn't", campus, "don't"]
     token_count: 298

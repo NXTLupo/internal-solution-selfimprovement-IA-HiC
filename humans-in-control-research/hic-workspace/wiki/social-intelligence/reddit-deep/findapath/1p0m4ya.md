@@ -23,49 +23,49 @@ chunks:
     key_terms: [interesting, love, everything, findapath, something, comments, physical, years]
     token_count: 351
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c1"
-    char_span: [1426, 3664]
+    char_span: [1425, 3663]
     sentence_count: 14
     key_terms: [thank, helpful, sales, comments, everyone, please, hospitality, don]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c2"
-    char_span: [3666, 4434]
+    char_span: [3665, 4433]
     sentence_count: 4
     key_terms: [flight, pay, hours, hour, like, paid, international, blazinazn38]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c3"
-    char_span: [4436, 6242]
+    char_span: [4435, 6241]
     sentence_count: 9
     key_terms: [ok-experience5315, door, like, sales, don, people, job, successful]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c4"
-    char_span: [6244, 7408]
+    char_span: [6243, 7407]
     sentence_count: 1
     key_terms: [corporate, customers, actual, person, case, life, bureaucracy, meaningless]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c5"
-    char_span: [7410, 9350]
+    char_span: [7409, 9349]
     sentence_count: 19
     key_terms: [corporate, bartender, sales, look, associated, bartending, something, premise]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c6"
-    char_span: [9352, 11465]
+    char_span: [9351, 11464]
     sentence_count: 26
     key_terms: [law, school, iamthebakersdaughter, generally, get, lawyer, being, enjoy]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c7"
-    char_span: [11467, 13532]
+    char_span: [11466, 13531]
     sentence_count: 16
     key_terms: [jobs, happens, happyasmrgamer, lawyer, people, public, school, being]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1p0m4ya.md#c8"
-    char_span: [13289, 15194]
+    char_span: [13288, 15193]
     sentence_count: 11
     key_terms: [being, job, bartending, everyone, anymore, "aren't", proper, reason]
     section: Comments

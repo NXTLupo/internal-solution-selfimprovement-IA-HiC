@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", work, design, learning, troubleshooting, careeradvice, engineering, maintenance]
     token_count: 484
   - id: "social-intelligence/reddit-deep/careeradvice/1rs7uws.md#c1"
-    char_span: [2298, 2785]
+    char_span: [2297, 2784]
     sentence_count: 4
     key_terms: [competitors, equipment, zizzianyouthminister, administration, capitalist, collected, customers, marketing]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, advice, interviews, comments, research, according-ad-5235, been, get]
     token_count: 172
   - id: "social-intelligence/reddit-deep/careerguidance/1shf2s9.md#c1"
-    char_span: [739, 1228]
+    char_span: [738, 1227]
     sentence_count: 1
     key_terms: [free, like, revorian, work, storytelling, differently, perspective, confidence]
     section: Comments

@@ -21,61 +21,61 @@ chunks:
     key_terms: [language, competitive, school, applyingtocollege, graduate, classes, college, foreign]
     token_count: 363
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c1"
-    char_span: [1689, 3705]
+    char_span: [1688, 3704]
     sentence_count: 12
     key_terms: [semester, language, community, college, school, the-wild-rumpus-star, years, courses]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c2"
-    char_span: [3707, 5311]
+    char_span: [3706, 5310]
     sentence_count: 9
     key_terms: [online, language, school, year, foreign, get, district, semester]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c3"
-    char_span: [5313, 7212]
+    char_span: [5312, 7211]
     sentence_count: 12
     key_terms: [school, years, state, language, requirement, high, foreign, apply]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c4"
-    char_span: [7214, 8031]
+    char_span: [7213, 8030]
     sentence_count: 6
     key_terms: [school, high, language, college, foreign, requirement, concerned, perceived]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c5"
-    char_span: [8034, 10351]
+    char_span: [8033, 10350]
     sentence_count: 19
     key_terms: [language, school, college, foreign, student, requirement, years, did]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c6"
-    char_span: [10078, 12196]
+    char_span: [10077, 12195]
     sentence_count: 18
     key_terms: [language, gap, year, schools, credit, financial, discostu, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c7"
-    char_span: [11939, 14095]
+    char_span: [11938, 14094]
     sentence_count: 16
     key_terms: [college, school, language, here, need, year, baffled, track]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c8"
-    char_span: [13785, 15510]
+    char_span: [13784, 15509]
     sentence_count: 9
     key_terms: [schools, school, baffled, requirements, competitive, high, univ, admission]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c9"
-    char_span: [15513, 17648]
+    char_span: [15512, 17647]
     sentence_count: 21
     key_terms: [school, recommended, law, admissions, penn, colleges, daughter, required]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nrjnqh.md#c10"
-    char_span: [17650, 18072]
+    char_span: [17649, 18071]
     sentence_count: 5
     key_terms: [years, did, scholarships, engineering, manageable, university, attending, financial]
     section: Comments

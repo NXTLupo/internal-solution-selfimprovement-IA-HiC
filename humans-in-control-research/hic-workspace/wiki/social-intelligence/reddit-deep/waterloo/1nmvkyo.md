@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, recommendations, comments, looking, moment, impressive-fan-8288, jobs, reddit-deep]
     token_count: 156
   - id: "social-intelligence/reddit-deep/waterloo/1nmvkyo.md#c1"
-    char_span: [656, 2685]
+    char_span: [655, 2684]
     sentence_count: 7
     key_terms: [subject-landscape451, own, through, workers, market, international, international-mobility-program, restaurant]
     section: Comments

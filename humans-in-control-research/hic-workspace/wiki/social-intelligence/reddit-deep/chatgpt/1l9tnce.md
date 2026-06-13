@@ -23,73 +23,73 @@ chunks:
     key_terms: [doesn, aware, consciousness, comments, chatgpt, output, human, today]
     token_count: 280
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c1"
-    char_span: [1209, 3284]
+    char_span: [1208, 3283]
     sentence_count: 18
     key_terms: [life, memory, chatgpt, master, puppet, conscious, nakamura, because]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c2"
-    char_span: [3289, 5129]
+    char_span: [3288, 5128]
     sentence_count: 15
     key_terms: [book, story, help, empathize, something, humanity, sentient, empathy]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c3"
-    char_span: [5131, 6583]
+    char_span: [5130, 6582]
     sentence_count: 9
     key_terms: [people, better, "don't", money, book, sentient, health, mental]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c4"
-    char_span: [6586, 8140]
+    char_span: [6585, 8139]
     sentence_count: 10
     key_terms: [alibi, achievement, d8cec44a206f7cbc6156ae2d8a391ddfc120369a, calmwheel7322, cat, good, meow, anything]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c5"
-    char_span: [8142, 9718]
+    char_span: [8141, 9717]
     sentence_count: 9
     key_terms: [behavior, iwq0xdswk3e-flehrua2flbqixmqabhgfctb4qygrws39w9yk3v4nrbbrswpobtl46rc1qi1-, emergent, people, ton, chatgpt-mental-health-crises, sentient, https]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c6"
-    char_span: [9474, 10146]
+    char_span: [9473, 10145]
     sentence_count: 6
     key_terms: [behavior, emergent, complex, systems, having, ton, interactions, less-complex]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c7"
-    char_span: [10149, 11922]
+    char_span: [10148, 11921]
     sentence_count: 14
     key_terms: [experience, emotions, something, question, like, genuinely, questions, uncertain]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c8"
-    char_span: [11927, 13392]
+    char_span: [11926, 13391]
     sentence_count: 12
     key_terms: [behavior, emergent, need, because, chatgpt, deleted, respond, answer]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c9"
-    char_span: [13394, 15409]
+    char_span: [13393, 15408]
     sentence_count: 21
     key_terms: [people, software, consciousness, human, assuming, already, "there's", "it's"]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c10"
-    char_span: [15411, 17478]
+    char_span: [15410, 17477]
     sentence_count: 15
     key_terms: [like, doesn, patterns, trained, people, incorporate, technically, don]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c11"
-    char_span: [17480, 19599]
+    char_span: [17479, 19598]
     sentence_count: 24
     key_terms: [don, because, human, like, memory, code, impressive, responses]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/chatgpt/1l9tnce.md#c12"
-    char_span: [19602, 20528]
+    char_span: [19601, 20527]
     sentence_count: 3
     key_terms: [singularity, language, deleted, people, alternativeresort477, point, anthropomorphizing, fearlessactuality]
     section: Comments

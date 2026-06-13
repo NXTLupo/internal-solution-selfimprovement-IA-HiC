@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4dpn5.md#c0"
-    char_span: [0, 932]
+    char_span: [0, 931]
     sentence_count: 6
     key_terms: [engineeringstudents, focus, consistency, placements, comments, personal, issues, dsa]
-    token_count: 223
+    token_count: 222
 ---
 # 6th sem engineering student, lost focus due to personal issues - need placement prep advice
 

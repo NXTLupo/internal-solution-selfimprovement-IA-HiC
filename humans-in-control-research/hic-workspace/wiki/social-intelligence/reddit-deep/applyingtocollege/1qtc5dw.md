@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, help, experience, something, comments, college, work, ayobroseriously]
     token_count: 218
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qtc5dw.md#c1"
-    char_span: [878, 1709]
+    char_span: [877, 1708]
     sentence_count: 5
     key_terms: [admissions-source-school, universityofcalifornia, https, gpa-calculator-uc, infocenter, financial, rogerhub, college]
     section: Comments

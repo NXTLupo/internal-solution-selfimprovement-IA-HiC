@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, amazon, focus, put, comments, improve, manager, friend]
     token_count: 251
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c1"
-    char_span: [1060, 2254]
+    char_span: [1059, 2253]
     sentence_count: 7
     key_terms: [pip, focus, called, course, ok-butterscotch-6955, never, pivot, get]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c2"
-    char_span: [2256, 3903]
+    char_span: [2255, 3902]
     sentence_count: 11
     key_terms: [manager, focus, teams, learned, getting, change, common, months]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c3"
-    char_span: [3905, 5934]
+    char_span: [3904, 5933]
     sentence_count: 12
     key_terms: [manager, focus, put, work, unrealistic, back, new, amazon]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c4"
-    char_span: [5936, 7958]
+    char_span: [5935, 7957]
     sentence_count: 15
     key_terms: [put, focus, someone, good, like, team, time, work]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c5"
-    char_span: [7960, 10088]
+    char_span: [7959, 10087]
     sentence_count: 18
     key_terms: [focus, amazon, like, pip, people, comfortable, good, team]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c6"
-    char_span: [10090, 11787]
+    char_span: [10089, 11786]
     sentence_count: 12
     key_terms: [focus, pip, quota, year, managers, amazon, pivot, due]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qhiu3l.md#c7"
-    char_span: [11789, 13420]
+    char_span: [11788, 13419]
     sentence_count: 11
     key_terms: [pip, friend, focus, accomplishments, manager, fired, new, work]
     section: Comments

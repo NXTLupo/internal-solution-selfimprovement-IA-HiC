@@ -33,25 +33,25 @@ chunks:
     key_terms: [something, school, "you're", applications, never, value, acceptances, fit]
     token_count: 264
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c3"
-    char_span: [4383, 6253]
+    char_span: [4382, 6252]
     sentence_count: 16
     key_terms: [kanoncyn, get, applying, postbacc, programs, good, research, looking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c4"
-    char_span: [6014, 6587]
+    char_span: [6013, 6586]
     sentence_count: 5
     key_terms: [wrote, recommenders, confidence, everything, judgement, programme, rejection, something]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c5"
-    char_span: [6589, 8589]
+    char_span: [6588, 8588]
     sentence_count: 19
     key_terms: [time, year, thanks, opportunities, diversity, volunteer, rejected, research]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqx0u6.md#c6"
-    char_span: [8591, 10411]
+    char_span: [8590, 10410]
     sentence_count: 14
     key_terms: [rejection, kanoncyn, like, different, fulbright, honestly, position, thanks]
     section: Comments

@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1rlq5z0.md#c0"
-    char_span: [0, 302]
+    char_span: [0, 301]
     sentence_count: 1
     key_terms: [openai, comments, reddit-deep, newyork99, built-in, computer, launches, context]
-    token_count: 92
+    token_count: 91
 ---
 # OpenAI Launches GPT-5.4 With Built-In Computer Use and 1 Million Token Context Window
 

@@ -23,13 +23,13 @@ chunks:
     key_terms: [cscareerquestions, companies, comments, advice, entry, level, get, undergraduates]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c1"
-    char_span: [899, 2946]
+    char_span: [898, 2945]
     sentence_count: 11
     key_terms: [need, market, people, job, degree, school, "don't", connections]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uztm.md#c2"
-    char_span: [2950, 4408]
+    char_span: [2949, 4407]
     sentence_count: 11
     key_terms: [engineering, because, major, electrical, thinking, problem, science, systems]
     section: Comments

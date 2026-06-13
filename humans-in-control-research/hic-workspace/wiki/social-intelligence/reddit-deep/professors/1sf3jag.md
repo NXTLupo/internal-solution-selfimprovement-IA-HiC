@@ -23,31 +23,31 @@ chunks:
     key_terms: [class, students, boring, experienced, professors, comments, semester, classes]
     token_count: 273
   - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c1"
-    char_span: [1182, 1975]
+    char_span: [1181, 1974]
     sentence_count: 4
     key_terms: [attendance, reviews, doesnt, raises, yearly, pay, show, grades]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c2"
-    char_span: [1977, 3609]
+    char_span: [1976, 3608]
     sentence_count: 11
     key_terms: [school, students, classes, forward, escape, looked, unless, mystudentsaredumb100]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c3"
-    char_span: [3611, 4305]
+    char_span: [3610, 4304]
     sentence_count: 6
     key_terms: [students, history, class, human, activemachine4380, get, half, professionals]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c4"
-    char_span: [4307, 6190]
+    char_span: [4306, 6189]
     sentence_count: 13
     key_terms: [class, attendance, undergrad, optional, students, thinking, classes, masters]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/professors/1sf3jag.md#c5"
-    char_span: [6192, 7694]
+    char_span: [6191, 7693]
     sentence_count: 11
     key_terms: [attendance, class, policy, students, endless, hassles, mystudentsaredumb100, since]
     section: Comments

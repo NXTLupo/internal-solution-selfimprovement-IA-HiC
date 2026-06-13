@@ -28,37 +28,37 @@ chunks:
     key_terms: [million, per, estimate, annual, extra, cost, new, rule]
     token_count: 111
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c2"
-    char_span: [2597, 4560]
+    char_span: [2596, 4559]
     sentence_count: 10
     key_terms: [spring, sevis, activity, programs, specific, students, applied, program]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c3"
-    char_span: [4562, 6657]
+    char_span: [4561, 6656]
     sentence_count: 21
     key_terms: [activity, dept, program, advisor, university, halfway, premise, regards]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c4"
-    char_span: [6659, 9062]
+    char_span: [6658, 9061]
     sentence_count: 22
     key_terms: [university, advisor, program, institution, different, activity, dept, departments]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c5"
-    char_span: [9064, 11270]
+    char_span: [9063, 11269]
     sentence_count: 18
     key_terms: [student, different, graduate, activity, students, classes, passing, attend]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c6"
-    char_span: [11272, 13631]
+    char_span: [11271, 13630]
     sentence_count: 17
     key_terms: [different, like, university, college, course, people, international, educational]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/askacademia/1n9rw1b.md#c7"
-    char_span: [13633, 14525]
+    char_span: [13632, 14524]
     sentence_count: 8
     key_terms: [rights, basic, international, equilibrium, astounding, blackstone, inequality, americans]
     section: Comments

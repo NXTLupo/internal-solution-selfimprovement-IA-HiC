@@ -23,19 +23,19 @@ chunks:
     key_terms: [phd, coursework, years, nus, research, askacademia, positioning, restarting]
     token_count: 491
   - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c1"
-    char_span: [2112, 4075]
+    char_span: [2111, 4074]
     sentence_count: 8
     key_terms: [phd, ship, comments, student, reddit, https, com, need]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c2"
-    char_span: [4077, 5074]
+    char_span: [4076, 5073]
     sentence_count: 8
     key_terms: [blackforestcheesecak, here, phd, living, lower, years, cost, communicating]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/askacademia/1shlgew.md#c3"
-    char_span: [5076, 7038]
+    char_span: [5075, 7037]
     sentence_count: 15
     key_terms: [phd, connections, feel, advisor, lacking, always, longer, maybe]
     section: Comments

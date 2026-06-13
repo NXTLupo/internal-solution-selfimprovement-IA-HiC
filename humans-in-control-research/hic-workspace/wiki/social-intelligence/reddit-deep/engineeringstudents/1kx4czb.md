@@ -28,55 +28,55 @@ chunks:
     key_terms: [don, feel, like, everyone, people, learn, internships, day]
     token_count: 496
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c2"
-    char_span: [2585, 4823]
+    char_span: [2584, 4822]
     sentence_count: 12
     key_terms: [engineering, actual, job, work, position, doing, interesting, don]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c3"
-    char_span: [4467, 6375]
+    char_span: [4466, 6374]
     sentence_count: 14
     key_terms: [interesting, work, anything, down, company, always, worked, learn]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c4"
-    char_span: [6377, 8278]
+    char_span: [6376, 8277]
     sentence_count: 13
     key_terms: [questions, engineer, ask, new, internship, sometimes, question, asking]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c5"
-    char_span: [8280, 10510]
+    char_span: [8279, 10509]
     sentence_count: 17
     key_terms: [explanation, seeing, been, technical, yesterday, assembly, because, storage]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c6"
-    char_span: [10512, 12460]
+    char_span: [10511, 12459]
     sentence_count: 11
     key_terms: [get, like, design, saying, work, experience, assembly, interns]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c7"
-    char_span: [12462, 14474]
+    char_span: [12461, 14473]
     sentence_count: 13
     key_terms: [job, work, get, because, months, down, feel, like]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c8"
-    char_span: [14476, 14802]
+    char_span: [14475, 14801]
     sentence_count: 4
     key_terms: [communication, interesting, eugeniusjr, attitude, function, overpaid, relative, company]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c9"
-    char_span: [14804, 16983]
+    char_span: [14803, 16982]
     sentence_count: 14
     key_terms: [work, internship, hiring, engineers, tactic, hired, internships, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kx4czb.md#c10"
-    char_span: [16720, 17365]
+    char_span: [16719, 17364]
     sentence_count: 5
     key_terms: [distributionprize438, opening-crab-4640, uncomfortable, necessarily, internship, optimizing, analyzing, direction]
     section: Comments

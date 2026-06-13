@@ -28,31 +28,31 @@ chunks:
     key_terms: [expected, cash, deal, png, year, l1up2pwakz5g1, "transaction's", transaction]
     token_count: 124
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c2"
-    char_span: [2465, 2675]
+    char_span: [2464, 2674]
     sentence_count: 1
     key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c3"
-    char_span: [2677, 4425]
+    char_span: [2676, 4424]
     sentence_count: 12
     key_terms: [ibm, thatguyfrmboston, discord, indian, months, cheaptechnology6193, stretchantique9147, dev]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c4"
-    char_span: [4180, 4857]
+    char_span: [4179, 4856]
     sentence_count: 5
     key_terms: [ibm, underpaid--sysadmin, blue, dev, does, shop, exhoberant, slick2hold]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c5"
-    char_span: [4859, 6352]
+    char_span: [4858, 6351]
     sentence_count: 12
     key_terms: [ibm, year, products, realize, "you'll", sales, start, liquidpele]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/wallstreetbets/1phczgc.md#c6"
-    char_span: [6354, 7132]
+    char_span: [6353, 7131]
     sentence_count: 2
     key_terms: [good, software, ibm, confectiondry7881, josephkambourakis, aliensweetpotato, capitalize, gatovision]
     section: Comments

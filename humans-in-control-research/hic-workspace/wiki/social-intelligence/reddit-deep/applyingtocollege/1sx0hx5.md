@@ -28,7 +28,7 @@ chunks:
     key_terms: [colleges-and-universities, collegeconfidential, northeastern, northeastern-university, cornell-university, com, http, talk]
     token_count: 164
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sx0hx5.md#c2"
-    char_span: [2540, 3964]
+    char_span: [2539, 3963]
     sentence_count: 10
     key_terms: [cornell, ownrequirement8689, northeastern, like, nyc, sure, better, change]
     section: Comments

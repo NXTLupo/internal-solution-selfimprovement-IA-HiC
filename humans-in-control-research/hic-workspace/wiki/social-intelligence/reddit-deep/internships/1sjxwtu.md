@@ -26,7 +26,7 @@ chunks:
     key_terms: [international, students, advice, anyone, opportunities, scholatships, appreciated, expenses]
     token_count: 90
   - id: "social-intelligence/reddit-deep/internships/1sjxwtu.md#c2"
-    char_span: [2397, 3879]
+    char_span: [2396, 3878]
     sentence_count: 21
     key_terms: [internship, research, school, summer, like, look, professors, understand]
     section: Comments

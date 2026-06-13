@@ -23,7 +23,7 @@ chunks:
     key_terms: [povertyfinance, comments, independent-arm-8839, reddit-deep, smartest, monthly, budget, income]
     token_count: 82
   - id: "social-intelligence/reddit-deep/povertyfinance/1qg2xzq.md#c1"
-    char_span: [298, 1571]
+    char_span: [297, 1570]
     sentence_count: 12
     key_terms: [budget, "let's", month, car, flat, rate, averaged, billing]
     section: Comments

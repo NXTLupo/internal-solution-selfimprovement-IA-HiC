@@ -21,19 +21,19 @@ chunks:
     key_terms: [northeastern, engineering, comments, commit, scared, going, study, neu]
     token_count: 220
   - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c1"
-    char_span: [934, 2342]
+    char_span: [933, 2341]
     sentence_count: 5
     key_terms: [engineering, probably, chemical, northeastern, everything, undergrad, ranked, chem]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c2"
-    char_span: [2344, 4536]
+    char_span: [2343, 4535]
     sentence_count: 11
     key_terms: [engineering, feel, northeastern, school, major, supported, like, academic]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/neu/1s95wzh.md#c3"
-    char_span: [4538, 4993]
+    char_span: [4537, 4992]
     sentence_count: 5
     key_terms: [northeastern, engineering, campus, altruistic-trust907, here, handyhomeowner84, coldflame563, kindclick635]
     section: Comments

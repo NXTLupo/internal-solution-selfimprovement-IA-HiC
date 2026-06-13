@@ -23,7 +23,7 @@ chunks:
     key_terms: [school, graduate, gradschool, comments, going, been, year, communications]
     token_count: 239
   - id: "social-intelligence/reddit-deep/gradschool/1lff14w.md#c1"
-    char_span: [1068, 2487]
+    char_span: [1067, 2486]
     sentence_count: 11
     key_terms: [journalism, like, fields, turpentinei, vandymarine, marketing, starting, gurprofessional9534]
     section: Comments

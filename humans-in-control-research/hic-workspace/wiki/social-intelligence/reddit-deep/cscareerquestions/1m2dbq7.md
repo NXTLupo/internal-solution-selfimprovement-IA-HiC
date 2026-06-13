@@ -43,49 +43,49 @@ chunks:
     key_terms: [benefits, reimbursement, good, hours, pto, week, special, bank]
     token_count: 258
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c5"
-    char_span: [8766, 10236]
+    char_span: [8765, 10235]
     sentence_count: 12
     key_terms: [oncall, google, compensation, extra, faang, lot, pto, microsoft]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c6"
-    char_span: [10238, 12244]
+    char_span: [10237, 12243]
     sentence_count: 14
     key_terms: [faang, base, compensation, pay, defense, people, bonus, "it's"]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c7"
-    char_span: [12246, 13767]
+    char_span: [12245, 13766]
     sentence_count: 10
     key_terms: [maintenance, work, years, lot, defense, getting, project, devops]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c8"
-    char_span: [13769, 15735]
+    char_span: [13768, 15734]
     sentence_count: 15
     key_terms: [work, defense, outside, without, people, hours, phone, come]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c9"
-    char_span: [15737, 17845]
+    char_span: [15736, 17844]
     sentence_count: 18
     key_terms: [security, government, job, jobs, defense, people, level, like]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c10"
-    char_span: [17847, 19940]
+    char_span: [17846, 19939]
     sentence_count: 25
     key_terms: [people, project, work, hours, projects, defense, code, get]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c11"
-    char_span: [19942, 21968]
+    char_span: [19941, 21967]
     sentence_count: 16
     key_terms: [broad-cranberry-9050, work, interviewing, faang, like, experience, companies, different]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m2dbq7.md#c12"
-    char_span: [21970, 22483]
+    char_span: [21969, 22482]
     sentence_count: 6
     key_terms: [work, office, been, get, joecamroberon, typescript, graduated, interview]
     section: Comments

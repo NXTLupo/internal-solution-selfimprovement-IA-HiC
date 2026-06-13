@@ -23,31 +23,31 @@ chunks:
     key_terms: [rejected, applyingtocollege, stevens, school, technology, waitlisted, institute, comments]
     token_count: 328
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c1"
-    char_span: [1230, 3122]
+    char_span: [1229, 3121]
     sentence_count: 19
     key_terms: [people, decisions, get, posts, case, don, holy, surprising]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c2"
-    char_span: [3124, 4147]
+    char_span: [3123, 4146]
     sentence_count: 9
     key_terms: [admitted, reaches, rutgers, apply, state, full, ride, unc]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c3"
-    char_span: [4149, 5197]
+    char_span: [4148, 5196]
     sentence_count: 7
     key_terms: [good, luck, uva, bucknell, optional, waitlist, apprehensivesignal55, environmentactive325]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c4"
-    char_span: [5199, 6753]
+    char_span: [5198, 6752]
     sentence_count: 11
     key_terms: [schools, colleges, school, good, luck, nap, yesterday, amazing]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rts90a.md#c5"
-    char_span: [6755, 7435]
+    char_span: [6754, 7434]
     sentence_count: 10
     key_terms: [competitive, admissions, safeties, schools, juniorreserve1560, jeonggukispretty, additional, appreciate]
     section: Comments

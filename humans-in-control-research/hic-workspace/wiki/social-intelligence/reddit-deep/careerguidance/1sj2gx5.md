@@ -23,7 +23,7 @@ chunks:
     key_terms: [biomedical, working, careerguidance, manufacturing, comments, develop, skills, chips]
     token_count: 199
   - id: "social-intelligence/reddit-deep/careerguidance/1sj2gx5.md#c1"
-    char_span: [831, 2174]
+    char_span: [830, 2173]
     sentence_count: 8
     key_terms: [research, engineering, experience, projects, getting, work, assistantships, semiconductor]
     section: Comments

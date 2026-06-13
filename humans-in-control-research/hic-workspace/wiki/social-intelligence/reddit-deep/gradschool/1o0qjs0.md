@@ -23,7 +23,7 @@ chunks:
     key_terms: [student, advice, environment, lab, completely, gradschool, situation, comments]
     token_count: 377
   - id: "social-intelligence/reddit-deep/gradschool/1o0qjs0.md#c1"
-    char_span: [1804, 3834]
+    char_span: [1803, 3833]
     sentence_count: 11
     key_terms: [advisor, craiginatorr, award, transfer, autisticrocheter, cabbagemeister, hophippityhop, transferring]
     section: Comments

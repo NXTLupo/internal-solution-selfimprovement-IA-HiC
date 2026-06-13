@@ -23,85 +23,85 @@ chunks:
     key_terms: [work, office, job, careerguidance, days, get, like, comments]
     token_count: 414
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c1"
-    char_span: [1712, 2920]
+    char_span: [1711, 2919]
     sentence_count: 7
     key_terms: [ergonomic, like, work, doing, setup, deleted, walking, issues]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c2"
-    char_span: [2922, 4785]
+    char_span: [2921, 4784]
     sentence_count: 17
     key_terms: [sedentary, deleted, "it's", yeah, different, physical, standing, commute]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c3"
-    char_span: [4787, 6553]
+    char_span: [4786, 6552]
     sentence_count: 19
     key_terms: [physical, desk, construction, labor, jobs, around, chicken121260, hours]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c4"
-    char_span: [6555, 7024]
+    char_span: [6554, 7023]
     sentence_count: 4
     key_terms: [work, office, school, low-cauliflower-5686, get, good, jobs, own]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c5"
-    char_span: [7026, 8830]
+    char_span: [7025, 8829]
     sentence_count: 17
     key_terms: [days, get, week, work, enough, office, easily, pretty]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c6"
-    char_span: [8832, 10403]
+    char_span: [8831, 10402]
     sentence_count: 20
     key_terms: [cath, lab, time, work, though, tech, especially, traumatic]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c7"
-    char_span: [10405, 12163]
+    char_span: [10404, 12162]
     sentence_count: 14
     key_terms: [days, work, schedule, get, day, healthcare, greener, working]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c8"
-    char_span: [12165, 13434]
+    char_span: [12164, 13433]
     sentence_count: 13
     key_terms: [someone, client, having, office, maybe, wants, been, font]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c9"
-    char_span: [13436, 14854]
+    char_span: [13435, 14853]
     sentence_count: 10
     key_terms: [people, like, everyone, physical, getting, office, others, unique]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c10"
-    char_span: [14857, 16963]
+    char_span: [14856, 16962]
     sentence_count: 12
     key_terms: [people, get, work, ass, superfumi3, corporate, because, office]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c11"
-    char_span: [16965, 17525]
+    char_span: [16964, 17524]
     sentence_count: 4
     key_terms: ["doesn't", non-profits, everything, iterations, companies, competing, corporate, important]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c12"
-    char_span: [17527, 19687]
+    char_span: [17526, 19686]
     sentence_count: 14
     key_terms: [work, labor, problem, day, jobs, physical, getting, worked]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c13"
-    char_span: [19448, 19936]
+    char_span: [19447, 19935]
     sentence_count: 3
     key_terms: [work, office, years, fiddlefaddling, overexposure, comparison, developing, expertise]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/careerguidance/1ofwyok.md#c14"
-    char_span: [19938, 21375]
+    char_span: [19937, 21374]
     sentence_count: 10
     key_terms: [job, fiddlefaddling, people, bad, desk, work, something, physical]
     section: Comments

@@ -15,10 +15,10 @@ industries: [ai_research, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-productivity/fd5bb634ad.md#c0"
-    char_span: [0, 744]
+    char_span: [0, 743]
     sentence_count: 6
     key_terms: [productivity, reddit, lives, tried, need, well-designed, suggestions, everything]
-    token_count: 176
+    token_count: 175
 ---
 # Do we really need so much ai in our lives?
 

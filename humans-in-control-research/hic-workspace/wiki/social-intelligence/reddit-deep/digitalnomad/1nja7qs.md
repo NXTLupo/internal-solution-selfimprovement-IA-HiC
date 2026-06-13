@@ -23,43 +23,43 @@ chunks:
     key_terms: [experience, digitalnomad, "we're", consumption, subculture, comments, together, another]
     token_count: 455
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c1"
-    char_span: [2051, 4453]
+    char_span: [2050, 4452]
     sentence_count: 13
     key_terms: [different, purpose, places, nomading, digital, people, conversations, fulfillment]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c2"
-    char_span: [4455, 6154]
+    char_span: [4454, 6153]
     sentence_count: 17
     key_terms: [meaningful, build, co-living, something, real, people, spaces, communities]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c3"
-    char_span: [6156, 8031]
+    char_span: [6155, 8030]
     sentence_count: 18
     key_terms: [conversations, like, resources, bringing, personal, friends, problem, issues]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c4"
-    char_span: [8035, 9482]
+    char_span: [8034, 9481]
     sentence_count: 22
     key_terms: ["you're", enjoying, doing, yourself, nomadic, change, people, being]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c5"
-    char_span: [9484, 10934]
+    char_span: [9483, 10933]
     sentence_count: 13
     key_terms: [meaning, find, yourself, cringe, people, "you're", like, meet]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c6"
-    char_span: [10936, 12821]
+    char_span: [10935, 12820]
     sentence_count: 15
     key_terms: [part, people, life, meditation, concerns, question, ethical, being]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/digitalnomad/1nja7qs.md#c7"
-    char_span: [12823, 13511]
+    char_span: [12822, 13510]
     sentence_count: 12
     key_terms: [meaningless, around, myself, world, use, meaningful, personally, gardening]
     section: Comments

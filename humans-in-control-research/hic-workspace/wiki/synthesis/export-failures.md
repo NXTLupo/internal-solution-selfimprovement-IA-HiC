@@ -6,12 +6,12 @@ updated: 2026-05-24
 generated_by: human-observed + Claude post-mortem
 chunks:
   - id: "synthesis/export-failures.md#c0"
-    char_span: [0, 2624]
+    char_span: [0, 1260]
     sentence_count: 4
-    key_terms: [evidence, transformation, including, maturity, research-findings, digital, metrics, student]
-    token_count: 463
+    key_terms: [benchmarks, transformation, evidence, digital-transformation, currently, maturity, digital, organizational]
+    section: Speculative CX Maturity Frameworks / Unverified Digital Transformation Metrics
+    token_count: 207
 ---
-
 # CX Maturity and Digital Transformation Benchmarks
 
 ## Speculative CX Maturity Frameworks

@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1q6nckl.md#c0"
-    char_span: [0, 2005]
+    char_span: [0, 2004]
     sentence_count: 9
     key_terms: [business, broadcasting, transition, media, because, careeradvice, successfully, transitioned]
-    token_count: 439
+    token_count: 438
 ---
 # Has anyone successfully transitioned careers while feeling scared and unsure how to do it?
 

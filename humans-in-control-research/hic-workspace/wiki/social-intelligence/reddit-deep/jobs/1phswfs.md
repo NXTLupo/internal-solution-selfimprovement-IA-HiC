@@ -21,31 +21,31 @@ chunks:
     key_terms: [experience, jobs, rejection, comments, degree, guess, get, job]
     token_count: 251
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c1"
-    char_span: [1052, 3138]
+    char_span: [1051, 3137]
     sentence_count: 13
     key_terms: [job, experience, market, candidate, company, getting, degree, others]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c2"
-    char_span: [3140, 3514]
+    char_span: [3139, 3513]
     sentence_count: 3
     key_terms: [job, interviews, "i've", applications, non-profit, recuriters, including, legitmate]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c3"
-    char_span: [3516, 5331]
+    char_span: [3515, 5330]
     sentence_count: 8
     key_terms: [experience, implementno2626, get, "you're", hard, job, because, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c4"
-    char_span: [5085, 5988]
+    char_span: [5084, 5987]
     sentence_count: 5
     key_terms: [get, mattinsatx, training, degree, apply, certs, lifeguarddry1277, corporation]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/jobs/1phswfs.md#c5"
-    char_span: [5990, 7459]
+    char_span: [5989, 7458]
     sentence_count: 20
     key_terms: [resume, did, help, like, supposed, college, section, interesting-side-38]
     section: Comments

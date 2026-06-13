@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1sxb6v3.md#c0"
-    char_span: [0, 664]
+    char_span: [0, 663]
     sentence_count: 6
     key_terms: [finance, internships, graduating, internship, recruiting, comments, offered, august]
-    token_count: 150
+    token_count: 149
 ---
 # Offered non finance internship - graduating August
 

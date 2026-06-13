@@ -21,7 +21,7 @@ chunks:
     key_terms: [college, recommendations, experience, summer, comments, looking, student, thatonepersonat2am]
     token_count: 183
   - id: "social-intelligence/reddit-deep/college/1qfyvf2.md#c1"
-    char_span: [829, 2966]
+    char_span: [828, 2965]
     sentence_count: 14
     key_terms: [summer, experience, camps, work, job, kids, look, college]
     section: Comments

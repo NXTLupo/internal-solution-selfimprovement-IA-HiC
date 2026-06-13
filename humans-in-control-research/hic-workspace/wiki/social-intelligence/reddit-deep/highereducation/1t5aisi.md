@@ -31,7 +31,7 @@ chunks:
     key_terms: [information, data, canvas, targets, breach, institutions, instructure, university]
     token_count: 385
   - id: "social-intelligence/reddit-deep/highereducation/1t5aisi.md#c3"
-    char_span: [6689, 8273]
+    char_span: [6688, 8272]
     sentence_count: 2
     key_terms: [contained, systems, finals, mission-garbage-9651, point, get, real, communications]
     section: Comments

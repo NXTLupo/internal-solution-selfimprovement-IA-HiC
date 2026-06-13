@@ -23,19 +23,19 @@ chunks:
     key_terms: [filming, "i'm", instagram, because, freelance, reels, potential, captions]
     token_count: 444
   - id: "social-intelligence/reddit-deep/freelance/1pku5yi.md#c1"
-    char_span: [1985, 4214]
+    char_span: [1984, 4213]
     sentence_count: 25
     key_terms: [hours, week, work, business, clients, got, time, instagram]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/freelance/1pku5yi.md#c2"
-    char_span: [4216, 6216]
+    char_span: [4215, 6215]
     sentence_count: 17
     key_terms: [brand, content, "you're", relationships, hours, frustration, get, need]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/freelance/1pku5yi.md#c3"
-    char_span: [6218, 8167]
+    char_span: [6217, 8166]
     sentence_count: 15
     key_terms: [because, people, everywhere, channel, clients, content, filming, perfect]
     section: Comments

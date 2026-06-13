@@ -28,13 +28,13 @@ chunks:
     key_terms: [spx6900, financial, dissatisfaction, stopped, system, element, squeeze, occupy]
     token_count: 322
   - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c2"
-    char_span: [3549, 4959]
+    char_span: [3548, 4958]
     sentence_count: 2
     key_terms: [pull, rug, youchasechickens, future-bet4783, lol, because, discord, simple-designer-4121]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/genz/1niwyz8.md#c3"
-    char_span: [4961, 5873]
+    char_span: [4960, 5872]
     sentence_count: 2
     key_terms: [future-bet4783, youchasechickens, checkmatefluff, asymmetrical, summerechoes, advertising, volatility, diversify]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1sjpvb7.md
 url: "https://www.reddit.com/r/careerguidance/comments/1sjpvb7/advice_on_what_career_path_to_take/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.901Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjpvb7.md#c0"
+    char_span: [0, 1682]
+    sentence_count: 11
+    key_terms: [something, completely, currently, careerguidance, design, job, comments, creative]
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/careerguidance/1sjpvb7.md#c1"
+    char_span: [1697, 2464]
+    sentence_count: 7
+    key_terms: [creative, chuggingtabascosauce, "it's", try, administrative, directionless, thepandapear, illustrator]
+    section: Comments
+    token_count: 167
 ---
-
 # Advice on what career path to take?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1sjpvb7/advice_on_what_career_path_to_take/)

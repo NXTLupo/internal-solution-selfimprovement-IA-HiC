@@ -21,7 +21,7 @@ chunks:
     key_terms: [startup, university, engineering, potentially, boston, been, lab, role]
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1spc24b.md#c1"
-    char_span: [2541, 3135]
+    char_span: [2541, 3134]
     sentence_count: 3
     key_terms: ["you're", involvement, negotiating, opportunity, motivation, geography, handcuffs, somewhere]
     section: Comments

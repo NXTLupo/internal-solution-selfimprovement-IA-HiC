@@ -15,17 +15,17 @@ relevance: 45
 engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c0"
-    char_span: [0, 1885]
+    char_span: [0, 1884]
     sentence_count: 12
     key_terms: [been, "i've", interviews, cscareerquestions, data, "i'm", job, find]
-    token_count: 414
+    token_count: 413
   - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c1"
-    char_span: [1887, 3880]
+    char_span: [1886, 3879]
     sentence_count: 18
     key_terms: ["i'm", "don't", "i've", people, clear, right, like, christmas]
     token_count: 459
   - id: "articles/reddit-deep-r-cscareerquestions/c3e8ebc6bd.md#c2"
-    char_span: [3882, 5889]
+    char_span: [3881, 5888]
     sentence_count: 12
     key_terms: [leetcode, like, something, projects, coding, chili-lime-chihuahua, responsible-elk-1939, "don't"]
     token_count: 470

@@ -23,7 +23,7 @@ chunks:
     key_terms: [business, comments, majoring, science, advice, anyone, co-ops, health]
     token_count: 144
   - id: "social-intelligence/reddit-deep/neu/1t2lqx4.md#c1"
-    char_span: [557, 2454]
+    char_span: [556, 2453]
     sentence_count: 7
     key_terms: [business, like, healthcare, investmentpuzzled800, combined, doing, major, roles]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [offer, company, developer, cscareerquestions, career, devops, intern, months]
     token_count: 310
   - id: "social-intelligence/reddit-deep/cscareerquestions/1r8e3ay.md#c1"
-    char_span: [1334, 2254]
+    char_span: [1333, 2253]
     sentence_count: 6
     key_terms: [legitimate-brain-978, offer, chances, company, embedded, later, too, want]
     section: Comments

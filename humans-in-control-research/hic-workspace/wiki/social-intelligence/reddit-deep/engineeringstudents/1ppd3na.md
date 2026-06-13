@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, gpa, job, comments, don, give, got, low]
     token_count: 281
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c1"
-    char_span: [1151, 3000]
+    char_span: [1150, 2999]
     sentence_count: 11
     key_terms: [gambingabacho, good, gpa, definitely, industry, hopeful, making, matter]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c2"
-    char_span: [2790, 3050]
+    char_span: [2789, 3049]
     sentence_count: 1
     key_terms: [matter, "it's", exoduseducation, timewaster50455, goddamnit, attitude, sharpest, stubborn]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ppd3na.md#c3"
-    char_span: [3052, 4764]
+    char_span: [3051, 4763]
     sentence_count: 15
     key_terms: [gambingabacho, because, traditional, general, getting, process, advice, people]
     section: Comments

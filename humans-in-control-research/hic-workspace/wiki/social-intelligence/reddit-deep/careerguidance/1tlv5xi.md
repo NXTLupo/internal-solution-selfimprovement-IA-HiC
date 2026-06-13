@@ -23,7 +23,7 @@ chunks:
     key_terms: [job, careerguidance, paying, comments, licence, higher, gaurd, get]
     token_count: 187
   - id: "social-intelligence/reddit-deep/careerguidance/1tlv5xi.md#c1"
-    char_span: [715, 1299]
+    char_span: [714, 1298]
     sentence_count: 4
     key_terms: [paying, job, higher, invest, set, billygrinrider, enforcement, interesting]
     section: Comments

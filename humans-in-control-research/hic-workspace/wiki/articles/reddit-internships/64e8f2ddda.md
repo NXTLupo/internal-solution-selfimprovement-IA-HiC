@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-internships/64e8f2ddda.md#c0"
-    char_span: [0, 1884]
+    char_span: [0, 1883]
     sentence_count: 1
     key_terms: [internships, apply, the-10-best-websites-for-finding-an-internship, how-many-internships-should-i-apply-to, indeed, resume, https, com]
-    token_count: 479
+    token_count: 478
   - id: "articles/reddit-internships/64e8f2ddda.md#c1"
-    char_span: [1886, 3757]
+    char_span: [1885, 3756]
     sentence_count: 1
     key_terms: [follow-ups, resume, follow-up, recruiter, applying, how-and-why-write-great-cover-letter, cover, track]
     token_count: 475

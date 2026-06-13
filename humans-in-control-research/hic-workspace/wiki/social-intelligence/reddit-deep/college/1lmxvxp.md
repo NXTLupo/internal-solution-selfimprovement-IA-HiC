@@ -23,7 +23,7 @@ chunks:
     key_terms: [been, college, comments, classes, anyone, taking, background-push-2448, haven]
     token_count: 248
   - id: "social-intelligence/reddit-deep/college/1lmxvxp.md#c1"
-    char_span: [1039, 2701]
+    char_span: [1038, 2700]
     sentence_count: 16
     key_terms: [background-push-2448, sorry, lost, sleepybear647, dad, semester, college, people]
     section: Comments

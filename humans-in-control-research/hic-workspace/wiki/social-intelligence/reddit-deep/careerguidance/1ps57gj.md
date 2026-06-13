@@ -21,31 +21,31 @@ chunks:
     key_terms: [careerguidance, career, comments, yourself, purpose, advice, attach, best]
     token_count: 182
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c1"
-    char_span: [769, 2837]
+    char_span: [768, 2836]
     sentence_count: 16
     key_terms: [work, experience, understandingodd7952, role, degree, notalwaysuhb, too, internship]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c2"
-    char_span: [2839, 3953]
+    char_span: [2838, 3952]
     sentence_count: 8
     key_terms: [priority, work, boss, list, time, everyone, industry-dependent, job]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c3"
-    char_span: [3955, 6059]
+    char_span: [3954, 6058]
     sentence_count: 13
     key_terms: [never, geohog713, job, focused, someone, willing, "you're", opportunities]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c4"
-    char_span: [6061, 8230]
+    char_span: [6060, 8229]
     sentence_count: 21
     key_terms: [delegate, get, people, help, manage, field, learn, like]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1ps57gj.md#c5"
-    char_span: [8232, 10414]
+    char_span: [8231, 10413]
     sentence_count: 19
     key_terms: [manager, keep, opportunity, learn, opportunities, focus, development, back]
     section: Comments

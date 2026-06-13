@@ -18,10 +18,10 @@ industries: [higher_ed, financial_services]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1sqim19.md#c0"
-    char_span: [0, 365]
+    char_span: [0, 364]
     sentence_count: 4
     key_terms: [neu, comments, finance, program, priorityround7809, opportunities, prospective, reddit-deep]
-    token_count: 97
+    token_count: 96
 ---
 # Finance program
 

@@ -23,31 +23,31 @@ chunks:
     key_terms: [years, applyingtocollege, schools, "i'm", comments, rejected, succeed, entire]
     token_count: 395
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c1"
-    char_span: [1664, 3613]
+    char_span: [1663, 3612]
     sentence_count: 13
     key_terms: [school, ivy, college, state, student, being, successful, schools]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c2"
-    char_span: [3615, 3773]
+    char_span: [3614, 3772]
     sentence_count: 4
     key_terms: [disappointment, absolutely, warranted, ivy-tier, thinking, getting, entire, school]
     section: Comments
     token_count: 34
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c3"
-    char_span: [3775, 5983]
+    char_span: [3774, 5982]
     sentence_count: 21
     key_terms: [school, college, get, going, best, goal, ivy-tier, research]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c4"
-    char_span: [5698, 6030]
+    char_span: [5697, 6029]
     sentence_count: 5
     key_terms: [research, school, state, inexpensively, constraint, gradschool, important, requisite]
     section: Comments
     token_count: 74
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s5rhgn.md#c5"
-    char_span: [6032, 6378]
+    char_span: [6031, 6377]
     sentence_count: 2
     key_terms: [juniorreserve1560, twixmerlin512, discouraged, especially, community, financial, decision, college]
     section: Comments

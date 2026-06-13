@@ -23,19 +23,19 @@ chunks:
     key_terms: [applications, universities, applyingtocollege, student, advice, international, scholarships, feel]
     token_count: 349
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c1"
-    char_span: [1548, 3217]
+    char_span: [1547, 3216]
     sentence_count: 15
     key_terms: [major, school, throwawaygremlins, apply, application, per, year, realistic]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c2"
-    char_span: [3219, 5319]
+    char_span: [3218, 5318]
     sentence_count: 18
     key_terms: [school, schools, financial, aid, scholarships, "you're", need-aware, selective]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mv33nq.md#c3"
-    char_span: [5321, 7417]
+    char_span: [5320, 7416]
     sentence_count: 18
     key_terms: [international, admissions, look, students, schools, internationals, competitive, like]
     section: Comments

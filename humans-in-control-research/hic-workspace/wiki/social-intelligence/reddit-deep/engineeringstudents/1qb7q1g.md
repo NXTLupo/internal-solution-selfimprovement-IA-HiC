@@ -23,7 +23,7 @@ chunks:
     key_terms: [math, minor, engineering, engineeringstudents, comp, sci, considering, comments]
     token_count: 198
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qb7q1g.md#c1"
-    char_span: [874, 1338]
+    char_span: [873, 1337]
     sentence_count: 2
     key_terms: [difference, csguy29, quakingquakersquake, agree, minor, edge, math, curriculum]
     section: Comments

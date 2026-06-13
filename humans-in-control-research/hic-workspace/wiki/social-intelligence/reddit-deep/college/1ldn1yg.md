@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/college/1ldn1yg.md#c0"
-    char_span: [0, 2030]
+    char_span: [0, 2029]
     sentence_count: 16
     key_terms: [discussion, something, college, chegg, post, unit, reply, week]
     token_count: 465

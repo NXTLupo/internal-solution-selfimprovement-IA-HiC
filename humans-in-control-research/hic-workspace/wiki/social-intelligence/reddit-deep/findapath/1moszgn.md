@@ -23,7 +23,7 @@ chunks:
     key_terms: [want, animals, career, work, findapath, comments, pursuing, future]
     token_count: 219
   - id: "social-intelligence/reddit-deep/findapath/1moszgn.md#c1"
-    char_span: [870, 2747]
+    char_span: [869, 2746]
     sentence_count: 18
     key_terms: [thank, helpful, people, please, here, findapath, comments, everyone]
     section: Comments

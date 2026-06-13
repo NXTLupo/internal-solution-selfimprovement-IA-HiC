@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1qt5vl0.md#c0"
-    char_span: [0, 311]
+    char_span: [0, 310]
     sentence_count: 1
     key_terms: [artificial, comments, development, dog-feeding, reddit-deep, "linux's", helper, kernel]
-    token_count: 87
+    token_count: 86
 ---
 # Linux's b4 kernel development tool now dog-feeding its AI agent code review helper
 

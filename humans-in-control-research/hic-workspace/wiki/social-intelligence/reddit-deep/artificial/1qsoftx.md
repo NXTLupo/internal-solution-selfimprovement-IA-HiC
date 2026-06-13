@@ -23,25 +23,25 @@ chunks:
     key_terms: [comments, bot, source, bots, post, moltbook, open, artificial]
     token_count: 304
   - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c1"
-    char_span: [1262, 2454]
+    char_span: [1261, 2453]
     sentence_count: 10
     key_terms: [prompt, interested, didn, injections, clawdbot, moltbook, not-autonomous-at-all, claude]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c2"
-    char_span: [2456, 4170]
+    char_span: [2455, 4169]
     sentence_count: 11
     key_terms: [conditiontall1719, moltbook, lot, injection, nightmare, compared, openclaw, security]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c3"
-    char_span: [4173, 5984]
+    char_span: [4172, 5983]
     sentence_count: 15
     key_terms: ["that's", "there's", prompting, behavior, previous, research, "they're", people]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/artificial/1qsoftx.md#c4"
-    char_span: [5986, 7164]
+    char_span: [5985, 7163]
     sentence_count: 8
     key_terms: [patterns, mycall, people, difficultcharacter, questionbegger9000, conditiontall1719, "it's", like]
     section: Comments

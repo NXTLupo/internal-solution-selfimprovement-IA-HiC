@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rt5jgn.md#c0"
-    char_span: [0, 1723]
+    char_span: [0, 1722]
     sentence_count: 9
     key_terms: [engineering, year, getting, experience, engineeringstudents, been, get, company]
-    token_count: 362
+    token_count: 361
 ---
 # Career Prospects for Mechanical Engineering Students
 

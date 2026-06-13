@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1til1sf.md
 url: "https://www.reddit.com/r/careerguidance/comments/1til1sf/any_advice_on_what_career_path_a_19_yo_should/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.890Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1til1sf.md#c0"
+    char_span: [0, 1145]
+    sentence_count: 12
+    key_terms: [careerguidance, comments, thought, advice, career, heard, major, maybe]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/careerguidance/1til1sf.md#c1"
+    char_span: [1160, 2725]
+    sentence_count: 6
+    key_terms: [healthcare, research, medical, pharmaceutical, coordination, like, want, different]
+    section: Comments
+    token_count: 304
 ---
-
 # Any advice on what career path a 19 yo should pursue?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1til1sf/any_advice_on_what_career_path_a_19_yo_should/)

@@ -23,31 +23,31 @@ chunks:
     key_terms: [investing, portfolio, comments, thinking, etf, konrad777777, reddit-deep, speculation]
     token_count: 194
   - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c1"
-    char_span: [729, 2293]
+    char_span: [728, 2292]
     sentence_count: 14
     key_terms: [redwire, companies, rayoflight88, rdw, rklb, want, portfolio, growth]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c2"
-    char_span: [2295, 4143]
+    char_span: [2294, 4142]
     sentence_count: 14
     key_terms: [company, back, goes, rklb, undervalued, been, good, like]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c3"
-    char_span: [4145, 5582]
+    char_span: [4144, 5581]
     sentence_count: 10
     key_terms: [profits, next, sentiment, happier, couldn, market, retail, maybe]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c4"
-    char_span: [5584, 7528]
+    char_span: [5583, 7527]
     sentence_count: 24
     key_terms: [especially, learn, speculative, portfolio, compare, deleted, people, simply]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/investing/1m4khme.md#c5"
-    char_span: [7530, 8226]
+    char_span: [7529, 8225]
     sentence_count: 11
     key_terms: [sell, automated, often, panic, been, day, sold, time]
     section: Comments

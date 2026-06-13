@@ -15,12 +15,12 @@ relevance: 30
 engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/1ecb5ac5d6.md#c0"
-    char_span: [0, 2393]
+    char_span: [0, 2392]
     sentence_count: 16
     key_terms: [college, people, trade, tradesmen, skilled, careerguidance, degree, trades]
-    token_count: 503
+    token_count: 502
   - id: "articles/reddit-deep-r-careerguidance/1ecb5ac5d6.md#c1"
-    char_span: [2395, 4155]
+    char_span: [2394, 4154]
     sentence_count: 12
     key_terms: [company, people, trades, human, point, jmclondon97, need, guaranteed]
     token_count: 409

@@ -28,31 +28,31 @@ chunks:
     key_terms: [right, psychologically, insignificant, subscriptions, corporations, neighborhood, transparency, fundamental]
     token_count: 189
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c2"
-    char_span: [3032, 4897]
+    char_span: [3031, 4896]
     sentence_count: 8
     key_terms: [llama3, model, competition, like, r-chatgpt-1050422060352024636, meta-llama, benchmark, decisions]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c3"
-    char_span: [4899, 6173]
+    char_span: [4898, 6172]
     sentence_count: 10
     key_terms: [deleted, military, palantir, become, ethics, safety, trust, pyroclastic466]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c4"
-    char_span: [6175, 7991]
+    char_span: [6174, 7990]
     sentence_count: 17
     key_terms: [avalancharian, being, able, like, numbers, openai, feel, get]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c5"
-    char_span: [7993, 9704]
+    char_span: [7992, 9703]
     sentence_count: 10
     key_terms: [people, de6cac1a4117a220e5e456856602bd8aa666dfe3, vbelladonnav, care, like, expression, without, saying]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/chatgpt/1ns9ziz.md#c6"
-    char_span: [9706, 11240]
+    char_span: [9705, 11239]
     sentence_count: 9
     key_terms: [being, model, keep, use, switched, person, right, using]
     section: Comments

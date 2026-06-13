@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1n4emde.md#c0"
-    char_span: [0, 1090]
+    char_span: [0, 1089]
     sentence_count: 8
     key_terms: [questions, chatgpt, alternative, chat, comments, better, openai, review]
     token_count: 267

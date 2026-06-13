@@ -21,7 +21,7 @@ chunks:
     key_terms: [comments, much-general-1686, neu, northeastern, reddit-deep, applied, posted, reddit]
     token_count: 75
   - id: "social-intelligence/reddit-deep/neu/1qpygk3.md#c1"
-    char_span: [254, 1134]
+    char_span: [253, 1133]
     sentence_count: 6
     key_terms: [international, engineering, scholarship, mechanical, congrats, honors, promptresponsible123, communicationok3228]
     section: Comments

@@ -21,37 +21,37 @@ chunks:
     key_terms: [eventually, reach, years, level, principal, cscareerquestions, tech, anyone]
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwef8o.md#c1"
-    char_span: [2053, 4013]
+    char_span: [2052, 4012]
     sentence_count: 18
     key_terms: [senior, company, staff, get, people, broad-cranberry-9050, life, years]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwef8o.md#c2"
-    char_span: [4015, 5765]
+    char_span: [4014, 5764]
     sentence_count: 14
     key_terms: [senior, beyond, above, going, good, job, work, company]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwef8o.md#c3"
-    char_span: [5767, 7929]
+    char_span: [5766, 7928]
     sentence_count: 16
     key_terms: [like, engineering, mechanical, feel, big-touch-9293, switch, manufacturing, jobs]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwef8o.md#c4"
-    char_span: [7931, 9494]
+    char_span: [7930, 9493]
     sentence_count: 8
     key_terms: [got, company, team, management, nothing, career, altruistic-cattle761, anywayheres1derwall]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwef8o.md#c5"
-    char_span: [9496, 10929]
+    char_span: [9495, 10928]
     sentence_count: 12
     key_terms: [level, mid, "i'm", promoted, company, change, "didn't", higher]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwef8o.md#c6"
-    char_span: [10931, 12099]
+    char_span: [10930, 12098]
     sentence_count: 7
     key_terms: [being, doing, work, projects, demo, company, towards, senior]
     section: Comments

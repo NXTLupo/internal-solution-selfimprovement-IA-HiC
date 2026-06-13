@@ -23,37 +23,37 @@ chunks:
     key_terms: [nvidia, intel, x86, platforms, wallstreetbets, collaboration, cpus, pcs]
     token_count: 421
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nk5cl8.md#c1"
-    char_span: [1748, 2699]
+    char_span: [1747, 2698]
     sentence_count: 2
     key_terms: [https, af05301b2d9783a10652b46cfa08fd9ec44b858b, e6f5f22cefd455a831f5fd3a44383bd52f700d76, comments, discord, preview, format, reddit]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nk5cl8.md#c2"
-    char_span: [2701, 4141]
+    char_span: [2700, 4140]
     sentence_count: 9
     key_terms: [what-ever-became-of-microsofts-150-million-investment-in-apple, nvidia, intel, e9b523bae59bf5d1c9363b74aad1a41a27800588, billion, deleted, holder, acidicvaginaleakage]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nk5cl8.md#c3"
-    char_span: [4143, 5681]
+    char_span: [4142, 5680]
     sentence_count: 7
     key_terms: [government, attention, bought, pelosi, people, https, intel, trump]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nk5cl8.md#c4"
-    char_span: [5515, 6611]
+    char_span: [5514, 6610]
     sentence_count: 2
     key_terms: [nana, https, intel, zestyclose-ad-132, life, disappointing, gkr9t2d39xpf1, blondeplanet]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nk5cl8.md#c5"
-    char_span: [6613, 7503]
+    char_span: [6612, 7502]
     sentence_count: 13
     key_terms: [intel, buy, intc, bought, option, price, did, like]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/wallstreetbets/1nk5cl8.md#c6"
-    char_span: [7505, 8867]
+    char_span: [7504, 8866]
     sentence_count: 6
     key_terms: [amd, no-breakfast-8154, acidicvaginaleakage, chips, right, "it's", tsmc, administration]
     section: Comments

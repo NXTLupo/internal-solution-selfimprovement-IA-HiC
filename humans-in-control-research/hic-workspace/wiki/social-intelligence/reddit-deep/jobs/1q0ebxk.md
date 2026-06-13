@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1q0ebxk.md#c0"
-    char_span: [0, 1602]
+    char_span: [0, 1601]
     sentence_count: 11
     key_terms: [courses, mathematics, extremely, masters, learn, study, back, phd]
-    token_count: 354
+    token_count: 353
 ---
 # Requesting advice on what topics to learn for job opportunities...
 

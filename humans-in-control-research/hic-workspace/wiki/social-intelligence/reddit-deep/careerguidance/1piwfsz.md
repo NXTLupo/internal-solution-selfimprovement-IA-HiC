@@ -23,7 +23,7 @@ chunks:
     key_terms: [offer, data, boeing, center, aviation, industry, careerguidance, travel]
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1piwfsz.md#c1"
-    char_span: [2231, 3751]
+    char_span: [2230, 3750]
     sentence_count: 12
     key_terms: [accept, boeing, center, offer, data, newuser2111, hear, deadline]
     section: Comments

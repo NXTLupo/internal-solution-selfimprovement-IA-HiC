@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/ee5edf20ac.md#c0"
-    char_span: [0, 2354]
+    char_span: [0, 2353]
     sentence_count: 15
     key_terms: [companies, entry, level, papers, automation, jobs, tier, research]
-    token_count: 496
+    token_count: 495
   - id: "articles/reddit-deep-r-jobs/ee5edf20ac.md#c1"
-    char_span: [2356, 3718]
+    char_span: [2355, 3717]
     sentence_count: 6
     key_terms: [companies, research, development, big, tech, government, deleted, redact]
     token_count: 317

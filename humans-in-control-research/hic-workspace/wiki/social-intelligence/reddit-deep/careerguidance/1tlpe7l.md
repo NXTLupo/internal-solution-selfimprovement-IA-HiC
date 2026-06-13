@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tlpe7l.md#c0"
-    char_span: [0, 1586]
+    char_span: [0, 1585]
     sentence_count: 21
     key_terms: [business, operations, dizzy-turnip-350, nothing, careerguidance, internships, procurement, real]
     token_count: 366

@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1lylecv.md#c0"
-    char_span: [0, 1916]
+    char_span: [0, 1915]
     sentence_count: 15
     key_terms: [university, mumbai, careerguidance, development, been, "i'm", especially, experience]
     token_count: 436

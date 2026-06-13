@@ -23,13 +23,13 @@ chunks:
     key_terms: [advice, cscareerquestions, "i'm", "i've", journey, overwhelming, learn, right]
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mqjui7.md#c1"
-    char_span: [1904, 4049]
+    char_span: [1903, 4048]
     sentence_count: 31
     key_terms: [everything, internship, "don't", learn, major, never, internships, opportunity]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mqjui7.md#c2"
-    char_span: [4051, 4591]
+    char_span: [4050, 4590]
     sentence_count: 9
     key_terms: [something, tutorials, anything, tutorial, follow, learn, find, want]
     section: Comments

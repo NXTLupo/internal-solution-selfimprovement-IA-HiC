@@ -15,12 +15,12 @@ relevance: 50
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-neu/a9cc3cc0d7.md#c0"
-    char_span: [0, 2085]
+    char_span: [0, 2084]
     sentence_count: 7
     key_terms: [northeastern, engineering, analytics, software, co-op, data, scranton, trying]
-    token_count: 470
+    token_count: 469
   - id: "articles/reddit-deep-r-neu/a9cc3cc0d7.md#c1"
-    char_span: [2087, 2455]
+    char_span: [2086, 2454]
     sentence_count: 3
     key_terms: [levzn, else, like, few-lawyer3707, gooseclimber, engineering, personally, analytics]
     token_count: 95

@@ -23,7 +23,7 @@ chunks:
     key_terms: [company, help, workonline, comments, because, payment, find, scam]
     token_count: 164
   - id: "social-intelligence/reddit-deep/workonline/1pkscmb.md#c1"
-    char_span: [728, 1584]
+    char_span: [727, 1583]
     sentence_count: 1
     key_terms: [dooroom-brass-door-stops-hole-free-bathroom-door-stopper-heavy-duty-floor-wall-mount-bumper-non-magnetic-door-holder-catch, products, https, dooroom, com, www, residencesupply, pesu-door-stop]
     section: Comments

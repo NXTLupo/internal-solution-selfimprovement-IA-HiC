@@ -147,7 +147,9 @@ async function callClassifier(userText: string, aiText: string, activeArtifactKi
             },
         }, {
             label: 'ChatFeedback classify',
-            maxAttempts: 1,
+            // 2026-06-12 - one retry (was 1 attempt): transient provider
+            // hiccups were a silent-drop class alongside parse failures.
+            maxAttempts: 2,
             requestTimeoutMs: 10_000,
         });
 
@@ -161,8 +163,27 @@ async function callClassifier(userText: string, aiText: string, activeArtifactKi
             .replace(/```\s*$/, '')
             .trim();
 
-        const obj = JSON.parse(cleaned);
-        if (!obj || typeof obj.type !== 'string') return null;
+        // 2026-06-12 - CAPTURE ROBUSTNESS (supercharge 6.1). The classifier
+        // sometimes answers in prose despite responseMimeType json (observed
+        // live: 'Unexpected token H, "Here is th"...'). Previously this was a
+        // SILENT SIGNAL DROP. Now: (1) salvage the first {...} object from a
+        // prose-wrapped reply before parsing; (2) on total parse failure fall
+        // back to a deterministic regex classification so an imperative
+        // correction still persists as a signal.
+        let obj: any = null;
+        try {
+            obj = JSON.parse(cleaned);
+        } catch {
+            const s = cleaned.indexOf('{');
+            const e = cleaned.lastIndexOf('}');
+            if (s >= 0 && e > s) {
+                try { obj = JSON.parse(cleaned.slice(s, e + 1)); } catch { /* fall through */ }
+            }
+        }
+        if (!obj || typeof obj.type !== 'string') {
+            console.warn(`[chatFeedbackExtractor] classifier returned unparseable output (${cleaned.slice(0, 60)}...) - using regex fallback`);
+            return _regexFallbackClassify(userText, activeArtifactKind);
+        }
 
         return {
             type: obj.type,
@@ -171,12 +192,30 @@ async function callClassifier(userText: string, aiText: string, activeArtifactKi
             artifactKind: typeof obj.artifactKind === 'string' ? obj.artifactKind : activeArtifactKind,
         };
     } catch (err: any) {
-        // Classifier outage is non-fatal -- the signal is just lost. Log
-        // the error so we can see when this is happening at scale (it should
-        // be rare with Gemini Flash; was 100% with the old OpenAI path).
+        // Provider outage is non-fatal, but the signal must not be lost
+        // silently: deterministic regex fallback classification.
         console.warn('[chatFeedbackExtractor] classifier failed:', err?.message || err);
-        return null;
+        return _regexFallbackClassify(userText, activeArtifactKind);
     }
+}
+
+/** Deterministic fallback when the LLM classifier is unavailable or emits
+ *  unparseable output. Imperative phrasing ("make/change/always/never...")
+ *  classifies as a correction carrying the user's verbatim words; confidence
+ *  is set below the rule-promotion threshold so it informs regeneration and
+ *  clustering without auto-writing constraints. */
+function _regexFallbackClassify(userText: string, activeArtifactKind?: string): ClassifierResult | null {
+    const t = (userText || '').trim();
+    if (!t) return null;
+    const isRule = /\b(always|never|must|from now on|every time)\b/i.test(t);
+    const isImperative = IMPERATIVE_RX.test(t);
+    if (!isRule && !isImperative) return null;
+    return {
+        type: isRule ? 'rule' : 'correction',
+        extractedRule: t.slice(0, 220),
+        confidence: 0.55,
+        artifactKind: activeArtifactKind,
+    };
 }
 
 // --- TOP-LEVEL ---

@@ -21,25 +21,25 @@ chunks:
     key_terms: [cscareerquestions, decent, data, analytics, comments, doing, great, don]
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c1"
-    char_span: [1351, 3389]
+    char_span: [1350, 3388]
     sentence_count: 25
     key_terms: [companies, security, lack, people, "you'll", apply, jobs, candidate]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c2"
-    char_span: [3391, 5223]
+    char_span: [3390, 5222]
     sentence_count: 9
     key_terms: [demonstrate, informatics, ehh, management, something, everyone, actuary, health]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c3"
-    char_span: [5225, 6672]
+    char_span: [5224, 6671]
     sentence_count: 17
     key_terms: [executives, tech, illustrious-pound266, high, security, market, great, job]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q4bw7g.md#c4"
-    char_span: [6674, 7703]
+    char_span: [6673, 7702]
     sentence_count: 3
     key_terms: [apple-google-415-million-poaching-settlement, idontevenknowwhats, ceo, get, lane, crocodile-jesus, greenacregal, immigration]
     section: Comments

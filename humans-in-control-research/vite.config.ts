@@ -101,22 +101,23 @@ export default defineConfig(({ mode }) => {
       // bundle's raw UTF-8 glyph bytes were mis-decoded. (Emoji are separately
       // BANNED and stripped from the UI per the no-emoji rule.)
       esbuild: { charset: 'ascii' },
-      // 2026-05-12 — stable chunk names to survive Docker rebuilds while
-      // a tab is open. Without this, every rebuild rotates the content
-      // hashes on ~85 dynamic-import chunks (prototypeBuilder, sessionService,
-      // exportService, prototypeLibrary, etc.) and the open tab 404s the
-      // moment the user fires #proto / #presentation / Save Session.
+      // 2026-06-12 — chunk filenames are CONTENT-HASHED. This reverses the
+      // 2026-05-12 "stable chunk names" decision, which caused the P0
+      // "dual app boot" bug: an old tab revalidating an un-hashed chunk
+      // after a Docker rebuild received the NEW build's chunk content,
+      // whose static imports pulled in and executed the entire new entry
+      // bundle — a second React app mounted at #root and silently reset
+      // the user's in-flight session to the landing page. Nothing "failed"
+      // (valid JS loaded), so neither ChunkLoadGuard nor AppErrorBoundary
+      // could catch it.
       //
-      // The main entry bundle KEEPS its content hash (so cache-busting on
-      // the index works), and the index.html is served with no-store
-      // (see nginx.conf) so every page load pulls the latest entry. But
-      // child chunks now have stable URLs (no hash) — same source → same
-      // URL across rebuilds — so an in-flight tab can keep loading
-      // unchanged chunks even after a rebuild swapped the entry hash.
-      //
-      // Paired with nginx.conf — /assets/chunks/* has must-revalidate so
-      // when a chunk's content DOES change, the browser picks it up on
-      // the next request instead of serving the cached stale version.
+      // The contract now: unchanged source keeps the same hash, so an open
+      // tab keeps loading unchanged chunks across rebuilds. A CHANGED chunk
+      // gets a new URL, so the old tab 404s on it and ChunkLoadGuard shows
+      // its designed banner (Save Session → Reload) instead of a silent
+      // landing reset. index.html stays no-store (nginx.conf) so fresh page
+      // loads always pull the latest entry. Hashed chunk URLs are safe to
+      // cache long-term (nginx /assets/chunks/* policy may be immutable).
       build: {
         // 2026-06-06 — sourcemaps enabled to diagnose the recurring
         // "Cannot read properties of undefined (reading '0')" crash in
@@ -129,7 +130,7 @@ export default defineConfig(({ mode }) => {
         rollupOptions: {
           output: {
             entryFileNames: 'assets/[name]-[hash].js',
-            chunkFileNames: 'assets/chunks/[name].js',
+            chunkFileNames: 'assets/chunks/[name]-[hash].js',
             assetFileNames: 'assets/[name]-[hash].[ext]',
           },
         },

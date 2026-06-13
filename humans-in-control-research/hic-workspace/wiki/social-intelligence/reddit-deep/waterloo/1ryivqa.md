@@ -23,19 +23,19 @@ chunks:
     key_terms: [opportunities, "i'm", comments, waterloo, job, jobs, reddit-deep, everywhere]
     token_count: 151
   - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c1"
-    char_span: [638, 1911]
+    char_span: [637, 1910]
     sentence_count: 10
     key_terms: [like, https, employment, now-hiring, starlingcs, recommend, herrles, student]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c2"
-    char_span: [1913, 3478]
+    char_span: [1912, 3477]
     sentence_count: 11
     key_terms: [hiring, jobs, students, sumknowbuddy, positions, westmount, "harvey's", location]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/waterloo/1ryivqa.md#c3"
-    char_span: [3480, 4395]
+    char_span: [3479, 4394]
     sentence_count: 8
     key_terms: [service, years, job, jobs, blackwoodjohnson, nursestephykat, frustrations, professional]
     section: Comments

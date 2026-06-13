@@ -23,25 +23,25 @@ chunks:
     key_terms: [schools, berkeley, "i'm", prestigious, applyingtocollege, deciding, college, private]
     token_count: 359
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c1"
-    char_span: [1656, 3750]
+    char_span: [1655, 3749]
     sentence_count: 28
     key_terms: [school, private, university, sometimes, better, agree, end, fit]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c2"
-    char_span: [3752, 5314]
+    char_span: [3751, 5313]
     sentence_count: 15
     key_terms: [austin, better, people, definitely, experience, getting, important-quit-9354, agree]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c3"
-    char_span: [5316, 6711]
+    char_span: [5315, 6710]
     sentence_count: 10
     key_terms: [education, independent, big, experience, evidence, college, private, schools]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/applyingtocollege/1r7oxpi.md#c4"
-    char_span: [6713, 7941]
+    char_span: [6712, 7940]
     sentence_count: 1
     key_terms: [private, universities, top, university, different, coddling, college, special]
     section: Comments

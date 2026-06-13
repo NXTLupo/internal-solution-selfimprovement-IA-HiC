@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1r5bbjq.md
 url: "https://www.reddit.com/r/careerguidance/comments/1r5bbjq/anybody_have_advice_on_a_fulfilling_career_path/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.900Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1r5bbjq.md#c0"
+    char_span: [0, 680]
+    sentence_count: 6
+    key_terms: [careerguidance, comments, anybody, "doesn't", working, satisfaction, reddit-deep, fulfilling]
+    token_count: 176
+  - id: "social-intelligence/reddit-deep/careerguidance/1r5bbjq.md#c1"
+    char_span: [695, 1848]
+    sentence_count: 11
+    key_terms: [experience, get, home, "i'm", remodeling, opposed, though, field]
+    section: Comments
+    token_count: 312
 ---
-
 # Anybody have advice on a fulfilling career path that doesn't require a college degree?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1r5bbjq/anybody_have_advice_on_a_fulfilling_career_path/)

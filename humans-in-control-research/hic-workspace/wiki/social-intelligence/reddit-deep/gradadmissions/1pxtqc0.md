@@ -28,31 +28,31 @@ chunks:
     key_terms: [whether, realistically, alternative, india-based, appreciate, experience, countries, pursuing]
     token_count: 95
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c2"
-    char_span: [2297, 3962]
+    char_span: [2296, 3961]
     sentence_count: 7
     key_terms: [india, curiousvoyagerrr, master, internships, everyone, deleted, focused, masters]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c3"
-    char_span: [3964, 6059]
+    char_span: [3963, 6058]
     sentence_count: 14
     key_terms: [get, usa, faang, like, talented, deleted, enough, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c4"
-    char_span: [5784, 7411]
+    char_span: [5783, 7410]
     sentence_count: 11
     key_terms: ["master's", experience, masters, eduvouchersofficial, doing, india, years, job]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c5"
-    char_span: [7413, 8800]
+    char_span: [7412, 8799]
     sentence_count: 10
     key_terms: [chances, master, get, job, current, dear-enthusiasm-9766, level, years]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/gradadmissions/1pxtqc0.md#c6"
-    char_span: [8802, 9892]
+    char_span: [8801, 9891]
     sentence_count: 7
     key_terms: [dear-enthusiasm-9766, getting, university, please, paper, gpa, top, work]
     section: Comments

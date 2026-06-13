@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1p01qtn.md#c0"
-    char_span: [0, 1228]
+    char_span: [0, 1227]
     sentence_count: 12
     key_terms: [college, gradadmissions, school, grad, tech, comments, big, didn]
-    token_count: 314
+    token_count: 313
 ---
 # Switching from industry to grad school last second, what do I have to know?
 

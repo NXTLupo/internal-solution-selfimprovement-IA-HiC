@@ -26,13 +26,13 @@ chunks:
     key_terms: [anything, account, claude, graduation, personal, "you're", doing, want]
     token_count: 147
   - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c2"
-    char_span: [3193, 4045]
+    char_span: [3192, 4044]
     sentence_count: 6
     key_terms: [impressive-door-2616, iterativeintention, data, like, time, trustyhuskyneu, cheesypanther, orientation]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/neu/1rr2mdp.md#c3"
-    char_span: [4047, 6081]
+    char_span: [4046, 6080]
     sentence_count: 12
     key_terms: [claude, access, northeastern, usage, chat, appreciate, bostonnu, comments]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, manufacturing, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nm60jv.md#c0"
-    char_span: [0, 308]
+    char_span: [0, 307]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, engineering, reddit-deep, industrial, internship, student, byluxs]
-    token_count: 82
+    token_count: 81
 ---
 # How to find a summer internship as a Industrial Engineering student?
 

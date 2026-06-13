@@ -28,7 +28,7 @@ chunks:
     key_terms: [code, core, test, because, headers, request, "can't", environment]
     token_count: 357
   - id: "social-intelligence/reddit-deep/freelance/1r1a4yu.md#c2"
-    char_span: [3900, 5874]
+    char_span: [3899, 5873]
     sentence_count: 15
     key_terms: [platforms, documentation, assessments, "i've", try, everything, no-documentation-allowed, instead]
     section: Comments

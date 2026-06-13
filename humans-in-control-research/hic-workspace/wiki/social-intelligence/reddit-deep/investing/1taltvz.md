@@ -23,37 +23,37 @@ chunks:
     key_terms: [innovation, fund, investing, comments, returned, market, trades, years]
     token_count: 233
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c1"
-    char_span: [993, 1479]
+    char_span: [992, 1478]
     sentence_count: 2
     key_terms: [market, current, genius, hulksinvinciblepants, doing, moron, "i'm", time]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c2"
-    char_span: [1481, 3300]
+    char_span: [1480, 3299]
     sentence_count: 11
     key_terms: [earnings, broken, did, sold, yeah, remember, wonder, airplanealjefferson]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c3"
-    char_span: [3302, 4943]
+    char_span: [3301, 4942]
     sentence_count: 9
     key_terms: [fund, investors, netflix, space, picking, cramer, stocks, thenorthernwhiteboy]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c4"
-    char_span: [4945, 6100]
+    char_span: [4944, 6099]
     sentence_count: 9
     key_terms: [portfolio, rebalance, manager, notapersonaltrainer, early, etf, got, sold]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c5"
-    char_span: [6102, 7401]
+    char_span: [6101, 7400]
     sentence_count: 7
     key_terms: [glasses, stock, fund, "it's", need, greatness, millions, believe]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/investing/1taltvz.md#c6"
-    char_span: [7403, 9402]
+    char_span: [7402, 9401]
     sentence_count: 18
     key_terms: [god, gametime2325, years, don, saw, bible, picks, right]
     section: Comments

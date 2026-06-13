@@ -15,12 +15,12 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/71dcdddd23.md#c0"
-    char_span: [0, 2339]
+    char_span: [0, 2338]
     sentence_count: 22
     key_terms: [application, college, applicants, applyingtocollege, specific, essays, essay, stand]
-    token_count: 482
+    token_count: 481
   - id: "articles/reddit-deep-r-applyingtocollege/71dcdddd23.md#c1"
-    char_span: [2341, 3317]
+    char_span: [2340, 3316]
     sentence_count: 9
     key_terms: [teacher, activities, important, realistic, safeties, "there's", strong, write]
     token_count: 211

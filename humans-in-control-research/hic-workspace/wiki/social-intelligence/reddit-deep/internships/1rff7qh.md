@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, comments, summer, https, com, list, comment, posted]
     token_count: 314
   - id: "social-intelligence/reddit-deep/internships/1rff7qh.md#c1"
-    char_span: [1118, 2171]
+    char_span: [1117, 2170]
     sentence_count: 4
     key_terms: [internship, late, thank, got, too, ddddeeeeg, summer, ecstatic-attention23]
     section: Comments

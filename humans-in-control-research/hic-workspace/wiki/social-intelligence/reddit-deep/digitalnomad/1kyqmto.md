@@ -23,49 +23,49 @@ chunks:
     key_terms: [digitalnomad, nomad, considering, incredible, interviews, lifestyle, comments, reality]
     token_count: 434
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c1"
-    char_span: [1931, 4010]
+    char_span: [1930, 4009]
     sentence_count: 16
     key_terms: [been, strong, onewestern178, weeks, far, time, nomading, freedom]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c2"
-    char_span: [4012, 5967]
+    char_span: [4011, 5966]
     sentence_count: 17
     key_terms: [per, sustainable, whether, working, better, laptop, travel, enjoy]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c3"
-    char_span: [5969, 7990]
+    char_span: [5968, 7989]
     sentence_count: 19
     key_terms: [like, chandmor, travel, attitude, grounded, friends, massive, family]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c4"
-    char_span: [7992, 9969]
+    char_span: [7991, 9968]
     sentence_count: 23
     key_terms: [get, life, whaddyagot, apartment, account, details, beach, homes]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c5"
-    char_span: [9971, 12162]
+    char_span: [9970, 12161]
     sentence_count: 13
     key_terms: ["you're", recommendations, reality, gear, lot, sony, xm5, recommend]
     section: Comments
     token_count: 518
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c6"
-    char_span: [12165, 14358]
+    char_span: [12164, 14357]
     sentence_count: 20
     key_terms: [spiritual, western, canggu, woman, bali, male, next, desperate]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c7"
-    char_span: [14360, 16394]
+    char_span: [14359, 16393]
     sentence_count: 16
     key_terms: [bali, visa, portugal, nomad, threshold, chandmor, despite, digital]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/digitalnomad/1kyqmto.md#c8"
-    char_span: [16396, 16940]
+    char_span: [16395, 16939]
     sentence_count: 3
     key_terms: [address, residential, visa, country, without, did, silly-crow1726, freelancing]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, engineeringstudents, state, rit, virginia, engineering, penn, tech]
     token_count: 310
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rm13fc.md#c1"
-    char_span: [1410, 2307]
+    char_span: [1409, 2306]
     sentence_count: 15
     key_terms: [campus, living, schools, going, years, tall-cat-8890, upperclassman, comfortable]
     section: Comments

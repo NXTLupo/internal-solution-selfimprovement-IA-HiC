@@ -23,19 +23,19 @@ chunks:
     key_terms: [people, applyingtocollege, someone, essays, reddit, comments, "people's", waitlist]
     token_count: 290
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c1"
-    char_span: [1258, 2136]
+    char_span: [1257, 2135]
     sentence_count: 3
     key_terms: [people, scholargrade, ajoyr17, full-evidence-4443, halo, pub, anonymussquidd, hellomouse1234]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c2"
-    char_span: [2138, 3929]
+    char_span: [2137, 3928]
     sentence_count: 6
     key_terms: [harvard32ormcdonalds, street, valuablepriority6885, jane, essays, nobel, currently, laureate]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mcaccy.md#c3"
-    char_span: [3931, 5109]
+    char_span: [3930, 5108]
     sentence_count: 6
     key_terms: [childhoodconnect9687, account, college, student, help, jhu, nyu, yeah]
     section: Comments

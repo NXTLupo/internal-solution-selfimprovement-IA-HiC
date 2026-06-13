@@ -23,13 +23,13 @@ chunks:
     key_terms: [gpa, art, school, admissions, university, classes, program, retake]
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c1"
-    char_span: [2232, 4049]
+    char_span: [2231, 4048]
     sentence_count: 22
     key_terms: [apply, got, cinnamonstixxxx, application, get, work, everything, wanted]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/gradschool/1sm9wrn.md#c2"
-    char_span: [4051, 5643]
+    char_span: [4050, 5642]
     sentence_count: 18
     key_terms: [gpa, apply, program, got, grad, admissions, yourself, essay]
     section: Comments

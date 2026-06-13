@@ -23,13 +23,13 @@ chunks:
     key_terms: [feel, engineeringstudents, engineering, experience, comments, career, "i'm", like]
     token_count: 183
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rufhaf.md#c1"
-    char_span: [770, 2877]
+    char_span: [769, 2876]
     sentence_count: 24
     key_terms: [year, "i'm", concepts, working, co-op, good, told, important]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rufhaf.md#c2"
-    char_span: [2879, 4846]
+    char_span: [2878, 4845]
     sentence_count: 21
     key_terms: [problems, fundamentals, eventually, down, feeling, enough, never, right]
     section: Comments

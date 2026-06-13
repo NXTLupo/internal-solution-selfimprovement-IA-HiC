@@ -23,25 +23,25 @@ chunks:
     key_terms: [school, careerguidance, experience, comments, options, don, gpa, law]
     token_count: 258
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c1"
-    char_span: [1041, 3443]
+    char_span: [1040, 3442]
     sentence_count: 27
     key_terms: [learn, experience, job, grades, "you're", dont, lack, confidence]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c2"
-    char_span: [3445, 5484]
+    char_span: [3444, 5483]
     sentence_count: 15
     key_terms: [like, passionate, work, politics, degree, good, law, want]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c3"
-    char_span: [5486, 7805]
+    char_span: [5485, 7804]
     sentence_count: 16
     key_terms: ["you're", understaffed, volunteering, "it's", everything, stabilizer, something, learning]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1rm4rbc.md#c4"
-    char_span: [7810, 9456]
+    char_span: [7809, 9455]
     sentence_count: 7
     key_terms: [successful-escape-74, need, people, since, different, getting, perfect, become]
     section: Comments

@@ -26,55 +26,55 @@ chunks:
     key_terms: [managers, hiring, circumstances, overthinking, unfortunate, appreciate, especially, recruiters]
     token_count: 70
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c2"
-    char_span: [2567, 4640]
+    char_span: [2566, 4639]
     sentence_count: 20
     key_terms: [employee, employers, job, market, labor, free, good, means]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c3"
-    char_span: [4642, 6325]
+    char_span: [4641, 6324]
     sentence_count: 17
     key_terms: [market, jobs, like, want, currently, employee, believe, economy]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c4"
-    char_span: [6327, 8342]
+    char_span: [6326, 8341]
     sentence_count: 14
     key_terms: [people, because, job, hiring, doesn, familiar, history, hoppers]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c5"
-    char_span: [8344, 9892]
+    char_span: [8343, 9891]
     sentence_count: 11
     key_terms: [job, like, want, history, someone, candidate, employers, because]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c6"
-    char_span: [9894, 11502]
+    char_span: [9893, 11501]
     sentence_count: 15
     key_terms: [problem, bad, lack, culture, alignment, fit, job, getting]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c7"
-    char_span: [11504, 13131]
+    char_span: [11503, 13130]
     sentence_count: 18
     key_terms: [years, job, specialist-mix-7610, least, roles, bad, "it's", like]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c8"
-    char_span: [13133, 15248]
+    char_span: [13132, 15247]
     sentence_count: 17
     key_terms: [contract, implementation, experiences, get, new, role, experience, candidate]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c9"
-    char_span: [15250, 17341]
+    char_span: [15249, 17340]
     sentence_count: 16
     key_terms: [job, experience, roles, contract, relevant, right, like, work]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1smt1ja.md#c10"
-    char_span: [17343, 18008]
+    char_span: [17342, 18007]
     sentence_count: 6
     key_terms: [university, reason, yr-grandma-friend, did, job, restructuring, uncomfortable, parenthesis]
     section: Comments

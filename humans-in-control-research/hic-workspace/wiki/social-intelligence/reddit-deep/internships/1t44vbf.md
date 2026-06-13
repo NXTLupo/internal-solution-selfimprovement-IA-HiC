@@ -23,7 +23,7 @@ chunks:
     key_terms: [development, internships, web, internship, comments, improve, student, skills]
     token_count: 217
   - id: "social-intelligence/reddit-deep/internships/1t44vbf.md#c1"
-    char_span: [943, 1549]
+    char_span: [942, 1548]
     sentence_count: 1
     key_terms: [strangecommunity7193, apply, sweet-frosting4839, internshipdaily, explaining, greenhouse, fullstack, anything]
     section: Comments

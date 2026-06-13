@@ -43,25 +43,25 @@ chunks:
     key_terms: [reasons, nyu, cornell, friends, city, like, convince, because]
     token_count: 325
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c5"
-    char_span: [8828, 10588]
+    char_span: [8827, 10587]
     sentence_count: 12
     key_terms: [cornell, nyu, school, nyc, brands, people, community, someone]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c6"
-    char_span: [10590, 12431]
+    char_span: [10589, 12430]
     sentence_count: 20
     key_terms: [nyc, cornell, experience, stern, nyu, right, influencers, like]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c7"
-    char_span: [12433, 14432]
+    char_span: [12432, 14431]
     sentence_count: 31
     key_terms: [cornell, friends, nyu, "you're", like, went, entrepreneurship, school]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1syqg6o.md#c8"
-    char_span: [14437, 14787]
+    char_span: [14436, 14786]
     sentence_count: 3
     key_terms: [masterpiecefull2379, pearthefruit168, tarpundermybed, disregard, questions, seriously, business, because]
     section: Comments

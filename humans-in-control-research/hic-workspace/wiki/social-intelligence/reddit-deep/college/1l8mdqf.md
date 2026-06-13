@@ -23,13 +23,13 @@ chunks:
     key_terms: [math, college, start, did, comments, rebuild, science, basics]
     token_count: 334
   - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c1"
-    char_span: [1481, 3409]
+    char_span: [1480, 3408]
     sentence_count: 15
     key_terms: [math, teacher, step, level, mudcute2158, arithmetic, understand, studying]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/college/1l8mdqf.md#c2"
-    char_span: [3411, 4854]
+    char_span: [3410, 4853]
     sentence_count: 10
     key_terms: [math, class, algebra, since, questions, practice, because, college]
     section: Comments

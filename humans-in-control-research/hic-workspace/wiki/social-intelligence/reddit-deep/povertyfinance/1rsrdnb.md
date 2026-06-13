@@ -28,37 +28,37 @@ chunks:
     key_terms: ["can't", because, buy, new, "i'm", work, year, everything]
     token_count: 434
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c2"
-    char_span: [3564, 5188]
+    char_span: [3563, 5187]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c3"
-    char_span: [5190, 6908]
+    char_span: [5189, 6907]
     sentence_count: 16
     key_terms: [wishlists, post, friends, amazon, hard, assistance, netill7423, something]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c4"
-    char_span: [6910, 8709]
+    char_span: [6909, 8708]
     sentence_count: 10
     key_terms: [work, food, mom, political, outreach, watching, friends, leaning]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c5"
-    char_span: [8711, 9166]
+    char_span: [8710, 9165]
     sentence_count: 4
     key_terms: [work, doing, environmental, canvassing, nonprofit, partially, political, something]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c6"
-    char_span: [9168, 11218]
+    char_span: [9167, 11217]
     sentence_count: 26
     key_terms: [get, school, never, pelotonyogi, hard, jail, job, craigslist]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/povertyfinance/1rsrdnb.md#c7"
-    char_span: [11220, 11357]
+    char_span: [11219, 11356]
     sentence_count: 3
     key_terms: [stealing, purpose, felony, please, reward, build, steal, best]
     section: Comments

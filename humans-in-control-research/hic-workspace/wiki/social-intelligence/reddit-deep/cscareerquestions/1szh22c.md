@@ -23,67 +23,67 @@ chunks:
     key_terms: [like, cscareerquestions, turned, tech, blockchain, comments, products, better]
     token_count: 428
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c1"
-    char_span: [1881, 4154]
+    char_span: [1880, 4153]
     sentence_count: 18
     key_terms: [company, everything, years, work, department, leadership, repeatedly, director]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c2"
-    char_span: [4156, 6118]
+    char_span: [4155, 6117]
     sentence_count: 16
     key_terms: ["i'm", good, shitty, "don't", never, been, find, job]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c3"
-    char_span: [6120, 8363]
+    char_span: [6119, 8362]
     sentence_count: 16
     key_terms: [like, nobody, good, want, companies, actively, pressure, products]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c4"
-    char_span: [8365, 9848]
+    char_span: [8364, 9847]
     sentence_count: 6
     key_terms: [industry, products, used, working, build, miamiconnectionexo, cool, evil]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c5"
-    char_span: [9850, 11746]
+    char_span: [9849, 11745]
     sentence_count: 15
     key_terms: [honestly, lying, like, ones, carmychael, executives, companies, industry]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c6"
-    char_span: [11748, 13292]
+    char_span: [11747, 13291]
     sentence_count: 10
     key_terms: [industry, negative, happening, anymore, effect, greed, world, been]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c7"
-    char_span: [13294, 14824]
+    char_span: [13293, 14823]
     sentence_count: 13
     key_terms: [sector, responsible, tech, capitalism, industry, failing, largely, society]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c8"
-    char_span: [14828, 16490]
+    char_span: [14827, 16489]
     sentence_count: 8
     key_terms: [empathy-paul-bloom-joe-rigney-hannah-arendt-allie-beth-stuckey, capitalism, years, industry, "you're", power, stage, mindsufficient769]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c9"
-    char_span: [16492, 17591]
+    char_span: [16491, 17590]
     sentence_count: 12
     key_terms: [word, innovation, something, machine, amish, part, enshitification, icy-hunter-9600]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c10"
-    char_span: [17593, 19700]
+    char_span: [17592, 19699]
     sentence_count: 16
     key_terms: [people, automation, bad, used, job, dashboards, ourselves, unethical]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1szh22c.md#c11"
-    char_span: [19702, 20458]
+    char_span: [19701, 20457]
     sentence_count: 7
     key_terms: [company, emojis, people, level, using, ex-investmentment, meowmeowhappy, xiongchiamiov]
     section: Comments

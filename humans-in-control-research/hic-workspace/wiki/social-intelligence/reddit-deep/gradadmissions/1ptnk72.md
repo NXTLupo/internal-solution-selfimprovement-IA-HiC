@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ptnk72.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ptnk72/grad_school_admissions_fall_2026/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "Biological Sciences"
 extracted_at: "2026-06-06T23:23:15.593Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ptnk72.md#c0"
+    char_span: [0, 260]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, wayaffectionate1530, reddit-deep, admissions, posted, reddit, school]
+    token_count: 79
 ---
-
 # Grad school admissions fall 2026
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ptnk72/grad_school_admissions_fall_2026/)

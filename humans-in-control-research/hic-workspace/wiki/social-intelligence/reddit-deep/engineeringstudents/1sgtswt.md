@@ -23,25 +23,25 @@ chunks:
     key_terms: [algebra, linear, engineering, engineeringstudents, compute, degree, "don't", equations]
     token_count: 397
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c1"
-    char_span: [1824, 3214]
+    char_span: [1823, 3213]
     sentence_count: 7
     key_terms: [did, fea, functions, spherical, infinite, algebra, cosine, linear]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c2"
-    char_span: [3216, 5134]
+    char_span: [3215, 5133]
     sentence_count: 10
     key_terms: [algebra, linear, calculus, require, vectors, matlab, basic, never]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c3"
-    char_span: [5136, 5917]
+    char_span: [5135, 5916]
     sentence_count: 5
     key_terms: [engineer, algebra, depends, working, design, linear, system, "that's"]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sgtswt.md#c4"
-    char_span: [5919, 7963]
+    char_span: [5918, 7962]
     sentence_count: 8
     key_terms: [algebra, linear, necessary, need, calculus, "doesn't", count, doing]
     section: Comments

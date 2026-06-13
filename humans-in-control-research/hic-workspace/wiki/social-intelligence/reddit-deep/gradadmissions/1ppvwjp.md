@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1ppvwjp.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1ppvwjp/grad_school_admissions/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "Humanities"
 extracted_at: "2026-06-06T23:23:15.593Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1ppvwjp.md#c0"
+    char_span: [0, 240]
+    sentence_count: 1
+    key_terms: [gradadmissions, comments, leather-seesaw-1763, reddit-deep, admissions, posted, reddit, school]
+    token_count: 72
 ---
-
 # grad school admissions
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1ppvwjp/grad_school_admissions/)

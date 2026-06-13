@@ -1,0 +1,14 @@
+Topic 10 - Content Sample
+Number of content items: 25
+Top words: vanguard, loan, plan, ups, 401k, rollover, check
+
+Content 1 (length: 217 chars):
+Lost/delayed 401k rollover check from vanguard UPDATE: Package(?) showed up two days late after having no scans in the UPS system for 3+ days. It got lost/delayed getting to the local hub in LA, but I don’t blame UPS.
+
+Content 2 (length: 256 chars):
+Vanguard is very fast on ACH transfers, which are free.  Always 1 day as long as a weekend is not in the way.
+It’s a 401k rollover. If you can point me to an electronic rollover option, I’d love it. But I’m 99.999% certain the only option is a paper check.
+
+Content 3 (length: 184 chars):
+Apparently I have to open my own inquiry with UPS, then let Vanguard know I’ve done that, and after 10 days have passed from the initial check issuance, they will issue me a new check.
+

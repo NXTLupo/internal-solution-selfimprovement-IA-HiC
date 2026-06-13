@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, comments, homework, career, skills, "what's", learn, tasks]
     token_count: 116
   - id: "social-intelligence/reddit-deep/careerguidance/1rh0hlt.md#c1"
-    char_span: [401, 1474]
+    char_span: [400, 1473]
     sentence_count: 4
     key_terms: [skills, being, management, company, getting, learned, good, role]
     section: Comments

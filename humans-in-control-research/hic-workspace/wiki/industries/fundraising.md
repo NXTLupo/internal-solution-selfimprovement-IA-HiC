@@ -7,7 +7,7 @@ industries: [fundraising]
 status: active
 chunks:
   - id: "industries/fundraising.md#c0"
-    char_span: [0, 691]
+    char_span: [0, 690]
     sentence_count: 2
     key_terms: [client-uploads, industries, sources, shared, articles, fundraising, auto-generated, government]
     section: Cross-over verticals (shared sources) / Representative sources

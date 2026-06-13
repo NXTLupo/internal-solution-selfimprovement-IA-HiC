@@ -118,6 +118,9 @@ export function subscribeRunTotals(fn: Subscriber): () => void {
 export function normalizeModel(raw: string | undefined): ModelId {
     if (!raw) return 'unknown';
     const s = String(raw).toLowerCase().trim();
+    // 2026-06-13 - Fable 5 temporarily banned; any stray 'fable' string maps to
+    // its stand-in Opus 4.8 so cost accounting never drops to 'unknown'.
+    if (s.includes('fable')) return 'claude-opus-4-8';
     if (s.includes('opus-4-8') || s === 'claude-opus') return 'claude-opus-4-8';
     if (s.includes('opus-4-7')) return 'claude-opus-4-7';
     if (s.includes('opus-4-6')) return 'claude-opus-4-6';

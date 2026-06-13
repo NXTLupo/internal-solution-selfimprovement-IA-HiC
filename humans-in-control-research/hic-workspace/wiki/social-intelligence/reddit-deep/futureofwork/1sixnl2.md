@@ -28,7 +28,7 @@ chunks:
     key_terms: [business, ongoing, yrs, started, learning, built, development, app]
     token_count: 502
   - id: "social-intelligence/reddit-deep/futureofwork/1sixnl2.md#c2"
-    char_span: [4088, 4619]
+    char_span: [4088, 4618]
     sentence_count: 4
     key_terms: [findingbalancedaily, time, productivity, maintenance, automation, refreshing, attention, healthier]
     token_count: 111

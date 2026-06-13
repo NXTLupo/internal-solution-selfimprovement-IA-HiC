@@ -31,49 +31,49 @@ chunks:
     key_terms: [budget, specific, government, get, agency, organization, professional, being]
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c3"
-    char_span: [6131, 7884]
+    char_span: [6131, 7883]
     sentence_count: 8
     key_terms: [pension, weeks, money, get, vacation, extra, leave, years]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c4"
-    char_span: [7886, 9621]
+    char_span: [7885, 9620]
     sentence_count: 16
     key_terms: [mba, top, online, school, accreditation, usewinter2668, get, good]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c5"
-    char_span: [9623, 11746]
+    char_span: [9622, 11745]
     sentence_count: 29
     key_terms: [top, years, time, mba, doing, money, don, full]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c6"
-    char_span: [11748, 12995]
+    char_span: [11747, 12994]
     sentence_count: 15
     key_terms: [get, education, something, money, been, else, job, okay]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c7"
-    char_span: [12997, 15101]
+    char_span: [12996, 15100]
     sentence_count: 16
     key_terms: [job, get, mba, private, coordinator, keep, too, university]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c8"
-    char_span: [14831, 15487]
+    char_span: [14830, 15486]
     sentence_count: 4
     key_terms: [hours, job, work, university, vacation, pension, weeks, malapriapism4hours]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c9"
-    char_span: [15489, 16971]
+    char_span: [15488, 16970]
     sentence_count: 14
     key_terms: [pension, get, job, jump, required, vacation, yourself, demoted]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1s2szdo.md#c10"
-    char_span: [16973, 18010]
+    char_span: [16972, 18009]
     sentence_count: 7
     key_terms: [skill, employment, government, leadership, feedback, constructively, participating, understanding]
     section: Comments

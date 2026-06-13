@@ -23,31 +23,31 @@ chunks:
     key_terms: ["i'm", school, year, because, going, applyingtocollege, got, finance]
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c1"
-    char_span: [2021, 3986]
+    char_span: [2021, 3985]
     sentence_count: 14
     key_terms: [schools, fettuccinealfredo30, get, got, lot, school, going, ivy]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c2"
-    char_span: [3988, 4407]
+    char_span: [3987, 4406]
     sentence_count: 5
     key_terms: [difference, years, back, skyrocketing, instability, absolutely, replacing, economic]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c3"
-    char_span: [4409, 6641]
+    char_span: [4408, 6640]
     sentence_count: 14
     key_terms: [school, state, finance, fullride, yourself, college, target, competitive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c4"
-    char_span: [6328, 8413]
+    char_span: [6327, 8412]
     sentence_count: 20
     key_terms: [school, state, debt, get, business, involved, going, take]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rt7qna.md#c5"
-    char_span: [8132, 9769]
+    char_span: [8131, 9768]
     sentence_count: 8
     key_terms: [rejected, school, umich, get, good, ross, top, year]
     section: Comments

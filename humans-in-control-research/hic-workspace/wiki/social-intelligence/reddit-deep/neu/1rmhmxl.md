@@ -23,7 +23,7 @@ chunks:
     key_terms: [opportunities, neu, molecular, comments, biology, cell, pharmaceuticals, northeastern]
     token_count: 135
   - id: "social-intelligence/reddit-deep/neu/1rmhmxl.md#c1"
-    char_span: [569, 1836]
+    char_span: [568, 1835]
     sentence_count: 7
     key_terms: [programrequirementstext, northeastern, undergraduate, experience, joshi1381, cell-molecular-biology-bs, academic, because]
     section: Comments

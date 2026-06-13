@@ -23,13 +23,13 @@ chunks:
     key_terms: [colgate, cscareerquestions, anyone, purdue, great, "i'm", troy, university]
     token_count: 303
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c1"
-    char_span: [1256, 2291]
+    char_span: [1255, 2290]
     sentence_count: 8
     key_terms: [dismal-river-9389, debt, income, purdue, unless, years, job, mit]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdf6v5.md#c2"
-    char_span: [2293, 4163]
+    char_span: [2292, 4162]
     sentence_count: 15
     key_terms: [full, ride, colgate, pretty, purdue, universities, money, troy]
     section: Comments

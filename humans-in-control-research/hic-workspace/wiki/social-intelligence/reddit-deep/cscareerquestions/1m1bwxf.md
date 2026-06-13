@@ -21,55 +21,55 @@ chunks:
     key_terms: [passionate, cscareerquestions, like, people, internships, get, live, long-term]
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c1"
-    char_span: [1951, 3951]
+    char_span: [1950, 3950]
     sentence_count: 17
     key_terms: [software, work, engineering, successful, enjoy, programming, dev, time]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c2"
-    char_span: [3953, 6008]
+    char_span: [3952, 6007]
     sentence_count: 12
     key_terms: [because, computers, something, engineer, probably, burning, passion, tnsipla]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c3"
-    char_span: [6010, 8318]
+    char_span: [6009, 8317]
     sentence_count: 15
     key_terms: [problems, always, "don't", good, life, pay, time, different]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c4"
-    char_span: [8049, 8994]
+    char_span: [8048, 8993]
     sentence_count: 9
     key_terms: [probably, programming, mikeballs, trying, "don't", day, love, under-equipped]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c5"
-    char_span: [8996, 10873]
+    char_span: [8995, 10872]
     sentence_count: 14
     key_terms: [job, good, want, statistics, learning, question, deleted, require]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c6"
-    char_span: [10876, 12797]
+    char_span: [10875, 12796]
     sentence_count: 10
     key_terms: [social, skills, people, around, style, good, developer, technical]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c7"
-    char_span: [12799, 14751]
+    char_span: [12798, 14750]
     sentence_count: 10
     key_terms: [people, skills, style, dev, team, get, management, engineer]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c8"
-    char_span: [14753, 16473]
+    char_span: [14752, 16472]
     sentence_count: 9
     key_terms: ["i've", harder, people, style, type, passionate, successful, being]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m1bwxf.md#c9"
-    char_span: [16475, 18545]
+    char_span: [16474, 18544]
     sentence_count: 21
     key_terms: [passion, working, "you'll", tells, years, "it's", tech, absolutely]
     section: Comments

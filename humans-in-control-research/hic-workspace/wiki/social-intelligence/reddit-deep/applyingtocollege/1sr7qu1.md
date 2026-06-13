@@ -23,31 +23,31 @@ chunks:
     key_terms: [applyingtocollege, comments, like, considerations, reddit-deep, researching, understand, university]
     token_count: 189
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c1"
-    char_span: [854, 2766]
+    char_span: [853, 2765]
     sentence_count: 12
     key_terms: [students, cost, college, school, gradbuddy, variables, colleges, jonjonn1]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c2"
-    char_span: [2768, 3608]
+    char_span: [2767, 3607]
     sentence_count: 8
     key_terms: [academic, college, courses, "you'll", major, like, time, want]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c3"
-    char_span: [3610, 5513]
+    char_span: [3609, 5512]
     sentence_count: 16
     key_terms: [students, "i've", "that's", important, variables, location, college, universities]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c4"
-    char_span: [5515, 7635]
+    char_span: [5514, 7634]
     sentence_count: 17
     key_terms: [students, data, non-negotiables, college, colleges, "there's", website, number]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sr7qu1.md#c5"
-    char_span: [7637, 8920]
+    char_span: [7636, 8919]
     sentence_count: 10
     key_terms: [students, been, fit, good, "i've", applied, college, printed]
     section: Comments

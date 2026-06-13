@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, comments, school, get, reddit-deep, kenicandi, research, getting]
     token_count: 92
   - id: "social-intelligence/reddit-deep/gradschool/1svkoy4.md#c1"
-    char_span: [343, 2531]
+    char_span: [342, 2530]
     sentence_count: 17
     key_terms: [research, school, professor, bobbybobby507, grad, people, program, pay]
     section: Comments

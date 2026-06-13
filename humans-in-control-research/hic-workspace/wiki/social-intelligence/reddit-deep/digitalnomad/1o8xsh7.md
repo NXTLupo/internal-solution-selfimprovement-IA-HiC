@@ -28,37 +28,37 @@ chunks:
     key_terms: [countries, experiences, healthcare, regardless, according, emergency, slovenia, ecuador]
     token_count: 91
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c2"
-    char_span: [2581, 3364]
+    char_span: [2580, 3363]
     sentence_count: 7
     key_terms: [healthcare, emergency, services, haberdasher42, cardiologist, consultation, appointment, overcrowded]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c3"
-    char_span: [3366, 5320]
+    char_span: [3365, 5319]
     sentence_count: 11
     key_terms: [insurance, brazil, system, healthcare, travel, abuse, scdws, sus]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c4"
-    char_span: [5322, 5576]
+    char_span: [5321, 5575]
     sentence_count: 4
     key_terms: ["that's", immediately, healthcare, emergency, accident, everyone, medical, support]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c5"
-    char_span: [5578, 7597]
+    char_span: [5577, 7596]
     sentence_count: 13
     key_terms: [get, treatment, emergency, insurance, free, uninsured, hospital, ignorant]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c6"
-    char_span: [7325, 8812]
+    char_span: [7324, 8811]
     sentence_count: 13
     key_terms: [emergency, receive, care, don, insurance, hospital, public, being]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/digitalnomad/1o8xsh7.md#c7"
-    char_span: [8814, 9952]
+    char_span: [8813, 9951]
     sentence_count: 6
     key_terms: [free, healthcare, argentina, brazilian, education, hospitals, insurance, universal]
     section: Comments

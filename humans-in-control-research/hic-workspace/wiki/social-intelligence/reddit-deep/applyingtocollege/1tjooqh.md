@@ -21,43 +21,43 @@ chunks:
     key_terms: [school, applyingtocollege, scholarships, loans, gap, year, comments, private]
     token_count: 244
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c1"
-    char_span: [1032, 2931]
+    char_span: [1031, 2930]
     sentence_count: 16
     key_terms: [school, need, student, money, aid, need-based, markvii88, submitted]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c2"
-    char_span: [2933, 4881]
+    char_span: [2932, 4880]
     sentence_count: 12
     key_terms: [aid, money, npc, skieurope12, percentage, janzith, package, thought]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c3"
-    char_span: [4883, 5975]
+    char_span: [4882, 5974]
     sentence_count: 6
     key_terms: [school, year, families, college, tuition, afford, number, paying]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c4"
-    char_span: [5977, 8025]
+    char_span: [5976, 8024]
     sentence_count: 14
     key_terms: [school, state, looking, schools, afford, scholarships, aid, expensive]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c5"
-    char_span: [8027, 8482]
+    char_span: [8026, 8481]
     sentence_count: 4
     key_terms: [college, school, years, calculator, attending, colleges, consider, changes]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c6"
-    char_span: [8484, 10450]
+    char_span: [8483, 10449]
     sentence_count: 11
     key_terms: [school, loans, interest, don, federal, want, year, subsidized]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjooqh.md#c7"
-    char_span: [10452, 11197]
+    char_span: [10451, 11196]
     sentence_count: 8
     key_terms: [year, academic, already, profile, schools, application, scholarship, significant]
     section: Comments

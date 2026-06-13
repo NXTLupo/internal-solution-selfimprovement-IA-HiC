@@ -23,37 +23,37 @@ chunks:
     key_terms: [experience, careerguidance, degree, entry-level, practical, academic, comments, projects]
     token_count: 274
   - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c1"
-    char_span: [1199, 3169]
+    char_span: [1198, 3168]
     sentence_count: 15
     key_terms: [job, experience, lot, phd, because, market, people, internships]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c2"
-    char_span: [3172, 5252]
+    char_span: [3171, 5251]
     sentence_count: 11
     key_terms: [internships, job, experience, degree, people, especially, privileged, undergrad]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c3"
-    char_span: [4965, 6349]
+    char_span: [4964, 6348]
     sentence_count: 9
     key_terms: [experience, summer, applicants, employers, undergrad, resumes, always, enough]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c4"
-    char_span: [6351, 8292]
+    char_span: [6350, 8291]
     sentence_count: 14
     key_terms: [experience, internships, degree, been, here, job, absolutely, graduated]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c5"
-    char_span: [8294, 10049]
+    char_span: [8293, 10048]
     sentence_count: 7
     key_terms: [experience, job, internship, situation, deleted, getting, reality, market]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/careerguidance/1kzdhcj.md#c6"
-    char_span: [10051, 10802]
+    char_span: [10050, 10801]
     sentence_count: 7
     key_terms: [experience, projects, market, tight, work, downinahole94, opportunities, especially]
     section: Comments

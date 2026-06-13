@@ -28,13 +28,13 @@ chunks:
     key_terms: [https, imgur, com, categorization, interviews, failure, ho9vgfg, reason]
     token_count: 186
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c2"
-    char_span: [2779, 4800]
+    char_span: [2778, 4799]
     sentence_count: 13
     key_terms: [time, diabloallica, experience, offers, big, get, tech, yoe]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwss1b.md#c3"
-    char_span: [4802, 5919]
+    char_span: [4801, 5918]
     sentence_count: 11
     key_terms: [questions, problems, resume, did, experience, interviews, congrats, leetcode]
     section: Comments

@@ -26,43 +26,43 @@ chunks:
     key_terms: [people, college, because, different, life, clubs, got, job]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c2"
-    char_span: [3774, 5738]
+    char_span: [3773, 5737]
     sentence_count: 23
     key_terms: [income, schools, school, top, prestigious, live, graduate, college]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c3"
-    char_span: [5740, 7706]
+    char_span: [5739, 7705]
     sentence_count: 12
     key_terms: [committed, parents, state, schools, regret, feel, completely, genuinely]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c4"
-    char_span: [7708, 9412]
+    char_span: [7707, 9411]
     sentence_count: 19
     key_terms: ["i'll", behind, thank, get, here, "i'm", like, education]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c5"
-    char_span: [9414, 10691]
+    char_span: [9413, 10690]
     sentence_count: 11
     key_terms: [t10, lottery, reach, engineering, schools, school, "that's", informal-bluejay5701]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c6"
-    char_span: [10693, 12341]
+    char_span: [10692, 12340]
     sentence_count: 11
     key_terms: [law, college, school, level, scholarship, competing, everyone, friends]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c7"
-    char_span: [12343, 13226]
+    char_span: [12342, 13225]
     sentence_count: 8
     key_terms: [college, school, law, top, students, terminal, attend, degree]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s9msj8.md#c8"
-    char_span: [13228, 15151]
+    char_span: [13227, 15150]
     sentence_count: 18
     key_terms: [law, school, college, likely, state, scholarship, work, full-ride]
     section: Comments

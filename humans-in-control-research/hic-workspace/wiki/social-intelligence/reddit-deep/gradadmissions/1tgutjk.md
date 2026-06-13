@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1tgutjk.md#c0"
-    char_span: [0, 512]
+    char_span: [0, 511]
     sentence_count: 5
     key_terms: [gradadmissions, comments, graduate, canada, usa, reddit-deep, experience, wondering]
-    token_count: 141
+    token_count: 140
 ---
 # Timing for Emailing PI for Canada, USA, and EU as a Prospect Graduate Student
 

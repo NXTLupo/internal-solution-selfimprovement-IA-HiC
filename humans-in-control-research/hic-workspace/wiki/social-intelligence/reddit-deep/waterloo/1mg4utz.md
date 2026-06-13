@@ -23,19 +23,19 @@ chunks:
     key_terms: [international, student, advice, been, year, experience, struggling, comments]
     token_count: 333
   - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c1"
-    char_span: [1531, 2699]
+    char_span: [1530, 2698]
     sentence_count: 8
     key_terms: [students, international, probably, studying, "there's", secure, trying, doing]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c2"
-    char_span: [2701, 4710]
+    char_span: [2700, 4709]
     sentence_count: 14
     key_terms: [quiet-divide-3982, co-op, school, appreciate, job, dronedesigner, did, kind]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/waterloo/1mg4utz.md#c3"
-    char_span: [4510, 4722]
+    char_span: [4509, 4721]
     sentence_count: 1
     key_terms: [quiet-divide-3982, appreciate, housing, bamboo, taking, great, means, quite]
     section: Comments

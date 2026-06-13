@@ -21,37 +21,37 @@ chunks:
     key_terms: [salary, year, manager, role, budget, grade, job, take]
     token_count: 513
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c1"
-    char_span: [2199, 4069]
+    char_span: [2199, 4068]
     sentence_count: 18
     key_terms: [because, "don't", information, bump, "i'm", like, statements, financial]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c2"
-    char_span: [4071, 5141]
+    char_span: [4070, 5140]
     sentence_count: 5
     key_terms: [since, company, budget, saving, plus, boss, firm, work]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c3"
-    char_span: [5143, 7133]
+    char_span: [5142, 7132]
     sentence_count: 13
     key_terms: [farrahlikefawcett2, don, someone, title, job, pay, backfill, increase]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c4"
-    char_span: [6872, 8314]
+    char_span: [6871, 8313]
     sentence_count: 15
     key_terms: [title, job, including, promotion, industry, salary, money, tried]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c5"
-    char_span: [8316, 9990]
+    char_span: [8315, 9989]
     sentence_count: 11
     key_terms: [take, understand, increase, company, looking, answer, better, budget]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1q0sf2i.md#c6"
-    char_span: [9992, 11023]
+    char_span: [9991, 11022]
     sentence_count: 7
     key_terms: [responsibilities, company, worth, work, financial, thanks, doing, hours]
     section: Comments

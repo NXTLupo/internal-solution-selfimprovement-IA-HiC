@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, school, engineering, comments, college, company, student, faced]
     token_count: 167
   - id: "social-intelligence/reddit-deep/careerguidance/1t9pz9s.md#c1"
-    char_span: [701, 2127]
+    char_span: [700, 2126]
     sentence_count: 10
     key_terms: [engineering, school, "you're", trade, find, path, mechanical, company]
     section: Comments

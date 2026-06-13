@@ -21,13 +21,13 @@ chunks:
     key_terms: [co-ops, co-op, difficult, having, employers, comments, students, landing]
     token_count: 258
   - id: "social-intelligence/reddit-deep/neu/1tcjfq9.md#c1"
-    char_span: [1103, 3181]
+    char_span: [1102, 3180]
     sentence_count: 14
     key_terms: [co-op, coop, search, able, internship, interviews, student, reason]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1tcjfq9.md#c2"
-    char_span: [2892, 3321]
+    char_span: [2891, 3320]
     sentence_count: 7
     key_terms: [interviews, applications, internship, accepting, carefully, anything, applying, draining]
     section: Comments

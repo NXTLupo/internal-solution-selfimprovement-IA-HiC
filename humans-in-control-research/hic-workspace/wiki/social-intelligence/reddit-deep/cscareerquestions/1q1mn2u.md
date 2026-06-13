@@ -21,13 +21,13 @@ chunks:
     key_terms: [science, data, cscareerquestions, roles, entry-level, internships, interested, analytics]
     token_count: 215
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c1"
-    char_span: [1005, 3035]
+    char_span: [1004, 3034]
     sentence_count: 12
     key_terms: [data, engineer, recruitinghell, analyst, applied, "didn't", role, experience]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q1mn2u.md#c2"
-    char_span: [3037, 4060]
+    char_span: [3036, 4059]
     sentence_count: 9
     key_terms: [data, job, healthcare, company, shitty, illustrious-pound266, excel, local]
     section: Comments

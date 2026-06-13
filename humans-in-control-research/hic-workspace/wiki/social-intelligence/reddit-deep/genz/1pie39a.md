@@ -23,19 +23,19 @@ chunks:
     key_terms: [credit, payments, like, because, online, looks, feel, half]
     token_count: 509
   - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c1"
-    char_span: [2310, 4363]
+    char_span: [2309, 4362]
     sentence_count: 13
     key_terms: [people, parents, social, media, important, article, because, boomers]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c2"
-    char_span: [4365, 6070]
+    char_span: [4364, 6069]
     sentence_count: 7
     key_terms: [checking, "you're", buttons, savings, "that's", "don't", lowinteraction9422, "i'm"]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/genz/1pie39a.md#c3"
-    char_span: [6075, 6832]
+    char_span: [6074, 6831]
     sentence_count: 6
     key_terms: [people, getting, rich, too, buy-film-return, occasionally, needs-based, jadams0108]
     section: Comments

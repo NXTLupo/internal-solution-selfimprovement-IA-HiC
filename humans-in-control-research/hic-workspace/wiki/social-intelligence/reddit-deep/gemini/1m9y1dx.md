@@ -28,25 +28,25 @@ chunks:
     key_terms: [verification, need, authentication, unsuccessful, onboarding, two-factor, documents, submitted]
     token_count: 91
   - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c2"
-    char_span: [2377, 3459]
+    char_span: [2376, 3458]
     sentence_count: 8
     key_terms: [deleted, authy, digit, gemini, having, issues, ticket, legal]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c3"
-    char_span: [3461, 5609]
+    char_span: [3460, 5608]
     sentence_count: 15
     key_terms: [crypto, professormediocre991, understand, withdrawal, users, platform, cryptocurrency, please]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c4"
-    char_span: [5611, 7257]
+    char_span: [5610, 7256]
     sentence_count: 10
     key_terms: [professormediocre991, iphone, thank, account, please, appreciate, code, scan]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/gemini/1m9y1dx.md#c5"
-    char_span: [7259, 8798]
+    char_span: [7258, 8797]
     sentence_count: 13
     key_terms: [account, gemini, app, password, numbers, ticket, instructions, another]
     section: Comments

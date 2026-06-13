@@ -21,31 +21,31 @@ chunks:
     key_terms: [cscareerquestions, don, comments, getting, break, point, able, care]
     token_count: 259
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c1"
-    char_span: [1026, 2181]
+    char_span: [1025, 2180]
     sentence_count: 8
     key_terms: [person, interviewing, "i'm", better, software-adjacent, "i'd", try, knowledgeable]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c2"
-    char_span: [2183, 3755]
+    char_span: [2182, 3754]
     sentence_count: 6
     key_terms: [job, manager, jobs, try, year, graduated, financial-flower8480, bro]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c3"
-    char_span: [3757, 5718]
+    char_span: [3756, 5717]
     sentence_count: 19
     key_terms: [got, job, time, people, school, did, fall, full]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c4"
-    char_span: [5722, 7399]
+    char_span: [5721, 7398]
     sentence_count: 16
     key_terms: [companies, applications, background, starting, "they're", anyone, hiring, resume]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pcn8c2.md#c5"
-    char_span: [7401, 8702]
+    char_span: [7400, 8701]
     sentence_count: 6
     key_terms: [experience, need, sitting, internships, job, difficult, employers, something]
     section: Comments

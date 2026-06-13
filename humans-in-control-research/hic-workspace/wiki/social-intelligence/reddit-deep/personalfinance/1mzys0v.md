@@ -23,7 +23,7 @@ chunks:
     key_terms: [personalfinance, behind, don, feel, investing, comments, money, like]
     token_count: 219
   - id: "social-intelligence/reddit-deep/personalfinance/1mzys0v.md#c1"
-    char_span: [920, 2347]
+    char_span: [919, 2346]
     sentence_count: 6
     key_terms: [personalfinance, wiki, no-parsley-5698, personal-income-spending-flowchart-united-states-lsouqr2, thejontorrweno, automatically, automoderator, commontopics]
     section: Comments

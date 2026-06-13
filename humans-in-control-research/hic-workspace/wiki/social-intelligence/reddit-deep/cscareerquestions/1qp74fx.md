@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, experience, comments, jobs, reddit-deep, requiring, postings, software]
     token_count: 112
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c1"
-    char_span: [453, 2130]
+    char_span: [452, 2129]
     sentence_count: 12
     key_terms: [software, "you're", get, job, experience, companies, another, current]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c2"
-    char_span: [2132, 3920]
+    char_span: [2131, 3919]
     sentence_count: 5
     key_terms: [oracle, software, adb, back, erp, honestly, company, details]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qp74fx.md#c3"
-    char_span: [3922, 4341]
+    char_span: [3921, 4340]
     sentence_count: 2
     key_terms: [workers, internationalend8934, certifications, frighteningly, insignificant, diminishing, companies, expensive]
     section: Comments

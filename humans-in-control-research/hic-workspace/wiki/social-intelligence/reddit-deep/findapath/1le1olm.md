@@ -28,37 +28,37 @@ chunks:
     key_terms: [average, being, job, tech, everything, projects, day, get]
     token_count: 217
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c2"
-    char_span: [3252, 4897]
+    char_span: [3251, 4896]
     sentence_count: 15
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, buddies]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c3"
-    char_span: [4899, 6880]
+    char_span: [4898, 6879]
     sentence_count: 16
     key_terms: [people, years, find, get, job, openings, shortage, anymore]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c4"
-    char_span: [6646, 7094]
+    char_span: [6645, 7093]
     sentence_count: 4
     key_terms: [sad-east6075, everything, rejections, custodian, employees, nearshore, positions, fraction]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c5"
-    char_span: [7096, 8462]
+    char_span: [7095, 8461]
     sentence_count: 11
     key_terms: [something, new, learning, doing, "don't", never, world, find]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c6"
-    char_span: [8464, 10061]
+    char_span: [8463, 10060]
     sentence_count: 13
     key_terms: [programs, because, did, cybersecurity, productivity, restrictions, want, associates]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/findapath/1le1olm.md#c7"
-    char_span: [10063, 11848]
+    char_span: [10062, 11847]
     sentence_count: 17
     key_terms: ["i'm", left, marcmoreno, deleted, always, career, early, years]
     section: Comments

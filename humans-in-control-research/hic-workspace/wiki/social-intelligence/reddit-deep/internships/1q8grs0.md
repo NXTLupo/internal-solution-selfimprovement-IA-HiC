@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1q8grs0.md#c0"
-    char_span: [0, 271]
+    char_span: [0, 270]
     sentence_count: 1
     key_terms: [internships, comments, antique-wish9622, reddit-deep, finding, seeking, student, advice]
-    token_count: 86
+    token_count: 85
 ---
 # Seeking advice on finding AI/ML internships as a 2nd-year student
 

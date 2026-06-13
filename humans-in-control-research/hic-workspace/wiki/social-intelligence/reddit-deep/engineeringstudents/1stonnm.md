@@ -18,10 +18,10 @@ industries: [higher_ed, manufacturing, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1stonnm.md#c0"
-    char_span: [0, 540]
+    char_span: [0, 539]
     sentence_count: 5
     key_terms: [engineeringstudents, comments, wrongdoerjumpy, considering, engineering, provisional, reddit-deep, acceptance]
-    token_count: 138
+    token_count: 137
 ---
 # I earned a biology (pre-med) degree in May 2022 and have worked in QA/QC since. I’ve lost interest in medicine and am now pursuing industrial engineering. I have a provisional acceptance to Johns Hopkins IE and am considering UofL. Anyone make a similar switch and reach a six-figure career?
 

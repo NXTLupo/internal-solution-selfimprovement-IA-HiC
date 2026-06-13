@@ -21,13 +21,13 @@ chunks:
     key_terms: [internship, amazon, internships, work, comments, company, insane, faang]
     token_count: 213
   - id: "social-intelligence/reddit-deep/internships/1tngqgj.md#c1"
-    char_span: [886, 2724]
+    char_span: [885, 2723]
     sentence_count: 15
     key_terms: [amazon, company, prestigious, meta, work, experience, companies, because]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/internships/1tngqgj.md#c2"
-    char_span: [2726, 3767]
+    char_span: [2725, 3766]
     sentence_count: 8
     key_terms: [amazon, cybersecurity, "don't", internship, whatever, better, gamesarerunningsims, accomplishedrule0]
     section: Comments

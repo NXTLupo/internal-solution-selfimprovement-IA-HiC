@@ -23,7 +23,7 @@ chunks:
     key_terms: [interview, careeradvice, comments, additionally, reddit-deep, appreciate, experience, interested]
     token_count: 136
   - id: "social-intelligence/reddit-deep/careeradvice/1t7evts.md#c1"
-    char_span: [585, 1206]
+    char_span: [584, 1205]
     sentence_count: 6
     key_terms: [measurable, assistant, interview, questions, conflict, headline, practice, sentence]
     section: Comments

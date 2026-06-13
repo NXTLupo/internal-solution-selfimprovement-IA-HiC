@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, statistics, comments, school, "i'm", uiuc, international, reddit-deep]
     token_count: 142
   - id: "social-intelligence/reddit-deep/gradadmissions/1r16wiw.md#c1"
-    char_span: [516, 1924]
+    char_span: [515, 1923]
     sentence_count: 10
     key_terms: [congrats, congratulations, thank, department, applied, connect, program, emotional-hour1238]
     section: Comments

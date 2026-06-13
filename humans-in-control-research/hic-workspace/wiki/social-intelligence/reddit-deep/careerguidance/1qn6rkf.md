@@ -23,19 +23,19 @@ chunks:
     key_terms: [job, careerguidance, year, comments, shift, super, bye, cons]
     token_count: 244
   - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c1"
-    char_span: [833, 2157]
+    char_span: [832, 2156]
     sentence_count: 13
     key_terms: [justareddituser202, ask, job, want, another, being, bored, "don't"]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c2"
-    char_span: [2159, 4049]
+    char_span: [2158, 4048]
     sentence_count: 13
     key_terms: [comfortable, sure-ad8068, promotion, time, "doesn't", job, like, need]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1qn6rkf.md#c3"
-    char_span: [4051, 5361]
+    char_span: [4050, 5360]
     sentence_count: 13
     key_terms: [supervisor, value, retirement, consider, position, priority, company, fragrantdifficulty68]
     section: Comments

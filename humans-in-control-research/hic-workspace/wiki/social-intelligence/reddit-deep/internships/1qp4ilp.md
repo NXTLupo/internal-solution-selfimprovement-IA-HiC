@@ -11,11 +11,9 @@ score: 2
 upvote_ratio: 0.67
 num_comments: 3
 flair: "Salary"
-extracted_at: "2026-05-25T18:31:15.454Z"
+extracted_at: "2026-06-08T18:49:20.588Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new strategy for Northeastern University's (NU) co-op program, focused on enhancing meaningful experiential learning opportunities for students from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [workforce, enterprise_it]
-industry_method: llm
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1qp4ilp.md#c0"
     char_span: [0, 991]

@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1s0esgx.md#c0"
-    char_span: [0, 1378]
+    char_span: [0, 1377]
     sentence_count: 6
     key_terms: [internships, internship, companies, cmu, opportunities, comments, referral, software]
     token_count: 313

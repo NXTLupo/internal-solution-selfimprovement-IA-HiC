@@ -21,43 +21,43 @@ chunks:
     key_terms: [market, indicator, buffet, overvaluation, investments, protecting, investing, investors]
     token_count: 250
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c1"
-    char_span: [1055, 2985]
+    char_span: [1054, 2984]
     sentence_count: 13
     key_terms: [inflation, recession, cash, choice, alternative, high, tips, worthless]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c2"
-    char_span: [2987, 4672]
+    char_span: [2986, 4671]
     sentence_count: 13
     key_terms: [gold, companies, because, house, buy, land, own, invested]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c3"
-    char_span: [4674, 6725]
+    char_span: [4673, 6724]
     sentence_count: 12
     key_terms: [understand, indicator, because, buffett, money, years, everybody, companys]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c4"
-    char_span: [6727, 7719]
+    char_span: [6726, 7718]
     sentence_count: 6
     key_terms: [ytd, treasuries, already, hopeful-internal-919, alone, easik, icy-mycologist1524, cash]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c5"
-    char_span: [7721, 9505]
+    char_span: [7720, 9504]
     sentence_count: 12
     key_terms: [metric, years, indicator, earnings, paperhandsthedip, people, corporations, information]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c6"
-    char_span: [9507, 11495]
+    char_span: [9506, 11494]
     sentence_count: 10
     key_terms: [year, higher, market, international, substantial, rate, inflation, equities]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/investing/1t4nob6.md#c7"
-    char_span: [11497, 12062]
+    char_span: [11496, 12061]
     sentence_count: 5
     key_terms: [stocks, hopeful-internal-919, bonds, reallocations, anticipation, invisibleear, contrary, divested]
     section: Comments

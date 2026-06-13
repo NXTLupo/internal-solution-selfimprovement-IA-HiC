@@ -26,49 +26,49 @@ chunks:
     key_terms: [job, got, person, away, phone, get, ive, last]
     token_count: 443
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c2"
-    char_span: [4062, 5944]
+    char_span: [4061, 5943]
     sentence_count: 13
     key_terms: [job, take, easier, interview, get, "it's", looking, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c3"
-    char_span: [5729, 6139]
+    char_span: [5728, 6138]
     sentence_count: 4
     key_terms: [job, interview, myburneraccount1357, shine, assumptions, bopboopbip, proportion, fsfmarina]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c4"
-    char_span: [6141, 7972]
+    char_span: [6140, 7971]
     sentence_count: 23
     key_terms: [job, toxic, questions, ask, like, everyone, feedback, previous]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c5"
-    char_span: [7974, 8937]
+    char_span: [7973, 8936]
     sentence_count: 12
     key_terms: [dishing, getting, piping, toxic, hot, tea, work, accountability]
     section: Comments
     token_count: 250
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c6"
-    char_span: [8939, 10620]
+    char_span: [8938, 10619]
     sentence_count: 19
     key_terms: [job, toxic, people, new, time, guarantee, horrible, sympathy]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c7"
-    char_span: [10622, 12549]
+    char_span: [10621, 12548]
     sentence_count: 22
     key_terms: [job, like, making, empathyfail, new, walk, work, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c8"
-    char_span: [12304, 14064]
+    char_span: [12303, 14063]
     sentence_count: 16
     key_terms: [waferlongjumping6509, new, trust, empathyfail, find, job, successful, running]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/jobs/1s4frb4.md#c9"
-    char_span: [14066, 14383]
+    char_span: [14065, 14382]
     sentence_count: 2
     key_terms: [looking, team, communicating, experienced, individual, mentoring, addition, training]
     section: Comments

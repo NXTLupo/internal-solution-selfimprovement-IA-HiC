@@ -26,43 +26,43 @@ chunks:
     key_terms: [job, applied, biotech, company, did, got, jobs, greenhouse]
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c2"
-    char_span: [3484, 5029]
+    char_span: [3483, 5028]
     sentence_count: 10
     key_terms: [range, days, got, pay, context, people, salary, within]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c3"
-    char_span: [5031, 6622]
+    char_span: [5030, 6621]
     sentence_count: 9
     key_terms: [because, healthcare, companies, believe, company, enough, chili-lime-chihuahua, offer]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c4"
-    char_span: [6624, 8638]
+    char_span: [6623, 8637]
     sentence_count: 16
     key_terms: [offer, "i'd", current, friday, job, because, company, around]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c5"
-    char_span: [8640, 10748]
+    char_span: [8639, 10747]
     sentence_count: 15
     key_terms: [leetcode, did, design, resume, template, removed, system, microservice]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c6"
-    char_span: [10750, 12817]
+    char_span: [10749, 12816]
     sentence_count: 15
     key_terms: [interviews, take, anonymized, university, companies, technical, leetcode, probably]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c7"
-    char_span: [12819, 13663]
+    char_span: [12818, 13662]
     sentence_count: 5
     key_terms: [senior, xxxdethl0rdxxx, mid-level, ruinadventurous1931, plus, yoe, career-wise, considering]
     section: Comments
     token_count: 241
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m9n8ew.md#c8"
-    char_span: [13665, 14869]
+    char_span: [13664, 14868]
     sentence_count: 9
     key_terms: ["you're", chembrodude, greenhouse, passionate, converted, applied, adding, degree]
     section: Comments

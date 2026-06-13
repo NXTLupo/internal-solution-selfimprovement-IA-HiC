@@ -28,13 +28,13 @@ chunks:
     key_terms: [stipend, institutions, research, another, faculty, private, field, money]
     token_count: 264
   - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c2"
-    char_span: [3386, 4745]
+    char_span: [3385, 4744]
     sentence_count: 15
     key_terms: [program, history, generalsprinkles4306, grouchy-ostrich-5838, get, current, interview, students]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/gradadmissions/1rey9xg.md#c3"
-    char_span: [4747, 6533]
+    char_span: [4746, 6532]
     sentence_count: 15
     key_terms: [grouchy-ostrich-5838, program, cycle, happy, got, situation, received, better]
     section: Comments

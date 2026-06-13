@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, context, openai, drinksbeerdaily, reddit-deep, openrouter, quality, windows]
     token_count: 96
   - id: "social-intelligence/reddit-deep/openai/1mk7v8w.md#c1"
-    char_span: [342, 2155]
+    char_span: [341, 2154]
     sentence_count: 12
     key_terms: [gpt-5, docs, page, outdated, million, cutoff, models, openai]
     section: Comments

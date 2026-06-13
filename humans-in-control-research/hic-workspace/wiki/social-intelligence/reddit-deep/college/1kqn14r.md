@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, comments, freshman, posted, ticket, stubs, year, experiences]
     token_count: 147
   - id: "social-intelligence/reddit-deep/college/1kqn14r.md#c1"
-    char_span: [625, 1543]
+    char_span: [624, 1542]
     sentence_count: 7
     key_terms: [saves, day, good, sethrs21, deleted, iwishitwaschristmas, been, lol]
     section: Comments

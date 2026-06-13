@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1rwz4n6.md#c0"
-    char_span: [0, 249]
+    char_span: [0, 248]
     sentence_count: 1
     key_terms: [gradadmissions, comments, molassesmindless4363, reddit-deep, advice, career, posted, reddit]
-    token_count: 78
+    token_count: 77
 ---
 # Grad School / Career Advice
 

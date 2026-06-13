@@ -48,31 +48,31 @@ chunks:
     key_terms: [questions, yourself, explain, ask, don, good, need, work]
     token_count: 289
   - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c6"
-    char_span: [10339, 12322]
+    char_span: [10338, 12321]
     sentence_count: 10
     key_terms: ["don't", please, connection, student, application, "i'm", everything, statement]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c7"
-    char_span: [12324, 13964]
+    char_span: [12323, 13963]
     sentence_count: 12
     key_terms: [interview, week, competency-based, please, email, "it's", understand, personal]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c8"
-    char_span: [13966, 14829]
+    char_span: [13965, 14828]
     sentence_count: 3
     key_terms: [expect, safety, thanks, both-obligation2069, doing, jordantellsstories, gpa, phd]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c9"
-    char_span: [14831, 16341]
+    char_span: [14830, 16340]
     sentence_count: 8
     key_terms: [thank, low, too, collected, helpful, science, others, please]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/gradadmissions/1m6z1dt.md#c10"
-    char_span: [16343, 16938]
+    char_span: [16342, 16937]
     sentence_count: 4
     key_terms: [great, different, advice, people, field, non-rotational, individually, recruitment]
     section: Comments

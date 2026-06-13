@@ -21,25 +21,25 @@ chunks:
     key_terms: [experience, job, never, years, jobs, background, everything, insurance]
     token_count: 425
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c1"
-    char_span: [1951, 2761]
+    char_span: [1950, 2760]
     sentence_count: 5
     key_terms: [internal, feeling, systems, front-photograph-542, lot, new, use, oliviapresteign]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c2"
-    char_span: [2763, 4254]
+    char_span: [2762, 4253]
     sentence_count: 12
     key_terms: [use, interview, priority, started, front-photograph-542, chose, fast, good]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c3"
-    char_span: [4257, 6388]
+    char_span: [4256, 6387]
     sentence_count: 14
     key_terms: [questions, lostsailorlivefree, extremely, important, company, mentor, theoverzealousengie, notes]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1p3zld1.md#c4"
-    char_span: [6044, 6932]
+    char_span: [6043, 6931]
     sentence_count: 11
     key_terms: [tasks, coworkers, glittering-lime-7049, ask, keep, nerve-wracking, communication, comfortable]
     section: Comments

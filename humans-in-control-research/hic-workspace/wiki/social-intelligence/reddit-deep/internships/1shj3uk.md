@@ -23,7 +23,7 @@ chunks:
     key_terms: [sem, competition, internships, good, gpa, java, internship, currently]
     token_count: 343
   - id: "social-intelligence/reddit-deep/internships/1shj3uk.md#c1"
-    char_span: [1313, 2400]
+    char_span: [1312, 2399]
     sentence_count: 8
     key_terms: [help, research, internship, prachub, intern, summer, iit, prep]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, comparisonpowerful, genz, reddit-deep, posted, reddit, single, source]
     token_count: 73
   - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c1"
-    char_span: [258, 1092]
+    char_span: [257, 1091]
     sentence_count: 4
     key_terms: [women, discord, single, kids, grass-deficiency, automatically, automoderator, coolandcringe]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/genz/1rdqd4y.md#c2"
-    char_span: [1094, 2902]
+    char_span: [1093, 2901]
     sentence_count: 8
     key_terms: [get, people, single, elderjavelin, men, situation, posting, promise]
     section: Comments

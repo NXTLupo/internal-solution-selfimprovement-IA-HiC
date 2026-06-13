@@ -28,49 +28,49 @@ chunks:
     key_terms: [book, reading, coincidentally, participation, class, teaching, chatgpt, better]
     token_count: 402
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c2"
-    char_span: [3313, 5402]
+    char_span: [3312, 5401]
     sentence_count: 20
     key_terms: [students, quiz, class, group, study, work, learning, grade]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c3"
-    char_span: [5404, 7242]
+    char_span: [5403, 7241]
     sentence_count: 12
     key_terms: [students, get, time, question, student, class, group, like]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c4"
-    char_span: [7244, 9167]
+    char_span: [7243, 9166]
     sentence_count: 25
     key_terms: [notes, reading, "don't", study, students, snowblindalbino, guides, deliverables]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c5"
-    char_span: [9169, 11025]
+    char_span: [9168, 11024]
     sentence_count: 14
     key_terms: [students, snowblindalbino, keep, finding, minutes, quizzes, reading, always]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c6"
-    char_span: [11027, 12855]
+    char_span: [11026, 12854]
     sentence_count: 12
     key_terms: [class, reading, started, anything, yourlurkingprof, been, assignment, discussion]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c7"
-    char_span: [12857, 13889]
+    char_span: [12856, 13888]
     sentence_count: 12
     key_terms: [class, read, assignment, explaining, something, comments, perusall, little]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c8"
-    char_span: [13891, 15748]
+    char_span: [13890, 15747]
     sentence_count: 16
     key_terms: [summary, class, "don't", short, discussion, everything, because, people]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/professors/1rfy2zp.md#c9"
-    char_span: [15750, 17766]
+    char_span: [15749, 17765]
     sentence_count: 17
     key_terms: [euphoric-addendum-69, students, covid, grade, get, in-class, perusall, readings]
     section: Comments

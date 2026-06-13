@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1phown5.md#c0"
-    char_span: [0, 1232]
+    char_span: [0, 1231]
     sentence_count: 10
     key_terms: [job, got, library, front, hours, today, desk, don]
-    token_count: 287
+    token_count: 286
 ---
 # Help with deciding a student job opportunity
 

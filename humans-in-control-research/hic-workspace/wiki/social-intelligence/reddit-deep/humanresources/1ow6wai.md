@@ -23,43 +23,43 @@ chunks:
     key_terms: [humanresources, skills, talent, performance, evaluation, leadership, management, comments]
     token_count: 185
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c1"
-    char_span: [921, 2797]
+    char_span: [920, 2796]
     sentence_count: 17
     key_terms: [talent, management, business, deliverables, development, succession, academic, working]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c2"
-    char_span: [2799, 3950]
+    char_span: [2798, 3949]
     sentence_count: 9
     key_terms: [development, team, described, business, function, because, overlap, thought]
     section: Comments
     token_count: 260
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c3"
-    char_span: [3952, 6280]
+    char_span: [3951, 6279]
     sentence_count: 19
     key_terms: [business, management, talent, people, generally, approach, solution, hrbps]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c4"
-    char_span: [6282, 7709]
+    char_span: [6281, 7708]
     sentence_count: 14
     key_terms: [different, talent, "it's", job, management, business, thought, check]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c5"
-    char_span: [7711, 10098]
+    char_span: [7710, 10097]
     sentence_count: 19
     key_terms: [work, performance, consulting, "there's", "that's", consultants, academics, corporate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c6"
-    char_span: [9788, 11060]
+    char_span: [9787, 11059]
     sentence_count: 13
     key_terms: [sales, want, work, overall-possible-936, issue, don, conversations, anchorbend42]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/humanresources/1ow6wai.md#c7"
-    char_span: [11064, 12902]
+    char_span: [11063, 12901]
     sentence_count: 22
     key_terms: [management, talent, conversations, managers, because, knowing, performance, like]
     section: Comments

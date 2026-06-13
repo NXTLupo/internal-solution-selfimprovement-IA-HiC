@@ -23,19 +23,19 @@ chunks:
     key_terms: [feel, talk, time, because, family, prioritize, etc, like]
     token_count: 444
   - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c1"
-    char_span: [1891, 4197]
+    char_span: [1890, 4196]
     sentence_count: 15
     key_terms: [educational, abuse, financial, college, people, dustybuttocks, great, find]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c2"
-    char_span: [4199, 6440]
+    char_span: [4198, 6439]
     sentence_count: 12
     key_terms: [going, "you're", emotionally, get, hard, "i'm", boundaries, prioritize]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/gradschool/1rswe9j.md#c3"
-    char_span: [6442, 7653]
+    char_span: [6441, 7652]
     sentence_count: 10
     key_terms: [responsibilities, little, adult, time, problem, result, school, auroralorraine522]
     section: Comments

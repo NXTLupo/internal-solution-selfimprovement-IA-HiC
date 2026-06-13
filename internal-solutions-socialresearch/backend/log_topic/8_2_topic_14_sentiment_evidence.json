@@ -1,0 +1,47 @@
+{
+  "positive": [
+    {
+      "point": "The ability to perform a backdoor Roth conversion allows individuals over the income limit to still contribute to a Roth IRA, providing tax-free growth potential.",
+      "post_refs": [
+        "1q0ol4u",
+        "1pzwgl4"
+      ]
+    },
+    {
+      "point": "Even small over-contributions, such as 35 cents, are typically rounded down to zero for tax purposes, minimizing potential tax liabilities.",
+      "post_refs": [
+        "1q9bnun"
+      ]
+    },
+    {
+      "point": "Paying taxes upfront on Roth conversions can prevent interest charges from the IRS and potentially result in a larger tax refund.",
+      "post_refs": [
+        "1tuxqc4"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Confusion around the rules and processes of Roth conversions and backdoor Roths, such as understanding the pro-rata rule and basis calculations, can lead to mistakes and anxiety.",
+      "post_refs": [
+        "1qm68kv",
+        "1q7jzsq",
+        "1q0ol4u"
+      ]
+    },
+    {
+      "point": "The complexity of managing multiple accounts and transactions, such as ensuring zero balance in traditional IRAs for backdoor Roths, can be challenging and lead to errors.",
+      "post_refs": [
+        "1pzwgl4",
+        "1q7jzsq"
+      ]
+    },
+    {
+      "point": "The need to file additional tax forms, like Form 8606, and the potential for penalties if not done correctly, adds to the complexity and stress of managing Roth conversions.",
+      "post_refs": [
+        "1tuxqc4",
+        "1q0ol4u"
+      ]
+    }
+  ]
+}

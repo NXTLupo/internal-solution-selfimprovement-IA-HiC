@@ -21,19 +21,19 @@ chunks:
     key_terms: [co-op, cycle, comments, honestly, classes, haven, fall, feel]
     token_count: 225
   - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c1"
-    char_span: [902, 2529]
+    char_span: [901, 2528]
     sentence_count: 14
     key_terms: [okaybrowhat, interviews, back, got, co-op, did, feel, get]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c2"
-    char_span: [2531, 3837]
+    char_span: [2530, 3836]
     sentence_count: 8
     key_terms: [e6b69c77a6d89d86075f50a0f9910f83880c8480, co-ops, find, undergrad, someone, around, school, co-op]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/neu/1sjj98a.md#c3"
-    char_span: [3839, 5882]
+    char_span: [3838, 5881]
     sentence_count: 21
     key_terms: [positions, get, swe, number, don, let, definitely, extremely]
     section: Comments

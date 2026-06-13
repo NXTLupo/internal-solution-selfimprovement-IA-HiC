@@ -23,31 +23,31 @@ chunks:
     key_terms: [chatgpt, comments, practical-remote-183, reddit-deep, exactly, prompts, posted, reddit]
     token_count: 87
   - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c1"
-    char_span: [306, 2053]
+    char_span: [305, 2052]
     sentence_count: 11
     key_terms: [chatgpt, please, openai, prompt, conversation, intelligence, image, super]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c2"
-    char_span: [2055, 3694]
+    char_span: [2054, 3693]
     sentence_count: 8
     key_terms: [important, lot, want, prompts, thomaswhitmore, "don't", ask, language]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c3"
-    char_span: [3696, 5617]
+    char_span: [3695, 5616]
     sentence_count: 9
     key_terms: [prompt, pixels, practical-remote-183, guide, human, image, thank, add]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c4"
-    char_span: [5431, 5828]
+    char_span: [5430, 5827]
     sentence_count: 2
     key_terms: [ordinarylandscape999, illiilliilliill, prompstitutes, organization, engineering, randomboy89, expecting, mysteryy7]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/chatgpt/1mqpqz4.md#c5"
-    char_span: [5830, 6558]
+    char_span: [5829, 6557]
     sentence_count: 5
     key_terms: [ask, questions, chatgpt, people, prompt, farewellsovereignty, grofvolkoren, unironically]
     section: Comments

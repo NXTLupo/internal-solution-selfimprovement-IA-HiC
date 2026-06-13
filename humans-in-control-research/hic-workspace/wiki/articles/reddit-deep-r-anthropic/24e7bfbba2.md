@@ -15,12 +15,12 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-anthropic/24e7bfbba2.md#c0"
-    char_span: [0, 1565]
+    char_span: [0, 1564]
     sentence_count: 10
     key_terms: [claude, anthropic, users, api, regular, apple, token, available]
-    token_count: 374
+    token_count: 373
   - id: "articles/reddit-deep-r-anthropic/24e7bfbba2.md#c1"
-    char_span: [1567, 2246]
+    char_span: [1566, 2245]
     sentence_count: 4
     key_terms: [notefragrant9647, api, context, sending, higher, tokens, users, use]
     token_count: 170

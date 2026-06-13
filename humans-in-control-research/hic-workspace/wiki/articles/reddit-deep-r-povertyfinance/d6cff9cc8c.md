@@ -15,17 +15,17 @@ industries: [financial_services, higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c0"
-    char_span: [0, 1797]
+    char_span: [0, 1796]
     sentence_count: 17
     key_terms: ["i'm", degree, povertyfinance, never, average, poverty, realize, success]
-    token_count: 427
+    token_count: 426
   - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c1"
-    char_span: [1799, 3891]
+    char_span: [1798, 3890]
     sentence_count: 22
     key_terms: [need, people, money, appropriate, give, "i'm", vent, submitter]
     token_count: 484
   - id: "articles/reddit-deep-r-povertyfinance/d6cff9cc8c.md#c2"
-    char_span: [3893, 5882]
+    char_span: [3892, 5881]
     sentence_count: 16
     key_terms: [gotten, please, work, emotional, submitter, offering, message, started]
     token_count: 455

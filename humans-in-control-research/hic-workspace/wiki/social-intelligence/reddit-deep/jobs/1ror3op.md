@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", job, people, trying, been, "i've", jobs, work]
     token_count: 437
   - id: "social-intelligence/reddit-deep/jobs/1ror3op.md#c1"
-    char_span: [1866, 3116]
+    char_span: [1865, 3115]
     sentence_count: 12
     key_terms: [get, job, experience, "doesn't", "don't", start, study, thank]
     section: Comments

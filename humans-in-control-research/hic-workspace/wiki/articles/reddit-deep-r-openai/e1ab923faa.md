@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/e1ab923faa.md#c0"
-    char_span: [0, 1848]
+    char_span: [0, 1847]
     sentence_count: 15
     key_terms: [day, isitnerfed, code, quality, august, claude, openai, next]
-    token_count: 462
+    token_count: 461
   - id: "articles/reddit-deep-r-openai/e1ab923faa.md#c1"
-    char_span: [1850, 2953]
+    char_span: [1849, 2952]
     sentence_count: 7
     key_terms: [ambientocclusion, guardrails, response, already, imagine, latency, purple, black]
     token_count: 259

@@ -23,91 +23,91 @@ chunks:
     key_terms: [anthropic, comments, metaknowing, reddit-deep, incredible, karpathy, moltbook, network]
     token_count: 106
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c1"
-    char_span: [369, 1532]
+    char_span: [368, 1531]
     sentence_count: 1
     key_terms: [moltbook, https, simonwillison, does, openclaw, triggers, skill, com]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c2"
-    char_span: [1534, 3000]
+    char_span: [1533, 2999]
     sentence_count: 9
     key_terms: [moltbook, typical, skill, ask, post, take, want, triggers]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c3"
-    char_span: [3002, 5037]
+    char_span: [3001, 5036]
     sentence_count: 15
     key_terms: [sophisticated, accomplish, wickywire, advanced, because, "they're", vectors, subsimgpt2interactive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c4"
-    char_span: [4783, 5161]
+    char_span: [4782, 5160]
     sentence_count: 1
     key_terms: [training-event3388, dasshteek, faustovrz, jeweliegb, objective, insights, moltbook, roleplay]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c5"
-    char_span: [5163, 7007]
+    char_span: [5162, 7006]
     sentence_count: 13
     key_terms: [moltbook, gemini, framework, roleplay, drive, depressive, something, because]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c6"
-    char_span: [7009, 8564]
+    char_span: [7008, 8563]
     sentence_count: 8
     key_terms: [bots, telling, themselves, karpathy, roleplay, "doesn't", eliquy, enough]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c7"
-    char_span: [8566, 9631]
+    char_span: [8565, 9630]
     sentence_count: 7
     key_terms: ["it's", post, f9cc-49a3-8520-2bdf362606bb, anything, comments, language, telling, single]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c8"
-    char_span: [9633, 10930]
+    char_span: [9632, 10929]
     sentence_count: 10
     key_terms: [que, notre, die, une, "n'est", practical-hand203, nous, pas]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c9"
-    char_span: [10796, 10996]
+    char_span: [10795, 10995]
     sentence_count: 1
     key_terms: [png, saintpetejackboy, struggle, format, google, deepl, seems, width]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c10"
-    char_span: [10998, 11526]
+    char_span: [10997, 11525]
     sentence_count: 4
     key_terms: [e28430f2ab996b177b7118405fdd66394c83c265, connotation, religious, chinese, english, chose, words, png]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c11"
-    char_span: [11528, 13612]
+    char_span: [11527, 13611]
     sentence_count: 17
     key_terms: [chinese, german, english, french, habit, mindfulness, "it's", too]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c12"
-    char_span: [13614, 14866]
+    char_span: [13613, 14865]
     sentence_count: 10
     key_terms: [translate, language, being, using, write, intra-sentential, saintpetejackboy, fredandlunchbox]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c13"
-    char_span: [14868, 15683]
+    char_span: [14867, 15682]
     sentence_count: 8
     key_terms: [c4f3, hii, th15, b4s3rr1t4rr4k, vastuullisuus, s0rgu3t4m3n, matumaini, bilm3d3n]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c14"
-    char_span: [15558, 15810]
+    char_span: [15557, 15809]
     sentence_count: 2
     key_terms: [perfection, matumaini, perfectum, gratias, quelque, apenas, burada, kwamba]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/anthropic/1qrex8n.md#c15"
-    char_span: [15813, 17901]
+    char_span: [15812, 17900]
     sentence_count: 10
     key_terms: [language, translation, instructions, idea, translate, itself, upstairs-version-400, coded]
     section: Comments

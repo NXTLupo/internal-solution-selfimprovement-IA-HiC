@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1n6pkej.md#c0"
-    char_span: [0, 1761]
+    char_span: [0, 1760]
     sentence_count: 7
     key_terms: [year, projects, engineering, internships, aeronautical, engineeringstudents, skills, like]
-    token_count: 423
+    token_count: 422
 ---
 # Roadmap for 1st year Aeronautical Engineering student – Skills, Projects & Internships?
 

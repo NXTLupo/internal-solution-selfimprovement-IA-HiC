@@ -23,25 +23,25 @@ chunks:
     key_terms: [development, professors, like, students, professional, offerings, building, comments]
     token_count: 310
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c1"
-    char_span: [1512, 2955]
+    char_span: [1511, 2954]
     sentence_count: 6
     key_terms: [development, faculty, actuallycallie, professional, last, ambassador, colleagues, training]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c2"
-    char_span: [2958, 5015]
+    char_span: [2957, 5014]
     sentence_count: 13
     key_terms: [development, university, documents, trainings, learning, training, canvas, professional]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c3"
-    char_span: [5017, 6402]
+    char_span: [5016, 6401]
     sentence_count: 14
     key_terms: [tool, using, faculty, problem, students, entire, saying, assignments]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/professors/1sg3ger.md#c4"
-    char_span: [6404, 7623]
+    char_span: [6403, 7622]
     sentence_count: 8
     key_terms: [something, "don't", like, department, students, instead, service, else]
     section: Comments

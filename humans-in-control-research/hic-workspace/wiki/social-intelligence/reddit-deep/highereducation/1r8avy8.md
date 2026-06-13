@@ -21,43 +21,43 @@ chunks:
     key_terms: [education, job, accessible, get, highereducation, people, disabilities, professional]
     token_count: 475
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c1"
-    char_span: [2170, 3744]
+    char_span: [2169, 3743]
     sentence_count: 14
     key_terms: [universities, disability, positions, good, position, like, look, different]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c2"
-    char_span: [3746, 5393]
+    char_span: [3745, 5392]
     sentence_count: 14
     key_terms: [higher, education, good, job, students, campus, people, regret]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c3"
-    char_span: [5396, 7573]
+    char_span: [5395, 7572]
     sentence_count: 16
     key_terms: [students, search, https, search-jobs, disability, experience, university, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c4"
-    char_span: [7259, 9628]
+    char_span: [7258, 9627]
     sentence_count: 21
     key_terms: [accessibility, experience, internship, get, college, search, requirements, ada]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c5"
-    char_span: [9291, 9999]
+    char_span: [9290, 9998]
     sentence_count: 6
     key_terms: [experience, internship, degree, been, job, observation, admissions, investment]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c6"
-    char_span: [10001, 10967]
+    char_span: [10000, 10966]
     sentence_count: 10
     key_terms: [institutions, linkedin, jeffhpatterson, institution, looking, program, online, "you're"]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/highereducation/1r8avy8.md#c7"
-    char_span: [10969, 12365]
+    char_span: [10968, 12364]
     sentence_count: 17
     key_terms: [higher, accessibility, right, departments, "it's", education, always, campus]
     section: Comments

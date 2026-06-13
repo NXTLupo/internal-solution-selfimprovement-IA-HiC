@@ -1,0 +1,82 @@
+---
+id: social-intelligence/reddit-deep/philanthropy/1lm6dp0.md
+url: "https://www.reddit.com/r/Philanthropy/comments/1lm6dp0/have_you_talked_with_your_donors_about_their_dafs/"
+kind: "social-post"
+source: "reddit-deep: r/philanthropy"
+subreddit: "philanthropy"
+title: "Have you talked with your donors about their DAFs?"
+author: "LenoxHillPartners"
+date: "2025-06-27T22:00:07.000Z"
+score: 4
+upvote_ratio: 0.7
+num_comments: 9
+flair: ""
+extracted_at: "2026-06-10T18:04:18.308Z"
+extraction_method: "praw-deep"
+research_goal: "Identify emerging trends in higher education related ONLY to fundraising, advancement, and donations in 2026. Include social media posts, academic articles, RSS News, government data, and uploaded documents related to Donation, Advancement, and Fundraising, to provide a robust set of comprehensive, strategic recommendations and a roadmap for higher education universities in 2026\n"
+engagement: "identify-emerging-trends-in-higher-education-related-only-to"
+chunks:
+  - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c0"
+    char_span: [0, 1752]
+    sentence_count: 9
+    key_terms: [giving, public-society, dafs, benefit, charitable, fidelity, billion, philanthropy]
+    token_count: 463
+  - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c1"
+    char_span: [1754, 2389]
+    sentence_count: 4
+    key_terms: [donors, gifts, dafs, good, half, giving-doldrum, affiliates, encourages]
+    token_count: 139
+  - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c2"
+    char_span: [2404, 4557]
+    sentence_count: 17
+    key_terms: [foundations, community, philanthropy, funds, dafs, charitable, management, non-liquid]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/philanthropy/1lm6dp0.md#c3"
+    char_span: [4559, 5900]
+    sentence_count: 9
+    key_terms: [agree, charitable, nonprofits, because, cassandraofthelakes, cause, lenoxhillpartners, able]
+    section: Comments
+    token_count: 281
+---
+# Have you talked with your donors about their DAFs?
+
+Source: [reddit-deep: r/philanthropy](https://www.reddit.com/r/Philanthropy/comments/1lm6dp0/have_you_talked_with_your_donors_about_their_dafs/)
+Posted by **LenoxHillPartners** · **4↑** · **9 comments**
+
+I find it increasingly frustrating that donors are giving more to their donor-advised funds (DAFs) and, by comparison, less to operating charities directly.
+
+The most recent Giving USA study (for 2024 charitable giving) came out on Tuesday, and here are a couple alarming stats:
+
+* **Individual giving as a share of personal disposable income was at 1.8% in 2024**. Since 1984, it's been that low only twice, in 1994 and 2009. (High water mark is 2.3%.)
+* Of the $592 billion contributed, **11% was to grantmaking foundations and another 11% was to "Public-society benefit" orgs**, which *also includes DAF sponsors like Fidelity Charitable Gift Fund*.
+* The **largest change in giving by type of recipient organization was "Public-society benefit" org**, at 19.5% YoY.
+   * How much of this was to DAFs? Well, total giving to DAFs in 2023 was $60 billion. 2024 numbers aren't out yet. But total giving in 2024 to Public-society benefit, of which DAFs are a part, was $67 billion. It's safe to say that **"Public-society benefit" giving is essentially DAF giving**, so that's a sector to keep close watch on.
+
+I've actually been quite angry about this trend, since Fidelity Charitable Gift Fund all but boasts in its 2023 Giving Report that "of ever $100 donated, $74 is distributed within five years." That's a *terrible* statistic for nonprofits. That means a paltry average of 15% of the original $100 goes out each year, and there's still $26 that Fidelity is making money off of in Year 6.
+
+If you're concerned about current year gifts of cash -- yes, DAFs are great for non-liquid gifts, and National Christian Foundation affiliates, for example, make about half their revenue from those kinds of gifts -- **find ways to talk to your donors who have DAFs**.
+
+There's a pretty good initiative out there called "#HalfMyDAF" that had a deadline today but another in late September. It encourages donors to commit to spending down half their DAF balance as of 1/1/2025 and makes our nonprofits eligible for matching dollars.
+
+At the very least, it gives us a good reason to contact donors during the summer giving-doldrum months.
+
+## Comments
+
+- **swimchris100** (3↑): I don’t know what these numbers look like, but I do think DAFs are great vehicles for people that have wealth events. When I’m in the process of selling my company or unloading an early investment in crypto I might not have put much thought into philanthropy. This allows me to reap the tax benefits while being thoughtful about my giving vs. deciding when I have a lot of other thing vying for focus. I think if people have to choose in that moment they just are less philanthropic. DAFs even if not spent right away are at least locking that money into supporting non profits.
+
+I’d love some congressional action on minimum spend similar to foundations
+  - **LenoxHillPartners** (1↑): Totally agreed that donor advised fund sponsors are great vehicles to transact many different kinds of gifts, especially non-liquid ones. As I mentioned elsewhere, the National Christian Foundation specializes in that and even got a private letter ruling from the IRS to allow a business owner to “donate” an entire business re: the cash it spins out while retaining management control. It’s called the Charitable Shareholder option. So as a value ad for philanthropy, I am in complete support of that kind of entity. And NCF affiliates make about half their yearly revenue from these kinds of non-Liquid gifts. They lead the pack of sponsors in distributing anywhere from 35-55% of assets annually. Most commercial funds of funds (Fidelity, Schwab &c.) are around 15-20% at best. 
+
+But I don’t think a DAF sponsor should be classified, as it is, as a 501(c)(3). It clearly has no “charitable purpose.” Its main purpose in existing is to grow assets under management.
+- **cassandraofthelakes** (2↑): I might be wrong, but I read what seem to be a lot of assumptions in your post. While Fidelity could definitely be within with the public society benefit category there are lots of other organizations that could fall into that NTEE. Additionally, community foundations would fall into that category as well. Many of the fees from DAFs allow community foundations to grant more money out from their discretionary funds to community partners. 
+
+I have also seen a huge trend of DAF holders who end up distributing some charitable distributions out for a while and then end up closing them out in favor of gifting the remainder & additional investment returns all to one nonprofit or cause.
+
+I agree with what the other poster said, I think there should be minimum distribution limits. I just think villifying a charitable tool in such black and white terms is overly reductive. In some ways DAFs can add opportunity to prospective fundraising for nonprofits. I can understand wanting to be able to distribute money to a specific cause one year depending on the societal landscape and being able to pivot when those needs might change. If all donors just anchored into one or two beneficiaries, there would be a lot less flexible funding out there.
+  - **LenoxHillPartners** (2↑): Fidelity is indeed in that sector, as well as community foundations. And I think if there’s a “loser” in the equation — because the entity that wins the most is the DAF sponsor; it came into existence because of this IRS allowance — it’s nonprofits. 
+
+That said, I agree it’s reductionist and a two-dimensional response to a complex situation. 
+
+Your reply was intelligent pushback, so thank you.
+    - **cassandraofthelakes** (2↑): Ultimately I agree and have also felt frustrated with this exact subject!

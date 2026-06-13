@@ -21,31 +21,31 @@ chunks:
     key_terms: [college, school, course, year, wanna, years, high, working]
     token_count: 502
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c1"
-    char_span: [2152, 4365]
+    char_span: [2151, 4364]
     sentence_count: 16
     key_terms: [transfer, course, courses, business, program, useful, coachinteresting7125, community]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c2"
-    char_span: [4367, 5590]
+    char_span: [4366, 5589]
     sentence_count: 7
     key_terms: [skills, been, students, college, school, academic, "haven't", though]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c3"
-    char_span: [5592, 7731]
+    char_span: [5591, 7730]
     sentence_count: 12
     key_terms: [school, because, back, high, college, parents, lot, questions]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c4"
-    char_span: [7733, 9714]
+    char_span: [7732, 9713]
     sentence_count: 14
     key_terms: [get, college, school, people, reinforcement, "don't", certificate, algebra]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/college/1q29sfn.md#c5"
-    char_span: [9716, 11407]
+    char_span: [9715, 11406]
     sentence_count: 15
     key_terms: [college, bridge, course, people, skills, back, find, students]
     section: Comments

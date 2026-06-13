@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, comments, fall, find, opportunities, reddit-deep, internship, companies]
     token_count: 88
   - id: "social-intelligence/reddit-deep/internships/1skpxtp.md#c1"
-    char_span: [353, 1984]
+    char_span: [352, 1983]
     sentence_count: 6
     key_terms: [fall, appropriate-tutor587, internship, summer, start, rivocareers, companies, positions]
     section: Comments

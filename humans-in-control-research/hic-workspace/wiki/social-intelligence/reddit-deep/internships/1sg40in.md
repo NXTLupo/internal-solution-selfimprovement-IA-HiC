@@ -23,13 +23,13 @@ chunks:
     key_terms: [company, internship, intern, option, opportunities, data-related, internships, longer-term]
     token_count: 443
   - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c1"
-    char_span: [2049, 4394]
+    char_span: [2048, 4393]
     sentence_count: 15
     key_terms: [option, company, resume, employees, pay, longer, return, skills]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sg40in.md#c2"
-    char_span: [4396, 4595]
+    char_span: [4395, 4594]
     sentence_count: 3
     key_terms: [everything, experience, understand, instantly, recruiter, advice, option, brand]
     section: Comments

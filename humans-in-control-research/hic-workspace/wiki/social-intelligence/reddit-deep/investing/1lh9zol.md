@@ -23,7 +23,7 @@ chunks:
     key_terms: [investing, trading, good, copy, like, management, automated, portfolio]
     token_count: 211
   - id: "social-intelligence/reddit-deep/investing/1lh9zol.md#c1"
-    char_span: [952, 1849]
+    char_span: [951, 1848]
     sentence_count: 6
     key_terms: [bitcoin, buy, overthinking, hold, lovely7451, returns, "don't", month]
     section: Comments

@@ -23,25 +23,25 @@ chunks:
     key_terms: [masters, career, design, online, doing, done, get, gradschool]
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c1"
-    char_span: [2160, 4275]
+    char_span: [2159, 4274]
     sentence_count: 20
     key_terms: [internship, projects, non-thesis, track, because, company, masters, program]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c2"
-    char_span: [3999, 5332]
+    char_span: [3998, 5331]
     sentence_count: 8
     key_terms: [salary, did, children, program, family, matter, myself, championshipnice9719]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c3"
-    char_span: [5334, 7457]
+    char_span: [5333, 7456]
     sentence_count: 18
     key_terms: [career, get, job, worth, engineering, masters, student, paying]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/gradschool/1t0htzu.md#c4"
-    char_span: [7459, 8108]
+    char_span: [7458, 8107]
     sentence_count: 6
     key_terms: [job, degree, market, land, paid, intensetoucan, differently, graduating]
     section: Comments

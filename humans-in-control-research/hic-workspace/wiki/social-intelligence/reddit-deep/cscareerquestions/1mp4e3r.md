@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, coding, degree, alternative, assessments, comments, computer, science]
     token_count: 204
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c1"
-    char_span: [971, 2948]
+    char_span: [970, 2947]
     sentence_count: 17
     key_terms: [job, like, specifically, code, get, leet, industry, leetcode]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c2"
-    char_span: [2950, 4982]
+    char_span: [2949, 4981]
     sentence_count: 17
     key_terms: ["don't", leetcode, process, documentation, "can't", "it's", job, sure]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mp4e3r.md#c3"
-    char_span: [4984, 6851]
+    char_span: [4983, 6850]
     sentence_count: 13
     key_terms: [hiring-without-whiteboards, coding, interviews, engineer, "that's", roles, sales, jobs]
     section: Comments

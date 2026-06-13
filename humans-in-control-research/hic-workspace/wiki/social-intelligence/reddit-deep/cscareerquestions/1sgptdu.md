@@ -23,49 +23,49 @@ chunks:
     key_terms: [cscareerquestions, comments, degree, reddit, cybersecurity, understanding, disappearing, reddit-deep]
     token_count: 193
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c1"
-    char_span: [803, 2560]
+    char_span: [802, 2559]
     sentence_count: 13
     key_terms: [years, needs, family, realistically, right, clairvoyant, icyprofit03, job]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c2"
-    char_span: [2562, 4151]
+    char_span: [2561, 4150]
     sentence_count: 6
     key_terms: [looking, passionate, family, people, experience, industry, passion, affect]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c3"
-    char_span: [4153, 6153]
+    char_span: [4152, 6152]
     sentence_count: 15
     key_terms: [wgu, trades, learn, whitchorence, trade, experience, anything, degree]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c4"
-    char_span: [6155, 8249]
+    char_span: [6154, 8248]
     sentence_count: 11
     key_terms: [people, jobs, level, laid, competing, tradesmen, applying, oracle]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c5"
-    char_span: [8013, 8739]
+    char_span: [8012, 8738]
     sentence_count: 7
     key_terms: [hvac, people, level, down, next, sprchrgddc5, currently, distances]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c6"
-    char_span: [8741, 10619]
+    char_span: [8740, 10618]
     sentence_count: 10
     key_terms: [jobs, trades, start, got, "it's", different, climate, almost]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c7"
-    char_span: [10621, 12346]
+    char_span: [10620, 12345]
     sentence_count: 18
     key_terms: [trades, work, get, job, people, school, like, wgu]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgptdu.md#c8"
-    char_span: [12348, 12992]
+    char_span: [12347, 12991]
     sentence_count: 4
     key_terms: [care, center, health, going, gonna, data, etc, mirageofstars]
     section: Comments

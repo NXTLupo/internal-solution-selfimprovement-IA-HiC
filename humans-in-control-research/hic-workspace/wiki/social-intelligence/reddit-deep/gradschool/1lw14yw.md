@@ -48,7 +48,7 @@ chunks:
     key_terms: [work, options, science, "i'm", "can't", get, lab, interests]
     token_count: 408
   - id: "social-intelligence/reddit-deep/gradschool/1lw14yw.md#c6"
-    char_span: [9788, 10780]
+    char_span: [9787, 10779]
     sentence_count: 7
     key_terms: [better, here, boston, whole, been, get, "it's", move]
     section: Comments

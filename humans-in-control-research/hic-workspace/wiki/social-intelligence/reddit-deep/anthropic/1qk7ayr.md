@@ -23,7 +23,7 @@ chunks:
     key_terms: [performance, claude, connection, askuserquestion, code, day, "i've", too]
     token_count: 280
   - id: "social-intelligence/reddit-deep/anthropic/1qk7ayr.md#c1"
-    char_span: [1148, 1377]
+    char_span: [1147, 1376]
     sentence_count: 4
     key_terms: [lowyieldbondfunds, down, optimismneeded, anthropic, anyone, around, cowork, today]
     section: Comments

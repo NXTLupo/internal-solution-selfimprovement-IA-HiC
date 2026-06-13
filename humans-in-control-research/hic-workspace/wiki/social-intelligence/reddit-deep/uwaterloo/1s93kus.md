@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/uwaterloo/1s93kus.md#c0"
-    char_span: [0, 942]
+    char_span: [0, 941]
     sentence_count: 7
     key_terms: [experience, uwaterloo, comments, waterloo, stream, affectionate-ad6867, co-op, going]
     token_count: 235

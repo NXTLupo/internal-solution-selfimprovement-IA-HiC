@@ -21,13 +21,13 @@ chunks:
     key_terms: [engineeringstudents, engineering, experience, internship, chemical, comments, offer, sjsoalkavdbeie]
     token_count: 168
   - id: "social-intelligence/reddit-deep/engineeringstudents/1smh3oc.md#c1"
-    char_span: [705, 2518]
+    char_span: [704, 2517]
     sentence_count: 8
     key_terms: [sjsoalkavdbeie, job, getting, crazy, competitive, engineering, mysticalrng, congrats]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1smh3oc.md#c2"
-    char_span: [2315, 2896]
+    char_span: [2314, 2895]
     sentence_count: 2
     key_terms: [waidmannsheil05, teacher, recommended, asked, southlakeredboat, recommendation, hoseinspector, applications]
     section: Comments

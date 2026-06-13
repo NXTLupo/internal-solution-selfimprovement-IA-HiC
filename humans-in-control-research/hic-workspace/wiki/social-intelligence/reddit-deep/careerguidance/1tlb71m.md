@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tlb71m.md#c0"
-    char_span: [0, 1776]
+    char_span: [0, 1775]
     sentence_count: 14
     key_terms: [looking, writing, skills, communication, student, careerguidance, background, experience]
-    token_count: 383
+    token_count: 382
 ---
 # [Advice Needed] 4th Prof PharmD student looking for part-time work. Strong communication & writing skills what are my options and how do I start?
 

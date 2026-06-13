@@ -26,7 +26,7 @@ chunks:
     key_terms: [experience, organization, friends, been, "i'm", keep, lab, hardware]
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1lsxgou.md#c2"
-    char_span: [4247, 5427]
+    char_span: [4247, 5426]
     sentence_count: 15
     key_terms: ["don't", collaborate, hardware, organization, test, portfolio, progress, "there's"]
     token_count: 270

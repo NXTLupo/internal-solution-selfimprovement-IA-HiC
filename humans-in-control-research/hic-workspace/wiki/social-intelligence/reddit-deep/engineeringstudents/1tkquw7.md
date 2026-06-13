@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tkquw7.md#c0"
-    char_span: [0, 1956]
+    char_span: [0, 1955]
     sentence_count: 12
     key_terms: [engineering, resumes, job, resume, engineeringstudents, "it's", land, possible]
-    token_count: 418
+    token_count: 417
 ---
 # There is some hope, it's still possible to find an entry level engineering job in 2026 (even without experience)
 

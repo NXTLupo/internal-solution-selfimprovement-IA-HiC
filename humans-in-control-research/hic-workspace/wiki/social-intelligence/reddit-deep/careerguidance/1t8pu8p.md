@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t8pu8p.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t8pu8p/any_advice_for_my_frustration_or_choosing_a/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.897Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t8pu8p.md#c0"
+    char_span: [0, 1506]
+    sentence_count: 7
+    key_terms: ["i'm", career, anything, careerguidance, get, jobs, different, difficult]
+    token_count: 346
+  - id: "social-intelligence/reddit-deep/careerguidance/1t8pu8p.md#c1"
+    char_span: [1521, 2084]
+    sentence_count: 3
+    key_terms: [degree, underemployment, realkillersean, lowest-cost, analytical, empathetic, experiment, certainty]
+    section: Comments
+    token_count: 133
 ---
-
 # Any advice for my frustration or choosing a career path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t8pu8p/any_advice_for_my_frustration_or_choosing_a/)

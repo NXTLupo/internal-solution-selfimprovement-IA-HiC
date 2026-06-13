@@ -23,7 +23,7 @@ chunks:
     key_terms: [coverage, insurance, emergency, deductible, don, need, recommendations, looking]
     token_count: 373
   - id: "social-intelligence/reddit-deep/digitalnomad/1lerbhp.md#c1"
-    char_span: [1893, 2846]
+    char_span: [1892, 2845]
     sentence_count: 7
     key_terms: [deductible, allianz, lot, insurances, coverage, directly, hospital, provider]
     section: Comments

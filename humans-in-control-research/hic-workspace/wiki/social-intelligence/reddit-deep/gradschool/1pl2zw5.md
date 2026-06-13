@@ -23,7 +23,7 @@ chunks:
     key_terms: [offer, "i'm", job, real, time, gradschool, full-time, permanent]
     token_count: 397
   - id: "social-intelligence/reddit-deep/gradschool/1pl2zw5.md#c1"
-    char_span: [1812, 2595]
+    char_span: [1811, 2594]
     sentence_count: 4
     key_terms: [people, school, grad, graduate, careers, pitifulasparagus2017, want, excruciating]
     section: Comments

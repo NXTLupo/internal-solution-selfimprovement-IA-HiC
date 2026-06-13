@@ -23,37 +23,37 @@ chunks:
     key_terms: [wallstreetbets, meta, zuck, comments, tendies, yolo, optionsforlife, generational]
     token_count: 299
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c1"
-    char_span: [1075, 1439]
+    char_span: [1074, 1438]
     sentence_count: 2
     key_terms: [discord, https, total, weeks, wsb, biggiemoe01, submissions, karmacave]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c2"
-    char_span: [1441, 2807]
+    char_span: [1440, 2806]
     sentence_count: 5
     key_terms: [meta, d61535f4898daf8f50c74825da418c376622282a, shares, no-kaleidoscope-2891, onespokeovertheline, informal-army-4512, got, buildwithvignesh]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c3"
-    char_span: [2646, 2876]
+    char_span: [2645, 2875]
     sentence_count: 1
     key_terms: [d61535f4898daf8f50c74825da418c376622282a, informal-army-4512, optionsforlife, isospeedrix, definitely, ohshitski, scientist, username]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c4"
-    char_span: [2878, 4087]
+    char_span: [2877, 4086]
     sentence_count: 9
     key_terms: [accounts, options, shares, doesn, gigantischemeteor, day, igeneralofdeath, backwardsville]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c5"
-    char_span: [4089, 5694]
+    char_span: [4088, 5693]
     sentence_count: 10
     key_terms: [meta, ac40f59c196d92cb261b3651107393689875c270, c2423c96bed783d363897d491d6f290de6762028, views, advertisers, hokguailo, preview, format]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/wallstreetbets/1olezrb.md#c6"
-    char_span: [5696, 6237]
+    char_span: [5695, 6236]
     sentence_count: 5
     key_terms: [never, drummercompetitive20, norcalathlete, kittylover-7, billionaire, anywhere, sometime, weeklies]
     section: Comments

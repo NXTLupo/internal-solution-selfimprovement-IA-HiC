@@ -28,7 +28,7 @@ chunks:
     key_terms: [gpt-5, model, code, coding, openai, like, claude, gemini]
     token_count: 378
   - id: "social-intelligence/reddit-deep/gpt/1mot0mf.md#c2"
-    char_span: [2917, 3499]
+    char_span: [2916, 3498]
     sentence_count: 3
     key_terms: [better, independent-ruin-376, intheendentropywins, disappointment, hallucinations, pre-testers, propaganda, irritated]
     section: Comments

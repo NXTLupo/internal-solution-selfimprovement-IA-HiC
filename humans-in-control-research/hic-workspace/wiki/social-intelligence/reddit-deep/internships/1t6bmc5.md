@@ -21,13 +21,13 @@ chunks:
     key_terms: [university, internship, host, internships, back, comments, graduate, minimum]
     token_count: 341
   - id: "social-intelligence/reddit-deep/internships/1t6bmc5.md#c1"
-    char_span: [1441, 2942]
+    char_span: [1440, 2941]
     sentence_count: 18
     key_terms: [companies, accounting, firms, connections, big, etc, use, consulting]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/internships/1t6bmc5.md#c2"
-    char_span: [2944, 4931]
+    char_span: [2943, 4930]
     sentence_count: 7
     key_terms: [internships, asu-student-mcclintock-tempe-1, summer, com, last, too, week, internship]
     section: Comments

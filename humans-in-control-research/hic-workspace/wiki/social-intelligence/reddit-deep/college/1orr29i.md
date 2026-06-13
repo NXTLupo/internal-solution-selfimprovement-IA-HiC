@@ -23,31 +23,31 @@ chunks:
     key_terms: [international, in-person, comments, college, student, government, lectures, semester]
     token_count: 404
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c1"
-    char_span: [1838, 3924]
+    char_span: [1837, 3923]
     sentence_count: 15
     key_terms: [chair, department, students, advisor, significant-mud-2066, report, international, conversation]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c2"
-    char_span: [3926, 5280]
+    char_span: [3925, 5279]
     sentence_count: 13
     key_terms: [class, in-person, students, person, international, requirements, professor, happens]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c3"
-    char_span: [5282, 7305]
+    char_span: [5281, 7304]
     sentence_count: 20
     key_terms: [class, math, significant-mud-2066, "it's", classes, college, like, analytics]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c4"
-    char_span: [7041, 7887]
+    char_span: [7040, 7886]
     sentence_count: 9
     key_terms: [class, significant-mud-2066, classes, does, college, talking, level, "it's"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/college/1orr29i.md#c5"
-    char_span: [7889, 9762]
+    char_span: [7888, 9761]
     sentence_count: 16
     key_terms: [class, people, get, "it's", lectures, format, online, videos]
     section: Comments

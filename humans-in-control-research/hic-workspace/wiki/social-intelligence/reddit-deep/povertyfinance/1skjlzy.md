@@ -23,31 +23,31 @@ chunks:
     key_terms: [credit, povertyfinance, asking, months, financially, financial, comments, advice]
     token_count: 334
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c1"
-    char_span: [1422, 3183]
+    char_span: [1421, 3182]
     sentence_count: 12
     key_terms: [buy, naca, mortgage, through, going, https, month, offer]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c2"
-    char_span: [3185, 5146]
+    char_span: [3184, 5145]
     sentence_count: 16
     key_terms: [income, years, new, thinking, student, loans, downpayment, need]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c3"
-    char_span: [5148, 6494]
+    char_span: [5147, 6493]
     sentence_count: 13
     key_terms: [mortgage, get, overallcomplexities, great, month, paint, small, years]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c4"
-    char_span: [6496, 8022]
+    char_span: [6495, 8021]
     sentence_count: 7
     key_terms: [time, apartment, closing, partner, better, market, "you're", "don't"]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/povertyfinance/1skjlzy.md#c5"
-    char_span: [8024, 8800]
+    char_span: [8023, 8799]
     sentence_count: 6
     key_terms: [enough, credits, investigate, costs, homes, home, time, work]
     section: Comments

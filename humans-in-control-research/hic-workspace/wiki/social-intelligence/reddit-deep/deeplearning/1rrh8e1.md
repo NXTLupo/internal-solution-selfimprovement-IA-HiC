@@ -23,25 +23,25 @@ chunks:
     key_terms: [agent, observability, complex, handling, across, architecture, deeplearning, interaction]
     token_count: 474
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c1"
-    char_span: [2251, 4435]
+    char_span: [2250, 4434]
     sentence_count: 14
     key_terms: [agent, non-deterministic, nested, layer, model, neo4j, concurrency, multi-agent]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c2"
-    char_span: [4437, 5454]
+    char_span: [4436, 5453]
     sentence_count: 7
     key_terms: [latency, real-time, scanning, inline, strict, level, makes, proxy]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c3"
-    char_span: [5456, 7836]
+    char_span: [5455, 7835]
     sentence_count: 10
     key_terms: [layer, api, embedding, latency, observability, horizontally, async, graph]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1rrh8e1.md#c4"
-    char_span: [7536, 8222]
+    char_span: [7535, 8221]
     sentence_count: 5
     key_terms: [especially, embedding, guard, api, pii, non-negotiable, architectural, retroactively]
     section: Comments

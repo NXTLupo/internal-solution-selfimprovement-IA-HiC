@@ -21,7 +21,7 @@ chunks:
     key_terms: [data, internship, roles, cscareerquestions, advice, graduating, analytics, something]
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1prxzkn.md#c1"
-    char_span: [1916, 2675]
+    char_span: [1915, 2674]
     sentence_count: 6
     key_terms: [required, because, masters, d1g1tald0lph1n, competition, definitely, everything, experience]
     section: Comments

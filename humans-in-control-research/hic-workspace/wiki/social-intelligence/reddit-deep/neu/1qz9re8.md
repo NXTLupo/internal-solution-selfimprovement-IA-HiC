@@ -21,13 +21,13 @@ chunks:
     key_terms: [got, comments, decision, choose, neu, scholarships, specifically, reddit-deep]
     token_count: 166
   - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c1"
-    char_span: [708, 2859]
+    char_span: [707, 2858]
     sentence_count: 15
     key_terms: [london, program, schools, experience, boysenberrytime3143, captainwalnuts69, housing, opportunities]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1qz9re8.md#c2"
-    char_span: [2571, 4294]
+    char_span: [2570, 4293]
     sentence_count: 5
     key_terms: ["it's", program, schools, london, imreallyscared2002, united-function282, parents, great]
     section: Comments

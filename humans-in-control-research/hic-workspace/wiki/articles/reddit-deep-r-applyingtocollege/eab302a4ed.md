@@ -15,12 +15,12 @@ industries: [higher_ed, education, financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/eab302a4ed.md#c0"
-    char_span: [0, 2023]
+    char_span: [0, 2022]
     sentence_count: 15
     key_terms: [uiuc, nyu, math, applyingtocollege, better, quant, internships, nyc]
-    token_count: 489
+    token_count: 488
   - id: "articles/reddit-deep-r-applyingtocollege/eab302a4ed.md#c1"
-    char_span: [2025, 3053]
+    char_span: [2024, 3052]
     sentence_count: 15
     key_terms: [courant, nyu, undergrad, applied, "that's", math, phd, want]
     token_count: 259

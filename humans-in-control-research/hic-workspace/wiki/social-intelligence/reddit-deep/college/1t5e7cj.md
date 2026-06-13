@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, university, academic, comments, semester, likely, bigsuggestion9664, gpa]
     token_count: 197
   - id: "social-intelligence/reddit-deep/college/1t5e7cj.md#c1"
-    char_span: [910, 3018]
+    char_span: [909, 3017]
     sentence_count: 12
     key_terms: [college, failed, went, classes, semester, credits, failing, school]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/college/1t5e7cj.md#c2"
-    char_span: [3020, 5061]
+    char_span: [3019, 5060]
     sentence_count: 15
     key_terms: [college, figure, issues, time, student, transferring, getting, failed]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1t5e7cj.md#c3"
-    char_span: [5063, 7061]
+    char_span: [5062, 7060]
     sentence_count: 15
     key_terms: [something, take, academic, school, going, ready, years, aid]
     section: Comments

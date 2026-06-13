@@ -48,43 +48,43 @@ chunks:
     key_terms: [parenting, circles, people, social, weird, significance, coworkers, employed]
     token_count: 113
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c6"
-    char_span: [10263, 12455]
+    char_span: [10262, 12454]
     sentence_count: 16
     key_terms: [people, money, "i'm", connections, fire, connection, interested, financial]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c7"
-    char_span: [12457, 14511]
+    char_span: [12456, 14510]
     sentence_count: 13
     key_terms: [real, bills, "isn't", the-2021-early-retirement-update, years, post, read, resonated]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c8"
-    char_span: [14513, 16156]
+    char_span: [14512, 16155]
     sentence_count: 13
     key_terms: [thought, people, "don't", years, preferences, etc, glad, like]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c9"
-    char_span: [16158, 18026]
+    char_span: [16157, 18025]
     sentence_count: 14
     key_terms: [doing, feel, post, household, justify, active, longer, point]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c10"
-    char_span: [18028, 19317]
+    char_span: [18027, 19316]
     sentence_count: 11
     key_terms: ["don't", like, carrying, someone, grass, hire, need, role]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c11"
-    char_span: [19319, 21112]
+    char_span: [19318, 21111]
     sentence_count: 12
     key_terms: [time, uncertainty, reduction, numbers, couple, months, sports, been]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/financialindependence/1nuztzj.md#c12"
-    char_span: [21114, 21841]
+    char_span: [21113, 21840]
     sentence_count: 5
     key_terms: [going, something, another, cancer, health, deductibles, frightening, standalone]
     section: Comments

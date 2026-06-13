@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1oa5ac1.md#c0"
-    char_span: [0, 893]
+    char_span: [0, 892]
     sentence_count: 5
     key_terms: [opportunities, internships, contribute, internship, comments, looking, minimum, student]
     token_count: 212

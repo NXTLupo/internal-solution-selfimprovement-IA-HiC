@@ -18,7 +18,7 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gemini/1rqmtdz.md#c0"
-    char_span: [0, 1141]
+    char_span: [0, 1140]
     sentence_count: 4
     key_terms: [gemini, acp-loop, interval, deploy, recurring, succeeded, workflows, comments]
     token_count: 304

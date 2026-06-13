@@ -23,55 +23,55 @@ chunks:
     key_terms: ["don't", applyingtocollege, process, understand, different, comments, anymore, college]
     token_count: 262
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c1"
-    char_span: [1211, 3388]
+    char_span: [1210, 3387]
     sentence_count: 24
     key_terms: [schools, school, interest, demonstrated, admissions, calculator, here, google]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c2"
-    char_span: [3390, 5190]
+    char_span: [3389, 5189]
     sentence_count: 16
     key_terms: [college, numbers, year, back, car, admissions, available, jeffrey]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c3"
-    char_span: [5192, 6975]
+    char_span: [5191, 6974]
     sentence_count: 11
     key_terms: [schools, pay, figure, right, cuz, kid, kids, test]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c4"
-    char_span: [6977, 9250]
+    char_span: [6976, 9249]
     sentence_count: 30
     key_terms: [colleges, college, school, major, student, figure, don, kid]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c5"
-    char_span: [8990, 11078]
+    char_span: [8989, 11077]
     sentence_count: 20
     key_terms: [don, college, film, campus, school, scholarships, apply, major]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c6"
-    char_span: [10798, 11142]
+    char_span: [10797, 11141]
     sentence_count: 2
     key_terms: [familiarize, counsellor, initiative, procedures, admission, academic, stepping, another]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c7"
-    char_span: [11144, 13025]
+    char_span: [11143, 13024]
     sentence_count: 25
     key_terms: [schools, scores, good, admitted, applied, data, get, kid]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c8"
-    char_span: [13027, 15015]
+    char_span: [13026, 15014]
     sentence_count: 22
     key_terms: [colleges, college, best, kid, acceptance, daughter, maritime, salaries]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rfcbl2.md#c9"
-    char_span: [15017, 15751]
+    char_span: [15016, 15750]
     sentence_count: 5
     key_terms: [examples, outcomes, majors, get, kids, rozmarymarlo, application, competitive]
     section: Comments

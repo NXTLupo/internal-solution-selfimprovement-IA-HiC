@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qv1q7r.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qv1q7r/got_a_dream_summer_research_internship_offer_is/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.588Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qv1q7r.md#c0"
+    char_span: [0, 713]
+    sentence_count: 4
+    key_terms: [schools, gradadmissions, internship, comments, research, summer, offer, grad]
+    token_count: 166
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qv1q7r.md#c1"
+    char_span: [728, 1130]
+    sentence_count: 5
+    key_terms: [internship, serious-poet-1710, don, caramel-economy, prestigious, articulate, achieve, student]
+    section: Comments
+    token_count: 106
 ---
-
 # Got a dream summer research internship offer - is it too late to update grad schools about this?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qv1q7r/got_a_dream_summer_research_internship_offer_is/)

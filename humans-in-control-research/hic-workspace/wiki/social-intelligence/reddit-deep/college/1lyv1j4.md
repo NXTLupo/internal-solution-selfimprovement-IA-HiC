@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, comments, wild-purple5517, reddit-deep, experience, languages, compared, language]
     token_count: 92
   - id: "social-intelligence/reddit-deep/college/1lyv1j4.md#c1"
-    char_span: [364, 1722]
+    char_span: [363, 1721]
     sentence_count: 14
     key_terms: [high, people, school, class, words, lot, akamduckie, classroom]
     section: Comments

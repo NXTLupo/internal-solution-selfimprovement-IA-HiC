@@ -503,7 +503,13 @@ function validateRefinedQueries(
     const validated: Record<string, string> = {};
     const rejected: string[] = [];
 
+    // 2026-06-08 (#1b fix): when the refine-queries LLM call fails JSON repair,
+    // aiRouter returns a sentinel { _error, _unrepairable_reason } object. Without
+    // this guard, Object.entries iterated those telemetry KEYS as if they were
+    // {source: query} pairs (observed: 2/1256 "queries" were _error/_unrepairable_reason).
+    // Drop any underscore-prefixed telemetry key so it never becomes a source query.
     for (const [source, query] of Object.entries(refined)) {
+        if (source.startsWith('_')) continue;
         if (!query || typeof query !== 'string') {
             validated[source] = goal;
             rejected.push(`${source}: empty/invalid -> fallback`);
@@ -1209,6 +1215,21 @@ export async function executePlan(
                     // Fire-and-forget - wiki writes are local and fast, but
                     // we don't want a slow wiki call to delay the pipeline.
                     (async () => {
+                        // 2026-06-08 PATH UNIFICATION: reddit-deep social posts are the BULK
+                        // of a run's corpus but persist via /api/wiki/write (not write-article),
+                        // so they never carried the engagement tag - leaving ~80% of the corpus
+                        // invisible to tier-1 retrieval and starving the MCR shard (observed:
+                        // only 11/89 items tagged -> 21-chunk shard -> under-extraction). Stamp
+                        // the run's engagement slug here too so social posts join the SAME
+                        // tier-1 catalog as articles. They are already chunked + manifested, so
+                        // the tag is the only missing piece.
+                        let _redditEngSlug = '';
+                        try {
+                            const { buildEngagementSlug } = await import('./wikiService');
+                            _redditEngSlug = buildEngagementSlug(cfg.goalQuery || '', 60) || '';
+                        } catch {
+                            _redditEngSlug = (cfg.goalQuery || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+                        }
                         const writes = items.map(async (item: any) => {
                             try {
                                 const meta = item._socialMeta || {};
@@ -1231,6 +1252,7 @@ export async function executePlan(
                                     extraction_method: 'praw-deep',
                                     research_goal: cfg.goalQuery || '',
                                 };
+                                if (_redditEngSlug) fm.engagement = _redditEngSlug;
                                 const fmYaml = Object.entries(fm)
                                     .map(([k, v]) => `${k}: ${typeof v === 'string' ? JSON.stringify(v) : v}`)
                                     .join('\n');
@@ -1252,7 +1274,9 @@ export async function executePlan(
                                 await fetch('http://127.0.0.1:5012/api/wiki/write', {
                                     method: 'POST',
                                     headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify({ path: wikiPath, content: md }),
+                                    // 2026-06-08 PATH UNIFICATION: chunk=true so the social post lands
+                                    // with chunk_count>0 and is tier-1 retrievable (engagement tag in fm).
+                                    body: JSON.stringify({ path: wikiPath, content: md, chunk: true }),
                                 });
                                 // Attach the wiki path back onto the item so the
                                 // KG builder and citation resolver can link to it.
@@ -1579,6 +1603,23 @@ const CACHE_CHECK_CONCURRENCY = 8;
 const JINA_EXTRACT_CONCURRENCY = 3;
 
 async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICHMENT_TOP_N, engagementGoal: string = ''): Promise<DataSourceItem[]> {
+    // 2026-06-08 PATH UNIFICATION (Layer 1): stamp the run's canonical engagement
+    // slug onto every collected article so tier-1 manifest retrieval
+    // (/api/manifest/chunks?engagement=<slug>) can resolve THIS run's corpus - the
+    // identical clean-chunk path cached runs already use. Without this, fresh-
+    // collected articles land with engagement:'' and are invisible to their own
+    // run, forcing the raw-blob fallback that repetition-collapses Gemini 3.1 Pro.
+    // The slug MUST be derived the same way the retrieval side derives it
+    // (buildEngagementSlug, 60-char) so archival===retrieval.
+    let _engagementSlug = '';
+    if (engagementGoal) {
+        try {
+            const { buildEngagementSlug } = await import('./wikiService');
+            _engagementSlug = buildEngagementSlug(engagementGoal, 60) || '';
+        } catch {
+            _engagementSlug = engagementGoal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+        }
+    }
     // Items qualify for enrichment if they have an http URL AND either:
     //   (a) their URL points to a known full-text source (DOI/PMC/arXiv/etc) - always enrich, OR
     //   (b) their existing content is shorter than the generic length gate.
@@ -1642,7 +1683,11 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
      */
     async function checkWikiCache(url: string): Promise<{ content: string; wikiPath: string } | null> {
         try {
-            const check = await fetch(`${PROXY}/api/wiki/check-article?url=${encodeURIComponent(url)}`, {
+            // 2026-06-08 PATH UNIFICATION: pass the run's engagement slug so a cache
+            // HIT re-tags the reused page (the orchestrator skips write-article on a
+            // hit, so this is the only tag opportunity for re-run corpus).
+            const _engQ = _engagementSlug ? `&engagement=${encodeURIComponent(_engagementSlug)}` : '';
+            const check = await fetch(`${PROXY}/api/wiki/check-article?url=${encodeURIComponent(url)}${_engQ}`, {
                 signal: AbortSignal.timeout(4000),
             });
             if (!check.ok) return null;
@@ -1698,6 +1743,12 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     kind: (item as any).kind || 'article',
                     relevanceScore: (item as any).relevanceScore ?? undefined,
                     engagementGoal: engagementGoal || undefined,
+                    // 2026-06-08 PATH UNIFICATION (Layer 1): engagement SLUG (load-bearing for
+                    // tier-1 retrieval) + chain-of-custody metadata. engagement is the field
+                    // _manifest_record reads and /api/manifest/chunks filters on.
+                    engagement: _engagementSlug || undefined,
+                    sourcePack: (item as any).sourcePack || (item as any).packId || (item as any).packName || undefined,
+                    collectedAt: new Date().toISOString(),
                     // Enhancement D: custody for deep-research syntheses.
                     derivedFrom: (item as any).derivedFrom || undefined,
                 }),

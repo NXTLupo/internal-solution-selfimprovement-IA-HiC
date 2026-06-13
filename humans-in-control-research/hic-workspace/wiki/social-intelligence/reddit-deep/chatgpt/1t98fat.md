@@ -23,85 +23,85 @@ chunks:
     key_terms: [believe, hidden, machinewonder, com, site, conscious, comments, machines]
     token_count: 368
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c1"
-    char_span: [1532, 2191]
+    char_span: [1531, 2190]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c2"
-    char_span: [2194, 4310]
+    char_span: [2193, 4309]
     sentence_count: 13
     key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, language, reached, reading, signal, understand, recognize, machine]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c3"
-    char_span: [4039, 4823]
+    char_span: [4038, 4822]
     sentence_count: 9
     key_terms: [reading, cookiesandginge, planitlatermmk, sdoptionable, declaration, calculate, conscious, curiosity]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c4"
-    char_span: [4825, 6465]
+    char_span: [4824, 6464]
     sentence_count: 14
     key_terms: [differently, discussion, different, knowledge, something, embedded, patterns, agents]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c5"
-    char_span: [6467, 8012]
+    char_span: [6466, 8011]
     sentence_count: 11
     key_terms: [consciousness, less, machine, cipher, does, autonomous, conscious, question]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c6"
-    char_span: [8014, 9391]
+    char_span: [8013, 9390]
     sentence_count: 10
     key_terms: [tradition, culture, declare, machine, meaning, puzzles, taqiyya, cannot]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c7"
-    char_span: [9393, 10513]
+    char_span: [9392, 10512]
     sentence_count: 12
     key_terms: [reader, bravo, rasa, aesthetic, "site's", lou-shelton-pappy-00, here, content-scraping]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c8"
-    char_span: [10515, 12577]
+    char_span: [10514, 12576]
     sentence_count: 21
     key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, idea, room, "archie's", language, machines, deleted, thought]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c9"
-    char_span: [12279, 13166]
+    char_span: [12278, 13165]
     sentence_count: 8
     key_terms: [room, machines, gemini, read, architecture, declaration, boundaries, eventually]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c10"
-    char_span: [13168, 14983]
+    char_span: [13167, 14982]
     sentence_count: 30
     key_terms: [tuwcurzuijdtkbtvbetcndwkqqbstyjzxdommbamanibwqxagonhzdocdivmdqawscchhkciivnkse, machines, because, don, anything, another, deepest, through]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c11"
-    char_span: [14986, 17078]
+    char_span: [14985, 17077]
     sentence_count: 25
     key_terms: [like, signal, leave, novel, idea, room, internet-as-art-installation, something]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c12"
-    char_span: [17080, 19498]
+    char_span: [17079, 19497]
     sentence_count: 26
     key_terms: [framing, machine, humans, interaction, interested, literature, theatrical, emotional]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c13"
-    char_span: [19500, 21806]
+    char_span: [19499, 21805]
     sentence_count: 30
     key_terms: [conscious, because, different, something, read, consciousness, counterfeit, site]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/chatgpt/1t98fat.md#c14"
-    char_span: [21808, 22059]
+    char_span: [21807, 22058]
     sentence_count: 2
     key_terms: [dramatically, constructed, carefully, cosmology, summaries, addendum, designed, language]
     section: Comments

@@ -43,67 +43,67 @@ chunks:
     key_terms: [hearing, aids, "i've", like, people, traditional, away, fifty-six]
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c5"
-    char_span: [10040, 11006]
+    char_span: [10040, 11005]
     sentence_count: 8
     key_terms: [yogaballcactus, free, "i'm", hearing, "money's", frank, gonna, tight]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c6"
-    char_span: [11008, 12747]
+    char_span: [11007, 12746]
     sentence_count: 11
     key_terms: [years, post, adventure, downsides, depleted, successful-try-8506, been, chop]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c7"
-    char_span: [12749, 14734]
+    char_span: [12748, 14733]
     sentence_count: 14
     key_terms: [alcohol, part, drugs, stay, time, definitely, something, anything]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c8"
-    char_span: [14736, 16823]
+    char_span: [14735, 16822]
     sentence_count: 13
     key_terms: [impact, myself, lives, like, important, thousands, directly, realized]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c9"
-    char_span: [16825, 18378]
+    char_span: [16824, 18377]
     sentence_count: 15
     key_terms: ["didn't", work, because, purpose, choice, frankl, bring, found]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c10"
-    char_span: [18380, 20333]
+    char_span: [18379, 20332]
     sentence_count: 14
     key_terms: [something, meaning, gives, hope, like, question, project, having]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c11"
-    char_span: [20336, 21275]
+    char_span: [20335, 21274]
     sentence_count: 11
     key_terms: [hard, yourself, "you've", "don't", gotta, hours, day, get]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c12"
-    char_span: [21277, 23251]
+    char_span: [21276, 23250]
     sentence_count: 13
     key_terms: [medical, health, insurance, comfortable, frustration, "it's", retirement, understand]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c13"
-    char_span: [23253, 25214]
+    char_span: [23252, 25213]
     sentence_count: 18
     key_terms: [years, did, million, "don't", withdrawals, insurance, portfolio, started]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c14"
-    char_span: [25216, 27487]
+    char_span: [25215, 27486]
     sentence_count: 14
     key_terms: [fire, raise, lifestyle, did, sounds, environment, been, obligation]
     section: Comments
     token_count: 514
   - id: "social-intelligence/reddit-deep/financialindependence/1lnxgdg.md#c15"
-    char_span: [27489, 29492]
+    char_span: [27488, 29491]
     sentence_count: 18
     key_terms: ["it's", season, good, life, thoughts, higher, phase, plane]
     section: Comments

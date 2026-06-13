@@ -18,7 +18,7 @@ industries: [workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1tihio7.md#c0"
-    char_span: [0, 1149]
+    char_span: [0, 1148]
     sentence_count: 5
     key_terms: [ok-organization1328, students, "we're", internships, internship, comments, writing, coding]
     token_count: 309

@@ -21,7 +21,7 @@ chunks:
     key_terms: [interview, interested, comments, co-op, job, neu, engineering, invitations]
     token_count: 183
   - id: "social-intelligence/reddit-deep/neu/1s2uta9.md#c1"
-    char_span: [776, 2122]
+    char_span: [775, 2121]
     sentence_count: 8
     key_terms: [interview, position, never, don, get, good, take, commitment]
     section: Comments

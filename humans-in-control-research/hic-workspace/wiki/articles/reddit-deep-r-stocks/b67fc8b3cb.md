@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-stocks/b67fc8b3cb.md#c0"
-    char_span: [0, 1978]
+    char_span: [0, 1977]
     sentence_count: 13
     key_terms: [like, comments, stocks, gold, here, time, everyone, expected]
-    token_count: 477
+    token_count: 476
   - id: "articles/reddit-deep-r-stocks/b67fc8b3cb.md#c1"
-    char_span: [1981, 3266]
+    char_span: [1980, 3265]
     sentence_count: 8
     key_terms: [reddit, something, comments, whenever, hotline, suicide, thread, wickedsensitivecrew]
     token_count: 302

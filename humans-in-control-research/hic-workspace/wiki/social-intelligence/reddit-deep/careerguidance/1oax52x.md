@@ -23,25 +23,25 @@ chunks:
     key_terms: [career, something, healthcare, want, careerguidance, people, least, down]
     token_count: 458
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c1"
-    char_span: [1932, 3874]
+    char_span: [1931, 3873]
     sentence_count: 11
     key_terms: [nursing, radiology, thecrystalball2018, get, work, degree, good, live]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c2"
-    char_span: [3578, 5811]
+    char_span: [3577, 5810]
     sentence_count: 20
     key_terms: [nursing, insurance, become, degree, did, get, good, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c3"
-    char_span: [5532, 6301]
+    char_span: [5531, 6300]
     sentence_count: 8
     key_terms: [nursing, degree, like, experience, bachelor, being, maybe, did]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/careerguidance/1oax52x.md#c4"
-    char_span: [6303, 6861]
+    char_span: [6302, 6860]
     sentence_count: 4
     key_terms: [nurse, techs, years, good, life, shezeundone, crissbliss, hygienists]
     section: Comments

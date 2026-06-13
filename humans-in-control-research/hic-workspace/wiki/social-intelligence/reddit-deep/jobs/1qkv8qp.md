@@ -21,19 +21,19 @@ chunks:
     key_terms: [entry-level, experience, jobs, require, years, comments, reddit-deep, multitudes]
     token_count: 144
   - id: "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c1"
-    char_span: [584, 2582]
+    char_span: [583, 2581]
     sentence_count: 4
     key_terms: [ok-energy-9785, people, entry, level, jobs, experience, different, employers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c2"
-    char_span: [2310, 3109]
+    char_span: [2309, 3108]
     sentence_count: 7
     key_terms: [internships, experience, co-ops, people, prices, onlythephantomknows, want, stitchwreckriot]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/jobs/1qkv8qp.md#c3"
-    char_span: [3111, 4026]
+    char_span: [3110, 4025]
     sentence_count: 7
     key_terms: [experience, entry, level, someone, companies, lost, want, cyberentomology]
     section: Comments

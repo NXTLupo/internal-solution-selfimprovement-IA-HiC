@@ -36,55 +36,55 @@ chunks:
     key_terms: [maybe, like, because, disappointing, experiencing, ineffective, experience, expressing]
     token_count: 197
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c4"
-    char_span: [6344, 7553]
+    char_span: [6343, 7552]
     sentence_count: 10
     key_terms: [different, worked, google, teams, experience, company, working, "you're"]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c5"
-    char_span: [7555, 9524]
+    char_span: [7554, 9523]
     sentence_count: 12
     key_terms: [companies, team, people, teams, experience, onboarding, everyone, actual]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c6"
-    char_span: [9526, 10883]
+    char_span: [9525, 10882]
     sentence_count: 12
     key_terms: [people, work, opportunities, "don't", networking, friends, around, months]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c7"
-    char_span: [10885, 12832]
+    char_span: [10884, 12831]
     sentence_count: 15
     key_terms: [google, company, people, expectations, large, experience, network, paleontologistok9053]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c8"
-    char_span: [12597, 13046]
+    char_span: [12596, 13045]
     sentence_count: 7
     key_terms: [google, expectations, rorschach200, corporate, frodolas, startups, "faang's", neolabs]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c9"
-    char_span: [13048, 15276]
+    char_span: [13047, 15275]
     sentence_count: 17
     key_terms: [work, google, time, company, important, standards, typically, building]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c10"
-    char_span: [15278, 17397]
+    char_span: [15277, 17396]
     sentence_count: 14
     key_terms: [project, people, great, something, like, team, sounds, everyone]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c11"
-    char_span: [17399, 19431]
+    char_span: [17398, 19430]
     sentence_count: 12
     key_terms: [leetcode, company, maybe, teams, get, like, handshake, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tjvni0.md#c12"
-    char_span: [19436, 19617]
+    char_span: [19435, 19616]
     sentence_count: 3
     key_terms: [branches, everyone, terrible, another, evasion, ireland, justify, friend]
     section: Comments

@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/3bcceb062f.md#c0"
-    char_span: [0, 656]
+    char_span: [0, 655]
     sentence_count: 5
     key_terms: [common-payment9984, emeraldmeetsauburn, like, congratulations, profile, gradadmissions, "bro's", comments]
-    token_count: 202
+    token_count: 201
 ---
 # I got in!!!
 

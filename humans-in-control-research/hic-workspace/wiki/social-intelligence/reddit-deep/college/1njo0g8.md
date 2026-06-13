@@ -21,55 +21,55 @@ chunks:
     key_terms: [like, college, comments, thinking, skills, feels, maybe, gen]
     token_count: 234
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c1"
-    char_span: [1081, 3248]
+    char_span: [1080, 3247]
     sentence_count: 16
     key_terms: [class, accounting, people, because, "it's", classes, requirements, found]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c2"
-    char_span: [3250, 5415]
+    char_span: [3249, 5414]
     sentence_count: 15
     key_terms: [classes, class, didn, education, sciences, because, people, pretty]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c3"
-    char_span: [5417, 6682]
+    char_span: [5416, 6681]
     sentence_count: 9
     key_terms: [because, classes, college, school, minor, get, hate, thankfully]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c4"
-    char_span: [6684, 8375]
+    char_span: [6683, 8374]
     sentence_count: 13
     key_terms: [classes, students, unnecessary, take, interested, because, college, state]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c5"
-    char_span: [8377, 9378]
+    char_span: [8376, 9377]
     sentence_count: 4
     key_terms: [years, subjects, classes, courses, degree, school, study, any-conference-701]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c6"
-    char_span: [9380, 10804]
+    char_span: [9379, 10803]
     sentence_count: 10
     key_terms: [college, history, good, quality, gen, education, question, courses]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c7"
-    char_span: [10806, 13110]
+    char_span: [10805, 13109]
     sentence_count: 6
     key_terms: [people, education, like, because, understanding, switzerland, eds, gen]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c8"
-    char_span: [13112, 15157]
+    char_span: [13111, 15156]
     sentence_count: 19
     key_terms: [like, experience, math, because, though, kinda, feel, gen]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/college/1njo0g8.md#c9"
-    char_span: [15160, 15521]
+    char_span: [15159, 15520]
     sentence_count: 1
     key_terms: [point, fundamental, education, specialization, interesting, university, electives, everyone]
     section: Comments

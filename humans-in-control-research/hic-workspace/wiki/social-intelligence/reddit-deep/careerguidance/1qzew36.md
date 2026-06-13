@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, teller, background, comments, advice, credit, people, small]
     token_count: 200
   - id: "social-intelligence/reddit-deep/careerguidance/1qzew36.md#c1"
-    char_span: [842, 2817]
+    char_span: [841, 2816]
     sentence_count: 18
     key_terms: [employees, work, branch, departments, need, advance, members, answer]
     section: Comments

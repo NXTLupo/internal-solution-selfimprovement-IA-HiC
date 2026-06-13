@@ -23,19 +23,19 @@ chunks:
     key_terms: [like, machinelearning, physics, phd, algorithms, comments, modeling, physical]
     token_count: 339
   - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c1"
-    char_span: [1537, 3685]
+    char_span: [1536, 3684]
     sentence_count: 14
     key_terms: [learn, supergeilerkollege, job, empirical, engineer, software, physics, writing]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c2"
-    char_span: [3687, 5789]
+    char_span: [3686, 5788]
     sentence_count: 15
     key_terms: [college-graduates-face-toughest-job-market-in-more-than-a-decade-as-hiring-slows, software, physics, job, skills, requirements, engineering, what-s-the-short-timeline-plan]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/machinelearning/1olehrk.md#c3"
-    char_span: [5791, 7846]
+    char_span: [5790, 7845]
     sentence_count: 17
     key_terms: [domain, experience, code, lot, projects, software, helped, skills]
     section: Comments

@@ -21,67 +21,67 @@ chunks:
     key_terms: [school, college, comments, daughter, private, wants, years, feel]
     token_count: 227
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c1"
-    char_span: [925, 2755]
+    char_span: [924, 2754]
     sentence_count: 15
     key_terms: [parents, school, taffyowner, worked, state, like, experience, graduated]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c2"
-    char_span: [2757, 4713]
+    char_span: [2756, 4712]
     sentence_count: 18
     key_terms: [school, major, because, sju, everything, college, almost, pretty]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c3"
-    char_span: [4715, 5437]
+    char_span: [4714, 5436]
     sentence_count: 4
     key_terms: [currently, school, care, mold, money, eatmelikeamaindish, down, due]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c4"
-    char_span: [5439, 6864]
+    char_span: [5438, 6863]
     sentence_count: 16
     key_terms: [school, plan, year, suny, went, friends, monthly, half-metal-scientist]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c5"
-    char_span: [6866, 7470]
+    char_span: [6865, 7469]
     sentence_count: 3
     key_terms: [monthly, loans, try, honks-4-bonks, theoretically, spreadsheet, calculate, following]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c6"
-    char_span: [7472, 9245]
+    char_span: [7471, 9244]
     sentence_count: 16
     key_terms: [want, graduated, rationale, bootcamp, honestly, college, payment, student]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c7"
-    char_span: [9247, 10603]
+    char_span: [9246, 10602]
     sentence_count: 9
     key_terms: [debt, does, life, tigersnil, crushing, concept, school, gonna]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c8"
-    char_span: [10605, 12800]
+    char_span: [10604, 12799]
     sentence_count: 20
     key_terms: [school, debt, state, take, wanted, professional, hard, payments]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c9"
-    char_span: [12480, 12986]
+    char_span: [12479, 12985]
     sentence_count: 2
     key_terms: [payments, monthly, wants, mathematically, spreadsheet, impossible, calculate, including]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c10"
-    char_span: [12988, 14474]
+    char_span: [12987, 14473]
     sentence_count: 8
     key_terms: [school, state, get, parents, great, education, options, refused]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/college/1rlzc2i.md#c11"
-    char_span: [14476, 16425]
+    char_span: [14475, 16424]
     sentence_count: 6
     key_terms: [school, willing, state, suny, amount, ended, money, scholarship]
     section: Comments

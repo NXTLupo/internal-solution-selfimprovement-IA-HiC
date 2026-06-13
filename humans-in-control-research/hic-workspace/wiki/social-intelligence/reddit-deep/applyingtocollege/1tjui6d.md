@@ -21,25 +21,25 @@ chunks:
     key_terms: [especially, applyingtocollege, year, semester, cost, fall, community, difficult]
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c1"
-    char_span: [2202, 2384]
+    char_span: [2201, 2383]
     sentence_count: 4
     key_terms: [state, grahal1968, talking, tuition, around, assume, loaded, fully]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c2"
-    char_span: [2386, 4084]
+    char_span: [2385, 4083]
     sentence_count: 13
     key_terms: [in-state, sad-interaction-4622, school, universities, expensive, markvii88, transfer, cheaper]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c3"
-    char_span: [4086, 6142]
+    char_span: [4085, 6141]
     sentence_count: 14
     key_terms: [years, schools, school, debt, med, transfer, because, option]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjui6d.md#c4"
-    char_span: [6144, 6989]
+    char_span: [6143, 6988]
     sentence_count: 5
     key_terms: [scholarships, schools, scholarship, definitely, virginia, options, money, got]
     section: Comments

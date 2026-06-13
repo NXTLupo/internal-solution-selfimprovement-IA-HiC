@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1szvi2w.md#c0"
-    char_span: [0, 1290]
+    char_span: [0, 1289]
     sentence_count: 10
     key_terms: [work, longjumping-put9422, job, working, careerguidance, remediation, restoration, comments]
     token_count: 330

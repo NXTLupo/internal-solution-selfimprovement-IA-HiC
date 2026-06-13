@@ -26,7 +26,7 @@ chunks:
     key_terms: [northeastern, welcome, admissions, admissionsevents, campus, day, edu, experience]
     token_count: 381
   - id: "social-intelligence/reddit-deep/neu/1rz9nuq.md#c2"
-    char_span: [2262, 2780]
+    char_span: [2261, 2779]
     sentence_count: 2
     key_terms: [got, mistake, like, everyone, old-pop-5134, acceptance, meloncola7, mistakenly]
     section: Comments

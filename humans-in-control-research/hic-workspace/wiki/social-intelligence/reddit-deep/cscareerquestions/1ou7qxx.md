@@ -21,43 +21,43 @@ chunks:
     key_terms: [cscareerquestions, software, comments, landing, bottom, hopes, job, less]
     token_count: 208
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c1"
-    char_span: [905, 2613]
+    char_span: [904, 2612]
     sentence_count: 20
     key_terms: [demand, supply, like, offshoring, grapegeek, positions, grinding, based]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c2"
-    char_span: [2615, 4361]
+    char_span: [2614, 4360]
     sentence_count: 13
     key_terms: [offshoring, india, jobs, complain, having, poland, take, solution]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c3"
-    char_span: [4363, 6217]
+    char_span: [4362, 6216]
     sentence_count: 5
     key_terms: [graduates, people, internship, companies, against, because, compete, deleted]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c4"
-    char_span: [6219, 7849]
+    char_span: [6218, 7848]
     sentence_count: 8
     key_terms: [money, don, like, enjoy, get, job, because, decent]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c5"
-    char_span: [7851, 9908]
+    char_span: [7850, 9907]
     sentence_count: 16
     key_terms: [dramatically, professional, self, salaries, software, already, making, normal]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c6"
-    char_span: [9911, 11511]
+    char_span: [9910, 11510]
     sentence_count: 11
     key_terms: [career, covid, time, landed, sounds, years, job, like]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ou7qxx.md#c7"
-    char_span: [11513, 12997]
+    char_span: [11512, 12996]
     sentence_count: 9
     key_terms: [workers, jobs, salary, expectations, get, all-time, inflated, salaries]
     section: Comments

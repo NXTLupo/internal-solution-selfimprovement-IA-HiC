@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, comments, hotpossibility8951, job, reddit-deep, experience, guidance, anybody]
     token_count: 108
   - id: "social-intelligence/reddit-deep/careerguidance/1t0oa1t.md#c1"
-    char_span: [397, 1968]
+    char_span: [396, 1967]
     sentence_count: 6
     key_terms: [basic, entry, start, data, job, confidence, something, customer]
     section: Comments

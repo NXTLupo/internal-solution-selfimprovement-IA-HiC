@@ -23,43 +23,43 @@ chunks:
     key_terms: ["you're", engineeringstudents, company, doing, unimportant, work, companies, "company's"]
     token_count: 278
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c1"
-    char_span: [1300, 3421]
+    char_span: [1299, 3420]
     sentence_count: 15
     key_terms: [design, meaningful, complain, meetings, people, doing, like, work]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c2"
-    char_span: [3423, 4205]
+    char_span: [3422, 4204]
     sentence_count: 2
     key_terms: [engineeringstudents, grown, internship, bitching, college, people, kruegerfishbabeblade, fried-potato-diccs]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c3"
-    char_span: [4207, 5594]
+    char_span: [4206, 5593]
     sentence_count: 9
     key_terms: [meaningful, work, engineering, post, college, interns, design, intern]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c4"
-    char_span: [5596, 6956]
+    char_span: [5595, 6955]
     sentence_count: 11
     key_terms: [business, project, approval, system, internship, meaningful, processes, together]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c5"
-    char_span: [6958, 9149]
+    char_span: [6957, 9148]
     sentence_count: 24
     key_terms: [don, like, work, prove, get, experience, internship, engineer]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c6"
-    char_span: [9151, 10519]
+    char_span: [9150, 10518]
     sentence_count: 11
     key_terms: [people, time, work, internship, workshop, getting, working, better]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/engineeringstudents/1leq4ke.md#c7"
-    char_span: [10522, 12351]
+    char_span: [10521, 12350]
     sentence_count: 21
     key_terms: [useless, work, clearance, get, grateful, because, interns, intern]
     section: Comments

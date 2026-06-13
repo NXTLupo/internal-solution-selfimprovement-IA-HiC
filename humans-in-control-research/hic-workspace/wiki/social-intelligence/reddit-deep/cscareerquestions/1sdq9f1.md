@@ -28,49 +28,49 @@ chunks:
     key_terms: [work, technical, person, "i'm", encyclopedia, approached, exhausting, experience]
     token_count: 155
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c2"
-    char_span: [2919, 5035]
+    char_span: [2918, 5034]
     sentence_count: 15
     key_terms: [important, fundamentals, people, "it's", code, feel, confident, dichotomy]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c3"
-    char_span: [5037, 6993]
+    char_span: [5036, 6992]
     sentence_count: 18
     key_terms: ["don't", code, absolutely, companies, engineers, technical, shipping, finding]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c4"
-    char_span: [6995, 7635]
+    char_span: [6994, 7634]
     sentence_count: 7
     key_terms: [engineer, problem, being, solve, code, communicating, architecture, responsible]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c5"
-    char_span: [7637, 9697]
+    char_span: [7636, 9696]
     sentence_count: 17
     key_terms: [paleontologistbig318, something, because, interviewers, guess, everything, technical, engineer]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c6"
-    char_span: [9699, 11970]
+    char_span: [9698, 11969]
     sentence_count: 22
     key_terms: [engineer, problems, technical, "it's", concepts, shipping, better, build]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c7"
-    char_span: [11972, 13976]
+    char_span: [11971, 13975]
     sentence_count: 24
     key_terms: [management, build, product, project, through, person, "don't", technically]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c8"
-    char_span: [13978, 15765]
+    char_span: [13977, 15764]
     sentence_count: 16
     key_terms: [people, hiring, ones, knowledge, answers, because, working, paleontologistbig318]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdq9f1.md#c9"
-    char_span: [15767, 18086]
+    char_span: [15766, 18085]
     sentence_count: 19
     key_terms: [technical, person, experience, ones, complexity, everybody, important, strengths]
     section: Comments

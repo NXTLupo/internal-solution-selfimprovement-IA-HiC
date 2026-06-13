@@ -28,13 +28,13 @@ chunks:
     key_terms: [quant, "i'm", "it's", chicago, feel, like, want, berkeley]
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c2"
-    char_span: [3873, 5581]
+    char_span: [3872, 5580]
     sentence_count: 8
     key_terms: [berkeley, conscious-secret-775, quant, berk, overrated, berkley, chicago, without]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1spfzy0.md#c3"
-    char_span: [5583, 5902]
+    char_span: [5582, 5901]
     sentence_count: 1
     key_terms: [chicago, smart, berk, recommend, becoming, "they'll", better, easier]
     section: Comments

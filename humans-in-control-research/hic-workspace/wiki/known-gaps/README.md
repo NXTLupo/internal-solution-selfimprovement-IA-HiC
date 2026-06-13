@@ -6,7 +6,7 @@ created: 2026-05-23
 exclude_from_compile: true
 chunks:
   - id: "known-gaps/README.md#c0"
-    char_span: [0, 1441]
+    char_span: [0, 1440]
     sentence_count: 6
     key_terms: [engagements, shortfalls, topics, topic, scheduler, shortfall, detected, cross-engagement]
     token_count: 298

@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, llcs, year, comments, northeastern, inclusion, cultural, sciences]
     token_count: 267
   - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c1"
-    char_span: [1121, 3142]
+    char_span: [1120, 3141]
     sentence_count: 8
     key_terms: [llc, events, people, leaders, inclusion, pack, year, building]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1q3zjy8.md#c2"
-    char_span: [2892, 3533]
+    char_span: [2891, 3532]
     sentence_count: 6
     key_terms: [llc, college, larger, majors, people, want, engineering, activities]
     section: Comments

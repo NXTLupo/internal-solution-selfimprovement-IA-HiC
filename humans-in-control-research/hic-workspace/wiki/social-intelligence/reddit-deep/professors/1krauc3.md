@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/professors/1krauc3.md#c0"
-    char_span: [0, 1247]
+    char_span: [0, 1246]
     sentence_count: 7
     key_terms: [professors, comments, material, students, classes, finding, lecture, taught]
     token_count: 266

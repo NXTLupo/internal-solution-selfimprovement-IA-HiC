@@ -23,73 +23,73 @@ chunks:
     key_terms: [claude, chatgpt, better, code, codex, voice, comments, claudes]
     token_count: 475
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c1"
-    char_span: [1984, 2891]
+    char_span: [1983, 2890]
     sentence_count: 8
     key_terms: [r-chatgpt-1050422060352024636, discord, shocked, claude, limits, withoutreason1729, best, "i've"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c2"
-    char_span: [2893, 4568]
+    char_span: [2892, 4567]
     sentence_count: 5
     key_terms: [gemini, quality, integration, comparison, workspace, chatgpt, context, gibbidy]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c3"
-    char_span: [4570, 6369]
+    char_span: [4569, 6368]
     sentence_count: 13
     key_terms: [chatgpt, claude, messages, use, gemini, need, opus, google]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c4"
-    char_span: [6371, 8006]
+    char_span: [6370, 8005]
     sentence_count: 9
     key_terms: [claude, interactive, weeks, artifacts, analysis, desktop, without, right]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c5"
-    char_span: [8008, 8942]
+    char_span: [8007, 8941]
     sentence_count: 7
     key_terms: [chatgpt, claude, like, visualizations, redparaglider, user-friendly, criticizing, innumerable]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c6"
-    char_span: [8944, 10754]
+    char_span: [8943, 10753]
     sentence_count: 15
     key_terms: [claude, interactive, disciplinary, information, etc, used, directions, everything]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c7"
-    char_span: [10756, 12761]
+    char_span: [10755, 12760]
     sentence_count: 10
     key_terms: [edit, chatgpt, claude, documents, directly, drive, good, word]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c8"
-    char_span: [12495, 12968]
+    char_span: [12494, 12967]
     sentence_count: 2
     key_terms: [claude, limits, code-writing, dangoodspeed, virtualunc, consensus, fine-tune, everyone]
     section: Comments
     token_count: 116
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c9"
-    char_span: [12970, 14697]
+    char_span: [12969, 14696]
     sentence_count: 10
     key_terms: ["i've", claude, script, combinations, mathematical, been, get, solutions]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c10"
-    char_span: [14699, 16358]
+    char_span: [14698, 16357]
     sentence_count: 7
     key_terms: [codex, claude, script, solution, problem, scorer, thats, kept]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c11"
-    char_span: [16360, 18373]
+    char_span: [16359, 18372]
     sentence_count: 12
     key_terms: [chatgpt, cursor, reliable, claude, jesushadanonlyfans, codex, using, edgarecayce]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/chatgpt/1smgpy6.md#c12"
-    char_span: [18375, 19300]
+    char_span: [18374, 19299]
     sentence_count: 9
     key_terms: [claude, cgpt, better, consistent, complex, across, tight, good]
     section: Comments

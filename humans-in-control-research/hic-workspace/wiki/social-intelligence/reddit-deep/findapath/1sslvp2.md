@@ -23,7 +23,7 @@ chunks:
     key_terms: [data, skills, career, relatively, findapath, analysis, comments, science]
     token_count: 292
   - id: "social-intelligence/reddit-deep/findapath/1sslvp2.md#c1"
-    char_span: [1335, 3156]
+    char_span: [1334, 3155]
     sentence_count: 12
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, nursing]
     section: Comments

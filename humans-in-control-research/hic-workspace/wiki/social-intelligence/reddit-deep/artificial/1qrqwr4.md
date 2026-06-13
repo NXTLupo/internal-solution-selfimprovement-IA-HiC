@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1qrqwr4.md#c0"
-    char_span: [0, 300]
+    char_span: [0, 299]
     sentence_count: 1
     key_terms: [artificial, comments, reddit-deep, initiative, progress, prompts, kernel, making]
-    token_count: 80
+    token_count: 79
 ---
 # AI code review prompts initiative making progress for the Linux kernel
 

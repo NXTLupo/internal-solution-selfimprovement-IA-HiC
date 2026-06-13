@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tfxx4w.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tfxx4w/i_am_confused_about_finding_my_career_path_in/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.892Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfxx4w.md#c0"
+    char_span: [0, 2075]
+    sentence_count: 19
+    key_terms: [field, career, experience, economics, work, finance, careerguidance, certifications]
+    token_count: 440
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfxx4w.md#c1"
+    char_span: [2090, 2517]
+    sentence_count: 8
+    key_terms: [drivers, degree, leagueaggravating595, nightmare, worthless, delivery, educated, everyone]
+    section: Comments
+    token_count: 99
 ---
-
 # I am confused about finding my career path in Canada. Do you have any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tfxx4w/i_am_confused_about_finding_my_career_path_in/)

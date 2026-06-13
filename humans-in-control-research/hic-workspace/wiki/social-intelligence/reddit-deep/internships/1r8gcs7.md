@@ -36,7 +36,7 @@ chunks:
     key_terms: [listings, infrastructure, skills, transformers, overthewire, pay, valuation, learning]
     token_count: 280
   - id: "social-intelligence/reddit-deep/internships/1r8gcs7.md#c4"
-    char_span: [6793, 7570]
+    char_span: [6792, 7569]
     sentence_count: 4
     key_terms: [technical-machine-76, internshipdaily, skills-demand, analysis, insights, specific, skills, confident-pianist391]
     section: Comments

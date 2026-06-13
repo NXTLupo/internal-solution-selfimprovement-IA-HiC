@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1tai6ch.md#c0"
-    char_span: [0, 1377]
+    char_span: [0, 1376]
     sentence_count: 10
     key_terms: [northeastern, umass, year, campus, admitted, anything, comments, amherst]
     token_count: 339

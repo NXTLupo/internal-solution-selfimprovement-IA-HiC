@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/af4ef3a8b8.md#c0"
-    char_span: [0, 1911]
+    char_span: [0, 1910]
     sentence_count: 16
     key_terms: [want, because, gradadmissions, neuroscience, sop, facilities, lfreddit23, paragraph]
-    token_count: 467
+    token_count: 466
   - id: "articles/reddit-deep-r-gradadmissions/af4ef3a8b8.md#c1"
-    char_span: [1913, 3262]
+    char_span: [1912, 3261]
     sentence_count: 12
     key_terms: [program, experience, experiences, paragraph, interest, relevant, include, degree]
     token_count: 273

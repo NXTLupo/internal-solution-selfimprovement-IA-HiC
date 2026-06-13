@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, interests, "i'm", gothenburg, interested, education, practical, academic]
     token_count: 408
   - id: "social-intelligence/reddit-deep/gradadmissions/1pz0x5m.md#c1"
-    char_span: [1883, 2297]
+    char_span: [1882, 2296]
     sentence_count: 3
     key_terms: [thisisventingaccount, grad, environment, experiences, appreciate, experience, practical, academic]
     section: Comments

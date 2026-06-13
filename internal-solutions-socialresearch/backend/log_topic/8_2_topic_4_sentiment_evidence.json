@@ -1,0 +1,50 @@
+{
+  "positive": [
+    {
+      "point": "Margin account performance calculations have been fixed, and users are receiving checks for previous errors.",
+      "post_refs": [
+        "1ryi2nu"
+      ]
+    },
+    {
+      "point": "Vanguard's performance graph glitches have been fixed, improving the accuracy of account overviews.",
+      "post_refs": [
+        "1slbluw"
+      ]
+    },
+    {
+      "point": "Vanguard's customer service is responsive, with advisors replying even on weekends.",
+      "post_refs": [
+        "1skkwul"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard's performance calculations and UI have several bugs, causing confusion and mistrust among users.",
+      "post_refs": [
+        "1t7f2wd",
+        "1qzc8w6"
+      ]
+    },
+    {
+      "point": "Vanguard's tools for tracking investment performance and diversification are lacking, leading to user frustration.",
+      "post_refs": [
+        "1rjrp6q",
+        "1py5u15"
+      ]
+    },
+    {
+      "point": "Vanguard's communication about changes to tools and projections is insufficient, causing concern among users.",
+      "post_refs": [
+        "1skkwul"
+      ]
+    },
+    {
+      "point": "Vanguard's Portfolio Watch tool inaccurately measures diversification for 'all-in-one' funds.",
+      "post_refs": [
+        "1pvqumy"
+      ]
+    }
+  ]
+}

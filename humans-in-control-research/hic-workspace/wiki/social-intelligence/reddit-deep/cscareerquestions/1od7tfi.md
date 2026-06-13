@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, growth, big, comments, director, company, career, rather]
     token_count: 214
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c1"
-    char_span: [916, 2897]
+    char_span: [915, 2896]
     sentence_count: 21
     key_terms: [senior, like, bluegrassclimber, staff, big, life, anything, startup]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c2"
-    char_span: [2899, 4948]
+    char_span: [2898, 4947]
     sentence_count: 11
     key_terms: [work, company, senior, big, job, life, everyone, similarintern923]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1od7tfi.md#c3"
-    char_span: [4950, 5773]
+    char_span: [4949, 5772]
     sentence_count: 5
     key_terms: [startups, timmyturnahp21, experience, famous-composer5628, chase, title, touch, completely]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineering, school, flexibility, career, engineeringstudents, warehouse, programming, path]
     token_count: 444
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sm31hb.md#c1"
-    char_span: [2155, 3565]
+    char_span: [2154, 3564]
     sentence_count: 10
     key_terms: [force, programming, "it's", controller, experience, spacecraft, satellite, something]
     section: Comments

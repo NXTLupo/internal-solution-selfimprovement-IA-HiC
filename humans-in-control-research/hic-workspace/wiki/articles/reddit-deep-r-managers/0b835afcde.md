@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-managers/0b835afcde.md#c0"
-    char_span: [0, 2074]
+    char_span: [0, 2073]
     sentence_count: 17
     key_terms: [working, asked, been, work, managers, hours, application, logs]
-    token_count: 475
+    token_count: 474
   - id: "articles/reddit-deep-r-managers/0b835afcde.md#c1"
-    char_span: [2077, 4183]
+    char_span: [2076, 4182]
     sentence_count: 15
     key_terms: [because, everything, worked, being, team, work, productive, available]
     token_count: 478
   - id: "articles/reddit-deep-r-managers/0b835afcde.md#c2"
-    char_span: [4185, 4900]
+    char_span: [4184, 4899]
     sentence_count: 2
     key_terms: [exactly, audit, order, thats, done, get, time, work]
     token_count: 165

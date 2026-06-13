@@ -33,7 +33,7 @@ chunks:
     key_terms: [d50ff21226e9aa97c2c0bbefed77be5dd8389cb8, thunderbird, experiment, automated, reading, papers, spirit, tuning]
     token_count: 393
   - id: "social-intelligence/reddit-deep/machinelearning/1sbe0dk.md#c3"
-    char_span: [5466, 7207]
+    char_span: [5465, 7206]
     sentence_count: 5
     key_terms: [dataset, scores, static, retrospective, keogh, credibility, hdfs, algorithm]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [employment, uwaterloo, co-operative-education, employment-statistics, co-op, stats, longer, https]
     token_count: 299
   - id: "social-intelligence/reddit-deep/uwaterloo/1t2zajr.md#c1"
-    char_span: [1301, 2990]
+    char_span: [1300, 2989]
     sentence_count: 5
     key_terms: [accelerate, employment, potentialphotograph, after-cod-3047, power, rates, stats, removed]
     section: Comments

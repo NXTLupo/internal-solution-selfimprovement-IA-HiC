@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1sn0u8b.md#c0"
-    char_span: [0, 295]
+    char_span: [0, 294]
     sentence_count: 2
     key_terms: [gradadmissions, motivation, comments, letter, reddit-deep, heptadd264, university, assesment]
-    token_count: 84
+    token_count: 83
 ---
 # Motivation Letter assesment
 

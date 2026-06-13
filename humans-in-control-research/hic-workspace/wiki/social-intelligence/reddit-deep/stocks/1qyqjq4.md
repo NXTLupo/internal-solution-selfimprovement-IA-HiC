@@ -28,49 +28,49 @@ chunks:
     key_terms: [government, stakes, trump, administration, intervention, accelerates, distasteful, enterprise]
     token_count: 112
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c2"
-    char_span: [2843, 4370]
+    char_span: [2842, 4369]
     sentence_count: 6
     key_terms: [stocks, free, markets, please, off-topic, political, specific, capping]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c3"
-    char_span: [4372, 6009]
+    char_span: [4371, 6008]
     sentence_count: 14
     key_terms: [republicans, market, party, free, capitalism, democracy, democrat, wonderful-sail-1126]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c4"
-    char_span: [6011, 7836]
+    char_span: [6010, 7835]
     sentence_count: 14
     key_terms: [socialism, trump, benefit, corporatism, people, run, government, corporate]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c5"
-    char_span: [7838, 9950]
+    char_span: [7837, 9949]
     sentence_count: 12
     key_terms: [market, trust, bailouts, equity, reason, government, trillion, finance-mcp-001]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c6"
-    char_span: [9711, 10532]
+    char_span: [9710, 10531]
     sentence_count: 3
     key_terms: [corporations, government, username, fascism, running, checks, headpaleontologist40, mountain-detail-8213]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c7"
-    char_span: [10534, 12736]
+    char_span: [10533, 12735]
     sentence_count: 15
     key_terms: [companies, socialism, fascism, corporations, intervention, "don't", republicans, "it's"]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c8"
-    char_span: [12738, 14674]
+    char_span: [12737, 14673]
     sentence_count: 18
     key_terms: [question, answer, people, public, corporations, crown, hate, maga]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/stocks/1qyqjq4.md#c9"
-    char_span: [14676, 15929]
+    char_span: [14675, 15928]
     sentence_count: 12
     key_terms: [people, government, companies, getting, "that's", doing, right, trump]
     section: Comments

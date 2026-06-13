@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rt8g3x.md#c0"
-    char_span: [0, 945]
+    char_span: [0, 944]
     sentence_count: 11
     key_terms: [london, scholars, international, experience, currently, expensive, wondering, comments]
-    token_count: 225
+    token_count: 224
 ---
 # just got in for london scholars, can anyone share their experience?
 

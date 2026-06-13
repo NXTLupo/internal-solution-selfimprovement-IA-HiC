@@ -23,13 +23,13 @@ chunks:
     key_terms: [careerguidance, job, comments, customer, because, service, career, growth]
     token_count: 229
   - id: "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c1"
-    char_span: [995, 3067]
+    char_span: [994, 3066]
     sentence_count: 15
     key_terms: [customer, service, project, management, industry, coordination, did, get]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1tai5do.md#c2"
-    char_span: [3069, 5104]
+    char_span: [3068, 5103]
     sentence_count: 26
     key_terms: [customer, did, service, job, support, professional, side, corporate]
     section: Comments

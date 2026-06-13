@@ -23,43 +23,43 @@ chunks:
     key_terms: [comments, wallstreetbets, margin, bears, https, png, top, civilization]
     token_count: 303
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c1"
-    char_span: [897, 1103]
+    char_span: [896, 1102]
     sentence_count: 1
     key_terms: [total, submissions, visualmod, comments, previous, account, months, report]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c2"
-    char_span: [1105, 2447]
+    char_span: [1104, 2446]
     sentence_count: 3
     key_terms: [https, preview, format, width, auto, jpeg, pjpg, redd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c3"
-    char_span: [2287, 3747]
+    char_span: [2286, 3746]
     sentence_count: 8
     key_terms: [c4572acff36e971770f8a07c20235d7d1abeef4d, cb5decd2b0c52cd1471d9a26c352debb9196c375, preview, format, https, width, auto, jpeg]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c4"
-    char_span: [3523, 4279]
+    char_span: [3522, 4278]
     sentence_count: 6
     key_terms: [positive, because, market, profit, gains, days, unfortunately, depression]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c5"
-    char_span: [4281, 5739]
+    char_span: [4280, 5738]
     sentence_count: 3
     key_terms: [preview, format, https, width, auto, jpeg, pjpg, redd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c6"
-    char_span: [5537, 6795]
+    char_span: [5536, 6794]
     sentence_count: 5
     key_terms: [down, because, preview, waiting, always, format, mickifree-isnotagirl, going]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/wallstreetbets/1t7kjjl.md#c7"
-    char_span: [6797, 6981]
+    char_span: [6796, 6980]
     sentence_count: 1
     key_terms: [totalinstruction, stuntondeezh0es, vaientinex, risking, almost, oozing, "you're", smell]
     section: Comments

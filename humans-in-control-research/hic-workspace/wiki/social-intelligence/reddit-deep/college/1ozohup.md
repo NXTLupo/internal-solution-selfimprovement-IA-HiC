@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, time, comments, fulfill, career-related, opportunities, gxxdiegxxdie, reddit-deep]
     token_count: 134
   - id: "social-intelligence/reddit-deep/college/1ozohup.md#c1"
-    char_span: [536, 1759]
+    char_span: [535, 1758]
     sentence_count: 4
     key_terms: [something, real-ad1328, gets, college, masters, campbellkneecapsoup, powerful-phone-9458, stock-stress-4147]
     section: Comments

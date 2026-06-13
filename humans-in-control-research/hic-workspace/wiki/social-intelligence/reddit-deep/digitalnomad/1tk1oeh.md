@@ -23,19 +23,19 @@ chunks:
     key_terms: [experience, spain, "i'm", move, comments, software, digitalnomad, quite]
     token_count: 471
   - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c1"
-    char_span: [1966, 3549]
+    char_span: [1965, 3548]
     sentence_count: 8
     key_terms: ["you're", living, find, like, experience, anyways, country, opinion]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c2"
-    char_span: [3554, 5438]
+    char_span: [3553, 5437]
     sentence_count: 13
     key_terms: [experience, skills, international, engineering, anime00s, everyone, already, better]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/digitalnomad/1tk1oeh.md#c3"
-    char_span: [5440, 7776]
+    char_span: [5439, 7775]
     sentence_count: 27
     key_terms: [move, people, especially, demanding, crashing, burning, market, "it's"]
     section: Comments

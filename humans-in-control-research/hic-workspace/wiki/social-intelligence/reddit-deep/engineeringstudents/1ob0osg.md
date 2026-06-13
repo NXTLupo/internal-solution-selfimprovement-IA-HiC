@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, did, companies, interview, on-demand, comments, prepared, student]
     token_count: 202
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ob0osg.md#c1"
-    char_span: [946, 3007]
+    char_span: [945, 3006]
     sentence_count: 11
     key_terms: [engineeringstudents, wiki, reddit, https, interview, questions, com, company]
     section: Comments

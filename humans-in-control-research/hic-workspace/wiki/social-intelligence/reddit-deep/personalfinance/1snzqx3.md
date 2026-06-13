@@ -23,61 +23,61 @@ chunks:
     key_terms: [personalfinance, work, government, comments, because, company, salary, feels]
     token_count: 413
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c1"
-    char_span: [1812, 3949]
+    char_span: [1811, 3948]
     sentence_count: 17
     key_terms: [people, get, pension, better, good, "it's", take, work]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c2"
-    char_span: [3951, 5400]
+    char_span: [3950, 5399]
     sentence_count: 7
     key_terms: [job, take, colleagues, current, relaxed, salary, best, day]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c3"
-    char_span: [5402, 7408]
+    char_span: [5401, 7407]
     sentence_count: 20
     key_terms: [job, stress, benefits, years, government, retirement, insurance, stability]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c4"
-    char_span: [7410, 9603]
+    char_span: [7409, 9602]
     sentence_count: 13
     key_terms: [government, stability, job, too, seniority, get, pension, hire]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c5"
-    char_span: [9350, 9986]
+    char_span: [9349, 9985]
     sentence_count: 5
     key_terms: [government, anything, federal, state, like, pool, year, administration]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c6"
-    char_span: [9988, 11679]
+    char_span: [9987, 11678]
     sentence_count: 16
     key_terms: [get, paid, time, retirement, work, public, hours, weeks]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c7"
-    char_span: [11681, 13701]
+    char_span: [11680, 13700]
     sentence_count: 19
     key_terms: [job, time, government, state, years, pay, affording, reduction]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c8"
-    char_span: [13703, 15812]
+    char_span: [13702, 15811]
     sentence_count: 15
     key_terms: [government, companies, private, stable, years, freezes, pension, savings]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c9"
-    char_span: [15814, 17694]
+    char_span: [15813, 17693]
     sentence_count: 19
     key_terms: [get, job, government, sector, stable, "i'm", pension, worked]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/personalfinance/1snzqx3.md#c10"
-    char_span: [17696, 18250]
+    char_span: [17695, 18249]
     sentence_count: 5
     key_terms: [hustle, job, company, public, sector, end, retirement, valuation]
     section: Comments

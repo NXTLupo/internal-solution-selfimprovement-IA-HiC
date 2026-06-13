@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1nr8o7b.md
 url: "https://www.reddit.com/r/internships/comments/1nr8o7b/my_long_journey_from_unpaid_intern_to_135k_job/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,24 @@ flair: "Offers"
 extracted_at: "2026-06-06T23:20:46.232Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1nr8o7b.md#c0"
+    char_span: [0, 1910]
+    sentence_count: 17
+    key_terms: [job, internships, internship, companies, opportunities, applications, application, did]
+    token_count: 435
+  - id: "social-intelligence/reddit-deep/internships/1nr8o7b.md#c1"
+    char_span: [1912, 3338]
+    sentence_count: 10
+    key_terms: [interview, resume, experience, job, internship, interviews, full-time, questions]
+    token_count: 297
+  - id: "social-intelligence/reddit-deep/internships/1nr8o7b.md#c2"
+    char_span: [3353, 4591]
+    sentence_count: 10
+    key_terms: [applications, environment, experience, workload, company, passout, service, working]
+    section: Comments
+    token_count: 309
 ---
-
 # My long journey from unpaid intern to 135K job
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1nr8o7b/my_long_journey_from_unpaid_intern_to_135k_job/)

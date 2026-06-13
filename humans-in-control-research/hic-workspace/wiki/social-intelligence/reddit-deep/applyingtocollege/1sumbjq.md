@@ -21,31 +21,31 @@ chunks:
     key_terms: [college, actuarial, community, applyingtocollege, math, schools, school, scholarship]
     token_count: 446
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c1"
-    char_span: [2093, 3970]
+    char_span: [2092, 3969]
     sentence_count: 22
     key_terms: [ucla, want, consulting, quant, "it's", only-finish-3497, compete, career]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c2"
-    char_span: [3972, 6167]
+    char_span: [3971, 6166]
     sentence_count: 13
     key_terms: [something, experience, feel, college, career, people, uncertainty, best]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c3"
-    char_span: [6169, 8355]
+    char_span: [6168, 8354]
     sentence_count: 24
     key_terms: [ucla, best, yourself, version, traditional, get, math, take]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c4"
-    char_span: [8357, 10404]
+    char_span: [8356, 10403]
     sentence_count: 13
     key_terms: [ucla, major, live, because, program, undergraduate, gonna, uci]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sumbjq.md#c5"
-    char_span: [10406, 11461]
+    char_span: [10405, 11460]
     sentence_count: 10
     key_terms: [ucla, alabama, finalists, national, opposite-lettuce2040, bitaffectionate9339, agree, merit]
     section: Comments

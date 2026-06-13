@@ -23,25 +23,25 @@ chunks:
     key_terms: [education, higher, "i'm", change, work, students, working, askacademia]
     token_count: 496
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c1"
-    char_span: [2148, 4338]
+    char_span: [2147, 4337]
     sentence_count: 16
     key_terms: [edd, experience, college, professional, education, faculty, level, application]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c2"
-    char_span: [4076, 5020]
+    char_span: [4075, 5019]
     sentence_count: 7
     key_terms: [education, edd, higher, professional, teaching, college, program, zookeepergamesad3519]
     section: Comments
     token_count: 199
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c3"
-    char_span: [5022, 7041]
+    char_span: [5021, 7040]
     sentence_count: 17
     key_terms: [higher, people, education, edd, want, current, working, change]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/askacademia/1rfwldd.md#c4"
-    char_span: [7043, 8086]
+    char_span: [7042, 8085]
     sentence_count: 7
     key_terms: [higher, landscape, change, degree, sounds, worked, value, fact]
     section: Comments

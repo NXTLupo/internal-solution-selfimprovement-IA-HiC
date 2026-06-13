@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c0"
-    char_span: [0, 1409]
+    char_span: [0, 1408]
     sentence_count: 8
     key_terms: [engineeringstudents, comments, classes, redact, reddit, https, good, got]
-    token_count: 358
+    token_count: 357
   - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c1"
-    char_span: [1411, 3297]
+    char_span: [1410, 3296]
     sentence_count: 19
     key_terms: [recruiters, freshman, dont, engineering, job, did, get, give]
     token_count: 398
   - id: "articles/reddit-deep-r-engineeringstudents/fa2a5ab13c.md#c2"
-    char_span: [3299, 3907]
+    char_span: [3298, 3906]
     sentence_count: 8
     key_terms: [time, classes, study, schedule, summer, take, discipline, management]
     token_count: 147

@@ -20,7 +20,9 @@ import { analyzeText as analyzeTextOpenAI } from '../../services/openaiService';
 import { GoogleGenAI } from '@google/genai';
 
 // 2026-05-05 - DeepSeek V4 Flash is the single-vendor primary.
-export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview';
+// 2026-06-12 - claude-opus-4-8 added: Designer-chat generation + revision
+// route to Opus 4.8 per Jonathan's directive (DesignDeskChat call sites).
+export type SlideSpecModel = 'deepseek-v4-flash' | 'gpt-5.4' | 'gemini-3.5-flash' | 'gemini-3.1-pro-preview' | 'claude-opus-4-8';
 
 export interface SlideSpecGenerateArgs {
     kind: FreeformKind;
@@ -49,11 +51,27 @@ function resolveProviderModelId(m: SlideSpecModel): string {
     if (m === 'deepseek-v4-flash') return 'deepseek-v4-flash';
     if (m === 'gpt-5.4') return 'gpt-5.4';
     if (m === 'gemini-3.1-pro-preview') return 'gemini-3.1-pro-preview';
+    if (m === 'claude-opus-4-8') return 'claude-opus-4-8';
     return 'gemini-3.5-flash';
 }
 
 async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     const id = resolveProviderModelId(m);
+    // 2026-06-12 - Anthropic path (Claude Opus 4.8). Single-shot JSON
+    // generation via the proxy /api/ai/anthropic (key attached server-side).
+    // max_tokens cap unverified for opus-4-8 - lower if the API 400s.
+    if (m === 'claude-opus-4-8') {
+        const { callAIWithRetry } = await import('../../services/aiRetryClient');
+        // No `temperature`: opus-4-8 400s on it ("deprecated for this model").
+        const data: any = await callAIWithRetry('anthropic', {
+            model: id,
+            max_tokens: MAX_TOKENS,
+            system: SYSTEM_PROMPT,
+            messages: [{ role: 'user', content: prompt }],
+        }, { label: `SlideSpec (Claude ${id})`, maxAttempts: 2 });
+        const blocks = Array.isArray(data?.content) ? data.content : [];
+        return blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('');
+    }
     // 2026-05-05 - DeepSeek V4 Flash is the primary path.
     if (m === 'deepseek-v4-flash') {
         const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
@@ -180,7 +198,7 @@ Each object in objects[] is one of:
 
   TextObject:
     { "type": "text", "x": <inches>, "y": <inches>, "w": <inches>, "h": <inches>,
-      "runs": [ { "text": "...", "fontFamily": "Archivo"|"Fraunces"|"JetBrains Mono",
+      "runs": [ { "text": "...", "fontFamily": "Archivo"|"Lora"|"IBM Plex Mono"|"Bebas Neue",
                   "fontSize": <points>, "bold": true|false, "italic": true|false,
                   "color": "<6-hex without #>", "charSpacing": <points> } ],
       "align": "left"|"center"|"right",
@@ -209,22 +227,38 @@ Font sizes are in POINTS.
 CRITICAL: omit any property whose value is the default. Don't include keys with null or empty strings.`);
 
     // Brand tokens
-    sections.push(`\n=== BRAND PALETTE (${args.brand.toUpperCase()}) ===\n` + (
+    // 2026-06-11 - reconciled to the GOLD design system (the live Figma
+    // variable collections: NU 95:2, NXT 221:2). The previous palette was a
+    // parallel brand system (violet 6E54E0, pink FBE8EC, Fraunces) that does
+    // not exist in either Figma file - Design Desk regenerations drifted
+    // off-brand from the Analyst Desk GOLD twins.
+    sections.push(`\n=== BRAND PALETTE (${args.brand.toUpperCase()}) - GOLD design system ===\n` + (
         args.brand === 'nu'
-            ? `paper: "FAF8F4" (slide background)
-primary: "0A0A0A" (body text + lines + node borders)
-accent: "C8102E" (NU red - emphasis, eyebrow color, highlight box fill)
-secondary: "6E54E0" (violet - alternative accent)
-muted: "5C5C5C" (grey - sub-labels, role descriptions)
-soft: "FBE8EC" (pink - for L3/sub-team band fill)
-cream: "F4F1EA" (cream - secondary band fill)
-fonts: Archivo (body + display), Fraunces (italic emphasis in h1), JetBrains Mono (eyebrow + meta)`
+            ? `paper: "FFFFFF" (slide background)
+rail: "0E1626" (navy left rail, 0.64" wide, full height)
+ink: "16233C" (body text, dark panels, takeaway band fill)
+accent: "C8102E" (NU red - kicker/eyebrow, fail/pain emphasis, dot mark)
+cool: "1D6E64" (source teal - cool accent, source attributions)
+gold: "A4804A" (rare premium accent - LESSON bars only)
+washWarn: "FAEDED" (light red wash - pain/fail panel fills; use this SOLID hex, never a transparent red)
+washCool: "EDF7F5" (light teal wash - positive/cool panel fills)
+ecru: "F2F1EA" (neutral panel fill)
+hairline: "DDDDD6" (rules + cell borders)
+grey: "73757A" (meta text, muted labels)
+fonts: Lora Medium (titles + takeaway band), Archivo (body), IBM Plex Mono (kicker/eyebrow + meta + labels), Bebas Neue (display numerals)`
             : `paper: "FFFFFF" (slide background)
-primary: "0D0D0D" (body text + lines)
-accent: "B8B800" (NXT chartreuse - emphasis, highlight)
-secondary: "00B7C3" (cyan - alternative accent)
-muted: "666666" (grey - sub-labels)
-fonts: Archivo (body + display), Fraunces (italic), JetBrains Mono (eyebrow + meta)`));
+rail: "0D0D0D" (black left rail, 0.64" wide, full height)
+ink: "141414" (body text, dark panels)
+accent: "B8B800" (NXT chartreuse - dot mark, highlight, takeaway band fill with ink text)
+cyan: "00B7C3" (kicker/eyebrow color, cool accent)
+rust: "CC6644" (pain/warn emphasis)
+teal: "115054" (dark panels, primary actions)
+washWarn: "FAF1EC" (light warn wash - use this SOLID hex, never a transparent overlay)
+washCool: "EBF7F8" (light cool wash)
+ecru: "F2F1EA" (neutral panel fill)
+hairline: "DDDDD6" (rules + cell borders)
+grey: "73757A" (meta text, muted labels)
+fonts: Archivo SemiBold (titles), Archivo (body), IBM Plex Mono (kicker/eyebrow + meta + labels), Bebas Neue (display numerals)`));
 
     // Per-kind guidance
     sections.push(`\n=== LAYOUT GUIDANCE ===` + perKindGuidance(args.kind));

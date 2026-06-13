@@ -23,13 +23,13 @@ chunks:
     key_terms: [contract, job, careerguidance, government, comments, working, career, taking]
     token_count: 237
   - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c1"
-    char_span: [1044, 2125]
+    char_span: [1043, 2124]
     sentence_count: 9
     key_terms: [government, contract, work, mortgage, leave, often, bank, cons]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/careerguidance/1t64ych.md#c2"
-    char_span: [2127, 3498]
+    char_span: [2126, 3497]
     sentence_count: 8
     key_terms: [years, government, headcount, increase, mortgage, question, newborn, better]
     section: Comments

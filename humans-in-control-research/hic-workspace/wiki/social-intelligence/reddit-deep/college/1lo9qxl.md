@@ -31,37 +31,37 @@ chunks:
     key_terms: [etc, get, syllabus, written, times, edit, sure, tell]
     token_count: 205
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c3"
-    char_span: [4839, 6819]
+    char_span: [4838, 6818]
     sentence_count: 11
     key_terms: [writing, center, assignments, resources, college, sweetcosmicpope, advice, going]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c4"
-    char_span: [6821, 8769]
+    char_span: [6820, 8768]
     sentence_count: 16
     key_terms: [good, alcohol, feel, kind, got, "he's", professors, different]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c5"
-    char_span: [8771, 10467]
+    char_span: [8770, 10466]
     sentence_count: 15
     key_terms: [profs, calc, going, hours, professor, majority, original, teaching]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c6"
-    char_span: [10469, 12460]
+    char_span: [10468, 12459]
     sentence_count: 23
     key_terms: [material, mean, class, freshman, been, lectures, exam, prof]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c7"
-    char_span: [12463, 14584]
+    char_span: [12462, 14583]
     sentence_count: 13
     key_terms: [optional, something, classes, dancesquared, great, smart, don, time]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1lo9qxl.md#c8"
-    char_span: [14586, 15070]
+    char_span: [14585, 15069]
     sentence_count: 2
     key_terms: [problems, students, feel, instructor, understand, confident, emphasize, professor]
     section: Comments

@@ -21,61 +21,61 @@ chunks:
     key_terms: [bachelors, interview, comments, "master's", company, resume, stated, "i'm"]
     token_count: 189
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c1"
-    char_span: [789, 2834]
+    char_span: [788, 2833]
     sentence_count: 12
     key_terms: [school, degree, company, lied, annoying, probably, nursing, sued]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c2"
-    char_span: [2836, 4148]
+    char_span: [2835, 4147]
     sentence_count: 7
     key_terms: [annoying, employer, leaving, degree, school, imheretoblowsunshine, mundanehuckleberry58, asked]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c3"
-    char_span: [4150, 5956]
+    char_span: [4149, 5955]
     sentence_count: 10
     key_terms: [qualified, job, want, degree, higher, expectations, hire, ability]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c4"
-    char_span: [5959, 8022]
+    char_span: [5958, 8021]
     sentence_count: 18
     key_terms: [degree, job, applying, anymore, deleted, queencilantro, "isn't", application]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c5"
-    char_span: [7804, 8660]
+    char_span: [7803, 8659]
     sentence_count: 7
     key_terms: [qualified, degree, job, poopmaester41, "bachelor's", disclosing, disqualify, questioned]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c6"
-    char_span: [8662, 10420]
+    char_span: [8661, 10419]
     sentence_count: 13
     key_terms: [degree, lie, listed, check, qualifications, background, don, because]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c7"
-    char_span: [10422, 12355]
+    char_span: [10421, 12354]
     sentence_count: 12
     key_terms: ["don't", like, list, want, work, education, something, complete]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c8"
-    char_span: [12358, 12655]
+    char_span: [12357, 12654]
     sentence_count: 1
     key_terms: [application, leadership, flying87, knocking, degreed, dropped, primary, someone]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c9"
-    char_span: [12657, 14661]
+    char_span: [12656, 14660]
     sentence_count: 14
     key_terms: [degree, qualified, being, overqualified, job, because, lynkofwinds, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1lplqii.md#c10"
-    char_span: [14431, 15244]
+    char_span: [14430, 15243]
     sentence_count: 2
     key_terms: [degree, like, highest, higher, mysterious-panda964, discriminating, background, creighcray]
     section: Comments

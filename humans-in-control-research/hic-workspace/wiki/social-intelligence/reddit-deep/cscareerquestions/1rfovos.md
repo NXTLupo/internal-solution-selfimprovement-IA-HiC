@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, comments, getting, reddit-deep, experience, optimistic, recruiters, struggling]
     token_count: 164
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c1"
-    char_span: [691, 2062]
+    char_span: [690, 2061]
     sentence_count: 4
     key_terms: [big, tech, resume, worse, bro, experience, backend, posters]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c2"
-    char_span: [2064, 3908]
+    char_span: [2063, 3907]
     sentence_count: 12
     key_terms: [big, tech, school, connections, top, family, get, like]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfovos.md#c3"
-    char_span: [3910, 5047]
+    char_span: [3909, 5046]
     sentence_count: 5
     key_terms: [assumptions, "i'm", "i've", experience, engineer, brand, here, land]
     section: Comments

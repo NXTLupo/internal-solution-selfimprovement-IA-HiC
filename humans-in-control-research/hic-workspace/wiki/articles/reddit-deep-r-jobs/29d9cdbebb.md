@@ -15,22 +15,22 @@ relevance: 42
 engagement_goal: "Provide a strategic analysis for Northeastern University detailing opportunities to enhance experiential learning and co-op success, specifically across First Year Student Preparedness, 360 student profiles, advisor capabilities, and corporate partner development. Heavily cite and reference external articles, social media posts, and other external data to support themes and recommendations."
 chunks:
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c0"
-    char_span: [0, 1586]
+    char_span: [0, 1585]
     sentence_count: 12
     key_terms: [jobs, get, job, too, management, comments, anyone, market]
-    token_count: 360
+    token_count: 359
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c1"
-    char_span: [1588, 3574]
+    char_span: [1587, 3573]
     sentence_count: 21
     key_terms: [job, fired, stealing, boss, too, experience, business, another]
     token_count: 441
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c2"
-    char_span: [3576, 4991]
+    char_span: [3575, 4990]
     sentence_count: 16
     key_terms: [government, job, anything, economy, market, businesses, according, president]
     token_count: 311
   - id: "articles/reddit-deep-r-jobs/29d9cdbebb.md#c3"
-    char_span: [4993, 6199]
+    char_span: [4992, 6198]
     sentence_count: 10
     key_terms: [departments, time, government, trillion, service, times, lockedoutofelfland, days]
     token_count: 265

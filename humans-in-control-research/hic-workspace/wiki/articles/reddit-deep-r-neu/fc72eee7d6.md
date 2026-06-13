@@ -15,12 +15,12 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-neu/fc72eee7d6.md#c0"
-    char_span: [0, 475]
+    char_span: [0, 474]
     sentence_count: 3
     key_terms: [reddit, "i'm", neu, altunkaynak, courseload, first-year, difficult, finalized]
-    token_count: 143
+    token_count: 142
   - id: "articles/reddit-deep-r-neu/fc72eee7d6.md#c1"
-    char_span: [477, 2528]
+    char_span: [476, 2527]
     sentence_count: 15
     key_terms: [physics, classes, study, back, class, engineering, long, time]
     token_count: 492

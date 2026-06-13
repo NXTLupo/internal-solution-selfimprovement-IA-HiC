@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1slp4vs.md#c0"
-    char_span: [0, 1375]
+    char_span: [0, 1374]
     sentence_count: 12
     key_terms: [publications, professors, gradadmissions, gra, experience, throughout, realistic, applying]
     token_count: 316

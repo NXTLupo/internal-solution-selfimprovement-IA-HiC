@@ -23,7 +23,7 @@ chunks:
     key_terms: [growth, reddit, internship, ownership, work, founder, remote, certificate]
     token_count: 487
   - id: "social-intelligence/reddit-deep/internships/1sv56ub.md#c1"
-    char_span: [2112, 2406]
+    char_span: [2111, 2405]
     sentence_count: 2
     key_terms: [interested, serious-gap234, okbluejay3743, wazirkazim78, hamesloth, further, process, carry]
     section: Comments

@@ -21,61 +21,61 @@ chunks:
     key_terms: [apply, applyingtocollege, upper-middle, class, kid, colleges, comments, relative-narwhal-519]
     token_count: 412
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c1"
-    char_span: [1660, 2600]
+    char_span: [1659, 2599]
     sentence_count: 5
     key_terms: [household, finaid, income, middle, paying, glad-entrepreneur764, kids, too]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c2"
-    char_span: [2602, 3807]
+    char_span: [2601, 3806]
     sentence_count: 8
     key_terms: [income, relative-narwhal-519, years, kid, loan, year, proteinengineer, whatthecluck802]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c3"
-    char_span: [3809, 5873]
+    char_span: [3808, 5872]
     sentence_count: 14
     key_terms: [colleges, conscious-secret-775, state, expensive, tall-nectarine202, income, states, universities]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c4"
-    char_span: [5664, 6619]
+    char_span: [5663, 6618]
     sentence_count: 8
     key_terms: [merit, schools, tuition, around, states, thanks, elegant-success3339, tall-nectarine202]
     section: Comments
     token_count: 238
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c5"
-    char_span: [6621, 8707]
+    char_span: [6620, 8706]
     sentence_count: 10
     key_terms: [student, schools, excellent, t100, colleges, national, income, moxie-maniac]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c6"
-    char_span: [8383, 8894]
+    char_span: [8382, 8893]
     sentence_count: 4
     key_terms: [estimates, financial, front, aid, run, calculators, government, understand]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c7"
-    char_span: [8896, 10622]
+    char_span: [8895, 10621]
     sentence_count: 5
     key_terms: [schools, financial, offer, aid, colleges, assets, income, guarantees]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c8"
-    char_span: [10624, 12798]
+    char_span: [10623, 12797]
     sentence_count: 21
     key_terms: [colleges, substantially, private, financial, princeton, tuition, income, merit]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c9"
-    char_span: [12800, 14668]
+    char_span: [12799, 14667]
     sentence_count: 11
     key_terms: [scholarships, state, university, schools, merit, georgia, florida, public]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/applyingtocollege/1teyhcj.md#c10"
-    char_span: [14670, 15232]
+    char_span: [14669, 15231]
     sentence_count: 4
     key_terms: [privates, income, lot, universities, calculating, combination, need-blind, calculate]
     section: Comments

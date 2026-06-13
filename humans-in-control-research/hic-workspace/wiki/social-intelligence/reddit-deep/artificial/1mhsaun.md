@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1mhsaun.md#c0"
-    char_span: [0, 521]
+    char_span: [0, 520]
     sentence_count: 4
     key_terms: [artificial, embroidery, comments, chatgpt, create, image, use, pyperthegay]
-    token_count: 134
+    token_count: 133
 ---
 # What ai can I use for image generation with an image prompt?
 

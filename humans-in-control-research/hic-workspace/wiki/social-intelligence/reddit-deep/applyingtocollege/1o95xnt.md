@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1o95xnt.md#c0"
-    char_span: [0, 495]
+    char_span: [0, 494]
     sentence_count: 2
     key_terms: [applyingtocollege, https, dkhmngcxqzb, com, www, instagram, comments, definitelynotalora]
     token_count: 142

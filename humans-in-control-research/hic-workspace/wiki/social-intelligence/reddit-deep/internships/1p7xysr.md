@@ -21,19 +21,19 @@ chunks:
     key_terms: [internships, externship, getting, extern, good, questions, comments, platform]
     token_count: 304
   - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c1"
-    char_span: [1305, 3359]
+    char_span: [1304, 3358]
     sentence_count: 3
     key_terms: [experience, students, programs, platform, resume, unpaid, professional, cpt]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c2"
-    char_span: [3361, 5268]
+    char_span: [3360, 5267]
     sentence_count: 5
     key_terms: [externships, meetings, students, professional, thanksgiving, hello, interesting, like]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/internships/1p7xysr.md#c3"
-    char_span: [5270, 7164]
+    char_span: [5269, 7163]
     sentence_count: 11
     key_terms: [projects, proof, verified, externship, like, work, project, certificates]
     section: Comments

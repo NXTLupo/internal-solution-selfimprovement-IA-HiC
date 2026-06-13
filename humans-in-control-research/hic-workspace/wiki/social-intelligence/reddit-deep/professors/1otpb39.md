@@ -23,79 +23,79 @@ chunks:
     key_terms: [students, undergraduate, labs, professors, education, high-powered, pis, undergrads]
     token_count: 364
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c1"
-    char_span: [1700, 3102]
+    char_span: [1699, 3101]
     sentence_count: 12
     key_terms: [research, universities, different, students, faculty, chance, having, model]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c2"
-    char_span: [3104, 4419]
+    char_span: [3103, 4418]
     sentence_count: 11
     key_terms: [teaching, big, positions, employer, starting, dollars, faculty, realize]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c3"
-    char_span: [4421, 6753]
+    char_span: [4420, 6752]
     sentence_count: 16
     key_terms: [research, teaching, security, faculty, better, certainly, important, argument]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c4"
-    char_span: [6755, 8254]
+    char_span: [6754, 8253]
     sentence_count: 7
     key_terms: [university, researchers, share, universities, labs, definitely, function, separate]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c5"
-    char_span: [8256, 9935]
+    char_span: [8255, 9934]
     sentence_count: 14
     key_terms: [learn, people, best, want, undergrads, university, undergrad, building]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c6"
-    char_span: [9937, 11298]
+    char_span: [9936, 11297]
     sentence_count: 14
     key_terms: [research, training, because, universities, train, education, current, faculty]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c7"
-    char_span: [11300, 13568]
+    char_span: [11299, 13567]
     sentence_count: 15
     key_terms: [teaching, research, undergrads, state, university, education, professor, flagship]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c8"
-    char_span: [13570, 15681]
+    char_span: [13569, 15680]
     sentence_count: 15
     key_terms: [professor, researchers, additional, endowments, funding, researcher, "doesn't", tuition]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c9"
-    char_span: [15683, 16957]
+    char_span: [15682, 16956]
     sentence_count: 15
     key_terms: [teaching, institutions, funding, tuition, research, grants, state, program]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c10"
-    char_span: [16959, 18531]
+    char_span: [16958, 18530]
     sentence_count: 8
     key_terms: [companies, funding, partnerships, small, revenue, public-private, work, different]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c11"
-    char_span: [18533, 20329]
+    char_span: [18532, 20328]
     sentence_count: 9
     key_terms: [institution, university, teaching, funding, new, work, professors, knowledge]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c12"
-    char_span: [20331, 22516]
+    char_span: [20330, 22515]
     sentence_count: 16
     key_terms: [research, teaching, institutions, undergrad, pis, smaller, undergraduate, mentorship]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/professors/1otpb39.md#c13"
-    char_span: [22518, 23449]
+    char_span: [22517, 23448]
     sentence_count: 9
     key_terms: [university, mission, powered, sports, entertainment, disseminate, high, athletics]
     section: Comments

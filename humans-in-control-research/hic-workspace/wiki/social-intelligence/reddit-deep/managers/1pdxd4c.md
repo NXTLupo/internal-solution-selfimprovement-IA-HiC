@@ -23,7 +23,7 @@ chunks:
     key_terms: [video, frosted, glass, unfrost, visibility, managers, meetings, presence]
     token_count: 441
   - id: "social-intelligence/reddit-deep/managers/1pdxd4c.md#c1"
-    char_span: [1949, 2751]
+    char_span: [1948, 2750]
     sentence_count: 8
     key_terms: [off-camera, penalising, deleted, others, people, unable, disability, experience]
     section: Comments

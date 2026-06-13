@@ -23,61 +23,61 @@ chunks:
     key_terms: [chatgpt, comments, praise, conversational, underdeveloped, complimenting, exceptionally, collaborator]
     token_count: 219
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c1"
-    char_span: [971, 2122]
+    char_span: [970, 2121]
     sentence_count: 6
     key_terms: [chatgpt, please, conversation, image, blah, post, r-chatgpt-1050422060352024636, concerns]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c2"
-    char_span: [2125, 4002]
+    char_span: [2124, 4001]
     sentence_count: 16
     key_terms: [informative, idea, advanced, dickhead, question, because, history, reasons]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c3"
-    char_span: [4004, 5613]
+    char_span: [4003, 5612]
     sentence_count: 2
     key_terms: [post, time, honestly, straightforward, reddit, get, because, chatgpt]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c4"
-    char_span: [5615, 7513]
+    char_span: [5614, 7512]
     sentence_count: 12
     key_terms: [sacred, sometimes, everything, already, people, propheticutterances, thesympatheticdevil, great]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c5"
-    char_span: [7515, 8306]
+    char_span: [7514, 8305]
     sentence_count: 5
     key_terms: [glazing, hilarious, because, vegetable-industry32, instructions, multitasking, narcissistic, wonder-woman]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c6"
-    char_span: [8308, 10150]
+    char_span: [8307, 10149]
     sentence_count: 7
     key_terms: [personalization, instructions, chatgpt, need, settings, specific, default, writing]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c7"
-    char_span: [10152, 11995]
+    char_span: [10151, 11994]
     sentence_count: 15
     key_terms: [lesusisjord, referencing, "i've", "it's", language, because, dashes, matter]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c8"
-    char_span: [11997, 13497]
+    char_span: [11996, 13496]
     sentence_count: 18
     key_terms: [better, "that's", right, blah, feel, get, like, anything]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c9"
-    char_span: [13499, 15291]
+    char_span: [13498, 15290]
     sentence_count: 17
     key_terms: [asleep-fisherman2452, rolling, whose, comment, talking, reddit, knows, "i'm"]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/chatgpt/1m55axo.md#c10"
-    char_span: [15293, 16019]
+    char_span: [15292, 16018]
     sentence_count: 6
     key_terms: ["it's", post, too, enthusiastically, conversational, preferences, understands, completely]
     section: Comments

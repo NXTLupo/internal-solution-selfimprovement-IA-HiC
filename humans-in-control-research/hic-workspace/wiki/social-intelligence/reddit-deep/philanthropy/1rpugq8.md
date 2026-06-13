@@ -1,0 +1,47 @@
+---
+id: social-intelligence/reddit-deep/philanthropy/1rpugq8.md
+url: "https://www.reddit.com/r/Philanthropy/comments/1rpugq8/report_growing_chasm_between_corporate_interests/"
+kind: "social-post"
+source: "reddit-deep: r/philanthropy"
+subreddit: "philanthropy"
+title: "report: Growing Chasm Between Corporate Interests and Nonprofit Needs"
+author: "jcravens42"
+date: "2026-03-10T11:33:30.000Z"
+score: 5
+upvote_ratio: 1
+num_comments: 0
+flair: "Commentary on Philanthropy"
+extracted_at: "2026-06-10T18:04:18.305Z"
+extraction_method: "praw-deep"
+research_goal: "Identify emerging trends in higher education related ONLY to fundraising, advancement, and donations in 2026. Include social media posts, academic articles, RSS News, government data, and uploaded documents related to Donation, Advancement, and Fundraising, to provide a robust set of comprehensive, strategic recommendations and a roadmap for higher education universities in 2026\n"
+engagement: "identify-emerging-trends-in-higher-education-related-only-to"
+chunks:
+  - id: "social-intelligence/reddit-deep/philanthropy/1rpugq8.md#c0"
+    char_span: [0, 1836]
+    sentence_count: 6
+    key_terms: [corporate, volunteering, impact, report, nonprofit, needs, benevity, funding]
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/philanthropy/1rpugq8.md#c1"
+    char_span: [1838, 2366]
+    sentence_count: 1
+    key_terms: [benevity-impact-labs-releases-state-of-corporate-volunteering-2026-report-finds-growing-chasm-between-corporate-interests-and-nonprofit-needs-as-employee-volunteering-reaches-record-levels, businesswire, https, com, home, news, www]
+    token_count: 167
+---
+# report: Growing Chasm Between Corporate Interests and Nonprofit Needs
+
+Source: [reddit-deep: r/philanthropy](https://www.reddit.com/r/Philanthropy/comments/1rpugq8/report_growing_chasm_between_corporate_interests/)
+Posted by **jcravens42** · **5↑** · **0 comments**
+
+**Benevity Impact Labs Releases State of Corporate Volunteering 2026 Report; Finds Growing Chasm Between Corporate Interests and Nonprofit Needs as Employee Volunteering Reaches Record Levels**
+
+Benevity, Inc., which says it provides "global corporate purpose software" (I know, what?!?), earlier this moneth released a report that it says reveals a growing tension between corporate volunteering and nonprofit needs, and also that employee volunteering is reaching "record levels."
+
+[*Benevity Impact Labs*](https://cts.businesswire.com/ct/CT?id=smartlink&url=https%3A%2F%2Fbenevity.com%2Fresearch&esheet=54435699&newsitemid=20260302853555&lan=en-US&anchor=Benevity+Impact+Labs&index=1&md5=fe11c745e399db03950e32028bdecbf3)*’ State of Corporate Volunteering 2026 report highlights continued and significant growth in employee volunteer participation. However, amidst a government funding crisis, a volatile economy and a rapidly changing AI landscape, nonprofit needs are shifting. While volunteering remains a top priority for corporate impact programs, nonprofits list funding as their top strategic priority, which demands that corporate impact leaders re-consider whether their current programs are designed to meet the needs of the future.*
+
+It's breaking news that funding is the top strategic priority of nonprofits? Reallyl?
+
+Sad that the report seems not to have at all touched on what remains an ongoing challenge for nonprofits: resources and funding for the staffing and training needed to effectively engage volunteers in a variety of roles. 
+
+Anyway: 
+
+[https://www.businesswire.com/news/home/20260302853555/en/Benevity-Impact-Labs-Releases-State-of-Corporate-Volunteering-2026-Report-Finds-Growing-Chasm-Between-Corporate-Interests-and-Nonprofit-Needs-as-Employee-Volunteering-Reaches-Record-Levels?\_hsmi=406564822](https://www.businesswire.com/news/home/20260302853555/en/Benevity-Impact-Labs-Releases-State-of-Corporate-Volunteering-2026-Report-Finds-Growing-Chasm-Between-Corporate-Interests-and-Nonprofit-Needs-as-Employee-Volunteering-Reaches-Record-Levels?_hsmi=406564822)

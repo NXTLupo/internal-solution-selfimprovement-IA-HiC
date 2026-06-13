@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1s8rxmo.md#c0"
-    char_span: [0, 995]
+    char_span: [0, 994]
     sentence_count: 8
     key_terms: [internship, looking, opportunities, internships, tech, experience, comments, https]
     token_count: 239

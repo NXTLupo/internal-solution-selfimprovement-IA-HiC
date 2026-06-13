@@ -23,73 +23,73 @@ chunks:
     key_terms: [everyone, cscareerquestions, breakdowns, comments, constant, software, mental, high-pressure]
     token_count: 257
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c1"
-    char_span: [1188, 3278]
+    char_span: [1187, 3277]
     sentence_count: 24
     key_terms: [sprint, agile, project, productivity, never, beginning, constant, deadline]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c2"
-    char_span: [3281, 5356]
+    char_span: [3280, 5355]
     sentence_count: 14
     key_terms: [agile, through, done, team, deadlines, deadline, director, planning]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c3"
-    char_span: [5358, 7415]
+    char_span: [5357, 7414]
     sentence_count: 14
     key_terms: [issues, agile, management, deadline, problem, waterfall, doing, unrealistic]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c4"
-    char_span: [7417, 9614]
+    char_span: [7416, 9613]
     sentence_count: 15
     key_terms: [issues, agile, wrong, engineering, code, production, different, deadline]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c5"
-    char_span: [9616, 10283]
+    char_span: [9615, 10282]
     sentence_count: 2
     key_terms: [people, important, stressful, because, realize, fast, like, post]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c6"
-    char_span: [10285, 11979]
+    char_span: [10284, 11978]
     sentence_count: 7
     key_terms: [security, experienced, because, around, energy, illustrious-pound266, uwereeverything2311, "can't"]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c7"
-    char_span: [11981, 14045]
+    char_span: [11980, 14044]
     sentence_count: 16
     key_terms: [companies, tech, world, like, company, finance, people, breakdown]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c8"
-    char_span: [14047, 15648]
+    char_span: [14046, 15647]
     sentence_count: 16
     key_terms: [use, something, technical, software, company, process, itself, making]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c9"
-    char_span: [15651, 17681]
+    char_span: [15650, 17680]
     sentence_count: 19
     key_terms: [maybe, lot, time, work, everyone, solution, correct, workers]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c10"
-    char_span: [17683, 19423]
+    char_span: [17682, 19422]
     sentence_count: 13
     key_terms: [never, engineering, job, something, stressful, software, because, nothing]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c11"
-    char_span: [19425, 21581]
+    char_span: [19424, 21580]
     sentence_count: 23
     key_terms: [work, companies, field, experience, everyone, software, stressed, around]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m93jgi.md#c12"
-    char_span: [21583, 23259]
+    char_span: [21582, 23258]
     sentence_count: 22
     key_terms: [company, product, re-org, electrician, like, work, especially, constant]
     section: Comments

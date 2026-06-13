@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1t70bju.md
 url: "https://www.reddit.com/r/internships/comments/1t70bju/urgently_hiring_hr_interns_remote_limited_slots/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,19 @@ flair: "During the Internship"
 extracted_at: "2026-06-06T23:20:46.210Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1t70bju.md#c0"
+    char_span: [0, 1633]
+    sentence_count: 1
+    key_terms: [communication, internship, interns, remote, internships, work, experience, interested]
+    token_count: 381
+  - id: "social-intelligence/reddit-deep/internships/1t70bju.md#c1"
+    char_span: [1648, 2525]
+    sentence_count: 2
+    key_terms: [interested, shal270, opportunity, internship, kindly, great, got, chipmunkkkkk]
+    section: Comments
+    token_count: 308
 ---
-
 # ⚡ Urgently Hiring HR Interns (Remote | Limited Slots | Immediate Start)
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1t70bju/urgently_hiring_hr_interns_remote_limited_slots/)

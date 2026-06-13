@@ -23,25 +23,25 @@ chunks:
     key_terms: [productivity, energy, wasn, something, comments, optimize, instead, started]
     token_count: 334
   - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c1"
-    char_span: [1515, 1912]
+    char_span: [1514, 1911]
     sentence_count: 1
     key_terms: [aggravating-ant-3077, color-coded, half-assed, calendars, tracking, battery, finally, focused]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c2"
-    char_span: [1914, 3966]
+    char_span: [1913, 3965]
     sentence_count: 11
     key_terms: [energy, spoons, productive, tasks, "i'll", time, spoonfuls, analogy]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c3"
-    char_span: [3701, 4175]
+    char_span: [3700, 4174]
     sentence_count: 3
     key_terms: [aggravating-ant-3077, time-blocking, unfortunately, environment, interesting, assumption, dashboard, concepts]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/productivity/1pp2r6v.md#c4"
-    char_span: [4177, 5804]
+    char_span: [4176, 5803]
     sentence_count: 10
     key_terms: [energy, get, coins, "i'm", lot, listening, instead, systems]
     section: Comments

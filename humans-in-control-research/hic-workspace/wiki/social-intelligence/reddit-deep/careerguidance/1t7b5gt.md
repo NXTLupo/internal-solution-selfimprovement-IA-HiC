@@ -23,13 +23,13 @@ chunks:
     key_terms: [learning, company, careerguidance, leave, job, pay, slow, currently]
     token_count: 259
   - id: "social-intelligence/reddit-deep/careerguidance/1t7b5gt.md#c1"
-    char_span: [1081, 1551]
+    char_span: [1080, 1550]
     sentence_count: 1
     key_terms: [time, low, work, lazyhustlermusic, crashcaptainn, collecting, learning, paycheck]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/careerguidance/1t7b5gt.md#c2"
-    char_span: [1553, 3247]
+    char_span: [1552, 3246]
     sentence_count: 9
     key_terms: [skills, job, get, time, current, develop, people, notdavidjustsomeguy]
     section: Comments

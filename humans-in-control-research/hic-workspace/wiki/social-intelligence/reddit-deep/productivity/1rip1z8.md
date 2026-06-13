@@ -23,49 +23,49 @@ chunks:
     key_terms: [productivity, notes, decision, fatigue, folder, etc, work, structure]
     token_count: 406
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c1"
-    char_span: [1740, 3704]
+    char_span: [1739, 3703]
     sentence_count: 13
     key_terms: [using, time, adventurous-hunter98, obsidian, turquoiseblues, needs, notes, start]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c2"
-    char_span: [3706, 5755]
+    char_span: [3705, 5754]
     sentence_count: 31
     key_terms: [decision, system, stuck, fatigue, overwhelm, structure, friction, organise]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c3"
-    char_span: [5757, 7428]
+    char_span: [5756, 7427]
     sentence_count: 26
     key_terms: [system, obsidian, perfect, need, templates, creates, called, delete]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c4"
-    char_span: [7431, 9324]
+    char_span: [7430, 9323]
     sentence_count: 15
     key_terms: [focus, day, want, base, etc, time, calendar, b2e2a58648e1847440af472bebe0253665fa3e6f]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c5"
-    char_span: [9326, 11337]
+    char_span: [9325, 11336]
     sentence_count: 11
     key_terms: [obsidian, yourself, mail, folders, appointments, "don't", newsletters, need]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c6"
-    char_span: [11339, 12867]
+    char_span: [11338, 12866]
     sentence_count: 2
     key_terms: [using, bb1166b4d343726f3bbd7cf160137d1906179698, learned, gamechanger, work, categories, backlinks, obsidian]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c7"
-    char_span: [12869, 14169]
+    char_span: [12868, 14168]
     sentence_count: 9
     key_terms: [v-1986, preview, format, https, width, auto, jpeg, pjpg]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/productivity/1rip1z8.md#c8"
-    char_span: [14171, 14406]
+    char_span: [14170, 14405]
     sentence_count: 4
     key_terms: [obsidian, connecting, everything, notebooklm, outdated, solution, reflect, brains]
     section: Comments

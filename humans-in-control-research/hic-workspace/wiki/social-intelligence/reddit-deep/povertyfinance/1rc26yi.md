@@ -23,25 +23,25 @@ chunks:
     key_terms: [mom, pay, povertyfinance, com, set, currently, comments, finally]
     token_count: 440
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c1"
-    char_span: [1661, 3445]
+    char_span: [1660, 3444]
     sentence_count: 14
     key_terms: [savings, emmieh1287, populardata3890, capitalad4933, cover, retirement, emergency, included]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c2"
-    char_span: [3447, 4733]
+    char_span: [3446, 4732]
     sentence_count: 7
     key_terms: [paying, emergency, fund, expenses, future, others, etc, food]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c3"
-    char_span: [4735, 6600]
+    char_span: [4734, 6599]
     sentence_count: 17
     key_terms: [roth, months, emergency, fund, build, money, ira, put]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/povertyfinance/1rc26yi.md#c4"
-    char_span: [6602, 8127]
+    char_span: [6601, 8126]
     sentence_count: 10
     key_terms: [get, https, furniture, streaming, cheaper, qualify, making, screamingwhisper1720]
     section: Comments

@@ -28,55 +28,55 @@ chunks:
     key_terms: [economic-research-chatgpt-usage-paper, a253471f-8260-40c6-a2cc-aa93fe9f142e, https, privacy-preserving, pdf, comprehensive, classifiers, researchers]
     token_count: 86
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c2"
-    char_span: [2436, 3404]
+    char_span: [2435, 3403]
     sentence_count: 5
     key_terms: [through, codex, because, chatgpt, models, pretty, search, going]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c3"
-    char_span: [3406, 5299]
+    char_span: [3405, 5298]
     sentence_count: 5
     key_terms: [openai, paid, professional, data, plan, use, hundreds, chatgpt]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c4"
-    char_span: [5086, 5957]
+    char_span: [5085, 5956]
     sentence_count: 2
     key_terms: [sustainable, free, whatever, idontcareaboutthenam, users, wrote, paid, brainstorming]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c5"
-    char_span: [5960, 6769]
+    char_span: [5959, 6768]
     sentence_count: 4
     key_terms: [seems, messages, thinking, coding, take, per-conversation, anecdotally, computation]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c6"
-    char_span: [6772, 8559]
+    char_span: [6771, 8558]
     sentence_count: 15
     key_terms: [families, tutoring, jobs, starting, wealthy, access, advice, afford]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c7"
-    char_span: [8561, 10566]
+    char_span: [8560, 10565]
     sentence_count: 10
     key_terms: [jobs, chatgpt, professional, work, anything, happened, effects, people]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c8"
-    char_span: [10568, 12527]
+    char_span: [10567, 12526]
     sentence_count: 13
     key_terms: ["it's", use, gpt, sharing, therapy, coding, going, money]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c9"
-    char_span: [12529, 14397]
+    char_span: [12528, 14396]
     sentence_count: 12
     key_terms: [media, users, conversations, relationship, proportion, million, wanting, number]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/openai/1niaw9p.md#c10"
-    char_span: [14399, 15322]
+    char_span: [14398, 15321]
     sentence_count: 5
     key_terms: [chatgpt, everything, fluffypolicepeanut, been, end, get, less, conversation]
     section: Comments

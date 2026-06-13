@@ -23,7 +23,7 @@ chunks:
     key_terms: [program, northeastern, comments, students, boston, co-op, ece, fall]
     token_count: 222
   - id: "social-intelligence/reddit-deep/neu/1r7rzvy.md#c1"
-    char_span: [912, 1439]
+    char_span: [911, 1438]
     sentence_count: 5
     key_terms: [got, different, legitimatecicada3276, "i'm", neu, concentration, particular, university]
     section: Comments

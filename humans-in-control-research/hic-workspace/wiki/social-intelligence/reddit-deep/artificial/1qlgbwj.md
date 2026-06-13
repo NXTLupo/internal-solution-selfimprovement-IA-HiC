@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1qlgbwj.md#c0"
-    char_span: [0, 486]
+    char_span: [0, 485]
     sentence_count: 2
     key_terms: [artificial, comments, vs4vijay, github, https, com, crowd-driven, development]
-    token_count: 120
+    token_count: 119
 ---
 # Open-source experiment: crowd-driven software development with AI
 

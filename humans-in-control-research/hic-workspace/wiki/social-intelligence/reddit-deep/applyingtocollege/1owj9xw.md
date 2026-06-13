@@ -23,31 +23,31 @@ chunks:
     key_terms: [applyingtocollege, comments, https, families, johns-hopkins-tuition-free-undergraduates, hopkins, undergraduates, reddit]
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1owj9xw.md#c1"
-    char_span: [1423, 3263]
+    char_span: [1422, 3262]
     sentence_count: 12
     key_terms: [aid, financial, semester, already, discojellyfisho, spring, international, level]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1owj9xw.md#c2"
-    char_span: [3265, 5120]
+    char_span: [3264, 5119]
     sentence_count: 5
     key_terms: [princeton, yogurtclosetopen3567, retirement, antiviralposter, already, deleted, primary, aid]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1owj9xw.md#c3"
-    char_span: [4891, 5129]
+    char_span: [4890, 5128]
     sentence_count: 1
     key_terms: [princeton, antiviralposter, trickling, afforded, "couldn't", "would've", article, deleted]
     section: Comments
     token_count: 66
   - id: "social-intelligence/reddit-deep/applyingtocollege/1owj9xw.md#c4"
-    char_span: [5131, 6083]
+    char_span: [5130, 6082]
     sentence_count: 5
     key_terms: [will-princeton-avoid-endowment-tax-increasing-financial-aid, students, undergraduate, university, financial, academic, country, student]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/applyingtocollege/1owj9xw.md#c5"
-    char_span: [6085, 7144]
+    char_span: [6084, 7143]
     sentence_count: 4
     key_terms: [students, mps2000, live, antiviralposter, consideration, international, continuation, due-milk352]
     section: Comments

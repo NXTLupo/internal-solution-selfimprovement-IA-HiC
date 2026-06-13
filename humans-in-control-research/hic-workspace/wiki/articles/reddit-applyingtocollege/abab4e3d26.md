@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-applyingtocollege/abab4e3d26.md#c0"
-    char_span: [0, 1971]
+    char_span: [0, 1970]
     sentence_count: 13
     key_terms: [students, applyingtocollege, b2zwywlybnz0y2rn, elise, https, dr0ztvdkqcu, com, pham]
-    token_count: 424
+    token_count: 423
 ---
 # Elise Pham made $2M off college consulting
 

@@ -36,67 +36,67 @@ chunks:
     key_terms: [cmu, ppl, gtech, because, getting, washu, got, like]
     token_count: 244
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c4"
-    char_span: [6846, 8814]
+    char_span: [6845, 8813]
     sentence_count: 13
     key_terms: [school, people, intelligent-web-8017, good, schools, life, time, want]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c5"
-    char_span: [8816, 10898]
+    char_span: [8815, 10897]
     sentence_count: 12
     key_terms: [pretty, salary, school, happy, cmu, ppl, salaries, because]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c6"
-    char_span: [10902, 12796]
+    char_span: [10901, 12795]
     sentence_count: 10
     key_terms: [intelligent-web-8017, georgia, tech, top, schools, engineering, berkeley, high]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c7"
-    char_span: [12579, 13092]
+    char_span: [12578, 13091]
     sentence_count: 3
     key_terms: [engineering, tech, georgia, school, coast, uva, west, big-hat-7210]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c8"
-    char_span: [13094, 13407]
+    char_span: [13093, 13406]
     sentence_count: 2
     key_terms: [humanities, georgia, majors, tech, terpgonnaball, acceptance, specified, nonsense]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c9"
-    char_span: [13409, 15282]
+    char_span: [13408, 15281]
     sentence_count: 11
     key_terms: [collegetransitions, untowardadvance, dataverse, top-feeders-engineering, applied, https, com, stem]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c10"
-    char_span: [15284, 17165]
+    char_span: [15283, 17164]
     sentence_count: 17
     key_terms: [untowardadvance, campus, terpgonnaball, state, kids, companies, students, applied]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c11"
-    char_span: [16956, 17263]
+    char_span: [16955, 17262]
     sentence_count: 3
     key_terms: [campus, big, comparsion, facilities, investment, companies, berkeley, congrats]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c12"
-    char_span: [17265, 18432]
+    char_span: [17264, 18431]
     sentence_count: 7
     key_terms: [school, applicants, georgia, after-excitement6234, intelligent-web-8017, cycle, least, yield]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c13"
-    char_span: [18434, 19890]
+    char_span: [18433, 19889]
     sentence_count: 7
     key_terms: [campus, baltimore, jhu, neighborhood, "it's", like, part, location]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ryzho0.md#c14"
-    char_span: [19892, 21326]
+    char_span: [19891, 21325]
     sentence_count: 5
     key_terms: [real-focus-1, location, because, charles, cornell, hopkins, village, automatic-lobster987]
     section: Comments

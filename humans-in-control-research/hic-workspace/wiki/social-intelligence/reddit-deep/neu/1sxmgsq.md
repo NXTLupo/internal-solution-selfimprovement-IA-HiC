@@ -21,7 +21,7 @@ chunks:
     key_terms: [northeastern, "i'm", considering, neu, expensive, comments, pre-law, around]
     token_count: 340
   - id: "social-intelligence/reddit-deep/neu/1sxmgsq.md#c1"
-    char_span: [1512, 2638]
+    char_span: [1511, 2637]
     sentence_count: 10
     key_terms: [experience, school, work, neu, law, take, internship, international-emu-74]
     section: Comments

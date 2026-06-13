@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/9eca00c1be.md#c0"
-    char_span: [0, 1752]
+    char_span: [0, 1751]
     sentence_count: 18
     key_terms: [investing, market, happened, divorce, retirement, comments, payment, reddit]
-    token_count: 414
+    token_count: 413
   - id: "articles/reddit-deep-r-investing/9eca00c1be.md#c1"
-    char_span: [1754, 2728]
+    char_span: [1753, 2727]
     sentence_count: 9
     key_terms: [market, investment, mortgage, recover, selling, stock, works, dad]
     token_count: 229

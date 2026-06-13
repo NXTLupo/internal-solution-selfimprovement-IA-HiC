@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1sero8c.md
 url: "https://www.reddit.com/r/findapath/comments/1sero8c/just_turned_40_with_the_skills_and_career/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,48 @@ flair: "Findapath-Health Factor"
 extracted_at: "2026-06-06T23:22:15.472Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c0"
+    char_span: [0, 2033]
+    sentence_count: 17
+    key_terms: [without, career, job, experience, findapath, comments, feelings, whether]
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c1"
+    char_span: [2035, 2955]
+    sentence_count: 7
+    key_terms: [hours, learn, able, been, non-essentials, intelligence, concentrate, monetizable]
+    token_count: 213
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c2"
+    char_span: [2970, 5072]
+    sentence_count: 16
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, action]
+    section: Comments
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c3"
+    char_span: [5074, 7110]
+    sentence_count: 14
+    key_terms: [get, help, business, career, online, bit, jobs, already]
+    section: Comments
+    token_count: 458
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c4"
+    char_span: [7112, 8898]
+    sentence_count: 13
+    key_terms: [help, business, collegehelp2275, rehabilitation, "don't", vocational, thailand, library]
+    section: Comments
+    token_count: 420
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c5"
+    char_span: [8900, 11179]
+    sentence_count: 25
+    key_terms: [intelligent, something, get, try, online, please, learn, work]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/findapath/1sero8c.md#c6"
+    char_span: [11181, 11506]
+    sentence_count: 4
+    key_terms: [glass-emotions963, "it's", encouragement, unstoppable, definitely, "husband's", something, recovery]
+    section: Comments
+    token_count: 76
 ---
-
 # Just turned 40 with the skills and career experience of a 22 year old. Please share any advice.
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1sero8c/just_turned_40_with_the_skills_and_career/)

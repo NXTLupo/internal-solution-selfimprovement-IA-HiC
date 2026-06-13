@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/3e6be36ddd.md#c0"
-    char_span: [0, 1855]
+    char_span: [0, 1854]
     sentence_count: 5
     key_terms: [careerguidance, please, study, "bachelor's", currently, position, another, college]
-    token_count: 425
+    token_count: 424
   - id: "articles/reddit-deep-r-careerguidance/3e6be36ddd.md#c1"
-    char_span: [1857, 4206]
+    char_span: [1856, 4205]
     sentence_count: 20
     key_terms: [information, experience, like, business, analyst, degree, "you're", roles]
     token_count: 482
   - id: "articles/reddit-deep-r-careerguidance/3e6be36ddd.md#c2"
-    char_span: [4211, 4631]
+    char_span: [4210, 4630]
     sentence_count: 2
     key_terms: [gaming, companies, tech, perspective, background, experience, understand, approach]
     token_count: 77

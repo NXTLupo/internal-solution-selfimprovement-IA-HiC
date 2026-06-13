@@ -15,17 +15,17 @@ industries: [financial_services, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c0"
-    char_span: [0, 1543]
+    char_span: [0, 1542]
     sentence_count: 11
     key_terms: [amd, stocks, growth, likely, conviction, high, risk, investing]
-    token_count: 447
+    token_count: 446
   - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c1"
-    char_span: [1545, 3019]
+    char_span: [1544, 3018]
     sentence_count: 20
     key_terms: [probably, peloton, redistributed, redistribute, amd, own, portfolio, earnings]
     token_count: 397
   - id: "articles/reddit-deep-r-investing/ad83bc1e2a.md#c2"
-    char_span: [3021, 4129]
+    char_span: [3020, 4128]
     sentence_count: 11
     key_terms: [advice, significantly, puzzleheaded-fly-658, money, today, years, amd, less]
     token_count: 264

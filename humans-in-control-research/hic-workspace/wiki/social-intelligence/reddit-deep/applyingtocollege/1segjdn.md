@@ -28,37 +28,37 @@ chunks:
     key_terms: [year, "it's", bama, duke, "i'm", ucla, china, considering]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c2"
-    char_span: [3577, 4590]
+    char_span: [3576, 4589]
     sentence_count: 11
     key_terms: [astronomy, arizona, astrophysics, field, known, best, like, path]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c3"
-    char_span: [4592, 6966]
+    char_span: [4591, 6965]
     sentence_count: 21
     key_terms: [research, arizona, ucla, resources, astro, undergraduate, department, birdtraditional8081]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c4"
-    char_span: [6692, 7193]
+    char_span: [6691, 7192]
     sentence_count: 7
     key_terms: [want, research, oncologist, professors, ultimately, beeseecan, observing, rationale]
     section: Comments
     token_count: 122
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c5"
-    char_span: [7195, 8807]
+    char_span: [7194, 8806]
     sentence_count: 8
     key_terms: [probably, alabama, physics, taxes, ucla, year, telescope, expenses]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c6"
-    char_span: [8809, 9892]
+    char_span: [8808, 9891]
     sentence_count: 7
     key_terms: [stretchill5138, school, duke, astronomy, different, arizona, kunshan, enough]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/applyingtocollege/1segjdn.md#c7"
-    char_span: [9894, 11476]
+    char_span: [9893, 11475]
     sentence_count: 9
     key_terms: [fredmcgriff493, ones, something, english, stipend, paying, pocket, school]
     section: Comments

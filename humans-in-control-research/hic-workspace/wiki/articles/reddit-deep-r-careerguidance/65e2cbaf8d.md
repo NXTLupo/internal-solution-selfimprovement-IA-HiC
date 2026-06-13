@@ -15,37 +15,37 @@ industries: [real_estate, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c0"
-    char_span: [0, 1420]
+    char_span: [0, 1419]
     sentence_count: 11
     key_terms: [internship, months, experience, careerguidance, job, project, working, estate]
-    token_count: 331
+    token_count: 330
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c1"
-    char_span: [1422, 2465]
+    char_span: [1421, 2464]
     sentence_count: 2
     key_terms: [environments, feedback, learning, without, rather, tasks, work, administrative]
     token_count: 201
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c2"
-    char_span: [2467, 4653]
+    char_span: [2466, 4652]
     sentence_count: 2
     key_terms: [working, long-term, learning, leaders, success, market, clear, encouraging]
     token_count: 395
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c3"
-    char_span: [4655, 7309]
+    char_span: [4654, 7308]
     sentence_count: 8
     key_terms: [feedback, roles, market, encouragement, constructive, goals, acquisition, work]
     token_count: 506
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c4"
-    char_span: [7311, 9517]
+    char_span: [7310, 9516]
     sentence_count: 14
     key_terms: [analyst, private, whether, underwriting, firms, focus, years, development]
     token_count: 474
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c5"
-    char_span: [9519, 11879]
+    char_span: [9518, 11878]
     sentence_count: 18
     key_terms: [management, acquisitions, industrial, asset, multifamily, firms, good, experience]
     token_count: 499
   - id: "articles/reddit-deep-r-careerguidance/65e2cbaf8d.md#c6"
-    char_span: [11881, 12227]
+    char_span: [11880, 12226]
     sentence_count: 3
     key_terms: [industrial, culture-screen, underwriting, reach-outs, rotational, dashboard, questions, feedback]
     token_count: 75

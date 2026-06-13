@@ -23,7 +23,7 @@ chunks:
     key_terms: [careerguidance, career, publishing, comments, guidance, starting, uk-based, change]
     token_count: 167
   - id: "social-intelligence/reddit-deep/careerguidance/1rj9ege.md#c1"
-    char_span: [708, 2012]
+    char_span: [707, 2011]
     sentence_count: 1
     key_terms: [experience, companies, discrimination, publishing, freelance, graduates, services, smaller]
     section: Comments

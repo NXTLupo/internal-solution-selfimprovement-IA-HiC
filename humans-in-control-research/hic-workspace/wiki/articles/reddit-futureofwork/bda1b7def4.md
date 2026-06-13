@@ -15,10 +15,10 @@ industries: [ai_research, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-futureofwork/bda1b7def4.md#c0"
-    char_span: [0, 756]
+    char_span: [0, 755]
     sentence_count: 6
     key_terms: [futureofwork, proficiency, ourselves, clients, reddit, own, transformation, productivity]
-    token_count: 162
+    token_count: 161
 ---
 # Advising on AI while still figuring it out ourselves
 

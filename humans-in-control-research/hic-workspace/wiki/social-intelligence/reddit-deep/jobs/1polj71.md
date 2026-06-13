@@ -21,43 +21,43 @@ chunks:
     key_terms: [comments, jobs, entry-level, reddit-deep, breaking, majano57, process, hiring]
     token_count: 72
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c1"
-    char_span: [274, 511]
+    char_span: [273, 510]
     sentence_count: 2
     key_terms: [definitely, experience, employers, decision, romano16, created, asking, degree]
     section: Comments
     token_count: 62
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c2"
-    char_span: [513, 2476]
+    char_span: [512, 2475]
     sentence_count: 16
     key_terms: [paralegal, work, people, "you're", "can't", years, background, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c3"
-    char_span: [2247, 2752]
+    char_span: [2246, 2751]
     sentence_count: 2
     key_terms: [experience, ab4739ejfriend749205, years, work, counterintuitive, crazycatlady331, hypocritical, fjaoaoaoao]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c4"
-    char_span: [2754, 3950]
+    char_span: [2753, 3949]
     sentence_count: 6
     key_terms: ["it's", someone, career, people, zealousideal-fox365, shame, kink, like]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c5"
-    char_span: [3953, 5807]
+    char_span: [3952, 5806]
     sentence_count: 11
     key_terms: [job, trying, recruiters, recruiter, connected, something, hiring, person]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c6"
-    char_span: [5809, 8052]
+    char_span: [5808, 8051]
     sentence_count: 15
     key_terms: [recruiters, because, having, successaffectionate1, years, companies, people, person]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1polj71.md#c7"
-    char_span: [8054, 8893]
+    char_span: [8053, 8892]
     sentence_count: 5
     key_terms: [population, education, masters, percent, degree, having, successaffectionate1, years]
     section: Comments

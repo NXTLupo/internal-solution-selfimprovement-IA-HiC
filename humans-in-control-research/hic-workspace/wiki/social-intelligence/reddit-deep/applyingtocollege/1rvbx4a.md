@@ -21,25 +21,25 @@ chunks:
     key_terms: [college, applyingtocollege, give, people, major, threatened, comments, cheaper]
     token_count: 376
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c1"
-    char_span: [1791, 3551]
+    char_span: [1790, 3550]
     sentence_count: 10
     key_terms: [science, labor-market-impacts, anthropic, computer, research, college, someone, degree]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c2"
-    char_span: [3553, 5504]
+    char_span: [3552, 5503]
     sentence_count: 6
     key_terms: [transferable, teachers, skills, peacockintime, pbmadman1994, field, going, architects]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c3"
-    char_span: [5506, 7279]
+    char_span: [5505, 7278]
     sentence_count: 15
     key_terms: [college, unemployment, major, stlouisfed, therapists, graduates, cgbd2024, machines]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rvbx4a.md#c4"
-    char_span: [7281, 8886]
+    char_span: [7280, 8885]
     sentence_count: 11
     key_terms: [good, replaced, already, career, enough, outrun, conscious-secret-775, being]
     section: Comments

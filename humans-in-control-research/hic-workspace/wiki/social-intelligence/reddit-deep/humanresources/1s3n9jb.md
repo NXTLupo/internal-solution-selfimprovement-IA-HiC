@@ -21,19 +21,19 @@ chunks:
     key_terms: [humanresources, applications, "i've", comments, response, getting, reddit, resume]
     token_count: 170
   - id: "social-intelligence/reddit-deep/humanresources/1s3n9jb.md#c1"
-    char_span: [686, 2674]
+    char_span: [685, 2673]
     sentence_count: 19
     key_terms: [roles, generalist, responsibilities, coordinator, role, experience, identified, recruiting]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/humanresources/1s3n9jb.md#c2"
-    char_span: [2676, 4570]
+    char_span: [2675, 4569]
     sentence_count: 20
     key_terms: [olddirtmcgirt, company, interview, place, something, multiple, instead, oversaw]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/humanresources/1s3n9jb.md#c3"
-    char_span: [4572, 5323]
+    char_span: [4571, 5322]
     sentence_count: 7
     key_terms: [company, migration, employee, repeat, data, job, like, work]
     section: Comments

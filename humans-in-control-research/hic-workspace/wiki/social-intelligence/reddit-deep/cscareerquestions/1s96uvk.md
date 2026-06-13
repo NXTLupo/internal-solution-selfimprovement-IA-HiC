@@ -7,13 +7,13 @@ subreddit: "cscareerquestions"
 title: "How cooked am I? CS student, no internships, rotting all day"
 author: "ArmadilloTop2003"
 date: "2026-04-01T01:42:37.000Z"
-score: 167
+score: 170
 upvote_ratio: 0.88
 num_comments: 149
 flair: ""
-extracted_at: "2026-06-06T17:43:22.942Z"
+extracted_at: "2026-06-08T18:49:42.885Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s96uvk.md#c0"
     char_span: [0, 1576]
@@ -66,7 +66,7 @@ chunks:
 # How cooked am I? CS student, no internships, rotting all day
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s96uvk/how_cooked_am_i_cs_student_no_internships_rotting/)
-Posted by **ArmadilloTop2003** · **167↑** · **149 comments**
+Posted by **ArmadilloTop2003** · **170↑** · **149 comments**
 
 Currently studying CS at a non-target and ive lost all motivation. Ill be graduating next year and I have zero internships under my belt, and I know I wont be able to land a full time job in this job market. Ive also been losing my enjoyment for coding because of this. 
 
@@ -81,18 +81,18 @@ EDIT: I appreciate the supportive messages and people helping with my resume in 
 
 ## Comments
 
-- **ProblemAcceptable581** (189↑): dont give up lil brah
-  - **ArmadilloTop2003** (77↑): greatest comeback of all time incoming
-    - **SpiderWil** (25↑): The other guy who's CS student and with internships and is also rotting all day lol.
+- **ProblemAcceptable581** (188↑): dont give up lil brah
+  - **ArmadilloTop2003** (78↑): greatest comeback of all time incoming
+    - **SpiderWil** (26↑): The other guy who's CS student and with internships and is also rotting all day lol.
 
 Get the degree anyway and maybe the market gets better. Remember you may get only 1 chance to get a college degree. But once you get it,  you get to keep it forever. So there's that encouragement.
   - **botsmy** (5↑): you're not cooked, but waiting until graduation to start applying was a mistake  
 what if instead of chasing internships, you shipped 2 small apps that solve real problems students face?
-    - **Lower_Improvement763** (-2↑): How does building shit gather interest? You need like teams of people to build most commercial software. Building open-source is valuable, but not when you’re unemployed. Building cat pic swiping react apps doesn’t get people hired anymore.
+    - **Lower_Improvement763** (-3↑): How does building shit gather interest? You need like teams of people to build most commercial software. Building open-source is valuable, but not when you’re unemployed. Building cat pic swiping react apps doesn’t get people hired anymore.
 - **iriveru** (102↑): Dude, just go out and build some shit. So many people come on here and start dooming because they don’t get an immediate job or internship but instead of building shit to garner interest and prove competence, they complain and ask if they should just quit. 
 
 If you want to succeed, you need to go and build something.
-  - **_Baard** (8↑): I agree with this.
+  - **_Baard** (9↑): I agree with this.
 
 Personally, I just really enjoy building and programming. I build for the pleasure of it and the feeling of discovery.
 
@@ -111,7 +111,7 @@ Also, if your metric of success is landing an internship, you’re already on th
     - **polymorphicshade** (25↑): That doesn't count. You need to build different kinds of full-stack projects to practice different technologies, platforms, development pipelines, tools, bla bla bla.
 
 Companies don't care that you built projects in schools or hackathons. They care if you have the breadth and depth of knowledge such that you can jump in someone's codebase and figure your way around without much hand-holding. You gain this experience by continuing to expand your skill set with practice on building, testing, and deploying projects.
-- **CapableHerring** (15↑): Well, considering most summer internships start in May/June.... it's a little late, considering the hiring process itself takes about a month. College recruiting normally happens in 2 cycles, one in Sept/Oct, the other in Jan/Feb. At this point, most companies that participate in that recruiting cycle will have most of their spots filled up.
+- **CapableHerring** (14↑): Well, considering most summer internships start in May/June.... it's a little late, considering the hiring process itself takes about a month. College recruiting normally happens in 2 cycles, one in Sept/Oct, the other in Jan/Feb. At this point, most companies that participate in that recruiting cycle will have most of their spots filled up.
 
 That said, it's not *impossible*. Some companies hire on a different cycle, sometimes interns renege/drop out last minute so they need to fill a spot, sometimes there's a last minute budget/strategy change and the company needs to hire more interns. Maybe a million other things.
 
@@ -125,7 +125,7 @@ But even if you're cooked for this summer, that doesn't mean you're cooked for a
   - **ArmadilloTop2003** (1↑): "You miss 100% of the shots you don't take" type shi
 
 but yea i realized how bad my mentality has gotten because life has felt so unfair
-- **Commercial-Lie8338** (38↑): dude you're not cooked at all, plenty of people graduate without internships and still land decent jobs. the market sucks right now but it's not permanent
+- **Commercial-Lie8338** (37↑): dude you're not cooked at all, plenty of people graduate without internships and still land decent jobs. the market sucks right now but it's not permanent
 
   
 stop doom scrolling job boards for a sec and just build something cool that you actually want to work on. doesn't have to be groundbreaking, just something that shows you can code and solve problems. employers care way more about what you can do than where you interned
@@ -135,7 +135,7 @@ also winter/spring internship applications are still happening at smaller compan
 
   
 get out of bed first though, seriously. even just walking around the block helps break that mental fog
-  - **ArmadilloTop2003** (-3↑): I have a couple projects from my courses that I put on my resume. Im decently smart (good ish grades) so I dont think thats the blocker for me. I just want an interview or chance to prove my skills tbh. 
+  - **ArmadilloTop2003** (-2↑): I have a couple projects from my courses that I put on my resume. Im decently smart (good ish grades) so I dont think thats the blocker for me. I just want an interview or chance to prove my skills tbh. 
 
 Youre right though, thank you for the supportive message
     - **silliputti0907** (2↑): Ask yourself if you really want it at this point. Build a project for yourself, that’s not for a class. It can be guided, and hell maybe vibe-coded (just make sure you understand it). Something you’re interested in or a problem/productivity you can fix. Doesnt have to be complex or original. Build something that gives you motivation.
@@ -158,17 +158,17 @@ a TON of my friends who are applying themselves to study for interviews and crea
 *Either you work hard now and are happy with the result, or you slack now and regret not working hard earlier*
 - **SimilarIntern923** (17↑): Attitude like this NGMI
   - **ArmadilloTop2003** (1↑): Yeah ive definitely hit a low and it's booming my mental
-    - **SimilarIntern923** (4↑): Recognizing it is a good first step. Now go do something about it. You got this
-  - **Burning_magic** (-12↑): Ive seen people with good attitude or tryhards also fail to get anything. Your point is?
-    - **SimilarIntern923** (17↑): Are you joking?
+    - **SimilarIntern923** (5↑): Recognizing it is a good first step. Now go do something about it. You got this
+  - **Burning_magic** (-11↑): Ive seen people with good attitude or tryhards also fail to get anything. Your point is?
+    - **SimilarIntern923** (19↑): Are you joking?
 Try hard and good attitude will
 get you so much further than bed rotting.
-- **Flyjatt** (6↑): Switch to medical field like nursing right now brodie.
+- **Flyjatt** (5↑): Switch to medical field like nursing right now brodie.
   - **ArmadilloTop2003** (1↑): Why do you say nursing instead of something like trades?
     - **Flyjatt** (1↑): You can then go do masters above nursing such as NP and make even more money. Along with being a travel nurse or NP, work overtime and weekends or cut back the schedule when you need more time. For example, shitty winter months work OT and a lot. Summer time cut back to enjoy life. 
 
 Probably can do the same with trades but 🤷🏽‍♂️.
-- **LostGoat_Dev** (8↑): > im skipping all my classes to literally rot in my bed watching anime or play video games all day.
+- **LostGoat_Dev** (9↑): > im skipping all my classes to literally rot in my bed watching anime or play video games all day.
 
 
 Try cutting down on time spent playing video games and start making real projects instead. A degree won't get you anywhere with no internships, no projects. You need to show you can code and solve real problems.
@@ -184,14 +184,14 @@ By your own admission, you are wasting your own time by skipping classes - *that
 
 
 The best time to start was yesterday. Get some projects under your belt. Get a GitHub and a portfolio going. Join r/EngineeringResumes and make a good resume, using your projects and relevant coursework as a starting point.
-  - **ArmadilloTop2003** (2↑): My dopamine receptors are cooked so rotting is the new baseline for me. Im a hardstuck gold league player, thought of making a cool app idea like "spotify wrapped" but for league, but never took the steps to get started on that. 
+  - **ArmadilloTop2003** (4↑): My dopamine receptors are cooked so rotting is the new baseline for me. Im a hardstuck gold league player, thought of making a cool app idea like "spotify wrapped" but for league, but never took the steps to get started on that. 
 
   
 Despite skipping my classes at least my grades are staying afloat, i feel like im a smart person just lacking the motivation or passion to do what it takes..
     - **NoCategory4731** (2↑): Make that project! It sounds pretty cool and unique. It’s better than a todo app and if you do something you like you’ll be more motivated. Of course you can still play games but try to have a healthy balance!
     - **LostGoat_Dev** (1↑): I used to play a ton of league. Look into Riot API, what data it exposes to you, and how you can make a project with it. The Riot API should give you access to everything you need to make a "spotify wrapped" for league!
 - **PatchyWhiskers** (3↑): Go to the damn classes. You don’t know what the market will be like next year but if you don’t go to the classes you will miss any opportunities there are.
-- **idontevenknowwhats** (8↑): honestly pretty bad. Maybe try again in 2-5 years
+- **idontevenknowwhats** (7↑): honestly pretty bad. Maybe try again in 2-5 years
   - **ArmadilloTop2003** (1↑): As in the job market will be better by then?
     - **PatchyWhiskers** (4↑): You can’t wait 2-5 years because by then your qualifications will be stale, you need to forge ahead regardless.
     - **idontevenknowwhats** (2↑): maybe, every year they say itll get better and then it gets worse lol

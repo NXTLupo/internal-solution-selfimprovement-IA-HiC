@@ -21,13 +21,13 @@ chunks:
     key_terms: [co-op, nothing, get, like, team, associates, comments, begging]
     token_count: 347
   - id: "social-intelligence/reddit-deep/neu/1ss0gjl.md#c1"
-    char_span: [1439, 3538]
+    char_span: [1438, 3537]
     sentence_count: 13
     key_terms: [work, graduating, internship, co-op, feel, got, like, time]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/neu/1ss0gjl.md#c2"
-    char_span: [3540, 5347]
+    char_span: [3539, 5346]
     sentence_count: 11
     key_terms: [potatoresponsible347, learn, something, time, people, outside, skills, being]
     section: Comments

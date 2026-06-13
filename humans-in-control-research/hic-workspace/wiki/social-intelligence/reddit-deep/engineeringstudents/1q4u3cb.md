@@ -21,25 +21,25 @@ chunks:
     key_terms: [internship, engineering, engineeringstudents, paid, comments, robotics, "i'm", international]
     token_count: 167
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q4u3cb.md#c1"
-    char_span: [768, 2607]
+    char_span: [767, 2606]
     sentence_count: 14
     key_terms: [engineeringstudents, wiki, please, reddit, https, salitius1, com, congratulations]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q4u3cb.md#c2"
-    char_span: [2609, 4736]
+    char_span: [2608, 4735]
     sentence_count: 12
     key_terms: [internship, salitius1, experience, robotics, opportunity, "professor's", lab, incredible]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q4u3cb.md#c3"
-    char_span: [4498, 5038]
+    char_span: [4497, 5037]
     sentence_count: 2
     key_terms: [did, salitius1, school, high, congratulations, undergraduate, opportunity, withlanding]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/engineeringstudents/1q4u3cb.md#c4"
-    char_span: [5040, 5953]
+    char_span: [5039, 5952]
     sentence_count: 6
     key_terms: [projects, improvement, congrats, taiwan, areas, year, ambitious-ad3119, recommendations]
     section: Comments

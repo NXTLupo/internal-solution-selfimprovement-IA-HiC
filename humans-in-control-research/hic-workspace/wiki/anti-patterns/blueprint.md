@@ -11,61 +11,61 @@ tags: [anti-patterns, blueprint, quality-gates]
 evidence_count: 0
 chunks:
   - id: "anti-patterns/blueprint.md#c0"
-    char_span: [0, 2349]
+    char_span: [0, 2348]
     sentence_count: 6
     key_terms: [blueprint, failure, backstage, service, processes, customer, payment, alternative]
     section: "AP-BLUEPRINT-001: Missing Backstage / AP-BLUEPRINT-002: No Fail Points Identified"
     token_count: 407
   - id: "anti-patterns/blueprint.md#c1"
-    char_span: [2395, 3346]
+    char_span: [2394, 3345]
     sentence_count: 2
     key_terms: [emotional, positive, resolution, delighted, emotions, negative, filing, review]
     section: "AP-BLUEPRINT-003: All Emotions Positive"
     token_count: 192
   - id: "anti-patterns/blueprint.md#c2"
-    char_span: [3397, 4270]
+    char_span: [3396, 4269]
     sentence_count: 1
     key_terms: [return, conditional, variations, backstage, blueprint, branches, channel, process]
     section: "AP-BLUEPRINT-004: Static Rather Than Dynamic"
     token_count: 155
   - id: "anti-patterns/blueprint.md#c3"
-    char_span: [4331, 5251]
+    char_span: [4330, 5250]
     sentence_count: 2
     key_terms: [technology, reconciliation, refund, salesforce, backstage, processes, specific, actions]
     section: "AP-BLUEPRINT-005: Missing Technology and Systems Layer"
     token_count: 165
   - id: "anti-patterns/blueprint.md#c4"
-    char_span: [5304, 6114]
+    char_span: [5303, 6113]
     sentence_count: 1
     key_terms: [persona, customer, enterprise, indicators, onboarding, blueprint, segment-specific, cross-reference]
     section: "AP-BLUEPRINT-006: No Personas Mapped to Stages"
     token_count: 149
   - id: "anti-patterns/blueprint.md#c5"
-    char_span: [6151, 7096]
+    char_span: [6150, 7095]
     sentence_count: 2
     key_terms: [actions, payment, purchase, select, confirmation, enter, fewer, stage]
     section: "AP-BLUEPRINT-007: Too Abstract"
     token_count: 170
   - id: "anti-patterns/blueprint.md#c6"
-    char_span: [7133, 8105]
+    char_span: [7132, 8104]
     sentence_count: 4
     key_terms: [actions, stage, abstraction, password, appropriate, per, blueprints, audience]
     section: "AP-BLUEPRINT-008: Too Granular"
     token_count: 198
   - id: "anti-patterns/blueprint.md#c7"
-    char_span: [8146, 9005]
+    char_span: [8145, 9004]
     sentence_count: 2
     key_terms: [measurement, metrics, performance, cost, escalation, resolution, blueprint, process]
     section: "AP-BLUEPRINT-009: No Metrics Layer"
     token_count: 170
   - id: "anti-patterns/blueprint.md#c8"
-    char_span: [9068, 10055]
+    char_span: [9067, 10054]
     sentence_count: 2
     key_terms: [blueprint, "department's", perspective, department, operations, backstage, processes, finance]
     section: "AP-BLUEPRINT-010: Created Without Cross-Functional Input"
     token_count: 161
   - id: "anti-patterns/blueprint.md#c9"
-    char_span: [10111, 11119]
+    char_span: [10110, 11118]
     sentence_count: 1
     key_terms: [wait, customer, handoff, claim, business, actions, submits, without]
     section: "AP-BLUEPRINT-011: Missing Wait Times and Handoffs"

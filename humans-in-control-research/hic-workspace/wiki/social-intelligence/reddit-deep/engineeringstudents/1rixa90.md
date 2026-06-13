@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, engineeringstudents, apply, comments, freshman, public-hamster-9224, taken, worth]
     token_count: 202
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c1"
-    char_span: [891, 2882]
+    char_span: [890, 2881]
     sentence_count: 15
     key_terms: [summer, experience, apply, burstawesome, internships, get, definitely, internship]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rixa90.md#c2"
-    char_span: [2884, 4329]
+    char_span: [2883, 4328]
     sentence_count: 11
     key_terms: [freshman, year, resume, learn, internship, companies, research, summer]
     section: Comments

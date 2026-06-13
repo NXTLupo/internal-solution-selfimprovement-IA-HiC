@@ -21,7 +21,7 @@ chunks:
     key_terms: [business, college, don, like, management, want, interested, psychology]
     token_count: 426
   - id: "social-intelligence/reddit-deep/college/1n3oyhn.md#c1"
-    char_span: [1913, 3664]
+    char_span: [1912, 3663]
     sentence_count: 14
     key_terms: [management, working, introverted, job, like, influence, work-life, business]
     section: Comments

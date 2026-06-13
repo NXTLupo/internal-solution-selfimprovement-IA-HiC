@@ -15,10 +15,10 @@ industries: [ai_research, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-futureofwork/8e5d7e1ddb.md#c0"
-    char_span: [0, 1167]
+    char_span: [0, 1166]
     sentence_count: 5
     key_terms: [fractional, companies, futureofwork, subscription, startups, single-digit-employee, reddit, going]
-    token_count: 261
+    token_count: 260
 ---
 # My predictions for software development over the next 2 years
 

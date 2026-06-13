@@ -68,9 +68,6 @@ chunks:
     section: Auto-extracted (2026-04-20)
     token_count: 254
 ---
-
-
-
 ## Auto-extracted (2026-04-12)
 - The Aspiring Student
 - Northeastern University

@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, product, career, want, reddit-deep, thoughts, up-skill]
     token_count: 137
   - id: "social-intelligence/reddit-deep/careerguidance/1tgenph.md#c1"
-    char_span: [505, 905]
+    char_span: [504, 904]
     sentence_count: 1
     key_terms: [business, strategy, product, goals, meet, enrichmentors, visualization, candidates]
     section: Comments

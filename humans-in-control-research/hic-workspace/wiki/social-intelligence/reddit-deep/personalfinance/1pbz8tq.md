@@ -23,13 +23,13 @@ chunks:
     key_terms: [savings, internship, back, get, personalfinance, around, credit, track]
     token_count: 474
   - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c1"
-    char_span: [1925, 3803]
+    char_span: [1924, 3802]
     sentence_count: 13
     key_terms: [savings, debt, pay, budget, credit, income, "you're", overspending]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/personalfinance/1pbz8tq.md#c2"
-    char_span: [3805, 5149]
+    char_span: [3804, 5148]
     sentence_count: 11
     key_terms: [money, don, learned, credit, lesson, "you're", chickenmysterious586, cards]
     section: Comments

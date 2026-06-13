@@ -21,13 +21,13 @@ chunks:
     key_terms: [python, learning, starting, careerguidance, career, automation, recommend, comments]
     token_count: 277
   - id: "social-intelligence/reddit-deep/careerguidance/1p8ikz2.md#c1"
-    char_span: [1294, 1800]
+    char_span: [1293, 1799]
     sentence_count: 7
     key_terms: [python, seriousgourmetshit, talltelevision4121, necessarily, checked, correct, coming, deploy]
     section: Comments
     token_count: 139
   - id: "social-intelligence/reddit-deep/careerguidance/1p8ikz2.md#c2"
-    char_span: [1802, 3618]
+    char_span: [1801, 3617]
     sentence_count: 9
     key_terms: [like, python, data, job, work, automation, projects, starting]
     section: Comments

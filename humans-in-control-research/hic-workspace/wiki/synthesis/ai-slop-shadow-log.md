@@ -2,13 +2,12 @@
 id: synthesis/ai-slop-shadow-log.md
 chunks:
   - id: "synthesis/ai-slop-shadow-log.md#c0"
-    char_span: [55, 1060]
+    char_span: [54, 1059]
     sentence_count: 7
     key_terms: [high, meticulous, tapestry, pivotal, craftsmanship, role, innovation, represents]
     section: "2026-05-25 14:21:11 · turn test-1 · 10 slop hit(s)"
     token_count: 266
 ---
-
 ## 2026-05-25 14:21:11 · turn test-1 · 10 slop hit(s)
 
 - **HIGH** `delve` — …apidly evolving landscape, we delve into the rich tapestry of inn…

@@ -28,13 +28,13 @@ chunks:
     key_terms: [campus, state, feet, undergraduates, universities, legislature, organizers, regulation]
     token_count: 101
   - id: "social-intelligence/reddit-deep/professors/1o36alw.md#c2"
-    char_span: [2967, 4668]
+    char_span: [2966, 4667]
     sentence_count: 11
     key_terms: [texas, get, name, time, sometimes, against, because, deleted]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/professors/1o36alw.md#c3"
-    char_span: [4670, 6384]
+    char_span: [4669, 6383]
     sentence_count: 7
     key_terms: [academic, freedom, speech, free, professors, university, horrible, syllabus]
     section: Comments

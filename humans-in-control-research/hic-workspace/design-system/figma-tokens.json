@@ -1,0 +1,120 @@
+{
+  "_meta": {
+    "refreshed": "2026-06-13",
+    "source": "Figma MCP get_variable_defs on the live token frames + variable collections: NXT file iSQhAVM7SI4QHAWB7y9C2z (NXT Brand Tokens 221:2 color/* + font/*; font/display=Saira Condensed, font/heading=Archivo, font/body=Archivo, font/mono=IBM Plex Mono), NU file z2v9Pvhg23hlljEitPBdAt (NU Brand Tokens 95:2; SINGLE-TYPEFACE Lato across font/display+heading+body+mono). 2026-06-13 font update: NXT display Bebas Neue -> Saira Condensed; NU -> single-typeface Lato.",
+    "refresh_protocol": "The Figma PAT lacks file_variables:read (Enterprise-gated), so the agent refreshes this file via Figma MCP get_variable_defs and rewrites it. NEVER hand-edit hex values; re-pull from Figma."
+  },
+  "NXT": {
+    "color": {
+      "rail": "#0D0D0D",
+      "ink": "#141414",
+      "accent": "#B8B800",
+      "cyan": "#00B7C3",
+      "rust": "#CC6644",
+      "teal": "#115054",
+      "success": "#0CCE6B",
+      "error": "#FF5A5A",
+      "paper": "#FFFFFF",
+      "ecru": "#F2F1EA",
+      "grey": "#73757A",
+      "hairline": "#DDDDD6",
+      "kicker": "#00B7C3",
+      "source": "#00B7C3",
+      "warn": "#CC6644",
+      "wash-warn": "#FAF1EC",
+      "wash-cool": "#EBF7F8",
+      "band": "#B8B800",
+      "band-text": "#0D0D0D"
+    },
+    "font": {
+      "display": "Saira Condensed",
+      "title": "Archivo",
+      "title-weight": "600",
+      "body": "Archivo",
+      "mono": "IBM Plex Mono"
+    },
+    "space": {
+      "rail": 92,
+      "contentLeft": 172,
+      "contentWidth": 1660,
+      "marginRight": 80,
+      "top": 58,
+      "dotSize": 12,
+      "dotGap": 6,
+      "panelPadX": 32,
+      "panelPadY": 30,
+      "bandPadX": 48,
+      "bandPadY": 28,
+      "bandHeight": 96
+    },
+    "radius": { "base": 0 }
+  },
+  "NU": {
+    "color": {
+      "rail": "#0E1626",
+      "ink": "#16233C",
+      "accent": "#C8102E",
+      "accent-bright": "#D41B2C",
+      "gold": "#A4804A",
+      "source": "#1D6E64",
+      "cyan": "#1D6E64",
+      "teal": "#16233C",
+      "paper": "#FFFFFF",
+      "ecru": "#F2F1EA",
+      "grey": "#73757A",
+      "hairline": "#DDDDD6",
+      "kicker": "#C8102E",
+      "warn": "#C8102E",
+      "wash-warn": "#FAEDED",
+      "wash-cool": "#EDF7F5",
+      "band": "#16233C",
+      "band-text": "#FFFFFF"
+    },
+    "font": {
+      "display": "Lato",
+      "title": "Lato",
+      "title-weight": "700",
+      "body": "Lato",
+      "mono": "Lato",
+      "_note": "NU is a SINGLE-TYPEFACE system (Lato, weight = hierarchy) per Northeastern's model. All four slots resolve to Lato; weight + size carry hierarchy. Matches the NU Brand Tokens font/* variables (95:2). Google Fonts Lato lacks 600, so web title-weight is 700."
+    },
+    "space": {
+      "rail": 92,
+      "contentLeft": 172,
+      "contentWidth": 1660,
+      "marginRight": 80,
+      "top": 58,
+      "dotSize": 12,
+      "dotGap": 6,
+      "panelPadX": 32,
+      "panelPadY": 30,
+      "bandPadX": 48,
+      "bandPadY": 28,
+      "bandHeight": 96
+    },
+    "radius": { "base": 0 }
+  },
+  "_grid": {
+    "canvas": {
+      "pptx": { "w": 1920, "h": 1080 },
+      "html": { "w": 1920 }
+    },
+    "page": {
+      "rail": 92,
+      "contentLeft": 172,
+      "contentWidth": 1660,
+      "marginRight": 80,
+      "top": 58
+    },
+    "journeyMatrix": {
+      "labelGutter": 140,
+      "matrixStartX": 172,
+      "phaseCols": { "default": 5, "min": 3, "max": 7, "width": "fluid (FILL)", "gutter": 26 },
+      "swimlanes": { "default": 4, "rowHeight": 120, "rowGutter": 18 },
+      "phaseHeaderH": 64,
+      "painRowH": 90,
+      "cellPadding": 16,
+      "_extend": "Grow dimensions through auto-layout only: the matrix is a vertical stack of horizontal rows, cells set to FILL. Add a phase = add a column entry and let the row reflow; add a swimlane = add a row. Never absolute-position cells (collision-prone)."
+    }
+  }
+}

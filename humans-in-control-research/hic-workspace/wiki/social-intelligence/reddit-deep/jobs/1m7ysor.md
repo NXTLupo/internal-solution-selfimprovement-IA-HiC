@@ -21,31 +21,31 @@ chunks:
     key_terms: [jobs, entry-level, experience, comments, years, pamelakesmyz38, first-timers, lower-paying]
     token_count: 167
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c1"
-    char_span: [765, 1532]
+    char_span: [764, 1531]
     sentence_count: 5
     key_terms: [experience, required, years, individual-mud9487, job, kids, seen, underestimating]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c2"
-    char_span: [1534, 3538]
+    char_span: [1533, 3537]
     sentence_count: 8
     key_terms: [requirements, people, get, job, understand, interview, something, wishlist]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c3"
-    char_span: [3286, 4228]
+    char_span: [3285, 4227]
     sentence_count: 8
     key_terms: [job, significantly, interview, without, income, people, clickprofessional769, offer]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c4"
-    char_span: [4230, 6266]
+    char_span: [4229, 6265]
     sentence_count: 14
     key_terms: [experience, pay, get, careers, workers, people, years, entry-level]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1m7ysor.md#c5"
-    char_span: [6268, 7293]
+    char_span: [6267, 7292]
     sentence_count: 4
     key_terms: [experience, someone, people, "don't", like, cookiebutterlover03, heard, makes]
     section: Comments

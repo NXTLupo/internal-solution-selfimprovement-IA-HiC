@@ -21,31 +21,31 @@ chunks:
     key_terms: [engineering, design, management, mechanical, engineeringstudents, roles, manufacturing, interviews]
     token_count: 441
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c1"
-    char_span: [2053, 3780]
+    char_span: [2052, 3779]
     sentence_count: 8
     key_terms: [engineeringstudents, interview, wiki, ricecrackerfool, please, reddit, https, com]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c2"
-    char_span: [3784, 5741]
+    char_span: [3783, 5740]
     sentence_count: 12
     key_terms: [questions, something, cwrhg3ewr8krelct, qlzjwdry71k, like, interview, company, mention]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c3"
-    char_span: [5743, 6260]
+    char_span: [5742, 6259]
     sentence_count: 2
     key_terms: [teaching, ricecrackerfool, consolidating, engineering, advocating, inorite234, leadership, university]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c4"
-    char_span: [6262, 8081]
+    char_span: [6261, 8080]
     sentence_count: 12
     key_terms: [ricecrackerfool, congratulations, thank, primaryminimum248, sadamhussein2450, patents, student, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6eme5.md#c5"
-    char_span: [7831, 8124]
+    char_span: [7830, 8123]
     sentence_count: 3
     key_terms: [impossible-okra-6721, thank, congratulations, ricecrackerfool, intestinal, fortitude, graduated, increase]
     section: Comments

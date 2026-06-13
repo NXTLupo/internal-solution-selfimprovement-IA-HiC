@@ -21,55 +21,55 @@ chunks:
     key_terms: [neu, northeastern, comments, groups, parent, people, along, great]
     token_count: 235
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c1"
-    char_span: [1009, 1504]
+    char_span: [1008, 1503]
     sentence_count: 4
     key_terms: [experience, advantage, northeastern, especially, networking, jessypal1, undergrad, graduate]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c2"
-    char_span: [1506, 3591]
+    char_span: [1505, 3590]
     sentence_count: 12
     key_terms: [get, getting, co-op, coop, students, easier, harder, summer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c3"
-    char_span: [3332, 4479]
+    char_span: [3331, 4478]
     sentence_count: 5
     key_terms: [co-op, get, interviews, harder, offers, people, apply, "don't"]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c4"
-    char_span: [4481, 4897]
+    char_span: [4480, 4896]
     sentence_count: 3
     key_terms: [experience, coops, everything, networking, themselves, something, daughter, maturity]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c5"
-    char_span: [4899, 6915]
+    char_span: [4898, 6914]
     sentence_count: 19
     key_terms: [co-op, hallsinmypocket, please, truly, internships, get, neu, imaksiccar]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c6"
-    char_span: [6669, 7672]
+    char_span: [6668, 7671]
     sentence_count: 8
     key_terms: [people, good, advisors, program, career, aren, coop, like]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c7"
-    char_span: [7674, 9187]
+    char_span: [7673, 9186]
     sentence_count: 12
     key_terms: [daughter, traditional, definitely, imaksiccar, schools, co-ops, take-it-like-a-taker, far]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c8"
-    char_span: [9189, 11355]
+    char_span: [9188, 11354]
     sentence_count: 19
     key_terms: [northeastern, neu, research, schools, boston, school, coop, here]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1rx5wqh.md#c9"
-    char_span: [11082, 11662]
+    char_span: [11081, 11661]
     sentence_count: 6
     key_terms: [student, neu, blutimeevidence, undergraduate, competitive, opportunity, imaksiccar, impossible]
     section: Comments

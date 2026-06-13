@@ -26,13 +26,13 @@ chunks:
     key_terms: [bermuda, islands, environment, kids, work, researched, residency, bahamas]
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1qrhkys.md#c2"
-    char_span: [3554, 5429]
+    char_span: [3553, 5428]
     sentence_count: 11
     key_terms: [onlythephantomknows, investment, spanish, probably, question, speaking, health, living]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1qrhkys.md#c3"
-    char_span: [5431, 5707]
+    char_span: [5430, 5706]
     sentence_count: 6
     key_terms: [income, live, investments, retirement, alternate, residency, engineer, enough]
     section: Comments

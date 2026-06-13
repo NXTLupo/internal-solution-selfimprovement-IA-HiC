@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qovkq0.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qovkq0/no_fulltime_experience_big_grad_school_questions/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,24 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.589Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c0"
+    char_span: [0, 2022]
+    sentence_count: 19
+    key_terms: [nyu, experience, marketing, comments, gradadmissions, master, school, big]
+    token_count: 476
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c1"
+    char_span: [2024, 2820]
+    sentence_count: 4
+    key_terms: [school, "i'm", experience, full-time, because, campus, get, nyu]
+    token_count: 168
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qovkq0.md#c2"
+    char_span: [2835, 4576]
+    sentence_count: 24
+    key_terms: [mba, marketing, because, get, top, business, people, school]
+    section: Comments
+    token_count: 401
 ---
-
 # No Full-Time Experience, Big Grad School Questions. NYU SPS and others.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qovkq0/no_fulltime_experience_big_grad_school_questions/)

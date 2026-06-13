@@ -23,25 +23,25 @@ chunks:
     key_terms: [years, "i'm", like, another, studies, behind, myself, employement]
     token_count: 403
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c1"
-    char_span: [1748, 3885]
+    char_span: [1747, 3884]
     sentence_count: 21
     key_terms: [therapist, life, thank, help, helpful, please, klistellacca, "he's"]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c2"
-    char_span: [3887, 4607]
+    char_span: [3886, 4606]
     sentence_count: 9
     key_terms: [life, working, lukasgoestoamygdala, buddy, right, half, late, work]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c3"
-    char_span: [4609, 6712]
+    char_span: [4608, 6711]
     sentence_count: 18
     key_terms: [life, day, good, klistellacca, experienced, work, university, something]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/findapath/1te05ng.md#c4"
-    char_span: [6714, 8510]
+    char_span: [6713, 8509]
     sentence_count: 19
     key_terms: [people, life, didn, foundation, probably, success, entire, accordingweight6019]
     section: Comments

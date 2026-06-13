@@ -38,31 +38,31 @@ chunks:
     key_terms: [https, tennessees-ai-bill-would-criminalize-training-ai-cha, ai-companion-chatbot-regulation-wave-2026, hb1455, ai-legislative-update-april3-2026, com, transparencycoalition, roborhythms]
     token_count: 355
   - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c4"
-    char_span: [8422, 10141]
+    char_span: [8421, 10140]
     sentence_count: 11
     key_terms: [tennessee, realize, accomplished-gap2989, going, years, longpenisofthelaw, generalfrogspawn, betteroffbroke]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c5"
-    char_span: [10143, 11782]
+    char_span: [10142, 11781]
     sentence_count: 11
     key_terms: [bill, title, law, says, time, including, doctor, passed]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c6"
-    char_span: [11784, 12727]
+    char_span: [11783, 12726]
     sentence_count: 2
     key_terms: [tennessee-backs-off-sweeping-artificial-intelligence-limits-opts-for-study-instead, notorious, kaleidoscopeweary833, stayrevolutionary364, https, known, phillysteakcheese, bill]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c7"
-    char_span: [12729, 15083]
+    char_span: [12728, 15082]
     sentence_count: 4
     key_terms: [disclosure, intelligence, artificial, information, recurring, chatbot, include, related]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/artificial/1slu23a.md#c8"
-    char_span: [15086, 16472]
+    char_span: [15085, 16471]
     sentence_count: 5
     key_terms: [heynongman96, legiscan, pornhub, cowboysfanindecember, statisticianfluid747, monthmaterial3351, read, text]
     section: Comments

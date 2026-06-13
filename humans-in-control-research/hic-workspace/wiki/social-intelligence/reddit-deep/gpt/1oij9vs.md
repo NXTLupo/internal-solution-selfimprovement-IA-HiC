@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1oij9vs.md#c0"
-    char_span: [0, 1476]
+    char_span: [0, 1475]
     sentence_count: 11
     key_terms: [documentation, davia, github, reddit, automatically, https, knowledge, workspace]
-    token_count: 306
+    token_count: 305
 ---
 # Your internal engineering knowledge base that writes and updates itself from your GitHub repos
 

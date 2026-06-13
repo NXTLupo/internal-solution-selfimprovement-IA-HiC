@@ -23,49 +23,49 @@ chunks:
     key_terms: [context, window, comments, problem, openai, gpt-5, disappointed, satisfactory]
     token_count: 204
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c1"
-    char_span: [842, 2899]
+    char_span: [841, 2898]
     sentence_count: 12
     key_terms: [context, performance, larger, uniformly, use, gemini, models, window]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c2"
-    char_span: [2901, 3478]
+    char_span: [2900, 3477]
     sentence_count: 3
     key_terms: [context, thatnorthernhag, comprehension, experimental, experience, limitation, important, productif]
     section: Comments
     token_count: 151
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c3"
-    char_span: [3480, 5043]
+    char_span: [3479, 5042]
     sentence_count: 13
     key_terms: [context, conversation, perfectly, perfect, better, humans, recall, "don't"]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c4"
-    char_span: [5045, 7144]
+    char_span: [5044, 7143]
     sentence_count: 9
     key_terms: [context, scripts, large, code, max, documents, multiple, remember]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c5"
-    char_span: [7146, 8724]
+    char_span: [7145, 8723]
     sentence_count: 8
     key_terms: [context, use, krishnajeya, api, perplexity, questions, chatbot, people]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c6"
-    char_span: [8726, 10170]
+    char_span: [8725, 10169]
     sentence_count: 5
     key_terms: [context, pro, lines, users, chat, gpt, because, claude]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c7"
-    char_span: [10172, 11873]
+    char_span: [10171, 11872]
     sentence_count: 6
     key_terms: [context, users, free, studio, window, get, plus, pro]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/openai/1mj78xy.md#c8"
-    char_span: [11875, 12481]
+    char_span: [11874, 12480]
     sentence_count: 3
     key_terms: [models, definitely, glokzdnb, context, source, guess, open, complications]
     section: Comments

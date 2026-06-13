@@ -23,31 +23,31 @@ chunks:
     key_terms: [engineering, engineeringstudents, internship, comments, research, physics, summer, "don't"]
     token_count: 218
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c1"
-    char_span: [978, 1775]
+    char_span: [977, 1774]
     sentence_count: 4
     key_terms: [engineering, navy, internship, designing, ships, pristine-judge640, got, queenofruneblade]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c2"
-    char_span: [1777, 3967]
+    char_span: [1776, 3966]
     sentence_count: 20
     key_terms: [team, internship, entry, something, pristine-judge640, queenofruneblade, design, senior]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c3"
-    char_span: [3969, 5320]
+    char_span: [3968, 5319]
     sentence_count: 10
     key_terms: [volunteer, queenofruneblade, company, volunteering, "can't", something, deleted, optical]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c4"
-    char_span: [5322, 7176]
+    char_span: [5321, 7175]
     sentence_count: 8
     key_terms: [optical, engineering, queenofruneblade, degree, masters, optics, abravexstove, get]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rxk6t2.md#c5"
-    char_span: [7178, 8214]
+    char_span: [7177, 8213]
     sentence_count: 6
     key_terms: [projects, internships, job, personal, several, secure, capital-spring1682, show-and-tell]
     section: Comments

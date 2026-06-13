@@ -28,19 +28,19 @@ chunks:
     key_terms: [students, another, finding, elsewhere, pressure, demand, etc, "i'm"]
     token_count: 217
   - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c2"
-    char_span: [2847, 4831]
+    char_span: [2846, 4830]
     sentence_count: 15
     key_terms: [years, advisor, radicalsapphic, school, style, good, department, mentorship]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c3"
-    char_span: [4833, 6894]
+    char_span: [4832, 6893]
     sentence_count: 15
     key_terms: [lab, phd, institution, university, radicalsapphic, connections, fine, work]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/askacademia/1tkuj8g.md#c4"
-    char_span: [6896, 7652]
+    char_span: [6895, 7651]
     sentence_count: 8
     key_terms: [good, location, stipend, hands, learn, radicalsapphic, hesitation, mentorship]
     section: Comments

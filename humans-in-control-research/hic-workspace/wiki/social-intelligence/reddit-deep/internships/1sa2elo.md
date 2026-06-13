@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, like, instead, started, don, everything, interviews, interview]
     token_count: 467
   - id: "social-intelligence/reddit-deep/internships/1sa2elo.md#c1"
-    char_span: [2109, 2932]
+    char_span: [2108, 2931]
     sentence_count: 4
     key_terms: [like, writing, resume, necessary-pipe-5971, feel, get, high, use]
     section: Comments

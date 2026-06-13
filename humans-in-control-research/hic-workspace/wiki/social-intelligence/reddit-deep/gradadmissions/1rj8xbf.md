@@ -23,13 +23,13 @@ chunks:
     key_terms: [undergrad, schools, gradadmissions, enough, universities, field, admissions, committees]
     token_count: 388
   - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c1"
-    char_span: [1848, 3666]
+    char_span: [1847, 3665]
     sentence_count: 15
     key_terms: [applied, people, experience, decide, cycle, want, professors, rejected]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/gradadmissions/1rj8xbf.md#c2"
-    char_span: [3671, 5653]
+    char_span: [3670, 5652]
     sentence_count: 14
     key_terms: [programs, physics, chemistry, application, advisors, research, program, apply]
     section: Comments

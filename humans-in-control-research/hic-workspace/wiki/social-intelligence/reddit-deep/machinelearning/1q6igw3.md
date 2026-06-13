@@ -28,13 +28,13 @@ chunks:
     key_terms: [shall, https, com, prince, code, come, king, optimization]
     token_count: 241
   - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c2"
-    char_span: [2764, 3809]
+    char_span: [2763, 3808]
     sentence_count: 5
     key_terms: [symbolic-discrete, artemhnilov, plausible, generate, millions, model, cpu, hdc]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/machinelearning/1q6igw3.md#c3"
-    char_span: [3811, 4947]
+    char_span: [3810, 4946]
     sentence_count: 5
     key_terms: [artemhnilov, character-level, tsetlin, generation, machines, binary, arxiv, https]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [rejection, internships, don, get, anything, because, matter, feel]
     token_count: 421
   - id: "social-intelligence/reddit-deep/internships/1soahjl.md#c1"
-    char_span: [1833, 3796]
+    char_span: [1832, 3795]
     sentence_count: 10
     key_terms: [internships, get, "i'm", friends, always, experience, networking, sophomore]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1soahjl.md#c2"
-    char_span: [3532, 4517]
+    char_span: [3531, 4516]
     sentence_count: 9
     key_terms: [opportunities, friends, people, person, "don't", maybe, razzmatazzlazy8967, etc]
     section: Comments

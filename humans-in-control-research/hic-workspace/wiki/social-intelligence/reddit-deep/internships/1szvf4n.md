@@ -21,37 +21,37 @@ chunks:
     key_terms: [internships, advice, comments, people, hired, right, did, got]
     token_count: 236
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c1"
-    char_span: [945, 2726]
+    char_span: [944, 2725]
     sentence_count: 11
     key_terms: [internship, referral, people, internships, got, arleyx949, something, without]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c2"
-    char_span: [2728, 4686]
+    char_span: [2727, 4685]
     sentence_count: 16
     key_terms: [internship, arleyx949, applying, got, getting, people, internships, referrals]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c3"
-    char_span: [4427, 5206]
+    char_span: [4426, 5205]
     sentence_count: 10
     key_terms: [applying, experience, through, people, best, application, graduating, internally]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c4"
-    char_span: [5208, 7424]
+    char_span: [5207, 7423]
     sentence_count: 21
     key_terms: [experience, because, accounting, professional, local, story, gain, compelling]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c5"
-    char_span: [7426, 9427]
+    char_span: [7425, 9426]
     sentence_count: 16
     key_terms: [experience, get, doesn, job, arleyx949, companies, network, mostly]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/internships/1szvf4n.md#c6"
-    char_span: [9429, 10383]
+    char_span: [9428, 10382]
     sentence_count: 9
     key_terms: [internship, working, degree, get, got, want, swigofravioli349, interactive]
     section: Comments

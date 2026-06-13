@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, time, comments, screen, system, point, day, like]
     token_count: 253
   - id: "social-intelligence/reddit-deep/productivity/1nifsy2.md#c1"
-    char_span: [1043, 3017]
+    char_span: [1042, 3016]
     sentence_count: 16
     key_terms: [list, pick, remember, get, re-writing, deserving, important, another]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1nifsy2.md#c2"
-    char_span: [3019, 4285]
+    char_span: [3018, 4284]
     sentence_count: 10
     key_terms: [need, work, everything, because, complex, process, create, needed]
     section: Comments

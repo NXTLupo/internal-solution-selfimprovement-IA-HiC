@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, uwaterloo, comments, program, co-op, econ, engineering, reddit-deep]
     token_count: 109
   - id: "social-intelligence/reddit-deep/uwaterloo/1roe0qs.md#c1"
-    char_span: [438, 2434]
+    char_span: [437, 2433]
     sentence_count: 12
     key_terms: [waterloo, econ, frontdevelopment652, "i'm", business, options, coop, data]
     section: Comments

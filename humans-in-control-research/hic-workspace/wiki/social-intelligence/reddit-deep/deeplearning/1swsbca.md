@@ -48,25 +48,25 @@ chunks:
     key_terms: [adversarial, fine-tuning, specific, training, labels, "you're", blind, spot]
     token_count: 113
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c6"
-    char_span: [10363, 12266]
+    char_span: [10362, 12265]
     sentence_count: 10
     key_terms: ["it's", picture, learn, always, models, grass, work, pictures]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c7"
-    char_span: [12268, 14081]
+    char_span: [12267, 14080]
     sentence_count: 16
     key_terms: [signal, nuisances, consistent, supervised, systematic, positions, preserve, problems]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c8"
-    char_span: [14083, 16263]
+    char_span: [14082, 16262]
     sentence_count: 15
     key_terms: [patterns, sensitivity, activation, intuition, another, classes, matters, squeezing-the-balloon]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/deeplearning/1swsbca.md#c9"
-    char_span: [16265, 16533]
+    char_span: [16264, 16532]
     sentence_count: 3
     key_terms: [difficult-race-1188, approaching, fascinating, direction, empirical, genuinely, directly, connect]
     section: Comments

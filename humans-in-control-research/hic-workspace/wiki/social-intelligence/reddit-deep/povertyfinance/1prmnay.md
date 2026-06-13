@@ -23,13 +23,13 @@ chunks:
     key_terms: [insurance, need, cheapest, minimum, povertyfinance, legal, price, strategies]
     token_count: 370
   - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c1"
-    char_span: [1673, 2975]
+    char_span: [1672, 2974]
     sentence_count: 14
     key_terms: [insurance, windshields, claim, independent, save, everybody, replaced, farmers]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/povertyfinance/1prmnay.md#c2"
-    char_span: [2977, 4070]
+    char_span: [2976, 4069]
     sentence_count: 8
     key_terms: [insurance, company, check, legit, vehicle, elegant-homework6166, helps, hope]
     section: Comments

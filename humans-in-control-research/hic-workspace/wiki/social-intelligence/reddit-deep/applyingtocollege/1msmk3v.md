@@ -36,25 +36,25 @@ chunks:
     key_terms: [rejected, scholarship, research, foundation, questions, summer, like, time]
     token_count: 160
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c4"
-    char_span: [6863, 7505]
+    char_span: [6862, 7504]
     sentence_count: 4
     key_terms: [colleges, spending, day, electro9005, especially, applicant, admitted, applying]
     section: Comments
     token_count: 164
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c5"
-    char_span: [7507, 9451]
+    char_span: [7506, 9450]
     sentence_count: 12
     key_terms: [honors, engineering, school, stats, took, work, enrollment, averages]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c6"
-    char_span: [9456, 10304]
+    char_span: [9455, 10303]
     sentence_count: 6
     key_terms: [colleges, amazing, schools, since, potsie-wonder-9185, philosophybelyin, semifinalist, standardized]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/applyingtocollege/1msmk3v.md#c7"
-    char_span: [10306, 11646]
+    char_span: [10305, 11645]
     sentence_count: 10
     key_terms: [thank, did, congrats, littlerabbit8348, school, ecs, gpa, take]
     section: Comments

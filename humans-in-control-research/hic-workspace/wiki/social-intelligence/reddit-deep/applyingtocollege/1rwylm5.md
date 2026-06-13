@@ -23,61 +23,61 @@ chunks:
     key_terms: [school, extremely, applyingtocollege, accepted, parents, afford, harvey, mudd]
     token_count: 348
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c1"
-    char_span: [1547, 3561]
+    char_span: [1546, 3560]
     sentence_count: 14
     key_terms: [kid, schools, pay, school, kids, financial, subreddit, accepted]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c2"
-    char_span: [3563, 5667]
+    char_span: [3562, 5666]
     sentence_count: 14
     key_terms: [parents, aid, merit, find, get, npc, acceptance, affordable]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c3"
-    char_span: [5669, 6490]
+    char_span: [5668, 6489]
     sentence_count: 6
     key_terms: [offer, per, college, better, environmentactive325, like, pay, year]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c4"
-    char_span: [6492, 8012]
+    char_span: [6491, 8011]
     sentence_count: 12
     key_terms: [cal, poly, engineering, options, experience, aerospace, college, looking]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c5"
-    char_span: [8014, 9922]
+    char_span: [8013, 9921]
     sentence_count: 18
     key_terms: [mudd, excellent, through, degree, engineering, cal, poly, especially]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c6"
-    char_span: [9924, 12043]
+    char_span: [9923, 12042]
     sentence_count: 24
     key_terms: [schools, college, unfortunately, good, jobs, kid, affordable, graduate]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c7"
-    char_span: [12045, 13071]
+    char_span: [12044, 13070]
     sentence_count: 13
     key_terms: [college, california, harvey, don, got, let, mudd, preferences]
     section: Comments
     token_count: 236
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c8"
-    char_span: [13073, 15152]
+    char_span: [13072, 15151]
     sentence_count: 17
     key_terms: [school, harvey, mudd, california, package, claremont, financial, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c9"
-    char_span: [14877, 16309]
+    char_span: [14876, 16308]
     sentence_count: 13
     key_terms: [school, got, like, money, perfect, talking, harvey, people]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rwylm5.md#c10"
-    char_span: [16311, 17158]
+    char_span: [16310, 17157]
     sentence_count: 7
     key_terms: [get, work, choices, schools, got, opportunities, therugwarrior, assignments]
     section: Comments

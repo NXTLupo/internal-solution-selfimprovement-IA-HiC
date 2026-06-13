@@ -21,13 +21,13 @@ chunks:
     key_terms: [brown, brown-deal-50-million-trump, education, federal, government, university, agreement, usatoday]
     token_count: 385
   - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c1"
-    char_span: [1721, 3567]
+    char_span: [1720, 3566]
     sentence_count: 9
     key_terms: [medical, government, daemonicwanderer, administration, antisemitism, spacebutler, care, time]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/highereducation/1mdjwnm.md#c2"
-    char_span: [3569, 4331]
+    char_span: [3568, 4330]
     sentence_count: 7
     key_terms: [administration, effective, trump, data, ladypreshpresh, anti-semitism, antisemitism, concessions]
     section: Comments

@@ -23,67 +23,67 @@ chunks:
     key_terms: [umd, applyingtocollege, alabama, comments, computer, because, parents, quality]
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c1"
-    char_span: [971, 1417]
+    char_span: [970, 1416]
     sentence_count: 4
     key_terms: [career, umd, opportunities, comfortable, absolutely, accounting, suggesting, guarantee]
     section: Comments
     token_count: 112
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c2"
-    char_span: [1420, 3389]
+    char_span: [1419, 3388]
     sentence_count: 13
     key_terms: [education, take, money, lot, pay, rate, umd, difference]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c3"
-    char_span: [3391, 4159]
+    char_span: [3390, 4158]
     sentence_count: 6
     key_terms: [umd, opportunities, motivated, students, average, likely, get, job]
     section: Comments
     token_count: 163
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c4"
-    char_span: [4161, 5716]
+    char_span: [4160, 5715]
     sentence_count: 6
     key_terms: [alabama, umd, get, career, coming, going, completely, disagree]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c5"
-    char_span: [5718, 6877]
+    char_span: [5717, 6876]
     sentence_count: 10
     key_terms: [carolina, south, bama, went, top, admittedly, graduated, alabama]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c6"
-    char_span: [6880, 8666]
+    char_span: [6879, 8665]
     sentence_count: 9
     key_terms: [job, alabama, students, market, opportunities, competitive, debt, current]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c7"
-    char_span: [8668, 10862]
+    char_span: [8667, 10861]
     sentence_count: 17
     key_terms: [masters, internships, difference, umd, graduates, get, work, people]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c8"
-    char_span: [10864, 12739]
+    char_span: [10863, 12738]
     sentence_count: 10
     key_terms: [students, alabama, top, umd, best, competent, graduates, because]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c9"
-    char_span: [12741, 14243]
+    char_span: [12740, 14242]
     sentence_count: 9
     key_terms: [difference, alabama, years, cost, umd, living, tech, several]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c10"
-    char_span: [14245, 15734]
+    char_span: [14244, 15733]
     sentence_count: 14
     key_terms: [school, tech, top, alabama, opportunity, umd, interview, because]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rclq60.md#c11"
-    char_span: [15736, 17074]
+    char_span: [15735, 17073]
     sentence_count: 12
     key_terms: [alabama, school, "it's", better, "you're", level, worth, umd]
     section: Comments

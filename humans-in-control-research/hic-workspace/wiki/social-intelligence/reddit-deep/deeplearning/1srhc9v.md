@@ -23,7 +23,7 @@ chunks:
     key_terms: [qwen3, openrouter, qwen, comments, adapter, ollama, capabilities, deeplearning]
     token_count: 513
   - id: "social-intelligence/reddit-deep/deeplearning/1srhc9v.md#c1"
-    char_span: [1984, 2318]
+    char_span: [1984, 2317]
     sentence_count: 2
     key_terms: [qwen-lens-studio, dakshjain-1616, github, https, com, real-world, genuinely, document]
     section: Comments

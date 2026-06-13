@@ -23,13 +23,13 @@ chunks:
     key_terms: [highereducation, recommendations, role, comments, higher, mostly, cross-collaboration, interpretation]
     token_count: 201
   - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c1"
-    char_span: [935, 2659]
+    char_span: [934, 2658]
     sentence_count: 11
     key_terms: [grant, student, facing, financial, director, roles, aid, want]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/highereducation/1p4tn6a.md#c2"
-    char_span: [2661, 4162]
+    char_span: [2660, 4161]
     sentence_count: 5
     key_terms: [how-to-switch-careers-at-any-age-start-a-new-job-in-your-30s-40s-or-50s, student, data, skills, compliance, enrollment, financial, retention]
     section: Comments

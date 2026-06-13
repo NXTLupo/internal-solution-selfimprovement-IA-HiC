@@ -23,25 +23,25 @@ chunks:
     key_terms: [experience, gradschool, comments, getting, area, keepinitreal6562, paraprofessional, disabilities]
     token_count: 180
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c1"
-    char_span: [795, 2862]
+    char_span: [794, 2861]
     sentence_count: 10
     key_terms: [research, experience, because, degree, universities, sense, down, own]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c2"
-    char_span: [2864, 5210]
+    char_span: [2863, 5209]
     sentence_count: 12
     key_terms: [experience, undergrad, interdisciplinary, research, program, behavioral, programs, applied]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c3"
-    char_span: [4904, 6553]
+    char_span: [4903, 6552]
     sentence_count: 13
     key_terms: [undergrad, professor, students, grad, university, program, school, requirements]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/gradschool/1sqielx.md#c4"
-    char_span: [6555, 6909]
+    char_span: [6554, 6908]
     sentence_count: 2
     key_terms: [gravitysrainbow1979, school, like, exclamation, everything, submission, empathize, instantly]
     section: Comments

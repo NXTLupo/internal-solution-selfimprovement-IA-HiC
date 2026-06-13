@@ -23,7 +23,7 @@ chunks:
     key_terms: [co-op, comments, search, been, neu, internships, reddit-deep, applying]
     token_count: 151
   - id: "social-intelligence/reddit-deep/neu/1qtjmyn.md#c1"
-    char_span: [543, 796]
+    char_span: [542, 795]
     sentence_count: 1
     key_terms: [applying, typical-builder-8032, internships, persistent, referrals, september, linkedin, because]
     section: Comments

@@ -28,85 +28,85 @@ chunks:
     key_terms: [transactions, everything, imaginary, including, photoshop, promising, yesterday, evidence]
     token_count: 60
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c2"
-    char_span: [2370, 4106]
+    char_span: [2369, 4105]
     sentence_count: 9
     key_terms: [ciao, scammers, like, internet, ticker, wooden-teaching-8343, doing, stock]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c3"
-    char_span: [4108, 5507]
+    char_span: [4107, 5506]
     sentence_count: 10
     key_terms: [invested, scammers, victims, ticker, flat-tumbleweed-2613, maybe, scams, stock]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c4"
-    char_span: [5509, 7484]
+    char_span: [5508, 7483]
     sentence_count: 16
     key_terms: [fish, scam, group, scammers, victims, real, successful, resources]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c5"
-    char_span: [7486, 9075]
+    char_span: [7485, 9074]
     sentence_count: 18
     key_terms: [people, government, right, constitution, state, christians, current, islamic]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c6"
-    char_span: [9077, 10553]
+    char_span: [9076, 10552]
     sentence_count: 6
     key_terms: [people, stocks, stock, get, half, scam, week, recommend]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c7"
-    char_span: [10557, 12488]
+    char_span: [10556, 12487]
     sentence_count: 7
     key_terms: [told, sell, stocks, dump, pump, privately, thursday, earlier]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c8"
-    char_span: [12490, 14281]
+    char_span: [12489, 14280]
     sentence_count: 14
     key_terms: [short, dump, money, want, scammers, account, caught, orders]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c9"
-    char_span: [14283, 16097]
+    char_span: [14282, 16096]
     sentence_count: 9
     key_terms: [money, scam, caught, going, short, stock, dump, probably]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c10"
-    char_span: [16099, 17608]
+    char_span: [16098, 17607]
     sentence_count: 9
     key_terms: [getting, scammed, people, money, stock, victimless, probably, "they're"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c11"
-    char_span: [17611, 19859]
+    char_span: [17610, 19858]
     sentence_count: 17
     key_terms: [increase, people, money, stock, day, days, sell, everything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c12"
-    char_span: [19568, 21876]
+    char_span: [19567, 21875]
     sentence_count: 8
     key_terms: [screenshot, losses, saying, stock, fake, assistant, investors, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c13"
-    char_span: [21616, 22103]
+    char_span: [21615, 22102]
     sentence_count: 4
     key_terms: [september, stock, dump, pump, invisibleear, happened, sabiondo, changed]
     section: Comments
     token_count: 119
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c14"
-    char_span: [22106, 24066]
+    char_span: [22105, 24065]
     sentence_count: 10
     key_terms: [stock, people, money, price, trade, neutralpoliticsbot, dump, get]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/investing/1pjqiys.md#c15"
-    char_span: [24068, 24699]
+    char_span: [24067, 24698]
     sentence_count: 7
     key_terms: [shares, day, group, trade, associated, actuality, involved, starting]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [physics, medical, careerguidance, environment, work, experience, internship, logistics]
     token_count: 452
   - id: "social-intelligence/reddit-deep/careerguidance/1si75iu.md#c1"
-    char_span: [1966, 2599]
+    char_span: [1966, 2598]
     sentence_count: 6
     key_terms: [medical, professions, physics, "i've", description, environment, respiratory, laboratory]
     token_count: 137

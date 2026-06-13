@@ -21,7 +21,7 @@ chunks:
     key_terms: [register, classes, registration, registering, meet, comments, advisor, email]
     token_count: 223
   - id: "social-intelligence/reddit-deep/neu/1t1gjxx.md#c1"
-    char_span: [922, 2269]
+    char_span: [921, 2268]
     sentence_count: 8
     key_terms: [register, semester, classes, courses, need, take, want, joshi1381]
     section: Comments

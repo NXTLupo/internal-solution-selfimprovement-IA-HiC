@@ -23,13 +23,13 @@ chunks:
     key_terms: [careerguidance, "i'm", comments, feeling, taking, break, month, did]
     token_count: 194
   - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c1"
-    char_span: [749, 2450]
+    char_span: [748, 2449]
     sentence_count: 10
     key_terms: [field, time, economy, break, ask, tech, kaddras019, objective-salary6082]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/careerguidance/1sr4doy.md#c2"
-    char_span: [2452, 3458]
+    char_span: [2451, 3457]
     sentence_count: 11
     key_terms: [months, job, comes, leave, turbulent-sky-1536, life, quit, definitely]
     section: Comments

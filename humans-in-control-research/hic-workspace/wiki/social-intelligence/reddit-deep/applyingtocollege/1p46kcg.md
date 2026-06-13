@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, applications, great, competition, look, nslc, activities, diplomacy]
     token_count: 330
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p46kcg.md#c1"
-    char_span: [1525, 2458]
+    char_span: [1524, 2457]
     sentence_count: 3
     key_terms: [nslc, impressive, acknowledge, scholarship, attendance, colleges, covered, mention]
     section: Comments

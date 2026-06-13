@@ -28,7 +28,7 @@ chunks:
     key_terms: [certificates, experience, projects, hiring, job, time-consuming, contributing, engineering]
     token_count: 136
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shrknu.md#c2"
-    char_span: [2677, 3719]
+    char_span: [2676, 3718]
     sentence_count: 6
     key_terms: [certificates, resume, revorian, project, hiring, skills, intelligent-glass840, top-half-of-the-page]
     section: Comments

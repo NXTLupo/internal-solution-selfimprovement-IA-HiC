@@ -21,55 +21,55 @@ chunks:
     key_terms: [jobs, continues, labor, entry-level, comments, survival, already, average]
     token_count: 228
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c1"
-    char_span: [1088, 2659]
+    char_span: [1087, 2658]
     sentence_count: 11
     key_terms: [retirement, people, disasterdalek, going, age, nursing, workers, trying]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c2"
-    char_span: [2661, 4179]
+    char_span: [2660, 4178]
     sentence_count: 11
     key_terms: [save, whatever, depends, become, people, learn, bit, plan]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c3"
-    char_span: [4181, 6291]
+    char_span: [4180, 6290]
     sentence_count: 19
     key_terms: [people, rich, "they're", billionaires, "don't", need, already, happens]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c4"
-    char_span: [6293, 8156]
+    char_span: [6292, 8155]
     sentence_count: 11
     key_terms: [military, people, warned, wonder, alittlesliceofhell2, trick, shouldersquirrelvt, cake]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c5"
-    char_span: [8158, 9045]
+    char_span: [8157, 9044]
     sentence_count: 9
     key_terms: [years, own, college, tools, thailanddaydreamer, ago, gone, job]
     section: Comments
     token_count: 216
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c6"
-    char_span: [9047, 11069]
+    char_span: [9046, 11068]
     sentence_count: 14
     key_terms: [business, job, corporate, starting, college, friends, school, lifeinaction]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c7"
-    char_span: [11071, 13198]
+    char_span: [11070, 13197]
     sentence_count: 10
     key_terms: [business, money, delivery, people, start, get, college, drivers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c8"
-    char_span: [12951, 13261]
+    char_span: [12950, 13260]
     sentence_count: 2
     key_terms: [weeks, absolutely, programmer, because, matter, taking, values, crazy]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/jobs/1ri54gq.md#c9"
-    char_span: [13263, 14797]
+    char_span: [13262, 14796]
     sentence_count: 14
     key_terms: [software, efficiency, finance, job, companies, position, company, most-explanation-568]
     section: Comments

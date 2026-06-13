@@ -21,43 +21,43 @@ chunks:
     key_terms: [computational-social-science, computational, microsoft, cscareerquestions, comments, research, market, social]
     token_count: 260
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c1"
-    char_span: [1124, 2622]
+    char_span: [1123, 2621]
     sentence_count: 9
     key_terms: [social, computational, science, media, methods, etc, like, use]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c2"
-    char_span: [2624, 4378]
+    char_span: [2623, 4377]
     sentence_count: 11
     key_terms: [degree, degrees, colleges, computational, employment, scientific, university, programs]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c3"
-    char_span: [4380, 6598]
+    char_span: [4379, 6597]
     sentence_count: 17
     key_terms: [data, science, skills, social, processing, statistics, job, resume]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c4"
-    char_span: [6601, 8659]
+    char_span: [6600, 8658]
     sentence_count: 14
     key_terms: [specialization, understanding, intelligence, publications, development, government, business, probably]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c5"
-    char_span: [8662, 10933]
+    char_span: [8661, 10932]
     sentence_count: 14
     key_terms: [companies, research, through, understanding, phd, sociology, soggyclue, industry]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c6"
-    char_span: [10935, 12651]
+    char_span: [10934, 12650]
     sentence_count: 16
     key_terms: [computational, people, social, scientist, interdisciplinary, fields, good, work]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwcf21.md#c7"
-    char_span: [12654, 14505]
+    char_span: [12653, 14504]
     sentence_count: 10
     key_terms: [social, like, science, sounds, computational, kinda, jobs, computer]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [department, faculty, colleagues, humanities, professors, commuters, comments, meetings]
     token_count: 263
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c1"
-    char_span: [1241, 3181]
+    char_span: [1240, 3180]
     sentence_count: 16
     key_terms: [person, meetings, people, mediaisdelicious, expectations, chair, chalonverse, zoom]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c2"
-    char_span: [3183, 5174]
+    char_span: [3182, 5173]
     sentence_count: 13
     key_terms: [department, everyone, meetings, "they're", people, dept, fine, only-in-special-circumstances]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c3"
-    char_span: [5176, 6495]
+    char_span: [5175, 6494]
     sentence_count: 11
     key_terms: [department, start, salaried, faculty, reason, remote, hours, maybe]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c4"
-    char_span: [6500, 8259]
+    char_span: [6499, 8258]
     sentence_count: 13
     key_terms: [meetings, faculty, university, time, department, humanities, pretend, animus]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c5"
-    char_span: [8261, 9757]
+    char_span: [8260, 9756]
     sentence_count: 13
     key_terms: [meetings, defense, important, kimber80, service, doing, log, phd]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c6"
-    char_span: [9759, 10622]
+    char_span: [9758, 10621]
     sentence_count: 5
     key_terms: [people, being, "aren't", covid, doing, good, time, work]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/professors/1qdsvkj.md#c7"
-    char_span: [10624, 12795]
+    char_span: [10623, 12794]
     sentence_count: 23
     key_terms: [service, people, home, tenure, being, "i'm", department, productive]
     section: Comments

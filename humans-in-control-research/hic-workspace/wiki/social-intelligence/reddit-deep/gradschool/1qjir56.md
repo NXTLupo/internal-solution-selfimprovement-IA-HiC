@@ -23,73 +23,73 @@ chunks:
     key_terms: [people, "i'm", gradschool, comments, afford, loans, get, take]
     token_count: 192
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c1"
-    char_span: [780, 2803]
+    char_span: [779, 2802]
     sentence_count: 16
     key_terms: [disability, anything, get, bill, "don't", help, absolutely, counselor]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c2"
-    char_span: [2555, 3736]
+    char_span: [2554, 3735]
     sentence_count: 8
     key_terms: [get, disability, benefits, programs, qualify, funded, people, please]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c3"
-    char_span: [3738, 5777]
+    char_span: [3737, 5776]
     sentence_count: 14
     key_terms: [programs, humanities, phd, funding, program, funded, fully, master]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c4"
-    char_span: [5529, 5952]
+    char_span: [5528, 5951]
     sentence_count: 4
     key_terms: [people, programs, give, pays, unfortunately, lesjubilants, weekly-ad353, significant]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c5"
-    char_span: [5954, 8136]
+    char_span: [5953, 8135]
     sentence_count: 16
     key_terms: [graduate-programs-become-cash-cow-struggling-colleges-mean-students, programs, funding, competitive, brown-university-master-degree-expansion, https, debt, background]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c6"
-    char_span: [8138, 9257]
+    char_span: [8137, 9256]
     sentence_count: 7
     key_terms: [programs, funding, masters, funded, fully, years, comments, talking]
     section: Comments
     token_count: 257
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c7"
-    char_span: [9259, 11406]
+    char_span: [9258, 11405]
     sentence_count: 12
     key_terms: [masters, school, funding, program, university, phd, programs, professional]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c8"
-    char_span: [11160, 11446]
+    char_span: [11159, 11445]
     sentence_count: 3
     key_terms: [job, time, anticipation, temporarily, difficult, full-time, advance, covered]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c9"
-    char_span: [11448, 13336]
+    char_span: [11447, 13335]
     sentence_count: 15
     key_terms: [time, full, work, phd, masters, school, "it's", thankfully]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c10"
-    char_span: [13338, 13442]
+    char_span: [13337, 13441]
     sentence_count: 2
     key_terms: [receive, covers, funded, salary, fully, helps, etc, job]
     section: Comments
     token_count: 25
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c11"
-    char_span: [13444, 15323]
+    char_span: [13443, 15322]
     sentence_count: 15
     key_terms: [time, work, "it's", job, tuition, funded, money, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qjir56.md#c12"
-    char_span: [15107, 15889]
+    char_span: [15106, 15888]
     sentence_count: 4
     key_terms: [program, "it's", extension, funded, fully, like, part, stem]
     section: Comments

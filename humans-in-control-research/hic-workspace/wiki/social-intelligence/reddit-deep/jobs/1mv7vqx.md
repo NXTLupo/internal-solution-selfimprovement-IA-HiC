@@ -33,49 +33,49 @@ chunks:
     key_terms: [position, interesting, "it's", work, department, "doesn't", require, office]
     token_count: 249
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c3"
-    char_span: [4835, 6410]
+    char_span: [4834, 6409]
     sentence_count: 11
     key_terms: [like, refused, wanted, worked, notyourkidfrommotown, crazy, going, story]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c4"
-    char_span: [6412, 8422]
+    char_span: [6411, 8421]
     sentence_count: 16
     key_terms: [companies, insurance, work, unemployment, did, like, employment, because]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c5"
-    char_span: [8424, 10505]
+    char_span: [8423, 10504]
     sentence_count: 18
     key_terms: [good, work, contract, offer, job, like, employment, checklist]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c6"
-    char_span: [10507, 10631]
+    char_span: [10506, 10630]
     sentence_count: 4
     key_terms: [regardless, unlimited, illegal, switch, being, flags, here, pto]
     section: Comments
     token_count: 32
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c7"
-    char_span: [10633, 12716]
+    char_span: [10632, 12715]
     sentence_count: 12
     key_terms: [pto, work, unlimited, companies, policy, state, paid, pay]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c8"
-    char_span: [12416, 12784]
+    char_span: [12415, 12783]
     sentence_count: 3
     key_terms: [benefits, work, iheartnjdevils, government, countries, exporting, providing, retaining]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c9"
-    char_span: [12786, 15085]
+    char_span: [12785, 15084]
     sentence_count: 14
     key_terms: [work, required, engineering, cannot, scope, license, institutional, state]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1mv7vqx.md#c10"
-    char_span: [15087, 16037]
+    char_span: [15086, 16036]
     sentence_count: 11
     key_terms: [company, job, "didn't", notyourkidfrommotown, signal-response449, good, run, manufacturing]
     section: Comments

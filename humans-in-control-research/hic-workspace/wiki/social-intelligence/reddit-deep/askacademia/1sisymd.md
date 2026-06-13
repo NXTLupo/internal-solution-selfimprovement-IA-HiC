@@ -28,25 +28,25 @@ chunks:
     key_terms: ["i'm", like, read, research, article, through, been, feel]
     token_count: 192
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c2"
-    char_span: [3316, 5316]
+    char_span: [3315, 5315]
     sentence_count: 10
     key_terms: [get, research, find, asked, "i'd", phd, tell, training]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c3"
-    char_span: [5319, 7538]
+    char_span: [5318, 7537]
     sentence_count: 11
     key_terms: [research, "i'm", reading, wonderful-courage-51, doing, learn, topic, like]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c4"
-    char_span: [7540, 9777]
+    char_span: [7539, 9776]
     sentence_count: 13
     key_terms: [professors, research, "don't", relevant, people, "i've", talk, want]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/askacademia/1sisymd.md#c5"
-    char_span: [9781, 10631]
+    char_span: [9780, 10630]
     sentence_count: 1
     key_terms: [papers, read, reading, like, new, stop, parkityparkpark, comprehension]
     section: Comments

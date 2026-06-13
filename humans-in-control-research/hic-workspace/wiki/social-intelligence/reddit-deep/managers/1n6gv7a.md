@@ -23,91 +23,91 @@ chunks:
     key_terms: [needs, like, comments, managers, managing, feels, part, reddit-deep]
     token_count: 254
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c1"
-    char_span: [1064, 2793]
+    char_span: [1063, 2792]
     sentence_count: 10
     key_terms: [because, leadership, senior, emotional, workplace, managers, managing, like]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c2"
-    char_span: [2795, 4379]
+    char_span: [2794, 4378]
     sentence_count: 10
     key_terms: [staff, get, like, different, breaks, chance, senior, least]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c3"
-    char_span: [4381, 5167]
+    char_span: [4380, 5166]
     sentence_count: 3
     key_terms: [people, accept, need, top, won, nix7drummer88, compensated, frustrating]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c4"
-    char_span: [5169, 7159]
+    char_span: [5168, 7158]
     sentence_count: 11
     key_terms: [like, manager, middle, overwhelmed, get, management, predictor, promoted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c5"
-    char_span: [6891, 8825]
+    char_span: [6890, 8824]
     sentence_count: 11
     key_terms: [sometimes, details, manager, like, get, team, work, difficult]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c6"
-    char_span: [8596, 9581]
+    char_span: [8595, 9580]
     sentence_count: 2
     key_terms: [daycare, like, work, sometimes, working, little, often, team]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c7"
-    char_span: [9583, 10907]
+    char_span: [9582, 10906]
     sentence_count: 9
     key_terms: [issues, justwannabeleftalone, corruptedstudiosent, glittering-duck-634, perfomatively, professional, unacceptable, comfortable]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c8"
-    char_span: [10909, 12940]
+    char_span: [10908, 12939]
     sentence_count: 14
     key_terms: [problems, mental, manager, health, people, like, work, managers]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c9"
-    char_span: [12942, 14578]
+    char_span: [12941, 14577]
     sentence_count: 15
     key_terms: [people, degree, technical, manager, skills, good, work, managers]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c10"
-    char_span: [14580, 16505]
+    char_span: [14579, 16504]
     sentence_count: 11
     key_terms: [manager, technical, time, scrum, years, reporting, general, reports]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c11"
-    char_span: [16507, 18624]
+    char_span: [16506, 18623]
     sentence_count: 15
     key_terms: [people, engagement, technical, manager, engineering, top, management, deleted]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c12"
-    char_span: [18626, 20699]
+    char_span: [18625, 20698]
     sentence_count: 16
     key_terms: [reddit, honestly, engagement, posts, bot, like, beyond, people]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c13"
-    char_span: [20701, 21084]
+    char_span: [20700, 21083]
     sentence_count: 3
     key_terms: [responsibility, relationships, responsible, stakeholder, absolutely, attendance, behavioral, management]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c14"
-    char_span: [21086, 22996]
+    char_span: [21085, 22995]
     sentence_count: 9
     key_terms: [manager, managing, people, employees, numbers, someone, review, traditional-swan-130]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/managers/1n6gv7a.md#c15"
-    char_span: [22998, 23633]
+    char_span: [22997, 23632]
     sentence_count: 7
     key_terms: [business, relevantpangolin5003, re-directing, expectation, absolutely, complained, exhausting, responding]
     section: Comments

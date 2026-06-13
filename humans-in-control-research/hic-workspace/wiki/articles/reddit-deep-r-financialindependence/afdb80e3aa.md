@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c0"
-    char_span: [0, 1445]
+    char_span: [0, 1444]
     sentence_count: 6
     key_terms: [fire, financialindependence, total, years, after-tax, portfolio, expenses, learning]
-    token_count: 441
+    token_count: 440
   - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c1"
-    char_span: [1447, 3049]
+    char_span: [1446, 3048]
     sentence_count: 12
     key_terms: [working, get, new, spending, friends, reading, realize, needed]
     token_count: 348
   - id: "articles/reddit-deep-r-financialindependence/afdb80e3aa.md#c2"
-    char_span: [3051, 4345]
+    char_span: [3050, 4344]
     sentence_count: 6
     key_terms: [healthcare, socialism, jimzzz38, military, because, housing, parents, retired]
     token_count: 315

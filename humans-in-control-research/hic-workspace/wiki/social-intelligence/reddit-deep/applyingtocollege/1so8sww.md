@@ -28,31 +28,31 @@ chunks:
     key_terms: [year, ucla, astronomy, comments, transfer, honors, reddit, https]
     token_count: 314
   - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c2"
-    char_span: [2406, 4759]
+    char_span: [2405, 4758]
     sentence_count: 20
     key_terms: [physics, professor, research, path, phd, getting, career, quant]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c3"
-    char_span: [4761, 6689]
+    char_span: [4760, 6688]
     sentence_count: 17
     key_terms: [quant, alabama, get, rejected, correct, getting, austin, career]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c4"
-    char_span: [6691, 7576]
+    char_span: [6690, 7575]
     sentence_count: 1
     key_terms: [admissions, students, paying, people, best, extracurriculars, intelligence, standardized]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c5"
-    char_span: [7578, 8718]
+    char_span: [7577, 8717]
     sentence_count: 5
     key_terms: [dancingwithoutmusic, school, utadmissions, comments, austin, reddit, important-drop-3338, clear]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/applyingtocollege/1so8sww.md#c6"
-    char_span: [8720, 9743]
+    char_span: [8719, 9742]
     sentence_count: 6
     key_terms: [com, tr-7qwqp0jk, askmssun, youtube, important-drop-3338, https, seems, watch]
     section: Comments

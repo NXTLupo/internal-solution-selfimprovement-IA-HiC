@@ -23,37 +23,37 @@ chunks:
     key_terms: [anymore, genuinely, disappearing, idea, jobs, like, healthcare, findapath]
     token_count: 335
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c1"
-    char_span: [1536, 2483]
+    char_span: [1535, 2482]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c2"
-    char_span: [2486, 4568]
+    char_span: [2485, 4567]
     sentence_count: 25
     key_terms: [work, plan, careers, finalfrankymw, being, truth, end, job]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c3"
-    char_span: [4344, 6013]
+    char_span: [4343, 6012]
     sentence_count: 13
     key_terms: [get, people, don, job, like, work, excitementcapital290, admin]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c4"
-    char_span: [6015, 8054]
+    char_span: [6014, 8053]
     sentence_count: 30
     key_terms: [emerging-jobs-created-by-artificial-intelligence-ai-in-2025, jobs, revolution, age, working, people, roboticsbiz, industries]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c5"
-    char_span: [8056, 9679]
+    char_span: [8055, 9678]
     sentence_count: 16
     key_terms: [industries, jobs, workers, technologies, industrial, technology, standard, factory]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/findapath/1ldxlw3.md#c6"
-    char_span: [9681, 10590]
+    char_span: [9680, 10589]
     sentence_count: 7
     key_terms: [country, people, apply, bad, job, jobs, line, disintermediates]
     section: Comments

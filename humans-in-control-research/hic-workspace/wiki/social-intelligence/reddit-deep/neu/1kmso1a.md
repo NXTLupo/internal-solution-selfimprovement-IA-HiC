@@ -23,7 +23,7 @@ chunks:
     key_terms: [private, neu, comments, looking, public, electrical-truck646, co-op, considerations]
     token_count: 145
   - id: "social-intelligence/reddit-deep/neu/1kmso1a.md#c1"
-    char_span: [629, 1004]
+    char_span: [628, 1003]
     sentence_count: 3
     key_terms: [electrical-truck646, consideration, rhynocerous, employment, furthest, probably, "wouldn't", instead]
     section: Comments

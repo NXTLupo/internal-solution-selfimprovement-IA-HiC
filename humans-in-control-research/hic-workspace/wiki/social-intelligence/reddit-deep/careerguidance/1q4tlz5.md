@@ -21,7 +21,7 @@ chunks:
     key_terms: [design, research, careerguidance, career, engineering, here, interests, comments]
     token_count: 340
   - id: "social-intelligence/reddit-deep/careerguidance/1q4tlz5.md#c1"
-    char_span: [1583, 2182]
+    char_span: [1582, 2181]
     sentence_count: 8
     key_terms: [research, "i'm", skills, worldly-flight4233, "it's", like, tbh, communication]
     section: Comments

@@ -28,7 +28,7 @@ chunks:
     key_terms: [systems, design, experience, high-speed, power, signal, pcb, validation]
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1syutlg.md#c2"
-    char_span: [3397, 4133]
+    char_span: [3396, 4132]
     sentence_count: 5
     key_terms: [companies, experience, integrity, majorly, focus, power, miserablegold7921, side]
     section: Comments

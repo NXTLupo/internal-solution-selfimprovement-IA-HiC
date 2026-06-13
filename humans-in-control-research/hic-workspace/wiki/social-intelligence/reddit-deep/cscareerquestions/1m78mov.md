@@ -21,103 +21,103 @@ chunks:
     key_terms: [cscareerquestions, kind, yoe, terrible, market, developer, comments, faangs]
     token_count: 331
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c1"
-    char_span: [1243, 3312]
+    char_span: [1242, 3311]
     sentence_count: 12
     key_terms: [levels, software-engineer, companies, stock, salaries, https, fyi, www]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c2"
-    char_span: [3314, 5193]
+    char_span: [3313, 5192]
     sentence_count: 13
     key_terms: [companies, liquid, quite, like, top, midwest, cliff, faang]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c3"
-    char_span: [5195, 6107]
+    char_span: [5194, 6106]
     sentence_count: 11
     key_terms: [like, midwest, pay, everyone, except, kinda, maybe, devs]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c4"
-    char_span: [6109, 8053]
+    char_span: [6108, 8052]
     sentence_count: 10
     key_terms: [company, typically, tech, making, connections, area, "i'm", yoe]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c5"
-    char_span: [7815, 8435]
+    char_span: [7814, 8434]
     sentence_count: 4
     key_terms: [stock, walmart, charlottespider, calculated, categories, developers, assistant, something]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c6"
-    char_span: [8437, 9793]
+    char_span: [8436, 9792]
     sentence_count: 12
     key_terms: [stock, level, above, managers, grant, get, management, people]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c7"
-    char_span: [9795, 11686]
+    char_span: [9794, 11685]
     sentence_count: 7
     key_terms: [pretty, banks, definitely, companies, financial, accurate, walmart, market]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c8"
-    char_span: [11688, 13891]
+    char_span: [11687, 13890]
     sentence_count: 20
     key_terms: [average, companies, salaries, without, worked, like, top, candidates]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c9"
-    char_span: [13893, 15872]
+    char_span: [13892, 15871]
     sentence_count: 15
     key_terms: [team, teams, new, month, like, per, tech, yeah]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c10"
-    char_span: [15874, 17715]
+    char_span: [15873, 17714]
     sentence_count: 16
     key_terms: [fired, people, been, "i've", job, take, tech, industries]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c11"
-    char_span: [17717, 20038]
+    char_span: [17716, 20037]
     sentence_count: 17
     key_terms: [expensive, materials, living, people, interviewed, cost, etc, get]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c12"
-    char_span: [20040, 22023]
+    char_span: [20039, 22022]
     sentence_count: 20
     key_terms: [top, market, companies, new, faang, grads, get, less]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c13"
-    char_span: [22025, 23426]
+    char_span: [22024, 23425]
     sentence_count: 11
     key_terms: [instead, best, people, apple, value, commercials, engineers, branding]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c14"
-    char_span: [23428, 24493]
+    char_span: [23427, 24492]
     sentence_count: 6
     key_terms: [expensive, numbers, overall, illustrious-pound266, costs, start, care, gdp]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c15"
-    char_span: [24495, 26596]
+    char_span: [24494, 26595]
     sentence_count: 12
     key_terms: [cost, people, everywhere, being, live, country, higher, living]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c16"
-    char_span: [26598, 28591]
+    char_span: [26597, 28590]
     sentence_count: 21
     key_terms: [area, bay, probably, hours, faang, years, don, year]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/cscareerquestions/1m78mov.md#c17"
-    char_span: [28593, 30588]
+    char_span: [28592, 30587]
     sentence_count: 21
     key_terms: [get, going, solve, good, "it's", meta, take, definitely]
     section: Comments

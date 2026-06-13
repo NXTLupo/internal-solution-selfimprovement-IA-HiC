@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1mdiall.md#c0"
-    char_span: [0, 1679]
+    char_span: [0, 1678]
     sentence_count: 4
     key_terms: [engineeringstudents, ztwhmozkddtikrfu7, feedback, source, early-career, forms, https, open]
-    token_count: 406
+    token_count: 405
 ---
 # Feedback wanted: I built an open source resource hub for early-career Electrical Engineers (resume help, interview prep, mentorship)
 

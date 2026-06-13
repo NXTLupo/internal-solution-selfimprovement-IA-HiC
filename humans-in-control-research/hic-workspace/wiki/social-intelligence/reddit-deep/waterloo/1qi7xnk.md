@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo-kitchener, recommendations, comments, waterloo, looking, student, job, reddit-deep]
     token_count: 172
   - id: "social-intelligence/reddit-deep/waterloo/1qi7xnk.md#c1"
-    char_span: [696, 1721]
+    char_span: [695, 1720]
     sentence_count: 7
     key_terms: [jobs, student, usually, consistent-opening01, good, job, year, theartofconcrete]
     section: Comments

@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, comments, areas, major, urban, job, l-rockatansky, reddit-deep]
     token_count: 146
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c1"
-    char_span: [555, 2587]
+    char_span: [554, 2586]
     sentence_count: 15
     key_terms: [jobs, hybrid, get, actual, being, drive, hour, new]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c2"
-    char_span: [2589, 3852]
+    char_span: [2588, 3851]
     sentence_count: 5
     key_terms: [like, roles, easier, hiring, plenty, remote, illustrious-pound266, crazy]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c3"
-    char_span: [3854, 5973]
+    char_span: [3853, 5972]
     sentence_count: 16
     key_terms: [companies, market, job, jobs, hiring, person, dynamichunter, expectations]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c4"
-    char_span: [5725, 6179]
+    char_span: [5724, 6178]
     sentence_count: 3
     key_terms: [jobs, willing, market, being, move, new, dynamichunter, definitely]
     section: Comments
     token_count: 114
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n0f5nn.md#c5"
-    char_span: [6181, 7607]
+    char_span: [6180, 7606]
     sentence_count: 8
     key_terms: [jobs, area, remote, bigger, competitive, new, anywhere, compared]
     section: Comments

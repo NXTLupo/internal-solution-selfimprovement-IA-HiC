@@ -40,8 +40,8 @@ RESET = ("<style>html,body{margin:0!important;padding:0!important;overflow:visib
          "#stage{transform:none!important;left:0!important;top:0!important;position:absolute!important}</style>")
 
 MEASURE = r"""
-() => {
-  const stage = document.querySelector('#stage');
+(sel) => {
+  const stage = document.querySelector(sel);
   const sr = stage.getBoundingClientRect();
   const toHex = (c) => { if(!c) return null; const m=c.match(/rgba?\(([^)]+)\)/); if(!m) return null;
     const p=m[1].split(',').map(s=>parseFloat(s.trim())); if(p.length>=4&&p[3]===0) return null;
@@ -89,41 +89,10 @@ MEASURE = r"""
 """
 
 
-def build(name, page):
-    f = GOLD / f"{name}.html"
-    if not f.exists():
-        print(f"  MISSING {name}"); return False
-    html = (f.read_text(encoding="utf-8")).replace("</head>", RESET + "</head>", 1)
-    tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
-    tmp.write(html); tmp.close()
-    page.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
-    # CRITICAL: wait for web fonts to load before measuring, else geometry is captured with
-    # fallback-font metrics and every position below the h1 is wrong (h1 wrap height differs).
-    try:
-        page.evaluate("async () => { await document.fonts.ready; }")
-    except Exception:
-        pass
-    page.wait_for_timeout(500)
-    m = page.evaluate(MEASURE)
-    # --- GRAPHIC LAYER: render the slide with all HTML TEXT made invisible, so the screenshot
-    #     captures ONLY graphics (rail, dot mark, cell fills, lines/bands, SVG curves+labels,
-    #     maturity tracks, accent borders). SVG uses `fill` not `color`, so the curves survive.
-    #     This becomes a pixel-exact background; no text is baked in, so the editable text
-    #     overlaid on top can never double or ghost. ("graphics graphics, text text")
-    page.add_style_tag(content="#stage *:not(svg):not(svg *){color:transparent !important;"
-                               "text-shadow:none !important;-webkit-text-stroke:0 !important;}")
-    page.wait_for_timeout(120)
-    bgfile = tempfile.NamedTemporaryFile(suffix=".png", delete=False); bgfile.close()
-    page.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
-    pathlib.Path(tmp.name).unlink(missing_ok=True)
-
-    prs = Presentation(); prs.slide_width, prs.slide_height = Emu(int(13.333*EMU)), Emu(int(7.5*EMU))
-    slide = prs.slides.add_slide(prs.slide_layouts[6])
-    # graphic layer, full-bleed
-    slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333*EMU)), height=Emu(int(7.5*EMU)))
-    pathlib.Path(bgfile.name).unlink(missing_ok=True)
-    # TEXT LAYER: editable text boxes on top of the clean graphic background.
-    for r in m["runs"]:
+def _place_runs(slide, runs):
+    """Editable text layer: one shrink-to-fit textbox per measured run (shared by
+    the single-#stage and multi-.gold-page paths)."""
+    for r in runs:
         txt = r["text"]
         if not txt.strip():
             continue
@@ -131,31 +100,19 @@ def build(name, page):
             txt = txt.upper()
         _lh = r.get("lh") or (r["size"] * 1.3)
         _align = r.get("align", "left")
-        # ALLOCATED box = the element's real box (its DESIGN space), not the tight text rect.
-        # PPT then wraps the same way the browser did (same line count) and, with shrink-to-fit
-        # on, can never overflow its allocated space -> no collision. This is how the old
-        # working exporter behaved: give text room + let PowerPoint shrink to fit it.
         eright = min(r.get("eright", r["x"] + r["w"]), W - 24)
         ebottom = r.get("ebottom", r["y"] + r["h"])
         bx = r["x"]
         bw = max(8.0, eright - bx)
         bh = max(_lh, ebottom - r["y"], 12.0)
-        # ONLY the top-right wordmark (top strip, y<100) is right-anchored; otherwise a
-        # right-edge matrix column would wrongly right-align (the MIT/HARVARD column bug).
         right_anchored = (r["y"] < 100) and (r["x"] + r["w"] > W * 0.9) and (r["w"] < W * 0.5)
-        if right_anchored:                               # wordmark: pin flush-right
+        if right_anchored:
             _align = "right"; bx = r["x"] - 20; bw = (W - 24) - bx
-        # DETERMINISTIC fit (PowerPoint autofit is a no-op under COM export, so compute the
-        # font scale ourselves). The allocated box permits `target_lines` lines. PPT's fonts
-        # render ~PW wider than the browser; scale the font so the text wraps into AT MOST
-        # target_lines lines that each fit the box width. This mathematically prevents both
-        # horizontal overflow and vertical bleed into the next block. No collisions, by construction.
         PW = 1.14
         tw = r.get("tw") or r["w"]
         target_lines = max(1, round(bh / _lh)) if _lh else 1
         scale = min(1.0, (target_lines * bw) / max(tw * PW, 1.0))
         _size_px = r["size"] * scale
-        # add a little vertical slack so the shrunk lines never clip at the box bottom
         bh = max(bh, target_lines * (_lh * scale) + 4)
         tb = slide.shapes.add_textbox(ex(bx), ey(r["y"]), ex(bw), ey(bh))
         tf = tb.text_frame
@@ -180,9 +137,9 @@ def build(name, page):
                 run._r.get_or_add_rPr().set("spc", str(int(float(str(sp).replace("px", "")) * PX2PT * 100)))
             except Exception:
                 pass
-    out = OUT / f"{name}.pptx"
-    prs.save(str(out))
-    # embed gold fonts so typography is faithful + text stays editable
+
+
+def _embed_fonts(out_path):
     try:
         import pptx_export as pe
         pe.FONT_FAMILIES = pe.FONT_FAMILIES + [
@@ -190,9 +147,98 @@ def build(name, page):
             {"typeface": "IBM Plex Mono", "pitchFamily": 49, "charset": 0,
              "regular": "IBMPlexMono-Regular.ttf", "bold": "IBMPlexMono-SemiBold.ttf"},
         ]
-        pe.embed_brand_fonts(str(out))
+        pe.embed_brand_fonts(str(out_path))
     except Exception as e:
         print(f"    (font embed skipped: {e})")
+
+
+def _build_multi(name, page, n_pages):
+    """One deck from an N-page gold file: isolate each .gold-page at (0,0),
+    run the same measure + text-transparent graphic capture, one slide per page."""
+    url = page.url
+    prs = Presentation(); prs.slide_width, prs.slide_height = Emu(int(13.333*EMU)), Emu(int(7.5*EMU))
+    total_runs = 0
+    for k in range(n_pages):
+        page.goto(url, wait_until="networkidle", timeout=30000)
+        try:
+            page.evaluate("async () => { await document.fonts.ready; }")
+        except Exception:
+            pass
+        page.evaluate("(k) => { document.querySelectorAll('.gold-page')[k].classList.add('__pptx_active'); }", k)
+        page.add_style_tag(content=
+            ".gold-page{display:none !important}"
+            ".gold-page.__pptx_active{display:block !important;position:fixed !important;"
+            "left:0 !important;top:0 !important;margin:0 !important}"
+            "html,body{overflow:hidden !important;background:#fff !important}")
+        page.wait_for_timeout(300)
+        m = page.evaluate(MEASURE, ".gold-page.__pptx_active")
+        page.add_style_tag(content=".gold-page.__pptx_active *:not(svg):not(svg *){color:transparent !important;"
+                                   "text-shadow:none !important;-webkit-text-stroke:0 !important;}")
+        page.wait_for_timeout(120)
+        bgfile = tempfile.NamedTemporaryFile(suffix=".png", delete=False); bgfile.close()
+        page.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
+        slide = prs.slides.add_slide(prs.slide_layouts[6])
+        slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333*EMU)), height=Emu(int(7.5*EMU)))
+        pathlib.Path(bgfile.name).unlink(missing_ok=True)
+        _place_runs(slide, m["runs"])
+        total_runs += len(m["runs"])
+    out = OUT / f"{name}.pptx"
+    prs.save(str(out))
+    _embed_fonts(out)
+    print(f"  hybrid {name}.pptx  ({n_pages} pages, {total_runs} editable text runs)")
+    return True
+
+
+def build(name, page):
+    f = GOLD / f"{name}.html"
+    if not f.exists():
+        print(f"  MISSING {name}"); return False
+    html = (f.read_text(encoding="utf-8")).replace("</head>", RESET + "</head>", 1)
+    tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
+    tmp.write(html); tmp.close()
+    page.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
+    # CRITICAL: wait for web fonts to load before measuring, else geometry is captured with
+    # fallback-font metrics and every position below the h1 is wrong (h1 wrap height differs).
+    try:
+        page.evaluate("async () => { await document.fonts.ready; }")
+    except Exception:
+        pass
+    page.wait_for_timeout(500)
+    # 2026-06-10 - MULTI-PAGE gold twins. Newer gold files carry N x 1920x1080
+    # `.gold-page` sections (one per deck page) instead of a single #stage.
+    # For multi-page files, isolate each section at (0,0) and run the same
+    # measure + graphic-layer flow per page, emitting ONE deck with one slide
+    # per page. Single-#stage files behave exactly as before.
+    has_stage = page.evaluate("() => !!document.querySelector('#stage')")
+    n_pages = page.evaluate("() => document.querySelectorAll('.gold-page').length")
+    if n_pages and not has_stage:
+        ok = _build_multi(name, page, n_pages)
+        pathlib.Path(tmp.name).unlink(missing_ok=True)
+        return ok
+    m = page.evaluate(MEASURE, "#stage")
+    # --- GRAPHIC LAYER: render the slide with all HTML TEXT made invisible, so the screenshot
+    #     captures ONLY graphics (rail, dot mark, cell fills, lines/bands, SVG curves+labels,
+    #     maturity tracks, accent borders). SVG uses `fill` not `color`, so the curves survive.
+    #     This becomes a pixel-exact background; no text is baked in, so the editable text
+    #     overlaid on top can never double or ghost. ("graphics graphics, text text")
+    page.add_style_tag(content="#stage *:not(svg):not(svg *){color:transparent !important;"
+                               "text-shadow:none !important;-webkit-text-stroke:0 !important;}")
+    page.wait_for_timeout(120)
+    bgfile = tempfile.NamedTemporaryFile(suffix=".png", delete=False); bgfile.close()
+    page.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
+    pathlib.Path(tmp.name).unlink(missing_ok=True)
+
+    prs = Presentation(); prs.slide_width, prs.slide_height = Emu(int(13.333*EMU)), Emu(int(7.5*EMU))
+    slide = prs.slides.add_slide(prs.slide_layouts[6])
+    # graphic layer, full-bleed
+    slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333*EMU)), height=Emu(int(7.5*EMU)))
+    pathlib.Path(bgfile.name).unlink(missing_ok=True)
+    # TEXT LAYER: editable text boxes on top of the clean graphic background.
+    # (Placement logic shared with the multi-page path via _place_runs.)
+    _place_runs(slide, m["runs"])
+    out = OUT / f"{name}.pptx"
+    prs.save(str(out))
+    _embed_fonts(out)
     print(f"  hybrid {name}.pptx  ({len(m['runs'])} editable text runs over graphic bg)")
     return True
 

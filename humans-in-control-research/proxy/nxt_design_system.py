@@ -25,6 +25,84 @@ try:
 except Exception:
     NXT_SYSTEM_CSS = NXT_SYSTEM_JS = NXT_ICON_SPRITE = ""
 
+# ---- FIGMA TOKENS (source of truth) -----------------------------------------
+# 2026-06-09 — the rendered brand styling MUST trace back to Figma, never to a
+# hardcoded hex. The gallery :root in _ds_payload.json carried a STALE
+# --nxt-lime:#CACA20 + --nxt-mono:'JetBrains Mono' (Figma says accent=#b8b800,
+# mono='IBM Plex Mono'). Rather than re-bundle the gallery, we load the live
+# Figma tokens here (same file the proxy serves at /api/design-tokens, refreshed
+# via Figma MCP get_variable_defs on the token-sheet nodes) and inject a
+# highest-precedence :root override + a correct font link in inject_nxt_system().
+# No hardcoding: every value below resolves from figma-tokens.json.
+def _load_figma_tokens():
+    for _p in (
+        "/hic-workspace/design-system/figma-tokens.json",
+        os.path.join(_HERE, "..", "hic-workspace", "design-system", "figma-tokens.json"),
+    ):
+        try:
+            with open(_p, "r", encoding="utf-8") as _f:
+                return json.load(_f)
+        except Exception:
+            continue
+    return {}
+
+_FIGMA_TOKENS = _load_figma_tokens()
+
+
+def _brand_tokens(brand: str) -> dict:
+    bn = "NU" if (brand or "nxt").lower() == "nu" else "NXT"
+    return _FIGMA_TOKENS.get(bn, {}) or {}
+
+
+# NXT accent drives the kicker/underline color in the enforcement layer. Pull it
+# from Figma (#b8b800); fall back to the prior literal only if the token file is
+# unreadable (fail-safe, not fail-stale — the file is the source of truth).
+_NXT_ACCENT = (_brand_tokens("nxt").get("color", {}) or {}).get("accent", "#b8b800")
+_NXT_TEAL = (_brand_tokens("nxt").get("color", {}) or {}).get("teal", "#115054")
+_NXT_CYAN = (_brand_tokens("nxt").get("color", {}) or {}).get("cyan", "#00b7c3")
+
+
+def _figma_root_override(brand: str) -> str:
+    """Highest-precedence :root (NXT) / .nxt-nu (NU) var override built from the
+    live Figma tokens, so var(--nxt-lime)/var(--nxt-mono) etc. resolve to the
+    Figma values instead of the stale gallery defaults. Injected LAST in <head>."""
+    t = _brand_tokens(brand)
+    c = t.get("color", {}) or {}
+    f = t.get("font", {}) or {}
+    is_nu = (brand or "nxt").lower() == "nu"
+    accent = c.get("accent", _NXT_ACCENT)
+    teal = c.get("teal") or c.get("source") or _NXT_TEAL  # NU has no teal; use its cool 'source'
+    cyan = c.get("cyan") or c.get("source") or _NXT_CYAN
+    ink = c.get("ink", "#141414")
+    mono = f.get("mono", "IBM Plex Mono")
+    body = f.get("body", "Archivo")
+    decls = (
+        f"--nxt-lime:{accent}!important;"
+        f"--nxt-teal:{teal}!important;"
+        f"--nxt-cyan:{cyan}!important;"
+        f"--nxt-ink:{ink}!important;"
+        f"--nxt-mono:'{mono}',ui-monospace,monospace!important;"
+        f"--nxt-body:'{body}',-apple-system,'Segoe UI',sans-serif!important;"
+    )
+    # Per-artifact, single-brand: :root{...!important} wins over the gallery's
+    # non-important var defaults regardless of selector specificity (is_nu only
+    # selects which Figma brand values fill the decls above).
+    _ = is_nu
+    return f'<style id="nxt-figma-tokens">:root{{{decls}}}</style>'
+
+
+# Google-fonts link sourced from Figma font names (NXT: Bebas Neue + Archivo +
+# IBM Plex Mono; NU: Lora + Archivo + IBM Plex Mono). Loads both brands' display
+# faces so either theme resolves; replaces the stale Saira+JetBrains link.
+_FONTS_LINK_FIGMA = (
+    '<link rel="preconnect" href="https://fonts.googleapis.com">'
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+    '<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue'
+    '&family=Lora:wght@400;500;600;700'
+    '&family=Archivo:wght@200;300;400;500;600;700;800'
+    '&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">'
+)
+
 # Classes that are INTENTIONALLY dark; never whiten these, and force their text white.
 _INTENTIONAL_DARK = (
     "nxt-block--ink", "nxt-block--teal", "nxt-slide--title",
@@ -135,6 +213,9 @@ body *{box-shadow:none!important;text-shadow:none!important;}
 """ + _NXT_GRID_CSS_BODY + """
 </style>
 """
+# Source the kicker/underline accent from Figma (replaces the stale #CACA20
+# literal that drifted from the live token accent #b8b800).
+NXT_ENFORCEMENT_CSS = NXT_ENFORCEMENT_CSS.replace("#CACA20", _NXT_ACCENT)
 
 _FONTS_LINK = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">'
@@ -394,9 +475,12 @@ def inject_nxt_system(html: str, brand: str = "nxt") -> str:
             out = '<div class="nxt-nu">' + out + "</div>"
 
     head_block = (
-        _FONTS_LINK
+        _FONTS_LINK_FIGMA
         + '<style id="nxt-system">' + NXT_SYSTEM_CSS + "</style>"
         + NXT_ENFORCEMENT_CSS
+        # Figma token override LAST = highest precedence over the gallery :root
+        # (flips stale --nxt-lime/#CACA20 -> #b8b800 and JetBrains -> IBM Plex).
+        + _figma_root_override(brand)
     )
     if "</head>" in out:
         out = out.replace("</head>", head_block + "</head>", 1)

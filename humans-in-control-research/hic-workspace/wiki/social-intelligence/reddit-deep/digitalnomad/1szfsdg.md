@@ -23,19 +23,19 @@ chunks:
     key_terms: [digitalnomad, safetywing, incorrect, insurance, seriously, comments, constant, rejected]
     token_count: 309
   - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c1"
-    char_span: [1468, 3529]
+    char_span: [1467, 3528]
     sentence_count: 12
     key_terms: [insurance, companies, infrastructure, cigna, rates, like, pay, assman69x]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c2"
-    char_span: [3531, 5541]
+    char_span: [3530, 5540]
     sentence_count: 10
     key_terms: [people, insurance, buy, "it's", complete, easy, safetywing, required]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/digitalnomad/1szfsdg.md#c3"
-    char_span: [5543, 6808]
+    char_span: [5542, 6807]
     sentence_count: 9
     key_terms: [better, within, genki, experiences, days, claims, claim, heard]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1sejce2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1sejce2/is_mixing_cs_and_music_a_worthwhile_idea/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,67 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.642Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c0"
+    char_span: [0, 1286]
+    sentence_count: 11
+    key_terms: [music, cscareerquestions, work, doing, idea, promising, comments, related]
+    token_count: 312
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c1"
+    char_span: [1301, 3201]
+    sentence_count: 14
+    key_terms: [music, industry, companies, communications, career, ended, did, don]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c2"
+    char_span: [3203, 5320]
+    sentence_count: 13
+    key_terms: [music, degree, major, learning, general, double, audio, get]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c3"
+    char_span: [5322, 7144]
+    sentence_count: 10
+    key_terms: [music, degree, classes, major, projects, double, performance, production]
+    section: Comments
+    token_count: 394
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c4"
+    char_span: [7146, 9442]
+    sentence_count: 17
+    key_terms: [music, like, landing, degree, applications, requirements, niche, idea]
+    section: Comments
+    token_count: 508
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c5"
+    char_span: [9444, 11426]
+    sentence_count: 19
+    key_terms: [music, doing, rerouchoes, candidate, interview, portfolio, software, another]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c6"
+    char_span: [11428, 12921]
+    sentence_count: 11
+    key_terms: [music, passion, work, paycheck, software, always, degree, paying]
+    section: Comments
+    token_count: 331
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c7"
+    char_span: [12923, 14087]
+    sentence_count: 7
+    key_terms: [music, friend, majors, "i'm", tech, aforementioned, conversation, myinstrument]
+    section: Comments
+    token_count: 265
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c8"
+    char_span: [14089, 16219]
+    sentence_count: 12
+    key_terms: [music, degree, time, major, course, worth, performance, "wouldn't"]
+    section: Comments
+    token_count: 485
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1sejce2.md#c9"
+    char_span: [16221, 16851]
+    sentence_count: 4
+    key_terms: [play, especially, groups, like, immediately, affiliated, reasonably, bandmates]
+    section: Comments
+    token_count: 141
 ---
-
 # Is mixing CS and music a worthwhile idea?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1sejce2/is_mixing_cs_and_music_a_worthwhile_idea/)

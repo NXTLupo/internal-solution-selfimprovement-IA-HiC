@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pv3skh.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pv3skh/national_lab_vs_university_research_vs_industry/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,25 @@ flair: "Engineering"
 extracted_at: "2026-06-06T23:23:15.590Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c0"
+    char_span: [0, 2192]
+    sentence_count: 15
+    key_terms: [research, national, summer, admissions, lab, industry, gradadmissions, school]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c1"
+    char_span: [2207, 4241]
+    sentence_count: 13
+    key_terms: [lab, like, because, experience, research, going, gonna, been]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pv3skh.md#c2"
+    char_span: [4243, 6622]
+    sentence_count: 17
+    key_terms: [responsibilities, lab, industry, summer, doing, national, research, valuable]
+    section: Comments
+    token_count: 507
 ---
-
 # National lab vs university research vs industry internship for grad school (EE / RF)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pv3skh/national_lab_vs_university_research_vs_industry/)

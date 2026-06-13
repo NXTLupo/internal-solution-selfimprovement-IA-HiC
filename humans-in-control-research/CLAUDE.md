@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-> **Active work in progress (2026-05-14)**: read [HANDOFF_2026_05_14_COST_AND_T4.md](HANDOFF_2026_05_14_COST_AND_T4.md) FIRST if you are picking up the cost-savings / brief-quality / T4 build-only iteration work. That doc captures uncommitted state, the user's open design question (multi-model orchestration + determinism, NOT just Opus fallback), and the next moves. Without it you will not have full context on the in-flight `prototypeBriefGenerator.ts` hybrid path, the cost meter, the engagement-cache layer in `wikiService.ts`, or the five-surface prompt enhancer.
+> **Active work plans**: check [plans/](plans/) before starting any non-trivial work — dated files, most recent first. There is usually already a plan to extend rather than duplicate. (Historical handoff: [HANDOFF_2026_05_14_COST_AND_T4.md](HANDOFF_2026_05_14_COST_AND_T4.md) covers the 2026-05-14 cost/T4 iteration.)
 
 > **Read first**: the repo root [CLAUDE.md](../CLAUDE.md) (Docker platform topology, port map, cross-service context) and [.claude/CLAUDE.md](../.claude/CLAUDE.md) (NXT design system, citation protocol, 350+ banned phrases, consulting frameworks). This file covers only what is unique to `humans-in-control-research/`.
 
@@ -14,7 +14,7 @@ HiC is a **three-tier research workbench** that turns a client brief + uploads i
 React SPA (Vite, port 3000 dev / 5011 prod nginx)
     │  fetch()
     ▼
-Research Proxy (FastAPI, port 5012, proxy/app.py — 3,461 lines)
+Research Proxy (FastAPI, port 5012, proxy/app.py — ~16,000 lines)
     ├── /api/ai/{anthropic,gemini,openai}   — provider fan-out (CORS-safe)
     ├── /api/search/{source_id}             — 200+ sources, 8 connector types
     ├── /api/wiki/*                         — read/write/embed/fetch-articles (RAG)
@@ -43,7 +43,7 @@ The wiki is served two ways: in dev via a custom Vite middleware plugin ([vite.c
 ```bash
 # Terminal 1 — SPA
 cd humans-in-control-research
-npm install --legacy-peer-deps     # react 19 + some deps insist on peer overrides
+npm install --legacy-peer-deps     # some deps insist on peer overrides (React 18.3 here)
 npm run dev                        # Vite on http://localhost:3000
 
 # Terminal 2 — Proxy (required for all API calls)
@@ -70,15 +70,23 @@ docker compose -f ../docker-compose-all.yml up -d --build research-generator
 
 The proxy (`research-proxy`, port 5012) is a separate container and rebuilds with `--build research-proxy`.
 
-### Build / typecheck
+### Build / typecheck / test
 
 ```bash
-npm run build      # vite build → dist/
-npm run preview    # serve dist/ locally
-# no lint/test scripts are defined — tsc runs implicitly via vite build
+npm run build              # vite build → dist/ (esbuild — does NOT type-check)
+npm run typecheck          # tsc --noEmit — MANDATORY gate before shipping any change
+npm run preview            # serve dist/ locally
+
+npm run test               # vitest unit suite (jsdom; design-desk/**/*.test.ts + services/**/*.test.ts)
+npx vitest run services/corpusMergeAuthority.test.ts   # single test file
+npx vitest run -t "test name pattern"                  # single test by name
+npm run test:watch         # watch mode
+npm run test:e2e           # services/__e2e__/ — runs REAL generation against live proxy :5012
+                           # (multi-minute model calls; requires proxy up + provider keys)
+npm run check:templates    # slide-template parity: web.tsx ↔ pptx.ts must define the same set
 ```
 
-No test suite. Validate by running the pipeline end-to-end against a real brief + upload, then inspect the generated deliverable and `wiki/log.md` entries.
+**`vite build` succeeding proves nothing about types** — esbuild strips TS without checking it. Two crash-class `ReferenceError`s shipped this way; always run `npm run typecheck` before claiming a change works. Unit tests cover the design-desk schemas/store and a few services; full validation still means running the pipeline end-to-end against a real brief + upload and inspecting the generated deliverable and `wiki/log.md` entries.
 
 ## Runtime Data Flow
 
@@ -86,12 +94,12 @@ No test suite. Validate by running the pipeline end-to-end against a real brief 
 
 1. **Brief intake** — `HeuristicBriefIntake.tsx` collects a structured UX brief OR `FileUpload.tsx` accepts raw client docs.
 2. **Ingestion** — proxy `/api/parse-upload` extracts plain text (PyPDF2 / mammoth / text decode), populates `FileUpload.parsedText`.
-3. **Research fabric** — `researchFabricOrchestrator.ts` (1,372 lines) fans out to external connectors via `/api/search/*` and `/api/multi-search`, deduplicates, chunks, and assembles a `SourceDocument[]`.
+3. **Research fabric** — `researchFabricOrchestrator.ts` (~2,100 lines) fans out to external connectors via `/api/search/*` and `/api/multi-search`, deduplicates, chunks, and assembles a `SourceDocument[]`.
 4. **Themes / structure** — `geminiService.ts` runs a `GenAISession` (stateful multi-turn chat) through checkpointed stages. Each stage emits a streamed "Live Thinking" feed before producing JSON; user can edit/approve/reject at each `AnalysisCheckpoint`.
 5. **Deliverable-specific generation** — routed by `aiRouter.ts`:
    - `PERSONAS`, `STRATEGY_DECK`, `JOURNEY_MAP` → Gemini (default); provider is overridable in the UI.
    - Heuristic UX brief analysis → `heuristicAnalysisService.ts` (tri-model: Claude + GPT + Gemini).
-6. **Post-processing** — `slidePostProcessor.ts` (960 lines, defense-in-depth): banned-phrase correction, meta-narration regex stripping, citation rewriting ([CHUNK_XXX] → SourceName: Title), persona image injection, evidence-density scoring.
+6. **Post-processing** — `slidePostProcessor.ts` (~1,700 lines, defense-in-depth): banned-phrase correction, meta-narration regex stripping, citation rewriting ([CHUNK_XXX] → SourceName: Title), persona image injection, evidence-density scoring.
 7. **Export** — `exportService.ts` (727 lines) renders HTML → canvas (html2canvas) → jsPDF, or emits `.pptx` via `pptxgenjs` using the PPTX slide-template implementations in [components/slideTemplates/pptx.ts](components/slideTemplates/pptx.ts).
 
 ### Slide template system
@@ -106,12 +114,15 @@ The AI emits `:::slide` fenced blocks with a `template` field; the web renderer 
 
 [services/aiRouter.ts](services/aiRouter.ts) is the single source of truth for model selection. Current registry:
 
-| Category        | Default              | Alternatives                                  |
-|-----------------|----------------------|-----------------------------------------------|
-| research        | `claude-opus-4-8`    | `claude-sonnet-4-6`, `gpt-5.4`, `gemini-3.1-pro-preview`, `gemini-2.5-flash` |
-| fast_generation | `gpt-5.4-mini`       | `claude-sonnet-4-6`, `gemini-2.5-flash`       |
-| vision          | `claude-opus-4-8`    | `gpt-5.4`, `gemini-3.1-pro-preview`           |
-| image / video   | `gemini-2.5-flash`   | (imagen-4.0, veo-3.1 via Gemini API)          |
+| Category                | Default                          | Fallback chain                                          |
+|-------------------------|----------------------------------|---------------------------------------------------------|
+| research                | `gemini-3.1-pro-preview`         | `gemini-3.5-flash`, `deepseek-v4-flash`                 |
+| fast_generation / fast_agentic | `gemini-3.5-flash`        | `gemini-3.1-pro-preview`, `deepseek-v4-flash`           |
+| vision                  | `gemini-3.5-flash`               | `gemini-3.1-pro-preview`                                |
+| narrative_composition   | `gemini-3.1-pro-preview`         | `gemini-3.5-flash`, `deepseek-v4-flash`                 |
+| image / video           | `gemini-3.1-flash-image-preview` | (HiC has no video; category kept for hygiene)           |
+
+The registry also carries `claude-opus-4-8`, `claude-sonnet-4-6`, and `gpt-5.4`/`gpt-5.4-mini`/`gpt-5.5` for explicit-provider call sites. Canonical Gemini models are `gemini-3.1-pro-preview` (reasoning; emits thought signatures), `gemini-3.5-flash` (fast text), `gemini-3.1-flash-image-preview` (image) — never reach for 2.5-era models, and never hardcode model IDs at call sites; route through `aiRouter.ts`.
 
 > **2026-05-29 — Opus 4.8 swap.** All Claude Opus call sites in HiC (proxy default, journey-mapper dispatch, brief generator, research planner, critic dispatchers, CorpusChat journey/blueprint route, topic-modeling labels) were swapped from `claude-opus-4-7` / `claude-opus-4-6` to `claude-opus-4-8` (released 2026-05-28). Adaptive thinking is on by default — no `effort` parameter wired. Standard pricing is $5/$25 per 1M tokens (3x cheaper than 4.7); `services/costMeter.ts` was updated accordingly. Sonnet 4.6 and Haiku 4.5 paths are unchanged.
 
@@ -123,18 +134,19 @@ Note: Claude Opus supports assistant-message prefill; Sonnet does not. Anything 
 
 | File | Purpose | Watch out for |
 |------|---------|---------------|
-| [App.tsx](App.tsx) | 3,742 lines — root state machine, checkpoint orchestration, all stages | Changes here cascade through every deliverable; prefer editing services where possible |
-| [services/geminiService.ts](services/geminiService.ts) | 3,633 lines — primary generation engine + `GenAISession` stateful chat | Contains deliverable-specific prompts; duplicated provider HTTP logic |
-| [services/researchFabricOrchestrator.ts](services/researchFabricOrchestrator.ts) | 1,372 lines — multi-source aggregation, chunking, `[CHUNK_XXX]` ID scheme | `getChunkSourceMap()` exports the resolver used by citation post-processing |
-| [services/slidePostProcessor.ts](services/slidePostProcessor.ts) | 960 lines — the single chokepoint that enforces `.claude/CLAUDE.md` output rules at runtime | Defense-in-depth layer; prompt rules can still be bypassed, this layer cannot |
-| [services/wikiService.ts](services/wikiService.ts) | 1,872 lines — wiki read/write, `loadGenerationContext()`, `detectBannedPhrases()`, `scoreOutput()` | Wiki pages are loaded into the generation prompt; adding a framework page can raise output quality without touching any prompt |
-| [proxy/app.py](proxy/app.py) | 3,461 lines — 200+ sources in the `SOURCES` registry, 8 connector types | Add sources by adding a dict entry — no code change; browser-compatible UA is required for most news sites (WAF) |
+| [App.tsx](App.tsx) | ~6,700 lines — root state machine, checkpoint orchestration, all stages | Changes here cascade through every deliverable; prefer editing services where possible |
+| [services/geminiService.ts](services/geminiService.ts) | ~6,700 lines — primary generation engine + `GenAISession` stateful chat | Contains deliverable-specific prompts; duplicated provider HTTP logic |
+| [services/researchFabricOrchestrator.ts](services/researchFabricOrchestrator.ts) | ~2,100 lines — multi-source aggregation, chunking, `[CHUNK_XXX]` ID scheme | `getChunkSourceMap()` exports the resolver used by citation post-processing |
+| [services/slidePostProcessor.ts](services/slidePostProcessor.ts) | ~1,700 lines — the single chokepoint that enforces `.claude/CLAUDE.md` output rules at runtime | Defense-in-depth layer; prompt rules can still be bypassed, this layer cannot |
+| [services/wikiService.ts](services/wikiService.ts) | ~2,600 lines — wiki read/write, `loadGenerationContext()`, `detectBannedPhrases()`, `scoreOutput()` | Wiki pages are loaded into the generation prompt; adding a framework page can raise output quality without touching any prompt |
+| [proxy/app.py](proxy/app.py) | ~16,000 lines — 200+ sources in the `SOURCES` registry, 8 connector types | Add sources by adding a dict entry — no code change; browser-compatible UA is required for most news sites (WAF) |
 
 ### Conventions
 
 - **Plain text only in generated content.** No Markdown in AI output fields — `slidePostProcessor` strips `**bold**`, `# headers`, etc. The renderer owns formatting.
 - **Citations must resolve to real source names.** `[CHUNK_003]` → `"Higher Ed Dive: <article title>"`. `citationResolver.ts` owns this. Never let generic references ("research", "studies", "sources") ship — the post-processor and `.claude/CLAUDE.md` rules reject them.
 - **Wiki-first retrieval.** Before calling a model, `loadGenerationContext()` pulls the relevant `wiki/frameworks/<type>.md` + anti-patterns + brand standards + evidence pages into the prompt. If a framework page is missing, generation quality drops silently — add the page rather than inflating the prompt.
+- **Manifest-chunk retrieval, not RAG injection.** Deliverable generators must ground evidence via manifest chunk pointers (see the `manifest-chunk-retrieval` skill), never by bulk-injecting `rawSources` or embedding-RAG results into the prompt — RAG injection is the documented root cause of hollow deliverables. `generateThemes` is the reference implementation; any generator still RAG-injecting is legacy to be migrated, not a pattern to copy.
 - **Semantic wiki retrieval.** `POST /api/wiki/fetch-articles` returns embedding-ranked article bodies. For broad questions, fire 3–4 angle variants (see the `wiki-query-expander` skill) to hit distinct vector-space neighborhoods; for narrow questions, use `wiki-reranker` to cross-encode the candidate set.
 - **Emoji ban.** No emoji anywhere in prompts, generated content, or source code (repo-wide rule; breaks Power Automate JSON escaping elsewhere and reads unprofessionally in deliverables).
 
@@ -144,7 +156,7 @@ Note: Claude Opus supports assistant-message prefill; Sonnet does not. Anything 
 - **HMR silently dead on Windows Docker**: Vite uses `usePolling: true` ([vite.config.ts:56](vite.config.ts#L56)) because inotify events don't propagate through WSL2 volume mounts. If you disable it, saved edits will not hot-reload.
 - **`process.env.API_KEY` === `GEMINI_API_KEY`**: legacy code paths reference `API_KEY`; both are set from the same env var in [vite.config.ts:63-64](vite.config.ts#L63-L64). Don't introduce a separate `API_KEY` value.
 - **Wiki write without the proxy**: The SPA cannot write to `wiki/` directly — it must go through `/api/wiki/write*`. Bypassing the proxy (e.g., in local-only dev) means articles/logs never persist.
-- **`--legacy-peer-deps` is required.** React 19 ecosystem has some stale peer ranges; drop the flag and `npm install` will fail.
+- **`--legacy-peer-deps` is required.** Some deps carry stale peer ranges; drop the flag and `npm install` will fail.
 - **Large upload timeouts**: `/api/parse-upload` and `/api/extract-pdf` run synchronously against PyPDF2 — a 500-page PDF can block for ~60s. The proxy's default timeout is 30s, but the SPA side tolerates longer; do not shorten proxy timeouts without verifying upload-heavy flows.
 
 ## When Adding a New Deliverable Type

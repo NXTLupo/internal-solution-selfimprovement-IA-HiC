@@ -21,31 +21,31 @@ chunks:
     key_terms: [college, applyingtocollege, dad, here, colleges, tuition, abroad, career]
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nojllo.md#c1"
-    char_span: [2018, 3056]
+    char_span: [2018, 3055]
     sentence_count: 11
     key_terms: [system, respectable, american, yourself, systems, like, need, type]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nojllo.md#c2"
-    char_span: [3058, 4866]
+    char_span: [3057, 4865]
     sentence_count: 14
     key_terms: [get, something, studies, father, below, maybe, neither-phone-7264, didn]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nojllo.md#c3"
-    char_span: [4868, 6369]
+    char_span: [4867, 6368]
     sentence_count: 12
     key_terms: [need, education, responsible, committed, countries, students, actions, parents]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nojllo.md#c4"
-    char_span: [6371, 8345]
+    char_span: [6370, 8344]
     sentence_count: 12
     key_terms: [college, good, grades, international, countries, yourself, monthly, willing]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1nojllo.md#c5"
-    char_span: [8347, 8509]
+    char_span: [8346, 8508]
     sentence_count: 2
     key_terms: [generously, government, education, possible, abroad, repeat, school, stupid]
     section: Comments

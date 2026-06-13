@@ -7,7 +7,7 @@ industries: [nonprofit]
 status: active
 chunks:
   - id: "industries/nonprofit.md#c0"
-    char_span: [0, 696]
+    char_span: [0, 695]
     sentence_count: 2
     key_terms: [client-uploads, industries, sources, shared, articles, nonprofit, auto-generated, fundraising]
     section: Cross-over verticals (shared sources) / Representative sources

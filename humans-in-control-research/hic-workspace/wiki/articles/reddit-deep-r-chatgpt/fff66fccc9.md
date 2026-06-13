@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/fff66fccc9.md#c0"
-    char_span: [0, 1981]
+    char_span: [0, 1980]
     sentence_count: 17
     key_terms: [chatgpt, voice, please, reddit, conversation, https, image, pause]
-    token_count: 489
+    token_count: 488
   - id: "articles/reddit-deep-r-chatgpt/fff66fccc9.md#c1"
-    char_span: [1983, 3366]
+    char_span: [1982, 3365]
     sentence_count: 18
     key_terms: [voice, use, chatgpt, artemgetman, mode, time, interrupt, without]
     token_count: 345

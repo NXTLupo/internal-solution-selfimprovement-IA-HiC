@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1neer1i.md#c0"
-    char_span: [0, 470]
+    char_span: [0, 469]
     sentence_count: 1
     key_terms: [artificial, comments, sharpkaleidoscope182, creaturefeature16, f0urleafcl0ver, reddit-deep, developers, cavemen]
     token_count: 140

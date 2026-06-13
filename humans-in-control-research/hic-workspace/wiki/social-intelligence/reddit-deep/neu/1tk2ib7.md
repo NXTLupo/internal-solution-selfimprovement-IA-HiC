@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1tk2ib7.md#c0"
-    char_span: [0, 1211]
+    char_span: [0, 1210]
     sentence_count: 6
     key_terms: [opportunities, mba, northeastern, experiences, students, program, honest, international]
-    token_count: 258
+    token_count: 257
 ---
 # Accepted to Northeastern MBA Looking for Honest Reviews & Experiences
 

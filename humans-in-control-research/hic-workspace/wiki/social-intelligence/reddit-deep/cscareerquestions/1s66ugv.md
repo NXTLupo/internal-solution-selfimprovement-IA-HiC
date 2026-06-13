@@ -21,7 +21,7 @@ chunks:
     key_terms: [career, considering, major, cscareerquestions, chances, science, cogsci, hurt]
     token_count: 265
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s66ugv.md#c1"
-    char_span: [1208, 1848]
+    char_span: [1207, 1847]
     sentence_count: 7
     key_terms: [engineering, chances, effective-bee-7004, interdisciplinary, math, tech, randromeda2172, graduation]
     section: Comments

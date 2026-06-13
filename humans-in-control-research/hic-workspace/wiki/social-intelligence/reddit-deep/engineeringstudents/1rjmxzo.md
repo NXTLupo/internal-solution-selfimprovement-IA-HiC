@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineering, mechanical, engineeringstudents, studying, programming, placements, comments, language]
     token_count: 263
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rjmxzo.md#c1"
-    char_span: [1168, 1956]
+    char_span: [1167, 1955]
     sentence_count: 4
     key_terms: [probability, directions, increase, product, far, exponentially, verification, competition]
     section: Comments

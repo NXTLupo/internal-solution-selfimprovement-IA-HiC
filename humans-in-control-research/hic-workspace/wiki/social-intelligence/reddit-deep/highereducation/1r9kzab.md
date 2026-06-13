@@ -26,37 +26,37 @@ chunks:
     key_terms: [requirements, promotion, multiple, promoted, recently, another, applied, friends]
     token_count: 64
   - id: "social-intelligence/reddit-deep/highereducation/1r9kzab.md#c2"
-    char_span: [2483, 4238]
+    char_span: [2482, 4237]
     sentence_count: 13
     key_terms: ["you're", like, pay, university, benefits, internal, probably, higher]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/highereducation/1r9kzab.md#c3"
-    char_span: [4240, 5116]
+    char_span: [4239, 5115]
     sentence_count: 6
     key_terms: ["you're", proving, redact, professorpumpkins, good, job, work, institutional]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/highereducation/1r9kzab.md#c4"
-    char_span: [5118, 6758]
+    char_span: [5117, 6757]
     sentence_count: 16
     key_terms: [director, eventually, experience, technology, advance, higher, hiring, redact]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/highereducation/1r9kzab.md#c5"
-    char_span: [6760, 8741]
+    char_span: [6759, 8740]
     sentence_count: 16
     key_terms: [get, promotions, leadership, positions, tend, financialcry4651, strong, great]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/highereducation/1r9kzab.md#c6"
-    char_span: [8743, 10864]
+    char_span: [8742, 10863]
     sentence_count: 21
     key_terms: [internal, institution, hiring, qualified, hires, get, candidates, experience]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/highereducation/1r9kzab.md#c7"
-    char_span: [10866, 11648]
+    char_span: [10865, 11647]
     sentence_count: 9
     key_terms: [because, system, leave, dean, left, restructured, departments, replacement]
     section: Comments

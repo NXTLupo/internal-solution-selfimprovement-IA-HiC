@@ -18,7 +18,7 @@ industries: [government, policy, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1rtjpza.md#c0"
-    char_span: [0, 991]
+    char_span: [0, 990]
     sentence_count: 7
     key_terms: [government, private, careerguidance, sector, jobs, stability, benefits, comments]
     token_count: 216

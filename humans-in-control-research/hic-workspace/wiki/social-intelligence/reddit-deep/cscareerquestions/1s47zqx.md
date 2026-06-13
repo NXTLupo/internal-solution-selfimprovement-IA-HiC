@@ -21,19 +21,19 @@ chunks:
     key_terms: [cscareerquestions, internships, comments, people, field, ask, jobs, baseballhead6898]
     token_count: 186
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c1"
-    char_span: [803, 2319]
+    char_span: [802, 2318]
     sentence_count: 12
     key_terms: [get, jobs, personal, probably, because, comment, people, worked]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c2"
-    char_span: [2321, 4362]
+    char_span: [2320, 4361]
     sentence_count: 12
     key_terms: [passion, understanding, hard, engineers, building, leetcode, because, making]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s47zqx.md#c3"
-    char_span: [4364, 6268]
+    char_span: [4363, 6267]
     sentence_count: 20
     key_terms: [real, people, years, "it's", instead, degree, taught, over-entertainer4074]
     section: Comments

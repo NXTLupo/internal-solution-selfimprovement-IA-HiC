@@ -18,10 +18,10 @@ industries: [ai_research, saas, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1t4hnuk.md#c0"
-    char_span: [0, 320]
+    char_span: [0, 319]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, exhaustion, pollution, context, massive, claude]
-    token_count: 96
+    token_count: 95
 ---
 # [BUG] Claude Code “Context Pollution” & Massive Token Exhaustion on WSL due to CRLF Churn
 

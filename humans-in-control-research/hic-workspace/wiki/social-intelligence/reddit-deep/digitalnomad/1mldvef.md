@@ -28,43 +28,43 @@ chunks:
     key_terms: [understand, backstory, uprooting, grateful, position, mid-30s, problem, regrets]
     token_count: 88
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c2"
-    char_span: [2315, 3089]
+    char_span: [2314, 3088]
     sentence_count: 11
     key_terms: [people, lot, want, tyler----durden, captainhector1, cost-efficient, furnishings, belongings]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c3"
-    char_span: [3091, 4901]
+    char_span: [3090, 4900]
     sentence_count: 15
     key_terms: [southeast, morrigan613, asia, costa, like, love, move, rica]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c4"
-    char_span: [4903, 7161]
+    char_span: [4902, 7160]
     sentence_count: 16
     key_terms: [southeast, relationships, asia, "you're", generally, people, disappointed, "don't"]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c5"
-    char_span: [7163, 8680]
+    char_span: [7162, 8679]
     sentence_count: 13
     key_terms: [want, probably, like, wherever, friends, living, people, seems]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c6"
-    char_span: [8682, 10407]
+    char_span: [8681, 10406]
     sentence_count: 13
     key_terms: [life, business, back, live, long, take, belongings, something]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c7"
-    char_span: [10409, 12361]
+    char_span: [10408, 12360]
     sentence_count: 16
     key_terms: [years, abroad, since, back, expensive, excited, savings, storage]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1mldvef.md#c8"
-    char_span: [12363, 12649]
+    char_span: [12362, 12648]
     sentence_count: 3
     key_terms: [probability, globally, pandemic, wondered, against, biggest, deleted, "haven't"]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/fd6e9eac23.md#c0"
-    char_span: [0, 1056]
+    char_span: [0, 1055]
     sentence_count: 8
     key_terms: [like, college, money, technically, feel, paycheck, anyone, reddit]
-    token_count: 236
+    token_count: 235
   - id: "articles/reddit-deep-r-college/fd6e9eac23.md#c1"
-    char_span: [1058, 2898]
+    char_span: [1057, 2897]
     sentence_count: 16
     key_terms: [money, experience, "i'm", like, always, because, relaxed, enough]
     token_count: 456

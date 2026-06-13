@@ -21,13 +21,13 @@ chunks:
     key_terms: [internships, market, graduating, operations, comments, school, next, tech]
     token_count: 206
   - id: "social-intelligence/reddit-deep/internships/1tdnjor.md#c1"
-    char_span: [866, 2167]
+    char_span: [865, 2166]
     sentence_count: 13
     key_terms: [experience, resume, every-contact7020, globalcold1117, e1stephano, internship, comments, reddit]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/internships/1tdnjor.md#c2"
-    char_span: [2169, 3652]
+    char_span: [2168, 3651]
     sentence_count: 13
     key_terms: [resume, internships, get, good, "it's", luck, interest, projects]
     section: Comments

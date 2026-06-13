@@ -23,25 +23,25 @@ chunks:
     key_terms: [wallstreetbets, silver, comments, dollars, futures, bought, money, sell]
     token_count: 194
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c1"
-    char_span: [745, 948]
+    char_span: [744, 947]
     sentence_count: 1
     key_terms: [total, submissions, visualmod, comments, previous, account, report, years]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c2"
-    char_span: [950, 2476]
+    char_span: [949, 2475]
     sentence_count: 6
     key_terms: [own-masterpiece5539, discord, futures, trading, swimming-fondant-892, doing, https, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c3"
-    char_span: [2260, 3437]
+    char_span: [2259, 3436]
     sentence_count: 4
     key_terms: [futures, money, buy, lose, contract, xelonima, change, dollar]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pynmxj.md#c4"
-    char_span: [3439, 4281]
+    char_span: [3438, 4280]
     sentence_count: 4
     key_terms: [buy, silver, high, "it's", low, sell, deleted, watercresscontent454]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qo32dm.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qo32dm/do_grad_schools_take_your_undergrad_university/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.586Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qo32dm.md#c0"
+    char_span: [0, 810]
+    sentence_count: 5
+    key_terms: [gpa, gradadmissions, take, york, admissions, comments, account, schools]
+    token_count: 196
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qo32dm.md#c1"
+    char_span: [825, 2723]
+    sentence_count: 5
+    key_terms: [applying, research, canada, school, within, "you're", gpa, rejected]
+    section: Comments
+    token_count: 495
 ---
-
 # Do grad schools take your undergrad university into account for admissions?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qo32dm/do_grad_schools_take_your_undergrad_university/)

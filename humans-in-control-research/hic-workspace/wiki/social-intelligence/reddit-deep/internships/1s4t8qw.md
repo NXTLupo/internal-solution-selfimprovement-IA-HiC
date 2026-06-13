@@ -18,12 +18,12 @@ industries: [financial_services, insurance, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1s4t8qw.md#c0"
-    char_span: [0, 2259]
+    char_span: [0, 2258]
     sentence_count: 3
     key_terms: [development, understanding, business, banking, client, financial, bfsi, support]
-    token_count: 509
+    token_count: 508
   - id: "social-intelligence/reddit-deep/internships/1s4t8qw.md#c1"
-    char_span: [2261, 3910]
+    char_span: [2260, 3909]
     sentence_count: 1
     key_terms: [ability, client, coordination, interactions, financial, solutions, learning, skills]
     token_count: 443

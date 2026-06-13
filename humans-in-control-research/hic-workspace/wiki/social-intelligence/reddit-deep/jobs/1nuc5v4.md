@@ -23,37 +23,37 @@ chunks:
     key_terms: [comments, received, applied, manager, hiring, email, later, day]
     token_count: 119
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c1"
-    char_span: [468, 681]
+    char_span: [467, 680]
     sentence_count: 2
     key_terms: [scam, like, unintelligible, immediate, sentences, suhhhrena, spelling, together]
     section: Comments
     token_count: 63
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c2"
-    char_span: [683, 2548]
+    char_span: [682, 2547]
     sentence_count: 8
     key_terms: [people, scam, want, "it's", job, link, because, english]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c3"
-    char_span: [2312, 3231]
+    char_span: [2311, 3230]
     sentence_count: 2
     key_terms: [needful, giggle, trexgiraffehybrid, team, tonythenetworker, national-ad8416, angusmeatstick, "applicant's"]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c4"
-    char_span: [3233, 3539]
+    char_span: [3232, 3538]
     sentence_count: 2
     key_terms: [delicious-cattletoot, move, ottovonjismarck, understand, lildebb, wanting, accept, chosen]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c5"
-    char_span: [3541, 5277]
+    char_span: [3540, 5276]
     sentence_count: 9
     key_terms: [scam, "it's", like, deleted, amount, indeed, people, sounds]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1nuc5v4.md#c6"
-    char_span: [5001, 6801]
+    char_span: [5000, 6800]
     sentence_count: 10
     key_terms: [scam, scammers, english, immediately, use, malicious, phishing, clients]
     section: Comments

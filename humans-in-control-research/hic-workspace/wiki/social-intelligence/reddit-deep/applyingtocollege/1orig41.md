@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, applyingtocollege, freshman, school, high, "i'm", professors, comments]
     token_count: 254
   - id: "social-intelligence/reddit-deep/applyingtocollege/1orig41.md#c1"
-    char_span: [1129, 2376]
+    char_span: [1128, 2375]
     sentence_count: 6
     key_terms: [freshman, college, apply, graduating, research, already, started, option]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [school, graduate, job, major, get, recommendation, letter, field]
     token_count: 416
   - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c1"
-    char_span: [1771, 2965]
+    char_span: [1770, 2964]
     sentence_count: 11
     key_terms: [nomoremermaids, custodial, mercuryo1, masters, program, overall-register9758, zestyclose-smell4158, bag]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1ti33ix.md#c2"
-    char_span: [2967, 3712]
+    char_span: [2966, 3711]
     sentence_count: 6
     key_terms: [school, grad, pay, recommendation, higher-paying, connections, flexibility, speedydooo]
     section: Comments

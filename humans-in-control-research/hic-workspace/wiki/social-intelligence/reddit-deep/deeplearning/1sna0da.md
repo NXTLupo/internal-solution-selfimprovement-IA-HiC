@@ -23,7 +23,7 @@ chunks:
     key_terms: [reasoning, evolutionary, tree-of-thought, evolved, hand-designed, deeplearning, dags, structures]
     token_count: 473
   - id: "social-intelligence/reddit-deep/deeplearning/1sna0da.md#c1"
-    char_span: [1877, 3848]
+    char_span: [1876, 3847]
     sentence_count: 10
     key_terms: [dags, random, parallelism, call-matched, nodes, node, baselines, branching]
     section: Comments

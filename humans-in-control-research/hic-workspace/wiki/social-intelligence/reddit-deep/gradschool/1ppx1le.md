@@ -23,7 +23,7 @@ chunks:
     key_terms: [deadline, school, funding, respond, application, gradschool, references, reference]
     token_count: 222
   - id: "social-intelligence/reddit-deep/gradschool/1ppx1le.md#c1"
-    char_span: [1065, 1311]
+    char_span: [1064, 1310]
     sentence_count: 2
     key_terms: [autisticrocheter, everything, jarbid16, depends, buffer, period, school, doesn]
     section: Comments

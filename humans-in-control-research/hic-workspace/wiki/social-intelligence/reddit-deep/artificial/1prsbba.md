@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1prsbba.md#c0"
-    char_span: [0, 298]
+    char_span: [0, 297]
     sentence_count: 1
     key_terms: [artificial, comments, development, reddit-deep, yielding, gemini, helper, posted]
-    token_count: 82
+    token_count: 81
 ---
 # Gemini AI yielding sloppy code for Ubuntu development with new helper script
 

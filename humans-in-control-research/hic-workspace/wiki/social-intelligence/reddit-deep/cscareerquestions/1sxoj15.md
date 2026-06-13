@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, interested, recommend, comments, programs, chinese, masters, friend]
     token_count: 194
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sxoj15.md#c1"
-    char_span: [858, 1476]
+    char_span: [857, 1475]
     sentence_count: 3
     key_terms: [commercial-lie8338, year, international, opportunities, requirements, engineering, internships, specializes]
     section: Comments

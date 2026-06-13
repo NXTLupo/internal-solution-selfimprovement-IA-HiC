@@ -28,43 +28,43 @@ chunks:
     key_terms: [experiences, regular, involvement, like, students, courses, through, better]
     token_count: 280
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c2"
-    char_span: [2947, 4164]
+    char_span: [2946, 4163]
     sentence_count: 8
     key_terms: [department, profs, ece, courses, students, comment, getting, student]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c3"
-    char_span: [4166, 5630]
+    char_span: [4165, 5629]
     sentence_count: 10
     key_terms: [students, admissions, automoderator, ece, uwaterloo, further, asking, reddit]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c4"
-    char_span: [5632, 6648]
+    char_span: [5631, 6647]
     sentence_count: 7
     key_terms: [uwaterloo, name, competent, increases, chances, "you're", potential-drag9761, like]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c5"
-    char_span: [6650, 8275]
+    char_span: [6649, 8274]
     sentence_count: 4
     key_terms: [co-op, months, get, good, "it's", job, exclusive, uwaterloo]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c6"
-    char_span: [8277, 10045]
+    char_span: [8276, 10044]
     sentence_count: 7
     key_terms: [research, "it's", co-ops, profs, get, good, graduating, positions]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c7"
-    char_span: [10047, 11833]
+    char_span: [10046, 11832]
     sentence_count: 12
     key_terms: [get, university, related, support, through, co-op, counselling, job]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/uwaterloo/1syjs4d.md#c8"
-    char_span: [11835, 13081]
+    char_span: [11834, 13080]
     sentence_count: 6
     key_terms: [students, school, need, resources, self-care, supports, options, student]
     section: Comments

@@ -15,12 +15,12 @@ industries: [ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/f3eb72b2cc.md#c0"
-    char_span: [0, 2079]
+    char_span: [0, 2078]
     sentence_count: 16
     key_terms: [prompts, layer, negatives, precision, data, hard, roleplay, prompt]
-    token_count: 478
+    token_count: 477
   - id: "articles/reddit-deep-r-deeplearning/f3eb72b2cc.md#c1"
-    char_span: [2081, 3784]
+    char_span: [2080, 3783]
     sentence_count: 13
     key_terms: [prompts, benign, ambiguous, "false", ones, classifier, compliance, legitimate]
     token_count: 349

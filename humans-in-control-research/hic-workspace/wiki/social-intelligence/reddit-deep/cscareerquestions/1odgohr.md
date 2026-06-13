@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, everyone, thinking, mistake, branch, start, did, new]
     token_count: 340
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c1"
-    char_span: [1512, 3445]
+    char_span: [1511, 3444]
     sentence_count: 16
     key_terms: [time, biggest, company, deleted, accidentally, dev, something, college]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c2"
-    char_span: [3447, 5312]
+    char_span: [3446, 5311]
     sentence_count: 16
     key_terms: [company, because, "it's", like, something, yourself, without, branch]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c3"
-    char_span: [5314, 7354]
+    char_span: [5313, 7353]
     sentence_count: 16
     key_terms: [branch, merge, walkslikeaduck08, changes, without, access, review, able]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c4"
-    char_span: [7071, 7694]
+    char_span: [7070, 7693]
     sentence_count: 5
     key_terms: [engineer, process, always, right, etc, appropriate, engineering, incorrectly]
     section: Comments
     token_count: 132
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c5"
-    char_span: [7696, 9991]
+    char_span: [7695, 9990]
     sentence_count: 14
     key_terms: [branch, because, without, prevent, process, devops, review, regardless]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1odgohr.md#c6"
-    char_span: [9993, 11543]
+    char_span: [9992, 11542]
     sentence_count: 11
     key_terms: [branch, changes, mistake, process, deploy, devops, merged, pushed]
     section: Comments

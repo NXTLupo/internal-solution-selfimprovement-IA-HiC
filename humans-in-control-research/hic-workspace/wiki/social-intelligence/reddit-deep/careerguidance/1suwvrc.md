@@ -21,49 +21,49 @@ chunks:
     key_terms: [merchandising, work, looking, careerguidance, life, comments, computer, fashion]
     token_count: 332
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c1"
-    char_span: [1419, 2877]
+    char_span: [1418, 2876]
     sentence_count: 12
     key_terms: [people, hairstylist, good, dovened, looking, become, career, crisis]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c2"
-    char_span: [2879, 4903]
+    char_span: [2878, 4902]
     sentence_count: 19
     key_terms: [work, life, balance, always, event, catering, computer, planning]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c3"
-    char_span: [4638, 6763]
+    char_span: [4637, 6762]
     sentence_count: 25
     key_terms: [getting, creative, being, right, time, work, million, started]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c4"
-    char_span: [6523, 7695]
+    char_span: [6522, 7694]
     sentence_count: 11
     key_terms: [office, brownieandsparky23, like, creative, anyone, people, though, cheeseburgerlover902]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c5"
-    char_span: [7697, 9703]
+    char_span: [7696, 9702]
     sentence_count: 17
     key_terms: [work, get, healthcare, pay, etc, electrical, experience, education]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c6"
-    char_span: [9705, 11759]
+    char_span: [9704, 11758]
     sentence_count: 28
     key_terms: [work, exhausting, co-worker, interactions, complicated, job, jobs, team]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c7"
-    char_span: [11761, 13484]
+    char_span: [11760, 13483]
     sentence_count: 12
     key_terms: [office, job, jobs, work, monotonous, don, people, good]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1suwvrc.md#c8"
-    char_span: [13486, 14708]
+    char_span: [13485, 14707]
     sentence_count: 11
     key_terms: [people, trades, red-dragon186, environment, work, physical, classes, dovened]
     section: Comments

@@ -15,17 +15,17 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/bc6abfa33a.md#c0"
-    char_span: [0, 1794]
+    char_span: [0, 1793]
     sentence_count: 17
     key_terms: [research, papers, gradschool, returning, seriously, thoughts, become, likely]
-    token_count: 417
+    token_count: 416
   - id: "articles/reddit-deep-r-gradschool/bc6abfa33a.md#c1"
-    char_span: [1796, 3651]
+    char_span: [1795, 3650]
     sentence_count: 22
     key_terms: [research, phd, "you're", opportunities, find, job, like, lot]
     token_count: 469
   - id: "articles/reddit-deep-r-gradschool/bc6abfa33a.md#c2"
-    char_span: [3656, 4271]
+    char_span: [3655, 4270]
     sentence_count: 6
     key_terms: ["don't", want, decide, "you're", quit, take, overqualified, experience]
     token_count: 144

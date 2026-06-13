@@ -21,25 +21,25 @@ chunks:
     key_terms: [school, college, lot, high, education, back, "i'm", "don't"]
     token_count: 458
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c1"
-    char_span: [1954, 2094]
+    char_span: [1953, 2093]
     sentence_count: 1
     key_terms: [old-town-guy, traditional, program, either, likely, online, school, ged]
     section: Comments
     token_count: 40
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c2"
-    char_span: [2096, 4387]
+    char_span: [2095, 4386]
     sentence_count: 18
     key_terms: [college, high, test, school, major, ged, get, take]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c3"
-    char_span: [4075, 5566]
+    char_span: [4074, 5565]
     sentence_count: 11
     key_terms: [college, like, sub, situation, required, schedule, courses, school]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/college/1lmvyy8.md#c4"
-    char_span: [5568, 7474]
+    char_span: [5567, 7473]
     sentence_count: 17
     key_terms: [college, community, help, extracurricular, school, good, high, like]
     section: Comments

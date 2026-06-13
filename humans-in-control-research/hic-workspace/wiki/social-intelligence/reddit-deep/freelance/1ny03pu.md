@@ -23,13 +23,13 @@ chunks:
     key_terms: [illustration, illustrator, project, experience, freelance, adobe, thank, photoshop]
     token_count: 464
   - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c1"
-    char_span: [2352, 4240]
+    char_span: [2352, 4239]
     sentence_count: 15
     key_terms: [twine, pay, work, gotten, audio, engineering, pure-ad-821, experience]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/freelance/1ny03pu.md#c2"
-    char_span: [4242, 5841]
+    char_span: [4241, 5840]
     sentence_count: 14
     key_terms: [work, because, undervalue, explained, something, everyone, platform, looking]
     section: Comments

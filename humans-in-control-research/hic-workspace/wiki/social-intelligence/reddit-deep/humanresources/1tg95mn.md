@@ -23,13 +23,13 @@ chunks:
     key_terms: [certification, been, humanresources, comments, little, opportunities, consistently, organization]
     token_count: 206
   - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c1"
-    char_span: [973, 3152]
+    char_span: [972, 3151]
     sentence_count: 18
     key_terms: ["you're", strategically, prove, cert, post, sphr, work, somewhere]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/humanresources/1tg95mn.md#c2"
-    char_span: [3154, 3341]
+    char_span: [3153, 3340]
     sentence_count: 2
     key_terms: [humanresources, automatically, moderators, performed, questions, subreddit, concerns, compose]
     section: Comments

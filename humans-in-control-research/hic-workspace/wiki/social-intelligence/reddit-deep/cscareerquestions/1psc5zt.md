@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1psc5zt/after_10_years_on_h1b_im_moving_my_role_out_of/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,121 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.628Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c0"
+    char_span: [0, 1725]
+    sentence_count: 19
+    key_terms: [cscareerquestions, because, netherlands, h-1b, role, comments, leaving, stopped]
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c1"
+    char_span: [1740, 3366]
+    sentence_count: 8
+    key_terms: [india, green, country, guynext, waiting, people, strawberrywaste9040, years]
+    section: Comments
+    token_count: 432
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c2"
+    char_span: [3368, 5222]
+    sentence_count: 13
+    key_terms: [years, year, meaningless, time, wait, approved, deleted, redact]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c3"
+    char_span: [5224, 6567]
+    sentence_count: 9
+    key_terms: [years, blame, ago, visa, workers, around, turned, "don't"]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c4"
+    char_span: [6571, 8542]
+    sentence_count: 16
+    key_terms: [time, paid, candidates, wages, less, perspective, everyone, finding]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c5"
+    char_span: [8544, 10952]
+    sentence_count: 12
+    key_terms: [companies, overseas, pay, tax, "wouldn't", taxes, perspective, long]
+    section: Comments
+    token_count: 501
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c6"
+    char_span: [10954, 13110]
+    sentence_count: 15
+    key_terms: [abroad, india, company, degrees, coming, accidentally, kinda, engineering]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c7"
+    char_span: [13112, 15147]
+    sentence_count: 12
+    key_terms: [employees, firm, company, verizon, immigration, center, difference, call]
+    section: Comments
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c8"
+    char_span: [15149, 17058]
+    sentence_count: 16
+    key_terms: [netherlands, higher, crime, country, "doesn't", overall, violent, choice]
+    section: Comments
+    token_count: 454
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c9"
+    char_span: [17060, 19026]
+    sentence_count: 12
+    key_terms: [india, country, netherlands, companies, pay, like, domestic, deleted]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c10"
+    char_span: [19028, 20873]
+    sentence_count: 10
+    key_terms: [people, india, country, indian, build, back, takes, schoolbusbebussin]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c11"
+    char_span: [20875, 22716]
+    sentence_count: 10
+    key_terms: [india, country, want, better, good, developing, countries, indians]
+    section: Comments
+    token_count: 427
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c12"
+    char_span: [22718, 24293]
+    sentence_count: 12
+    key_terms: [promise, severe, here, live, corruption, extremism, nightmare, religious]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c13"
+    char_span: [24295, 25769]
+    sentence_count: 13
+    key_terms: [netherlands, deleted, dutch, never, amfonthewestcoast, goal, good, jobs]
+    section: Comments
+    token_count: 338
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c14"
+    char_span: [25771, 27853]
+    sentence_count: 16
+    key_terms: [people, countries, tax, want, "don't", dutch, competitive, get]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c15"
+    char_span: [27855, 29737]
+    sentence_count: 8
+    key_terms: [india, amfonthewestcoast, country, people, immigration, because, working, demand]
+    section: Comments
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c16"
+    char_span: [29739, 31416]
+    sentence_count: 10
+    key_terms: [india, companies, devs, california, community, children, citizens, country]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c17"
+    char_span: [31419, 32471]
+    sentence_count: 5
+    key_terms: [america, problem, agreed, skills, within, found, h1b, h1bs]
+    section: Comments
+    token_count: 276
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1psc5zt.md#c18"
+    char_span: [32473, 33786]
+    sentence_count: 11
+    key_terms: [workers, jobs, tech, companies, american, because, located, people]
+    section: Comments
+    token_count: 318
 ---
-
 # After 10 years on H-1B, I’m moving my role out of the US
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1psc5zt/after_10_years_on_h1b_im_moving_my_role_out_of/)

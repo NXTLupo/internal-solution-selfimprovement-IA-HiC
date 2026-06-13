@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, cscareerquestions, graduate, school, grad, comments, reddit-deep, researccher]
     token_count: 146
   - id: "social-intelligence/reddit-deep/cscareerquestions/1samsse.md#c1"
-    char_span: [583, 886]
+    char_span: [582, 885]
     sentence_count: 2
     key_terms: [glitteringlaw3215, researccher, companies, undergrad, probably, dipping, instead, interns]
     section: Comments

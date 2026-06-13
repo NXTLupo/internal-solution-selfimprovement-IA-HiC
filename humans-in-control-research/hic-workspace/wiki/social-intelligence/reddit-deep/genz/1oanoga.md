@@ -23,19 +23,19 @@ chunks:
     key_terms: [gen-z-feels-financially-insecure-here-s-what-it-means-for-your-credit-choices, feels, credit, money, been, feel, like, everything]
     token_count: 435
   - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c1"
-    char_span: [1908, 3677]
+    char_span: [1907, 3676]
     sentence_count: 7
     key_terms: [enough, money, food, prosperity, resources, anxiety, because, discord]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c2"
-    char_span: [3679, 5748]
+    char_span: [3678, 5747]
     sentence_count: 18
     key_terms: [paycheck, generation, anxiety, "don't", human, learn, like, earning]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/genz/1oanoga.md#c3"
-    char_span: [5750, 6196]
+    char_span: [5749, 6195]
     sentence_count: 3
     key_terms: [gen-z-feels-financially-insecure-here-s-what-it-means-for-your-credit-choices, worse, icycombination8993, blog, gets, effectively, impossible, university]
     section: Comments

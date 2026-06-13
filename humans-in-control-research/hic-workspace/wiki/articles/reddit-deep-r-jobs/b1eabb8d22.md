@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/b1eabb8d22.md#c0"
-    char_span: [0, 1170]
+    char_span: [0, 1169]
     sentence_count: 8
     key_terms: [experience, warehouse, jobs, comments, reddit, clock, entry, loser]
-    token_count: 323
+    token_count: 322
 ---
 # What, if any, jobs are there for introverts with no skills or experience?
 

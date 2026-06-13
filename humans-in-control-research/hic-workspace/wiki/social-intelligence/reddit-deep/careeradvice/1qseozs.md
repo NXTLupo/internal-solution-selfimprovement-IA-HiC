@@ -18,10 +18,10 @@ industries: [ai_research, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1qseozs.md#c0"
-    char_span: [0, 1454]
+    char_span: [0, 1453]
     sentence_count: 13
     key_terms: [direction, web, careeradvice, dev, java, comments, computer, advice]
-    token_count: 332
+    token_count: 331
 ---
 # Unsure about my career direction after graduation (AI vs Web Dev)
 

@@ -23,31 +23,31 @@ chunks:
     key_terms: [the-big-beautiful-bill-could-quietly-undermine-higher-ed-access, gradschool, comments, https, com, www, scholarships, sciencedyogi]
     token_count: 157
   - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c1"
-    char_span: [610, 2448]
+    char_span: [609, 2447]
     sentence_count: 13
     key_terms: [candidates, school, enough, higher, loans, loan, phd, take]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c2"
-    char_span: [2450, 3891]
+    char_span: [2449, 3890]
     sentence_count: 7
     key_terms: [someone, school, loans, poverty, funded, being, mean, med]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c3"
-    char_span: [3893, 6272]
+    char_span: [3892, 6271]
     sentence_count: 17
     key_terms: [tuition, universities, education, educated, lenders, private, state, republicans]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c4"
-    char_span: [5964, 7357]
+    char_span: [5963, 7356]
     sentence_count: 10
     key_terms: [loans, educated, higher, lower-yogurtcloset48, like, loan, clanmcallister, sweergirl86204]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/gradschool/1lxde0b.md#c5"
-    char_span: [7360, 8179]
+    char_span: [7359, 8178]
     sentence_count: 4
     key_terms: [private, tuition, people, loans, life, purplemermaid16, institutions, educational]
     section: Comments

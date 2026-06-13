@@ -23,19 +23,19 @@ chunks:
     key_terms: [essays, clastify, admissions, https, applyingtocollege, admitted, officers, students]
     token_count: 355
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c1"
-    char_span: [1474, 3580]
+    char_span: [1473, 3579]
     sentence_count: 12
     key_terms: [essays, essay, college, afterschool, aos, ones, real, regulation]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c2"
-    char_span: [3582, 5591]
+    char_span: [3581, 5590]
     sentence_count: 10
     key_terms: [essays, applyingtocollege, essay, wiki, please, reddit, automoderator, collegeessays]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qjle81.md#c3"
-    char_span: [5593, 5783]
+    char_span: [5592, 5782]
     sentence_count: 2
     key_terms: [applyingtocollege, automatically, moderators, performed, questions, subreddit, concerns, compose]
     section: Comments

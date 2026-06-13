@@ -21,19 +21,19 @@ chunks:
     key_terms: [marketing, return, offer, internships, recruiting, corporate, comments, consumer]
     token_count: 300
   - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c1"
-    char_span: [1446, 3504]
+    char_span: [1445, 3503]
     sentence_count: 12
     key_terms: [perspective, people, questions, meetings, share, ask, role, show]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c2"
-    char_span: [3506, 5450]
+    char_span: [3505, 5449]
     sentence_count: 25
     key_terms: [intelligence, better, mistake, having, coachability, apply, learn, opportunity]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/internships/1tjwi27.md#c3"
-    char_span: [5452, 6507]
+    char_span: [5451, 6506]
     sentence_count: 11
     key_terms: [yourself, work, qualities, because, return, wallstreetmastermind, "don't", ask]
     section: Comments

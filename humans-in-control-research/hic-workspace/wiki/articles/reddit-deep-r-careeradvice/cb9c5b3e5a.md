@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/cb9c5b3e5a.md#c0"
-    char_span: [0, 1198]
+    char_span: [0, 1197]
     sentence_count: 9
     key_terms: [learning, career, skills, careeradvice, assumptions, new, changes, people]
-    token_count: 266
+    token_count: 265
   - id: "articles/reddit-deep-r-careeradvice/cb9c5b3e5a.md#c1"
-    char_span: [1200, 2171]
+    char_span: [1199, 2170]
     sentence_count: 5
     key_terms: [chatgpt, writing, style, different, posting, bullet, pretty, pitiful-implement610]
     token_count: 254

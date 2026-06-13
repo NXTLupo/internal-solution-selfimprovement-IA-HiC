@@ -41,61 +41,61 @@ chunks:
     key_terms: [university, large, friends, universities, party, fun, attended, hiking]
     token_count: 209
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c5"
-    char_span: [8951, 10422]
+    char_span: [8950, 10421]
     sentence_count: 7
     key_terms: [intelligent-web-8017, berkeley, school, state, like, incredible, students, georgia]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c6"
-    char_span: [10424, 12597]
+    char_span: [10423, 12596]
     sentence_count: 20
     key_terms: [ambitious, students, classes, upper-division, honors, super-duper, classmates, experience]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c7"
-    char_span: [12599, 13215]
+    char_span: [12598, 13214]
     sentence_count: 4
     key_terms: [faculty, admitted, involved, friends, program, school, party, opportunities]
     section: Comments
     token_count: 125
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c8"
-    char_span: [13217, 15433]
+    char_span: [13216, 15432]
     sentence_count: 17
     key_terms: [school, people, smarter, together, college, schools, student, better]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c9"
-    char_span: [15435, 17596]
+    char_span: [15434, 17595]
     sentence_count: 13
     key_terms: [school, state, students, law, experience, schools, opportunities, being]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c10"
-    char_span: [17598, 19412]
+    char_span: [17597, 19411]
     sentence_count: 13
     key_terms: [school, attended, selective, spouse, state, kids, classmates, professors]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c11"
-    char_span: [19414, 21691]
+    char_span: [19413, 21690]
     sentence_count: 13
     key_terms: [schools, because, people, get, like, college, experience, selective]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c12"
-    char_span: [21693, 23376]
+    char_span: [21692, 23375]
     sentence_count: 9
     key_terms: [people, schools, professors, because, school, simply, get, generally]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c13"
-    char_span: [23378, 24340]
+    char_span: [23377, 24339]
     sentence_count: 9
     key_terms: [state, flagship, school, sufficient-ad-5824, clep, took, uni, opportunities]
     section: Comments
     token_count: 233
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ssq3mn.md#c14"
-    char_span: [24342, 25727]
+    char_span: [24341, 25726]
     sentence_count: 4
     key_terms: [happycava, resources, students, schools, agree, state, sufficient-ad-5824, prismcartographer]
     section: Comments

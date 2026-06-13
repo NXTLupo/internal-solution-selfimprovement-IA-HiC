@@ -38,55 +38,55 @@ chunks:
     key_terms: [practically, day, "i'm", apologized, director, because, company, manager]
     token_count: 183
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c4"
-    char_span: [7128, 8117]
+    char_span: [7127, 8116]
     sentence_count: 8
     key_terms: [illegal, employer, manager, refrigeratorhead7126, get, dreadpiratewade, documentation, mudwallholler]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c5"
-    char_span: [8119, 10344]
+    char_span: [8118, 10343]
     sentence_count: 18
     key_terms: [military, because, commitment, employer, characteristics, unless, going, termination]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c6"
-    char_span: [10346, 12169]
+    char_span: [10345, 12168]
     sentence_count: 13
     key_terms: [state, california, terminated, company, email, guard, bubblesfunbubbles, boss]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c7"
-    char_span: [12171, 13365]
+    char_span: [12170, 13364]
     sentence_count: 7
     key_terms: [termination, like, want, contract, wrongful, against, forward, email]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c8"
-    char_span: [13367, 14830]
+    char_span: [13366, 14829]
     sentence_count: 14
     key_terms: [people, position, company, userra, puzzleheaded-web1519, email, proud, ask]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c9"
-    char_span: [14832, 16710]
+    char_span: [14831, 16709]
     sentence_count: 8
     key_terms: [command, longvegetable4102, jag, case, companies, guidance, chain, start]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c10"
-    char_span: [16712, 18781]
+    char_span: [16711, 18780]
     sentence_count: 24
     key_terms: [employment, never, sharkieshadooontt, company, "don't", want, employers, otherwise]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c11"
-    char_span: [18783, 20973]
+    char_span: [18782, 20972]
     sentence_count: 18
     key_terms: [company, illegal, get, good, service, person, doing, military]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1sncxci.md#c12"
-    char_span: [20978, 22670]
+    char_span: [20977, 22669]
     sentence_count: 9
     key_terms: [protections-against-employment-discrimination-service-members-and-veterans, illegal, rather, reason, guard, https, donutadmirable9831, likelegitliterally]
     section: Comments

@@ -28,13 +28,13 @@ chunks:
     key_terms: [japan, international, scholarship, get, want, undergrad, academic, graduate]
     token_count: 301
   - id: "social-intelligence/reddit-deep/college/1ob6qdq.md#c2"
-    char_span: [3515, 5733]
+    char_span: [3514, 5732]
     sentence_count: 19
     key_terms: [bachelor, japan, learning, major, graduate, transfer, credits, general]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/college/1ob6qdq.md#c3"
-    char_span: [5735, 6287]
+    char_span: [5734, 6286]
     sentence_count: 6
     key_terms: [eikaiwa, "i'm", connections, information, something, software, starting, teaching]
     section: Comments

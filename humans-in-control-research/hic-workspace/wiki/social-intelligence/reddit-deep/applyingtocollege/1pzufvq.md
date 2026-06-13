@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pzufvq.md#c0"
-    char_span: [0, 809]
+    char_span: [0, 808]
     sentence_count: 3
     key_terms: [program, applyingtocollege, choice, admission, accepted, comments, boston, campus]
-    token_count: 192
+    token_count: 191
 ---
 # If I get accepted to my top choice NE program, can I change after admission to the second one?
 

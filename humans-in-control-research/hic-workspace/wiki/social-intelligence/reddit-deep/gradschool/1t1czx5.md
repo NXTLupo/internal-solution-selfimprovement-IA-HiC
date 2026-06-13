@@ -23,25 +23,25 @@ chunks:
     key_terms: [meeting, comments, advice, here, gradschool, probably, program, trouble]
     token_count: 325
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c1"
-    char_span: [1387, 3567]
+    char_span: [1386, 3566]
     sentence_count: 20
     key_terms: [field, "don't", dress, work, whatever, wearing, "that's", professional]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c2"
-    char_span: [3569, 5796]
+    char_span: [3568, 5795]
     sentence_count: 17
     key_terms: [people, "i'm", program, school, don, like, time, "true"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c3"
-    char_span: [5516, 5971]
+    char_span: [5515, 5970]
     sentence_count: 5
     key_terms: [people, life, intentionally, communicate, deferential, gatekeepers, mods-begone, discourage]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/gradschool/1t1czx5.md#c4"
-    char_span: [5973, 7013]
+    char_span: [5972, 7012]
     sentence_count: 6
     key_terms: [maybe, here, decides, done, grad, yeah, consequences, expectations]
     section: Comments

@@ -23,85 +23,85 @@ chunks:
     key_terms: [school, applyingtocollege, high, differently, comments, parent, known, character-put8660]
     token_count: 235
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c1"
-    char_span: [1022, 2257]
+    char_span: [1021, 2256]
     sentence_count: 19
     key_terms: [college, "don't", university, teenagers, yourself, perfect, figure, please]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c2"
-    char_span: [2259, 4399]
+    char_span: [2258, 4398]
     sentence_count: 20
     key_terms: [year, school, high, highschool, academics, computer, already, college]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c3"
-    char_span: [4401, 6752]
+    char_span: [4400, 6751]
     sentence_count: 19
     key_terms: [college, school, interests, schools, major, high, life, math]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c4"
-    char_span: [6754, 8312]
+    char_span: [6753, 8311]
     sentence_count: 17
     key_terms: [laundry, social, knows, video, etc, son, take, college]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c5"
-    char_span: [8314, 10325]
+    char_span: [8313, 10324]
     sentence_count: 14
     key_terms: [kids, get, top, laundry, prepare, schools, "aren't", plenty]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c6"
-    char_span: [10327, 11969]
+    char_span: [10326, 11968]
     sentence_count: 22
     key_terms: [good, advice, knows, etc, themselves, college, family, great]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c7"
-    char_span: [11971, 13271]
+    char_span: [11970, 13270]
     sentence_count: 13
     key_terms: [college, school, life, road, resilience, themselves, strengths, another]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c8"
-    char_span: [13274, 15209]
+    char_span: [13273, 15208]
     sentence_count: 12
     key_terms: [kid, aid, college, parents, schools, school, senior, years]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c9"
-    char_span: [15211, 17158]
+    char_span: [15210, 17157]
     sentence_count: 9
     key_terms: [private, school, merit, because, student, citizenships, scholarships, loans]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c10"
-    char_span: [17160, 18963]
+    char_span: [17159, 18962]
     sentence_count: 18
     key_terms: [college, sports, financial, good, competitive, aid, kid, internet]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c11"
-    char_span: [18965, 21084]
+    char_span: [18964, 21083]
     sentence_count: 20
     key_terms: [school, something, classes, spanish, child, coa, year, colleges]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c12"
-    char_span: [21086, 22291]
+    char_span: [21085, 22290]
     sentence_count: 9
     key_terms: [outcome, balance, passion, school, place, find, get, got]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c13"
-    char_span: [22293, 24048]
+    char_span: [22292, 24047]
     sentence_count: 14
     key_terms: [interested, direction, begin, child, let, too, activities, different]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/applyingtocollege/1stolqp.md#c14"
-    char_span: [24050, 25151]
+    char_span: [24049, 25150]
     sentence_count: 8
     key_terms: [tax, college, interest, money, years, jellyfishflaky5634, "i'm", save]
     section: Comments

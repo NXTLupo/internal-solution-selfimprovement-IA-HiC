@@ -23,31 +23,31 @@ chunks:
     key_terms: [reddit, platforms, growth, companies, investing, comments, revenue, market]
     token_count: 254
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c1"
-    char_span: [1048, 3157]
+    char_span: [1047, 3156]
     sentence_count: 14
     key_terms: [reddit, people, internet, monetize, like, real, answers, believe]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c2"
-    char_span: [3159, 5134]
+    char_span: [3158, 5133]
     sentence_count: 11
     key_terms: [reddit, redditstock, getting, worse, people, https, com, www]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c3"
-    char_span: [5136, 6248]
+    char_span: [5135, 6247]
     sentence_count: 9
     key_terms: [point, because, revenue, anonymoustimewaster, equivalent-oil-3692, price, livinghighandwise, year3000stankonia]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c4"
-    char_span: [6250, 8048]
+    char_span: [6249, 8047]
     sentence_count: 7
     key_terms: [redditstock, reddit, wolfsbaneviking, growth, manipulation, https, com, risk]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/investing/1s5xuxw.md#c5"
-    char_span: [8050, 8414]
+    char_span: [8049, 8413]
     sentence_count: 4
     key_terms: [assumptions, willingness, permanent, realistic, temporary, analysis, anything, drawdown]
     section: Comments

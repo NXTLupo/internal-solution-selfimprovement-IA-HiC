@@ -7,7 +7,7 @@ industries: [education]
 status: active
 chunks:
   - id: "industries/education.md#c0"
-    char_span: [0, 785]
+    char_span: [0, 784]
     sentence_count: 2
     key_terms: [industries, sources, shared, social-intelligence, reddit-deep, careerguidance, reddit-deep-r-applyingtocollege, education]
     section: Cross-over verticals (shared sources) / Representative sources

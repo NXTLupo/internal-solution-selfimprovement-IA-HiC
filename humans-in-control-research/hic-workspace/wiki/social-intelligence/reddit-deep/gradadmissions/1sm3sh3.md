@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1sm3sh3.md#c0"
-    char_span: [0, 911]
+    char_span: [0, 910]
     sentence_count: 7
     key_terms: [iscte, gradadmissions, international, comments, studies, decide, honest, lisbon]
-    token_count: 206
+    token_count: 205
 ---
 # Master's in developmental studies
 

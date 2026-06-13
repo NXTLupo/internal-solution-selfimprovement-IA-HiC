@@ -21,61 +21,61 @@ chunks:
     key_terms: [firstofhername, students, professor, mrs, please, call, part, tell]
     token_count: 384
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c1"
-    char_span: [1569, 3376]
+    char_span: [1568, 3375]
     sentence_count: 11
     key_terms: [gittafirstofhername, hey, student, breaksformoose, been, sweetheart, "couldn't", laughing]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c2"
-    char_span: [3378, 4264]
+    char_span: [3377, 4263]
     sentence_count: 7
     key_terms: [name, mynameisnotjennifer1, mrs, unpronounceable, ladyoftallness, international, one-thousand, particularly]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c3"
-    char_span: [4266, 5734]
+    char_span: [4265, 5733]
     sentence_count: 8
     key_terms: [students, address, deroxal, explanation, questions, question, semester, someone]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c4"
-    char_span: [5736, 7832]
+    char_span: [5735, 7831]
     sentence_count: 16
     key_terms: [students, "don't", use, tried, high, politeness, argument, semester]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c5"
-    char_span: [7557, 8556]
+    char_span: [7556, 8555]
     sentence_count: 6
     key_terms: [professor, students, yourself, school, high, westhistorians, professional, specifically]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c6"
-    char_span: [8558, 9528]
+    char_span: [8557, 9527]
     sentence_count: 5
     key_terms: [women, call, honorifics, students, because, either, favors, gittafirstofhername]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c7"
-    char_span: [9530, 11583]
+    char_span: [9529, 11582]
     sentence_count: 22
     key_terms: [disrespectful, whatever, trying, gittafirstofhername, mrs, called, doctor, "it's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c8"
-    char_span: [11290, 11761]
+    char_span: [11289, 11760]
     sentence_count: 5
     key_terms: [usually, called, prof, equivalentno138, disrespectful, especially, pointedly, preferred]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c9"
-    char_span: [11763, 13707]
+    char_span: [11762, 13706]
     sentence_count: 15
     key_terms: [mrs, name, professor, firstofhername, disrespectful, gittafirstofhername, "i'm", "it's"]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/professors/1qw11gf.md#c10"
-    char_span: [13709, 15233]
+    char_span: [13708, 15232]
     sentence_count: 9
     key_terms: [mrs, professor, students, semester, deleted, coming, electronic-shame9473, fabulously-unwealthy]
     section: Comments

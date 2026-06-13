@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, research, whether, year, comments, learning, applied, backend]
     token_count: 267
   - id: "social-intelligence/reddit-deep/internships/1qpyrui.md#c1"
-    char_span: [1190, 1972]
+    char_span: [1189, 1971]
     sentence_count: 5
     key_terms: [appropriate-tutor587, applications, absurd, summer, apply, willing-shoe-5088, armadillotop2003, trashyzedmain]
     section: Comments

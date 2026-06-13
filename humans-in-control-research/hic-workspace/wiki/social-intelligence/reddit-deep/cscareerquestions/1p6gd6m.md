@@ -21,13 +21,13 @@ chunks:
     key_terms: [cscareerquestions, pick, comments, current, role, specialization, cybersecurity, development]
     token_count: 180
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p6gd6m.md#c1"
-    char_span: [766, 2788]
+    char_span: [765, 2787]
     sentence_count: 17
     key_terms: [cloud, tonytheevil, network, devops, manage, neomalytrix, cicd, good]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p6gd6m.md#c2"
-    char_span: [2790, 4875]
+    char_span: [2789, 4874]
     sentence_count: 13
     key_terms: [software, data, company, devops, development, management, networking, business]
     section: Comments

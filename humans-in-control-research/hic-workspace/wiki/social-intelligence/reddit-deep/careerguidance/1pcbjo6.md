@@ -23,7 +23,7 @@ chunks:
     key_terms: [feel, college, careerguidance, career, don, get, comments, student]
     token_count: 355
   - id: "social-intelligence/reddit-deep/careerguidance/1pcbjo6.md#c1"
-    char_span: [1496, 2727]
+    char_span: [1495, 2726]
     sentence_count: 9
     key_terms: [looking, like, career, since, no-assumption4145, find, fit, tech]
     section: Comments

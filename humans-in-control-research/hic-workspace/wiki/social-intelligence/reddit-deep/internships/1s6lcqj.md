@@ -11,11 +11,9 @@ score: 5
 upvote_ratio: 0.86
 num_comments: 8
 flair: "General"
-extracted_at: "2026-05-23T12:15:55.811Z"
+extracted_at: "2026-06-08T17:32:14.347Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive co-op strategy for Northeastern University (NU) focused on maximizing meaningful experiential learning opportunities for learners across the entire student lifecycle, from pre-enrollment through graduate school. The strategy should integrate leading industry engagement tactics and best practices."
-industries: [higher_ed, workforce]
-industry_method: llm
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1s6lcqj.md#c0"
     char_span: [0, 750]

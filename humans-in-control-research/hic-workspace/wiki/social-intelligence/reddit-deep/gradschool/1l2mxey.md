@@ -23,31 +23,31 @@ chunks:
     key_terms: [immediately, school, undergrad, back, did, get, pay, gradschool]
     token_count: 278
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c1"
-    char_span: [1182, 3161]
+    char_span: [1181, 3160]
     sentence_count: 16
     key_terms: [didn, masters, phd, went, deleted, wanted, right, bit]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c2"
-    char_span: [3163, 4544]
+    char_span: [3162, 4543]
     sentence_count: 10
     key_terms: [school, work, masters, experience, undergrad, straight, burned, paying]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c3"
-    char_span: [4546, 6515]
+    char_span: [4545, 6514]
     sentence_count: 14
     key_terms: [undergrad, back, school, years, immediately, did, teagana999, deferring]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c4"
-    char_span: [6274, 7064]
+    char_span: [6273, 7063]
     sentence_count: 6
     key_terms: [undergrad, college, working, dysthymicmanufacture, years, feel, xpadawanryan, university]
     section: Comments
     token_count: 195
   - id: "social-intelligence/reddit-deep/gradschool/1l2mxey.md#c5"
-    char_span: [7066, 8439]
+    char_span: [7065, 8438]
     sentence_count: 9
     key_terms: [undergrad, "master's", school, grad, directly, people, life, phd]
     section: Comments

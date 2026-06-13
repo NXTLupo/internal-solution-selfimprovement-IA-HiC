@@ -38,49 +38,49 @@ chunks:
     key_terms: [life, time, feel, people, bit, "i'm", "it's", like]
     token_count: 359
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c4"
-    char_span: [6995, 8615]
+    char_span: [6994, 8614]
     sentence_count: 17
     key_terms: [life, thoughts, deeper, relationships, find, journaling, question, mission]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c5"
-    char_span: [8617, 10556]
+    char_span: [8616, 10555]
     sentence_count: 24
     key_terms: ["you're", job, "don't", maybe, life, achievement, good, "i'm"]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c6"
-    char_span: [10558, 12114]
+    char_span: [10557, 12113]
     sentence_count: 17
     key_terms: [life, people, find, give, like, work, question, problem]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c7"
-    char_span: [12116, 14228]
+    char_span: [12115, 14227]
     sentence_count: 19
     key_terms: [company, different, "i'm", work, feeling, transformative, right, opportunity]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c8"
-    char_span: [14230, 16484]
+    char_span: [14229, 16483]
     sentence_count: 27
     key_terms: [work, years, life, around, office, relationships, technological, moved]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c9"
-    char_span: [16486, 18709]
+    char_span: [16485, 18708]
     sentence_count: 21
     key_terms: ["i'm", like, job, people, topics, feel, started, okimreloaded]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c10"
-    char_span: [18711, 20848]
+    char_span: [18710, 20847]
     sentence_count: 19
     key_terms: [like, feels, work, less, low, corporate, lifestyle, something]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1tlg7ou.md#c11"
-    char_span: [20852, 21905]
+    char_span: [20851, 21904]
     sentence_count: 8
     key_terms: ["you're", achieve, outside, similar, advice, good, want, work]
     section: Comments

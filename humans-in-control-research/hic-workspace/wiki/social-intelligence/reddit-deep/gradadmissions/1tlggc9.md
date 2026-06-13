@@ -23,19 +23,19 @@ chunks:
     key_terms: [applicants, undergrad, gradadmissions, school, grad, admissions, comments, people]
     token_count: 223
   - id: "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c1"
-    char_span: [1069, 1962]
+    char_span: [1068, 1961]
     sentence_count: 6
     key_terms: [process, admissions, different, scattered, undergrad, require, "there's", school]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c2"
-    char_span: [1964, 4194]
+    char_span: [1963, 4193]
     sentence_count: 15
     key_terms: [admissions, grad, applicants, different, process, phdadmissions, field, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1tlggc9.md#c3"
-    char_span: [3963, 4469]
+    char_span: [3962, 4468]
     sentence_count: 5
     key_terms: [everything, feeling, alone, grad, valuablefood9879, proofleast9846, phdadmissions, dadmissions]
     section: Comments

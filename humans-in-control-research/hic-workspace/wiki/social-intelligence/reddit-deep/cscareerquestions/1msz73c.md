@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, masters, skills, age, here, bachelors, corporate, believes]
     token_count: 289
   - id: "social-intelligence/reddit-deep/cscareerquestions/1msz73c.md#c1"
-    char_span: [1222, 1611]
+    char_span: [1221, 1610]
     sentence_count: 3
     key_terms: [programming, underemployment, specialization, opportunities, considering, emptisense, subfields, graphics]
     section: Comments

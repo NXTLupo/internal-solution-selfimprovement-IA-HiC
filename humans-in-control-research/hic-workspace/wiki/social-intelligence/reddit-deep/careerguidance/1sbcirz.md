@@ -21,67 +21,67 @@ chunks:
     key_terms: [something, careerguidance, like, work, understand, anything, comments, quietly]
     token_count: 396
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c1"
-    char_span: [1687, 3444]
+    char_span: [1686, 3443]
     sentence_count: 9
     key_terms: [something, quesomehungry, money, solutions, decimate, tweaking, because, claude]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c2"
-    char_span: [3446, 5621]
+    char_span: [3445, 5620]
     sentence_count: 11
     key_terms: [management, valuable, faster, inventory, automate, starting, chatgpt, getting]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c3"
-    char_span: [5623, 7065]
+    char_span: [5622, 7064]
     sentence_count: 12
     key_terms: [agents, vendors, transcriptions, reviewing, summaries, doctors, doing, use]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c4"
-    char_span: [7067, 8978]
+    char_span: [7066, 8977]
     sentence_count: 10
     key_terms: [doctor, been, critique, mistakes, because, medical, suspicious-walk-4854, scary]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c5"
-    char_span: [8980, 11155]
+    char_span: [8979, 11154]
     sentence_count: 17
     key_terms: [use, colonelcomicsansders, kummer5peck, proprietary, work, companies, employers, workflows]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c6"
-    char_span: [10826, 12185]
+    char_span: [10825, 12184]
     sentence_count: 9
     key_terms: [use, start, don, good, need, work, bigfoottundra, snappermaster]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c7"
-    char_span: [12187, 14186]
+    char_span: [12186, 14185]
     sentence_count: 15
     key_terms: [going, because, "it's", bubble, jobs, lot, replace, use]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c8"
-    char_span: [14188, 16399]
+    char_span: [14187, 16398]
     sentence_count: 20
     key_terms: [like, technology, "it's", understand, able, working, people, "can't"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c9"
-    char_span: [16402, 18528]
+    char_span: [16401, 18527]
     sentence_count: 15
     key_terms: [data, learning, "it's", machine, science, lot, better, code]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c10"
-    char_span: [18530, 20171]
+    char_span: [18529, 20170]
     sentence_count: 11
     key_terms: [projects, work, time, replaced, methods, sounds, speed, find]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/careerguidance/1sbcirz.md#c11"
-    char_span: [20173, 21282]
+    char_span: [20172, 21281]
     sentence_count: 7
     key_terms: [workers, better, code, use, administrative, virtual-ducks, crazygal2121, diamond-d0g]
     section: Comments

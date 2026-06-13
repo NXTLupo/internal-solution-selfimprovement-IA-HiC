@@ -23,25 +23,25 @@ chunks:
     key_terms: [cscareerquestions, big, tech, experience, comments, market, "how's", years]
     token_count: 154
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c1"
-    char_span: [590, 2220]
+    char_span: [589, 2219]
     sentence_count: 12
     key_terms: [better, reaching, ecethrowaway01, got, interviews, personally, recruiters, april-may]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c2"
-    char_span: [2222, 4203]
+    char_span: [2221, 4202]
     sentence_count: 11
     key_terms: [leetcode, get, planb2019, design, system, yoe, interview, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c3"
-    char_span: [3959, 5049]
+    char_span: [3958, 5048]
     sentence_count: 2
     key_terms: [work, yoe, leetcode, question, the-original-spuggy, bad, last, nice]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pe1ne1.md#c4"
-    char_span: [5051, 6785]
+    char_span: [5050, 6784]
     sentence_count: 11
     key_terms: [interviews, start, applying, cold, recruiters, companies, interview, because]
     section: Comments

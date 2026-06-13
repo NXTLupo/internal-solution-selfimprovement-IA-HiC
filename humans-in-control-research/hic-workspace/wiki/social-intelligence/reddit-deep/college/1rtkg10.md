@@ -26,25 +26,25 @@ chunks:
     key_terms: [like, "don't", family, get, "it's", "they're", change, people]
     token_count: 251
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c2"
-    char_span: [2754, 4063]
+    char_span: [2753, 4062]
     sentence_count: 11
     key_terms: [independent, learn, want, elsewhere, anyways, because, "they're", working]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c3"
-    char_span: [4065, 5295]
+    char_span: [4064, 5294]
     sentence_count: 7
     key_terms: [college, own, experience, hometown, country, friends, school, doing]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c4"
-    char_span: [5297, 7254]
+    char_span: [5296, 7253]
     sentence_count: 19
     key_terms: [college, experience, having, school, years, university, otherwise, married]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/college/1rtkg10.md#c5"
-    char_span: [7256, 8863]
+    char_span: [7255, 8862]
     sentence_count: 7
     key_terms: [experience, friends, family, away, university, hometown, transfer, living]
     section: Comments

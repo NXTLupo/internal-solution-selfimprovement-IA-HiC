@@ -28,31 +28,31 @@ chunks:
     key_terms: [credit, everyone, become, thanks, cards, cut, huge, difference]
     token_count: 184
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c2"
-    char_span: [2793, 4496]
+    char_span: [2792, 4495]
     sentence_count: 9
     key_terms: [credit, cards, card, score, getting, cancel, worse, debt]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c3"
-    char_span: [4498, 5626]
+    char_span: [4497, 5625]
     sentence_count: 11
     key_terms: [credit, score, accounts, typical-pollution459, cards, close, keep, utilization]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c4"
-    char_span: [5628, 7646]
+    char_span: [5627, 7645]
     sentence_count: 15
     key_terms: [credit, score, card, use, access, freeze, "don't", using]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c5"
-    char_span: [7648, 9581]
+    char_span: [7647, 9580]
     sentence_count: 14
     key_terms: [credit, cards, comments, impact, reddit, https, com, personalfinance]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/personalfinance/1s1nmb4.md#c6"
-    char_span: [9583, 10949]
+    char_span: [9582, 10948]
     sentence_count: 15
     key_terms: [credit, cards, score, important, accounts, without, cancel, db-cooperonthebeach]
     section: Comments

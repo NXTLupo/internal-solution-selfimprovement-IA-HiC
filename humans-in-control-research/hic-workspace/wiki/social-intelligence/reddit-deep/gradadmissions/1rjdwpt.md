@@ -23,31 +23,31 @@ chunks:
     key_terms: [transcripts, official, bachelors, gradadmissions, "don't", application, add, completely]
     token_count: 344
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c1"
-    char_span: [1575, 2841]
+    char_span: [1574, 2840]
     sentence_count: 9
     key_terms: [understand, roseflowerpetals, velcrodynamite, school, therainbowconnection, hungryhippopotami12, found, thank]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c2"
-    char_span: [2843, 5058]
+    char_span: [2842, 5057]
     sentence_count: 18
     key_terms: [transcripts, email, explained, like, fine-lemon-4114, did, resistance, something]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c3"
-    char_span: [5060, 6831]
+    char_span: [5059, 6830]
     sentence_count: 12
     key_terms: [university, documentation, admissions, official, possible, emails, person, therainbowconnection]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c4"
-    char_span: [6833, 8616]
+    char_span: [6832, 8615]
     sentence_count: 10
     key_terms: [system, being, application, transcripts, here, something, calling, getting]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/gradadmissions/1rjdwpt.md#c5"
-    char_span: [8618, 10207]
+    char_span: [8617, 10206]
     sentence_count: 8
     key_terms: [university, transcripts, like, something, official, country, school, being]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [instructional, design, hiring, designers, highereducation, advice, anyone, higher]
     token_count: 345
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c1"
-    char_span: [1880, 2393]
+    char_span: [1879, 2392]
     sentence_count: 3
     key_terms: [instructional, designer, accessibility, technologist, competition, consulting, experience, education]
     section: Comments
     token_count: 106
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c2"
-    char_span: [2395, 4561]
+    char_span: [2394, 4560]
     sentence_count: 16
     key_terms: [tornforshrek, sponsorship, experience, need, work, definitely, university, position]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c3"
-    char_span: [4320, 4706]
+    char_span: [4319, 4705]
     sentence_count: 5
     key_terms: [mundanehuckleberry58, supersaturated, tornforshrek, absolutely, experience, interviews, confident, positions]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c4"
-    char_span: [4708, 4877]
+    char_span: [4707, 4876]
     sentence_count: 1
     key_terms: [emphasizing, candidates, experience, learning, teaching, general, couple, higher]
     section: Comments
     token_count: 33
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c5"
-    char_span: [4879, 6919]
+    char_span: [4878, 6918]
     sentence_count: 12
     key_terms: [tornforshrek, look, jobs, associate, recommend, benefits, willing, higher]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/highereducation/1rrztqs.md#c6"
-    char_span: [6921, 7686]
+    char_span: [6920, 7685]
     sentence_count: 7
     key_terms: [university, brandeis, boston, work, tornforshrek, institution, prestigious, healthcare]
     section: Comments

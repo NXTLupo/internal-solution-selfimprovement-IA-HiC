@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, marketing, comments, opportunities, immediately, reddit-deep, internship, tomorrow]
     token_count: 130
   - id: "social-intelligence/reddit-deep/internships/1szwsik.md#c1"
-    char_span: [500, 854]
+    char_span: [499, 853]
     sentence_count: 1
     key_terms: [help, universities, deadlines, mountlh75, agencies, anything, linkedin, offering]
     section: Comments

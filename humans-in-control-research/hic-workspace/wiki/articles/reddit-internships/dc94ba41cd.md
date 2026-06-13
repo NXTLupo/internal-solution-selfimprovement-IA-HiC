@@ -15,10 +15,10 @@ industries: [workforce, higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-internships/dc94ba41cd.md#c0"
-    char_span: [0, 1904]
+    char_span: [0, 1903]
     sentence_count: 15
     key_terms: [com, youtube, http, interviews, https, case, leetcode, learned]
-    token_count: 439
+    token_count: 438
 ---
 # Got an offer today, still can’t believe it!
 

@@ -21,49 +21,49 @@ chunks:
     key_terms: [product, cscareerquestions, student, early-career, comments, shipping, signal, strong]
     token_count: 338
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c1"
-    char_span: [1421, 3128]
+    char_span: [1420, 3127]
     sentence_count: 12
     key_terms: [screening, getting, resume, calls, roles, entry-level, "i'm", past]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c2"
-    char_span: [3130, 5141]
+    char_span: [3129, 5140]
     sentence_count: 15
     key_terms: [experience, trooped, resume, "it's", job, put, internship, profession]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c3"
-    char_span: [5143, 7475]
+    char_span: [5142, 7474]
     sentence_count: 19
     key_terms: [users, interview, good, project, app, "it's", successful, something]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c4"
-    char_span: [7477, 9783]
+    char_span: [7476, 9782]
     sentence_count: 19
     key_terms: [project, something, "i'm", like, got, experience, successful, hackathon]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c5"
-    char_span: [9785, 12015]
+    char_span: [9784, 12014]
     sentence_count: 8
     key_terms: [resume, experience, problem, interviewers, "i've", interested, interviews, getting]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c6"
-    char_span: [12017, 14201]
+    char_span: [12016, 14200]
     sentence_count: 15
     key_terms: [question, interview, poke, being, going, app, negatively, customers]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c7"
-    char_span: [14203, 16392]
+    char_span: [14202, 16391]
     sentence_count: 8
     key_terms: [system, projects, android, secure, communication, application, implemented, user]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ohffgc.md#c8"
-    char_span: [16394, 18357]
+    char_span: [16393, 18356]
     sentence_count: 18
     key_terms: [resume, education, "it's", summary, years, good, top, leadership]
     section: Comments

@@ -18,7 +18,7 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rr2vtd.md#c0"
-    char_span: [0, 360]
+    char_span: [0, 359]
     sentence_count: 1
     key_terms: [anthropic, comments, reddit-deep, dsolo01, minutes, prompts, claude, posted]
     token_count: 112

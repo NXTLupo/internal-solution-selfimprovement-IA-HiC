@@ -18,7 +18,7 @@ industries: [workforce, ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1oz6ne8.md#c0"
-    char_span: [0, 1010]
+    char_span: [0, 1009]
     sentence_count: 7
     key_terms: [recruiting, recruiter, careeradvice, learn, recruitment, data, sql, tech]
     token_count: 266

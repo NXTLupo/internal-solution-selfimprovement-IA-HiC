@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, fall, comments, getting, coffee, summer, chats, gap]
     token_count: 247
   - id: "social-intelligence/reddit-deep/internships/1t7lt4l.md#c1"
-    char_span: [983, 1886]
+    char_span: [982, 1885]
     sentence_count: 6
     key_terms: [smaller, later, ask, mid, no-office-8830, dealbreaker, dialsoapbox, involvement]
     section: Comments

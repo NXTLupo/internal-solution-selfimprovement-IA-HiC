@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, professional, internship, comments, requires, credit, richbeautiful5156, don]
     token_count: 138
   - id: "social-intelligence/reddit-deep/college/1pueejh.md#c1"
-    char_span: [646, 1621]
+    char_span: [645, 1620]
     sentence_count: 5
     key_terms: [advisor, internships, either, randomacademaniac, head, international, chocokissses, independent]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [remote, find, work, english, ontario, workonline, comments, anyone]
     token_count: 324
   - id: "social-intelligence/reddit-deep/workonline/1p5pd3b.md#c1"
-    char_span: [1427, 1704]
+    char_span: [1426, 1703]
     sentence_count: 2
     key_terms: [find, transcription, flaminggnats, companies, reporters, vivekaj12, american, anything]
     section: Comments

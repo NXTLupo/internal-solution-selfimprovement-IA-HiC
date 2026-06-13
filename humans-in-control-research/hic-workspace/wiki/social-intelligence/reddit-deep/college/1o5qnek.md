@@ -23,31 +23,31 @@ chunks:
     key_terms: [college, necessities, budgeting, wondering, comments, working, money, spend]
     token_count: 197
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c1"
-    char_span: [792, 1030]
+    char_span: [791, 1029]
     sentence_count: 2
     key_terms: [contribute, devaluing, investing, something, currency, research, looking, sitting]
     section: Comments
     token_count: 55
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c2"
-    char_span: [1032, 2913]
+    char_span: [1031, 2912]
     sentence_count: 9
     key_terms: [budget, dear-fig-3728, money, month, spend, groceries, fun, always]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c3"
-    char_span: [2915, 4291]
+    char_span: [2914, 4290]
     sentence_count: 13
     key_terms: [money, month, spend, get, allowance, beginning, spending, together]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c4"
-    char_span: [4293, 6247]
+    char_span: [4292, 6246]
     sentence_count: 19
     key_terms: [like, etc, food, week, month, eat, groceries, otherwise]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1o5qnek.md#c5"
-    char_span: [6249, 6750]
+    char_span: [6248, 6749]
     sentence_count: 4
     key_terms: [figure, fun, half, savings, going, rainy, split, day]
     section: Comments

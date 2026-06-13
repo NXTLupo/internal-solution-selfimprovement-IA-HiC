@@ -1,0 +1,13 @@
+Topic 5 - Content Sample
+Number of content items: 17
+Top words: ira, roth, vanguard, taxes, rmd, roth ira, account
+
+Content 1 (length: 176 chars):
+This is what it currently shows on vanguard. On the “rollover IRA” account I clicked on convert to Roth IRA, and it transferred the money over to my Roth. I did this yesterday.
+
+Content 2 (length: 527 chars):
+Total contributions Roth Am I right in thinking that Vanguard does NOT keep track of your total contributions in a Roth?  AND you can withdraw contributions at any time.  But you have to track your own contributions in order to only withdraw up to that amount prior to retirement age?  I'm planning to make a withdrawal (this is not my primary retirement account), and the nice folks at Vanguard said they don't track this.  Doesn't it have huge tax implications?  It seems odd that it's all on us if it has tax implications...
+
+Content 3 (length: 856 chars):
+I need to take out all the money from my vanguard investments for something. I only have about $15k and am 30. I plan to restart after what I got to do. I know I'll be taxed on it. How does getting taxed on it work? Will the tax automatically reduce the total amount before i withdraw my money or will it hit me in my returns when i file taxes at the beginning of the Year?  If you withdraw your contributions from your Roth IRA there is no tax liability. Say you have contributed $21,000 over the years and it has grown to $26,000. You can withdraw $21,000, leave $5,000 -- no tax liability and no penalty. If you withdraw all of it, you should be able to have Vanguard withhold whatever percentage you want for both federal and state taxes (and the 10% penalty). You are responsible for keeping track of how much of your account is contribution vs gains.
+

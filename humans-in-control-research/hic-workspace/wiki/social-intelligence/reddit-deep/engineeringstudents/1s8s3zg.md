@@ -21,37 +21,37 @@ chunks:
     key_terms: [terminated, engineeringstudents, sites, comments, pirating, emailed, advice, entire]
     token_count: 347
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8s3zg.md#c1"
-    char_span: [1570, 3596]
+    char_span: [1569, 3595]
     sentence_count: 15
     key_terms: [information, salary, ncflying, account, service, freeze, organizations, participates]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8s3zg.md#c2"
-    char_span: [3598, 5556]
+    char_span: [3597, 5555]
     sentence_count: 20
     key_terms: [verification, company, work, because, infamous-goose-5370, employer, device, salary]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8s3zg.md#c3"
-    char_span: [5558, 7653]
+    char_span: [5557, 7652]
     sentence_count: 19
     key_terms: [work, company, risk, websites, clicked, machine, sketchy, friend]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8s3zg.md#c4"
-    char_span: [7656, 9441]
+    char_span: [7655, 9440]
     sentence_count: 10
     key_terms: [company, anything, laptop, gravitymyguy, duhhh, leave, keep, especially]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8s3zg.md#c5"
-    char_span: [9443, 11598]
+    char_span: [9442, 11597]
     sentence_count: 12
     key_terms: [device, personal, pirating, "it's", company, people, work-managed, never]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s8s3zg.md#c6"
-    char_span: [11600, 12561]
+    char_span: [11599, 12560]
     sentence_count: 8
     key_terms: [use, company, advice, device, "don't", attachments, personal, stopped]
     section: Comments

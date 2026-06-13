@@ -1,0 +1,26 @@
+{
+  "1njlpgn": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.28345319628715515
+  },
+  "1t10k64": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.5189311131834984
+  },
+  "1ry15xi": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.14594320207834244
+  },
+  "1rehpc6": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.21639657020568848
+  },
+  "1qqodhr": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.4538145810365677
+  },
+  "1qplyh1": {
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.07157297432422638
+  }
+}

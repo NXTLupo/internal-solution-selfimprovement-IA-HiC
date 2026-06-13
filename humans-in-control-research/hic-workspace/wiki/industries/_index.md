@@ -5,10 +5,10 @@ type: industry
 updated: 2026-05-29
 chunks:
   - id: "industries/_index.md#c0"
-    char_span: [0, 1036]
+    char_span: [0, 1035]
     sentence_count: 1
     key_terms: [industries, sources, vertical, sustainability, manufacturing, multi-valued, fundraising, cross-over]
-    token_count: 329
+    token_count: 328
 ---
 # Industries
 

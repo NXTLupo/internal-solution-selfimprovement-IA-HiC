@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1oyfyxv.md#c0"
-    char_span: [0, 1194]
+    char_span: [0, 1193]
     sentence_count: 9
     key_terms: [development, careerguidance, learn, stack, freelancing, full, web, comments]
-    token_count: 291
+    token_count: 290
 ---
 # Should I learn AI/ML or Full Stack Web Development at 15? Need career advice.
 

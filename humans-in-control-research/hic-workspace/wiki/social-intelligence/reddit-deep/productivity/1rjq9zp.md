@@ -23,31 +23,31 @@ chunks:
     key_terms: [productivity, list, everything, comments, systems, people, keeps, start]
     token_count: 250
   - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c1"
-    char_span: [1114, 1944]
+    char_span: [1113, 1943]
     sentence_count: 3
     key_terms: [balls, ones, deanrocket, everything, legitimate-owl-8643, glass, extrovert-actuary, hard]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c2"
-    char_span: [1946, 3912]
+    char_span: [1945, 3911]
     sentence_count: 9
     key_terms: [cameheretosaythis213, like, deanrocket, productivity, get, new, growing, reading]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c3"
-    char_span: [3914, 4310]
+    char_span: [3913, 4309]
     sentence_count: 9
     key_terms: [finish, never, start, pie, todo, work, productivity, accomplish]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c4"
-    char_span: [4312, 6296]
+    char_span: [4311, 6295]
     sentence_count: 11
     key_terms: [deanrocket, list, todo, interestingnose6486, doing, tasks, like, part]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/productivity/1rjq9zp.md#c5"
-    char_span: [6298, 8262]
+    char_span: [6297, 8261]
     sentence_count: 3
     key_terms: [list, separate, requires, figure, deanrocket, thinking, founder-awesome, "it's"]
     section: Comments

@@ -23,73 +23,73 @@ chunks:
     key_terms: [feels, like, comments, exposure, reducing, anyone, stocks, bit]
     token_count: 198
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c1"
-    char_span: [833, 1785]
+    char_span: [832, 1784]
     sentence_count: 7
     key_terms: [earnings, erodes, higher, "can't", big, tech, simplification, discounted]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c2"
-    char_span: [1787, 3594]
+    char_span: [1786, 3593]
     sentence_count: 11
     key_terms: [years, dopamine, people, like, tech, potential, earnings, fearful]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c3"
-    char_span: [3596, 5457]
+    char_span: [3595, 5456]
     sentence_count: 11
     key_terms: [market, people, ago, bear, indicator, capital, fearful, forever]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c4"
-    char_span: [5223, 5876]
+    char_span: [5222, 5875]
     sentence_count: 4
     key_terms: [companies, market, hurt, collapsing, contrarian, individual, servicenow, everybody]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c5"
-    char_span: [5878, 6852]
+    char_span: [5877, 6851]
     sentence_count: 5
     key_terms: [transformational, robotics, levels, truly, years, dont, overheadpress69, livinglegend69]
     section: Comments
     token_count: 234
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c6"
-    char_span: [6854, 9008]
+    char_span: [6853, 9007]
     sentence_count: 12
     key_terms: [llms, justify, altman, couple, decade, models, stocks, basic]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c7"
-    char_span: [9010, 11038]
+    char_span: [9009, 11037]
     sentence_count: 16
     key_terms: [broadcom, inference, chip, new, robotics, google, bartturner, different]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c8"
-    char_span: [11040, 12925]
+    char_span: [11039, 12924]
     sentence_count: 21
     key_terms: [google, turboquant-redefining-ai-efficiency-with-extreme-compression, starting, years, competition, turboquant, deepmind, research]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c9"
-    char_span: [12927, 14227]
+    char_span: [12926, 14226]
     sentence_count: 5
     key_terms: [exposure, stocks, llm, reduced, better, energy, invest, plzbuffrakithennerf]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c10"
-    char_span: [14229, 16441]
+    char_span: [14228, 16440]
     sentence_count: 14
     key_terms: [ok-introduction-1940, infrastructure, bubble, names, networking, companies, positions, silicon]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c11"
-    char_span: [16199, 16608]
+    char_span: [16198, 16607]
     sentence_count: 4
     key_terms: [leverage, ok-introduction-1940, theconstellationguy, good, long, infrastructure, hopefully, addition]
     section: Comments
     token_count: 106
   - id: "social-intelligence/reddit-deep/stocks/1srk1hq.md#c12"
-    char_span: [16610, 17295]
+    char_span: [16609, 17294]
     sentence_count: 6
     key_terms: [buying, ok-introduction-1940, funds, hedge, macro, short, indiscriminately, infrastructure]
     section: Comments

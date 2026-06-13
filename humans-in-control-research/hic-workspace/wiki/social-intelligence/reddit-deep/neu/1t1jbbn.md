@@ -21,7 +21,7 @@ chunks:
     key_terms: [beginner, frontend, program, boston, fall, on-campus, comments, current]
     token_count: 330
   - id: "social-intelligence/reddit-deep/neu/1t1jbbn.md#c1"
-    char_span: [1377, 1724]
+    char_span: [1376, 1723]
     sentence_count: 1
     key_terms: [hard, concepts, theinhumaneme, worldexecute, incredibly, attention, consuming, on-campus]
     section: Comments

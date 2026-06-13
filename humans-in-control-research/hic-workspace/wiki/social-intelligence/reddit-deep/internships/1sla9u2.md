@@ -21,13 +21,13 @@ chunks:
     key_terms: [internships, portfolio, comments, backend, science, advice, anyone, data]
     token_count: 234
   - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c1"
-    char_span: [1061, 3316]
+    char_span: [1060, 3315]
     sentence_count: 14
     key_terms: [anything, resume, confidently, description, work, processing, creation, keywords]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/internships/1sla9u2.md#c2"
-    char_span: [3318, 4557]
+    char_span: [3317, 4556]
     sentence_count: 8
     key_terms: [internshipsolutions, helped, honestly, biggest, resume, ats, help, warm]
     section: Comments

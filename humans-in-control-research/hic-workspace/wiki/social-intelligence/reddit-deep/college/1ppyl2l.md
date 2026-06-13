@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, feel, like, comments, instead, enough, feels, money]
     token_count: 301
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c1"
-    char_span: [1364, 3171]
+    char_span: [1363, 3170]
     sentence_count: 14
     key_terms: [class, time, calendar, done, work, homework, get, assignment]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c2"
-    char_span: [3173, 4402]
+    char_span: [3172, 4401]
     sentence_count: 5
     key_terms: [time, course, per, week, work, calendar, semester, credits]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c3"
-    char_span: [4404, 6413]
+    char_span: [4403, 6412]
     sentence_count: 10
     key_terms: [college, people, like, post, week, especially, described, semester]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1ppyl2l.md#c4"
-    char_span: [6415, 7031]
+    char_span: [6414, 7030]
     sentence_count: 4
     key_terms: [college, figure, learn, ok-culture-7141, foundation, ourselves, adulting, prepares]
     section: Comments

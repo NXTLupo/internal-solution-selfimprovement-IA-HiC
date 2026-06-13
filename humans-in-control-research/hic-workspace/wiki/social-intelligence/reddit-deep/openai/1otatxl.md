@@ -23,13 +23,13 @@ chunks:
     key_terms: [chatgpt, context, openai, pro, comments, messages, earlier, window]
     token_count: 318
   - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c1"
-    char_span: [1320, 3273]
+    char_span: [1319, 3272]
     sentence_count: 13
     key_terms: [context, like, chatgpt, pro, tokens, app, text, getting]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/openai/1otatxl.md#c2"
-    char_span: [3275, 3715]
+    char_span: [3274, 3714]
     sentence_count: 3
     key_terms: [probably, issues, memory, words, full, technically, beginning, something]
     section: Comments

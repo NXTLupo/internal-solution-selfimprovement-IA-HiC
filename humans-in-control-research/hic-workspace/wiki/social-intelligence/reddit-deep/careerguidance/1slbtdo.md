@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1slbtdo.md#c0"
-    char_span: [0, 2215]
+    char_span: [0, 2214]
     sentence_count: 26
     key_terms: [considering, taking, law, year, college, careerguidance, years, engineering]
-    token_count: 492
+    token_count: 491
 ---
 # Taking a Gap year, Patent law LSAT prep?
 

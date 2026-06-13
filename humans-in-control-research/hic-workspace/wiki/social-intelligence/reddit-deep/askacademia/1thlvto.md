@@ -23,25 +23,25 @@ chunks:
     key_terms: [academic, students, because, university, using, time, however, worry]
     token_count: 445
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c1"
-    char_span: [2073, 4295]
+    char_span: [2072, 4294]
     sentence_count: 11
     key_terms: [novel, llms, correct, erdosproblems, interesting, maintainer, references, abilities]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c2"
-    char_span: [4301, 5318]
+    char_span: [4300, 5317]
     sentence_count: 8
     key_terms: [writing, read, comments, develop, reading, results, reddit, https]
     section: Comments
     token_count: 240
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c3"
-    char_span: [5320, 7242]
+    char_span: [5319, 7241]
     sentence_count: 20
     key_terms: [others, field, research, student, like, look, probably, yourself]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/askacademia/1thlvto.md#c4"
-    char_span: [7244, 9147]
+    char_span: [7243, 9146]
     sentence_count: 17
     key_terms: [research, supervisor, use, yourself, wrong, expectation, opinion, program]
     section: Comments

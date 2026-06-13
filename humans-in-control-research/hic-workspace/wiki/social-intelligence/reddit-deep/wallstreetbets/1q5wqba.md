@@ -28,55 +28,55 @@ chunks:
     key_terms: [png, preview, format, https, width, auto, redd, webp]
     token_count: 388
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c2"
-    char_span: [3107, 3546]
+    char_span: [3106, 3545]
     sentence_count: 1
     key_terms: [discord, months, total, wsb, opportunities, submissions, employment, briballdo]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c3"
-    char_span: [3550, 5317]
+    char_span: [3549, 5316]
     sentence_count: 9
     key_terms: [bottleneck, business, profits, better, energy, humans, memory, almostsunnyinseattle]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c4"
-    char_span: [5086, 5549]
+    char_span: [5085, 5548]
     sentence_count: 3
     key_terms: [profits, energy, econmajorhere, brambletail, bottleneck, investment, personally, companies]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c5"
-    char_span: [5551, 6995]
+    char_span: [5550, 6994]
     sentence_count: 11
     key_terms: [data, probably, energy, making, silver, temporaryinformal889, right, steel]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c6"
-    char_span: [6997, 8956]
+    char_span: [6996, 8955]
     sentence_count: 9
     key_terms: [storage, data, center, speed, bottleneck, generation, centers, profits]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c7"
-    char_span: [8724, 9618]
+    char_span: [8723, 9617]
     sentence_count: 4
     key_terms: [callsonreddit, storage, costs, gpus, move, foxpandawombat, charmander787, connectivity]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c8"
-    char_span: [9620, 10221]
+    char_span: [9619, 10220]
     sentence_count: 2
     key_terms: [bro, callsonreddit, effectivelong, francisbitter, kklonewolfkin, proclamation, components, gradually]
     section: Comments
     token_count: 174
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c9"
-    char_span: [10223, 11536]
+    char_span: [10222, 11535]
     sentence_count: 8
     key_terms: [sndk, enterprise, jamesrggg, hardware, shortage, bought, micron, individual-motor-167]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/wallstreetbets/1q5wqba.md#c10"
-    char_span: [11538, 12740]
+    char_span: [11537, 12739]
     sentence_count: 7
     key_terms: [homework, reach, stock, years, stretchantique9147, been, get, last]
     section: Comments

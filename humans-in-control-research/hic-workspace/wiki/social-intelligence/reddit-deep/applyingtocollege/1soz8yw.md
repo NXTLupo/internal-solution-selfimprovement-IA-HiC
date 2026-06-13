@@ -28,31 +28,31 @@ chunks:
     key_terms: [scholarships, international, community, different, probably, transfer, college, student]
     token_count: 72
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c2"
-    char_span: [2312, 4125]
+    char_span: [2311, 4124]
     sentence_count: 16
     key_terms: [state, college-openings-update, administration, international, gpa, visa, interested, nacacnet]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c3"
-    char_span: [4127, 6044]
+    char_span: [4126, 6043]
     sentence_count: 19
     key_terms: [options, memphis, dangerous, schools, enroll, dream, nyc, navigate]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c4"
-    char_span: [6046, 7777]
+    char_span: [6045, 7776]
     sentence_count: 13
     key_terms: [schools, international, because, scholarships, physician, medical, administration, school]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c5"
-    char_span: [7779, 9870]
+    char_span: [7778, 9869]
     sentence_count: 24
     key_terms: [rhodes, fordham, college, school, elitist, family, bronx, debt]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/applyingtocollege/1soz8yw.md#c6"
-    char_span: [9872, 11178]
+    char_span: [9871, 11177]
     sentence_count: 11
     key_terms: [college, community, working, students, "didn't", state, sucks, get]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, advancement, specialize, developer, important, comments, software, specific]
     token_count: 239
   - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c1"
-    char_span: [1158, 3083]
+    char_span: [1157, 3082]
     sentence_count: 18
     key_terms: [stack, tech, "don't", companies, senior, thegodzilla25, overindexing, depth]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c2"
-    char_span: [3085, 5372]
+    char_span: [3084, 5371]
     sentence_count: 20
     key_terms: [specialist, generalist, people, backend, knowing, being, doesn, bar]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1orzpv4.md#c3"
-    char_span: [5374, 6460]
+    char_span: [5373, 6459]
     sentence_count: 9
     key_terms: [well-rounded, specialization, specialized, supposed, valuable, doing, makes, job]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/c9c5ff3c4f.md#c0"
-    char_span: [0, 1739]
+    char_span: [0, 1738]
     sentence_count: 10
     key_terms: [cscareerquestions, want, yourself, "don't", "i'm", job, government, comments]
-    token_count: 390
+    token_count: 389
   - id: "articles/reddit-deep-r-cscareerquestions/c9c5ff3c4f.md#c1"
-    char_span: [1742, 2414]
+    char_span: [1741, 2413]
     sentence_count: 4
     key_terms: [developer, software, special, nullpointerjunkie, god, like, look, step]
     token_count: 176

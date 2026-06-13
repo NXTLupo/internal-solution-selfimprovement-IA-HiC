@@ -21,37 +21,37 @@ chunks:
     key_terms: [cscareerquestions, good, comments, products, decided, coming, fiscal, paying]
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7y7am.md#c1"
-    char_span: [1815, 3822]
+    char_span: [1814, 3821]
     sentence_count: 12
     key_terms: [people, unemployment, right, list, seen, work, thinking, savings]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7y7am.md#c2"
-    char_span: [3824, 5852]
+    char_span: [3823, 5851]
     sentence_count: 12
     key_terms: [unemployment, got, company, people, payer, list, networking, potential]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7y7am.md#c3"
-    char_span: [5854, 7410]
+    char_span: [5853, 7409]
     sentence_count: 6
     key_terms: [networking, good, "it's", fatiguedshrimp, career, events, https, com]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7y7am.md#c4"
-    char_span: [7412, 9484]
+    char_span: [7411, 9483]
     sentence_count: 14
     key_terms: [embedded, specialization, leetcode, company, partnership, interviews, interview, something]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7y7am.md#c5"
-    char_span: [9486, 11592]
+    char_span: [9485, 11591]
     sentence_count: 21
     key_terms: [healthcare, unemployment, gov, "don't", want, insurance, situation, embedded]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7y7am.md#c6"
-    char_span: [11595, 13193]
+    char_span: [11594, 13192]
     sentence_count: 6
     key_terms: [cobra, marketplace, pay, healthcare, insurance, subsidies, better, salary]
     section: Comments

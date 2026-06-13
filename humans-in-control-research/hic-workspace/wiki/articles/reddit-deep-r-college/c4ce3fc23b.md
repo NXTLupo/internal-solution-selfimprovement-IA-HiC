@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/c4ce3fc23b.md#c0"
-    char_span: [0, 1575]
+    char_span: [0, 1574]
     sentence_count: 9
     key_terms: [classes, week, courses, time, semester, cragdragon511, comments, standard]
-    token_count: 418
+    token_count: 417
 ---
 # 4 eight week courses instead of 4 regular courses
 

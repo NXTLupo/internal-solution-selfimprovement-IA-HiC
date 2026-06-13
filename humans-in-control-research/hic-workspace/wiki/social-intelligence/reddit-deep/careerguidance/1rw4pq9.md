@@ -23,43 +23,43 @@ chunks:
     key_terms: [careerguidance, career, skill, comments, skills, hear, new, real]
     token_count: 148
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c1"
-    char_span: [657, 1084]
+    char_span: [656, 1083]
     sentence_count: 4
     key_terms: [buffalojealous2958, got, opportunities, expectations, imoverhereee, communicate, everything, explaining]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c2"
-    char_span: [1086, 3176]
+    char_span: [1085, 3175]
     sentence_count: 20
     key_terms: [practice, like, slides, organization, toastmasters, learn, maybe, did]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c3"
-    char_span: [2926, 3486]
+    char_span: [2925, 3485]
     sentence_count: 5
     key_terms: [pull, asleep-wish5232, communicating, organization, presentation, stakeholders, entaroadun, difficult]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c4"
-    char_span: [3488, 5407]
+    char_span: [3487, 5406]
     sentence_count: 20
     key_terms: [calm, lavendar-bumblebee, down, angry, stay, work, amircruz, respond]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c5"
-    char_span: [5115, 6650]
+    char_span: [5114, 6649]
     sentence_count: 11
     key_terms: [working, clonehunterz, conversation, anyone, people, money, point, times]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c6"
-    char_span: [6652, 8309]
+    char_span: [6651, 8308]
     sentence_count: 14
     key_terms: [information, skills, task, honestly, learning, whatever, someone, figure]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/careerguidance/1rw4pq9.md#c7"
-    char_span: [8311, 9989]
+    char_span: [8310, 9988]
     sentence_count: 14
     key_terms: [did, please, share, opportunities, interviewing, interested, achieve, looking]
     section: Comments

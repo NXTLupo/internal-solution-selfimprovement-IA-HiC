@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-neu/b1ee4fc49b.md#c0"
-    char_span: [0, 1435]
+    char_span: [0, 1434]
     sentence_count: 10
     key_terms: [like, people, use, co-op, city, good, something, building]
-    token_count: 336
+    token_count: 335
 ---
 # Would you use an app to find other students on co-op?
 

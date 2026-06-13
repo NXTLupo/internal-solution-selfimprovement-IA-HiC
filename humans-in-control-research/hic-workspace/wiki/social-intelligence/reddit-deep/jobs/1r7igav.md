@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1r7igav.md#c0"
-    char_span: [0, 1796]
+    char_span: [0, 1795]
     sentence_count: 11
     key_terms: [career, been, benefits, change, years, days, "i've", week]
-    token_count: 416
+    token_count: 415
 ---
 # Accept new job opportunity or change careers
 

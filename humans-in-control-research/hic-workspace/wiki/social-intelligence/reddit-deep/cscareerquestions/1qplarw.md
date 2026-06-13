@@ -21,37 +21,37 @@ chunks:
     key_terms: [cscareerquestions, internships, full-time, comments, classes, years, jigglinjimmy, reddit-deep]
     token_count: 183
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c1"
-    char_span: [730, 1708]
+    char_span: [729, 1707]
     sentence_count: 8
     key_terms: [internships, fucked, masters, pretty, point, job, pay, time]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c2"
-    char_span: [1710, 3634]
+    char_span: [1709, 3633]
     sentence_count: 14
     key_terms: [masters, people, projects, option, school, definitely, everyone, students]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c3"
-    char_span: [3636, 5703]
+    char_span: [3635, 5702]
     sentence_count: 16
     key_terms: [people, network, through, connections, connection, job, look, someone]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c4"
-    char_span: [5708, 7425]
+    char_span: [5707, 7424]
     sentence_count: 5
     key_terms: [tech, people, local, professionals, connections, necessarily, participate, cons]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c5"
-    char_span: [7428, 9344]
+    char_span: [7427, 9343]
     sentence_count: 16
     key_terms: [job, company, get, jonasaxify, bootyhole, interview, getting, online]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qplarw.md#c6"
-    char_span: [9347, 10099]
+    char_span: [9346, 10098]
     sentence_count: 8
     key_terms: [networking, don, like, internships, completely, experience, goosetower, recruiting]
     section: Comments

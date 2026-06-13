@@ -23,7 +23,7 @@ chunks:
     key_terms: [chatgpt, comments, ihateredditors111111, reddit-deep, nothing, openai, posted, reddit]
     token_count: 98
   - id: "social-intelligence/reddit-deep/chatgpt/1q9alch.md#c1"
-    char_span: [339, 1413]
+    char_span: [338, 1412]
     sentence_count: 7
     key_terms: [ihateredditors111111, bc9d87f6e7251d1e3f9385c657c7d6b25d8b8f74, chatgpt, please, conversation, https, image, post]
     section: Comments

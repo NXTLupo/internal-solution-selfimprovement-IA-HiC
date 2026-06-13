@@ -21,31 +21,31 @@ chunks:
     key_terms: [humanresources, suggestions, want, engagement, comments, company, collar, morale]
     token_count: 226
   - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c1"
-    char_span: [994, 1795]
+    char_span: [993, 1794]
     sentence_count: 12
     key_terms: [get, follow, swimming-moment-5315, small, ask, lordcommander55, importantly, afterwards]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c2"
-    char_span: [1797, 3721]
+    char_span: [1796, 3720]
     sentence_count: 18
     key_terms: [work, people, regularly, employee, showing, collar, easier, floor]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c3"
-    char_span: [3723, 5837]
+    char_span: [3722, 5836]
     sentence_count: 16
     key_terms: [like, ask, wellness, member, give, team, work, interviews]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c4"
-    char_span: [5839, 7976]
+    char_span: [5838, 7975]
     sentence_count: 26
     key_terms: [work, want, recognition, people, doing, jobs, post, team]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/humanresources/1q7km1d.md#c5"
-    char_span: [7978, 9895]
+    char_span: [7977, 9894]
     sentence_count: 12
     key_terms: [staff, supervisors, day, like, workers, collar, contributions, students]
     section: Comments

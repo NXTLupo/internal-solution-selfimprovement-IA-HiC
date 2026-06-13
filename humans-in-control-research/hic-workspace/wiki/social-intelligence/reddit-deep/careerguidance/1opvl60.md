@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1opvl60.md#c0"
-    char_span: [0, 1217]
+    char_span: [0, 1216]
     sentence_count: 7
     key_terms: [pega, careerguidance, future-proof, cloud, mid-career, comments, learning, balance]
     token_count: 285

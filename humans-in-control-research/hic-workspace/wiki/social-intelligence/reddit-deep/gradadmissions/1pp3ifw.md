@@ -43,7 +43,7 @@ chunks:
     key_terms: [students, lab, program, projects, graduate, meetings, research, student]
     token_count: 303
   - id: "social-intelligence/reddit-deep/gradadmissions/1pp3ifw.md#c5"
-    char_span: [10247, 11629]
+    char_span: [10246, 11628]
     sentence_count: 8
     key_terms: [questions, interview, thank, ask, experience, interviews, statements, students]
     section: Comments

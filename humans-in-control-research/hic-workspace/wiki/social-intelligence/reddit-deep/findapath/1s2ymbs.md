@@ -23,13 +23,13 @@ chunks:
     key_terms: ["i'm", grade, career, advice, done, want, healthcare, findapath]
     token_count: 410
   - id: "social-intelligence/reddit-deep/findapath/1s2ymbs.md#c1"
-    char_span: [1633, 2580]
+    char_span: [1632, 2579]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1s2ymbs.md#c2"
-    char_span: [2583, 4520]
+    char_span: [2582, 4519]
     sentence_count: 10
     key_terms: [science, engineering, want, healthcare, pharmacy, programs, biz-123, finance]
     section: Comments

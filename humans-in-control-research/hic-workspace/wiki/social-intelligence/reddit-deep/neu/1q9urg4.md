@@ -23,7 +23,7 @@ chunks:
     key_terms: [co-op, city, use, comments, students, people, trying, being]
     token_count: 194
   - id: "social-intelligence/reddit-deep/neu/1q9urg4.md#c1"
-    char_span: [815, 1504]
+    char_span: [814, 1503]
     sentence_count: 6
     key_terms: [like, good, having, meetup, office, people, coop, definitely]
     section: Comments

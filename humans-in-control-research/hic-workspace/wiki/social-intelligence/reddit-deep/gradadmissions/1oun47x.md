@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, school, applying, comments, balance, grad, "i'm", nyu]
     token_count: 189
   - id: "social-intelligence/reddit-deep/gradadmissions/1oun47x.md#c1"
-    char_span: [820, 1794]
+    char_span: [819, 1793]
     sentence_count: 8
     key_terms: [credit, collections, financial, score, debt, get, "it's", try]
     section: Comments

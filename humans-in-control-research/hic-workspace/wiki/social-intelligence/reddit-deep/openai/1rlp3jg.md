@@ -23,61 +23,61 @@ chunks:
     key_terms: [openai, comments, introducing-gpt-5-4, gpt-5, https, tasks, com, like]
     token_count: 235
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c1"
-    char_span: [950, 2695]
+    char_span: [949, 2694]
     sentence_count: 5
     key_terms: [context, bronfmanhigh, nonameswitzerland, like, game-changing, benchmaxing, gpt, already]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c2"
-    char_span: [2697, 5043]
+    char_span: [2696, 5042]
     sentence_count: 24
     key_terms: [google, everything, drive, data, better, models, space, using]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c3"
-    char_span: [5046, 6002]
+    char_span: [5045, 6001]
     sentence_count: 11
     key_terms: [google, report, time, everything, lansweeper, workspace, exported, "wouldn't"]
     section: Comments
     token_count: 200
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c4"
-    char_span: [6005, 7989]
+    char_span: [6004, 7988]
     sentence_count: 14
     key_terms: [better, been, like, claude, use, getting, coding, models]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c5"
-    char_span: [7763, 8664]
+    char_span: [7762, 8663]
     sentence_count: 7
     key_terms: [benchmark, results, honest-monitor-2619, orangutanoutoforbit, get, lab, like, implementation]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c6"
-    char_span: [8666, 10654]
+    char_span: [8665, 10653]
     sentence_count: 17
     key_terms: [context, reasoning, models, able, evaluation, benchmark, retrieval, reliable]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c7"
-    char_span: [10656, 12472]
+    char_span: [10655, 12471]
     sentence_count: 9
     key_terms: [benchmarks, against, garlic, humans, shallotpeat, generally, working, human]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c8"
-    char_span: [12474, 14235]
+    char_span: [12473, 14234]
     sentence_count: 15
     key_terms: [use, model, benchmarks, chatbots, presence, thinking, instant, measure]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c9"
-    char_span: [14029, 14652]
+    char_span: [14028, 14651]
     sentence_count: 8
     key_terms: [windows, claude, "don't", nonameswitzerland, app, want, iheximal144, certainly]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/openai/1rlp3jg.md#c10"
-    char_span: [14654, 15836]
+    char_span: [14653, 15835]
     sentence_count: 9
     key_terms: [internal, private, code, claude, openai, sonnet, lumpy-criticism-2773, straight-length-5282]
     section: Comments

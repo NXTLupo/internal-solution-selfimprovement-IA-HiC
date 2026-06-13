@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1q72vsq.md#c0"
-    char_span: [0, 2225]
+    char_span: [0, 2224]
     sentence_count: 13
     key_terms: [experience, communication, work, without, background, cat, profile, careerguidance]
-    token_count: 485
+    token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1q72vsq.md#c1"
-    char_span: [2227, 3517]
+    char_span: [2226, 3516]
     sentence_count: 6
     key_terms: [career, india, background, long-term, stability, academia, decision, guidance]
     token_count: 239

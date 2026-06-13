@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c0"
-    char_span: [0, 1976]
+    char_span: [0, 1975]
     sentence_count: 15
     key_terms: [math, class, college, degree, school, keep, like, currently]
-    token_count: 459
+    token_count: 458
   - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c1"
-    char_span: [1978, 3833]
+    char_span: [1977, 3832]
     sentence_count: 13
     key_terms: [formulas, math, problems, rather, unfortunately, solve, need, take]
     token_count: 416
   - id: "articles/reddit-deep-r-college/7a7fafbcd5.md#c2"
-    char_span: [3835, 4609]
+    char_span: [3834, 4608]
     sentence_count: 4
     key_terms: [through, formal, years, get, math, notsobrooklynnn, therealmiridion, accommodations]
     token_count: 189

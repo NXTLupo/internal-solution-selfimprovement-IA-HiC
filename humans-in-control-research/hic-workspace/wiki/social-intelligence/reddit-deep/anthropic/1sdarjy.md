@@ -23,31 +23,31 @@ chunks:
     key_terms: [anthropic, comments, reddit-deep, praxisog, session, through, claude, entire]
     token_count: 84
   - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c1"
-    char_span: [307, 1518]
+    char_span: [306, 1517]
     sentence_count: 3
     key_terms: [prompt, usage, hour, screenshot, exactly, limits, comfortable-egg-8680, snoomacaroons4454]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c2"
-    char_span: [1520, 2841]
+    char_span: [1519, 2840]
     sentence_count: 7
     key_terms: [usage, send, message, idea, show, maybeliterally, non-documented, transparency]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c3"
-    char_span: [2843, 4440]
+    char_span: [2842, 4439]
     sentence_count: 13
     key_terms: [claude, prompt, context, through, usage, documented, multiplier, benchmark]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c4"
-    char_span: [4442, 6073]
+    char_span: [4441, 6072]
     sentence_count: 9
     key_terms: [like, pro, issues, limits, people, don, personal, curious]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/anthropic/1sdarjy.md#c5"
-    char_span: [6075, 7242]
+    char_span: [6074, 7241]
     sentence_count: 7
     key_terms: [use, limits, get, like, pay, nothing, people, pperiesandsolos]
     section: Comments

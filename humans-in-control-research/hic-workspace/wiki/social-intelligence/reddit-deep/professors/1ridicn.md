@@ -21,49 +21,49 @@ chunks:
     key_terms: [students, assignments, class, fun, professors, comments, methods, passed]
     token_count: 377
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c1"
-    char_span: [1654, 3146]
+    char_span: [1653, 3145]
     sentence_count: 7
     key_terms: [assignment, students, lessons, stupid, rabid, vapid, fun, meme]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c2"
-    char_span: [3148, 5146]
+    char_span: [3147, 5145]
     sentence_count: 12
     key_terms: [fun, students, content, explain, big-dig1631, don, "i'm", less]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c3"
-    char_span: [5148, 6606]
+    char_span: [5147, 6605]
     sentence_count: 13
     key_terms: [because, gamification, "it's", absolutely, jeopardy, material, students, classes]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c4"
-    char_span: [6609, 8853]
+    char_span: [6608, 8852]
     sentence_count: 23
     key_terms: [students, understanding, lot, isn, knowledge, something, concepts, question]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c5"
-    char_span: [8855, 11104]
+    char_span: [8854, 11103]
     sentence_count: 20
     key_terms: [students, competence, grade, awareness, fun, pharmacological, big-dig1631, activities]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c6"
-    char_span: [11106, 13245]
+    char_span: [11105, 13244]
     sentence_count: 19
     key_terms: [students, genealogy, answer, grade, geology, participate, get, discussion]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c7"
-    char_span: [13248, 15201]
+    char_span: [13247, 15200]
     sentence_count: 13
     key_terms: [students, boring, infantilizing, wife, assignment, grubbing, because, serious]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/professors/1ridicn.md#c8"
-    char_span: [15203, 17488]
+    char_span: [15202, 17487]
     sentence_count: 21
     key_terms: [learning, objectives, students, accountability, fun, help, considered, contribute]
     section: Comments

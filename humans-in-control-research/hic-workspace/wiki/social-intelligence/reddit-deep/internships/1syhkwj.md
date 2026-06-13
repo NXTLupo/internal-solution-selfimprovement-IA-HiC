@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1syhkwj.md
 url: "https://www.reddit.com/r/internships/comments/1syhkwj/summer_internship/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,19 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.222Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1syhkwj.md#c0"
+    char_span: [0, 1326]
+    sentence_count: 9
+    key_terms: [contribute, startup, internships, opportunity, experience, building, comments, looking]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/internships/1syhkwj.md#c1"
+    char_span: [1341, 1777]
+    sentence_count: 1
+    key_terms: [sweet-frosting4839, internshipdaily, roles, targeting, filter, summer, check, com]
+    section: Comments
+    token_count: 107
 ---
-
 # Summer Internship
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1syhkwj/summer_internship/)

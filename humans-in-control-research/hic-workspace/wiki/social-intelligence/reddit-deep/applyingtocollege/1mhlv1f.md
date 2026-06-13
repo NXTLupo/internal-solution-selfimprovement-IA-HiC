@@ -23,7 +23,7 @@ chunks:
     key_terms: [email, scholarships, applyingtocollege, college, opportunities, application, applying, colleges]
     token_count: 187
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mhlv1f.md#c1"
-    char_span: [912, 2566]
+    char_span: [911, 2565]
     sentence_count: 15
     key_terms: [college, email, account, professional, board, personal, low-agency2539, "you'll"]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [non-traditional, college, university, comments, student, advice, first-generation, appreciated]
     token_count: 154
   - id: "social-intelligence/reddit-deep/college/1o98alc.md#c1"
-    char_span: [652, 2417]
+    char_span: [651, 2416]
     sentence_count: 18
     key_terms: [non-traditional, school, back, "i'm", experience, grudgingly, going, older]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/college/1o98alc.md#c2"
-    char_span: [2419, 4456]
+    char_span: [2418, 4455]
     sentence_count: 20
     key_terms: [school, "i'm", especially, everything, semester, student, taking, though]
     section: Comments

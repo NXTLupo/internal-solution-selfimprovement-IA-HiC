@@ -21,25 +21,25 @@ chunks:
     key_terms: [careerguidance, trades, comments, without, career, degree, income, many-economics-4326]
     token_count: 140
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c1"
-    char_span: [608, 2249]
+    char_span: [607, 2248]
     sentence_count: 18
     key_terms: [apprenticeship, trade, elevator, trades, work, mechanic, college, school]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c2"
-    char_span: [2251, 3027]
+    char_span: [2250, 3026]
     sentence_count: 6
     key_terms: [trades, mindful, "there's", people, big, good, apprenticeship, opportunities]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c3"
-    char_span: [3029, 5449]
+    char_span: [3028, 5448]
     sentence_count: 22
     key_terms: [work, degree, "you're", experience, line, physical, college, trades]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rpvbmz.md#c4"
-    char_span: [5129, 5690]
+    char_span: [5128, 5689]
     sentence_count: 4
     key_terms: [income, apprenticeships, certifications, electricians, specialized, estimating, controls, mornings]
     section: Comments

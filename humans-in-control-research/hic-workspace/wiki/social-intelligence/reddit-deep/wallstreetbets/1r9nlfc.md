@@ -38,31 +38,31 @@ chunks:
     key_terms: [contribution, quarter, everything, opendoor, margin, "that's", profitability, homes]
     token_count: 485
   - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c4"
-    char_span: [7209, 8483]
+    char_span: [7209, 8482]
     sentence_count: 3
     key_terms: [preview, format, https, width, auto, jpeg, pjpg, redd]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c5"
-    char_span: [8485, 9310]
+    char_span: [8484, 9309]
     sentence_count: 4
     key_terms: [platinum, rhodium, greenday10dsurfer, too, risefromyourgrav, particularly, converters, catalytic]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c6"
-    char_span: [9312, 10830]
+    char_span: [9311, 10829]
     sentence_count: 4
     key_terms: [dd71f843eb69b04b7cc09b30c3afb163f144aab9, significantly, smash, inventory, october, preview, reduced, format]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c7"
-    char_span: [10833, 12893]
+    char_span: [10832, 12892]
     sentence_count: 11
     key_terms: [management, good, business, shitty, fraud, investors, positive, numbers]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/wallstreetbets/1r9nlfc.md#c8"
-    char_span: [12895, 13250]
+    char_span: [12894, 13249]
     sentence_count: 2
     key_terms: [electric, short, crossdefaults, comparison, building, numerous, growing, insider]
     section: Comments

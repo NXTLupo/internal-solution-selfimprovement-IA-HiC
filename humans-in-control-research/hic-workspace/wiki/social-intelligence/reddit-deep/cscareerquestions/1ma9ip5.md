@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, cscareerquestions, currently, comments, summer, reddit-deep, clintms121, networking]
     token_count: 127
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ma9ip5.md#c1"
-    char_span: [526, 2224]
+    char_span: [525, 2223]
     sentence_count: 12
     key_terms: [resume, apply, referrals, day, clintms121, companies, applying, linkedin]
     section: Comments

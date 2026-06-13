@@ -26,49 +26,49 @@ chunks:
     key_terms: [software, change, fields, prompt, "don't", felt, "i've", try]
     token_count: 183
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c2"
-    char_span: [2617, 3523]
+    char_span: [2616, 3522]
     sentence_count: 5
     key_terms: [copilot, alkaliphiles, use, company, claude, "we're", worst, code]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c3"
-    char_span: [3525, 5536]
+    char_span: [3524, 5535]
     sentence_count: 7
     key_terms: [code, copilot, using, melodic-ebb-7781, claude, jump, ship, told]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c4"
-    char_span: [5298, 5898]
+    char_span: [5297, 5897]
     sentence_count: 5
     key_terms: [jump, better, rather, rough, ship, formerpoem1985, sillyyou8433, recruiters]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c5"
-    char_span: [5900, 6321]
+    char_span: [5899, 6320]
     sentence_count: 5
     key_terms: [company, transformative, unrealistic, companies, deadlines, overhyped, internal, joining]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c6"
-    char_span: [6323, 8400]
+    char_span: [6322, 8399]
     sentence_count: 12
     key_terms: ["i'm", implementation, people, thankfully, connorjpg, software, starting, burning]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c7"
-    char_span: [8403, 10339]
+    char_span: [8402, 10338]
     sentence_count: 11
     key_terms: [code, review, speed, push, everything, feedback, software, because]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c8"
-    char_span: [10341, 12532]
+    char_span: [10340, 12531]
     sentence_count: 10
     key_terms: [spareintroduction721, embrace, code, work, quality, systems, "you're", speed]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1taf0gg.md#c9"
-    char_span: [12534, 13470]
+    char_span: [12533, 13469]
     sentence_count: 5
     key_terms: [log, obviously, mentally, leaving, "you'll", career-leveraging, survivorship-bias, dont]
     section: Comments

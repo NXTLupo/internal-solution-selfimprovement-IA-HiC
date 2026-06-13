@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, projects, certifications, internships, don, community, comments, college]
     token_count: 304
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q93pnb.md#c1"
-    char_span: [1303, 1849]
+    char_span: [1302, 1848]
     sentence_count: 6
     key_terms: [projects, support, apply, certs, roles, don, swe, marcablefluke]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1q5lveg.md
 url: "https://www.reddit.com/r/college/comments/1q5lveg/people_who_started_college_late_in_life_how_was/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,31 @@ flair: "Career/work"
 extracted_at: "2026-06-06T23:23:15.570Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c0"
+    char_span: [0, 1224]
+    sentence_count: 7
+    key_terms: [college, career, highschool, people, going, been, year, automotive]
+    token_count: 274
+  - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c1"
+    char_span: [1239, 2869]
+    sentence_count: 14
+    key_terms: [education, "it's", different, students, because, attend, myself, school]
+    section: Comments
+    token_count: 345
+  - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c2"
+    char_span: [2871, 4745]
+    sentence_count: 17
+    key_terms: [got, "i'm", columbia, students, school, engineering, perspective, back]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/college/1q5lveg.md#c3"
+    char_span: [4747, 6410]
+    sentence_count: 8
+    key_terms: [experience, college, "don't", older, trade, old, went, community]
+    section: Comments
+    token_count: 408
 ---
-
 # People who started college late in life how was or is the experience? Was it good for your career or change of career?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1q5lveg/people_who_started_college_late_in_life_how_was/)

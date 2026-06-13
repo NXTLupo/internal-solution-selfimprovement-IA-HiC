@@ -15,12 +15,12 @@ industries: [ai_research, enterprise_it, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-anthropic/f8de7b0e1c.md#c0"
-    char_span: [0, 1792]
+    char_span: [0, 1791]
     sentence_count: 13
     key_terms: [claude, app, apple, anthropic, caffeine, native, completely, management]
-    token_count: 383
+    token_count: 382
   - id: "articles/reddit-deep-r-anthropic/f8de7b0e1c.md#c1"
-    char_span: [1794, 2808]
+    char_span: [1793, 2807]
     sentence_count: 5
     key_terms: [caffeine, pythononrailz, pseudorep, sensitive, awesome, drink, great, app]
     token_count: 264

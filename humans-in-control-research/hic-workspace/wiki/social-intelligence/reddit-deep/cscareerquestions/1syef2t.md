@@ -21,55 +21,55 @@ chunks:
     key_terms: [different, cscareerquestions, like, used, comments, totally, "don't", "it'll"]
     token_count: 351
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c1"
-    char_span: [1480, 3301]
+    char_span: [1479, 3300]
     sentence_count: 16
     key_terms: [code, people, like, coding, nobody, gonna, knows, less]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c2"
-    char_span: [3306, 5231]
+    char_span: [3305, 5230]
     sentence_count: 10
     key_terms: [expensive, people, good, job, like, solarmist, becomes, better]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c3"
-    char_span: [5233, 7273]
+    char_span: [5232, 7272]
     sentence_count: 13
     key_terms: [going, useful, tools, programmers, code, lot, everywhere, understand]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c4"
-    char_span: [7275, 9126]
+    char_span: [7274, 9125]
     sentence_count: 14
     key_terms: [useful, expectations, codelinesnl, use, definitely, currently, inflated, already]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c5"
-    char_span: [9128, 11386]
+    char_span: [9127, 11385]
     sentence_count: 23
     key_terms: [companies, going, code, because, senior, point, down, keep]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c6"
-    char_span: [11388, 13583]
+    char_span: [11387, 13582]
     sentence_count: 24
     key_terms: [software, engineering, code, companies, "company's", engineers, problems, another]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c7"
-    char_span: [13586, 15489]
+    char_span: [13585, 15488]
     sentence_count: 14
     key_terms: [equations, "i'm", mathematicians, roles, code, different, problems, writing]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c8"
-    char_span: [15491, 17467]
+    char_span: [15490, 17466]
     sentence_count: 15
     key_terms: [code, programmers, developers, demand, strong, end, fact, developer]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syef2t.md#c9"
-    char_span: [17469, 18280]
+    char_span: [17468, 18279]
     sentence_count: 4
     key_terms: [programming, writing, away, scratch, manual, field, code, like]
     section: Comments

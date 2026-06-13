@@ -23,7 +23,7 @@ chunks:
     key_terms: [aba5-0997f8fa1c60, context, window, https, com, comments, chatgpt, openai]
     token_count: 160
   - id: "social-intelligence/reddit-deep/openai/1ml6adn.md#c1"
-    char_span: [448, 1653]
+    char_span: [447, 1652]
     sentence_count: 11
     key_terms: [gemini, thehunter920, com, plan, use, aistudio, frontend, context]
     section: Comments

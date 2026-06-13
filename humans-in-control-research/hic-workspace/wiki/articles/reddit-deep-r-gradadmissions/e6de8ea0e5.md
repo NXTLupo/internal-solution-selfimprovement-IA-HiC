@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/e6de8ea0e5.md#c0"
-    char_span: [0, 1077]
+    char_span: [0, 1076]
     sentence_count: 7
     key_terms: [thank, congratulations, gradadmissions, beyond, fsan13, ucla, undergrad, wonderful]
-    token_count: 288
+    token_count: 287
 ---
 # Got into UCLA!
 

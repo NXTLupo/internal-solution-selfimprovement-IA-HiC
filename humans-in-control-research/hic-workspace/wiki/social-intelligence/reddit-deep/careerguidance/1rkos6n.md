@@ -23,25 +23,25 @@ chunks:
     key_terms: [year, school, field, something, "i'm", careerguidance, certifications, back]
     token_count: 367
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c1"
-    char_span: [1507, 2715]
+    char_span: [1506, 2714]
     sentence_count: 9
     key_terms: [proof-emergency-5441, job, get, yeah, check, ninjaknight520, firefighting, requirements]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c2"
-    char_span: [2717, 4712]
+    char_span: [2716, 4711]
     sentence_count: 13
     key_terms: [trades, figures, time, get, background, assistant, honestly, finance]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c3"
-    char_span: [4714, 6528]
+    char_span: [4713, 6527]
     sentence_count: 2
     key_terms: [certifications, nursing, construction, like, pay, time, experience, management]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/careerguidance/1rkos6n.md#c4"
-    char_span: [6530, 7965]
+    char_span: [6529, 7964]
     sentence_count: 11
     key_terms: [physiology, certifications, skills, roles, since, look, healthcare, assistant]
     section: Comments

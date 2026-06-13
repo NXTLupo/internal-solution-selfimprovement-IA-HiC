@@ -53,25 +53,25 @@ chunks:
     key_terms: [canadian, international, tax, year, residents, ontario, file, citizenship]
     token_count: 116
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c7"
-    char_span: [10423, 12170]
+    char_span: [10422, 12169]
     sentence_count: 9
     key_terms: [benefit, exactly, possiblecup140, wealthsimple, gettaxclear, free, time, full-time]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c8"
-    char_span: [12172, 14056]
+    char_span: [12171, 14055]
     sentence_count: 10
     key_terms: [people, taxes, file, tax, benefits, canadians-taxes-filing-money-owed-1, filing, income]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c9"
-    char_span: [14058, 15448]
+    char_span: [14057, 15447]
     sentence_count: 6
     key_terms: [ontariostudentresidencerebate, benefit, possiblecup140, designated, taxtronpro, trillium, ontario, qualify]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/uwaterloo/1s9sfyn.md#c10"
-    char_span: [15450, 16323]
+    char_span: [15449, 16322]
     sentence_count: 6
     key_terms: [amount, off-campus, residence, file, rent, oversimplified, possiblecup140, back-returns]
     section: Comments

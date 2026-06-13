@@ -28,19 +28,19 @@ chunks:
     key_terms: [help, representative, background, researcher, coachable, physician, question, connect]
     token_count: 70
   - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c2"
-    char_span: [2520, 3467]
+    char_span: [2519, 3466]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c3"
-    char_span: [3470, 5071]
+    char_span: [3469, 5070]
     sentence_count: 16
     key_terms: [take, loans, confusing, tutoring, company, student, school, braveheart117]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/findapath/1t7miiw.md#c4"
-    char_span: [5073, 6884]
+    char_span: [5072, 6883]
     sentence_count: 13
     key_terms: [going, probably, hire, like, medical, residencies, regardless, something]
     section: Comments

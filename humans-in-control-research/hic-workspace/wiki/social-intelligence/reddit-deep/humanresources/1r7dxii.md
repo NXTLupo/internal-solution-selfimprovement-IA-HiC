@@ -21,13 +21,13 @@ chunks:
     key_terms: [administrative, store, job, generalist, responsibilities, humanresources, demonstrating, understanding]
     token_count: 392
   - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c1"
-    char_span: [1942, 4059]
+    char_span: [1941, 4058]
     sentence_count: 17
     key_terms: [generalist, administrator, role, admin, straight-peach1854, position, company, level]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/humanresources/1r7dxii.md#c2"
-    char_span: [4061, 4948]
+    char_span: [4060, 4947]
     sentence_count: 7
     key_terms: [generalist, admin, entry, level, hot-district7964, recommendations, administration, issues--unless]
     section: Comments

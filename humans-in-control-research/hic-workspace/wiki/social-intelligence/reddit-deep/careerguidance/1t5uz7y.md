@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t5uz7y.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t5uz7y/23f_lost_after_family_loss_universityvisa_issues/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.891Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t5uz7y.md#c0"
+    char_span: [0, 2133]
+    sentence_count: 15
+    key_terms: [branding, finance, careerguidance, advice, skills, right, lost, aesthetics]
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/careerguidance/1t5uz7y.md#c1"
+    char_span: [2148, 2619]
+    sentence_count: 6
+    key_terms: [youtube, videos, start, good, cinnabunnibb, definitely, budgeting, freelance]
+    section: Comments
+    token_count: 117
 ---
-
 # 23F — Lost after family loss, university/visa issues, and trying to rebuild my career path. Can anyone provide guidance or advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t5uz7y/23f_lost_after_family_loss_universityvisa_issues/)

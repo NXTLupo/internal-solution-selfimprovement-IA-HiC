@@ -23,31 +23,31 @@ chunks:
     key_terms: [professional, dress, clothes, nice, sure, gradschool, undergrad, comments]
     token_count: 300
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c1"
-    char_span: [1310, 2888]
+    char_span: [1309, 2887]
     sentence_count: 8
     key_terms: [people, presentations, dress, appropriate, "it's", week, masters, wearing]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c2"
-    char_span: [2893, 4073]
+    char_span: [2892, 4072]
     sentence_count: 9
     key_terms: [jeans, undergrad, sandals, t-shirt, casual, class, did, saw]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c3"
-    char_span: [4075, 5913]
+    char_span: [4074, 5912]
     sentence_count: 8
     key_terms: [wear, dress, leggings, class, casual, people, jeans, lot]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c4"
-    char_span: [5915, 7766]
+    char_span: [5914, 7765]
     sentence_count: 17
     key_terms: [wear, shorts, nicer, year, leggings, slightly, program, casual]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1pphvrq.md#c5"
-    char_span: [7768, 8511]
+    char_span: [7767, 8510]
     sentence_count: 4
     key_terms: [cardigan, casual, outfit, themarshmallowfairy, professionality, significantly, professional, temperature]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", university, college, student, unfortunately, orientation, been, comments]
     token_count: 460
   - id: "social-intelligence/reddit-deep/college/1loicnl.md#c1"
-    char_span: [1994, 3435]
+    char_span: [1993, 3434]
     sentence_count: 14
     key_terms: [need, yourself, school, opportunities, give, grad, everything, schedule]
     section: Comments

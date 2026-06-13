@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1skvy3u.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1skvy3u/grad_school_admissions_without_thesis/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Social Sciences"
 extracted_at: "2026-06-06T23:23:15.586Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1skvy3u.md#c0"
+    char_span: [0, 1036]
+    sentence_count: 9
+    key_terms: [gradadmissions, years, admissions, comments, program, without, school, senior]
+    token_count: 241
+  - id: "social-intelligence/reddit-deep/gradadmissions/1skvy3u.md#c1"
+    char_span: [1051, 1642]
+    sentence_count: 4
+    key_terms: [senior, thesis, paper, applications, particularly, edelwoodoil, independent, department]
+    section: Comments
+    token_count: 121
 ---
-
 # Grad School Admissions Without Thesis
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1skvy3u/grad_school_admissions_without_thesis/)

@@ -23,49 +23,49 @@ chunks:
     key_terms: [stocks, "i'm", voo, investing, comments, strategy, entire, doing]
     token_count: 240
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c1"
-    char_span: [996, 1826]
+    char_span: [995, 1825]
     sentence_count: 3
     key_terms: [opposite, reddit, says, deleted, exactly, market, saying, covid]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c2"
-    char_span: [1828, 3098]
+    char_span: [1827, 3097]
     sentence_count: 3
     key_terms: [vxus, fearful, greedy, international, market, others, people, awkward-watercress33]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c3"
-    char_span: [3100, 5166]
+    char_span: [3099, 5165]
     sentence_count: 15
     key_terms: [international, expensivetoes4729, historical, domestic, chances, stocks, trying, split]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c4"
-    char_span: [4918, 5373]
+    char_span: [4917, 5372]
     sentence_count: 3
     key_terms: [watchstoredinass, anti-immigrant, international, experiencing, kleptocracy, innovation, outperform, autocracy]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c5"
-    char_span: [5375, 7338]
+    char_span: [5374, 7337]
     sentence_count: 16
     key_terms: [expensivetoes4729, economy, international, manufacturing, voo, countries, because, easily]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c6"
-    char_span: [7340, 8303]
+    char_span: [7339, 8302]
     sentence_count: 7
     key_terms: [scientology, voo, investing, church, decade, leftlanespawncamper, chill, index]
     section: Comments
     token_count: 268
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c7"
-    char_span: [8305, 10077]
+    char_span: [8304, 10076]
     sentence_count: 9
     key_terms: [global-stocks-are-forecast-to-return-7-point-7-percent-annually-in-coming-decade, press-release-vanguard-releases-2026-economic-and-market-outlook-121025, https, com, voo, billion, record, investment-directions-outlook]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/investing/1rstji3.md#c8"
-    char_span: [10079, 11160]
+    char_span: [10078, 11159]
     sentence_count: 7
     key_terms: [like, strategy, bonds, been, cash, good, veu, voo]
     section: Comments

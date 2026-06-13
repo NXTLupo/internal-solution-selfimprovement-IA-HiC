@@ -23,13 +23,13 @@ chunks:
     key_terms: [codegraphcontext, artificial, comments, https, desperate-ad-9679, city, reddit-deep, assistants]
     token_count: 113
   - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c1"
-    char_span: [549, 2188]
+    char_span: [548, 2187]
     sentence_count: 4
     key_terms: [codegraphcontext, https, mcp, github, infrastructure, graph, code, adoption]
     section: CodeGraphContext- the go to solution for code indexing now got 2k stars🎉🎉...
     token_count: 399
   - id: "social-intelligence/reddit-deep/artificial/1rqzcfj.md#c2"
-    char_span: [2203, 2398]
+    char_span: [2202, 2397]
     sentence_count: 1
     key_terms: [desperate-ad-9679, png, jferments, reference, preview, format, close, https]
     section: Comments

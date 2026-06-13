@@ -23,49 +23,49 @@ chunks:
     key_terms: [atlas, consumer, infrastructure, https, model, com, artificial, benchmarks]
     token_count: 341
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c1"
-    char_span: [1452, 3633]
+    char_span: [1451, 3632]
     sentence_count: 16
     key_terms: [pipeline, because, interesting, model, economics, inference, solution, number]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c2"
-    char_span: [3635, 4574]
+    char_span: [3634, 4573]
     sentence_count: 8
     key_terms: [verification, model, pass, plus, verifier, cost-per-correct-answer, because, lifting]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c3"
-    char_span: [4576, 6342]
+    char_span: [4575, 6341]
     sentence_count: 5
     key_terms: [best-of-n, comparing, inference, pass, generate-test-select, youre, question, papertrailml]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c4"
-    char_span: [6344, 8062]
+    char_span: [6343, 8061]
     sentence_count: 10
     key_terms: [better, qm82wdict7m, inference, selection, failures, youtube, claude, scores]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c5"
-    char_span: [8064, 10348]
+    char_span: [8063, 10347]
     sentence_count: 18
     key_terms: [pipeline, benchmarks, different, repo, problems, scicode, livecodebench, methodology]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c6"
-    char_span: [10350, 12138]
+    char_span: [10349, 12137]
     sentence_count: 13
     key_terms: [claude, techniques, benchmark, developer, frontier, pipeline, around, repair]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c7"
-    char_span: [12140, 13478]
+    char_span: [12139, 13477]
     sentence_count: 10
     key_terms: [money, landscape, something, takeaway, similar, maybe, best, goal]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/artificial/1s2yg3y.md#c8"
-    char_span: [13480, 15098]
+    char_span: [13479, 15097]
     sentence_count: 13
     key_terms: [intelligence, research, like, everywhere, different, something, whatever, general]
     section: Comments

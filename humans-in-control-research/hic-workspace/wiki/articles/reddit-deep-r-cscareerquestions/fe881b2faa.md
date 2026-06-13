@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/fe881b2faa.md#c0"
-    char_span: [0, 2126]
+    char_span: [0, 2125]
     sentence_count: 17
     key_terms: [data, roles, internship, cscareerquestions, advice, pivot, swe, top]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-deep-r-cscareerquestions/fe881b2faa.md#c1"
-    char_span: [2128, 2615]
+    char_span: [2127, 2614]
     sentence_count: 2
     key_terms: [required, because, d1g1tald0lph1n, competition, everything, experience, understand, difficult]
     token_count: 105

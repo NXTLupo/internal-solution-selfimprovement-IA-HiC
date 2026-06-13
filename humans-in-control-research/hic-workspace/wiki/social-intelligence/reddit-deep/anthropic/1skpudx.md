@@ -23,7 +23,7 @@ chunks:
     key_terms: [anthropic, comments, https, png, send, z43b63lp71vg1, reddit-deep, messages]
     token_count: 130
   - id: "social-intelligence/reddit-deep/anthropic/1skpudx.md#c1"
-    char_span: [401, 1150]
+    char_span: [400, 1149]
     sentence_count: 3
     key_terms: [enter, use, shortcuts, sometimes, press, png, bluuuuueeeeeee, eqnufquwc6vg1]
     section: Comments

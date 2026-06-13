@@ -28,13 +28,13 @@ chunks:
     key_terms: [rlvr-vs-sft-qwen2, rtx, jayminban, gsm8k, checkpoints, https, grpo, project]
     token_count: 388
   - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c2"
-    char_span: [2915, 5239]
+    char_span: [2914, 5238]
     sentence_count: 10
     key_terms: [entropy, runs, bonus, model, did, training, curious, dataset]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/machinelearning/1rk2kcz.md#c3"
-    char_span: [5241, 7648]
+    char_span: [5240, 7647]
     sentence_count: 13
     key_terms: [sft, model, reasoning, rlvr, different, patterns, scales, improvement]
     section: Comments

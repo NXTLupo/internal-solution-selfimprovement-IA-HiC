@@ -26,25 +26,25 @@ chunks:
     key_terms: [real, always, "you're", don, work, especially, yourself, economy]
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c2"
-    char_span: [2686, 2804]
+    char_span: [2685, 2803]
     sentence_count: 1
     key_terms: [appearance, maintain, workouts, through, diets, best, body, care]
     section: Comments
     token_count: 29
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c3"
-    char_span: [2806, 4562]
+    char_span: [2805, 4561]
     sentence_count: 8
     key_terms: [justmakingmywayhome, kevin, iyam3ut, "don't", learning, yourself, account, invest]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c4"
-    char_span: [4372, 5105]
+    char_span: [4371, 5104]
     sentence_count: 5
     key_terms: [justmakingmywayhome, funds, zrustyshackleford, cabbage-soup, accordingly, vulnerable, lifestyle, klemosda]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/careerguidance/1nrannp.md#c5"
-    char_span: [5107, 6946]
+    char_span: [5106, 6945]
     sentence_count: 15
     key_terms: [justmakingmywayhome, companies, fun-imagination-2488, indexes, start, give, life, old]
     section: Comments

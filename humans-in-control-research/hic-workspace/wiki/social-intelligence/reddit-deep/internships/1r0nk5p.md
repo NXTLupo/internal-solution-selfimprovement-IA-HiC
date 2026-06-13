@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1r0nk5p.md
 url: "https://www.reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,42 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.205Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c0"
+    char_span: [0, 1957]
+    sentence_count: 1
+    key_terms: [internships, apply, the-10-best-websites-for-finding-an-internship, how-many-internships-should-i-apply-to, indeed, resume, https, com]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c1"
+    char_span: [1959, 3829]
+    sentence_count: 1
+    key_terms: [follow-ups, resume, follow-up, recruiter, applying, how-and-why-write-great-cover-letter, cover, track]
+    token_count: 475
+  - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c2"
+    char_span: [3844, 4995]
+    sentence_count: 3
+    key_terms: [networking, internships, find, qualified, linkedin, deleted, future-palpitation15, suitable-jelly-3693]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c3"
+    char_span: [4997, 6904]
+    sentence_count: 5
+    key_terms: [suitable-jelly-3693, internships, freshman, sophomores, chunkygobbler911, opportunities, get, interviews]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c4"
+    char_span: [6702, 7256]
+    sentence_count: 3
+    key_terms: [getting, suitable-jelly-3693, work, stormiiclouds77, optimization, application, internships, interndock]
+    section: Comments
+    token_count: 144
+  - id: "social-intelligence/reddit-deep/internships/1r0nk5p.md#c5"
+    char_span: [7258, 8968]
+    sentence_count: 6
+    key_terms: [suitable-jelly-3693, linkedin, applications, tiredcat640, look, recruiter, relevant, because]
+    section: Comments
+    token_count: 430
 ---
-
 # how to get an internship in 2026: everything i am using/doing
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r0nk5p/how_to_get_an_internship_in_2026_everything_i_am/)

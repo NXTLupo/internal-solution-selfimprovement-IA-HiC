@@ -26,19 +26,19 @@ chunks:
     key_terms: [been, good, help, try, apparently, transcript, "don't", since]
     token_count: 258
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c2"
-    char_span: [3205, 5038]
+    char_span: [3204, 5037]
     sentence_count: 14
     key_terms: [psychology, requires, required, psychologist, coursework, hours, courses, credit]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c3"
-    char_span: [5043, 7189]
+    char_span: [5042, 7188]
     sentence_count: 16
     key_terms: [college, school, jayybirdd22, professions, back, "i'm", take, seriously]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/college/1m8ufrr.md#c4"
-    char_span: [7191, 8345]
+    char_span: [7190, 8344]
     sentence_count: 10
     key_terms: [college, stuffed, animal, family, grants, free, get, step]
     section: Comments

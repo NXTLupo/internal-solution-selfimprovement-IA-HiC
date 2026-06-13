@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1ssn4m4.md#c0"
-    char_span: [0, 2210]
+    char_span: [0, 2209]
     sentence_count: 14
     key_terms: [coding, option, competitive, development, interest, careerguidance, career, doing]
-    token_count: 504
+    token_count: 503
   - id: "social-intelligence/reddit-deep/careerguidance/1ssn4m4.md#c1"
-    char_span: [2212, 3079]
+    char_span: [2211, 3078]
     sentence_count: 4
     key_terms: [confusion, practical, another, whether, career, want, undervaluing, comfortable]
     token_count: 189

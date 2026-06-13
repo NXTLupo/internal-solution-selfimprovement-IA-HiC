@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, co-op, temporarytaste1288, big, like, move, neu, year]
     token_count: 177
   - id: "social-intelligence/reddit-deep/neu/1snotdv.md#c1"
-    char_span: [658, 1868]
+    char_span: [657, 1867]
     sentence_count: 8
     key_terms: [redact, co-op, work, months, social, being, moved, never]
     section: Comments

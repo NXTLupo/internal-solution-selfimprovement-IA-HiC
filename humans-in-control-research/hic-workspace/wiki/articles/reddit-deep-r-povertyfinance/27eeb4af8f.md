@@ -15,17 +15,17 @@ industries: [workforce, financial_services, insurance]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c0"
-    char_span: [0, 2080]
+    char_span: [0, 2079]
     sentence_count: 16
     key_terms: [like, car, feel, povertyfinance, "don't", money, financially, home]
-    token_count: 490
+    token_count: 489
   - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c1"
-    char_span: [2082, 4003]
+    char_span: [2081, 4002]
     sentence_count: 15
     key_terms: [car, found, stolen, crack, dogshaveears, time, underneath, yesterday]
     token_count: 455
   - id: "articles/reddit-deep-r-povertyfinance/27eeb4af8f.md#c2"
-    char_span: [4005, 4381]
+    char_span: [4004, 4380]
     sentence_count: 6
     key_terms: [stolen, back, long, seat, helpitgrow, something, somewhere, hennessy]
     token_count: 95

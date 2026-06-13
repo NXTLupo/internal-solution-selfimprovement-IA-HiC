@@ -21,19 +21,19 @@ chunks:
     key_terms: [loans, extremely, year, college, subsidized, comments, research, schedule]
     token_count: 440
   - id: "social-intelligence/reddit-deep/college/1mht21b.md#c1"
-    char_span: [1980, 4102]
+    char_span: [1979, 4101]
     sentence_count: 13
     key_terms: [loans, people, take, zealousideal-pea-220, subsidized, situation, taking, issue]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1mht21b.md#c2"
-    char_span: [4104, 6263]
+    char_span: [4103, 6262]
     sentence_count: 17
     key_terms: [loans, people, university, freshman, private, years, financial, communal]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/college/1mht21b.md#c3"
-    char_span: [6265, 6840]
+    char_span: [6264, 6839]
     sentence_count: 5
     key_terms: [universities, smaller, class, sizes, universites, auditorium, orientated, amenities]
     section: Comments

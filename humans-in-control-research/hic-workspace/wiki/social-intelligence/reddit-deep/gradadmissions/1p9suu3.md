@@ -23,19 +23,19 @@ chunks:
     key_terms: [gradadmissions, comments, applied, comment, english, school, applications, reddit-deep]
     token_count: 124
   - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c1"
-    char_span: [482, 2151]
+    char_span: [481, 2150]
     sentence_count: 6
     key_terms: [rylieroodle, got, rejected, portal, email, good, rejection, yesterday]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c2"
-    char_span: [1969, 3767]
+    char_span: [1968, 3766]
     sentence_count: 11
     key_terms: [rejection, rejected, schools, "i'm", interviews, rejections, university, accepted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1p9suu3.md#c3"
-    char_span: [3531, 4809]
+    char_span: [3530, 4808]
     sentence_count: 6
     key_terms: [interview, interviewed, cold-law-4869, email, refreshing, finalists, admitted, anything]
     section: Comments

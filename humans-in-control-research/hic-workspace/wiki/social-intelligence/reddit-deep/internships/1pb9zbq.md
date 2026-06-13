@@ -16,12 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1pb9zbq.md#c0"
-    char_span: [0, 2057]
+    char_span: [0, 2056]
     sentence_count: 18
     key_terms: [engineering, internships, doing, "don't", anymore, getting, student, "i'm"]
-    token_count: 479
+    token_count: 478
   - id: "social-intelligence/reddit-deep/internships/1pb9zbq.md#c1"
-    char_span: [2059, 3564]
+    char_span: [2058, 3563]
     sentence_count: 12
     key_terms: ["i'm", getting, people, engineering, programing, anymore, because, trying]
     token_count: 329

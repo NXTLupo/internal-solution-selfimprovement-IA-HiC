@@ -23,13 +23,13 @@ chunks:
     key_terms: [graduation, school, college, need, struggling, comments, graduate, without]
     token_count: 409
   - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c1"
-    char_span: [1767, 3491]
+    char_span: [1766, 3490]
     sentence_count: 16
     key_terms: [walk, because, grandparents, life, own, emotional, events, little]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/college/1n7djsi.md#c2"
-    char_span: [3493, 4179]
+    char_span: [3492, 4178]
     sentence_count: 5
     key_terms: [secret-falcon4357, "it's", like, walk, want, trippysakuta, graduation, personally]
     section: Comments

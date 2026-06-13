@@ -9,18 +9,20 @@ author: ""
 date: "2026-04-28T01:56:29.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-06-05T19:58:17.572261+00:00"
+extracted_at: "2026-06-08T19:01:42.253863+00:00"
 chars: 2328
-relevance: 30
-engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
+relevance: 40
+engagement_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
+content_hash: "72342ff1f1132965"
+relevance_by_goal: {"069101ec4999":40}
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/6f8b2a2cbb.md#c0"
-    char_span: [0, 1622]
+    char_span: [0, 1621]
     sentence_count: 15
     key_terms: [job, careerguidance, career, jobs, applying, seekers, "here's", reddit]
-    token_count: 365
+    token_count: 364
   - id: "articles/reddit-deep-r-careerguidance/6f8b2a2cbb.md#c1"
-    char_span: [1624, 2535]
+    char_span: [1623, 2534]
     sentence_count: 1
     key_terms: [sunflowerwellnesshtx, top, posting, substantial-car5791, job, plus, applications, responsible]
     token_count: 216

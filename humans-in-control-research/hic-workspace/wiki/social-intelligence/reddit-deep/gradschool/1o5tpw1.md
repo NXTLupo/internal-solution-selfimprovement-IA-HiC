@@ -18,10 +18,10 @@ industries: [higher_ed, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1o5tpw1.md#c0"
-    char_span: [0, 260]
+    char_span: [0, 259]
     sentence_count: 1
     key_terms: [gradschool, comments, reddit-deep, babyskele, exploring, research, posted, reddit]
-    token_count: 76
+    token_count: 75
 ---
 # Exploring Research Topics for Grad School
 

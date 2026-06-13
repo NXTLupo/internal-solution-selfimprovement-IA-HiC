@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, comments, through, get, opportunities, upperclassmen, connections, internships]
     token_count: 161
   - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c1"
-    char_span: [710, 2632]
+    char_span: [709, 2631]
     sentence_count: 10
     key_terms: [internships, got, school, going, internship, companies, applying, industry]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1qve1mc.md#c2"
-    char_span: [2634, 5025]
+    char_span: [2633, 5024]
     sentence_count: 16
     key_terms: [connections, internships, internship, companies, got, online, listings, college]
     section: Comments

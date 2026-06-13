@@ -23,25 +23,25 @@ chunks:
     key_terms: [productivity, comments, habit, overthinking, william45623, reddit-deep, difference, frameworks]
     token_count: 150
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c1"
-    char_span: [672, 1906]
+    char_span: [671, 1905]
     sentence_count: 4
     key_terms: [head, like, mental, brain, bad, day, get, tab]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c2"
-    char_span: [1908, 3846]
+    char_span: [1907, 3845]
     sentence_count: 18
     key_terms: [minutes, luckyone9591, focus, day, like, listening, instead, podcast]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c3"
-    char_span: [3848, 6029]
+    char_span: [3847, 6028]
     sentence_count: 18
     key_terms: [brain-dumping, used, iwantboringtimes, waiting, want, week, something, advice]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/productivity/1pembws.md#c4"
-    char_span: [6031, 6420]
+    char_span: [6030, 6419]
     sentence_count: 4
     key_terms: [stress, procrastinating, procrastination, considerations, especially, regulation, strategies, increases]
     section: Comments

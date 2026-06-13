@@ -23,7 +23,7 @@ chunks:
     key_terms: [advice, comments, project, summer, taking, right, guys, neu]
     token_count: 292
   - id: "social-intelligence/reddit-deep/neu/1kvabm3.md#c1"
-    char_span: [1107, 1567]
+    char_span: [1106, 1566]
     sentence_count: 4
     key_terms: [behavioral, everything, depending, interview, screening, applying, leetcode, students]
     section: Comments

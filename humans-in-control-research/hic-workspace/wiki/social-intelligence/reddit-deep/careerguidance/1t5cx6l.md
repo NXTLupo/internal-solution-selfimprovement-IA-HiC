@@ -23,7 +23,7 @@ chunks:
     key_terms: [careers, careerguidance, something, comments, already, rebuild, people, going]
     token_count: 333
   - id: "social-intelligence/reddit-deep/careerguidance/1t5cx6l.md#c1"
-    char_span: [1495, 2013]
+    char_span: [1494, 2012]
     sentence_count: 5
     key_terms: [program, career, affordability, chicken121260, flexibility, definitely, rebuilding, balancing]
     section: Comments

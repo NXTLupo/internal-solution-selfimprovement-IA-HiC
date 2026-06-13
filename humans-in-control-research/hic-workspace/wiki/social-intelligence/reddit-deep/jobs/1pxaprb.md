@@ -23,31 +23,31 @@ chunks:
     key_terms: [interview, car, told, comments, because, manager, remarkable-soil-2997, asked]
     token_count: 254
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c1"
-    char_span: [988, 2895]
+    char_span: [987, 2894]
     sentence_count: 11
     key_terms: [transportation, reliable, car, mode, whatever32657, asked, ask, walk]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c2"
-    char_span: [2897, 4370]
+    char_span: [2896, 4369]
     sentence_count: 12
     key_terms: [reliable, transportation, car, uber, probably, asked, ask, etc]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c3"
-    char_span: [4372, 5733]
+    char_span: [4371, 5732]
     sentence_count: 9
     key_terms: [reliable, close, car, get, minute, better-commission541, able, ask]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c4"
-    char_span: [5735, 7828]
+    char_span: [5734, 7827]
     sentence_count: 14
     key_terms: [car, transportation, reliable, because, people, communities, winterbird, interview]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pxaprb.md#c5"
-    char_span: [7550, 7895]
+    char_span: [7549, 7894]
     sentence_count: 5
     key_terms: [people, transportation, twominute920, humiliating, something, personal, reliable, requires]
     section: Comments

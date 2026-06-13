@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, role, comments, intern, solve, help, uber, preparation]
     token_count: 186
   - id: "social-intelligence/reddit-deep/internships/1nv0t4q.md#c1"
-    char_span: [730, 1939]
+    char_span: [729, 1938]
     sentence_count: 4
     key_terms: [got, mail, question, deleted, saurabhanan, did, get, assessment]
     section: Comments

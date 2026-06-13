@@ -23,13 +23,13 @@ chunks:
     key_terms: [tech, considering, cscareerquestions, market, recommend, comments, current, job]
     token_count: 191
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsxbbk.md#c1"
-    char_span: [781, 2684]
+    char_span: [780, 2683]
     sentence_count: 8
     key_terms: [generalist, societywonderful321, learn, welding, easier, i-feel-love79, ornery-car92, barriers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsxbbk.md#c2"
-    char_span: [2506, 4141]
+    char_span: [2505, 4140]
     sentence_count: 15
     key_terms: [i-feel-love79, need, tech, learning, deleted, farming, tcoder7, people]
     section: Comments

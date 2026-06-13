@@ -31,25 +31,25 @@ chunks:
     key_terms: ["don't", feel, posting, process, better, myself, others, "that's"]
     token_count: 53
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c3"
-    char_span: [3538, 5435]
+    char_span: [3537, 5434]
     sentence_count: 13
     key_terms: [upperclassmen, want, age, old, "don't", live, yourself, college]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c4"
-    char_span: [5437, 6938]
+    char_span: [5436, 6937]
     sentence_count: 7
     key_terms: [degree, school, traditional, back, friends, health, dorms, angrybeaversociety]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c5"
-    char_span: [6940, 8427]
+    char_span: [6939, 8426]
     sentence_count: 11
     key_terms: [college, age, "you're", adult, years, because, friends, nobody]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/college/1naaqnf.md#c6"
-    char_span: [8429, 9538]
+    char_span: [8428, 9537]
     sentence_count: 12
     key_terms: [years, life, yourself, ahead, hit, path, cigarettes, everything]
     section: Comments

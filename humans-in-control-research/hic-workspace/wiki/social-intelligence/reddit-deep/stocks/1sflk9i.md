@@ -28,13 +28,13 @@ chunks:
     key_terms: [author, reddit, search, stocks, https, com, new, sort]
     token_count: 203
   - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c2"
-    char_span: [1902, 3574]
+    char_span: [1901, 3573]
     sentence_count: 9
     key_terms: [ivorytowerresident, iran, civilization, gets, point, trump, continue, farrisat]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/stocks/1sflk9i.md#c3"
-    char_span: [3576, 4766]
+    char_span: [3575, 4765]
     sentence_count: 10
     key_terms: [offer, theory, back, days, did, dip, like, next]
     section: Comments

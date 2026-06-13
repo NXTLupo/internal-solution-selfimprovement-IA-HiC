@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1kvuer4.md#c0"
-    char_span: [0, 2099]
+    char_span: [0, 2098]
     sentence_count: 18
     key_terms: [forensic, science, currently, guidance, careerguidance, abroad, career, skills]
-    token_count: 460
+    token_count: 459
 ---
 # Guidance for a Career as a Crime Scene Investigator Abroad – ISC Grade 11 Student from India. Can someone help?
 

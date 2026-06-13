@@ -18,12 +18,12 @@ industries: [financial_services, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1snhphs.md#c0"
-    char_span: [0, 1778]
+    char_span: [0, 1777]
     sentence_count: 2
     key_terms: [better, personalfinance, payment, pretty, school, saxophones, comments, monthly]
-    token_count: 486
+    token_count: 485
   - id: "social-intelligence/reddit-deep/personalfinance/1snhphs.md#c1"
-    char_span: [1780, 2437]
+    char_span: [1779, 2436]
     sentence_count: 1
     key_terms: [retirement, accruals, driving, idk, like, affordable, everything, personal]
     token_count: 167

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1swvucs.md
 url: "https://www.reddit.com/r/careerguidance/comments/1swvucs/need_advice_on_choosing_a_career_path_cima_or/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.898Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1swvucs.md#c0"
+    char_span: [0, 1094]
+    sentence_count: 10
+    key_terms: [cima, path, careerguidance, accounting, comments, advice, career, unsure]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/careerguidance/1swvucs.md#c1"
+    char_span: [1109, 1847]
+    sentence_count: 9
+    key_terms: [career, need, lawfulnesskey297, work-from-home, supplementary, assessments, collaborate, partnership]
+    section: Comments
+    token_count: 164
 ---
-
 # Need advice on choosing a career path (CIMA or something else?)
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1swvucs/need_advice_on_choosing_a_career_path_cima_or/)

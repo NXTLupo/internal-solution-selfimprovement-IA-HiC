@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1ncd2d4.md
 url: "https://www.reddit.com/r/college/comments/1ncd2d4/im_a_junior_thinking_about_changing_my_degree/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -6,19 +7,42 @@ subreddit: "college"
 title: "I’m a Junior Thinking About Changing my Degree into an Entirely Unrelated Field"
 author: "CaregiverLess4525"
 date: "2025-09-09T08:08:05.000Z"
-score: 16
-upvote_ratio: 0.95
+score: 14
+upvote_ratio: 0.9
 num_comments: 9
 flair: "Career/work"
-extracted_at: "2026-06-06T23:23:15.571Z"
+extracted_at: "2026-06-09T03:57:16.731Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Trends in alumni giving and donor retention for universities"
+engagement: "trends-in-alumni-giving-and-donor-retention-for-universities"
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c0"
+    char_span: [0, 1970]
+    sentence_count: 13
+    key_terms: [college, like, having, exercise, because, science, degree, school]
+    token_count: 452
+  - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c1"
+    char_span: [1972, 3090]
+    sentence_count: 15
+    key_terms: [major, like, want, probably, classes, finally, work, recommendation]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c2"
+    char_span: [3104, 5035]
+    sentence_count: 9
+    key_terms: [caregiverless4525, change, thank, connections, did, good, time, decision]
+    section: Comments
+    token_count: 473
+  - id: "social-intelligence/reddit-deep/college/1ncd2d4.md#c3"
+    char_span: [5037, 7307]
+    sentence_count: 18
+    key_terms: [finance, want, business, work, major, right, year, definitely]
+    section: Comments
+    token_count: 502
 ---
-
 # I’m a Junior Thinking About Changing my Degree into an Entirely Unrelated Field
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1ncd2d4/im_a_junior_thinking_about_changing_my_degree/)
-Posted by **CaregiverLess4525** · **16↑** · **9 comments**
+Posted by **CaregiverLess4525** · **14↑** · **9 comments**
 
 Hey, I’m 21 and a Junior majoring in Exercise Science right now, and minoring in Japanese. I’m currently studying abroad in Japan right now to finish up classes doe my minor, but I’m kinda having a college crisis. 
 
@@ -34,7 +58,7 @@ So far, I have done all major classes like the ENGL1101s etc., so all that would
 
 ## Comments
 
-- **Wonderful-Actuary336** (5↑): good luck, don't look back, do what your heart tells you, you won't regret
+- **Wonderful-Actuary336** (6↑): good luck, don't look back, do what your heart tells you, you won't regret
   - **CaregiverLess4525** (1↑): Thank you!
 - **talconline** (3↑): I did something like this - got a couple years in Biology while taking Arabic for my language, but found that I much more thoroughly enjoyed Arabic and Middle East/North African topics and issues. I enjoyed the bio research I did, but seeing the immediate career outcomes were not encouraging - I knew I didn't have it in me for grad school for biological sciences, and as I learned more about myself I realized that I would need a more routine 9-to-5 type of life than a doctorate or MD would allow. So I switched focus to a Middle Eastern Studies degree, and since I was already close enough to finishing my Bio I did that as well. But if I had not been close I would have just gone MESt all the way. Very happy with that decision, though it scared the CRAP out of me at the time!!
   - **CaregiverLess4525** (1↑): thank you for the insight

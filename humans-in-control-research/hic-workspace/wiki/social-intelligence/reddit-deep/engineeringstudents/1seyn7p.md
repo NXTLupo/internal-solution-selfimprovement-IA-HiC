@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, engineeringstudents, year, interviews, comments, student, advice, trying]
     token_count: 234
   - id: "social-intelligence/reddit-deep/engineeringstudents/1seyn7p.md#c1"
-    char_span: [1065, 2120]
+    char_span: [1064, 2119]
     sentence_count: 8
     key_terms: [take, experience, internship, resume, summer, kinda, thank, look]
     section: Comments

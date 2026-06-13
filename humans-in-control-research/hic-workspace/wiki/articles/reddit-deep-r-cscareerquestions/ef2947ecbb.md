@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/ef2947ecbb.md#c0"
-    char_span: [0, 2189]
+    char_span: [0, 2188]
     sentence_count: 14
     key_terms: [job, market, people, years, cscareerquestions, comments, get, hard]
-    token_count: 513
+    token_count: 512
   - id: "articles/reddit-deep-r-cscareerquestions/ef2947ecbb.md#c1"
-    char_span: [2191, 4322]
+    char_span: [2190, 4321]
     sentence_count: 22
     key_terms: [company, onsite, people, extremely, offshore, because, competitive, let]
     token_count: 471

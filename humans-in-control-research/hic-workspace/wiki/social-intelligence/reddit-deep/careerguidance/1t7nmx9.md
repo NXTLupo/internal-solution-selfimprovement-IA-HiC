@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t7nmx9.md#c0"
-    char_span: [0, 296]
+    char_span: [0, 295]
     sentence_count: 1
     key_terms: [careerguidance, comments, progression, reddit-deep, corporate, advice, career, posted]
-    token_count: 90
+    token_count: 89
 ---
 # Need Career Progression Advice? - First Corporate Job
 

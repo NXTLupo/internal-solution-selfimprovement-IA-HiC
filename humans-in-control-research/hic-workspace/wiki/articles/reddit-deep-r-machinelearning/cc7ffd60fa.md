@@ -13,12 +13,12 @@ extracted_at: "2026-05-31T21:52:18.508906+00:00"
 chars: 2983
 chunks:
   - id: "articles/reddit-deep-r-machinelearning/cc7ffd60fa.md#c0"
-    char_span: [0, 1333]
+    char_span: [0, 1332]
     sentence_count: 6
     key_terms: [feature, machinelearning, because, production, dashboard, openai, reddit, trying]
-    token_count: 278
+    token_count: 277
   - id: "articles/reddit-deep-r-machinelearning/cc7ffd60fa.md#c1"
-    char_span: [1335, 3184]
+    char_span: [1334, 3183]
     sentence_count: 11
     key_terms: [task, workflow, decide, architecture, orchestrator, agent, model, challenge]
     token_count: 423

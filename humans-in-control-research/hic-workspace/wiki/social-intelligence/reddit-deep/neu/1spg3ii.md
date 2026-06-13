@@ -23,7 +23,7 @@ chunks:
     key_terms: [oncampus, financially, job, time, comments, support, myself, right]
     token_count: 309
   - id: "social-intelligence/reddit-deep/neu/1spg3ii.md#c1"
-    char_span: [1301, 2681]
+    char_span: [1300, 2680]
     sentence_count: 7
     key_terms: [get, relationship, good, professors, difficult, continue, rick-67, campus]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [chat, gpt, different, memory, allocation, beginning, efficient, comments]
     token_count: 336
   - id: "social-intelligence/reddit-deep/gpt/1nxktje.md#c1"
-    char_span: [1363, 1855]
+    char_span: [1362, 1854]
     sentence_count: 5
     key_terms: [dausone, specs, definitely, experience, according, extremely, seriously, switching]
     section: Comments

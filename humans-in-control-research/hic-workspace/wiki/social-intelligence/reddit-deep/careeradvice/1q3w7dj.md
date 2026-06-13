@@ -23,13 +23,13 @@ chunks:
     key_terms: [career, careeradvice, comments, switch, judgemental, reddit-deep, background, discussion]
     token_count: 130
   - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c1"
-    char_span: [494, 2798]
+    char_span: [493, 2797]
     sentence_count: 16
     key_terms: [understanding, learning, science, technologies, tools, value, data, job]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careeradvice/1q3w7dj.md#c2"
-    char_span: [2800, 4128]
+    char_span: [2799, 4127]
     sentence_count: 12
     key_terms: [banking, because, crowded, scratch, models, people, get, try]
     section: Comments

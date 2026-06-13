@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, new, comments, engineer, career, paths, careerfocusmind, ai-assisted]
     token_count: 131
   - id: "social-intelligence/reddit-deep/careerguidance/1owjqgq.md#c1"
-    char_span: [570, 1768]
+    char_span: [569, 1767]
     sentence_count: 12
     key_terms: [careerfocusmind, college, outrageous-guava1881, replace, post, account, trade, won]
     section: Comments

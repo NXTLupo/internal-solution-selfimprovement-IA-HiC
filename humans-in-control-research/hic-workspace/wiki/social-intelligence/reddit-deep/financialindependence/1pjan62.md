@@ -41,79 +41,79 @@ chunks:
     key_terms: [house, brother, parents, buy, dad, move, new, rent]
     token_count: 383
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c5"
-    char_span: [10260, 12023]
+    char_span: [10259, 12022]
     sentence_count: 9
     key_terms: [dad, mom, poa, money, step, healthcare, financial, pursuing]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c6"
-    char_span: [12025, 14010]
+    char_span: [12024, 14009]
     sentence_count: 14
     key_terms: [house, choices, debt, get, like, pay, rent, emergency]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c7"
-    char_span: [14012, 16204]
+    char_span: [14011, 16203]
     sentence_count: 14
     key_terms: [family, little, optionality, good, budgeting, response, shopping, believe]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c8"
-    char_span: [16206, 17984]
+    char_span: [16205, 17983]
     sentence_count: 12
     key_terms: [condo, always, feels, maintenance, good, loan, luxurious, suggested]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c9"
-    char_span: [17987, 20108]
+    char_span: [17986, 20107]
     sentence_count: 15
     key_terms: [debt, live, need, card, get, here, retirement, underlying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c10"
-    char_span: [20110, 22346]
+    char_span: [20109, 22345]
     sentence_count: 18
     key_terms: [loan, brokerage, house, insurance, debt, brother, secured, selling]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c11"
-    char_span: [22348, 23752]
+    char_span: [22347, 23751]
     sentence_count: 15
     key_terms: [debt, need, credit, people, groceries, sometimes, interest, payments]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c12"
-    char_span: [23754, 25957]
+    char_span: [23753, 25956]
     sentence_count: 19
     key_terms: [debt, problem, spending, pay, sell, expenses, income, immediately]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c13"
-    char_span: [25959, 27909]
+    char_span: [25958, 27908]
     sentence_count: 25
     key_terms: [probably, parents, experiences, don, own, step, wife, downsizing]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c14"
-    char_span: [27911, 29979]
+    char_span: [27910, 29978]
     sentence_count: 16
     key_terms: [crisis, parents, time, financials, interest, brother, secrets, amount]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c15"
-    char_span: [29981, 31965]
+    char_span: [29980, 31964]
     sentence_count: 19
     key_terms: [health, mental, physical, parents, please, doesn, set, current]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c16"
-    char_span: [31967, 33019]
+    char_span: [31966, 33018]
     sentence_count: 9
     key_terms: [numbers, showing, anything, spending, willing, change, start, been]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/financialindependence/1pjan62.md#c17"
-    char_span: [33021, 34663]
+    char_span: [33020, 34662]
     sentence_count: 15
     key_terms: [mom, take, get, because, months, loans, etc, like]
     section: Comments

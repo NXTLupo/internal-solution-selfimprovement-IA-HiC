@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tb6von.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tb6von/any_advice_for_someone_with_low_experience_a_few/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.891Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tb6von.md#c0"
+    char_span: [0, 1115]
+    sentence_count: 13
+    key_terms: [want, careerguidance, don, anything, comments, myself, paths, like]
+    token_count: 268
+  - id: "social-intelligence/reddit-deep/careerguidance/1tb6von.md#c1"
+    char_span: [1130, 2364]
+    sentence_count: 9
+    key_terms: [environmental, something, without, degree, people, skills, "you're", local]
+    section: Comments
+    token_count: 246
 ---
-
 # Any advice for someone with low experience, a few interests, looking for career paths recommendations?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tb6von/any_advice_for_someone_with_low_experience_a_few/)

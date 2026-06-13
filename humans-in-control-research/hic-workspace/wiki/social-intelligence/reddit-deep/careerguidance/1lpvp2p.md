@@ -23,31 +23,31 @@ chunks:
     key_terms: [sales, careerguidance, career, experience, management, business, comments, security]
     token_count: 354
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c1"
-    char_span: [1557, 1854]
+    char_span: [1556, 1853]
     sentence_count: 4
     key_terms: [sales, different, change, justhereforpics1776, b2b, industries, though, makes]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c2"
-    char_span: [1859, 3749]
+    char_span: [1858, 3748]
     sentence_count: 16
     key_terms: [get, change, going, sales, late, something, training, somehow]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c3"
-    char_span: [3751, 4683]
+    char_span: [3750, 4682]
     sentence_count: 14
     key_terms: [years, certs, field, sales, experience, "you've", liquiddiscourage1, back]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c4"
-    char_span: [4685, 6614]
+    char_span: [4684, 6613]
     sentence_count: 11
     key_terms: [coding, actwide6615, career, years, been, take, looking, change]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lpvp2p.md#c5"
-    char_span: [6356, 8222]
+    char_span: [6355, 8221]
     sentence_count: 10
     key_terms: [coding, like, anything, because, adult, going, right, sales]
     section: Comments

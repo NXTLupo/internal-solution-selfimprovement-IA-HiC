@@ -33,31 +33,31 @@ chunks:
     key_terms: [year, change, work, students, because, issues, reason, within]
     token_count: 202
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c3"
-    char_span: [4962, 6938]
+    char_span: [4961, 6937]
     sentence_count: 12
     key_terms: [bar, services, food, wusa, bomber, equipment, reopening, run]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c4"
-    char_span: [6940, 9094]
+    char_span: [6939, 9093]
     sentence_count: 15
     key_terms: [university, agreement, services, negotiations, food, slow, began, bar]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c5"
-    char_span: [9096, 9604]
+    char_span: [9095, 9603]
     sentence_count: 2
     key_terms: [year, deliberately, robotguy0207, leadership, sandbagged, attitudes, president, emptease]
     section: Comments
     token_count: 133
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c6"
-    char_span: [9606, 11513]
+    char_span: [9605, 11512]
     sentence_count: 11
     key_terms: [robotguy0207, got, theduckaboveall, thank, wusa, year, appreciate, everything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1t0fi9j.md#c7"
-    char_span: [11281, 12565]
+    char_span: [11280, 12564]
     sentence_count: 9
     key_terms: [https, uwaterloo, campus-wellness, please, dynh-i-need-talk-someone-right-now, urgent-help-and-emergency-contacts, text, moderators]
     section: Comments

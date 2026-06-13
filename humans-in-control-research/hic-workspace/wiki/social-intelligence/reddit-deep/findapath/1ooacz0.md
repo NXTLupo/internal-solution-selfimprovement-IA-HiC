@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ooacz0.md
 url: "https://www.reddit.com/r/findapath/comments/1ooacz0/be_honest_guys_whats_actually_the_best_career_to/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,67 @@ flair: "Findapath-Career Change"
 extracted_at: "2026-06-06T23:22:15.467Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c0"
+    char_span: [0, 1190]
+    sentence_count: 9
+    key_terms: [findapath, comments, confused, career, choose, don, love, real]
+    token_count: 291
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c1"
+    char_span: [1205, 2823]
+    sentence_count: 15
+    key_terms: [thank, helpful, change, please, findapath, comments, everyone, guidance]
+    section: Comments
+    token_count: 363
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c2"
+    char_span: [2825, 4489]
+    sentence_count: 15
+    key_terms: [something, passion, "you're", onetinterestprofiler, like, talent, start, good]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c3"
+    char_span: [4491, 6487]
+    sentence_count: 15
+    key_terms: [good, need, want, subjects, example, talking, better, enough]
+    section: Comments
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c4"
+    char_span: [6489, 8031]
+    sentence_count: 19
+    key_terms: [years, technical, school, did, get, college, degree, don]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c5"
+    char_span: [8033, 9465]
+    sentence_count: 16
+    key_terms: [get, good, accounting, auditing, getting, change, degree, people]
+    section: Comments
+    token_count: 343
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c6"
+    char_span: [9467, 10987]
+    sentence_count: 6
+    key_terms: [job, field, work, benefits, expected, degrees, "didn't", "don't"]
+    section: Comments
+    token_count: 376
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c7"
+    char_span: [10989, 12543]
+    sentence_count: 10
+    key_terms: [doing, job, skills, communication, great, different, sacrifice, because]
+    section: Comments
+    token_count: 361
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c8"
+    char_span: [12546, 14373]
+    sentence_count: 18
+    key_terms: [because, brother, etc, like, work, medicine, looking, myself]
+    section: Comments
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/findapath/1ooacz0.md#c9"
+    char_span: [14375, 15833]
+    sentence_count: 9
+    key_terms: [passion, job, comment, people, engineering, get, work, volunteer]
+    section: Comments
+    token_count: 325
 ---
-
 # Be honest guys... what’s actually the best career to choose after high school in 2025? I’m lost 😭💭
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ooacz0/be_honest_guys_whats_actually_the_best_career_to/)

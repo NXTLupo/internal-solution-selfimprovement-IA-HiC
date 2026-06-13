@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1rpf72g.md#c0"
-    char_span: [0, 737]
+    char_span: [0, 736]
     sentence_count: 5
     key_terms: [gradadmissions, comments, letter, https, cmu, got, mse, png]
-    token_count: 218
+    token_count: 217
 ---
 # Got into CMU MSE!
 

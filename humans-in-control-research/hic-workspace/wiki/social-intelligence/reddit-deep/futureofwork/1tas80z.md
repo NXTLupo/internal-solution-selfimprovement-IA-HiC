@@ -23,7 +23,7 @@ chunks:
     key_terms: [skills, etc, future, futureofwork, skill, restaurant, comments, degree]
     token_count: 283
   - id: "social-intelligence/reddit-deep/futureofwork/1tas80z.md#c1"
-    char_span: [1170, 3094]
+    char_span: [1169, 3093]
     sentence_count: 11
     key_terms: [skills, something, skill, people, communication, certificates, zyrn4rhbdwm, need]
     section: Comments

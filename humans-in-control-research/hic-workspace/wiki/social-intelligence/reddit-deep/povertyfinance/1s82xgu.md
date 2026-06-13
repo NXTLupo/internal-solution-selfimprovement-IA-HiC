@@ -28,19 +28,19 @@ chunks:
     key_terms: ["i'm", situation, coffee, too, understanding, comfortable, embarrassed, financial]
     token_count: 155
   - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c2"
-    char_span: [2656, 4196]
+    char_span: [2655, 4195]
     sentence_count: 13
     key_terms: [like, "don't", don, friend, honest, enough, simple, no-needleworker-1519]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c3"
-    char_span: [4198, 5557]
+    char_span: [4197, 5556]
     sentence_count: 7
     key_terms: [brief-finding-895, friend, good, appetizers, friends, afford, budget, lookwhatyoumademed0]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1s82xgu.md#c4"
-    char_span: [5559, 7448]
+    char_span: [5558, 7447]
     sentence_count: 12
     key_terms: [budget, going, don, together, because, hanging, afford, person]
     section: Comments

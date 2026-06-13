@@ -28,7 +28,7 @@ chunks:
     key_terms: ["i'm", need, "don't", work, thinking, applied, mostly, month]
     token_count: 393
   - id: "social-intelligence/reddit-deep/findapath/1mmy04y.md#c2"
-    char_span: [3563, 4695]
+    char_span: [3562, 4694]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

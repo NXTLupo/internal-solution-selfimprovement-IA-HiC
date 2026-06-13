@@ -23,7 +23,7 @@ chunks:
     key_terms: [work, transformation, business, reports, trends, leadership, workforce, economic]
     token_count: 373
   - id: "social-intelligence/reddit-deep/futureofwork/1rf5frz.md#c1"
-    char_span: [1691, 2568]
+    char_span: [1690, 2567]
     sentence_count: 7
     key_terms: [work, productivity, remote, png, time, ygtn50vi2tlg1, disconnected, hubstaffapp]
     section: Comments

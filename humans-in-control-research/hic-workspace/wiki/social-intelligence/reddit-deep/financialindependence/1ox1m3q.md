@@ -33,55 +33,55 @@ chunks:
     key_terms: [liquid, grateful, di3ks, fired, hours, face, got, "i'm"]
     token_count: 311
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c3"
-    char_span: [5172, 5719]
+    char_span: [5171, 5718]
     sentence_count: 7
     key_terms: [remember, fired, clutchdude, psilocybin, important, mushrooms, requiring, employer]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c4"
-    char_span: [5721, 7387]
+    char_span: [5720, 7386]
     sentence_count: 9
     key_terms: [did, getting, better, another, expense, skipped, "wasn't", flaminglegosinthesky]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c5"
-    char_span: [7389, 9545]
+    char_span: [7388, 9544]
     sentence_count: 12
     key_terms: [healthcare, business, premiums, universally, aca, deductible, certain, company]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c6"
-    char_span: [9547, 11263]
+    char_span: [9546, 11262]
     sentence_count: 11
     key_terms: [threat, times, flight, fight, fired, job, different, probably]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c7"
-    char_span: [11265, 13043]
+    char_span: [11264, 13042]
     sentence_count: 17
     key_terms: [job, experience, software, thought, layoff, calculations, because, looking]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c8"
-    char_span: [13045, 14489]
+    char_span: [13044, 14488]
     sentence_count: 18
     key_terms: [working, people, retire, someone, better, having, value, years]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c9"
-    char_span: [14491, 16212]
+    char_span: [14490, 16211]
     sentence_count: 19
     key_terms: [interesting, "don't", good, benefits, because, hobbies, nothing, friend]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c10"
-    char_span: [16214, 17616]
+    char_span: [16213, 17615]
     sentence_count: 10
     key_terms: [job, because, myself, though, within, ended, scary, back]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/financialindependence/1ox1m3q.md#c11"
-    char_span: [17618, 19323]
+    char_span: [17617, 19322]
     sentence_count: 13
     key_terms: [like, business, thetadaddyrise, story, sure, year, promotion, stucon77]
     section: Comments

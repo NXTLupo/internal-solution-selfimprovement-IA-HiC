@@ -28,31 +28,31 @@ chunks:
     key_terms: [setting, grad, expectations, experienced, boundaries, colleagues, navigating, adulthood]
     token_count: 89
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c2"
-    char_span: [2841, 4567]
+    char_span: [2840, 4566]
     sentence_count: 16
     key_terms: [people, "i'm", possible, loving, school, class, sorry, feel]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c3"
-    char_span: [4569, 6390]
+    char_span: [4568, 6389]
     sentence_count: 15
     key_terms: [like, program, cohort, school, people, pretty, age, feel]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c4"
-    char_span: [6392, 7856]
+    char_span: [6391, 7855]
     sentence_count: 7
     key_terms: [presentation, definitely, professor, because, decided, project, person, done]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c5"
-    char_span: [7858, 10136]
+    char_span: [7857, 10135]
     sentence_count: 18
     key_terms: [like, because, professional, bad, classmates, eventually, professor, learning]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/gradschool/1lk8mdh.md#c6"
-    char_span: [10138, 11724]
+    char_span: [10137, 11723]
     sentence_count: 14
     key_terms: [department, dean, did, approaches, professor, received, students, handle]
     section: Comments

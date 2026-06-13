@@ -23,31 +23,31 @@ chunks:
     key_terms: [unemployment, money, been, povertyfinance, time, comments, position, people]
     token_count: 278
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c1"
-    char_span: [1191, 2815]
+    char_span: [1190, 2814]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c2"
-    char_span: [2817, 3953]
+    char_span: [2816, 3952]
     sentence_count: 11
     key_terms: [retirement, choice, crappy, fit-combination-6211, debt, job, shit, ton]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c3"
-    char_span: [3955, 5048]
+    char_span: [3954, 5047]
     sentence_count: 5
     key_terms: ["i'm", trade, pell, spooky3264, situation, company, driving, grant]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c4"
-    char_span: [5050, 7132]
+    char_span: [5049, 7131]
     sentence_count: 20
     key_terms: ["it's", people, "don't", jobs, apply, like, corporate, applying]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1r6kxdz.md#c5"
-    char_span: [6907, 7411]
+    char_span: [6906, 7410]
     sentence_count: 3
     key_terms: [skills, beepgoestheminivan, care, cash, earn, ill-entry-9707, miscellaneous, "children's"]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, learning, phd, professor, like, publications, oxford, school]
     token_count: 510
   - id: "social-intelligence/reddit-deep/gradadmissions/1ppbjaw.md#c1"
-    char_span: [2331, 2876]
+    char_span: [2330, 2875]
     sentence_count: 4
     key_terms: [math, different, top, mathematician, publications, specifically, competitive, kawhandroid]
     section: Comments

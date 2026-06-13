@@ -23,43 +23,43 @@ chunks:
     key_terms: [engineering, school, "i'm", engineeringstudents, different, "he's", middle, local]
     token_count: 509
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c1"
-    char_span: [2388, 4382]
+    char_span: [2387, 4381]
     sentence_count: 15
     key_terms: [engineeringstudents, wiki, please, reddit, school, https, com, posting]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c2"
-    char_span: [4384, 6527]
+    char_span: [4383, 6526]
     sentence_count: 19
     key_terms: [engineering, like, college, interests, because, wanted, bubblywaveee, give]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c3"
-    char_span: [6337, 6738]
+    char_span: [6336, 6737]
     sentence_count: 3
     key_terms: [engineering, degree, bubblywaveee, dontchuworri, professional, chicagotuna, accredited, discipline]
     section: Comments
     token_count: 110
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c4"
-    char_span: [6740, 9141]
+    char_span: [6739, 9140]
     sentence_count: 19
     key_terms: [engineering, mechanical, probably, electrical, get, "it's", railtec, degree]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c5"
-    char_span: [9143, 9853]
+    char_span: [9142, 9852]
     sentence_count: 4
     key_terms: [learning, engineering, mechanical, college, online, state, like, chicagotuna]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c6"
-    char_span: [9855, 12165]
+    char_span: [9854, 12164]
     sentence_count: 20
     key_terms: [bubblywaveee, work, school, build, math, experience, something, calculus]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ssnyw5.md#c7"
-    char_span: [11837, 12919]
+    char_span: [11836, 12918]
     sentence_count: 7
     key_terms: [bubblywaveee, discernment, good, kid, consider, agency, friend, got]
     section: Comments

@@ -18,10 +18,10 @@ industries: [ai_research, saas, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1sz47lw.md#c0"
-    char_span: [0, 448]
+    char_span: [0, 447]
     sentence_count: 3
     key_terms: [claude, context, cowork, window, anthropic, comments, usage, does]
-    token_count: 111
+    token_count: 110
 ---
 # Claude cowork context window usage
 

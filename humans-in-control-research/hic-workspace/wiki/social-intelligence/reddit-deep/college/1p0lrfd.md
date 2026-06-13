@@ -28,19 +28,19 @@ chunks:
     key_terms: [major, transcript, classes, concern, change, school, part, want]
     token_count: 240
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c2"
-    char_span: [2715, 4335]
+    char_span: [2714, 4334]
     sentence_count: 14
     key_terms: [college, years, age, cosmology, question, students, because, school]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c3"
-    char_span: [4337, 6234]
+    char_span: [4336, 6233]
     sentence_count: 17
     key_terms: ["i'm", student, classmates, old, year, usually, assume, age]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/college/1p0lrfd.md#c4"
-    char_span: [6236, 7824]
+    char_span: [6235, 7823]
     sentence_count: 14
     key_terms: [nearly-third-students-change-major-within-three-years-math-majors-most, going, recommendation, here, professors, average, classes, credits]
     section: Comments

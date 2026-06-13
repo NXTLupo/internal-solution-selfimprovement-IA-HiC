@@ -21,25 +21,25 @@ chunks:
     key_terms: [certificate, internships, need, comments, because, please, illustriousoffer745, tears]
     token_count: 222
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c1"
-    char_span: [954, 2985]
+    char_span: [953, 2984]
     sentence_count: 11
     key_terms: [certificate, internship, internships, extern, passagestrict6432, job, forage, school]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c2"
-    char_span: [2987, 3377]
+    char_span: [2986, 3376]
     sentence_count: 1
     key_terms: [positions, posts, less, try, competitive, connections, searching, somewhere]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c3"
-    char_span: [3379, 5098]
+    char_span: [3378, 5097]
     sentence_count: 4
     key_terms: [illustriousoffer745, internship, no-assumption-5341, try, please, certificate, internships, ask]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/internships/1n1mn2p.md#c4"
-    char_span: [5100, 6160]
+    char_span: [5099, 6159]
     sentence_count: 4
     key_terms: [experience, internship, illustriousoffer745, baathsaab, without, certificate, job, applying]
     section: Comments

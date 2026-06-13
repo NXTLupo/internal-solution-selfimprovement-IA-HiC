@@ -28,7 +28,7 @@ chunks:
     key_terms: [mother-in-law, solidarity, streamline, implement, questions, seriously, delivery, schedule]
     token_count: 76
   - id: "social-intelligence/reddit-deep/gradschool/1lwypu3.md#c2"
-    char_span: [2526, 3771]
+    char_span: [2525, 3770]
     sentence_count: 10
     key_terms: [grandparents, hazelstone37, something, someone, working, never, areptiledysfuction, good]
     section: Comments

@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1o2sffb.md#c0"
-    char_span: [0, 940]
+    char_span: [0, 939]
     sentence_count: 8
     key_terms: [engineeringstudents, college, engineering, internships, electrical, internship, community, comments]
     token_count: 207

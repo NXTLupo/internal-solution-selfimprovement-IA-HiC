@@ -18,7 +18,7 @@ industries: [higher_ed, workforce, ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t4tjg0.md#c0"
-    char_span: [0, 1312]
+    char_span: [0, 1311]
     sentence_count: 6
     key_terms: [experience, cscareerquestions, internship, comments, already, college, better, people]
     token_count: 280

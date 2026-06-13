@@ -21,7 +21,7 @@ chunks:
     key_terms: [data, science, cscareerquestions, etc, "master's", specializing, broadening, reasoning]
     token_count: 290
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s0wr3t.md#c1"
-    char_span: [1310, 1751]
+    char_span: [1309, 1750]
     sentence_count: 3
     key_terms: [recommend, snoorabbits9587, engineering, personally, statistics, building, question, software]
     section: Comments

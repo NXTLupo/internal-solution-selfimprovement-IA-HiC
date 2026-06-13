@@ -23,7 +23,7 @@ chunks:
     key_terms: [corporate, network, careerguidance, shortlisted, admissions, marketing, referrals, comments]
     token_count: 324
   - id: "social-intelligence/reddit-deep/careerguidance/1pkky9b.md#c1"
-    char_span: [1382, 1707]
+    char_span: [1381, 1706]
     sentence_count: 3
     key_terms: [applications, transferable, communities, connections, affordable, essentials, experience, interviews]
     section: Comments

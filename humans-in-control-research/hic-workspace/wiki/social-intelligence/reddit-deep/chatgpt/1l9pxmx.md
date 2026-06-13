@@ -23,55 +23,55 @@ chunks:
     key_terms: [funny, something, chatgpt, find, comments, humans, meme, pill]
     token_count: 126
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c1"
-    char_span: [489, 1677]
+    char_span: [488, 1676]
     sentence_count: 8
     key_terms: [e6b07fbdab60f87fdb69f6c9859cbb72973fc0ba, please, conversation, https, image, post, r-chatgpt-1050422060352024636, concerns]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c2"
-    char_span: [1679, 3203]
+    char_span: [1678, 3202]
     sentence_count: 4
     key_terms: [missionwhole4385, e1cc10531a76a9e0ae1284aa8427e3a80d913810, command, lordsnowgaryen, ducks, beethovania, luckyastronaut8448, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c3"
-    char_span: [3013, 3695]
+    char_span: [3012, 3694]
     sentence_count: 2
     key_terms: [elegant-classic-3377, ducks, duck, png, kfk5nxj1pj6f1, flashfunk253, beethovania, entirely]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c4"
-    char_span: [3697, 5844]
+    char_span: [3696, 5843]
     sentence_count: 1
     key_terms: [duck, ducks, language, like, altbekannt, speeches, because, command]
     section: Comments
     token_count: 554
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c5"
-    char_span: [5846, 7286]
+    char_span: [5845, 7285]
     sentence_count: 9
     key_terms: [ducks, travel, time, jstanforth, discover, command, competitive-put-2703, comprehensive-war-75]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c6"
-    char_span: [7288, 8923]
+    char_span: [7287, 8922]
     sentence_count: 8
     key_terms: [ducks, deleted, friendly, untangle, already, because, choose, ghosts]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c7"
-    char_span: [8925, 10521]
+    char_span: [8924, 10520]
     sentence_count: 6
     key_terms: [ducks, ed1fa9dc6ff805b4c0fd4d7c798b23e105e6495c, deleted, lordsnowgaryen, coffee, redact, sirwigglesvonwoogly, black]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c8"
-    char_span: [10523, 11961]
+    char_span: [10522, 11960]
     sentence_count: 6
     key_terms: [like, mug, wifi, countries, hilarious, deleted, someone, banned]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/chatgpt/1l9pxmx.md#c9"
-    char_span: [11963, 13598]
+    char_span: [11962, 13597]
     sentence_count: 7
     key_terms: [png, e1cdc80fca5d67d24f97d6b9de368d934e581298, fcfcb2246bf6b140c23016ccb8132a71ee5e2e20, funny, personality, understood, anti-joke, bouncer]
     section: Comments

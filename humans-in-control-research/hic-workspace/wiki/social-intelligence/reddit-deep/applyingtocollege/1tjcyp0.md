@@ -23,7 +23,7 @@ chunks:
     key_terms: [leadership, school, applyingtocollege, sci, college, applications, club, econ]
     token_count: 412
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tjcyp0.md#c1"
-    char_span: [1746, 3680]
+    char_span: [1745, 3679]
     sentence_count: 17
     key_terms: [leadership, club, like, lot, opportunities, volunteering, "i'd", lots]
     section: Comments

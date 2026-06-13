@@ -23,7 +23,7 @@ chunks:
     key_terms: [gemini, code, comments, passkey, authy, says, sent, redownloaded]
     token_count: 157
   - id: "social-intelligence/reddit-deep/gemini/1lu5isk.md#c1"
-    char_span: [599, 1839]
+    char_span: [598, 1838]
     sentence_count: 9
     key_terms: [code, authy, weeks, google, get, alexbnyclp, emailed, enabled]
     section: Comments

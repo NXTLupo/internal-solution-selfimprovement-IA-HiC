@@ -23,79 +23,79 @@ chunks:
     key_terms: [anthropic, openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump, pentagon, hegseth-declares-anthropic-supply-chain-risk, openai, signed, surveillance, hours]
     token_count: 397
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c1"
-    char_span: [1806, 3901]
+    char_span: [1805, 3900]
     sentence_count: 5
     key_terms: [anthropic, dario-amodei-says-he-cannot-in-good-conscience-bow-to-pentagons-demands-over-ai-use-in-military, ap-report-hegseth-warns-anthropic-to-let-the-military-use-companys-ai-tech-as-it-sees-fit, https, com, www, statement-department-of-war, anthropic-pentagon-supply-chain-risk-claude]
     section: What happened
     token_count: 497
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c2"
-    char_span: [3926, 5370]
+    char_span: [3925, 5369]
     sentence_count: 4
     key_terms: [congress-not-the-pentagon-or-anthropic-should-set-military-ai-rules, pentagon-threat-blacklist-anthropic-ai-experts-raise-concerns, anthropic-ceo-stands-firm-as-pentagon-deadline-looms, https, what-the-ndaa-means-for-ai-and-cybersecurity, fascsa, defensescoop, designation]
     section: The legal problems
     token_count: 360
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c3"
-    char_span: [5394, 6557]
+    char_span: [5393, 6556]
     sentence_count: 3
     key_terms: [openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump, anthropic, openai-announces-pentagon-deal-after-trump-bans-anthropic, https, cnn, deal, www, principles]
     section: The same-day deal
     token_count: 269
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c4"
-    char_span: [6580, 8207]
+    char_span: [6579, 8206]
     sentence_count: 3
     key_terms: [https, silicon-valley-ai-leaders-launch-100m-leading-future-super-pac, openais-sam-altman-warned-america-trump-now-partnering, openai-ups-its-lobbying-efforts-nearly-seven-fold, com, www, money-politics-roundup-october-2025, trump-aligned]
     section: Follow the money
     token_count: 479
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c5"
-    char_span: [8209, 9597]
+    char_span: [8208, 9596]
     sentence_count: 9
     key_terms: [former, openai-expands-leadership-team-with-high-profile-former-government-officials, why-british-politicians-are-flocking-to-american-tech-giants, security, openai-expands-chatgpt-work-federal-government, https, national, policy]
     section: Follow the money / The revolving door
     token_count: 351
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c6"
-    char_span: [9627, 10398]
+    char_span: [9626, 10397]
     sentence_count: 2
     key_terms: [trump-ai-czar-is-trying-to-take-down-anthropic-ai-2000672709, gizmodo, regulatory, anthropic, federal, being, https, sacks]
     section: The White House AI czar
     token_count: 195
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c7"
-    char_span: [10413, 12025]
+    char_span: [10412, 12024]
     sentence_count: 12
     key_terms: [chatgpt, claude, justbrowsinandvibin, "don't", data, conversations, intellegence, happy]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c8"
-    char_span: [12027, 13357]
+    char_span: [12026, 13356]
     sentence_count: 6
     key_terms: [murder-is-coming-to-ai-but-not-to, stance, apple, zeitgeistml, took, anthropic, substack, knowing]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c9"
-    char_span: [13359, 15007]
+    char_span: [13358, 15006]
     sentence_count: 8
     key_terms: [openai, guy, thrive-capital-openai-joshua-kushner, conversation, subscription, model, anthropic, android]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c10"
-    char_span: [15009, 16285]
+    char_span: [15008, 16284]
     sentence_count: 7
     key_terms: [vancliefmedia, interesting, comparison, drpoontang, disagree, netscape, assume, galacticgreasemonkey]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c11"
-    char_span: [16287, 18165]
+    char_span: [16286, 18164]
     sentence_count: 10
     key_terms: [anthropic, likely, openai, surveillance, post, affecting, marketing, domestic]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c12"
-    char_span: [18168, 20151]
+    char_span: [18167, 20150]
     sentence_count: 13
     key_terms: [anthropic, code, sam, claude, openai, dow, insights, asking]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/anthropic/1rh5nzg.md#c13"
-    char_span: [20153, 21546]
+    char_span: [20152, 21545]
     sentence_count: 6
     key_terms: [hugenberg, refuse, hitler-oligarchs-hugenberg-nazi, possible, example, hitler, old-independent-6904, https]
     section: Comments

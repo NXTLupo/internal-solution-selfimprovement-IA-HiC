@@ -21,7 +21,7 @@ chunks:
     key_terms: [https, trace, nubanner, github, hdkbdennhnoioejfmkijblagkeebjeco, "professor's", com, trace-ratings-for-nubanne]
     token_count: 354
   - id: "social-intelligence/reddit-deep/neu/1sq5lyb.md#c1"
-    char_span: [1310, 1711]
+    char_span: [1309, 1710]
     sentence_count: 3
     key_terms: [maybe, link, express-eye-2758, northeastern, gravela2005, graduating, compiling, firefox]
     section: Comments

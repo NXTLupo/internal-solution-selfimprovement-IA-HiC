@@ -23,37 +23,37 @@ chunks:
     key_terms: [procrastination, because, productivity, "you're", something, problem, "it's", like]
     token_count: 425
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c1"
-    char_span: [2005, 3610]
+    char_span: [2004, 3609]
     sentence_count: 6
     key_terms: [productivity, organizing, inventory, "it's", time, iwantboringtimes, played, space]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c2"
-    char_span: [3612, 5788]
+    char_span: [3611, 5787]
     sentence_count: 8
     key_terms: ["you're", "it's", "that's", discomfort, important, threshold, task, shan8567]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c3"
-    char_span: [5790, 8058]
+    char_span: [5789, 8057]
     sentence_count: 18
     key_terms: [people, doing, done, like, need, plan, definitely, resources]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c4"
-    char_span: [8060, 10287]
+    char_span: [8059, 10286]
     sentence_count: 2
     key_terms: [planning, resistance, feels, heavier, usually, "you're", consistently, brain]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c5"
-    char_span: [10289, 12028]
+    char_span: [10288, 12027]
     sentence_count: 13
     key_terms: [brain, start, deciding, reorganizing, doing, file, like, open]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/productivity/1rxz6ex.md#c6"
-    char_span: [12030, 13445]
+    char_span: [12029, 13444]
     sentence_count: 18
     key_terms: [sentence, something, decision, start, document, already, because, "there's"]
     section: Comments

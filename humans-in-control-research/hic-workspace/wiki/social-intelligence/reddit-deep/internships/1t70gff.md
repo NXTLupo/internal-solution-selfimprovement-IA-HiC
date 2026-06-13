@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, opportunity, need, paid, experience, internship, genuinely, comments]
     token_count: 284
   - id: "social-intelligence/reddit-deep/internships/1t70gff.md#c1"
-    char_span: [1308, 1597]
+    char_span: [1307, 1596]
     sentence_count: 1
     key_terms: [sweet-frosting4839, internshipdaily, filtering, scrolling, targeting, checking, dropping, linkedin]
     section: Comments

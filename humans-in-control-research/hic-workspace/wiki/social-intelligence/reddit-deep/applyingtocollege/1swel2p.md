@@ -31,19 +31,19 @@ chunks:
     key_terms: [people, boola, years, representative, suggestions, difference, monetarily, understand]
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c3"
-    char_span: [4822, 6743]
+    char_span: [4821, 6742]
     sentence_count: 13
     key_terms: [validation, yale, get, "it's", genuinely, strangers, because, seeking]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c4"
-    char_span: [6745, 9034]
+    char_span: [6744, 9033]
     sentence_count: 29
     key_terms: [experience, yale, undergraduates, research, campus, school, experiences, residential]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1swel2p.md#c5"
-    char_span: [9036, 10747]
+    char_span: [9035, 10746]
     sentence_count: 15
     key_terms: [yale, different, already, believe, illness, people, united-hearing8582, down]
     section: Comments

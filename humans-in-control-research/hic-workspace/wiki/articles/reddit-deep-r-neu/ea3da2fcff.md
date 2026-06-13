@@ -9,10 +9,14 @@ author: ""
 date: "2026-01-06T03:54:17.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-06-06T00:36:21.454394+00:00"
+extracted_at: "2026-06-12T21:49:49.061434+00:00"
 chars: 8775
-relevance: 50
-engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+engagement: "analyze-emerging-2026-experiential-learning-trends-in-higher"
+collected_at: "2026-06-12T21:49:48.971Z"
+relevance: 35
+engagement_goal: "Analyze emerging 2026 experiential learning trends in higher education to provide actionable optimization strategies for Northeastern University's co-op placement model, focusing on employer integration, hybrid work structures, and evolving skill-matching technologies."
+content_hash: "c9faf4626d7ea76e"
+relevance_by_goal: {"3d9ef8ee927f":35}
 chunks:
   - id: "articles/reddit-deep-r-neu/ea3da2fcff.md#c0"
     char_span: [0, 1793]

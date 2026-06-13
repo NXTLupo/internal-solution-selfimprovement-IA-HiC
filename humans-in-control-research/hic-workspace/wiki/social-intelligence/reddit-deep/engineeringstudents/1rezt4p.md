@@ -28,7 +28,7 @@ chunks:
     key_terms: [being, "i'm", opportunity, too, internship, somewhere, current, excited]
     token_count: 347
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rezt4p.md#c2"
-    char_span: [3271, 3709]
+    char_span: [3270, 3708]
     sentence_count: 6
     key_terms: [chances, being, doing, grad, lot, tall-cat-8890, institution, elsewhere]
     section: Comments

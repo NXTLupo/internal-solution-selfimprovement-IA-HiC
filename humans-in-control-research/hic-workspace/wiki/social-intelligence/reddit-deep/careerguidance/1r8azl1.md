@@ -26,7 +26,7 @@ chunks:
     key_terms: [chahiye, guidance, karte, kisi, koi, nahi, direction, interview]
     token_count: 104
   - id: "social-intelligence/reddit-deep/careerguidance/1r8azl1.md#c2"
-    char_span: [2176, 3954]
+    char_span: [2175, 3953]
     sentence_count: 10
     key_terms: [stack, hai, mai, projects, django, remote, opportunities, tarunbedi1098]
     section: Comments

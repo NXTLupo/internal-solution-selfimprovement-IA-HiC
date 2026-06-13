@@ -28,13 +28,13 @@ chunks:
     key_terms: [etf, portfolio, draft, jepi, qqq, schd, vaf, vgs]
     token_count: 187
   - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c2"
-    char_span: [2441, 4441]
+    char_span: [2440, 4440]
     sentence_count: 23
     key_terms: [growth, stocks, buy, high, stick, get, need, voo]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/investing/1n32vqy.md#c3"
-    char_span: [4443, 5345]
+    char_span: [4442, 5344]
     sentence_count: 5
     key_terms: [market, beat, portfolio, quoting, returns, risk, year, timeconsuming]
     section: Comments

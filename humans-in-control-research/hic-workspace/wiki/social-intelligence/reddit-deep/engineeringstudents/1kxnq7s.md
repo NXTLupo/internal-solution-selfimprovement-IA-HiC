@@ -28,37 +28,37 @@ chunks:
     key_terms: [always, college, years, everyone, student, behind, being, field]
     token_count: 236
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c2"
-    char_span: [3129, 4625]
+    char_span: [3128, 4624]
     sentence_count: 16
     key_terms: [like, age, people, years, old, definitely, graduation, starting]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c3"
-    char_span: [4627, 6100]
+    char_span: [4626, 6099]
     sentence_count: 9
     key_terms: [therapy, advanced-guidance482, someone, issues, life, like, definitely, experience]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c4"
-    char_span: [6102, 7859]
+    char_span: [6101, 7858]
     sentence_count: 19
     key_terms: [graduated, degree, doing, years, "bachelor's", finished, learning, already]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c5"
-    char_span: [7861, 9855]
+    char_span: [7860, 9854]
     sentence_count: 21
     key_terms: [people, college, social, age, work, friends, "don't", life]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c6"
-    char_span: [9857, 11464]
+    char_span: [9856, 11463]
     sentence_count: 17
     key_terms: [people, college, graduated, friend, age, down, life, met]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/engineeringstudents/1kxnq7s.md#c7"
-    char_span: [11467, 12021]
+    char_span: [11466, 12020]
     sentence_count: 6
     key_terms: [people, cares, analoghedgehog, themselves, concerned, graduated, jojowiese, becomes]
     section: Comments

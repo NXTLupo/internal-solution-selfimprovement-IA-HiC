@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/f44bdc73db.md#c0"
-    char_span: [0, 1886]
+    char_span: [0, 1885]
     sentence_count: 16
     key_terms: [students, professors, class, back, like, exception, becoming, comments]
-    token_count: 432
+    token_count: 431
   - id: "articles/reddit-deep-r-professors/f44bdc73db.md#c1"
-    char_span: [1888, 3154]
+    char_span: [1887, 3153]
     sentence_count: 10
     key_terms: [students, diggingupophelia, drop, feeling, recommend-reject-r2, teach, been, mad]
     token_count: 285

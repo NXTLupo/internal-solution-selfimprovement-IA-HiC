@@ -15,12 +15,12 @@ industries: [financial_services, nonprofit]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/da520cff5c.md#c0"
-    char_span: [0, 1243]
+    char_span: [0, 1242]
     sentence_count: 8
     key_terms: [adults, young, financial, debt, personalfinance, programme, wellbeing, recovery]
-    token_count: 255
+    token_count: 254
   - id: "articles/reddit-deep-r-personalfinance/da520cff5c.md#c1"
-    char_span: [1245, 3473]
+    char_span: [1244, 3472]
     sentence_count: 10
     key_terms: [financial, support, structured, debt, participants, participant, challenges, peer]
     token_count: 414

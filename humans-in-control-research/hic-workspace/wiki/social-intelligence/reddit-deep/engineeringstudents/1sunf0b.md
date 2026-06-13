@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, comments, boom123546867, engineering, reddit-deep, mechanical, needing, student]
     token_count: 82
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sunf0b.md#c1"
-    char_span: [318, 1183]
+    char_span: [317, 1182]
     sentence_count: 7
     key_terms: [offer, training, opinion, salary, class, "isn't", money, bad]
     section: Comments

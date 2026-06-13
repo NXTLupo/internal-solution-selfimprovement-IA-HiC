@@ -31,19 +31,19 @@ chunks:
     key_terms: [don, contact, friend, going, stay, appointment, community, relatives]
     token_count: 157
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c3"
-    char_span: [4940, 7120]
+    char_span: [4939, 7119]
     sentence_count: 26
     key_terms: [want, college, back, life, parents, school, maybe, financially]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c4"
-    char_span: [6819, 8822]
+    char_span: [6818, 8821]
     sentence_count: 15
     key_terms: [independent, vulnerability, someone, support, people, satisfactionborn2798, system, build]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/neu/1syc9z3.md#c5"
-    char_span: [8824, 10988]
+    char_span: [8823, 10987]
     sentence_count: 25
     key_terms: [perfectly, complete, because, don, leverage, "she's", back, want]
     section: Comments

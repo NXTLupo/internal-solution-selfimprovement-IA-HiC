@@ -21,19 +21,19 @@ chunks:
     key_terms: [engineering, degree, electrical, "i'm", classes, college, careerguidance, school]
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c1"
-    char_span: [1898, 3680]
+    char_span: [1897, 3679]
     sentence_count: 15
     key_terms: [degree, years, few-painting-8096, get, life, probably, masters, advice]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c2"
-    char_span: [3682, 5579]
+    char_span: [3681, 5578]
     sentence_count: 25
     key_terms: [electrical, degree, want, time, start, engineering, work, replaced]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1q4vi1z.md#c3"
-    char_span: [5581, 6273]
+    char_span: [5580, 6272]
     sentence_count: 5
     key_terms: [degree, loans, years, less, bunchitabonita, experience, indentured, outsourced]
     section: Comments

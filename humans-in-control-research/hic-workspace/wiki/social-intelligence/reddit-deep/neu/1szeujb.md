@@ -23,7 +23,7 @@ chunks:
     key_terms: [advice, senior, year, experience, comments, college, friends, myself]
     token_count: 199
   - id: "social-intelligence/reddit-deep/neu/1szeujb.md#c1"
-    char_span: [800, 1719]
+    char_span: [799, 1718]
     sentence_count: 8
     key_terms: [business, clubs, join, friends, co-ops, social, trying, far-independent6492]
     section: Comments

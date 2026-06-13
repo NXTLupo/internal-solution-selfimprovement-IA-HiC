@@ -23,31 +23,31 @@ chunks:
     key_terms: [grad, gradschool, impossible, comments, grieving, because, nothing, program]
     token_count: 270
   - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c1"
-    char_span: [1225, 3367]
+    char_span: [1224, 3366]
     sentence_count: 24
     key_terms: [year, program, resources, grad, back, free, especially, available]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c2"
-    char_span: [3369, 5295]
+    char_span: [3368, 5294]
     sentence_count: 20
     key_terms: [miamiislandgyal305, through, relationship, sorry, mine, everything, doctorate, divorce]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c3"
-    char_span: [5018, 6218]
+    char_span: [5017, 6217]
     sentence_count: 9
     key_terms: [health, situation, advisor, family, losing, miamiislandgyal305, been, life]
     section: Comments
     token_count: 266
   - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c4"
-    char_span: [6220, 8474]
+    char_span: [6219, 8473]
     sentence_count: 19
     key_terms: [life, difficult, time, going, good, masters, back, get]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/gradschool/1onylf5.md#c5"
-    char_span: [8476, 9985]
+    char_span: [8475, 9984]
     sentence_count: 19
     key_terms: [school, lot, support, months, later, away, been, help]
     section: Comments

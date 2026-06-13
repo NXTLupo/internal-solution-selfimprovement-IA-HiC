@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1syr4gm.md
 url: "https://www.reddit.com/r/careerguidance/comments/1syr4gm/lost_between_4_distinct_career_paths_any_advice/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,13 @@ flair: ""
 extracted_at: "2026-06-06T23:21:13.900Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1syr4gm.md#c0"
+    char_span: [0, 1493]
+    sentence_count: 13
+    key_terms: [something, careerguidance, around, been, real, business, comments, passion]
+    token_count: 338
 ---
-
 # Lost between 4 distinct career paths. Any advice?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1syr4gm/lost_between_4_distinct_career_paths_any_advice/)

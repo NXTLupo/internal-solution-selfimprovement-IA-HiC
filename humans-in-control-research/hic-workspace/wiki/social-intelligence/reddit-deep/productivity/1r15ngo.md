@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, tasks, important, reminders, calendar, comments, struggle, teuxdeux]
     token_count: 260
   - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c1"
-    char_span: [1190, 2946]
+    char_span: [1189, 2945]
     sentence_count: 8
     key_terms: [reminders, something, work, reminder, ticktick, system, app, currently]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/productivity/1r15ngo.md#c2"
-    char_span: [2948, 4354]
+    char_span: [2947, 4353]
     sentence_count: 1
     key_terms: [com, day, use, everything, important, details, outlook, singlio]
     section: Comments

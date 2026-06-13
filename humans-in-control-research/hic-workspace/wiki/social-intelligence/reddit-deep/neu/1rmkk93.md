@@ -21,7 +21,7 @@ chunks:
     key_terms: [comments, public, search, sector, law, neu, internships, reddit-deep]
     token_count: 107
   - id: "social-intelligence/reddit-deep/neu/1rmkk93.md#c1"
-    char_span: [396, 893]
+    char_span: [395, 892]
     sentence_count: 2
     key_terms: [different, congrats, perfect-cobbler-2754, radomchinese, sankeymatic, interviews, currently, positions]
     section: Comments

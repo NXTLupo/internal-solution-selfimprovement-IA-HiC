@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sxchyo.md#c0"
-    char_span: [0, 352]
+    char_span: [0, 351]
     sentence_count: 2
     key_terms: [careerguidance, comments, reddit-deep, considered, valuable, degrees, career, market]
-    token_count: 96
+    token_count: 95
 ---
 # What degrees are still useful and which career paths are still considered valuable in the UK job market today?
 

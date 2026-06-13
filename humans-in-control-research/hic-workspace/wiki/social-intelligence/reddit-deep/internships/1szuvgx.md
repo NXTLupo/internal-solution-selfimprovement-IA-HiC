@@ -26,19 +26,19 @@ chunks:
     key_terms: [everything, internship, build, like, environments, early-stage, time, work]
     token_count: 488
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c2"
-    char_span: [2948, 4224]
+    char_span: [2948, 4223]
     sentence_count: 2
     key_terms: [startup, like, internship, people, start-up, company, funding, trying]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c3"
-    char_span: [4226, 5564]
+    char_span: [4225, 5563]
     sentence_count: 6
     key_terms: [work, internship, community, leaving, manager, intern, slight-parking-7328, doing]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/internships/1szuvgx.md#c4"
-    char_span: [5566, 6571]
+    char_span: [5565, 6570]
     sentence_count: 1
     key_terms: [internship, founder, opportunity, monday, pure-woodpecker-994, main, team, try]
     section: Comments

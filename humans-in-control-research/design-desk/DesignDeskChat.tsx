@@ -329,7 +329,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     userPrompt: parsed.cleanPrompt,
                     corpus,
                     currentArtifact: active as any,
-                    model: 'gemini-3.1-pro-preview',
+                    // 2026-06-12 - Designer-chat revisions route to Claude
+                    // Opus 4.8 (Jonathan's directive).
+                    model: 'claude-opus-4-8',
                 });
                 if (ss.ok) {
                     replaceArtifact(ss.artifact as any);
@@ -366,14 +368,12 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     currentArtifact: active as any,
                     priorUserInstructions,
                     // Designer revisions need to re-emit the FULL body content
-                    // with edits applied. Gemini 2.5 Flash truncates dense
-                    // diagrams mid-element ("INCOMPLETE BODY CONTENT: 17 divs
-                    // opened, 12 closed"). Gemini 3.1 Pro has 1-2M context
-                    // and much higher output token capacity, so revisions
-                    // complete even on architecture diagrams with 30+ boxes.
-                    // (2026-05-07: upgraded from deepseek-v4-flash - Gemini 3.1 Pro
-                    // follows multi-step instructions more reliably.)
-                    model: 'gemini-3.1-pro-preview',
+                    // with edits applied. (History: deepseek-v4-flash ->
+                    // gemini-3.1-pro-preview 2026-05-07 for instruction
+                    // adherence + output capacity.)
+                    // 2026-06-12 - Claude Opus 4.8 per Jonathan's directive:
+                    // Designer chat generation + revision both route to Opus 4.8.
+                    model: 'claude-opus-4-8',
                 });
                 if (ff.ok) {
                     replaceArtifact(ff.artifact as any);
@@ -422,7 +422,9 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                     corpus,
                     currentArtifact: null,
                     priorUserInstructions,
-                    model: 'gemini-3.1-pro-preview',
+                    // 2026-06-12 - Designer-chat generation routes to Claude
+                    // Opus 4.8 (Jonathan's directive).
+                    model: 'claude-opus-4-8',
                 });
                 if (ff.ok) {
                     addArtifact(ff.artifact as any);

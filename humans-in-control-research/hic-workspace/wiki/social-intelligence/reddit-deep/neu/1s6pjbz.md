@@ -23,13 +23,13 @@ chunks:
     key_terms: [scholarships, comments, neu, reddit-deep, icameearly, publicity, posted, reddit]
     token_count: 64
   - id: "social-intelligence/reddit-deep/neu/1s6pjbz.md#c1"
-    char_span: [212, 2244]
+    char_span: [211, 2243]
     sentence_count: 16
     key_terms: [scholarship, indian, students, student, got, international, sexwithpaws69, cash]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/neu/1s6pjbz.md#c2"
-    char_span: [2246, 4039]
+    char_span: [2245, 4038]
     sentence_count: 14
     key_terms: [international, worldintelligent7639, scholarships, "don't", scholarship, been, btw, considered]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, engineeringstudents, role, internship, mechanical, analytics, business, comments]
     token_count: 218
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rjx3a5.md#c1"
-    char_span: [1056, 1503]
+    char_span: [1055, 1502]
     sentence_count: 1
     key_terms: [related, supply, chain, engineering, experience, internship, leadership, advantage]
     section: Comments

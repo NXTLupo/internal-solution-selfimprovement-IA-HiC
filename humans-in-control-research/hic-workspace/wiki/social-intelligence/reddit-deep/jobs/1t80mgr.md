@@ -23,13 +23,13 @@ chunks:
     key_terms: [jobs, comments, pristine-row-7432, entry-level, reddit-deep, experience, companies, insights]
     token_count: 82
   - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c1"
-    char_span: [297, 1788]
+    char_span: [296, 1787]
     sentence_count: 10
     key_terms: [training, years, basic, internships, take, experience, companies, practices]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/jobs/1t80mgr.md#c2"
-    char_span: [1790, 2725]
+    char_span: [1789, 2724]
     sentence_count: 8
     key_terms: [experience, people, requires, training, company, pristine-row-7432, requirements, functioning]
     section: Comments

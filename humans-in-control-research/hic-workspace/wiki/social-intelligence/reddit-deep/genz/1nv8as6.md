@@ -23,31 +23,31 @@ chunks:
     key_terms: [elon, comments, filled, health, earns, genz, paid, per]
     token_count: 343
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c1"
-    char_span: [1359, 3094]
+    char_span: [1358, 3093]
     sentence_count: 6
     key_terms: [eclecticevergreen, working, value, hard, multiple, discord, enough, months]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c2"
-    char_span: [3096, 4385]
+    char_span: [3095, 4384]
     sentence_count: 6
     key_terms: [gilded, billionaires, age, symptom, assets, wealth, mega-billionaires, buy]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c3"
-    char_span: [4388, 6460]
+    char_span: [4387, 6459]
     sentence_count: 18
     key_terms: [debt, down, wealth, redistributed, billionaires, means, musk, contribute]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c4"
-    char_span: [6463, 8143]
+    char_span: [6462, 8142]
     sentence_count: 15
     key_terms: [individuals, politicians, political, economic-political-social, fairness, getting, always, people]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/genz/1nv8as6.md#c5"
-    char_span: [8145, 10192]
+    char_span: [8144, 10191]
     sentence_count: 11
     key_terms: [down, another, dollars, market, people, essentially, theoretical, like]
     section: Comments

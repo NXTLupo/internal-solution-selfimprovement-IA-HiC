@@ -21,7 +21,7 @@ chunks:
     key_terms: [college, time, summarizing, comments, organize, earlier, working, hours]
     token_count: 342
   - id: "social-intelligence/reddit-deep/college/1n5w6wg.md#c1"
-    char_span: [1460, 3307]
+    char_span: [1459, 3306]
     sentence_count: 6
     key_terms: [busvegetable7490, digital, notes, tools, summarizing, theaipickss, referring, summaries]
     section: Comments

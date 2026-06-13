@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1puwtmr/21m_cs_data_science_major_unable_to_find_fulltime/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,72 @@ flair: "Student"
 extracted_at: "2026-06-06T23:23:15.633Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c0"
+    char_span: [0, 1945]
+    sentence_count: 12
+    key_terms: [been, "i've", interviews, cscareerquestions, data, "i'm", job, find]
+    token_count: 431
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c1"
+    char_span: [1947, 3940]
+    sentence_count: 18
+    key_terms: ["i'm", "don't", "i've", people, clear, right, like, christmas]
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c2"
+    char_span: [3955, 5956]
+    sentence_count: 11
+    key_terms: [leetcode, something, projects, coding, chili-lime-chihuahua, responsible-elk-1939, offer, right]
+    section: Comments
+    token_count: 487
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c3"
+    char_span: [5958, 6157]
+    sentence_count: 1
+    key_terms: [augustetoulmouche, waveslow9230, sometimes, employed, despise, being, "don't", tough]
+    section: Comments
+    token_count: 59
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c4"
+    char_span: [6159, 7999]
+    sentence_count: 10
+    key_terms: [projects, "don't", got, anything, leetcode, job, applying, industry]
+    section: Comments
+    token_count: 468
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c5"
+    char_span: [8001, 10043]
+    sentence_count: 13
+    key_terms: [roles, data, reductionist, focus, area, swe, seemingly, analysis]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c6"
+    char_span: [10045, 11180]
+    sentence_count: 7
+    key_terms: [nyc, area, metro, internships, been, interviews, competing, against]
+    section: Comments
+    token_count: 264
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c7"
+    char_span: [11184, 13127]
+    sentence_count: 11
+    key_terms: ["you're", marathonmarathon, "don't", job, competing, grinding, against, because]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c8"
+    char_span: [13129, 14973]
+    sentence_count: 28
+    key_terms: [masters, better, "don't", get, job, behavioral, systems, design]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c9"
+    char_span: [14975, 16942]
+    sentence_count: 12
+    key_terms: [warehouse, get, interview, "i've", marathonmarathon, amazon, need, interviews]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1puwtmr.md#c10"
+    char_span: [16944, 18140]
+    sentence_count: 8
+    key_terms: [job, get, find, work, engineers, because, chances, getting]
+    section: Comments
+    token_count: 262
 ---
-
 # 21M, CS + Data Science major unable to find full-time job, even in the NYC metro area. Am I doomed?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1puwtmr/21m_cs_data_science_major_unable_to_find_fulltime/)

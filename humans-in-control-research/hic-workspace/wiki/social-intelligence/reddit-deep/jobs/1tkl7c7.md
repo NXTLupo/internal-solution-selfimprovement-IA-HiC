@@ -21,31 +21,31 @@ chunks:
     key_terms: [role, dream, job, incentives, genuinely, situation, comments, company]
     token_count: 327
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c1"
-    char_span: [1413, 3335]
+    char_span: [1412, 3334]
     sentence_count: 14
     key_terms: [get, "it's", personal, company, current, job, plaintrain, business]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c2"
-    char_span: [3337, 4663]
+    char_span: [3336, 4662]
     sentence_count: 13
     key_terms: [new, company, start, job, old, notice, weeks, ravensedgeleather]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c3"
-    char_span: [4665, 6135]
+    char_span: [4664, 6134]
     sentence_count: 11
     key_terms: [training, weeks, been, current, "you've", loveafterpornthrwawy, money, month]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c4"
-    char_span: [6137, 7898]
+    char_span: [6136, 7897]
     sentence_count: 16
     key_terms: [hard, company, current, job, new, personal, another, leaving]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1tkl7c7.md#c5"
-    char_span: [7900, 9875]
+    char_span: [7899, 9874]
     sentence_count: 19
     key_terms: [job, company, current, hard, left, take, another, because]
     section: Comments

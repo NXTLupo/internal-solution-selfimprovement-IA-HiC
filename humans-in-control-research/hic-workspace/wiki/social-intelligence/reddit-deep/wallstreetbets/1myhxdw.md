@@ -33,49 +33,49 @@ chunks:
     key_terms: [alcohol, consumption, drinks, levels, survey, drink, years, down]
     token_count: 215
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c3"
-    char_span: [5256, 5466]
+    char_span: [5255, 5465]
     sentence_count: 1
     key_terms: [months, total, submissions, visualmod, comments, previous, account, report]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c4"
-    char_span: [5468, 7233]
+    char_span: [5467, 7232]
     sentence_count: 7
     key_terms: [beer, area, pack, deleted, prices, here, wsb, discord]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c5"
-    char_span: [6980, 8024]
+    char_span: [6979, 8023]
     sentence_count: 3
     key_terms: [apple, juice, deleted, cancer, gallon, leomelettedufrommage, coors, great]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c6"
-    char_span: [8026, 9440]
+    char_span: [8025, 9439]
     sentence_count: 6
     key_terms: [cancer, water, drinking, commercial-honey-227, quirky-plantain-2080, reachin4thosegrapes, hope, "it's"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c7"
-    char_span: [9442, 10816]
+    char_span: [9441, 10815]
     sentence_count: 8
     key_terms: [litres, goon, alcohol, deleted, "don't", games, vapes, video]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c8"
-    char_span: [10818, 12654]
+    char_span: [10817, 12653]
     sentence_count: 19
     key_terms: [drinks, drink, days, older, generations, did, drinking, deleted]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c9"
-    char_span: [12656, 13043]
+    char_span: [12655, 13042]
     sentence_count: 3
     key_terms: [juggernautok1132, especially, impossible, hangovers, something, asetniop, continue, drinking]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/wallstreetbets/1myhxdw.md#c10"
-    char_span: [13045, 14508]
+    char_span: [13044, 14507]
     sentence_count: 7
     key_terms: [social, drink, gen, everything, activity, getting, blamed, few-needleworker4391]
     section: Comments

@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1syozjh.md#c0"
-    char_span: [0, 1139]
+    char_span: [0, 1138]
     sentence_count: 6
     key_terms: [form, formester, ai-form-generator, database, architecture, https, com, comments]
-    token_count: 259
+    token_count: 258
 ---
 # ai form generator in 2026
 

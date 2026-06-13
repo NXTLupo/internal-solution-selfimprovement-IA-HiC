@@ -23,13 +23,13 @@ chunks:
     key_terms: [https, ai-isnt-always-scary-uw-student-helps-families-save-money-on-groceries, waterloo, archive, people, nba3w, list, www]
     token_count: 343
   - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c1"
-    char_span: [1285, 2091]
+    char_span: [1284, 2090]
     sentence_count: 4
     key_terms: [police, mistake, budget, wilmot, boo, gets, good, vote]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/waterloo/1pzfnni.md#c2"
-    char_span: [2093, 3273]
+    char_span: [2092, 3272]
     sentence_count: 6
     key_terms: [heroes, skrimp, council, entire, rights, items, sure, counsellors]
     section: Comments

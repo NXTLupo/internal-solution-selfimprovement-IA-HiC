@@ -23,31 +23,31 @@ chunks:
     key_terms: [got, people, decisions, cooked, applyingtocollege, year, everyone, college]
     token_count: 447
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c1"
-    char_span: [1898, 3988]
+    char_span: [1897, 3987]
     sentence_count: 17
     key_terms: [low-watercress5964, lottery, parent, applications, "it's", especially, including, process]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c2"
-    char_span: [3990, 5341]
+    char_span: [3989, 5340]
     sentence_count: 8
     key_terms: [person, accepted, folks, qualified, southern-werewolf386, based, being, least]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c3"
-    char_span: [5343, 7228]
+    char_span: [5342, 7227]
     sentence_count: 19
     key_terms: [qualified, students, applicants, too, unqualified, t10, year, colleges]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c4"
-    char_span: [7230, 9460]
+    char_span: [7229, 9459]
     sentence_count: 17
     key_terms: [schools, rejected, admissions, applicants, endowment, auditing, criteria, getting]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rmvr6p.md#c5"
-    char_span: [9462, 9950]
+    char_span: [9461, 9949]
     sentence_count: 2
     key_terms: [elite-colleges-sued-for-early-decision-price-fixing-scheme, universities, back--this, financial, incentive, maddening, privatize, radically]
     section: Comments

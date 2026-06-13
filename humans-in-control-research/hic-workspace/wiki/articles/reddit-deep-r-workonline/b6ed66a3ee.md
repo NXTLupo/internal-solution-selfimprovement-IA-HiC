@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-workonline/b6ed66a3ee.md#c0"
-    char_span: [0, 1622]
+    char_span: [0, 1621]
     sentence_count: 11
     key_terms: [pgmainstreet, com, job, legitimate, workonline, comments, process, warning]
-    token_count: 371
+    token_count: 370
 ---
 # SCAM: pgmainstreet.com data entry job
 

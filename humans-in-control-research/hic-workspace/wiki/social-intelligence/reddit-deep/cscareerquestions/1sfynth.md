@@ -23,13 +23,13 @@ chunks:
     key_terms: [cscareerquestions, market, comments, job, medium-rare, reddit-deep, cooked, posted]
     token_count: 115
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c1"
-    char_span: [384, 2136]
+    char_span: [383, 2135]
     sentence_count: 10
     key_terms: [compare, "can't", better, usd, because, getting, landing, normal]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sfynth.md#c2"
-    char_span: [2138, 2783]
+    char_span: [2137, 2782]
     sentence_count: 12
     key_terms: ["that's", feb, baseline, closer, "we're", year, considerable, improvement]
     section: Comments

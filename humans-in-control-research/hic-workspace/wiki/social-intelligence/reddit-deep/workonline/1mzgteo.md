@@ -23,31 +23,31 @@ chunks:
     key_terms: [something, find, based, jobs, text, workonline, anything, comments]
     token_count: 301
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c1"
-    char_span: [1245, 3196]
+    char_span: [1244, 3195]
     sentence_count: 13
     key_terms: [experience, temporary-party-8009, job, jobs, customers, recommend, messages, training]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c2"
-    char_span: [3198, 5245]
+    char_span: [3197, 5244]
     sentence_count: 14
     key_terms: [work, coding, claims, "i've", job, jobs, want, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c3"
-    char_span: [4989, 5650]
+    char_span: [4988, 5649]
     sentence_count: 5
     key_terms: [number, since, paypal, "i've", life, sec, soc, registered]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c4"
-    char_span: [5652, 7581]
+    char_span: [5651, 7580]
     sentence_count: 16
     key_terms: [get, because, social, going, job, like, difficult, escribers]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/workonline/1mzgteo.md#c5"
-    char_span: [7583, 8466]
+    char_span: [7582, 8465]
     sentence_count: 14
     key_terms: [find, editing, videos, "don't", video, jobs, copywriting, interesting]
     section: Comments

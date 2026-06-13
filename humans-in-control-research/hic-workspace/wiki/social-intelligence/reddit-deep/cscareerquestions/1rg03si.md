@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rg03si.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rg03si/landed_meta_and_coinbase_offers_after_spending/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,64 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.633Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c0"
+    char_span: [0, 2406]
+    sentence_count: 13
+    key_terms: [behavioral, cscareerquestions, job, coinbase, practice, projects, finally, getting]
+    token_count: 503
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c1"
+    char_span: [2408, 4730]
+    sentence_count: 10
+    key_terms: [questions, question, companies, like, bank, asked, problems, design]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c2"
+    char_span: [4732, 7152]
+    sentence_count: 22
+    key_terms: [question, leetcode, companies, bank, consistent, like, interviews, got-blocked-by-codesignal-cooldown-annoy-4nrw]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c3"
+    char_span: [7154, 7536]
+    sentence_count: 5
+    key_terms: [pick, wlb, compensation, attracting, definitely, companies, wondering, "anyone's"]
+    token_count: 77
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c4"
+    char_span: [7551, 8829]
+    sentence_count: 8
+    key_terms: [coinbase, months, hire, last, stock, down, pip, bitcoin]
+    section: Comments
+    token_count: 337
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c5"
+    char_span: [8831, 10882]
+    sentence_count: 11
+    key_terms: [culture, companies, wlb, company, thanks, get, like, take]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c6"
+    char_span: [10633, 11846]
+    sentence_count: 7
+    key_terms: [leetcode, andauri, getting, career, effort, market, useful, maybe]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c7"
+    char_span: [11848, 12602]
+    sentence_count: 8
+    key_terms: [grokking, leetcode, cares, post, assumption, struggling, situation, pointing]
+    section: Comments
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c8"
+    char_span: [12604, 14656]
+    sentence_count: 13
+    key_terms: [yeah, "don't", story, lot, meta, sure, team, appreciate]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rg03si.md#c9"
+    char_span: [14404, 14674]
+    sentence_count: 5
+    key_terms: [team, appreciate, department, coinbase, feedback, specific, matters, public]
+    section: Comments
+    token_count: 72
 ---
-
 # Landed Meta and Coinbase offers after spending nearly a year getting rejected
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rg03si/landed_meta_and_coinbase_offers_after_spending/)

@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-highereducation/1baf4ba7c7.md#c0"
-    char_span: [0, 1963]
+    char_span: [0, 1962]
     sentence_count: 15
     key_terms: [rule, content, engagement, community, bots, highereducation, please, slop]
-    token_count: 485
+    token_count: 484
 ---
 # New Rule: Rule #12 No AI Slop No Bots
 

@@ -23,7 +23,7 @@ chunks:
     key_terms: [research, gradadmissions, been, "i'm", "i've", like, something, undergrad]
     token_count: 369
   - id: "social-intelligence/reddit-deep/gradadmissions/1rl1wyt.md#c1"
-    char_span: [1565, 2744]
+    char_span: [1564, 2743]
     sentence_count: 7
     key_terms: [congratulations, katelyn-gwv, good, congrats, mhrafr22, sankey, like, miscommunication]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, recommendation, comments, letter, recommendations, josephnoexiste, reddit-deep, professor]
     token_count: 112
   - id: "social-intelligence/reddit-deep/gradadmissions/1rgigpf.md#c1"
-    char_span: [446, 1366]
+    char_span: [445, 1365]
     sentence_count: 6
     key_terms: [greenpelican24, josephnoexiste, recommendation, letter, professor, like, qualitatively, immediately]
     section: Comments

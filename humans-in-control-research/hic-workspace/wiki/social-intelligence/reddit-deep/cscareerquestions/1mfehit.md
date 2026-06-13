@@ -23,37 +23,37 @@ chunks:
     key_terms: [early, something, cscareerquestions, did, eventually, experience, comments, careers]
     token_count: 244
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c1"
-    char_span: [1040, 2865]
+    char_span: [1039, 2864]
     sentence_count: 18
     key_terms: [career, degree, life, never, day, started, through, myself]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c2"
-    char_span: [2867, 5008]
+    char_span: [2866, 5007]
     sentence_count: 18
     key_terms: ["there's", job, work, working, hours, "i'm", like, current]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c3"
-    char_span: [5010, 6545]
+    char_span: [5009, 6544]
     sentence_count: 16
     key_terms: [lot, take, work, problem, better, longer, communicating, unreasonable]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c4"
-    char_span: [6548, 8310]
+    char_span: [6547, 8309]
     sentence_count: 11
     key_terms: [something, working, pivot, years, job, work, motivation, building]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c5"
-    char_span: [8312, 10203]
+    char_span: [8311, 10202]
     sentence_count: 10
     key_terms: [money, work, motivation, something, doing, arkguardian, get, productive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mfehit.md#c6"
-    char_span: [9911, 10452]
+    char_span: [9910, 10451]
     sentence_count: 4
     key_terms: [work, gotten, get, periodically, conditions, daydreamed, frustrated, carpenter]
     section: Comments

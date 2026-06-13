@@ -23,7 +23,7 @@ chunks:
     key_terms: [humanresources, travel, singapore, comments, continue, involve, people, inner-appearance-602]
     token_count: 247
   - id: "social-intelligence/reddit-deep/humanresources/1sy25uq.md#c1"
-    char_span: [1029, 2930]
+    char_span: [1028, 2929]
     sentence_count: 12
     key_terms: [travel, work, company, campus, people, "you're", international, local]
     section: Comments

@@ -23,31 +23,31 @@ chunks:
     key_terms: [generated, game, built, html, playable, prompts, through, first-person]
     token_count: 442
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c1"
-    char_span: [2141, 4115]
+    char_span: [2140, 4114]
     sentence_count: 16
     key_terms: [futuristocrat, programming, myuninhibitedself, html, computer, language, coding, pretty]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c2"
-    char_span: [3880, 5072]
+    char_span: [3879, 5071]
     sentence_count: 4
     key_terms: [futuristocrat, creation, floopm, ultra, code, cost, professionally, theagentledger]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c3"
-    char_span: [5074, 5220]
+    char_span: [5073, 5219]
     sentence_count: 1
     key_terms: ["it's", comments, listing, written, saying, doing, "don't", using]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c4"
-    char_span: [5222, 7336]
+    char_span: [5221, 7335]
     sentence_count: 7
     key_terms: [limit, futuristocrat, game, code, theagentledger, lines, token, html]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1recjbv.md#c5"
-    char_span: [7051, 8052]
+    char_span: [7050, 8051]
     sentence_count: 8
     key_terms: [game, bloodmosshunter, phone, something, physics, code, hard, html]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [college, graduates, highereducation, prepare, according, americans, comments, career]
     token_count: 225
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c1"
-    char_span: [1014, 2697]
+    char_span: [1013, 2696]
     sentence_count: 10
     key_terms: [college, experience, students, undergraduate, research, training, regrets, degree]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c2"
-    char_span: [2699, 4539]
+    char_span: [2698, 4538]
     sentence_count: 7
     key_terms: [extracurricular, college, complaints, graduates, research, "they're", always, school]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c3"
-    char_span: [4541, 6676]
+    char_span: [4540, 6675]
     sentence_count: 18
     key_terms: [students, employment, internship, career, job, look, time, "don't"]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c4"
-    char_span: [6678, 8352]
+    char_span: [6677, 8351]
     sentence_count: 17
     key_terms: [programs, students, program, "don't", get, like, elementary, themselves]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c5"
-    char_span: [8354, 10070]
+    char_span: [8353, 10069]
     sentence_count: 13
     key_terms: [job, college, education, training, want, higher, people, plenty]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c6"
-    char_span: [10072, 11663]
+    char_span: [10071, 11662]
     sentence_count: 11
     key_terms: [get, something, business, students, college, degrees, prepare, degree]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/highereducation/1mcfzk5.md#c7"
-    char_span: [11665, 12791]
+    char_span: [11664, 12790]
     sentence_count: 7
     key_terms: [students, career, resources, advanced, college, ambitious-meringue37, major, track]
     section: Comments

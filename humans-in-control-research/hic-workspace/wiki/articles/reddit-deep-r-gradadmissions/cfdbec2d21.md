@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/cfdbec2d21.md#c0"
-    char_span: [0, 1278]
+    char_span: [0, 1277]
     sentence_count: 9
     key_terms: [recommendation, letter, professor, gradadmissions, greenpelican24, josephnoexiste, comments, reddit]
-    token_count: 303
+    token_count: 302
 ---
 # Roast my recommendation letter
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tbb4jv/what_fields_to_shift_to/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.641Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c0"
+    char_span: [0, 1680]
+    sentence_count: 12
+    key_terms: [cscareerquestions, careers, considering, tech, positions, comments, already, college]
+    token_count: 364
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c1"
+    char_span: [1695, 3560]
+    sentence_count: 11
+    key_terms: [difficultsession51, specializations, careers, lhorie, requirements, andhausen, different, thinking]
+    section: Comments
+    token_count: 446
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c2"
+    char_span: [3562, 5499]
+    sentence_count: 10
+    key_terms: [difficultsession51, okposition4563, collar, people, white, programming, job, jobs]
+    section: Comments
+    token_count: 442
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tbb4jv.md#c3"
+    char_span: [5501, 7359]
+    sentence_count: 15
+    key_terms: [jobs, thecrowwhisperer3004, posts, outsourcing, been, job, sub, automated]
+    section: Comments
+    token_count: 470
 ---
-
 # What fields to shift to?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tbb4jv/what_fields_to_shift_to/)

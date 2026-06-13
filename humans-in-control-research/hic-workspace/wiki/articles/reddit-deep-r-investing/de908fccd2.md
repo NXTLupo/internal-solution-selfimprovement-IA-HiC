@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/de908fccd2.md#c0"
-    char_span: [0, 1847]
+    char_span: [0, 1846]
     sentence_count: 16
     key_terms: [nervous, nvidia, portfolio, reddit, shares, "you're", tax, correction]
-    token_count: 432
+    token_count: 431
   - id: "articles/reddit-deep-r-investing/de908fccd2.md#c1"
-    char_span: [1849, 3156]
+    char_span: [1848, 3155]
     sentence_count: 6
     key_terms: [order, price, filled, limit, stop, time, financials, companies]
     token_count: 284

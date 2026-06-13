@@ -23,7 +23,7 @@ chunks:
     key_terms: [year, gradschool, resources, scholarly, comments, writing, thesis, hangrydicappucino]
     token_count: 159
   - id: "social-intelligence/reddit-deep/gradschool/1pt3ydk.md#c1"
-    char_span: [716, 959]
+    char_span: [715, 958]
     sentence_count: 2
     key_terms: [writing, dissertation, hangrydicappucino, "belcher's", misandrya, articles, "bolker's", thankyou]
     section: Comments

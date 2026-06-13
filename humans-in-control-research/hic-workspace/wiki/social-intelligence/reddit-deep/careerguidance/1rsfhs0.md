@@ -23,7 +23,7 @@ chunks:
     key_terms: [salary, developer, year, fresher, careerguidance, offer, help, job]
     token_count: 313
   - id: "social-intelligence/reddit-deep/careerguidance/1rsfhs0.md#c1"
-    char_span: [1341, 1834]
+    char_span: [1340, 1833]
     sentence_count: 5
     key_terms: [employment, techytish, contract, cheap, noooo000oooo00, nevertheless, jameswjrose, terminating]
     section: Comments

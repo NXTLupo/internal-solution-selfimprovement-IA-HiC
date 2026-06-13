@@ -21,31 +21,31 @@ chunks:
     key_terms: [internships, career, ama, internship, comments, resumes, advice, market]
     token_count: 336
   - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c1"
-    char_span: [1492, 1951]
+    char_span: [1491, 1950]
     sentence_count: 5
     key_terms: [like, short, ai-generated, attachments, structure, value-add, directly, everyone]
     section: Comments
     token_count: 106
   - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c2"
-    char_span: [1953, 3994]
+    char_span: [1952, 3993]
     sentence_count: 12
     key_terms: [personality, non-traditional, thesis, unique, work, education, jash-6898, portfolio]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c3"
-    char_span: [3996, 6039]
+    char_span: [3995, 6038]
     sentence_count: 17
     key_terms: [did, outreach, answer, failed, maybe, video, like, internship]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c4"
-    char_span: [6041, 7046]
+    char_span: [6040, 7045]
     sentence_count: 5
     key_terms: [internships, resume, never, witty-cabinet-3534, delhihousingsucks, use, company-closing, understandable]
     section: Comments
     token_count: 249
   - id: "social-intelligence/reddit-deep/internships/1tbih39.md#c5"
-    char_span: [7048, 8597]
+    char_span: [7047, 8596]
     sentence_count: 10
     key_terms: [resume, undergrads, business, students, student, common, people, witty-cabinet-3534]
     section: Comments

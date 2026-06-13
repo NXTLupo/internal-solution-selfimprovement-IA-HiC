@@ -23,7 +23,7 @@ chunks:
     key_terms: [months, internship, internships, side, comments, recently, training, complex-story-6796]
     token_count: 211
   - id: "social-intelligence/reddit-deep/internships/1t3ar0k.md#c1"
-    char_span: [848, 1139]
+    char_span: [847, 1138]
     sentence_count: 1
     key_terms: [appropriate-tutor587, complex-story-6796, experience, carefully, training, related, skills, focus]
     section: Comments

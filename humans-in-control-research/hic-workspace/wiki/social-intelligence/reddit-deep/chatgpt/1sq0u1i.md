@@ -23,37 +23,37 @@ chunks:
     key_terms: [claude, chatgpt, better, people, carousels, like, automate, business]
     token_count: 385
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c1"
-    char_span: [1572, 3482]
+    char_span: [1571, 3481]
     sentence_count: 14
     key_terms: [claude, gpt, "it's", chatgpt, quality, answer, openai, please]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c2"
-    char_span: [3484, 5501]
+    char_span: [3483, 5500]
     sentence_count: 22
     key_terms: [claude, response, gemini, chatgpt, gpt, research, versions, couple]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c3"
-    char_span: [5228, 6315]
+    char_span: [5227, 6314]
     sentence_count: 8
     key_terms: [claude, use, better, outrageous-cod-855, code, gpt, no-medicine1230, thejiggliestpug]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c4"
-    char_span: [6317, 8262]
+    char_span: [6316, 8261]
     sentence_count: 15
     key_terms: [chatgpt, claude, answers, instructions, better, using, limitations, processing]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c5"
-    char_span: [8267, 9445]
+    char_span: [8266, 9444]
     sentence_count: 4
     key_terms: [cutiekilla, better, claude, great, model, sucks, like, new]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/chatgpt/1sq0u1i.md#c6"
-    char_span: [9447, 11321]
+    char_span: [9446, 11320]
     sentence_count: 13
     key_terms: [claude, chatgpt, something, use, codex, idea, perplexity, different]
     section: Comments

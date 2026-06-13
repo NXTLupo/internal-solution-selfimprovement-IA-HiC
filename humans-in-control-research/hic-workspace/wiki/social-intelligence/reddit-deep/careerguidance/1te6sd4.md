@@ -31,7 +31,7 @@ chunks:
     key_terms: [operations, financial, analyst, hospitality, global, position, company, career]
     token_count: 360
   - id: "social-intelligence/reddit-deep/careerguidance/1te6sd4.md#c3"
-    char_span: [4988, 6547]
+    char_span: [4987, 6546]
     sentence_count: 10
     key_terms: [roles, experience, point, like, financial, psytrense, targeting, anything]
     section: Comments

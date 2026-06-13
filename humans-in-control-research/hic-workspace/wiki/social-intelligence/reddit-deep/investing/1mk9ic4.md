@@ -23,55 +23,55 @@ chunks:
     key_terms: [people, overvalued, stock, investing, because, companies, vwlk5mtds-akow8dwyudlxf98u, checking]
     token_count: 280
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c1"
-    char_span: [1122, 3068]
+    char_span: [1121, 3067]
     sentence_count: 13
     key_terms: [money, retirement, boomers, inflationary, like, passively, pouring, people]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c2"
-    char_span: [3070, 5035]
+    char_span: [3069, 5034]
     sentence_count: 11
     key_terms: [boomers, money, market, stocks, pass, retirement, investors, selling]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c3"
-    char_span: [5037, 6744]
+    char_span: [5036, 6743]
     sentence_count: 11
     key_terms: [investors, active, market, funds, passive, stocks, because, buying]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c4"
-    char_span: [6746, 8652]
+    char_span: [6745, 8651]
     sentence_count: 14
     key_terms: [overvalued, buying, companies, "i'm", market, stocks, money, article]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c5"
-    char_span: [8654, 10269]
+    char_span: [8653, 10268]
     sentence_count: 9
     key_terms: [because, discovery, narrative, holdings, deleted, closer, being, large]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c6"
-    char_span: [10271, 12053]
+    char_span: [10270, 12052]
     sentence_count: 9
     key_terms: [investors, retail, market, like, passive, around, middle, saying]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c7"
-    char_span: [12055, 14242]
+    char_span: [12054, 14241]
     sentence_count: 18
     key_terms: [price, profits, active, people, manipulation, share, value, reasonable]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c8"
-    char_span: [14244, 16437]
+    char_span: [14243, 16436]
     sentence_count: 18
     key_terms: [funds, stock, individual, passive, active, market, companies, people]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/investing/1mk9ic4.md#c9"
-    char_span: [16439, 18476]
+    char_span: [16438, 18475]
     sentence_count: 13
     key_terms: [people, investing, country, broker, invest, month, brokerage, probably]
     section: Comments

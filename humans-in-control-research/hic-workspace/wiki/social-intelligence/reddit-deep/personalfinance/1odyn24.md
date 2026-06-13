@@ -28,37 +28,37 @@ chunks:
     key_terms: [area, full, time, scholarships, intriguing, passionate, currently, finishing]
     token_count: 170
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c2"
-    char_span: [2440, 4755]
+    char_span: [2439, 4754]
     sentence_count: 19
     key_terms: [better, job, living, money, get, earning, career, grades]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c3"
-    char_span: [4757, 6951]
+    char_span: [4756, 6950]
     sentence_count: 22
     key_terms: [car, get, living, school, place, roommates, cheapest, people]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c4"
-    char_span: [6953, 8845]
+    char_span: [6952, 8844]
     sentence_count: 23
     key_terms: [sorrylilsis, need, finishing, finances, applaud, college, finding, months]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c5"
-    char_span: [8847, 10332]
+    char_span: [8846, 10331]
     sentence_count: 10
     key_terms: [yourself, get, retirement, people, scholarships, right, help, job]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c6"
-    char_span: [10335, 12521]
+    char_span: [10334, 12520]
     sentence_count: 16
     key_terms: [job, time, living, school, full, yourself, working, part]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/personalfinance/1odyn24.md#c7"
-    char_span: [12523, 14427]
+    char_span: [12522, 14426]
     sentence_count: 19
     key_terms: [work, "you're", get, like, lot, rent, year, retirement]
     section: Comments

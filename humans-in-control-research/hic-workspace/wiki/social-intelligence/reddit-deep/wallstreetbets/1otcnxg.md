@@ -28,49 +28,49 @@ chunks:
     key_terms: [tsmc, supplies, inc, executive, qualcomm, company, officer, chief]
     token_count: 185
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c2"
-    char_span: [3057, 4091]
+    char_span: [3056, 4090]
     sentence_count: 2
     key_terms: [revenue, record, jayarlington, https, because, discord, matter, months]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c3"
-    char_span: [4093, 5271]
+    char_span: [4092, 5270]
     sentence_count: 4
     key_terms: [bubble, growing, horizon, inside, weird, simultaneously, trigganomatroy, consequences]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c4"
-    char_span: [5273, 7402]
+    char_span: [5272, 7401]
     sentence_count: 11
     key_terms: [growth, rate, acceleration, going, analysts, quarters, because, company]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c5"
-    char_span: [7148, 8191]
+    char_span: [7147, 8190]
     sentence_count: 5
     key_terms: [growth, acceleration, company, dollar, priced, banned3rdtimesacharm, dramaticdirection292, grows]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c6"
-    char_span: [8193, 10230]
+    char_span: [8192, 10229]
     sentence_count: 12
     key_terms: [growth, economic, nothing, bubble, unsustainable, productivity, hype, sentiment]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c7"
-    char_span: [10232, 11971]
+    char_span: [10231, 11970]
     sentence_count: 5
     key_terms: [new-daikon-5648, tsmc, companies, earnings, revenues, market, valued, homeless-coward-2143]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c8"
-    char_span: [11786, 12115]
+    char_span: [11785, 12114]
     sentence_count: 2
     key_terms: [mom, homeless-coward-2143, archicadmaster, proclaiming, bankrupt, gamecock, company, growing]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/wallstreetbets/1otcnxg.md#c9"
-    char_span: [12120, 13615]
+    char_span: [12119, 13614]
     sentence_count: 13
     key_terms: [tesla, javimoran, something, someone, growth, optimal-interview902, thiskarmalimitsucks, burry]
     section: Comments

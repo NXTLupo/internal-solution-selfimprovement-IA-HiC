@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qot5kp.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qot5kp/its_finally_over/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Engineering"
 extracted_at: "2026-06-06T23:23:15.586Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qot5kp.md#c0"
+    char_span: [0, 1089]
+    sentence_count: 15
+    key_terms: [gradadmissions, comments, country, finally, cycles, hours, back, get]
+    token_count: 256
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qot5kp.md#c1"
+    char_span: [1104, 2067]
+    sentence_count: 5
+    key_terms: [congratulations, rest, program, equivalent-fill-2949, passionzealousideal1, rahulyouareacheater, happy, congratationssssss]
+    section: Comments
+    token_count: 301
 ---
-
 # It's. Finally. Over.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qot5kp/its_finally_over/)

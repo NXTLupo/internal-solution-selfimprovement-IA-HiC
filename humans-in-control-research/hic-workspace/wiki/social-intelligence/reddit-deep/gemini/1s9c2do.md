@@ -18,7 +18,7 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gemini/1s9c2do.md#c0"
-    char_span: [0, 965]
+    char_span: [0, 964]
     sentence_count: 2
     key_terms: [api, gemini, cost, comments, charged, around, search, tokens]
     token_count: 250

@@ -23,7 +23,7 @@ chunks:
     key_terms: [job, building, tool, careerguidance, career, months, people, learn]
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1thn1yv.md#c1"
-    char_span: [2098, 2497]
+    char_span: [2097, 2496]
     sentence_count: 5
     key_terms: [learn, because, people, notannsaguypromise, ordinary-smoke190, jobs, real, particular]
     section: Comments

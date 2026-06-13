@@ -15,17 +15,17 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/4dd931aeaf.md#c0"
-    char_span: [0, 717]
+    char_span: [0, 716]
     sentence_count: 7
     key_terms: [school, important, grad, experience, gradschool, reddit, spirit, interviews]
-    token_count: 166
+    token_count: 165
   - id: "articles/reddit-deep-r-gradschool/4dd931aeaf.md#c1"
-    char_span: [719, 2314]
+    char_span: [718, 2313]
     sentence_count: 12
     key_terms: [school, institution, campus, events, spirit, graduate, going, felt]
     token_count: 359
   - id: "articles/reddit-deep-r-gradschool/4dd931aeaf.md#c2"
-    char_span: [2316, 3027]
+    char_span: [2315, 3026]
     sentence_count: 5
     key_terms: [school, important, undergrad, football, grad, somuchsunrayzzz, school-spirit, significantly]
     token_count: 171

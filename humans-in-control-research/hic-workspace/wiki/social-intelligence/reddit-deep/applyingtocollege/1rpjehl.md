@@ -23,37 +23,37 @@ chunks:
     key_terms: [decisions, applyingtocollege, college, seems, care, comments, choices, "doesn't"]
     token_count: 282
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c1"
-    char_span: [1132, 3043]
+    char_span: [1131, 3042]
     sentence_count: 7
     key_terms: [parents, thank, decisions, disappointing, been, like, son, excited]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c2"
-    char_span: [3045, 3560]
+    char_span: [3044, 3559]
     sentence_count: 4
     key_terms: [everyone, school, away, get, next, step, prospective, adulthood]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c3"
-    char_span: [3562, 5635]
+    char_span: [3561, 5634]
     sentence_count: 14
     key_terms: [others, school, free2bemee154, state, gen, awesome, college, parents]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c4"
-    char_span: [5637, 7243]
+    char_span: [5636, 7242]
     sentence_count: 13
     key_terms: [school, state, tamihera, caem123, away, big, far, fish]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c5"
-    char_span: [7245, 9260]
+    char_span: [7244, 9259]
     sentence_count: 16
     key_terms: [school, best, lead, let, teenager, because, "doesn't", afford]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rpjehl.md#c6"
-    char_span: [9262, 10108]
+    char_span: [9261, 10107]
     sentence_count: 13
     key_terms: [school, son, awesome, got, congratulations, thebigfork4me, undergraduate, transitional]
     section: Comments

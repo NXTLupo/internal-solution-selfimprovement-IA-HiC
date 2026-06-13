@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, job, company, manufacturing, engineering, got, time, assembly]
     token_count: 293
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rhn2o2.md#c1"
-    char_span: [1341, 2562]
+    char_span: [1340, 2561]
     sentence_count: 7
     key_terms: [engineeringstudents, exciting-yogurt-9635, wiki, reddit, https, com, read, www]
     section: Comments

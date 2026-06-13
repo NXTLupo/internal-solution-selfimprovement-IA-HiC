@@ -23,7 +23,7 @@ chunks:
     key_terms: [english, literature, study, biotechnology, since, write, been, want]
     token_count: 347
   - id: "social-intelligence/reddit-deep/college/1ocyii0.md#c1"
-    char_span: [1597, 2108]
+    char_span: [1596, 2107]
     sentence_count: 2
     key_terms: [attend, time, glimmeringsea, definitely, professors, admission, analyzing, dependent]
     section: Comments

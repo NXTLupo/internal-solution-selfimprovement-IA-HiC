@@ -33,7 +33,7 @@ chunks:
     key_terms: [freelancers, like, scam, struggling, scammers, matters, payment, confidence-crushing]
     token_count: 350
   - id: "social-intelligence/reddit-deep/freelance/1p4xmc9.md#c3"
-    char_span: [5325, 5818]
+    char_span: [5324, 5817]
     sentence_count: 8
     key_terms: [pristine-bluebird-88, take, differentiate, quriouscoyote, pre-designed, incredible, alinarice, recommend]
     section: Comments

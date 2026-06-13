@@ -23,19 +23,19 @@ chunks:
     key_terms: [wallstreetbets, comments, regarded, calls, play, frontqueasy3156, reddit-deep, prediction]
     token_count: 164
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c1"
-    char_span: [635, 1658]
+    char_span: [634, 1657]
     sentence_count: 4
     key_terms: [frontqueasy3156, account, powerfarta, discord, total, years, happy-champion1661, lmao]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c2"
-    char_span: [1660, 3302]
+    char_span: [1659, 3301]
     sentence_count: 11
     key_terms: [frontqueasy3156, degree, post, something, starting, ntheijs, pretty, calls]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qb8ow8.md#c3"
-    char_span: [3304, 3500]
+    char_span: [3303, 3499]
     sentence_count: 1
     key_terms: [mannheimcrescendo, replaceable, learned, society, guitar, class, never, bet]
     section: Comments

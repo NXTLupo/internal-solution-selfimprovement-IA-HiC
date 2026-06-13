@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/c2b6dbfe9d.md#c0"
-    char_span: [0, 1389]
+    char_span: [0, 1388]
     sentence_count: 9
     key_terms: [market, record, last, correction, industries, composite, investing, markets]
-    token_count: 339
+    token_count: 338
   - id: "articles/reddit-deep-r-investing/c2b6dbfe9d.md#c1"
-    char_span: [1391, 3151]
+    char_span: [1390, 3150]
     sentence_count: 6
     key_terms: [currently, down, topped, get, "it's", shicken684, markets, numbers]
     token_count: 465

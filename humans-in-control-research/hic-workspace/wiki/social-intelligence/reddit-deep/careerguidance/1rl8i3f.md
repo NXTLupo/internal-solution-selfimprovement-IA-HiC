@@ -23,37 +23,37 @@ chunks:
     key_terms: [careerguidance, field, comments, earning, advice, career, design, honest]
     token_count: 261
   - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c1"
-    char_span: [1130, 3478]
+    char_span: [1129, 3477]
     sentence_count: 5
     key_terms: [product, thinking, design, skills, especially, years, like, learning]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c2"
-    char_span: [3480, 4603]
+    char_span: [3479, 4602]
     sentence_count: 10
     key_terms: [work, designers, product, artist, tools, good, lot, used]
     section: Comments
     token_count: 255
   - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c3"
-    char_span: [4605, 6691]
+    char_span: [4604, 6690]
     sentence_count: 14
     key_terms: [opportunities, portfolio, pretty, build, entry, field, level, solid]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c4"
-    char_span: [6433, 8568]
+    char_span: [6432, 8567]
     sentence_count: 19
     key_terms: ["i've", career, considering, been, get, laid, time, took]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c5"
-    char_span: [8315, 9183]
+    char_span: [8314, 9182]
     sentence_count: 6
     key_terms: [business, human-centric, contract, nowadays, probably, like, components, contractor]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/careerguidance/1rl8i3f.md#c6"
-    char_span: [9185, 10995]
+    char_span: [9184, 10994]
     sentence_count: 12
     key_terms: [experience, design, job, product, focus, years, get, recommend]
     section: Comments

@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1rvbvi7.md#c0"
-    char_span: [0, 803]
+    char_span: [0, 802]
     sentence_count: 9
     key_terms: [careerguidance, bca, math, comments, confused, engineer, student, advice]
-    token_count: 205
+    token_count: 204
 ---
 # Confused About AI/ML Career Paths – Any Advice for a BCA Student?
 

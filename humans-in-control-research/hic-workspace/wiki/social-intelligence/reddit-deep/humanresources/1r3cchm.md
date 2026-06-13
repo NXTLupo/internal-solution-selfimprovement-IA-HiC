@@ -23,13 +23,13 @@ chunks:
     key_terms: [exam, shrm, test, practice, humanresources, passed, night, last]
     token_count: 466
   - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c1"
-    char_span: [1951, 3724]
+    char_span: [1950, 3723]
     sentence_count: 17
     key_terms: [pocket, exam, questions, prep, passed, lot, time, took]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/humanresources/1r3cchm.md#c2"
-    char_span: [3726, 5376]
+    char_span: [3725, 5375]
     sentence_count: 11
     key_terms: [soxpatsbruinscelts, taskfinancial5922, shrm, passed, certification, exam, sphr, studying]
     section: Comments

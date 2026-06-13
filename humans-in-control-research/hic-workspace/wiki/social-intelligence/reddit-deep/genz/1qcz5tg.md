@@ -23,25 +23,25 @@ chunks:
     key_terms: [enough, day, job, life, depressed, comments, paycheck, family]
     token_count: 358
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c1"
-    char_span: [1482, 1611]
+    char_span: [1481, 1610]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c2"
-    char_span: [1614, 3722]
+    char_span: [1613, 3721]
     sentence_count: 21
     key_terms: [job, better, going, country, please, month, place, sorry]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c3"
-    char_span: [3471, 3756]
+    char_span: [3470, 3755]
     sentence_count: 5
     key_terms: [want, summerechoes, counselors, empathize, feeling, preface, better, career]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/genz/1qcz5tg.md#c4"
-    char_span: [3758, 5743]
+    char_span: [3757, 5742]
     sentence_count: 16
     key_terms: [change, habits, experiencing, need, unhealthy, majority, history, chemical-village-211]
     section: Comments

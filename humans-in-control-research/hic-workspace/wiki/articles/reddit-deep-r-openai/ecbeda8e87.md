@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/ecbeda8e87.md#c0"
-    char_span: [0, 1050]
+    char_span: [0, 1049]
     sentence_count: 11
     key_terms: [context, openai, available, paying, window, plus, halved, reddit]
-    token_count: 245
+    token_count: 244
   - id: "articles/reddit-deep-r-openai/ecbeda8e87.md#c1"
-    char_span: [1052, 2305]
+    char_span: [1051, 2304]
     sentence_count: 10
     key_terms: [context, gemini, tokens, conversation, sometimes, new, rude, airlineglass5010]
     token_count: 317

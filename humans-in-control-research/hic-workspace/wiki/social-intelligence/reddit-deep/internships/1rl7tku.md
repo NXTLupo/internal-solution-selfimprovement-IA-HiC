@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rl7tku.md
 url: "https://www.reddit.com/r/internships/comments/1rl7tku/laid_off_during_first_week_for_being_distracting/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,36 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.208Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c0"
+    char_span: [0, 2314]
+    sentence_count: 12
+    key_terms: [week, wanted, work, information, internships, day, everything, executive]
+    token_count: 491
+  - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c1"
+    char_span: [2316, 3572]
+    sentence_count: 9
+    key_terms: [environment, week, feedback, instead, entire, conversation, mistreatment, distracting]
+    token_count: 251
+  - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c2"
+    char_span: [3587, 4546]
+    sentence_count: 6
+    key_terms: [companies, bullet, dodged, appropriate-tutor587, sorry, name, secure-ad1363, monetization]
+    section: Comments
+    token_count: 231
+  - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c3"
+    char_span: [4548, 5829]
+    sentence_count: 7
+    key_terms: [like, experience, seriously, something, because, better, engage, international-exam84]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/internships/1rl7tku.md#c4"
+    char_span: [5831, 6833]
+    sentence_count: 11
+    key_terms: [better, con-lime2, company, suited, sucks, twice, find, job]
+    section: Comments
+    token_count: 249
 ---
-
 # Laid off during first week for being "distracting" and too social
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rl7tku/laid_off_during_first_week_for_being_distracting/)

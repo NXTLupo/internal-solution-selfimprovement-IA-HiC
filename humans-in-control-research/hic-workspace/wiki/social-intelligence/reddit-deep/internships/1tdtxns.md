@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, comments, teaches, career, small, step, communication, opportunities]
     token_count: 122
   - id: "social-intelligence/reddit-deep/internships/1tdtxns.md#c1"
-    char_span: [559, 1161]
+    char_span: [558, 1160]
     sentence_count: 4
     key_terms: [full-time, internships, lot, eventually, corporate, best, micro-management, decisions]
     section: Comments

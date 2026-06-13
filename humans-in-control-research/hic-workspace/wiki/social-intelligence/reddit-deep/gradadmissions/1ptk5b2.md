@@ -28,7 +28,7 @@ chunks:
     key_terms: [application, mcdonnell, washu, program, academy, graduate, submit, apply]
     token_count: 219
   - id: "social-intelligence/reddit-deep/gradadmissions/1ptk5b2.md#c2"
-    char_span: [3636, 5068]
+    char_span: [3635, 5067]
     sentence_count: 9
     key_terms: [mean-influence1000, institution, mcdonnell, consideration, applied, priority, program, email]
     section: Comments

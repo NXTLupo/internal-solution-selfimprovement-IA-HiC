@@ -21,31 +21,31 @@ chunks:
     key_terms: [jobs, comments, entry-level, reddit-deep, godfather, geoffrey, replaced, hinton]
     token_count: 89
   - id: "social-intelligence/reddit-deep/jobs/1qtexx6.md#c1"
-    char_span: [315, 1205]
+    char_span: [314, 1204]
     sentence_count: 7
     key_terms: [roles, work, therealbigback91, picnicpanther, transcription, augmentation, journalistic, productivity]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/jobs/1qtexx6.md#c2"
-    char_span: [1207, 2550]
+    char_span: [1206, 2549]
     sentence_count: 7
     key_terms: [jobs, accounting, attorneys, paralegal, through, needed, legal, never]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/jobs/1qtexx6.md#c3"
-    char_span: [2552, 4048]
+    char_span: [2551, 4047]
     sentence_count: 7
     key_terms: [garbage, been, inaccurate, compared, juniors, humans, doing, often]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/jobs/1qtexx6.md#c4"
-    char_span: [4051, 5660]
+    char_span: [4050, 5659]
     sentence_count: 9
     key_terms: [call, too, replaced, already, centres, finding, support, access]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/jobs/1qtexx6.md#c5"
-    char_span: [5662, 7452]
+    char_span: [5661, 7451]
     sentence_count: 9
     key_terms: [material-heron6336, people, understand, difficult, learning, problems, replaced, deleted]
     section: Comments

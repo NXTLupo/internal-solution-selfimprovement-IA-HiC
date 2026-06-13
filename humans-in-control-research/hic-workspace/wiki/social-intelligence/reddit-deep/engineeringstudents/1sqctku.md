@@ -21,31 +21,31 @@ chunks:
     key_terms: [credits, "it's", engineeringstudents, degree, university, admitted, comments, student]
     token_count: 214
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqctku.md#c1"
-    char_span: [905, 2640]
+    char_span: [904, 2639]
     sentence_count: 10
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, required, automoderator]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqctku.md#c2"
-    char_span: [2642, 4011]
+    char_span: [2641, 4010]
     sentence_count: 8
     key_terms: [catalog, engineering, credits, requirements, trimester, year, program, school-civil-construction-engineering]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqctku.md#c3"
-    char_span: [4013, 5631]
+    char_span: [4012, 5630]
     sentence_count: 10
     key_terms: [credits, degree, university, graduate, classes, college, engineering, curriculum]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqctku.md#c4"
-    char_span: [5633, 7734]
+    char_span: [5632, 7733]
     sentence_count: 10
     key_terms: [credits, engineering, required, students, classes, courses, years, "it's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sqctku.md#c5"
-    char_span: [7413, 8013]
+    char_span: [7412, 8012]
     sentence_count: 5
     key_terms: [negromancer18, specific, courses, credits, degree, school, major, engineering]
     section: Comments

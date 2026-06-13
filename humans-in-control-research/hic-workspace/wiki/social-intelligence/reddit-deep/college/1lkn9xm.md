@@ -23,31 +23,31 @@ chunks:
     key_terms: [college, comments, supplies, school, need, thinktrip2662, reddit-deep, everything]
     token_count: 111
   - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c1"
-    char_span: [454, 2147]
+    char_span: [453, 2146]
     sentence_count: 12
     key_terms: [class, through, laptop, last, electronically, taking, assignments, note]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c2"
-    char_span: [2149, 3383]
+    char_span: [2148, 3382]
     sentence_count: 9
     key_terms: [major, notes, paper, stem, whatever, "i'm", math, magentamango51]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c3"
-    char_span: [3385, 5526]
+    char_span: [3384, 5525]
     sentence_count: 13
     key_terms: [need, pencils, stapler, notebooks, recommend, pens, digital, laptop]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c4"
-    char_span: [5249, 6686]
+    char_span: [5248, 6685]
     sentence_count: 8
     key_terms: [notebooks, paper, notebook, separate, classes, class, used, recommend]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/college/1lkn9xm.md#c5"
-    char_span: [6688, 8063]
+    char_span: [6687, 8062]
     sentence_count: 7
     key_terms: [subject, notebooks, laptop, charger, pencils, answer, better, mostly]
     section: Comments

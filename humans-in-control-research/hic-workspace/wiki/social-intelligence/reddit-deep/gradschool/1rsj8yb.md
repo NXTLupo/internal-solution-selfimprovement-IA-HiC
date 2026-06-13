@@ -23,43 +23,43 @@ chunks:
     key_terms: [feel, program, through, career, don, like, gradschool, interested]
     token_count: 498
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c1"
-    char_span: [2199, 3748]
+    char_span: [2198, 3747]
     sentence_count: 11
     key_terms: [program, degree, therapist, projects, syllabus, enough, reddit, "you're"]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c2"
-    char_span: [3750, 5510]
+    char_span: [3749, 5509]
     sentence_count: 15
     key_terms: [writer, editor, job, like, work, rejection, something, writing]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c3"
-    char_span: [5512, 7190]
+    char_span: [5511, 7189]
     sentence_count: 12
     key_terms: [people, like, writing, arugulafanclub, novels, maybe, something, switching]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c4"
-    char_span: [7192, 9063]
+    char_span: [7191, 9062]
     sentence_count: 20
     key_terms: [like, right, direction, pressure, because, degrees, parents, career]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c5"
-    char_span: [9065, 10205]
+    char_span: [9064, 10204]
     sentence_count: 6
     key_terms: [people, since, been, working, cohort, school, help, "i've"]
     section: Comments
     token_count: 265
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c6"
-    char_span: [10207, 12449]
+    char_span: [10206, 12448]
     sentence_count: 16
     key_terms: [through, "it's", bearcub42, engaged, program, always, cohort, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rsj8yb.md#c7"
-    char_span: [12124, 12982]
+    char_span: [12123, 12981]
     sentence_count: 6
     key_terms: [question, feeling, alone, being, early, been, lot, okay]
     section: Comments

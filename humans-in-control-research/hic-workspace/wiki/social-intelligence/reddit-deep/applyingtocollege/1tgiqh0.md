@@ -36,13 +36,13 @@ chunks:
     key_terms: [practical, industry-connected, undergraduate, engineering, internships, absolutely, experience, mentorship]
     token_count: 75
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c4"
-    char_span: [7049, 9033]
+    char_span: [7048, 9032]
     sentence_count: 10
     key_terms: [admissions, creative-rhubarb-777, applyingtocollege, list, automoderator, undergraduate, scholargrade, engineering]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tgiqh0.md#c5"
-    char_span: [9036, 9885]
+    char_span: [9035, 9884]
     sentence_count: 3
     key_terms: [need, colleges, drive, applyingtocollege, part, murky-peanut1390, no-republic-7876, bot-sleuth-bot]
     section: Comments

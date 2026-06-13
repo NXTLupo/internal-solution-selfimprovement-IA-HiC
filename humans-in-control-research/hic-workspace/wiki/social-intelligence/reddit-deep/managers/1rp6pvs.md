@@ -23,19 +23,19 @@ chunks:
     key_terms: [team, comments, managers, remote, tech, underestimated, collaboration, relationships]
     token_count: 163
   - id: "social-intelligence/reddit-deep/managers/1rp6pvs.md#c1"
-    char_span: [721, 2758]
+    char_span: [720, 2757]
     sentence_count: 13
     key_terms: [remote, meeting, people, going, inclusion, something, together, problem]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1rp6pvs.md#c2"
-    char_span: [2760, 4971]
+    char_span: [2759, 4970]
     sentence_count: 23
     key_terms: [people, team, discussions, pair, something, anything, strategy, monthly]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/managers/1rp6pvs.md#c3"
-    char_span: [4973, 5304]
+    char_span: [4972, 5303]
     sentence_count: 3
     key_terms: [frosted, meetings, junketacceptable1216, video, collaboration, presence, consent, inspire]
     section: Comments

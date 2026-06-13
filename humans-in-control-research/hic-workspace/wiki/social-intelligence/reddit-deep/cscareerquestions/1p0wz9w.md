@@ -23,25 +23,25 @@ chunks:
     key_terms: [company, work, backend, years, currently, cscareerquestions, database, engineer]
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c1"
-    char_span: [2131, 4117]
+    char_span: [2130, 4116]
     sentence_count: 11
     key_terms: [potentially, live, unless, asteroidtube, comfortably, city, mcol, pay]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c2"
-    char_span: [4119, 4769]
+    char_span: [4118, 4768]
     sentence_count: 8
     key_terms: [retire, comfortably, meantime, enough, early, until, don, home]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c3"
-    char_span: [4771, 6541]
+    char_span: [4770, 6540]
     sentence_count: 12
     key_terms: [company, traveling-techie, themselves, engineers, handcuffs, compared, beyond, making]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1p0wz9w.md#c4"
-    char_span: [6543, 6877]
+    char_span: [6542, 6876]
     sentence_count: 2
     key_terms: [razmussendaman, cluelessly, position, himself, mistake, wanting, around, career]
     section: Comments

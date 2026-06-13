@@ -23,55 +23,55 @@ chunks:
     key_terms: [company, cscareerquestions, ai-development, engineering, time, comments, anymore, career]
     token_count: 270
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c1"
-    char_span: [1220, 3035]
+    char_span: [1219, 3034]
     sentence_count: 17
     key_terms: [people, hoping, going, staff, feel, like, developers, management]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c2"
-    char_span: [3038, 4982]
+    char_span: [3037, 4981]
     sentence_count: 11
     key_terms: [context, people, consumption, day, management, language, already, english]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c3"
-    char_span: [4984, 7200]
+    char_span: [4983, 7199]
     sentence_count: 15
     key_terms: ["it's", code, etc, get, good, need, approaches, lowfruit25]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c4"
-    char_span: [7202, 8700]
+    char_span: [7201, 8699]
     sentence_count: 11
     key_terms: [generally, tell, context, "it's", mcp, plan, similar, writing]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c5"
-    char_span: [8702, 9986]
+    char_span: [8701, 9985]
     sentence_count: 5
     key_terms: [harder, languages, learning, outside, throwaway0845reddit, "i've", like, time]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c6"
-    char_span: [9988, 11746]
+    char_span: [9987, 11745]
     sentence_count: 9
     key_terms: [time, hours, per, coding, prompt, "that's", longjumping-donut655, doing]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c7"
-    char_span: [11748, 13773]
+    char_span: [11747, 13772]
     sentence_count: 17
     key_terms: [because, environment, "you're", environmental, life, play, work, opposed]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c8"
-    char_span: [13776, 14692]
+    char_span: [13775, 14691]
     sentence_count: 4
     key_terms: [environmental, impact, computing, internet, negative, impacts, amish, going]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qvzqsd.md#c9"
-    char_span: [14694, 16201]
+    char_span: [14693, 16200]
     sentence_count: 7
     key_terms: [prompt, code, footprint, cajole, carbon, maxing, hours, human]
     section: Comments

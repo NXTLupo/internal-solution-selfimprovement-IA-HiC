@@ -23,31 +23,31 @@ chunks:
     key_terms: [personalfinance, "it's", comments, personal, finance, boring, budget, doing]
     token_count: 255
   - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c1"
-    char_span: [1159, 1686]
+    char_span: [1158, 1685]
     sentence_count: 4
     key_terms: [definitely, russiandisifnomation, forward-trade3449, life, financemaxxing, personality, exhausting, rattarang]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c2"
-    char_span: [1688, 3991]
+    char_span: [1687, 3990]
     sentence_count: 19
     key_terms: [tax, strategies, gains, turnover1122334455, realize, buying, people, person]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c3"
-    char_span: [3676, 4264]
+    char_span: [3675, 4263]
     sentence_count: 10
     key_terms: [deduction, tax, appreciated, planetmike2, everything, situations, advantage, automated]
     section: Comments
     token_count: 129
   - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c4"
-    char_span: [4266, 6305]
+    char_span: [4265, 6304]
     sentence_count: 22
     key_terms: [retirement, boring, passed, sorry, life, time, different, prepared]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/personalfinance/1o6zxj4.md#c5"
-    char_span: [6307, 7208]
+    char_span: [6306, 7207]
     sentence_count: 9
     key_terms: [boring, get, "it's", time, want, accomplishments, gratification, sidvictorious]
     section: Comments

@@ -28,13 +28,13 @@ chunks:
     key_terms: [tasks, work, file, full, pdf, personalization, support-heavy, productivity]
     token_count: 227
   - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c2"
-    char_span: [3137, 4872]
+    char_span: [3136, 4871]
     sentence_count: 13
     key_terms: [fine-tuning, model, gpt, source, like, weights, architecture, ok-layer741]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gpt/1kvk4eu.md#c3"
-    char_span: [4874, 5261]
+    char_span: [4873, 5260]
     sentence_count: 2
     key_terms: [https, gpt-4o-fine-tuning, fine-tuning, openai, arxiv, index, physical-golf4247, abs]
     section: Comments

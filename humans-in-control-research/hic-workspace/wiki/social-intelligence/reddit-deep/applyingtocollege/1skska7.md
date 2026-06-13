@@ -23,25 +23,25 @@ chunks:
     key_terms: [ivy, like, applyingtocollege, cwru, comments, thought, visited, happy]
     token_count: 349
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c1"
-    char_span: [1425, 3349]
+    char_span: [1424, 3348]
     sentence_count: 6
     key_terms: [school, starfirepet, good, getting, drexel, helpmehehehe1, focus, food]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c2"
-    char_span: [3065, 5123]
+    char_span: [3064, 5122]
     sentence_count: 19
     key_terms: [kindly-interview5966, conference, case, ivies, food, get, ivy, cleveland]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c3"
-    char_span: [4875, 5352]
+    char_span: [4874, 5351]
     sentence_count: 5
     key_terms: [did, congratulations, tarasshevckeno, redredred415, application, world-class, botanical, counselor]
     section: Comments
     token_count: 126
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skska7.md#c4"
-    char_span: [5354, 6807]
+    char_span: [5353, 6806]
     sentence_count: 11
     key_terms: [like, yale, cmu, get, got, lol, galaxycrow, accepted]
     section: Comments

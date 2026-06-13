@@ -28,13 +28,13 @@ chunks:
     key_terms: [architecture, community, tracking, project, memory, semvec, tokens, https]
     token_count: 378
   - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c2"
-    char_span: [3673, 5933]
+    char_span: [3672, 5932]
     sentence_count: 12
     key_terms: [state, context, memory, debugging, scheitelpunk1337, updates, handle, vector]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/openai/1t83wrd.md#c3"
-    char_span: [5935, 6653]
+    char_span: [5934, 6652]
     sentence_count: 6
     key_terms: [architecture, fligglymcgee, semantically, agent-heavy, degradation, information, prioritized, collecting]
     section: Comments

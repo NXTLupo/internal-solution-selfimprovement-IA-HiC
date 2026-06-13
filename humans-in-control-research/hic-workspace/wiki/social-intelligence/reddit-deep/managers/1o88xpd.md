@@ -23,49 +23,49 @@ chunks:
     key_terms: [interviews, interview, comments, managers, through, remote, space, plan]
     token_count: 184
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c1"
-    char_span: [853, 2073]
+    char_span: [852, 2072]
     sentence_count: 9
     key_terms: [interviews, interview, seen, brainwavecc, common, flying, people, screen]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c2"
-    char_span: [2075, 4065]
+    char_span: [2074, 4064]
     sentence_count: 14
     key_terms: [interview, people, guy, interviews, "we'll-reimburse-you-later", question, deleted, someone]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c3"
-    char_span: [4067, 6160]
+    char_span: [4066, 6159]
     sentence_count: 15
     key_terms: [interview, candidate, questions, question, praefectus27, use, disability, deleted]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c4"
-    char_span: [5876, 7919]
+    char_span: [5875, 7918]
     sentence_count: 16
     key_terms: [questions, interview, don, someone, hire, time, committee, protected]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c5"
-    char_span: [7714, 7983]
+    char_span: [7713, 7982]
     sentence_count: 2
     key_terms: [time, aggrivatingad, interviewing, obfuscation, necessary, approach, wasting, people]
     section: Comments
     token_count: 80
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c6"
-    char_span: [7985, 8525]
+    char_span: [7984, 8524]
     sentence_count: 6
     key_terms: [demonstrates, candidates, answer, get, use, secksualinnuendo, demonstrating, discussing]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c7"
-    char_span: [8527, 10558]
+    char_span: [8526, 10557]
     sentence_count: 11
     key_terms: [don, "it's", people, dry-philosopher-2714, questions, kissingdaylight, interviewers, interviewee]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/managers/1o88xpd.md#c8"
-    char_span: [10560, 12598]
+    char_span: [10559, 12597]
     sentence_count: 14
     key_terms: [person, interviews, kubernetes, interview, pipelines, devops, images, people]
     section: Comments

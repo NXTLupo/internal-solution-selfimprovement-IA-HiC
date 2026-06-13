@@ -28,13 +28,13 @@ chunks:
     key_terms: [did, get, because, something, admitted, freshman, however, process]
     token_count: 444
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c2"
-    char_span: [4016, 6034]
+    char_span: [4015, 6033]
     sentence_count: 15
     key_terms: [bergkauz-pfeifen579, essays, applyingtocollege, wiki, reddit, collegeessays, https, place]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/applyingtocollege/1shc9sg.md#c3"
-    char_span: [6036, 7457]
+    char_span: [6035, 7456]
     sentence_count: 9
     key_terms: [bergkauz-pfeifen579, applyingtocollege, automatically, international, bot, admissions, moderators, performed]
     section: Comments

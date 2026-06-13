@@ -7,15 +7,13 @@ subreddit: "cscareerquestions"
 title: "Advice needed: Post Bacc (online, in person) vs Masters Starting out (No CS background) - USA CA"
 author: "Putrid-Caregiver7407"
 date: "2026-02-04T08:13:01.000Z"
-score: 3
-upvote_ratio: 0.8
+score: 2
+upvote_ratio: 0.67
 num_comments: 13
 flair: ""
-extracted_at: "2026-05-22T23:33:42.323Z"
+extracted_at: "2026-06-08T17:32:09.900Z"
 extraction_method: "praw-deep"
-research_goal: "Develop a comprehensive new co-op strategy for Northeastern University (NU) to significantly enhance learners' access to meaningful experiential learning opportunities across their entire academic journey, from pre-enrollment through graduate school. This strategy must integrate insights from NU's current statement of work, prior projects, and a fresh industry analysis of experiential learning and co-op engagement tactics."
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qviv20.md#c0"
     char_span: [0, 2142]
@@ -50,7 +48,7 @@ chunks:
 # Advice needed: Post Bacc (online, in person) vs Masters Starting out (No CS background) - USA CA
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1qviv20/advice_needed_post_bacc_online_in_person_vs/)
-Posted by **Putrid-Caregiver7407** · **3↑** · **13 comments**
+Posted by **Putrid-Caregiver7407** · **2↑** · **13 comments**
 
 Hey All, 
 

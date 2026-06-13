@@ -23,19 +23,19 @@ chunks:
     key_terms: [department, job, admissions, highereducation, administrative, heavy, comments, position]
     token_count: 293
   - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c1"
-    char_span: [1369, 2069]
+    char_span: [1368, 2068]
     sentence_count: 6
     key_terms: [admissions, coordinator, project, good, brittleheartwarm, transferrable, comfortable, leadership]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c2"
-    char_span: [2071, 3876]
+    char_span: [2070, 3875]
     sentence_count: 12
     key_terms: [admissions, job, graduate, brittleheartwarm, applications, heart, department, leadership]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/highereducation/1l42ovh.md#c3"
-    char_span: [3878, 5597]
+    char_span: [3877, 5596]
     sentence_count: 10
     key_terms: [admissions, higher, like, brittleheartwarm, greengardentarot, certificate, want, positions]
     section: Comments

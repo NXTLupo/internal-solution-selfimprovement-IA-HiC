@@ -28,7 +28,7 @@ chunks:
     key_terms: [build, stability, another, writing, career, need, tech, want]
     token_count: 248
   - id: "social-intelligence/reddit-deep/careeradvice/1p5rsm0.md#c2"
-    char_span: [3266, 5256]
+    char_span: [3265, 5255]
     sentence_count: 13
     key_terms: [math, want, understanding, conversation, start, tech, specialty, without]
     section: Comments

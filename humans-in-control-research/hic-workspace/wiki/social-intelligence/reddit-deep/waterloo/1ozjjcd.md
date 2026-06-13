@@ -23,7 +23,7 @@ chunks:
     key_terms: [tooth, waterloo, chipped, comments, dentist, front, good, recommendation]
     token_count: 142
   - id: "social-intelligence/reddit-deep/waterloo/1ozjjcd.md#c1"
-    char_span: [597, 1277]
+    char_span: [596, 1276]
     sentence_count: 4
     key_terms: [canigetahoeyeah, waterloo, dental, cartographerhot9174, dealt, positiveoutlook51, misdiagnosed, bratt4u2022]
     section: Comments

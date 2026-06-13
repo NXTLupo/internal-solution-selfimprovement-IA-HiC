@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1thou91.md#c0"
-    char_span: [0, 1460]
+    char_span: [0, 1459]
     sentence_count: 9
     key_terms: [analytics, bcom, like, mba, careerguidance, people, cybersecurity, immediately]
-    token_count: 319
+    token_count: 318
 ---
 # BCom graduate confused about career path – MBA, job, or skill courses?
 

@@ -28,19 +28,19 @@ chunks:
     key_terms: [med, school, undergrad, prestige, college, campus, mostly, tennis]
     token_count: 338
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c2"
-    char_span: [3106, 4780]
+    char_span: [3105, 4779]
     sentence_count: 12
     key_terms: [applyingtocollege, school, jhu, med, probably, notyourtype9645, great, get]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c3"
-    char_span: [4782, 6702]
+    char_span: [4781, 6701]
     sentence_count: 14
     key_terms: [med, school, guaranteed, worldwidemonopoly, "doesn't", program, people, hard]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1kug0un.md#c4"
-    char_span: [6704, 7576]
+    char_span: [6703, 7575]
     sentence_count: 7
     key_terms: [guaranteed, med, school, interviews, down, jhu, actionjackzon, prestigious]
     section: Comments

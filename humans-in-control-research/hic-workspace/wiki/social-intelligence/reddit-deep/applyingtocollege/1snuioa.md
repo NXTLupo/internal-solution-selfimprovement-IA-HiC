@@ -23,7 +23,7 @@ chunks:
     key_terms: [students, experience, applyingtocollege, dev, get, web, year, freelance]
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snuioa.md#c1"
-    char_span: [1547, 2390]
+    char_span: [1546, 2389]
     sentence_count: 5
     key_terms: [competitions, engineering, math, something, physics, pursuit, "aren't", neckbackground5184]
     section: Comments

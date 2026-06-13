@@ -21,25 +21,25 @@ chunks:
     key_terms: [purdue, applyingtocollege, csu, debt, colorado, comments, graduate, probably]
     token_count: 291
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c1"
-    char_span: [1300, 3464]
+    char_span: [1299, 3463]
     sentence_count: 33
     key_terms: [purdue, debt, "it's", kid, dadwhoknowsthings, "i'm", friends, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c2"
-    char_span: [3209, 5472]
+    char_span: [3208, 5471]
     sentence_count: 25
     key_terms: [software, developers, because, career, embrace, saying, school, needs]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c3"
-    char_span: [5250, 5801]
+    char_span: [5249, 5800]
     sentence_count: 3
     key_terms: [programs, school, conscious-secret-775, grad, cameramost1765, ifinallyjoinec, assitantships, thislittlefig]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sconc8.md#c4"
-    char_span: [5803, 7926]
+    char_span: [5802, 7925]
     sentence_count: 19
     key_terms: [csu, school, purdue, since, get, grad, employees, colorado]
     section: Comments

@@ -16,67 +16,67 @@ chunks:
     key_terms: [output, humans, deliverables, nxt, because, indistinguishable, rule, non-negotiable]
     token_count: 104
   - id: "brand/anti-slop.md#c1"
-    char_span: [577, 2426]
+    char_span: [576, 2425]
     sentence_count: 17
     key_terms: [backgrounds, text, chartreuse, white, element, body, rule, content]
     section: 9 Non-Negotiable Visual Rules (White Background)
     token_count: 477
   - id: "brand/anti-slop.md#c2"
-    char_span: [2428, 4607]
+    char_span: [2427, 4606]
     sentence_count: 9
     key_terms: [default, aesthetic, ai-generated, font, primary, signals, banned, chartreuse]
     section: 9 Non-Negotiable Visual Rules (White Background)
     token_count: 501
   - id: "brand/anti-slop.md#c3"
-    char_span: [4609, 5975]
+    char_span: [4608, 5974]
     sentence_count: 11
     key_terms: [illustrations, grid, layout, cards, pattern, rounded, card, use]
     section: 9 Non-Negotiable Visual Rules (White Background)
     token_count: 318
   - id: "brand/anti-slop.md#c4"
-    char_span: [6018, 7881]
+    char_span: [6017, 7880]
     sentence_count: 22
     key_terms: [charts, chart, rule, source, color, citations, bar, banned]
     section: 6 Data Visualization Anti-Slop Rules
     token_count: 413
   - id: "brand/anti-slop.md#c5"
-    char_span: [7903, 10057]
+    char_span: [7902, 10056]
     sentence_count: 22
     key_terms: [specific, banned, integration, filler, describe, insights, specify, change]
     section: Banned Language
     token_count: 513
   - id: "brand/anti-slop.md#c6"
-    char_span: [10059, 10665]
+    char_span: [10058, 10664]
     sentence_count: 1
     key_terms: [becomes, improvement, framework, minutes, significantly, game-changer, satisfaction, additional]
     section: Banned Language
     token_count: 147
   - id: "brand/anti-slop.md#c7"
-    char_span: [10726, 10978]
+    char_span: [10725, 10977]
     sentence_count: 4
     key_terms: [output, item, ai-generated, deliverable, checklist, corrected, delivery, section]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 55
   - id: "brand/anti-slop.md#c8"
-    char_span: [10980, 13138]
+    char_span: [10979, 13137]
     sentence_count: 12
     key_terms: [remove, chart, title, gradient, circles, present, replace, color]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 512
   - id: "brand/anti-slop.md#c9"
-    char_span: [12858, 14381]
+    char_span: [12857, 14380]
     sentence_count: 10
     key_terms: [text, body, size, source, chart, scale, information, conclusion]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 362
   - id: "brand/anti-slop.md#c10"
-    char_span: [14383, 14758]
+    char_span: [14382, 14757]
     sentence_count: 6
     key_terms: [output, signal, sequentially, underneath, checklist, introduce, detected, generate]
     section: 15-Point Anti-Slop Detection Checklist (Authoritative)
     token_count: 83
   - id: "brand/anti-slop.md#c11"
-    char_span: [14814, 16797]
+    char_span: [14813, 16796]
     sentence_count: 12
     key_terms: [does, slop, contain, conclusion, detection, recommendations, section, recommendation]
     section: "Additional Slop Detection: Language and Structure"

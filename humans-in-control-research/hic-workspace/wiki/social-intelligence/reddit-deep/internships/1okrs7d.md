@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1okrs7d.md#c0"
-    char_span: [0, 1451]
+    char_span: [0, 1450]
     sentence_count: 11
     key_terms: [data, experience, internships, comments, looking, anyone, gain, help]
-    token_count: 310
+    token_count: 309
 ---
 # Student Seeking Entry-Level Data Job or Internship for Hands-On Experience
 

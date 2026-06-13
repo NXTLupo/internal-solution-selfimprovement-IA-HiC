@@ -18,10 +18,10 @@ industries: [workforce, higher_ed, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1rohzzh.md#c0"
-    char_span: [0, 902]
+    char_span: [0, 901]
     sentence_count: 8
     key_terms: [internship, internships, experience, leadership, applying, comments, done, land]
-    token_count: 207
+    token_count: 206
 ---
 # Trying to land an Internship as a CS Major - Need tips (Has leadership skills and experience)
 

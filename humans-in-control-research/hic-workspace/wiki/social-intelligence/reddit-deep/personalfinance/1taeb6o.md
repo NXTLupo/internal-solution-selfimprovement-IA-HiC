@@ -18,10 +18,10 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1taeb6o.md#c0"
-    char_span: [0, 332]
+    char_span: [0, 331]
     sentence_count: 2
     key_terms: [personalfinance, comments, last-fisherman-4354, reddit-deep, investing, accounts, beginner, finances]
-    token_count: 91
+    token_count: 90
 ---
 # Beginner trying to set up finances properly — best savings/current/investing accounts?
 

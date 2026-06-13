@@ -21,7 +21,7 @@ chunks:
     key_terms: [coding, bachelor, cse, careerguidance, career, family, fields, master]
     token_count: 380
   - id: "social-intelligence/reddit-deep/careerguidance/1sul7jq.md#c1"
-    char_span: [1675, 3221]
+    char_span: [1674, 3220]
     sentence_count: 7
     key_terms: [management, tech, business, coding, understanding, cherryred245, wizzlord2008, focus]
     section: Comments

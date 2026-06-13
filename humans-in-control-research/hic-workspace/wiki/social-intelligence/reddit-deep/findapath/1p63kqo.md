@@ -23,7 +23,7 @@ chunks:
     key_terms: [work, findapath, comments, balance, "i'm", job, less, life]
     token_count: 163
   - id: "social-intelligence/reddit-deep/findapath/1p63kqo.md#c1"
-    char_span: [679, 2631]
+    char_span: [678, 2630]
     sentence_count: 14
     key_terms: [thank, like, work, everyone, helpful, please, findapath, comments]
     section: Comments

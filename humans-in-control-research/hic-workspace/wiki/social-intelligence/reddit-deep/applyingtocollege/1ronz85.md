@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, comments, west-albatross-707, international, internships, reddit-deep, programs, students]
     token_count: 83
   - id: "social-intelligence/reddit-deep/applyingtocollege/1ronz85.md#c1"
-    char_span: [341, 1629]
+    char_span: [340, 1628]
     sentence_count: 6
     key_terms: [international, admissions, colleges, timelybodybuilder637, drive, applyingtocollege, bot, get]
     section: Comments

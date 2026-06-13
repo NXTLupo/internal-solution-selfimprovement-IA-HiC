@@ -23,19 +23,19 @@ chunks:
     key_terms: [uwaterloo, comments, waterloo, suspicious-group-368, reddit-deep, withdrawal, possible, received]
     token_count: 88
   - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c1"
-    char_span: [343, 2415]
+    char_span: [342, 2414]
     sentence_count: 19
     key_terms: [prestigious-brain259, like, time, because, appeal, university, withdrawal, failure]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c2"
-    char_span: [2417, 3524]
+    char_span: [2416, 3523]
     sentence_count: 13
     key_terms: [international, dept, academic, english, degree, kicked, "you're", "don't"]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/uwaterloo/1pu7rty.md#c3"
-    char_span: [3528, 4463]
+    char_span: [3527, 4462]
     sentence_count: 11
     key_terms: [university, commercialzucchini19, sorry, day, end, bumblebee-glad, requirements, alternative]
     section: Comments

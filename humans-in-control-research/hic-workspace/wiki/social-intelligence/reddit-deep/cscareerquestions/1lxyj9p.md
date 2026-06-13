@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineering, data, skills, knowledge, cscareerquestions, because, myself, employability]
     token_count: 392
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c1"
-    char_span: [1789, 3775]
+    char_span: [1788, 3774]
     sentence_count: 14
     key_terms: [something, project, learn, good, frontend, learning, engineering, interesting]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lxyj9p.md#c2"
-    char_span: [3777, 4700]
+    char_span: [3776, 4699]
     sentence_count: 5
     key_terms: [infrastructure, data, being, engineering, important, breadth, build, depth]
     section: Comments

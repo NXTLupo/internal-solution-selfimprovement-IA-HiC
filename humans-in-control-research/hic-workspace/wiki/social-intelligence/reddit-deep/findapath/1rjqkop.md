@@ -23,37 +23,37 @@ chunks:
     key_terms: [career, working, life, findapath, something, comments, someone, anyone]
     token_count: 299
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c1"
-    char_span: [1244, 2191]
+    char_span: [1243, 2190]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c2"
-    char_span: [2194, 4200]
+    char_span: [2193, 4199]
     sentence_count: 13
     key_terms: [caviarbentley, traveling, doing, did, work, dividends, working, greece]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c3"
-    char_span: [4202, 6338]
+    char_span: [4201, 6337]
     sentence_count: 14
     key_terms: [something, entrepreneurship, people, job, time, business, starting, content]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c4"
-    char_span: [6340, 8280]
+    char_span: [6339, 8279]
     sentence_count: 10
     key_terms: [onacloverifalive, brutallyhonestb, thought, independent, experience, journalism, something, channel]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c5"
-    char_span: [8282, 9916]
+    char_span: [8281, 9915]
     sentence_count: 9
     key_terms: [electrician, get, businesses, people, skills, snoopredictions7570, years, misappropriations]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/findapath/1rjqkop.md#c6"
-    char_span: [9918, 10623]
+    char_span: [9917, 10622]
     sentence_count: 7
     key_terms: [own, work, sales, job, brutallyhonestb, counseling, meaningful, overpriced]
     section: Comments

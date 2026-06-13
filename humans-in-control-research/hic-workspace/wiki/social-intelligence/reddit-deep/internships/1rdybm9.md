@@ -21,19 +21,19 @@ chunks:
     key_terms: [interview, questions, question, internships, interviewed, got, internship, recruiting]
     token_count: 350
   - id: "social-intelligence/reddit-deep/internships/1rdybm9.md#c1"
-    char_span: [1582, 3264]
+    char_span: [1581, 3263]
     sentence_count: 4
     key_terms: [glassdoor, questions, tell, interviewiqs, meet, company, someone, online]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/internships/1rdybm9.md#c2"
-    char_span: [3267, 4933]
+    char_span: [3266, 4932]
     sentence_count: 3
     key_terms: [got, unfair, right, good, "i'm", job, graduated, position]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/internships/1rdybm9.md#c3"
-    char_span: [4935, 5452]
+    char_span: [4934, 5451]
     sentence_count: 2
     key_terms: [candidates, prepare, foreign-archer2331, fire, qualification, connecting, employees, important]
     section: Comments

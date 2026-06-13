@@ -18,7 +18,7 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rcrcbx.md#c0"
-    char_span: [0, 691]
+    char_span: [0, 690]
     sentence_count: 5
     key_terms: [college, applyingtocollege, program, experiences, technician, robertson, comments, pharmacy]
     token_count: 160

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1preh2q.md#c0"
-    char_span: [0, 1466]
+    char_span: [0, 1465]
     sentence_count: 3
     key_terms: [science, data, engineering, career, engineeringstudents, backlogs, prepare, final]
-    token_count: 341
+    token_count: 340
 ---
 # Final Year Mechanical Engineering Student Seeking Career Change to Data Science – Need Guidance
 

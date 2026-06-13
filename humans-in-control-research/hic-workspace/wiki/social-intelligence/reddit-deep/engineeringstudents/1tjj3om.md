@@ -21,19 +21,19 @@ chunks:
     key_terms: [engineeringstudents, comments, engineering, connection, experience, graduating, internship, declining]
     token_count: 342
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c1"
-    char_span: [1528, 3375]
+    char_span: [1527, 3374]
     sentence_count: 15
     key_terms: [leverage, position, intern, experience, take, adviderisj, internship, directors]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c2"
-    char_span: [3377, 5401]
+    char_span: [3376, 5400]
     sentence_count: 12
     key_terms: [experience, engineering, pay, take, internship, something, leverage, another]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tjj3om.md#c3"
-    char_span: [5403, 6143]
+    char_span: [5402, 6142]
     sentence_count: 10
     key_terms: [experience, work, school, engineering, problem, section, testing, whether]
     section: Comments

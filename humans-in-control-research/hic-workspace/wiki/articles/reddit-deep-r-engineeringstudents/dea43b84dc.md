@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c0"
-    char_span: [0, 2290]
+    char_span: [0, 2289]
     sentence_count: 13
     key_terms: [engineeringstudents, reddit, engineering, https, cal, com, wiki, please]
-    token_count: 498
+    token_count: 497
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c1"
-    char_span: [2292, 4235]
+    char_span: [2291, 4234]
     sentence_count: 18
     key_terms: [engineering, years, because, school, small, tight, lacs, like]
     token_count: 444
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c2"
-    char_span: [4237, 6406]
+    char_span: [4236, 6405]
     sentence_count: 13
     key_terms: [engineering, maybe, programs, school, clubs, experience, internship, industry]
     token_count: 466
   - id: "articles/reddit-deep-r-engineeringstudents/dea43b84dc.md#c3"
-    char_span: [6408, 6658]
+    char_span: [6407, 6657]
     sentence_count: 1
     key_terms: [debt, graduation, disregard, cheapest, graduate, because, problem, serious]
     token_count: 58

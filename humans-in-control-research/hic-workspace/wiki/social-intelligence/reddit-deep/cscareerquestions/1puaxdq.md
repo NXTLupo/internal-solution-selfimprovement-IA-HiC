@@ -21,49 +21,49 @@ chunks:
     key_terms: [recommended, cscareerquestions, "i'm", subreddits, comments, answers, makes, big]
     token_count: 226
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c1"
-    char_span: [883, 2751]
+    char_span: [882, 2750]
     sentence_count: 9
     key_terms: [like, engineer, principal, pay, starting, school, engineering, high-level]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c2"
-    char_span: [2754, 4397]
+    char_span: [2753, 4396]
     sentence_count: 12
     key_terms: [depth, degree, market, people, career-they-heard-about-online, day, get, embedded]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c3"
-    char_span: [4399, 6442]
+    char_span: [4398, 6441]
     sentence_count: 13
     key_terms: [work, career, people, major, don, engineer, deleted, better]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c4"
-    char_span: [6444, 8665]
+    char_span: [6443, 8664]
     sentence_count: 18
     key_terms: [classes, masters, like, computer, program, science, engineering, electrical]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c5"
-    char_span: [8670, 10190]
+    char_span: [8669, 10189]
     sentence_count: 15
     key_terms: [courses, years, because, program, "didn't", school, get, take]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c6"
-    char_span: [10193, 12125]
+    char_span: [10192, 12124]
     sentence_count: 11
     key_terms: [engineering, swe, understanding, computer, program, thought, doing, focus]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c7"
-    char_span: [12127, 13588]
+    char_span: [12126, 13587]
     sentence_count: 12
     key_terms: [classes, got, test, experience, engineer, probably, barely, couple]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/cscareerquestions/1puaxdq.md#c8"
-    char_span: [13590, 15719]
+    char_span: [13589, 15718]
     sentence_count: 14
     key_terms: [part, degree, found, fun, hard, job, labs, work]
     section: Comments

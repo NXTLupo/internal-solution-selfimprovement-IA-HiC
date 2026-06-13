@@ -23,49 +23,49 @@ chunks:
     key_terms: [lawsuit-says-musks-tesla-hires-visa-holders-instead-americans-so-it-can-pay-less-2025-09-12, holders, tesla, cscareerquestions, h1-b, visa, americans, citizens]
     token_count: 314
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c1"
-    char_span: [1234, 2775]
+    char_span: [1233, 2774]
     sentence_count: 9
     key_terms: [abledanger12, exploitative, "don't", work, volunteer, enough, intelligent-ad-1424, doesn]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c2"
-    char_span: [2777, 4774]
+    char_span: [2776, 4773]
     sentence_count: 17
     key_terms: [immigrants, american, exploitation, americans, harder, corporations, work, against]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c3"
-    char_span: [4776, 5943]
+    char_span: [4775, 5942]
     sentence_count: 7
     key_terms: [accomplishments, people, exploitation, here, despite, "there's", reward, desperate-till-9228]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c4"
-    char_span: [5945, 7763]
+    char_span: [5944, 7762]
     sentence_count: 12
     key_terms: [concern, "it's", tacos314, because, cheaper, company, others, point]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c5"
-    char_span: [7765, 9141]
+    char_span: [7764, 9140]
     sentence_count: 8
     key_terms: [h1b, elon, outsourced, companies, microsoft, amazon, google, recognitionsignal425]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c6"
-    char_span: [9143, 10986]
+    char_span: [9142, 10985]
     sentence_count: 14
     key_terms: [h1b, people, republicans, like, anything, abolish, against, believe]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c7"
-    char_span: [10989, 12998]
+    char_span: [10988, 12997]
     sentence_count: 15
     key_terms: [cscareerquestionsin, american, people, etc, citizen, monkey, reddit, cscareerquestionscad]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nhu2ln.md#c8"
-    char_span: [13000, 14240]
+    char_span: [12999, 14239]
     sentence_count: 8
     key_terms: [american, capitalism, centered, market, reddit, insertsavvynamehere, throwaway0845reddit, "i'm"]
     section: Comments

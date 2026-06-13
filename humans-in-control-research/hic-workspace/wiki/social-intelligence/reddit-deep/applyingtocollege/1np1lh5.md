@@ -38,25 +38,25 @@ chunks:
     key_terms: [like, somewhat, school, application, applying, business, frankly, schools]
     token_count: 318
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c4"
-    char_span: [7050, 8141]
+    char_span: [7049, 8140]
     sentence_count: 7
     key_terms: [applyingtocollege, essays, wiki, reddit, collegeessays, https, com, good]
     section: Comments
     token_count: 272
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c5"
-    char_span: [8143, 10196]
+    char_span: [8142, 10195]
     sentence_count: 15
     key_terms: [gpa, weighted, classes, school, unweighted, list, accepted, schools]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c6"
-    char_span: [10198, 12123]
+    char_span: [10197, 12122]
     sentence_count: 18
     key_terms: [like, school, core, get, good, gpa, flagship, courses]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1np1lh5.md#c7"
-    char_span: [12125, 13201]
+    char_span: [12124, 13200]
     sentence_count: 4
     key_terms: [wanted, jvaloir-7261, finalist, college, frankly, apps, good, sure]
     section: Comments

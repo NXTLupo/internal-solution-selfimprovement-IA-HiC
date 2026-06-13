@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1o4dwu1.md#c0"
-    char_span: [0, 298]
+    char_span: [0, 297]
     sentence_count: 2
     key_terms: [comments, openai, reddit-deep, xinthedark, gpt-5-pro, prompts, models, posted]
-    token_count: 88
+    token_count: 87
 ---
 # I have some spare API usage, so feel free to post some prompts for gpt-5-pro below!
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1riqldr.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1riqldr/how_to_prepare_for_european_grad_school_admission/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "Engineering"
 extracted_at: "2026-06-06T23:23:15.588Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1riqldr.md#c0"
+    char_span: [0, 1115]
+    sentence_count: 11
+    key_terms: [grad, gradadmissions, school, experience, comments, country, prepare, gpa]
+    token_count: 257
 ---
-
 # How to prepare for European grad school admission?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1riqldr/how_to_prepare_for_european_grad_school_admission/)

@@ -23,19 +23,19 @@ chunks:
     key_terms: [people, feel, like, already, because, feels, lot, financial]
     token_count: 280
   - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c1"
-    char_span: [1239, 3064]
+    char_span: [1238, 3063]
     sentence_count: 12
     key_terms: [mundaneenthusiasm977, experience, different, because, friends, truckinducks, investments, "i've"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c2"
-    char_span: [3066, 5081]
+    char_span: [3065, 5080]
     sentence_count: 15
     key_terms: [people, mundaneenthusiasm977, financial, influence, because, bad, less, lot]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/genz/1s1b5lw.md#c3"
-    char_span: [5083, 5918]
+    char_span: [5082, 5917]
     sentence_count: 4
     key_terms: [credit, gambling, card, "i'll", absolutely, demolished, difficulty, eventually]
     section: Comments

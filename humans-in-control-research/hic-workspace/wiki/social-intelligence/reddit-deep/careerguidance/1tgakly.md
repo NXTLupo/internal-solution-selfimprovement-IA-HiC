@@ -26,49 +26,49 @@ chunks:
     key_terms: [opportunities-education-training, right, troubleshooting, certifications, transferable, alternative, experiences, recommended]
     token_count: 116
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c2"
-    char_span: [2861, 5346]
+    char_span: [2860, 5345]
     sentence_count: 17
     key_terms: [degree, background, psychology, positions, friends, medical, legitimately, work]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c3"
-    char_span: [5348, 7565]
+    char_span: [5347, 7564]
     sentence_count: 15
     key_terms: [biomedical, engineering, technician, user303909, thank, myself, seems, job]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c4"
-    char_span: [7330, 7751]
+    char_span: [7329, 7750]
     sentence_count: 4
     key_terms: [taking, engineering, user303909, different, counter, melting, reminds, started]
     section: Comments
     token_count: 105
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c5"
-    char_span: [7753, 8674]
+    char_span: [7752, 8673]
     sentence_count: 5
     key_terms: [job, degree, though, field, psych, whole-praline-5937, get, tech]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c6"
-    char_span: [8676, 10199]
+    char_span: [8675, 10198]
     sentence_count: 8
     key_terms: [engineering, audio, understanding, etc, user303909, software, general, product]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c7"
-    char_span: [10201, 12283]
+    char_span: [10200, 12282]
     sentence_count: 15
     key_terms: [nursing, engineering, bio, med, something, sometimes, degrees, getting]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c8"
-    char_span: [12285, 12536]
+    char_span: [12284, 12535]
     sentence_count: 2
     key_terms: [technology, companies, different, vigilance, clinical, medicine, pharmaco, several]
     section: Comments
     token_count: 56
   - id: "social-intelligence/reddit-deep/careerguidance/1tgakly.md#c9"
-    char_span: [12538, 14723]
+    char_span: [12537, 14722]
     sentence_count: 14
     key_terms: [engineering, degree, bme, medical, "you're", dry-base7274, good, appreciate]
     section: Comments

@@ -21,31 +21,31 @@ chunks:
     key_terms: [engineeringstudents, learn, cad, comments, significantly, reddit-deep, hallowalls, mechanical]
     token_count: 132
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c1"
-    char_span: [549, 1780]
+    char_span: [548, 1779]
     sentence_count: 8
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c2"
-    char_span: [1782, 3762]
+    char_span: [1781, 3761]
     sentence_count: 16
     key_terms: [modeling, onshape, industry, license, free, use, used, definitely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c3"
-    char_span: [3533, 3763]
+    char_span: [3532, 3762]
     sentence_count: 4
     key_terms: [bonebuttonborscht, automotive, especially, experience, industry, center, though, makes]
     section: Comments
     token_count: 65
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c4"
-    char_span: [3765, 5845]
+    char_span: [3764, 5844]
     sentence_count: 18
     key_terms: [solidworks, inventor, software, use, catia, industry, never, works]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pp2ims.md#c5"
-    char_span: [5847, 6916]
+    char_span: [5846, 6915]
     sentence_count: 9
     key_terms: [solidworks, autocad, personally, university, recommend, access, fusion, start]
     section: Comments

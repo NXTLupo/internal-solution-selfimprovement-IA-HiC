@@ -23,13 +23,13 @@ chunks:
     key_terms: [backend, cscareerquestions, roles, back-office, big, role, tech, experience]
     token_count: 293
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c1"
-    char_span: [1326, 2926]
+    char_span: [1325, 2925]
     sentence_count: 18
     key_terms: [years, understanding, market, "it's", tech, learning, yourself, fintech]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/cscareerquestions/1qt8b5b.md#c2"
-    char_span: [2928, 3629]
+    char_span: [2927, 3628]
     sentence_count: 4
     key_terms: [experience, finance, being, clear, "don't", firms, big, tech]
     section: Comments

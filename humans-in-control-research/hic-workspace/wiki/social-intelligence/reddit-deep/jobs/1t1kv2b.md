@@ -21,43 +21,43 @@ chunks:
     key_terms: [jobs, comments, backfire-and, entry-level, reddit-deep, automating, companies, workforce]
     token_count: 91
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c1"
-    char_span: [344, 2378]
+    char_span: [343, 2377]
     sentence_count: 12
     key_terms: [corporations, level, been, don, companies, providing, workforce, training]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c2"
-    char_span: [2380, 4573]
+    char_span: [2379, 4572]
     sentence_count: 14
     key_terms: [experience, work, position, manufacturing, train, don, want, anyone]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c3"
-    char_span: [4575, 6155]
+    char_span: [4574, 6154]
     sentence_count: 13
     key_terms: [employees, people, employee, training, interns, higher, fresh, level]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c4"
-    char_span: [6159, 8372]
+    char_span: [6158, 8371]
     sentence_count: 13
     key_terms: [because, training, train, companies, gone, got, time, want]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c5"
-    char_span: [8374, 9792]
+    char_span: [8373, 9791]
     sentence_count: 6
     key_terms: [accumulation, labor, want, somebody, problem, sports, arbitrarymeritocracy, bobbywiththejuice]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c6"
-    char_span: [9794, 11558]
+    char_span: [9793, 11557]
     sentence_count: 17
     key_terms: [people, game, complete, industry, "wouldn't", already, quality, quarter]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/jobs/1t1kv2b.md#c7"
-    char_span: [11560, 13031]
+    char_span: [11559, 13030]
     sentence_count: 12
     key_terms: [ford, need, companies, employees, products, services, turnover, workers]
     section: Comments

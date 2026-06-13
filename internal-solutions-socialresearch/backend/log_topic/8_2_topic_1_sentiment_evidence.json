@@ -1,5 +1,62 @@
 {
-  "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-  "positive": [],
-  "negative": []
+  "positive": [
+    {
+      "point": "Vanguard's low fees and fiduciary responsibility are appreciated by users, especially compared to other financial advisors.",
+      "post_refs": [
+        "1ry7gnx",
+        "1qgeiqp",
+        "1qbzn6m"
+      ]
+    },
+    {
+      "point": "Vanguard's platform improvements in the 2020s, such as better website design and fractional shares, have made it more user-friendly for new investors.",
+      "post_refs": [
+        "1t3in5v"
+      ]
+    },
+    {
+      "point": "Vanguard's Personal Advisor Services are seen as a cost-effective option for those who want some guidance without high fees.",
+      "post_refs": [
+        "1qv5sbq",
+        "1p00zqn"
+      ]
+    },
+    {
+      "point": "Vanguard's stock lending program is seen as a nominal but positive opportunity for some users.",
+      "post_refs": [
+        "1syyjir"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard's customer service is often criticized for being poor, with issues like long wait times, disorganized notes, and frequent advisor turnover.",
+      "post_refs": [
+        "1py4uhw",
+        "1qcdpf7",
+        "1px2eqh"
+      ]
+    },
+    {
+      "point": "The introduction of a $100 full transfer and closure fee has frustrated some users, especially those who feel it was not clearly communicated.",
+      "post_refs": [
+        "1ty8q5i",
+        "1onyeis"
+      ]
+    },
+    {
+      "point": "Vanguard's website and app interface are often described as clunky and difficult to navigate, which can be a deterrent for users.",
+      "post_refs": [
+        "1q0d8u3",
+        "1qcdpf7"
+      ]
+    },
+    {
+      "point": "Some users feel that Vanguard's advisory services are uninspired and not worth the fees, especially for those who prefer a DIY approach.",
+      "post_refs": [
+        "1px2eqh",
+        "1pkrfog"
+      ]
+    }
+  ]
 }

@@ -21,43 +21,43 @@ chunks:
     key_terms: [oil, asian, good, keep, sell, comments, politics, remember]
     token_count: 501
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c1"
-    char_span: [2231, 3063]
+    char_span: [2230, 3062]
     sentence_count: 4
     key_terms: [asia, futures, pre-market, throughout, reaction, recovers, mondays, trading]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c2"
-    char_span: [3065, 4967]
+    char_span: [3064, 4966]
     sentence_count: 14
     key_terms: [market, politics, aged, bear, discussion, everything, situation, zextruhh]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c3"
-    char_span: [4969, 6651]
+    char_span: [4968, 6650]
     sentence_count: 5
     key_terms: [unbelievable, intel, because, strait, significant-land-716, truly, wallabyminimum1921, lawrencecoolwater]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c4"
-    char_span: [6653, 8712]
+    char_span: [6652, 8711]
     sentence_count: 10
     key_terms: [iran, "it's", government, epstein, friends, lunatic, massive, problem]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c5"
-    char_span: [8483, 8836]
+    char_span: [8482, 8835]
     sentence_count: 2
     key_terms: [tweet, unhappy-quiet-8091, understand, obviously, appetite, tomorrow, "doesn't", obvious]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c6"
-    char_span: [8838, 10678]
+    char_span: [8837, 10677]
     sentence_count: 11
     key_terms: [trump, like, market, hours, man, sure, anonybibbs, krammsy]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/stocks/1s1a6um.md#c7"
-    char_span: [10680, 11063]
+    char_span: [10679, 11062]
     sentence_count: 5
     key_terms: [down, today, deniability, destroyed, pedophile, plausible, simpmorty, evidence]
     section: Comments

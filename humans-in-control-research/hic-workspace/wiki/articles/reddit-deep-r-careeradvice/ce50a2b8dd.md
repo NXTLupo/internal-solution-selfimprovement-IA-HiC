@@ -15,12 +15,12 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/ce50a2b8dd.md#c0"
-    char_span: [0, 991]
+    char_span: [0, 990]
     sentence_count: 7
     key_terms: [work, skills, careeradvice, accelerate, leveraging, learning, career, reddit]
-    token_count: 230
+    token_count: 229
   - id: "articles/reddit-deep-r-careeradvice/ce50a2b8dd.md#c1"
-    char_span: [993, 2384]
+    char_span: [992, 2383]
     sentence_count: 4
     key_terms: [workflows, replace, agents, agent, quick, doc, real, seen]
     token_count: 300

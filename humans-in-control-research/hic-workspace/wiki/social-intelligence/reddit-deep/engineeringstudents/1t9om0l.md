@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineering, engineeringstudents, field, time, university, different, comments, everyone]
     token_count: 289
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c1"
-    char_span: [1387, 3532]
+    char_span: [1386, 3531]
     sentence_count: 16
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, posting, choose]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t9om0l.md#c2"
-    char_span: [3534, 4621]
+    char_span: [3533, 4620]
     sentence_count: 11
     key_terms: [job, work, going, vary, aerospace, companies, personal, company]
     section: Comments

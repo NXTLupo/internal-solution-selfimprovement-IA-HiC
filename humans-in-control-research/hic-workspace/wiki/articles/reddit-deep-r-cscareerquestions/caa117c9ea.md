@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/caa117c9ea.md#c0"
-    char_span: [0, 1459]
+    char_span: [0, 1458]
     sentence_count: 12
     key_terms: [exams, actuarial, cscareerquestions, like, software, actuary, seeking, advice]
-    token_count: 348
+    token_count: 347
   - id: "articles/reddit-deep-r-cscareerquestions/caa117c9ea.md#c1"
-    char_span: [1461, 2572]
+    char_span: [1460, 2571]
     sentence_count: 6
     key_terms: [average, masters, new, deleted, grad, job, experience, sometimes]
     token_count: 267

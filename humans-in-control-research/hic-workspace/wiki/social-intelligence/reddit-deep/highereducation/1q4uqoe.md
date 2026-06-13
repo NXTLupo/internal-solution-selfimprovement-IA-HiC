@@ -23,7 +23,7 @@ chunks:
     key_terms: [sub, highereducation, members, bots, join, education, comments, farming]
     token_count: 244
   - id: "social-intelligence/reddit-deep/highereducation/1q4uqoe.md#c1"
-    char_span: [997, 1666]
+    char_span: [996, 1665]
     sentence_count: 8
     key_terms: [mods, help, appreciate, thanks, human, thank, midnightgladness, falafelwaffle10]
     section: Comments

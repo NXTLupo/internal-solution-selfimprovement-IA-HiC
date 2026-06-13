@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, school, want, high, experience, interests, comments, worried]
     token_count: 332
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c1"
-    char_span: [1416, 3308]
+    char_span: [1415, 3307]
     sentence_count: 15
     key_terms: [clubs, group, maybe, depending, friends, join, different, college]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c2"
-    char_span: [3310, 5037]
+    char_span: [3309, 5036]
     sentence_count: 14
     key_terms: [college, students, social, seen, especially, professor, campus, friend]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c3"
-    char_span: [5039, 6978]
+    char_span: [5038, 6977]
     sentence_count: 13
     key_terms: [miserable-practice99, people, like, librarylurker42, friends, thank, newsletters, dont]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/college/1qgf8k3.md#c4"
-    char_span: [6980, 8629]
+    char_span: [6979, 8628]
     sentence_count: 23
     key_terms: [friends, people, yourself, get, college, making, group, put]
     section: Comments

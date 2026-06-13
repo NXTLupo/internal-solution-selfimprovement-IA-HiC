@@ -28,25 +28,25 @@ chunks:
     key_terms: [seagate-technology-reports-fiscal-third-quarter-2026-financial-results, businesswire, https, com, home, news, png, www]
     token_count: 131
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c2"
-    char_span: [2235, 3744]
+    char_span: [2234, 3743]
     sentence_count: 4
     key_terms: [drive, ec3295e9c58e3c84506e332ebc341176ef247dff, seagate, bought, drives, year, discord, issues]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c3"
-    char_span: [3746, 5578]
+    char_span: [3745, 5577]
     sentence_count: 10
     key_terms: [expensive, too, memory, sector, soffatjockis, fomo, sandisk, market]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c4"
-    char_span: [5580, 7343]
+    char_span: [5579, 7342]
     sentence_count: 15
     key_terms: [memory, totallycomputername, like, earnings, hyperscalers, maybe, wild, anymore]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syim21.md#c5"
-    char_span: [7345, 8169]
+    char_span: [7344, 8168]
     sentence_count: 10
     key_terms: [stock, yoy, hardware, software, pinheadlarrry27, jharedtroll23, capacitors, g3tr1ghttt]
     section: Comments

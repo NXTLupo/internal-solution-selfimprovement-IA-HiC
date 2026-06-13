@@ -15,10 +15,10 @@ industries: [ai_research, saas]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gemini/c3ff9e3c6c.md#c0"
-    char_span: [0, 1095]
+    char_span: [0, 1094]
     sentence_count: 4
     key_terms: [gemini, acp-loop, interval, deploy, recurring, succeeded, workflows, comments]
-    token_count: 287
+    token_count: 286
 ---
 # I built acp-loop: a recurring prompt scheduler for ACP agents
 

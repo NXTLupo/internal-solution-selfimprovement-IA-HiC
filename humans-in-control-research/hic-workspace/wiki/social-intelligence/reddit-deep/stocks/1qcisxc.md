@@ -33,109 +33,109 @@ chunks:
     key_terms: [us-productivity-picked-up-in-third-quarter-labor-costs-declined, productivity, bubble, going, improvement, math, previously, anti-tech]
     token_count: 446
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c3"
-    char_span: [5953, 7766]
+    char_span: [5952, 7765]
     sentence_count: 15
     key_terms: [bubble, everyone, money, market, people, like, popping, success]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c4"
-    char_span: [7768, 9488]
+    char_span: [7767, 9487]
     sentence_count: 10
     key_terms: [bubble, "it's", inflation, control, exactly, whether, coyote, market]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c5"
-    char_span: [9490, 11334]
+    char_span: [9489, 11333]
     sentence_count: 12
     key_terms: [revenue, demand, like, stlouisfed, broadband, bottom, bubble, series]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c6"
-    char_span: [11336, 13053]
+    char_span: [11335, 13052]
     sentence_count: 16
     key_terms: [problems, revenue, large, because, demand, growth, market, solved]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c7"
-    char_span: [13055, 15220]
+    char_span: [13054, 15219]
     sentence_count: 16
     key_terms: [companies, revenue, demand, services, "it's", thousands, hundreds, software]
     section: Comments
     token_count: 514
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c8"
-    char_span: [15222, 17452]
+    char_span: [15221, 17451]
     sentence_count: 18
     key_terms: [revenue, making, companies, something, billions, trillion, company, dollar]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c9"
-    char_span: [17454, 19043]
+    char_span: [17453, 19042]
     sentence_count: 11
     key_terms: [pinterest, posts, accounts, already, overrun, revenue, selling, dollar]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c10"
-    char_span: [19045, 20292]
+    char_span: [19044, 20291]
     sentence_count: 13
     key_terms: [music, people, example, reddit, die, pop, successful, industry]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c11"
-    char_span: [20294, 22316]
+    char_span: [20293, 22315]
     sentence_count: 15
     key_terms: [people, generation, inference, reddit, burry, model, gpus, available]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c12"
-    char_span: [22318, 24536]
+    char_span: [22317, 24535]
     sentence_count: 18
     key_terms: [nvidia, chips, new, because, companies, inference, towards, burry]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c13"
-    char_span: [24538, 26268]
+    char_span: [24537, 26267]
     sentence_count: 7
     key_terms: [oracle, years, servers, accounting, burry, chips, data, centers]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c14"
-    char_span: [26270, 28353]
+    char_span: [26269, 28352]
     sentence_count: 21
     key_terms: [capital, argument, returns, hyperscalers, demand, burry, always, businesses]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c15"
-    char_span: [28355, 29998]
+    char_span: [28354, 29997]
     sentence_count: 13
     key_terms: [gpu, nvidia, "nvidia's", gpus, companies, buying, because, "won't"]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c16"
-    char_span: [30001, 32122]
+    char_span: [30000, 32121]
     sentence_count: 16
     key_terms: [hardware, demand, get, probably, intelligence, going, years, like]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c17"
-    char_span: [32124, 34221]
+    char_span: [32123, 34220]
     sentence_count: 17
     key_terms: [demand, investment, big, subscription, years, auradragon1, substantial, "it's"]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c18"
-    char_span: [34224, 36279]
+    char_span: [34223, 36278]
     sentence_count: 15
     key_terms: [compute, progress, "it's", bubble, year, improved, because, useful]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c19"
-    char_span: [36281, 38406]
+    char_span: [36280, 38405]
     sentence_count: 18
     key_terms: [companies, useful, exponentially, technologies, considering, revolutions, especially, innovation]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/stocks/1qcisxc.md#c20"
-    char_span: [38408, 40078]
+    char_span: [38407, 40077]
     sentence_count: 9
     key_terms: [revenue, savings, efficiencies, generation, potential, valuation, benefit, current]
     section: Comments

@@ -21,13 +21,13 @@ chunks:
     key_terms: [child, college, development, take, want, psychology, currently, something]
     token_count: 282
   - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c1"
-    char_span: [1257, 2886]
+    char_span: [1256, 2885]
     sentence_count: 13
     key_terms: [admissions, college, community, time, colleges, office, especially, non-degree]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/college/1rc6fm0.md#c2"
-    char_span: [2888, 4421]
+    char_span: [2887, 4420]
     sentence_count: 7
     key_terms: [college, community, degree, want, non-degree, specific, transfer, classes]
     section: Comments

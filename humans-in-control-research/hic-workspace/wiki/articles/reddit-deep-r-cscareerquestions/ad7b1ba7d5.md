@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/ad7b1ba7d5.md#c0"
-    char_span: [0, 2028]
+    char_span: [0, 2027]
     sentence_count: 18
     key_terms: [double, useful, job, cscareerquestions, sub, fintech, "there's", work]
-    token_count: 492
+    token_count: 491
   - id: "articles/reddit-deep-r-cscareerquestions/ad7b1ba7d5.md#c1"
-    char_span: [2030, 2887]
+    char_span: [2029, 2886]
     sentence_count: 5
     key_terms: [get, jobs, like, specific, outside, "you'll", labor, econ]
     token_count: 191

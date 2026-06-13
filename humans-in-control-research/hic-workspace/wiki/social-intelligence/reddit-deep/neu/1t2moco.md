@@ -21,19 +21,19 @@ chunks:
     key_terms: [neu, international, students, current, market, opportunities, internships, job]
     token_count: 333
   - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c1"
-    char_span: [1516, 2164]
+    char_span: [1515, 2163]
     sentence_count: 6
     key_terms: [greenocto, high, international, beetroot747, significant, additional, everything, interviews]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c2"
-    char_span: [2166, 3867]
+    char_span: [2165, 3866]
     sentence_count: 9
     key_terms: [mobile-finding-3779, seshuuu, beetroot747, challenging, job, optimistic, situation, something]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/neu/1t2moco.md#c3"
-    char_span: [3869, 4240]
+    char_span: [3868, 4239]
     sentence_count: 3
     key_terms: [umass, oddactive2516, understand, somewhere, confused, gustamos, amherst, getting]
     section: Comments

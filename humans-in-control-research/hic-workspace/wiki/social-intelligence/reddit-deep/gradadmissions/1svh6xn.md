@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1svh6xn.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1svh6xn/gpa_26_age_42_applied_1_accepted_1/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,25 @@ flair: "Humanities"
 extracted_at: "2026-06-06T23:23:15.583Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c0"
+    char_span: [0, 1166]
+    sentence_count: 13
+    key_terms: [gradadmissions, professional, comments, graduate, program, degree, worked, dream]
+    token_count: 289
+  - id: "social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c1"
+    char_span: [1181, 2876]
+    sentence_count: 15
+    key_terms: [shesallwritey, life, congrats, accepted, similar, aircomprehensive997, place, thank]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/gradadmissions/1svh6xn.md#c2"
+    char_span: [2659, 4216]
+    sentence_count: 16
+    key_terms: [shesallwritey, finishing, got, writingafter3378, year, experience, congrats, masters]
+    section: Comments
+    token_count: 426
 ---
-
 # GPA: 2.6 Age: 42 Applied: 1 Accepted: 1!
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1svh6xn/gpa_26_age_42_applied_1_accepted_1/)

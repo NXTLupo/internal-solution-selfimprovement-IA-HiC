@@ -18,10 +18,10 @@ industries: [higher_ed, workforce, ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1mdjfxo.md#c0"
-    char_span: [0, 1052]
+    char_span: [0, 1051]
     sentence_count: 5
     key_terms: [format, sop, example, gradadmissions, https, comments, notion, field]
-    token_count: 272
+    token_count: 271
 ---
 # What's the take on SOP format for PhD application in CS (specifically machine learning & robotics)?
 

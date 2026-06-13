@@ -23,79 +23,79 @@ chunks:
     key_terms: [crisis, water, feel, comments, fucked, bad, genz, time]
     token_count: 239
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c1"
-    char_span: [928, 2726]
+    char_span: [927, 2725]
     sentence_count: 6
     key_terms: [stealing, cca875291224d5af8855e5338bb56745c941d52a, future, discord, planet, tinaco, initial-reading-2775, https]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c2"
-    char_span: [2728, 4421]
+    char_span: [2727, 4420]
     sentence_count: 10
     key_terms: [etc, want, don, common, people, ultra-wealthy, billionaires, water]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c3"
-    char_span: [4423, 5983]
+    char_span: [4422, 5982]
     sentence_count: 12
     key_terms: [water, "true", globally, scarcity, because, crisis, fresh, years]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c4"
-    char_span: [5985, 8203]
+    char_span: [5984, 8202]
     sentence_count: 13
     key_terms: [water, global-fresh-water-demand-outstrip-supply-by-2030, being, because, enough, areas, maybe, need]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c5"
-    char_span: [7890, 8762]
+    char_span: [7889, 8761]
     sentence_count: 6
     key_terms: [water, enough, "it's", little, care, like, mraudacious817, redistributed]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c6"
-    char_span: [8764, 9868]
+    char_span: [8763, 9867]
     sentence_count: 4
     key_terms: [a7796b8098af2fa5003e176ec9042b5c2ea8483f, because, problem, edward, people, rather, isn, circumstantial]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c7"
-    char_span: [9870, 11832]
+    char_span: [9869, 11831]
     sentence_count: 18
     key_terms: [water, resources, running, desalination, groundwater, data, "i'm", completely]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c8"
-    char_span: [11834, 13256]
+    char_span: [11833, 13255]
     sentence_count: 9
     key_terms: [climate, predictions, severesignificance81, surroundparticular30, typical-district-176, years, environmentalists, haveavoreygoodday]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c9"
-    char_span: [13258, 15191]
+    char_span: [13257, 15190]
     sentence_count: 8
     key_terms: [people, get, attention, exactly, problem, around, public, snoopredictions3028]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c10"
-    char_span: [15193, 16980]
+    char_span: [15192, 16979]
     sentence_count: 13
     key_terms: [world, end, borov-of-bulgar, ladeepervert, get, different, satire, source]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c11"
-    char_span: [16982, 18870]
+    char_span: [16981, 18869]
     sentence_count: 16
     key_terms: [don, people, media, day, time, understand, something, suggest]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c12"
-    char_span: [18873, 20606]
+    char_span: [18872, 20605]
     sentence_count: 23
     key_terms: [world, help, "i'm", live, honestly, better, vegetable-walrus5718, going]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/genz/1r99bmc.md#c13"
-    char_span: [20608, 21142]
+    char_span: [20607, 21141]
     sentence_count: 4
     key_terms: [water, increased, earth, fresh, redistribution, w6lb2g4grikg1, khafaniking, exhaustion]
     section: Comments

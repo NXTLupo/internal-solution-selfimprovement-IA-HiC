@@ -23,31 +23,31 @@ chunks:
     key_terms: [education, because, higher, highereducation, been, get, interview, comments]
     token_count: 389
   - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c1"
-    char_span: [1759, 3299]
+    char_span: [1758, 3298]
     sentence_count: 11
     key_terms: [often, start, years, admissions, disability, experience, advising, services]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c2"
-    char_span: [3301, 4396]
+    char_span: [3300, 4395]
     sentence_count: 11
     key_terms: [student, university, applying, support, degree, facing, right, job]
     section: Comments
     token_count: 264
   - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c3"
-    char_span: [4398, 6293]
+    char_span: [4397, 6292]
     sentence_count: 15
     key_terms: [students, ods, work, working, office, disabilities, job, lot]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c4"
-    char_span: [6295, 8637]
+    char_span: [6294, 8636]
     sentence_count: 20
     key_terms: [disability, "you're", look, services, yourself, opportunities, doing, application]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/highereducation/1smnvxf.md#c5"
-    char_span: [8639, 9439]
+    char_span: [8638, 9438]
     sentence_count: 10
     key_terms: [positions, applicants, disability, services, yourself, people, good, like]
     section: Comments

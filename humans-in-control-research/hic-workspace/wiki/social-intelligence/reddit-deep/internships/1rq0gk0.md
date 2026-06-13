@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rq0gk0.md
 url: "https://www.reddit.com/r/internships/comments/1rq0gk0/guys_im_available_for_internships_thanks/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,24 @@ flair: "Resume"
 extracted_at: "2026-06-06T23:20:46.207Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rq0gk0.md#c0"
+    char_span: [0, 2070]
+    sentence_count: 9
+    key_terms: [automated, internships, full-stack, pipeline, backend, docker, cloud, using]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/internships/1rq0gk0.md#c1"
+    char_span: [2072, 2375]
+    sentence_count: 1
+    key_terms: [javascript, postgresql, typescript, websockets, databases, framework, languages, firebase]
+    token_count: 88
+  - id: "social-intelligence/reddit-deep/internships/1rq0gk0.md#c2"
+    char_span: [2390, 3633]
+    sentence_count: 5
+    key_terms: [i-invincible, thanks, giphy, patient-buddy3697, gif, available, single, additionalbother3384]
+    section: Comments
+    token_count: 499
 ---
-
 # Guys I'm available for internships. Thanks.
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rq0gk0/guys_im_available_for_internships_thanks/)

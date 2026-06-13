@@ -23,19 +23,19 @@ chunks:
     key_terms: [management, careerguidance, generalist, applying, comments, advice, degree, months]
     token_count: 302
   - id: "social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c1"
-    char_span: [1292, 3113]
+    char_span: [1291, 3112]
     sentence_count: 20
     key_terms: [management, experience, industry, refrigeratorlonely26, degree, store, did, old]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c2"
-    char_span: [3115, 4789]
+    char_span: [3114, 4788]
     sentence_count: 19
     key_terms: [management, advicenotasked4, project, hours, panda, get, like, pmp]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/careerguidance/1mhy37p.md#c3"
-    char_span: [4791, 6191]
+    char_span: [4790, 6190]
     sentence_count: 12
     key_terms: [experience, roles, manager, people, co-ordinator, development, role, assistant]
     section: Comments

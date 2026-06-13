@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/c919bedd2b.md#c0"
-    char_span: [0, 1852]
+    char_span: [0, 1851]
     sentence_count: 9
     key_terms: [people, essays, reddit, applyingtocollege, someone, scholargrade, post, comments]
-    token_count: 462
+    token_count: 461
 ---
 # PSA: people can and will lie on Reddit (shocker!!!)
 

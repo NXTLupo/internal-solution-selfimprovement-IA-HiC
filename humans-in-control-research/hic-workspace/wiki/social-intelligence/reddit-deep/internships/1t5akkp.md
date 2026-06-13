@@ -21,7 +21,7 @@ chunks:
     key_terms: [development, internships, business, analytics, sure, experience, internship, comments]
     token_count: 296
   - id: "social-intelligence/reddit-deep/internships/1t5akkp.md#c1"
-    char_span: [1381, 1992]
+    char_span: [1380, 1991]
     sentence_count: 3
     key_terms: [internshipdaily, com, apply, financial-rich-273, sweet-frosting4839, city, reccomended, acceptence]
     section: Comments

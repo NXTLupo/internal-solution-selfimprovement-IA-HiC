@@ -43,43 +43,43 @@ chunks:
     key_terms: [truck, suggestions, groceries, insurance, mortgage, cheaper, looking, vehicle]
     token_count: 407
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c5"
-    char_span: [10275, 11707]
+    char_span: [10274, 11706]
     sentence_count: 8
     key_terms: [wife, bill, groceries, daughter, decent, people, zealousideal-world71, empty-disaster-6738]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c6"
-    char_span: [11709, 12430]
+    char_span: [11708, 12429]
     sentence_count: 5
     key_terms: [store, coupons, buying, fragrant-employer-60, direct-from-farmer, plan, circussloth3, arcoperator]
     section: Comments
     token_count: 181
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c7"
-    char_span: [12432, 14034]
+    char_span: [12431, 14033]
     sentence_count: 16
     key_terms: [back, grocery, adults, brands, "you're", empty-disaster-6738, brand, going]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c8"
-    char_span: [14036, 15991]
+    char_span: [14035, 15990]
     sentence_count: 14
     key_terms: [car, job, cheaper, propertylogic, truck, loan, sell, unemployed]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c9"
-    char_span: [15779, 16736]
+    char_span: [15778, 16735]
     sentence_count: 9
     key_terms: [case, job, happens, better, "you're", costs, going, "isn't"]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c10"
-    char_span: [16741, 18713]
+    char_span: [16740, 18712]
     sentence_count: 19
     key_terms: [lower, food, insurance, something, look, snap, apply, month]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1sfk5iq.md#c11"
-    char_span: [18715, 19320]
+    char_span: [18714, 19319]
     sentence_count: 8
     key_terms: [looking, levelsofcocainebrain, bank, food, lifestyle, meanwhile, stoplight, borrowed]
     section: Comments

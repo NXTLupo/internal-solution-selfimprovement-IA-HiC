@@ -23,7 +23,7 @@ chunks:
     key_terms: [context, deeplearning, instructions, jailbreaks, injection, assembly, comments, patterns]
     token_count: 387
   - id: "social-intelligence/reddit-deep/deeplearning/1qqzjbz.md#c1"
-    char_span: [1697, 2107]
+    char_span: [1696, 2106]
     sentence_count: 1
     key_terms: [sample, interesting, objective-searching, work, vagueinquietude, various-fun-978, idesireawill, drdoomc17]
     section: Comments

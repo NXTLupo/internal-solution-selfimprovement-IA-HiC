@@ -23,19 +23,19 @@ chunks:
     key_terms: [school, grad, gradschool, comments, program, year, afreckledfairy, architecture]
     token_count: 151
   - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c1"
-    char_span: [614, 2601]
+    char_span: [613, 2600]
     sentence_count: 18
     key_terms: [because, stressful, like, research, masters, deformedexile, field, been]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c2"
-    char_span: [2369, 3099]
+    char_span: [2368, 3098]
     sentence_count: 4
     key_terms: [school, gurprofessional9534, field, loved, that-entrance-8242, else, grad, organically]
     section: Comments
     token_count: 183
   - id: "social-intelligence/reddit-deep/gradschool/1qaawyh.md#c3"
-    char_span: [3101, 4365]
+    char_span: [3100, 4364]
     sentence_count: 10
     key_terms: [better, school, corporate, undergrad, diploma, masters, passion, enough]
     section: Comments

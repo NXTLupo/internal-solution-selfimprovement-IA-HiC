@@ -23,19 +23,19 @@ chunks:
     key_terms: [assistants, better, faster, tools, artificial, assistant, different, engineers]
     token_count: 295
   - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c1"
-    char_span: [1353, 3082]
+    char_span: [1352, 3081]
     sentence_count: 14
     key_terms: [companies, going, like, llm, absolutely, production, pushing, output]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c2"
-    char_span: [3084, 4955]
+    char_span: [3083, 4954]
     sentence_count: 15
     key_terms: [code, get, level, software, actual, coding, commas, higher]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/artificial/1nxh1zm.md#c3"
-    char_span: [4957, 7010]
+    char_span: [4956, 7009]
     sentence_count: 15
     key_terms: [code, coding, using, use, providing, language, because, design]
     section: Comments

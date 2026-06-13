@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, art, college, passion, applications, comments, career, school]
     token_count: 243
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rdgcsa.md#c1"
-    char_span: [1175, 2859]
+    char_span: [1174, 2858]
     sentence_count: 14
     key_terms: [being, art, exploring, academic, personal, valuable, applied, awards]
     section: Comments

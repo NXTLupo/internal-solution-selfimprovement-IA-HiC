@@ -33,13 +33,13 @@ chunks:
     key_terms: [years, feel, another, because, friends, "haven't", nothing, parents]
     token_count: 369
   - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c3"
-    char_span: [5441, 7451]
+    char_span: [5440, 7450]
     sentence_count: 17
     key_terms: [helped, thank, like, helpful, please, findapath, comments, everyone]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/findapath/1t7jcac.md#c4"
-    char_span: [7453, 7929]
+    char_span: [7452, 7928]
     sentence_count: 4
     key_terms: [andreapucci72, "doesn't", "you're", thank, book, flairpointsbot, confirming, definitely]
     section: Comments

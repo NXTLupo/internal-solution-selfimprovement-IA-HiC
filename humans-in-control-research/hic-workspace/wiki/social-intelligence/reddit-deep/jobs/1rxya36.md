@@ -23,49 +23,49 @@ chunks:
     key_terms: [experience, job, like, jobs, possible, willing, people, find]
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c1"
-    char_span: [1850, 3393]
+    char_span: [1849, 3392]
     sentence_count: 8
     key_terms: [job, illegal, depending, glassdoor, interview, position, reddit, switch]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c2"
-    char_span: [3395, 5285]
+    char_span: [3394, 5284]
     sentence_count: 19
     key_terms: [job, no-professional-9618, congratulations, new, interviews, interview, applying, starting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c3"
-    char_span: [5038, 7090]
+    char_span: [5037, 7089]
     sentence_count: 16
     key_terms: [job, market, bubble, enough, making, people, posted, no-professional-9618]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c4"
-    char_span: [6863, 7825]
+    char_span: [6862, 7824]
     sentence_count: 6
     key_terms: [rejection, linkedin, piece, work, thesonofdisaster, pleasuremysole, recommendation, personalized]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c5"
-    char_span: [7827, 8937]
+    char_span: [7826, 8936]
     sentence_count: 16
     key_terms: [baking, internship, benefits, finding, retail, no-professional-9618, dontfeedagalasponge, mfsqcbsookpbjtmvwz]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c6"
-    char_span: [8939, 11057]
+    char_span: [8938, 11056]
     sentence_count: 9
     key_terms: [lordglorkofuranus, economy, someone, trump, job, jobs, correct, baking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c7"
-    char_span: [10845, 11372]
+    char_span: [10844, 11371]
     sentence_count: 3
     key_terms: [reasons, benefitaromatic2005, major, lordglorkofuranus, rasta-ragamuffin, buildwithadrian, reshuffeled, collapsing]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/jobs/1rxya36.md#c8"
-    char_span: [11376, 13585]
+    char_span: [11375, 13584]
     sentence_count: 8
     key_terms: [job, good, jobs, complete-cricket-351, amazing, "you're", board, got]
     section: Comments

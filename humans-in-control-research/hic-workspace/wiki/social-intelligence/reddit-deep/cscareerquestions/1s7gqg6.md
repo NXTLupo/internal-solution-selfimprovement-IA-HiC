@@ -21,19 +21,19 @@ chunks:
     key_terms: [cscareerquestions, jobs, comments, market, comes, "don't", major, end]
     token_count: 246
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c1"
-    char_span: [1027, 1940]
+    char_span: [1026, 1939]
     sentence_count: 7
     key_terms: [jobs, switching, like, majors, safety, guaranteed, strongly, systems]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c2"
-    char_span: [1942, 3762]
+    char_span: [1941, 3761]
     sentence_count: 7
     key_terms: [grads, data-shows-surprising-rebound-tech-141608296, unemployment, engineering, programming, jobs, like, rate]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s7gqg6.md#c3"
-    char_span: [3764, 5699]
+    char_span: [3763, 5698]
     sentence_count: 13
     key_terms: [hardware, personalityexact337, great, xascrimson, testing, better, collar, enjoy]
     section: Comments

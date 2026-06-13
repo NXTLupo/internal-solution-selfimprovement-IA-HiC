@@ -23,31 +23,31 @@ chunks:
     key_terms: [college, masters, like, undergrad, comments, student, phoenixmaster123, undergraduate]
     token_count: 147
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c1"
-    char_span: [660, 1214]
+    char_span: [659, 1213]
     sentence_count: 5
     key_terms: [undergrad, classes, social, "you're", work, all-encompassing, concentrated, environment]
     section: Comments
     token_count: 123
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c2"
-    char_span: [1216, 3001]
+    char_span: [1215, 3000]
     sentence_count: 17
     key_terms: [students, work, experience, graduate, school, fun, undergrad, because]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c3"
-    char_span: [3003, 5399]
+    char_span: [3002, 5398]
     sentence_count: 26
     key_terms: [program, undergrad, students, age, school, class, grad, average]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c4"
-    char_span: [5401, 7364]
+    char_span: [5400, 7363]
     sentence_count: 15
     key_terms: [year, school, undergrad, grad, students, harder, clubs, experiences]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/college/1lscvpf.md#c5"
-    char_span: [7366, 7690]
+    char_span: [7365, 7689]
     sentence_count: 4
     key_terms: [did, fun, everything, fulfilling, molecular, undergrad, graduate, sciences]
     section: Comments

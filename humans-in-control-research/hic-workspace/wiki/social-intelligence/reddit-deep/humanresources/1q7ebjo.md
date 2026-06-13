@@ -23,37 +23,37 @@ chunks:
     key_terms: [humanresources, job, experience, comments, chicago, going, years, don]
     token_count: 308
   - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c1"
-    char_span: [1189, 2951]
+    char_span: [1188, 2950]
     sentence_count: 15
     key_terms: [important, job, get, start, candidates, hundreds, college, someone]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c2"
-    char_span: [2953, 4663]
+    char_span: [2952, 4662]
     sentence_count: 11
     key_terms: [coordinator, experience, opportunity, definitely, respected, probably, college, similar]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c3"
-    char_span: [4665, 6549]
+    char_span: [4664, 6548]
     sentence_count: 12
     key_terms: [job, email, right, anything, because, network, advice, agency]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c4"
-    char_span: [6551, 8504]
+    char_span: [6550, 8503]
     sentence_count: 19
     key_terms: ["you're", assistant, applying, get, job, started, administrative, roles]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c5"
-    char_span: [8506, 10591]
+    char_span: [8505, 10590]
     sentence_count: 15
     key_terms: [experience, didn, job, interested, recommend, chicago, college, explain]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1q7ebjo.md#c6"
-    char_span: [10345, 11161]
+    char_span: [10344, 11160]
     sentence_count: 3
     key_terms: [experience, work, honestly, company, right, frankensteeeeen, entire-tie-679, intentionally]
     section: Comments

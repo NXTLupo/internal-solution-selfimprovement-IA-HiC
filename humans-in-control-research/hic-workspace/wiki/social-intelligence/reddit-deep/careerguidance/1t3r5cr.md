@@ -26,31 +26,31 @@ chunks:
     key_terms: [advice, myself, afraid, future, harder, resume, crazy, years]
     token_count: 222
   - id: "social-intelligence/reddit-deep/careerguidance/1t3r5cr.md#c2"
-    char_span: [3206, 3820]
+    char_span: [3205, 3819]
     sentence_count: 4
     key_terms: [agencies, back, full, temp, assistance, contracted, employment, encouraged]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/careerguidance/1t3r5cr.md#c3"
-    char_span: [3822, 5611]
+    char_span: [3821, 5610]
     sentence_count: 15
     key_terms: [temp, get, because, job, work, consulting, unemployed, companies]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/careerguidance/1t3r5cr.md#c4"
-    char_span: [5613, 7462]
+    char_span: [5612, 7461]
     sentence_count: 13
     key_terms: [market, get, job, work, experience, unofficial, something, semiswee]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1t3r5cr.md#c5"
-    char_span: [7464, 8615]
+    char_span: [7463, 8614]
     sentence_count: 8
     key_terms: [application, job, resume, retail, experience, interview, degree, fully]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/careerguidance/1t3r5cr.md#c6"
-    char_span: [8617, 10300]
+    char_span: [8616, 10299]
     sentence_count: 12
     key_terms: [degree, experience, pessimisticclarity, "it's", job, industry, mention, resumes]
     section: Comments

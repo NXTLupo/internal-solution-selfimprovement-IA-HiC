@@ -11,55 +11,55 @@ tags: [anti-patterns, roadmap, quality-gates]
 evidence_count: 0
 chunks:
   - id: "anti-patterns/roadmap.md#c0"
-    char_span: [0, 2301]
+    char_span: [0, 2300]
     sentence_count: 16
     key_terms: [roadmap, confidence, delivery, outcomes, notification, uncertainty, data, specific]
     section: "AP-ROADMAP-001: Feature Factory / AP-ROADMAP-002: Date Theater"
     token_count: 447
   - id: "anti-patterns/roadmap.md#c1"
-    char_span: [2337, 3320]
+    char_span: [2336, 3319]
     sentence_count: 7
     key_terms: [review, cadence, roadmap, created, failure, history, process, updated]
     section: "AP-ROADMAP-003: Never Updated"
     token_count: 215
   - id: "anti-patterns/roadmap.md#c2"
-    char_span: [3374, 4314]
+    char_span: [3373, 4313]
     sentence_count: 3
     key_terms: [capacity, initiatives, unplanned, buffer, maintenance, allocation, incidents, strategic]
     section: "AP-ROADMAP-004: No Capacity for Unexpected Work"
     token_count: 192
   - id: "anti-patterns/roadmap.md#c3"
-    char_span: [4370, 5299]
+    char_span: [4369, 5298]
     sentence_count: 2
     key_terms: [infrastructure, roadmap, items, feature, technical, improvements, initiatives, debt]
     section: "AP-ROADMAP-005: Missing Technical Debt Allocation"
     token_count: 175
   - id: "anti-patterns/roadmap.md#c4"
-    char_span: [5352, 6210]
+    char_span: [5351, 6209]
     sentence_count: 2
     key_terms: [recommendation, items, engine, build, implementation, outcome-framed, personalized, alternative]
     section: "AP-ROADMAP-006: Items as Features Not Problems"
     token_count: 167
   - id: "anti-patterns/roadmap.md#c5"
-    char_span: [6269, 7236]
+    char_span: [6268, 7235]
     sentence_count: 5
     key_terms: [items, months, confidence, committed, planned, scoped, visual, next]
     section: "AP-ROADMAP-007: No Confidence Levels on Future Items"
     token_count: 206
   - id: "anti-patterns/roadmap.md#c6"
-    char_span: [7279, 8290]
+    char_span: [7278, 8289]
     sentence_count: 4
     key_terms: [subscription, management, redesign, payment, dependency, dependencies, external, blocked]
     section: "AP-ROADMAP-008: Missing Dependencies"
     token_count: 199
   - id: "anti-patterns/roadmap.md#c7"
-    char_span: [8333, 9369]
+    char_span: [8332, 9368]
     sentence_count: 3
     key_terms: [roadmap, different, strategic, detail, single, view, audiences, executive]
     section: "AP-ROADMAP-009: Single Audience View"
     token_count: 197
   - id: "anti-patterns/roadmap.md#c8"
-    char_span: [9425, 10357]
+    char_span: [9424, 10356]
     sentence_count: 5
     key_terms: [onboarding, criteria, success, completion, launch, evaluation, delivery, whether]
     section: "AP-ROADMAP-010: No Success Metrics per Initiative"

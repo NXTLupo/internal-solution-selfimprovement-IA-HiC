@@ -66,40 +66,60 @@ export const nxtBrand: Brand = { ...TOKENS };
 //      separate "secondary accent" color; muted slate plays that role.
 export const nuBrand: Brand = {
     ...TOKENS,
-    // INK - navy, not pure black (NU's ink-800 = rgb(20, 29, 48))
-    INK: '141D30',
-    // BODY text - slate-600 (rgb 71, 85, 105) - used for paragraph body
-    BODY: '475569',
-    // SECONDARY text - slate-500 (rgb 100, 116, 139) - captions, labels
-    SECONDARY: '64748B',
-    // MUTED - slate-400 - disabled, footer chrome
-    MUTED: '94A3B8',
-    // RULE - slate-300 - default stroke
-    RULE: 'CBD5E1',
-    // PANEL - slate-100 - subtle surface, table stripe
-    PANEL: 'F1F5F9',
-    // PALE - slate-50 - page background tint
-    PALE: 'F8FAFC',
-    // BLACK alias - keep close to INK navy for any renderer hitting it
-    BLACK: '0B1326',  // ink-900
-    // Dark-surface slot (renderers that fill a dark panel) - use INK navy
-    TEAL: '141D30',
-    TEAL_DARK: '0B1326',
+    // 2026-06-10 - GOLD reconcile. Values now come from the LIVE NU design-system
+    // Figma file (z2v9Pvhg23hlljEitPBdAt: token node 97:2 + GOLD case-study frames
+    // 91:2 / 93:2), which is the deliverable design system the user built and
+    // audited. It supersedes both the prior slate-scale guesses and the 2026-06-09
+    // "official sans" reconcile for DELIVERABLE artifacts: the GOLD frames set
+    // Lora (serif) for headlines + takeaway, Archivo for body, IBM Plex Mono for
+    // kicker/meta/labels. brand.northeastern.edu remains Real Head Pro/Lato for
+    // WEB UI surfaces, but generated slides follow the Figma deliverable system.
+    // INK - deep navy from the live token sheet (color/ink #16233C)
+    INK: '16233C',
+    BODY: '16233C',
+    SECONDARY: '73757A',
+    MUTED: '73757A',
+    RULE: 'DDDDD6',
+    PANEL: 'F2F1EA',              // ecru
+    PALE: 'FAF9F4',
+    // BLACK alias = rail navy (color/rail #0E1626)
+    BLACK: '0E1626',
+    // Dark-surface slot (renderers that fill a dark panel) - ink navy
+    TEAL: '16233C',
+    TEAL_DARK: '0E1626',
     // PRIMARY brand accent - Huskies / NU red, used sparingly per brand spec
-    CHARTREUSE: 'C8102E',         // nu-red-600 - primary
-    CHARTREUSE_BRIGHT: 'C8102E',
-    CHARTREUSE_PALE: 'FCCAD2',    // nu-red-100 tint
-    // Secondary accent - slate-500 (no separate brand secondary color in NU)
-    CYAN: '64748B',
-    // Status colors map to NU semantic tokens
-    GREEN: '38A169',              // success-solid
-    RUST: 'FA8834',               // warning-solid (warm orange)
-    RED: 'D8132D',                // error-solid
-    // Typography - Spectral display + Roboto body
-    FONT: 'Roboto',               // legacy alias maps to body face
-    FONT_DISPLAY: 'Spectral',
-    FONT_BODY: 'Roboto',
-    FONT_MONO: 'Roboto Mono',
+    CHARTREUSE: 'C8102E',         // color/accent
+    CHARTREUSE_BRIGHT: 'D41B2C',  // color/accent-bright
+    CHARTREUSE_PALE: 'FAEDED',    // GOLD warn wash
+    // Secondary/cool accent - the NU "source" teal (color/source #1D6E64)
+    CYAN: '1D6E64',
+    // Status colors
+    GREEN: '38A169',
+    RUST: 'C8102E',               // pain/warn accent is red in the NU GOLD system
+    RED: 'D8132D',
+    // GOLD slots (NU values from the live Figma frames)
+    RAIL: '0E1626',
+    KICKER: 'C8102E',
+    ACCENT_WARN: 'C8102E',
+    ACCENT_COOL: '1D6E64',
+    WASH_WARN: 'FAEDED',
+    WASH_COOL: 'EDF7F5',
+    BAND: '16233C',
+    BAND_TEXT: 'FFFFFF',
+    GOLD_ACCENT: 'A4804A',   // color/gold - rare premium accent (LESSON bar)
+    // Typography - 2026-06-13: NU is now a SINGLE-TYPEFACE system (Lato, weight =
+    // hierarchy) per Northeastern's brand model. All font slots resolve to Lato;
+    // weight + size carry hierarchy (display/heading 700, body 400, labels 700
+    // uppercase+tracked). Fallback defaults only - the live values hydrate from
+    // /api/design-tokens (NU Brand Tokens font/* variables, all Lato). Google Fonts
+    // Lato lacks 600, so web heading weight is 700.
+    FONT: 'Lato',                 // legacy alias maps to body face
+    FONT_DISPLAY: 'Lato',
+    FONT_TITLE: 'Lato',
+    TITLE_WEIGHT: '700',
+    FONT_BODY: 'Lato',
+    FONT_MONO: 'Lato',
+    FONT_DISPLAY_PPTX: 'Lato',
 };
 
 export const BRANDS: Record<BrandId, Brand> = {

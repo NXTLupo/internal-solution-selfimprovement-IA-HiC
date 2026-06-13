@@ -23,25 +23,25 @@ chunks:
     key_terms: [grad, school, gradschool, comments, college, spicyspagettinoodle, want, inconveniences]
     token_count: 206
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c1"
-    char_span: [819, 2211]
+    char_span: [818, 2210]
     sentence_count: 14
     key_terms: [reading, undergrad, outside, "you're", ahead, responsible, grad, help]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c2"
-    char_span: [2213, 4556]
+    char_span: [2212, 4555]
     sentence_count: 15
     key_terms: [different, undergrad, class, classes, reading, information, grad, took]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c3"
-    char_span: [4558, 6321]
+    char_span: [4557, 6320]
     sentence_count: 3
     key_terms: [week, hours, means, undergrad, expected, already, program, subject]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/gradschool/1rsekow.md#c4"
-    char_span: [6323, 8009]
+    char_span: [6322, 8008]
     sentence_count: 14
     key_terms: [get, lot, sure, yourself, electrical-lobster64, placeeducational1705, doing, going]
     section: Comments

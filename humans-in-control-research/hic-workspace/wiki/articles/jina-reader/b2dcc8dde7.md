@@ -25,31 +25,31 @@ chunks:
     key_terms: [propublica, https, www, org, com, search, nonprofits, projects]
     token_count: 308
   - id: "articles/jina-reader/b2dcc8dde7.md#c2"
-    char_span: [2863, 5255]
+    char_span: [2862, 5254]
     sentence_count: 12
     key_terms: [organization, reported, schedule, significant, details, assets, organizations, transactions]
     section: Organization summary
     token_count: 467
   - id: "articles/jina-reader/b2dcc8dde7.md#c3"
-    char_span: [5292, 7012]
+    char_span: [5291, 7011]
     sentence_count: 8
     key_terms: [data, audit, fiscal, form, year, federal, audits, nonprofits]
     section: Tax Filings and Audits by Year
     token_count: 413
   - id: "articles/jina-reader/b2dcc8dde7.md#c4"
-    char_span: [7014, 8071]
+    char_span: [7013, 8070]
     sentence_count: 1
     key_terms: [assets, total, revenue, compensation, fundraising, net, expenses, operated]
     section: Tax Filings and Audits by Year
     token_count: 353
   - id: "articles/jina-reader/b2dcc8dde7.md#c5"
-    char_span: [8073, 9488]
+    char_span: [8072, 9487]
     sentence_count: 8
     key_terms: [professor, sched, faculty, medical, former, ceo, dean, paul]
     section: Tax Filings and Audits by Year
     token_count: 512
   - id: "articles/jina-reader/b2dcc8dde7.md#c6"
-    char_span: [9306, 10161]
+    char_span: [9305, 10160]
     sentence_count: 2
     key_terms: [provost, chief, academic, affairs, interim, officer, estate, former]
     section: Tax Filings and Audits by Year

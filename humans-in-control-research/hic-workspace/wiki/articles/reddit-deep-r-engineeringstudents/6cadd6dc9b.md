@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c0"
-    char_span: [0, 2244]
+    char_span: [0, 2243]
     sentence_count: 23
     key_terms: [engineering, resume, mechanical, engineeringstudents, people, saying, been, don]
-    token_count: 498
+    token_count: 497
   - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c1"
-    char_span: [2246, 4098]
+    char_span: [2245, 4097]
     sentence_count: 20
     key_terms: [experience, because, right, blue, call, don, linkedin, similar]
     token_count: 406
   - id: "articles/reddit-deep-r-engineeringstudents/6cadd6dc9b.md#c2"
-    char_span: [4100, 6204]
+    char_span: [4099, 6203]
     sentence_count: 12
     key_terms: [everything, physical, industries, mechanical, struggling, different, expand, people]
     token_count: 483

@@ -23,49 +23,49 @@ chunks:
     key_terms: [want, "don't", like, money, "i'm", nomading, afford, digitalnomad]
     token_count: 419
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c1"
-    char_span: [1594, 3633]
+    char_span: [1593, 3632]
     sentence_count: 11
     key_terms: [front, singer, quote, resistance, situations, bothering, judgments, inflated]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c2"
-    char_span: [3635, 5337]
+    char_span: [3634, 5336]
     sentence_count: 11
     key_terms: [adf21a, situation, similar, rather, being, "can't", quote, raped]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c3"
-    char_span: [5339, 5771]
+    char_span: [5338, 5770]
     sentence_count: 5
     key_terms: [events, view, life-destroying, soul-destroying, manageable, responses, something, splitting]
     section: Comments
     token_count: 96
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c4"
-    char_span: [5773, 7785]
+    char_span: [5772, 7784]
     sentence_count: 13
     key_terms: [ohwhereareyoufrom, "don't", money, years, job, like, something, somewhere]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c5"
-    char_span: [7508, 9227]
+    char_span: [7507, 9226]
     sentence_count: 13
     key_terms: [back, american, america, working, living, revolutionarysoft253, being, until]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c6"
-    char_span: [9229, 10881]
+    char_span: [9228, 10880]
     sentence_count: 13
     key_terms: [money, like, life, live, want, something, caviar, learn]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c7"
-    char_span: [10883, 12854]
+    char_span: [10882, 12853]
     sentence_count: 16
     key_terms: ["it's", get, like, realistically, time, expensive, normal, people]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/digitalnomad/1qgfl7s.md#c8"
-    char_span: [12856, 13916]
+    char_span: [12855, 13915]
     sentence_count: 8
     key_terms: ["you're", handcuffs, day, juneseyeball, learning, "that's", money, ohwhereareyoufrom]
     section: Comments

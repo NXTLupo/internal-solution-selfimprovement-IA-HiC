@@ -31,7 +31,7 @@ chunks:
     key_terms: [university, ivy, forbes, public, co-op, academy, georgia, schools]
     token_count: 416
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tis7th.md#c3"
-    char_span: [6142, 7754]
+    char_span: [6141, 7753]
     sentence_count: 10
     key_terms: [applyingtocollege, essays, ivy, wiki, reddit, collegeessays, https, com]
     section: Comments

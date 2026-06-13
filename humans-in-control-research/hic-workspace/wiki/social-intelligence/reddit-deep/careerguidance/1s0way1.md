@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1s0way1.md#c0"
-    char_span: [0, 463]
+    char_span: [0, 462]
     sentence_count: 3
     key_terms: [careerguidance, comments, reddit-deep, experience, invisible, research, feeling, pyspark]
-    token_count: 135
+    token_count: 134
 ---
 # Title: 34, stuck in a 5-year market research job (6LPA), trained on Python/PySpark but never used — feeling void and invisible in this AI era. How do I make a real switch to IT without fake experience?Career Advice" or "Jobs" ??
 

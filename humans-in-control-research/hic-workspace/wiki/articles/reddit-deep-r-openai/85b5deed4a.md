@@ -15,17 +15,17 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c0"
-    char_span: [0, 2161]
+    char_span: [0, 2160]
     sentence_count: 17
     key_terms: [gpt-5, tools, thinking, personality, good, use, mentioned, either]
-    token_count: 498
+    token_count: 497
   - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c1"
-    char_span: [2163, 3038]
+    char_span: [2162, 3037]
     sentence_count: 6
     key_terms: [model, keeps, wants, good, keep, like, user, benchmarks]
     token_count: 205
   - id: "articles/reddit-deep-r-openai/85b5deed4a.md#c2"
-    char_span: [3040, 4844]
+    char_span: [3039, 4843]
     sentence_count: 21
     key_terms: [use, work, models, system, possible-ad-6765, better, prompt, agent]
     token_count: 449

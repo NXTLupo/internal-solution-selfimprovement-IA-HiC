@@ -31,85 +31,85 @@ chunks:
     key_terms: [did, business, college, getting, years, back, job, real]
     token_count: 239
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c3"
-    char_span: [5143, 7344]
+    char_span: [5142, 7343]
     sentence_count: 13
     key_terms: [operations, because, management, like, business, manager, systems, people]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c4"
-    char_span: [7346, 8598]
+    char_span: [7345, 8597]
     sentence_count: 8
     key_terms: [business, industry, school, industries, operations, perhaps, running, start]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c5"
-    char_span: [8600, 10764]
+    char_span: [8599, 10763]
     sentence_count: 12
     key_terms: [operations, statement, industries, management, different, financial, business, elements]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c6"
-    char_span: [10766, 12753]
+    char_span: [10765, 12752]
     sentence_count: 17
     key_terms: [operations, financial, items, kpis, company, without, performance, like]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c7"
-    char_span: [12755, 15980]
+    char_span: [12754, 15979]
     sentence_count: 1
     key_terms: [services, manufacturers, suppliers, software, companies, equipment, providers, maintenance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c8"
-    char_span: [15501, 17969]
+    char_span: [15500, 17968]
     sentence_count: 11
     key_terms: [industries, manufacturers, suppliers, food, equipment, services, software, supply]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c9"
-    char_span: [17972, 19587]
+    char_span: [17971, 19586]
     sentence_count: 14
     key_terms: [because, like, everything, management, employees, company, success, always]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c10"
-    char_span: [19589, 21674]
+    char_span: [19588, 21673]
     sentence_count: 26
     key_terms: [something, always, understanding, kinda, years, like, everything, financials]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c11"
-    char_span: [21676, 23885]
+    char_span: [21675, 23884]
     sentence_count: 15
     key_terms: [company, business, manager, manufacturing, been, operations, positions, promotion]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c12"
-    char_span: [23887, 25741]
+    char_span: [23886, 25740]
     sentence_count: 14
     key_terms: [electrical, work, degree, especially, nobleone19, looking, nursing, utility]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c13"
-    char_span: [25743, 27323]
+    char_span: [25742, 27322]
     sentence_count: 11
     key_terms: [retirement, want, definitely, crashing, economy, decade, reddit, seems]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c14"
-    char_span: [27325, 29079]
+    char_span: [27324, 29078]
     sentence_count: 18
     key_terms: [something, over-candle-1878, like, enough, fairly, people, wanted, didnt]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c15"
-    char_span: [29081, 29787]
+    char_span: [29080, 29786]
     sentence_count: 5
     key_terms: [oversaturation, degree, trades, years, apprenticeships, universities, outrageous, following]
     section: Comments
     token_count: 162
   - id: "social-intelligence/reddit-deep/careerguidance/1nj6mhx.md#c16"
-    char_span: [29789, 31739]
+    char_span: [29788, 31738]
     sentence_count: 10
     key_terms: [trexgiraffehybrid, back, get, program, years, take, forever, million]
     section: Comments

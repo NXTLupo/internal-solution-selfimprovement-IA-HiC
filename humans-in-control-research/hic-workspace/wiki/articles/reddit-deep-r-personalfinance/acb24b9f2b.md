@@ -15,17 +15,17 @@ industries: [financial_services, real_estate]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/acb24b9f2b.md#c0"
-    char_span: [0, 1791]
+    char_span: [0, 1790]
     sentence_count: 23
     key_terms: [truck, get, personalfinance, worth, home, mortgage, paycheck, balance]
-    token_count: 451
+    token_count: 450
   - id: "articles/reddit-deep-r-personalfinance/acb24b9f2b.md#c1"
-    char_span: [1794, 2905]
+    char_span: [1793, 2904]
     sentence_count: 11
     key_terms: [mortgage, mrlin705, right, take, alternatively, contributions, information, advantaged]
     token_count: 297
   - id: "articles/reddit-deep-r-personalfinance/acb24b9f2b.md#c2"
-    char_span: [2907, 3924]
+    char_span: [2906, 3923]
     sentence_count: 7
     key_terms: [house, equity, worth, net, emergency, mortgage, divorce, turbulent-sky6636]
     token_count: 255

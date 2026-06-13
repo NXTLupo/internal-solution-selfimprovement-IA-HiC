@@ -23,25 +23,25 @@ chunks:
     key_terms: [comments, jobs, reddit-deep, trpsock97, anymore, market, people, posted]
     token_count: 85
   - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c1"
-    char_span: [298, 1459]
+    char_span: [297, 1458]
     sentence_count: 14
     key_terms: [february, figure, crazy, index, don, work, noexperience9717, ok-energy-9785]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c2"
-    char_span: [1461, 2932]
+    char_span: [1460, 2931]
     sentence_count: 12
     key_terms: [job-openings-in-october-slumped-to-the-lowest-level-since-early-february-indeed-measure-shows, postings, https, com, job, february, indeed, number]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c3"
-    char_span: [2934, 4541]
+    char_span: [2933, 4540]
     sentence_count: 7
     key_terms: [need, covid, get, learn, least, worse, worst, humble-heart-5302]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/jobs/1p4tf4u.md#c4"
-    char_span: [4543, 5108]
+    char_span: [4542, 5107]
     sentence_count: 4
     key_terms: [interview, average, people, feels, tasks, "we're", worse, neurodivergent]
     section: Comments

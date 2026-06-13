@@ -23,19 +23,19 @@ chunks:
     key_terms: [comments, money, genz, like, time, reddit-deep, addiction, dopamine]
     token_count: 161
   - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c1"
-    char_span: [630, 759]
+    char_span: [629, 758]
     sentence_count: 1
     key_terms: [discord, automoderator, nwe6js5rh9, clicking, server, https, did, here]
     section: Comments
     token_count: 41
   - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c2"
-    char_span: [762, 2771]
+    char_span: [761, 2770]
     sentence_count: 11
     key_terms: [account, savings, bills, checking, automatically, pay, year, attractive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1t61asn.md#c3"
-    char_span: [2525, 3868]
+    char_span: [2524, 3867]
     sentence_count: 10
     key_terms: [savings, account, money, homeless, yungskeltal, put, checking, people]
     section: Comments

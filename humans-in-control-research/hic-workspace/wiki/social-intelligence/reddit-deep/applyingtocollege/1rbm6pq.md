@@ -21,19 +21,19 @@ chunks:
     key_terms: [applyingtocollege, safeties, comments, college, looking, program, safety, upstairs-amount882]
     token_count: 240
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c1"
-    char_span: [983, 2882]
+    char_span: [982, 2881]
     sentence_count: 18
     key_terms: [college, mizzou, salty-artist-1643, emerson, liberal, program, boston, safety]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c2"
-    char_span: [2884, 4553]
+    char_span: [2883, 4552]
     sentence_count: 15
     key_terms: [upstairs-amount882, state, safety, maybe, applicant, creative, domestic, lawrence]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rbm6pq.md#c3"
-    char_span: [4555, 6049]
+    char_span: [4554, 6048]
     sentence_count: 13
     key_terms: [math, curriculum, core, like, college, damagedzebra, because, diverse]
     section: Comments

@@ -23,43 +23,43 @@ chunks:
     key_terms: [gold, unemployment, dollar, government, anticipation, low, rate, rise]
     token_count: 378
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c1"
-    char_span: [1697, 3873]
+    char_span: [1696, 3872]
     sentence_count: 10
     key_terms: [money, "it's", since, printing, been, gfc, gold, price]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c2"
-    char_span: [3875, 4120]
+    char_span: [3874, 4119]
     sentence_count: 2
     key_terms: [joeybananas18, bombmarley35, rickochetl, skyrocket, resuming, already, "there's", priced]
     section: Comments
     token_count: 76
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c3"
-    char_span: [4122, 6053]
+    char_span: [4121, 6052]
     sentence_count: 17
     key_terms: [dollars, gold, "it's", especially, hamburger, against, earning, nothing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c4"
-    char_span: [5790, 6705]
+    char_span: [5789, 6704]
     sentence_count: 6
     key_terms: [hyperinflation, inflation, dollars, like, phoenixpolaris, yeahbuddy5000, particularly, absolutely]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c5"
-    char_span: [6707, 7914]
+    char_span: [6706, 7913]
     sentence_count: 6
     key_terms: [morgan-stanley-cio-favors-602020-portfolio-strategy-with-gold-inflation-hedge-2025-09-16, gold, inflation, markets, options, reuters, wealth, sillyalternative420]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c6"
-    char_span: [7916, 9807]
+    char_span: [7915, 9806]
     sentence_count: 14
     key_terms: [gold, investment, inflation, value, price, speculation, considered, definition]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/investing/1nnd9am.md#c7"
-    char_span: [9809, 10653]
+    char_span: [9808, 10652]
     sentence_count: 7
     key_terms: [debt, assets, gold, hard, like, governments, substantial, conditions]
     section: Comments

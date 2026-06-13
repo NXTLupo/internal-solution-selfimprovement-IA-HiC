@@ -23,13 +23,13 @@ chunks:
     key_terms: [people, automation, operations, tools, team, honestly, "they're", operational]
     token_count: 405
   - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c1"
-    char_span: [2065, 4104]
+    char_span: [2064, 4103]
     sentence_count: 5
     key_terms: [people, team, leadership, copilot, gains, power, users, using]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/managers/1tjscqc.md#c2"
-    char_span: [4106, 5196]
+    char_span: [4105, 5195]
     sentence_count: 10
     key_terms: [people, get, less, headcount, automate, output, trying, "you're"]
     section: Comments

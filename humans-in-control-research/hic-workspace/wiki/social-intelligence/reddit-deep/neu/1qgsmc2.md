@@ -21,19 +21,19 @@ chunks:
     key_terms: [comments, boston, only-decision-5198, neu, opportunities, northeastern, engineering, reddit-deep]
     token_count: 174
   - id: "social-intelligence/reddit-deep/neu/1qgsmc2.md#c1"
-    char_span: [686, 2102]
+    char_span: [685, 2101]
     sentence_count: 11
     key_terms: [experience, good, like, mit, graduation, raytheon, harvard, boston]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/neu/1qgsmc2.md#c2"
-    char_span: [2104, 4115]
+    char_span: [2103, 4114]
     sentence_count: 19
     key_terms: [northeastern, people, school, right, year, valuable, boston, economicsotherwise13]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/neu/1qgsmc2.md#c3"
-    char_span: [4117, 4722]
+    char_span: [4116, 4721]
     sentence_count: 3
     key_terms: [program, shutyourswitchport, did, northeastern, specifically, engineering, opportunity, experience]
     section: Comments

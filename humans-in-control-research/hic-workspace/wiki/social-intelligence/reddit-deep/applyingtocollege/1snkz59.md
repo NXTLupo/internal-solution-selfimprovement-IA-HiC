@@ -31,79 +31,79 @@ chunks:
     key_terms: [georgetown, "master's", school, real, undergrad, state, cew, roi]
     token_count: 191
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c3"
-    char_span: [5340, 6423]
+    char_span: [5339, 6422]
     sentence_count: 9
     key_terms: [college, get, company, applicants, "you're", ways, accomplishments, recommendation]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c4"
-    char_span: [6425, 8505]
+    char_span: [6424, 8504]
     sentence_count: 12
     key_terms: [schools, recruiters, grade, inflation, dry-surprise-4746, college, people, application]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c5"
-    char_span: [8507, 10577]
+    char_span: [8506, 10576]
     sentence_count: 11
     key_terms: [hiring, school, manager, resumes, schools, state, mit, candidates]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c6"
-    char_span: [10579, 12483]
+    char_span: [10578, 12482]
     sentence_count: 9
     key_terms: [why-the-mckinsey-layoffs-are-a-warning-signal-for-consulting-in-the-ai-age-ai-layoffs-management-consulting, schools, mckinsey, school, target, undergraduate-degree, https, com]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c7"
-    char_span: [12485, 14386]
+    char_span: [12484, 14385]
     sentence_count: 9
     key_terms: [fourscoreandsept, school, point, top, reddit, columbia, comments, flagship]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c8"
-    char_span: [14388, 16527]
+    char_span: [14387, 16526]
     sentence_count: 15
     key_terms: [people, schools, worthless, probably, school, lower, state, axis]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c9"
-    char_span: [16529, 17818]
+    char_span: [16528, 17817]
     sentence_count: 13
     key_terms: [average, population, isn, harvard, school, gpa, statistics, disputing]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c10"
-    char_span: [17820, 19630]
+    char_span: [17819, 19629]
     sentence_count: 12
     key_terms: [student, harvard, single, individual, university, state, better, destined]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c11"
-    char_span: [19632, 20925]
+    char_span: [19631, 20924]
     sentence_count: 3
     key_terms: [engineering, dry-surprise-4746, interview, schools, school, elite, going, applyingtocollege]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c12"
-    char_span: [20927, 22898]
+    char_span: [20926, 22897]
     sentence_count: 10
     key_terms: [networks, network, because, state, absolutely, preferred, college, masters]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c13"
-    char_span: [22900, 24208]
+    char_span: [22899, 24207]
     sentence_count: 11
     key_terms: [resumes, faang, students, schools, someone, "don't", elite, dry-surprise-4746]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c14"
-    char_span: [24210, 25633]
+    char_span: [24209, 25632]
     sentence_count: 11
     key_terms: [experience, school, elite, companies, colleges, projects, schools, student]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/applyingtocollege/1snkz59.md#c15"
-    char_span: [25635, 27308]
+    char_span: [25634, 27307]
     sentence_count: 9
     key_terms: [firms, trading, quantitative, tovarischstalin, schools, "true", industries, "doesn't"]
     section: Comments

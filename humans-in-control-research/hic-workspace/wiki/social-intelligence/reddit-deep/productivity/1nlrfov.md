@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, need, everything, comments, special-succotash688, crazy, stuck, been]
     token_count: 274
   - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c1"
-    char_span: [1172, 2307]
+    char_span: [1171, 2306]
     sentence_count: 8
     key_terms: [productivity, new, myself, competitionitchy6170, inevitable-pen-6411, focus, month, abject-kitchen3198]
     section: Comments
     token_count: 299
   - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c2"
-    char_span: [2309, 4204]
+    char_span: [2308, 4203]
     sentence_count: 14
     key_terms: [productivity, tasks, day, need, subconscious, flow, instead, programmerfickle1469]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/productivity/1nlrfov.md#c3"
-    char_span: [4206, 6364]
+    char_span: [4205, 6363]
     sentence_count: 17
     key_terms: [like, because, productivity, pulandoagain, app, feel, list, need]
     section: Comments

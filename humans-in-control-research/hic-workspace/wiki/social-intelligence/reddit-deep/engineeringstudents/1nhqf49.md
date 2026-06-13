@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineeringstudents, comments, curious, career, royal-jelly1026, post-graduate, engineering, internships]
     token_count: 114
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c1"
-    char_span: [482, 2543]
+    char_span: [481, 2542]
     sentence_count: 23
     key_terms: [engineering, degree, skills, language, started, translation, did, get]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nhqf49.md#c2"
-    char_span: [2546, 2938]
+    char_span: [2545, 2937]
     sentence_count: 5
     key_terms: [biohacker1104, internship, currently, equipment, friends, ideally, project, reading]
     section: Comments

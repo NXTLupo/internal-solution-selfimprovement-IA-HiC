@@ -23,13 +23,13 @@ chunks:
     key_terms: [comments, personal, resume, impressive-tea-2101, jobs, opportunities, applications, entry-level]
     token_count: 133
   - id: "social-intelligence/reddit-deep/jobs/1slk2jt.md#c1"
-    char_span: [542, 2659]
+    char_span: [541, 2658]
     sentence_count: 13
     key_terms: [resume, skills, experience, because, job, including, looking, remove]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1slk2jt.md#c2"
-    char_span: [2661, 3980]
+    char_span: [2660, 3979]
     sentence_count: 11
     key_terms: [resume, good, job, experience, education, market, remove, aggressive-sleep8259]
     section: Comments

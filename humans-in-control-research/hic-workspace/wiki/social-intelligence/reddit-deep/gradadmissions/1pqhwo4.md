@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1pqhwo4.md#c0"
-    char_span: [0, 313]
+    char_span: [0, 312]
     sentence_count: 2
     key_terms: [gradadmissions, comments, help, sop, assetofstoic, reddit-deep, welcomed, advices]
-    token_count: 89
+    token_count: 88
 ---
 # Help me with Ms finance SOP
 

@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c0"
-    char_span: [0, 2326]
+    char_span: [0, 2325]
     sentence_count: 9
     key_terms: [scientific, chemistry, interdisciplinary, "i'm", learning, research, specific, gradadmissions]
-    token_count: 471
+    token_count: 470
   - id: "social-intelligence/reddit-deep/gradadmissions/1oeuwnd.md#c1"
-    char_span: [2328, 3778]
+    char_span: [2327, 3777]
     sentence_count: 7
     key_terms: [research, academic, niche, like, scientific, transition, alphafold, building]
     token_count: 279

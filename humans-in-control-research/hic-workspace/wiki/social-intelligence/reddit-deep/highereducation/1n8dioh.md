@@ -23,13 +23,13 @@ chunks:
     key_terms: [students, antisemitism, jewish, directive, swanson, university, columbia, highereducation]
     token_count: 448
   - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c1"
-    char_span: [2314, 4541]
+    char_span: [2313, 4540]
     sentence_count: 9
     key_terms: [education, antisemitism, people, studies, higher, being, babymaybe15, scapegoats]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1n8dioh.md#c2"
-    char_span: [4264, 4790]
+    char_span: [4263, 4789]
     sentence_count: 3
     key_terms: [philanthropic, transparency, completely, needlessly, attention, escalated, governors, incapable]
     section: Comments

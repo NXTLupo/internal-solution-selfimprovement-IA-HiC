@@ -23,31 +23,31 @@ chunks:
     key_terms: [professors, comments, college, lifeguardsoggy2928, relationships, applications, interesting, reddit-deep]
     token_count: 193
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c1"
-    char_span: [824, 3068]
+    char_span: [823, 3067]
     sentence_count: 16
     key_terms: [online, classes, in-person, person, learning, professors, great, essentially]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c2"
-    char_span: [3070, 5229]
+    char_span: [3069, 5228]
     sentence_count: 9
     key_terms: [questions, being, lifeguardsoggy2928, like, semester, people, professors, in-person]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c3"
-    char_span: [5231, 6956]
+    char_span: [5230, 6955]
     sentence_count: 13
     key_terms: [instructors, relationships, online, faculty, connections, time, building, adjunct]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c4"
-    char_span: [6958, 9235]
+    char_span: [6957, 9234]
     sentence_count: 13
     key_terms: [program, online, professors, reach, connections, questions, semester, faculty]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1smeuhp.md#c5"
-    char_span: [9237, 10232]
+    char_span: [9236, 10231]
     sentence_count: 6
     key_terms: [professors, lifeguardsoggy2928, zoom, email, questions, sometimes, curious, sensitive-hope-4980]
     section: Comments

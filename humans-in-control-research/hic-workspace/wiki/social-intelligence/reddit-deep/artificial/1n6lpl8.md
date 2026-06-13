@@ -28,31 +28,31 @@ chunks:
     key_terms: [qoder, here, anything, building, everyone, ask, drop, line]
     token_count: 243
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c2"
-    char_span: [2993, 5372]
+    char_span: [2992, 5371]
     sentence_count: 12
     key_terms: [documentation, understanding, code, development, qoder, awareness, repo, wiki]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c3"
-    char_span: [5374, 7489]
+    char_span: [5373, 7488]
     sentence_count: 17
     key_terms: [terminal, execution, command, background, qoder, tools, session, coding]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c4"
-    char_span: [7491, 9388]
+    char_span: [7490, 9387]
     sentence_count: 14
     key_terms: [terminal, issues, qoder, wrong, user, feedback, context, rocket]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c5"
-    char_span: [9390, 10830]
+    char_span: [9389, 10829]
     sentence_count: 7
     key_terms: [code, architecture, qoder, quest, full, finish, plans, tools]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/artificial/1n6lpl8.md#c6"
-    char_span: [10832, 13294]
+    char_span: [10831, 13293]
     sentence_count: 10
     key_terms: [code, qoder, service, features, security, preview, privacy, cloud]
     section: Comments

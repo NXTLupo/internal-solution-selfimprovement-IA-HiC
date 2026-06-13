@@ -23,7 +23,7 @@ chunks:
     key_terms: [like, careeradvice, tools, engineering, comments, engineer, learning, software]
     token_count: 223
   - id: "social-intelligence/reddit-deep/careeradvice/1ryskvh.md#c1"
-    char_span: [988, 2037]
+    char_span: [987, 2036]
     sentence_count: 8
     key_terms: [engineering, helpful, people, since, tools, find, job, like]
     section: Comments

@@ -21,55 +21,55 @@ chunks:
     key_terms: [college, cscareerquestions, working, never, didn, comments, projects, thought]
     token_count: 356
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c1"
-    char_span: [1460, 3482]
+    char_span: [1459, 3481]
     sentence_count: 17
     key_terms: [middle, class, learn, ways, reliable, anyone, easier, income]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c2"
-    char_span: [3484, 5450]
+    char_span: [3483, 5449]
     sentence_count: 10
     key_terms: [internships, internship, without, job, "don't", point, time, work]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c3"
-    char_span: [5452, 7263]
+    char_span: [5451, 7262]
     sentence_count: 10
     key_terms: [internships, internship, interview, time, been, "it's", like, work]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c4"
-    char_span: [7265, 9018]
+    char_span: [7264, 9017]
     sentence_count: 14
     key_terms: [experience, someone, time, enough, lower-class, convince, history, around]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c5"
-    char_span: [9020, 11157]
+    char_span: [9019, 11156]
     sentence_count: 11
     key_terms: [fundamentals, specialization, get, college, never, engineering, did, everything]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c6"
-    char_span: [11159, 13101]
+    char_span: [11158, 13100]
     sentence_count: 17
     key_terms: [internship, job, lol, year, major, internships, did, didn]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c7"
-    char_span: [12861, 13727]
+    char_span: [12860, 13726]
     sentence_count: 6
     key_terms: [internships, internship, "it's", jobs, work, icedragonsoul, harutsukihrk, competition]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c8"
-    char_span: [13729, 16033]
+    char_span: [13728, 16032]
     sentence_count: 22
     key_terms: [interviews, "it's", something, openings, friends, looking, webpage, driven]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1shtd19.md#c9"
-    char_span: [16035, 16902]
+    char_span: [16034, 16901]
     sentence_count: 11
     key_terms: [someone, else, talk, european, comes, "don't", reservoirpenguin, conversation]
     section: Comments

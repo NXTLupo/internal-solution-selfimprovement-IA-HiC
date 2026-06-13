@@ -28,19 +28,19 @@ chunks:
     key_terms: [tech, big, consulting, business, relevant, "i'm", work, specifically]
     token_count: 151
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c2"
-    char_span: [2948, 5022]
+    char_span: [2947, 5021]
     sentence_count: 16
     key_terms: [big, madeightpie, offers, transfer, congratulations, company, "don't", thank]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c3"
-    char_span: [4752, 6339]
+    char_span: [4751, 6338]
     sentence_count: 7
     key_terms: [interned, madeightpie, interesting, work, internship, interviews, companies, congrats]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/internships/1oyx51p.md#c4"
-    char_span: [6341, 7758]
+    char_span: [6340, 7757]
     sentence_count: 14
     key_terms: [interviews, resume, beforehand, industry, specific, numbers, process, like]
     section: Comments

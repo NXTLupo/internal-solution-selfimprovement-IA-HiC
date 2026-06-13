@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1q7qd4j.md#c0"
-    char_span: [0, 613]
+    char_span: [0, 612]
     sentence_count: 5
     key_terms: [applyingtocollege, pre-college, comments, offer, participating, reddit-deep, coursework, available]
-    token_count: 155
+    token_count: 154
 ---
 # Are there any pre-college programs available for graduated HS students?
 

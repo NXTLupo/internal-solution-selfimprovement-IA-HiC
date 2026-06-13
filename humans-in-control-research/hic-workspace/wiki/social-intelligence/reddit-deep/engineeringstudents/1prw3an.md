@@ -33,7 +33,7 @@ chunks:
     key_terms: ["don't", team-oriented, contributing, open-minded, brightest, questions, something, stupidest]
     token_count: 93
   - id: "social-intelligence/reddit-deep/engineeringstudents/1prw3an.md#c3"
-    char_span: [3739, 4700]
+    char_span: [3738, 4699]
     sentence_count: 8
     key_terms: [internships, important, because, clubs, gottatrusttheengr, get, hard, lot]
     section: Comments

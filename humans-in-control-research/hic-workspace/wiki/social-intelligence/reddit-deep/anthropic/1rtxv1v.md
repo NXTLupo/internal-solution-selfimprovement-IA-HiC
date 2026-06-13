@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rtxv1v.md#c0"
-    char_span: [0, 482]
+    char_span: [0, 481]
     sentence_count: 3
     key_terms: [competitiontrick2836, anthropic, comments, setup, promptengineering, reddit-deep, who-let-the, perfect]
     token_count: 141

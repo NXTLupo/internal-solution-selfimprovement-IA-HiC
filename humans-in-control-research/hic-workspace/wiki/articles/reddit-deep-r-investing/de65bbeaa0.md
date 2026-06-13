@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/de65bbeaa0.md#c0"
-    char_span: [0, 2043]
+    char_span: [0, 2042]
     sentence_count: 14
     key_terms: [investing, stocks, american, portfolio, "i'm", like, individual, companies]
-    token_count: 456
+    token_count: 455
   - id: "articles/reddit-deep-r-investing/de65bbeaa0.md#c1"
-    char_span: [2045, 3667]
+    char_span: [2044, 3666]
     sentence_count: 8
     key_terms: [politics, equities, current, nothing, events, "don't", jemicarus, portfolio-composition]
     token_count: 400

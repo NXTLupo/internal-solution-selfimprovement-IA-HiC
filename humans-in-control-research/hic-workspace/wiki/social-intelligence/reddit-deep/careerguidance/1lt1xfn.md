@@ -23,31 +23,31 @@ chunks:
     key_terms: [careerguidance, right, feel, completely, direction, comments, advice, single]
     token_count: 339
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c1"
-    char_span: [1439, 1535]
+    char_span: [1438, 1534]
     sentence_count: 1
     key_terms: [job, grumpyferret45, approach, better, career, abc, like]
     section: Comments
     token_count: 29
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c2"
-    char_span: [1537, 3606]
+    char_span: [1536, 3605]
     sentence_count: 15
     key_terms: [job, get, someone, people, applications, like, work, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c3"
-    char_span: [3373, 4098]
+    char_span: [3372, 4097]
     sentence_count: 8
     key_terms: [feedback, someone, back, get, give, hard, applications, carolinepoh]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c4"
-    char_span: [4100, 6257]
+    char_span: [4099, 6256]
     sentence_count: 24
     key_terms: [job, resume, experience, get, work, applications, sure, interviews]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1lt1xfn.md#c5"
-    char_span: [6259, 7526]
+    char_span: [6258, 7525]
     sentence_count: 9
     key_terms: [feedback, better, work, candidates, recruiters, portfolio, getting, instead]
     section: Comments

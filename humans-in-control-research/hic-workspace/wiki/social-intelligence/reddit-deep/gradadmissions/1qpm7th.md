@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1qpm7th.md#c0"
-    char_span: [0, 673]
+    char_span: [0, 672]
     sentence_count: 5
     key_terms: [gradadmissions, currently, comments, research, truly, lab, n-heterocycle, reddit-deep]
-    token_count: 159
+    token_count: 158
 ---
 # Grad school research
 

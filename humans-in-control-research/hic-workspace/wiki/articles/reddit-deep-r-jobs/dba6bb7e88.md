@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/dba6bb7e88.md#c0"
-    char_span: [0, 1839]
+    char_span: [0, 1838]
     sentence_count: 16
     key_terms: [time, job, "don't", like, "wendy's", rileyluvsventi, hired, best]
-    token_count: 466
+    token_count: 465
   - id: "articles/reddit-deep-r-jobs/dba6bb7e88.md#c1"
-    char_span: [1841, 2440]
+    char_span: [1840, 2439]
     sentence_count: 3
     key_terms: [rileyluvsventi, work, people, thank, keep, discouraging, everything, customers]
     token_count: 161

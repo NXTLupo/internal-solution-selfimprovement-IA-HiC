@@ -21,7 +21,7 @@ chunks:
     key_terms: [lebanon, engineering, industrial, management, engineeringstudents, solutions, looking, people-facing]
     token_count: 437
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s7qrvt.md#c1"
-    char_span: [1921, 2293]
+    char_span: [1920, 2292]
     sentence_count: 2
     key_terms: [degree, equivalence, experience, icedaggerz, perplexing, employers, interview, potential]
     section: Comments

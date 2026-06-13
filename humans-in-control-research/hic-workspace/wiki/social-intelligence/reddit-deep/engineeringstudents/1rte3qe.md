@@ -21,43 +21,43 @@ chunks:
     key_terms: [engineering, engineeringstudents, clubs, comments, projects, being, doing, maybe]
     token_count: 219
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c1"
-    char_span: [1031, 1838]
+    char_span: [1030, 1837]
     sentence_count: 5
     key_terms: [engineeringstudents, wiki, reddit, https, com, please, automoderator, read]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c2"
-    char_span: [1840, 3769]
+    char_span: [1839, 3768]
     sentence_count: 9
     key_terms: [club, job, please, interviewers, point, lie, interview, questions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c3"
-    char_span: [3522, 3891]
+    char_span: [3521, 3890]
     sentence_count: 4
     key_terms: [back, been, "i'd", uni, interviewers, interview, mentioned, workspace]
     section: Comments
     token_count: 93
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c4"
-    char_span: [3896, 6133]
+    char_span: [3895, 6132]
     sentence_count: 11
     key_terms: [projects, experience, technical, club, school, communication, interpersonal, professional]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c5"
-    char_span: [5820, 7975]
+    char_span: [5819, 7974]
     sentence_count: 6
     key_terms: [projects, interview, involved, communication, don, team, experience, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c6"
-    char_span: [7730, 8296]
+    char_span: [7729, 8295]
     sentence_count: 2
     key_terms: [projects, embarrassed-emu8131, build, sherbertquirky3789, supermarketfit2158, big, club, competitive]
     section: Comments
     token_count: 156
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rte3qe.md#c7"
-    char_span: [8298, 9189]
+    char_span: [8297, 9188]
     sentence_count: 5
     key_terms: [good, project, something, boring, accomplishedanchovy, doing, club, did]
     section: Comments

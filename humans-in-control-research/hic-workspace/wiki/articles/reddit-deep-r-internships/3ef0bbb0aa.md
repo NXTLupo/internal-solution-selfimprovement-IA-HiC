@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-internships/3ef0bbb0aa.md#c0"
-    char_span: [0, 1234]
+    char_span: [0, 1233]
     sentence_count: 10
     key_terms: [internship, internships, work, graduate, job, prepared, applied, minimum]
-    token_count: 290
+    token_count: 289
   - id: "articles/reddit-deep-r-internships/3ef0bbb0aa.md#c1"
-    char_span: [1236, 2591]
+    char_span: [1235, 2590]
     sentence_count: 12
     key_terms: [dry-remote826, top, complete, hospital, scared, match, worst, rank]
     token_count: 325

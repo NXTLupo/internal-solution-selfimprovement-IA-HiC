@@ -23,37 +23,37 @@ chunks:
     key_terms: [college, baby, live, comments, having, living, home, too]
     token_count: 225
   - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c1"
-    char_span: [952, 2188]
+    char_span: [951, 2187]
     sentence_count: 6
     key_terms: [resources, college, housing, pregnant, students, schools, campus, school]
     section: Comments
     token_count: 296
   - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c2"
-    char_span: [2190, 3861]
+    char_span: [2189, 3860]
     sentence_count: 14
     key_terms: [pregnant, housing, title, students, halflingmelody, college, parents, qualify]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c3"
-    char_span: [3863, 6014]
+    char_span: [3862, 6013]
     sentence_count: 22
     key_terms: [involved, college, going, family, living, school, no-turnip9121, baby]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c4"
-    char_span: [5723, 6525]
+    char_span: [5722, 6524]
     sentence_count: 5
     key_terms: [school, available, pretty, "it's", year, leslieslanparty, assistance, classmates]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c5"
-    char_span: [6527, 8680]
+    char_span: [6526, 8679]
     sentence_count: 13
     key_terms: [time, college, childcare, education, got, "i'm", working, around]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/college/1kzcj12.md#c6"
-    char_span: [8682, 9652]
+    char_span: [8681, 9651]
     sentence_count: 8
     key_terms: [college, working, ozempic-allegations, doing, gonna, until, participation, attendance]
     section: Comments

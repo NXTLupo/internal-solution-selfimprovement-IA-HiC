@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, role, graduation, interview, part-time, next, location, career]
     token_count: 511
   - id: "social-intelligence/reddit-deep/internships/1mux1nv.md#c1"
-    char_span: [2317, 2664]
+    char_span: [2317, 2663]
     sentence_count: 2
     key_terms: [appropriate-tutor587, part, take, time, appreciated, graduation, internship, commuting]
     section: Comments

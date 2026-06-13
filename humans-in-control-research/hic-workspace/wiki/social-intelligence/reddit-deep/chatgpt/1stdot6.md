@@ -28,43 +28,43 @@ chunks:
     key_terms: [caveman, business, instead, theory, claude, says, summarise, audience]
     token_count: 405
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c2"
-    char_span: [3920, 4570]
+    char_span: [3919, 4569]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c3"
-    char_span: [4573, 6003]
+    char_span: [4572, 6002]
     sentence_count: 4
     key_terms: [lot, butterfliesandallama, terse, bc9czlgcmtw4cj8rgh, centrifugalmalaise, remarkablewish2508, willingnessok3081, post]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c4"
-    char_span: [5836, 6771]
+    char_span: [5835, 6770]
     sentence_count: 3
     key_terms: [amaze, response, tokens, costs, input, token, iwilltalkaboutguns, vp6b55t5f41koebdvo]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c5"
-    char_span: [6774, 7911]
+    char_span: [6773, 7910]
     sentence_count: 13
     key_terms: [caveman, language, like, time, neurological, good, credits, saves]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c6"
-    char_span: [7914, 9798]
+    char_span: [7913, 9797]
     sentence_count: 8
     key_terms: [like, language, affect, conversation, llm, use, emotions, complex]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c7"
-    char_span: [9803, 11743]
+    char_span: [9802, 11742]
     sentence_count: 12
     key_terms: [languages, poetry-for-neanderthals-board-game-rules-and-instructions-for-how-to-play, computer, language, tokens, human, something, complex]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/chatgpt/1stdot6.md#c8"
-    char_span: [11745, 12445]
+    char_span: [11744, 12444]
     sentence_count: 3
     key_terms: [amaze, tokens, whatever, whatrusernamesused4, gaym38znd1kyled0du, wumbleinthejungle, lordsnowgaryen, rodebaksteen]
     section: Comments

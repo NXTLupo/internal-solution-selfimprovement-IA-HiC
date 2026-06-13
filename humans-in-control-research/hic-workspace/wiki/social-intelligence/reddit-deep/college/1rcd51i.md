@@ -23,13 +23,13 @@ chunks:
     key_terms: [college, parents, school, comments, decision, guilty, state, dad]
     token_count: 232
   - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c1"
-    char_span: [970, 2855]
+    char_span: [969, 2854]
     sentence_count: 21
     key_terms: [adventurousexpert217, because, college, parents, scholarships, dad, feel, help]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1rcd51i.md#c2"
-    char_span: [2857, 4779]
+    char_span: [2856, 4778]
     sentence_count: 15
     key_terms: [parents, help, college, pay, time, decision, afford, guilty]
     section: Comments

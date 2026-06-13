@@ -23,19 +23,19 @@ chunks:
     key_terms: [because, "i'm", life, college, degree, skills, "don't", job]
     token_count: 451
   - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c1"
-    char_span: [2104, 4192]
+    char_span: [2103, 4191]
     sentence_count: 15
     key_terms: [degree, thank, get, tyyyu555, college, helpful, please, help]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c2"
-    char_span: [4194, 6171]
+    char_span: [4193, 6170]
     sentence_count: 18
     key_terms: [get, college, don, suggest, innit-bruh1184, school, anywhere, degree]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1ny4uhl.md#c3"
-    char_span: [5906, 6697]
+    char_span: [5905, 6696]
     sentence_count: 10
     key_terms: [get, job, experience, college, money, ask, find, scholarships]
     section: Comments

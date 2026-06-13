@@ -21,7 +21,7 @@ chunks:
     key_terms: ["i'm", career, careerguidance, too, experience, developer, comments, software]
     token_count: 211
   - id: "social-intelligence/reddit-deep/careerguidance/1sv2lgv.md#c1"
-    char_span: [883, 1921]
+    char_span: [882, 1920]
     sentence_count: 5
     key_terms: [programming, background, understand, something, systems, rude-passenger2992, been, "i've"]
     section: Comments

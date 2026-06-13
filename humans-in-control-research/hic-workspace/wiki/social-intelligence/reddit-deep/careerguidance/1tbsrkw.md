@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tbsrkw.md#c0"
-    char_span: [0, 513]
+    char_span: [0, 512]
     sentence_count: 7
     key_terms: [careerguidance, comments, career, cybersecurity, opportunity, poojasuthar, reddit-deep, difficulty]
-    token_count: 136
+    token_count: 135
 ---
 # Which career path is better for bsc csit students currently in second year?
 

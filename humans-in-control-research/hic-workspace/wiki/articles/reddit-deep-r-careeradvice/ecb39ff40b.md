@@ -15,12 +15,12 @@ industries: [workforce, ai_research, financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/ecb39ff40b.md#c0"
-    char_span: [0, 251]
+    char_span: [0, 250]
     sentence_count: 2
     key_terms: [careeradvice, reddit, realistically, building, comments, complete, career, commit]
-    token_count: 65
+    token_count: 64
   - id: "articles/reddit-deep-r-careeradvice/ecb39ff40b.md#c1"
-    char_span: [253, 2536]
+    char_span: [252, 2535]
     sentence_count: 21
     key_terms: [acca, focus, learning, qualification, exemptions, structured, data, complete]
     token_count: 495

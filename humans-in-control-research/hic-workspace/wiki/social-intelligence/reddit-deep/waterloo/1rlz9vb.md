@@ -48,7 +48,7 @@ chunks:
     key_terms: [country-hoedown-drag-bingo-brunch-and-show-tickets-1981496080116, trades, women, international-womens-day-women-in-trades, demonstrations, https, join, waterloo]
     token_count: 277
   - id: "social-intelligence/reddit-deep/waterloo/1rlz9vb.md#c6"
-    char_span: [10218, 10773]
+    char_span: [10217, 10772]
     sentence_count: 5
     key_terms: [fragrant-divide240, thanks, outstanding, band, name, appreciate, newsletter, boathouse]
     section: Comments

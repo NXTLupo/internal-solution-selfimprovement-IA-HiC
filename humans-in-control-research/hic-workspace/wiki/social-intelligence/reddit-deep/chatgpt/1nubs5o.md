@@ -48,7 +48,7 @@ chunks:
     key_terms: [queries, user, question, management, marketing, gdp, customer, france]
     token_count: 361
   - id: "social-intelligence/reddit-deep/chatgpt/1nubs5o.md#c6"
-    char_span: [10390, 12019]
+    char_span: [10389, 12018]
     sentence_count: 13
     key_terms: [chatgpt, prompt, melos555, openai, please, conversation, image, lumora4ever]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [time, employers, engineering, engineeringstudents, lockheed, waiting, major, speak]
     token_count: 321
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c1"
-    char_span: [1481, 2808]
+    char_span: [1480, 2807]
     sentence_count: 13
     key_terms: [companies, worth, want, getting, talking, advice, better, people]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c2"
-    char_span: [2810, 4625]
+    char_span: [2809, 4624]
     sentence_count: 11
     key_terms: [companies, recruiters, resumes, "they'll", through, end, pile, probably]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ntpfb9.md#c3"
-    char_span: [4627, 6598]
+    char_span: [4626, 6597]
     sentence_count: 11
     key_terms: [online, apply, skysr70, career, "you're", application, networking, companies]
     section: Comments

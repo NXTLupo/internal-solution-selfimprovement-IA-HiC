@@ -21,7 +21,7 @@ chunks:
     key_terms: [course, msds, advice, coe, neu, comments, students, courses]
     token_count: 261
   - id: "social-intelligence/reddit-deep/neu/1tep36o.md#c1"
-    char_span: [1030, 1563]
+    char_span: [1029, 1562]
     sentence_count: 2
     key_terms: [subjects, science, data, illhistorian4891, fundamentals, prerequisite, combination, engineering]
     section: Comments

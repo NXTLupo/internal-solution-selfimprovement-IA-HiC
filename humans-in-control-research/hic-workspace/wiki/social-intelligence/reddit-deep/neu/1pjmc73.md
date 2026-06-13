@@ -23,13 +23,13 @@ chunks:
     key_terms: [campus, london, got, business, comments, boston, going, neu]
     token_count: 132
   - id: "social-intelligence/reddit-deep/neu/1pjmc73.md#c1"
-    char_span: [500, 2315]
+    char_span: [499, 2314]
     sentence_count: 11
     key_terms: [congratulations, ok-gas-3757, campus, boston, london, good, hard, tul1ps0ft]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1pjmc73.md#c2"
-    char_span: [2006, 3441]
+    char_span: [2005, 3440]
     sentence_count: 9
     key_terms: [northeastern, spitalfields, super, buildings, believe, classes, friends, london]
     section: Comments

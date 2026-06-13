@@ -15,12 +15,12 @@ relevance: 45
 engagement_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
 chunks:
   - id: "articles/reddit-deep-r-jobs/1eaaedf7ef.md#c0"
-    char_span: [0, 2204]
+    char_span: [0, 2203]
     sentence_count: 12
     key_terms: [jobs, get, workers, entry-level, degree, being, field, like]
-    token_count: 496
+    token_count: 495
   - id: "articles/reddit-deep-r-jobs/1eaaedf7ef.md#c1"
-    char_span: [2206, 3099]
+    char_span: [2205, 3098]
     sentence_count: 4
     key_terms: [outsourcing, needed, emergency-pollution2, new-veterinarian5597, budtrimmingbaddie, icenerveshatter, odd-flower2744, contributing]
     token_count: 216

@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, international, portfolio, comments, student, advice, important-pin-9315, reddit-deep]
     token_count: 233
   - id: "social-intelligence/reddit-deep/internships/1n9ahtj.md#c1"
-    char_span: [989, 1285]
+    char_span: [988, 1284]
     sentence_count: 2
     key_terms: [websites, silver-turnover1667, understanding, companies, functions, building, requests, settings]
     section: Comments

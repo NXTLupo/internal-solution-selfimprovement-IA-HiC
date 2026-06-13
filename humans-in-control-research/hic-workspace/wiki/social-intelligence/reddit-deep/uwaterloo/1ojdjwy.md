@@ -23,7 +23,7 @@ chunks:
     key_terms: [uwaterloo, students, glassdoor, goosedoor, comments, built, com, exploitative]
     token_count: 147
   - id: "social-intelligence/reddit-deep/uwaterloo/1ojdjwy.md#c1"
-    char_span: [625, 1971]
+    char_span: [624, 1970]
     sentence_count: 6
     key_terms: [east-contract-9378, an1malcross1ng97, great, shopify, levels, independent-crew9790, puzzleheadeddrive692, snoosuggestions7200]
     section: Comments

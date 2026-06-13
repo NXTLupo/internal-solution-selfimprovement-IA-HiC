@@ -26,25 +26,25 @@ chunks:
     key_terms: [university, environment, empowered, supported, feel, need, universities, exploration]
     token_count: 205
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c2"
-    char_span: [3197, 5004]
+    char_span: [3196, 5003]
     sentence_count: 6
     key_terms: [meowmeow1637327, school, year, college, support, pursue, admirable-location24, beginningzucchini364]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c3"
-    char_span: [5006, 7306]
+    char_span: [5005, 7305]
     sentence_count: 9
     key_terms: [classes, school, assignments, research, opportunities, stem, professors, completed]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c4"
-    char_span: [7308, 8971]
+    char_span: [7307, 8970]
     sentence_count: 9
     key_terms: [classes, actual, people, school, college, not-super-selective, being, leading-bobcat1151]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/applyingtocollege/1th5mfc.md#c5"
-    char_span: [8974, 10969]
+    char_span: [8973, 10968]
     sentence_count: 14
     key_terms: [school, option, experience, process, schools, aid, list, admissions]
     section: Comments

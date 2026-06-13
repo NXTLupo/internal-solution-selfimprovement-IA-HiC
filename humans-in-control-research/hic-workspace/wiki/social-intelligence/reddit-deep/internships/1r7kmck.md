@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1r7kmck.md
 url: "https://www.reddit.com/r/internships/comments/1r7kmck/the_playbook_for_landing_an_internship_in_2026/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,42 @@ flair: "General"
 extracted_at: "2026-06-06T23:20:46.211Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c0"
+    char_span: [0, 2201]
+    sentence_count: 9
+    key_terms: [internship, internships, people, get, experience, comments, midterms, playbook]
+    token_count: 514
+  - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c1"
+    char_span: [2203, 4533]
+    sentence_count: 12
+    key_terms: [people, like, want, students, internships, lot, luck, especially]
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c2"
+    char_span: [4548, 6199]
+    sentence_count: 12
+    key_terms: [university, armadillotop2003, career, appropriate-tutor587, services, within, get, help]
+    section: Comments
+    token_count: 414
+  - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c3"
+    char_span: [6201, 8378]
+    sentence_count: 18
+    key_terms: [resume, applying, got, applied, "didn't", because, company, going]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c4"
+    char_span: [8075, 9855]
+    sentence_count: 14
+    key_terms: [internship, keep, lot, honestly, journey, learned, bottom, gotten]
+    section: Comments
+    token_count: 411
+  - id: "social-intelligence/reddit-deep/internships/1r7kmck.md#c5"
+    char_span: [9857, 11277]
+    sentence_count: 21
+    key_terms: [how-i-got-internships-at-verizon-and-apple-with-no-experience, programs, people, recognizable, experience, projects, already, insane]
+    section: Comments
+    token_count: 313
 ---
-
 # The playbook for landing an internship in 2026, how I would start from scratch
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1r7kmck/the_playbook_for_landing_an_internship_in_2026/)

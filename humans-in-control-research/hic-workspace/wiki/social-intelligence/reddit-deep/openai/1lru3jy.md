@@ -23,13 +23,13 @@ chunks:
     key_terms: [engine, engineering, programming, language, linguistics, prompt, specific, thinking]
     token_count: 486
   - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c1"
-    char_span: [2224, 3835]
+    char_span: [2223, 3834]
     sentence_count: 9
     key_terms: [bidwestern1056, language, instructions, programming, able, jdonavan, believe, natural]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/openai/1lru3jy.md#c2"
-    char_span: [3837, 4541]
+    char_span: [3836, 4540]
     sentence_count: 3
     key_terms: [sql, anything, warmdragonfruit8783, get, theorysudden5996, consistently, axfmzlz9xxm, interesting]
     section: Comments

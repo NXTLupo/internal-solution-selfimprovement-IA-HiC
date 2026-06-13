@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1nspegr.md#c0"
-    char_span: [0, 2350]
+    char_span: [0, 2349]
     sentence_count: 13
     key_terms: [engineering, graduate, experience, years, career, electrical, practical, dft]
-    token_count: 488
+    token_count: 487
 ---
 # Concern about graduate school and career path
 

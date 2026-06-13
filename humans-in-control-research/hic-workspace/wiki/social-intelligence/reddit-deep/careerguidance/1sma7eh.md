@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sma7eh.md#c0"
-    char_span: [0, 483]
+    char_span: [0, 482]
     sentence_count: 5
     key_terms: [careerguidance, comments, analyst, data, job, reddit-deep, suggestions, projects]
-    token_count: 141
+    token_count: 140
 ---
 # I’m stuck in a BPO job for year and wanted to come out. It’s been 8 years, I think data analyst is better suits me, I kinda know sql, excel. Don’t know, if I can learn BI and python and do work on projects, will I be job ready?. Please help me with the suggestions.
 

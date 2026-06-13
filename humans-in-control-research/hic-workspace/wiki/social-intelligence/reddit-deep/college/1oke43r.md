@@ -36,31 +36,31 @@ chunks:
     key_terms: [unreasonable, "don't", apologize, further, saying, seem, talk, disrespectfully]
     token_count: 154
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c4"
-    char_span: [5288, 7405]
+    char_span: [5287, 7404]
     sentence_count: 23
     key_terms: [otherunderstanding44, "don't", professor, time, annoyed, "professor's", "it's", work]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c5"
-    char_span: [7407, 9206]
+    char_span: [7406, 9205]
     sentence_count: 18
     key_terms: [class, accusing, otherunderstanding44, mrmahsterbaiter, "doesn't", saying, unreasonable, composition]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c6"
-    char_span: [9208, 10300]
+    char_span: [9207, 10299]
     sentence_count: 13
     key_terms: [class, distracting, professor, activity, missing, nothing, otherunderstanding44, prestigious-tea6514]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c7"
-    char_span: [10302, 12131]
+    char_span: [10301, 12130]
     sentence_count: 18
     key_terms: [otherunderstanding44, prestigious-tea6514, professor, bathroom, unreceptive, ipad, like, reasonable]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/college/1oke43r.md#c8"
-    char_span: [12133, 13153]
+    char_span: [12132, 13152]
     sentence_count: 8
     key_terms: [otherunderstanding44, like, talk, further, reason, sounds, power, don]
     section: Comments

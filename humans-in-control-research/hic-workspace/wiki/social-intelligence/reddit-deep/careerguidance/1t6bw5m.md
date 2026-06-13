@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1t6bw5m.md
 url: "https://www.reddit.com/r/careerguidance/comments/1t6bw5m/need_career_advice_stay_in_arts_administration_or/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,19 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.887Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bw5m.md#c0"
+    char_span: [0, 2251]
+    sentence_count: 16
+    key_terms: [government, administration, because, around, making, accounting, right, contract]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/careerguidance/1t6bw5m.md#c1"
+    char_span: [2266, 2783]
+    sentence_count: 2
+    key_terms: [snooradishes5272, winthroptwisp, hvac, properclock7298, recommendation, accounting, eventually, government]
+    section: Comments
+    token_count: 142
 ---
-
 # Need career advice: stay in arts administration or move toward government path?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1t6bw5m/need_career_advice_stay_in_arts_administration_or/)

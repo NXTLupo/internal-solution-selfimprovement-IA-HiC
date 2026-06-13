@@ -23,31 +23,31 @@ chunks:
     key_terms: [thousands, comments, chatgpt, real, subscriptions, productivity, transmission, reddit-deep]
     token_count: 172
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c1"
-    char_span: [755, 2048]
+    char_span: [754, 2047]
     sentence_count: 8
     key_terms: [openai, please, conversation, image, obd2, post, r-chatgpt-1050422060352024636, passenger]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c2"
-    char_span: [2050, 2909]
+    char_span: [2049, 2908]
     sentence_count: 2
     key_terms: [car, port, specific, inside, cabin, like, told, cheeseburger]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c3"
-    char_span: [2911, 4985]
+    char_span: [2910, 4984]
     sentence_count: 11
     key_terms: [car, did, numerous-cup1863, tdeliev, letter, professional, told, processing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c4"
-    char_span: [4731, 5128]
+    char_span: [4730, 5127]
     sentence_count: 6
     key_terms: [told, willowemberly, disappointed, implications, professional, misleading, supporting, fireaus67]
     section: Comments
     token_count: 104
   - id: "social-intelligence/reddit-deep/chatgpt/1qi3dwt.md#c5"
-    char_span: [5130, 5409]
+    char_span: [5129, 5408]
     sentence_count: 1
     key_terms: [human-in-the-loop, consistently, valuations, augmented, questions, restraint, another, compute]
     section: Comments

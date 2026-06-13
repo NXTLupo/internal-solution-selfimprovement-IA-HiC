@@ -28,7 +28,7 @@ chunks:
     key_terms: [got, role, better, best, get, appreciate, definitely, positions]
     token_count: 301
   - id: "social-intelligence/reddit-deep/careerguidance/1t6g4bh.md#c2"
-    char_span: [3548, 4982]
+    char_span: [3547, 4981]
     sentence_count: 16
     key_terms: [experience, onlythephantomknows, sales, technical, work, presentations, engineering, explaining]
     section: Comments

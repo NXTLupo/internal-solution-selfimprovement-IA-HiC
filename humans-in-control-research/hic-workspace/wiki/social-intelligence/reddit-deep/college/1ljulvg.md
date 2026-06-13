@@ -23,25 +23,25 @@ chunks:
     key_terms: [school, time, college, part, drop, full, "i'm", struggling]
     token_count: 306
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c1"
-    char_span: [1392, 3258]
+    char_span: [1391, 3257]
     sentence_count: 14
     key_terms: [semester, school, full, time, business, years, did, work]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c2"
-    char_span: [3260, 5296]
+    char_span: [3259, 5295]
     sentence_count: 12
     key_terms: [time, part, working, school, vegetable-lawyer3327, purple-pangolin2327, year, "you're"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c3"
-    char_span: [5025, 5686]
+    char_span: [5024, 5685]
     sentence_count: 7
     key_terms: [school, "i'm", work, time, part, working, hours, able]
     section: Comments
     token_count: 172
   - id: "social-intelligence/reddit-deep/college/1ljulvg.md#c4"
-    char_span: [5688, 6072]
+    char_span: [5687, 6071]
     sentence_count: 4
     key_terms: [school, maybe, work, schedule, definitely, extremely, homework, classes]
     section: Comments

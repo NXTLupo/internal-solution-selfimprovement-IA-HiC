@@ -28,31 +28,31 @@ chunks:
     key_terms: [without, understanding, tools, enough, honest, models, skill, using]
     token_count: 288
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c2"
-    char_span: [3558, 4637]
+    char_span: [3557, 4636]
     sentence_count: 10
     key_terms: [honestly, honest, points, typical-education345, robmosesdidnthwrong, "it's", like, slop]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c3"
-    char_span: [4639, 6451]
+    char_span: [4638, 6450]
     sentence_count: 8
     key_terms: [people, typical-education345, content, accept, great, words, get, need]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c4"
-    char_span: [6453, 7141]
+    char_span: [6452, 7140]
     sentence_count: 4
     key_terms: [typical-education345, robmosesdidnthwrong, one-elderberry-488, identifying, ai-written, tndrthrowy, hivesteel, low-value]
     section: Comments
     token_count: 204
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c5"
-    char_span: [7146, 8720]
+    char_span: [7145, 8719]
     sentence_count: 15
     key_terms: [typical-education345, legitimatepower, content, good, post, experience, written, capitaldiligent1676]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/artificial/1si5uiw.md#c6"
-    char_span: [8722, 9897]
+    char_span: [8721, 9896]
     sentence_count: 10
     key_terms: [like, information, typical-education345, question, thinking, lateral, answer, myself]
     section: Comments

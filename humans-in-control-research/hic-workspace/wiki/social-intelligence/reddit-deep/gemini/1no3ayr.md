@@ -23,7 +23,7 @@ chunks:
     key_terms: [referral, gemini, code, comments, days, thejakernator, reddit-deep, experience]
     token_count: 158
   - id: "social-intelligence/reddit-deep/gemini/1no3ayr.md#c1"
-    char_span: [619, 1881]
+    char_span: [618, 1880]
     sentence_count: 14
     key_terms: [code, link, jscryptopia, days, get, questions, crypto, gemini]
     section: Comments

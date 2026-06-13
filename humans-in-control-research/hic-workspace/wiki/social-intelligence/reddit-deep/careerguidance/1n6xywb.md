@@ -28,31 +28,31 @@ chunks:
     key_terms: [life, nothing, people, work, corporations, corporation, everything, experience]
     token_count: 86
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c2"
-    char_span: [2549, 3802]
+    char_span: [2548, 3801]
     sentence_count: 9
     key_terms: [best, "it's", candidates, interviews, screaming, process, career, "you're"]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c3"
-    char_span: [3804, 5511]
+    char_span: [3803, 5510]
     sentence_count: 21
     key_terms: [universities, companies, everyone, india, jobs, candidates, students, because]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c4"
-    char_span: [5513, 6815]
+    char_span: [5512, 6814]
     sentence_count: 11
     key_terms: [different, job, feel, like, career, decent, no-requirement-5357, add]
     section: Comments
     token_count: 305
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c5"
-    char_span: [6817, 8152]
+    char_span: [6816, 8151]
     sentence_count: 13
     key_terms: [theflyinghambone, superronnie2, engineer, ability, english, conscious-quarter423, until, fall]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/careerguidance/1n6xywb.md#c6"
-    char_span: [8154, 10362]
+    char_span: [8153, 10361]
     sentence_count: 18
     key_terms: ["i'm", people, get, life, own, capitalism, experience, believe]
     section: Comments

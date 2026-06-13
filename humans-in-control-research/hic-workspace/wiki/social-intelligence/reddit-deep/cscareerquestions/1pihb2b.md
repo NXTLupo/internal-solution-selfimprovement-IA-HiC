@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1pihb2b/about_to_graduate_with_a_cs_degree_and_still_no/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,60 @@ subreddit: "cscareerquestions"
 title: "About to graduate with a CS degree and still no internships/jobs. Is it over?"
 author: "Zealousideal_Code760"
 date: "2025-12-09T19:51:23.000Z"
-score: 53
-upvote_ratio: 0.88
+score: 57
+upvote_ratio: 0.9
 num_comments: 59
 flair: "New Grad"
-extracted_at: "2026-06-06T23:23:15.642Z"
+extracted_at: "2026-06-08T18:49:42.897Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c0"
+    char_span: [0, 2090]
+    sentence_count: 9
+    key_terms: [tech, cscareerquestions, etc, job, experience, recruiters, different, comments]
+    token_count: 490
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c1"
+    char_span: [2105, 3891]
+    sentence_count: 11
+    key_terms: [certifications, job, get, got, time, interviews, technician, difficult]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c2"
+    char_span: [3893, 6036]
+    sentence_count: 18
+    key_terms: [get, companies, real, experience, interviews, screening, something, projects]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c3"
+    char_span: [6038, 8260]
+    sentence_count: 17
+    key_terms: [leetcode, learn, get, time, experience, internship, something, entirely]
+    section: Comments
+    token_count: 496
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c4"
+    char_span: [8262, 10007]
+    sentence_count: 12
+    key_terms: [internships, experience, apply, pivot, roles, like, swe, graduation]
+    section: Comments
+    token_count: 408
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c5"
+    char_span: [10009, 11993]
+    sentence_count: 19
+    key_terms: [co-op, work, definitely, interview, position, question, popular, problem]
+    section: Comments
+    token_count: 492
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1pihb2b.md#c6"
+    char_span: [11995, 12717]
+    sentence_count: 13
+    key_terms: [companies, ready, overrrrrrrrrrrrr, soft-wear-3714, unfortunately, headquarters, application, electrician]
+    section: Comments
+    token_count: 176
 ---
-
 # About to graduate with a CS degree and still no internships/jobs. Is it over?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1pihb2b/about_to_graduate_with_a_cs_degree_and_still_no/)
-Posted by **Zealousideal_Code760** · **53↑** · **59 comments**
+Posted by **Zealousideal_Code760** · **57↑** · **59 comments**
 
 Title is TLDR
 
@@ -55,8 +97,8 @@ Don’t spend more money on certifications. You’ve likely got enough debt from
 Contract work and freelancing is a difficult business to get into. I have over 25 years experience with full time employment but I have found it nearly impossible to find any freelance work, even on Fiverr.
 
 Just find literally any kind of job you can. Keep randomly applying to tech roles on the side so that you’ll catch the updraft when it finally happens.
-  - **Zealousideal_Code760** (7↑): Fair, a part of me thinks a few certs will set me up for a job but there's a large group of people saying they can't get their foot in the door with that so I'll have to refrain for some time. How would you recommend preparing for the interviews on the side?
-    - **[deleted]** (6↑): For what it's worth, I'm in the Phoenix area and I'm getting a lot of interview offers for IT Help Desk, Desktop Support Technician, and Data Center Technician roles with just a shiddy WGU CS degree, CompTIA A+, and Net+ certifications
+  - **Zealousideal_Code760** (6↑): Fair, a part of me thinks a few certs will set me up for a job but there's a large group of people saying they can't get their foot in the door with that so I'll have to refrain for some time. How would you recommend preparing for the interviews on the side?
+    - **[deleted]** (7↑): For what it's worth, I'm in the Phoenix area and I'm getting a lot of interview offers for IT Help Desk, Desktop Support Technician, and Data Center Technician roles with just a shiddy WGU CS degree, CompTIA A+, and Net+ certifications
 
 
 That's literally all I have to my name, along with a very small "home lab" setup I did on VirtualBox that only took a few days
@@ -64,7 +106,7 @@ That's literally all I have to my name, along with a very small "home lab" setup
 
 Must've submitted like 30 applications, and got 8 interviews
   - **NICEMENTALHEALTHPAL** (2↑): I'd say certs are useless with the exception of AWS Dev Associate, SAA, or pro.
-  - **Honest_Victory_3893** (4↑): What would you consider a job? My friend makes 50$/hr doing data annotation type shit, does that count?
+  - **Honest_Victory_3893** (3↑): What would you consider a job? My friend makes 50$/hr doing data annotation type shit, does that count?
     - **nsxwolf** (6↑): That is definitely a job
   - **throwaway10015982** (1↑): >Don’t spend more money on certifications. You’ve likely got enough debt from your undergrad already.
 
@@ -80,29 +122,29 @@ I’d also really inspect how meaningful your personal projects are. I was surpr
 Lastly, I’d genuinely consider if a masters is right for you. New grad applications are already hell on earth, but doing them with no internship will be a challenge and a half. A masters degree puts you back in “intern” status before you finish it, so if you put your all into the things above during intern apps, you would likely snag some. Once you’re back to new grad apps, you could have an internship(s), maybe some light research experience (even if no paper), TA positions, and a higher degree. 
 
 Good luck, and give yourself some grace while understanding what you’re willing to do for the job.
-  - **Zealousideal_Code760** (10↑): Definitely don't have the big tech or bust mindset, atp I just want a full time job that's above my current part time in hours and pay, even if it's by a little to gain experience, figure out what I like, then grow from there. Though I will say I think I've concluded the LC grind is not for me. I've tried multiple times throughout my university career and the algorithms and practice just don't stick with me. Is it wise to to focus on other fields that wouldn't be as heavy on leetcode ability?
+  - **Zealousideal_Code760** (11↑): Definitely don't have the big tech or bust mindset, atp I just want a full time job that's above my current part time in hours and pay, even if it's by a little to gain experience, figure out what I like, then grow from there. Though I will say I think I've concluded the LC grind is not for me. I've tried multiple times throughout my university career and the algorithms and practice just don't stick with me. Is it wise to to focus on other fields that wouldn't be as heavy on leetcode ability?
     - **Regular-Algae-8145** (8↑): That depends entirely on what you want out of your career. Unfortunately, anything that is SWE related (hardware, ML, backend, frontend, cloud, distributed systems, etc) are almost certainly going to test your leetcode skills in the interview. And the ability to do something else - e.g. data scientist - and transition won’t be feasible unless it’s a team switch at your current company, which would still be hard, or re-applying and face the same thing.
 
 I know Leetcode sucks, but I truly think you can learn to do it. The biggest pitfall people have is treating it entirely as an assessment rather than something you learn first, then apply. You must do it in a structured way that combines learning the concepts separately, intentional practice, and reflection/reviewing. Otherwise you do 500 problems, get stuck on each, look at the solution, and then say “I’ll get this next time”. No, you won’t. Learn concept by concept, and master each one before moving onto the next. If you’d like, I can send you my full explanation of how to get better.
 
 For reference, I landed Palantir SWE, Amazon, and Uber internships. I am interviewing with Google currently and made it to final rounds with Jane Street, DoorDash, and more, but I don’t have 500+ LC problems completed. Literally 193 that was paired with lots of notes, reviewing, and intentional practice.
   - **DefiantLie8861** (1↑): I don’t really see the value of doing a Master’s for op . Even if it helps you get internships or better opportunities, it seems like you could just apply directly to jobs after undergrad and eventually land something through persistence, so paying for a Master’s feels like unnecessary cost.
-- **Illustrious-Pound266** (13↑): No, this is the norm now. You should go into the job market not expecting to get any offer for at least 6-12 months after finishing your degree.
+- **Illustrious-Pound266** (14↑): No, this is the norm now. You should go into the job market not expecting to get any offer for at least 6-12 months after finishing your degree.
 - **SquidSquishing** (12↑): Jesus this is a depressing consensus of opinions. 
 
 If you pivot into IT you’ll just end up sinking your drive into becoming really good at IT. If you want to be a SWE just stick with what you’re doing and rough it out. If you make the pivot it might end up costing you more time to pivot back then if you just kept moving forward from graduation.
 - **Personal-Molasses537** (11↑): It's hard even with experience. I can't imagine without any experience. Try getting software development experience in any way you can even if it's some volunteer gig.
-- **FailedGradAdmissions** (5↑): Delay your graduation if you can and apply to internships like if your life depended on it. Internships are much easier to land than new grad roles.
+- **FailedGradAdmissions** (6↑): Delay your graduation if you can and apply to internships like if your life depended on it. Internships are much easier to land than new grad roles.
 
 If that's not an option apply both to SWE roles as well as tech adjacent roles.
   - **Zealousideal_Code760** (2↑): Can the average individual become LC ready before Summer 2026?
 
 Pray for me
-    - **FailedGradAdmissions** (5↑): Yeah, contrary to popular opinion all you need (for internships) it’s NeetCode roadmap. Just be sure to understand each problem well. And the easiest way to do it is after you see the solution, solve a related problem on your own, you should be able to solve it without any extra help.
+    - **FailedGradAdmissions** (4↑): Yeah, contrary to popular opinion all you need (for internships) it’s NeetCode roadmap. Just be sure to understand each problem well. And the easiest way to do it is after you see the solution, solve a related problem on your own, you should be able to solve it without any extra help.
     - **Drauren** (1↑): It's just time/effort to learn. The roadmap is pretty well understood at this point.
 - **Winterlord7** (19↑): Oh no, is not over, this is just the beginning 😈
   - **Zealousideal_Code760** (15↑): Of the end? 😭
-- **Competitive_Tea_4875** (4↑): For background, I’ve been a developer for almost 30 years. FAANG+ is not the answer. Of course it is popular to target those jobs and to bring the  idea up, but also could end up just leading to being laid off. Not to mention…having a work life balance is important!! Networking is the  best chance you have of landing a position in the current market. Who do you know (even friends, etc of your parents, relatives, etc) willing to submit a resume at the company that they work at? This makes all of the  difference.
+- **Competitive_Tea_4875** (3↑): For background, I’ve been a developer for almost 30 years. FAANG+ is not the answer. Of course it is popular to target those jobs and to bring the  idea up, but also could end up just leading to being laid off. Not to mention…having a work life balance is important!! Networking is the  best chance you have of landing a position in the current market. Who do you know (even friends, etc of your parents, relatives, etc) willing to submit a resume at the company that they work at? This makes all of the  difference.
 
 My own son searched for a position for a year after graduating with a CS degree. He completed a 5 year program with excellent co-op opportunities. My question would be why didn’t you pursue an internship/co-op? You definitely should be ready for this question.
   - **Zealousideal_Code760** (3↑): I definitely pursued both, I didn't have the grades for co-op, and I feel the job market and my lack of interested for CS during my undergrad years made it difficult to be truthful.
@@ -113,5 +155,5 @@ I would also pursue roles with the DoD. Usajobs.com. Are you willing to relocate
 Do you have any family friends at good companies? Ask them to submit your application/resume for you. This will help you bypass the 100s of other applicants and get an interview! Be ready for Leetcode, unfortunately. It’s one way companies screen developers. You have nothing to lose by being ready for it.
 
 Sorry for all of the questions! This job market is crazy, but not impossible. Remember, you only need 1 Yes!!
-- **Soft-Wear-3714** (3↑): No it's not overrrrrrrrrrrrr
+- **Soft-Wear-3714** (5↑): No it's not overrrrrrrrrrrrr
 - **forever-18** (2↑): Join IT in the military, or go into another field like plumber or electrician

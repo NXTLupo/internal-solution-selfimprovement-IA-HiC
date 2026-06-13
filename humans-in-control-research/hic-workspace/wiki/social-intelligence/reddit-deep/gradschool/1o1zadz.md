@@ -23,43 +23,43 @@ chunks:
     key_terms: [program, professor, points, email, department, disability, gradschool, comments]
     token_count: 441
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c1"
-    char_span: [2036, 3651]
+    char_span: [2035, 3650]
     sentence_count: 12
     key_terms: [grading, objective, whether, effort, graded, grade, need, department]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c2"
-    char_span: [3653, 5815]
+    char_span: [3652, 5814]
     sentence_count: 18
     key_terms: [subjective, "don't", because, grading, partial, credit, don, give]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c3"
-    char_span: [5817, 7013]
+    char_span: [5816, 7012]
     sentence_count: 10
     key_terms: [degree, completion, assistant, position, programs, advisor, likely, thesis]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c4"
-    char_span: [7015, 8564]
+    char_span: [7014, 8563]
     sentence_count: 11
     key_terms: ["don't", program, want, history, problematic, keep, absolutely, professor]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c5"
-    char_span: [8566, 10681]
+    char_span: [8565, 10680]
     sentence_count: 12
     key_terms: [students, program, issues, history, awards, degree, comes, leave]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c6"
-    char_span: [10683, 11549]
+    char_span: [10682, 11548]
     sentence_count: 9
     key_terms: [professor, something, program, course, letter, fair, free, like]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/gradschool/1o1zadz.md#c7"
-    char_span: [11551, 13070]
+    char_span: [11550, 13069]
     sentence_count: 12
     key_terms: [professor, grade, department, recommend, unjustly, program, appeal, degree]
     section: Comments

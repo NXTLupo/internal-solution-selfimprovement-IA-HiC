@@ -1,53 +1,81 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
-All information is based on searching keywords: co-op, summary should be based on the keywords.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: op, ops, accounting, gpa, spring, business, big
+- Top keywords: fund, vanguard, etf, market, investing, years, index
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-* Is spring actually that much better for accounting/big 4 at neu? Would love to hear from anyone who's done either cycle, especially accounting specifically.
-* Realistically, what are the odds of landing a big 4 co-op with a thin resume? Are midtier/regional firms the more realistic target? I'd take midtier but just want to know what I'm actually playing for instead of going in delusional.
+Ticker	Fund name	AUM (USD, B)	March MTD price change	
+VOO	Vanguard S&P 500 ETF	$856.1B	-0.30%.  FinanceChart...	
+VTI	Vanguard Total Stock Market ETF	$575.2B	-0.30%.  FinanceChart...	
+VEA	Vanguard FTSE Developed Markets ETF	$207.0B	-0.42%.  FinanceChart...	
+VUG	Vanguard Growth ETF	$194.8B	-0.18%.  FinanceChart...	
+VTV	Vanguard Value ETF	$168.3B	-0.43%.  FinanceChart...	
+BND	Vanguard Total Bond Market ETF	$152.6B	-0.41%.  FinanceChart...	
+VXUS	Vanguard Total International Stock ETF	$135.5B	-0.31%.  FinanceChart...	
+VWO	Vanguard FTSE Emerging Markets ETF	$111.0B	-0.09%.  FinanceChart... [...]
 
 EXAMPLE 2:
-* Rising sophomore, accounting concentration, 5 year/3 co-op plan
-* Currently on fall co-op cycle, considering switching to spring
-* Did freshman year at Oakland so extracurriculars are not that strong (no accounting clubs/orgs, no boston networking yet)
-* 3.83 GPA
-* Coming back to Boston this fall
-* Long term goal is big 4 audit then eventually FP&A
+For Vanguard ETFs, I think the comparison is a bit different from high-yield income funds. The yield is usually not the main story. The bigger question is whether the fund is giving you a reasonable balance of income, price growth, total return, and stability.
 
 EXAMPLE 3:
-Would appreciate any advice. Thanks! Spring is nice for a true public accounting busy season from my experience (I just wrapped up an audit co-op). However, you should get in contact with the recruiters at firms you’re interested in regarding their recruiting timelines. Of the Big 4, only Deloitte had openings for this past spring, and of those, only three non-returning students were offered co-ops. Public accounting firms are just recruiting super early now.
+Changing Asset Mix Hey folks. I got a new job in 2022 and moved my 401k to a Vanguard Rollover IRA. My money has been sitting in the Vanguard Federal Money Market Fund. I'd like to change my asset mix and am not sure where to start.
 
 EXAMPLE 4:
-Fall to spring co-op switch for accounting major? Would love any advice from accounting upperclassmen/alumni!
+My new 401K has surpassed my older 401K in just 4 years (at a 15% return). My old 401K that is with Vanguard (built over 16 years) and has been there for the same time and is at a 4.3% return.
 
 EXAMPLE 5:
-However, if I switch, I'm in recruiting \~4 months from now with basically zero accounting related extracurriculars from my time at Oakland. BUSN 1103 slots also close soon for fall, so the decision is essentially due in the next week or two before it's too late.
+Veu went down 54 dollars this month ? Does anyone have veu it went down 54 dollars this month should I sell ? Why would you sell at a loss? What’s your time horizon, how long have you held your position, and do you have any reason to believe it won’t go back up within your time horizon?
+I guess I don't really have reason other then I'm worried it's gonna keep going down, I've owned the stock for a long time and so far have earned near 150 and its never went down that much 
+A lot, of ETFs are down right now. [...]
 
 EXAMPLE 6:
-Need direction: best co-ops/jobs  for a Health Science + Business student i'm a second year majoring in health science and business and while I love my major so far I have no idea what type of co-ops I should focus on applying to? Anyone majoring in HS and Business have any advice for what type of jobs are perfect for my major? Any advice from anyone at all? This is exactly me!! you have two main choices, either u can go into healthcare administration (ex. run a clinic/hospital, etc) or you can do business at a healthcare company (what i'm doing!). [...]
+**VIG** is usually the type of fund I’d look at more for dividend growth and capital preservation than for high current income. The yield may not look exciting, but the more important question is whether price growth and total return are doing their job.
 
 EXAMPLE 7:
-As for your question on resume, I would say they scan for GPA and CPA eligibility date first. Then, they look at previous work/extracurricular experience. Networking is 100% the key to getting into those Big 4 pipelines, though. Feel free to DM me if you have any other/more specific questions.
+Overall, Vanguard funds are a good reminder that dividend investing is not only about the highest payout. Sometimes the lower-yield fund can have better total-return behavior, better capital growth, or a cleaner long-term role in a portfolio.
 
 EXAMPLE 8:
-I’m rising fifth year Marketing major with two co-ops under my belt. I assumed landing a third would not be as difficult as it has been.
+**BND / bond-style Vanguard funds** should probably be judged separately from equity ETFs. Lower volatility can make the stability score look better, but the return drivers are very different from stock funds.
 
 EXAMPLE 9:
-It feels pretty late in the process to be landing so few interviews and having little communication from employers. If I’m having as hard a time as I am with my age and prior co-ops, I can’t imagine how difficult it is for the younger students with one or no co-ops.
+I appreciate any advice. Thanks folks!  It sounds like the big difference between your old 401k and your new one isn’t the provider, it’s the asset allocation. Your rollover IRA at Vanguard is sitting in the Federal Money Market Fund, which is basically cash. It’s very safe, but it’s not designed to grow. That alone explains why the return looks so low compared to your new 401k, which is actually invested in stocks and bonds.
 
 EXAMPLE 10:
-From what I've read, spring cycle lines up with big 4 audit busy season, which is when firms hire more and co-ops actually get substantive work. Fall cycle is during audit shoulder season with fewer slots and less aligned with how big 4 recruits. Recruiting timelines also seem to be better for spring since postings drop in aug/sept of sophomore year.
+Do you mostly compare **yield**, **dividend growth**, **total return**, **expense ratio**, **volatility**, or how the fund fits into the portfolio role?
 
 EXAMPLE 11:
-Just wanted to share my situation and that even with two co-ops complete completed I’m still having a hard time.  We need TrustyHusky to write on NUworks and coop advisors.
+The most important step is getting that rollover IRA out of the money market fund and into an actual investment portfolio that matches your goals. Once you do that, the performance gap between your accounts will make a lot more sense. You’re paying attention, you’re contributing, and you’re thinking ahead for your family, which already puts you in a strong position.
+You might consider a target date fund (TDF) that matches with your expected retirement year. [...]
 
 EXAMPLE 12:
-Honestly, my frustration is with the university and co-op program. We need to stop admitting so many students and for new relationships with employers to have more co-op slots open. We all came to the school for this reason and it’s such a headache for all of us!!
+* **Dividend TTM** — trailing 12-month cash distributions based on the latest monthly snapshot.
+* **Price Growth (CAGR)** — fund-level share price growth/decline over the evaluation window, excluding distributions.
+* **Total Return** — April return with distributions included, so it captures price movement plus payouts during the month.
+* **Payout Support Risk** — whether the payout looks supported by recent price/total-return behavior. “Elevated” means the distribution is high relative to recent fund performance. [...]
 
 EXAMPLE 13:
-Depressing Co-op search I feel like we’re all commiserating on here about our difficult co-op searches so I figured I’d share mine too!
+At 43, with a moderate risk tolerance, most people land somewhere around a 60–80 percent stock and 20–40 percent bond mix. You don’t need anything complicated to get there. Vanguard’s Target Retirement funds or their LifeStrategy Moderate Growth fund are simple, diversified options that handle the allocation for you. If you prefer to build your own mix, a basic three‑fund setup using total US stock, total international stock, and total bond funds works extremely well long‑term.
+
+EXAMPLE 14:
+**VYM** is more of a current-income dividend ETF compared with VIG, but I still wouldn’t evaluate it by yield alone. For a fund like this, I’d want to see whether the income comes with reasonable price behavior over time.
+
+EXAMPLE 15:
+**VOO / VTI** are useful benchmarks in this kind of sheet. They are not “income ETFs” in the same way, but they help show the opportunity cost of chasing yield. If a higher-yield ETF pays more but trails badly on price growth or total return, that matters.
+
+EXAMPLE 16:
+This is not meant to be a “which one is best” ranking. I’m trying to compare these funds using the same public-data framework, instead of only looking at distribution yield.
+
+EXAMPLE 17:
+But the bigger questions - why are you selling when down?  Is your horizon in the short term or long term?
+
+EXAMPLE 18:
+I'm 43 and want to make sure my wife and I can be comfortable and debt free by the time I retire. I can deal with a moderate risk... I just don't want to push it.
+
+EXAMPLE 19:
+You don’t necessarily need to pay advisor fees unless you want someone to walk you through everything step‑by‑step. Since you’re comfortable learning on your own, you can absolutely do this yourself. Channels like Ben Felix, The Plain Bagel, Rob Berger, and Bogleheads are great for understanding the basics without hype.
+
+EXAMPLE 20:
+Does anyone have any pointers, or could point me in the right direction with their documentation? would it be worth their advisor fees? I learn well on my own so I'd be good starting with some YouTube on basics,if anyone has suggestions.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 

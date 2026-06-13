@@ -16,25 +16,25 @@ chunks:
     key_terms: [design, reference, identity, deck, dna, presentation, foundation, decisions]
     token_count: 68
   - id: "brand/reference-deck.md#c1"
-    char_span: [382, 2658]
+    char_span: [381, 2657]
     sentence_count: 7
     key_terms: [text, observations, color, level, usage, per, slide, analysis]
     section: "Current Status: Awaiting Full Ingestion / Expected Content After Ingestion"
     token_count: 485
   - id: "brand/reference-deck.md#c2"
-    char_span: [2660, 3899]
+    char_span: [2659, 3898]
     sentence_count: 3
     key_terms: [charts, component, illustrations, chart, color, style, positioning, components]
     section: Expected Content After Ingestion
     token_count: 271
   - id: "brand/reference-deck.md#c3"
-    char_span: [3935, 6183]
+    char_span: [3934, 6182]
     sentence_count: 9
     key_terms: [slide, layout, slides, patterns, step, directory, pptx, analysis]
     section: INGEST Operation Instructions
     token_count: 498
   - id: "brand/reference-deck.md#c4"
-    char_span: [6214, 7234]
+    char_span: [6213, 7233]
     sentence_count: 1
     key_terms: ["deck's", brand, influence, expected, identity, derived, charts, system]
     section: Preliminary Observations

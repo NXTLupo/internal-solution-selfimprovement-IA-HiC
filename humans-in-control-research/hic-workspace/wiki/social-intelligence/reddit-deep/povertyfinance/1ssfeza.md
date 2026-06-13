@@ -33,31 +33,31 @@ chunks:
     key_terms: [lot, need, work, reliability, responsible, doublewide, financial, something]
     token_count: 154
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c3"
-    char_span: [4184, 6012]
+    char_span: [4183, 6011]
     sentence_count: 18
     key_terms: [descriptionno7446, through, needy, everything, something, people, "you're", motherofmercyandjoy]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c4"
-    char_span: [6014, 6649]
+    char_span: [6013, 6648]
     sentence_count: 7
     key_terms: [anything, hospital, case, get, like, pays, sure, appointments]
     section: Comments
     token_count: 145
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c5"
-    char_span: [6651, 8602]
+    char_span: [6650, 8601]
     sentence_count: 16
     key_terms: [food, people, furniture, stranger, nothing, reddit, found, means]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c6"
-    char_span: [8379, 10057]
+    char_span: [8378, 10056]
     sentence_count: 18
     key_terms: [want, reading, through, people, right, snowpaws473, feel, list]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/povertyfinance/1ssfeza.md#c7"
-    char_span: [10059, 10687]
+    char_span: [10058, 10686]
     sentence_count: 11
     key_terms: [offer, get, help, absolutely, especially, mentioned, necessary, promotion]
     section: Comments

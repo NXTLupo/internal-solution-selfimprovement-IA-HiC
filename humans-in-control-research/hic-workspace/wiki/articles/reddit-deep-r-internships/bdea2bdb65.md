@@ -9,18 +9,20 @@ author: ""
 date: "2026-03-29T04:14:37.000Z"
 tier: 
 method: "source-native"
-extracted_at: "2026-05-23T12:19:59.520799+00:00"
+extracted_at: "2026-06-08T17:39:19.215522+00:00"
 chars: 2330
-industries: [workforce, higher_ed]
-industry_method: llm
+relevance: 60
+engagement_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
+content_hash: "5a66c7cc5e8d0fcd"
+relevance_by_goal: {"e9c9bc675673":60}
 chunks:
   - id: "articles/reddit-deep-r-internships/bdea2bdb65.md#c0"
-    char_span: [0, 2155]
+    char_span: [0, 2154]
     sentence_count: 13
     key_terms: [internships, applying, tracking, been, get, internship, tracker, helps]
-    token_count: 510
+    token_count: 509
   - id: "articles/reddit-deep-r-internships/bdea2bdb65.md#c1"
-    char_span: [2157, 2489]
+    char_span: [2156, 2488]
     sentence_count: 1
     key_terms: [applications, productivity, completely, something, download, feeling, profile, resumes]
     token_count: 75

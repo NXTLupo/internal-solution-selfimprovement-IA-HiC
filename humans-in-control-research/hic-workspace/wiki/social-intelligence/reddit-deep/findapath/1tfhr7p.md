@@ -23,19 +23,19 @@ chunks:
     key_terms: ["didn't", work, never, good, "i'd", like, plan, because]
     token_count: 471
   - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c1"
-    char_span: [2000, 2947]
+    char_span: [1999, 2946]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c2"
-    char_span: [2950, 4802]
+    char_span: [2949, 4801]
     sentence_count: 9
     key_terms: [good, anything, get, man, something, treating, through, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1tfhr7p.md#c3"
-    char_span: [4574, 5311]
+    char_span: [4573, 5310]
     sentence_count: 6
     key_terms: [get, understating, echospacezz, necessarily, no-desk560, something, sometimes, almassri]
     section: Comments

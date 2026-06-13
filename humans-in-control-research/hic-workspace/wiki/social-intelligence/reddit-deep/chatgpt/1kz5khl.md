@@ -23,61 +23,61 @@ chunks:
     key_terms: [chatgpt, dash, mdash, html, use, redditors, comments, because]
     token_count: 242
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c1"
-    char_span: [933, 1169]
+    char_span: [932, 1168]
     sentence_count: 2
     key_terms: [discord, withoutreason1729, post, contribution, appreciate, featured, rchatgpt, getting]
     section: Comments
     token_count: 58
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c2"
-    char_span: [1171, 2993]
+    char_span: [1170, 2992]
     sentence_count: 6
     key_terms: [dash, hyphen, used, becomes, hyphens, double, automatically, autocorrects]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c3"
-    char_span: [2752, 3660]
+    char_span: [2751, 3659]
     sentence_count: 4
     key_terms: [dash, use, though, because, always, reasonable-letter582, until, "i've"]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c4"
-    char_span: [3662, 5016]
+    char_span: [3661, 5015]
     sentence_count: 7
     key_terms: [time, best, dash, word, dashes, highcontrastrainbow, years, lotusgrowsfrommud]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c5"
-    char_span: [5018, 5669]
+    char_span: [5017, 5668]
     sentence_count: 2
     key_terms: [complextechnician, tell, disagreement, expressing, suggesting, indicator, sovereign, facebook]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c6"
-    char_span: [5671, 7449]
+    char_span: [5670, 7448]
     sentence_count: 9
     key_terms: ["it's", emojis, like, use, structure, followed, already, because]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c7"
-    char_span: [7451, 9304]
+    char_span: [7450, 9303]
     sentence_count: 11
     key_terms: [dashes, like, use, because, people, "that's", elitistcarrot, dash]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c8"
-    char_span: [9306, 11331]
+    char_span: [9305, 11330]
     sentence_count: 16
     key_terms: [people, writing, common, dashes, publications, posts, post, used]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c9"
-    char_span: [11086, 11675]
+    char_span: [11085, 11674]
     sentence_count: 3
     key_terms: [emdash, people, use, commenting, shadowolf, somewhere, coherent, comments]
     section: Comments
     token_count: 150
   - id: "social-intelligence/reddit-deep/chatgpt/1kz5khl.md#c10"
-    char_span: [11677, 12809]
+    char_span: [11676, 12808]
     sentence_count: 12
     key_terms: [reddit, option-shift-minus, professionally, footnotes, seriously, because, em-dash, either]
     section: Comments

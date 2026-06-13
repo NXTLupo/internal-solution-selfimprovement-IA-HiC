@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, semester, sap, school, classes, transferring, issue, late]
     token_count: 468
   - id: "social-intelligence/reddit-deep/college/1q5jncc.md#c1"
-    char_span: [2063, 3908]
+    char_span: [2062, 3907]
     sentence_count: 13
     key_terms: [fall, classes, enrolled, college, spring, sap, semester, appeal]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/college/1q5jncc.md#c2"
-    char_span: [3910, 5879]
+    char_span: [3909, 5878]
     sentence_count: 8
     key_terms: [classes, transfer, community, grades, transcripts, open, sap, semester]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/college/1q5jncc.md#c3"
-    char_span: [5881, 6602]
+    char_span: [5880, 6601]
     sentence_count: 5
     key_terms: [college, life, thought, iamdefinitelynotcat, great, truly, world, end]
     section: Comments

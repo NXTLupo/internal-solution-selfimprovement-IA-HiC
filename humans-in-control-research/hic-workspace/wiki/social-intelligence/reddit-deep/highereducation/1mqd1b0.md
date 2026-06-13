@@ -23,13 +23,13 @@ chunks:
     key_terms: [university, civility, columbia, highereducation, prospective, schoolhouse, admissions, political]
     token_count: 255
   - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c1"
-    char_span: [1318, 2652]
+    char_span: [1317, 2651]
     sentence_count: 11
     key_terms: [already, chaosrainbow23, school, patricksaurus, donating, effort, lol, paid]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/highereducation/1mqd1b0.md#c2"
-    char_span: [2654, 3595]
+    char_span: [2653, 3594]
     sentence_count: 5
     key_terms: [someone, spewing, reallyredrubyrabbit, scarletteclipse1982, like, sin, capricancerous, fundamentalist]
     section: Comments

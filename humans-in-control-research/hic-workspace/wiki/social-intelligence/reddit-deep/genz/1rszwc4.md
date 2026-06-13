@@ -23,31 +23,31 @@ chunks:
     key_terms: [financially, lot, comments, people, understand, however, wealthy, working]
     token_count: 451
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c1"
-    char_span: [1911, 2424]
+    char_span: [1910, 2423]
     sentence_count: 3
     key_terms: [discord, enough, simply, money, area, automatically, automoderator, systemfrown]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c2"
-    char_span: [2426, 3914]
+    char_span: [2425, 3913]
     sentence_count: 7
     key_terms: [living, jobs, ineptfortitude, like, live, genuinely, paycheck, america]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c3"
-    char_span: [3916, 5998]
+    char_span: [3915, 5997]
     sentence_count: 12
     key_terms: [people, politicians, like, student, loans, here, thegalator, majority]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c4"
-    char_span: [6000, 7237]
+    char_span: [5999, 7236]
     sentence_count: 7
     key_terms: [americas-wealth-distriution-by-generation, housing, people, wealth, visualcapitalist, richer, years, pleasure]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/genz/1rszwc4.md#c5"
-    char_span: [7240, 9159]
+    char_span: [7239, 9158]
     sentence_count: 14
     key_terms: ["don't", systemfrown, get, military, wxskater, fucking, society, people]
     section: Comments

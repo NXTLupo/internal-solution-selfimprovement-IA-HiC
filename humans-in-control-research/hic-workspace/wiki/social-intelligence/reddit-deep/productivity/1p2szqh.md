@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, comments, learned, system, brain, comes, abhisshekdhama, reddit-deep]
     token_count: 204
   - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c1"
-    char_span: [870, 2602]
+    char_span: [869, 2601]
     sentence_count: 15
     key_terms: [abhisshekdhama, use, repetition, concepts, practice, solution, learned, retain]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c2"
-    char_span: [2604, 4437]
+    char_span: [2603, 4436]
     sentence_count: 12
     key_terms: [use, people, understanding, information, journal, process, sounds, brain]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/productivity/1p2szqh.md#c3"
-    char_span: [4439, 6673]
+    char_span: [4438, 6672]
     sentence_count: 12
     key_terms: [information, components, phase, skill, concepts, neurological, knowledge, understandable]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/ad7f07bdd1.md#c0"
-    char_span: [0, 1493]
+    char_span: [0, 1492]
     sentence_count: 7
     key_terms: [free, info, college, bag, dorm, dumb, shit, pregnancy]
-    token_count: 386
+    token_count: 385
   - id: "articles/reddit-deep-r-college/ad7f07bdd1.md#c1"
-    char_span: [1495, 2931]
+    char_span: [1494, 2930]
     sentence_count: 7
     key_terms: [paint, years, emergency, painted, lights, stable, shelf, small]
     token_count: 344

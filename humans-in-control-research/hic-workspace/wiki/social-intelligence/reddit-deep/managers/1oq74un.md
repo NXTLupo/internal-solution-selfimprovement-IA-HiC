@@ -23,43 +23,43 @@ chunks:
     key_terms: [managers, manager, genuinely, conversation, transition, difficult, promotion, comments]
     token_count: 459
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c1"
-    char_span: [2087, 3812]
+    char_span: [2086, 3811]
     sentence_count: 21
     key_terms: [manager, stay, leaving, department, situation, person, place, raise]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c2"
-    char_span: [3814, 5877]
+    char_span: [3813, 5876]
     sentence_count: 9
     key_terms: [sometimes, manager, someone, answer, good, mentioned, thrilled, because]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c3"
-    char_span: [5880, 7707]
+    char_span: [5879, 7706]
     sentence_count: 14
     key_terms: [manager, happy, team, want, training, because, company, enough]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c4"
-    char_span: [7709, 9027]
+    char_span: [7708, 9026]
     sentence_count: 7
     key_terms: [looking, best, something, better, jazzliketradition519, asked, anotherleftistbot, got]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c5"
-    char_span: [9029, 10318]
+    char_span: [9028, 10317]
     sentence_count: 12
     key_terms: [good, like, employee, sounds, goatymcgoatfacesings, best, "i'd", keep]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c6"
-    char_span: [10321, 11963]
+    char_span: [10320, 11962]
     sentence_count: 10
     key_terms: [leave, information, want, department, clearly, current, getting, manager]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/managers/1oq74un.md#c7"
-    char_span: [11965, 12899]
+    char_span: [11964, 12898]
     sentence_count: 10
     key_terms: [initial, though, asked, offer, sheriffharrybawls, ask, work, dry-shower9037]
     section: Comments

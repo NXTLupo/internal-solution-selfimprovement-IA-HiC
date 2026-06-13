@@ -23,7 +23,7 @@ chunks:
     key_terms: [embedded, engineering, engineeringstudents, robotics, student, mechatronics, comments, learning]
     token_count: 302
   - id: "social-intelligence/reddit-deep/engineeringstudents/1se8mtg.md#c1"
-    char_span: [1305, 1936]
+    char_span: [1304, 1935]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments

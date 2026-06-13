@@ -1,0 +1,86 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: try, account, vanguard, bank, fails, money, handling
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+* First I tried to sign up for the account. At first things were going fine. Then it trapped me in some kind of flow where it would only keep requiring me to fund the account. No login, no dashboard, no anything, just keep trying to fund the account.
+* The funding flow continuously fails. I try to hook up Fidelity, fails. I try to hook up Schwab, fails. I try to hook up Bank of America, and at first it fails, but then when I retry it (I retried them all) magically the account is there now - *sort of* \- except it's sort of greyed out. [...]
+
+EXAMPLE 2:
+Why I won't use Vanguard I tried to sign up to Vanguard for a brokerage account. It didn't work. Multiple failures, frustration.
+
+EXAMPLE 3:
+Now, a week later my bank is fully verified, and it is still not letting me withdraw my money. Because this is a recent purchase, for security reasons the money needs to go back to the original bank account that the funds were deposited with. Again, this is the same bank account, they used the wrong number which I corrected. I have to wait 20 something minutes to talk to support again to solve this, just frustrating.
+
+EXAMPLE 4:
+First, my girlfriend adds her bank to deposit into the joint account. They pull from the wrong account, costing us like $120 in fees for pulling from an empty account (she didn't spot this until weeks later so this is 3-4 fees that accumulated). I wasn’t present, so maybe in this case she selected the wrong savings account, she’s pretty sure she didn’t, but I can look past that. They tell us to add it again, we try a few days later and it's now giving us an ambiguous error, telling us to contact customer support again. I haven't followed up on this yet.
+
+EXAMPLE 5:
+Why is vanguard so awkward to use? I’ve had issues ever since I’ve set up a joint brokerage account with this Vanguard.
+
+EXAMPLE 6:
+You'd think people with that much money could hire halfway competent people to run a website. If they're this incompetent at basic websites, I can't imagine what they're doing with the funds. Big old *Nope* from me. I had a similar experience with the first bullet point.  I wanted to move a wellington mutual fund from fidelity to vanguard to pick up the admiral share version, but it wouldn't let me direct it from Fidelity.  Vanguard service to assist is difficult to obtain.  I ended up bailing.  Might be for the better keeping it at Fidelity.
+Possibilities:
+1. [...]
+
+EXAMPLE 7:
+I finally add my account manually, and it wants to verify deposits since I added it manually. It’s annoying, I know it’s standard, but this is an account I was already using. I contact support, and they tell me I need to wait to verify the deposits, and then wait 7-10 business days after I verify them. There’s nothing they can do for me.
+
+EXAMPLE 8:
+Second, I added my bank to the joint account as well, same issue. It doesn’t have me put it in manually, it has me log in through their portal into my bank (I’ve done this before with Fidelity and to pay my rent never had issues). I call to ask why they’re pulling from the wrong account, they claim that I’m the one that entered that information, I try to explain that this was done through the portal, and they tell me that they can’t help me because they can’t see the account number on their end. I call my bank, and it turns out their portal pulled my member number instead of my account number. [...]
+
+EXAMPLE 9:
+I planned on transferring a sizeable balance to them to manage. Now I definitely won't, and here's why.
+
+EXAMPLE 10:
+I'm having to deal with Vanguard quite a bit now, sorting out an estate. Their "updated" web UI backends a lot of stuff out to Docusign, which is a disaster in terms of browser compatibility. Like Vanguard's web people have forgotten how to design a few simple forms. This is causing their support people to have to be on the phone for three times longer holding clients' hands while they try to navigate these new badly-worded procedures, leading to huge wait times when you try to reach customer service. [...]
+
+EXAMPLE 11:
+Interestingly, if you try to look up "vanguard investments" in google-maps around the northeast, you get some *very* sketch results. Wonder why, it seems to have nothing to do with the actual company.
+
+EXAMPLE 12:
+I hope you didn't get scammed.
+Thank you for the concern but it wasn't a scam, even though trying to login brings you to 3 different domains, I verified they were real domains
+
+EXAMPLE 13:
+They also forced everybody into this "brokerage" account structure, on a completely different platform, and their IT people were too incompetent to know how to move client documents on file from the old system to the new one so we have to re-upload a bunch of stuff. This also makes the statements much more confusing, where they bounce reinvestments into and then out of this "settlement account" thing.
+
+EXAMPLE 14:
+Half the time when I call in I get someone in the philippines, and have to tell them to send me back to the US call center before I will discuss *any* actual financials. That's just offensive to US clients.
+
+EXAMPLE 15:
+Copying from another thread: UI issues, and "brokerage" == "broke" I originally [posted this](https://old.reddit.com/r/Bogleheads/comments/1m4cy8s/why/nxsoci4/) in another sub which came up in some search results, but I really should have put it here.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

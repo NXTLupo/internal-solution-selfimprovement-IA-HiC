@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-financialindependence/c24adffd9f.md#c0"
-    char_span: [0, 1904]
+    char_span: [0, 1903]
     sentence_count: 14
     key_terms: [financialindependence, retirement, age, live, relative, future, small, traditional]
-    token_count: 453
+    token_count: 452
   - id: "articles/reddit-deep-r-financialindependence/c24adffd9f.md#c1"
-    char_span: [1906, 3217]
+    char_span: [1905, 3216]
     sentence_count: 11
     key_terms: [retire, retirement, deeterfly, situation, anything, tracygee, ability, working]
     token_count: 327

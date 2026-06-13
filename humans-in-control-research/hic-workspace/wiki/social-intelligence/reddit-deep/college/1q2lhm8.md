@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1q2lhm8.md
 url: "https://www.reddit.com/r/college/comments/1q2lhm8/is_it_weird_to_goto_community_college_out_of_state/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,25 @@ flair: "USA"
 extracted_at: "2026-06-06T23:23:15.569Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1q2lhm8.md#c0"
+    char_span: [0, 847]
+    sentence_count: 6
+    key_terms: [college, community, comments, housing, weird, high, opportunities, proudpops1976]
+    token_count: 191
+  - id: "social-intelligence/reddit-deep/college/1q2lhm8.md#c1"
+    char_span: [862, 2560]
+    sentence_count: 7
+    key_terms: [community, college, california, colleges, students, years, university, residency]
+    section: Comments
+    token_count: 400
+  - id: "social-intelligence/reddit-deep/college/1q2lhm8.md#c2"
+    char_span: [2562, 4571]
+    sentence_count: 9
+    key_terms: [community, college, california, state, lacc, because, laccd, university]
+    section: Comments
+    token_count: 504
 ---
-
 # Is it weird to goto community college out of state?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1q2lhm8/is_it_weird_to_goto_community_college_out_of_state/)

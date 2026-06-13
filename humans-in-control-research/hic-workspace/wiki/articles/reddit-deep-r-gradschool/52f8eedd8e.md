@@ -15,22 +15,22 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/52f8eedd8e.md#c0"
-    char_span: [0, 2109]
+    char_span: [0, 2108]
     sentence_count: 20
     key_terms: [interesting, quit, research, advisor, opportunity, day, get, phd]
-    token_count: 490
+    token_count: 489
   - id: "articles/reddit-deep-r-gradschool/52f8eedd8e.md#c1"
-    char_span: [2111, 4293]
+    char_span: [2110, 4292]
     sentence_count: 22
     key_terms: [phd, process, money, cold, feet, program, opportunities, don]
     token_count: 499
   - id: "articles/reddit-deep-r-gradschool/52f8eedd8e.md#c2"
-    char_span: [4295, 6549]
+    char_span: [4294, 6548]
     sentence_count: 23
     key_terms: [phd, experience, research, didn, department, transition, anything, advisor]
     token_count: 498
   - id: "articles/reddit-deep-r-gradschool/52f8eedd8e.md#c3"
-    char_span: [6551, 7891]
+    char_span: [6550, 7890]
     sentence_count: 11
     key_terms: [phd, research, don, anti-itch, industry, thinking, already, masters]
     token_count: 309

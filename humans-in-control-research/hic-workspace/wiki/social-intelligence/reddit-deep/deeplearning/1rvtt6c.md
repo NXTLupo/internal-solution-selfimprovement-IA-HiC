@@ -38,13 +38,13 @@ chunks:
     key_terms: [run, because, spec, cross-validation, production-scale, architecture, computation, engineering]
     token_count: 177
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c4"
-    char_span: [6096, 7840]
+    char_span: [6095, 7839]
     sentence_count: 12
     key_terms: [hypothesis, "it's", post, structure, argument, exactly, numbers, someone]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/deeplearning/1rvtt6c.md#c5"
-    char_span: [7842, 8901]
+    char_span: [7841, 8900]
     sentence_count: 9
     key_terms: ["that's", reproducible, formatting, account, llm, repo, used, self-contained]
     section: Comments

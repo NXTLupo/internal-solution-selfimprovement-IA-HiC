@@ -23,13 +23,13 @@ chunks:
     key_terms: [experience, cscareerquestions, right, applying, comments, everyone, position, starting]
     token_count: 402
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c1"
-    char_span: [1766, 3977]
+    char_span: [1765, 3976]
     sentence_count: 14
     key_terms: [resume, masters, internship, anything, spiritualclub895, career, master, professional]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1pa0iv7.md#c2"
-    char_span: [3979, 4288]
+    char_span: [3978, 4287]
     sentence_count: 1
     key_terms: [workflows, data, micro-internship, externship, internship, automated, employers, automate]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [college, accounting, internship, networking, comments, decided, conclusiontrick3667, major]
     token_count: 230
   - id: "social-intelligence/reddit-deep/college/1qevr4j.md#c1"
-    char_span: [1004, 2440]
+    char_span: [1003, 2439]
     sentence_count: 12
     key_terms: [accounting, degree, "you'll", internships, experience, internship, university, graduate]
     section: Comments

@@ -21,25 +21,25 @@ chunks:
     key_terms: [back, applicable, experience, comments, anyone, skills, doing, offer]
     token_count: 332
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c1"
-    char_span: [1451, 2599]
+    char_span: [1450, 2598]
     sentence_count: 9
     key_terms: [coop, program, co-op, advisor, nuworks, point, get, talk]
     section: Comments
     token_count: 285
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c2"
-    char_span: [2601, 4104]
+    char_span: [2600, 4103]
     sentence_count: 6
     key_terms: [coop, future, goals, like, co-op, worth, aligning, honestly]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c3"
-    char_span: [4106, 5697]
+    char_span: [4105, 5696]
     sentence_count: 14
     key_terms: [experience, different, wanted, coop, completely, learning, advisor, through]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/neu/1pvsjk2.md#c4"
-    char_span: [5699, 7716]
+    char_span: [5698, 7715]
     sentence_count: 17
     key_terms: [co-op, like, shot-equal1148, don, time, want, experience, negatives]
     section: Comments

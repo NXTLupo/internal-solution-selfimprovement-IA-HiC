@@ -41,7 +41,7 @@ chunks:
     key_terms: [waitlist, students, admissions, called, acceptances, decisions, engineering, swarthmore]
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tiyhbq.md#c5"
-    char_span: [10267, 11930]
+    char_span: [10266, 11929]
     sentence_count: 12
     key_terms: [thank, waitlist, did, got, hoping, turned, consistent-alarm3496, zealousideal-dig-594]
     section: Comments

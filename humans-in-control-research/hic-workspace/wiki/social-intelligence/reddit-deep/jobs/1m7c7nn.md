@@ -23,73 +23,73 @@ chunks:
     key_terms: [jobs, horrendous, comments, market, job, fishburger1997, insurmountable, applications]
     token_count: 163
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c1"
-    char_span: [601, 2608]
+    char_span: [600, 2607]
     sentence_count: 21
     key_terms: ["i'm", experience, young, back, "it's", pto, year, management]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c2"
-    char_span: [2358, 4374]
+    char_span: [2357, 4373]
     sentence_count: 15
     key_terms: [retirement, years, father-in-law, get, experience, position, factory, forced]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c3"
-    char_span: [4165, 4467]
+    char_span: [4164, 4466]
     sentence_count: 3
     key_terms: [upset-concentrate386, luck, everything, believe, control, correct, deleted, imagine]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c4"
-    char_span: [4469, 6269]
+    char_span: [4468, 6268]
     sentence_count: 9
     key_terms: [years, got, job, jobs, savings, get, believe, without]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c5"
-    char_span: [6049, 6282]
+    char_span: [6048, 6281]
     sentence_count: 2
     key_terms: [ok-inspector9397, congressguy12, applications, indicative, interviews, anecdotes, congrats, ghosting]
     section: Comments
     token_count: 69
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c6"
-    char_span: [6284, 8497]
+    char_span: [6283, 8496]
     sentence_count: 12
     key_terms: [people, unemployment, great, news, too, unemployed, different, remaining]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c7"
-    char_span: [8499, 9473]
+    char_span: [8498, 9472]
     sentence_count: 12
     key_terms: [car, couple, single, equivalent-durian-79, got, "i'm", zero, ok-inspector9397]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c8"
-    char_span: [9475, 11401]
+    char_span: [9474, 11400]
     sentence_count: 16
     key_terms: [balance, interviews, ceo, work, whine, bad, life, understand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c9"
-    char_span: [11181, 12624]
+    char_span: [11180, 12623]
     sentence_count: 10
     key_terms: [interviews, interviewed, ask, work, important, balance, culture, being]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c10"
-    char_span: [12626, 14644]
+    char_span: [12625, 14643]
     sentence_count: 18
     key_terms: [market, qualified, overqualified, transferable, been, "i'm", job, jobs]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c11"
-    char_span: [14646, 16641]
+    char_span: [14645, 16640]
     sentence_count: 12
     key_terms: [jobs, interviews, per, applications, apply, alignment, "it's", job]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/jobs/1m7c7nn.md#c12"
-    char_span: [16643, 17727]
+    char_span: [16642, 17726]
     sentence_count: 10
     key_terms: [good, percent, doing, story, data, help, job, past]
     section: Comments

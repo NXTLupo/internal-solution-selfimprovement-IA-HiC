@@ -23,7 +23,7 @@ chunks:
     key_terms: [resilience, application, applyingtocollege, essays, "i'm", comments, college, psychologicalcall426]
     token_count: 211
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p8barn.md#c1"
-    char_span: [1050, 2773]
+    char_span: [1049, 2772]
     sentence_count: 18
     key_terms: [resilience, struggles, "i'm", application, got, specific, context, through]
     section: Comments

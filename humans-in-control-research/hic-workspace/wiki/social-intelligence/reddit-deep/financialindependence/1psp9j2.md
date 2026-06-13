@@ -43,55 +43,55 @@ chunks:
     key_terms: [cash, sell, btc, year, enough, years, time, number]
     token_count: 423
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c5"
-    char_span: [10138, 11308]
+    char_span: [10137, 11307]
     sentence_count: 5
     key_terms: [year, stock, yield, did, job, working, crypto, bond]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c6"
-    char_span: [11311, 13087]
+    char_span: [11310, 13086]
     sentence_count: 13
     key_terms: [year, gains, capital, btc, subtract, federal, limit, "i'm"]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c7"
-    char_span: [13089, 14982]
+    char_span: [13088, 14981]
     sentence_count: 11
     key_terms: [btc, crypto, basis, cost, plan, sell, year, "wouldn't"]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c8"
-    char_span: [14985, 16601]
+    char_span: [14984, 16600]
     sentence_count: 12
     key_terms: [delicious-plastic-44, btc, "i'm", sell, playing, crypto, though, bonds]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c9"
-    char_span: [16603, 17957]
+    char_span: [16602, 17956]
     sentence_count: 7
     key_terms: [gains, sell, tax, year, years, "i'm", advisable, creating]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c10"
-    char_span: [17959, 19862]
+    char_span: [17958, 19861]
     sentence_count: 13
     key_terms: [bitcoin, henfruiteater, advice, overexposed, btc, cash, year, bitcoinmd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c11"
-    char_span: [19629, 20260]
+    char_span: [19628, 20259]
     sentence_count: 3
     key_terms: [btc, cash, "i'm", run, sell, year, outrageous, continue]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c12"
-    char_span: [20262, 22125]
+    char_span: [20261, 22124]
     sentence_count: 19
     key_terms: [property, house, insurance, utilities, like, expenses, car, paid]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/financialindependence/1psp9j2.md#c13"
-    char_span: [22127, 23976]
+    char_span: [22126, 23975]
     sentence_count: 9
     key_terms: [year, insurance, half, budget, eventually, unexpected, continue, coverage]
     section: Comments

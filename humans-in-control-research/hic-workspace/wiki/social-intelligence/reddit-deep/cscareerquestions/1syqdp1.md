@@ -28,7 +28,7 @@ chunks:
     key_terms: [development, whether, career, trying, role, cybersecurity, engineering, feasibility]
     token_count: 142
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqdp1.md#c2"
-    char_span: [3126, 4982]
+    char_span: [3125, 4981]
     sentence_count: 16
     key_terms: [job, because, direction, sometimes, technical, whatever, support, people]
     section: Comments

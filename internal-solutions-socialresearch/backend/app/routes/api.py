@@ -6,7 +6,15 @@ from .api_user import user_bp
 from .api_pgvector import rag_bp
 from .api_reddit import reddit_bp
 from .api_reddit_proxy import reddit_proxy_bp
-from .api_sentiment import sentiment_bp
+# 2026-06-11 - api_sentiment.py never landed in this branch; a hard import
+# crashed every worker at boot (ModuleNotFoundError), which took down the
+# whole backend INCLUDING /api/embed - the HiC proxy's default embedding
+# provider. Guarded so a missing optional blueprint degrades that one route
+# instead of killing the service.
+try:
+    from .api_sentiment import sentiment_bp
+except ImportError:
+    sentiment_bp = None
 from .api_embed import embed_bp
 
 
@@ -36,7 +44,8 @@ api_bp.register_blueprint(reddit_bp, url_prefix='/reddit')
 api_bp.register_blueprint(reddit_proxy_bp, url_prefix='/reddit-proxy')
 
 # Register the RoBERTa sentiment-scoring blueprint (shared with HiC proxy)
-api_bp.register_blueprint(sentiment_bp, url_prefix='/sentiment')
+if sentiment_bp is not None:
+    api_bp.register_blueprint(sentiment_bp, url_prefix='/sentiment')
 
 # Register the local sentence-transformer embedding blueprint (shared with HiC
 # proxy) — a quota-free embedding provider so research runs never starve on

@@ -23,37 +23,37 @@ chunks:
     key_terms: [applyingtocollege, students, people, marketing, comments, because, college, medical]
     token_count: 197
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n5wsao.md#c1"
-    char_span: [923, 1504]
+    char_span: [922, 1503]
     sentence_count: 5
     key_terms: [parents, necessarily, connected, "doesn't", husband, gen, mean, too]
     section: Comments
     token_count: 146
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n5wsao.md#c2"
-    char_span: [1506, 3553]
+    char_span: [1505, 3552]
     sentence_count: 8
     key_terms: [get, parents, kids, because, "don't", educated, thinking, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n5wsao.md#c3"
-    char_span: [3337, 4710]
+    char_span: [3336, 4709]
     sentence_count: 5
     key_terms: [school, students, because, college, "don't", like, "there's", having]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n5wsao.md#c4"
-    char_span: [4712, 5386]
+    char_span: [4711, 5385]
     sentence_count: 3
     key_terms: [gen, income, applicant, students, because, "aren't", low, accomplishments]
     section: Comments
     token_count: 147
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n5wsao.md#c5"
-    char_span: [5388, 7679]
+    char_span: [5387, 7678]
     sentence_count: 13
     key_terms: [college, income, resources, gen, low, challenges, fairness, medicine]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n5wsao.md#c6"
-    char_span: [7370, 9220]
+    char_span: [7369, 9219]
     sentence_count: 11
     key_terms: [like, parents, deleted, disadvantage, peers, gen, admissions, because]
     section: Comments

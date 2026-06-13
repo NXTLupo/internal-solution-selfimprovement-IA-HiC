@@ -23,31 +23,31 @@ chunks:
     key_terms: [careerguidance, comments, computer, pursuing, science, given, opportunities, astrophysics]
     token_count: 239
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c1"
-    char_span: [1013, 2668]
+    char_span: [1012, 2667]
     sentence_count: 13
     key_terms: [tech, people, industry, process, through, weeding, anyone, suitablesherbert6127]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c2"
-    char_span: [2670, 4799]
+    char_span: [2669, 4798]
     sentence_count: 14
     key_terms: [everyone, time, years, long, different, else, wanted, doing]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c3"
-    char_span: [4802, 6908]
+    char_span: [4801, 6907]
     sentence_count: 12
     key_terms: [doing, good, tech, "don't", programming, pp-doo-doo, companies, computer]
     section: Comments
     token_count: 516
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c4"
-    char_span: [6910, 9000]
+    char_span: [6909, 8999]
     sentence_count: 16
     key_terms: [glittering-duck-634, better, future, tech, want, direction, industry, probably]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/careerguidance/1nrtvin.md#c5"
-    char_span: [9002, 9598]
+    char_span: [9001, 9597]
     sentence_count: 5
     key_terms: [good, because, "doesn't", career, personality, absolutely, management, reasonable]
     section: Comments

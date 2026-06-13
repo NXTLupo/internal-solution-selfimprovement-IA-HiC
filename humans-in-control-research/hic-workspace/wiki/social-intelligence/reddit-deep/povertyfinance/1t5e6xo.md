@@ -23,37 +23,37 @@ chunks:
     key_terms: [assistance, povertyfinance, income, government, household, comments, programs, because]
     token_count: 309
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c1"
-    char_span: [1403, 2725]
+    char_span: [1402, 2724]
     sentence_count: 7
     key_terms: [disability, household, programs, income, cash, don, get, home]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c2"
-    char_span: [2727, 3927]
+    char_span: [2726, 3926]
     sentence_count: 6
     key_terms: [banks, services, food, household, resources, benefits, without, sure]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c3"
-    char_span: [3930, 6008]
+    char_span: [3929, 6007]
     sentence_count: 18
     key_terms: [food, benefits, prepares, security, social, look, own, disability]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c4"
-    char_span: [5777, 6029]
+    char_span: [5776, 6028]
     sentence_count: 2
     key_terms: [disability, retirement, available, remarried, benefits, uddin370, veterans, "wouldn't"]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c5"
-    char_span: [6031, 8129]
+    char_span: [6030, 8128]
     sentence_count: 16
     key_terms: [food, work, retirement, own, beautiful, age, big, get]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/povertyfinance/1t5e6xo.md#c6"
-    char_span: [8131, 9236]
+    char_span: [8130, 9235]
     sentence_count: 8
     key_terms: [virginia, abbreviationsnew5220, help, medicaid, though, worker, lumpy-entertainer-75, going]
     section: Comments

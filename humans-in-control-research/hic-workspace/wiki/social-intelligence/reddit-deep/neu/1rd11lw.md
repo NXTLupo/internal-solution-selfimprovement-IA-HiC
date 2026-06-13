@@ -23,7 +23,7 @@ chunks:
     key_terms: [northeastern, comments, college, advice, neu, scholarships, engineering, experiences]
     token_count: 122
   - id: "social-intelligence/reddit-deep/neu/1rd11lw.md#c1"
-    char_span: [516, 1409]
+    char_span: [515, 1408]
     sentence_count: 6
     key_terms: [northeastern, get, "i'm", money, worldly-muscle1408, got, congratulations, accommodation]
     section: Comments

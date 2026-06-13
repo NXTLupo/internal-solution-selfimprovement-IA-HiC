@@ -28,25 +28,25 @@ chunks:
     key_terms: [amodei, anthropic-hiring-vs-ai-replacement, dario, ceo, feb, jan, anthropic, engineer]
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c2"
-    char_span: [2137, 4270]
+    char_span: [2136, 4269]
     sentence_count: 13
     key_terms: [fundamental, models, limitations, chatgpt, https, frenchfreer, information, com]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c3"
-    char_span: [4272, 6328]
+    char_span: [4271, 6327]
     sentence_count: 13
     key_terms: [new, need, use, executives, probably, product, saying, "don't"]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c4"
-    char_span: [6330, 7774]
+    char_span: [6329, 7773]
     sentence_count: 8
     key_terms: [claude, communication, code, tech, believe, company, status, being]
     section: Comments
     token_count: 353
   - id: "social-intelligence/reddit-deep/cscareerquestions/1refayi.md#c5"
-    char_span: [7776, 8899]
+    char_span: [7775, 8898]
     sentence_count: 2
     key_terms: [startup, u4fhrvs8if9tandyp, dolphinsfan15521, intensification, intensifies, themselves, available, companies]
     section: Comments

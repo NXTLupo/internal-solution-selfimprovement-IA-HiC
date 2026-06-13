@@ -15,17 +15,17 @@ industries: [financial_services, retail]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/a3f4fc94aa.md#c0"
-    char_span: [0, 2237]
+    char_span: [0, 2236]
     sentence_count: 25
     key_terms: [credit, payments, like, because, online, looks, feel, half]
-    token_count: 493
+    token_count: 492
   - id: "articles/reddit-deep-r-genz/a3f4fc94aa.md#c1"
-    char_span: [2239, 4260]
+    char_span: [2238, 4259]
     sentence_count: 13
     key_terms: [people, parents, social, media, important, article, because, boomers]
     token_count: 462
   - id: "articles/reddit-deep-r-genz/a3f4fc94aa.md#c2"
-    char_span: [4262, 5358]
+    char_span: [4261, 5357]
     sentence_count: 6
     key_terms: [checking, buttons, savings, "you're", "i'm", entertainment, emergencies, exceptions]
     token_count: 248

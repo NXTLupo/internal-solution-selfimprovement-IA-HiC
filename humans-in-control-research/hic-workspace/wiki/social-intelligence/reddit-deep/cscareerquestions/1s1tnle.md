@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s1tnle/is_computer_science_really_that_good_of_a_market/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,61 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.634Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c0"
+    char_span: [0, 1111]
+    sentence_count: 9
+    key_terms: [cscareerquestions, computer, science, future, comments, studying, waiting, around]
+    token_count: 254
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c1"
+    char_span: [1126, 2852]
+    sentence_count: 13
+    key_terms: [years, experience, "there's", having, single, engineering, ago, been]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c2"
+    char_span: [2854, 3956]
+    sentence_count: 4
+    key_terms: [https, job, college-labor-market, failedgradadmissions, right, outcomes-by-major, able, ago]
+    section: Comments
+    token_count: 288
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c3"
+    char_span: [3958, 5724]
+    sentence_count: 13
+    key_terms: [interviews, "i'm", get, job, time, recruiters, because, juniors]
+    section: Comments
+    token_count: 447
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c4"
+    char_span: [5726, 8093]
+    sentence_count: 12
+    key_terms: [deliberate, practice, people, skills, great, programming, time, passionate]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c5"
+    char_span: [8095, 10460]
+    sentence_count: 19
+    key_terms: [field, find, get, "you're", "don't", engineering, "i'm", like]
+    section: Comments
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c6"
+    char_span: [10462, 12606]
+    sentence_count: 21
+    key_terms: [year, people, job, last, college, country, like, love]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c7"
+    char_span: [12608, 14225]
+    sentence_count: 12
+    key_terms: [job, people, study, comp, get, sci, better, degree]
+    section: Comments
+    token_count: 374
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s1tnle.md#c8"
+    char_span: [14227, 14892]
+    sentence_count: 4
+    key_terms: [pressureavailable615, devs, end, integration, components, full-stack, companies, expertise]
+    section: Comments
+    token_count: 154
 ---
-
 # Is computer science really that good of a market from 2026 onwards?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s1tnle/is_computer_science_really_that_good_of_a_market/)

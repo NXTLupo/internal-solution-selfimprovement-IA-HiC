@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1smehuz.md#c0"
-    char_span: [0, 1063]
+    char_span: [0, 1062]
     sentence_count: 8
     key_terms: [campus, northeastern, engineering, boston, "i'm", oakland, university, comments]
-    token_count: 236
+    token_count: 235
 ---
 # Need Help Deciding Colleges
 

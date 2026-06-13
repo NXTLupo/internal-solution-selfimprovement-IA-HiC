@@ -7,15 +7,14 @@ subreddit: "financialindependence"
 title: "The Slow Path to Wealth Was Quicker Than Advertised"
 author: "ToSeTa256"
 date: "2025-07-07T13:34:49.000Z"
-score: 573
+score: 569
 upvote_ratio: 0.92
 num_comments: 109
 flair: ""
-extracted_at: "2026-05-16T20:55:12.704Z"
+extracted_at: "2026-06-09T03:57:17.082Z"
 extraction_method: "praw-deep"
-research_goal: "Produce a definitive whitepaper on GenZ's financial behaviors, analyzing recent trends in investing, money management, and spending habits, influenced by finance, government, social, and economic data."
-industries: [cross_industry]
-industry_method: unclassified
+research_goal: "Trends in alumni giving and donor retention for universities"
+engagement: "trends-in-alumni-giving-and-donor-retention-for-universities"
 chunks:
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c0"
     char_span: [0, 2163]
@@ -38,49 +37,49 @@ chunks:
     key_terms: [fantastic, happiness, journey, reading, wishing, thanks, wealth, ytd]
     token_count: 275
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c4"
-    char_span: [5751, 7112]
+    char_span: [5750, 7111]
     sentence_count: 1
     key_terms: [wealth, net, user-no-relation, household, change, income, age, beg]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c5"
-    char_span: [6959, 7732]
+    char_span: [6958, 7731]
     sentence_count: 5
     key_terms: [appreciation, andstuff233, assuming, executed, kwizzles, history, savings, across]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c6"
-    char_span: [7734, 9360]
+    char_span: [7733, 9359]
     sentence_count: 14
     key_terms: [japan, work, daycare, tokyo, free, like, wife, prefecture]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c7"
-    char_span: [9362, 11231]
+    char_span: [9361, 11231]
     sentence_count: 12
     key_terms: [income, "that's", tokyo, toseta256, savings, pretty, child, early]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c8"
-    char_span: [10960, 12344]
+    char_span: [10960, 12343]
     sentence_count: 7
     key_terms: ["that's", income, household, nonprofit, japanese, median, triple, early]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c9"
-    char_span: [12346, 14629]
+    char_span: [12345, 14628]
     sentence_count: 15
     key_terms: [friends, social, japanese, life, "you'll", people, years, been]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c10"
-    char_span: [14631, 16583]
+    char_span: [14630, 16582]
     sentence_count: 15
     key_terms: [quick, toseta256, expectations, japan, life, work, discipline, understand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1ltubkc.md#c11"
-    char_span: [16326, 17022]
+    char_span: [16325, 17021]
     sentence_count: 8
     key_terms: [japan, invested, "i'm", usa, combination, investments, percentages, everything]
     section: Comments
@@ -89,7 +88,7 @@ chunks:
 # The Slow Path to Wealth Was Quicker Than Advertised
 
 Source: [reddit-deep: r/financialindependence](https://www.reddit.com/r/financialindependence/comments/1ltubkc/the_slow_path_to_wealth_was_quicker_than/)
-Posted by **ToSeTa256** · **573↑** · **109 comments**
+Posted by **ToSeTa256** · **569↑** · **109 comments**
 
 I've been tracking my finances since before I graduated college. I'm now 37 years old and have over 15 years of data on this path. We’re currently sitting at a net wealth of $1.6m, with 99% of that in low-cost index funds spread between Roth IRAs, 401ks, and taxable brokerage accounts.
 
@@ -162,7 +161,7 @@ Thanks for reading. Wishing you all a fantastic journey to wealth and happiness.
 
 ## Comments
 
-- **User-no-relation** (488↑): | Year    | Age | Household Income | Beg Net Wealth | End Net Wealth | Change in NW |
+- **User-no-relation** (494↑): | Year    | Age | Household Income | Beg Net Wealth | End Net Wealth | Change in NW |
 |---------|-----|------------------|----------------|----------------|--------------|
 | 2009    | 21  | $31,222          | ($20,000)      | ($5,000)       | $15,000      |
 | 2010    | 22  | $61,702          | ($5,000)       | $46,500        | $51,500      |
@@ -181,41 +180,41 @@ Thanks for reading. Wishing you all a fantastic journey to wealth and happiness.
 | 2023    | 35  | $207,133         | $971,466       | $1,304,061     | $332,596     |
 | 2024    | 36  | $165,130         | $1,304,061     | $1,552,619     | $248,557     |
 | 2025 YTD| 37  | $85,450          | $1,552,619     | $1,647,636     | $95,017      |
-  - **andstuff233** (82↑): Nicely done. Love all the data to show actual history. Thanks. And you worked the plan with a hope it might work, and it sure did. Well executed.
-  - **kwizzles** (25↑): **tried** to chart it (approx .savings (and then asset appreciation) by assuming saving rate of 65% across _all_ years)
+  - **andstuff233** (86↑): Nicely done. Love all the data to show actual history. Thanks. And you worked the plan with a hope it might work, and it sure did. Well executed.
+  - **kwizzles** (24↑): **tried** to chart it (approx .savings (and then asset appreciation) by assuming saving rate of 65% across _all_ years)
 
 https://i.imgur.com/h4vmbYe.png
   - **mancala33** (2↑): Your a champ
   - **Toastbuns** (1↑): 🙏
-- **bobsonreddit99** (53↑): Can I ask what you do in the tourism industry? It seems like I would be very similar to you and perhaps it's a route I ought to consider!
-  - **realitythreek** (57↑): It sounds like his wife might be the primary earner.
+- **bobsonreddit99** (51↑): Can I ask what you do in the tourism industry? It seems like I would be very similar to you and perhaps it's a route I ought to consider!
+  - **realitythreek** (56↑): It sounds like his wife might be the primary earner.
   - **ToSeTa256** (96↑): I work as a tour guide. In a busy year (when I'm taking full-time work), I can earn $50-$60k. As the other poster mentioned, my wife is the primary earner, though. I currently work part-time and take care of most of the home stuff and everything that comes along with having three young kids.
     - **mikeyousowhite** (7↑): Do you guide in japan? I used to do the same! But in central and south America. Such a fun career. How do you like living in japan full-time, has it been difficult to assimilate
     - **Shin_curry** (2↑): Great job, I also keep a similar table. But one thing I think others may be missing is that your wife’s and household total income puts you at top 1% or top 0.5% income percentile of Japan (per AI).
-- **one_rainy_wish** (44↑): Whoa, Japan has free daycare AND healthcare?  Or is that from work benefits?
-  - **ToSeTa256** (118↑): I should clarify that this is Tokyo, and that various regions of Japan have different benefits. Tokyo is the wealthiest prefecture but with the lowest birth rate, so the prefecture is pumping in lots of money to try to get people to have kids. 
+- **one_rainy_wish** (45↑): Whoa, Japan has free daycare AND healthcare?  Or is that from work benefits?
+  - **ToSeTa256** (121↑): I should clarify that this is Tokyo, and that various regions of Japan have different benefits. Tokyo is the wealthiest prefecture but with the lowest birth rate, so the prefecture is pumping in lots of money to try to get people to have kids. 
 
 In Tokyo, once your first child reaches 3 years old, daycare/preschool is free. For your second and each child after, daycare is free from the beginning.
 
 In Tokyo, childrens' healthcare is 100% covered until the age of 16. In all of Japan, adults pay 30% of the actual cost of the medical care, which is usually like $15 for a doctor visit, $5 for standard medicines, $10 for X-rays, etc.
-    - **Devilsbabe** (47↑): FYI that child care will be unconditionally free in Tokyo[ starting from September this year](https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka). Nice to see someone else on the FIRE path in Japan; these are rare posts :)
-    - **one_rainy_wish** (22↑): That is FREAKING AWESOME.  I love it!
+    - **Devilsbabe** (48↑): FYI that child care will be unconditionally free in Tokyo[ starting from September this year](https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka). Nice to see someone else on the FIRE path in Japan; these are rare posts :)
+    - **one_rainy_wish** (25↑): That is FREAKING AWESOME.  I love it!
     - **khanoftruthfi** (3↑): Was it hard to get visas? I would love to move to JP, seems like a larger visa hurdle compared to many countries.
     - **TheSoprano** (2↑): This is great. Whats the income / wealth tax structure there? It’s clearly had minimal impact on your fire journey.  Possibly the opposite.  Weighing going for a third child and the prospect of 7k month for childcare
-- **Shoddy_Ad7511** (224↑): I mean if you make $120-$200k and have a savings rate of 70% you will get there pretty fast. For most their income is smaller and savings rate lower.
-  - **[deleted]** (95↑): Upper middle class income and out of control market returns are the true American dream.
-    - **ToSeTa256** (26↑): I'm not sure if you're being sarcastic, but yes, that's pretty much it.
-    - **IrishMosaic** (8↑): The time value of money is real and powerful, and time goes extremely quickly.
-  - **marcus206_** (89↑): Still takes discipline and intentionality
-    - **Shoddy_Ad7511** (17↑): Absolutely
-  - **ToSeTa256** (35↑): I completely agree. That's why I believe we were incredibly lucky to be put into the right situation, including early mentors to teach us about personal finance. Of course, when I was in my early 20s, I couldn't have imagined to be in this position at the age of 37, so that's why it feels too quick to be real.
-    - **Shoddy_Ad7511** (6↑): Congratulation. Great job
-  - **mushykindofbrick** (11↑): Yeah that's what I thought if you earn 200k naturally it's quick in most countries that's not even possible
-    - **evantom34** (17↑): In the US, that income is fairly attainable for many FIRE minded couples.
+- **Shoddy_Ad7511** (219↑): I mean if you make $120-$200k and have a savings rate of 70% you will get there pretty fast. For most their income is smaller and savings rate lower.
+  - **[deleted]** (94↑): Upper middle class income and out of control market returns are the true American dream.
+    - **ToSeTa256** (27↑): I'm not sure if you're being sarcastic, but yes, that's pretty much it.
+    - **IrishMosaic** (10↑): The time value of money is real and powerful, and time goes extremely quickly.
+  - **marcus206_** (87↑): Still takes discipline and intentionality
+    - **Shoddy_Ad7511** (18↑): Absolutely
+  - **ToSeTa256** (37↑): I completely agree. That's why I believe we were incredibly lucky to be put into the right situation, including early mentors to teach us about personal finance. Of course, when I was in my early 20s, I couldn't have imagined to be in this position at the age of 37, so that's why it feels too quick to be real.
+    - **Shoddy_Ad7511** (8↑): Congratulation. Great job
+  - **mushykindofbrick** (9↑): Yeah that's what I thought if you earn 200k naturally it's quick in most countries that's not even possible
+    - **evantom34** (18↑): In the US, that income is fairly attainable for many FIRE minded couples.
   - **nahmanidk** (-9↑): Frankly I’m shocked that making triple the median household income results in a higher net worth than the median household income would in the same timeframe
 - **Cute-Emu-8516** (13↑): What does your wife do that she was able to triple her earnings?
-  - **ToSeTa256** (14↑): She was in a non-profit organization but went into the corporate world.
-    - **Modo_Autorator** (6↑): As someone pondering a similar switch, what was her role in nonprofit, and how did she make the transition? I’m trying to crack into the private sector and it seems most roles want really deep, really narrow experience. Whereas nonprofit is kind of the opposite.
+  - **ToSeTa256** (12↑): She was in a non-profit organization but went into the corporate world.
+    - **Modo_Autorator** (5↑): As someone pondering a similar switch, what was her role in nonprofit, and how did she make the transition? I’m trying to crack into the private sector and it seems most roles want really deep, really narrow experience. Whereas nonprofit is kind of the opposite.
 - **z3r0demize** (12↑): Are you or your wife Japanese? How good is your japanese and what's your social life like there? 
 
 We've been discussing moving there at some point while the kids are young to experience it for a few years, but haven't pulled the trigger yet. We may revisit the decision once we're at our FIRE # in the next 3-4 years.
@@ -231,10 +230,10 @@ As the other poster mentioned, many things will be difficult. Making real friend
 
 You've given yourself a ton of options for where you want your life to go. Congrats!!
   - **ToSeTa256** (5↑): That's really cool. Congratulations to you, as well. If you're somewhere around $1.5m as an individual, you're rocking it.
-- **marcus206_** (3↑): This is sweet!!
-- **Ok-Psychology7619** (51↑): 16 years of hard work and discipline, doesn't seem like "quick" to me
-  - **more_d_than_the_m** (83↑): 'Quick' is relative. Most people would consider a retirement at 50 to be "early"; OP could do it at 40 if he wanted to. The vast majority of people work decades longer than OP and have a lot less to show for it; why be a downer?
-  - **thewhiteliamneeson** (30↑): I think it’s pretty quick in the sense that it took a little over one third of the average person’s working life. Kudos to OP for the discipline. And also for staying humble and acknowledging how much luck was a factor; the historic run-up in equities over this time period has been life changing for so many of us.
+- **marcus206_** (4↑): This is sweet!!
+- **Ok-Psychology7619** (53↑): 16 years of hard work and discipline, doesn't seem like "quick" to me
+  - **more_d_than_the_m** (81↑): 'Quick' is relative. Most people would consider a retirement at 50 to be "early"; OP could do it at 40 if he wanted to. The vast majority of people work decades longer than OP and have a lot less to show for it; why be a downer?
+  - **thewhiteliamneeson** (31↑): I think it’s pretty quick in the sense that it took a little over one third of the average person’s working life. Kudos to OP for the discipline. And also for staying humble and acknowledging how much luck was a factor; the historic run-up in equities over this time period has been life changing for so many of us.
   - **porkchop487** (24↑): Being FIRE at age 37 is absolutely quick. He already has enough to cover his annual spend with the 4% rule
   - **ToSeTa256** (26↑): As you say, "quick" is based on your expectations. If you live in this subreddit, quick would probably mean having $1.6m by the age of 30. But factor in that I took of 3-4 years of work in my 20s to travel and that I switched into a lower paying career, my expectations have been blown away. Like I wrote, the key factors to getting here were my wife switching into a higher paid career and prolonged index fund investing with fantastic long-term returns. I understand how we got here, but it all seemed too quick and easy.
 - **he_calls_me_bee** (3↑): This is great! i just want to understand that now you moved to Japan did you move your investments to Japan or are still invested in US?  

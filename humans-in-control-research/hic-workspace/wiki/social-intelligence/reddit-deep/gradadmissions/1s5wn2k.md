@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, suicidalaatma, reddit-deep, posted, reddit, source, https]
     token_count: 69
   - id: "social-intelligence/reddit-deep/gradadmissions/1s5wn2k.md#c1"
-    char_span: [225, 964]
+    char_span: [224, 963]
     sentence_count: 6
     key_terms: [congratulations, congrats, waiting, intelligent-tower853, professional-tip8998, veterinarianok3539, far-discount7046, sad-extreme-5762]
     section: Comments

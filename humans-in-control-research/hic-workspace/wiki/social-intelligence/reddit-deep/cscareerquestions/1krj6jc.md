@@ -23,109 +23,109 @@ chunks:
     key_terms: [silicon-valley-white-collar-recession-entry-level, cscareerquestions, https, com, sfstandard, comments, article, entry-level]
     token_count: 176
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c1"
-    char_span: [693, 2899]
+    char_span: [692, 2898]
     sentence_count: 20
     key_terms: [like, better, level, companies, new, schools, market, "can't"]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c2"
-    char_span: [2901, 4865]
+    char_span: [2900, 4864]
     sentence_count: 16
     key_terms: [university, people, someone, choice, different, organization, hire, job]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c3"
-    char_span: [4867, 6939]
+    char_span: [4866, 6938]
     sentence_count: 13
     key_terms: [people, "they're", fairly, unions, swe, companies, extremely, generally]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c4"
-    char_span: [6941, 9090]
+    char_span: [6940, 9089]
     sentence_count: 15
     key_terms: [something, like, tech, companies, seventies, billions, eighties, because]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c5"
-    char_span: [9092, 11089]
+    char_span: [9091, 11088]
     sentence_count: 16
     key_terms: [licensure, tech, engineering, get, companies, different, employers, industry]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c6"
-    char_span: [11091, 13167]
+    char_span: [11090, 13166]
     sentence_count: 15
     key_terms: [college, companies, problem, people, globalization, outsourcing, retirements, graduate]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c7"
-    char_span: [13169, 15146]
+    char_span: [13168, 15145]
     sentence_count: 15
     key_terms: [countries, college, degree, china, graduate, being, something, devalued]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c8"
-    char_span: [15148, 17247]
+    char_span: [15147, 17246]
     sentence_count: 17
     key_terms: [nobility, people, college, school, society, been, government, everyone]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c9"
-    char_span: [17249, 19236]
+    char_span: [17248, 19235]
     sentence_count: 17
     key_terms: [college-majors-with-the-best-and-worst-employment-prospects, particularly, unemployment, underemployment, major, struggling, graduates, college]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c10"
-    char_span: [19238, 20469]
+    char_span: [19237, 20468]
     sentence_count: 9
     key_terms: [juniors, seniors, companies, "there's", societies, becoming, either, money]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c11"
-    char_span: [20471, 22447]
+    char_span: [20470, 22446]
     sentence_count: 13
     key_terms: [demand, supply, curve, money, "it's", job, ventures, already]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c12"
-    char_span: [22449, 23834]
+    char_span: [22448, 23833]
     sentence_count: 13
     key_terms: [field, college-majors-with-the-lowest-unemployment-rates-report, major, degree, "don't", month, stem, another]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c13"
-    char_span: [23836, 25790]
+    char_span: [23835, 25789]
     sentence_count: 14
     key_terms: [people, major, been, job, selecting, sciences, comment, majors]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c14"
-    char_span: [25793, 27845]
+    char_span: [25792, 27844]
     sentence_count: 15
     key_terms: [because, posted, here, ridiculous, probably, article, mistake, market]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c15"
-    char_span: [27847, 29848]
+    char_span: [27846, 29847]
     sentence_count: 18
     key_terms: [recruiters, positions, job, making, years, been, don, real]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c16"
-    char_span: [29850, 31097]
+    char_span: [29849, 31096]
     sentence_count: 12
     key_terms: [chiropractor, being, got, experience, multiple, getting, "you're", money]
     section: Comments
     token_count: 301
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c17"
-    char_span: [31099, 33312]
+    char_span: [31098, 33311]
     sentence_count: 16
     key_terms: [market, hiring, years, jobs, new, industry, software, because]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1krj6jc.md#c18"
-    char_span: [33314, 34672]
+    char_span: [33313, 34671]
     sentence_count: 11
     key_terms: [number-of-it-workers-has-increased-tenfold-since-1970-census-bureau-reports-300314342, jobs, rethinkingat59, became, like, cycles, market, illustrious-pound266]
     section: Comments

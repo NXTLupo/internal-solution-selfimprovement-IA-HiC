@@ -23,13 +23,13 @@ chunks:
     key_terms: [cscareerquestions, internship, comments, nothing, advice, get, job, urbana-champaign]
     token_count: 213
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c1"
-    char_span: [891, 1931]
+    char_span: [890, 1930]
     sentence_count: 7
     key_terms: [lcywcnrh8okrf36sgo8h, explain, don, projects, courses, sharing, bullet, google]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l7iir0.md#c2"
-    char_span: [1933, 3326]
+    char_span: [1932, 3325]
     sentence_count: 7
     key_terms: [school, uiuc, companies, resources, linkedin, projects, network, resume]
     section: Comments

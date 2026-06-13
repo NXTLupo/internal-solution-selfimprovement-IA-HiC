@@ -23,43 +23,43 @@ chunks:
     key_terms: [ai-boiling-frog-cognition-study, people, https, cognitive, minutes, effect, performance, researchers]
     token_count: 470
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c1"
-    char_span: [1901, 3271]
+    char_span: [1900, 3270]
     sentence_count: 7
     key_terms: [because, study, interesting, experiment, motivation, available, internet, probably]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c2"
-    char_span: [3273, 5112]
+    char_span: [3272, 5111]
     sentence_count: 15
     key_terms: [motivation, dependant, "it's", minutes, better, obliterated, get, gps]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c3"
-    char_span: [5114, 7210]
+    char_span: [5113, 7209]
     sentence_count: 13
     key_terms: [motivation, backhoe, effect, study, hole, "it's", tool, minutes]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c4"
-    char_span: [7212, 9256]
+    char_span: [7211, 9255]
     sentence_count: 10
     key_terms: [reading, study, experiments, work, original, effects, forward, lowered]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c5"
-    char_span: [9258, 11426]
+    char_span: [9257, 11425]
     sentence_count: 15
     key_terms: [work, higher, level, calculator, minutes, productivity, engagement, cognitive]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c6"
-    char_span: [11428, 13490]
+    char_span: [11427, 13489]
     sentence_count: 17
     key_terms: [offloaded, civil-interaction-76, thinking, direction, process, without, people, never]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/artificial/1sqcz1m.md#c7"
-    char_span: [13492, 13837]
+    char_span: [13491, 13836]
     sentence_count: 3
     key_terms: [gamers, build, synthesize, underlying, understand, bothering, insights, extends]
     section: Comments

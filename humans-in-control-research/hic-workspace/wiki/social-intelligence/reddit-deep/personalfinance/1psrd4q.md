@@ -23,61 +23,61 @@ chunks:
     key_terms: [debt, currently, personalfinance, savings, financial, comments, vehicle, working]
     token_count: 339
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c1"
-    char_span: [1395, 3495]
+    char_span: [1394, 3494]
     sentence_count: 19
     key_terms: [personalfinance, debt, life, need, insurance, subreddit, bailouts, memories]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c2"
-    char_span: [3497, 5592]
+    char_span: [3496, 5591]
     sentence_count: 14
     key_terms: [needs, time, finances, years, gone, problem, someone, therapy]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c3"
-    char_span: [5594, 7723]
+    char_span: [5593, 7722]
     sentence_count: 14
     key_terms: [debt, money, pay, memories, great, life, perhaps, student]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c4"
-    char_span: [7725, 9658]
+    char_span: [7724, 9657]
     sentence_count: 24
     key_terms: [trust, life, pay, estate, spendthrift, bankruptcy, hopefully, planning]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c5"
-    char_span: [9660, 11612]
+    char_span: [9659, 11611]
     sentence_count: 15
     key_terms: [money, years, left, absolutely, because, "there's", without, change]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c6"
-    char_span: [11614, 13043]
+    char_span: [11613, 13042]
     sentence_count: 15
     key_terms: [memories, time, accumulate, diagnosis, traveling, cancer, great, happy]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c7"
-    char_span: [13045, 13699]
+    char_span: [13044, 13698]
     sentence_count: 5
     key_terms: [want, mortgage, lonely-somewhere-385, fear, life, like, live, bernedtendies]
     section: Comments
     token_count: 177
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c8"
-    char_span: [13701, 15655]
+    char_span: [13700, 15654]
     sentence_count: 16
     key_terms: [get, house, someone, "she'll", able, wife, something, mortgage]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c9"
-    char_span: [15657, 16982]
+    char_span: [15656, 16981]
     sentence_count: 10
     key_terms: [prognosis, divorce, doctors, working, cancer, travel, weeks, "i'd"]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/personalfinance/1psrd4q.md#c10"
-    char_span: [16986, 18272]
+    char_span: [16985, 18271]
     sentence_count: 12
     key_terms: [stage, years, different, though, life, insurance, situation, doctors]
     section: Comments

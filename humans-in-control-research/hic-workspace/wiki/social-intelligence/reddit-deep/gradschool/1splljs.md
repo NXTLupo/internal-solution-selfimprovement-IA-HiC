@@ -23,7 +23,7 @@ chunks:
     key_terms: [necessities, pay, rent, gradschool, comments, school, did, grad]
     token_count: 108
   - id: "social-intelligence/reddit-deep/gradschool/1splljs.md#c1"
-    char_span: [436, 1914]
+    char_span: [435, 1913]
     sentence_count: 8
     key_terms: [worked, loans, campus, time, program, student, working, unlikelyrainstorm]
     section: Comments

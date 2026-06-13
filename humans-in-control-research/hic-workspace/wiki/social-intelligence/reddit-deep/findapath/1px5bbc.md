@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1px5bbc.md
 url: "https://www.reddit.com/r/findapath/comments/1px5bbc/anyone_else_realize_way_too_late_that_they_had/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,77 @@ flair: "Findapath-Mindset Adjustment"
 extracted_at: "2026-06-06T23:22:15.451Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c0"
+    char_span: [0, 1929]
+    sentence_count: 26
+    key_terms: [never, did, get, good, use, advantages, findapath, comments]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c1"
+    char_span: [1931, 4128]
+    sentence_count: 34
+    key_terms: [never, job, because, college, friends, parents, connections, didn]
+    token_count: 493
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c2"
+    char_span: [4130, 6298]
+    sentence_count: 32
+    key_terms: [nothing, school, realization, parents, always, helped, myself, taught]
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c3"
+    char_span: [6313, 7260]
+    sentence_count: 9
+    key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c4"
+    char_span: [7263, 9115]
+    sentence_count: 15
+    key_terms: [school, like, too, absolutely, different, sometimes, choices, similar]
+    section: Comments
+    token_count: 459
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c5"
+    char_span: [9117, 10717]
+    sentence_count: 11
+    key_terms: [school, career, state, counseling, journalism, nothing, degree, smart]
+    section: Comments
+    token_count: 371
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c6"
+    char_span: [10719, 12250]
+    sentence_count: 11
+    key_terms: [financial, school, better, relate, comfortable-bread249, ended, kind, lot]
+    section: Comments
+    token_count: 357
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c7"
+    char_span: [12252, 14078]
+    sentence_count: 16
+    key_terms: [college, mom, loans, never, grooveman15, dad, parents, typical]
+    section: Comments
+    token_count: 460
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c8"
+    char_span: [14080, 15487]
+    sentence_count: 10
+    key_terms: [own, supportive, response, because, library, loving, being, blind]
+    section: Comments
+    token_count: 366
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c9"
+    char_span: [15489, 17194]
+    sentence_count: 8
+    key_terms: [like, connections, grooveman15, ve-done-everything-differently, use, guidance, parents, mid-thirties-i-should]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c10"
+    char_span: [17196, 18766]
+    sentence_count: 14
+    key_terms: [helped, grooveman15, realization, been, past, crippling, thinking, therapy]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/findapath/1px5bbc.md#c11"
+    char_span: [18768, 19444]
+    sentence_count: 3
+    key_terms: [school, career, field, job, late, life, too, wish]
+    section: Comments
+    token_count: 167
 ---
-
 # Anyone else realize way too late that they had advantages they never knew to use?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1px5bbc/anyone_else_realize_way_too_late_that_they_had/)

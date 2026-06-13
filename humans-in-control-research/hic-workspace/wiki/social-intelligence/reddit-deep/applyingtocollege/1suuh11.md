@@ -21,19 +21,19 @@ chunks:
     key_terms: [extracurriculars, school, "don't", volunteer, "i'm", summer, wanted, interested]
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c1"
-    char_span: [2036, 3253]
+    char_span: [2036, 3252]
     sentence_count: 4
     key_terms: [care, colleges, taking, want, applied, brother, college, schools]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c2"
-    char_span: [3255, 5309]
+    char_span: [3254, 5308]
     sentence_count: 5
     key_terms: [marching, people, band, lot, extracurriculars, love, percussion, programs]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/applyingtocollege/1suuh11.md#c3"
-    char_span: [5311, 7419]
+    char_span: [5310, 7418]
     sentence_count: 18
     key_terms: [good, get, everything, volunteer, schools, student, school, "don't"]
     section: Comments

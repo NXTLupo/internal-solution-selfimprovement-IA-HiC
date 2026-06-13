@@ -21,13 +21,13 @@ chunks:
     key_terms: [applying, jobs, comments, places, "don't", shiny-baby-cheetah, reddit-deep, employment]
     token_count: 160
   - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c1"
-    char_span: [639, 2238]
+    char_span: [638, 2237]
     sentence_count: 12
     key_terms: [work, online, recruiters, shiny-baby-cheetah, remote, "you're", apply, going]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/jobs/1rr06lu.md#c2"
-    char_span: [2240, 3899]
+    char_span: [2239, 3898]
     sentence_count: 16
     key_terms: [job, shiny-baby-cheetah, listing, separate, right, jobs, luck, time]
     section: Comments

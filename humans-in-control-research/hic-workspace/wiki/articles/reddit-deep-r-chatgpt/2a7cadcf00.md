@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/2a7cadcf00.md#c0"
-    char_span: [0, 2318]
+    char_span: [0, 2317]
     sentence_count: 23
     key_terms: [chatgpt, knowledge, students, don, ancient, because, non-existent, class]
-    token_count: 507
+    token_count: 506
   - id: "articles/reddit-deep-r-chatgpt/2a7cadcf00.md#c1"
-    char_span: [2320, 3426]
+    char_span: [2319, 3425]
     sentence_count: 8
     key_terms: [gpt, chatgpt, writing, zero-pe, dashes, silver-chipmunk7744, write, "it's"]
     token_count: 314

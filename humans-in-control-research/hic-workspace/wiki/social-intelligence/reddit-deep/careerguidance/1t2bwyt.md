@@ -11,9 +11,9 @@ score: 174
 upvote_ratio: 0.94
 num_comments: 461
 flair: "Advice"
-extracted_at: "2026-06-06T16:39:04.123Z"
+extracted_at: "2026-06-08T18:50:07.147Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t2bwyt.md#c0"
     char_span: [0, 2338]
@@ -136,7 +136,7 @@ I also want to do more internships, travel more, and explore different opportuni
 
 ## Comments
 
-- **lavender-dalmation** (88↑): I’m 33. I always wanted to be a writer or journalist, but I was talked out of it by my high school guidance counselor because “the field is too saturated.” So instead, they recommended I find a major that would coincide with a hobby of mine. I grew up riding and showing horses, so I decided I’d go into an equine training program. 
+- **lavender-dalmation** (91↑): I’m 33. I always wanted to be a writer or journalist, but I was talked out of it by my high school guidance counselor because “the field is too saturated.” So instead, they recommended I find a major that would coincide with a hobby of mine. I grew up riding and showing horses, so I decided I’d go into an equine training program. 
 
 Biggest piece of advice: don’t do this. Not every hobby needs to be or should be monetized. I was burnt out, tired, angry. Then I ended up having a medical condition that took me out of it completely and left me with a useless degree and 45k of student loan debt. 
 
@@ -149,17 +149,17 @@ Good luck to you. You don’t have to have it all figured out right now, sometim
 My husband did a year of college and went blue collar. His knees hands and back are shot.
     - **Kitchen-Yam43** (1↑): Thank you so much for your advice. I hope your husband is doing better now!
     - **censored_on** (1↑): Why do you say specifically economics? Is it because economics is a broad degree and opens yourself to a variety of opportunities from which you can choose from? I know someone who is doing a B.A. in Electrical and Computer Enfoneering and also Economics. Not sure if there is a specific reason why he chose to double major?
-  - **Sufficient_Ice_6939** (8↑): As an (almost) 33 year old who did pursue journalism, and theoretically has had a “successful” career working at major publications, your guidance counselor did you a solid. The industry is in a sad state right now. There are very few jobs, and even if you land a good one, you feel trapped because there’s maybe 6 publications total that pay a decent wage. 
+  - **Sufficient_Ice_6939** (7↑): As an (almost) 33 year old who did pursue journalism, and theoretically has had a “successful” career working at major publications, your guidance counselor did you a solid. The industry is in a sad state right now. There are very few jobs, and even if you land a good one, you feel trapped because there’s maybe 6 publications total that pay a decent wage. 
 
 That said, I don’t regret it. But my life would’ve been much easier had I not pursued journalism.
-  - **Internal_Tip3975** (6↑): This. Do not monetize your hobby. Find a job that pays and funds your hobbies so you can relax and strike balance.
+  - **Internal_Tip3975** (5↑): This. Do not monetize your hobby. Find a job that pays and funds your hobbies so you can relax and strike balance.
 
 Maybe a few bucks here or there is nice (sell a few paintings of you're in a pinch)
     - **TranquilDev** (1↑): I tend to disagree with this, conditionally at least. I’ve seen so many people get into a 9 to 5 corporate gig and work till they damn near kill themselves from the stress or get laid off after years of dedication the turn around and monetized their hobbies or something they were good at. I’ve got a former boss who works on boats in Florida, started his own company. I have a friend who got laid off and just started doing handyman work to make ends meet and now has half a dozen trucks and two companies to his name.  
 Sometimes we need to put ourselves through the wringer before we have the courage to step up and try to make a living doing something we love.  
 I always wanted to get into IT, now that I’m here I can’t stop thinking about how I’d like to work for myself even if it meant doing something entirely different. I hate the feeling of being reliant on a company to deposit a few bucks into my bank account every couple of weeks.  
 If I could pay the bills cooking, I’d start a small breakfast cafe tomorrow. Maybe when the kids move out….
-- **Starwind137** (34↑): I'm 36 and still don't know what I want to do. I went to college and got my B.A. in criminology and criminal justice. It seemed interesting and I wanted to do some type of specialized law enforcement. That path, thankfully, did not pan out for me. 
+- **Starwind137** (32↑): I'm 36 and still don't know what I want to do. I went to college and got my B.A. in criminology and criminal justice. It seemed interesting and I wanted to do some type of specialized law enforcement. That path, thankfully, did not pan out for me. 
 
 I got my CDL while in undergrad, went full time bus driver, then team lead, then supervisor. I leveraged my transportation experience and got a job as a federal contractor as a supervisor in transportation. This job required me to have a degree. I now work as a supply chain supervisor for the same company making over $100k. 
 It's not what I set out to do, but here I am. 
@@ -170,20 +170,20 @@ I feel like I'm in a golden handcuff situation with my job because my pay and be
 
 To actually answer your question. If I could go back, on top of enjoying college more, I would take my studies more seriously, get involved with programs and internships. I would double major in business management and accounting. It would allow me to work my way up in my current field much faster and I would start my own business on the side. I personally love personal finance and budgeting and would like to start a legitimate financial coaching business with the certifications and credentials to back it up.
   - **Kitchen-Yam43** (3↑): Thank you so much for your advice, and good luck!! You got this
-- **JustEstablishment360** (29↑): A healthcare iob that is not a doctor or nurse where you can choose to work more or less if you choose to than full time. Having to work 40 hours a week no matter what is a huge downer 😆
+- **JustEstablishment360** (28↑): A healthcare iob that is not a doctor or nurse where you can choose to work more or less if you choose to than full time. Having to work 40 hours a week no matter what is a huge downer 😆
   - **Kitchen-Yam43** (3↑): Thank you, I will look into it!
-    - **Ok-Drink-1844** (3↑): CAA is a good choice
-    - **Firm_Ratio_621** (5↑): Contract nurses can choose their schedule and get paid more
+    - **Ok-Drink-1844** (4↑): CAA is a good choice
+    - **Firm_Ratio_621** (4↑): Contract nurses can choose their schedule and get paid more
   - **Firm_Ratio_621** (1↑): Contract nurses can choose their schedule and get paid more.
   - **Shaved-extremes** (1↑): why not a doctor ?
     - **b_from_the_block** (2↑): 4 year undergrad, 4 year medical school, x amount of years for residency. expensive medical school. paid pennies as a resident. debt.
-- **Chazman1023** (36↑): I fell like I should have went the trade route. I got a 4 year degree and am in an office setting and can’t stand being inside all day sitting down. I think I’d be happier moving around all day outside so now I’m in the process of trying to be an electrician.
-  - **bigtiddyhimbo** (22↑): I’m in the opposite boat. Went the trade route and graduated from my school when covid hit. It just fucked up the whole system for a good minute and it was difficult to get work. Now I’m in constant pain and I feel so completely burnt out after only 5 years. I’d give anything to have a mundane office job. At least I woudlnt be doing hard manual labor with broken fingers.
-    - **Chazman1023** (4↑): Damn bro, what trade work have you been doing?
+- **Chazman1023** (38↑): I fell like I should have went the trade route. I got a 4 year degree and am in an office setting and can’t stand being inside all day sitting down. I think I’d be happier moving around all day outside so now I’m in the process of trying to be an electrician.
+  - **bigtiddyhimbo** (20↑): I’m in the opposite boat. Went the trade route and graduated from my school when covid hit. It just fucked up the whole system for a good minute and it was difficult to get work. Now I’m in constant pain and I feel so completely burnt out after only 5 years. I’d give anything to have a mundane office job. At least I woudlnt be doing hard manual labor with broken fingers.
+    - **Chazman1023** (5↑): Damn bro, what trade work have you been doing?
   - **GroundbreakingSir386** (1↑): Try trucking it’s easy trade to get into 1 month and then you’ll be outside everyday
     - **Chazman1023** (5↑): You would still have to sit down a lot throughout the day though right?
     - **Kitchen-Yam43** (1↑): Thank you!!
-- **swchoi89** (15↑): People telling you to follow your "passion" is being unrealistic and unreasonable. 
+- **swchoi89** (16↑): People telling you to follow your "passion" is being unrealistic and unreasonable. 
 
 I'm almost 40. I would've chosen science-related field but ended up in finance. I would recommend following a career path that aligns well with your strengths. Your hobbies and passion can ALWAYS be a side-thing. 
 
@@ -291,7 +291,7 @@ https://www.americorps.gov/
 
 
 Whichever path you choose, you know you have options.
-  - **Virtual-Orchid3065** (8↑): I recommend that you take as many CLEP exams as possible to reduce college debt. College is expensive. Each student loan has a different interest rate. Interest rates can range from 2.73% to 4.53%, perhaps larger. 
+  - **Virtual-Orchid3065** (9↑): I recommend that you take as many CLEP exams as possible to reduce college debt. College is expensive. Each student loan has a different interest rate. Interest rates can range from 2.73% to 4.53%, perhaps larger. 
 
 Here is an example:
 
@@ -318,7 +318,7 @@ In addition to the CLEP, you should look into the Segal Education Award to reduc
 Look into the Segal Education Award. The Segal Education Award comes from AmeriCorps. It looks good on a resume, and it can reduce college debt.
     - **Kitchen-Yam43** (2↑): Thank you so much for your advice and for your time. I will go through everything. This is very helpful, thank you!
   - **GanacheIll3333** (1↑): not OP but I would love to DM you for more advice on this.
-- **Ok-Door-3664** (9↑): I'd go to the AF right out of school
+- **Ok-Door-3664** (8↑): I'd go to the AF right out of school
   - **GoddesRene** (3↑): Seconded! Air force. They teach you a subject and if you want to go to college afterwards its free. My mom talked me out of it. Looking back, I would have gone anyway.
     - **Ok-Door-3664** (1↑): Definitely plus I know so many guys about to retire at 38-40 into awesome post service careers smh
     - **MRsh1tsandg1ggles** (1↑): My dad was Army/Air Force right out of high school. He said it's better to go to college first and get a bachelor's. Enjoy college then go into the military. You start off as an officer and make way better money and more opportunities and they pay your student loans. You can stay and get a master's or doctorate on them or go into flight school and learn to be a pilot on Uncle Sam's dime. It's over $100k for civilian flight school and hours in air. You walk out the military into a commercial airline job make $200k a year plus the benefits and pension from the military.
@@ -326,7 +326,7 @@ Look into the Segal Education Award. The Segal Education Award comes from AmeriC
 
 After 20+ years working in dead-end, soul-sucking office jobs, I've never been more depressed. Whatever you end up choosing, don't do Marketing or Medical Coding and Billing. Marketing is being torn apart by AI, and Medical Coding and Billing is hard to get into without real world experience, and the pay is extremely low. Also, AI is already being used in Medical Coding and Billing (my job has outsourced plus they're implementing AI here and there). I'm waiting to get let go from my current job at the moment due to their outsourcing and using AI.
   - **paleologus** (3↑): Vets are being bought up by private equity plus you get to kill somebody’s pet a couple of times a day.
-    - **SouthPlattePat** (6↑): Vets have a crazy high suicide rate vs other occupations
+    - **SouthPlattePat** (5↑): Vets have a crazy high suicide rate vs other occupations
   - **Kitchen-Yam43** (3↑): I’m sorry to hear that. It’s never too late to become a veterinarian. You could always become a vet tech :) I met a vet tech who’s 28, and she’s currently working toward becoming a veterinarian. Thank you so much for your advice!
     - **Mediocre-Pair-2821** (2↑): Nah. I'm too old for that. There comes a certain point where it's simply too late to start over.
   - **SDSUrules** (2↑): Don’t do vet med. My son is on this path and it is rough!! Fun fact veterinarians have the highest rate of suicide of any profession. Check out the vet pages and it full of vets saying how much they wished they never went into that profession but stuck since vet school is well over 200k and they all graduate with a ton of debt.

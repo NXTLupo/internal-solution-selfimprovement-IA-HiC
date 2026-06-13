@@ -21,25 +21,25 @@ chunks:
     key_terms: [degree, pursue, part-time, something, cscareerquestions, post-secondary, career, don]
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c1"
-    char_span: [2237, 3777]
+    char_span: [2236, 3776]
     sentence_count: 9
     key_terms: [management, something, misingnoglic, "don't", get, "it's", background, technical]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c2"
-    char_span: [3780, 5268]
+    char_span: [3779, 5267]
     sentence_count: 13
     key_terms: [economics, industry, georgia, masters, always, chance, degree, domain]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c3"
-    char_span: [5270, 6677]
+    char_span: [5269, 6676]
     sentence_count: 9
     key_terms: [like, program, doing, prestigious, rate, work, yeah, graduation]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/cscareerquestions/1oziapg.md#c4"
-    char_span: [6679, 7483]
+    char_span: [6678, 7482]
     sentence_count: 7
     key_terms: [product, mba, management, sisyphusandmyboulder, level, hardware-software, saas, jollytheory783]
     section: Comments

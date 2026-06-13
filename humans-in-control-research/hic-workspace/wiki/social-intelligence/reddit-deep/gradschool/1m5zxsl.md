@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, comments, semester, student, advice, school, savings-variation701, grad]
     token_count: 157
   - id: "social-intelligence/reddit-deep/gradschool/1m5zxsl.md#c1"
-    char_span: [678, 1176]
+    char_span: [677, 1175]
     sentence_count: 4
     key_terms: [congratulations, congrats, writing, aidoniastan, technical, undergrad, academic, yourself]
     section: Comments

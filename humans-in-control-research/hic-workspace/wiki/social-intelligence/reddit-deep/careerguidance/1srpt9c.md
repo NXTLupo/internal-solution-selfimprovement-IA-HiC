@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, pcb, comments, computer, guidance, interest, biotech, career]
     token_count: 306
   - id: "social-intelligence/reddit-deep/careerguidance/1srpt9c.md#c1"
-    char_span: [1151, 1801]
+    char_span: [1150, 1800]
     sentence_count: 7
     key_terms: [easter-babe, feel, field, bioinformatics, thosecompanies, bioprenuers, definitely, eventually]
     section: Comments

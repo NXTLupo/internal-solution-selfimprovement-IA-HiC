@@ -23,19 +23,19 @@ chunks:
     key_terms: [manager, team, advice, need, protecting, comments, managers, believe]
     token_count: 362
   - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c1"
-    char_span: [1736, 3216]
+    char_span: [1735, 3215]
     sentence_count: 13
     key_terms: [progress, need, take, situation, managing, probably, believe, manager]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c2"
-    char_span: [3218, 5449]
+    char_span: [3217, 5448]
     sentence_count: 13
     key_terms: [team, manager, need, underperforming, answer, appropriately, deliverables, environment]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/managers/1qmvtxg.md#c3"
-    char_span: [5451, 5735]
+    char_span: [5450, 5734]
     sentence_count: 1
     key_terms: [stakeholders, appropriately, salvageable, management, supportive, deadlines, generally, tradeoff]
     section: Comments

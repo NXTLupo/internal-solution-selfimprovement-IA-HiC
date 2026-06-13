@@ -23,19 +23,19 @@ chunks:
     key_terms: [career, careeradvice, comments, anxiety, people, right, reddit-deep, collecting]
     token_count: 192
   - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c1"
-    char_span: [833, 2919]
+    char_span: [832, 2918]
     sentence_count: 13
     key_terms: [people, replaceable, get, questions, designer, judgment, option, being]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c2"
-    char_span: [2921, 4369]
+    char_span: [2920, 4368]
     sentence_count: 18
     key_terms: [anxiety, displacement, automatable, assessment, building, industry, instead, started]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/careeradvice/1rir3az.md#c3"
-    char_span: [4371, 5491]
+    char_span: [4370, 5490]
     sentence_count: 8
     key_terms: [replaceable, framework, anxiety, seeing, share, implementations, anewfoundmatt, professions]
     section: Comments

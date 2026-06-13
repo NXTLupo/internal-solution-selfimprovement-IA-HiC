@@ -28,25 +28,25 @@ chunks:
     key_terms: [program, loan, unemployed, repayment, increase, interest, private, "you're"]
     token_count: 220
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c2"
-    char_span: [3265, 4970]
+    char_span: [3264, 4969]
     sentence_count: 9
     key_terms: [school, grad, job, time, programs, phd, everything, predatory]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c3"
-    char_span: [4972, 5461]
+    char_span: [4971, 5460]
     sentence_count: 2
     key_terms: [schools, careful-while-7214, "i'm", less, imperialagent120, flexibility, attendance, difference]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c4"
-    char_span: [5463, 7323]
+    char_span: [5462, 7322]
     sentence_count: 14
     key_terms: [grandfathered, program, aid, grad, june, financial, disburse, changes]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1rjazjz.md#c5"
-    char_span: [7325, 8864]
+    char_span: [7324, 8863]
     sentence_count: 12
     key_terms: [students, financial, loan, private, grad, law, like, options]
     section: Comments

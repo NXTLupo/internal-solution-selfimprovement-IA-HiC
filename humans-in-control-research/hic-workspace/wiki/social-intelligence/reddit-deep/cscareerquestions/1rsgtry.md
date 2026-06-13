@@ -11,9 +11,9 @@ score: 0
 upvote_ratio: 0.2
 num_comments: 6
 flair: "Student"
-extracted_at: "2026-06-06T17:43:22.937Z"
+extracted_at: "2026-06-08T17:32:09.903Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rsgtry.md#c0"
     char_span: [0, 1722]
@@ -71,7 +71,7 @@ I feel like my approach needs more structure.
 
 ## Comments
 
-- **Known-Tourist-6102** (4↑): if working / living in the US is your main goal, from what i understand, you should aim for a lot of advanced education that is completed in the U.S. => so get a masters and phd here if you can
+- **Known-Tourist-6102** (5↑): if working / living in the US is your main goal, from what i understand, you should aim for a lot of advanced education that is completed in the U.S. => so get a masters and phd here if you can
 - **lhorie** (3↑): You'll do a masters and phd where? If you're as gung-ho about living in the US as you say, you really need to understand the visa stuff first and foremost. Typically people come to US under F-1 to qualify for OPT to get the foot in the door. H-1B right out of the gate is really really hard now. In practice, this means your relative needs to bank the cost of pursuing your education in the US (or you need a scholarship or some sort of plan for the financial side of things). Otherwise, you'll need some very serious experience (to the tune of 5+ very high quality YOE) to get yourself scouted into big tech. Alternatively, there's an extremely convoluted and slow path into the US via Canadian citizenship -> TN visa (I did this).
 
 Speaking as someone who's heavily involved with hiring, education-wise a masters doesn't really set you apart all that much from an undergrad in terms of hiring pipelines. Internationals do them mostly for the OPT. PhDs are a double edged sword, in the sense that you're pursuing education that \*narrows\* your expertise, so worst (and surprisingly common) case you've narrowed into an area nobody cares about and have to settle for a job you could've achieved without the PhD.

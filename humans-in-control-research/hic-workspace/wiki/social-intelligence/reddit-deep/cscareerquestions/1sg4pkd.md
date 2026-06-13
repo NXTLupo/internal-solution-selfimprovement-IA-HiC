@@ -33,13 +33,13 @@ chunks:
     key_terms: [research, "doesn't", school, unsure, feel, grad, high-demand, independent]
     token_count: 138
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c3"
-    char_span: [5149, 7133]
+    char_span: [5148, 7132]
     sentence_count: 17
     key_terms: [research, name, academia, choice, people, doing, don, post]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sg4pkd.md#c4"
-    char_span: [7135, 9025]
+    char_span: [7134, 9024]
     sentence_count: 16
     key_terms: [results, simple, researchers, algorithms, sosa, don, experience, simplicity]
     section: Comments

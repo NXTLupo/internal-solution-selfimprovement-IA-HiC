@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1p57rff.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p57rff/feeling_completely_stuck_with_grad_school_options/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,24 @@ flair: "Humanities"
 extracted_at: "2026-06-06T23:23:15.592Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c0"
+    char_span: [0, 2364]
+    sentence_count: 14
+    key_terms: [background, non-stem, programs, analytics, gradadmissions, here, work, genuinely]
+    token_count: 500
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c1"
+    char_span: [2366, 2759]
+    sentence_count: 4
+    key_terms: [analytics, programs, perspective, programming, applicants, appreciate, background, realistic]
+    token_count: 79
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p57rff.md#c2"
+    char_span: [2774, 3616]
+    sentence_count: 3
+    key_terms: [gtx-analytics-essential-tools-and-methods, micromasters, fightitdude, omsa, masters, though, entry, https]
+    section: Comments
+    token_count: 220
 ---
-
 # Feeling completely stuck with grad school options - non-STEM background, analytics work experience, and every program says "no." Really need advice on where to go from here.
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p57rff/feeling_completely_stuck_with_grad_school_options/)

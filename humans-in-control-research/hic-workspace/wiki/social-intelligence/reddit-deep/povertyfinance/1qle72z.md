@@ -23,91 +23,91 @@ chunks:
     key_terms: [money, expenses, advice, people, already, surplus, povertyfinance, extra]
     token_count: 318
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c1"
-    char_span: [1514, 3138]
+    char_span: [1513, 3137]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c2"
-    char_span: [3140, 4866]
+    char_span: [3139, 4865]
     sentence_count: 14
     key_terms: [surveys, pay, save, typically, offered, "don't", money, month]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c3"
-    char_span: [4868, 5906]
+    char_span: [4867, 5905]
     sentence_count: 7
     key_terms: [extra, hours, month, dreamingaboutspace, live, understandable, entertainment, construction]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c4"
-    char_span: [5908, 7953]
+    char_span: [5907, 7952]
     sentence_count: 20
     key_terms: [advice, people, financial, poverty, written, cents, don, get]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c5"
-    char_span: [7958, 9590]
+    char_span: [7957, 9589]
     sentence_count: 18
     key_terms: [living, tax, possible, parents, change, worked, current-anybody9331, taken]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c6"
-    char_span: [9592, 11747]
+    char_span: [9591, 11746]
     sentence_count: 29
     key_terms: [game, without, worked, back, fail, "i've", life, wife]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c7"
-    char_span: [11749, 13782]
+    char_span: [11748, 13781]
     sentence_count: 22
     key_terms: [positive, like, oppourtunities, ready, get, work, paycheck, better]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c8"
-    char_span: [13784, 13990]
+    char_span: [13783, 13989]
     sentence_count: 3
     key_terms: [determinant, meritocracy, successful, separates, success, whereby, family, having]
     section: Comments
     token_count: 44
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c9"
-    char_span: [13992, 16035]
+    char_span: [13991, 16034]
     sentence_count: 19
     key_terms: [ryencool, life, money, here, sometimes, worrying, because, parents]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c10"
-    char_span: [15802, 17074]
+    char_span: [15801, 17073]
     sentence_count: 10
     key_terms: [rather, like, something, stories, thought, better, happen, sounds]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c11"
-    char_span: [17076, 19017]
+    char_span: [17075, 19016]
     sentence_count: 23
     key_terms: [bus, car, job, work, business, months, shifts, bucks]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c12"
-    char_span: [19020, 20935]
+    char_span: [19019, 20934]
     sentence_count: 11
     key_terms: ["didn't", prison, bus, get, hour, time, benefits, couple]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c13"
-    char_span: [20937, 22985]
+    char_span: [20936, 22984]
     sentence_count: 18
     key_terms: [better, job, less, "you're", transition, spend, paying, people]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c14"
-    char_span: [22987, 25197]
+    char_span: [22986, 25196]
     sentence_count: 23
     key_terms: [emergency, people, advice, income, money, expenses, already, working]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/povertyfinance/1qle72z.md#c15"
-    char_span: [25199, 26748]
+    char_span: [25198, 26747]
     sentence_count: 19
     key_terms: [inflation, paycheck, able, job, emergency, expenses, living, "you're"]
     section: Comments

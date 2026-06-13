@@ -23,25 +23,25 @@ chunks:
     key_terms: [internships, offer, comments, give, got, no-part-8666, reddit-deep, dedication]
     token_count: 181
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c1"
-    char_span: [685, 2659]
+    char_span: [684, 2658]
     sentence_count: 16
     key_terms: [company, being, been, experience, interested, companies, anything, applying]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c2"
-    char_span: [2661, 4532]
+    char_span: [2660, 4531]
     sentence_count: 3
     key_terms: [interview, remember, company, no-part-8666, back, interviews, understand, pipedmeat]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c3"
-    char_span: [4534, 6439]
+    char_span: [4533, 6438]
     sentence_count: 4
     key_terms: [internships, application, did, strategy, network, no-part-8666, get, like]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/internships/1t5u8nt.md#c4"
-    char_span: [6441, 7792]
+    char_span: [6440, 7791]
     sentence_count: 4
     key_terms: [resume, got, interviews, sacrifices, interview, strategy, landed, plenty]
     section: Comments

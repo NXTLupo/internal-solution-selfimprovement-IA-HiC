@@ -23,13 +23,13 @@ chunks:
     key_terms: [lab, want, advice, year, gradschool, sometimes, comments, another]
     token_count: 287
   - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c1"
-    char_span: [1272, 2976]
+    char_span: [1271, 2975]
     sentence_count: 15
     key_terms: [different, experience, toxic, lab, phd, researcher, recommend, undergrad]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradschool/1lyukch.md#c2"
-    char_span: [2978, 4596]
+    char_span: [2977, 4595]
     sentence_count: 13
     key_terms: [good, phd, lab, stay, better, don, get, interests]
     section: Comments

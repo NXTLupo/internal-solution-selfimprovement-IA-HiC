@@ -23,25 +23,25 @@ chunks:
     key_terms: [productivity, ecosystem, apple, apps, habits, full, comments, settings]
     token_count: 296
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c1"
-    char_span: [1334, 3191]
+    char_span: [1333, 3190]
     sentence_count: 3
     key_terms: [apple, calendar, notes, academic-spread8477, reminders, tracking, combination, apps]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c2"
-    char_span: [3193, 3958]
+    char_span: [3192, 3957]
     sentence_count: 2
     key_terms: [use, different, calendar, specific, because, mundane-canary-5737, apple, event]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c3"
-    char_span: [3960, 6161]
+    char_span: [3959, 6160]
     sentence_count: 20
     key_terms: [use, todoist, reminders, calendar, apps, like, already, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/productivity/1qcvt2g.md#c4"
-    char_span: [5881, 6968]
+    char_span: [5880, 6967]
     sentence_count: 4
     key_terms: [reminders, does, use, calendar, busycal, journal, ambitious-coyote389, tasks]
     section: Comments

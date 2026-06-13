@@ -28,13 +28,13 @@ chunks:
     key_terms: ["you're", accidentally, gain, underlying, money, rules, years, cpa]
     token_count: 240
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c2"
-    char_span: [2686, 4027]
+    char_span: [2685, 4026]
     sentence_count: 5
     key_terms: [taxes, years, discord, rather, single, ishitbloodandcumshit, money, total]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/wallstreetbets/1sr6oex.md#c3"
-    char_span: [4029, 5506]
+    char_span: [4028, 5505]
     sentence_count: 10
     key_terms: [money, down, lol, ytd, guaranteed, control, ishitbloodandcumshit, totallycomputername]
     section: Comments

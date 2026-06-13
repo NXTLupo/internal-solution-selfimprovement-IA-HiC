@@ -23,13 +23,13 @@ chunks:
     key_terms: [managers, activity, team, centered, comments, reports, around, direct]
     token_count: 165
   - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c1"
-    char_span: [749, 2546]
+    char_span: [748, 2545]
     sentence_count: 11
     key_terms: [managers, connect, team, activities, building, escape, office, person]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/managers/1qlaset.md#c2"
-    char_span: [2548, 3841]
+    char_span: [2547, 3840]
     sentence_count: 10
     key_terms: [team, activity, random, silly, fact, food, guessing, manager]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [comments, manager, respond, stated, email, dangerous-sea8072, back, got]
     token_count: 221
   - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c1"
-    char_span: [948, 1322]
+    char_span: [947, 1321]
     sentence_count: 2
     key_terms: [dangerous-sea8072, inconsistent, unreliable, cautious, settling, smaller, agency, follow]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c2"
-    char_span: [1324, 3218]
+    char_span: [1323, 3217]
     sentence_count: 14
     key_terms: ["it's", "don't", month, job, take, pregnancy, whatever, process]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c3"
-    char_span: [3220, 4808]
+    char_span: [3219, 4807]
     sentence_count: 10
     key_terms: [months, timeline, supersecretspecialdm, being, leave, ago, let, forexisboring]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c4"
-    char_span: [4810, 6899]
+    char_span: [4809, 6898]
     sentence_count: 19
     key_terms: [job, pregnant, leave, like, need, take, don, against]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c5"
-    char_span: [6901, 9036]
+    char_span: [6900, 9035]
     sentence_count: 22
     key_terms: [position, ask, job, scam, work, money, start, back]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1pgw7j9.md#c6"
-    char_span: [9038, 10533]
+    char_span: [9037, 10532]
     sentence_count: 15
     key_terms: [job, "they're", person, simple, ketolurkerhereagain, dangerous-sea8072, human-search-6114, find]
     section: Comments

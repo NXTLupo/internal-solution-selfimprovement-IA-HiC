@@ -28,25 +28,25 @@ chunks:
     key_terms: [professor-banned-from-teaching-plato-excerpt-to-leave-texas-a-m-its-getting-worse, che-social, chronicle, article, https, com, utm, www]
     token_count: 95
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c2"
-    char_span: [2315, 3829]
+    char_span: [2314, 3828]
     sentence_count: 8
     key_terms: [like, weirdonightowl, censorship, academics, teaching, shocked, martin, nopatnodontsitonthat]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c3"
-    char_span: [3831, 5347]
+    char_span: [3830, 5346]
     sentence_count: 10
     key_terms: [appointment, committee, president, academic, freedom, tenure, neckcomprehensive743, stand]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c4"
-    char_span: [5349, 7263]
+    char_span: [5348, 7262]
     sentence_count: 10
     key_terms: [faculty, censorship, course, smu, the-case-against-reparations, academic, informal, specific]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/professors/1skh6l3.md#c5"
-    char_span: [7265, 8448]
+    char_span: [7264, 8447]
     sentence_count: 7
     key_terms: [philosophy, faculty, universities, least, "didn't", filled, fight, "it's"]
     section: Comments

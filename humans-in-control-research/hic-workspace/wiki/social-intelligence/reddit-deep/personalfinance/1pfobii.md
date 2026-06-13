@@ -23,25 +23,25 @@ chunks:
     key_terms: [personalfinance, start, financially, comments, educated, become, smart, thirdeyeskyward]
     token_count: 233
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c1"
-    char_span: [890, 2408]
+    char_span: [889, 2407]
     sentence_count: 20
     key_terms: [stocks, chemical-power8042, great, money, don, estate, build, extra]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c2"
-    char_span: [2410, 4599]
+    char_span: [2409, 4598]
     sentence_count: 17
     key_terms: [personalfinance, commontopics, watch, years, new, discussion, financial, approach]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c3"
-    char_span: [4602, 6774]
+    char_span: [4601, 6773]
     sentence_count: 12
     key_terms: [financial, book, personal, finance, faster, money, savvy, watch]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/personalfinance/1pfobii.md#c4"
-    char_span: [6776, 7563]
+    char_span: [6775, 7562]
     sentence_count: 8
     key_terms: [investing, learn, savings, funds, index, left, read, diversification]
     section: Comments

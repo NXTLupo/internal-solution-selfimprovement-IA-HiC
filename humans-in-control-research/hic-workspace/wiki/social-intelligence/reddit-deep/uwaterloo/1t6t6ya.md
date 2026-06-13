@@ -23,13 +23,13 @@ chunks:
     key_terms: [programs, recommend, uwaterloo, comments, students, waterloo, current, program]
     token_count: 190
   - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c1"
-    char_span: [856, 2864]
+    char_span: [855, 2863]
     sentence_count: 12
     key_terms: [refurbished-excellent-asus-vivobook-s-15-oled-15-6-copilot-pc-laptop-cool-silver-snapdragon-x-plus-16gb-ram-512gb-ssd, laptop, refurbished, ram, macbook, coding, eng, fine]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/uwaterloo/1t6t6ya.md#c2"
-    char_span: [2866, 4879]
+    char_span: [2865, 4878]
     sentence_count: 10
     key_terms: [uwaterloo, automoderator, moderators, message, please, admissions, questions, quality]
     section: Comments

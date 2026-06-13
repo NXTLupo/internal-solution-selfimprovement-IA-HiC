@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, "i'm", comments, big, tech, internships, reddit-deep, experience]
     token_count: 167
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o2momf.md#c1"
-    char_span: [650, 1702]
+    char_span: [649, 1701]
     sentence_count: 5
     key_terms: [internships, experience, opportunity, current, market, big, visa, maximum-okra3237]
     section: Comments

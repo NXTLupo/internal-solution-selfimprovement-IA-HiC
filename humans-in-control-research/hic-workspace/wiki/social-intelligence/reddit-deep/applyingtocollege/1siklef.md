@@ -21,49 +21,49 @@ chunks:
     key_terms: [prestige, matter, people, saying, applyingtocollege, provided, ranking, school]
     token_count: 365
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c1"
-    char_span: [1726, 3855]
+    char_span: [1725, 3854]
     sentence_count: 19
     key_terms: [school, otherwise-check-689, job, kid, career, purdue, world, real]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c2"
-    char_span: [3857, 5955]
+    char_span: [3856, 5954]
     sentence_count: 17
     key_terms: [get, looking, want, schools, school, difference, candidate, everyone]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c3"
-    char_span: [5957, 7719]
+    char_span: [5956, 7718]
     sentence_count: 13
     key_terms: [school, interview, applicant, attended, "doesn't", student, assume, experience]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c4"
-    char_span: [7721, 9772]
+    char_span: [7720, 9771]
     sentence_count: 18
     key_terms: [matters, because, people, "it's", prestige, career, memesaurusmex, intellectual]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c5"
-    char_span: [9774, 12044]
+    char_span: [9773, 12043]
     sentence_count: 17
     key_terms: [graduate, admissions, applyingtocollege, matters, career, matter, opportunities, undergraduate]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c6"
-    char_span: [12046, 13592]
+    char_span: [12045, 13591]
     sentence_count: 11
     key_terms: [undergraduate, career, experience, school, want, employers, important, academia]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c7"
-    char_span: [13594, 15691]
+    char_span: [13593, 15690]
     sentence_count: 14
     key_terms: [opportunities, prestige, memesaurusmex, schools, high, uncommon, universities, prestigious]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1siklef.md#c8"
-    char_span: [15693, 15957]
+    char_span: [15692, 15956]
     sentence_count: 2
     key_terms: [circumstances, memesaurusmex, undergraduate, institution, attending, prestige, example, mistake]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, coursework, comments, job, yourlocalbok, internships, reddit-deep, experience]
     token_count: 118
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r42xfw.md#c1"
-    char_span: [454, 2264]
+    char_span: [453, 2263]
     sentence_count: 14
     key_terms: [engineeringstudents, com, wiki, please, reddit, https, sankeymatic, www]
     section: Comments

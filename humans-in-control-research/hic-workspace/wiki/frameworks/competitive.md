@@ -11,73 +11,73 @@ tags: [competitive, porter, blue-ocean, battlecard, market-intelligence]
 evidence_count: 0
 chunks:
   - id: "frameworks/competitive.md#c0"
-    char_span: [0, 1161]
+    char_span: [0, 1160]
     sentence_count: 8
     key_terms: [competitive, framework, analysis, strategic, strategy, competition, battlecard, structural]
     section: Canonical Foundations
     token_count: 219
   - id: "frameworks/competitive.md#c1"
-    char_span: [1186, 3020]
+    char_span: [1185, 3019]
     sentence_count: 5
     key_terms: [strategic, competitors, positioning, analysis, market, rather, relationships, named]
     section: Two Analysis Modes
     token_count: 338
   - id: "frameworks/competitive.md#c2"
-    char_span: [3053, 5607]
+    char_span: [3052, 5606]
     sentence_count: 3
     key_terms: [assessment, dimension, costs, positioning, method, capability, weaknesses, scope]
     section: The 15 Required Dimensions
     token_count: 507
   - id: "frameworks/competitive.md#c3"
-    char_span: [5609, 8070]
+    char_span: [5608, 8069]
     sentence_count: 1
     key_terms: [assessment, trajectory, dimension, sales, growth, method, technology, scope]
     section: The 15 Required Dimensions
     token_count: 512
   - id: "frameworks/competitive.md#c4"
-    char_span: [8072, 10816]
+    char_span: [8071, 10815]
     sentence_count: 1
     key_terms: [partnerships, customer, assessment, revenue, technology, method, dimension, scope]
     section: The 15 Required Dimensions
     token_count: 516
   - id: "frameworks/competitive.md#c5"
-    char_span: [10818, 11974]
+    char_span: [10817, 11973]
     sentence_count: 1
     key_terms: [regional, values, data, assessment, geographic, leadership, dimension, language]
     section: The 15 Required Dimensions
     token_count: 221
   - id: "frameworks/competitive.md#c6"
-    char_span: [12004, 13684]
+    char_span: [12003, 13683]
     sentence_count: 18
     key_terms: [curve, competitive, competitor, value, strategy, factors, client, curves]
     section: Required Visualizations
     token_count: 346
   - id: "frameworks/competitive.md#c7"
-    char_span: [13715, 15557]
+    char_span: [13714, 15556]
     sentence_count: 7
     key_terms: [competitor, section, customer, format, bullet, points, sales, proof]
     section: Battlecard Specification
     token_count: 407
   - id: "frameworks/competitive.md#c8"
-    char_span: [15608, 18126]
+    char_span: [15607, 18125]
     sentence_count: 9
     key_terms: [assessment, questions, barriers, suppliers, switching, force, rivalry, competitive]
     section: "Porter's Five Forces -- Detailed Application"
     token_count: 498
   - id: "frameworks/competitive.md#c9"
-    char_span: [18128, 20828]
+    char_span: [18127, 20827]
     sentence_count: 14
     key_terms: [industry, factors, customer, examples, question, competitive, value, strategic]
     section: "Porter's Five Forces -- Detailed Application / Blue Ocean ERRC Grid"
     token_count: 481
   - id: "frameworks/competitive.md#c10"
-    char_span: [20848, 22814]
+    char_span: [20847, 22813]
     sentence_count: 12
     key_terms: [competitors, competitive, competitor, analysis, features, client, intelligence, depth]
     section: Anti-Patterns
     token_count: 374
   - id: "frameworks/competitive.md#c11"
-    char_span: [22844, 24733]
+    char_span: [22843, 24732]
     sentence_count: 19
     key_terms: [competitive, analysis, strategy, data, competitor, canvas, anti-pattern, intelligence]
     section: Generation Instructions

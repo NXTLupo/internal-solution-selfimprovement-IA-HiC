@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/4a88c8aded.md#c0"
-    char_span: [0, 1860]
+    char_span: [0, 1859]
     sentence_count: 5
     key_terms: [applied, cal, programs, rejected, don, msw, experience, gradschool]
-    token_count: 463
+    token_count: 462
 ---
 # I’ve just been rejected from every grad school i applied too
 

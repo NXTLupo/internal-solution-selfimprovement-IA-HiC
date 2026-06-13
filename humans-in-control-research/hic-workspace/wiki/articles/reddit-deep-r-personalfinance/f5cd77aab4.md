@@ -15,22 +15,22 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c0"
-    char_span: [0, 2096]
+    char_span: [0, 2095]
     sentence_count: 20
     key_terms: [independence, financial, personalfinance, towards, income, start, "i've", like]
-    token_count: 487
+    token_count: 486
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c1"
-    char_span: [2098, 4171]
+    char_span: [2097, 4170]
     sentence_count: 12
     key_terms: [income, opportunities, month, job, get, love, includes, interest]
     token_count: 504
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c2"
-    char_span: [4173, 5964]
+    char_span: [4172, 5963]
     sentence_count: 19
     key_terms: [debt, save, flowchart, expenses, starter, budget, trying, "you're"]
     token_count: 439
   - id: "articles/reddit-deep-r-personalfinance/f5cd77aab4.md#c3"
-    char_span: [5966, 6294]
+    char_span: [5965, 6293]
     sentence_count: 2
     key_terms: [income, toward, savings, strategies, repayment, higher, living, lower]
     token_count: 90

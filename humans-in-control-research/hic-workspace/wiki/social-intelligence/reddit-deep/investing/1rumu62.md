@@ -23,37 +23,37 @@ chunks:
     key_terms: [investors, seasoning, pensions, dumping, requirements, unprofitable, index, price]
     token_count: 310
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c1"
-    char_span: [1447, 2206]
+    char_span: [1446, 2205]
     sentence_count: 4
     key_terms: [pension, funds, index, tiny, "vc's", lemmingswag, assurances, responders]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c2"
-    char_span: [2208, 4092]
+    char_span: [2207, 4091]
     sentence_count: 13
     key_terms: [doing, buy, profitable, impacted, country, indexes, without, public]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c3"
-    char_span: [4094, 6256]
+    char_span: [4093, 6255]
     sentence_count: 15
     key_terms: [profitable, spacex, questionable, people, paperwork, "it's", believe, money]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c4"
-    char_span: [6258, 8394]
+    char_span: [6257, 8393]
     sentence_count: 12
     key_terms: [spacex, billion, like, increased, valuation, company, dollars, market]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c5"
-    char_span: [8396, 9623]
+    char_span: [8395, 9622]
     sentence_count: 9
     key_terms: [openai, better, infinitely, anything, somehow, claude, hoping, offers]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/investing/1rumu62.md#c6"
-    char_span: [9625, 11137]
+    char_span: [9624, 11136]
     sentence_count: 11
     key_terms: [inclusion, seasoning, wework, funds, index, price, analytickai, ipo]
     section: Comments

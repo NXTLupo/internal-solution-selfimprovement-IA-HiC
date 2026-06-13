@@ -28,13 +28,13 @@ chunks:
     key_terms: [frustration, gpt, used, clearly, ask, didn, human-centered, meaning-making]
     token_count: 284
   - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c2"
-    char_span: [3577, 4776]
+    char_span: [3576, 4775]
     sentence_count: 5
     key_terms: [guardrails, asking, overzealous, pretty, honest-quality-6422, local, don, hit]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/gpt/1pv3tty.md#c3"
-    char_span: [4778, 6998]
+    char_span: [4777, 6997]
     sentence_count: 19
     key_terms: [gpt, because, responsible, mirror, back, code, like, llm]
     section: Comments

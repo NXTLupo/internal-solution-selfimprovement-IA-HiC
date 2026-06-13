@@ -23,37 +23,37 @@ chunks:
     key_terms: [careerguidance, comments, prize-teaching5519, non-negotiables, established, reddit-deep, compromise, experience]
     token_count: 146
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c1"
-    char_span: [594, 2609]
+    char_span: [593, 2608]
     sentence_count: 22
     key_terms: [job, experience, non-negotiables, work, pay, non-negotiable, career, travel]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c2"
-    char_span: [2611, 4529]
+    char_span: [2610, 4528]
     sentence_count: 12
     key_terms: [match, years, objective-sky7312, like, pto, year, vesting, good]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c3"
-    char_span: [4265, 5053]
+    char_span: [4264, 5052]
     sentence_count: 5
     key_terms: [consider, company, nedflanders304, match, good, because, best, outstanding]
     section: Comments
     token_count: 202
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c4"
-    char_span: [5055, 5351]
+    char_span: [5054, 5350]
     sentence_count: 3
     key_terms: [job, non-negotiable, cofonseca, important, outweighs, sometimes, benefits, leverage]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c5"
-    char_span: [5353, 7449]
+    char_span: [5352, 7448]
     sentence_count: 9
     key_terms: [non-negotiables, job, either, years, don, like, lot, companies]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1rciqye.md#c6"
-    char_span: [7451, 8558]
+    char_span: [7450, 8557]
     sentence_count: 11
     key_terms: [job, travel, step, work, because, title, wrong, get]
     section: Comments

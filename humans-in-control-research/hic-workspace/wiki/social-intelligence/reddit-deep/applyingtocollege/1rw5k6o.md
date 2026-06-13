@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, comments, better, application, chairperson, reddit-deep, committee, executive]
     token_count: 123
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rw5k6o.md#c1"
-    char_span: [515, 2029]
+    char_span: [514, 2028]
     sentence_count: 13
     key_terms: [mayafromprepory, better, applications, experience, ashilify, business, yourself, offers]
     section: Comments

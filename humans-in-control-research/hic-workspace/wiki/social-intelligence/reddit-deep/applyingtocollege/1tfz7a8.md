@@ -21,13 +21,13 @@ chunks:
     key_terms: [georgetown, cross, holy, applyingtocollege, opportunities, down, comments, semester]
     token_count: 416
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c1"
-    char_span: [1886, 3656]
+    char_span: [1885, 3655]
     sentence_count: 16
     key_terms: [school, georgetown, admission, graduate, want, interested, different, cross]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/applyingtocollege/1tfz7a8.md#c2"
-    char_span: [3658, 5689]
+    char_span: [3657, 5688]
     sentence_count: 9
     key_terms: [georgetown, opportunities, school, comprehensivebig7667, debt, law, semester, alaaa88]
     section: Comments

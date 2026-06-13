@@ -15,10 +15,10 @@ industries: [fundraising, nonprofit, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-philanthropy/dacdbd06d9.md#c0"
-    char_span: [0, 1007]
+    char_span: [0, 1006]
     sentence_count: 3
     key_terms: [gates-foundation-budgets-9-billion-job-cuts-what-it-means-for-philanthropy, foundation, philanthropy, https, com, billion, fortune, reddit]
-    token_count: 244
+    token_count: 243
 ---
 # Gates Foundation plans to give away $9 billion in 2026 to prepare for the 2045 closure while slashing hundreds of jobs
 

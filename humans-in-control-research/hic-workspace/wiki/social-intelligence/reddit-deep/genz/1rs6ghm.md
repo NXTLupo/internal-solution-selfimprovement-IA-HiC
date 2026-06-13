@@ -23,55 +23,55 @@ chunks:
     key_terms: [comments, because, genz, tobias-tawanda, reddit-deep, financial, nihilism, paycheck]
     token_count: 118
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c1"
-    char_span: [417, 1815]
+    char_span: [416, 1814]
     sentence_count: 6
     key_terms: [afford, sometimes, paycheck, discord, living, https, fuck, here]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c2"
-    char_span: [1817, 3484]
+    char_span: [1816, 3483]
     sentence_count: 11
     key_terms: [because, ec19be03146e553d0c7337288d0b5724e61b0757, money, bag, paycheck, spending, minimum, parents]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c3"
-    char_span: [3486, 5152]
+    char_span: [3485, 5151]
     sentence_count: 10
     key_terms: [car, brigidfairy, get, home, probably, almost, being, point]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c4"
-    char_span: [5154, 7091]
+    char_span: [5153, 7090]
     sentence_count: 18
     key_terms: [people, family, cause, standards, house, "it's", cultural, nowadays]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c5"
-    char_span: [7093, 8874]
+    char_span: [7092, 8873]
     sentence_count: 15
     key_terms: [parents, people, billionaires, house, inheritance, getting, afford, means]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c6"
-    char_span: [8876, 10345]
+    char_span: [8875, 10344]
     sentence_count: 4
     key_terms: [month, housing, living, paragraph, market, shared, studio, alarmingconfusion918]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c7"
-    char_span: [10347, 12211]
+    char_span: [10346, 12210]
     sentence_count: 10
     key_terms: [month, job, like, emergency, sentinel, another, college, minimum]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c8"
-    char_span: [12213, 13950]
+    char_span: [12212, 13949]
     sentence_count: 8
     key_terms: [giving, get, f2aa0499a47971b8d19fcd67c73ffa472a6359e8, olddeadgrass, rent, bootstraps, utilities, because]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/genz/1rs6ghm.md#c9"
-    char_span: [13952, 14730]
+    char_span: [13951, 14729]
     sentence_count: 4
     key_terms: [housing, paragraph, market, alarmingconfusion918, rapid, affordability, technological, advancement]
     section: Comments

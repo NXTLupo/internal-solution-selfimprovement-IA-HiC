@@ -23,31 +23,31 @@ chunks:
     key_terms: [travel, having, digitalnomad, comments, digital, looking, someone, working]
     token_count: 378
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c1"
-    char_span: [1584, 3799]
+    char_span: [1583, 3798]
     sentence_count: 15
     key_terms: [someone, lessmediamorelife, finding, people, rather, travel, connections, activities]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c2"
-    char_span: [3511, 3950]
+    char_span: [3510, 3949]
     sentence_count: 4
     key_terms: [experiences, someone, want, realistically, interested, apartment, "couldn't", romantic]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c3"
-    char_span: [3952, 5718]
+    char_span: [3951, 5717]
     sentence_count: 13
     key_terms: [coliving, people, rather, meet, together, friends, having, travel]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c4"
-    char_span: [5720, 7566]
+    char_span: [5719, 7565]
     sentence_count: 10
     key_terms: [nomad, groups, people, june, country, around, cities, mexico]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/digitalnomad/1rx6x7u.md#c5"
-    char_span: [7568, 8811]
+    char_span: [7567, 8810]
     sentence_count: 13
     key_terms: [lessmediamorelife, community, instead, usually, people, spaces, persistence0fmemory, stays]
     section: Comments

@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1lb9drn.md#c0"
-    char_span: [0, 477]
+    char_span: [0, 476]
     sentence_count: 5
     key_terms: [careerguidance, "i'm", comments, guidance, want, reddit-deep, psychology, completed]
-    token_count: 132
+    token_count: 131
 ---
 # I'm a 25 years old student currently pursuing MA in psychology have completed BSc in ZBC and BEd . I'm seeking career guidance I'm in grave need to secure a job . I want to prepare for UP tgt biology and want help . Can anyone provide guidance?
 

@@ -23,7 +23,7 @@ chunks:
     key_terms: [texas, sales, washington, ibew, move, careerguidance, job, want]
     token_count: 360
   - id: "social-intelligence/reddit-deep/careerguidance/1s74mmw.md#c1"
-    char_span: [1443, 2587]
+    char_span: [1442, 2586]
     sentence_count: 8
     key_terms: ["you're", job, locals, "you'd", pre-apprenticeship, get, ibew, "it's"]
     section: Comments

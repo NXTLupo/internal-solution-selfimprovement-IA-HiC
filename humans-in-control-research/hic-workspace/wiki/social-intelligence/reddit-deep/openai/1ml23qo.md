@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1ml23qo.md#c0"
-    char_span: [0, 317]
+    char_span: [0, 316]
     sentence_count: 1
     key_terms: [comments, openai, fictionlive, reddit-deep, context, ihtfphd, numbers, posted]
     token_count: 97

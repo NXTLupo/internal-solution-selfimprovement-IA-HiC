@@ -26,25 +26,25 @@ chunks:
     key_terms: [negative, appreciated, appropriate, experienced, colleagues, apologies, comments, students]
     token_count: 68
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c2"
-    char_span: [2698, 4626]
+    char_span: [2697, 4625]
     sentence_count: 16
     key_terms: [thank, rmp, here, definitely, feeling, student, individualfabulous31, student-as-consumer]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c3"
-    char_span: [4393, 5246]
+    char_span: [4392, 5245]
     sentence_count: 6
     key_terms: [students, get, rmp, feedback, reviews, thank, write, away]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c4"
-    char_span: [5248, 6574]
+    char_span: [5247, 6573]
     sentence_count: 8
     key_terms: [evaluation, comments, institution, official, students, "i'm", like, read]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/professors/1t6byqy.md#c5"
-    char_span: [6576, 8491]
+    char_span: [6575, 8490]
     sentence_count: 16
     key_terms: [semester, class, thank, evaluations, rmp, evaluation, students, respond]
     section: Comments

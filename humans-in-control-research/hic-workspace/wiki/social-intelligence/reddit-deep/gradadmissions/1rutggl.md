@@ -33,31 +33,31 @@ chunks:
     key_terms: [information, people, "you're", recruiting, outcomes, students, faculty, around]
     token_count: 326
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c3"
-    char_span: [6668, 7401]
+    char_span: [6667, 7400]
     sentence_count: 3
     key_terms: [zestyclose-tax2939, got, princeton, harvard, telling, phone, get, application]
     section: Comments
     token_count: 191
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c4"
-    char_span: [7403, 8979]
+    char_span: [7402, 8978]
     sentence_count: 13
     key_terms: [year, mit, arkansas, looking, professor, students, faculty, expert]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c5"
-    char_span: [8981, 10626]
+    char_span: [8980, 10625]
     sentence_count: 8
     key_terms: [research, experience, programs, year, applying, being, undergrad, engineer]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c6"
-    char_span: [10628, 12468]
+    char_span: [10627, 12467]
     sentence_count: 16
     key_terms: [good, phd, programs, research, letters, long, experience, looking]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradadmissions/1rutggl.md#c7"
-    char_span: [12470, 13061]
+    char_span: [12469, 13060]
     sentence_count: 5
     key_terms: [experience, program, "didn't", get, appreciated, prestigious, applicants, especially]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rw93sa.md
 url: "https://www.reddit.com/r/internships/comments/1rw93sa/lost_dream_internship_offer_due_to_visa_issues/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,24 @@ flair: "Offers"
 extracted_at: "2026-06-06T23:20:46.214Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rw93sa.md#c0"
+    char_span: [0, 1942]
+    sentence_count: 15
+    key_terms: [internship, offer, visa, internships, university, student, dream, full-time]
+    token_count: 429
+  - id: "social-intelligence/reddit-deep/internships/1rw93sa.md#c1"
+    char_span: [1944, 3598]
+    sentence_count: 14
+    key_terms: [opportunity, been, "don't", job, offer, like, company, mention]
+    token_count: 354
+  - id: "social-intelligence/reddit-deep/internships/1rw93sa.md#c2"
+    char_span: [3613, 5456]
+    sentence_count: 14
+    key_terms: [appropriate-tutor587, offer, potential-drag9761, hey, lot, time, visa, experience]
+    section: Comments
+    token_count: 477
 ---
-
 # Lost Dream Internship Offer due to Visa Issues out of my Control, how to move on from this/next steps?
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rw93sa/lost_dream_internship_offer_due_to_visa_issues/)

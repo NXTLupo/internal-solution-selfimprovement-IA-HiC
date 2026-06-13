@@ -18,10 +18,10 @@ industries: [ai_research, saas, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1qxtjug.md#c0"
-    char_span: [0, 301]
+    char_span: [0, 300]
     sentence_count: 1
     key_terms: [anthropic, comments, claude, reddit-deep, hackathon, dataexec, credits, virtual]
-    token_count: 93
+    token_count: 92
 ---
 # Built with Opus 4.6: a Claude Code virtual hackathon - win $100k in Claude API credits
 

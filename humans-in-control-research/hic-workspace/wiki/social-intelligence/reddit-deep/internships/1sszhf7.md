@@ -26,7 +26,7 @@ chunks:
     key_terms: [discouraged, suddenly, feeling, process, almost, around, going, gave]
     token_count: 36
   - id: "social-intelligence/reddit-deep/internships/1sszhf7.md#c2"
-    char_span: [2471, 4313]
+    char_span: [2470, 4312]
     sentence_count: 13
     key_terms: [interviews, experience, internship, maybe, applied, resume, applications, send]
     section: Comments

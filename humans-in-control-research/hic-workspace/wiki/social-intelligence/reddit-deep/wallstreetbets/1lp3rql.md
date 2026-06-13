@@ -23,13 +23,13 @@ chunks:
     key_terms: [wallstreetbets, comments, account, buying, beneficialbuffalo815, puts, reddit-deep, switches]
     token_count: 119
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c1"
-    char_span: [395, 1682]
+    char_span: [394, 1681]
     sentence_count: 3
     key_terms: [smart, wsb, d1b3532c26c99ef88456d41314cf2bb31620f7a6, https, discord, beneficialbuffalo815, total, fallweathercamping]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/wallstreetbets/1lp3rql.md#c2"
-    char_span: [1684, 2984]
+    char_span: [1683, 2983]
     sentence_count: 9
     key_terms: [beneficialbuffalo815, gambling, tomorrow, account, muted-woodpecker-469, hostileenvironments, close, "don't"]
     section: Comments

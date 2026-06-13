@@ -15,17 +15,17 @@ industries: [financial_services, healthcare]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c0"
-    char_span: [0, 2065]
+    char_span: [0, 2064]
     sentence_count: 19
     key_terms: [personalfinance, debt, currently, comments, savings, financial, insurance, subreddit]
-    token_count: 491
+    token_count: 490
   - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c1"
-    char_span: [2067, 4280]
+    char_span: [2066, 4279]
     sentence_count: 17
     key_terms: [life, money, years, debt, get, need, finances, memories]
     token_count: 505
   - id: "articles/reddit-deep-r-personalfinance/79bb1ed1ce.md#c2"
-    char_span: [4282, 4781]
+    char_span: [4281, 4780]
     sentence_count: 5
     key_terms: [accountability, exponentially, financially, "everyone's", protecting, well-being, important, finances]
     token_count: 104

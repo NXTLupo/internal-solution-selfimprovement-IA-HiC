@@ -26,7 +26,7 @@ chunks:
     key_terms: [entry-level, "i'm", internship, myself, roles, job, like, tech]
     token_count: 158
   - id: "social-intelligence/reddit-deep/internships/1segpeb.md#c2"
-    char_span: [2582, 4291]
+    char_span: [2581, 4290]
     sentence_count: 12
     key_terms: [get, year, masters, job, internship, bachelors, something, nexsyna]
     section: Comments

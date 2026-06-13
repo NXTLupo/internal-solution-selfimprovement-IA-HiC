@@ -69,6 +69,29 @@ _SELF_REFERENTIAL_PATTERNS = [
     re.compile(r"\b(?:is|are)\s+(?:deferred|out\s+of\s+scope)\s+so\b", re.I),
 ]
 
+# 2026-06-09 — METHODOLOGY / RESEARCH-PROCESS chrome. The reader sees a FINISHED
+# consulting artifact, never the analytical apparatus. These leaked into a themes
+# exemplar repeatedly: kicker "WHAT THE CORPUS SAYS / STUDENT-VOICE EVIDENCE,
+# SIX-LENS SCAN", a "LENSES" strip exposing the six-lens framework, and an
+# "the evidence is thickest..." note. Banned as kicker / heading / label / note
+# chrome. NOTE: named "SOURCE: <name>" citations are ALLOWED (that is the citation
+# protocol, not self-reference) and are NOT matched here.
+_METHODOLOGY_PATTERNS = [
+    re.compile(r"\bwhat the (?:corpus|evidence|data|research|findings)\s+(?:say|says|show|shows|reveal|reveals|tell|tells)\b", re.I),
+    re.compile(r"\bsix[- ]?lens\b", re.I),
+    re.compile(r"\b\d+[- ]lens(?:es)?\s+(?:scan|analysis|view|framework)\b", re.I),
+    re.compile(r"\blens(?:es)?\s+(?:scan|framework)\b", re.I),
+    re.compile(r"\b(?:student|customer|user)[- ]voice\s+(?:scan|evidence)\b", re.I),
+    re.compile(r"\bcorpus\b", re.I),
+    re.compile(r"\bmethodology\b", re.I),
+    re.compile(r"\bthe\s+(?:evidence|data)\s+(?:is|are|shows|concentrate|concentrates|cannot\s+carry)\b", re.I),
+    # 2026-06-09 - positional COUNTER chrome (reporting-depth metadata). "PERSONA 02 OF 04",
+    # "GAP 01 OF 04", "PHASE 1 OF 5", "EXHIBIT 3 OF 7" - an "N of M" pagination counter the reader
+    # of a finished artifact must never see (same class as "Phase 0X", "Run ID"). The gold twins
+    # carry "PERSONA 01 OF 04" in the kicker; that is slop to strip, not to reproduce.
+    re.compile(r"\b(?:persona|personas|gap|phase|exhibit|figure|slide|step|chapter|section|item|recommendation|theme)\s+\d+\s+of\s+\d+\b", re.I),
+]
+
 
 # Limit how much text we strip-quote in the rejection reason so the message
 # stays useful but doesn't dump the whole artifact back to the model.
@@ -90,7 +113,7 @@ def _strip_html(html: str) -> str:
 def _detect(text: str) -> list[tuple[str, str]]:
     """Return list of (pattern_label, matched_phrase) hits."""
     hits: list[tuple[str, str]] = []
-    for pat in _SELF_REFERENTIAL_PATTERNS:
+    for pat in (_SELF_REFERENTIAL_PATTERNS + _METHODOLOGY_PATTERNS):
         for m in pat.finditer(text):
             start = max(0, m.start() - 40)
             end = min(len(text), m.end() + 40)

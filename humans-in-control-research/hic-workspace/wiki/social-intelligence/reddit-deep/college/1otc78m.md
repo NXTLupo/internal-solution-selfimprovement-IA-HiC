@@ -23,13 +23,13 @@ chunks:
     key_terms: [sleep, sometimes, day, don, get, college, wake, comments]
     token_count: 320
   - id: "social-intelligence/reddit-deep/college/1otc78m.md#c1"
-    char_span: [1228, 2943]
+    char_span: [1227, 2942]
     sentence_count: 10
     key_terms: [upset-gerbil6061, waking, time, getting, minutes, morning, sunrise, through]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/college/1otc78m.md#c2"
-    char_span: [2945, 4765]
+    char_span: [2944, 4764]
     sentence_count: 17
     key_terms: [sleep, get, anxiety, going, body, depression, consider, disorder]
     section: Comments

@@ -28,67 +28,67 @@ chunks:
     key_terms: ["i'm", credit, good, "you're", tired, advice, "didn't", debt]
     token_count: 390
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c2"
-    char_span: [3894, 5940]
+    char_span: [3893, 5939]
     sentence_count: 20
     key_terms: [submitter, appropriate, need, advice, please, vents, vent, emotional]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c3"
-    char_span: [5942, 7439]
+    char_span: [5941, 7438]
     sentence_count: 16
     key_terms: [card, paying, wrong, interest, annual, higher, invest, penny]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c4"
-    char_span: [7441, 9227]
+    char_span: [7440, 9226]
     sentence_count: 14
     key_terms: [credit, card, score, fee, account, annual, did, get]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c5"
-    char_span: [9230, 10399]
+    char_span: [9229, 10398]
     sentence_count: 9
     key_terms: [card, account, balance, college, credit, score, years, "i'm"]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c6"
-    char_span: [10401, 12455]
+    char_span: [10400, 12454]
     sentence_count: 19
     key_terms: [card, credit, get, score, replacement, paid, account, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c7"
-    char_span: [12196, 12782]
+    char_span: [12195, 12781]
     sentence_count: 7
     key_terms: [credit, automatically, circumstance, subscription, replacement, inactivity, shady-tree, currently]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c8"
-    char_span: [12784, 14769]
+    char_span: [12783, 14768]
     sentence_count: 18
     key_terms: [credit, card, advice, back, day, good, accounts, account]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c9"
-    char_span: [14771, 15972]
+    char_span: [14770, 15971]
     sentence_count: 15
     key_terms: [credit, card, cards, annual, don, pay, money, start]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c10"
-    char_span: [15975, 17883]
+    char_span: [15974, 17882]
     sentence_count: 15
     key_terms: [credit, card, cards, cash, fee, limit, like, use]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c11"
-    char_span: [17885, 19742]
+    char_span: [17884, 19741]
     sentence_count: 13
     key_terms: [credit, switch, limit, card, cards, score, customer, mortgage]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/povertyfinance/1qwsphu.md#c12"
-    char_span: [19744, 21435]
+    char_span: [19743, 21434]
     sentence_count: 14
     key_terms: [card, credit, annual, fee, change, close, right, utilization]
     section: Comments

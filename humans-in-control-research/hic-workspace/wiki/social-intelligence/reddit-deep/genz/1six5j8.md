@@ -28,91 +28,91 @@ chunks:
     key_terms: [prices, because, people, places, rising, doing, local, money]
     token_count: 229
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c2"
-    char_span: [3020, 3942]
+    char_span: [3019, 3941]
     sentence_count: 6
     key_terms: [teenagers, anywhere, discord, people, unless, "you're", down, like]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c3"
-    char_span: [3944, 5706]
+    char_span: [3943, 5705]
     sentence_count: 7
     key_terms: [anything, places, "don't", group, want, affordable, teenagers, because]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c4"
-    char_span: [5708, 6889]
+    char_span: [5707, 6888]
     sentence_count: 4
     key_terms: [teenagers, businesses, local, money, been, don, get, like]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c5"
-    char_span: [6891, 8687]
+    char_span: [6890, 8686]
     sentence_count: 9
     key_terms: [people, spaces, chill, always, loiter, going, cocovenomnomnom95, bar]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c6"
-    char_span: [8689, 9614]
+    char_span: [8688, 9613]
     sentence_count: 8
     key_terms: [boomer, boomers, conservative, yall, places, being, power, earth-jupiter-mars]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c7"
-    char_span: [9616, 11043]
+    char_span: [9615, 11042]
     sentence_count: 4
     key_terms: [botanical, gardens, gen, because, boomers, power, free, here]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c8"
-    char_span: [11045, 13041]
+    char_span: [11044, 13040]
     sentence_count: 12
     key_terms: [botanical, gen, gardens, free, here, like, grunchlet, around]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c9"
-    char_span: [13043, 14555]
+    char_span: [13042, 14554]
     sentence_count: 9
     key_terms: [land, everything, anything, though, home, lol, some1inreallife, bey0nd1nfinity]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c10"
-    char_span: [14557, 16524]
+    char_span: [14556, 16523]
     sentence_count: 18
     key_terms: [infrastructure, people, public, space, use, pedestrian, parking, traffic]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c11"
-    char_span: [16526, 18086]
+    char_span: [16525, 18085]
     sentence_count: 7
     key_terms: [bus, especially, spaces, being, gen, hour, like, town]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c12"
-    char_span: [18088, 19775]
+    char_span: [18087, 19774]
     sentence_count: 18
     key_terms: [millennial, certainty, expensive, dollars, payment, tuesday, always, around]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c13"
-    char_span: [19777, 21148]
+    char_span: [19776, 21147]
     sentence_count: 12
     key_terms: [mall, definitely, graduated, recession, managed, around, people, teens]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c14"
-    char_span: [21150, 23196]
+    char_span: [21149, 23195]
     sentence_count: 19
     key_terms: [people, spaces, free, comfortable, bars, dive, went, community]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c15"
-    char_span: [23198, 24695]
+    char_span: [23197, 24694]
     sentence_count: 10
     key_terms: [spaces, people, entertainment, world, unfortunate, american, "didn't", cost]
     section: Comments
     token_count: 323
   - id: "social-intelligence/reddit-deep/genz/1six5j8.md#c16"
-    char_span: [24697, 26047]
+    char_span: [24696, 26046]
     sentence_count: 7
     key_terms: [dopamine, developers, cities, spaces, build, urban, get, infrastructure]
     section: Comments

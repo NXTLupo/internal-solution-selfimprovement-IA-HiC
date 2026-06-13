@@ -23,7 +23,7 @@ chunks:
     key_terms: [experiments, agent, kaggle, like, experimentation, compute, across, system]
     token_count: 445
   - id: "social-intelligence/reddit-deep/deeplearning/1rsie5v.md#c1"
-    char_span: [2113, 3719]
+    char_span: [2112, 3718]
     sentence_count: 12
     key_terms: [agent, like, sellinside9661, architecture, baselines, notebook, taxonomy, planner]
     section: Comments

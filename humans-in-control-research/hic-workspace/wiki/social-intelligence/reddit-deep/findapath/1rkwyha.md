@@ -23,7 +23,7 @@ chunks:
     key_terms: [findapath, comments, ok-definition-1922, reddit-deep, experience, immigrant, recommend, year-old]
     token_count: 92
   - id: "social-intelligence/reddit-deep/findapath/1rkwyha.md#c1"
-    char_span: [339, 1471]
+    char_span: [338, 1470]
     sentence_count: 10
     key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, helped]
     section: Comments

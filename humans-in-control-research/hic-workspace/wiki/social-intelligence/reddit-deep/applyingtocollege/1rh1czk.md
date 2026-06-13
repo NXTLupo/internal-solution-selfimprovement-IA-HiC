@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rh1czk.md#c0"
-    char_span: [0, 925]
+    char_span: [0, 924]
     sentence_count: 7
     key_terms: [applyingtocollege, language, application, math, math-heavy, comments, around, add]
-    token_count: 204
+    token_count: 203
 ---
 # Do language skills add value to a math-heavy college application?
 

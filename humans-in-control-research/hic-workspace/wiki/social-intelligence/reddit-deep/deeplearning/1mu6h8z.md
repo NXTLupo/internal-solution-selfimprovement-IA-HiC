@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/deeplearning/1mu6h8z.md#c0"
-    char_span: [0, 328]
+    char_span: [0, 327]
     sentence_count: 1
     key_terms: [deeplearning, comments, recommendations, fine-tuning, reddit-deep, generation, resource, bengali]
-    token_count: 94
+    token_count: 93
 ---
 # Fine-tuning a Code Generation LLM on Bengali Dataset - Need Model & Resource Recommendations
 

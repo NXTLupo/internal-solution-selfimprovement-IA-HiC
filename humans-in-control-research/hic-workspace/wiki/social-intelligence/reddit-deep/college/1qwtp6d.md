@@ -21,19 +21,19 @@ chunks:
     key_terms: [college, big, experience, university, school, community, comments, illinois]
     token_count: 261
   - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c1"
-    char_span: [1174, 2684]
+    char_span: [1173, 2683]
     sentence_count: 10
     key_terms: [sports, illinois, school, state, big, definitely, fantastic, culture]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c2"
-    char_span: [2686, 4951]
+    char_span: [2685, 4950]
     sentence_count: 14
     key_terms: [school, experience, big, program, debt, get, possible, attend]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/college/1qwtp6d.md#c3"
-    char_span: [4953, 5284]
+    char_span: [4952, 5283]
     sentence_count: 3
     key_terms: [life, affordable, commuting, colleges, distance, needless, "parent's", transfer]
     section: Comments

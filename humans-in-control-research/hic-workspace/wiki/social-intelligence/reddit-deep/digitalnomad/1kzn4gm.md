@@ -23,7 +23,7 @@ chunks:
     key_terms: [digital, digitalnomad, nomad, spain, asia, been, freelance, residency]
     token_count: 306
   - id: "social-intelligence/reddit-deep/digitalnomad/1kzn4gm.md#c1"
-    char_span: [1280, 2898]
+    char_span: [1279, 2897]
     sentence_count: 13
     key_terms: [spain, study, years, "it's", studying, enough, count, sofialo4]
     section: Comments

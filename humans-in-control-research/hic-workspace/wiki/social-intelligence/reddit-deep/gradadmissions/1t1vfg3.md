@@ -28,7 +28,7 @@ chunks:
     key_terms: [research, another, given, "i'm", appreciated, institution, publication, experience]
     token_count: 118
   - id: "social-intelligence/reddit-deep/gradadmissions/1t1vfg3.md#c2"
-    char_span: [2666, 3348]
+    char_span: [2665, 3347]
     sentence_count: 7
     key_terms: [requirement, softrains12, gpa, research, perfect, master, former-hospital-3656, cumulative]
     section: Comments

@@ -23,49 +23,49 @@ chunks:
     key_terms: [chatgpt, comments, bricks0fbollywood, reddit-deep, details, imagine, insane, posted]
     token_count: 100
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c1"
-    char_span: [328, 2058]
+    char_span: [327, 2057]
     sentence_count: 19
     key_terms: [because, openai, please, conversation, image, post, r-chatgpt-1050422060352024636, subreddit]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c2"
-    char_span: [2060, 3321]
+    char_span: [2059, 3320]
     sentence_count: 10
     key_terms: [agi, gta, looking, requirementcivil4328, themightytywin, desensitizing, intelligence, verification]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c3"
-    char_span: [3323, 4250]
+    char_span: [3322, 4249]
     sentence_count: 7
     key_terms: [being, agi, gta, lead, approach, details, like, race]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c4"
-    char_span: [4252, 5828]
+    char_span: [4251, 5827]
     sentence_count: 7
     key_terms: [reddit, f21a2d3e9a55411261b1447c9eb0c049a68346fb, android, browser, twitch, guess, thejonesjonesjones, aosp]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c5"
-    char_span: [5647, 6233]
+    char_span: [5646, 6232]
     sentence_count: 2
     key_terms: [browser, efd3e6430713576fded912f931b093b0946c3213, android, aosp, brawndoohnaka, z8e7ltbcy4yg1, wetwilly2140, henchman171]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c6"
-    char_span: [6235, 6324]
+    char_span: [6234, 6323]
     sentence_count: 1
     key_terms: [immortal, imagine, mortal, being, agi, lmao, pls]
     section: Comments
     token_count: 26
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c7"
-    char_span: [6326, 7887]
+    char_span: [6325, 7886]
     sentence_count: 7
     key_terms: [villageno3295, f320f8451485779e73458273e6a984eaafa9746a, human, did, revelation, humanity, obsessed, amazing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1syxq98.md#c8"
-    char_span: [7707, 8533]
+    char_span: [7706, 8532]
     sentence_count: 3
     key_terms: [did, good, af5tzvjx05yg1, sadlypathetic, henchman171, hypnosmoke, megatippa, something]
     section: Comments

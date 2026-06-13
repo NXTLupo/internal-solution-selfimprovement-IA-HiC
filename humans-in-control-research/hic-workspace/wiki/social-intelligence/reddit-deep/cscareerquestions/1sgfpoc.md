@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, major, cscareerquestions, always, able, comments, security, google]
     token_count: 259
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sgfpoc.md#c1"
-    char_span: [1099, 2639]
+    char_span: [1098, 2638]
     sentence_count: 9
     key_terms: [degree, experience, google, major, internships, background, internship, companies]
     section: Comments

@@ -23,61 +23,61 @@ chunks:
     key_terms: [investments, dutch-lawmakers-advance-36-capital-092300720, tax, unrealized, investing, comments, capital, crypto]
     token_count: 268
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c1"
-    char_span: [1098, 3410]
+    char_span: [1097, 3409]
     sentence_count: 13
     key_terms: [people, needs, tax, already, because, returns, money, old]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c2"
-    char_span: [3412, 4980]
+    char_span: [3411, 4979]
     sentence_count: 7
     key_terms: [unrealized, gains, sense, worth, net, dragon, losses, offset]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c3"
-    char_span: [4982, 6526]
+    char_span: [4981, 6525]
     sentence_count: 9
     key_terms: [people, being, investments, year, government, pensioners, spending, bracket]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c4"
-    char_span: [6529, 7469]
+    char_span: [6528, 7468]
     sentence_count: 8
     key_terms: [better, social, sweden, worked, sense, get, hard, like]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c5"
-    char_span: [7472, 8821]
+    char_span: [7471, 8820]
     sentence_count: 6
     key_terms: [tax, unrealized, gains, sense, "it's", bitcoinoperatedgirl, immodestpolitician, successfulsir9611]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c6"
-    char_span: [8823, 9768]
+    char_span: [8822, 9767]
     sentence_count: 4
     key_terms: [politicians, like, few-engineering9803, right, tax, moonrust-app, calculation, netherlands]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c7"
-    char_span: [9770, 11349]
+    char_span: [9769, 11348]
     sentence_count: 7
     key_terms: [rich, people, reason, population, deficit, society, whoever, without]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c8"
-    char_span: [11351, 12988]
+    char_span: [11350, 12987]
     sentence_count: 6
     key_terms: [stop-belasting-op-papieren-winst-behoud-rente-op-rente-voor-de-kleine-spaarder, people, bureaucracy, rich, capitalism, million, poverty, losing]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c9"
-    char_span: [12990, 14463]
+    char_span: [12989, 14462]
     sentence_count: 9
     key_terms: [capital, dutch, tax, company, wealth, constructions, professionals, individuals]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/investing/1r5ckzk.md#c10"
-    char_span: [14466, 15726]
+    char_span: [14465, 15725]
     sentence_count: 7
     key_terms: [stop-belasting-op-papieren-winst-behoud-rente-op-rente-voor-de-kleine-spaarder, tax, gains, people, unrealised, increase, bracket, few-engineering9803]
     section: Comments

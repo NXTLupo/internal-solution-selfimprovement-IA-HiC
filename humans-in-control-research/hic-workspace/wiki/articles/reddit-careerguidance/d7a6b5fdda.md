@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-careerguidance/d7a6b5fdda.md#c0"
-    char_span: [0, 2343]
+    char_span: [0, 2342]
     sentence_count: 2
     key_terms: [best, resumes, conversation, anyone, hiring, someone, careerguidance, people]
-    token_count: 474
+    token_count: 473
 ---
 # Has anyone else noticed that the best hires they've made had the "worst" resumes?
 

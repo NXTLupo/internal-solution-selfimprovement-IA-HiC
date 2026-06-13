@@ -23,19 +23,19 @@ chunks:
     key_terms: [chatgpt, comments, image, reddit-deep, completely, njdevil202, different, generated]
     token_count: 92
   - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c1"
-    char_span: [366, 947]
+    char_span: [365, 946]
     sentence_count: 5
     key_terms: [conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, openai, please]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c2"
-    char_span: [950, 2408]
+    char_span: [949, 2407]
     sentence_count: 8
     key_terms: ["that's", a4ae39ca7a006039d80b77f13f1467d35e852237, chatgpt, subverted, "wouldn't", prompt, marketinginteresting, maybe]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/chatgpt/1lnz6ai.md#c3"
-    char_span: [2410, 4105]
+    char_span: [2409, 4104]
     sentence_count: 8
     key_terms: ["subject's", did, "it'll", laugh, quite, bukkakelord, examination, "it's"]
     section: Comments

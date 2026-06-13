@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, engineering, comments, sankey, cherryspacepie, reddit-deep, electrical, internship]
     token_count: 122
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sxm84s.md#c1"
-    char_span: [474, 1502]
+    char_span: [473, 1501]
     sentence_count: 7
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, www, tadpoleeffective2307]
     section: Comments

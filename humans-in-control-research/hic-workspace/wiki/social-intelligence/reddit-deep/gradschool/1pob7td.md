@@ -23,31 +23,31 @@ chunks:
     key_terms: [program, dissertation, gradschool, comments, teaching, thrown, wolves, inevitable-falcon-96]
     token_count: 267
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c1"
-    char_span: [1198, 3470]
+    char_span: [1197, 3469]
     sentence_count: 14
     key_terms: [department, program, like, someone, effectively, institution, been, help]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c2"
-    char_span: [3472, 5818]
+    char_span: [3471, 5817]
     sentence_count: 25
     key_terms: [research, questions, own, program, writing, accessibility, dissertation, field]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c3"
-    char_span: [5820, 6861]
+    char_span: [5819, 6860]
     sentence_count: 12
     key_terms: [depend, specific, humanities, programs, enough, skills, topics, teach]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c4"
-    char_span: [6863, 8752]
+    char_span: [6862, 8751]
     sentence_count: 12
     key_terms: [writing, research, graduate, program, course, skills, year, themselves]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/gradschool/1pob7td.md#c5"
-    char_span: [8754, 10101]
+    char_span: [8753, 10100]
     sentence_count: 6
     key_terms: [workshops, advisor, writing, qualitative, concrete, drafting, training, methods]
     section: Comments

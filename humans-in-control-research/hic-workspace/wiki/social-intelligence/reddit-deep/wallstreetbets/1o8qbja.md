@@ -33,49 +33,49 @@ chunks:
     key_terms: [grant, avg, puts, cash, nov, too, dilution, salaries]
     token_count: 381
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c3"
-    char_span: [5332, 6484]
+    char_span: [5331, 6483]
     sentence_count: 3
     key_terms: [firstforfun44, post, discord, interestingcheek7095, mother-chipmunk2778, "can't", hours, https]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c4"
-    char_span: [6486, 8110]
+    char_span: [6485, 8109]
     sentence_count: 9
     key_terms: [mother-chipmunk2778, through, get, post, market, gamblingpharmastocks, primaryastronaut8916, eulif]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c5"
-    char_span: [8112, 10024]
+    char_span: [8111, 10023]
     sentence_count: 12
     key_terms: [wsb, get, definitely, successful, average, bought, common, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c6"
-    char_span: [9792, 10149]
+    char_span: [9791, 10148]
     sentence_count: 2
     key_terms: ["they'd", calls, wsb, averaged, everyone, guessing, rejected, average]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c7"
-    char_span: [10151, 11513]
+    char_span: [10150, 11512]
     sentence_count: 7
     key_terms: [resources, inferred, indicated, measured, resource, project, classification, post]
     section: Comments
     token_count: 313
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c8"
-    char_span: [11515, 13155]
+    char_span: [11514, 13154]
     sentence_count: 2
     key_terms: [misterjefe83, whateverisok, because, shares, captainunderpants111, calls, hours, right]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c9"
-    char_span: [12971, 13178]
+    char_span: [12970, 13177]
     sentence_count: 1
     key_terms: [terminated, premarket, sdmember, either, pretty, shares, grant, looks]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/wallstreetbets/1o8qbja.md#c10"
-    char_span: [13180, 14722]
+    char_span: [13179, 14721]
     sentence_count: 3
     key_terms: [trump-eyes-deeper-energy-project-cuts-as-shutdown-drags-on, article, semafor, https, com, www, dotadogma, c4958f7c218f27c104887ec75eccccd3f01e4568]
     section: Comments

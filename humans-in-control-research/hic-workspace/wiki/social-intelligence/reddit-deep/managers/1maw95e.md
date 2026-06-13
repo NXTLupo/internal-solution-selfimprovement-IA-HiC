@@ -23,19 +23,19 @@ chunks:
     key_terms: [managers, team, comments, "they're", member, help, need, back-to-back]
     token_count: 178
   - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c1"
-    char_span: [769, 2181]
+    char_span: [768, 2180]
     sentence_count: 13
     key_terms: [meeting, dented-spoiler, daily, scrum, impediments, time, software, someone]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c2"
-    char_span: [2183, 4177]
+    char_span: [2182, 4176]
     sentence_count: 19
     key_terms: [problems, something, big, team, problem, project, member, urgent]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1maw95e.md#c3"
-    char_span: [4179, 5345]
+    char_span: [4178, 5344]
     sentence_count: 13
     key_terms: [team, coordination, culture, forsaken-suspect-793, chaos, did, feel, "it's"]
     section: Comments

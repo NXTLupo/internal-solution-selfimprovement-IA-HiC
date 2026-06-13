@@ -23,13 +23,13 @@ chunks:
     key_terms: [emotional, applyingtocollege, comments, college, process, health, mental, myself]
     token_count: 239
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c1"
-    char_span: [1118, 3102]
+    char_span: [1117, 3101]
     sentence_count: 9
     key_terms: [prospective, friends, like, pre-college-application, college, choice, review, safety]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qeuff1.md#c2"
-    char_span: [3104, 4477]
+    char_span: [3103, 4476]
     sentence_count: 15
     key_terms: [happiness, "you're", find, get, cliches, harvard, accept, "didn't"]
     section: Comments

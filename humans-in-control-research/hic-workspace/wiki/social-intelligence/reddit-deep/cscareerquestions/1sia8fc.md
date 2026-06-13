@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sia8fc.md#c0"
-    char_span: [0, 504]
+    char_span: [0, 503]
     sentence_count: 3
     key_terms: [cscareerquestions, internship, developer, comments, through, summer, seo, tech]
-    token_count: 128
+    token_count: 127
 ---
 # SEO Tech Developer vs. Summer Internship
 

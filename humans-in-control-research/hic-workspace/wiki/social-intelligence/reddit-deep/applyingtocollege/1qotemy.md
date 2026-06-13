@@ -21,25 +21,25 @@ chunks:
     key_terms: [applyingtocollege, comments, academy, zenith, prep, reddit-deep, experience, positive]
     token_count: 88
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c1"
-    char_span: [363, 2501]
+    char_span: [362, 2500]
     sentence_count: 9
     key_terms: [experience, guarantee, ok-signature-6892, get, college, beneficial, offputting, contract]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c2"
-    char_span: [2290, 2681]
+    char_span: [2289, 2680]
     sentence_count: 5
     key_terms: [focused, ok-signature-6892, paid, counselors, leadership, directly, freshman, because]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c3"
-    char_span: [2683, 4892]
+    char_span: [2682, 4891]
     sentence_count: 10
     key_terms: [like, money, guarantee, program, anyone, zenith, get, help]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qotemy.md#c4"
-    char_span: [4616, 5162]
+    char_span: [4615, 5161]
     sentence_count: 5
     key_terms: [zenith, goals, "it's", dangerzonefinder, extracurriculars, challenging, experience, productive]
     section: Comments

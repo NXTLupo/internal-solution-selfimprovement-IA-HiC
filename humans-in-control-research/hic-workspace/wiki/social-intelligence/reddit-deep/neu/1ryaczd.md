@@ -18,10 +18,10 @@ industries: [higher_ed, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1ryaczd.md#c0"
-    char_span: [0, 1068]
+    char_span: [0, 1067]
     sentence_count: 10
     key_terms: [neu, suggestions, autonomous, comments, robotics, systems, going, right]
-    token_count: 252
+    token_count: 251
 ---
 # Got into MS AI (Robotics & Autonomous Systems) for Fall 2026 – any suggestions?
 

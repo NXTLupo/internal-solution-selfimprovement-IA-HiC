@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/c9ea5df11d.md#c0"
-    char_span: [0, 1668]
+    char_span: [0, 1667]
     sentence_count: 10
     key_terms: [market, tech, cscareerquestions, future, ive, wondering, comments, probably]
-    token_count: 384
+    token_count: 383
   - id: "articles/reddit-deep-r-cscareerquestions/c9ea5df11d.md#c1"
-    char_span: [1670, 3235]
+    char_span: [1669, 3234]
     sentence_count: 7
     key_terms: [because, effectively, like, need, medicine, ideally, blah, keep]
     token_count: 356

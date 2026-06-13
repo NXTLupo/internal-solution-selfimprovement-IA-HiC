@@ -21,43 +21,43 @@ chunks:
     key_terms: [feel, like, careerguidance, connections, experience, comments, feelings, because]
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c1"
-    char_span: [1942, 3424]
+    char_span: [1941, 3423]
     sentence_count: 17
     key_terms: [people, get, life, gonna, reach, connection, yourself, connect]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c2"
-    char_span: [3426, 5774]
+    char_span: [3425, 5773]
     sentence_count: 8
     key_terms: [abt, linkedin, street, interested, show, people, city, job]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c3"
-    char_span: [5776, 7283]
+    char_span: [5775, 7282]
     sentence_count: 27
     key_terms: [referral, skills, messages, without, ask, job, time, experience]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c4"
-    char_span: [7285, 8998]
+    char_span: [7284, 8997]
     sentence_count: 13
     key_terms: [imoldsoul, sammie-arellano, career, professional-fuel889, revolutionary-elk986, alone, fired, needs]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c5"
-    char_span: [9000, 11073]
+    char_span: [8999, 11072]
     sentence_count: 14
     key_terms: [something, going, knows, introverted, yourself, chatgpt, deleted, overall]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c6"
-    char_span: [11075, 13177]
+    char_span: [11074, 13176]
     sentence_count: 26
     key_terms: ["it's", job, task, experience, projects, chatgpt, outlier, someone]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1qf0tbm.md#c7"
-    char_span: [13179, 13776]
+    char_span: [13178, 13775]
     sentence_count: 7
     key_terms: [chatgpt, killing, trying, world, use, manipulated, perspective, manipulate]
     section: Comments

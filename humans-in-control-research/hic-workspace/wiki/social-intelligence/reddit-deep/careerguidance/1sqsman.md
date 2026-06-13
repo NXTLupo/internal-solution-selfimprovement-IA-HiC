@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sqsman.md#c0"
-    char_span: [0, 1596]
+    char_span: [0, 1595]
     sentence_count: 5
     key_terms: [japan, years, job, careerguidance, jobs, bangladesh, experience, developer]
-    token_count: 386
+    token_count: 385
 ---
 # How can I get a job in IT industry in japan after 3.5 years career gap due to language barriers? 2 years tried but no success. Now I am jlpt N3 passed and learning N2. Any advice or suugestions how can I manage a job now? I am trying but not getting any interviews. #IT Jobs in Japan
 

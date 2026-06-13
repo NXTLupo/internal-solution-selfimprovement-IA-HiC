@@ -15,17 +15,17 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/ccde5efc6a.md#c0"
-    char_span: [0, 1061]
+    char_span: [0, 1060]
     sentence_count: 10
     key_terms: [career, people, careeradvice, personally, comments, anxiety, reddit, right]
-    token_count: 250
+    token_count: 249
   - id: "articles/reddit-deep-r-careeradvice/ccde5efc6a.md#c1"
-    char_span: [1063, 3074]
+    char_span: [1062, 3073]
     sentence_count: 15
     key_terms: [client, using, gap, designer, judgment, careers, option, people]
     token_count: 454
   - id: "articles/reddit-deep-r-careeradvice/ccde5efc6a.md#c2"
-    char_span: [3076, 4376]
+    char_span: [3075, 4375]
     sentence_count: 16
     key_terms: [anxiety, displacement, automatable, assessment, building, industry, instead, seeing]
     token_count: 272

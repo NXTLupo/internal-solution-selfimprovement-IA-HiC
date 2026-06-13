@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, financially, independent, outsourcing, comments, another, switch, major]
     token_count: 171
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c1"
-    char_span: [715, 2908]
+    char_span: [714, 2907]
     sentence_count: 18
     key_terms: [something, school, university, like, college, degree, doing, "don't"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c2"
-    char_span: [2910, 5109]
+    char_span: [2909, 5108]
     sentence_count: 22
     key_terms: [degree, development, years, portfolio, time, school, worked, full]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c3"
-    char_span: [5111, 7320]
+    char_span: [5110, 7319]
     sentence_count: 13
     key_terms: [engineering, degrees, like, school, years, competitive, high, job]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c4"
-    char_span: [7322, 8648]
+    char_span: [7321, 8647]
     sentence_count: 2
     key_terms: [degree, transfer, schools, target, universities, accounting, excellent, always]
     section: Comments
     token_count: 282
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c5"
-    char_span: [8650, 10196]
+    char_span: [8649, 10195]
     sentence_count: 7
     key_terms: [years, career, "don't", like, definitely, assistant, education, everyone]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c6"
-    char_span: [10198, 12399]
+    char_span: [10197, 12398]
     sentence_count: 17
     key_terms: [outsourcing, going, staff, been, delegation, fungible, projects, another]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lhkm49.md#c7"
-    char_span: [12401, 13780]
+    char_span: [12400, 13779]
     sentence_count: 6
     key_terms: [leagueaggravating595, money, time, want, terpsicore1987, understanding, distribution, holistically]
     section: Comments

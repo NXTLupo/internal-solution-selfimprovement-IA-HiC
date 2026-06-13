@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, comments, reddit-deep, financial, applying, benefits, college, filling]
     token_count: 93
   - id: "social-intelligence/reddit-deep/applyingtocollege/1qaa4ak.md#c1"
-    char_span: [329, 1673]
+    char_span: [328, 1672]
     sentence_count: 11
     key_terms: [fafsa, schools, merit, requirement, aid, free, profile, income]
     section: Comments

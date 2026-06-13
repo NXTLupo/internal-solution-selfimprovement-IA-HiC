@@ -21,31 +21,31 @@ chunks:
     key_terms: [courses, faculty, media, designer, highereducation, schools, others, perspectives]
     token_count: 393
   - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c1"
-    char_span: [1826, 4113]
+    char_span: [1825, 4112]
     sentence_count: 20
     key_terms: [students, use, industry, economy, higher, people, "don't", assignments]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c2"
-    char_span: [3852, 4705]
+    char_span: [3851, 4704]
     sentence_count: 4
     key_terms: [like, perception, stano1213, visuals, teach, use, philosophically, interaction]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c3"
-    char_span: [4707, 7004]
+    char_span: [4706, 7003]
     sentence_count: 17
     key_terms: [students, institutions, content, courses, like, especially, generated, accuracy]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c4"
-    char_span: [7006, 9554]
+    char_span: [7005, 9553]
     sentence_count: 14
     key_terms: [faculty, production, quality, happening, standards, time, designer, because]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/highereducation/1qwug4z.md#c5"
-    char_span: [9556, 10206]
+    char_span: [9555, 10205]
     sentence_count: 3
     key_terms: [better, rather, institutions, assignments, interesting, pedagogical, disappears, production]
     section: Comments

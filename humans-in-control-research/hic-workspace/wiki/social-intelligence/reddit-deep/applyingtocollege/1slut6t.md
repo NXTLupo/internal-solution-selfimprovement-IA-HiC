@@ -21,7 +21,7 @@ chunks:
     key_terms: [applyingtocollege, columbia, school, duke, consulting, financial, work-life, comments]
     token_count: 282
   - id: "social-intelligence/reddit-deep/applyingtocollege/1slut6t.md#c1"
-    char_span: [1172, 2758]
+    char_span: [1171, 2757]
     sentence_count: 5
     key_terms: [duke, no-strength2541, affectionateart1720, columbia, students, finance, prefer, inevitable-cow-8489]
     section: Comments

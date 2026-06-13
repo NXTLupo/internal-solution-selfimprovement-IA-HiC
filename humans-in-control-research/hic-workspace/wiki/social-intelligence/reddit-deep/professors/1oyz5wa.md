@@ -28,31 +28,31 @@ chunks:
     key_terms: [median, students, against, compared, graduate, career, income, institution]
     token_count: 312
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c2"
-    char_span: [3421, 5676]
+    char_span: [3420, 5675]
     sentence_count: 16
     key_terms: [school, programs, years, graduate, students, like, careers, salary]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c3"
-    char_span: [5678, 7301]
+    char_span: [5677, 7300]
     sentence_count: 8
     key_terms: [public, service, graduates, college, higher, nope, education, students]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c4"
-    char_span: [7303, 9119]
+    char_span: [7302, 9118]
     sentence_count: 6
     key_terms: [institution, department, collegescorecard, professional, baronhousen, development, data, changes]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c5"
-    char_span: [9121, 11339]
+    char_span: [9120, 11338]
     sentence_count: 18
     key_terms: [graduates, years, community, education, hospitals, college, florida, program]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/professors/1oyz5wa.md#c6"
-    char_span: [11341, 13162]
+    char_span: [11340, 13161]
     sentence_count: 17
     key_terms: [year, years, different, graduate, programs, finally, people, learn]
     section: Comments

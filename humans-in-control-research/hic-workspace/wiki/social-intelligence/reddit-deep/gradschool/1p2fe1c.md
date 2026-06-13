@@ -18,10 +18,10 @@ industries: [higher_ed, media, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1p2fe1c.md#c0"
-    char_span: [0, 359]
+    char_span: [0, 358]
     sentence_count: 3
     key_terms: [gradschool, comments, fun-web-5536, internships, reddit-deep, experience, direction, industry]
-    token_count: 107
+    token_count: 106
 ---
 # Should I do a Music Industry MA at UAL if I don’t have much experience yet? Worried about timing + internships + career direction.
 

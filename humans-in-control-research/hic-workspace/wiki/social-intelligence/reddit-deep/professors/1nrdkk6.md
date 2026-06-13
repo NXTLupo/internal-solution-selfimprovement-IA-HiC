@@ -26,55 +26,55 @@ chunks:
     key_terms: [controversial, state, law, curricula, recognize, personal, syllabi, comply]
     token_count: 280
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c2"
-    char_span: [3464, 5451]
+    char_span: [3463, 5450]
     sentence_count: 22
     key_terms: [thinking, critical, try, gonna, stand, semester, students, classes]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c3"
-    char_span: [5453, 7249]
+    char_span: [5452, 7248]
     sentence_count: 17
     key_terms: [happened, solidarity, chair, suck, happening, something, problem, arena]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c4"
-    char_span: [7251, 8804]
+    char_span: [7250, 8803]
     sentence_count: 11
     key_terms: [syllabus, specifically, law, like, capitulate, everything, described, process]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c5"
-    char_span: [8806, 10640]
+    char_span: [8805, 10639]
     sentence_count: 11
     key_terms: [law, constitutional, attorneys, executive, gender, saying, expensive-mention-90, southern-cloud-9616]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c6"
-    char_span: [10642, 12828]
+    char_span: [10641, 12827]
     sentence_count: 21
     key_terms: [persons, texas, amendment, genotypes, pregnant, current, faculty, federal]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c7"
-    char_span: [12830, 14476]
+    char_span: [12829, 14475]
     sentence_count: 7
     key_terms: [circuit, absolutely, questions, garcetti, official, "court's", outcome, pending]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c8"
-    char_span: [14478, 16800]
+    char_span: [14477, 16799]
     sentence_count: 26
     key_terms: [case, classroom, circuit, speech, fifth, instruction, amendment, professor]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c9"
-    char_span: [16802, 17081]
+    char_span: [16801, 17080]
     sentence_count: 2
     key_terms: [professoronedge, difference, williams, because, advice, follow, system, going]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/professors/1nrdkk6.md#c10"
-    char_span: [17083, 19396]
+    char_span: [17082, 19395]
     sentence_count: 22
     key_terms: [florida, cold-nefariousness25, because, states, state, republican, far-right, faculty]
     section: Comments

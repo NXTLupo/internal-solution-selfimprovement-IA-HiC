@@ -23,49 +23,49 @@ chunks:
     key_terms: [engineeringstudents, gonna, bad, comments, probably, semester, because, session]
     token_count: 329
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c1"
-    char_span: [1526, 1624]
+    char_span: [1525, 1623]
     sentence_count: 1
     key_terms: [struggles, quitting, health, mental, guilt, help]
     section: Comments
     token_count: 26
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c2"
-    char_span: [1627, 3706]
+    char_span: [1626, 3705]
     sentence_count: 16
     key_terms: [live, life, engineer, father, moment, upset, approvement, engineering]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c3"
-    char_span: [3465, 4500]
+    char_span: [3464, 4499]
     sentence_count: 10
     key_terms: ["don't", life, yourself, parents, others, parent, child, "i'm"]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c4"
-    char_span: [4502, 5999]
+    char_span: [4501, 5998]
     sentence_count: 17
     key_terms: [grades, school, complete, because, program, through, please, summer]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c5"
-    char_span: [6001, 7625]
+    char_span: [6000, 7624]
     sentence_count: 13
     key_terms: [engineering, please, "you're", best, don, hate, mechanical, interest]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c6"
-    char_span: [7627, 9839]
+    char_span: [7626, 9838]
     sentence_count: 19
     key_terms: [engineering, yourself, "it's", "you're", maybe, absolutely, different, difficult]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c7"
-    char_span: [9512, 9949]
+    char_span: [9511, 9948]
     sentence_count: 5
     key_terms: [engineering, yourself, experience, abilities, confident, practical, believe, feeling]
     section: Comments
     token_count: 87
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpnxv8.md#c8"
-    char_span: [9951, 11565]
+    char_span: [9950, 11564]
     sentence_count: 15
     key_terms: [life, take, yourself, ive, time, calculus, passions, remember]
     section: Comments

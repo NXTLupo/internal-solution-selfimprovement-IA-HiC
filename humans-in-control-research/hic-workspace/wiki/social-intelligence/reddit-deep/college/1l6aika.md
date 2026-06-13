@@ -23,55 +23,55 @@ chunks:
     key_terms: [college, mom, comments, working, get, abandoning, everyone, context]
     token_count: 492
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c1"
-    char_span: [2113, 4229]
+    char_span: [2112, 4228]
     sentence_count: 24
     key_terms: [always, feel, home, look, mom, want, year, because]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c2"
-    char_span: [4231, 6062]
+    char_span: [4230, 6061]
     sentence_count: 20
     key_terms: [mom, figure, moving, life, next, abandoning, apartment, apologize]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c3"
-    char_span: [6064, 6888]
+    char_span: [6063, 6887]
     sentence_count: 8
     key_terms: [home, stay, college, break, campus, drive, far, long]
     section: Comments
     token_count: 192
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c4"
-    char_span: [6890, 8885]
+    char_span: [6889, 8884]
     sentence_count: 27
     key_terms: [like, mom, support, seems, away, lot, situation, abandon]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c5"
-    char_span: [8887, 9785]
+    char_span: [8886, 9784]
     sentence_count: 13
     key_terms: [school, get, gotta, too, grandparents, friendships, assistance, prioritize]
     section: Comments
     token_count: 194
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c6"
-    char_span: [9787, 11637]
+    char_span: [9786, 11636]
     sentence_count: 20
     key_terms: [better, people, get, training, college, qualify, job, something]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c7"
-    char_span: [11639, 13113]
+    char_span: [11638, 13112]
     sentence_count: 15
     key_terms: [going, college, big, deal, because, advice, people, caringismyfirstname]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c8"
-    char_span: [13115, 15342]
+    char_span: [13114, 15341]
     sentence_count: 21
     key_terms: [renting, relationship, back, don, get, let, love, apartment]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l6aika.md#c9"
-    char_span: [15076, 15535]
+    char_span: [15075, 15534]
     sentence_count: 8
     key_terms: [don, let, beachcatdog, apartment, education, anything, building, holidays]
     section: Comments

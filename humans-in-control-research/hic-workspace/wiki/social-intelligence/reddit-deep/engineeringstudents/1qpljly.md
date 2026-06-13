@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qpljly.md#c0"
-    char_span: [0, 375]
+    char_span: [0, 374]
     sentence_count: 1
     key_terms: [engineeringstudents, comments, student, away-prune6880, engineering, internships, reddit-deep, mechanical]
-    token_count: 92
+    token_count: 91
 ---
 # [Student] Second year mechanical engineering student looking for feedback/advice on resume (currently applying to internships/coops)
 

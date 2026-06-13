@@ -26,25 +26,25 @@ chunks:
     key_terms: [experience, immediately, "i'm", "i've", mit, want, especially, students]
     token_count: 374
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c2"
-    char_span: [3639, 5386]
+    char_span: [3638, 5385]
     sentence_count: 11
     key_terms: [mit, salary, differential, engineering, robby777777, good, year, graduates]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c3"
-    char_span: [5388, 6573]
+    char_span: [5387, 6572]
     sentence_count: 6
     key_terms: [mit, opportunities, reincarnatedbiscuits, year, everyone, easily, great, cross-registration]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c4"
-    char_span: [6575, 8665]
+    char_span: [6574, 8664]
     sentence_count: 4
     key_terms: [mit, money, scholarships, get, mitadmissions, gonna, probably, question]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1su0n0q.md#c5"
-    char_span: [8391, 9634]
+    char_span: [8390, 9633]
     sentence_count: 12
     key_terms: [mit, money, environment, probably, college, parents, people, formal-research4531]
     section: Comments

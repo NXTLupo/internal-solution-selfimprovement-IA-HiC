@@ -23,43 +23,43 @@ chunks:
     key_terms: [like, adult, comments, someone, adults, openai, paying, overmoderation]
     token_count: 261
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c1"
-    char_span: [1219, 3106]
+    char_span: [1218, 3105]
     sentence_count: 17
     key_terms: [structure, too, use, ads, grok, won, different, statement]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c2"
-    char_span: [3109, 4559]
+    char_span: [3108, 4558]
     sentence_count: 11
     key_terms: [censorship, protection, platforms, analogy, chatgpt, content, netflix, aromatic-bandicoot65]
     section: Comments
     token_count: 385
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c3"
-    char_span: [4564, 6233]
+    char_span: [4563, 6232]
     sentence_count: 15
     key_terms: [medical, guardrails, unusable, chatgpt, become, talked, being, never]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c4"
-    char_span: [6235, 8665]
+    char_span: [6234, 8664]
     sentence_count: 6
     key_terms: [tone, because, mirror, system, maybe, isn, context, words]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c5"
-    char_span: [8667, 10553]
+    char_span: [8666, 10552]
     sentence_count: 9
     key_terms: [mars, napoleon, conquest, step, evidence, plan, impossible, synthesis]
     section: Comments
     token_count: 517
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c6"
-    char_span: [10555, 12325]
+    char_span: [10554, 12324]
     sentence_count: 7
     key_terms: [missing, synthesis, contradiction, napoleon, receipts, without, export, check]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/openai/1o5uvaw.md#c7"
-    char_span: [12327, 13725]
+    char_span: [12326, 13724]
     sentence_count: 7
     key_terms: [wrong, immune, auditable, synthesis, covenant, receipts, getting, error]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, engineeringstudents, experience, management, comments, headache, studying, thinking]
     token_count: 318
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t5xy2l.md#c1"
-    char_span: [1428, 3080]
+    char_span: [1427, 3079]
     sentence_count: 10
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

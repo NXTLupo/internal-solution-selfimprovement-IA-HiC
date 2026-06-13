@@ -18,12 +18,12 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smg8sx.md#c0"
-    char_span: [0, 1932]
+    char_span: [0, 1931]
     sentence_count: 20
     key_terms: [programs, school, applyingtocollege, academic, science, competitions, been, math]
-    token_count: 455
+    token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1smg8sx.md#c1"
-    char_span: [1936, 2770]
+    char_span: [1935, 2769]
     sentence_count: 7
     key_terms: [anything, because, school, state, late, too, accountability, information]
     token_count: 184

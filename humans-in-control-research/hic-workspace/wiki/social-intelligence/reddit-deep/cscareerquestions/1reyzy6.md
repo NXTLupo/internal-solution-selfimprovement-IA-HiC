@@ -28,97 +28,97 @@ chunks:
     key_terms: [magically, question, fields, likely, safest, cobol, hired, study]
     token_count: 38
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c2"
-    char_span: [2331, 4678]
+    char_span: [2330, 4677]
     sentence_count: 20
     key_terms: [people, selling, unsustainable, never, less, own, businesses, eventually]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c3"
-    char_span: [4680, 6847]
+    char_span: [4679, 6846]
     sentence_count: 17
     key_terms: [software, everyone, billionaires, engineering, automated, virtually, economy, endless]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c4"
-    char_span: [6849, 8622]
+    char_span: [6848, 8621]
     sentence_count: 9
     key_terms: [software, work, because, jobs, absolutely, offshoring, compared, devalued]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c5"
-    char_span: [8624, 10668]
+    char_span: [8623, 10667]
     sentence_count: 11
     key_terms: [engineering, software, through, because, being, hard, comments, devalued]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c6"
-    char_span: [10670, 12822]
+    char_span: [10669, 12821]
     sentence_count: 12
     key_terms: [going, people, "we're", professions, get, need, progress, software]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c7"
-    char_span: [12824, 14000]
+    char_span: [12823, 13999]
     sentence_count: 8
     key_terms: [money, everybody, knowledge, because, fucked, marionberrynormal957, etc, jobs]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c8"
-    char_span: [14002, 15735]
+    char_span: [14001, 15734]
     sentence_count: 12
     key_terms: [hard, experience, companies, starting, agency, "you're", counter-intuitively, drive]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c9"
-    char_span: [15737, 17422]
+    char_span: [15736, 17421]
     sentence_count: 16
     key_terms: [existing, stopping, struggle, forcing, plateau, humans, unique, brute]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c10"
-    char_span: [17425, 19744]
+    char_span: [17424, 19743]
     sentence_count: 19
     key_terms: [manager, engineering, director, software, because, clarifications, people, llms]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c11"
-    char_span: [19746, 20940]
+    char_span: [19745, 20939]
     sentence_count: 5
     key_terms: [future, having, large, middle-of-the-road, fact, time, responsibility, conversations]
     section: Comments
     token_count: 253
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c12"
-    char_span: [20942, 22659]
+    char_span: [20941, 22658]
     sentence_count: 16
     key_terms: [anything, argument, computer, opinions, job, example, ideally, logical]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c13"
-    char_span: [22661, 24219]
+    char_span: [22660, 24218]
     sentence_count: 18
     key_terms: [always, code, job, languages, learning, generativeadversary, areas, being]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c14"
-    char_span: [24221, 25225]
+    char_span: [24220, 25224]
     sentence_count: 4
     key_terms: [simulated, "that's", new, bolehlandcitizen, cappuccinocodes, conveniently, dramatically, interviewing]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c15"
-    char_span: [25227, 27118]
+    char_span: [25226, 27117]
     sentence_count: 21
     key_terms: [job, cappuccinocodes, always, "that's", code, "i'm", like, take]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c16"
-    char_span: [27120, 29052]
+    char_span: [27119, 29051]
     sentence_count: 4
     key_terms: [everything, astroturfing, extension, graduated, samurottx, already, browser, getting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1reyzy6.md#c17"
-    char_span: [28848, 29099]
+    char_span: [28847, 29098]
     sentence_count: 1
     key_terms: [ilovefamilyguy69, accountability, danmikrus, already, getting, grandma, feels, icing]
     section: Comments

@@ -28,25 +28,25 @@ chunks:
     key_terms: [code, assignments, professor, submitted, exam, hearing, appeal, course]
     token_count: 458
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c2"
-    char_span: [4221, 5972]
+    char_span: [4220, 5971]
     sentence_count: 15
     key_terms: ["they'll", "you're", administrator, department, material, cheated, thanks, chair]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c3"
-    char_span: [5974, 7993]
+    char_span: [5973, 7992]
     sentence_count: 15
     key_terms: [appeal, process, through, credit, denied, board, class, grade]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c4"
-    char_span: [7995, 9698]
+    char_span: [7994, 9697]
     sentence_count: 12
     key_terms: [help, process, dean, possible, provost, chair, been, need]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/college/1ksdk11.md#c5"
-    char_span: [9700, 10974]
+    char_span: [9699, 10973]
     sentence_count: 7
     key_terms: [legal, university, representation, like, moment, start, hard, use]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, engineeringstudents, student, positions, comments, process, hiring, cnrl]
     token_count: 143
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sxngvp.md#c1"
-    char_span: [657, 1833]
+    char_span: [656, 1832]
     sentence_count: 7
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments

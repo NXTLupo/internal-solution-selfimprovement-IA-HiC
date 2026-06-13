@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1sdiior.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1sdiior/grad_school_admission_advice_request/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Physical Sciences"
 extracted_at: "2026-06-06T23:23:15.586Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sdiior.md#c0"
+    char_span: [0, 948]
+    sentence_count: 5
+    key_terms: [looking, gradadmissions, currently, inorganic, materials, comments, advice, doing]
+    token_count: 200
+  - id: "social-intelligence/reddit-deep/gradadmissions/1sdiior.md#c1"
+    char_span: [963, 2702]
+    sentence_count: 18
+    key_terms: ["you're", research, "don't", get, "i'm", "it's", interested, advisor]
+    section: Comments
+    token_count: 386
 ---
-
 # Grad School Admission Advice Request
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1sdiior/grad_school_admission_advice_request/)

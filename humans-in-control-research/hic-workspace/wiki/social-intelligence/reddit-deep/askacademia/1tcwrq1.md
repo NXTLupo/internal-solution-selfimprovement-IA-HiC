@@ -28,31 +28,31 @@ chunks:
     key_terms: ["i'm", get, here, phd, "can't", positions, because, program]
     token_count: 475
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c2"
-    char_span: [4260, 5355]
+    char_span: [4259, 5354]
     sentence_count: 8
     key_terms: [prestige, connections, unbecoming, obsession, getting, started, matter, school]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c3"
-    char_span: [5357, 6958]
+    char_span: [5356, 6957]
     sentence_count: 8
     key_terms: ["i'm", prestigious, ability, believe, schools, people, swordfishresident256, quite]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c4"
-    char_span: [6960, 8971]
+    char_span: [6959, 8970]
     sentence_count: 12
     key_terms: [university, school, phd, top, important, resources, oxbridge, advisor]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c5"
-    char_span: [8974, 10425]
+    char_span: [8973, 10424]
     sentence_count: 8
     key_terms: [placement, program, "that's", connections, important, rankings, because, ranking]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/askacademia/1tcwrq1.md#c6"
-    char_span: [10427, 12033]
+    char_span: [10426, 12032]
     sentence_count: 13
     key_terms: [prestige, top, university, position, sciences, program, schools, better]
     section: Comments

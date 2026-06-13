@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1pnnlso.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1pnnlso/how_much_research_is_enough_research_for_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "Computational Sciences"
 extracted_at: "2026-06-06T23:23:15.592Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1pnnlso.md#c0"
+    char_span: [0, 1337]
+    sentence_count: 7
+    key_terms: [research, semester, related, gradadmissions, international, semesters, comments, because]
+    token_count: 306
 ---
-
 # How much research is enough research for grad school admissions?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1pnnlso/how_much_research_is_enough_research_for_grad/)

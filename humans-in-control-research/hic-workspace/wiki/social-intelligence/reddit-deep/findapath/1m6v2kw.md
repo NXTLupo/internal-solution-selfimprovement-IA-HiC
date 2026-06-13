@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1m6v2kw.md
 url: "https://www.reddit.com/r/findapath/comments/1m6v2kw/28f_entire_life_changed_from_multimillionaire/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,60 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.476Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c0"
+    char_span: [0, 1462]
+    sentence_count: 12
+    key_terms: [narcissistic, relationship, self, findapath, lifestyle, comments, because, someone]
+    token_count: 349
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c1"
+    char_span: [1464, 3292]
+    sentence_count: 18
+    key_terms: [career, love, thought, sports, careers, college, jobs, work]
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c2"
+    char_span: [3307, 5132]
+    sentence_count: 17
+    key_terms: [why-does-he-do-that-pdf-free-download-by-lundy-bancroft, thank, helpful, please, "don't", here, need, take]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c3"
+    char_span: [5134, 7320]
+    sentence_count: 15
+    key_terms: [job, did, because, through, life, completely, everything, interested]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c4"
+    char_span: [7022, 7401]
+    sentence_count: 4
+    key_terms: [completely, get, understand, commenter, otherwise, already, looking, luckily]
+    section: Comments
+    token_count: 81
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c5"
+    char_span: [7404, 9304]
+    sentence_count: 15
+    key_terms: [trainer, working, equestrian, horse, student, relationship, barn, position]
+    section: Comments
+    token_count: 451
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c6"
+    char_span: [9306, 9887]
+    sentence_count: 4
+    key_terms: [horses, fortune, money, back, bad, need, sell, alternative]
+    section: Comments
+    token_count: 145
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c7"
+    char_span: [9889, 11802]
+    sentence_count: 15
+    key_terms: [temporary-detail-400, fredotwoatatime, hour-print8519, horses, don, need, equestrian, olympics]
+    section: Comments
+    token_count: 471
+  - id: "social-intelligence/reddit-deep/findapath/1m6v2kw.md#c8"
+    char_span: [11804, 14032]
+    sentence_count: 13
+    key_terms: [like, someone, hospital, family, build, donor, help, life]
+    section: Comments
+    token_count: 470
 ---
-
 # 28F, entire life changed from multi-millionaire lifestyle to homeless, I need hope
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1m6v2kw/28f_entire_life_changed_from_multimillionaire/)

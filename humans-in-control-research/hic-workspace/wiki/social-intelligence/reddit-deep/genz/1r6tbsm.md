@@ -23,37 +23,37 @@ chunks:
     key_terms: [supposed, because, feel, job, like, manufacturing, idea, comments]
     token_count: 488
   - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c1"
-    char_span: [2016, 3863]
+    char_span: [2015, 3862]
     sentence_count: 12
     key_terms: [apartmentworried5692, far, feel, less, work, american, already, discord]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c2"
-    char_span: [3865, 6022]
+    char_span: [3864, 6021]
     sentence_count: 25
     key_terms: [service, civil, college, instead, around, "that's", "don't", dream]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c3"
-    char_span: [6024, 8040]
+    char_span: [6023, 8039]
     sentence_count: 15
     key_terms: [state, position, service, police, "don't", level, year, depending]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c4"
-    char_span: [8042, 10130]
+    char_span: [8041, 10129]
     sentence_count: 13
     key_terms: [job, work, because, years, feel, together, advance, service]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c5"
-    char_span: [10132, 12074]
+    char_span: [10131, 12073]
     sentence_count: 15
     key_terms: [fault, financial, "it's", job, anything, because, worse, get]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/genz/1r6tbsm.md#c6"
-    char_span: [12076, 13765]
+    char_span: [12075, 13764]
     sentence_count: 21
     key_terms: [people, like, failure, feeling, change, failed, stayed, worked]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/ea6f9fda0b.md#c0"
-    char_span: [0, 2010]
+    char_span: [0, 2009]
     sentence_count: 18
     key_terms: [cscareerquestions, like, projects, cloud, engineering, opt, experience, portfolio]
-    token_count: 458
+    token_count: 457
   - id: "articles/reddit-deep-r-cscareerquestions/ea6f9fda0b.md#c1"
-    char_span: [2012, 2879]
+    char_span: [2011, 2878]
     sentence_count: 7
     key_terms: [get, opt, current, getting, always, given, roles, years]
     token_count: 197

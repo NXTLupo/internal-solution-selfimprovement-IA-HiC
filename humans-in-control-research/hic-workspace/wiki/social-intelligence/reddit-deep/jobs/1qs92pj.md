@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1qs92pj.md#c0"
-    char_span: [0, 229]
+    char_span: [0, 228]
     sentence_count: 1
     key_terms: [jobs, comments, substantial-baby-129, entry-level, reddit-deep, internship, posted, reddit]
-    token_count: 70
+    token_count: 69
 ---
 # Internship/entry-level jobs
 

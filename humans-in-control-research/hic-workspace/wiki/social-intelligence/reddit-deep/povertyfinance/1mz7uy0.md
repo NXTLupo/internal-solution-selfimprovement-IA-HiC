@@ -33,19 +33,19 @@ chunks:
     key_terms: [pay, because, able, childcare, homeless, without, wouldn, full]
     token_count: 203
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c3"
-    char_span: [4165, 5990]
+    char_span: [4164, 5989]
     sentence_count: 9
     key_terms: [people, years, get, section, issue, place, find, got]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c4"
-    char_span: [5992, 7918]
+    char_span: [5991, 7917]
     sentence_count: 14
     key_terms: [pay, section, rent, portion, historianno9484, income, price, apartment]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/povertyfinance/1mz7uy0.md#c5"
-    char_span: [7920, 9914]
+    char_span: [7919, 9913]
     sentence_count: 15
     key_terms: [get, kids, historianno9484, welfare, people, being, money, fed]
     section: Comments

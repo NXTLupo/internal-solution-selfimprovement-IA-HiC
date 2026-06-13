@@ -23,7 +23,7 @@ chunks:
     key_terms: [strategy, marketing, brand, sustainability, storytelling, people, background, creative]
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1snimff.md#c1"
-    char_span: [2597, 3231]
+    char_span: [2596, 3230]
     sentence_count: 3
     key_terms: [sustainability, marketing, looking, growthforimpact, no-location8075, growthdreamer, princedxbian, specialists]
     section: Comments

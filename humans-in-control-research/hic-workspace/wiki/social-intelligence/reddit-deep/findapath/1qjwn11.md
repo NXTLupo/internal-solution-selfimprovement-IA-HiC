@@ -28,43 +28,43 @@ chunks:
     key_terms: [yourself, "i'm", career, assessment, better, people, years, real]
     token_count: 481
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c2"
-    char_span: [4702, 6720]
+    char_span: [4701, 6719]
     sentence_count: 19
     key_terms: [thank, life, helpful, people, please, findapath, comments, deathbed]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c3"
-    char_span: [6722, 8681]
+    char_span: [6721, 8680]
     sentence_count: 35
     key_terms: [like, company, job, burnout, career, sector, maybe, start]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c4"
-    char_span: [8683, 10942]
+    char_span: [8682, 10941]
     sentence_count: 31
     key_terms: [work, job, life, list, want, bucket, does, need]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c5"
-    char_span: [10944, 12518]
+    char_span: [10943, 12517]
     sentence_count: 6
     key_terms: [worked, "i've", something, manager, answer, change, helps, value]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c6"
-    char_span: [12520, 14525]
+    char_span: [12519, 14524]
     sentence_count: 16
     key_terms: [strengths, free, design, great, human, years, assessment, everything]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c7"
-    char_span: [14527, 15525]
+    char_span: [14526, 15524]
     sentence_count: 12
     key_terms: [life, everything, helped, others, don, own, post, well-intended]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/findapath/1qjwn11.md#c8"
-    char_span: [15527, 17025]
+    char_span: [15526, 17024]
     sentence_count: 10
     key_terms: [patterns, different, appears, people, work, something, specific, curious]
     section: Comments

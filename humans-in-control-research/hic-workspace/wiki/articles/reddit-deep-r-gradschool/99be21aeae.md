@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c0"
-    char_span: [0, 904]
+    char_span: [0, 903]
     sentence_count: 5
     key_terms: [work, gradschool, university, students, reddit, summer, grad, research-related]
-    token_count: 192
+    token_count: 191
   - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c1"
-    char_span: [906, 3146]
+    char_span: [905, 3145]
     sentence_count: 7
     key_terms: [like, genuinely, jobs, people, though, store, don, old]
     token_count: 512
   - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c2"
-    char_span: [2850, 3277]
+    char_span: [2849, 3276]
     sentence_count: 1
     key_terms: [feels, side, tool, work, unemployment, especially, everything, impossible]
     token_count: 100
   - id: "articles/reddit-deep-r-gradschool/99be21aeae.md#c3"
-    char_span: [3279, 4086]
+    char_span: [3278, 4085]
     sentence_count: 6
     key_terms: [summer, scholarships, starting, funding, through, "didn't", gotten, wanted]
     token_count: 189

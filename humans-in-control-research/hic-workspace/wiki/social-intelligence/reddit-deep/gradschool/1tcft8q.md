@@ -23,25 +23,25 @@ chunks:
     key_terms: [classes, class, feel, grad, gradschool, transcript, comments, freaking]
     token_count: 377
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c1"
-    char_span: [1614, 3351]
+    char_span: [1613, 3350]
     sentence_count: 20
     key_terms: [did, phd, year, important, finished, freshman, masters, grades]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c2"
-    char_span: [3353, 5292]
+    char_span: [3352, 5291]
     sentence_count: 20
     key_terms: [get, year, throughout, undergrad, programs, semester, classes, college]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c3"
-    char_span: [5294, 6315]
+    char_span: [5293, 6314]
     sentence_count: 12
     key_terms: [school, english, health, mental, though, best, grad, "i'd"]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/gradschool/1tcft8q.md#c4"
-    char_span: [6317, 8518]
+    char_span: [6316, 8517]
     sentence_count: 15
     key_terms: ["you're", help, show, creative, programs, reading, writing, immediately]
     section: Comments

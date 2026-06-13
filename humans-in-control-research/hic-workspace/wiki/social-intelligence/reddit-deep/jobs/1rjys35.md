@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, available, jobs, experience, because, looking, able, job]
     token_count: 378
   - id: "social-intelligence/reddit-deep/jobs/1rjys35.md#c1"
-    char_span: [1717, 2027]
+    char_span: [1716, 2026]
     sentence_count: 4
     key_terms: [glassblockhead, certification, photography, catalogue, community, something, bullshit, creative]
     section: Comments

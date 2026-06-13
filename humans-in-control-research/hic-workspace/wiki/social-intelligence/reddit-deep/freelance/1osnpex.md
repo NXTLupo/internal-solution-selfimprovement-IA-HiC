@@ -23,13 +23,13 @@ chunks:
     key_terms: [freelance, finances, money, comments, invoices, started, habits, later]
     token_count: 417
   - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c1"
-    char_span: [1785, 2575]
+    char_span: [1784, 2574]
     sentence_count: 7
     key_terms: [day, business, invoices, transfer, account, salary, month, needs]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/freelance/1osnpex.md#c2"
-    char_span: [2577, 4130]
+    char_span: [2576, 4129]
     sentence_count: 12
     key_terms: [account, freelance, invoices, income, end, pay, use, everything]
     section: Comments

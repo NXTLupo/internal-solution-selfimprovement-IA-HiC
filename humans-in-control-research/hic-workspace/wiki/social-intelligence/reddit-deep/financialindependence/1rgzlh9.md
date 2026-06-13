@@ -33,43 +33,43 @@ chunks:
     key_terms: [something, self, well-deserved, soul-sucking, adventurous, situation, honestly, pre-fire]
     token_count: 104
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c3"
-    char_span: [4808, 6608]
+    char_span: [4807, 6607]
     sentence_count: 12
     key_terms: [vogons-passports, years, bitcoin, market, job, everything, education, honestly]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c4"
-    char_span: [6610, 8408]
+    char_span: [6609, 8407]
     sentence_count: 17
     key_terms: ["don't", invest, like, market, build, etf, hard, want]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c5"
-    char_span: [8410, 9555]
+    char_span: [8409, 9554]
     sentence_count: 7
     key_terms: [money, generate, hopium, people, banks, based, day, don]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c6"
-    char_span: [9557, 11103]
+    char_span: [9556, 11102]
     sentence_count: 17
     key_terms: [returns, rate, vogons-passports, average, invest, stocks, years, like]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c7"
-    char_span: [11105, 13120]
+    char_span: [11104, 13119]
     sentence_count: 18
     key_terms: [like, job, business, vogons-passports, trying, move, need, working]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c8"
-    char_span: [13122, 15385]
+    char_span: [13121, 15384]
     sentence_count: 19
     key_terms: ["don't", like, investments, restaurants, stores, something, enough, build]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/financialindependence/1rgzlh9.md#c9"
-    char_span: [15388, 16995]
+    char_span: [15387, 16994]
     sentence_count: 19
     key_terms: [day, "don't", fire, tools, multiple, tracker, people, jdm783r29u3cwp3d76r9]
     section: Comments

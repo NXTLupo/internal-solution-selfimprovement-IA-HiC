@@ -23,13 +23,13 @@ chunks:
     key_terms: [internship, internships, winter, like, comments, myself, summer, place]
     token_count: 283
   - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c1"
-    char_span: [1177, 3045]
+    char_span: [1176, 3044]
     sentence_count: 6
     key_terms: [s0urpatch1tv, internship, microsoft, campus, winter, did, looking, mostly]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1srfyv3.md#c2"
-    char_span: [2800, 3311]
+    char_span: [2799, 3310]
     sentence_count: 5
     key_terms: [internship, clear-comparison6114, like, tips, uni, extracurricular, s0urpatch1tv, activities]
     section: Comments

@@ -28,31 +28,31 @@ chunks:
     key_terms: [currently, down, topped, big, etc, oct, pre-earnings, ai-adjacent]
     token_count: 207
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c2"
-    char_span: [2184, 3190]
+    char_span: [2183, 3189]
     sentence_count: 5
     key_terms: [get, "it's", shicken684, markets, numbers, redact, going, posts]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c3"
-    char_span: [3192, 4668]
+    char_span: [3191, 4667]
     sentence_count: 7
     key_terms: [inflation, likely, going, rates, johnbrownserection, methylphenidateman, able, cash]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c4"
-    char_span: [4677, 5410]
+    char_span: [4676, 5409]
     sentence_count: 2
     key_terms: [insanely, popular, product, nvidia, infinite-4-a-moment, methylphenidateman, got, use]
     section: Comments
     token_count: 193
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c5"
-    char_span: [5412, 7299]
+    char_span: [5411, 7298]
     sentence_count: 12
     key_terms: [high, correction, record, "i'm", week, alfb63, hot, comparison]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1s5g9vv.md#c6"
-    char_span: [7056, 7863]
+    char_span: [7055, 7862]
     sentence_count: 8
     key_terms: [curious-zucchini763, buying, happen, vandownbytheriver63, high, sell, use, week]
     section: Comments

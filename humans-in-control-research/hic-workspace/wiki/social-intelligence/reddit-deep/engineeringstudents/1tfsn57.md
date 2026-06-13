@@ -21,19 +21,19 @@ chunks:
     key_terms: [engineering, engineeringstudents, opportunities, internship, aerospace, comments, research, presidentofwakanda]
     token_count: 198
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tfsn57.md#c1"
-    char_span: [928, 2053]
+    char_span: [927, 2052]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tfsn57.md#c2"
-    char_span: [2055, 4084]
+    char_span: [2054, 4083]
     sentence_count: 12
     key_terms: [presidentofwakanda, job, resume, experience, internship, related, engineering, like]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tfsn57.md#c3"
-    char_span: [4087, 4962]
+    char_span: [4086, 4961]
     sentence_count: 4
     key_terms: [year, helped, senior, interviews, junior, resume, euphoric-analysis607, mathematicianno1202]
     section: Comments

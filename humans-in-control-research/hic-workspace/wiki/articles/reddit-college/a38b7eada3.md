@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-college/a38b7eada3.md#c0"
-    char_span: [0, 926]
+    char_span: [0, 925]
     sentence_count: 7
     key_terms: [college, bag, dorm, dumb, shit, students, reddit, safely]
-    token_count: 231
+    token_count: 230
 ---
 # Building an "Do dumb shit, safely" bag for my niece to keep in her dorm, what goes in it
 

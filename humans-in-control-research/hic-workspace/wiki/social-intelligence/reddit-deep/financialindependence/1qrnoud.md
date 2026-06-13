@@ -28,43 +28,43 @@ chunks:
     key_terms: [finances, buffer, family, opportunity, appreciate, healthcare, breakdown, brokerage]
     token_count: 185
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c2"
-    char_span: [2947, 4782]
+    char_span: [2946, 4781]
     sentence_count: 14
     key_terms: [home, spouse, boundaries, available, working, having, health, start]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c3"
-    char_span: [4784, 5258]
+    char_span: [4783, 5257]
     sentence_count: 3
     key_terms: [daddyerik84, especially, leadership, performers, heartbeat, insurance, coverage, incomers]
     section: Comments
     token_count: 118
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c4"
-    char_span: [5260, 7359]
+    char_span: [5259, 7358]
     sentence_count: 20
     key_terms: [car, expenses, budget, buffer, "don't", maintenance, home, year]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c5"
-    char_span: [7103, 7413]
+    char_span: [7102, 7412]
     sentence_count: 4
     key_terms: [killersquirel11, pickleball, detailed, exercise, expenses, kayaking, tracking, cooking]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c6"
-    char_span: [7416, 9154]
+    char_span: [7415, 9153]
     sentence_count: 18
     key_terms: [retirement, money, household, away, "it's", american, expenses, medicaid]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c7"
-    char_span: [9157, 11403]
+    char_span: [9156, 11402]
     sentence_count: 24
     key_terms: ["don't", lifestyle, buy, investments, kids, try, ourselves, combined]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/financialindependence/1qrnoud.md#c8"
-    char_span: [11405, 13498]
+    char_span: [11404, 13497]
     sentence_count: 30
     key_terms: [income, market, independence, build, count, away, people, retire]
     section: Comments

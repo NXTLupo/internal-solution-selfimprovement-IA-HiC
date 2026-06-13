@@ -15,17 +15,17 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/4d1f5caebb.md#c0"
-    char_span: [0, 1521]
+    char_span: [0, 1520]
     sentence_count: 9
     key_terms: [approximately, what-weve-learned-150-years-stock-market-crashes, accounts, expenses, recovery, dot-com, morningstar, cash]
-    token_count: 364
+    token_count: 363
   - id: "articles/reddit-deep-r-investing/4d1f5caebb.md#c1"
-    char_span: [1523, 3082]
+    char_span: [1522, 3081]
     sentence_count: 6
     key_terms: [crash, financial, crisis, dot-com, march, years, ago, high]
     token_count: 398
   - id: "articles/reddit-deep-r-investing/4d1f5caebb.md#c2"
-    char_span: [3084, 3738]
+    char_span: [3083, 3737]
     sentence_count: 4
     key_terms: [happened, paleontologistone919, steadfastequity, no-vehicle3229, underrated, investing, recession, "couldn't"]
     token_count: 171

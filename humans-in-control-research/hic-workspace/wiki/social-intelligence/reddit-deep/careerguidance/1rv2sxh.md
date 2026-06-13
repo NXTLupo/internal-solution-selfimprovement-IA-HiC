@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, photography, comments, stable, job, reddit-deep, literature, education]
     token_count: 149
   - id: "social-intelligence/reddit-deep/careerguidance/1rv2sxh.md#c1"
-    char_span: [594, 868]
+    char_span: [593, 867]
     sentence_count: 2
     key_terms: [career, photography, education, fraught, hating, making, bills, craft]
     section: Comments

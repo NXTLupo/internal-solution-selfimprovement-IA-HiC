@@ -31,31 +31,31 @@ chunks:
     key_terms: ["i'm", because, like, "that's", main, extracurriculars, valedictorians, competitions]
     token_count: 139
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c3"
-    char_span: [4699, 6849]
+    char_span: [4698, 6848]
     sentence_count: 15
     key_terms: [classes, molly-farag, better, hours, right, mit, time, work]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c4"
-    char_span: [6617, 8622]
+    char_span: [6616, 8621]
     sentence_count: 19
     key_terms: [classes, time, work, experience, hours, week, homework, students]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c5"
-    char_span: [8624, 10598]
+    char_span: [8623, 10597]
     sentence_count: 13
     key_terms: [essays, schools, aerospace, applyingtocollege, wiki, reddit, collegeessays, mitadmissions]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c6"
-    char_span: [10600, 11752]
+    char_span: [10599, 11751]
     sentence_count: 9
     key_terms: [sat, awards, international, application, get, got, olympiad, automaticamoeba6897]
     section: Comments
     token_count: 284
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rncsyq.md#c7"
-    char_span: [11754, 13090]
+    char_span: [11753, 13089]
     sentence_count: 7
     key_terms: [score, take, year, knowledge, obviously, because, courses, school]
     section: Comments

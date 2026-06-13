@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/c43c8ed3cd.md#c0"
-    char_span: [0, 1438]
+    char_span: [0, 1437]
     sentence_count: 6
     key_terms: [engineering, internship, engineeringstudents, related, supply, chain, role, experience]
-    token_count: 297
+    token_count: 296
 ---
 # is a Strategy & Analytics internship worth it? (Mechanical Engineering student)
 

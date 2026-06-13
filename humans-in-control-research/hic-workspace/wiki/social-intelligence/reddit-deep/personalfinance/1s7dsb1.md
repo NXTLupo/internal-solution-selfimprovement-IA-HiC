@@ -28,37 +28,37 @@ chunks:
     key_terms: [appreciated, recoverable, financial, genuinely, decision, feedback, terrible, advice]
     token_count: 58
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c2"
-    char_span: [2388, 4393]
+    char_span: [2387, 4392]
     sentence_count: 14
     key_terms: [comments, get, last, vehicle, down, pay, post, absolutely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c3"
-    char_span: [4395, 5712]
+    char_span: [4394, 5711]
     sentence_count: 12
     key_terms: [get, underwater, possible, "doesn't", driving, likely, "you're", "it's"]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c4"
-    char_span: [5715, 6569]
+    char_span: [5714, 6568]
     sentence_count: 5
     key_terms: [average-car-loan-interest-rates-by-credit-score, car, situation, proposed, solution, balance, beneficialchemist874, loan]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c5"
-    char_span: [6571, 8748]
+    char_span: [6570, 8747]
     sentence_count: 17
     key_terms: [get, paying, better, income, months, agree, month, car]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c6"
-    char_span: [8503, 9028]
+    char_span: [8502, 9027]
     sentence_count: 4
     key_terms: [car, like, attractive, situation, something, payments, sensible, cheaper]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/personalfinance/1s7dsb1.md#c7"
-    char_span: [9030, 9778]
+    char_span: [9029, 9777]
     sentence_count: 7
     key_terms: [extra, towards, money, until, gen, loan, pay, answerguru]
     section: Comments

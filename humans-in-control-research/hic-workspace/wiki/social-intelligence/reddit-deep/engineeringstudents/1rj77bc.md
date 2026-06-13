@@ -26,49 +26,49 @@ chunks:
     key_terms: [making, because, friends, living, years, don, internships, underground]
     token_count: 168
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c2"
-    char_span: [2900, 5046]
+    char_span: [2899, 5045]
     sentence_count: 14
     key_terms: [job, electrician, engineering, skibumsmith, trying, experience, networking, work]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c3"
-    char_span: [4763, 6720]
+    char_span: [4762, 6719]
     sentence_count: 12
     key_terms: ["you're", degree, engineering, get, likely, opportunities, regista-space, years]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c4"
-    char_span: [6722, 8773]
+    char_span: [6721, 8772]
     sentence_count: 9
     key_terms: [engineering, jobs, applied, trade, job, like, especially, engineers]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c5"
-    char_span: [8535, 9149]
+    char_span: [8534, 9148]
     sentence_count: 2
     key_terms: [anything, garbage, degree, demand, market, like, applications, electrician]
     section: Comments
     token_count: 141
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c6"
-    char_span: [9151, 10993]
+    char_span: [9150, 10992]
     sentence_count: 19
     key_terms: [something, time, work, bit, need, increased, probably, without]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c7"
-    char_span: [10995, 11993]
+    char_span: [10994, 11992]
     sentence_count: 8
     key_terms: [engineer, feeling, applications, demoralized, electrician, objectively, appreciate, experience]
     section: Comments
     token_count: 230
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c8"
-    char_span: [11995, 14154]
+    char_span: [11994, 14153]
     sentence_count: 18
     key_terms: [time, work, school, job, life, interviews, semester, totembro]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rj77bc.md#c9"
-    char_span: [14158, 15563]
+    char_span: [14157, 15562]
     sentence_count: 14
     key_terms: [good, time, because, looking, trades, certs, age, back]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, comments, future, afraid-necessary2163, love, work, opportunities, successfully]
     token_count: 237
   - id: "social-intelligence/reddit-deep/internships/1sb9btk.md#c1"
-    char_span: [992, 2915]
+    char_span: [991, 2914]
     sentence_count: 7
     key_terms: [afraid-necessary2163, miserableoffice8266, company, studios, email, opportunity, cold, time]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sb9btk.md#c2"
-    char_span: [2700, 2929]
+    char_span: [2699, 2928]
     sentence_count: 1
     key_terms: [design, afraid-necessary2163, graduated, graduates, assuming, engineer, college, seniors]
     section: Comments

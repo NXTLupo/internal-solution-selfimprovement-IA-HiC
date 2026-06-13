@@ -23,43 +23,43 @@ chunks:
     key_terms: [research, series, gradschool, comments, console, energy, gaming, unplug]
     token_count: 247
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c1"
-    char_span: [1021, 2844]
+    char_span: [1020, 2843]
     sentence_count: 13
     key_terms: [games, console, minecraft, lot, honest, laptop, people, school]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c2"
-    char_span: [2846, 4872]
+    char_span: [2845, 4871]
     sentence_count: 16
     key_terms: [games, like, video, game, want, interested, something, gamepass]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c3"
-    char_span: [4874, 7009]
+    char_span: [4873, 7008]
     sentence_count: 20
     key_terms: [little, game, like, build-and-run-your-own-theme-park, mechanically, house, nightmares, overcooked]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c4"
-    char_span: [7011, 8948]
+    char_span: [7010, 8947]
     sentence_count: 13
     key_terms: [absolutely, simulator, like, game, goat, "it's", friends, nothing]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c5"
-    char_span: [8950, 10082]
+    char_span: [8949, 10081]
     sentence_count: 6
     key_terms: [games, like, competitive, overcooked, shooters, run, multiplayers, battlefield]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c6"
-    char_span: [10085, 12108]
+    char_span: [10084, 12107]
     sentence_count: 10
     key_terms: [games, switch, like, xbox, recommendations, indie, been, good]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/gradschool/1t4ielq.md#c7"
-    char_span: [12110, 12866]
+    char_span: [12109, 12865]
     sentence_count: 4
     key_terms: [whether, myself, doing, "it's", xbox, distraction, responsible, considered]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [accounting, spring, big, fall, co-op, cycle, "i'm", extracurriculars]
     token_count: 421
   - id: "social-intelligence/reddit-deep/neu/1t6x3he.md#c1"
-    char_span: [1803, 2544]
+    char_span: [1802, 2543]
     sentence_count: 8
     key_terms: [accounting, experience, recruiting, public, spring, firms, big, extracurricular]
     section: Comments

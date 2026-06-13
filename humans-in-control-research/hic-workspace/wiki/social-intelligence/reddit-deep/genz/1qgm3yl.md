@@ -23,37 +23,37 @@ chunks:
     key_terms: [bitcoin, boomers, boomer-owned, gen, genz, capitalism, comments, assets]
     token_count: 351
   - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c1"
-    char_span: [1495, 3559]
+    char_span: [1494, 3558]
     sentence_count: 12
     key_terms: [people, pepsimax001, capitalism, feudalism, reason, human, politicians, politics]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c2"
-    char_span: [3561, 5423]
+    char_span: [3560, 5422]
     sentence_count: 13
     key_terms: [boomers, gen, governments, capitalist, generation, everyone, security, bitcoin]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c3"
-    char_span: [5425, 7413]
+    char_span: [5424, 7412]
     sentence_count: 14
     key_terms: [bitcoin, capitalism, humanity, people, hold, "it's", revolution, robotics]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c4"
-    char_span: [7415, 9518]
+    char_span: [7414, 9517]
     sentence_count: 12
     key_terms: [money, bitcoin, holding, bigger, people, stocks, international, asset]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c5"
-    char_span: [9520, 11895]
+    char_span: [9519, 11894]
     sentence_count: 23
     key_terms: [bitcoin, stocks, companies, own, asset, price, stock, hold]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/genz/1qgm3yl.md#c6"
-    char_span: [11897, 12798]
+    char_span: [11896, 12797]
     sentence_count: 8
     key_terms: [bitcoin, empires, independently, theoretically, nonessential, self-custody, compromised, memberships]
     section: Comments

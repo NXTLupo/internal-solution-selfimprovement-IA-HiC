@@ -23,19 +23,19 @@ chunks:
     key_terms: [need, new, team, repeatedly, comments, industry, managers, manager]
     token_count: 329
   - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c1"
-    char_span: [1403, 3263]
+    char_span: [1402, 3262]
     sentence_count: 15
     key_terms: [immediately, let, need, changes, started, wrong, implemented, get]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c2"
-    char_span: [3265, 5224]
+    char_span: [3264, 5223]
     sentence_count: 6
     key_terms: [experience, termination, team, decision, changes, company, either, policy]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/managers/1t9gzl5.md#c3"
-    char_span: [5226, 6318]
+    char_span: [5225, 6317]
     sentence_count: 1
     key_terms: [conversation, experience, feedback, policies, specific, script, "don't", internalized]
     section: Comments

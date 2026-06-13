@@ -1,0 +1,98 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: vanguard, information, pe, account, database, vanguard main, ownyourfuture vanguard main
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Curious how you "discovered" you have a Vanguard account. Do you know who created it and when? Was it inherited?
+
+EXAMPLE 2:
+How to learn what kind of account you have from the Dashboard? I recently discovered that I have a Vanguard account, but I'm not sure what it is. I've managed to log into their site, but I can't find any mention of the actual type of account I have. Where would I be able to find out? My parents invested $7000 into a Vanguard account when I was born. I had no idea about it until a few days ago, when my mother mentioned it to me. I managed to set up a password, logged in and saw that it had grown to $19,000. [...]
+
+EXAMPLE 3:
+* https://ownyourfuture.vanguard.com/main/explore/iframing/rulesForPlan This gives me information for my 401k plan.
+
+EXAMPLE 4:
+* https://ownyourfuture.vanguard.com/main/change-investment/add-Investment This shows a *list* of possible investments, but no information about it.
+
+EXAMPLE 5:
+Vanguard also has its legacy interface. Try this: https://retirementplans.vanguard.com/VGApp/pe/faces/Investments.xhtml?gh_sec=y
+
+EXAMPLE 6:
+I can see a list of all investments here, with their I-number. You need to replace the plan ID of 092604 (this is the one for Adobe) with your plan ID
+https://retirementplans.vanguard.com/VGApp/pe/faces/Exchange.xhtml?SelectedPlanId=092604
+
+EXAMPLE 7:
+Where do I find Vanguard's charity database? I want to set up some Qualified Charitable Distributions from my IRA. In the instructions for QCDs, Vanguard says it has a database of charities, but I can't find anything about it in the FAQ or online help. Does anybody know how to access it? Thanks. I helped my Mom make QCDs at Vanguard and we never looked at any database. It might just be a helpful collection of names, addresses and/or Tax IDs if those are necessary. [...]
+
+EXAMPLE 8:
+https://ownyourfuture.vanguard.com/main/change-investment/add-Investment
+I would just ignore the Self-Directed Brokerage Fund and stick with an index US large caps (and med/small if available) and international index funds
+
+EXAMPLE 9:
+Note that for all these things, the "prospectus" is **always** a dead link. This is something worth emailing Vanguard about.
+
+EXAMPLE 10:
+[https://imgur.com/a/I2QCh92](https://imgur.com/a/I2QCh92) vanguard should have the prospectus online for those types of funds
+"Self-Directed Brokerage Fund 2733" This is what it says. There's no plan. It lets you pick stocks individually.
+
+EXAMPLE 11:
+You may need to be logged into your account to see it. I hate how 401k and 403k funds aren't public. And there are different interfaces once you log into your retirement account, as opposed to your normal brokerage account.
+
+EXAMPLE 12:
+[https://www.whitecoatinvestor.com/how-to-take-a-qualified-charitable-distribution-at-vanguard/](https://www.whitecoatinvestor.com/how-to-take-a-qualified-charitable-distribution-at-vanguard/)
+
+EXAMPLE 13:
+* https://personal.vanguard.com/us/FundsSearchPriceHistoryFA?FundId=IO27&APP=PE&SelectedPlanId=REMOVED&RedemptionFee=false&intPort=N357&Wl=null is supposed to be "search for more information" but leads to a dead page, even without me removing the planId
+
+EXAMPLE 14:
+Where can I find information on a couple funds available in my 403b that seem to have no details? In my 403b there are a couple funds with no acronym (like VSTSX, etc.) but I can't seem to find information online.
+
+EXAMPLE 15:
+This takes me to my 401k portfolio. I have lists of what I'm invested in, and if I click on the blue links, like for "Target Date 2040 Portfolio" I get a long URL. The essential components of it are https://investor.vanguard.com/mutual-funds/profile/pe/overview/IO27?FundIntExt=EXT&intPort=N357
+
+EXAMPLE 16:
+This has what I call the I-number listed. For example, for "Income Portfolio" it's "IO32" which I caj put into this URL to see what it is:
+
+EXAMPLE 17:
+I've never had enough money to invest in anything before, and even though I'm not normally fond of gambling, I thought I might try to save at least a little bit for retirement.
+It's normally right in the name. If it doesn't say IRA or Roth or Cash Plus or maybe 529 and it's just Brokerage Account, then it's a taxable brokerage account.
+
+EXAMPLE 18:
+(There's a lot more information in the URL, like your plan ID. That number is specific to your employer.)
+
+EXAMPLE 19:
+That `IO27` part is an identifier, which doesn't quite map to your "2733" or "5808". I can replace that in the URL with slightly different numbers to see different funds. That `N357` is also an identifier, a "fund number", but changing it doesn't change anything besides the own shown.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

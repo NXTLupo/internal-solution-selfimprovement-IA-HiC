@@ -23,19 +23,19 @@ chunks:
     key_terms: [uwaterloo, comments, reddit, chancellor, email, https, secretariat, com]
     token_count: 266
   - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c1"
-    char_span: [1014, 2901]
+    char_span: [1013, 2900]
     sentence_count: 11
     key_terms: [convocation, speech, chancellor, phone, dominic, feridun, respect, sacred-goose]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c2"
-    char_span: [2903, 3712]
+    char_span: [2902, 3711]
     sentence_count: 8
     key_terms: [students, chancellor, ceremony, done, job, take, responsibilities, youcanreachmenow]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/uwaterloo/1shww10.md#c3"
-    char_span: [3714, 5029]
+    char_span: [3713, 5028]
     sentence_count: 8
     key_terms: [convocation, phone, hours, lol, position, regular, boring, ecstatic-trick8276]
     section: Comments

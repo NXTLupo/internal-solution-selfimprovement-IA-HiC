@@ -23,7 +23,7 @@ chunks:
     key_terms: [anthropic, comments, quality, no-loss3366, reddit-deep, regressions, legitimate, prompting]
     token_count: 103
   - id: "social-intelligence/reddit-deep/anthropic/1s0nvgg.md#c1"
-    char_span: [388, 1501]
+    char_span: [387, 1500]
     sentence_count: 7
     key_terms: [regression, benchmark, codebase, hearsay, noticed, config, alarm, "false"]
     section: Comments

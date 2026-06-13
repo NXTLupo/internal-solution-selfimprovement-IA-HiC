@@ -23,37 +23,37 @@ chunks:
     key_terms: [get, job, jobs, comments, simple, conversationempty301, "can't", "don't"]
     token_count: 167
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c1"
-    char_span: [688, 2642]
+    char_span: [687, 2641]
     sentence_count: 11
     key_terms: [exotic-cod4011, experience, like, marriott, hotels, been, got, job]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c2"
-    char_span: [2644, 4750]
+    char_span: [2643, 4749]
     sentence_count: 15
     key_terms: [someone, desk, role, position, manager, "they're", hiring, people]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c3"
-    char_span: [4752, 6624]
+    char_span: [4751, 6623]
     sentence_count: 12
     key_terms: [worked, job, better, advertising, work, industry, internet, because]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c4"
-    char_span: [6626, 7494]
+    char_span: [6625, 7493]
     sentence_count: 11
     key_terms: [job, experience, probably, people, conversationempty301, thewhiterosequeen, show, overqualified]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c5"
-    char_span: [7496, 9504]
+    char_span: [7495, 9503]
     sentence_count: 16
     key_terms: [looking, experience, job, years, mysterious-job-5252, front, hotel, someone]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s0omul.md#c6"
-    char_span: [9225, 10759]
+    char_span: [9224, 10758]
     sentence_count: 13
     key_terms: [experience, people, front, application, get, assistant, interview, training]
     section: Comments

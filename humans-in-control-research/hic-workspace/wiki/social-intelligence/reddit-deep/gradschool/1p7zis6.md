@@ -23,61 +23,61 @@ chunks:
     key_terms: [recommendation, write, letter, asked, gradschool, professor, comments, own]
     token_count: 171
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c1"
-    char_span: [721, 2857]
+    char_span: [720, 2856]
     sentence_count: 15
     key_terms: [particular-one-1368, write, letter, normal, wrote, recommender, admissions, admission]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c2"
-    char_span: [2859, 4366]
+    char_span: [2858, 4365]
     sentence_count: 17
     key_terms: [write, understandingsmall66, deserve, student, through, right, don, lot]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c3"
-    char_span: [4368, 6074]
+    char_span: [4367, 6073]
     sentence_count: 12
     key_terms: [letter, write, letters, class, help, "i've", "wouldn't", because]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c4"
-    char_span: [6076, 7113]
+    char_span: [6075, 7112]
     sentence_count: 10
     key_terms: [draft, find, letters, student, never, stand, wrote, thousandshardships]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c5"
-    char_span: [7115, 8945]
+    char_span: [7114, 8944]
     sentence_count: 13
     key_terms: [letter, write, letters, recommender, odd, stem, definitely, humanities]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c6"
-    char_span: [8947, 10941]
+    char_span: [8946, 10940]
     sentence_count: 14
     key_terms: [faculty, letter, professors, schools, common, agree, never, write]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c7"
-    char_span: [10943, 11928]
+    char_span: [10942, 11927]
     sentence_count: 10
     key_terms: [letter, typically, professor, "they're", hours, jadermcdanersstan, bit, let]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c8"
-    char_span: [11930, 14033]
+    char_span: [11929, 14032]
     sentence_count: 18
     key_terms: [student, "it's", professor, students, professors, write, time, requests]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c9"
-    char_span: [14035, 16188]
+    char_span: [14034, 16187]
     sentence_count: 20
     key_terms: [letter, letters, school, programs, program, going, write, care]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/gradschool/1p7zis6.md#c10"
-    char_span: [16190, 16880]
+    char_span: [16189, 16879]
     sentence_count: 6
     key_terms: [profs, writing, student, write, like, lor, curioscientity, different]
     section: Comments

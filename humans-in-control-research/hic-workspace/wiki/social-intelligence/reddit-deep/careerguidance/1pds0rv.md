@@ -26,13 +26,13 @@ chunks:
     key_terms: ["i'm", role, job, company, delta, back, "i'd", "it's"]
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c2"
-    char_span: [3353, 5311]
+    char_span: [3353, 5310]
     sentence_count: 13
     key_terms: [attendant, job, flight, corporate, change, international, days, get]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/careerguidance/1pds0rv.md#c3"
-    char_span: [5313, 7255]
+    char_span: [5312, 7254]
     sentence_count: 14
     key_terms: [job, corporate, take, yea, attendant, accepted, probably, already]
     section: Comments

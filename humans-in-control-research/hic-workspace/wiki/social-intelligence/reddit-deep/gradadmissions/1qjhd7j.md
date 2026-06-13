@@ -23,7 +23,7 @@ chunks:
     key_terms: [programs, get, policy, good, schools, student, gradadmissions, school]
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradadmissions/1qjhd7j.md#c1"
-    char_span: [2287, 2656]
+    char_span: [2287, 2655]
     sentence_count: 4
     key_terms: [funded, fully, extraordinarily, gossipgal1324, competitive, admissions, appreciate, experience]
     section: Comments

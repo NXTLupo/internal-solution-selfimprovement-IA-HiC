@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t05xrn.md#c0"
-    char_span: [0, 2075]
+    char_span: [0, 2074]
     sentence_count: 6
     key_terms: [work, because, careerguidance, career, pigeonholed, programming, got, job]
-    token_count: 466
+    token_count: 465
   - id: "social-intelligence/reddit-deep/careerguidance/1t05xrn.md#c1"
-    char_span: [2078, 4490]
+    char_span: [2077, 4489]
     sentence_count: 12
     key_terms: [like, resume, been, don, jobs, work, experience, interviews]
     token_count: 510

@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1p8o7zo.md#c0"
-    char_span: [0, 973]
+    char_span: [0, 972]
     sentence_count: 5
     key_terms: [business, bcomm, bmgmt, long-term, comments, hiring, jobs, opportunities]
-    token_count: 223
+    token_count: 222
 ---
 # Career/recruiting question: BMGMT vs BComm for long-term job options & US opportunities?
 

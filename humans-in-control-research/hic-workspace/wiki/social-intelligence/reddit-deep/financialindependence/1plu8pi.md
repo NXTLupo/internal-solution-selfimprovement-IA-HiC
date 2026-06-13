@@ -38,37 +38,37 @@ chunks:
     key_terms: [year, insurance, utilities, premiums, include, amount, annual, costs]
     token_count: 264
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c4"
-    char_span: [5725, 7273]
+    char_span: [5724, 7272]
     sentence_count: 8
     key_terms: [cost, home, opportunity, expenses, planning, another, "doesn't", housing]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c5"
-    char_span: [7275, 8596]
+    char_span: [7274, 8595]
     sentence_count: 11
     key_terms: [money, home, parent, stay, necessary, families, problems, incomes]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c6"
-    char_span: [8598, 10727]
+    char_span: [8597, 10726]
     sentence_count: 18
     key_terms: [cost, children, great, opportunity, time, year, childcare, biggest]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c7"
-    char_span: [10731, 11948]
+    char_span: [10730, 11947]
     sentence_count: 11
     key_terms: [contributions, medical, growth, early, start, years, add, bill]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c8"
-    char_span: [11950, 13491]
+    char_span: [11949, 13490]
     sentence_count: 11
     key_terms: [year, divorce, partner, relationship, childcare, providing, workforce, partners]
     section: Comments
     token_count: 349
   - id: "social-intelligence/reddit-deep/financialindependence/1plu8pi.md#c9"
-    char_span: [13493, 14377]
+    char_span: [13492, 14376]
     sentence_count: 5
     key_terms: [dialecticallyalive, breast, feeding, produce, "don't", age, cost, milk]
     section: Comments

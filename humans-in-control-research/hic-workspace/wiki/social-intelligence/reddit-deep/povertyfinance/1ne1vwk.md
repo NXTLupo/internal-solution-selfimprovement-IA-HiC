@@ -23,7 +23,7 @@ chunks:
     key_terms: [povertyfinance, unfortunately, sometimes, comments, reddit, thank, live, non-essential]
     token_count: 252
   - id: "social-intelligence/reddit-deep/povertyfinance/1ne1vwk.md#c1"
-    char_span: [1070, 2947]
+    char_span: [1069, 2946]
     sentence_count: 13
     key_terms: [healthcare, don, budgetgpt, noxelblue, universal, control, cutting, deleted]
     section: Comments

@@ -58,43 +58,43 @@ chunks:
     key_terms: [data, evidence, new, protest-related, counterclaim, politically, underscores, hypothesis]
     token_count: 153
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c8"
-    char_span: [10149, 12026]
+    char_span: [10149, 12025]
     sentence_count: 11
     key_terms: [happened, interesting, grok, incoherent, situation, because, nothing, trained]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c9"
-    char_span: [12028, 12545]
+    char_span: [12027, 12544]
     sentence_count: 1
     key_terms: [point, breaking, subject, specialization, foundational, intelligence, dissonance, cognitive]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c10"
-    char_span: [12547, 14797]
+    char_span: [12546, 14796]
     sentence_count: 12
     key_terms: [machine, llm, enough, okdaikon9101, human, truth, information, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c11"
-    char_span: [14459, 15870]
+    char_span: [14458, 15869]
     sentence_count: 6
     key_terms: [don, incoherent, ideology, jackiechannelsurfer, given, human, model, right]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c12"
-    char_span: [15872, 17544]
+    char_span: [15871, 17543]
     sentence_count: 8
     key_terms: [intersectionality, wing, understand, because, "don't", right, views, elon]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c13"
-    char_span: [17546, 18495]
+    char_span: [17545, 18494]
     sentence_count: 2
     key_terms: [grok, redact, ivan8-forgotpassword, elon, like, musk, jmoneygraves, truth-seeker]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/artificial/1lmgkil.md#c14"
-    char_span: [18497, 19949]
+    char_span: [18496, 19948]
     sentence_count: 3
     key_terms: [something, happened, because, clearly, thought, hatred, though, thats]
     section: Comments

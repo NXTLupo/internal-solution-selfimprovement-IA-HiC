@@ -23,13 +23,13 @@ chunks:
     key_terms: [cscareerquestions, companies, comments, college, related, advice, trying, find]
     token_count: 284
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lt8su4.md#c1"
-    char_span: [1218, 3351]
+    char_span: [1217, 3350]
     sentence_count: 23
     key_terms: [companies, get, anything, chrithtoph, interviews, clearance, something, applying]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lt8su4.md#c2"
-    char_span: [3353, 4643]
+    char_span: [3352, 4642]
     sentence_count: 4
     key_terms: ["you're", interview, willing, work, associated, different, questions, scripting]
     section: Comments

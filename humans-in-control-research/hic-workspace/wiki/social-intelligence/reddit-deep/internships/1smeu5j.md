@@ -23,19 +23,19 @@ chunks:
     key_terms: [internships, internship, "don't", get, comments, done, "i'm", callback]
     token_count: 367
   - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c1"
-    char_span: [1608, 3336]
+    char_span: [1607, 3335]
     sentence_count: 10
     key_terms: [resume, companies, interview, company, getting, through, offers, skills]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c2"
-    char_span: [3338, 5401]
+    char_span: [3337, 5400]
     sentence_count: 15
     key_terms: [applications, send, everything, "college's", situation, something, similar, front-research-1288]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/internships/1smeu5j.md#c3"
-    char_span: [5403, 6284]
+    char_span: [5402, 6283]
     sentence_count: 9
     key_terms: [people, something, nothing, months, adventurousadvisor80, understanding, applications, nepternship]
     section: Comments

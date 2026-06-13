@@ -23,19 +23,19 @@ chunks:
     key_terms: [gpt, write, responds, thinking, man, comments, recently, usually]
     token_count: 318
   - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c1"
-    char_span: [1327, 2841]
+    char_span: [1326, 2840]
     sentence_count: 8
     key_terms: [like, deepseek, https, imgur, com, grok, bljjdfk, suggest]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c2"
-    char_span: [2843, 4623]
+    char_span: [2842, 4622]
     sentence_count: 14
     key_terms: [like, https, com, ywjywpr, imgur, re-generating, re-generated, use]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/gpt/1opisws.md#c3"
-    char_span: [4625, 5023]
+    char_span: [4624, 5022]
     sentence_count: 3
     key_terms: [gpt, like, holyredbeard, megastathio, everytime, accusing, probably, thinking]
     section: Comments

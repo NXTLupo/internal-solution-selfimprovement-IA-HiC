@@ -23,13 +23,13 @@ chunks:
     key_terms: [cscareerquestions, comments, market, job, tech, reddit-deep, positions, posted]
     token_count: 73
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c1"
-    char_span: [270, 1752]
+    char_span: [269, 1751]
     sentence_count: 3
     key_terms: [answer, future, market, creepyrooftop, newchameleon, get, first-half, terrible]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1o0lji3.md#c2"
-    char_span: [1756, 2736]
+    char_span: [1755, 2735]
     sentence_count: 5
     key_terms: [tonytheevil, lol, qualified, years, no-rush-hour-2422, like, chrisfathead1, bamartin1618]
     section: Comments

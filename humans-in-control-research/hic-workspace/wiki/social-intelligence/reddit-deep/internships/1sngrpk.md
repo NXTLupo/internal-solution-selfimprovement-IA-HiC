@@ -23,7 +23,7 @@ chunks:
     key_terms: [interview, internships, internship, rejection, comments, honestly, asking, summer]
     token_count: 319
   - id: "social-intelligence/reddit-deep/internships/1sngrpk.md#c1"
-    char_span: [1380, 3207]
+    char_span: [1379, 3206]
     sentence_count: 12
     key_terms: [appropriate-tutor587, interview, feedback, get, rejection, better, zealousideal-job6344, offer]
     section: Comments

@@ -43,13 +43,13 @@ chunks:
     key_terms: [financialindependence, comments, reddit, https, com, www, previously, expensive]
     token_count: 264
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c5"
-    char_span: [6469, 7364]
+    char_span: [6468, 7363]
     sentence_count: 9
     key_terms: [fimilestonesdeux, household, marriage, recent, been, keep, operating-on, progression]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/financialindependence/1p9owg6.md#c6"
-    char_span: [7366, 9182]
+    char_span: [7365, 9181]
     sentence_count: 12
     key_terms: [fimilestonesdeux, taxes, protected, expenses, current, assets, remote, money]
     section: Comments

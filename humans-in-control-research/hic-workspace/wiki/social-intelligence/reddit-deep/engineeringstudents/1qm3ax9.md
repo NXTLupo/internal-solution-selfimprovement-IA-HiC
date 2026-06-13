@@ -21,7 +21,7 @@ chunks:
     key_terms: [experience, engineeringstudents, sales, comments, school, jolly-valuable-7923, professional, convenience]
     token_count: 132
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qm3ax9.md#c1"
-    char_span: [583, 1896]
+    char_span: [582, 1895]
     sentence_count: 9
     key_terms: [engineering, communicate, internships, get, good, help, engineers, skills]
     section: Comments

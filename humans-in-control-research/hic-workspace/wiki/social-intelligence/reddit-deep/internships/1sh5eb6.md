@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, comments, everyone, brandywinechemicalworks, company, career, reddit, brandywinechemworks]
     token_count: 383
   - id: "social-intelligence/reddit-deep/internships/1sh5eb6.md#c1"
-    char_span: [1721, 2336]
+    char_span: [1720, 2335]
     sentence_count: 1
     key_terms: [interested, brandywinechemworks, objective-forever-65, accomplished-2021, teddyboiroosevelt, misteriosshadow, anonymousboch, weirdspecies9]
     section: Comments

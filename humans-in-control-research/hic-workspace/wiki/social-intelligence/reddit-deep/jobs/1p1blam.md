@@ -21,19 +21,19 @@ chunks:
     key_terms: [full-time, comments, jobs, international, applications, entry-level, reddit-deep, graduating]
     token_count: 99
   - id: "social-intelligence/reddit-deep/jobs/1p1blam.md#c1"
-    char_span: [375, 1724]
+    char_span: [374, 1723]
     sentence_count: 12
     key_terms: [resume, information, projects, tailor, "you've", friendofthesubreddit, illustrious-act7104, being]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/jobs/1p1blam.md#c2"
-    char_span: [1726, 3598]
+    char_span: [1725, 3597]
     sentence_count: 12
     key_terms: [need, sponsorship, graduate, cybersecurity, jobs, functions, feedback, security]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/jobs/1p1blam.md#c3"
-    char_span: [3600, 5263]
+    char_span: [3599, 5262]
     sentence_count: 8
     key_terms: [skills, soft, resume, international, like, important, level, thewhiterosequeen]
     section: Comments

@@ -25,7 +25,7 @@ chunks:
     key_terms: [northwestern, president, https, edu, www, index, html, about-the-office]
     token_count: 346
   - id: "articles/jina-reader/eeda6b5c21.md#c2"
-    char_span: [3650, 5499]
+    char_span: [3649, 5498]
     sentence_count: 4
     key_terms: [northwestern, https, www, edu, university, northwesternu, com, report]
     section: About Henry Bienen

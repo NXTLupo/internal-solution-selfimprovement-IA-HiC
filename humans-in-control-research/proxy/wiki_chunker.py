@@ -447,10 +447,22 @@ def upsert_chunks_into_frontmatter(
     fm = m.group(1)
     body = m.group(2)
     # Strip any existing chunks: block (sequence form, 2-space indent).
+    # [ \t]* (NOT \s*) after the key: \s* greedily ate the newline plus the
+    # first item's indent, which satisfied the match before the items group
+    # ran, so every item line survived as an orphan above the re-inserted
+    # block. That single character class corrupted 8,367 wiki pages between
+    # 2026-06-10 and 2026-06-11 (repaired in bulk on 2026-06-11).
     fm_no_chunks = re.sub(
-        r"(^|\n)chunks:\s*(?:\n[ \t]+.+)*",
+        r"(^|\n)chunks:[ \t]*(?:\n[ \t]+.+)*",
         r"\1",
         fm,
+    )
+    # Belt-and-suspenders: drop any orphaned chunk-item lines left behind by
+    # the pre-fix writer so re-chunking a previously corrupted page heals it.
+    fm_no_chunks = "\n".join(
+        ln for ln in fm_no_chunks.split("\n")
+        if not (re.match(r'^\s*-\s+id:\s+"[^"\n]*#c\d+', ln)
+                or re.match(r"^[ \t]+(char_span|sentence_count|key_terms|section|token_count):", ln))
     )
     fm_no_chunks = fm_no_chunks.rstrip()
     if page_id and not re.search(r"^id\s*:", fm_no_chunks, re.MULTILINE):

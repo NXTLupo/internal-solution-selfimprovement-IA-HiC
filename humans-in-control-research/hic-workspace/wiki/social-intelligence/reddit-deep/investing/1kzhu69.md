@@ -23,43 +23,43 @@ chunks:
     key_terms: [foreign, us-set-to-weaponize-taxes-on-foreign-investors-via-section-899, taxes, section, individuals, countries, tax, representatives]
     token_count: 506
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c1"
-    char_span: [2281, 4187]
+    char_span: [2280, 4186]
     sentence_count: 16
     key_terms: [tariffs, investments, convinced, already, buy, currency, deleted, foreign]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c2"
-    char_span: [4189, 5701]
+    char_span: [4188, 5700]
     sentence_count: 9
     key_terms: [read, single, bills, tax, want, understand, investing, because]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c3"
-    char_span: [5703, 7659]
+    char_span: [5702, 7658]
     sentence_count: 6
     key_terms: [beat, been, foreign, super, the-one-big-beautiful-bill-act, attention, congress, investor]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c4"
-    char_span: [7661, 9537]
+    char_span: [7660, 9536]
     sentence_count: 18
     key_terms: [tax, withholding, beat, countries, dividends, rate, foreign, taxable]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c5"
-    char_span: [9539, 11219]
+    char_span: [9538, 11218]
     sentence_count: 13
     key_terms: [synthetic, "they're", assets, etfs, policies, "you're", pleasant-shallot-707, crash]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c6"
-    char_span: [11221, 13411]
+    char_span: [11220, 13410]
     sentence_count: 10
     key_terms: [taxes, index, synthetic, withholding, etf, federal, cities, estate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1kzhu69.md#c7"
-    char_span: [13156, 13538]
+    char_span: [13155, 13537]
     sentence_count: 1
     key_terms: [back, "administration's", deliberately, governments, deductions, corporate, encourage, convince]
     section: Comments

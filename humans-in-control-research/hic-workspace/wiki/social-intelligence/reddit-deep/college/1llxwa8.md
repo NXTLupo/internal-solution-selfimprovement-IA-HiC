@@ -23,7 +23,7 @@ chunks:
     key_terms: [residency, requirements, requirement, college, live, comments, students, schools]
     token_count: 223
   - id: "social-intelligence/reddit-deep/college/1llxwa8.md#c1"
-    char_span: [1037, 1990]
+    char_span: [1036, 1989]
     sentence_count: 7
     key_terms: [requirements, exception, residence, residency, colleges, location, require, always]
     section: Comments

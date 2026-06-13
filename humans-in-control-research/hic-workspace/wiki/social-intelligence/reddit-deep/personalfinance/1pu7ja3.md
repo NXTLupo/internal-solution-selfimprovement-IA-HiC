@@ -23,37 +23,37 @@ chunks:
     key_terms: [personalfinance, enough, "don't", month, cash, fund, get, retirement]
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c1"
-    char_span: [1987, 3980]
+    char_span: [1986, 3979]
     sentence_count: 13
     key_terms: [year, "you're", puzzleheaded-cat-979, retirement, early, need, otherwise, realistic]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c2"
-    char_span: [3982, 6075]
+    char_span: [3981, 6074]
     sentence_count: 16
     key_terms: [because, success, calculators, "that's", retirement, bad, "you'll", going]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c3"
-    char_span: [6077, 7019]
+    char_span: [6076, 7018]
     sentence_count: 6
     key_terms: [medicaid, qualify, assets, government, illustrious-rush8797, puzzleheaded-cat-979, aca, get]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c4"
-    char_span: [7021, 8822]
+    char_span: [7020, 8821]
     sentence_count: 9
     key_terms: [puzzleheaded-cat-979, insurance, health, income, retirement, something, expenses, biggest]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c5"
-    char_span: [8824, 10723]
+    char_span: [8823, 10722]
     sentence_count: 13
     key_terms: [free, live, year, puzzleheaded-cat-979, expenses, likely, going, month]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/personalfinance/1pu7ja3.md#c6"
-    char_span: [10725, 11895]
+    char_span: [10724, 11894]
     sentence_count: 6
     key_terms: [enough, expenses, pretty-researcher404, "don't", total, trips, low-cost-of-living, itchy-throat-4779]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [hospital, blood, povertyfinance, okay, took, anything, comments, paycheck]
     token_count: 444
   - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c1"
-    char_span: [1864, 2617]
+    char_span: [1863, 2616]
     sentence_count: 7
     key_terms: [hospital, assistance, negotiate, qualify, credit, need, plusharmadillo, application]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c2"
-    char_span: [2619, 4653]
+    char_span: [2618, 4652]
     sentence_count: 11
     key_terms: [hospital, qualify, hospitals, medicaid, charity, medical, "don't", great]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c3"
-    char_span: [4363, 5224]
+    char_span: [4362, 5223]
     sentence_count: 2
     key_terms: [bill, hospital, payments, programs, paying, wubbalubbadubbitydo, start, did]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c4"
-    char_span: [5226, 7100]
+    char_span: [5225, 7099]
     sentence_count: 16
     key_terms: [hospital, medicaid, medical, bill, event, quietlifter, days, pay]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c5"
-    char_span: [7103, 9060]
+    char_span: [7102, 9059]
     sentence_count: 19
     key_terms: [bills, get, leavemebeicry, foundations, etc, need, rent, utilities]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/povertyfinance/1r7hahx.md#c6"
-    char_span: [9063, 10883]
+    char_span: [9062, 10882]
     sentence_count: 15
     key_terms: [hospital, medicaid, everything, application, pay, handle, income, possible-barnacle-78]
     section: Comments

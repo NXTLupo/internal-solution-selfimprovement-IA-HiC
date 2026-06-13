@@ -43,67 +43,67 @@ chunks:
     key_terms: [offers, people, fit, considerate, information, applicants, colleagues, confidence]
     token_count: 222
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c5"
-    char_span: [9946, 12096]
+    char_span: [9945, 12095]
     sentence_count: 24
     key_terms: [questions, lab, civil-willingness164, like, research, trainees, project, phd]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c6"
-    char_span: [12098, 13595]
+    char_span: [12097, 13594]
     sentence_count: 12
     key_terms: [specific, question, problem, project, computational, pitch, lab, especially]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c7"
-    char_span: [13597, 16042]
+    char_span: [13596, 16041]
     sentence_count: 17
     key_terms: [choroid, plexus, development, interview, secretion, developmental, neurodevelopmental, research]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c8"
-    char_span: [16044, 18022]
+    char_span: [16043, 18021]
     sentence_count: 13
     key_terms: [interview, "i'd", camera, "you're", civil-willingness164, questions, time, prepare]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c9"
-    char_span: [18026, 20289]
+    char_span: [18025, 20288]
     sentence_count: 9
     key_terms: [civil-willingness164, interviews, pitch, questions, like, question, research, version]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c10"
-    char_span: [20000, 20472]
+    char_span: [19999, 20471]
     sentence_count: 3
     key_terms: [short, unpack, ask, specifically, interviews, unofficial, interview, applying]
     section: Comments
     token_count: 103
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c11"
-    char_span: [20474, 22454]
+    char_span: [20473, 22453]
     sentence_count: 7
     key_terms: [project, especially, direction, want, because, excited, program, working]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c12"
-    char_span: [22456, 24554]
+    char_span: [22455, 24553]
     sentence_count: 16
     key_terms: [thank, adspare4966, interesting, ask, keep, labs, time, work]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c13"
-    char_span: [24558, 26565]
+    char_span: [24557, 26564]
     sentence_count: 12
     key_terms: [specific, especially, pitch, questions, lab, project, like, challenge]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c14"
-    char_span: [26567, 28840]
+    char_span: [26566, 28839]
     sentence_count: 11
     key_terms: [choroid, plexus, development, secretion, developmental, neurodevelopmental, changes, brain]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/gradadmissions/1q3wdjq.md#c15"
-    char_span: [28842, 30511]
+    char_span: [28841, 30510]
     sentence_count: 22
     key_terms: [lab, trainees, project, phd, want, interested, questions, research]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering-related, engineeringstudents, opportunities, communities, orgs, volunteer, comments, students]
     token_count: 204
   - id: "social-intelligence/reddit-deep/engineeringstudents/1omhxyy.md#c1"
-    char_span: [930, 1989]
+    char_span: [929, 1988]
     sentence_count: 9
     key_terms: [asme, join, because, greek, maybe, fitatmosphere1256, multidisciplinary, aiaa]
     section: Comments

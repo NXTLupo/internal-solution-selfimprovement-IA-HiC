@@ -18,22 +18,22 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c0"
-    char_span: [0, 2592]
+    char_span: [0, 2591]
     sentence_count: 9
     key_terms: [program, communication, client, relationship, development, experience, management, education]
-    token_count: 484
+    token_count: 483
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c1"
-    char_span: [2594, 5463]
+    char_span: [2593, 5462]
     sentence_count: 1
     key_terms: [partners, program, youth, maintain, leadership, communication, support, participant]
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c2"
-    char_span: [5465, 8327]
+    char_span: [5464, 8326]
     sentence_count: 7
     key_terms: [community, supported, partners, international, program, convention, youth, volunteer]
     token_count: 522
   - id: "social-intelligence/reddit-deep/jobs/1pbqp1f.md#c3"
-    char_span: [8331, 9590]
+    char_span: [8330, 9589]
     sentence_count: 10
     key_terms: [partners, communication, development, opportunity, sme, work, workforce, internal]
     token_count: 203

@@ -23,97 +23,97 @@ chunks:
     key_terms: [like, keeps, investing, comments, market, don, fundamentals, reddit-deep]
     token_count: 229
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c1"
-    char_span: [987, 1454]
+    char_span: [986, 1453]
     sentence_count: 3
     key_terms: [been, malcontentii, bobofriendz, absolutely, irrational, valuations, investing, jimbo8903]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c2"
-    char_span: [1456, 3218]
+    char_span: [1455, 3217]
     sentence_count: 12
     key_terms: [companies, extremely, market, powder, maybe, done, dry, "i'm"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c3"
-    char_span: [3220, 4370]
+    char_span: [3219, 4369]
     sentence_count: 4
     key_terms: [music, stops, standing, always, couple, remain, appropriatespring194, startprofessional386]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c4"
-    char_span: [4372, 6356]
+    char_span: [4371, 6355]
     sentence_count: 9
     key_terms: [market, everyone, deleted, going, time, believe, bubble, dollar]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c5"
-    char_span: [6120, 6456]
+    char_span: [6119, 6455]
     sentence_count: 2
     key_terms: [stocks, chuckoftheirish, turnarounds, crashing, downturn, precious, ceiling, perform]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c6"
-    char_span: [6458, 8056]
+    char_span: [6457, 8055]
     sentence_count: 6
     key_terms: [valuations, revenue, bubble, crash, believe, around, little, market]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c7"
-    char_span: [8058, 9982]
+    char_span: [8057, 9981]
     sentence_count: 8
     key_terms: [bubble, market, "it's", people, years, looking, popular, stocks]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c8"
-    char_span: [9984, 10400]
+    char_span: [9983, 10399]
     sentence_count: 4
     key_terms: [market, fine, case--someone, capitalism, eliminate, probably, ultimate, achieve]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c9"
-    char_span: [10402, 12287]
+    char_span: [10401, 12286]
     sentence_count: 11
     key_terms: [because, "there's", higher, people, money, everything, eliminate, investing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c10"
-    char_span: [12083, 13106]
+    char_span: [12082, 13105]
     sentence_count: 10
     key_terms: [etf, time, anonymoustimewaster, artistic-comb-5932, gold, breedingisnotok, chamoismysoul, multimillions]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c11"
-    char_span: [13108, 14345]
+    char_span: [13107, 14344]
     sentence_count: 8
     key_terms: [buy, yesterday, probably, because, buffett, looking, market, house]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c12"
-    char_span: [14347, 16351]
+    char_span: [14346, 16350]
     sentence_count: 10
     key_terms: [aws, bubble, everything, take, definitely, because, happens, showed]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c13"
-    char_span: [16354, 18405]
+    char_span: [16353, 18404]
     sentence_count: 14
     key_terms: [great, like, take, time, statements, adoption, project, forced]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c14"
-    char_span: [18407, 20084]
+    char_span: [18406, 20083]
     sentence_count: 13
     key_terms: [company, people, productivity, llms, something, been, day, here]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c15"
-    char_span: [20086, 21972]
+    char_span: [20085, 21971]
     sentence_count: 12
     key_terms: [replaced, being, jobs, legitimately, llms, stay, companies, getting]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/investing/1ocwjqb.md#c16"
-    char_span: [21976, 22626]
+    char_span: [21975, 22625]
     sentence_count: 5
     key_terms: [moomoo, using, been, institutional, distorting, indicators, intriguing, panduninja]
     section: Comments

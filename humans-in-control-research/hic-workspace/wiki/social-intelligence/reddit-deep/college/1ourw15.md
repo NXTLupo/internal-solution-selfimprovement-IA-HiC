@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/college/1ourw15.md#c0"
-    char_span: [0, 1331]
+    char_span: [0, 1330]
     sentence_count: 8
     key_terms: [living, masters, help, job, want, experience, situation, comments]
-    token_count: 300
+    token_count: 299
 ---
 # Navigating Getting My Masters With Finding A Job to Help Offset Living Costs
 

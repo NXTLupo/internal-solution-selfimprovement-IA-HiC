@@ -21,49 +21,49 @@ chunks:
     key_terms: [professor, students, comments, college, lecture, order, rantingonstupidity, get]
     token_count: 278
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c1"
-    char_span: [1262, 2719]
+    char_span: [1261, 2718]
     sentence_count: 13
     key_terms: [professors, hours, office, relationships, students, "haven't", "don't", rantingonstupidity]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c2"
-    char_span: [2721, 4824]
+    char_span: [2720, 4823]
     sentence_count: 18
     key_terms: [professor, office, philosophy, hours, doing, able, keep, like]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c3"
-    char_span: [4826, 6270]
+    char_span: [4825, 6269]
     sentence_count: 11
     key_terms: [class, material, doing, students, already, content, office, hours]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c4"
-    char_span: [6272, 8073]
+    char_span: [6271, 8072]
     sentence_count: 15
     key_terms: [professors, rantingonstupidity, professor, "they're", manydoorsyes, being, get, late]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c5"
-    char_span: [8075, 9471]
+    char_span: [8074, 9470]
     sentence_count: 6
     key_terms: [professors, professor, easier, class, get, "i'm", something, classes]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c6"
-    char_span: [9473, 10451]
+    char_span: [9472, 10450]
     sentence_count: 13
     key_terms: [office, hours, like, questions, rantingonstupidity, ask, etc, yap]
     section: Comments
     token_count: 245
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c7"
-    char_span: [10453, 12390]
+    char_span: [10452, 12389]
     sentence_count: 10
     key_terms: [professors, yourself, people, class, "don't", get, professor, questions]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/college/1t6vu1l.md#c8"
-    char_span: [12392, 13998]
+    char_span: [12391, 13997]
     sentence_count: 15
     key_terms: [professors, hours, office, because, "don't", community, students, teaching]
     section: Comments

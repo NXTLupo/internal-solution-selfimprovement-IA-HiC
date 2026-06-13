@@ -15,20 +15,15 @@ relevance: 78
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "articles/reddit-deep-r-internships/b4f2dfa2e3.md#c0"
-    char_span: [0, 1586]
+    char_span: [0, 1910]
     sentence_count: 12
-    key_terms: [internships, email, emails, reply, open, students, rates, words]
-    token_count: 443
+    key_terms: [internships, email, rates, reply, open, emails, students, words]
+    token_count: 514
   - id: "articles/reddit-deep-r-internships/b4f2dfa2e3.md#c1"
-    char_span: [1588, 3528]
-    sentence_count: 8
-    key_terms: [vandan-karakasia, cold-email-data-study-students-2026, giphy, methodology, gif, internship, targeting, specific]
-    token_count: 478
-  - id: "articles/reddit-deep-r-internships/b4f2dfa2e3.md#c2"
-    char_span: [3530, 4072]
-    sentence_count: 5
-    key_terms: [quality, emailverifier, neverbounce, appreciate, borderline, everything, frameworks, zerobounce]
-    token_count: 105
+    char_span: [1912, 4071]
+    sentence_count: 13
+    key_terms: [vandan-karakasia, cold-email-data-study-students-2026, email, giphy, methodology, gif, like, internship]
+    token_count: 511
 ---
 # We analysed 6,337 cold emails students sent for internships. Here's what works in 2026
 

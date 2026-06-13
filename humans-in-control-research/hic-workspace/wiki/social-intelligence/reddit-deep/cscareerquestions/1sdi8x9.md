@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, replaced, degree, route, competitive, side, comments, remotely]
     token_count: 337
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sdi8x9.md#c1"
-    char_span: [1478, 3389]
+    char_span: [1477, 3388]
     sentence_count: 6
     key_terms: [internship, technical, side, finance, understand, available, financial, business]
     section: Comments

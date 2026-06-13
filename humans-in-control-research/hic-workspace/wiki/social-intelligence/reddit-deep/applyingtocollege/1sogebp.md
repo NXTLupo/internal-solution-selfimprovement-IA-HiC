@@ -23,13 +23,13 @@ chunks:
     key_terms: [school, applyingtocollege, college, since, get, understand, financial, comments]
     token_count: 337
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sogebp.md#c1"
-    char_span: [1481, 2043]
+    char_span: [1480, 2042]
     sentence_count: 1
     key_terms: [psychological-talk76, prestige, transfer, zealousideal-sky1121, aid, northeastern, fwellimort, obviously]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sogebp.md#c2"
-    char_span: [2045, 3674]
+    char_span: [2044, 3673]
     sentence_count: 16
     key_terms: [psychological-talk76, aid, get, parents, tennispro2589, money, like, pay]
     section: Comments

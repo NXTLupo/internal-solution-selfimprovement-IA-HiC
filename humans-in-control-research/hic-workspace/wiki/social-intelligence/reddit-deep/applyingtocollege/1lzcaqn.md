@@ -23,19 +23,19 @@ chunks:
     key_terms: [admissions, applyingtocollege, getting, advice, school, videos, cycle, get]
     token_count: 320
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c1"
-    char_span: [1475, 1829]
+    char_span: [1474, 1828]
     sentence_count: 3
     key_terms: [opinion, people, admissions, unpopular, college, advantage, bodross23, gullible]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c2"
-    char_span: [1831, 3982]
+    char_span: [1830, 3981]
     sentence_count: 11
     key_terms: [great, college, people, got, extracurriculars, essays, essay, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lzcaqn.md#c3"
-    char_span: [3728, 5205]
+    char_span: [3727, 5204]
     sentence_count: 6
     key_terms: [low-agency2539, great, kids, coaches, players, rarely, sure, yourlittlebirdie]
     section: Comments

@@ -21,79 +21,79 @@ chunks:
     key_terms: [race, experience, black, interview, put, resume, didn, comments]
     token_count: 424
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c1"
-    char_span: [1800, 2731]
+    char_span: [1799, 2730]
     sentence_count: 7
     key_terms: [papi, dominican, work, fluid-librarian-3546, black, crazycatlady4life, congratulations, newscreenneeded]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c2"
-    char_span: [2733, 4487]
+    char_span: [2732, 4486]
     sentence_count: 14
     key_terms: [disability, day, get, left, leg, papi, delta632, resident-strategy560]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c3"
-    char_span: [4160, 6428]
+    char_span: [4159, 6427]
     sentence_count: 15
     key_terms: [disability, because, something, get, like, happening, another, getting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c4"
-    char_span: [6108, 6524]
+    char_span: [6107, 6523]
     sentence_count: 1
     key_terms: [rainbowcrane, absolutely, conclusion, community, employees, something, uncovered, messages]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c5"
-    char_span: [6526, 8681]
+    char_span: [6525, 8680]
     sentence_count: 23
     key_terms: [responses, letter, people, applications, like, name, masculine, screening]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c6"
-    char_span: [8683, 10213]
+    char_span: [8682, 10212]
     sentence_count: 16
     key_terms: [name, businesses, federal, course, female, people, black, "we're"]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c7"
-    char_span: [10215, 11979]
+    char_span: [10214, 11978]
     sentence_count: 13
     key_terms: [black, veteran, crime, president, because, however, racist, internal-delivery504]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c8"
-    char_span: [11981, 14075]
+    char_span: [11980, 14074]
     sentence_count: 18
     key_terms: [information, company, somesamples, never, getting, candidates, illegal, someone]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c9"
-    char_span: [14077, 15892]
+    char_span: [14076, 15891]
     sentence_count: 12
     key_terms: [resumes, black, never, here, different, applying, getting, started]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c10"
-    char_span: [15894, 17559]
+    char_span: [15893, 17558]
     sentence_count: 7
     key_terms: [name, last, human-amoeba1640, interviews, linkedin, instead, resume, electrical-opening-9]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c11"
-    char_span: [17561, 18405]
+    char_span: [17560, 18404]
     sentence_count: 5
     key_terms: [name, resume-bias-study-white-names-black-names, last, biblical, resume, efficient-rain-7942, super, man]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c12"
-    char_span: [18407, 20361]
+    char_span: [18406, 20360]
     sentence_count: 13
     key_terms: [name, names, majority, someone, fucked, likely, antique-blueberry-13, impressive-mode-2594]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/jobs/1r2fjin.md#c13"
-    char_span: [20363, 21330]
+    char_span: [20362, 21329]
     sentence_count: 5
     key_terms: [being, white, don, usually, people, get, hear, race]
     section: Comments

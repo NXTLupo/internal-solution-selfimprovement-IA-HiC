@@ -21,13 +21,13 @@ chunks:
     key_terms: [training, role, work, year, highereducation, resources, academic, building]
     token_count: 440
   - id: "social-intelligence/reddit-deep/highereducation/1p38vqo.md#c1"
-    char_span: [2003, 4287]
+    char_span: [2002, 4286]
     sentence_count: 15
     key_terms: [training, get, like, articulate, developing, trainings, workflow, central]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/highereducation/1p38vqo.md#c2"
-    char_span: [4006, 5029]
+    char_span: [4005, 5028]
     sentence_count: 9
     key_terms: [training, always, canvas, instructional, need, mandatory, something, focused]
     section: Comments

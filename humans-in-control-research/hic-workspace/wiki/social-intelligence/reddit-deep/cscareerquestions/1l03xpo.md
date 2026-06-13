@@ -28,49 +28,49 @@ chunks:
     key_terms: [never, been, feel, hypothetically, counterpart, demotivated, expectation, opportunity]
     token_count: 153
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c2"
-    char_span: [2973, 4127]
+    char_span: [2972, 4126]
     sentence_count: 11
     key_terms: [good, job, sounds, opportunity, "it's", like, sometimes, nothing]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c3"
-    char_span: [4129, 6011]
+    char_span: [4128, 6010]
     sentence_count: 19
     key_terms: [job, work, good, meds, psychiatric, big, shit, yourself]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c4"
-    char_span: [6013, 8324]
+    char_span: [6012, 8323]
     sentence_count: 18
     key_terms: [company, people, did, expectations, makes, work, productive, narrative]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c5"
-    char_span: [8326, 9692]
+    char_span: [8325, 9691]
     sentence_count: 11
     key_terms: [market, companies, severance, unemployment, pip, jumped, "you've", "don't"]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c6"
-    char_span: [9694, 11332]
+    char_span: [9693, 11331]
     sentence_count: 9
     key_terms: [time, manager, take, everything, experience, amazon, better, people]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c7"
-    char_span: [11334, 13432]
+    char_span: [11333, 13431]
     sentence_count: 21
     key_terms: [get, job, people, doing, time, year, homework, updates]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c8"
-    char_span: [13159, 13544]
+    char_span: [13158, 13543]
     sentence_count: 4
     key_terms: [boss, expectations, milestones, believe, meeting, proceed, talking, better]
     section: Comments
     token_count: 90
   - id: "social-intelligence/reddit-deep/cscareerquestions/1l03xpo.md#c9"
-    char_span: [13546, 15065]
+    char_span: [13545, 15064]
     sentence_count: 17
     key_terms: [job, meant, boss, because, nothing, always, blamed, salary]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [experience, engineeringstudents, becoming, engineer, directional, currently, comments, drilling]
     token_count: 170
   - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c1"
-    char_span: [812, 2378]
+    char_span: [811, 2377]
     sentence_count: 7
     key_terms: [experience, degree, level, advantage, companies, engineer, getting, engineering]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/engineeringstudents/1skmt3h.md#c2"
-    char_span: [2380, 3982]
+    char_span: [2379, 3981]
     sentence_count: 11
     key_terms: [assumptions, experience, textbook, "you'll", "you're", world, real, learning]
     section: Comments

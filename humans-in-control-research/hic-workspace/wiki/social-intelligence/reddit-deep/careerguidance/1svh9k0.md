@@ -23,79 +23,79 @@ chunks:
     key_terms: [assessment, average, careerguidance, functioning, comments, autism, career, tested]
     token_count: 304
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c1"
-    char_span: [1246, 3118]
+    char_span: [1245, 3117]
     sentence_count: 7
     key_terms: [intelligence, sometimes, "couldn't", career, cousin, people, tested, imaginary-badger-119]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c2"
-    char_span: [3120, 4697]
+    char_span: [3119, 4696]
     sentence_count: 13
     key_terms: [different, low, enough, find, processing, reasoning, something, spatial]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c3"
-    char_span: [4699, 6842]
+    char_span: [4698, 6841]
     sentence_count: 16
     key_terms: [test, people, intelligence, end, find, try, successful, ability]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c4"
-    char_span: [6844, 8500]
+    char_span: [6843, 8499]
     sentence_count: 10
     key_terms: [test, tested, understand, bullshit, because, written, around, "didn't"]
     section: Comments
     token_count: 383
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c5"
-    char_span: [8502, 10586]
+    char_span: [8501, 10585]
     sentence_count: 16
     key_terms: [tests, intelligence, people, test, missing-the-sun, measure, word, language]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c6"
-    char_span: [10588, 11741]
+    char_span: [10587, 11740]
     sentence_count: 9
     key_terms: [skill, find, help, test, student, skills, areas, focus]
     section: Comments
     token_count: 246
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c7"
-    char_span: [11743, 13996]
+    char_span: [11742, 13995]
     sentence_count: 17
     key_terms: [intelligence, people, employability, doing, tests, different, strengths, practice]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c8"
-    char_span: [13743, 14026]
+    char_span: [13742, 14025]
     sentence_count: 3
     key_terms: [fragrant-airport1309, underprepared, intelligence, something, bullshit, patterns, careers, certain]
     section: Comments
     token_count: 70
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c9"
-    char_span: [14028, 16090]
+    char_span: [14027, 16089]
     sentence_count: 17
     key_terms: [ability, skills, "you're", psychiatrist, learn, communicate, like, want]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c10"
-    char_span: [16093, 17335]
+    char_span: [16092, 17334]
     sentence_count: 13
     key_terms: [people, repulsive-resist-456, "don't", write, don, like, need, own]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c11"
-    char_span: [17337, 19347]
+    char_span: [17336, 19346]
     sentence_count: 23
     key_terms: [psychiatrist, great, work, diagnoses, yourself, autism, target, lying]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c12"
-    char_span: [19349, 21470]
+    char_span: [19348, 21469]
     sentence_count: 23
     key_terms: [good, important, family, people, find, love, friends, intelligence]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/careerguidance/1svh9k0.md#c13"
-    char_span: [21472, 22073]
+    char_span: [21471, 22072]
     sentence_count: 3
     key_terms: [avg, melloyello-1577, intelligence, standardised, standardized, considered, assertion, potential]
     section: Comments

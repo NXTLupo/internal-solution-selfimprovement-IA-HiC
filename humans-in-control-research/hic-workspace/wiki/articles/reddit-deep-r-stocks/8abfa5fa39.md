@@ -15,17 +15,17 @@ industries: [financial_services, government]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c0"
-    char_span: [0, 1995]
+    char_span: [0, 1994]
     sentence_count: 16
     key_terms: [bill, like, earnings, stocks, trump, permanent, probably, because]
-    token_count: 454
+    token_count: 453
   - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c1"
-    char_span: [1997, 4133]
+    char_span: [1996, 4132]
     sentence_count: 11
     key_terms: [stocks, market, please, "you're", here, off-topic, political, earnings]
     token_count: 463
   - id: "articles/reddit-deep-r-stocks/8abfa5fa39.md#c2"
-    char_span: [4135, 5243]
+    char_span: [4134, 5242]
     sentence_count: 12
     key_terms: [goebbels, people, flood, zone, striking-money-7792, party, pizza, uncriticalthinking]
     token_count: 278

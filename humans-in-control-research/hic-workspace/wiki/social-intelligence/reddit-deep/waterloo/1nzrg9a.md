@@ -28,37 +28,37 @@ chunks:
     key_terms: [jobposting, jobsearch, jobbank, https, www, hour, canadians, hiring]
     token_count: 412
   - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c2"
-    char_span: [3378, 4328]
+    char_span: [3377, 4327]
     sentence_count: 8
     key_terms: [review, canadians, company, service, better, hiring, honest, oldthrashbarg2000]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c3"
-    char_span: [4330, 5991]
+    char_span: [4329, 5990]
     sentence_count: 8
     key_terms: [simonsays-11, canadian, unemployment, companies, question, rejected, because, forsakenyesterday254]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c4"
-    char_span: [5993, 7854]
+    char_span: [5992, 7853]
     sentence_count: 7
     key_terms: [unemployment, government, restrictions, hour, pay, wage, liberals, liberal]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c5"
-    char_span: [7857, 8923]
+    char_span: [7856, 8922]
     sentence_count: 1
     key_terms: [number-of-temporary-worker-applications-fell-as-fine-total-increased-government-says-11310368, employment-social-development, https, www, foreign-workers, national-news, guelphtoday, services]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c6"
-    char_span: [8926, 11148]
+    char_span: [8925, 11147]
     sentence_count: 10
     key_terms: [people, evergreenterrace2465, position, report, "don't", job, list, anything]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/waterloo/1nzrg9a.md#c7"
-    char_span: [10835, 11981]
+    char_span: [10834, 11980]
     sentence_count: 5
     key_terms: [problem, report, canadian, getting, people, hire, job, take]
     section: Comments

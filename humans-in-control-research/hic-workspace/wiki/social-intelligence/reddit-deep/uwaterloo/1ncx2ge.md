@@ -18,7 +18,7 @@ industries: [higher_ed, education, healthcare]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/uwaterloo/1ncx2ge.md#c0"
-    char_span: [0, 647]
+    char_span: [0, 646]
     sentence_count: 2
     key_terms: [traditionalvariety48, uwaterloo, comments, course, school, full, load, secure-lake5784]
     token_count: 160

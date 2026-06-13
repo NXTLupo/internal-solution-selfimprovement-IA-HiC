@@ -23,7 +23,7 @@ chunks:
     key_terms: [college-preparatory, applyingtocollege, does, program, mean, comments, degree-seeking, institution]
     token_count: 113
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s6ytkz.md#c1"
-    char_span: [471, 737]
+    char_span: [470, 736]
     sentence_count: 1
     key_terms: [program, summer, high, skieurope12, vocational, referring, elkrange, standard]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [years, dont, job, like, generation, comments, friends, parents]
     token_count: 371
   - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c1"
-    char_span: [1604, 3621]
+    char_span: [1603, 3620]
     sentence_count: 6
     key_terms: [family, having, want, discord, cooked, dating, people, traditional-let9530]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/genz/1s1fon3.md#c2"
-    char_span: [3623, 4439]
+    char_span: [3622, 4438]
     sentence_count: 9
     key_terms: [work, government, market, wanted, cancermoon2caprising, means, fun, job]
     section: Comments

@@ -1,5 +1,61 @@
 {
-  "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-  "positive": [],
-  "negative": []
+  "positive": [
+    {
+      "point": "Vanguard LifeStrategy funds are appreciated for their simplicity and no need for rebalancing.",
+      "post_refs": [
+        "1txy03e"
+      ]
+    },
+    {
+      "point": "Vanguard Target Date Funds (TDFs) are recommended for their balanced portfolio and automatic shift from stocks to bonds over time.",
+      "post_refs": [
+        "1tra9e0"
+      ]
+    },
+    {
+      "point": "Consistent long-term investing in Vanguard funds like VWRP and VUAG has shown significant growth, proving the effectiveness of a simple investment strategy.",
+      "post_refs": [
+        "1ta10bz",
+        "1t3dupd"
+      ]
+    },
+    {
+      "point": "Vanguard ETFs like VOO and VTI are praised for their strong capital-growth behavior and total return.",
+      "post_refs": [
+        "1tw8lpm"
+      ]
+    },
+    {
+      "point": "Vanguard's low-cost index funds like VTSAX are recommended for maximum diversification and lower costs compared to other funds.",
+      "post_refs": [
+        "1tpt6hs"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Concerns about Vanguard retirement funds being weighted in CRSP, which may include risky IPOs like SpaceX.",
+      "post_refs": [
+        "1u19dur"
+      ]
+    },
+    {
+      "point": "Frustration with the inability to buy fractional shares of non-Vanguard ETFs in a brokerage account.",
+      "post_refs": [
+        "1s86mle"
+      ]
+    },
+    {
+      "point": "Worries about the volatility of the stock market and the performance of ETFs like VEU.",
+      "post_refs": [
+        "1rtw67g"
+      ]
+    },
+    {
+      "point": "Concerns about the impact of tech IPOs on Vanguard index funds and the desire to avoid them.",
+      "post_refs": [
+        "1tu7pyb"
+      ]
+    }
+  ]
 }

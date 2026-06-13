@@ -23,43 +23,43 @@ chunks:
     key_terms: [tech, back, job, quitting, career, couple, since, been]
     token_count: 477
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c1"
-    char_span: [2022, 2969]
+    char_span: [2021, 2968]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c2"
-    char_span: [2972, 4170]
+    char_span: [2971, 4169]
     sentence_count: 13
     key_terms: ["don't", "it's", need, potential, happened, health, mental, opening-cantaloupe56]
     section: Comments
     token_count: 308
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c3"
-    char_span: [4172, 5903]
+    char_span: [4171, 5902]
     sentence_count: 11
     key_terms: ["you're", something, "it's", job, "that's", field, find, like]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c4"
-    char_span: [5905, 8000]
+    char_span: [5904, 7999]
     sentence_count: 16
     key_terms: [important-amount-627, appreciate, tech, nursing, career, worked, going, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c5"
-    char_span: [7714, 9110]
+    char_span: [7713, 9109]
     sentence_count: 8
     key_terms: [job, tech, like, experience, current, sharing, bundle, thanks]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c6"
-    char_span: [9112, 11161]
+    char_span: [9111, 11160]
     sentence_count: 21
     key_terms: [time, wish, right, best, did, rexosv, sense, information]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1re8ur9.md#c7"
-    char_span: [10918, 11583]
+    char_span: [10917, 11582]
     sentence_count: 2
     key_terms: [right, best, take, advantage, rexosv, feels, hard, look]
     section: Comments

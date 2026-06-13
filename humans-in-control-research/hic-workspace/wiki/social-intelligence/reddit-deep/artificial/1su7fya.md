@@ -23,19 +23,19 @@ chunks:
     key_terms: [question, validation, great, artificial, genuinely, questions, comments, flattery]
     token_count: 364
   - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c1"
-    char_span: [1730, 3405]
+    char_span: [1729, 3404]
     sentence_count: 9
     key_terms: [great, question, "it's", "that's", truth, post, fitness, highest]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c2"
-    char_span: [3407, 5415]
+    char_span: [3406, 5414]
     sentence_count: 13
     key_terms: [great, ask, question, someone, interesting, "it's", lot, interested]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/artificial/1su7fya.md#c3"
-    char_span: [5419, 6162]
+    char_span: [5418, 6161]
     sentence_count: 3
     key_terms: [models, learning, rlhf, second-guessing, palmovyykozak, reinforcement, appropriate, calibration]
     section: Comments

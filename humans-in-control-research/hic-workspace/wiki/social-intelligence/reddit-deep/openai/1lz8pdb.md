@@ -48,73 +48,73 @@ chunks:
     key_terms: [sam-altman-openai-movie-amazon-social-network-mark-zuckerberg-2025-7, altman, belloni, amazon, businessinsider, artificial, flattering, produced]
     token_count: 115
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c6"
-    char_span: [10290, 12345]
+    char_span: [10289, 12344]
     sentence_count: 12
     key_terms: [chrome, people, built, finally, google, big, use, extensions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c7"
-    char_span: [12136, 12995]
+    char_span: [12135, 12994]
     sentence_count: 7
     key_terms: [freeloaders, google, model, get, user, through, base, meta]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c8"
-    char_span: [12997, 14362]
+    char_span: [12996, 14361]
     sentence_count: 9
     key_terms: [google, people, grok, gemini, openai, brand, worst, ask]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c9"
-    char_span: [14364, 15769]
+    char_span: [14363, 15768]
     sentence_count: 5
     key_terms: [trillion, openai, people, rainbowcoloredballs, brand, com, get, www]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c10"
-    char_span: [15771, 16942]
+    char_span: [15770, 16941]
     sentence_count: 1
     key_terms: [message, remindmebot, reddit, com, https, compose, subject, www]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c11"
-    char_span: [16944, 17613]
+    char_span: [16943, 17612]
     sentence_count: 4
     key_terms: [years, experiencing, comfortable, absolutely, definitely, graduating, percentage, university]
     section: Comments
     token_count: 153
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c12"
-    char_span: [17615, 19361]
+    char_span: [17614, 19360]
     sentence_count: 13
     key_terms: [google, microsoft, chatgpt, product, become, better, people, switch]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c13"
-    char_span: [19363, 20806]
+    char_span: [19362, 20805]
     sentence_count: 9
     key_terms: [microsoft, openai, replicate, capital, offered, profit, wework, model]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c14"
-    char_span: [20808, 22366]
+    char_span: [20807, 22365]
     sentence_count: 8
     key_terms: [through, costs, money, operational, down, profit, users, bandicootgood5246]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c15"
-    char_span: [22368, 24147]
+    char_span: [22367, 24146]
     sentence_count: 15
     key_terms: [google, microsoft, openai, business, relationship, years, probably, money]
     section: Comments
     token_count: 398
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c16"
-    char_span: [24149, 26286]
+    char_span: [24148, 26285]
     sentence_count: 20
     key_terms: [microsoft, google, openai, research, bartturner, against, transformative, relationship]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/openai/1lz8pdb.md#c17"
-    char_span: [26288, 27769]
+    char_span: [26287, 27768]
     sentence_count: 11
     key_terms: [google, better, openai, positioned, security, billion, constant-bridge3690, being]
     section: Comments

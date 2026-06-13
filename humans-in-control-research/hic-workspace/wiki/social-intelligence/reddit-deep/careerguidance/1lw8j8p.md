@@ -21,19 +21,19 @@ chunks:
     key_terms: [careerguidance, adaptability, "i'm", like, education, genuinely, comments, learning]
     token_count: 278
   - id: "social-intelligence/reddit-deep/careerguidance/1lw8j8p.md#c1"
-    char_span: [1337, 3469]
+    char_span: [1336, 3468]
     sentence_count: 18
     key_terms: [writing, skills, social, communicate, tech, meaningful, positions, problems]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/careerguidance/1lw8j8p.md#c2"
-    char_span: [3471, 5404]
+    char_span: [3470, 5403]
     sentence_count: 12
     key_terms: [project, something, communication, competitive-cheek677, world, good, time, everything]
     section: Comments
     token_count: 424
   - id: "social-intelligence/reddit-deep/careerguidance/1lw8j8p.md#c3"
-    char_span: [5406, 7023]
+    char_span: [5405, 7022]
     sentence_count: 14
     key_terms: [people, future, therapist, skills, anything, industry, country, nursing]
     section: Comments

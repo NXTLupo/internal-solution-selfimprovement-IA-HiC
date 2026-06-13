@@ -15,12 +15,12 @@ industries: [financial_services, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-stocks/1fac2ab3b6.md#c0"
-    char_span: [0, 1687]
+    char_span: [0, 1686]
     sentence_count: 17
     key_terms: [market, stock, money, cash, stocks, tech, companies, comments]
-    token_count: 389
+    token_count: 388
   - id: "articles/reddit-deep-r-stocks/1fac2ab3b6.md#c1"
-    char_span: [1689, 3465]
+    char_span: [1688, 3464]
     sentence_count: 14
     key_terms: [market, money, million, street, house, yield, cap, investment]
     token_count: 441

@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, engineeringstudents, wanted, engineering, comments, students, looking, startup]
     token_count: 166
   - id: "social-intelligence/reddit-deep/engineeringstudents/1m7qkfy.md#c1"
-    char_span: [779, 1309]
+    char_span: [778, 1308]
     sentence_count: 5
     key_terms: [investment, platform, startup, mrtophatlizard, different, scheduler, everyone, recycled]
     section: Comments

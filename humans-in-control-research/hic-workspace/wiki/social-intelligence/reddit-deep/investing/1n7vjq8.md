@@ -18,7 +18,7 @@ industries: [financial_services, ai_research, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/investing/1n7vjq8.md#c0"
-    char_span: [0, 708]
+    char_span: [0, 707]
     sentence_count: 5
     key_terms: [investing, agentic, comments, spicychickendeluxe, path, fundamentally, receptionist, information]
     token_count: 176

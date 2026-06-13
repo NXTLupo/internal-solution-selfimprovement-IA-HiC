@@ -23,31 +23,31 @@ chunks:
     key_terms: [school, grad, astrophysics, princeton, undergrad, misunderstanding, prospective, admissions]
     token_count: 375
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c1"
-    char_span: [1790, 2084]
+    char_span: [1789, 2083]
     sentence_count: 3
     key_terms: [top, schools, list, name, errorlessquaak, differences, significant, astronomy]
     section: Comments
     token_count: 64
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c2"
-    char_span: [2086, 4461]
+    char_span: [2085, 4460]
     sentence_count: 16
     key_terms: [undergrad, research, school, schools, students, grad, competitive, excellent]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c3"
-    char_span: [4463, 6001]
+    char_span: [4462, 6000]
     sentence_count: 11
     key_terms: [school, research, institution, best, grad, work, undergrad, programs]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c4"
-    char_span: [6003, 8158]
+    char_span: [6002, 8157]
     sentence_count: 14
     key_terms: [programs, program, grad, caliber, astrophysics, astronomy, specific, getting]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/gradschool/1sq2i8h.md#c5"
-    char_span: [8160, 9103]
+    char_span: [8159, 9102]
     sentence_count: 8
     key_terms: [students, schools, undergrad, "you're", best, "there's", gap, grad]
     section: Comments

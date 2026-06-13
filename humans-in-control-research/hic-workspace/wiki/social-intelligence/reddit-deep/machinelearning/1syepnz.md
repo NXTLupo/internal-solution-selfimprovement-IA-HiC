@@ -18,12 +18,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/machinelearning/1syepnz.md#c0"
-    char_span: [0, 1733]
+    char_span: [0, 1732]
     sentence_count: 3
     key_terms: [json, png, value, overall, structured, https, benchmark, accuracy]
-    token_count: 476
+    token_count: 475
   - id: "social-intelligence/reddit-deep/machinelearning/1syepnz.md#c1"
-    char_span: [1735, 2568]
+    char_span: [1734, 2567]
     sentence_count: 3
     key_terms: [interfaze, introducing-structured-output-benchmark, https, structured-output-benchmark, leaderboards, blog, full, dataset]
     token_count: 186

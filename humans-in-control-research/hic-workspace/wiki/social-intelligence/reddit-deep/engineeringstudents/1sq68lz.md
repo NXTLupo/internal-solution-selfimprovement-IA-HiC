@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sq68lz.md#c0"
-    char_span: [0, 344]
+    char_span: [0, 343]
     sentence_count: 2
     key_terms: [engineeringstudents, comments, robotics, career, key-outside9076, reddit-deep, first-year, specialize]
-    token_count: 91
+    token_count: 90
 ---
 # [Robotics / Career Advice] First-year robotics student – how to specialize an plan my career?
 

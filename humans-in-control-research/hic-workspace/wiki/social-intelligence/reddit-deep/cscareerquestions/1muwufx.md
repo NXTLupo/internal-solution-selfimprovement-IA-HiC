@@ -16,12 +16,12 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Universities to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1muwufx.md#c0"
-    char_span: [0, 2299]
+    char_span: [0, 2298]
     sentence_count: 6
     key_terms: [internship, role, interview, part-time, cscareerquestions, location, career, return]
-    token_count: 511
+    token_count: 510
   - id: "social-intelligence/reddit-deep/cscareerquestions/1muwufx.md#c1"
-    char_span: [2301, 2336]
+    char_span: [2300, 2335]
     sentence_count: 1
     key_terms: [appreciated, greatly, advice]
     token_count: 6

@@ -23,25 +23,25 @@ chunks:
     key_terms: [comments, openai, metaknowing, reddit-deep, posted, reddit, source, https]
     token_count: 66
   - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c1"
-    char_span: [227, 2045]
+    char_span: [226, 2044]
     sentence_count: 10
     key_terms: [like, people, preparedness, bot, companies, openai, close, farms]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c2"
-    char_span: [2047, 2868]
+    char_span: [2046, 2867]
     sentence_count: 3
     key_terms: [experience, unplugging, rollingmeteors, putting, lemonmeringuepirate, plugs, plug, clean-yam-739]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c3"
-    char_span: [2870, 4648]
+    char_span: [2869, 4647]
     sentence_count: 10
     key_terms: [bro, unplug, head-of-preparedness-san-francisco, end3rwi99in, job, rly, unplugging, authority]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/openai/1pypit3.md#c4"
-    char_span: [4650, 5585]
+    char_span: [4649, 5584]
     sentence_count: 2
     key_terms: [killswitch, https, engineer, preview, format, watchingyounyounyou, width, mountain-pain1294]
     section: Comments

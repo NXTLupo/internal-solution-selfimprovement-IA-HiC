@@ -23,13 +23,13 @@ chunks:
     key_terms: [waterloo, student, experience, something, uwaterloo, comments, "what's", reddit-deep]
     token_count: 153
   - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c1"
-    char_span: [647, 2393]
+    char_span: [646, 2392]
     sentence_count: 15
     key_terms: [equipment, club, outside, people, grandparents, back, thetermguy, athletics]
     section: Comments
     token_count: 443
   - id: "social-intelligence/reddit-deep/uwaterloo/1pzckty.md#c2"
-    char_span: [2395, 3094]
+    char_span: [2394, 3093]
     sentence_count: 5
     key_terms: [policy, club, gun, university, shooting, special, around, clubs]
     section: Comments

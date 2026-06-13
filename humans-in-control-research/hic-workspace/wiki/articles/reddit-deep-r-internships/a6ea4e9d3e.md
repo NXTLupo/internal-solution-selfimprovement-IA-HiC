@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-internships/a6ea4e9d3e.md#c0"
-    char_span: [0, 2043]
+    char_span: [0, 2042]
     sentence_count: 5
     key_terms: [growth, reddit, internship, ownership, work, founder, remote, certificate]
-    token_count: 469
+    token_count: 468
   - id: "articles/reddit-deep-r-internships/a6ea4e9d3e.md#c1"
-    char_span: [2045, 2317]
+    char_span: [2044, 2316]
     sentence_count: 2
     key_terms: [interested, serious-gap234, okbluejay3743, wazirkazim78, hamesloth, comments, further, process]
     token_count: 85

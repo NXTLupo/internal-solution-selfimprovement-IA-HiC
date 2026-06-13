@@ -21,115 +21,115 @@ chunks:
     key_terms: [email, comments, thought, jobs, wild, condescending, appropriate, reddit-deep]
     token_count: 133
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c1"
-    char_span: [569, 2347]
+    char_span: [568, 2346]
     sentence_count: 7
     key_terms: [idealist, job, trauma, application, like, rejection, directly, employer]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c2"
-    char_span: [2349, 3469]
+    char_span: [2348, 3468]
     sentence_count: 4
     key_terms: [people, trauma, necessarily, interview, idealist, because, talking, didn]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c3"
-    char_span: [3471, 5287]
+    char_span: [3470, 5286]
     sentence_count: 8
     key_terms: [interview, questions, trauma, stage, gotten, letter, "they'd", shot-membership-4070]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c4"
-    char_span: [5127, 5602]
+    char_span: [5126, 5601]
     sentence_count: 5
     key_terms: [uncomfortable, missyapzalot, professional, raevensquall, requirements, msmerymac, rejection, intimate]
     section: Comments
     token_count: 137
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c5"
-    char_span: [5604, 7268]
+    char_span: [5603, 7267]
     sentence_count: 16
     key_terms: [job, community, because, letter, rejection, strangers, letters, across]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c6"
-    char_span: [7270, 9345]
+    char_span: [7269, 9344]
     sentence_count: 9
     key_terms: [assistant, rejection, too, anything, letter, incompetence, specifically, admin]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c7"
-    char_span: [9348, 11393]
+    char_span: [9347, 11392]
     sentence_count: 16
     key_terms: [rejection, better, people, longjumping-still793, interview, chatgpt, letter, specifically]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c8"
-    char_span: [11395, 12878]
+    char_span: [11394, 12877]
     sentence_count: 12
     key_terms: ["it's", rejection, someone, asked, like, list, michaelakay9923, deep-thinking]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c9"
-    char_span: [12880, 15038]
+    char_span: [12879, 15037]
     sentence_count: 15
     key_terms: [applicants, candidates, rejection, feel, letter, person, agree, did]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c10"
-    char_span: [15040, 17106]
+    char_span: [15039, 17105]
     sentence_count: 13
     key_terms: [felt, like, unnecessary, job, aggressive, personal, current, passive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c11"
-    char_span: [16900, 17580]
+    char_span: [16899, 17579]
     sentence_count: 4
     key_terms: [gptzero, immediate-rule7220, like, time, pronatorteres00, receiving, drowning, familiar]
     section: Comments
     token_count: 197
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c12"
-    char_span: [17582, 18848]
+    char_span: [17581, 18847]
     sentence_count: 7
     key_terms: [respectable, job, "didn't", people, person, being, "don't", immediate-rule7220]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c13"
-    char_span: [18850, 20590]
+    char_span: [18849, 20589]
     sentence_count: 13
     key_terms: [because, person, "i'm", misguided, rejection, rejected, sincere, people]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c14"
-    char_span: [20592, 22190]
+    char_span: [20591, 22189]
     sentence_count: 14
     key_terms: [people, like, position, thoughts, being, help, pinkpartypossum, historically]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c15"
-    char_span: [22192, 24184]
+    char_span: [22191, 24183]
     sentence_count: 12
     key_terms: [reading, felt, send, definitely, applying, editing, thought, commercial-catch-878]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c16"
-    char_span: [23925, 24626]
+    char_span: [23924, 24625]
     sentence_count: 7
     key_terms: [wouldn, like, unfortunately, consistently, grammatical, tr0ncatlady, absolutely, definitely]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c17"
-    char_span: [24628, 25075]
+    char_span: [24627, 25074]
     sentence_count: 8
     key_terms: [paragraph, sentence, words, time, incorrectly, incredible, separating, irregular]
     section: Comments
     token_count: 95
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c18"
-    char_span: [25077, 26717]
+    char_span: [25076, 26716]
     sentence_count: 8
     key_terms: [millennial, regularly, "doesn't", manages, writing, people, thatonedudewhotypes, unfurnishedbedrooms]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/jobs/1qrn3oy.md#c19"
-    char_span: [26719, 28467]
+    char_span: [26718, 28466]
     sentence_count: 9
     key_terms: [like, something, people, since, write, job, writing, being]
     section: Comments

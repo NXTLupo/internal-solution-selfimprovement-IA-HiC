@@ -1,359 +1,3077 @@
 {
-  "total_documents": 19,
-  "total_topics": 4,
+  "total_documents": 352,
+  "total_topics": 19,
   "topics": {
     "positive": {
-      "count": 2,
+      "count": 1,
       "topics": [
         {
           "id": 0,
-          "count": 7,
-          "score": 0.24890242304120744,
+          "count": 57,
+          "score": 0.1286556624784949,
           "engagement": {
-            "post_count": 7,
-            "total_comments": 7,
-            "total_score": 67,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 9.571428571428571
+            "post_count": 57,
+            "total_comments": 196,
+            "total_score": 590,
+            "avg_comments_per_post": 3.43859649122807,
+            "avg_score_per_post": 10.350877192982455
           },
           "terms": [
             {
-              "term": "op",
-              "weight": 0.028290783346396457
+              "term": "fund",
+              "weight": 0.0178725681837141
             },
             {
-              "term": "ops",
-              "weight": 0.025110320719499906
+              "term": "vanguard",
+              "weight": 0.015434121915530728
             },
             {
-              "term": "accounting",
-              "weight": 0.02506717429473492
+              "term": "etf",
+              "weight": 0.013202578103927439
             },
             {
-              "term": "gpa",
-              "weight": 0.023944298300937538
+              "term": "market",
+              "weight": 0.010443455708047198
             },
             {
-              "term": "spring",
-              "weight": 0.02228193270643104
+              "term": "investing",
+              "weight": 0.008982020495075986
             },
             {
-              "term": "business",
-              "weight": 0.021757549542649902
+              "term": "years",
+              "weight": 0.008721628153802957
             },
             {
-              "term": "big",
-              "weight": 0.02059338888345251
+              "term": "index",
+              "weight": 0.008457685137643167
             },
             {
-              "term": "school",
-              "weight": 0.02059338888345251
-            },
-            {
-              "term": "year",
-              "weight": 0.020010312226950766
-            },
-            {
-              "term": "fall",
-              "weight": 0.017898241188039142
+              "term": "retirement",
+              "weight": 0.008411494698961517
             }
           ],
           "post_ids": [
-            "1tcjfq9",
-            "1t7ju94",
-            "1t6x3he",
-            "1t77et0",
-            "1t2lqx4",
-            "1t5fimv",
-            "1t0x9dz"
+            "1qltk2r",
+            "1sdyyyo",
+            "1u19dur",
+            "1tzeo4w",
+            "1txy03e",
+            "1q1jjl8",
+            "1q165nh",
+            "1tx473o",
+            "1t4z30k",
+            "1rtw67g",
+            "1q7yubm",
+            "1pr0r63",
+            "1onogxz",
+            "1tw8lpm",
+            "1tu7pyb",
+            "1tra9e0",
+            "1tpt6hs",
+            "1to82ij",
+            "1tfq0ct",
+            "1tfcm6e",
+            "1ta10bz",
+            "1t3dupd",
+            "1swfynb",
+            "1srg3hp",
+            "1snlpxu",
+            "1skablm",
+            "1sh2d0s",
+            "1selbff",
+            "1sa3c7w",
+            "1s86mle",
+            "1rzf5f7",
+            "1rxnoqa",
+            "1rme1ie",
+            "1rj573s",
+            "1r8eyrb",
+            "1r4h6vb",
+            "1r3pwt9",
+            "1r1e1nh",
+            "1qstzd9",
+            "1quwhbz",
+            "1qtg98s",
+            "1qqssnb",
+            "1qiwb1x",
+            "1qfj3ya",
+            "1qde5qq",
+            "1qb6bcy",
+            "1pzfte0",
+            "1pyltgq",
+            "1pryvrr",
+            "1pryx3t",
+            "1pnc86x",
+            "1pe1v3o",
+            "1ojuvhe",
+            "1oj7sc6",
+            "1oi299m",
+            "1obi233",
+            "1o6z9g9"
           ],
           "post_sentiments": {
-            "1tcjfq9": {
+            "1qltk2r": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3560359124094248
+            },
+            "1sdyyyo": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.6838489174842834
+              "sentiment_score": -0.5375031009316444
             },
-            "1t7ju94": {
+            "1u19dur": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1264080684632063
+            },
+            "1tzeo4w": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2522377669811249
+            },
+            "1txy03e": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.7088562250137329
+              "sentiment_score": 0.8512252569198608
             },
-            "1t6x3he": {
+            "1q1jjl8": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.6602125763893127
+              "sentiment_score": 0.25906104780733585
             },
-            "1t77et0": {
+            "1q165nh": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.5649698376655579
+              "sentiment_score": 0.13125285506248474
             },
-            "1t2lqx4": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.4921272397041321
-            },
-            "1t5fimv": {
+            "1tx473o": {
               "sentiment_category": "neutral",
-              "sentiment_score": 0.0
+              "sentiment_score": -0.09128506481647491
             },
-            "1t0x9dz": {
+            "1t4z30k": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.37859299033880234
+            },
+            "1rtw67g": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.35375528410077095
+            },
+            "1q7yubm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.14287692308425903
+            },
+            "1pr0r63": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3813480958342552
+            },
+            "1onogxz": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4226605324074626
+            },
+            "1tw8lpm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.15773533284664154
+            },
+            "1tu7pyb": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.40316013246774673
+            },
+            "1tra9e0": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4548273514956236
+            },
+            "1tpt6hs": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7239826526492834
+            },
+            "1to82ij": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.12285534292459488
+            },
+            "1tfq0ct": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4301952514797449
+            },
+            "1tfcm6e": {
               "sentiment_category": "neutral",
-              "sentiment_score": 0.0
+              "sentiment_score": 0.05291707068681717
+            },
+            "1ta10bz": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7656352827325463
+            },
+            "1t3dupd": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8161209113895893
+            },
+            "1swfynb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3803112171590328
+            },
+            "1srg3hp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2595425695180893
+            },
+            "1snlpxu": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.17705965042114258
+            },
+            "1skablm": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.1989978514611721
+            },
+            "1sh2d0s": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.18343526870012283
+            },
+            "1selbff": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.23270951211452484
+            },
+            "1sa3c7w": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5869457426015288
+            },
+            "1s86mle": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.1100182980298996
+            },
+            "1rzf5f7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.19641660153865814
+            },
+            "1rxnoqa": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2539760619401932
+            },
+            "1rme1ie": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.21800444647669792
+            },
+            "1rj573s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3580304682254791
+            },
+            "1r8eyrb": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.074813112616539
+            },
+            "1r4h6vb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.42628444731235504
+            },
+            "1r3pwt9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1843016818165779
+            },
+            "1r1e1nh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.28012255672365427
+            },
+            "1qstzd9": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.683427108451724
+            },
+            "1quwhbz": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8838390354067087
+            },
+            "1qtg98s": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8340414380654693
+            },
+            "1qqssnb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4413520470261574
+            },
+            "1qiwb1x": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.49347783625125885
+            },
+            "1qfj3ya": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.03621624410152435
+            },
+            "1qde5qq": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.47147858515381813
+            },
+            "1qb6bcy": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2177902739495039
+            },
+            "1pzfte0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2043943852186203
+            },
+            "1pyltgq": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.26043935120105743
+            },
+            "1pryvrr": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.48095148615539074
+            },
+            "1pryx3t": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2072302009910345
+            },
+            "1pnc86x": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.00501658022403717
+            },
+            "1pe1v3o": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.30733153969049454
+            },
+            "1ojuvhe": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.14191418886184692
+            },
+            "1oj7sc6": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.23867915384471416
+            },
+            "1oi299m": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7348302025347948
+            },
+            "1obi233": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.9790017337072641
+            },
+            "1o6z9g9": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.1688402893487364
             }
           },
           "sentiment_evidence": {
-            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-            "positive": [],
-            "negative": []
+            "positive": [
+              {
+                "point": "Vanguard LifeStrategy funds are appreciated for their simplicity and no need for rebalancing.",
+                "post_refs": [
+                  "1txy03e"
+                ]
+              },
+              {
+                "point": "Vanguard Target Date Funds (TDFs) are recommended for their balanced portfolio and automatic shift from stocks to bonds over time.",
+                "post_refs": [
+                  "1tra9e0"
+                ]
+              },
+              {
+                "point": "Consistent long-term investing in Vanguard funds like VWRP and VUAG has shown significant growth, proving the effectiveness of a simple investment strategy.",
+                "post_refs": [
+                  "1ta10bz",
+                  "1t3dupd"
+                ]
+              },
+              {
+                "point": "Vanguard ETFs like VOO and VTI are praised for their strong capital-growth behavior and total return.",
+                "post_refs": [
+                  "1tw8lpm"
+                ]
+              },
+              {
+                "point": "Vanguard's low-cost index funds like VTSAX are recommended for maximum diversification and lower costs compared to other funds.",
+                "post_refs": [
+                  "1tpt6hs"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Concerns about Vanguard retirement funds being weighted in CRSP, which may include risky IPOs like SpaceX.",
+                "post_refs": [
+                  "1u19dur"
+                ]
+              },
+              {
+                "point": "Frustration with the inability to buy fractional shares of non-Vanguard ETFs in a brokerage account.",
+                "post_refs": [
+                  "1s86mle"
+                ]
+              },
+              {
+                "point": "Worries about the volatility of the stock market and the performance of ETFs like VEU.",
+                "post_refs": [
+                  "1rtw67g"
+                ]
+              },
+              {
+                "point": "Concerns about the impact of tech IPOs on Vanguard index funds and the desire to avoid them.",
+                "post_refs": [
+                  "1tu7pyb"
+                ]
+              }
+            ]
           },
-          "summary": "Discussions about cooperative education program experiences and challenges in business-related fields, particularly focusing on accounting majors and their pursuit of opportunities at major professional services firms. Students share concerns about academic performance requirements, timing of different co-op cycles, and the competitive nature of securing positions at prestigious companies. The conversations reveal broader systemic issues with university co-op programs, including limited availability of positions relative to student demand, difficulties in the application and recruitment process, and frustrations with program administration. Students discuss strategic decisions about when to participate in co-op cycles, with spring cycles often preferred for accounting due to alignment with busy seasons at audit firms. The discussions highlight the importance of networking, maintaining strong GPAs, and building relevant extracurricular experience to compete for coveted positions at Big 4 accounting firms and other major employers.",
-          "short_summary": "Business co-op challenges",
-          "one_sentence_summary": "Students discuss challenges and strategies related to securing competitive cooperative education positions in business fields, particularly accounting roles at major firms."
-        },
-        {
-          "id": 1,
-          "count": 4,
-          "score": 0.3199808821082115,
-          "engagement": {
-            "post_count": 4,
-            "total_comments": 4,
-            "total_score": 21,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 5.25
-          },
-          "terms": [
-            {
-              "term": "models",
-              "weight": 0.030324683956927702
-            },
-            {
-              "term": "local",
-              "weight": 0.026219093932908763
-            },
-            {
-              "term": "claude",
-              "weight": 0.026219093932908763
-            },
-            {
-              "term": "finance",
-              "weight": 0.02190524814925731
-            },
-            {
-              "term": "mahoraga",
-              "weight": 0.02190524814925731
-            },
-            {
-              "term": "cs",
-              "weight": 0.02190524814925731
-            },
-            {
-              "term": "run",
-              "weight": 0.02097527514632701
-            },
-            {
-              "term": "able",
-              "weight": 0.02097527514632701
-            },
-            {
-              "term": "resume",
-              "weight": 0.01853324276997173
-            },
-            {
-              "term": "work",
-              "weight": 0.01809708130198396
-            }
-          ],
-          "post_ids": [
-            "1tbd60d",
-            "1t7pytb",
-            "1t6crmm",
-            "1t3dfr3"
-          ],
-          "post_sentiments": {
-            "1tbd60d": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            },
-            "1t7pytb": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.9744960069656372
-            },
-            "1t6crmm": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.30542752146720886
-            },
-            "1t3dfr3": {
-              "sentiment_category": "neutral",
-              "sentiment_score": 0.0
-            }
-          },
-          "sentiment_evidence": {
-            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-            "positive": [],
-            "negative": []
-          },
-          "summary": "Discussions about academic technology integration and resource optimization in university settings, particularly focusing on AI model usage, cost management, and technical solutions for students. The conversations center around balancing expensive cloud-based AI services with local computing alternatives, developing hybrid systems that route tasks efficiently between different computational resources, and managing limited institutional credits or subscriptions. Students explore open-source solutions and technical implementations to extend their access to AI tools while maintaining quality output. The topic also encompasses broader academic concerns including co-op program experiences, scholarship allocation processes, and the intersection of technology with practical career preparation in technical fields.",
-          "short_summary": "Academic AI optimization",
-          "one_sentence_summary": "Students discuss optimizing AI model usage and computational resources in academic settings while navigating institutional limitations and developing cost-effective technical solutions."
+          "summary": "Discussions about investment fund selection and portfolio management strategies, focusing on exchange-traded funds and index investing approaches. The conversations center around evaluating different investment vehicles based on performance metrics such as total return, dividend yield, expense ratios, and volatility rather than focusing solely on current income or yield. Participants discuss asset allocation decisions, comparing the merits of various fund types including broad market index funds, international funds, bond funds, and dividend-focused funds. Common themes include long-term investment horizons, risk tolerance considerations, and the importance of diversified portfolio construction. The discussions often involve comparing different evaluation criteria for funds, with emphasis on total return performance over yield-chasing strategies. Specific examples include Vanguard ETFs like VOO, VTI, and VIG, which serve as benchmarks for discussing broader investment principles and portfolio allocation strategies for retirement planning.",
+          "short_summary": "Investment fund selection",
+          "one_sentence_summary": "Discussions about investment fund selection strategies and portfolio management approaches, focusing on evaluating different fund types based on performance metrics and long-term investment goals."
         }
       ]
     },
     "negative": {
-      "count": 0,
-      "topics": []
-    },
-    "neutral": {
-      "count": 2,
+      "count": 13,
       "topics": [
         {
           "id": 2,
-          "count": 3,
-          "score": -0.030911048253377277,
+          "count": 30,
+          "score": -0.6754012317871368,
           "engagement": {
-            "post_count": 3,
-            "total_comments": 3,
-            "total_score": 43,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 14.333333333333334
+            "post_count": 30,
+            "total_comments": 103,
+            "total_score": 66,
+            "avg_comments_per_post": 3.433333333333333,
+            "avg_score_per_post": 2.2
           },
           "terms": [
             {
-              "term": "op",
-              "weight": 0.04100225860340746
+              "term": "account",
+              "weight": 0.027362457431460693
             },
             {
-              "term": "im",
-              "weight": 0.031807620600291436
+              "term": "browser",
+              "weight": 0.024806033111877398
             },
             {
-              "term": "linkedin",
-              "weight": 0.03045724884261182
+              "term": "app",
+              "weight": 0.019943306604881934
             },
             {
-              "term": "cooked",
-              "weight": 0.03045724884261182
+              "term": "online",
+              "weight": 0.01778720385016258
             },
             {
-              "term": "interviews",
-              "weight": 0.029355401821318138
+              "term": "vanguard",
+              "weight": 0.01668799298385594
             },
             {
-              "term": "op search",
-              "weight": 0.02842505601916863
+              "term": "log",
+              "weight": 0.01665755589898226
             },
             {
-              "term": "email",
-              "weight": 0.025163182440635937
+              "term": "tried",
+              "weight": 0.016604741687980457
             },
             {
-              "term": "applications",
-              "weight": 0.023855715450218577
+              "term": "set",
+              "weight": 0.015192629325025606
             },
             {
-              "term": "coop",
-              "weight": 0.0207151764541232
+              "term": "login",
+              "weight": 0.011693393248090326
             }
           ],
           "post_ids": [
-            "1tcdfqv",
-            "1t7jhpm",
-            "1t7thch"
+            "1qaa6k2",
+            "1u1o696",
+            "1sbukpp",
+            "1tsy2ch",
+            "1th78zs",
+            "1t7nint",
+            "1t213lc",
+            "1t02gby",
+            "1swky2x",
+            "1ss5x1k",
+            "1sbenwg",
+            "1s4aopd",
+            "1rphfpg",
+            "1rop3zf",
+            "1rnbv4z",
+            "1rnl4l0",
+            "1riub85",
+            "1rg4401",
+            "1re8zxv",
+            "1rcp9uu",
+            "1r3ewxm",
+            "1qtlbf5",
+            "1nrg904",
+            "1qnf6xx",
+            "1qn05g1",
+            "1qc94he",
+            "1q2ykyt",
+            "1pbk1hp",
+            "1p5w7l7",
+            "1nz4wyc"
           ],
           "post_sentiments": {
-            "1tcdfqv": {
-              "sentiment_category": "negative",
-              "sentiment_score": -0.5295166969299316
-            },
-            "1t7jhpm": {
+            "1qaa6k2": {
               "sentiment_category": "neutral",
-              "sentiment_score": 0.0
+              "sentiment_score": 0.09549105167388916
             },
-            "1t7thch": {
+            "1u1o696": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.164978489279747
+            },
+            "1sbukpp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7504417076706886
+            },
+            "1tsy2ch": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6522050453349948
+            },
+            "1th78zs": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6966680362820625
+            },
+            "1t7nint": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.45077022165060043
+            },
+            "1t213lc": {
               "sentiment_category": "positive",
-              "sentiment_score": 0.4367835521697998
+              "sentiment_score": 0.29747043550014496
+            },
+            "1t02gby": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.48241379112005234
+            },
+            "1swky2x": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3814888671040535
+            },
+            "1ss5x1k": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5969392377883196
+            },
+            "1sbenwg": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5712395906448364
+            },
+            "1s4aopd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.691796138882637
+            },
+            "1rphfpg": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7713893633335829
+            },
+            "1rop3zf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.899826368317008
+            },
+            "1rnbv4z": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6724804434925318
+            },
+            "1rnl4l0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5372649468481541
+            },
+            "1riub85": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7988881170749664
+            },
+            "1rg4401": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.42913220450282097
+            },
+            "1re8zxv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7286731768399477
+            },
+            "1rcp9uu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6025625802576542
+            },
+            "1r3ewxm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6095363330096006
+            },
+            "1qtlbf5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.26062958128750324
+            },
+            "1nrg904": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8044386496767402
+            },
+            "1qnf6xx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.9153099581599236
+            },
+            "1qn05g1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7725663781166077
+            },
+            "1qc94he": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5736118145287037
+            },
+            "1q2ykyt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6210044920444489
+            },
+            "1pbk1hp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.18886897712945938
+            },
+            "1p5w7l7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.17789427563548088
+            },
+            "1nz4wyc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7751986039802432
             }
           },
           "sentiment_evidence": {
-            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-            "positive": [],
-            "negative": []
+            "positive": [
+              {
+                "point": "Once accounts are established, the process should be smoother and easier.",
+                "post_refs": [
+                  "1tsy2ch"
+                ]
+              },
+              {
+                "point": "Vanguard's investment products are appreciated, despite technical issues.",
+                "post_refs": [
+                  "1tsy2ch"
+                ]
+              },
+              {
+                "point": "Vanguard's security measures are seen as beneficial for protecting accounts.",
+                "post_refs": [
+                  "1tsy2ch"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Users experience significant issues with account creation and login processes, often getting stuck in loops.",
+                "post_refs": [
+                  "1rop3zf",
+                  "1sbenwg",
+                  "1qtlbf5",
+                  "1nz4wyc"
+                ]
+              },
+              {
+                "point": "Customer service is not available 24/7, causing frustration for users needing immediate assistance.",
+                "post_refs": [
+                  "1sbukpp",
+                  "1riub85"
+                ]
+              },
+              {
+                "point": "Technical issues with the website and app, such as login problems and error messages, are common.",
+                "post_refs": [
+                  "1qaa6k2",
+                  "1t213lc",
+                  "1rcp9uu"
+                ]
+              },
+              {
+                "point": "Users face difficulties with security features like Yubikey setup and 2FA, which are not intuitive.",
+                "post_refs": [
+                  "1rnbv4z",
+                  "1p5w7l7"
+                ]
+              },
+              {
+                "point": "Vanguard's system does not handle non-standard email domains well, causing issues for some users.",
+                "post_refs": [
+                  "1s4aopd"
+                ]
+              },
+              {
+                "point": "There are delays and complications in linking bank accounts and updating account information.",
+                "post_refs": [
+                  "1u1o696",
+                  "1t02gby"
+                ]
+              }
+            ]
           },
-          "summary": "Discussions about cooperative education job search challenges and difficulties faced by students seeking internship placements. Students express anxiety and stress about their co-op application processes, sharing concerns about lack of responses from employers, unsuccessful interviews, and the competitive nature of finding positions. The conversations reveal common struggles including high numbers of applications with few interview opportunities, rejection experiences, and feelings of being overwhelmed or 'cooked' during the search process. Students discuss various strategies such as using LinkedIn and Indeed for applications, sending follow-up emails after interviews, and seeking career services support. The discussions often include comparisons with peers who have successfully secured positions, creating additional pressure and self-doubt about qualifications and prospects.",
-          "short_summary": "Co-op search struggles",
-          "one_sentence_summary": "Students discuss the stressful challenges and difficulties of searching for cooperative education positions, sharing concerns about rejections, lack of responses, and competitive application processes."
+          "summary": "Discussions about online financial platform authentication and browser security management, focusing on technical challenges users face when managing trusted browser settings and two-factor authentication systems. The conversations center around difficulties with logging into investment accounts through web applications, particularly issues with browser trust mechanisms that remember devices to bypass security challenges. Users express frustration with the lack of user interface options to revoke browser trust settings without deleting all browser data, leading to discussions about session tokens, authentication credentials, and the technical implementation of security features. The topic encompasses account setup problems, online access glitches, and the balance between security and user convenience in financial web applications. These discussions highlight broader concerns about digital security management and the complexity of modern authentication systems in online banking and investment platforms.",
+          "short_summary": "Online banking authentication issues",
+          "one_sentence_summary": "Discussions about technical challenges with online financial platform authentication systems, browser trust settings, and two-factor authentication management."
         },
         {
-          "id": 3,
-          "count": 3,
-          "score": -0.1538136104742686,
+          "id": 5,
+          "count": 21,
+          "score": -0.39969690906006344,
           "engagement": {
-            "post_count": 3,
-            "total_comments": 3,
-            "total_score": 6,
-            "avg_comments_per_post": 1.0,
-            "avg_score_per_post": 2.0
+            "post_count": 21,
+            "total_comments": 63,
+            "total_score": 40,
+            "avg_comments_per_post": 3.0,
+            "avg_score_per_post": 1.9047619047619047
           },
           "terms": [
             {
-              "term": "op",
-              "weight": 0.07740943650126064
+              "term": "ira",
+              "weight": 0.028933978500545035
             },
             {
-              "term": "fall",
-              "weight": 0.034980922124899165
+              "term": "roth",
+              "weight": 0.028814260468345686
             },
             {
-              "term": "fenway health",
-              "weight": 0.033993410601931846
+              "term": "vanguard",
+              "weight": 0.019648059936074325
             },
             {
-              "term": "walk",
-              "weight": 0.033993410601931846
+              "term": "taxes",
+              "weight": 0.01934922483932307
             },
             {
-              "term": "start",
-              "weight": 0.033993410601931846
+              "term": "rmd",
+              "weight": 0.016607749943392026
+            },
+            {
+              "term": "roth ira",
+              "weight": 0.01549286523604066
+            },
+            {
+              "term": "account",
+              "weight": 0.015404050109563057
+            },
+            {
+              "term": "withdraw",
+              "weight": 0.01502455270077899
+            },
+            {
+              "term": "conversion",
+              "weight": 0.013396732773596915
+            }
+          ],
+          "post_ids": [
+            "1opwu0a",
+            "1q1qu6j",
+            "1td9vf6",
+            "1svpijz",
+            "1ooncpw",
+            "1rxhm4y",
+            "1rvagyt",
+            "1rl5be0",
+            "1r769yv",
+            "1rgof97",
+            "1rdy0tf",
+            "1r8mh46",
+            "1r2do5u",
+            "1r1919c",
+            "1qoxy0z",
+            "1qh8h87",
+            "1q37kmc",
+            "1q11k01",
+            "1pzuuqz",
+            "1pu3ruc",
+            "1pr3jmc"
+          ],
+          "post_sentiments": {
+            "1opwu0a": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.52089649066329
+            },
+            "1q1qu6j": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.09049789607524872
+            },
+            "1td9vf6": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.11429589986801147
+            },
+            "1svpijz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.48577870428562164
+            },
+            "1ooncpw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.003661699593067169
+            },
+            "1rxhm4y": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.24999479949474335
+            },
+            "1rvagyt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2172427847981453
+            },
+            "1rl5be0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2089075893163681
+            },
+            "1r769yv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2527604177594185
+            },
+            "1rgof97": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6677525537088513
+            },
+            "1rdy0tf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1131407767534256
+            },
+            "1r8mh46": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.09224414825439453
+            },
+            "1r2do5u": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.068184494972229
+            },
+            "1r1919c": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.15849249623715878
+            },
+            "1qoxy0z": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.20955729857087135
+            },
+            "1qh8h87": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6448928974568844
+            },
+            "1q37kmc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.018585577607154846
+            },
+            "1q11k01": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.22240710817277431
+            },
+            "1pzuuqz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3191506415605545
+            },
+            "1pu3ruc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7431379705667496
+            },
+            "1pr3jmc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.32608088105916977
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard offers the ability to invest in target date retirement funds, which simplifies the investment process for users by aligning with their desired retirement year.",
+                "post_refs": [
+                  "1q1qu6j"
+                ]
+              },
+              {
+                "point": "Vanguard provides good record-keeping, allowing users to access historical transaction data, which is beneficial for tracking contributions and withdrawals.",
+                "post_refs": [
+                  "1rdy0tf"
+                ]
+              },
+              {
+                "point": "Vanguard allows for withholding taxes from IRA distributions, providing a straightforward way to manage tax obligations.",
+                "post_refs": [
+                  "1ooncpw"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard does not allow withholding of state taxes from IRA distributions for certain states, causing inconvenience for users who prefer automatic tax management.",
+                "post_refs": [
+                  "1opwu0a"
+                ]
+              },
+              {
+                "point": "Vanguard's system has issues with processing small contributions, such as the inability to contribute small amounts like 42 cents to max out a Roth IRA, leading to user frustration.",
+                "post_refs": [
+                  "1rgof97"
+                ]
+              },
+              {
+                "point": "Vanguard does not track total contributions for Roth IRAs, placing the responsibility on users to maintain their own records, which can have significant tax implications.",
+                "post_refs": [
+                  "1rdy0tf"
+                ]
+              },
+              {
+                "point": "Vanguard has a known issue with duplicate Roth conversions, which can cause confusion and requires customer service intervention to resolve.",
+                "post_refs": [
+                  "1pu3ruc"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about retirement account management and tax implications, particularly focusing on Individual Retirement Accounts (IRAs) and their various forms including traditional and Roth IRAs. The conversations center around account administration challenges such as tracking contributions and conversions, understanding withdrawal rules and tax consequences, and navigating the complexities of account rollovers from employer-sponsored 401(k) plans. A significant theme involves the burden placed on individual investors to maintain their own records since financial institutions like Vanguard do not comprehensively track contribution histories across multiple accounts or providers. Participants discuss practical concerns about required minimum distributions (RMDs), early withdrawal penalties, capital gains taxation, and the intricate rules governing different types of retirement account transactions. The discussions reveal common confusion about backdoor Roth conversions, five-year rules, and the distinction between contributions and earnings when making withdrawals. These conversations highlight the complexity of retirement account regulations and the administrative challenges faced by individual investors in managing their long-term savings strategies.",
+          "short_summary": "Retirement account management",
+          "one_sentence_summary": "Discussions focus on retirement account management complexities including IRA contribution tracking, tax implications of withdrawals, and administrative challenges with account conversions and rollovers."
+        },
+        {
+          "id": 4,
+          "count": 23,
+          "score": -0.460453251889623,
+          "engagement": {
+            "post_count": 23,
+            "total_comments": 61,
+            "total_score": 62,
+            "avg_comments_per_post": 2.652173913043478,
+            "avg_score_per_post": 2.6956521739130435
+          },
+          "terms": [
+            {
+              "term": "vanguard",
+              "weight": 0.020866793468088923
+            },
+            {
+              "term": "performance",
+              "weight": 0.01887215621867255
+            },
+            {
+              "term": "returns",
+              "weight": 0.01665898066215225
+            },
+            {
+              "term": "portfolio",
+              "weight": 0.015118136541922522
+            },
+            {
+              "term": "graph",
+              "weight": 0.013510478372305483
+            },
+            {
+              "term": "funds",
+              "weight": 0.01266944321479726
+            },
+            {
+              "term": "voo",
+              "weight": 0.010363807065499338
             },
             {
               "term": "end",
-              "weight": 0.03167090203735213
+              "weight": 0.010095484509250166
             },
             {
-              "term": "applying",
-              "weight": 0.030025297032171657
-            },
-            {
-              "term": "june",
-              "weight": 0.030025297032171657
-            },
-            {
-              "term": "date",
-              "weight": 0.030025297032171657
+              "term": "balance",
+              "weight": 0.009102685811523908
             }
           ],
           "post_ids": [
-            "1t6vatk",
-            "1t5m6pf",
-            "1t41q7m"
+            "1ryi2nu",
+            "1ot9ajf",
+            "1srj702",
+            "1ty11bu",
+            "1t7f2wd",
+            "1slbluw",
+            "1skkwul",
+            "1rjrp6q",
+            "1r9s7sc",
+            "1r3a2dc",
+            "1qzc8w6",
+            "1qor06s",
+            "1qfldy6",
+            "1qe6m63",
+            "1q2o4b1",
+            "1py5u15",
+            "1pvqumy",
+            "1pusnrv",
+            "1ptsfpl",
+            "1ppetcm",
+            "1pjgdui",
+            "1p3atbj",
+            "1o4yk4m"
           ],
           "post_sentiments": {
-            "1t6vatk": {
+            "1ryi2nu": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.5278772115707397
+              "sentiment_score": -0.3415749669075012
             },
-            "1t5m6pf": {
+            "1ot9ajf": {
               "sentiment_category": "negative",
-              "sentiment_score": -0.4815548360347748
+              "sentiment_score": -0.3585369288921356
             },
-            "1t41q7m": {
-              "sentiment_category": "positive",
-              "sentiment_score": 0.5479912161827087
+            "1srj702": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5678224079310894
+            },
+            "1ty11bu": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3709678053855896
+            },
+            "1t7f2wd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3962205182760954
+            },
+            "1slbluw": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.015331894159317017
+            },
+            "1skkwul": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.48292768746614456
+            },
+            "1rjrp6q": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4571774899959564
+            },
+            "1r9s7sc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.11350321024656296
+            },
+            "1r3a2dc": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.07570736110210419
+            },
+            "1qzc8w6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8896052855998278
+            },
+            "1qor06s": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4195016920566559
+            },
+            "1qfldy6": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.02251186966896057
+            },
+            "1qe6m63": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5139672411605716
+            },
+            "1q2o4b1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.12320143543183804
+            },
+            "1py5u15": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5876280218362808
+            },
+            "1pvqumy": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5149829834699631
+            },
+            "1pusnrv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4315445199608803
+            },
+            "1ptsfpl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1025366336107254
+            },
+            "1ppetcm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.28203098475933075
+            },
+            "1pjgdui": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6629477366805077
+            },
+            "1p3atbj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.20804457366466522
+            },
+            "1o4yk4m": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5571452118456364
             }
           },
           "sentiment_evidence": {
-            "error": "Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
-            "positive": [],
-            "negative": []
+            "positive": [
+              {
+                "point": "Margin account performance calculations have been fixed, and users are receiving checks for previous errors.",
+                "post_refs": [
+                  "1ryi2nu"
+                ]
+              },
+              {
+                "point": "Vanguard's performance graph glitches have been fixed, improving the accuracy of account overviews.",
+                "post_refs": [
+                  "1slbluw"
+                ]
+              },
+              {
+                "point": "Vanguard's customer service is responsive, with advisors replying even on weekends.",
+                "post_refs": [
+                  "1skkwul"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard's performance calculations and UI have several bugs, causing confusion and mistrust among users.",
+                "post_refs": [
+                  "1t7f2wd",
+                  "1qzc8w6"
+                ]
+              },
+              {
+                "point": "Vanguard's tools for tracking investment performance and diversification are lacking, leading to user frustration.",
+                "post_refs": [
+                  "1rjrp6q",
+                  "1py5u15"
+                ]
+              },
+              {
+                "point": "Vanguard's communication about changes to tools and projections is insufficient, causing concern among users.",
+                "post_refs": [
+                  "1skkwul"
+                ]
+              },
+              {
+                "point": "Vanguard's Portfolio Watch tool inaccurately measures diversification for 'all-in-one' funds.",
+                "post_refs": [
+                  "1pvqumy"
+                ]
+              }
+            ]
           },
-          "summary": "Discussions about cooperative education program logistics and administrative challenges at universities, focusing on timing concerns, scheduling conflicts, and procedural issues. Students share experiences with co-op start and end dates, application deadlines, and program requirements. The conversations reveal common concerns about securing placements, managing timeline changes, and navigating administrative processes. Topics include duration adjustments, clearance delays, semester scheduling conflicts, and deadline pressures. Students seek advice about program flexibility, particularly regarding fall semester timing and application processes. Healthcare access during co-op periods also emerges as a practical concern, with specific mentions of services like walk-in appointments at Fenway Health illustrating the broader challenge of managing personal needs while participating in cooperative education programs.",
-          "short_summary": "Co-op program logistics",
-          "one_sentence_summary": "Students discuss cooperative education program logistics including timing challenges, application processes, scheduling conflicts, and administrative requirements."
+          "summary": "This topic encompasses discussions about investment platform interface issues and portfolio performance tracking problems. Users frequently encounter technical difficulties with brokerage platform user interfaces, including incorrect performance calculations, misleading portfolio displays, and confusing fund classification systems. The conversations reveal widespread concerns about the accuracy of automated portfolio analysis tools, particularly regarding diversification measurements and asset allocation displays for complex investment products like target-date funds and balanced funds. Common issues include discrepancies between displayed performance metrics and actual holdings, problems with dividend reinvestment calculations, and interface bugs that show incorrect negative returns. Users often seek help understanding performance graphs, total return calculations, and cost basis tracking, while also sharing workarounds for platform limitations. The discussions highlight the challenges investors face when relying on automated tools for portfolio monitoring, with specific examples involving popular index funds like VOO and VTI, money market funds like VMFXX, and various Vanguard investment products.",
+          "short_summary": "Platform interface issues",
+          "one_sentence_summary": "Discussions focus on technical issues and user interface problems with investment platform portfolio tracking and performance calculation tools."
+        },
+        {
+          "id": 3,
+          "count": 25,
+          "score": -0.284327959277804,
+          "engagement": {
+            "post_count": 25,
+            "total_comments": 81,
+            "total_score": 64,
+            "avg_comments_per_post": 3.24,
+            "avg_score_per_post": 2.56
+          },
+          "terms": [
+            {
+              "term": "vanguard",
+              "weight": 0.02372922768296979
+            },
+            {
+              "term": "ira",
+              "weight": 0.022445275818737655
+            },
+            {
+              "term": "trust",
+              "weight": 0.021903258576975334
+            },
+            {
+              "term": "account",
+              "weight": 0.021728679740961755
+            },
+            {
+              "term": "transfer",
+              "weight": 0.019924379625402125
+            },
+            {
+              "term": "401k",
+              "weight": 0.017525785110546033
+            },
+            {
+              "term": "inherited",
+              "weight": 0.014446465679324949
+            },
+            {
+              "term": "rollover",
+              "weight": 0.013585683495850449
+            },
+            {
+              "term": "403b",
+              "weight": 0.01325370537052261
+            }
+          ],
+          "post_ids": [
+            "1nh55cr",
+            "1twwnaz",
+            "1ttamdr",
+            "1t5mie5",
+            "1t2p4kv",
+            "1sxhyln",
+            "1sx7qom",
+            "1svc2pf",
+            "1sobuid",
+            "1sojjet",
+            "1se8gl6",
+            "1rvdnpe",
+            "1rlfi0a",
+            "1rhgl76",
+            "1retrot",
+            "1r953e0",
+            "1qc1fgy",
+            "1qbttje",
+            "1pk9n2a",
+            "1pk9d58",
+            "1pk8z03",
+            "1paqotj",
+            "1p82n0m",
+            "1p28u5q",
+            "1oax3yc"
+          ],
+          "post_sentiments": {
+            "1nh55cr": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.043126508593559265
+            },
+            "1twwnaz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6568684689700603
+            },
+            "1ttamdr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.44481940008699894
+            },
+            "1t5mie5": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5994106158614159
+            },
+            "1t2p4kv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.46400921046733856
+            },
+            "1sxhyln": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.0012222640216350555
+            },
+            "1sx7qom": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2655148282647133
+            },
+            "1svc2pf": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.025115743279457092
+            },
+            "1sobuid": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.34543710947036743
+            },
+            "1sojjet": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.11834578216075897
+            },
+            "1se8gl6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.39215343445539474
+            },
+            "1rvdnpe": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4316675141453743
+            },
+            "1rlfi0a": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.44625987112522125
+            },
+            "1rhgl76": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5183824896812439
+            },
+            "1retrot": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.31022724509239197
+            },
+            "1r953e0": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6130414139479399
+            },
+            "1qc1fgy": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.09810682386159897
+            },
+            "1qbttje": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.14029563963413239
+            },
+            "1pk9n2a": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.05607809126377106
+            },
+            "1pk9d58": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.36740829795598984
+            },
+            "1pk8z03": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3244299851357937
+            },
+            "1paqotj": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.06223355233669281
+            },
+            "1p82n0m": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5631163530051708
+            },
+            "1p28u5q": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.39556704461574554
+            },
+            "1oax3yc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3049563691020012
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Transferring brokerage accounts to a trust can simplify estate planning, especially for those with young children.",
+                "post_refs": [
+                  "1nh55cr"
+                ]
+              },
+              {
+                "point": "No adverse tax consequences for transferring brokerage accounts to a living trust, as taxable income is a passthrough to trustees.",
+                "post_refs": [
+                  "1nh55cr"
+                ]
+              },
+              {
+                "point": "Vanguard's process for setting up trust accounts was easy for some users.",
+                "post_refs": [
+                  "1retrot"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard's customer service is difficult to deal with, requiring long phone calls and multiple attempts to set up accounts.",
+                "post_refs": [
+                  "1retrot"
+                ]
+              },
+              {
+                "point": "Vanguard's process for transferring accounts is outdated, requiring faxing and mailing of forms.",
+                "post_refs": [
+                  "1t5mie5",
+                  "1retrot"
+                ]
+              },
+              {
+                "point": "Vanguard's refusal to provide necessary documentation for rollovers can complicate the process.",
+                "post_refs": [
+                  "1sx7qom",
+                  "1rhgl76"
+                ]
+              },
+              {
+                "point": "Vanguard's inability to accept ACATS transfers complicates the process of transferring accounts from other brokers.",
+                "post_refs": [
+                  "1pk9n2a",
+                  "1pk9d58",
+                  "1pk8z03"
+                ]
+              },
+              {
+                "point": "Vanguard's slow processing of inherited accounts compared to other firms like Schwab.",
+                "post_refs": [
+                  "1sobuid"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about estate planning and financial account management, particularly focusing on the transfer and administration of investment accounts through various legal structures and inheritance processes. The conversations center around the complexities of moving brokerage accounts, IRAs, and 401k plans between different ownership structures, including trusts, inherited accounts, and power of attorney arrangements. Key concerns include understanding the tax implications of account transfers, navigating the procedural requirements for retitling accounts, and managing the administrative challenges of estate planning. Participants frequently discuss the benefits and drawbacks of placing investment accounts into trusts, the process of handling inherited retirement accounts, and the practical aspects of obtaining proper authorization to manage accounts on behalf of family members. The discussions reveal common challenges with financial institution procedures, documentation requirements, and the coordination between different types of accounts during estate transitions. Specific examples include Vanguard account transfers, inherited IRA rollovers, trust retitling processes, and power of attorney setups for elderly parents.",
+          "short_summary": "Estate account management",
+          "one_sentence_summary": "Discussions focus on estate planning and financial account management, covering the transfer of investment accounts through trusts, inheritance processes, and power of attorney arrangements."
+        },
+        {
+          "id": 6,
+          "count": 18,
+          "score": -0.5150156607038553,
+          "engagement": {
+            "post_count": 18,
+            "total_comments": 54,
+            "total_score": 46,
+            "avg_comments_per_post": 3.0,
+            "avg_score_per_post": 2.5555555555555554
+          },
+          "terms": [
+            {
+              "term": "account",
+              "weight": 0.028691463157843274
+            },
+            {
+              "term": "transaction",
+              "weight": 0.018694959119611228
+            },
+            {
+              "term": "money",
+              "weight": 0.018614826910928313
+            },
+            {
+              "term": "purchase",
+              "weight": 0.0179844699403391
+            },
+            {
+              "term": "settlement fund",
+              "weight": 0.017342892340210834
+            },
+            {
+              "term": "vanguard",
+              "weight": 0.015381418860723176
+            },
+            {
+              "term": "brokerage",
+              "weight": 0.014281229251147025
+            },
+            {
+              "term": "days",
+              "weight": 0.014056660132411062
+            }
+          ],
+          "post_ids": [
+            "1q2cfkf",
+            "1nob6gj",
+            "1tq64du",
+            "1sxaw9h",
+            "1srefmo",
+            "1sjuqjs",
+            "1rufuka",
+            "1rfctfg",
+            "1r3roiw",
+            "1qqvh3r",
+            "1qnp33h",
+            "1qjuhkc",
+            "1qcp71u",
+            "1q4vmt9",
+            "1q37xdq",
+            "1pidqj9",
+            "1pfzgxh",
+            "1ozjuyj"
+          ],
+          "post_sentiments": {
+            "1q2cfkf": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.24706225097179413
+            },
+            "1nob6gj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4309963472187519
+            },
+            "1tq64du": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.08286693940560023
+            },
+            "1sxaw9h": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8645256757736206
+            },
+            "1srefmo": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6798010226339102
+            },
+            "1sjuqjs": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.09878470003604889
+            },
+            "1rufuka": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.23141371458768845
+            },
+            "1rfctfg": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5419238079339266
+            },
+            "1r3roiw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.19240447133779526
+            },
+            "1qqvh3r": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8870982527732849
+            },
+            "1qnp33h": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4615475833415985
+            },
+            "1qjuhkc": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8579266937449574
+            },
+            "1qcp71u": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6629035174846649
+            },
+            "1q4vmt9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6727994717657566
+            },
+            "1q37xdq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3344450071454048
+            },
+            "1pidqj9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3809409439563751
+            },
+            "1pfzgxh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.40960725396871567
+            },
+            "1ozjuyj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6380573697388172
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard's settlement fund acts like a built-in savings account, earning interest at the current short-term rate.",
+                "post_refs": [
+                  "1sjuqjs"
+                ]
+              },
+              {
+                "point": "Vanguard provides a clear process for buying mutual funds or trading ETFs and stocks through the settlement fund.",
+                "post_refs": [
+                  "1tq64du"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard has issues with transaction delays and settlement times, causing confusion and frustration among users.",
+                "post_refs": [
+                  "1q2cfkf",
+                  "1sxaw9h",
+                  "1rufuka",
+                  "1qnp33h",
+                  "1qcp71u",
+                  "1q37xdq"
+                ]
+              },
+              {
+                "point": "Users experience difficulties with automatic contributions and transfers not going through as expected.",
+                "post_refs": [
+                  "1rufuka",
+                  "1qcp71u"
+                ]
+              },
+              {
+                "point": "Vanguard's customer service is often slow to respond and resolve issues, leading to user dissatisfaction.",
+                "post_refs": [
+                  "1rufuka",
+                  "1qcp71u",
+                  "1q37xdq"
+                ]
+              },
+              {
+                "point": "There are issues with duplicate transactions and processing errors, causing confusion and potential financial discrepancies.",
+                "post_refs": [
+                  "1q4vmt9",
+                  "1q37xdq"
+                ]
+              },
+              {
+                "point": "Users find it difficult to track the date of record for transactions, which is not always clearly provided by Vanguard.",
+                "post_refs": [
+                  "1srefmo"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about brokerage account management and transaction processes, focusing on the mechanics of buying and selling investments through online platforms. The conversations center around understanding how settlement funds work as the primary funding source for investment purchases, with users seeking guidance on navigating account interfaces to execute trades and manage their portfolios. A significant portion of the discussions involves troubleshooting account access issues, particularly problems with funding sources not appearing as available options during the purchase process, and confusion about how uninvested cash is held and displayed within accounts. The topic also captures concerns about transaction errors and duplicate charges, including systematic processing failures that resulted in double withdrawals from linked bank accounts. Users frequently discuss the step-by-step procedures for making investment purchases, from accessing transaction menus to selecting funding sources and completing orders. Additionally, there are recurring themes around account balance discrepancies, missing funds, and the need for customer service intervention to resolve technical issues. These discussions primarily involve Vanguard brokerage accounts and demonstrate common challenges faced by both new and experienced investors when managing their investment accounts and executing transactions.",
+          "short_summary": "Brokerage account transactions",
+          "one_sentence_summary": "Discussions focus on brokerage account management, investment transaction processes, settlement fund usage, and troubleshooting technical issues with online trading platforms."
+        },
+        {
+          "id": 8,
+          "count": 11,
+          "score": -0.2311133527840978,
+          "engagement": {
+            "post_count": 11,
+            "total_comments": 39,
+            "total_score": 20,
+            "avg_comments_per_post": 3.5454545454545454,
+            "avg_score_per_post": 1.8181818181818181
+          },
+          "terms": [
+            {
+              "term": "shares",
+              "weight": 0.04546584601753301
+            },
+            {
+              "term": "method",
+              "weight": 0.026508433873023606
+            },
+            {
+              "term": "term",
+              "weight": 0.025894342799932444
+            },
+            {
+              "term": "sell",
+              "weight": 0.02553067582969398
+            },
+            {
+              "term": "gain",
+              "weight": 0.021972666005091804
+            },
+            {
+              "term": "tax",
+              "weight": 0.021766982725836936
+            },
+            {
+              "term": "cost",
+              "weight": 0.021578618999943705
+            },
+            {
+              "term": "basis",
+              "weight": 0.021164099592644002
+            },
+            {
+              "term": "mintax",
+              "weight": 0.020369152806634726
+            }
+          ],
+          "post_ids": [
+            "1q2gw0r",
+            "1tttfr9",
+            "1tko1j3",
+            "1sbhe21",
+            "1s4h3op",
+            "1rwq6f8",
+            "1roodnl",
+            "1rhmboz",
+            "1qgixt6",
+            "1pytk43",
+            "1omnjre"
+          ],
+          "post_sentiments": {
+            "1q2gw0r": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4749174006283283
+            },
+            "1tttfr9": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5568022355437279
+            },
+            "1tko1j3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4928271919488907
+            },
+            "1sbhe21": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.052514538168907166
+            },
+            "1s4h3op": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1425836756825447
+            },
+            "1rwq6f8": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5316553078591824
+            },
+            "1roodnl": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6011401582509279
+            },
+            "1rhmboz": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.35175759345293045
+            },
+            "1qgixt6": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.35726360976696014
+            },
+            "1pytk43": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2334357500076294
+            },
+            "1omnjre": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1624089302495122
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard's platform is appreciated for being clean and straightforward, making it easy for new investors to set up and manage their portfolios.",
+                "post_refs": [
+                  "1tko1j3"
+                ]
+              },
+              {
+                "point": "The ability to buy specific dollar amounts of funds like VOO, allowing for partial share purchases, is seen as a positive feature for those with limited funds.",
+                "post_refs": [
+                  "1rhmboz"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Users experience difficulty selling fractional shares of ETFs on Vanguard, as the platform only permits whole share sales, causing inconvenience for those wanting to liquidate entire positions.",
+                "post_refs": [
+                  "1rwq6f8",
+                  "1omnjre"
+                ]
+              },
+              {
+                "point": "The inability to set up recurring investments for certain ETFs like SCHD or SGOL on Vanguard is a limitation, prompting some users to consider other brokerages like Fidelity.",
+                "post_refs": [
+                  "1tko1j3"
+                ]
+              },
+              {
+                "point": "Vanguard's app and website have limitations in selecting specific lots for sale using SpecID, causing frustration for users trying to manage their tax implications effectively.",
+                "post_refs": [
+                  "1tttfr9",
+                  "1pytk43"
+                ]
+              },
+              {
+                "point": "Users are unable to manage existing recurring ETF investments through the Vanguard app, as the interface only allows the creation of new transactions.",
+                "post_refs": [
+                  "1roodnl"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about investment portfolio management strategies focusing on tax-efficient selling methods and cost basis selection for stock transactions. The conversations center around various approaches brokerages use to minimize tax liability when selling shares, including methods that prioritize selling shares with losses before gains, and techniques like HIFO (Highest In, First Out) and MinTax methods. Key concerns include understanding how different cost basis methods affect short-term versus long-term capital gains treatment, managing fractional shares that cannot be easily sold through standard brokerage platforms, and optimizing the order in which specific lots of securities are sold to reduce overall tax burden. The discussions reveal common challenges investors face when trying to liquidate positions while maintaining tax efficiency, particularly around brokerage limitations on fractional share sales and the complexity of lot-specific identification methods. Examples include Vanguard's specific procedures and various automated systems that select shares based on predetermined tax-optimization rules.",
+          "short_summary": "Tax-efficient share selling",
+          "one_sentence_summary": "Discussions about tax-efficient investment strategies for selling shares, focusing on cost basis methods and brokerage procedures that minimize capital gains tax liability."
+        },
+        {
+          "id": 7,
+          "count": 16,
+          "score": -0.5562084563506273,
+          "engagement": {
+            "post_count": 16,
+            "total_comments": 43,
+            "total_score": 85,
+            "avg_comments_per_post": 2.6875,
+            "avg_score_per_post": 5.3125
+          },
+          "terms": [
+            {
+              "term": "vanguard",
+              "weight": 0.027235701735305626
+            },
+            {
+              "term": "issue",
+              "weight": 0.021452368142892263
+            },
+            {
+              "term": "holdings",
+              "weight": 0.020539312002318223
+            },
+            {
+              "term": "sync",
+              "weight": 0.019026252165997636
+            },
+            {
+              "term": "plaid",
+              "weight": 0.018639788506665037
+            },
+            {
+              "term": "account",
+              "weight": 0.015930275423864902
+            },
+            {
+              "term": "quicken",
+              "weight": 0.015684833263930168
+            },
+            {
+              "term": "support",
+              "weight": 0.015068817492428286
+            },
+            {
+              "term": "browsers",
+              "weight": 0.01497159563183682
+            },
+            {
+              "term": "sa",
+              "weight": 0.01428597567664109
+            }
+          ],
+          "post_ids": [
+            "1t7schx",
+            "1t10h00",
+            "1sigsbt",
+            "1sjrzcn",
+            "1sjry8p",
+            "1sjc0r9",
+            "1r2urb1",
+            "1qpb3yw",
+            "1qi82g4",
+            "1qahrf2",
+            "1qdjbqz",
+            "1pg1pm2",
+            "1pexz6a",
+            "1ojy5y5",
+            "1ofe2ka",
+            "1o26p25"
+          ],
+          "post_sentiments": {
+            "1t7schx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6601890288293362
+            },
+            "1t10h00": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8580586835741997
+            },
+            "1sigsbt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.21805617213249207
+            },
+            "1sjrzcn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8723058165051043
+            },
+            "1sjry8p": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8670296035706997
+            },
+            "1sjc0r9": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.02994602918624878
+            },
+            "1r2urb1": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8474945994094014
+            },
+            "1qpb3yw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7692637946456671
+            },
+            "1qi82g4": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8410440860316157
+            },
+            "1qahrf2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6847318653017282
+            },
+            "1qdjbqz": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.1534935086965561
+            },
+            "1pg1pm2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7883365787565708
+            },
+            "1pexz6a": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.08388094045221806
+            },
+            "1ojy5y5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.028260141611099243
+            },
+            "1ofe2ka": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3698643073439598
+            },
+            "1o26p25": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8164325002580881
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Some users report no issues with accessing their Vanguard accounts or using certain browsers like Firefox and Safari.",
+                "post_refs": [
+                  "1t10h00",
+                  "1sjc0r9"
+                ]
+              },
+              {
+                "point": "Vanguard's low fees are appreciated by users, despite some service issues.",
+                "post_refs": [
+                  "1t10h00"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Users are experiencing significant technical issues with Vanguard's website, including inability to access accounts, cancel trades, or view balances.",
+                "post_refs": [
+                  "1t10h00",
+                  "1sjrzcn",
+                  "1sjry8p",
+                  "1r2urb1",
+                  "1qpb3yw"
+                ]
+              },
+              {
+                "point": "There are ongoing problems with third-party data synchronization, affecting users' ability to track their investments accurately.",
+                "post_refs": [
+                  "1qdjbqz",
+                  "1pexz6a"
+                ]
+              },
+              {
+                "point": "Vanguard's customer service is perceived as declining, with long resolution times for technical issues.",
+                "post_refs": [
+                  "1t10h00",
+                  "1qpb3yw"
+                ]
+              },
+              {
+                "point": "Users report issues with withdrawing cash from accounts, possibly due to unclear policies or technical errors.",
+                "post_refs": [
+                  "1sigsbt",
+                  "1o26p25"
+                ]
+              },
+              {
+                "point": "Problems with data downloads to financial software like Quicken, affecting users' financial tracking.",
+                "post_refs": [
+                  "1qahrf2"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about technical connectivity and data synchronization problems between investment brokerage accounts and third-party financial management applications. Users report widespread issues with account integration services failing to properly sync investment holdings, portfolio data, and transaction information across different platforms. The problems manifest as incomplete data transfers, broken connections, authentication failures, and incorrect security classifications that render portfolio tracking and net worth calculations unreliable. These synchronization failures appear to be systemic issues affecting multiple third-party aggregation services and financial software applications, with users experiencing persistent connectivity problems despite troubleshooting efforts. The discussions reveal frustration with technical support responses and finger-pointing between service providers, leading some users to consider switching platforms entirely. Specific examples include problems with Vanguard accounts not syncing properly with services like Seeking Alpha, Yahoo Finance, Quicken, and Divtracker through Plaid integration.",
+          "short_summary": "Account sync issues",
+          "one_sentence_summary": "Discussions about persistent technical issues with investment account data synchronization between brokerage platforms and third-party financial management applications."
+        },
+        {
+          "id": 9,
+          "count": 11,
+          "score": -0.4048612362373397,
+          "engagement": {
+            "post_count": 11,
+            "total_comments": 36,
+            "total_score": 28,
+            "avg_comments_per_post": 3.272727272727273,
+            "avg_score_per_post": 2.5454545454545454
+          },
+          "terms": [
+            {
+              "term": "shares",
+              "weight": 0.027215104659801214
+            },
+            {
+              "term": "fund",
+              "weight": 0.02713885869849652
+            },
+            {
+              "term": "sell",
+              "weight": 0.027054496271885137
+            },
+            {
+              "term": "mutual",
+              "weight": 0.02090769467210186
+            },
+            {
+              "term": "buy",
+              "weight": 0.02019415250974925
+            },
+            {
+              "term": "sale",
+              "weight": 0.017292275640845022
+            },
+            {
+              "term": "mutual fund",
+              "weight": 0.016265990315289976
+            },
+            {
+              "term": "vanguard",
+              "weight": 0.015966920761053383
+            },
+            {
+              "term": "day",
+              "weight": 0.015058861690388918
+            }
+          ],
+          "post_ids": [
+            "1tdtisv",
+            "1t40z0b",
+            "1t3rjpd",
+            "1sz0bgk",
+            "1syksex",
+            "1ruyxx2",
+            "1rsqafe",
+            "1rizd88",
+            "1qwwizv",
+            "1q9b7wk",
+            "1px4qdt"
+          ],
+          "post_sentiments": {
+            "1tdtisv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2240636795759201
+            },
+            "1t40z0b": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.22739212773740292
+            },
+            "1t3rjpd": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6229768805205822
+            },
+            "1sz0bgk": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3452449347823858
+            },
+            "1syksex": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.18026205152273178
+            },
+            "1ruyxx2": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.33767612650990486
+            },
+            "1rsqafe": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5744397100061178
+            },
+            "1rizd88": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.15242893248796463
+            },
+            "1qwwizv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3393303081393242
+            },
+            "1q9b7wk": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.11598245054483414
+            },
+            "1px4qdt": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.16512085497379303
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard allows for in-kind transfers during Roth conversions, avoiding the need to liquidate and re-buy shares.",
+                "post_refs": [
+                  "1px4qdt"
+                ]
+              },
+              {
+                "point": "Vanguard provides an option to exchange funds directly, which can help avoid being out of the market for a day.",
+                "post_refs": [
+                  "1t3rjpd"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard's system is not user-friendly for active trading, as it is more aligned with buy-and-hold investing.",
+                "post_refs": [
+                  "1tdtisv"
+                ]
+              },
+              {
+                "point": "Vanguard's interface and policies can be confusing and restrictive, such as the frequent trading limitations and the inability to directly exchange between different mutual fund companies.",
+                "post_refs": [
+                  "1t40z0b",
+                  "1t3rjpd"
+                ]
+              },
+              {
+                "point": "Vanguard's process for transferring funds between accounts is cumbersome, requiring multiple steps and manual timing.",
+                "post_refs": [
+                  "1sz0bgk"
+                ]
+              },
+              {
+                "point": "Vanguard's cost basis management is seen as a hassle, with unclear documentation and the need for phone calls to manage specific ID cost basis.",
+                "post_refs": [
+                  "1rsqafe"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about mutual fund transactions and the operational challenges investors face when buying, selling, and exchanging shares across different financial institutions. The conversations reveal common frustrations with the mechanics of fund transfers, particularly the complexities that arise when attempting to move assets between different brokerage companies like Fidelity and Vanguard. Key concerns include timing issues that leave investors temporarily out of the market during transfers, the inability to execute direct exchanges between funds from different companies, and the requirement to sell shares and then repurchase them as separate transactions. Participants discuss various workarounds and strategies, including broker-assisted trades, the use of settlement funds and money market accounts, and methods to minimize market exposure during transitions. The discussions also touch on tax implications, wash sale rules, dividend reinvestment complications, and recurring investment schedules that may interfere with planned transactions. These conversations highlight the operational friction that exists in the mutual fund industry and the practical challenges individual investors encounter when managing their portfolios across multiple platforms.",
+          "short_summary": "Mutual fund transactions",
+          "one_sentence_summary": "Discussions focus on the operational challenges and complexities investors face when buying, selling, and transferring mutual fund shares between different financial institutions."
+        },
+        {
+          "id": 11,
+          "count": 8,
+          "score": -0.2479466496551468,
+          "engagement": {
+            "post_count": 8,
+            "total_comments": 21,
+            "total_score": 25,
+            "avg_comments_per_post": 2.625,
+            "avg_score_per_post": 3.125
+          },
+          "terms": [
+            {
+              "term": "dividends",
+              "weight": 0.03469806553260456
+            },
+            {
+              "term": "year",
+              "weight": 0.02896313769283906
+            },
+            {
+              "term": "tax",
+              "weight": 0.028722810906831566
+            },
+            {
+              "term": "gains",
+              "weight": 0.02830301452320558
+            },
+            {
+              "term": "income",
+              "weight": 0.020139559474595913
+            },
+            {
+              "term": "capital gains",
+              "weight": 0.016881494032301273
+            },
+            {
+              "term": "exempt",
+              "weight": 0.01590431497593885
+            },
+            {
+              "term": "15",
+              "weight": 0.015101354946677283
+            },
+            {
+              "term": "term",
+              "weight": 0.015058499668215477
+            }
+          ],
+          "post_ids": [
+            "1rp01by",
+            "1rs578o",
+            "1ntsemn",
+            "1qp0h64",
+            "1qna0lr",
+            "1pj2vd3",
+            "1p92okp",
+            "1oxww58"
+          ],
+          "post_sentiments": {
+            "1rp01by": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2224833443760872
+            },
+            "1rs578o": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.15071168293555579
+            },
+            "1ntsemn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2831219509243965
+            },
+            "1qp0h64": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3481631428003311
+            },
+            "1qna0lr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.22087828814983368
+            },
+            "1pj2vd3": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4985949117690325
+            },
+            "1p92okp": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.20631477981805801
+            },
+            "1oxww58": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.23659196496009827
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard provides detailed year-end distribution documents which are useful for estimating dividends and capital gains for tax planning purposes.",
+                "post_refs": [
+                  "1pj2vd3"
+                ]
+              },
+              {
+                "point": "There are tools and resources available, such as the DividendWatch calculator and Vanguard's cost basis summary page, to help estimate annual dividends and understand qualified versus unqualified dividends.",
+                "post_refs": [
+                  "1ntsemn"
+                ]
+              },
+              {
+                "point": "Vanguard's 'Year-to-date tax activity' function helps users track taxable events in their accounts, aiding in tax planning and ensuring proper withholding.",
+                "post_refs": [
+                  "1oxww58"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Discrepancies between Vanguard's 1099 forms and year-end summaries create confusion and problems in filing taxes.",
+                "post_refs": [
+                  "1qp0h64"
+                ]
+              },
+              {
+                "point": "Complexity in calculating state-exempt dividends from total dividends, especially when dealing with multiple ETFs and different percentages of government securities.",
+                "post_refs": [
+                  "1rs578o"
+                ]
+              },
+              {
+                "point": "The US tax system's quarterly estimated payment schedule does not align with calendar quarters, causing potential confusion and risk of penalties.",
+                "post_refs": [
+                  "1oxww58"
+                ]
+              },
+              {
+                "point": "Unexpected capital gains from Treasury notes bought at auction and held to maturity can result in additional tax forms and calculations.",
+                "post_refs": [
+                  "1qna0lr"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about investment taxation focus on understanding and calculating tax obligations for various types of investment income, including dividends, capital gains, and tax-exempt securities. The conversations center around navigating complex tax scenarios involving different fund types, determining which portions of investment income qualify for federal or state tax exemptions, and properly calculating quarterly estimated tax payments. Key concerns include interpreting tax documentation from investment companies, understanding the distinction between taxable and tax-exempt dividend income, managing capital gains tax liability, and using tax preparation software to accurately report investment-related income. The discussions frequently address the mechanics of calculating tax-exempt portions of dividends from government securities, timing of estimated tax payments throughout the year, and strategies for managing tax withholding on investment gains. Specific examples include Vanguard funds like VMFXX, VTI, and VYM, and tax software platforms like FreeTaxUSA, which serve as practical illustrations of broader investment tax planning challenges.",
+          "short_summary": "Investment taxation guidance",
+          "one_sentence_summary": "Discussions focus on understanding and calculating tax obligations for investment income, including dividends, capital gains, and tax-exempt securities."
+        },
+        {
+          "id": 10,
+          "count": 9,
+          "score": -0.672177146987932,
+          "engagement": {
+            "post_count": 9,
+            "total_comments": 24,
+            "total_score": 41,
+            "avg_comments_per_post": 2.6666666666666665,
+            "avg_score_per_post": 4.555555555555555
+          },
+          "terms": [
+            {
+              "term": "vanguard",
+              "weight": 0.020432215223011523
+            },
+            {
+              "term": "loan",
+              "weight": 0.013714861450127824
+            },
+            {
+              "term": "plan",
+              "weight": 0.013044518979808498
+            },
+            {
+              "term": "ups",
+              "weight": 0.012651795740190012
+            },
+            {
+              "term": "401k",
+              "weight": 0.01212955133951962
+            },
+            {
+              "term": "rollover",
+              "weight": 0.011154922924333193
+            },
+            {
+              "term": "check",
+              "weight": 0.010186411980653063
+            },
+            {
+              "term": "day",
+              "weight": 0.010185681996652606
+            },
+            {
+              "term": "vanguard chester",
+              "weight": 0.009696636104296861
+            },
+            {
+              "term": "chester funds",
+              "weight": 0.009696636104296861
+            }
+          ],
+          "post_ids": [
+            "1smdomw",
+            "1sjxp78",
+            "1s5ftw7",
+            "1qv6boj",
+            "1qosuuu",
+            "1qj037z",
+            "1q70btj",
+            "1pqrkvm",
+            "1parohx"
+          ],
+          "post_sentiments": {
+            "1smdomw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.795981714501977
+            },
+            "1sjxp78": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4710308099165559
+            },
+            "1s5ftw7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5827819630503654
+            },
+            "1qv6boj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.22889868915081024
+            },
+            "1qosuuu": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.026729678735136986
+            },
+            "1qj037z": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7612071987241507
+            },
+            "1q70btj": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5117373010143638
+            },
+            "1pqrkvm": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2854026108980179
+            },
+            "1parohx": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.30737708508968353
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard Chester Funds settled $25 million with investors over claims of misleading fund management practices, providing an opportunity for affected investors to claim compensation.",
+                "post_refs": [
+                  "1pqrkvm"
+                ]
+              },
+              {
+                "point": "Vanguard is very fast on ACH transfers, which are free and typically completed within one day.",
+                "post_refs": [
+                  "1qosuuu"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard's customer service is consistently reported as poor, with issues such as long wait times, unhelpful representatives, and repeated requests for the same information.",
+                "post_refs": [
+                  "1smdomw",
+                  "1sjxp78",
+                  "1s5ftw7",
+                  "1qv6boj",
+                  "1q70btj"
+                ]
+              },
+              {
+                "point": "Vanguard's handling of specific financial transactions, such as backdoor Roth IRA contributions, hardship withdrawals, and 401k rollovers, is often problematic and inefficient.",
+                "post_refs": [
+                  "1smdomw",
+                  "1sjxp78",
+                  "1s5ftw7",
+                  "1qosuuu",
+                  "1qj037z",
+                  "1q70btj",
+                  "1parohx"
+                ]
+              },
+              {
+                "point": "Vanguard's infrastructure and processes are criticized for being outdated, such as the reliance on paper checks for 401k rollovers instead of electronic options.",
+                "post_refs": [
+                  "1qosuuu"
+                ]
+              },
+              {
+                "point": "Vanguard's error in providing incorrect instructions for financial transactions can lead to unintended tax consequences for customers.",
+                "post_refs": [
+                  "1parohx"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about retirement account management and financial service provider experiences, particularly focusing on 401k rollover processes and customer service challenges. The conversations reveal systematic issues with traditional paper-based transfer methods, including lost or delayed checks during shipping, lengthy processing times, and security holds that restrict account access. Users share experiences with customer service interactions, escalation procedures, and administrative errors that can create unintended tax consequences. The discussions highlight broader concerns about outdated financial processes in the digital age, service quality deterioration at established financial institutions, and the complex regulatory framework governing retirement account transfers. Common themes include frustration with manual processes when electronic alternatives should be available, the need for proper documentation when dealing with institutional errors, and strategies for resolving disputes through escalation channels and regulatory compliance systems. These conversations reflect wider patterns in financial services where traditional institutions struggle to modernize their operations while maintaining security and regulatory compliance.",
+          "short_summary": "Retirement account rollovers",
+          "one_sentence_summary": "Discussions about retirement account rollover processes, customer service experiences with financial institutions, and challenges with traditional paper-based transfer methods."
+        },
+        {
+          "id": 12,
+          "count": 8,
+          "score": -0.48789835430383066,
+          "engagement": {
+            "post_count": 8,
+            "total_comments": 20,
+            "total_score": 17,
+            "avg_comments_per_post": 2.5,
+            "avg_score_per_post": 2.125
+          },
+          "terms": [
+            {
+              "term": "vanguard",
+              "weight": 0.02617999620280825
+            },
+            {
+              "term": "information",
+              "weight": 0.023531089667687716
+            },
+            {
+              "term": "pe",
+              "weight": 0.020070175252523696
+            },
+            {
+              "term": "account",
+              "weight": 0.01865019155935318
+            },
+            {
+              "term": "database",
+              "weight": 0.01657491157924644
+            },
+            {
+              "term": "vanguard main",
+              "weight": 0.01657491157924644
+            },
+            {
+              "term": "ownyourfuture vanguard main",
+              "weight": 0.01657491157924644
+            },
+            {
+              "term": "ownyourfuture vanguard",
+              "weight": 0.01657491157924644
+            },
+            {
+              "term": "history",
+              "weight": 0.016517644794377933
+            }
+          ],
+          "post_ids": [
+            "1tcnh9r",
+            "1rzlowr",
+            "1rl0i9d",
+            "1rjyrms",
+            "1rjry8z",
+            "1qnp009",
+            "1qbubd4",
+            "1qbf9db"
+          ],
+          "post_sentiments": {
+            "1tcnh9r": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.7282155863940716
+            },
+            "1rzlowr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2735084940989812
+            },
+            "1rl0i9d": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.8257714435458183
+            },
+            "1rjyrms": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.858386299572885
+            },
+            "1rjry8z": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.1716245859861374
+            },
+            "1qnp009": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.5588410571217537
+            },
+            "1qbubd4": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.04128064215183258
+            },
+            "1qbf9db": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.568379970267415
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard's simplicity and bare-bones approach is appreciated by users who prefer straightforward interfaces.",
+                "post_refs": [
+                  "1rjry8z"
+                ]
+              },
+              {
+                "point": "The ability to see transaction history and details on the Vanguard website is valued by users for thorough checking.",
+                "post_refs": [
+                  "1rjry8z",
+                  "1qbf9db"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Users find it difficult to identify the type of account they have on the Vanguard dashboard.",
+                "post_refs": [
+                  "1tcnh9r"
+                ]
+              },
+              {
+                "point": "Frustration with the lack of detailed information on certain funds within 403b accounts.",
+                "post_refs": [
+                  "1rzlowr"
+                ]
+              },
+              {
+                "point": "Difficulty in finding receipts for gifts-in-kind donations on the Vanguard website.",
+                "post_refs": [
+                  "1rjyrms"
+                ]
+              },
+              {
+                "point": "The mobile app lacks detailed transaction information compared to the website.",
+                "post_refs": [
+                  "1rjry8z"
+                ]
+              },
+              {
+                "point": "Vanguard's site is often delayed in updating transaction information.",
+                "post_refs": [
+                  "1qnp009"
+                ]
+              },
+              {
+                "point": "Challenges in finding banking transaction history on Vanguard's platform.",
+                "post_refs": [
+                  "1qbf9db"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about navigating investment platform interfaces and accessing account information, particularly focusing on challenges users face when trying to understand their investment accounts and locate specific fund details. The conversations reveal common difficulties in identifying account types, accessing comprehensive fund information, and understanding investment options within retirement accounts. Users frequently share technical solutions including specific URLs and navigation paths to access hidden or hard-to-find information within investment platforms. The discussions highlight systemic issues with platform usability, such as broken links to prospectuses, inconsistent interfaces between different account types, and the general opacity of fund information in employer-sponsored retirement plans. A significant portion of the conversation involves users helping each other decode platform-specific identifiers and sharing workarounds to access detailed investment information that should be readily available but is often buried or inaccessible through standard navigation.",
+          "short_summary": "Investment platform navigation",
+          "one_sentence_summary": "Discussions focus on navigating investment platform interfaces to access account information and fund details, with users sharing technical solutions to overcome platform usability issues."
+        },
+        {
+          "id": 13,
+          "count": 6,
+          "score": -0.25426876544501725,
+          "engagement": {
+            "post_count": 6,
+            "total_comments": 20,
+            "total_score": 33,
+            "avg_comments_per_post": 3.3333333333333335,
+            "avg_score_per_post": 5.5
+          },
+          "terms": [
+            {
+              "term": "cash plus",
+              "weight": 0.05866094800353607
+            },
+            {
+              "term": "plus account",
+              "weight": 0.04516148734054531
+            },
+            {
+              "term": "cash plus account",
+              "weight": 0.04516148734054531
+            },
+            {
+              "term": "card",
+              "weight": 0.044988583345181334
+            },
+            {
+              "term": "automatic",
+              "weight": 0.039565483984352924
+            },
+            {
+              "term": "vanguard cash plus",
+              "weight": 0.030729848897308207
+            },
+            {
+              "term": "vanguard cash",
+              "weight": 0.029992388896787556
+            }
+          ],
+          "post_ids": [
+            "1njlpgn",
+            "1t10k64",
+            "1ry15xi",
+            "1rehpc6",
+            "1qqodhr",
+            "1qplyh1"
+          ],
+          "post_sentiments": {
+            "1njlpgn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.28345319628715515
+            },
+            "1t10k64": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5189311131834984
+            },
+            "1ry15xi": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.14594320207834244
+            },
+            "1rehpc6": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.21639657020568848
+            },
+            "1qqodhr": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.4538145810365677
+            },
+            "1qplyh1": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.07157297432422638
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard Cash Plus Account is a convenient place to park cash with a slightly better return using VMRXX.",
+                "post_refs": [
+                  "1njlpgn"
+                ]
+              },
+              {
+                "point": "Potential for a debit card with ATM fee reimbursements and no foreign exchange fees could make the Cash Plus account more attractive.",
+                "post_refs": [
+                  "1t10k64"
+                ]
+              },
+              {
+                "point": "Direct debits (ACH pulls) can be set up from other financial institutions to pay bills like rent or mortgage.",
+                "post_refs": [
+                  "1ry15xi"
+                ]
+              },
+              {
+                "point": "Vanguard Cash Plus offers a 3.35% APY, which is appealing for some users.",
+                "post_refs": [
+                  "1qplyh1"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard Cash Plus Account cannot be used for payments to certain services like Target Circle Card, Comcast/Xfinity, and others.",
+                "post_refs": [
+                  "1njlpgn"
+                ]
+              },
+              {
+                "point": "Lack of automatic withdrawal options from the Vanguard Cash Plus Account.",
+                "post_refs": [
+                  "1ry15xi",
+                  "1qqodhr"
+                ]
+              },
+              {
+                "point": "Inability to set up automatic investments from Vanguard Cash Plus into a Vanguard Brokerage Account.",
+                "post_refs": [
+                  "1qqodhr"
+                ]
+              },
+              {
+                "point": "Vanguard HYSA does not support direct transfers to individual brokerage accounts if used as a joint account.",
+                "post_refs": [
+                  "1qplyh1"
+                ]
+              },
+              {
+                "point": "Vanguard's website and app are perceived as non-intuitive, potentially pushing users towards using an advisor.",
+                "post_refs": [
+                  "1rehpc6"
+                ]
+              }
+            ]
+          },
+          "summary": "Discussions about limitations and functionality gaps in financial account management systems, particularly focusing on automatic transfer and withdrawal capabilities between different account types. Users frequently encounter restrictions when attempting to set up recurring transactions, automated investments, or scheduled transfers from cash management accounts to brokerage accounts within the same financial institution. The conversations reveal widespread frustration with the inability to establish automatic recurring withdrawals, despite the availability of automatic deposit features. Many users seek workarounds such as ACH pulls from external institutions or manual transfer processes to achieve their desired investment automation. Additionally, there are reports of payment compatibility issues where certain cash management accounts cannot be used with specific merchants or payment systems, creating further limitations in account utility.",
+          "short_summary": "Account automation limitations",
+          "one_sentence_summary": "Discussions about limitations in financial account automation features, particularly regarding automatic transfers and withdrawal capabilities between different account types."
+        },
+        {
+          "id": 14,
+          "count": 6,
+          "score": -0.20353163699044352,
+          "engagement": {
+            "post_count": 6,
+            "total_comments": 27,
+            "total_score": 19,
+            "avg_comments_per_post": 4.5,
+            "avg_score_per_post": 3.1666666666666665
+          },
+          "terms": [
+            {
+              "term": "roth",
+              "weight": 0.0690298470212886
+            },
+            {
+              "term": "traditional",
+              "weight": 0.05463920813163259
+            },
+            {
+              "term": "traditional ira",
+              "weight": 0.03839505231567218
+            },
+            {
+              "term": "basis",
+              "weight": 0.033706493146198314
+            },
+            {
+              "term": "backdoor",
+              "weight": 0.03228939961669903
+            },
+            {
+              "term": "year",
+              "weight": 0.031853894984867744
+            },
+            {
+              "term": "tax",
+              "weight": 0.03169523240078702
+            },
+            {
+              "term": "conversion",
+              "weight": 0.02600235153148682
+            },
+            {
+              "term": "backdoor roth",
+              "weight": 0.02579228275342709
+            }
+          ],
+          "post_ids": [
+            "1qm68kv",
+            "1tuxqc4",
+            "1q9bnun",
+            "1q7jzsq",
+            "1q0ol4u",
+            "1pzwgl4"
+          ],
+          "post_sentiments": {
+            "1qm68kv": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.27686912193894386
+            },
+            "1tuxqc4": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.05565335601568222
+            },
+            "1q9bnun": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.2054530829191208
+            },
+            "1q7jzsq": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2360431421548128
+            },
+            "1q0ol4u": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.0782234650105238
+            },
+            "1pzwgl4": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.15598029643297195
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "The ability to perform a backdoor Roth conversion allows individuals over the income limit to still contribute to a Roth IRA, providing tax-free growth potential.",
+                "post_refs": [
+                  "1q0ol4u",
+                  "1pzwgl4"
+                ]
+              },
+              {
+                "point": "Even small over-contributions, such as 35 cents, are typically rounded down to zero for tax purposes, minimizing potential tax liabilities.",
+                "post_refs": [
+                  "1q9bnun"
+                ]
+              },
+              {
+                "point": "Paying taxes upfront on Roth conversions can prevent interest charges from the IRS and potentially result in a larger tax refund.",
+                "post_refs": [
+                  "1tuxqc4"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Confusion around the rules and processes of Roth conversions and backdoor Roths, such as understanding the pro-rata rule and basis calculations, can lead to mistakes and anxiety.",
+                "post_refs": [
+                  "1qm68kv",
+                  "1q7jzsq",
+                  "1q0ol4u"
+                ]
+              },
+              {
+                "point": "The complexity of managing multiple accounts and transactions, such as ensuring zero balance in traditional IRAs for backdoor Roths, can be challenging and lead to errors.",
+                "post_refs": [
+                  "1pzwgl4",
+                  "1q7jzsq"
+                ]
+              },
+              {
+                "point": "The need to file additional tax forms, like Form 8606, and the potential for penalties if not done correctly, adds to the complexity and stress of managing Roth conversions.",
+                "post_refs": [
+                  "1tuxqc4",
+                  "1q0ol4u"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about retirement account contribution and conversion strategies, particularly focusing on the mechanics and tax implications of moving money between traditional and Roth IRAs. The conversations center around backdoor Roth conversion techniques, which allow high-income earners to circumvent income limits for direct Roth IRA contributions by first contributing to a traditional IRA and then converting to a Roth. Key areas of discussion include understanding contribution limits, conversion deadlines, tax basis calculations, and the proper filing procedures using Form 8606. Participants frequently seek clarification on complex rules regarding pro-rata distributions, early withdrawal penalties, and the differences between Roth IRA and Roth 401k basis calculations. The discussions reveal common confusion about conversion timing, the treatment of investment gains during the conversion process, and strategies for managing existing traditional IRA balances to optimize the backdoor Roth process.",
+          "short_summary": "Roth conversion strategies",
+          "one_sentence_summary": "Discussions focus on retirement account strategies involving traditional and Roth IRA conversions, particularly backdoor Roth techniques and their associated tax implications and procedural requirements."
+        }
+      ]
+    },
+    "neutral": {
+      "count": 1,
+      "topics": [
+        {
+          "id": 1,
+          "count": 32,
+          "score": 0.086079937197385,
+          "engagement": {
+            "post_count": 32,
+            "total_comments": 113,
+            "total_score": 217,
+            "avg_comments_per_post": 3.53125,
+            "avg_score_per_post": 6.78125
+          },
+          "terms": [
+            {
+              "term": "vanguard",
+              "weight": 0.02387346726862453
+            },
+            {
+              "term": "fee",
+              "weight": 0.022844264266474755
+            },
+            {
+              "term": "advisor",
+              "weight": 0.021390689665974176
+            },
+            {
+              "term": "program",
+              "weight": 0.009525308685859029
+            },
+            {
+              "term": "account",
+              "weight": 0.008788741003143148
+            },
+            {
+              "term": "service",
+              "weight": 0.007714703802247223
+            },
+            {
+              "term": "years",
+              "weight": 0.007683129718155503
+            },
+            {
+              "term": "personal advisor",
+              "weight": 0.007297309535218624
+            }
+          ],
+          "post_ids": [
+            "1tin2jz",
+            "1rgshmb",
+            "1u28qck",
+            "1ty8q5i",
+            "1twx319",
+            "1tnyvoy",
+            "1t3in5v",
+            "1syyjir",
+            "1st1kom",
+            "1onyeis",
+            "1s0e4bh",
+            "1ry7gnx",
+            "1rx6irn",
+            "1rrxcvt",
+            "1rqgoz5",
+            "1rg2ae6",
+            "1r4knn4",
+            "1r31eyh",
+            "1qv5sbq",
+            "1qtz5py",
+            "1qgeiqp",
+            "1qcdpf7",
+            "1qbzn6m",
+            "1q0d8u3",
+            "1pzx447",
+            "1py4uhw",
+            "1px2eqh",
+            "1pkrfog",
+            "1nelsq8",
+            "1p00zqn",
+            "1oypk3s",
+            "1o02g0o"
+          ],
+          "post_sentiments": {
+            "1tin2jz": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.028456702828407288
+            },
+            "1rgshmb": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.8711014792788774
+            },
+            "1u28qck": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.07506217062473297
+            },
+            "1ty8q5i": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3734048577025533
+            },
+            "1twx319": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.018732532858848572
+            },
+            "1tnyvoy": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.07492988370358944
+            },
+            "1t3in5v": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.4039982184767723
+            },
+            "1syyjir": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.05876745283603668
+            },
+            "1st1kom": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3066108003258705
+            },
+            "1onyeis": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.06952467560768127
+            },
+            "1s0e4bh": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6381530482321978
+            },
+            "1ry7gnx": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.46784835308790207
+            },
+            "1rx6irn": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.27054058015346527
+            },
+            "1rrxcvt": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5560487061738968
+            },
+            "1rqgoz5": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.05936923623085022
+            },
+            "1rg2ae6": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.2435816004872322
+            },
+            "1r4knn4": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.24904472458486757
+            },
+            "1r31eyh": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.17147445492446423
+            },
+            "1qv5sbq": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.5079108448699117
+            },
+            "1qtz5py": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.08401790261268616
+            },
+            "1qgeiqp": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.7517636325210333
+            },
+            "1qcdpf7": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.614528447855264
+            },
+            "1qbzn6m": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.3635822758078575
+            },
+            "1q0d8u3": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.30718445777893066
+            },
+            "1pzx447": {
+              "sentiment_category": "neutral",
+              "sentiment_score": 0.07733219768851995
+            },
+            "1py4uhw": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.6998852342367172
+            },
+            "1px2eqh": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.09400970488786697
+            },
+            "1pkrfog": {
+              "sentiment_category": "negative",
+              "sentiment_score": -0.3734055608510971
+            },
+            "1nelsq8": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.6657452024519444
+            },
+            "1p00zqn": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.30182943493127823
+            },
+            "1oypk3s": {
+              "sentiment_category": "positive",
+              "sentiment_score": 0.12654289479056993
+            },
+            "1o02g0o": {
+              "sentiment_category": "neutral",
+              "sentiment_score": -0.08727866038680077
+            }
+          },
+          "sentiment_evidence": {
+            "positive": [
+              {
+                "point": "Vanguard's low fees and fiduciary responsibility are appreciated by users, especially compared to other financial advisors.",
+                "post_refs": [
+                  "1ry7gnx",
+                  "1qgeiqp",
+                  "1qbzn6m"
+                ]
+              },
+              {
+                "point": "Vanguard's platform improvements in the 2020s, such as better website design and fractional shares, have made it more user-friendly for new investors.",
+                "post_refs": [
+                  "1t3in5v"
+                ]
+              },
+              {
+                "point": "Vanguard's Personal Advisor Services are seen as a cost-effective option for those who want some guidance without high fees.",
+                "post_refs": [
+                  "1qv5sbq",
+                  "1p00zqn"
+                ]
+              },
+              {
+                "point": "Vanguard's stock lending program is seen as a nominal but positive opportunity for some users.",
+                "post_refs": [
+                  "1syyjir"
+                ]
+              }
+            ],
+            "negative": [
+              {
+                "point": "Vanguard's customer service is often criticized for being poor, with issues like long wait times, disorganized notes, and frequent advisor turnover.",
+                "post_refs": [
+                  "1py4uhw",
+                  "1qcdpf7",
+                  "1px2eqh"
+                ]
+              },
+              {
+                "point": "The introduction of a $100 full transfer and closure fee has frustrated some users, especially those who feel it was not clearly communicated.",
+                "post_refs": [
+                  "1ty8q5i",
+                  "1onyeis"
+                ]
+              },
+              {
+                "point": "Vanguard's website and app interface are often described as clunky and difficult to navigate, which can be a deterrent for users.",
+                "post_refs": [
+                  "1q0d8u3",
+                  "1qcdpf7"
+                ]
+              },
+              {
+                "point": "Some users feel that Vanguard's advisory services are uninspired and not worth the fees, especially for those who prefer a DIY approach.",
+                "post_refs": [
+                  "1px2eqh",
+                  "1pkrfog"
+                ]
+              }
+            ]
+          },
+          "summary": "This topic encompasses discussions about investment advisory services and fee structures at major brokerage firms, with particular focus on the value proposition and cost-effectiveness of professional financial guidance. The conversations center around evaluating whether paid advisory programs justify their annual fees, typically ranging from 0.3% of assets under management, compared to self-directed investing approaches. Key concerns include service quality deterioration, customer support issues, account transfer fees, and the transition from traditional full-service advisory relationships to digital or robo-advisor platforms. Participants frequently debate the merits of paying for professional investment management versus implementing simple automated portfolio strategies using low-cost index funds. The discussions also cover practical aspects of transferring assets between financial institutions, navigating fee structures, and determining appropriate investment allocations for retirement planning. Many contributors share experiences with both premium advisory tiers requiring higher minimum investments and basic advisory services, often concluding that simplified do-it-yourself approaches may provide better value for cost-conscious investors who are comfortable with basic portfolio management.",
+          "short_summary": "Investment advisory services",
+          "one_sentence_summary": "Discussions evaluate the cost-effectiveness and service quality of investment advisory programs at major brokerages, comparing professional management fees against self-directed investing approaches."
         }
       ]
     }
@@ -362,49 +3080,1440 @@
     {
       "source": 0,
       "target": 1,
-      "weight": 0.3547106087207794,
-      "overlapping_words": [],
-      "overlap_count": 0
+      "weight": 0.7882966899871826,
+      "overlapping_words": [
+        "years",
+        "vanguard"
+      ],
+      "overlap_count": 2
     },
     {
       "source": 0,
       "target": 2,
-      "weight": 0.41009968042373657,
+      "weight": 0.38604002714157104,
       "overlapping_words": [
-        "op"
+        "vanguard"
       ],
       "overlap_count": 1
     },
     {
       "source": 0,
       "target": 3,
-      "weight": 0.44656147599220275,
+      "weight": 0.5311509919166565,
       "overlapping_words": [
-        "op",
-        "fall"
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 4,
+      "weight": 0.6402116966247559,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 5,
+      "weight": 0.4586269211769104,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 6,
+      "weight": 0.5406680655479431,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 7,
+      "weight": 0.48010923981666564,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 8,
+      "weight": 0.17952609062194824,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 9,
+      "weight": 0.801102569103241,
+      "overlapping_words": [
+        "fund",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 0,
+      "target": 10,
+      "weight": 0.5527653348445892,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 11,
+      "weight": 0.2690221071243286,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 12,
+      "weight": 0.6157267940044403,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 13,
+      "weight": 0.3348802328109741,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 14,
+      "weight": 0.21749266982078552,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 15,
+      "weight": 0.32755738496780396,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 0,
+      "target": 16,
+      "weight": 0.36207888543605804,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 17,
+      "weight": 0.3715342831611633,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 0,
+      "target": 18,
+      "weight": 0.43634464859962463,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 2,
+      "weight": 0.7158574962615967,
+      "overlapping_words": [
+        "account",
+        "vanguard"
       ],
       "overlap_count": 2
     },
     {
       "source": 1,
-      "target": 2,
-      "weight": 0.3413000702857971,
+      "target": 3,
+      "weight": 0.7037892246246338,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 4,
+      "weight": 0.5624375295639038,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 5,
+      "weight": 0.6084478998184204,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 6,
+      "weight": 0.7181338572502136,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 7,
+      "weight": 0.6905208730697632,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 8,
+      "weight": 0.13494440913200378,
       "overlapping_words": [],
       "overlap_count": 0
     },
     {
       "source": 1,
+      "target": 9,
+      "weight": 0.4953480911254883,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 10,
+      "weight": 0.6377785158157349,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 11,
+      "weight": 0.17223592102527618,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 12,
+      "weight": 0.8763784670829773,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 13,
+      "weight": 0.5285161137580872,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 14,
+      "weight": 0.19024798274040222,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 15,
+      "weight": 0.29036352038383484,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 1,
+      "target": 16,
+      "weight": 0.6825406157970428,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 1,
+      "target": 17,
+      "weight": 0.47042542219161987,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 1,
+      "target": 18,
+      "weight": 0.4602867019176483,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
       "target": 3,
-      "weight": 0.1091575175523758,
+      "weight": 0.6590824031829834,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 4,
+      "weight": 0.49534210085868835,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 5,
+      "weight": 0.5415888333320618,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 6,
+      "weight": 0.6086032891273498,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 7,
+      "weight": 0.8219257497787475,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 8,
+      "weight": 0.026048671454191208,
       "overlapping_words": [],
       "overlap_count": 0
     },
     {
       "source": 2,
-      "target": 3,
-      "weight": 0.3109937262535095,
+      "target": 9,
+      "weight": 0.31062861800193786,
       "overlapping_words": [
-        "op"
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 10,
+      "weight": 0.4869755756855011,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 2,
+      "target": 11,
+      "weight": 0.02416500635445118,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 12,
+      "weight": 0.8001864457130432,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 13,
+      "weight": 0.3432462215423584,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 14,
+      "weight": 0.1187308058142662,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 15,
+      "weight": 0.16145199537277222,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 2,
+      "target": 16,
+      "weight": 0.5855005288124084,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 17,
+      "weight": 0.6201211416721344,
+      "overlapping_words": [
+        "login",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 2,
+      "target": 18,
+      "weight": 0.35994264006614685,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 4,
+      "weight": 0.5302135896682739,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 5,
+      "weight": 0.9071870923042298,
+      "overlapping_words": [
+        "ira",
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 3,
+      "target": 6,
+      "weight": 0.6732886636257172,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 7,
+      "weight": 0.6354564332962036,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 8,
+      "weight": 0.17190539836883545,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 9,
+      "weight": 0.38296374201774597,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 10,
+      "weight": 0.8773900151252747,
+      "overlapping_words": [
+        "401k",
+        "rollover",
+        "vanguard"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 3,
+      "target": 11,
+      "weight": 0.07571639120578766,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 12,
+      "weight": 0.7440335059165955,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 13,
+      "weight": 0.4372873902320862,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 14,
+      "weight": 0.35804447531700134,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 3,
+      "target": 15,
+      "weight": 0.41799771308898925,
+      "overlapping_words": [
+        "ira"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 16,
+      "weight": 0.5631198489665985,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 3,
+      "target": 17,
+      "weight": 0.3868456435203552,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 3,
+      "target": 18,
+      "weight": 0.47455432534217834,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 5,
+      "weight": 0.470487619638443,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 6,
+      "weight": 0.564284975528717,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 7,
+      "weight": 0.548011953830719,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 8,
+      "weight": 0.11412109434604645,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 9,
+      "weight": 0.5775922787189484,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 10,
+      "weight": 0.5380960059165955,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 11,
+      "weight": 0.0880419909954071,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 12,
+      "weight": 0.6498573970794678,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 13,
+      "weight": 0.3647178113460541,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 14,
+      "weight": 0.1061023399233818,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 15,
+      "weight": 0.24481859803199768,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 4,
+      "target": 16,
+      "weight": 0.4307303977012634,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 17,
+      "weight": 0.34081220149993896,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 4,
+      "target": 18,
+      "weight": 0.38033511757850647,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 6,
+      "weight": 0.6264208161830902,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 7,
+      "weight": 0.5786991918087006,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 8,
+      "weight": 0.28065282106399536,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 9,
+      "weight": 0.35657813668251037,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 10,
+      "weight": 0.5304057848453522,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 11,
+      "weight": 0.24628344178199768,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 12,
+      "weight": 0.62359534740448,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 13,
+      "weight": 0.34661367535591125,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 5,
+      "target": 14,
+      "weight": 0.8009161853790283,
+      "overlapping_words": [
+        "roth",
+        "conversion"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 15,
+      "weight": 0.5660346055030823,
+      "overlapping_words": [
+        "ira",
+        "roth ira"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 16,
+      "weight": 0.4759936684370041,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 5,
+      "target": 17,
+      "weight": 0.2784465205669403,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 5,
+      "target": 18,
+      "weight": 0.3174901258945465,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 6,
+      "target": 7,
+      "weight": 0.5673471593856811,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 6,
+      "target": 8,
+      "weight": 0.2707449793815613,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 9,
+      "weight": 0.6319672417640686,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 6,
+      "target": 10,
+      "weight": 0.6422535133361816,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 6,
+      "target": 11,
+      "weight": 0.14408725500106812,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 12,
+      "weight": 0.6552862429618835,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 6,
+      "target": 13,
+      "weight": 0.4340725839138031,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 14,
+      "weight": 0.123579241335392,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 15,
+      "weight": 0.11059784889221191,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 6,
+      "target": 16,
+      "weight": 0.6510567545890809,
+      "overlapping_words": [
+        "account",
+        "money",
+        "vanguard"
+      ],
+      "overlap_count": 3
+    },
+    {
+      "source": 6,
+      "target": 17,
+      "weight": 0.3783157420158386,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 6,
+      "target": 18,
+      "weight": 0.5207799029350281,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 8,
+      "weight": 0.0867970809340477,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 9,
+      "weight": 0.4119030487537384,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 10,
+      "weight": 0.571945573091507,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 11,
+      "weight": 0.11330445855855942,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 12,
+      "weight": 0.7503259086608887,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 7,
+      "target": 13,
+      "weight": 0.38858744502067566,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 14,
+      "weight": 0.15023639798164368,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 15,
+      "weight": 0.16293317079544067,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 7,
+      "target": 16,
+      "weight": 0.6003917062282562,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 7,
+      "target": 17,
+      "weight": 0.42145981907844543,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 7,
+      "target": 18,
+      "weight": 0.3493098419904709,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 8,
+      "target": 9,
+      "weight": 0.4676807725429535,
+      "overlapping_words": [
+        "sell",
+        "shares"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 8,
+      "target": 10,
+      "weight": 0.14291346073150635,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 11,
+      "weight": 0.7716178202629089,
+      "overlapping_words": [
+        "tax",
+        "term"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 8,
+      "target": 12,
+      "weight": 0.12165156751871109,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 13,
+      "weight": 0.15356528759002686,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 14,
+      "weight": 0.5470062398910522,
+      "overlapping_words": [
+        "tax",
+        "basis"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 8,
+      "target": 15,
+      "weight": 0.13803601264953613,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 16,
+      "weight": 0.08500559628009796,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 17,
+      "weight": 0.10231786221265793,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 8,
+      "target": 18,
+      "weight": 0.30108702182769775,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 10,
+      "weight": 0.634809365272522,
+      "overlapping_words": [
+        "day",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 9,
+      "target": 11,
+      "weight": 0.19632568955421448,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 12,
+      "weight": 0.5690327835083008,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 13,
+      "weight": 0.39627978205680847,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 14,
+      "weight": 0.1475307047367096,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 15,
+      "weight": 0.13112710416316986,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 9,
+      "target": 16,
+      "weight": 0.40016746044158935,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 17,
+      "weight": 0.34646713256835937,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 9,
+      "target": 18,
+      "weight": 0.5801922285556793,
+      "overlapping_words": [
+        "buy",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 10,
+      "target": 11,
+      "weight": 0.0899040624499321,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 12,
+      "weight": 0.5720208239555359,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 10,
+      "target": 13,
+      "weight": 0.5649552345275879,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 14,
+      "weight": 0.2903975248336792,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 15,
+      "weight": 0.29459962248802185,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 10,
+      "target": 16,
+      "weight": 0.5218661975860596,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 10,
+      "target": 17,
+      "weight": 0.38743480563163757,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 10,
+      "target": 18,
+      "weight": 0.5254752290248871,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 11,
+      "target": 12,
+      "weight": 0.18151886761188507,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 13,
+      "weight": 0.12511569261550903,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 14,
+      "weight": 0.5493421757221222,
+      "overlapping_words": [
+        "year",
+        "tax"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 11,
+      "target": 15,
+      "weight": 0.3800802779197693,
+      "overlapping_words": [
+        "year"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 11,
+      "target": 16,
+      "weight": 0.031091053038835526,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 17,
+      "weight": 0.05956786870956421,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 11,
+      "target": 18,
+      "weight": 0.16097986698150635,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 13,
+      "weight": 0.4588454067707062,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 14,
+      "weight": 0.22093375027179718,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 15,
+      "weight": 0.26181334257125854,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 12,
+      "target": 16,
+      "weight": 0.6850971782207489,
+      "overlapping_words": [
+        "account",
+        "vanguard"
+      ],
+      "overlap_count": 2
+    },
+    {
+      "source": 12,
+      "target": 17,
+      "weight": 0.5562286329269409,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 12,
+      "target": 18,
+      "weight": 0.414172465801239,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 13,
+      "target": 14,
+      "weight": 0.24247625470161438,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 15,
+      "weight": 0.2220030426979065,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 16,
+      "weight": 0.3819199204444885,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 17,
+      "weight": 0.3984408974647522,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 13,
+      "target": 18,
+      "weight": 0.34649232029914856,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 15,
+      "weight": 0.5497026991844177,
+      "overlapping_words": [
+        "year"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 14,
+      "target": 16,
+      "weight": 0.164540633559227,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 17,
+      "weight": 0.09202999621629715,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 14,
+      "target": 18,
+      "weight": 0.2094438374042511,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 16,
+      "weight": 0.14092178642749786,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 17,
+      "weight": 0.0796298086643219,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 15,
+      "target": 18,
+      "weight": 0.1772589534521103,
+      "overlapping_words": [],
+      "overlap_count": 0
+    },
+    {
+      "source": 16,
+      "target": 17,
+      "weight": 0.37219231843948364,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 16,
+      "target": 18,
+      "weight": 0.41702675342559814,
+      "overlapping_words": [
+        "vanguard"
+      ],
+      "overlap_count": 1
+    },
+    {
+      "source": 17,
+      "target": 18,
+      "weight": 0.3711654794216156,
+      "overlapping_words": [
+        "vanguard"
       ],
       "overlap_count": 1
     }
@@ -413,6 +4522,21 @@
     0,
     1,
     2,
-    3
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
   ]
 }

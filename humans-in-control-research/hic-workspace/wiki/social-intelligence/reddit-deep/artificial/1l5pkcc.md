@@ -23,13 +23,13 @@ chunks:
     key_terms: [ai-generated, code, artificial, production, blackbox, comments, reliable, review]
     token_count: 228
   - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c1"
-    char_span: [990, 2526]
+    char_span: [989, 2525]
     sentence_count: 11
     key_terms: [code, "it's", human, time, reliable, testing, working, verify]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/artificial/1l5pkcc.md#c2"
-    char_span: [2528, 3290]
+    char_span: [2527, 3289]
     sentence_count: 7
     key_terms: [code, people, "don't", product, etc, good, astronomical, expectations]
     section: Comments

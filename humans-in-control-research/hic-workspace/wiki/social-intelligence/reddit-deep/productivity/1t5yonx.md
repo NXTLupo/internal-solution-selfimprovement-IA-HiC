@@ -23,7 +23,7 @@ chunks:
     key_terms: [follow, gmail, been, like, ups, use, snoozed, labels]
     token_count: 479
   - id: "social-intelligence/reddit-deep/productivity/1t5yonx.md#c1"
-    char_span: [2077, 3845]
+    char_span: [2076, 3844]
     sentence_count: 15
     key_terms: [drafts, gmail, inbox, email, response, immediately, needs, need]
     section: Comments

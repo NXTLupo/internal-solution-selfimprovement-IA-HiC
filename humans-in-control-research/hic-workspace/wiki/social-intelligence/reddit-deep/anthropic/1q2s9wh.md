@@ -18,7 +18,7 @@ industries: [ai_research, enterprise_it, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1q2s9wh.md#c0"
-    char_span: [0, 360]
+    char_span: [0, 359]
     sentence_count: 1
     key_terms: [anthropic, comments, source, inevitable-rub8969, reddit-deep, dimonchoo, principal, engineer]
     token_count: 100

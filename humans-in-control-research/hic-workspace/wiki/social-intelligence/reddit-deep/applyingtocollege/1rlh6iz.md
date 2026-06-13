@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, gpa, college, courses, comments, weighted, course, school]
     token_count: 199
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rlh6iz.md#c1"
-    char_span: [736, 1797]
+    char_span: [735, 1796]
     sentence_count: 5
     key_terms: [gpa, medium-ad-7305, classes, college, getting, schools, system, overambition3448]
     section: Comments

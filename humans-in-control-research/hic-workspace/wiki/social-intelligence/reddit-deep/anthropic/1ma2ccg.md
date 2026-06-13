@@ -23,13 +23,13 @@ chunks:
     key_terms: [anthropic, comments, portkey, claude, prompt, system, code, reddit-deep]
     token_count: 99
   - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c1"
-    char_span: [383, 2309]
+    char_span: [382, 2308]
     sentence_count: 10
     key_terms: [claude, system, prompts, https, using, api, code, absolutely]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/anthropic/1ma2ccg.md#c2"
-    char_span: [2113, 3090]
+    char_span: [2112, 3089]
     sentence_count: 3
     key_terms: [prompts, leaked-system-prompts, system, lesterpaintstheworld, good, own, repo, redblackcanary]
     section: Comments

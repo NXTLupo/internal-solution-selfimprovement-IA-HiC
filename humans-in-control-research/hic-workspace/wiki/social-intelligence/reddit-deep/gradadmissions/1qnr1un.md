@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1qnr1un.md#c0"
-    char_span: [0, 1031]
+    char_span: [0, 1030]
     sentence_count: 7
     key_terms: [school, email, gradadmissions, follow, comments, month, thank, grad]
     token_count: 251

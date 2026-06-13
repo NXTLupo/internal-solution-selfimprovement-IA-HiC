@@ -26,13 +26,13 @@ chunks:
     key_terms: [ratio, llm-as-judge, appreciated, round-robin, evaluation, similarity, structural, embedding]
     token_count: 113
   - id: "social-intelligence/reddit-deep/neu/1t6crmm.md#c2"
-    char_span: [2311, 3577]
+    char_span: [2310, 3576]
     sentence_count: 10
     key_terms: [own-professional3092, greedyworking1499, credits, claude, people, linkedin, premium, friend]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/neu/1t6crmm.md#c3"
-    char_span: [3579, 4576]
+    char_span: [3578, 4575]
     sentence_count: 2
     key_terms: [affectionate-net5939, credits, premium, enough, own-professional3092, shot-marketing-9227, limit, get]
     section: Comments

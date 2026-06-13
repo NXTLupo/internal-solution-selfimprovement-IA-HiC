@@ -33,13 +33,13 @@ chunks:
     key_terms: [people, costs, tax, self-sufficient, infrastructure, immediately, independent, high-speed]
     token_count: 139
   - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c3"
-    char_span: [4386, 6553]
+    char_span: [4385, 6552]
     sentence_count: 14
     key_terms: [projects, country, plan, planning, around, contingency, transition, ambitious]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/futureofwork/1t18qhi.md#c4"
-    char_span: [6555, 7824]
+    char_span: [6554, 7823]
     sentence_count: 8
     key_terms: [digital, twin, pressure, across, system, findingbalancedaily, based, like]
     section: Comments

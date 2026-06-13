@@ -21,31 +21,31 @@ chunks:
     key_terms: [years, job, cscareerquestions, get, like, dev, got, time]
     token_count: 405
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c1"
-    char_span: [1593, 3589]
+    char_span: [1592, 3588]
     sentence_count: 17
     key_terms: [skills, lanky-ad4698, engineering, get, job, post, soft, beforehand]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c2"
-    char_span: [3592, 5363]
+    char_span: [3591, 5362]
     sentence_count: 20
     key_terms: [people, job, entitled, personal, projects, nothing, internship, graduated]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c3"
-    char_span: [5365, 6417]
+    char_span: [5364, 6416]
     sentence_count: 9
     key_terms: [job, market, period, like, industry, "they're", "today's", acting]
     section: Comments
     token_count: 258
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c4"
-    char_span: [6419, 7553]
+    char_span: [6418, 7552]
     sentence_count: 13
     key_terms: [years, tech, big, get, job, working, resume, "i'm"]
     section: Comments
     token_count: 306
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbw3zl.md#c5"
-    char_span: [7555, 8293]
+    char_span: [7554, 8292]
     sentence_count: 6
     key_terms: [years, heydavan, started, "i'm", rollercoaster, lanky-ad4698, complaining, dankumemer]
     section: Comments

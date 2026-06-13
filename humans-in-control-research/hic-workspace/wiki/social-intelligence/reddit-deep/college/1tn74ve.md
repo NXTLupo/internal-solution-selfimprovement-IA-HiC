@@ -23,19 +23,19 @@ chunks:
     key_terms: [psychology, switching, occupations, behavioral, want, because, college, parents]
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c1"
-    char_span: [2571, 4634]
+    char_span: [2570, 4633]
     sentence_count: 9
     key_terms: [psych, school, research, program, phd, clinical, psychologist, major]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c2"
-    char_span: [4636, 6819]
+    char_span: [4635, 6818]
     sentence_count: 19
     key_terms: [psychology, "i'm", school, med, biology, burnout, major, years]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1tn74ve.md#c3"
-    char_span: [6563, 7264]
+    char_span: [6562, 7263]
     sentence_count: 5
     key_terms: [psych, graduate, degree, premed, pharmaceutical, understanding, no-ease-8508, requirements]
     section: Comments

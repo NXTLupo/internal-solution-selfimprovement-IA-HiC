@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1l91bzv/the_best_advice_on_how_to_get_a_job_in_this_market/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -6,19 +7,99 @@ subreddit: "cscareerquestions"
 title: "The best advice on how to get a job in this market"
 author: "nysoxfan01"
 date: "2025-06-11T19:11:29.000Z"
-score: 918
+score: 921
 upvote_ratio: 0.93
 num_comments: 274
 flair: ""
-extracted_at: "2026-06-06T23:23:15.630Z"
+extracted_at: "2026-06-08T18:49:42.883Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c0"
+    char_span: [0, 1620]
+    sentence_count: 15
+    key_terms: [people, cscareerquestions, market, never, job, jobs, experience, comments]
+    token_count: 385
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c1"
+    char_span: [1622, 3576]
+    sentence_count: 25
+    key_terms: [experience, "don't", work, engineer, projects, software, people, skills]
+    token_count: 439
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c2"
+    char_span: [3578, 5577]
+    sentence_count: 24
+    key_terms: [job, get, offer, interview, time, requirements, asked, negotiating]
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c3"
+    char_span: [5579, 5951]
+    sentence_count: 4
+    key_terms: [date, get, good, next, week, opportunity, everything, experience]
+    token_count: 85
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c4"
+    char_span: [5966, 8030]
+    sentence_count: 17
+    key_terms: [absolutely, double-happiness, number, offers, offer, give, negotiate, leverage]
+    section: Comments
+    token_count: 489
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c5"
+    char_span: [8032, 9352]
+    sentence_count: 10
+    key_terms: [advice, experience, somebody, angular, because, fucking, "that's", worked]
+    section: Comments
+    token_count: 340
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c6"
+    char_span: [9354, 11482]
+    sentence_count: 14
+    key_terms: [lying, skill, knowledge, "that's", interviewers, experience, interview, project]
+    section: Comments
+    token_count: 502
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c7"
+    char_span: [11484, 13664]
+    sentence_count: 29
+    key_terms: [experience, lead, getting, years, decisions, "i've", "didn't", being]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c8"
+    char_span: [13666, 14728]
+    sentence_count: 8
+    key_terms: [questions, through, "didn't", "wasn't", "can't", indistinguishable, job, lie]
+    section: Comments
+    token_count: 244
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c9"
+    char_span: [14731, 16726]
+    sentence_count: 14
+    key_terms: [someone, experience, able, lead, tech, fullstack, recruiter, somewhere]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c10"
+    char_span: [16728, 18398]
+    sentence_count: 15
+    key_terms: [lie, experience, understand, hired, react, get, user-agent-string-history, applying]
+    section: Comments
+    token_count: 380
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c11"
+    char_span: [18401, 20388]
+    sentence_count: 10
+    key_terms: [masters, doing, job, k8s, experience, fullstack, interview, someone]
+    section: Comments
+    token_count: 482
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c12"
+    char_span: [20390, 22493]
+    sentence_count: 17
+    key_terms: [experience, like, current, advice, point, jobs, interview, personal]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1l91bzv.md#c13"
+    char_span: [22495, 23837]
+    sentence_count: 13
+    key_terms: [video, negotiate, something, project, games, date, want, choosing]
+    section: Comments
+    token_count: 321
 ---
-
 # The best advice on how to get a job in this market
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1l91bzv/the_best_advice_on_how_to_get_a_job_in_this_market/)
-Posted by **nysoxfan01** · **918↑** · **274 comments**
+Posted by **nysoxfan01** · **921↑** · **274 comments**
 
 95% of this subreddit is people complaining about the job market or AI.  The remaining 5% of actual advice is straight up garbage and completely outdated.  Thought I would help out by making a list of things that will greatly improve your job search
 
@@ -61,7 +142,7 @@ Keep your resume up to date with your latest experience.  Try to check LinkedIn/
 - **double-happiness** (71↑): >  Do not negotiate
 
 I literally got called a 'scab' on reddit for accepting my salary without asking for an increase in the offer. As it happens I had a week left of the contract I was on and zero other offers.
-  - **nysoxfan01** (20↑): I had competing offers and neither would budge more than $5k.  Companies will just say they have strict pay bands they have to adhere to.  Unless you have some super skills that they’re after they won’t care if you reject them.
+  - **nysoxfan01** (19↑): I had competing offers and neither would budge more than $5k.  Companies will just say they have strict pay bands they have to adhere to.  Unless you have some super skills that they’re after they won’t care if you reject them.
   - **dijkstras_revenge** (16↑): I think there’s some nuance here that should be called out. First of all, in salary negotiations there’s a lot of room for self sabotage. If the recruiter asks you for a range, absolutely do not give it. I lowballed myself on my last offer by giving a range that was lower than they were going to offer.
 
 Better to play the game of chicken and let them give the number first, or if you absolutely must give a number do market research first and ask for top of band for your level.
@@ -69,23 +150,23 @@ Better to play the game of chicken and let them give the number first, or if you
 Second, you absolutely can negotiate, but you need leverage. Generally that means other offers in hand, but it could also be that you interviewed really well or you have some important niche skill and they really don’t want to lose you. At the end of the day though if you really want to press for a higher number you need to be prepared to walk away if you don’t get it.
 
 Big tech is significantly more open to negotiation than other industries and for senior roles you can probably get $100k more if you have good leverage.
-  - **LingonberryOk8161** (7↑): Why would you listen to anybody on reddit lol?
-    - **double-happiness** (5↑): Yeah, I know, you're right. But unfortunately a lot of it is down to social isolation and low self esteem, truth be told.
-- **zacce** (235↑): Thanks. I wouldn't call these the "best" advice. They are somewhat controversial but can be helpful.
-  - **[deleted]** (107↑): The truth is there is no "best" advice.
+  - **LingonberryOk8161** (8↑): Why would you listen to anybody on reddit lol?
+    - **double-happiness** (6↑): Yeah, I know, you're right. But unfortunately a lot of it is down to social isolation and low self esteem, truth be told.
+- **zacce** (234↑): Thanks. I wouldn't call these the "best" advice. They are somewhat controversial but can be helpful.
+  - **[deleted]** (110↑): The truth is there is no "best" advice.
 
 People expect a secret technique for getting jobs but there simply isn't one. Everything is common sense.
 
 You want the best advice? Have a fucking great resume. That's it.
     - **Drauren** (7↑): The unfortunate reality is everyone's situation is different, and what worked for somebody isn't guaranteed to work for somebody else.
     - **Maleficent_Tax_2878** (1↑): Be so good they cant ignore you
-  - **nysoxfan01** (49↑): That's fair criticism.  It shouldn't have to be this way but I'd rather be unethical than unemployed.
-    - **PersonKool** (27↑): It’s no bullshit, not universal but more helpful and honest than the regurgitated LinkedIn nonesense. Good post
-  - **taznado** (3↑): What's controversial here can you say?
+  - **nysoxfan01** (51↑): That's fair criticism.  It shouldn't have to be this way but I'd rather be unethical than unemployed.
+    - **PersonKool** (25↑): It’s no bullshit, not universal but more helpful and honest than the regurgitated LinkedIn nonesense. Good post
+  - **taznado** (4↑): What's controversial here can you say?
     - **Appropriate-Wing6607** (6↑): Right this seems like solid advice for the current market.
-    - **Confident_Lynx_1283** (6↑): Not negotiating. It at least used to be fairly unheard of to see offers rescinded because of it
+    - **Confident_Lynx_1283** (7↑): Not negotiating. It at least used to be fairly unheard of to see offers rescinded because of it
   - **MBBIBM** (1↑): Because the actual best advice is to reach out to a few recruiters you’ve worked with in the past
-- **Shower_Handel** (71↑): > #5. Just straight up fucking lie
+- **Shower_Handel** (75↑): > #5. Just straight up fucking lie
 
 > ...
 
@@ -96,7 +177,7 @@ You better know your stuff if you try this. Enough to be comfortable getting ask
 Your interviewers will know the depth of your knowledge. And they'll compare it to people with actual experience.
   - **ccricers** (33↑): That's my issue with a lot of job-seeking advice related to lying. I don't largely opposite it for moral reasons, but the advice often treats it as a shortcut that doesn't require any skill. **Being a good liar takes skill** and the devil in the details, like the stuff you just described on how you passed the interview, cannot be ignored.
     - **evvdogg** (5↑): Yeah, next you actually have to go and apply that skill in a project. You could reuse an existing side project of yours and rebuild instead in react. Using chatGPT should help you get it up faster. And for newer projects, I highly recommend getting it up hosted on AWS or Azure or at least with Kubernetes (but that's actually harder than cloud!). Try to make use of Git workflows too as CI/CD is a very sought after skill too.
-  - **nysoxfan01** (9↑): I have been asked domain specific questions that I had no idea the answer to, then given a simple system design problem which I passed.  You don’t need expert knowledge if you just say you forgot but have worked with it before.
+  - **nysoxfan01** (11↑): I have been asked domain specific questions that I had no idea the answer to, then given a simple system design problem which I passed.  You don’t need expert knowledge if you just say you forgot but have worked with it before.
     - **Shower_Handel** (-2↑): I don't doubt that, but that's playing a dangerous game 
 
 Some places will keep candidates who perform well but didn't receive offers in the loop for future roles. Interviewers might be hesitant to keep your name in the potential callback pile if they feel you exaggerated the depth of your knowledge more than what's reasonable.
@@ -104,7 +185,7 @@ Some places will keep candidates who perform well but didn't receive offers in t
 FWIW, I'm going off my own experience finding mid-level roles in mid-large tech companies, so **YMMV**. Ofc it's a risk/reward calculation, but I always suggest avoiding lying.
   - **[deleted]** (1↑): Oooh spooky
   - **Easy_Language_3186** (1↑): If you look at this from a game theory perspective - you will lose literally nothing because of lying
-- **skodinks** (173↑): 6 YOE. Almost 3 years unemployed. Just signed an offer that I am very happy with.
+- **skodinks** (172↑): 6 YOE. Almost 3 years unemployed. Just signed an offer that I am very happy with.
 
 > Just straight up fucking lie
 
@@ -117,7 +198,7 @@ So I spent a few days running through the stories I had of my experience, and I 
 I went from getting past recruiter screens 1/10 times to 10/10 times. It felt a lot more like interviewing 5 years ago. I still failed a lot of the later stages, but I don't care about having a 100% success rate. I only needed one job.
 
 If the rest of the market is lying, then you have to lie as well. It's the same escalating race to the bottom as the leetcode grind.
-  - **HackVT** (14↑): Ok I’ll bite how many later stages did you just get blown out of the water ? I get selling yourself down for a role but selling up and getting it is gonna be really challenging if their process is even remotely solid.
+  - **HackVT** (13↑): Ok I’ll bite how many later stages did you just get blown out of the water ? I get selling yourself down for a role but selling up and getting it is gonna be really challenging if their process is even remotely solid.
     - **skodinks** (35↑): Blown out of the water? Zero. I think you're reading what I'm saying incorrectly. I wouldn't put myself up for a role I didn't believe myself to be capable of.
 
 I've lead teams. I've mentored engineers beneath me. I've dealt with stakeholder conversations, managed evolving timelines, scope creep, breaking down product needs into engineering tasks and other things of that nature. I have not done those things for 5 years. I've done them for a difficult to quantify timeline, but probably roughly a year in total.
@@ -127,15 +208,15 @@ You can't lie your way into a role that requires 5 years of lead experience if y
 I don't want a job I can't do. I know I can do the things I am lying about. If I didn't, I'd never make it through the rest of the process, like you say. I lie to the recruiter because they want to hear "X years of experience as a lead", since they can't determine my ability by way of questioning.
 
 If my first conversation was with an engineer asking actual questions, the lie would be less important, but it's required to even get through the gate.
-    - **Any-Basket8718** (9↑): Not them but I've only ever been "blown out of the water" when interviewing for positions that used tech that I wasn't familliar with AND I was applying for a longshot position (e.g. Staff or Principal as a mid level) AND I waited until like 30 minutes  before the interview to prep. And I always flunked extremely basic technical or standard behavioral questions that I could've aced with minimal preparation. May not have gotten the job in those interviews where I didn't bomb out, but my performance was indistinguishable from someone who just wasn't the best pick for a role.
+    - **Any-Basket8718** (8↑): Not them but I've only ever been "blown out of the water" when interviewing for positions that used tech that I wasn't familliar with AND I was applying for a longshot position (e.g. Staff or Principal as a mid level) AND I waited until like 30 minutes  before the interview to prep. And I always flunked extremely basic technical or standard behavioral questions that I could've aced with minimal preparation. May not have gotten the job in those interviews where I didn't bomb out, but my performance was indistinguishable from someone who just wasn't the best pick for a role.
 
 
 Now whether you are able to stick the dismount if/when you land that role is another problem. But I think people forget that 99% of applicants (outside  of FAANG) who are shunted to the top of the pile are just people gaming the system who have negative technical skills. If you can go in and do a decent job you'll be indistinguishable from someone who knows their stuff but might be flustered. From there, it's a numbers game and about vibes etc.
-    - **LingonberryOk8161** (4↑): Does not matter, he only needs to pass one company's interview process.
+    - **LingonberryOk8161** (8↑): Does not matter, he only needs to pass one company's interview process.
   - **Four_Dim_Samosa** (4↑): Depends on how you lie. I kinda call it "stretching the truth"
   - **[deleted]** (3↑): wait, so you never were an actual tech lead you just made up a story about it?
-    - **skodinks** (13↑): No, I was a tech lead on some occasions, but I wasn't a tech lead across large projects or timelines. You can't lie about skills you can't back up. If I had no idea what I was doing then I certainly wouldn't have been able to sell it.
-  - **SanityInAnarchy** (2↑): > I went from getting past recruiter screens 1/10 times to 10/10 times. It felt a lot more like interviewing 5 years ago. I still failed a lot of the later stages, but I don't care about having a 100% success rate.
+    - **skodinks** (14↑): No, I was a tech lead on some occasions, but I wasn't a tech lead across large projects or timelines. You can't lie about skills you can't back up. If I had no idea what I was doing then I certainly wouldn't have been able to sell it.
+  - **SanityInAnarchy** (0↑): > I went from getting past recruiter screens 1/10 times to 10/10 times. It felt a lot more like interviewing 5 years ago. I still failed a lot of the later stages, but I don't care about having a 100% success rate.
 
 Oof, I know this is a "don't hate the player, hate the game" kinda moment, but we literally just dealt with someone like this. Was doing okay on coding interviews, and we might've said yes at  a lower level, but they'd lied to the recruiter about having strong backend/k8s experience, and k8s in particular was important to the role. Turned out to be a "fullstack" dev with pretty much entirely frontend experience, maybe some node in there somewhere to be able to say fullstack. I'll fight for someone with equivalent experience (someone who worked on Borg at Google, say), or a generalist with a bit slower of a ramp time (we all have to start somewhere), but that plus the dishonesty killed it for us.
 
@@ -144,7 +225,7 @@ OP was close to something here:
 > This is more reasonable in my opinion because recruiters are stupid. If you have React experience and applying to a job with Angular, congrats - you actually have Angular experience.
 
 That at least transfers *somewhat,* and I can understand just adding the right keywords if you're dealing with automation. Maybe our resumes will start looking like [the user-agent string](https://webaim.org/blog/user-agent-string-history/). But usually, when you're talking to a human, you can make it pretty clear what experience is equivalent.
-    - **skodinks** (7↑): I don't think this is the same, though I understand it happens.
+    - **skodinks** (9↑): I don't think this is the same, though I understand it happens.
 
 The important distinction is not to lie about something you can't actually do. If I'm applying to a react role, I might talk up things I've worked on in react, and maybe pass off a decision made by somebody else on my team as my own. I have the knowledge of that decision. I just didn't make it at the time.
 
@@ -162,8 +243,8 @@ K8s is a big no no but the baby shouldn't be thrown out with the bath water IMO.
 You already brought this up, but from that applicants point of view, it got them an interview that probably would have gone to someone else instead.  Sure, they didn't get the job, but they got the chance to interview for the job rather than stopped at an earlier screening.  
   
 It sucks for you and your company, but we all know how messed up the hiring process is.
-- **gordof53** (42↑): Lol I did half of this 2 years ago after a year of unemployment and it worked. at some point you just dgaf bc the worst they can do is say no. You get really good at BSing your way through and realizing what the hiring manager wants to hear and embellish everything
-- **the_fresh_cucumber** (30↑): Also don't waste time getting a masters
+- **gordof53** (44↑): Lol I did half of this 2 years ago after a year of unemployment and it worked. at some point you just dgaf bc the worst they can do is say no. You get really good at BSing your way through and realizing what the hiring manager wants to hear and embellish everything
+- **the_fresh_cucumber** (31↑): Also don't waste time getting a masters
   - **nysoxfan01** (35↑): Masters are scams and are only useful for foreign students and people with non-CS degrees.  
 
 I had a coworker leave his job to pursue a masters.  He has his masters now but also has an Open to Work banner on his LinkedIn for the last year.  
@@ -174,12 +255,12 @@ People on this sub don’t realize how common career suicide is in the corporate
 
 In the US at least an MS can "always be done later"
   - **TBSoft** (1↑): why? I'm genuinely curious
-- **Fable_44** (30↑): This is some solid advice for the current market. As someone with 10 YOE I agree with every bit of this. 
+- **Fable_44** (29↑): This is some solid advice for the current market. As someone with 10 YOE I agree with every bit of this. 
 
 One thing I'd like to maybe elaborate on is your point about lying on your resume. I think for that point it should be noted to not outright lie about things that can be verified (like schooling, certs, places you've worked, etc) however, embellishing your current (or immediate past) role is absolutely a must.   
   
 Its important that you can speak confidently to that, however, so make sure you can answer questions about it at atleast an intermediate level in an interview setting. And this can also tie into your point on doing personal projects, which you can use that experience to fluff up your current role but it'll be worth much more if its part of your job experience (in an enterprise setting) than if its just a personal/home project.
-- **brandinobandito** (11↑): This is some of the realest advice I’ve seen on this sub and hope this post blows up.  Thank you.
+- **brandinobandito** (13↑): This is some of the realest advice I’ve seen on this sub and hope this post blows up.  Thank you.
 - **MathmoKiwi** (8↑): >**1. Apply to local/hybrid jobs in non-tech hubs.**  
 Your goal is to reduce competition as much as possible. When I first started I would literally filter jobs on linkedIn to states nobody wanted to live in, like Ohio. You will be given jobs in locations that people don't even know exist. A lot of them have barely any applicants. If they are desperate enough they will hire you. Another tip would be to update your resume to have your location be within the same area, since companies might filter you if you are located too far away
 
@@ -198,7 +279,7 @@ But you also want to show ***your best side*** during a date, don't be **brutall
 > **8. Do not negotiate**
 
 Depends on the person, as you can only negotiate if you're coming in from a position of strength. Are you ready to walk away? 95%+ of the people complaining on this subreddit are not in this position of strength, and thus shouldn't ever try to negotiate.
-- **Dogs4Idealism** (6↑): What advice do you have for choosing a project to start in something I'm unfamiliar with? If I want to learn React, for example, and I know nothing about it, how should I go about choosing a React project to work on?
+- **Dogs4Idealism** (7↑): What advice do you have for choosing a project to start in something I'm unfamiliar with? If I want to learn React, for example, and I know nothing about it, how should I go about choosing a React project to work on?
   - **nysoxfan01** (8↑): Good question.  I would create something similar to a shopping app, but base it off something that actually interests you.
 
 If you are into video games create a video game database.  Users can rate video games and comment on them.  Users can filter and search for different video games or filter out by publisher etc.  I feel this type of project teaches you a lot and you can find good tutorials for similar stuff.

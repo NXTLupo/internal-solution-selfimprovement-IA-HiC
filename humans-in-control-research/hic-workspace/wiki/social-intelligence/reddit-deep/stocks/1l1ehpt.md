@@ -28,31 +28,31 @@ chunks:
     key_terms: [china, trump, president, week, trade, secretary, commerce, critical]
     token_count: 373
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c2"
-    char_span: [3967, 5627]
+    char_span: [3966, 5626]
     sentence_count: 4
     key_terms: [stocks, market, please, reddit, "don't", money, lose, off-topic]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c3"
-    char_span: [5629, 6773]
+    char_span: [5628, 6772]
     sentence_count: 8
     key_terms: [restrictions, china, bad, snap, snip, "doesn't", loosen, trade]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c4"
-    char_span: [6776, 7522]
+    char_span: [6775, 7521]
     sentence_count: 6
     key_terms: [tofu, taco, better, tacos, dow, tsx, captaincanuck93, administration]
     section: Comments
     token_count: 222
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c5"
-    char_span: [7525, 9586]
+    char_span: [7524, 9585]
     sentence_count: 15
     key_terms: [administration, acp, guy, something, citizens, details, imagine, serious]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1l1ehpt.md#c6"
-    char_span: [9330, 9656]
+    char_span: [9329, 9655]
     sentence_count: 3
     key_terms: [administration, shadowliberal, credibility, statements, greenland, takeover, believe, calling]
     section: Comments

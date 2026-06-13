@@ -18,22 +18,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c0"
-    char_span: [0, 2337]
+    char_span: [0, 2336]
     sentence_count: 18
     key_terms: [counseling, psychology, identity, gradadmissions, multicultural, psychologist, life, phd]
-    token_count: 482
+    token_count: 481
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c1"
-    char_span: [2339, 4742]
+    char_span: [2338, 4741]
     sentence_count: 21
     key_terms: [confidential, black, research, project, qualitative, children, identity, projects]
     token_count: 439
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c2"
-    char_span: [4744, 7227]
+    char_span: [4743, 7226]
     sentence_count: 21
     key_terms: [confidential, research, multicultural, communities, integration, background, immigrants, belonging]
     token_count: 460
   - id: "social-intelligence/reddit-deep/gradadmissions/1nmcp6e.md#c3"
-    char_span: [7229, 9541]
+    char_span: [7228, 9540]
     sentence_count: 16
     key_terms: [multicultural, counseling, cultural, training, coaching, practice, research, confidential]
     token_count: 407

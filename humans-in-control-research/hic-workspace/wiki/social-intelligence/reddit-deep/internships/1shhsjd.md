@@ -23,7 +23,7 @@ chunks:
     key_terms: [people, because, massive, started, actual, internships, find, completely]
     token_count: 451
   - id: "social-intelligence/reddit-deep/internships/1shhsjd.md#c1"
-    char_span: [2164, 3668]
+    char_span: [2163, 3667]
     sentence_count: 9
     key_terms: [revorian, certifications, free, like, applying, students, instead, people]
     section: Comments

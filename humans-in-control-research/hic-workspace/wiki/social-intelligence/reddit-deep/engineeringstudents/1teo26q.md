@@ -11,9 +11,9 @@ score: 2
 upvote_ratio: 1
 num_comments: 1
 flair: "Academic Advice"
-extracted_at: "2026-06-06T17:43:22.918Z"
+extracted_at: "2026-06-08T18:49:20.750Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1teo26q.md#c0"
     char_span: [0, 2216]

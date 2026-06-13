@@ -23,7 +23,7 @@ chunks:
     key_terms: [context, window, api, compaction, anthropic, retrieval, teammates, adaptive]
     token_count: 489
   - id: "social-intelligence/reddit-deep/anthropic/1qxed1y.md#c1"
-    char_span: [1927, 3107]
+    char_span: [1927, 3106]
     sentence_count: 8
     key_terms: [writing, claude-opus-4-6, summarization, quality, output, https, onllm, prose]
     section: Comments

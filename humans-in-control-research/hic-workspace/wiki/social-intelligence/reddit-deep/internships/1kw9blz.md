@@ -23,7 +23,7 @@ chunks:
     key_terms: [finance, internship, development, internships, business, corporate, financial, unrelated]
     token_count: 230
   - id: "social-intelligence/reddit-deep/internships/1kw9blz.md#c1"
-    char_span: [1144, 1734]
+    char_span: [1143, 1733]
     sentence_count: 3
     key_terms: [internship, business, bigger, good, unfortunately, corporations, experiences, expertise]
     section: Comments

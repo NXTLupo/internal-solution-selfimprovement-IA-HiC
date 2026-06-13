@@ -23,19 +23,19 @@ chunks:
     key_terms: [productivity, use, system, organization, "i'm", reminders, comments, personal]
     token_count: 321
   - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c1"
-    char_span: [1460, 3343]
+    char_span: [1459, 3342]
     sentence_count: 13
     key_terms: [text, plain, backlog, notion, system, emacs, files, topic]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c2"
-    char_span: [3345, 5328]
+    char_span: [3344, 5327]
     sentence_count: 17
     key_terms: [use, notes, note, todoist, obsidian, list, work, everything]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/productivity/1tkd7xa.md#c3"
-    char_span: [5330, 5789]
+    char_span: [5329, 5788]
     sentence_count: 5
     key_terms: [list, productivity, integration, maintenance, everything, functional, mufenglabs, temporary]
     section: Comments

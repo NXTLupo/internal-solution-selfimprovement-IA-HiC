@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, gpa, work, get, good, like, "bachelor's", gradschool]
     token_count: 327
   - id: "social-intelligence/reddit-deep/gradschool/1tbdm3f.md#c1"
-    char_span: [1427, 1905]
+    char_span: [1426, 1904]
     sentence_count: 2
     key_terms: [college, learn, get, gpa, non-matriculated, significantly, application, cinemacatty]
     section: Comments

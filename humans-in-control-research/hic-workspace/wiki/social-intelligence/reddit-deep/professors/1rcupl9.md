@@ -28,37 +28,37 @@ chunks:
     key_terms: [class, students, problem, computer, outside, science, student, "it's"]
     token_count: 226
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c2"
-    char_span: [3123, 5096]
+    char_span: [3122, 5095]
     sentence_count: 11
     key_terms: [incorrect, example, assignment, references, life-education-8030, citations, resources, students]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c3"
-    char_span: [5098, 7130]
+    char_span: [5097, 7129]
     sentence_count: 12
     key_terms: [writing, sources, students, because, shoehorning, "i'll", "it's", integrity]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c4"
-    char_span: [7132, 9015]
+    char_span: [7131, 9014]
     sentence_count: 14
     key_terms: [instructions, students, institutions, assignment, student, access, requirements, meet]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c5"
-    char_span: [9017, 11234]
+    char_span: [9016, 11233]
     sentence_count: 18
     key_terms: [directions, restrictions, students, college, science, safety, themselves, guarantee]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c6"
-    char_span: [11236, 12167]
+    char_span: [11235, 12166]
     sentence_count: 6
     key_terms: [students, use, penalizing, proctored, nothing, joshuatheprogrammer, exams, gave]
     section: Comments
     token_count: 252
   - id: "social-intelligence/reddit-deep/professors/1rcupl9.md#c7"
-    char_span: [12169, 13291]
+    char_span: [12168, 13290]
     sentence_count: 9
     key_terms: [shinypenny01, question, through, joshuatheprogrammer, "can't", "don't", ready, get]
     section: Comments

@@ -38,19 +38,19 @@ chunks:
     key_terms: [articles, surgery, people, https, gov, ncbi, nih, nlm]
     token_count: 406
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c4"
-    char_span: [7974, 9223]
+    char_span: [7973, 9222]
     sentence_count: 8
     key_terms: [thousands, discord, osrs-ruined-my-life, month, years, ago, automatically, automoderator]
     section: Comments
     token_count: 330
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c5"
-    char_span: [9225, 11150]
+    char_span: [9224, 11149]
     sentence_count: 6
     key_terms: [short, inches, "i'm", legs, health, being, right, look]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1sp5tge.md#c6"
-    char_span: [10952, 11719]
+    char_span: [10951, 11718]
     sentence_count: 4
     key_terms: [inches, feet, mischling2543, commonality, lengthening, defective, otherwise, multiple]
     section: Comments

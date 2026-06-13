@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, internship, countries, comments, morocco, summer, want, requirements]
     token_count: 187
   - id: "social-intelligence/reddit-deep/internships/1r1lhf0.md#c1"
-    char_span: [803, 2873]
+    char_span: [802, 2872]
     sentence_count: 10
     key_terms: [internship, technical-machine-76, com, internshipdaily, seoul, experience, including, programme]
     section: Comments

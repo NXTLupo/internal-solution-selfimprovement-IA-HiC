@@ -23,31 +23,31 @@ chunks:
     key_terms: [situation, professor, withdraw, through, documentation, perspective, been, attendance]
     token_count: 489
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c1"
-    char_span: [2337, 3790]
+    char_span: [2336, 3789]
     sentence_count: 11
     key_terms: [take, program, course, incomplete, graduate, semester, discuss, grades]
     section: Comments
     token_count: 331
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c2"
-    char_span: [3792, 5917]
+    char_span: [3791, 5916]
     sentence_count: 17
     key_terms: [accommodations, semester, school, ombudsman, graduate, accommodation, grandmother, take]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c3"
-    char_span: [5919, 7594]
+    char_span: [5918, 7593]
     sentence_count: 11
     key_terms: [professors, change, unfortunately, sorry, attendance, education, "shouldn't", academic]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c4"
-    char_span: [7596, 9779]
+    char_span: [7595, 9778]
     sentence_count: 14
     key_terms: [take, life, part, probably, withdraw, courses, don, lot]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1s67pky.md#c5"
-    char_span: [9490, 9870]
+    char_span: [9489, 9869]
     sentence_count: 4
     key_terms: [life, people, part, time, capricious, compassion, bullshit, champion]
     section: Comments

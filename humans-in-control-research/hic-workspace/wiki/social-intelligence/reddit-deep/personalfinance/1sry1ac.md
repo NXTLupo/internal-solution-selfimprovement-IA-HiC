@@ -23,43 +23,43 @@ chunks:
     key_terms: [personalfinance, comments, savings, always, feels, like, too, aggressively]
     token_count: 249
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c1"
-    char_span: [977, 3100]
+    char_span: [976, 3099]
     sentence_count: 14
     key_terms: [marketing, transferable, skills, definitely, like, lot, interest, something]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c2"
-    char_span: [3102, 4634]
+    char_span: [3101, 4633]
     sentence_count: 12
     key_terms: [degree, "don't", get, yourself, job, program, income, people]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c3"
-    char_span: [4636, 6215]
+    char_span: [4635, 6214]
     sentence_count: 13
     key_terms: [savings, saving, consistently, doing, money, roth, building, income]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c4"
-    char_span: [6217, 7678]
+    char_span: [6216, 7677]
     sentence_count: 11
     key_terms: [saving, goals, life, like, retirement, emergency, tangible, whatever]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c5"
-    char_span: [7680, 9754]
+    char_span: [7679, 9753]
     sentence_count: 12
     key_terms: [saving, fun, save, goal, like, enough, cover, get]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c6"
-    char_span: [9756, 11655]
+    char_span: [9755, 11654]
     sentence_count: 21
     key_terms: [saving, like, set, goals, goal, cash, invested, yourself]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/personalfinance/1sry1ac.md#c7"
-    char_span: [11657, 13424]
+    char_span: [11656, 13423]
     sentence_count: 26
     key_terms: [want, don, need, people, retirement, savings, wedding, always]
     section: Comments

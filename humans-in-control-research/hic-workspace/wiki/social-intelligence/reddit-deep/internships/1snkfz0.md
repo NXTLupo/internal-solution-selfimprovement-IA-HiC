@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, recreation, major, support, direct, internships, work, experience]
     token_count: 363
   - id: "social-intelligence/reddit-deep/internships/1snkfz0.md#c1"
-    char_span: [1659, 2180]
+    char_span: [1658, 2179]
     sentence_count: 2
     key_terms: [option, appropriate-tutor587, responsibility, experience, recreation, employers, political, something]
     section: Comments

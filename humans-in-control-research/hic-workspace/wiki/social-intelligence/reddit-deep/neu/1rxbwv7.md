@@ -23,7 +23,7 @@ chunks:
     key_terms: [comments, looking, neu, opportunities, reddit-deep, professor, learning, reliable]
     token_count: 144
   - id: "social-intelligence/reddit-deep/neu/1rxbwv7.md#c1"
-    char_span: [515, 816]
+    char_span: [514, 815]
     sentence_count: 1
     key_terms: [sweet-frosting4839, internshipdaily, opportunities, departmental, greenhouse, professors, aggregate, sometimes]
     section: Comments

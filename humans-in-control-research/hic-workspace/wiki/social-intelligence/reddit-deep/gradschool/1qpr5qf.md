@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradschool, comments, post, cautiousherb, organization, reddit-deep, scholarship, employer]
     token_count: 118
   - id: "social-intelligence/reddit-deep/gradschool/1qpr5qf.md#c1"
-    char_span: [445, 1860]
+    char_span: [444, 1859]
     sentence_count: 8
     key_terms: [replacement, projects, manager, future, notice, worked, isaac-get-the-golem, being]
     section: Comments

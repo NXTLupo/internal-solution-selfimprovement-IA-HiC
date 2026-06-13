@@ -28,25 +28,25 @@ chunks:
     key_terms: [abroad, accept, study, feel, get, like, experience, something]
     token_count: 243
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c2"
-    char_span: [2897, 4381]
+    char_span: [2896, 4380]
     sentence_count: 8
     key_terms: [classes, class, drop, like, students, advice, better, school]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c3"
-    char_span: [4383, 6697]
+    char_span: [4382, 6696]
     sentence_count: 18
     key_terms: [friends, greek, life, because, does, being, co-op, "isn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c4"
-    char_span: [6407, 6719]
+    char_span: [6406, 6718]
     sentence_count: 3
     key_terms: [friends, because, become, grungusmalungus, collectively, socializing, instantly, brothers]
     section: Comments
     token_count: 68
   - id: "social-intelligence/reddit-deep/neu/1pzul5l.md#c5"
-    char_span: [6721, 7670]
+    char_span: [6720, 7669]
     sentence_count: 5
     key_terms: [getting, people, odd-possibility-6233, greek, point, share, wholewonderful9478, delt]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [school, comments, bad, neu, experiences, perspective, reddit-deep, maintained]
     token_count: 123
   - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c1"
-    char_span: [502, 2485]
+    char_span: [501, 2484]
     sentence_count: 18
     key_terms: [school, experience, state, college, schools, opportunities, worth, good]
     section: Comments
     token_count: 444
   - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c2"
-    char_span: [2487, 2887]
+    char_span: [2486, 2886]
     sentence_count: 3
     key_terms: [community, nervous-hair-2107, administration, incompetent, shoretel230, completely, experience, american]
     section: Comments
     token_count: 101
   - id: "social-intelligence/reddit-deep/neu/1o0xgs5.md#c3"
-    char_span: [2890, 4708]
+    char_span: [2889, 4707]
     sentence_count: 14
     key_terms: [buildings, price, worth, financial, depends, newness, program, cities]
     section: Comments

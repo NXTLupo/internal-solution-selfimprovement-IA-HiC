@@ -23,43 +23,43 @@ chunks:
     key_terms: [anthropic, comments, existential, metaknowing, reddit-deep, developer, claude, crisis]
     token_count: 77
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c1"
-    char_span: [300, 1972]
+    char_span: [299, 1971]
     sentence_count: 9
     key_terms: [writing, code, abject-bandicoot8890, through, guidance, aspects, handle, allergictobullshit24]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c2"
-    char_span: [1974, 3857]
+    char_span: [1973, 3856]
     sentence_count: 10
     key_terms: [people, like, problem, complaining, code, else, part, everything]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c3"
-    char_span: [3859, 6138]
+    char_span: [3858, 6137]
     sentence_count: 13
     key_terms: [software, faster, programming, fun, part, ship, engineers, knowledge]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c4"
-    char_span: [6140, 7935]
+    char_span: [6139, 7934]
     sentence_count: 13
     key_terms: [need, agents, claude, code, plan, use, different, engineers]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c5"
-    char_span: [7937, 10000]
+    char_span: [7936, 9999]
     sentence_count: 11
     key_terms: [sixstringsoul, count, job, sure, time, electrical, mechanical, engineers]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c6"
-    char_span: [10002, 10859]
+    char_span: [10001, 10858]
     sentence_count: 4
     key_terms: [cycle, diamonds-are-hard, help, own, time, clemenslode, absolutely, complexity]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/anthropic/1q5ltth.md#c7"
-    char_span: [10861, 11874]
+    char_span: [10860, 11873]
     sentence_count: 6
     key_terms: [multiplication, coding, commercialcomputer15, never, code, thomastoindia, g4n0esp4r4n, programming]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [blockchain, school, cscareerquestions, work, agency, since, development, been]
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1muhcxn.md#c1"
-    char_span: [2114, 3799]
+    char_span: [2114, 3798]
     sentence_count: 19
     key_terms: ["i'm", work, since, been, job, internship, anything, leetcode]
     token_count: 381

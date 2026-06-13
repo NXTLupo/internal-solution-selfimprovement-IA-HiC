@@ -23,85 +23,85 @@ chunks:
     key_terms: [careerguidance, comments, careers, down, competition, eesamanagod, reddit-deep, callbacks]
     token_count: 164
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c1"
-    char_span: [628, 2368]
+    char_span: [627, 2367]
     sentence_count: 11
     key_terms: [receptionist, get, experience, healthcare, positions, administrative, job, jobs]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c2"
-    char_span: [2370, 3729]
+    char_span: [2369, 3728]
     sentence_count: 13
     key_terms: [people, hairstylist, optometrician-at-the-home, higher, pretty, wheels, significant-leg1070, great]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c3"
-    char_span: [3731, 5098]
+    char_span: [3730, 5097]
     sentence_count: 13
     key_terms: [idea, "that's", patients, offices, surgery, people, mission-leopard-4178, maybe]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c4"
-    char_span: [5100, 6469]
+    char_span: [5099, 6468]
     sentence_count: 9
     key_terms: [wealth, people, corporations, generational, inheritances, money, transfer, minimal]
     section: Comments
     token_count: 320
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c5"
-    char_span: [6471, 7878]
+    char_span: [6470, 7877]
     sentence_count: 10
     key_terms: [boomers, generation, rate, people, proportion, because, conscious-quarter423, birth]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c6"
-    char_span: [7880, 8628]
+    char_span: [7879, 8627]
     sentence_count: 3
     key_terms: [healthcare, frolickingsymbiote, get, job, considered, eventually, everywhere, expensive]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c7"
-    char_span: [8630, 10761]
+    char_span: [8629, 10760]
     sentence_count: 15
     key_terms: [nighthawkndemontron, trades, industries, jobs, like, work, people, desperately]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c8"
-    char_span: [10492, 12581]
+    char_span: [10491, 12580]
     sentence_count: 17
     key_terms: [chef, shortage, drivers, school, live, agree, entry, going]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c9"
-    char_span: [12334, 14078]
+    char_span: [12333, 14077]
     sentence_count: 12
     key_terms: [water, trades, deleted, reflex, aggravating-flan-818, phthalovonlangborste, delinquentbattlecat, downwiththechipness]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c10"
-    char_span: [13858, 15652]
+    char_span: [13857, 15651]
     sentence_count: 10
     key_terms: [work, assassin, social, water, kerrybom, officer, started, funded]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c11"
-    char_span: [15373, 16095]
+    char_span: [15372, 16094]
     sentence_count: 6
     key_terms: [work, kerrybom, layoffs, health, public, job, risk, houseofburns]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c12"
-    char_span: [16097, 17843]
+    char_span: [16096, 17842]
     sentence_count: 15
     key_terms: [accounting, cpa, market, salty-cod7667, like, lot, tech, getting]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c13"
-    char_span: [17845, 20072]
+    char_span: [17844, 20071]
     sentence_count: 13
     key_terms: [insurance, health, "it's", reimbursement, state, accountants, been, get]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1negl9l.md#c14"
-    char_span: [20074, 20792]
+    char_span: [20073, 20791]
     sentence_count: 6
     key_terms: [hair, automation, going, code, job, need, relationship, accountants]
     section: Comments

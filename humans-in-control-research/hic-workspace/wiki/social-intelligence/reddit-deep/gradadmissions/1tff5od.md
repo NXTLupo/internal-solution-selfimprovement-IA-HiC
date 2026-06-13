@@ -28,13 +28,13 @@ chunks:
     key_terms: [scared, background, everything, somewhere, excited, excites, reading, sitting]
     token_count: 72
   - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c2"
-    char_span: [2505, 3695]
+    char_span: [2504, 3694]
     sentence_count: 4
     key_terms: [thank, congratulations, myself, represents, totally, future, efficient-morning616, tasteprofessional560]
     section: Comments
     token_count: 342
   - id: "social-intelligence/reddit-deep/gradadmissions/1tff5od.md#c3"
-    char_span: [3697, 5290]
+    char_span: [3696, 5289]
     sentence_count: 5
     key_terms: [fall, step, congratulations, school, thank, grad, like, daunting]
     section: Comments

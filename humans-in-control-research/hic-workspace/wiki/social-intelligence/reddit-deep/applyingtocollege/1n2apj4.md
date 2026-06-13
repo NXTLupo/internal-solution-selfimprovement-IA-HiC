@@ -41,37 +41,37 @@ chunks:
     key_terms: [students, committee, harvard, coursework, prioritize, prepare, student, internship-recruiting]
     token_count: 313
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c5"
-    char_span: [10284, 10993]
+    char_span: [10283, 10992]
     sentence_count: 2
     key_terms: [harvard, school, sector, goes, type, kindly-stop5113, cultivating, hurhurdedur]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c6"
-    char_span: [10995, 13060]
+    char_span: [10994, 13059]
     sentence_count: 12
     key_terms: [students, grade, high, because, getting, grades, school, inflation]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c7"
-    char_span: [13062, 14963]
+    char_span: [13061, 14962]
     sentence_count: 13
     key_terms: [average, schools, school, lot, professors, otherwise, undergrad, everyone]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c8"
-    char_span: [14965, 17113]
+    char_span: [14964, 17112]
     sentence_count: 14
     key_terms: [education, harvard, grading-system, infoforfaculty, pretty, fact, grad, themselves]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c9"
-    char_span: [17115, 18934]
+    char_span: [17114, 18933]
     sentence_count: 11
     key_terms: [harvard, because, "don't", case, terrifying, themselves, exclusive-extracurricular, magazine]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1n2apj4.md#c10"
-    char_span: [18936, 19641]
+    char_span: [18935, 19640]
     sentence_count: 3
     key_terms: [grade, students, intelligent-rest-231, back, workingclassprep, demonstrate, coursework, misleading]
     section: Comments

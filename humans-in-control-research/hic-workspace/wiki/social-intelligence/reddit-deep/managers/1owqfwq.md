@@ -23,19 +23,19 @@ chunks:
     key_terms: [managers, hiring, remote, comments, team, reddit-deep, absolutely, copy-paste]
     token_count: 207
   - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c1"
-    char_span: [915, 2939]
+    char_span: [914, 2938]
     sentence_count: 14
     key_terms: [interview, always, either, remote, experience, companies, hiring, resume]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c2"
-    char_span: [2698, 3077]
+    char_span: [2697, 3076]
     sentence_count: 3
     key_terms: [late-following792, malvojenkins, applicants, interviews, expedited, includes, question, training]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/managers/1owqfwq.md#c3"
-    char_span: [3080, 4412]
+    char_span: [3079, 4411]
     sentence_count: 10
     key_terms: [people, remote, interviewing, job, time, interviews, skilled, answer]
     section: Comments

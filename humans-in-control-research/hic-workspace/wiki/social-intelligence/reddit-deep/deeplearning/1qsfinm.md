@@ -23,13 +23,13 @@ chunks:
     key_terms: [agent, clawbot, agents, deeplearning, instructions, local, like, attackers]
     token_count: 482
   - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c1"
-    char_span: [2181, 4156]
+    char_span: [2180, 4155]
     sentence_count: 7
     key_terms: [people, injection, diamondgeeezer, prompt, uneducated, clawdbot, docker, itself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1qsfinm.md#c2"
-    char_span: [3879, 4573]
+    char_span: [3878, 4572]
     sentence_count: 4
     key_terms: [people, injection, clawdbot, prompt, data, automatically, misconfigured, uncontrolled]
     section: Comments

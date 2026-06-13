@@ -23,43 +23,43 @@ chunks:
     key_terms: [difficult, town, partner, relationship, gradschool, accepted, comments, decision]
     token_count: 299
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c1"
-    char_span: [1401, 2739]
+    char_span: [1400, 2738]
     sentence_count: 11
     key_terms: [offer, relationship, prestigious, don, get, take, searches, yourself]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c2"
-    char_span: [2741, 3976]
+    char_span: [2740, 3975]
     sentence_count: 9
     key_terms: [partner, phd, partners, program, support, health, mental, being]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c3"
-    char_span: [3978, 5947]
+    char_span: [3977, 5946]
     sentence_count: 14
     key_terms: [partner, school, together, like, willing, got, phd, sacrifice]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c4"
-    char_span: [5949, 7997]
+    char_span: [5948, 7996]
     sentence_count: 13
     key_terms: [relationship, decision, clinton, hilary, school, pinkdictator, "don't", bill]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c5"
-    char_span: [7999, 10036]
+    char_span: [7998, 10035]
     sentence_count: 17
     key_terms: [relationship, like, years, marriage, school, professional, redditskippy, decision]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c6"
-    char_span: [9767, 10323]
+    char_span: [9766, 10322]
     sentence_count: 4
     key_terms: [partner, opportunities, professional, difference, sacrifices, long-term, sometimes, approach]
     section: Comments
     token_count: 140
   - id: "social-intelligence/reddit-deep/gradschool/1rocy1k.md#c7"
-    char_span: [10325, 11280]
+    char_span: [10324, 11279]
     sentence_count: 8
     key_terms: [long, together, school, away, grad, long-distance, relationship, definitely]
     section: Comments

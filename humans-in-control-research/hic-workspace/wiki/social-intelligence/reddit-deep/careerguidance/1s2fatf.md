@@ -21,7 +21,7 @@ chunks:
     key_terms: [college, careerguidance, comments, guy, help, path, reddit-deep, criticism]
     token_count: 158
   - id: "social-intelligence/reddit-deep/careerguidance/1s2fatf.md#c1"
-    char_span: [650, 1136]
+    char_span: [649, 1135]
     sentence_count: 2
     key_terms: [college, "you're", internships, contribute, especially, experience, concerned, genuinely]
     section: Comments

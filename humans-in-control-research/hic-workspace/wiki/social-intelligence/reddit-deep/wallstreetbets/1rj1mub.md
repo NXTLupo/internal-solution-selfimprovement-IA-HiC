@@ -48,13 +48,13 @@ chunks:
     key_terms: [haliey-welch-aka-hawk-tuah-tries-to-explain-herself, https, achieve, article, massive, "there's", reach, scams]
     token_count: 343
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c6"
-    char_span: [10310, 12111]
+    char_span: [10309, 12110]
     sentence_count: 5
     key_terms: [next, mithyyyy, investigative, didn, "i'm", discord, writing, begin]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rj1mub.md#c7"
-    char_span: [12113, 13682]
+    char_span: [12112, 13681]
     sentence_count: 5
     key_terms: [people, followers, lowest-common-denominator, fucking, someone, videos, theykeepbanningmebro, "isn't"]
     section: Comments

@@ -28,37 +28,37 @@ chunks:
     key_terms: [school, too, illiterate, indecisive, motivation, ambitious, selective, sentences]
     token_count: 87
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c2"
-    char_span: [2339, 4230]
+    char_span: [2338, 4229]
     sentence_count: 16
     key_terms: [college, school, scholarship, interested, professors, literary, optional, students]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c3"
-    char_span: [4232, 6462]
+    char_span: [4231, 6461]
     sentence_count: 13
     key_terms: [school, students, student, experience, college, state, law, t40]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c4"
-    char_span: [6464, 8335]
+    char_span: [6463, 8334]
     sentence_count: 12
     key_terms: [schools, school, visual-course-9560, abjecthope9889, public, gpa, high, "it's"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c5"
-    char_span: [8338, 9832]
+    char_span: [8337, 9831]
     sentence_count: 12
     key_terms: [abjecthope9889, school, definitely, like, post, applied, thank, came]
     section: Comments
     token_count: 351
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c6"
-    char_span: [9834, 11417]
+    char_span: [9833, 11416]
     sentence_count: 13
     key_terms: [school, experience, abjecthope9889, opportunities, colleges, students, uchicago, college]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p5br2y.md#c7"
-    char_span: [11419, 13587]
+    char_span: [11418, 13586]
     sentence_count: 16
     key_terms: [school, college, graduated, engineering, son, flagship, prepared, program]
     section: Comments

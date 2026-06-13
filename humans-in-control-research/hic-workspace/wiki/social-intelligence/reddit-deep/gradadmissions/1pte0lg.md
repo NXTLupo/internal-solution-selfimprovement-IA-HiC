@@ -23,67 +23,67 @@ chunks:
     key_terms: [getting, schools, school, rejections, get, like, because, gradadmissions]
     token_count: 482
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c1"
-    char_span: [2089, 3969]
+    char_span: [2088, 3968]
     sentence_count: 10
     key_terms: [stats, people, get, achievements, programs, agreed, right, sense]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c2"
-    char_span: [3971, 6131]
+    char_span: [3970, 6130]
     sentence_count: 14
     key_terms: [best, get, believe, course, grades, people, good, acceptance]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c3"
-    char_span: [6133, 8313]
+    char_span: [6132, 8312]
     sentence_count: 10
     key_terms: [schools, "don't", application, school, people, apply, feel, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c4"
-    char_span: [8049, 8449]
+    char_span: [8048, 8448]
     sentence_count: 3
     key_terms: [entitlement, snoocompliments283, ask, application, applicants, completely, subreddit, anything]
     section: Comments
     token_count: 89
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c5"
-    char_span: [8451, 10237]
+    char_span: [8450, 10236]
     sentence_count: 11
     key_terms: [going, "they're", ivy, lot, undergrad, prestige, students, "they've"]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c6"
-    char_span: [10239, 12049]
+    char_span: [10238, 12048]
     sentence_count: 10
     key_terms: [academia, especially, prestige, schools, people, disadvantage, "it's", lot]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c7"
-    char_span: [12051, 14339]
+    char_span: [12050, 14338]
     sentence_count: 15
     key_terms: [schools, tier, programs, people, field, top, applying, graduate]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c8"
-    char_span: [13986, 14611]
+    char_span: [13985, 14610]
     sentence_count: 4
     key_terms: [admission, programs, people, subdiscipline, neuroscience, competitive, effectively, powerhouses]
     section: Comments
     token_count: 130
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c9"
-    char_span: [14613, 17024]
+    char_span: [14612, 17023]
     sentence_count: 12
     key_terms: [programs, schools, people, significantly, application, been, top, stressful]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c10"
-    char_span: [16745, 17116]
+    char_span: [16744, 17115]
     sentence_count: 2
     key_terms: [prestige, programs, endogenousrisk, institutions, universities, correlated, particular, university]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/gradadmissions/1pte0lg.md#c11"
-    char_span: [17118, 18078]
+    char_span: [17117, 18077]
     sentence_count: 5
     key_terms: [schools, "there's", "you're", fellowships, institution, find, programs, smaller]
     section: Comments

@@ -23,19 +23,19 @@ chunks:
     key_terms: [affective, cognitive, consciousness, architecture, deeplearning, state, real, comments]
     token_count: 261
   - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c1"
-    char_span: [1255, 3758]
+    char_span: [1254, 3757]
     sentence_count: 11
     key_terms: [probabilistic, universe, hypothesis, recursive, pocket, simulation, epistemic, simulated]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c2"
-    char_span: [3760, 5463]
+    char_span: [3759, 5462]
     sentence_count: 12
     key_terms: [universe, probabilistic, within, indistinguishability, epistemic, indistinguishable, via, define]
     section: Comments
     token_count: 371
   - id: "social-intelligence/reddit-deep/deeplearning/1sez7d0.md#c3"
-    char_span: [5465, 7070]
+    char_span: [5464, 7069]
     sentence_count: 17
     key_terms: ["it's", state, inference, prompting, substrate, actively, bryany97, certain]
     section: Comments

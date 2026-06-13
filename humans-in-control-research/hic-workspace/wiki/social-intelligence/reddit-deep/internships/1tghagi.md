@@ -21,7 +21,7 @@ chunks:
     key_terms: [software, internships, internship, differently, engineering, preparing, comments, projects]
     token_count: 265
   - id: "social-intelligence/reddit-deep/internships/1tghagi.md#c1"
-    char_span: [1215, 2237]
+    char_span: [1214, 2236]
     sentence_count: 13
     key_terms: [interviews, applying, something, practice, projects, prachub, hiredu, https]
     section: Comments

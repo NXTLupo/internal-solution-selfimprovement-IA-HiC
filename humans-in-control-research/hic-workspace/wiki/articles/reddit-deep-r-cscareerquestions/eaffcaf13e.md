@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/eaffcaf13e.md#c0"
-    char_span: [0, 1992]
+    char_span: [0, 1991]
     sentence_count: 12
     key_terms: [cscareerquestions, engineering, been, career, healthcare, message, reddit, tech]
-    token_count: 473
+    token_count: 472
 ---
 # Is software engineering a career suicide?
 

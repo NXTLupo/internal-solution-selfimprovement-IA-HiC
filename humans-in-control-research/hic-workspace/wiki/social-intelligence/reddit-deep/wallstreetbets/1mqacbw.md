@@ -23,13 +23,13 @@ chunks:
     key_terms: [wallstreetbets, comments, gamestop, opendoor, trade, yoloallinbro, environment, reddit-deep]
     token_count: 133
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mqacbw.md#c1"
-    char_span: [469, 1842]
+    char_span: [468, 1841]
     sentence_count: 7
     key_terms: [wsb, open, philooch, discord, cheap, https, total, years]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/wallstreetbets/1mqacbw.md#c2"
-    char_span: [1844, 2024]
+    char_span: [1843, 2023]
     sentence_count: 1
     key_terms: [bb429100230e44000ce0698b9af4b906655baea5, particular-ad9304, xux7kr2ai1jf1, compared, gamestop, preview, format, https]
     section: Comments

@@ -21,49 +21,49 @@ chunks:
     key_terms: [school, applyingtocollege, "i've", like, nothing, applications, disappointed, been]
     token_count: 422
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c1"
-    char_span: [1859, 3924]
+    char_span: [1858, 3923]
     sentence_count: 23
     key_terms: [financial, aid, parents, get, schools, out-of-state, endowments, benefits]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c2"
-    char_span: [3926, 6111]
+    char_span: [3925, 6110]
     sentence_count: 19
     key_terms: [school, enough, kids, because, parents, income, state, understand]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c3"
-    char_span: [6113, 7956]
+    char_span: [6112, 7955]
     sentence_count: 11
     key_terms: [right, getting, opportunities, being, dumb, plan, schools, better]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c4"
-    char_span: [7958, 9538]
+    char_span: [7957, 9537]
     sentence_count: 16
     key_terms: [harvard, parents, wealthy, family, financial, situation, yourself, believe]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c5"
-    char_span: [9540, 11362]
+    char_span: [9539, 11361]
     sentence_count: 17
     key_terms: [parents, tuition, got, paid, understand, athlete, average, despite]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c6"
-    char_span: [11364, 13114]
+    char_span: [11363, 13113]
     sentence_count: 18
     key_terms: [get, pay, school, professional, gonna, internships, best, grad]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c7"
-    char_span: [13116, 14867]
+    char_span: [13115, 14866]
     sentence_count: 16
     key_terms: [college, school, going, aid, end, however, schools, feels]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8dzp6.md#c8"
-    char_span: [14870, 15566]
+    char_span: [14869, 15565]
     sentence_count: 10
     key_terms: [school, going, electrical-bed-7836, state, get, good, "i'm", work]
     section: Comments

@@ -23,37 +23,37 @@ chunks:
     key_terms: [careerguidance, fired, work, comments, tomorrow, company, getting, right]
     token_count: 351
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c1"
-    char_span: [1503, 3432]
+    char_span: [1502, 3431]
     sentence_count: 20
     key_terms: [mistake, mistakes, making, happen, professional, like, something, djfromnl]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c2"
-    char_span: [3434, 5214]
+    char_span: [3433, 5213]
     sentence_count: 9
     key_terms: [negligent, tell, company, situation, tomorrow, happens, mistake, stress]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c3"
-    char_span: [5216, 6582]
+    char_span: [5215, 6581]
     sentence_count: 9
     key_terms: [better, fired, training, hearing, mistake, please, sounds, cold-management-2168]
     section: Comments
     token_count: 356
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c4"
-    char_span: [6584, 8807]
+    char_span: [6583, 8806]
     sentence_count: 19
     key_terms: [righteousaffair999, good, because, company, happen, people, maybe, intoxicated]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c5"
-    char_span: [8809, 11010]
+    char_span: [8808, 11009]
     sentence_count: 20
     key_terms: [better, different, get, job, something, strengths, happened, mistakes]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1sfyv29.md#c6"
-    char_span: [11012, 12697]
+    char_span: [11011, 12696]
     sentence_count: 22
     key_terms: [because, better, pretty, burnedlaser, job, ended, right, young]
     section: Comments

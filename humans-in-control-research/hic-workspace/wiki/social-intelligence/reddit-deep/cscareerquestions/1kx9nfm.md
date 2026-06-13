@@ -23,49 +23,49 @@ chunks:
     key_terms: [cscareerquestions, been, get, "i'm", long, new, comments, product]
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c1"
-    char_span: [1974, 3470]
+    char_span: [1973, 3469]
     sentence_count: 8
     key_terms: [goat, kubernetes, faang, become, farmer, something, probably, demand]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c2"
-    char_span: [3472, 5629]
+    char_span: [3471, 5628]
     sentence_count: 9
     key_terms: [companies, devs, squarespace, kubernetes, wordpress, opportunities, replacing, replaced]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c3"
-    char_span: [5631, 7519]
+    char_span: [5630, 7518]
     sentence_count: 12
     key_terms: [companies, engineers, code, because, investors, help, job, work]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c4"
-    char_span: [7521, 9002]
+    char_span: [7520, 9001]
     sentence_count: 9
     key_terms: [people, jobs, transition, business, career, period, broad-cranberry-9050, going]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c5"
-    char_span: [9004, 10864]
+    char_span: [9003, 10863]
     sentence_count: 13
     key_terms: [companies, machine-learning-ai-and-bots-oreilly-2025-books, widgets, debugging, deleted, instead, realize, without]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c6"
-    char_span: [10866, 12250]
+    char_span: [10865, 12249]
     sentence_count: 12
     key_terms: [understand, like, tools, something, software, deleted, project, working]
     section: Comments
     token_count: 333
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c7"
-    char_span: [12252, 14319]
+    char_span: [12251, 14318]
     sentence_count: 15
     key_terms: [replace, design, productivity, significant, "i'm", job, developers, problem]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1kx9nfm.md#c8"
-    char_span: [14321, 14987]
+    char_span: [14320, 14986]
     sentence_count: 6
     key_terms: [job, next, old, interesting, programming, algorithms, procedural, different]
     section: Comments

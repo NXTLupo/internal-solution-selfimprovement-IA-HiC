@@ -28,13 +28,13 @@ chunks:
     key_terms: [wait, school, been, best, got, like, excruciating, application]
     token_count: 193
   - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c2"
-    char_span: [2743, 4430]
+    char_span: [2742, 4429]
     sentence_count: 9
     key_terms: [congratulations, thank, work, university, applying, program, having, track]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradadmissions/1rovod5.md#c3"
-    char_span: [4169, 4971]
+    char_span: [4168, 4970]
     sentence_count: 5
     key_terms: ["it's", thankyouuu, moment, please, track, keep, resident-egg7549, congratulations]
     section: Comments

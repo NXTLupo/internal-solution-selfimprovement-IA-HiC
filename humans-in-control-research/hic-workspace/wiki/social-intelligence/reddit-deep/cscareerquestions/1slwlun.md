@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, career, considering, cse, background, experience, comments, banking]
     token_count: 321
   - id: "social-intelligence/reddit-deep/cscareerquestions/1slwlun.md#c1"
-    char_span: [1297, 1558]
+    char_span: [1296, 1557]
     sentence_count: 4
     key_terms: [mysteriousdisk2874, interested, something, question, anymore, related, lhorie, thanks]
     section: Comments

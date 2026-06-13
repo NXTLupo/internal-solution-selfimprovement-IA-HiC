@@ -28,13 +28,13 @@ chunks:
     key_terms: ["doesn't", juniors, seniors, hiring, people, years, entry-level, "quarter's"]
     token_count: 325
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c2"
-    char_span: [3451, 5276]
+    char_span: [3450, 5275]
     sentence_count: 9
     key_terms: [ambitious-garbage-73, roles, post, slop, harvard, coding, junior, please]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6au6g.md#c3"
-    char_span: [5278, 6214]
+    char_span: [5277, 6213]
     sentence_count: 13
     key_terms: [code, something, company, coding, going, less, like, show]
     section: Comments

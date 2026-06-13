@@ -26,115 +26,115 @@ chunks:
     key_terms: [continue, maybe, safer, big, tech, conclusions, microsoft, believes]
     token_count: 178
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c2"
-    char_span: [2052, 2331]
+    char_span: [2051, 2330]
     sentence_count: 2
     key_terms: [purplebuffalo55, reformatted, experiment, difficult, generous, clarity, through, "here's"]
     section: Comments
     token_count: 85
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c3"
-    char_span: [2348, 2718]
+    char_span: [2347, 2717]
     sentence_count: 3
     key_terms: ["didn't", most-mentioned, aggressive, subreddits, investing, portfolio, sidelines, personal]
     section: Background
     token_count: 93
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c4"
-    char_span: [2758, 3038]
+    char_span: [2757, 3037]
     sentence_count: 1
     key_terms: [return, average, stock, amd, asts, aur, bbai, btc]
     section: My January 2025 Picks (11 Stocks)
     token_count: 129
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c5"
-    char_span: [3088, 3585]
+    char_span: [3087, 3584]
     sentence_count: 1
     key_terms: [redacted, return, average, stock, amd, asml, asts, avgo]
     section: Most-Mentioned Stocks This Year (22 Stocks)
     token_count: 234
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c6"
-    char_span: [3626, 4101]
+    char_span: [3625, 4100]
     sentence_count: 1
     key_terms: [etf, semiconductor, return, mag, individual, investment, microsoft, average]
     section: "Benchmark Comparison: ETFs & Mag 7"
     token_count: 177
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c7"
-    char_span: [4120, 4854]
+    char_span: [4119, 4853]
     sentence_count: 5
     key_terms: [continue, pullback, safer, years, big, tech, importantly, performance]
     section: My Takeaways
     token_count: 167
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c8"
-    char_span: [4856, 6513]
+    char_span: [4855, 6512]
     sentence_count: 8
     key_terms: [xixiruckusixix, better, dumb, "it's", like, too, advertise, chatgpt]
     section: My Takeaways
     token_count: 500
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c9"
-    char_span: [6515, 8177]
+    char_span: [6514, 8176]
     sentence_count: 7
     key_terms: [picks, investing, something, anyportinahurricane, stock, whole, done, nvda]
     section: My Takeaways
     token_count: 479
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c10"
-    char_span: [8179, 9233]
+    char_span: [8178, 9232]
     sentence_count: 10
     key_terms: [stocks, did, portfolio, december, start, happilydisengaged, back, fall]
     section: My Takeaways
     token_count: 286
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c11"
-    char_span: [9235, 10509]
+    char_span: [9234, 10508]
     sentence_count: 1
     key_terms: [gain, percent, "today's", shares, stock, total, value, cost]
     section: My Takeaways
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c12"
-    char_span: [10343, 11553]
+    char_span: [10342, 11552]
     sentence_count: 1
     key_terms: [gain, percent, "today's", shares, stock, total, value, cost]
     section: My Takeaways
     token_count: 488
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c13"
-    char_span: [11555, 12850]
+    char_span: [11554, 12849]
     sentence_count: 6
     key_terms: [good, overall, reddit, stocks, brain, total, pabloscocainehippo, fool]
     section: My Takeaways
     token_count: 401
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c14"
-    char_span: [12852, 14338]
+    char_span: [12851, 14337]
     sentence_count: 8
     key_terms: [reddit, bought, agitatedstranger9698, banned3rdtimesacharm, imaginationenough414, funds, heard, index]
     section: My Takeaways
     token_count: 407
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c15"
-    char_span: [14340, 16477]
+    char_span: [14339, 16476]
     sentence_count: 19
     key_terms: [investing, stocks, research, through, interesting, decision, earnings, patient]
     section: My Takeaways
     token_count: 509
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c16"
-    char_span: [16479, 17982]
+    char_span: [16478, 17981]
     sentence_count: 7
     key_terms: [years, like, correction, changed, reddit, found, posts, ready]
     section: My Takeaways
     token_count: 407
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c17"
-    char_span: [17984, 20072]
+    char_span: [17983, 20071]
     sentence_count: 12
     key_terms: [stocks, growth, market, like, bear, something, everyone, through]
     section: My Takeaways
     token_count: 510
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c18"
-    char_span: [20075, 21600]
+    char_span: [20074, 21599]
     sentence_count: 13
     key_terms: [stocks, reddit, technical-music5015, asts, buy, crash, particular, community]
     section: My Takeaways
     token_count: 382
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c19"
-    char_span: [21602, 23371]
+    char_span: [21601, 23370]
     sentence_count: 10
     key_terms: [technical-music5015, stocks, since, bshaman1993, like, year, circuits, invested]
     section: My Takeaways
     token_count: 488
   - id: "social-intelligence/reddit-deep/stocks/1pfzo2c.md#c20"
-    char_span: [23373, 25035]
+    char_span: [23372, 25034]
     sentence_count: 6
     key_terms: [careless-age-4290, couchpotatofamine, here, everyone, time, reporting, "reddit's", because]
     section: My Takeaways

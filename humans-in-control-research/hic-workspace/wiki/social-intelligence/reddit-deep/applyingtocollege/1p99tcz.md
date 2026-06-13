@@ -21,67 +21,67 @@ chunks:
     key_terms: [college, competitive, applyingtocollege, got, school, years, performance, get]
     token_count: 474
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c1"
-    char_span: [2003, 4184]
+    char_span: [2002, 4183]
     sentence_count: 15
     key_terms: [students, top, distribution, get, high, kids, admissions, impressive]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c2"
-    char_span: [4186, 6418]
+    char_span: [4185, 6417]
     sentence_count: 17
     key_terms: [students, school, counselor, formal-research4531, good, colleges, freshmen, guidance]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c3"
-    char_span: [6420, 8290]
+    char_span: [6419, 8289]
     sentence_count: 17
     key_terms: [financial, students, aid, schools, admission, without, harvard, student]
     section: Comments
     token_count: 393
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c4"
-    char_span: [8293, 9281]
+    char_span: [8292, 9280]
     sentence_count: 10
     key_terms: [schools, high, yves-adele-harlow, school, valedictorian, class, measurementtop2885, top]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c5"
-    char_span: [9283, 10411]
+    char_span: [9282, 10410]
     sentence_count: 6
     key_terms: [school, single, sat, average, depends, hot-marionberry1983, neither-phone-7264, agitated-cup-7109]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c6"
-    char_span: [10413, 12603]
+    char_span: [10412, 12602]
     sentence_count: 17
     key_terms: [college, schools, impressive, inflation, get, sat, academic, grades]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c7"
-    char_span: [12605, 13929]
+    char_span: [12604, 13928]
     sentence_count: 5
     key_terms: [average, schools, sat, public, massachusetts, statereport, high, sats]
     section: Comments
     token_count: 316
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c8"
-    char_span: [13931, 15821]
+    char_span: [13930, 15820]
     sentence_count: 10
     key_terms: [schools, school, research, average, people, competitions, internships, high]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c9"
-    char_span: [15823, 17809]
+    char_span: [15822, 17808]
     sentence_count: 15
     key_terms: [college, education, admissions, classes, private, people, undergraduate, difference]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c10"
-    char_span: [17811, 19797]
+    char_span: [17810, 19796]
     sentence_count: 15
     key_terms: [material, get, mit, classes, top, impression, personal, caltech]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1p99tcz.md#c11"
-    char_span: [19799, 21159]
+    char_span: [19798, 21158]
     sentence_count: 8
     key_terms: [software, executivewatch, highschools, engineer, college, better, number, school]
     section: Comments

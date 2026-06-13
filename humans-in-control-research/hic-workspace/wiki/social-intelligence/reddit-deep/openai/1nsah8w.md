@@ -23,25 +23,25 @@ chunks:
     key_terms: [chatgpt, openai, job, portfolio, comments, changed, support, hobby]
     token_count: 345
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c1"
-    char_span: [1383, 3057]
+    char_span: [1382, 3056]
     sentence_count: 6
     key_terms: [engineer, right, job, bootcamp, believe, merningthemidniteoil, throwaway3847394739, posts]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c2"
-    char_span: [2830, 3530]
+    char_span: [2829, 3529]
     sentence_count: 3
     key_terms: [engineer, small, studiousmaximus, development, dreeampixie, nontheless, programmer, aliassuck]
     section: Comments
     token_count: 201
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c3"
-    char_span: [3538, 4320]
+    char_span: [3537, 4319]
     sentence_count: 3
     key_terms: [engineer, fabricated, cause, friendly-view4122, job, like, myboyfriendisai, girlnumber20]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/openai/1nsah8w.md#c4"
-    char_span: [4322, 5687]
+    char_span: [4321, 5686]
     sentence_count: 5
     key_terms: [love, through, helped, people, el-duderino-the-dude, never, ornery-ticket-2332, wastingmyyouthaway]
     section: Comments

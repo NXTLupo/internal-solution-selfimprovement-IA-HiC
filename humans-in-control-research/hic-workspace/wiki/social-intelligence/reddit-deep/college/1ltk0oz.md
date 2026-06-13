@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, money, good, comments, making, reason, been, don]
     token_count: 225
   - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c1"
-    char_span: [935, 3041]
+    char_span: [934, 3040]
     sentence_count: 21
     key_terms: [jobs, college, former-hospital-3656, back, good, get, grow, wehrmacht]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c2"
-    char_span: [2762, 4469]
+    char_span: [2761, 4468]
     sentence_count: 17
     key_terms: [college, business, get, friends, going, money, connections, degree]
     section: Comments
     token_count: 397
   - id: "social-intelligence/reddit-deep/college/1ltk0oz.md#c3"
-    char_span: [4471, 6572]
+    char_span: [4470, 6571]
     sentence_count: 13
     key_terms: [like, college, something, degree, school, "you're", time, further]
     section: Comments

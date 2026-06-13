@@ -21,7 +21,7 @@ chunks:
     key_terms: [email, internship, company, manager, emailed, february, follow, commencement]
     token_count: 495
   - id: "social-intelligence/reddit-deep/internships/1rpplnk.md#c1"
-    char_span: [2375, 3135]
+    char_span: [2375, 3134]
     sentence_count: 7
     key_terms: [graduation, questions, allowed, whether, always, attend, appropriate-tutor587, alert-locksmith2231]
     section: Comments

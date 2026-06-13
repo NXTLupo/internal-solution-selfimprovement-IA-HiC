@@ -21,19 +21,19 @@ chunks:
     key_terms: [job, applications, never, jobs, life, interviews, comments, manager]
     token_count: 403
   - id: "social-intelligence/reddit-deep/jobs/1mjfj57.md#c1"
-    char_span: [1707, 3348]
+    char_span: [1706, 3347]
     sentence_count: 7
     key_terms: [adult, life, military, deleted, entire, online, gasaccomplished3929, apply]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/jobs/1mjfj57.md#c2"
-    char_span: [3350, 5098]
+    char_span: [3349, 5097]
     sentence_count: 11
     key_terms: [get, warehouse, amazon, better, job, jobs, want, applying]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/jobs/1mjfj57.md#c3"
-    char_span: [5100, 6234]
+    char_span: [5099, 6233]
     sentence_count: 9
     key_terms: [job, get, market, paris, far-telephone-7432, easy, jobs, time]
     section: Comments

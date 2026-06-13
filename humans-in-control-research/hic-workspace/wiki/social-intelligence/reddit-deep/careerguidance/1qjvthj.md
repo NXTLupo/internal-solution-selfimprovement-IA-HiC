@@ -21,25 +21,25 @@ chunks:
     key_terms: [applications, interviews, applying, careerguidance, job, qualified, comments, company]
     token_count: 314
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c1"
-    char_span: [1379, 3099]
+    char_span: [1378, 3098]
     sentence_count: 8
     key_terms: [interviews, job, honestly, resume, conversations, applications, been, too]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c2"
-    char_span: [3104, 4787]
+    char_span: [3103, 4786]
     sentence_count: 13
     key_terms: [job, messaging, applications, apply, right, recruiters, linkedin, probably]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c3"
-    char_span: [4789, 7172]
+    char_span: [4788, 7171]
     sentence_count: 19
     key_terms: [applications, applying, roles, job, linkedin, resume, "you're", doing]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1qjvthj.md#c4"
-    char_span: [7174, 7966]
+    char_span: [7173, 7965]
     sentence_count: 8
     key_terms: [applications, apply, companies, anyway, accomplished-win9630, right, "it's", jobs]
     section: Comments

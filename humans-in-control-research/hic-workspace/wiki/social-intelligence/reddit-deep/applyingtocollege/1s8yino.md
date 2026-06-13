@@ -23,19 +23,19 @@ chunks:
     key_terms: [princeton, brown, applyingtocollege, columbia, love, comments, campus, school]
     token_count: 323
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c1"
-    char_span: [1417, 2853]
+    char_span: [1416, 2852]
     sentence_count: 8
     key_terms: [lgbtq-student-self-identification-has-doubled-since-2010-according-to-herald-polling-data, princeton, schools, school, browndailyherald, article, change, "you're"]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c2"
-    char_span: [2855, 4924]
+    char_span: [2854, 4923]
     sentence_count: 12
     key_terms: [schools, princeton, opportunities, prestige, best, med, scared-traffic-4060, deflation]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/applyingtocollege/1s8yino.md#c3"
-    char_span: [4926, 5533]
+    char_span: [4925, 5532]
     sentence_count: 2
     key_terms: [princeton, yucky-yummy-6767, insanely, rigorous, single-type9144, manageable, supportive, preparing]
     section: Comments

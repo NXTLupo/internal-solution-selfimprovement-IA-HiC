@@ -48,91 +48,91 @@ chunks:
     key_terms: [don, far, read, percentage, portfolio, positions, directly, entirely]
     token_count: 120
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c6"
-    char_span: [10261, 11908]
+    char_span: [10260, 11907]
     sentence_count: 8
     key_terms: [gold, energy, higher, berkshire, horses, likely, silver, dangerous-lawyer-636]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c7"
-    char_span: [11910, 13791]
+    char_span: [11909, 13790]
     sentence_count: 12
     key_terms: [gold, money, muugumo, gld, "i'm", men, diversify, asteroid]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c8"
-    char_span: [13479, 13825]
+    char_span: [13478, 13824]
     sentence_count: 3
     key_terms: [gold, asteroid, mission, belt, interesting, asteroids, available, uncovered]
     section: Comments
     token_count: 71
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c9"
-    char_span: [13828, 15930]
+    char_span: [13827, 15929]
     sentence_count: 12
     key_terms: [phys, tax, collectibles, imactuallyatoaster, flat, gold, gains, hold]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c10"
-    char_span: [15644, 16385]
+    char_span: [15643, 16384]
     sentence_count: 2
     key_terms: [own, tax, collectibles, ilikemygirltitties, imactuallyatoaster, file, gold, phys]
     section: Comments
     token_count: 188
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c11"
-    char_span: [16387, 16504]
+    char_span: [16386, 16503]
     sentence_count: 1
     key_terms: [thesis, exaggerations, significant, omissions, partially, analysis, critical, verdict]
     section: Comments
     token_count: 37
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c12"
-    char_span: [16553, 18478]
+    char_span: [16552, 18477]
     sentence_count: 18
     key_terms: [gold, interest, central, payments, trillion, federal, income, cbo]
     section: "✅ CLAIMS THAT ARE **VERIFIED & ACCURATE**"
     token_count: 492
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c13"
-    char_span: [18533, 20549]
+    char_span: [18532, 20548]
     sentence_count: 19
     key_terms: [trillion, debt, post, strategy, reddit, bills, invasion, issuance]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 497
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c14"
-    char_span: [20551, 21923]
+    char_span: [20550, 21922]
     sentence_count: 2
     key_terms: [claude, turkey, tonnes, gold, february, central, gemini, discountacrobatic356]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 396
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c15"
-    char_span: [21925, 23971]
+    char_span: [21924, 23970]
     sentence_count: 9
     key_terms: [debt, trillion, productivity, inflation, growth, data, gap, risk]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 494
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c16"
-    char_span: [23973, 25526]
+    char_span: [23972, 25525]
     sentence_count: 7
     key_terms: [mainstream, inflation, claude, methodology, shadowstats, take, debasement, seriously]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 362
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c17"
-    char_span: [25528, 27107]
+    char_span: [25527, 27106]
     sentence_count: 7
     key_terms: [turkey, trillion, debt, net, claude, tonnes, claim, data]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 379
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c18"
-    char_span: [27109, 28829]
+    char_span: [27108, 28828]
     sentence_count: 10
     key_terms: [inflation, debt, productivity, gap, growth, dominance, interest, printing]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 380
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c19"
-    char_span: [28831, 30707]
+    char_span: [28830, 30706]
     sentence_count: 16
     key_terms: [bullets, golden, taiwan, china, gold, better, trump, agreed]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"
     token_count: 462
   - id: "social-intelligence/reddit-deep/stocks/1p66jaq.md#c20"
-    char_span: [30709, 32786]
+    char_span: [30708, 32785]
     sentence_count: 7
     key_terms: [paper-savings-bonds-issues-redemptions-and-maturities-by-series, gold, savings-bonds-issues-redemptions-maturities-by-series, bonds, reserves, unfortunately, mathematical, certainty]
     section: "⚠️ CLAIMS THAT ARE **MISLEADING OR EXAGGERATED**"

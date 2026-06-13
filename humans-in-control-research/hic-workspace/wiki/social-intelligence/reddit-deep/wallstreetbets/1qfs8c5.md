@@ -23,25 +23,25 @@ chunks:
     key_terms: [customers, poet, wallstreetbets, development, photonics, comments, company, patents]
     token_count: 291
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c1"
-    char_span: [1124, 2126]
+    char_span: [1123, 2125]
     sentence_count: 4
     key_terms: [iamtexasranger, discord, shares, https, total, tech, wsb, g683cj6og6eg1]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c2"
-    char_span: [2128, 4022]
+    char_span: [2127, 4021]
     sentence_count: 11
     key_terms: [poet, averaged, player, down, tech, probably, average, market]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c3"
-    char_span: [3737, 4814]
+    char_span: [3736, 4813]
     sentence_count: 7
     key_terms: [good, patents, market, shares, charming-priority859, defiant-walk-8330, been, far]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qfs8c5.md#c4"
-    char_span: [4816, 5628]
+    char_span: [4815, 5627]
     sentence_count: 6
     key_terms: [poet, andrelinoge55, challenging, electricity, everything, interposer, production, technology]
     section: Comments

@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1n4ddyp.md#c0"
-    char_span: [0, 1575]
+    char_span: [0, 1574]
     sentence_count: 11
     key_terms: [costs, indirect, billion, higher-education, highereducation, university, accounted, comments]
     token_count: 351

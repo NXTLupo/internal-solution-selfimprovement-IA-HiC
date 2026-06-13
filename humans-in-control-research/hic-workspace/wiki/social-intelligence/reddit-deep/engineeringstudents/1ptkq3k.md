@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineering, engineeringstudents, comments, military, substantial-shirt875, environmental, internships, reddit-deep]
     token_count: 132
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c1"
-    char_span: [590, 2290]
+    char_span: [589, 2289]
     sentence_count: 14
     key_terms: [internships, did, battlebots, experience, internship, interviews, finding, trouble]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ptkq3k.md#c2"
-    char_span: [2292, 4172]
+    char_span: [2291, 4171]
     sentence_count: 14
     key_terms: [job, substantial-shirt875, graduating, got, yourself, market, internships, internship]
     section: Comments

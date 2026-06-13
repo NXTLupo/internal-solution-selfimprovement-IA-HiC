@@ -23,133 +23,133 @@ chunks:
     key_terms: [rule, financialindependence, following, investments, "i'm", withdrawal, comments, "doesn't"]
     token_count: 291
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c1"
-    char_span: [1214, 2946]
+    char_span: [1213, 2945]
     sentence_count: 10
     key_terms: [rule, right, management, currently, giving, pisses, "i'm", job]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c2"
-    char_span: [2948, 4653]
+    char_span: [2947, 4652]
     sentence_count: 11
     key_terms: [withdrawal, portfolio, answer, rate, inflation, sequences, drawdown, probably]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c3"
-    char_span: [4655, 6167]
+    char_span: [4654, 6166]
     sentence_count: 9
     key_terms: [work, promote, working, people, money, idea, old, whoooocaaarreees]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c4"
-    char_span: [6169, 6832]
+    char_span: [6168, 6831]
     sentence_count: 6
     key_terms: [people, doing, because, myself, potter, call, like, nonstopnewcomer]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c5"
-    char_span: [6834, 8903]
+    char_span: [6833, 8902]
     sentence_count: 10
     key_terms: [people, get, like, industry, sequence, income, social, uncomfortable]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c6"
-    char_span: [8620, 9158]
+    char_span: [8619, 9157]
     sentence_count: 3
     key_terms: [security, social, get, work, littlebighorn22, collecting, difference, retirement]
     section: Comments
     token_count: 127
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c7"
-    char_span: [9160, 11325]
+    char_span: [9159, 11324]
     sentence_count: 20
     key_terms: [working, retired, people, security, social, collect, deleted, million]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c8"
-    char_span: [11327, 12795]
+    char_span: [11326, 12794]
     sentence_count: 7
     key_terms: [years, com, reddit, remindmebot, www, message, working, financialindependence]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c9"
-    char_span: [12797, 14259]
+    char_span: [12796, 14258]
     sentence_count: 7
     key_terms: [message, remindmebot, reddit, https, com, www, compose, subject]
     section: Comments
     token_count: 431
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c10"
-    char_span: [14261, 14951]
+    char_span: [14260, 14950]
     sentence_count: 7
     key_terms: [years, time, assets, above, fine, roll, significantly, substantially]
     section: Comments
     token_count: 196
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c11"
-    char_span: [14953, 16958]
+    char_span: [14952, 16957]
     sentence_count: 10
     key_terms: [retirement, withdrawal, people, years, percentage, extremely, spending, better]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c12"
-    char_span: [16686, 17040]
+    char_span: [16685, 17039]
     sentence_count: 2
     key_terms: [better, live, consistently, philanthropy, owlpellet, donating, involved, deleted]
     section: Comments
     token_count: 92
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c13"
-    char_span: [17042, 18825]
+    char_span: [17041, 18824]
     sentence_count: 9
     key_terms: [investments, month, getting, year, dividends, inflation, amount, taking]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c14"
-    char_span: [18827, 20090]
+    char_span: [18826, 20089]
     sentence_count: 9
     key_terms: [income, rental, swr, mortgage, spending, planned, equivalent, inflation]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c15"
-    char_span: [20092, 22108]
+    char_span: [20091, 22107]
     sentence_count: 17
     key_terms: [swr, mortgage, retirement, inflation, portfolio, age, year, equivalent]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c16"
-    char_span: [22110, 23747]
+    char_span: [22109, 23746]
     sentence_count: 7
     key_terms: [mortgage, retirement, portfolio, solomongrumpy, calculations, significant, subtracting, "it's"]
     section: Comments
     token_count: 384
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c17"
-    char_span: [23749, 25151]
+    char_span: [23748, 25150]
     sentence_count: 7
     key_terms: [mortgage, rental, different, rule, people, determine, portfolio, spending]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c18"
-    char_span: [25153, 27144]
+    char_span: [25152, 27143]
     sentence_count: 17
     key_terms: [rule, "it's", "don't", assumptions, too, use, bulletthroughabottle, close]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c19"
-    char_span: [27146, 28898]
+    char_span: [27145, 28897]
     sentence_count: 8
     key_terms: ["it's", retirement, "don't", different, portfolio, question, actual, living]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c20"
-    char_span: [28900, 30809]
+    char_span: [28899, 30808]
     sentence_count: 15
     key_terms: [inflation, retirement, figure, early, like, rate, rule, withdrawal]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c21"
-    char_span: [30811, 32806]
+    char_span: [30810, 32805]
     sentence_count: 12
     key_terms: [rule, because, exactly, spend, friend, going, retirement, following]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/financialindependence/1lffpjl.md#c22"
-    char_span: [32811, 33027]
+    char_span: [32810, 33026]
     sentence_count: 1
     key_terms: [retirement, spend, overestimate, therefore, anywhere, spending, withdraw, realize]
     section: Comments

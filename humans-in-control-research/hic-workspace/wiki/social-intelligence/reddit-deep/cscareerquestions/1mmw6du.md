@@ -23,55 +23,55 @@ chunks:
     key_terms: [cscareerquestions, "i've", important, comments, already, because, classes, nothing]
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c1"
-    char_span: [1548, 3674]
+    char_span: [1547, 3673]
     sentence_count: 13
     key_terms: [knowledge, like, something, projects, project, simple, "you're", start]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c2"
-    char_span: [3676, 5728]
+    char_span: [3675, 5727]
     sentence_count: 5
     key_terms: [get, project, myself, learn, application, everything, something, stevefuzz]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c3"
-    char_span: [5730, 7883]
+    char_span: [5729, 7882]
     sentence_count: 16
     key_terms: [something, programming, because, since, app, don, like, important]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c4"
-    char_span: [7619, 7951]
+    char_span: [7618, 7950]
     sentence_count: 4
     key_terms: ["you're", internships, concretely, investment, sophomores, "company's", freshman, priority]
     section: Comments
     token_count: 77
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c5"
-    char_span: [7953, 9532]
+    char_span: [7952, 9531]
     sentence_count: 13
     key_terms: [get, something, projects, realistically, started, usually, people, resume]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c6"
-    char_span: [9534, 11694]
+    char_span: [9533, 11693]
     sentence_count: 22
     key_terms: [projects, "don't", code, public, especially, something, useful, "you're"]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c7"
-    char_span: [11696, 13927]
+    char_span: [11695, 13926]
     sentence_count: 15
     key_terms: [programming, language, "it's", like, time, especially, knowledge, languages]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c8"
-    char_span: [13932, 15895]
+    char_span: [13931, 15894]
     sentence_count: 11
     key_terms: [take, repositories, class, application, used, web, recommend, something]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mmw6du.md#c9"
-    char_span: [15897, 17232]
+    char_span: [15896, 17231]
     sentence_count: 10
     key_terms: [big, understand, certified, knowledge, learning, started, around, friend]
     section: Comments

@@ -23,97 +23,97 @@ chunks:
     key_terms: [year, accounts, personalfinance, advantaged, retirement, comments, adding, enough]
     token_count: 404
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c1"
-    char_span: [1651, 2995]
+    char_span: [1650, 2994]
     sentence_count: 11
     key_terms: [easy, financial, remember, already, easily, enough, others, please]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c2"
-    char_span: [2998, 4770]
+    char_span: [2997, 4769]
     sentence_count: 9
     key_terms: [parents, growth, job, kind, paid, wirh, economic, ability]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c3"
-    char_span: [4772, 6483]
+    char_span: [4771, 6482]
     sentence_count: 14
     key_terms: [people, rent, pay, because, getting, "they're", annual, "aren't"]
     section: Comments
     token_count: 428
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c4"
-    char_span: [6485, 8400]
+    char_span: [6484, 8399]
     sentence_count: 21
     key_terms: [life, health, contributions, easy, got, retirement, started, always]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c5"
-    char_span: [8153, 8592]
+    char_span: [8152, 8591]
     sentence_count: 5
     key_terms: [emergency, health, conditions, discovered, investment, insurance, accident, allergic]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c6"
-    char_span: [8594, 10238]
+    char_span: [8593, 10237]
     sentence_count: 17
     key_terms: [expensive, save, "don't", later, get, life, ladoblanco, retirement]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c7"
-    char_span: [10240, 12046]
+    char_span: [10239, 12045]
     sentence_count: 16
     key_terms: [compound, interest, returns, retire, later, take, important, question]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c8"
-    char_span: [12048, 14081]
+    char_span: [12047, 14080]
     sentence_count: 15
     key_terms: [money, retirement, accounts, without, people, contributing, rule, investing]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c9"
-    char_span: [14084, 16251]
+    char_span: [14083, 16250]
     sentence_count: 24
     key_terms: [money, years, roth, million, "don't", let, put, take]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c10"
-    char_span: [16253, 17920]
+    char_span: [16252, 17919]
     sentence_count: 10
     key_terms: [comfortably, get, max, want, advantaged, accounts, possible, future]
     section: Comments
     token_count: 392
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c11"
-    char_span: [17922, 19451]
+    char_span: [17921, 19450]
     sentence_count: 13
     key_terms: [stocks, personalfinance, wiki, investing, anything, yourself, finance, invest]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c12"
-    char_span: [19453, 21025]
+    char_span: [19452, 21024]
     sentence_count: 11
     key_terms: [account, investing, finance, months, understanding, investment, brokerage, personal]
     section: Comments
     token_count: 344
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c13"
-    char_span: [21027, 21753]
+    char_span: [21026, 21752]
     sentence_count: 4
     key_terms: [paying, leverage, tryingtobelevel, health, easy, privileges, decent, issues]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c14"
-    char_span: [21755, 23703]
+    char_span: [21754, 23702]
     sentence_count: 12
     key_terms: [enough, inflation, year, security, dollars, "today's", living, social]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c15"
-    char_span: [23471, 25133]
+    char_span: [23470, 25132]
     sentence_count: 14
     key_terms: [inflation, dollars, returns, "today's", enough, withdrawing, real, year]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/personalfinance/1r0et3h.md#c16"
-    char_span: [25135, 26410]
+    char_span: [25134, 26409]
     sentence_count: 7
     key_terms: ["you're", inflation, time, average, black, house, debt, easy]
     section: Comments

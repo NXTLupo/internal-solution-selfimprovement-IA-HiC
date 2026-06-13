@@ -23,13 +23,13 @@ chunks:
     key_terms: [undergraduate, research, gradadmissions, comments, planning, history, energy, thesis]
     token_count: 198
   - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c1"
-    char_span: [874, 2407]
+    char_span: [873, 2406]
     sentence_count: 11
     key_terms: [year, history, thesis, undergraduate, applications, american, research, getting]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/gradadmissions/1nto1r9.md#c2"
-    char_span: [2409, 4861]
+    char_span: [2408, 4860]
     sentence_count: 8
     key_terms: [important, american, research, yourself, undergraduate, history, start, journal]
     section: Comments

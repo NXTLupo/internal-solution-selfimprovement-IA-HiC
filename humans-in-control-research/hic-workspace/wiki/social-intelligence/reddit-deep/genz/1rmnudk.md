@@ -23,37 +23,37 @@ chunks:
     key_terms: [nobody, comments, marriage, property, legally, school, longjumping-elk-2934, legal]
     token_count: 273
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c1"
-    char_span: [1234, 1993]
+    char_span: [1233, 1992]
     sentence_count: 4
     key_terms: [discord, unique-assumption619, algebra-level, automatically, automoderator, explicitly, foundation, moderators]
     section: Comments
     token_count: 187
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c2"
-    char_span: [1995, 4007]
+    char_span: [1994, 4006]
     sentence_count: 11
     key_terms: [school, people, learn, because, assume, elbigcheddar, lot, too]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c3"
-    char_span: [3774, 4162]
+    char_span: [3773, 4161]
     sentence_count: 2
     key_terms: ["it's", yourself, because, schools, learn, teach, job, other-other-user]
     section: Comments
     token_count: 102
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c4"
-    char_span: [4164, 4411]
+    char_span: [4163, 4410]
     sentence_count: 1
     key_terms: ["doesn't", school, taught, teach, huh, yeah, critical, problems]
     section: Comments
     token_count: 53
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c5"
-    char_span: [4413, 6721]
+    char_span: [4412, 6720]
     sentence_count: 15
     key_terms: [people, divorce, everything, community, marriage, property, through, "didn't"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/genz/1rmnudk.md#c6"
-    char_span: [6455, 6904]
+    char_span: [6454, 6903]
     sentence_count: 3
     key_terms: [finances, people, additional-tax-5562, heard, non-wealthy, everything, understand, ambitions]
     section: Comments

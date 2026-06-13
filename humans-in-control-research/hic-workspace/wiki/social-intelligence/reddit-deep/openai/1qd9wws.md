@@ -18,7 +18,7 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/openai/1qd9wws.md#c0"
-    char_span: [0, 1796]
+    char_span: [0, 1795]
     sentence_count: 8
     key_terms: [assistants, images, tokens, completions, api, vision, chat, gpt-4o]
     token_count: 485

@@ -23,55 +23,55 @@ chunks:
     key_terms: [povertyfinance, enough, comments, budget, money, bulk, buy, reddit-deep]
     token_count: 188
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c1"
-    char_span: [801, 2622]
+    char_span: [800, 2621]
     sentence_count: 9
     key_terms: [store, too, coupons, grocery, walmart, online, pickup, doing]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c2"
-    char_span: [2624, 3850]
+    char_span: [2623, 3849]
     sentence_count: 9
     key_terms: [grocery, use, everything, finishing, lentils, thousandbucketsofh20, meals, pasta]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c3"
-    char_span: [3852, 5076]
+    char_span: [3851, 5075]
     sentence_count: 9
     key_terms: [beans, ingredients, fried, stock, meal, rice, sale, show]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c4"
-    char_span: [5078, 6485]
+    char_span: [5077, 6484]
     sentence_count: 15
     key_terms: [lentils, stores, get, nutritious, different, filling, grocery, peruse]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c5"
-    char_span: [6487, 7402]
+    char_span: [6486, 7401]
     sentence_count: 13
     key_terms: [bulk, always, month, buy, buying, choose, times, able]
     section: Comments
     token_count: 237
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c6"
-    char_span: [7405, 9355]
+    char_span: [7404, 9354]
     sentence_count: 18
     key_terms: [butter, "it's", cheese, potatoes, top, tillamook, little, good]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c7"
-    char_span: [9122, 9846]
+    char_span: [9121, 9845]
     sentence_count: 6
     key_terms: [meat, week, throwawaystomnia, humiliating, ingredients, mspandalady, previously, seasonings]
     section: Comments
     token_count: 189
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c8"
-    char_span: [9848, 11757]
+    char_span: [9847, 11756]
     sentence_count: 21
     key_terms: [chicken, meals, ham, like, get, rice, potatoes, dollars]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx3aq9.md#c9"
-    char_span: [11759, 12558]
+    char_span: [11758, 12557]
     sentence_count: 6
     key_terms: [ham, protein, sources, meals, split, get, huge, less]
     section: Comments

@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/5d48dedf4f.md#c0"
-    char_span: [0, 2290]
+    char_span: [0, 2289]
     sentence_count: 15
     key_terms: [math, degree, engineering, "you'll", engineeringstudents, remember, courses, later]
-    token_count: 503
+    token_count: 502
   - id: "articles/reddit-deep-r-engineeringstudents/5d48dedf4f.md#c1"
-    char_span: [2292, 3225]
+    char_span: [2291, 3224]
     sentence_count: 4
     key_terms: [calc, specific, methods, engineering, math, classes, courses, diffeq]
     token_count: 211

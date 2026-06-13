@@ -26,31 +26,31 @@ chunks:
     key_terms: [free, job, upper-management, disclaimer, externally, understand, reluctant, economy]
     token_count: 109
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c2"
-    char_span: [2467, 3929]
+    char_span: [2466, 3928]
     sentence_count: 4
     key_terms: [that-, attitude, hafi51, financial-quail-4215, free-huckleberry-965, check, minimumcertain8651, word-word-3numbers]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c3"
-    char_span: [3932, 5337]
+    char_span: [3931, 5336]
     sentence_count: 7
     key_terms: [manager, that-, tell, people, cloud, great, infra, bad]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c4"
-    char_span: [5339, 6756]
+    char_span: [5338, 6755]
     sentence_count: 10
     key_terms: [support, software, role, cooked, team, company, devops, reason]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c5"
-    char_span: [6758, 7775]
+    char_span: [6757, 7774]
     sentence_count: 8
     key_terms: [little, like, pay, team, definitely, person, going, turn]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6iqeu.md#c6"
-    char_span: [7777, 8751]
+    char_span: [7776, 8750]
     sentence_count: 8
     key_terms: [looking, "you're", needworkfast-csstud, that-, good, job, let, new]
     section: Comments

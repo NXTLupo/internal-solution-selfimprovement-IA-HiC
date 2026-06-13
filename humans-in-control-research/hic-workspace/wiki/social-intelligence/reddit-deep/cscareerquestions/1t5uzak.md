@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, companies, comments, advice, entry, level, get, undergraduates]
     token_count: 212
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c1"
-    char_span: [900, 3392]
+    char_span: [899, 3391]
     sentence_count: 16
     key_terms: [industry, understanding, code, coding, different, good, concepts, sound]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c2"
-    char_span: [3394, 5043]
+    char_span: [3393, 5042]
     sentence_count: 12
     key_terms: [need, doing, something, software, getting, going, code, else]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t5uzak.md#c3"
-    char_span: [5046, 5813]
+    char_span: [5045, 5812]
     sentence_count: 5
     key_terms: [job, healthcare, librarianoutside2376, bad, been, get, exponentially, unfortunately]
     section: Comments

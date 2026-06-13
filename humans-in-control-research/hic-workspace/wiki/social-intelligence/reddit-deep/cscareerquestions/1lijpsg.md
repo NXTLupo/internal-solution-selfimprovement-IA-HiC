@@ -26,43 +26,43 @@ chunks:
     key_terms: [year, making, school, point, long, residency, complain, doctors]
     token_count: 92
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c2"
-    char_span: [2090, 3963]
+    char_span: [2089, 3962]
     sentence_count: 20
     key_terms: [company, experience, field, "it's", director, people, non-technical, engineering]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c3"
-    char_span: [3965, 5943]
+    char_span: [3964, 5942]
     sentence_count: 14
     key_terms: ["don't", applications, engineering, get, like, recruiters, something, advice]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c4"
-    char_span: [5945, 7956]
+    char_span: [5944, 7955]
     sentence_count: 13
     key_terms: [school, https, chocolate-emmi-87, outreach, resume, free-chapters, "don't", "it's"]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c5"
-    char_span: [7958, 9363]
+    char_span: [7957, 9362]
     sentence_count: 11
     key_terms: [medicine, schools, family, med, want, carribean, because, people]
     section: Comments
     token_count: 339
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c6"
-    char_span: [9365, 10758]
+    char_span: [9364, 10757]
     sentence_count: 10
     key_terms: [interviews, interviewing, being, "i've", time, companies, responses, applying]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c7"
-    char_span: [10761, 12910]
+    char_span: [10760, 12909]
     sentence_count: 19
     key_terms: [engineering, programming, software, comparison, work, rizzosaurusrhex, worked, like]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lijpsg.md#c8"
-    char_span: [12912, 13716]
+    char_span: [12911, 13715]
     sentence_count: 5
     key_terms: [convictions, criminal, medicine, going, magnifuckingicient, rizzosaurusrhex, pessimistprime, opportunities]
     section: Comments

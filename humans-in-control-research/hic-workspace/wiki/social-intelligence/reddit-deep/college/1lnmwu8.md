@@ -7,13 +7,13 @@ subreddit: "college"
 title: "Not religious but looking for jobs at religious universities?"
 author: "FastCoconut9010"
 date: "2025-06-29T19:13:38.000Z"
-score: 6
-upvote_ratio: 0.64
+score: 7
+upvote_ratio: 0.65
 num_comments: 18
 flair: ""
-extracted_at: "2026-06-06T17:42:15.230Z"
+extracted_at: "2026-06-08T17:32:14.363Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/college/1lnmwu8.md#c0"
     char_span: [0, 1862]
@@ -60,7 +60,7 @@ chunks:
 # Not religious but looking for jobs at religious universities?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1lnmwu8/not_religious_but_looking_for_jobs_at_religious/)
-Posted by **FastCoconut9010** · **6↑** · **18 comments**
+Posted by **FastCoconut9010** · **7↑** · **18 comments**
 
 I can't think of anywhere else to post this so hopefully this is the right place, experiences as non-religious or non-practicing students at religious universities would be good to know as well. 
 
@@ -74,11 +74,11 @@ My question is, would even a school that's more secular still preferentially hir
   - **MyFaceSaysItsSugar** (5↑): As a student they don’t. As an employee they often do, unless you’re an employee of a contractor, like whoever they contract with for maintenance and food services. 
 
 While they will not know a person’s sexual orientation during the hiring process, there are things, like spouse health insurance access, that will be a problem. The LGBTQ employees of Protestant universities that I know are very closeted and that is not healthy long term.
-    - **dancesquared** (6↑): A lot of religious schools don’t expect much from the employees, either, other than to agree to uphold the mission of the institution (which probably has religious overtones). I’ve worked at a Catholic school and a Protestant school, and neither of them required anything specific as far as faith and lifestyle go. 
+    - **dancesquared** (7↑): A lot of religious schools don’t expect much from the employees, either, other than to agree to uphold the mission of the institution (which probably has religious overtones). I’ve worked at a Catholic school and a Protestant school, and neither of them required anything specific as far as faith and lifestyle go. 
 
 You’re right that some of them have stricter requirements and expectations, but I’m not sure what the percentage would be. I’d guess 60% don’t have strict rules and maybe 40% do, but that’s just a wild guess based on my experience and the experiences of my colleagues.
-- **publishandperish** (10↑): Don't write off all religious institutions. There are schools where employees are required to sign a form indicating their agreement with some tenents of the faith and promising to live their lives consistent with those tenents. I know someone who is LGBT at one of those schools and they live in fear of losing their job. There are schools were the religious affiliation isn't that central to the operation of the institution and employees are free to live their lives as they want. There are schools that fall in various places on the spectrum between those two extremes. When you are searching for jobs, research the institution. An active LGBTQ student organization is generally a promising sign. Look to see if the institution offers safe zone training. Try to find information about what, if any, DEI programming that have.
-  - **MyFaceSaysItsSugar** (4↑): I don’t recommend trusting the presence of a student LGBTQ group. The diversity that schools tolerate in their student body is not the same as what they tolerate in their employees, at least on an administrative level. In my experience, your co-workers will be mostly welcoming but you will still need to remain closeted from students and the administration. The religious schools that welcome lgbtq employees will actually state that in their non-discrimination policy.
+- **publishandperish** (11↑): Don't write off all religious institutions. There are schools where employees are required to sign a form indicating their agreement with some tenents of the faith and promising to live their lives consistent with those tenents. I know someone who is LGBT at one of those schools and they live in fear of losing their job. There are schools were the religious affiliation isn't that central to the operation of the institution and employees are free to live their lives as they want. There are schools that fall in various places on the spectrum between those two extremes. When you are searching for jobs, research the institution. An active LGBTQ student organization is generally a promising sign. Look to see if the institution offers safe zone training. Try to find information about what, if any, DEI programming that have.
+  - **MyFaceSaysItsSugar** (3↑): I don’t recommend trusting the presence of a student LGBTQ group. The diversity that schools tolerate in their student body is not the same as what they tolerate in their employees, at least on an administrative level. In my experience, your co-workers will be mostly welcoming but you will still need to remain closeted from students and the administration. The religious schools that welcome lgbtq employees will actually state that in their non-discrimination policy.
     - **FastCoconut9010** (1↑): This is definitely what I'm worried about, it's hard to find employee specific information and a lot of places seem really open to people of all faiths/backgrounds and even to LGBT+ students, but it's hard to tell if that openness extends to the staff as well. There's some institutions I have some word of mouth about but other than that I think religious schools of any kind are probably a fallback if I can't find good opportunities when I start applying
 - **MyFaceSaysItsSugar** (3↑): If a school doesn’t list religious affiliation as an employment requirement then they will not likely consider your religion in whether or not they hire you. These are often the Catholic schools. With Baptist schools or other schools that do care about religious activity in their employees, they absolutely will screen you for your religious affiliation and will not hire you if it’s inadequate even if you’re the best candidate in every other way. I have a friend working at a Baptist university where all she needed to do was state that she was Catholic. That same university now requires active and weekly participation in a church or synagogue in order to get hired so it has gotten more strict. Some religious schools will actually require a recommendation letter from a member of the candidate’s church. With these highly religious schools, the administration screens candidates to see if they are adequately religious and will then let the department doing the hiring know whether or not they can hire the person. So you have to meet a minimum standard of religious participation and then you’re selected based on all of the other qualifications that matter. 
 

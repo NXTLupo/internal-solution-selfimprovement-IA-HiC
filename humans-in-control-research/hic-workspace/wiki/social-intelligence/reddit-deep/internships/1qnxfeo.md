@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, experience, interview, wondering, comments, anyone, fewcombination5329, bmw]
     token_count: 113
   - id: "social-intelligence/reddit-deep/internships/1qnxfeo.md#c1"
-    char_span: [479, 1137]
+    char_span: [478, 1136]
     sentence_count: 4
     key_terms: [favorite, otherpressure3111, ask, job, role, internapp-sigma, behaviorals, interviewer]
     section: Comments

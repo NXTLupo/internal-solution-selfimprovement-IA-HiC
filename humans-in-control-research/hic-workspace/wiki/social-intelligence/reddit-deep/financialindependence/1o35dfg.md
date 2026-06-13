@@ -43,31 +43,31 @@ chunks:
     key_terms: [employer, match, tax, spreadsheets, rollover, sharing, google, https]
     token_count: 447
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c5"
-    char_span: [5871, 7146]
+    char_span: [5870, 7145]
     sentence_count: 12
     key_terms: [individual, points, stocks, understand, winkahpack, investing, strategy, selling]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c6"
-    char_span: [7148, 9194]
+    char_span: [7147, 9193]
     sentence_count: 13
     key_terms: [points, too, benefits, invested, jsir1999, flight, schwab, travel]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c7"
-    char_span: [9196, 10947]
+    char_span: [9195, 10946]
     sentence_count: 9
     key_terms: [stock, beneficiary, coast-fire, percentile, previous, massive, income, stocks]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c8"
-    char_span: [10949, 12134]
+    char_span: [10948, 12133]
     sentence_count: 15
     key_terms: [roth, years, happy, back, ira, job, tech, backdoor]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/financialindependence/1o35dfg.md#c9"
-    char_span: [12136, 13929]
+    char_span: [12135, 13928]
     sentence_count: 20
     key_terms: [no-reaction-9364, funds, individual, expenses, adopted, example, living, stocks]
     section: Comments

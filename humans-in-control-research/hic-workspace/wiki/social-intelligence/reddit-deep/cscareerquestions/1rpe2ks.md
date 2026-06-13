@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, comments, like, sillycookies7, compensation, reddit-deep, experience, interviews]
     token_count: 133
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c1"
-    char_span: [519, 2889]
+    char_span: [518, 2888]
     sentence_count: 23
     key_terms: [software, engineering, "didn't", needed, people, significant, less, engineers]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c2"
-    char_span: [2891, 4866]
+    char_span: [2890, 4865]
     sentence_count: 18
     key_terms: [hybrid, job, yoe, company, silicon, remote, valley, isospeedrix]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c3"
-    char_span: [4868, 6348]
+    char_span: [4867, 6347]
     sentence_count: 12
     key_terms: [firmware, roles, experience, knowledge, dialysis, machines, medical, resume]
     section: Comments
     token_count: 355
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c4"
-    char_span: [6350, 7598]
+    char_span: [6349, 7597]
     sentence_count: 7
     key_terms: [recruiters, yoe, notyourmom132, roles, constantly, emailing, resume, senior]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpe2ks.md#c5"
-    char_span: [7600, 8730]
+    char_span: [7599, 8729]
     sentence_count: 6
     key_terms: [itxchnology, got, yoe, recruiters, interview, recruiter, another, faang]
     section: Comments

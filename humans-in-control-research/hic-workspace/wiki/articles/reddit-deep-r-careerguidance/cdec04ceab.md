@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/cdec04ceab.md#c0"
-    char_span: [0, 2075]
+    char_span: [0, 2074]
     sentence_count: 11
     key_terms: [been, game, programming, years, getting, through, careerguidance, design]
-    token_count: 427
+    token_count: 426
   - id: "articles/reddit-deep-r-careerguidance/cdec04ceab.md#c1"
-    char_span: [2077, 3932]
+    char_span: [2076, 3931]
     sentence_count: 15
     key_terms: [job, get, work, applying, company, programming, game, here]
     token_count: 436
   - id: "articles/reddit-deep-r-careerguidance/cdec04ceab.md#c2"
-    char_span: [3935, 5245]
+    char_span: [3934, 5244]
     sentence_count: 12
     key_terms: [game, awesome, been, industry, advice, people, needs, thank]
     token_count: 300

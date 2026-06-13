@@ -23,7 +23,7 @@ chunks:
     key_terms: [sub-agents, f37f8ef01dc84a943af5aa19f2af8e3c4aaadaaa, context, claude, tools, anthropic, comments, silverconsistent9222]
     token_count: 205
   - id: "social-intelligence/reddit-deep/anthropic/1qat3y8.md#c1"
-    char_span: [740, 1163]
+    char_span: [739, 1162]
     sentence_count: 2
     key_terms: [playlist, youtube, claude, silverconsistent9222, https, com, list, vock]
     section: Comments

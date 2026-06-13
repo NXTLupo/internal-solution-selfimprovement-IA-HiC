@@ -15,10 +15,10 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/a1a081cdeb.md#c0"
-    char_span: [0, 1420]
+    char_span: [0, 1419]
     sentence_count: 5
     key_terms: [careeradvice, job, like, automation, comments, myself, reddit, mobile-temperature36]
-    token_count: 345
+    token_count: 344
 ---
 # How are you protecting your career from AI automation?
 

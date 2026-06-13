@@ -23,7 +23,7 @@ chunks:
     key_terms: [without, careerguidance, becoming, comments, anyone, career, build, music]
     token_count: 236
   - id: "social-intelligence/reddit-deep/careerguidance/1r6n5ur.md#c1"
-    char_span: [1067, 1437]
+    char_span: [1066, 1436]
     sentence_count: 3
     key_terms: [certainhospital652, efficient-cut7891, expectations, collective, distribute, distrokid, randomly, similar]
     section: Comments

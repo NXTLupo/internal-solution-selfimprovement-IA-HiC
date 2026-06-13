@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/d0aae9d84b.md#c0"
-    char_span: [0, 2022]
+    char_span: [0, 2021]
     sentence_count: 23
     key_terms: [college, breakup, "i'm", through, dad, work, extensions, accident]
-    token_count: 495
+    token_count: 494
   - id: "articles/reddit-deep-r-college/d0aae9d84b.md#c1"
-    char_span: [2024, 3436]
+    char_span: [2023, 3435]
     sentence_count: 13
     key_terms: [etc, work, missed, profs, weeks, hospital, college, stepmom]
     token_count: 333

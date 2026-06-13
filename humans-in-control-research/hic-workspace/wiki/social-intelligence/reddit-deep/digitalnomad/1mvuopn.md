@@ -23,31 +23,31 @@ chunks:
     key_terms: [digital, nomad, bali, anywhere, living, digitalnomad, being, "isn't"]
     token_count: 438
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c1"
-    char_span: [1920, 3109]
+    char_span: [1919, 3108]
     sentence_count: 7
     key_terms: [previous, "didn't", leave, here, need, co-founders, instability, philippines]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c2"
-    char_span: [3111, 4806]
+    char_span: [3110, 4805]
     sentence_count: 11
     key_terms: [apprehensiveyou8920, income, freelancing, get, "it's", job, instagram, though]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c3"
-    char_span: [4808, 6766]
+    char_span: [4807, 6765]
     sentence_count: 15
     key_terms: [like, work, business, always, "that's", lamboforwork, great, bali]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c4"
-    char_span: [6768, 8454]
+    char_span: [6767, 8453]
     sentence_count: 14
     key_terms: [everything, years, bali, been, last, successful, "you're", focus]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/digitalnomad/1mvuopn.md#c5"
-    char_span: [8457, 10640]
+    char_span: [8456, 10639]
     sentence_count: 18
     key_terms: [business, freelancing, startups, never, want, sometimes, digital, getting]
     section: Comments

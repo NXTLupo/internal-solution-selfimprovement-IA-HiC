@@ -28,13 +28,13 @@ chunks:
     key_terms: [law, job, work, plaintiff-side, office, school, bar, exam]
     token_count: 489
   - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c2"
-    char_span: [4172, 6330]
+    char_span: [4171, 6329]
     sentence_count: 18
     key_terms: [law, legal, compliance, management, licensing, work, research, without]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/careerguidance/1pbpqxm.md#c3"
-    char_span: [6332, 8122]
+    char_span: [6331, 8121]
     sentence_count: 14
     key_terms: [research, law, school, sales, get, time, want, compliance]
     section: Comments

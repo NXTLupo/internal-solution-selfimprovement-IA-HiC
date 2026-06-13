@@ -23,13 +23,13 @@ chunks:
     key_terms: [neu, students, boston, co-op, comments, schools, co-ops, cybersecurity]
     token_count: 207
   - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c1"
-    char_span: [886, 2839]
+    char_span: [885, 2838]
     sentence_count: 14
     key_terms: [student, international, students, co-op, harvard, program, northeastern, employers]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/neu/1s6p3he.md#c2"
-    char_span: [2841, 3632]
+    char_span: [2840, 3631]
     sentence_count: 6
     key_terms: [financial, same-cap7233, aid, expensive, package, hey, neu, too]
     section: Comments

@@ -28,19 +28,19 @@ chunks:
     key_terms: [sofi, platform, company, million, financial, year, services, last]
     token_count: 383
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c2"
-    char_span: [3765, 4491]
+    char_span: [3764, 4490]
     sentence_count: 2
     key_terms: [loans, sofi, earnings, discord, profit, shares, stock, total]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c3"
-    char_span: [4493, 6173]
+    char_span: [4492, 6172]
     sentence_count: 7
     key_terms: [earnings, sofi, time, company, growth, killerbeeswaxkill, buy, call]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/wallstreetbets/1syw3ti.md#c4"
-    char_span: [6175, 6918]
+    char_span: [6174, 6917]
     sentence_count: 5
     key_terms: [loan, dickpicdoug, easy, sofi, knowledgeable, performance, cjrjjkosmw, doglog4948]
     section: Comments

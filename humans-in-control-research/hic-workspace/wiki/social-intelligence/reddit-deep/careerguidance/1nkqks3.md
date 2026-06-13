@@ -18,12 +18,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c0"
-    char_span: [0, 1578]
+    char_span: [0, 1577]
     sentence_count: 10
     key_terms: [major, dentistry, neuroscience, careerguidance, doubts, doing, high, undergrad]
-    token_count: 350
+    token_count: 349
   - id: "social-intelligence/reddit-deep/careerguidance/1nkqks3.md#c1"
-    char_span: [1580, 3656]
+    char_span: [1579, 3655]
     sentence_count: 18
     key_terms: [engineering, pre-dental, dentistry, want, extracurricular, career, dental, pursue]
     token_count: 456

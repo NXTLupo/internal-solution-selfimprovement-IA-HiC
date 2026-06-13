@@ -23,61 +23,61 @@ chunks:
     key_terms: [world, investing, comments, getting, almost, money, yoy, approaching]
     token_count: 253
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c1"
-    char_span: [935, 2427]
+    char_span: [934, 2426]
     sentence_count: 5
     key_terms: [since, debt, people, increased, deleted, nothing, "there's", been]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c2"
-    char_span: [2429, 3990]
+    char_span: [2428, 3989]
     sentence_count: 14
     key_terms: [bubble, gold, started, companies, investors, euphoria, getting, surging]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c3"
-    char_span: [3992, 6052]
+    char_span: [3991, 6051]
     sentence_count: 8
     key_terms: [value, mustafak2108, money, blah, "i'm", less, work, unchanged]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c4"
-    char_span: [5739, 6776]
+    char_span: [5738, 6775]
     sentence_count: 5
     key_terms: [exchange, tokens, gains, value, required, crypto, stores, paper]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c5"
-    char_span: [6778, 7364]
+    char_span: [6777, 7363]
     sentence_count: 1
     key_terms: [oracle, cash, pickpocketjones, exponential, necessarily, sidelines, volatilty, increase]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c6"
-    char_span: [7366, 9188]
+    char_span: [7365, 9187]
     sentence_count: 9
     key_terms: [dollar, cash, value, donasaskan, performing, people, redact, aggravating-salad441]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c7"
-    char_span: [9190, 11289]
+    char_span: [9189, 11288]
     sentence_count: 18
     key_terms: [negative, chose, countries, inflation, dollar, highs, aid, "it's"]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c8"
-    char_span: [11291, 12362]
+    char_span: [11290, 12361]
     sentence_count: 7
     key_terms: [educationcultural736, "it's", depression, everything, against, dollar, great, looks]
     section: Comments
     token_count: 278
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c9"
-    char_span: [12364, 13791]
+    char_span: [12363, 13790]
     sentence_count: 12
     key_terms: [people, keep, worthless, because, becomes, hov2787, working, assets]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/investing/1ndjzwr.md#c10"
-    char_span: [13793, 15239]
+    char_span: [13792, 15238]
     sentence_count: 12
     key_terms: [currencies, being, something, money, beginning-fig-9089, medicsansgarantee, euro, "it's"]
     section: Comments

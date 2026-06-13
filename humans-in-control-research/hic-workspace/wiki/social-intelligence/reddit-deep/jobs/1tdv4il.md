@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/jobs/1tdv4il.md
 url: "https://www.reddit.com/r/jobs/comments/1tdv4il/first_entry_level_now_internships/"
 kind: "social-post"
 source: "reddit-deep: r/jobs"
@@ -13,8 +14,19 @@ flair: "Unemployment"
 extracted_at: "2026-06-06T23:23:15.626Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/jobs/1tdv4il.md#c0"
+    char_span: [0, 2035]
+    sentence_count: 13
+    key_terms: [experience, internship, job, internships, jobs, year, supposed, entry]
+    token_count: 465
+  - id: "social-intelligence/reddit-deep/jobs/1tdv4il.md#c1"
+    char_span: [2050, 3573]
+    sentence_count: 9
+    key_terms: [internships, "they're", unpaid, early, been, associated, internship, companies]
+    section: Comments
+    token_count: 345
 ---
-
 # First entry level, now internships?
 
 Source: [reddit-deep: r/jobs](https://www.reddit.com/r/jobs/comments/1tdv4il/first_entry_level_now_internships/)

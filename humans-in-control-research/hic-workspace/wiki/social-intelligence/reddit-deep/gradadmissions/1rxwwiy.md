@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rxwwiy.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rxwwiy/seeking_advices_for_grad_school_admission/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "Social Sciences"
 extracted_at: "2026-06-06T23:23:15.587Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rxwwiy.md#c0"
+    char_span: [0, 1437]
+    sentence_count: 13
+    key_terms: [counseling, work, gradadmissions, school, been, time, experience, psychology]
+    token_count: 325
 ---
-
 # Seeking advices for Grad school admission
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rxwwiy/seeking_advices_for_grad_school_admission/)

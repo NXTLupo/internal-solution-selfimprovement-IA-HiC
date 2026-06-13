@@ -23,13 +23,13 @@ chunks:
     key_terms: [organization, comments, students, group, uwaterloo, starting, thinking, members]
     token_count: 271
   - id: "social-intelligence/reddit-deep/uwaterloo/1qh7nv5.md#c1"
-    char_span: [1253, 2992]
+    char_span: [1252, 2991]
     sentence_count: 12
     key_terms: [utharc, deleted, "i'm", cybered-ca, getting, nothing, "you're", original-jackfruit12]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/uwaterloo/1qh7nv5.md#c2"
-    char_span: [2994, 3272]
+    char_span: [2993, 3271]
     sentence_count: 1
     key_terms: [https, youtu, mqpbka5tdg2vumq4, wajp0mwn7g25wnfj, lg5v6cs6yri, mrvol-f4, skipped, mrvol-]
     section: Comments

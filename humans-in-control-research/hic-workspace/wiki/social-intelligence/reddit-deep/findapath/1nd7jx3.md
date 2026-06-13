@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1nd7jx3.md
 url: "https://www.reddit.com/r/findapath/comments/1nd7jx3/i_dont_want_a_95_life_for_the_rest_of_my_life_i/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,42 @@ flair: "Findapath-Job Choice/Clarity"
 extracted_at: "2026-06-06T23:22:15.476Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c0"
+    char_span: [0, 2149]
+    sentence_count: 19
+    key_terms: [internship, life, want, chronic, month, aspirations, like, experience]
+    token_count: 477
+  - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c1"
+    char_span: [2152, 4437]
+    sentence_count: 16
+    key_terms: [money, lot, like, time, career, degree, design, maybe]
+    token_count: 506
+  - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c2"
+    char_span: [4439, 6542]
+    sentence_count: 19
+    key_terms: [thank, helpful, please, findapath, comments, everyone, guidance, disease]
+    section: Comments
+    token_count: 467
+  - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c3"
+    char_span: [6544, 7793]
+    sentence_count: 10
+    key_terms: [focusing, looking, options, thank, connect-media8345, yourbasicusername, like, flairpointsbot]
+    section: Comments
+    token_count: 301
+  - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c4"
+    char_span: [7795, 9279]
+    sentence_count: 9
+    key_terms: [peace-corps-volunteers-recollection-relevance-20769571, money, channel, youtube, videos, going, point, value]
+    section: Comments
+    token_count: 370
+  - id: "social-intelligence/reddit-deep/findapath/1nd7jx3.md#c5"
+    char_span: [9281, 10059]
+    sentence_count: 7
+    key_terms: [career, "didn't", fire, good, path, deliberately, independence, engineering]
+    section: Comments
+    token_count: 174
 ---
-
 # I don't want a 9-5 life for the rest of my life. I just want to live in nature and travel the world and connect with people and cultures and create, contribute to build things physically. I am not sure what it looks like exactly yet. Can somebody please share their journey on how they got there?
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1nd7jx3/i_dont_want_a_95_life_for_the_rest_of_my_life_i/)

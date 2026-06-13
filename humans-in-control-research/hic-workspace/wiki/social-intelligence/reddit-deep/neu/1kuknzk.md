@@ -23,25 +23,25 @@ chunks:
     key_terms: [neu, involved, opportunities, definitely, comments, friends, ok-impression-3082, ask]
     token_count: 268
   - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c1"
-    char_span: [1065, 3082]
+    char_span: [1064, 3081]
     sentence_count: 18
     key_terms: [year, ok-impression-3082, campus, get, freshmen, housing, did, hard]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c2"
-    char_span: [3084, 5031]
+    char_span: [3083, 5030]
     sentence_count: 13
     key_terms: [ok-impression-3082, get, neu, year, expensive, shortlist, finance, however]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c3"
-    char_span: [5033, 7055]
+    char_span: [5032, 7054]
     sentence_count: 14
     key_terms: [ok-impression-3082, usctrojan98, connection, get, like, neu, time, definitely]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/neu/1kuknzk.md#c4"
-    char_span: [7057, 8648]
+    char_span: [7056, 8647]
     sentence_count: 11
     key_terms: [business, co-ops, definitely, management, co-op, get, eve-7260, market]
     section: Comments

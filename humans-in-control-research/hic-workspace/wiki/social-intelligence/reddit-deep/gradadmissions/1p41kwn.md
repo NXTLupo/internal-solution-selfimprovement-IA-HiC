@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1p41kwn.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1p41kwn/can_you_get_into_grad_school_after_working_in/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Engineering"
 extracted_at: "2026-06-06T23:23:15.591Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p41kwn.md#c0"
+    char_span: [0, 540]
+    sentence_count: 2
+    key_terms: [research, gradadmissions, gpa, experience, comments, industry, working, get]
+    token_count: 135
+  - id: "social-intelligence/reddit-deep/gradadmissions/1p41kwn.md#c1"
+    char_span: [555, 1839]
+    sentence_count: 6
+    key_terms: [though, programs, schools, broedinger, targeting, looking, ranking, "that's"]
+    section: Comments
+    token_count: 310
 ---
-
 # Can you get into grad school after working in industry if you had a low GPA and no research experience?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1p41kwn/can_you_get_into_grad_school_after_working_in/)

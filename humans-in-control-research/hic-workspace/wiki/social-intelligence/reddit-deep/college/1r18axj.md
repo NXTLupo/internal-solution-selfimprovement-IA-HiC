@@ -21,13 +21,13 @@ chunks:
     key_terms: [college, community, want, money, don, get, going, fall]
     token_count: 485
   - id: "social-intelligence/reddit-deep/college/1r18axj.md#c1"
-    char_span: [2148, 4147]
+    char_span: [2147, 4146]
     sentence_count: 9
     key_terms: [transfer, college, community, classes, take, university, studies, office]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/college/1r18axj.md#c2"
-    char_span: [4149, 5327]
+    char_span: [4148, 5326]
     sentence_count: 4
     key_terms: [transfer, get, generals, opportunities, students, social, happylifecoffeehelps, letterheadclassic306]
     section: Comments

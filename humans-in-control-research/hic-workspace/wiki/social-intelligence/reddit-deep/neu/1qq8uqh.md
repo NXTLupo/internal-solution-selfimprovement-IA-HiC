@@ -21,31 +21,31 @@ chunks:
     key_terms: [northeastern, prestigious, residential, year, boston, universities, being, competitive]
     token_count: 488
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c1"
-    char_span: [2271, 2568]
+    char_span: [2270, 2567]
     sentence_count: 2
     key_terms: [students, boston, northeastern, competitive, intentional, extremely, logistics, admitted]
     section: Comments
     token_count: 63
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c2"
-    char_span: [2570, 4530]
+    char_span: [2569, 4529]
     sentence_count: 12
     key_terms: [program, boston, experience, graduating, years, got, nuin, abroad]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c3"
-    char_span: [4532, 5831]
+    char_span: [4531, 5830]
     sentence_count: 6
     key_terms: [boston, london, northeastern, college, student, change, people, frankdrebinonreddit]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c4"
-    char_span: [5833, 7442]
+    char_span: [5832, 7441]
     sentence_count: 12
     key_terms: [people, "you're", time, honestly, helpful, abroad, always, frontsatisfaction152]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/neu/1qq8uqh.md#c5"
-    char_span: [7444, 8205]
+    char_span: [7443, 8204]
     sentence_count: 5
     key_terms: [money, nervous-hair-2107, experience, years, def, soppierfob24, non-college, tomofboston]
     section: Comments

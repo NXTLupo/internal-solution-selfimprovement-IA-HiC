@@ -31,7 +31,7 @@ chunks:
     key_terms: [slide, slides, decision, contain, numbers, quantification, rather, alternative]
     token_count: 455
   - id: "anti-patterns/deck_structure.md#c4"
-    char_span: [7291, 7803]
+    char_span: [7290, 7802]
     sentence_count: 2
     key_terms: [user, patterns, appendlearnedantipattern, updated, layout, added, edits, slide]
     section: Learned Anti-Patterns (auto-grown)

@@ -23,7 +23,7 @@ chunks:
     key_terms: [account, gemini, help, withdrawal, comments, kindunderstanding615, fiat, instruction]
     token_count: 158
   - id: "social-intelligence/reddit-deep/gemini/1np2tu0.md#c1"
-    char_span: [660, 932]
+    char_span: [659, 931]
     sentence_count: 1
     key_terms: [kindunderstanding615, attorneyadvice, fiat, thejakernator, gpayrupn7, referral, abarath, credit]
     section: Comments

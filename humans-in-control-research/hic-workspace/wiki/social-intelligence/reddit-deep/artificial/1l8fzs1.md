@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/artificial/1l8fzs1.md#c0"
-    char_span: [0, 1623]
+    char_span: [0, 1622]
     sentence_count: 8
     key_terms: [story, sproutingstories, engineering, interesting, "i've", artificial, challenges, character]
-    token_count: 325
+    token_count: 324
 ---
 # Built an AI story generator for kids and worked through challenges with prompt engineering and character consistency
 

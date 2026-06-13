@@ -23,7 +23,7 @@ chunks:
     key_terms: [learning, projects, python, engineeringstudents, project, dsa, javascript, placements]
     token_count: 306
   - id: "social-intelligence/reddit-deep/engineeringstudents/1rn99mh.md#c1"
-    char_span: [1391, 2393]
+    char_span: [1390, 2392]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

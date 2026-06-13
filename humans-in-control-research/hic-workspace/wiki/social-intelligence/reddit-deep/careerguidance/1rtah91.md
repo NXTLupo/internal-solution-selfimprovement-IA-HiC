@@ -26,25 +26,25 @@ chunks:
     key_terms: [positions, get, appreciated, programmer, available, developer, resources, showcase]
     token_count: 90
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c2"
-    char_span: [2571, 4233]
+    char_span: [2570, 4232]
     sentence_count: 14
     key_terms: [job, work, applying, programming, back, here, thoughts, company]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c3"
-    char_span: [4236, 5664]
+    char_span: [4235, 5663]
     sentence_count: 12
     key_terms: [game, awesome, been, industry, advice, people, needs, thank]
     section: Comments
     token_count: 338
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c4"
-    char_span: [5666, 7569]
+    char_span: [5665, 7568]
     sentence_count: 14
     key_terms: [game, job, ontario, discussions, luci, name, design, recent]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1rtah91.md#c5"
-    char_span: [7571, 9691]
+    char_span: [7570, 9690]
     sentence_count: 23
     key_terms: [needs, industry, friends, year, keywords, day, get, take]
     section: Comments

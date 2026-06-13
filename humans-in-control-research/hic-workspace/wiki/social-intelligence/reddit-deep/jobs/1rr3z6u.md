@@ -23,13 +23,13 @@ chunks:
     key_terms: [job, jobs, developer, comments, learned, career, expect, growth]
     token_count: 339
   - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c1"
-    char_span: [1555, 3370]
+    char_span: [1554, 3369]
     sentence_count: 12
     key_terms: [years, brainwavecc, financially, opportunity, stay, time, anything, sahand96]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/jobs/1rr3z6u.md#c2"
-    char_span: [3372, 5195]
+    char_span: [3371, 5194]
     sentence_count: 16
     key_terms: [growth, market, job, new, months, notice, anything, risk]
     section: Comments

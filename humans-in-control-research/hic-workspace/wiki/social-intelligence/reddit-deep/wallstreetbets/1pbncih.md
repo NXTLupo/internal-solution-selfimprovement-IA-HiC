@@ -28,25 +28,25 @@ chunks:
     key_terms: [gold, barrick, money, price, share, prints, going, stock]
     token_count: 497
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c2"
-    char_span: [3389, 4345]
+    char_span: [3388, 4344]
     sentence_count: 2
     key_terms: [https, discord, preview, format, total, width, years, ago]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c3"
-    char_span: [4347, 5664]
+    char_span: [4346, 5663]
     sentence_count: 2
     key_terms: [e73404d697d64ca1d30a4f1e11bb1c95dd4f7bf7, goblin561, holding, hotchicksplayingbass, anus, did, get, got]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c4"
-    char_span: [5666, 6787]
+    char_span: [5665, 6786]
     sentence_count: 6
     key_terms: [butterrollercoaster, duchamp1945, slop, goblin561, barrick, cantgetthistowork, buy, get]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pbncih.md#c5"
-    char_span: [6789, 7540]
+    char_span: [6788, 7539]
     sentence_count: 2
     key_terms: [goblin561, waiting4reccession, gold, intoxicated, optionscone, definitely, berserker, extremely]
     section: Comments

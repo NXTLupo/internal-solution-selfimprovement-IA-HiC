@@ -23,43 +23,43 @@ chunks:
     key_terms: [careerguidance, comments, money, here, need, browneyedsoul0, reddit-deep, appreciate]
     token_count: 163
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c1"
-    char_span: [621, 1721]
+    char_span: [620, 1720]
     sentence_count: 11
     key_terms: [particular-run3031, job, tell, logistics, softwares, degree, supply, chain]
     section: Comments
     token_count: 279
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c2"
-    char_span: [1723, 2924]
+    char_span: [1722, 2923]
     sentence_count: 10
     key_terms: [get, management, logistics, warehouse, learn, venue, job, bojackworseman13]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c3"
-    char_span: [2926, 5103]
+    char_span: [2925, 5102]
     sentence_count: 9
     key_terms: [radiology, probably, welding, kishanpatel995, school, start, certificate, assessment]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c4"
-    char_span: [4831, 5750]
+    char_span: [4830, 5749]
     sentence_count: 7
     key_terms: [noclownsonmystation, start, making, no-lavishness-773, tommyknocker77, substitute, ultrasound, dangerous]
     section: Comments
     token_count: 247
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c5"
-    char_span: [5752, 6966]
+    char_span: [5751, 6965]
     sentence_count: 11
     key_terms: [photography, skills, use, pictures, realize, people, maybe, good]
     section: Comments
     token_count: 271
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c6"
-    char_span: [6968, 9059]
+    char_span: [6967, 9058]
     sentence_count: 21
     key_terms: [opportunities, job, start, career, engineering, good, college, diploma]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/careerguidance/1rrstl1.md#c7"
-    char_span: [9061, 9542]
+    char_span: [9060, 9541]
     sentence_count: 5
     key_terms: [soylamulatta, certificate, apprentice, community, education, sometimes, volunteer, colleges]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [company, development, cscareerquestions, been, "it's", new, soon, experience]
     token_count: 386
   - id: "social-intelligence/reddit-deep/cscareerquestions/1s9rf8p.md#c1"
-    char_span: [1684, 3619]
+    char_span: [1683, 3618]
     sentence_count: 11
     key_terms: [job, experience, something, because, java, pay, difference, companies]
     section: Comments

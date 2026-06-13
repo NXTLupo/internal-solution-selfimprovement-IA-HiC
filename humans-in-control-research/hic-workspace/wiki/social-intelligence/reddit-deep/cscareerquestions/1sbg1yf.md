@@ -21,25 +21,25 @@ chunks:
     key_terms: [cooked, cscareerquestions, myself, grad, like, new, comments, setting]
     token_count: 300
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c1"
-    char_span: [1278, 3025]
+    char_span: [1277, 3024]
     sentence_count: 11
     key_terms: [guineverefira, code, job, industry, career, cooked, write, definitely]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c2"
-    char_span: [3027, 5112]
+    char_span: [3026, 5111]
     sentence_count: 11
     key_terms: [code, time, use, work, claude, guineverefira, "don't", "it's"]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c3"
-    char_span: [5114, 7010]
+    char_span: [5113, 7009]
     sentence_count: 18
     key_terms: [decisions, code, design, junior, good, industry, already, juniors]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sbg1yf.md#c4"
-    char_span: [7012, 8926]
+    char_span: [7011, 8925]
     sentence_count: 9
     key_terms: [implementation, feature, strangeanswers, guineverefira, understanding, work, developers, unionized]
     section: Comments

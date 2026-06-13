@@ -23,7 +23,7 @@ chunks:
     key_terms: [computer, science, gradadmissions, development, comments, graduate, zookeepergamelazy589, game]
     token_count: 118
   - id: "social-intelligence/reddit-deep/gradadmissions/1shdhee.md#c1"
-    char_span: [521, 1753]
+    char_span: [520, 1752]
     sentence_count: 6
     key_terms: [games, game, sure, usc, design, conscious-secret-775, like, need]
     section: Comments

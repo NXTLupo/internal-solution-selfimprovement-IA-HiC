@@ -23,55 +23,55 @@ chunks:
     key_terms: [students, use, phd, evidence, faculty, funding, consequences, assignments]
     token_count: 496
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c1"
-    char_span: [2447, 4002]
+    char_span: [2446, 4001]
     sentence_count: 12
     key_terms: [suspiciouslink1984, formal, source, "it's", like, multiple, students, copying]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c2"
-    char_span: [4004, 6178]
+    char_span: [4003, 6177]
     sentence_count: 18
     key_terms: [funding, "it's", work, reference, withdrawn, language, required, students]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c3"
-    char_span: [5854, 6852]
+    char_span: [5853, 6851]
     sentence_count: 10
     key_terms: [reference, feedback, language, original, students, checker, source, though]
     section: Comments
     token_count: 211
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c4"
-    char_span: [6854, 7500]
+    char_span: [6853, 7499]
     sentence_count: 7
     key_terms: [grammar, without, boringhistoryfan, spellcheckers, suggestions, everything, archknits, detection]
     section: Comments
     token_count: 148
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c5"
-    char_span: [7502, 9819]
+    char_span: [7501, 9818]
     sentence_count: 22
     key_terms: [through, been, exam, turn, work, discipline, understand, knowledge]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c6"
-    char_span: [9507, 10987]
+    char_span: [9506, 10986]
     sentence_count: 12
     key_terms: [class, sentence, being, coherently, everything, confident, extremely, students]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c7"
-    char_span: [10989, 12895]
+    char_span: [10988, 12894]
     sentence_count: 11
     key_terms: [going, use, students, student, academic, conduct, shocked, through]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c8"
-    char_span: [12897, 14886]
+    char_span: [12896, 14885]
     sentence_count: 18
     key_terms: [software, chances, writing, undetectable, harsh, cite, acceptable, humanized]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/professors/1s3tzbl.md#c9"
-    char_span: [14889, 15432]
+    char_span: [14888, 15431]
     sentence_count: 3
     key_terms: [guidance, students, rafaelleon2107, instruction, specificity, department, citations, defunding]
     section: Comments

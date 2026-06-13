@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1rgmd3t.md#c0"
-    char_span: [0, 531]
+    char_span: [0, 530]
     sentence_count: 5
     key_terms: [research, students, gradadmissions, recognized, chemistry, undergrad, comments, prestigious-sky-3174]
-    token_count: 121
+    token_count: 120
 ---
 # How can chemistry students applying to grad school get recognized for research in undergrad?
 

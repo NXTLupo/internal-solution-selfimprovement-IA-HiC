@@ -21,25 +21,25 @@ chunks:
     key_terms: [redacted, account, colleague, did, contact, though, internships, boss]
     token_count: 486
   - id: "social-intelligence/reddit-deep/internships/1m95yjj.md#c1"
-    char_span: [2003, 3479]
+    char_span: [2003, 3478]
     sentence_count: 11
     key_terms: [tiktok, videos, internship, project, conversation, don, want, probably]
     section: Comments
     token_count: 340
   - id: "social-intelligence/reddit-deep/internships/1m95yjj.md#c2"
-    char_span: [3481, 5500]
+    char_span: [3480, 5499]
     sentence_count: 16
     key_terms: [since, get, company, month, internships, quit, internship, something]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/internships/1m95yjj.md#c3"
-    char_span: [5502, 6306]
+    char_span: [5501, 6305]
     sentence_count: 7
     key_terms: [get, message, better, school, legit, need, send, shit]
     section: Comments
     token_count: 180
   - id: "social-intelligence/reddit-deep/internships/1m95yjj.md#c4"
-    char_span: [6309, 7645]
+    char_span: [6308, 7644]
     sentence_count: 3
     key_terms: [internship, information, get, want, djewellll, company, answer, shitty]
     section: Comments

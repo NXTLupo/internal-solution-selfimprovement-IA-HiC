@@ -1,0 +1,48 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard provides detailed year-end distribution documents which are useful for estimating dividends and capital gains for tax planning purposes.",
+      "post_refs": [
+        "1pj2vd3"
+      ]
+    },
+    {
+      "point": "There are tools and resources available, such as the DividendWatch calculator and Vanguard's cost basis summary page, to help estimate annual dividends and understand qualified versus unqualified dividends.",
+      "post_refs": [
+        "1ntsemn"
+      ]
+    },
+    {
+      "point": "Vanguard's 'Year-to-date tax activity' function helps users track taxable events in their accounts, aiding in tax planning and ensuring proper withholding.",
+      "post_refs": [
+        "1oxww58"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Discrepancies between Vanguard's 1099 forms and year-end summaries create confusion and problems in filing taxes.",
+      "post_refs": [
+        "1qp0h64"
+      ]
+    },
+    {
+      "point": "Complexity in calculating state-exempt dividends from total dividends, especially when dealing with multiple ETFs and different percentages of government securities.",
+      "post_refs": [
+        "1rs578o"
+      ]
+    },
+    {
+      "point": "The US tax system's quarterly estimated payment schedule does not align with calendar quarters, causing potential confusion and risk of penalties.",
+      "post_refs": [
+        "1oxww58"
+      ]
+    },
+    {
+      "point": "Unexpected capital gains from Treasury notes bought at auction and held to maturity can result in additional tax forms and calculations.",
+      "post_refs": [
+        "1qna0lr"
+      ]
+    }
+  ]
+}

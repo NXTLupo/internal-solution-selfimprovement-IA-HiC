@@ -23,49 +23,49 @@ chunks:
     key_terms: [years, myself, something, without, maybe, been, bug, use]
     token_count: 509
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c1"
-    char_span: [2329, 3680]
+    char_span: [2328, 3679]
     sentence_count: 8
     key_terms: [myself, years, problem, enough, figure, people, though, good]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c2"
-    char_span: [3682, 5063]
+    char_span: [3681, 5062]
     sentence_count: 8
     key_terms: [claude, far, warnings, engine, ambitious-garbage-73, areas, taken, years]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c3"
-    char_span: [5065, 7035]
+    char_span: [5064, 7034]
     sentence_count: 8
     key_terms: [claude, code, dr-otto, always, skills, use, solution, thinking]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c4"
-    char_span: [7037, 9025]
+    char_span: [7036, 9024]
     sentence_count: 12
     key_terms: [unrelated-undocumented-property, "it's", knowing, limited, without, always, anyone, search]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c5"
-    char_span: [9027, 10389]
+    char_span: [9026, 10388]
     sentence_count: 12
     key_terms: ["it's", like, reaching, claude, coding, mental, myself, trace]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c6"
-    char_span: [10391, 12592]
+    char_span: [10390, 12591]
     sentence_count: 10
     key_terms: [the-company-whose--ai--was-actually-700-humans-in-india, like, too, across, wanted, explanation, does, decisions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c7"
-    char_span: [12594, 14616]
+    char_span: [12593, 14615]
     sentence_count: 16
     key_terms: [like, too, technology, dangerous, helpful, opinion, access, advice]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/artificial/1sderg4.md#c8"
-    char_span: [14618, 15692]
+    char_span: [14617, 15691]
     sentence_count: 7
     key_terms: [people, therapist, compared, without, ambitious-garbage-73, back, good, gps]
     section: Comments

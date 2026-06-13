@@ -23,7 +23,7 @@ chunks:
     key_terms: [gpt, time, chat, stamp, wrong, timeanddate, ask, com]
     token_count: 313
   - id: "social-intelligence/reddit-deep/gpt/1q7hprw.md#c1"
-    char_span: [1280, 3049]
+    char_span: [1279, 3048]
     sentence_count: 4
     key_terms: [meta-data, include, ide-extension, time-stamping, number-of-queries-into-instance, time-stamp, starting, queries]
     section: Comments

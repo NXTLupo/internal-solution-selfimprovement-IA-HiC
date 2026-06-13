@@ -48,43 +48,43 @@ chunks:
     key_terms: [model, coordinates, image, composition, coordinate, relative, data, pixels]
     token_count: 444
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c6"
-    char_span: [10447, 12650]
+    char_span: [10446, 12649]
     sentence_count: 18
     key_terms: [information, resolution, different, mnist, invariance, textures, compare, resolutions]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c7"
-    char_span: [12652, 14761]
+    char_span: [12651, 14760]
     sentence_count: 18
     key_terms: [attention, using, latent, convolutions, axial, complexity, resolution, underlying]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c8"
-    char_span: [14763, 16502]
+    char_span: [14762, 16501]
     sentence_count: 12
     key_terms: [points, resolution, "don't", model, value, gaussian, pixels, values]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c9"
-    char_span: [16504, 18852]
+    char_span: [16503, 18851]
     sentence_count: 19
     key_terms: [vae, technique, process, latent, diffusion, datasets, misunderstanding, scale-invariant]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c10"
-    char_span: [18854, 19487]
+    char_span: [18853, 19486]
     sentence_count: 5
     key_terms: [sacrifices, invariant, exactly, suppose, "aren't", images, scale, size]
     section: Comments
     token_count: 159
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c11"
-    char_span: [19489, 21239]
+    char_span: [19488, 21238]
     sentence_count: 12
     key_terms: [diffusion, vae, architecture, latent, process, use, coordinate-aware, model]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/machinelearning/1pwd8su.md#c12"
-    char_span: [21241, 21738]
+    char_span: [21240, 21737]
     sentence_count: 4
     key_terms: [model, architecture, resolutions, transformer, appreciate, coordinate, different, diffusion]
     section: Comments

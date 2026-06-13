@@ -28,13 +28,13 @@ chunks:
     key_terms: [opportunities, co-op, background, return, given, offer, terms, international]
     token_count: 305
   - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c2"
-    char_span: [2406, 3845]
+    char_span: [2405, 3844]
     sentence_count: 8
     key_terms: [northeastern, tech, seattle, boston, international, companies, students, because]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/neu/1m9eqw3.md#c3"
-    char_span: [3847, 4820]
+    char_span: [3846, 4819]
     sentence_count: 11
     key_terms: [australia, discounts, campuses, frontsatisfaction152, more-bandicoot8016, tech, mealdifficult207, unfortunately]
     section: Comments

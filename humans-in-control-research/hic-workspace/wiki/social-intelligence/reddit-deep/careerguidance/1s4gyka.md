@@ -23,49 +23,49 @@ chunks:
     key_terms: [software, careerguidance, development, job, comments, computer, problems, because]
     token_count: 350
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c1"
-    char_span: [1600, 3700]
+    char_span: [1599, 3699]
     sentence_count: 19
     key_terms: [dad, job, jobs, everything, community, computer, whatever, yourself]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c2"
-    char_span: [3433, 4826]
+    char_span: [3432, 4825]
     sentence_count: 10
     key_terms: [back, get, anymore, weather, around, degree, years, no-restaurant-7510]
     section: Comments
     token_count: 334
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c3"
-    char_span: [4831, 6890]
+    char_span: [4830, 6889]
     sentence_count: 18
     key_terms: [job, hours, day, role, sabbatical, computer, problems, screens]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c4"
-    char_span: [6892, 8895]
+    char_span: [6891, 8894]
     sentence_count: 17
     key_terms: [something, jobs, software, doing, been, different, living, thread]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c5"
-    char_span: [8897, 10717]
+    char_span: [8896, 10716]
     sentence_count: 19
     key_terms: [work, stacksmasher, something, money, job, nothing, significant-chest-28, wrong]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c6"
-    char_span: [10719, 12911]
+    char_span: [10718, 12910]
     sentence_count: 15
     key_terms: [surrogate, activities, activity, because, other-directed, people, clear-sighted, goal]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c7"
-    char_span: [12913, 14968]
+    char_span: [12912, 14967]
     sentence_count: 24
     key_terms: [job, life, people, money, something, software, reflect, "they're"]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1s4gyka.md#c8"
-    char_span: [14971, 15989]
+    char_span: [14970, 15988]
     sentence_count: 10
     key_terms: [software, doing, right, work, bluebaggins1, lycheenights, mpboomboom22, shareholders]
     section: Comments

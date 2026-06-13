@@ -21,19 +21,19 @@ chunks:
     key_terms: [feature, machinelearning, because, production, dashboard, comments, openai, trying]
     token_count: 297
   - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c1"
-    char_span: [1406, 3116]
+    char_span: [1405, 3115]
     sentence_count: 10
     key_terms: [task, decide, architecture, orchestrator, agent, model, challenge, because]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c2"
-    char_span: [3118, 4102]
+    char_span: [3117, 4101]
     sentence_count: 6
     key_terms: [feature, data, workflow, costs, token, usage, api, like]
     section: Comments
     token_count: 214
   - id: "social-intelligence/reddit-deep/machinelearning/1t4mzm3.md#c3"
-    char_span: [4104, 6084]
+    char_span: [4103, 6083]
     sentence_count: 12
     key_terms: [attribution, requests, emergency, cost, outbound, though, going, term]
     section: Comments

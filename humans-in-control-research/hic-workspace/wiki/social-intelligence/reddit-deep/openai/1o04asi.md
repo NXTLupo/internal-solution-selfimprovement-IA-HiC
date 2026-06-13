@@ -23,7 +23,7 @@ chunks:
     key_terms: [chatgpt, developers, agentkit, openai, apps, sdk, comments, softwaredeliveryops]
     token_count: 299
   - id: "social-intelligence/reddit-deep/openai/1o04asi.md#c1"
-    char_span: [1292, 1599]
+    char_span: [1291, 1598]
     sentence_count: 3
     key_terms: [openai, news, monetization, adept-type, glamoutfit, indication, amessuo19, digests]
     section: Comments

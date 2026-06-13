@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, experience, comments, student, nearby, money, home, jobs]
     token_count: 219
   - id: "social-intelligence/reddit-deep/waterloo/1o1oln1.md#c1"
-    char_span: [993, 1686]
+    char_span: [992, 1685]
     sentence_count: 1
     key_terms: [snooploopssecret, hiring, thank, truthspeakslouder, job, work, seagullrockstar, opportunities]
     section: Comments

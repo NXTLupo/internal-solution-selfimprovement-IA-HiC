@@ -23,7 +23,7 @@ chunks:
     key_terms: [startups, early-stage, internships, team, work, interested, execution, genuinely]
     token_count: 330
   - id: "social-intelligence/reddit-deep/internships/1t95syy.md#c1"
-    char_span: [1655, 3134]
+    char_span: [1654, 3133]
     sentence_count: 7
     key_terms: [startups, swigofravioli349, collegeone1210, worked, roles, offerwatch, linkedin, outreach]
     section: Comments

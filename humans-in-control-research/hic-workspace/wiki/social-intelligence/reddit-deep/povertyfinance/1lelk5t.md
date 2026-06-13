@@ -28,31 +28,31 @@ chunks:
     key_terms: [games, discussed, been, long-term, playing, phone, slept, trust]
     token_count: 355
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c2"
-    char_span: [3852, 5476]
+    char_span: [3851, 5475]
     sentence_count: 16
     key_terms: [submitter, appropriate, need, advice, vents, vent, emotional, situation]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c3"
-    char_span: [5478, 7423]
+    char_span: [5477, 7422]
     sentence_count: 13
     key_terms: [better, games, like, gambling, packs, game, characters, crystals]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c4"
-    char_span: [7425, 8915]
+    char_span: [7424, 8914]
     sentence_count: 16
     key_terms: [get, been, "i've", without, budget, future, little, wanted]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c5"
-    char_span: [8917, 11064]
+    char_span: [8916, 11063]
     sentence_count: 21
     key_terms: [like, relationship, "it'll", month, gets, hope, sell, building]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/povertyfinance/1lelk5t.md#c6"
-    char_span: [11066, 12988]
+    char_span: [11065, 12987]
     sentence_count: 23
     key_terms: [account, available, payment, continuously, games, money, main, purchases]
     section: Comments

@@ -15,17 +15,17 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c0"
-    char_span: [0, 1691]
+    char_span: [0, 1690]
     sentence_count: 13
     key_terms: [get, admissions, applyingtocollege, "i'm", college, parents, "don't", explaining]
-    token_count: 370
+    token_count: 369
   - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c1"
-    char_span: [1693, 3613]
+    char_span: [1692, 3612]
     sentence_count: 24
     key_terms: [hopeful-force-2147, different, year, little, got, peak, sat, newspaper]
     token_count: 505
   - id: "articles/reddit-deep-r-applyingtocollege/a8bdb30ffd.md#c2"
-    char_span: [3615, 4556]
+    char_span: [3614, 4555]
     sentence_count: 8
     key_terms: [the-demographic-cliff-is-overblown, eduvantis, people, class, https, sucks, com, fake]
     token_count: 245

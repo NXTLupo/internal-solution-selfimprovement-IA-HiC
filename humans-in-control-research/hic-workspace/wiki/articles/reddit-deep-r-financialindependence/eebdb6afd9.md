@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-financialindependence/eebdb6afd9.md#c0"
-    char_span: [0, 1689]
+    char_span: [0, 1688]
     sentence_count: 14
     key_terms: [financialindependence, reddit, money, comments, family, https, com, etc]
-    token_count: 399
+    token_count: 398
   - id: "articles/reddit-deep-r-financialindependence/eebdb6afd9.md#c1"
-    char_span: [1691, 3093]
+    char_span: [1690, 3092]
     sentence_count: 13
     key_terms: [independence, financial, "i'm", thank, "i've", "it's", retirement, yourself]
     token_count: 383

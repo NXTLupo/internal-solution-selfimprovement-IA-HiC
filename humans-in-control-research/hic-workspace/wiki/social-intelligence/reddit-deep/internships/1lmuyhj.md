@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1lmuyhj.md#c0"
-    char_span: [0, 1145]
+    char_span: [0, 1144]
     sentence_count: 6
     key_terms: [internship, internship-to-job, project, github, application, development, internships, opportunity]
-    token_count: 251
+    token_count: 250
 ---
 # [Job Search / Internship] Looking for a paid internship or internship-to-job opportunity ( BCA graduate with prior project experience)
 

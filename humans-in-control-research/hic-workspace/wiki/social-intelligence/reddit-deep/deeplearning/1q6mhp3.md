@@ -28,31 +28,31 @@ chunks:
     key_terms: [technology, describe, variants, thanks, works, bert, like]
     token_count: 23
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c2"
-    char_span: [2470, 4932]
+    char_span: [2469, 4931]
     sentence_count: 18
     key_terms: [element, attention, set, output, transformations, matrix, rubber, build]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c3"
-    char_span: [4934, 6884]
+    char_span: [4933, 6883]
     sentence_count: 9
     key_terms: [data, training, transformer, parameter, size, explanation, "it's", dimensions]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c4"
-    char_span: [6886, 9229]
+    char_span: [6885, 9228]
     sentence_count: 20
     key_terms: [scaling, learning, throwaway0134hdj, wahnsinnwanscene, meaning, understanding, intelligent, data]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c5"
-    char_span: [8922, 9682]
+    char_span: [8921, 9681]
     sentence_count: 7
     key_terms: [sentience, time, semblance, thought, data, "it's", self, differentiate]
     section: Comments
     token_count: 170
   - id: "social-intelligence/reddit-deep/deeplearning/1q6mhp3.md#c6"
-    char_span: [9684, 10094]
+    char_span: [9683, 10093]
     sentence_count: 3
     key_terms: [like, new, breakthroughs, architecture, intelligence, earthsworld, algorithms, currently]
     section: Comments

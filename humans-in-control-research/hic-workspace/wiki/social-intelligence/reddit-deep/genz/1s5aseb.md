@@ -23,37 +23,37 @@ chunks:
     key_terms: [like, townhouse, comments, everyone, economy, holding, living, coolreplacement2837]
     token_count: 341
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c1"
-    char_span: [1445, 2996]
+    char_span: [1444, 2995]
     sentence_count: 11
     key_terms: [jobs, work, discord, minimum, working, heater, months, broke]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c2"
-    char_span: [2998, 4108]
+    char_span: [2997, 4107]
     sentence_count: 9
     key_terms: [car, situation, boomers, coolreplacement2837, "can't", years, don, get]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c3"
-    char_span: [4110, 6088]
+    char_span: [4109, 6087]
     sentence_count: 13
     key_terms: [coolreplacement2837, youchasechickens, "it's", definitely, apartment, engineers, probably, townhome]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c4"
-    char_span: [6090, 8169]
+    char_span: [6089, 8168]
     sentence_count: 26
     key_terms: [city, per, own, unfortunately, month, taxes, area, like]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c5"
-    char_span: [8171, 9715]
+    char_span: [8170, 9714]
     sentence_count: 15
     key_terms: [coolreplacement2837, able, married, single, financially, own, paycheck, couples]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/genz/1s5aseb.md#c6"
-    char_span: [9717, 10705]
+    char_span: [9716, 10704]
     sentence_count: 5
     key_terms: [coolreplacement2837, eltaquerodeca, money, together, parents, making, people, did]
     section: Comments

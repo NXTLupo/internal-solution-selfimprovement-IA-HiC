@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1sd9aj6.md#c0"
-    char_span: [0, 362]
+    char_span: [0, 361]
     sentence_count: 2
     key_terms: [careerguidance, comments, substantial-peace588, recommendations, certification, reddit-deep, placement, complete]
-    token_count: 96
+    token_count: 95
 ---
 # I am looking for a complete AI learning path with training, certification, and job placement - Any recommendations ?
 

@@ -15,17 +15,17 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c0"
-    char_span: [0, 1917]
+    char_span: [0, 1916]
     sentence_count: 11
     key_terms: [chatgpt, claude, conversation, image, fail, "it's", like, post]
-    token_count: 483
+    token_count: 482
   - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c1"
-    char_span: [1919, 3044]
+    char_span: [1918, 3043]
     sentence_count: 8
     key_terms: [summaries, r-chatgpt-1050422060352024636, concerns, discord, meeting, output, random, trying]
     token_count: 269
   - id: "articles/reddit-deep-r-chatgpt/f7e4ddee76.md#c2"
-    char_span: [3046, 4678]
+    char_span: [3045, 4677]
     sentence_count: 10
     key_terms: [asking, give, "it's", like, instead, altruistic-slide-512, times, civilizedpsycho224]
     token_count: 380

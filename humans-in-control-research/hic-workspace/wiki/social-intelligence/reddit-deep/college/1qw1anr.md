@@ -7,13 +7,14 @@ subreddit: "college"
 title: "Graduating early vs double majoring/dual degree"
 author: "oxycat__"
 date: "2026-02-04T21:18:04.000Z"
-score: 7
-upvote_ratio: 0.89
+score: 5
+upvote_ratio: 0.78
 num_comments: 8
 flair: "Career/work"
-extracted_at: "2026-06-05T23:41:08.234Z"
+extracted_at: "2026-06-09T03:57:16.730Z"
 extraction_method: "praw-deep"
-research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning, intern, and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. "
+research_goal: "Trends in alumni giving and donor retention for universities"
+engagement: "trends-in-alumni-giving-and-donor-retention-for-universities"
 chunks:
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c0"
     char_span: [0, 1577]
@@ -21,19 +22,19 @@ chunks:
     key_terms: [data, science, major, "i'm", comments, graduate, because, college]
     token_count: 384
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c1"
-    char_span: [1592, 3880]
+    char_span: [1591, 3879]
     sentence_count: 16
     key_terms: [major, additional, going, internships, original, projects, majors, experience]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c2"
-    char_span: [3882, 5716]
+    char_span: [3881, 5715]
     sentence_count: 13
     key_terms: [graduate, major, school, requirements, opportunity, going, level, start]
     section: Comments
     token_count: 374
   - id: "social-intelligence/reddit-deep/college/1qw1anr.md#c3"
-    char_span: [5718, 8052]
+    char_span: [5717, 8051]
     sentence_count: 17
     key_terms: [appropriate, internships, internship, outside, science, skills, early, major]
     section: Comments
@@ -42,7 +43,7 @@ chunks:
 # Graduating early vs double majoring/dual degree
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qw1anr/graduating_early_vs_double_majoringdual_degree/)
-Posted by **oxycat__** · **7↑** · **8 comments**
+Posted by **oxycat__** · **5↑** · **8 comments**
 
 Hi friends, I'm a 4th semester (sophomore) undergrad BSc Psychology / data science minor. I've dabbled around plenty in the Theater department with acting, I'm in intro Bio right now because most of my psych electives are neuro-y, I like coding but disliked the CS culture/dept here, hence my minor. Unfortunately there's no data sci major, because I love it and would like to pursue data analytics/science. 
 
@@ -59,7 +60,7 @@ Thanks!
 - **No-Mountain-2760** (8↑): I  would say graduating early is the right move. Hiring managers care way more about projects, internships, and skills than whether you squeeze in another major. If data science is what you want to do, try to work on projects or get internship like experience. That would probably help more than extra classes. 
 
 The only way I'd say something different is if staying an extra year would let you *a*dd something marketable (stats, applied math, econ, etc.) and you wouldn’t be stressing about money.
-- **ChocoKissses** (3↑): So, I did multiple majors. The general piece of advice that I tell people if they're considering it is that if you're going to do multiple majors, you need to fall into one of two categories. The first category is that you know that the original career path or your original major has very iffy job prospects or will have iffy prospects , and so the additional major or Majors that you take on will provide you with a reliable backup career path that you can easily pivot towards. They're going to be often somewhat related. The second category is that the additional major is going to provide you with education and/or skills that's going to make you a much more competitive candidate for jobs with your original major. Think picking up an additional major to get a certification of language fluency when you're going into some kind of health field and you know that you want to work in a community or area where that language is going to be of high demand.
+- **ChocoKissses** (5↑): So, I did multiple majors. The general piece of advice that I tell people if they're considering it is that if you're going to do multiple majors, you need to fall into one of two categories. The first category is that you know that the original career path or your original major has very iffy job prospects or will have iffy prospects , and so the additional major or Majors that you take on will provide you with a reliable backup career path that you can easily pivot towards. They're going to be often somewhat related. The second category is that the additional major is going to provide you with education and/or skills that's going to make you a much more competitive candidate for jobs with your original major. Think picking up an additional major to get a certification of language fluency when you're going into some kind of health field and you know that you want to work in a community or area where that language is going to be of high demand.
 
 There are then two reasons why I specifically tell people don't do it. If it's for shits and giggles, probably don't. While your school will have, for you to check, a separate GPA for each major, the final GPA on your transcript is all that jobs, internships, and grad schools will see. If your grades from your additional major are significantly lower than the grades that you've already gotten , you can screw yourself over for opportunities when it comes to your main major. The second reason is that you have not spent enough time, energy, or resources trying to pursue experience to bolster your first major. If you haven't done any projects, research, networking, internships, Etc., supporting your first major should be your priority, not getting an additional major.
 

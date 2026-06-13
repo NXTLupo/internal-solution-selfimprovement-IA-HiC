@@ -23,13 +23,13 @@ chunks:
     key_terms: [army, careerguidance, being, good, meaningful, physically, sacrifices, comments]
     token_count: 318
   - id: "social-intelligence/reddit-deep/careerguidance/1ni81ns.md#c1"
-    char_span: [1454, 3189]
+    char_span: [1453, 3188]
     sentence_count: 7
     key_terms: [work, interesting, physical, army, "don't", guard, job, impactful]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/careerguidance/1ni81ns.md#c2"
-    char_span: [3191, 4420]
+    char_span: [3190, 4419]
     sentence_count: 3
     key_terms: [military, quitaquites, call, fire, lifestyle, sacrifice, benefits, merchant]
     section: Comments

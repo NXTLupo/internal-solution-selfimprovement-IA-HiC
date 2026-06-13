@@ -23,25 +23,25 @@ chunks:
     key_terms: [hours, regular, work, freelancer, freelance, billable, comments, employee]
     token_count: 201
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c1"
-    char_span: [840, 2352]
+    char_span: [839, 2351]
     sentence_count: 14
     key_terms: [cover, equipment, time, hourly, freelancers, freelancer, jwellscfo, business]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c2"
-    char_span: [2354, 4284]
+    char_span: [2353, 4283]
     sentence_count: 15
     key_terms: [hours, time, working, hourly, compensation, rate, billable, package]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c3"
-    char_span: [4286, 6372]
+    char_span: [4285, 6371]
     sentence_count: 13
     key_terms: [project, clients, hours, freelancer, calculate, rate, week, client]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/freelance/1pgllc1.md#c4"
-    char_span: [6374, 6466]
+    char_span: [6373, 6465]
     sentence_count: 1
     key_terms: [week, dream, hours, been, get, "it's", like, part]
     section: Comments

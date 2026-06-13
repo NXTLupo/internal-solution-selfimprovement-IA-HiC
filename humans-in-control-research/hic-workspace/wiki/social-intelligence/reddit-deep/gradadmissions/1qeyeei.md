@@ -23,31 +23,31 @@ chunks:
     key_terms: [committee, list, gradadmissions, accept, applications, saw, evaluated, something]
     token_count: 371
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c1"
-    char_span: [1644, 3707]
+    char_span: [1643, 3706]
     sentence_count: 17
     key_terms: [applicants, international, applications, no-force7947, sad, admissions, department, particular]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c2"
-    char_span: [3709, 5761]
+    char_span: [3708, 5760]
     sentence_count: 16
     key_terms: [year, thanks, "can't", thank, post, send, too, applicants]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c3"
-    char_span: [5763, 6930]
+    char_span: [5762, 6929]
     sentence_count: 12
     key_terms: [admit, helps, thank, waves, content-hotel9252, dept, does, pick]
     section: Comments
     token_count: 280
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c4"
-    char_span: [6932, 8649]
+    char_span: [6931, 8648]
     sentence_count: 27
     key_terms: [product, common, like, part, committee, something, threads, member]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/gradadmissions/1qeyeei.md#c5"
-    char_span: [8651, 10697]
+    char_span: [8650, 10696]
     sentence_count: 21
     key_terms: [thank, like, response, helpful, application, been, professor, respond]
     section: Comments

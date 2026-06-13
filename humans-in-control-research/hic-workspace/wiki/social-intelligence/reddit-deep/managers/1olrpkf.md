@@ -23,49 +23,49 @@ chunks:
     key_terms: [team, managers, close, comments, manager, always, dull-calligrapher-25, did]
     token_count: 210
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c1"
-    char_span: [906, 2402]
+    char_span: [905, 2401]
     sentence_count: 13
     key_terms: [promoted, "i've", successful, change, dull-calligrapher-25, teams, traps, new]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c2"
-    char_span: [2404, 4545]
+    char_span: [2403, 4544]
     sentence_count: 21
     key_terms: [team, get, job, work, everything, something, good, take]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c3"
-    char_span: [4547, 6279]
+    char_span: [4546, 6278]
     sentence_count: 16
     key_terms: [team, time, manager, lot, take, thought, couple, dull-calligrapher-25]
     section: Comments
     token_count: 400
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c4"
-    char_span: [6281, 8029]
+    char_span: [6280, 8028]
     sentence_count: 20
     key_terms: [team, dull-calligrapher-25, preferential, don, give, treatment, members, awhile]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c5"
-    char_span: [8031, 10136]
+    char_span: [8030, 10135]
     sentence_count: 25
     key_terms: [management, new, people, old, responsibilities, focus, great, "it's"]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c6"
-    char_span: [10138, 12286]
+    char_span: [10137, 12285]
     sentence_count: 24
     key_terms: [management, training, standards, team, members, always, people, goals]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c7"
-    char_span: [12288, 14437]
+    char_span: [12287, 14436]
     sentence_count: 21
     key_terms: ["you're", relationship, doing, new, training, change, lonely, longer]
     section: Comments
     token_count: 479
   - id: "social-intelligence/reddit-deep/managers/1olrpkf.md#c8"
-    char_span: [14439, 15986]
+    char_span: [14438, 15985]
     sentence_count: 17
     key_terms: [friendship, new, friends, succeed, part, work, manager, honest]
     section: Comments

@@ -21,37 +21,37 @@ chunks:
     key_terms: [rejection, applyingtocollege, rejected, writing, school, being, maybe, like]
     token_count: 505
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c1"
-    char_span: [2104, 3621]
+    char_span: [2104, 3620]
     sentence_count: 5
     key_terms: [weeeeoooowwwweeeeoooowwweeeeoooowwweeeoooowww, college, essays, fun, group, best, like, possibilities]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c2"
-    char_span: [3623, 5398]
+    char_span: [3622, 5397]
     sentence_count: 15
     key_terms: [got, yujimine, please, school, absolutely, yesterday, positive, laugh]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c3"
-    char_span: [5192, 5625]
+    char_span: [5191, 5624]
     sentence_count: 1
     key_terms: [applications, assignments, understand, mandatory, remaining, continue, creative, yujimine]
     section: Comments
     token_count: 109
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c4"
-    char_span: [5627, 6207]
+    char_span: [5626, 6206]
     sentence_count: 2
     key_terms: [school, end, choose, "you'll", "it's", too, "transferring's", appreciate]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c5"
-    char_span: [6209, 7864]
+    char_span: [6208, 7863]
     sentence_count: 12
     key_terms: [yujimine, muhkteska, future-break-7395, rejected, bro, get, accomplish, university]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pljyug.md#c6"
-    char_span: [7617, 9517]
+    char_span: [7616, 9516]
     sentence_count: 6
     key_terms: [essays, like, rejected, application, put, applying, semester, stanford]
     section: Comments

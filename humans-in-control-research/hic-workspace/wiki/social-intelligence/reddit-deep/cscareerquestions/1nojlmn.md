@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, internship, software, development, graduated, cscareerquestions, bachelor, april]
     token_count: 297
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nojlmn.md#c1"
-    char_span: [1233, 2237]
+    char_span: [1232, 2236]
     sentence_count: 7
     key_terms: [throwaway053100, internship, already, degree, accomplished-win9630, apply, cscareerquestions, metalreflectslime]
     section: Comments

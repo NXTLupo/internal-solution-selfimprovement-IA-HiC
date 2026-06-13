@@ -26,43 +26,43 @@ chunks:
     key_terms: [here, people, school, classes, killed, office, glad, got]
     token_count: 285
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c2"
-    char_span: [3073, 5166]
+    char_span: [3072, 5165]
     sentence_count: 12
     key_terms: [tufts, jellyfishflaky5634, someone, people, universities, transferred, year, experience]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c3"
-    char_span: [4901, 7109]
+    char_span: [4900, 7108]
     sentence_count: 14
     key_terms: [housing, abroad, tufts, year, semester, students, lottery, student]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c4"
-    char_span: [6846, 8142]
+    char_span: [6845, 8141]
     sentence_count: 18
     key_terms: [nothing, tufts, hall, informed, bedding, housing, written, dining]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c5"
-    char_span: [8144, 9835]
+    char_span: [8143, 9834]
     sentence_count: 10
     key_terms: [room, jealouscorner3811, mold, window, been, hall, student, tuition]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c6"
-    char_span: [9837, 11856]
+    char_span: [9836, 11855]
     sentence_count: 15
     key_terms: [harvard, school, dorms, dorm, students, like, mold, college]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c7"
-    char_span: [11858, 13737]
+    char_span: [11857, 13736]
     sentence_count: 9
     key_terms: [tuition, mold, college, colleges, students, someone, courts, apprehensivescene686]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t1rxpr.md#c8"
-    char_span: [13739, 15290]
+    char_span: [13738, 15289]
     sentence_count: 13
     key_terms: [school, northeastern, tufts, duke, food, high, amazing, problem]
     section: Comments

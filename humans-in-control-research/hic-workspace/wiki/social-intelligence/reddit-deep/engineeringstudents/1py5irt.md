@@ -23,25 +23,25 @@ chunks:
     key_terms: [get, job, career, experience, engineeringstudents, companies, want, engineering]
     token_count: 378
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c1"
-    char_span: [1817, 4114]
+    char_span: [1816, 4113]
     sentence_count: 11
     key_terms: [company, internship, internships, guidelines, companies, get, known, competitive]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c2"
-    char_span: [3858, 4851]
+    char_span: [3857, 4850]
     sentence_count: 8
     key_terms: [spacex, internships, land, experience, internship, successful, engineers, mid-tier]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c3"
-    char_span: [4853, 6842]
+    char_span: [4852, 6841]
     sentence_count: 14
     key_terms: [worked, contributing, money, prestigious, like, difference, retirement, referring]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/engineeringstudents/1py5irt.md#c4"
-    char_span: [6844, 7633]
+    char_span: [6843, 7632]
     sentence_count: 3
     key_terms: [job, contribute, without, growth, time, contributing, developing, eventually]
     section: Comments

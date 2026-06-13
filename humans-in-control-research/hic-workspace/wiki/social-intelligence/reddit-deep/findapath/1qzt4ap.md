@@ -23,25 +23,25 @@ chunks:
     key_terms: [want, findapath, comments, college, working, "don't", jobs, life]
     token_count: 182
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c1"
-    char_span: [763, 1710]
+    char_span: [762, 1709]
     sentence_count: 9
     key_terms: [thank, helpful, comments, everyone, guidance, helped, please, upvote]
     section: Comments
     token_count: 207
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c2"
-    char_span: [1713, 3107]
+    char_span: [1712, 3106]
     sentence_count: 9
     key_terms: [downtown-doubt4353, people, top, financial, degrees, realize, degree, having]
     section: Comments
     token_count: 321
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c3"
-    char_span: [3109, 5280]
+    char_span: [3108, 5279]
     sentence_count: 12
     key_terms: [college, years, something, davidbosley353, almost, makes, start, engineering]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1qzt4ap.md#c4"
-    char_span: [5034, 6142]
+    char_span: [5033, 6141]
     sentence_count: 8
     key_terms: [something, college, degree, appropriate-tutor587, don, get, jobs, need]
     section: Comments

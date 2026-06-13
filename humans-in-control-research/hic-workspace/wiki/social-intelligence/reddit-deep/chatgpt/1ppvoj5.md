@@ -23,67 +23,67 @@ chunks:
     key_terms: [amateur, photography, candid, chatgpt, natural, background, comments, realism]
     token_count: 189
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c1"
-    char_span: [810, 1639]
+    char_span: [809, 1638]
     sentence_count: 6
     key_terms: [please, conversation, image, post, r-chatgpt-1050422060352024636, concerns, chatgpt-shared-links-faq, chatgpt]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c2"
-    char_span: [1641, 3048]
+    char_span: [1640, 3047]
     sentence_count: 2
     key_terms: [front, giphy, back, gif, backpacks, tourists, "didn't", notice]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c3"
-    char_span: [2906, 3591]
+    char_span: [2905, 3590]
     sentence_count: 1
     key_terms: [resident-election867, pure-statement-8726, s8duqkfomrz0xiy7ek, car, like, skierenthusiast, floppyboiradio, superposition]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c4"
-    char_span: [3593, 3659]
+    char_span: [3592, 3658]
     sentence_count: 1
     key_terms: [unit]
     section: Comments
     token_count: 107
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c5"
-    char_span: [3661, 5250]
+    char_span: [3660, 5249]
     sentence_count: 4
     key_terms: [scaffolding, sidewalk, d49ebd4ceae1a6b3a17d2e1f448a8c6614d72b72, observer, preview, casual, format, membershipsquare9818]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c6"
-    char_span: [5252, 6462]
+    char_span: [5251, 6461]
     sentence_count: 10
     key_terms: ["it's", prompt, image, looks, copyrighted, lighting, chatgpt, deleted]
     section: Comments
     token_count: 326
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c7"
-    char_span: [6464, 8384]
+    char_span: [6463, 8383]
     sentence_count: 8
     key_terms: [going, luentale, fucked, like, deadspline, something, images, people]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c8"
-    char_span: [8141, 8544]
+    char_span: [8140, 8543]
     sentence_count: 3
     key_terms: [blast-from-the-80s, png, xsune8r5i08g1, advertisers, mastermindx, convincing, companies, luentale]
     section: Comments
     token_count: 136
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c9"
-    char_span: [8546, 8637]
+    char_span: [8545, 8636]
     sentence_count: 1
     key_terms: [earflapsopen, closely, looking, though, looks, easy, good, spot]
     section: Comments
     token_count: 24
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c10"
-    char_span: [8639, 9954]
+    char_span: [8638, 9953]
     sentence_count: 7
     key_terms: [preview, format, https, width, blast-from-the-80s, auto, png, redd]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/chatgpt/1ppvoj5.md#c11"
-    char_span: [9817, 10027]
+    char_span: [9816, 10026]
     sentence_count: 1
     key_terms: [be32cf3de92f456ca9d165f120f05462c4058a62, png, d3ovbbpai08g1, badasimo, students, preview, "they're", format]
     section: Comments

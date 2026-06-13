@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qmspbm.md#c0"
-    char_span: [0, 1044]
+    char_span: [0, 1043]
     sentence_count: 6
     key_terms: [engineering, engineeringstudents, advice, construction, internships, "i'm", internship, mechanical]
-    token_count: 236
+    token_count: 235
 ---
 # Mechanical Engineering Internship/Career Advice
 

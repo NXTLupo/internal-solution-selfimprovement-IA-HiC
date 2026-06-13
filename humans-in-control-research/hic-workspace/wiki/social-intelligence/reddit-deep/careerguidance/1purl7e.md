@@ -21,7 +21,7 @@ chunks:
     key_terms: [graduation, career, analytics, guidance, careerguidance, alternative, internships, bba]
     token_count: 443
   - id: "social-intelligence/reddit-deep/careerguidance/1purl7e.md#c1"
-    char_span: [1868, 2734]
+    char_span: [1867, 2733]
     sentence_count: 6
     key_terms: [business, analyst, data, analytics, career, intern, maybe, good]
     section: Comments

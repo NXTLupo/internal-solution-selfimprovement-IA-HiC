@@ -26,7 +26,7 @@ chunks:
     key_terms: [experience, rejection, stories, folder, https, video, youtu, did]
     token_count: 251
   - id: "social-intelligence/reddit-deep/internships/1mtble7.md#c2"
-    char_span: [3455, 5132]
+    char_span: [3454, 5131]
     sentence_count: 9
     key_terms: [ask, relevant-author3142, referral, kind-complex4635, internships, call, beforehand, referrals]
     section: Comments

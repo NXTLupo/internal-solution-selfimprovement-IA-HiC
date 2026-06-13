@@ -23,13 +23,13 @@ chunks:
     key_terms: [claude, changelog, code, https, zshrc, com, fix, anthropic]
     token_count: 295
   - id: "social-intelligence/reddit-deep/anthropic/1slo0iu.md#c1"
-    char_span: [944, 2112]
+    char_span: [943, 2111]
     sentence_count: 7
     key_terms: [cache, minutes, session, people, doubtful, change, finish, tokens]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/anthropic/1slo0iu.md#c2"
-    char_span: [2114, 3468]
+    char_span: [2113, 3467]
     sentence_count: 4
     key_terms: [api, fe8eef35b22825a2b8555b26ff1e35a5ad8a7e80, minutes, cache, danzarak, bedrock, foundry, minute]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, art, been, colleges, comments, guitar, thoroughfaredefender, music]
     token_count: 259
   - id: "social-intelligence/reddit-deep/applyingtocollege/1otzmoa.md#c1"
-    char_span: [1082, 3240]
+    char_span: [1081, 3239]
     sentence_count: 16
     key_terms: [music, campus, art, ecs, skills, participation, application, background]
     section: Comments

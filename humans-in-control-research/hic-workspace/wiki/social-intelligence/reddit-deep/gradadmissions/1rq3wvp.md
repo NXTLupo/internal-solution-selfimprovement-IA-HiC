@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, reddit-deep, mattvalver, accepted, columbia, believe, program]
     token_count: 84
   - id: "social-intelligence/reddit-deep/gradadmissions/1rq3wvp.md#c1"
-    char_span: [306, 609]
+    char_span: [305, 608]
     sentence_count: 2
     key_terms: [congratulations, dependent-coyote-437, no-restaurant-7340, jewishtigerpup, mattvalver, congrats, amazing, program]
     section: Comments

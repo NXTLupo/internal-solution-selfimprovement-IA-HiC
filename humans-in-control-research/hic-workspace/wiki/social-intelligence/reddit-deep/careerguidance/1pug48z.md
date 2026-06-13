@@ -21,91 +21,91 @@ chunks:
     key_terms: [careerguidance, comments, career, degree, job, life, tooyoungtoobroke, reddit-deep]
     token_count: 244
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c1"
-    char_span: [959, 2641]
+    char_span: [958, 2640]
     sentence_count: 19
     key_terms: [chalk, carve, school, orthodontics, gave, told, difficult, deleted]
     section: Comments
     token_count: 402
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c2"
-    char_span: [2643, 4660]
+    char_span: [2642, 4659]
     sentence_count: 8
     key_terms: [patients, anything, considering, deal, dominated, schooling, medicaid, medicare]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c3"
-    char_span: [4662, 6628]
+    char_span: [4661, 6627]
     sentence_count: 13
     key_terms: [job, want, back, day, severance, honestly, getting, snacks]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c4"
-    char_span: [6399, 7724]
+    char_span: [6398, 7723]
     sentence_count: 11
     key_terms: [doing, years, want, retired, snacks, bigforeheadsunited, neverexceptfriday, day]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c5"
-    char_span: [7726, 8593]
+    char_span: [7725, 8592]
     sentence_count: 12
     key_terms: [billionaire, always, school, kid, seafoamcastles, fearless1025, preoccupied, assignment]
     section: Comments
     token_count: 228
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c6"
-    char_span: [8595, 10717]
+    char_span: [8594, 10716]
     sentence_count: 15
     key_terms: [competitive, different, difficult, radiology, marriage, billion, culture, dollars]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c7"
-    char_span: [10426, 12345]
+    char_span: [10425, 12344]
     sentence_count: 19
     key_terms: [school, career, short-salamander6681, around, feel, lot, different, decision]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c8"
-    char_span: [12099, 12532]
+    char_span: [12098, 12531]
     sentence_count: 5
     key_terms: [nursing, school, short-salamander6681, age, feel, physically, retirement, floofie62]
     section: Comments
     token_count: 117
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c9"
-    char_span: [12534, 14239]
+    char_span: [12533, 14238]
     sentence_count: 17
     key_terms: [need, want, work, working, degree, fabric, people, stores]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c10"
-    char_span: [14241, 14996]
+    char_span: [14240, 14995]
     sentence_count: 7
     key_terms: [male-dominated, help, change, gross, love, emberpaintart, codenamenext, windowno6601]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c11"
-    char_span: [14998, 17103]
+    char_span: [14997, 17102]
     sentence_count: 17
     key_terms: [accounting, industry, base, job, work, human, like, finance]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c12"
-    char_span: [16829, 18908]
+    char_span: [16828, 18907]
     sentence_count: 18
     key_terms: [accounting, field, work, medical, something, life, balance, hours]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c13"
-    char_span: [18644, 19114]
+    char_span: [18643, 19113]
     sentence_count: 6
     key_terms: [work, billcheddarfbi, concentrated, accountants, socializing, accountant, accounting, extremely]
     section: Comments
     token_count: 120
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c14"
-    char_span: [19116, 21267]
+    char_span: [19115, 21266]
     sentence_count: 12
     key_terms: [accounting, lower, money, world, accountants, get, pay, real]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/careerguidance/1pug48z.md#c15"
-    char_span: [21270, 22425]
+    char_span: [21269, 22424]
     sentence_count: 9
     key_terms: [anaesthetist, money, experience, registrars, education, registrar, daunting, medical]
     section: Comments

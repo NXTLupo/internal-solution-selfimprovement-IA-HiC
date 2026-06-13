@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, internship, comments, entry, level, data, job, certification]
     token_count: 135
   - id: "social-intelligence/reddit-deep/internships/1kxa9c7.md#c1"
-    char_span: [530, 2393]
+    char_span: [529, 2392]
     sentence_count: 14
     key_terms: [data, everything, better, engineering, mukultechai, luck, mix, tech]
     section: Comments

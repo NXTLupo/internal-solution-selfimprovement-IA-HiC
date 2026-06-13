@@ -23,25 +23,25 @@ chunks:
     key_terms: [applyingtocollege, universities, interested, applying, colleges, comments, honestly, studied]
     token_count: 273
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c1"
-    char_span: [1187, 3201]
+    char_span: [1186, 3200]
     sentence_count: 18
     key_terms: [experience, state, work, senior-dog-9735, degree, development, reccomend, something]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c2"
-    char_span: [3203, 5133]
+    char_span: [3202, 5132]
     sentence_count: 13
     key_terms: [universities, year, college, competitive, sure, admission, rejected, because]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c3"
-    char_span: [5135, 5723]
+    char_span: [5134, 5722]
     sentence_count: 4
     key_terms: [apply, international, undergraduate, unfortunately, application, competitive, interested, extremely]
     section: Comments
     token_count: 121
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t8pbom.md#c4"
-    char_span: [5725, 7667]
+    char_span: [5724, 7666]
     sentence_count: 16
     key_terms: [colleges, edinburgh, options, chance, sure, top, education, already]
     section: Comments

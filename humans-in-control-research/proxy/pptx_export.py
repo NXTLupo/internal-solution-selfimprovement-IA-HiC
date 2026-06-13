@@ -296,19 +296,30 @@ def _hex_to_rgb(hex_str: str) -> RGBColor:
 
 
 def _alpha_to_transparency(alpha: float | None) -> int | None:
-    """0..1 alpha -> PowerPoint transparency 0..100000 (0 = opaque, 100000 = transparent).
-    Returns None for fully opaque (no override needed)."""
+    """0..1 alpha -> DrawingML <a:alpha> val 0..100000.
+
+    2026-06-11 FIX: <a:alpha> carries OPACITY (100000 = fully opaque), NOT
+    transparency. The previous body returned (1-alpha)*100000, which INVERTED
+    every translucent fill: a 4%-opacity brand wash exported at 96% opacity,
+    rendering near-solid accent red over entire blueprint rows (the 2026-06-11
+    service-blueprint PPTX failure). Returns None for fully opaque (no
+    override element needed)."""
     if alpha is None or alpha >= 0.999:
         return None
     if alpha <= 0:
-        return 100000
-    return int((1.0 - alpha) * 100000)
+        return 0
+    return int(alpha * 100000)
 
 
 def _set_solid_fill_with_alpha(spPr_or_fill, hex_color: str, alpha: float | None) -> None:
     """Build <a:solidFill><a:srgbClr val="..."><a:alpha val="..."/></a:srgbClr></a:solidFill>
-    on the given spPr or replace its existing fill child."""
-    pass  # Implemented inline where used — kept here for documentation
+    on the given spPr, replacing any existing fill child.
+
+    2026-06-11 FIX: this was a documentation-only `pass` stub, but
+    gold_pptx_export.py IMPORTS and CALLS it for every translucent rect in the
+    native-geometry path - so wash alpha was silently dropped and brand washes
+    exported fully opaque. Delegate to the real implementation."""
+    _set_solid_fill(spPr_or_fill, hex_color, alpha)
 
 
 def _apply_dash(ln_element, dash: str | None) -> None:
@@ -335,9 +346,17 @@ def _apply_arrow(ln_element, arrow_start: bool, arrow_end: bool) -> None:
 
 
 def _set_solid_fill(spPr, hex_color: str, alpha: float | None) -> None:
-    """Replace any existing fill in spPr with <a:solidFill> carrying the given color + alpha."""
+    """Replace any existing fill in spPr with <a:solidFill> carrying the given color + alpha.
+
+    2026-06-11 FIX: spPr children have a REQUIRED schema order (xfrm, geom,
+    FILL, a:ln, effects, ...). The previous body APPENDED the new solidFill,
+    which lands AFTER <a:ln>/<a:effectLst> when the caller styled the line
+    first (the gold exporter does). PowerPoint silently rejects the
+    out-of-order fill and falls back to <p:style> fillRef accent1 - the
+    Office THEME BLUE that corrupted every translucent cell in the
+    2026-06-11 journey-map deck. Insert before ln/effects instead."""
     # Drop any existing fill children
-    for tag in ("a:solidFill", "a:noFill", "a:gradFill", "a:blipFill", "a:pattFill"):
+    for tag in ("a:solidFill", "a:noFill", "a:gradFill", "a:blipFill", "a:pattFill", "a:grpFill"):
         for el in spPr.findall(qn(tag)):
             spPr.remove(el)
     sf = etree.SubElement(spPr, qn("a:solidFill"))
@@ -347,6 +366,14 @@ def _set_solid_fill(spPr, hex_color: str, alpha: float | None) -> None:
     if t is not None:
         a_el = etree.SubElement(clr, qn("a:alpha"))
         a_el.set("val", str(t))
+    # Re-home the fill at its schema-valid position: before the first of
+    # a:ln / effects / 3d / extLst if any of them already exist.
+    for tag in ("a:ln", "a:effectLst", "a:effectDag", "a:scene3d", "a:sp3d", "a:extLst"):
+        anchor = spPr.find(qn(tag))
+        if anchor is not None:
+            spPr.remove(sf)
+            anchor.addprevious(sf)
+            break
 
 
 def _set_no_fill(spPr) -> None:
@@ -401,7 +428,7 @@ def _is_tiny_icon_stroke(spec: dict, max_dim_in: float = 0.18) -> bool:
     return not has_meaningful_fill and stroke_hex == "FFFFFF"
 
 
-def _is_visually_empty_shape(spec: dict, alpha_floor: float = 0.25) -> bool:
+def _is_visually_empty_shape(spec: dict, alpha_floor: float = 0.03) -> bool:
     """A rect/oval/path is visually empty if it has no fill (or near-transparent)
     AND no stroke. Such shapes are atmospheric blobs, layout placeholders, or
     icon containers that don't carry the gradient/blur the source CSS implies.

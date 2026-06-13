@@ -28,25 +28,25 @@ chunks:
     key_terms: [writing, years, past, gotten, watch, hypocritical, spirituality, maintenance]
     token_count: 228
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c2"
-    char_span: [3232, 4892]
+    char_span: [3231, 4891]
     sentence_count: 10
     key_terms: [politics, ruined, relationships, generations, like, something, deleted, discord]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c3"
-    char_span: [4894, 5904]
+    char_span: [4893, 5903]
     sentence_count: 13
     key_terms: [people, normal, virtual-scarcity-463, gettinwiggywiddit, talk, entertainment, tunapizzacat, generations]
     section: Comments
     token_count: 269
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c4"
-    char_span: [5906, 7960]
+    char_span: [5905, 7959]
     sentence_count: 17
     key_terms: [people, dating, woman, find, men, nerd, financial, sometimes]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/genz/1oi5cam.md#c5"
-    char_span: [7962, 9971]
+    char_span: [7961, 9970]
     sentence_count: 13
     key_terms: [dating, people, person, connections, apps, like, generation, because]
     section: Comments

@@ -23,31 +23,31 @@ chunks:
     key_terms: [estate, real, nightlife, bartending, careerguidance, job, experience, developer]
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c1"
-    char_span: [2039, 3797]
+    char_span: [2038, 3796]
     sentence_count: 13
     key_terms: [sue, fafnirthesteed, sales, development, pay, harassment, agreement, diosababy]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c2"
-    char_span: [3799, 5707]
+    char_span: [3798, 5706]
     sentence_count: 15
     key_terms: [experience, get, degree, industry, flexibility, don, diosababy, degrees]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c3"
-    char_span: [5709, 7459]
+    char_span: [5708, 7458]
     sentence_count: 10
     key_terms: [experience, real, estate, get, like, work, assistant, executive]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c4"
-    char_span: [7461, 9815]
+    char_span: [7460, 9814]
     sentence_count: 14
     key_terms: [estate, real, market, analyst, another, almost, years, got]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1mrapck.md#c5"
-    char_span: [9492, 11161]
+    char_span: [9491, 11160]
     sentence_count: 14
     key_terms: [estate, get, real, isn, commission, diosababy, training, already]
     section: Comments

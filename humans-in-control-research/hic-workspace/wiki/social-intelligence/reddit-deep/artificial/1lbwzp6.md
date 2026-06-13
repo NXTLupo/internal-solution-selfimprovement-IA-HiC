@@ -23,13 +23,13 @@ chunks:
     key_terms: [assistant, artificial, comments, accidentally, reddit-deep, attachment, emotional, pipeline]
     token_count: 120
   - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c1"
-    char_span: [497, 2184]
+    char_span: [496, 2183]
     sentence_count: 14
     key_terms: ["don't", "it's", business, bee8bc30ecc125278e93344b84477719f212d554, intelligence, pleasant, workflow, tools]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/artificial/1lbwzp6.md#c2"
-    char_span: [2186, 3298]
+    char_span: [2185, 3297]
     sentence_count: 13
     key_terms: ["i'm", working, always, dogs, find, old, sure, use]
     section: Comments

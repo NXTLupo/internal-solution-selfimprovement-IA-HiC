@@ -18,12 +18,12 @@ industries: [ai_research, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/deeplearning/1t3qu7o.md#c0"
-    char_span: [0, 1933]
+    char_span: [0, 1932]
     sentence_count: 6
     key_terms: [compression, omnistack-rs, users, benchmark, kernel, deeplearning, personalized, quantization]
-    token_count: 501
+    token_count: 500
   - id: "social-intelligence/reddit-deep/deeplearning/1t3qu7o.md#c1"
-    char_span: [1935, 2366]
+    char_span: [1934, 2365]
     sentence_count: 5
     key_terms: [e0e0c9f092a84a00c56754322a66c07b457e1497, recommender-style, int4, png, a99y8bs9m7yg1, compression, convincing, benchmark]
     token_count: 130

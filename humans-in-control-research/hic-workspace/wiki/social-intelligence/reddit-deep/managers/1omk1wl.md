@@ -23,43 +23,43 @@ chunks:
     key_terms: [team, managers, manager, remote, new, visibility, autonomy, comments]
     token_count: 270
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c1"
-    char_span: [1201, 3243]
+    char_span: [1200, 3242]
     sentence_count: 15
     key_terms: [get, time, work, start, like, employee, tracker, without]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c2"
-    char_span: [3245, 5369]
+    char_span: [3244, 5368]
     sentence_count: 8
     key_terms: [time, been, tracker, "don't", bottlenecks, able, come, want]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c3"
-    char_span: [5371, 7258]
+    char_span: [5370, 7257]
     sentence_count: 28
     key_terms: ["don't", assume, friction, success, learn, anything, avoiding, successfully]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c4"
-    char_span: [7260, 9295]
+    char_span: [7259, 9294]
     sentence_count: 21
     key_terms: [time, establishing, trust, because, "doesn't", recipe, "don't", team]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c5"
-    char_span: [9297, 11464]
+    char_span: [9296, 11463]
     sentence_count: 16
     key_terms: [management, manager, trust, high, team, performing, supporting, tracking]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c6"
-    char_span: [11466, 13657]
+    char_span: [11465, 13656]
     sentence_count: 21
     key_terms: [meetings, work, weeks, support, ask, need, team, performer]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/managers/1omk1wl.md#c7"
-    char_span: [13659, 14607]
+    char_span: [13658, 14606]
     sentence_count: 9
     key_terms: [immediately, team, avoid, time, floorfickle5954, independently, opportunities, autonomously]
     section: Comments

@@ -28,13 +28,13 @@ chunks:
     key_terms: [thinking, higher, models, keeps, good, keep, curveballs, surprising]
     token_count: 162
   - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c2"
-    char_span: [2684, 4591]
+    char_span: [2683, 4590]
     sentence_count: 20
     key_terms: [use, model, work, models, agent, tools, good, nstevnc77]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/openai/1mnuys2.md#c3"
-    char_span: [4593, 4934]
+    char_span: [4592, 4933]
     sentence_count: 4
     key_terms: [system, prompt, lot, possible-ad-6765, documentation, suggestions, correctly, following]
     section: Comments

@@ -15,12 +15,12 @@ industries: [financial_services, enterprise_it]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-stocks/1debcb894c.md#c0"
-    char_span: [0, 1949]
+    char_span: [0, 1948]
     sentence_count: 22
     key_terms: [azure, microsoft, already, openai, stock, down, earnings, expected]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-deep-r-stocks/1debcb894c.md#c1"
-    char_span: [1951, 3428]
+    char_span: [1950, 3427]
     sentence_count: 12
     key_terms: [sub, earnings, google, doomposting, buy, good, everyone, buying]
     token_count: 372

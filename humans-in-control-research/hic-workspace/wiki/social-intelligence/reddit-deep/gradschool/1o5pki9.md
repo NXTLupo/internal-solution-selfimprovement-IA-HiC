@@ -23,19 +23,19 @@ chunks:
     key_terms: [gradschool, comments, ohlawdhetreading, reddit-deep, full-time, careers, changed, posted]
     token_count: 99
   - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c1"
-    char_span: [354, 2334]
+    char_span: [353, 2333]
     sentence_count: 18
     key_terms: [career, skills, different, call, did, ohlawdhetreading, trick-love-4571, center]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c2"
-    char_span: [2336, 3241]
+    char_span: [2335, 3240]
     sentence_count: 6
     key_terms: [current, management, operations, program, field, data, feel, ohlawdhetreading]
     section: Comments
     token_count: 198
   - id: "social-intelligence/reddit-deep/gradschool/1o5pki9.md#c3"
-    char_span: [3243, 5137]
+    char_span: [3242, 5136]
     sentence_count: 18
     key_terms: [school, grad, because, program, deathschlager, expectations, "i'm", industry]
     section: Comments

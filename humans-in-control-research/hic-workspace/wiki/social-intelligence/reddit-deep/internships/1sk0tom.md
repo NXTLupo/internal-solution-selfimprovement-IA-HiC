@@ -21,7 +21,7 @@ chunks:
     key_terms: [internship, year, internships, currently, comments, environmentalbag2703, clg, get]
     token_count: 154
   - id: "social-intelligence/reddit-deep/internships/1sk0tom.md#c1"
-    char_span: [612, 2405]
+    char_span: [611, 2404]
     sentence_count: 11
     key_terms: [internships, appropriate-tutor587, environmentalbag2703, nepternship, get, year, internship, companies]
     section: Comments

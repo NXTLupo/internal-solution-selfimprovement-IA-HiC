@@ -15,10 +15,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-uwaterloo/ade48af9d4.md#c0"
-    char_span: [0, 2090]
+    char_span: [0, 2089]
     sentence_count: 12
     key_terms: [uwaterloo, co-op, mdsai, comments, current, reddit, admissions, roles]
-    token_count: 481
+    token_count: 480
 ---
 # Waterloo MEng ECE Co-op or MDSAI Co-op: any current student thoughts?
 

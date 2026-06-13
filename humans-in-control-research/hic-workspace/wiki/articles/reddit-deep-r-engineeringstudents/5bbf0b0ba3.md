@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/5bbf0b0ba3.md#c0"
-    char_span: [0, 1289]
+    char_span: [0, 1288]
     sentence_count: 8
     key_terms: [poster, experiment, chemistry, engineeringstudents, project, engineering, first-year, scientific]
-    token_count: 269
+    token_count: 268
 ---
 # First-Year Engineering Student – Need Help with Chemistry Project (Toothpaste Experiment,poster outline & Poster
 

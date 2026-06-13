@@ -21,7 +21,7 @@ chunks:
     key_terms: [bangalore, biotech, careerguidance, pay, forensics, comments, career, mbbs]
     token_count: 262
   - id: "social-intelligence/reddit-deep/careerguidance/1smcfkx.md#c1"
-    char_span: [996, 3176]
+    char_span: [995, 3175]
     sentence_count: 8
     key_terms: [pay, biotech, course, notcallipygian, dead, etc, get, too]
     section: Comments

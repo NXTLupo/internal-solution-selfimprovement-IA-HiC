@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1q9q2az.md#c0"
-    char_span: [0, 320]
+    char_span: [0, 319]
     sentence_count: 3
     key_terms: [internships, comments, international, reddit-deep, struggling, student, advice, posted]
-    token_count: 87
+    token_count: 86
 ---
 # MSCS International Student here - Struggling with Summer 2026 Internships. Any advice?
 

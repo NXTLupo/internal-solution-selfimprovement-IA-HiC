@@ -23,13 +23,13 @@ chunks:
     key_terms: [internships, led, comments, unicorn, email, cold, got, clevelchaos]
     token_count: 186
   - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c1"
-    char_span: [764, 2625]
+    char_span: [763, 2624]
     sentence_count: 10
     key_terms: [clevelchaos, companyname, background, tinkering, get, beginner, research, context]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1lcppz5.md#c2"
-    char_span: [2627, 3269]
+    char_span: [2626, 3268]
     sentence_count: 4
     key_terms: [email, unicorn, please, ok-revolution-1565, did, congratulations, aquarianbeyond, heissofluffy]
     section: Comments

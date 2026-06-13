@@ -23,7 +23,7 @@ chunks:
     key_terms: [llms, machinelearning, https, shows, commands, comments, execute, output]
     token_count: 262
   - id: "social-intelligence/reddit-deep/machinelearning/1ou77gn.md#c1"
-    char_span: [1041, 3239]
+    char_span: [1040, 3238]
     sentence_count: 20
     key_terms: [model, reasoning, patterns, shifts, don, like, evaluation, automated]
     section: Comments

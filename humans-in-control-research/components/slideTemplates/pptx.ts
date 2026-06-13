@@ -43,7 +43,8 @@ import { nxtBrand, fontForRole, type Brand } from './brands';
 import type {
     PersonaCardData, RecommendationData, ThemeClusterData, CompetitiveMatrixData,
     BlockQuoteData, CaseStudyData, PrinciplesData, StatRowData, TimelineData, SectionDividerData,
-    ServiceBlueprintData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
+    ServiceBlueprintData, JourneyMapData, GapMatrixData, ArchitectureMapData, PrdFeatureData, SystemsInventoryData,
+    OrgChartData, ExecutiveBriefData,
     SlideTemplate,
 } from './types';
 import { cleanTranscriptQuote, looksLikeTranscriptSource } from '../../services/transcriptQuoteCleaner';
@@ -63,7 +64,7 @@ let T: Brand = nxtBrand;
 // exportSlideToPPTX. `FONT` is retained as the body alias for backward
 // compatibility but should NOT be used for display/title/number text.
 const FONT = TOKENS.FONT;                       // body alias (legacy)
-const fDisplay = () => fontForRole('display', T); // Spectral - titles, hero numbers
+const fDisplay = () => T.FONT_DISPLAY_PPTX || fontForRole('display', T); // PPTX display = brand Office face (NXT: Agency FB; NU: Lato); web uses FONT_DISPLAY proxy
 const fBody = () => fontForRole('body', T);       // Roboto - prose
 const fLabel = () => fontForRole('label', T);     // Roboto Mono - eyebrow labels
 const fMono = () => fontForRole('mono', T);       // Roboto Mono - sources, codes
@@ -1526,7 +1527,258 @@ function exportServiceBlueprint(s: any, slideTitle: string, data: ServiceBluepri
     sourceFooter(s, tx, tw, sources);
 }
 
+// ORG CHART (#org) - pptxgenjs FALLBACK twin of web OrgChartSlide / stage
+// renderOrgChart. Primary export is the gold-stage pipeline; this keeps the
+// fallback in parity: stacked TIER rows of node cards (ecru fill, hairline
+// border, accent top border on the decision-authority node), centered hairline
+// drops between tiers, NAMED source line per card. CSS-grid equivalent in shapes.
+function exportOrgChart(s: any, slideTitle: string, data: OrgChartData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.32;
+    const tw = geom.contentW - 0.64;
+    let y = 0.28;
+    tag(s, tx, y, tw, `ORG STRUCTURE · ${(data.subject || 'AS-IS').toUpperCase()}`); y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.16;
+
+    const tiers = (data.tiers || []).slice(0, 4);
+    const labelW = 1.05;
+    const sourcesY = 7.10;
+    const insightH = data.keyInsight ? 0.45 : 0;
+    const connH = 0.16;
+    const available = sourcesY - y - insightH - 0.2 - connH * Math.max(0, tiers.length - 1);
+    const tierH = Math.max(0.78, available / Math.max(1, tiers.length));
+
+    tiers.forEach((tier, ti) => {
+        const nodes = (tier.nodes || []).slice(0, 5);
+        s.addText((tier.label || '').toUpperCase(), { x: tx, y: y + 0.06, w: labelW - 0.12, h: tierH - 0.12, fontSize: 8, color: T.GREY, fontFace: FONT, bold: true, charSpacing: 1.5, valign: 'top' });
+        const cardsX = tx + labelW;
+        const cardsW = tw - labelW;
+        const gap = 0.12;
+        const cardW = nodes.length ? (cardsW - gap * (nodes.length - 1)) / nodes.length : cardsW;
+        nodes.forEach((n, ni) => {
+            const cx = cardsX + ni * (cardW + gap);
+            s.addShape('rect' as any, { x: cx, y, w: cardW, h: tierH, fill: { color: T.PANEL }, line: { color: T.HAIRLINE, width: 0.75 } });
+            if (n.emphasis) s.addShape('rect' as any, { x: cx, y, w: cardW, h: 0.05, fill: { color: T.CHARTREUSE } });
+            s.addText(truncate(n.title || '', 50), { x: cx + 0.14, y: y + 0.13, w: cardW - 0.28, h: 0.42, fontSize: 12, color: T.INK, fontFace: T.FONT_TITLE || FONT, bold: true, valign: 'top' });
+            s.addText(truncate(n.role || '', 120), { x: cx + 0.14, y: y + 0.55, w: cardW - 0.28, h: tierH - 0.92, fontSize: 9, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+            if (n.source) s.addText(`SOURCE: ${truncate(String(n.source).toUpperCase(), 36)}`, { x: cx + 0.14, y: y + tierH - 0.28, w: cardW - 0.28, h: 0.22, fontSize: 7.5, color: T.CYAN, fontFace: FONT, charSpacing: 0.5, valign: 'middle' });
+        });
+        y += tierH;
+        if (ti < tiers.length - 1) {
+            s.addShape('line' as any, { x: tx + labelW + (tw - labelW) / 2, y, w: 0, h: connH, line: { color: T.HAIRLINE, width: 1.5 } });
+            y += connH;
+        }
+    });
+
+    if (data.keyInsight) {
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: insightH, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y, w: 0.08, h: insightH, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText(truncate(data.keyInsight, 260), { x: tx + 0.2, y, w: tw - 0.3, h: insightH, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'middle', lineSpacingMultiple: 1.4 });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
+// EXECUTIVE BRIEF (#brief / #explainer / #report) - pptxgenjs FALLBACK twin of
+// web ExecutiveBriefSlide / stage renderExecutiveBrief. One template, three
+// variants. Primary export is the gold-stage pipeline; this keeps parity/fallback.
+function exportExecutiveBrief(s: any, slideTitle: string, data: ExecutiveBriefData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.32;
+    const tw = geom.contentW - 0.64;
+    let y = 0.28;
+    const variant = data.variant || 'brief';
+    const vlabel = variant === 'explainer' ? 'EXPLAINER' : variant === 'report' ? 'REPORT' : 'BRIEF';
+    tag(s, tx, y, tw, `${vlabel} · ${(data.subject || 'EXECUTIVE SUMMARY').toUpperCase()}`); y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.16;
+
+    const sourcesY = 7.10;
+    const insightH = data.keyInsight ? 0.45 : 0;
+    // Hero callout (brief / report)
+    if (data.hero?.stat && variant !== 'explainer') {
+        const heroH = 0.7;
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: heroH, fill: { color: T.PANEL } });
+        s.addShape('rect' as any, { x: tx, y, w: 0.08, h: heroH, fill: { color: T.CHARTREUSE } });
+        s.addText(truncate(data.hero.stat, 40), { x: tx + 0.24, y, w: tw * 0.4, h: heroH, fontSize: 30, color: T.INK, fontFace: T.FONT_TITLE || FONT, bold: true, valign: 'middle' });
+        s.addText(truncate(data.hero.label, 70).toUpperCase(), { x: tx + tw * 0.42, y, w: tw * 0.56, h: heroH, fontSize: 11, color: T.GREY, fontFace: FONT, charSpacing: 1.5, valign: 'middle' });
+        y += heroH + 0.12;
+    }
+    const sections = (data.sections || []).slice(0, 6);
+    const gotchas = variant === 'explainer' && Array.isArray(data.gotchas) ? data.gotchas.slice(0, 6) : [];
+    const gotchasH = gotchas.length ? 0.95 : 0;
+    const cols = sections.length <= 2 ? 1 : 2;
+    const rows = Math.ceil(sections.length / cols);
+    const gap = 0.14;
+    const gridAvail = sourcesY - y - insightH - gotchasH - 0.2;
+    const cardH = Math.max(0.7, (gridAvail - gap * (rows - 1)) / Math.max(1, rows));
+    const cardW = (tw - gap * (cols - 1)) / cols;
+    sections.forEach((sec, i) => {
+        const r = Math.floor(i / cols), c = i % cols;
+        const cx = tx + c * (cardW + gap);
+        const cy = y + r * (cardH + gap);
+        s.addShape('rect' as any, { x: cx, y: cy, w: cardW, h: cardH, fill: { color: T.PANEL }, line: { color: T.HAIRLINE, width: 0.75 } });
+        const head = (variant === 'explainer' ? `${String(i + 1).padStart(2, '0')}  ` : '') + truncate(sec.heading || '', 64);
+        s.addText(head, { x: cx + 0.16, y: cy + 0.12, w: cardW - 0.32, h: 0.34, fontSize: 13, color: T.INK, fontFace: T.FONT_TITLE || FONT, bold: true, valign: 'top' });
+        const hasQuote = !!sec.evidence?.quote;
+        s.addText(truncate(sec.body || '', 220), { x: cx + 0.16, y: cy + 0.5, w: cardW - 0.32, h: cardH - (hasQuote ? 1.05 : 0.6), fontSize: 9.5, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.35 });
+        if (hasQuote) {
+            s.addShape('rect' as any, { x: cx + 0.16, y: cy + cardH - 0.5, w: 0.03, h: 0.4, fill: { color: T.CYAN } });
+            s.addText(`“${truncate(sec.evidence!.quote, 120)}”  — ${truncate(sec.evidence!.source || '', 36)}`, { x: cx + 0.26, y: cy + cardH - 0.5, w: cardW - 0.42, h: 0.4, fontSize: 8, italic: true, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.25 });
+        }
+    });
+    y += rows * cardH + (rows - 1) * gap + 0.12;
+    if (gotchas.length) {
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: gotchasH, fill: { color: 'FBEAEA' } });
+        s.addShape('rect' as any, { x: tx, y, w: 0.08, h: gotchasH, fill: { color: T.RED } });
+        s.addText('GOTCHAS', { x: tx + 0.2, y: y + 0.08, w: tw - 0.3, h: 0.24, fontSize: 9, color: T.RED, fontFace: FONT, bold: true, charSpacing: 2, valign: 'top' });
+        s.addText(gotchas.map(g => `•  ${truncate(g, 110)}`).join('\n'), { x: tx + 0.2, y: y + 0.32, w: tw - 0.3, h: gotchasH - 0.36, fontSize: 9, color: T.INK, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.3 });
+        y += gotchasH + 0.1;
+    }
+    if (data.keyInsight) {
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: insightH, fill: { color: T.PALE } });
+        s.addShape('rect' as any, { x: tx, y, w: 0.08, h: insightH, fill: { color: T.CHARTREUSE_BRIGHT } });
+        s.addText(truncate(data.keyInsight, 260), { x: tx + 0.2, y, w: tw - 0.3, h: insightH, fontSize: 10, color: T.INK, fontFace: FONT, valign: 'middle', lineSpacingMultiple: 1.4 });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
 // 12. GAP MATRIX (maturity bars + severity badges)
+// === JOURNEY MAP (#journey - GOLD actor-lane matrix, 2026-06-11) ===
+// Legacy-fallback twin of web JourneyMapSlide / stage renderJourneyMap. The
+// PRIMARY export path is the gold stage pipeline; this keeps the pptxgenjs
+// fallback in parity so a degraded export still draws the journey correctly:
+// stages x ACTOR lanes, critical-stage accent header, "not engaged" greyed,
+// PAIN POINTS row, optional 3 qualitative KPI tiles.
+function exportJourneyMap(s: any, slideTitle: string, data: JourneyMapData, sources: string[], geom: PanelGeom) {
+    const tx = geom.contentX + 0.32;
+    const tw = geom.contentW - 0.64;
+    let y = 0.28;
+    const jt = data.journeyType ? `JOURNEY MAP · ${String(data.journeyType).toUpperCase()}` : 'JOURNEY MAP';
+    tag(s, tx, y, tw, jt); y += 0.24;
+    title(s, tx, y, tw, slideTitle, 22); y += titleH(slideTitle, tw, 22) + 0.12;
+
+    const stagesRaw = Array.isArray(data.stages) ? data.stages.slice(0, 6) : [];
+    const stages = stagesRaw.map(st => typeof st === 'string' ? { name: st, critical: false } : st);
+    const lanes = (Array.isArray(data.lanes) ? data.lanes : []).slice(0, 4);
+    if (stages.length === 0 || lanes.length === 0) return;
+
+    // 2026-06-12 IN-TABLE REDESIGN (twin of stage renderJourneyMap): the
+    // matrix IS the body. Personas -> voice row; per-phase pain STACKS;
+    // opportunities row; kpiTiles EMBED in their phase header cells. All
+    // arc-distributed by array position (item 1 -> first phase, last ->
+    // final phase).
+    const n = stages.length;
+    const spread = (count: number): number[] => count <= 0 ? [] : count === 1 ? [0]
+        : Array.from({ length: count }, (_, i) => Math.min(n - 1, Math.round((i * (n - 1)) / (count - 1))));
+    const tiles = (data.kpiTiles || []).slice(0, 3);
+    const tileByCol: (typeof tiles[number] | null)[] = stages.map(() => null);
+    spread(tiles.length).forEach((col, i) => { tileByCol[col] = tiles[i]; });
+    const personas = (data.personas || []).filter(Boolean).map(String);
+    const voiceCols: string[][] = stages.map(() => []);
+    spread(personas.length).forEach((col, i) => voiceCols[col].push(personas[i]));
+    const painsAnyArr: Array<string | string[]> = Array.isArray(data.painPoints) ? data.painPoints : [];
+    const painCols: string[][] = stages.map((_, si) => {
+        const v = painsAnyArr[si];
+        return Array.isArray(v) ? v.filter(Boolean).map(String) : (v ? [String(v)] : []);
+    });
+    const overallArr = (data.overallPainPoints || []).filter(Boolean).map(String);
+    spread(overallArr.length).forEach((col, i) => painCols[col].push(overallArr[i]));
+    const oppsArr = (data.opportunities || []).filter(Boolean).map(String);
+    const oppCols: string[][] = stages.map(() => []);
+    spread(oppsArr.length).forEach((col, i) => oppCols[col].push(oppsArr[i]));
+    const hasVoice = personas.length > 0;
+    const hasOpps = oppsArr.length > 0;
+    const hasTiles = tiles.length > 0;
+    const maxPainStack = Math.max(1, ...painCols.map(c => Math.min(c.length, 4)));
+
+    const sourcesY = 7.10;
+    const labelW = 1.25;
+    const stageW = (tw - labelW) / stages.length;
+    const headerH = hasTiles ? 0.58 : 0.3;
+    const voiceH = hasVoice ? 0.42 : 0;
+    const painH = Math.min(0.96, 0.3 + 0.17 * maxPainStack);
+    const oppH = hasOpps ? 0.44 : 0;
+    const laneH = Math.max(0.42, (sourcesY - y - headerH - voiceH - painH - oppH - (data.keyInsight ? 0.5 : 0) - 0.15) / lanes.length);
+
+    // Stage header row (ink band, critical stage in accent; KPI signal embeds)
+    s.addShape('rect' as any, { x: tx, y, w: labelW, h: headerH, fill: { color: T.INK } });
+    stages.forEach((st, i) => {
+        const x = tx + labelW + i * stageW;
+        s.addShape('rect' as any, { x, y, w: stageW, h: headerH, fill: { color: st.critical ? T.RED : T.INK } });
+        s.addText(truncate(st.name, 22).toUpperCase(), { x: x + 0.08, y: y + 0.02, w: stageW - 0.16, h: 0.22, fontSize: 8, color: T.WHITE, fontFace: fMono(), bold: true, charSpacing: 1, valign: 'middle', wrap: false });
+        const t = tileByCol[i];
+        if (t && hasTiles) {
+            s.addText(truncate(t.label, 26).toUpperCase(), { x: x + 0.08, y: y + 0.24, w: stageW - 0.16, h: 0.12, fontSize: 6, color: T.CHARTREUSE_BRIGHT, fontFace: fMono(), bold: true, charSpacing: 1.2, valign: 'top', wrap: false });
+            s.addText(truncate(t.value, 22), { x: x + 0.08, y: y + 0.35, w: stageW - 0.16, h: 0.2, fontSize: 13, color: T.WHITE, fontFace: fDisplay(), valign: 'top', wrap: false });
+        }
+    });
+    y += headerH;
+
+    // Personas voice row (JTBD quotes, arc-distributed)
+    if (hasVoice) {
+        s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText('PERSONAS', { x: tx + 0.08, y: y + 0.04, w: labelW - 0.16, h: 0.18, fontSize: 7.5, color: T.CYAN || T.INK, fontFace: FONT, bold: true, charSpacing: 0.5, valign: 'top', wrap: false });
+        s.addText('JTBD voice', { x: tx + 0.08, y: y + 0.22, w: labelW - 0.16, h: 0.14, fontSize: 6, color: T.MUTED, fontFace: fMono(), valign: 'top', wrap: false });
+        voiceCols.forEach((items, i) => {
+            const cellX = tx + labelW + i * stageW;
+            s.addShape('rect' as any, { x: cellX, y, w: stageW, h: voiceH, fill: { color: T.PALE } });
+            s.addShape('line' as any, { x: cellX, y, w: 0, h: voiceH, line: { color: T.RULE, width: 0.5 } });
+            if (items.length) s.addText(`“${truncate(items.join(' '), 95)}”`, { x: cellX + 0.08, y: y + 0.04, w: stageW - 0.16, h: voiceH - 0.08, fontSize: 7.5, color: T.BODY, fontFace: FONT, italic: true, valign: 'top', lineSpacingMultiple: 1.2 });
+        });
+        y += voiceH;
+    }
+
+    // Actor lanes
+    lanes.forEach(lane => {
+        s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.RULE, width: 0.5 } });
+        s.addText(truncate(lane.actor, 24).toUpperCase(), { x: tx + 0.08, y: y + 0.05, w: labelW - 0.16, h: 0.2, fontSize: 8, color: T.INK, fontFace: FONT, bold: true, charSpacing: 0.5, valign: 'top', wrap: false });
+        if (lane.role) s.addText(truncate(lane.role, 28), { x: tx + 0.08, y: y + 0.24, w: labelW - 0.16, h: 0.16, fontSize: 6.5, color: T.MUTED, fontFace: fMono(), valign: 'top', wrap: false });
+        stages.forEach((_, i) => {
+            const cellX = tx + labelW + i * stageW;
+            const txt = (lane.cells || [])[i] || '';
+            const ghost = !txt.trim() || /^not engaged$/i.test(txt.trim());
+            s.addShape('line' as any, { x: cellX, y, w: 0, h: laneH, line: { color: T.RULE, width: 0.5 } });
+            s.addText(truncate(txt || 'not engaged', 100), { x: cellX + 0.08, y: y + 0.06, w: stageW - 0.16, h: laneH - 0.1, fontSize: 8.5, color: ghost ? T.MUTED : T.BODY, fontFace: FONT, italic: ghost, valign: 'top', lineSpacingMultiple: 1.3 });
+        });
+        y += laneH;
+    });
+
+    // Pain points row: STACKED per-phase items (>=3 evidenced per phase per
+    // the 2026-06-12 user rule), one bullet paragraph per pain.
+    s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.RED, width: 1.6 } });
+    s.addText('PAIN POINTS', { x: tx + 0.08, y: y + 0.06, w: labelW - 0.16, h: painH - 0.1, fontSize: 8, color: T.RED, fontFace: FONT, bold: true, charSpacing: 1, valign: 'top', lineSpacingMultiple: 1.15 });
+    stages.forEach((_, i) => {
+        const cellX = tx + labelW + i * stageW;
+        s.addShape('line' as any, { x: cellX, y, w: 0, h: painH, line: { color: T.RULE, width: 0.5 } });
+        const items = painCols[i].slice(0, 4);
+        if (items.length) {
+            const runs = items.map((p, pi) => ({ text: `▪ ${truncate(p, 58)}`, options: { breakLine: pi < items.length - 1 } }));
+            s.addText(runs as any, { x: cellX + 0.08, y: y + 0.05, w: stageW - 0.16, h: painH - 0.08, fontSize: 7, color: T.RED, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.22 });
+        }
+    });
+    y += painH;
+
+    // Strategic opportunities row (cool accent, arc-distributed)
+    if (hasOpps) {
+        s.addShape('line' as any, { x: tx, y, w: tw, h: 0, line: { color: T.CYAN || T.INK, width: 1.6 } });
+        s.addText('OPPORTUNITIES', { x: tx + 0.08, y: y + 0.05, w: labelW - 0.16, h: oppH - 0.08, fontSize: 7.5, color: T.CYAN || T.INK, fontFace: FONT, bold: true, charSpacing: 0.5, valign: 'top', wrap: false });
+        oppCols.forEach((items, i) => {
+            const cellX = tx + labelW + i * stageW;
+            s.addShape('rect' as any, { x: cellX, y, w: stageW, h: oppH, fill: { color: T.PALE } });
+            s.addShape('line' as any, { x: cellX, y, w: 0, h: oppH, line: { color: T.RULE, width: 0.5 } });
+            if (items.length) {
+                const runs = items.map((o, oi) => ({ text: `▪ ${truncate(o, 64)}`, options: { breakLine: oi < items.length - 1 } }));
+                s.addText(runs as any, { x: cellX + 0.08, y: y + 0.05, w: stageW - 0.16, h: oppH - 0.08, fontSize: 7, color: T.BODY, fontFace: FONT, valign: 'top', lineSpacingMultiple: 1.22 });
+            }
+        });
+        y += oppH;
+    }
+    y += 0.08;
+
+    if (data.keyInsight) {
+        s.addShape('rect' as any, { x: tx, y, w: tw, h: 0.42, fill: { color: T.INK } });
+        s.addText(truncate(data.keyInsight, 220), { x: tx + 0.16, y: y + 0.04, w: tw - 0.32, h: 0.34, fontSize: 9.5, color: T.WHITE, fontFace: fDisplay(), valign: 'middle', lineSpacingMultiple: 1.2 });
+    }
+    sourceFooter(s, tx, tw, sources);
+}
+
 function exportGapMatrix(s: any, slideTitle: string, data: GapMatrixData, sources: string[], geom: PanelGeom) {
     const tx = geom.contentX + 0.48;
     const tw = geom.contentW - 0.96;
@@ -1939,6 +2191,9 @@ export interface ExportSlideArgs {
     timeline?: TimelineData;
     sectionDivider?: SectionDividerData;
     serviceBlueprint?: ServiceBlueprintData;
+    journeyMap?: JourneyMapData;
+    orgChart?: OrgChartData;
+    executiveBrief?: ExecutiveBriefData;
     gapMatrix?: GapMatrixData;
     architectureMap?: ArchitectureMapData;
     prdFeature?: PrdFeatureData;
@@ -2008,6 +2263,15 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
             break;
         case 'service-blueprint':
             if (args.serviceBlueprint) exportServiceBlueprint(s, args.title, args.serviceBlueprint, sources, geom);
+            break;
+        case 'journey-map':
+            if (args.journeyMap) exportJourneyMap(s, args.title, args.journeyMap, sources, geom);
+            break;
+        case 'org-chart':
+            if (args.orgChart) exportOrgChart(s, args.title, args.orgChart, sources, geom);
+            break;
+        case 'executive-brief':
+            if (args.executiveBrief) exportExecutiveBrief(s, args.title, args.executiveBrief, sources, geom);
             break;
         case 'gap-matrix':
             if (args.gapMatrix) exportGapMatrix(s, args.title, args.gapMatrix, sources, geom);

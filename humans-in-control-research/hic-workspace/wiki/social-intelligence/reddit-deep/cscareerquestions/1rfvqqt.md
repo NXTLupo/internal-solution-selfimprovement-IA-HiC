@@ -21,7 +21,7 @@ chunks:
     key_terms: [cscareerquestions, year, backlogs, considering, back, currently, preparing, comments]
     token_count: 314
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rfvqqt.md#c1"
-    char_span: [1255, 1809]
+    char_span: [1254, 1808]
     sentence_count: 1
     key_terms: [shadysiddharth15, discipline, interviews, applying, projects, startups, cleanly, explain]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [mornings, scrolling, random, productivity, like, time, comments, stealing]
     token_count: 319
   - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c1"
-    char_span: [1400, 3362]
+    char_span: [1399, 3361]
     sentence_count: 14
     key_terms: [phone, routine, feel, like, doing, beginning, instagram, realizing]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/productivity/1nezzdm.md#c2"
-    char_span: [3364, 5171]
+    char_span: [3363, 5170]
     sentence_count: 13
     key_terms: [phone, morning, brick, lock, social, media, get, bedroom]
     section: Comments

@@ -21,25 +21,25 @@ chunks:
     key_terms: [internship, college, work, comments, "don't", "isn't", does, extracurricular]
     token_count: 224
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c1"
-    char_span: [948, 2602]
+    char_span: [947, 2601]
     sentence_count: 10
     key_terms: [experience, being, job, attorney, involved, college, finding, general]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c2"
-    char_span: [2604, 4822]
+    char_span: [2603, 4821]
     sentence_count: 23
     key_terms: [people, internship, likely, get, like, look, connect, kaisersoze1793]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c3"
-    char_span: [4824, 6933]
+    char_span: [4823, 6932]
     sentence_count: 16
     key_terms: [internships, career, internship, job, networking, interview, network, apply]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/college/1m2q3xe.md#c4"
-    char_span: [6935, 8638]
+    char_span: [6934, 8637]
     sentence_count: 9
     key_terms: [internship, summer, experience, year, job, freshman, engineering, internships]
     section: Comments

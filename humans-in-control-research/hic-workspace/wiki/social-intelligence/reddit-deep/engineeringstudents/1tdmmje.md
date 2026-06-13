@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1tdmmje.md#c0"
-    char_span: [0, 1182]
+    char_span: [0, 1181]
     sentence_count: 13
     key_terms: [international, internship, did, engineeringstudents, job, students, engineering, university]
-    token_count: 247
+    token_count: 246
 ---
 # Has any international students gotten an engineering internship or job lately?
 

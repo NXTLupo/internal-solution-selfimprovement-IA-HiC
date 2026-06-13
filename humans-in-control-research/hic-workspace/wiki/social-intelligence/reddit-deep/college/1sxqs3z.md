@@ -28,7 +28,7 @@ chunks:
     key_terms: ["didn't", print, plan, because, believe, caption, quality, thought]
     token_count: 356
   - id: "social-intelligence/reddit-deep/college/1sxqs3z.md#c2"
-    char_span: [4017, 5697]
+    char_span: [4016, 5696]
     sentence_count: 12
     key_terms: [sounds, especially, something, exhibit, frustrating, like, work, assignment]
     section: Comments

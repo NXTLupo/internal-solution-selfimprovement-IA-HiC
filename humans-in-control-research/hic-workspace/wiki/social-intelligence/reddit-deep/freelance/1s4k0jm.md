@@ -23,7 +23,7 @@ chunks:
     key_terms: [freelance, april, here, comments, specific, years, good, win]
     token_count: 284
   - id: "social-intelligence/reddit-deep/freelance/1s4k0jm.md#c1"
-    char_span: [1131, 2082]
+    char_span: [1130, 2081]
     sentence_count: 4
     key_terms: [adilshaikh5786, client, understand, local-dependent-2421, lot, freelancers, gigmistress, everything]
     section: Comments

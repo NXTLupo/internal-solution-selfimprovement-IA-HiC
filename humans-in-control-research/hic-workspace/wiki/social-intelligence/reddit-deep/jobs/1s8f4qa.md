@@ -23,37 +23,37 @@ chunks:
     key_terms: [comments, jobs, bibigengmurat, reddit-deep, omygaaad, posted, reddit, source]
     token_count: 83
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c1"
-    char_span: [260, 1866]
+    char_span: [259, 1865]
     sentence_count: 12
     key_terms: [like, manager, responsibility, ceo, get, management, delegate, promoted]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c2"
-    char_span: [1868, 3708]
+    char_span: [1867, 3707]
     sentence_count: 9
     key_terms: [course, start, use, absolutely, "you're", "can't", doing, least]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c3"
-    char_span: [3710, 3989]
+    char_span: [3709, 3988]
     sentence_count: 4
     key_terms: [writing, explaining, profession, discovery, important, accurate, another, mention]
     section: Comments
     token_count: 58
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c4"
-    char_span: [3991, 6030]
+    char_span: [3990, 6029]
     sentence_count: 12
     key_terms: [hard, work, people, great, job, like, time, seacat8586]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c5"
-    char_span: [5708, 6101]
+    char_span: [5707, 6100]
     sentence_count: 2
     key_terms: [ability, because, time, exaggerated, immigration, awareness, interview, solitaire]
     section: Comments
     token_count: 78
   - id: "social-intelligence/reddit-deep/jobs/1s8f4qa.md#c6"
-    char_span: [6103, 7886]
+    char_span: [6102, 7885]
     sentence_count: 13
     key_terms: ["wasn't", job, lol, everyone, "don't", point, years, loose-specific7142]
     section: Comments

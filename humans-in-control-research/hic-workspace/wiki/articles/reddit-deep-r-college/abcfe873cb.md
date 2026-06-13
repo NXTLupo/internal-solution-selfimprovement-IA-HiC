@@ -15,17 +15,17 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-college/abcfe873cb.md#c0"
-    char_span: [0, 2079]
+    char_span: [0, 2078]
     sentence_count: 15
     key_terms: [college, "i'm", community, "i'd", probably, tuition, able, help]
-    token_count: 470
+    token_count: 469
   - id: "articles/reddit-deep-r-college/abcfe873cb.md#c1"
-    char_span: [2081, 3853]
+    char_span: [2080, 3852]
     sentence_count: 11
     key_terms: [college, community, get, having, loans, years, time, education]
     token_count: 397
   - id: "articles/reddit-deep-r-college/abcfe873cb.md#c2"
-    char_span: [3855, 5726]
+    char_span: [3854, 5725]
     sentence_count: 17
     key_terms: [transfer, college, school, internships, experience, community, semester, students]
     token_count: 428

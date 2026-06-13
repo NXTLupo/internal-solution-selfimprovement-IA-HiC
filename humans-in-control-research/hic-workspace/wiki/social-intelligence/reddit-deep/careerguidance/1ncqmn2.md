@@ -23,7 +23,7 @@ chunks:
     key_terms: [data, science, careerguidance, don, like, comments, teaching, teacher]
     token_count: 268
   - id: "social-intelligence/reddit-deep/careerguidance/1ncqmn2.md#c1"
-    char_span: [1104, 2210]
+    char_span: [1103, 2209]
     sentence_count: 9
     key_terms: [teaching, science, coding, maths, data, work, advantage, portfolio]
     section: Comments

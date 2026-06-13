@@ -26,25 +26,25 @@ chunks:
     key_terms: [lot, work, bloomberg, better, pretty, secure, known, aws]
     token_count: 195
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c2"
-    char_span: [2484, 4068]
+    char_span: [2483, 4067]
     sentence_count: 10
     key_terms: [aws, technicalestate8733, bloomberg, bad, meta, anecdotally, good, experience]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c3"
-    char_span: [4070, 5609]
+    char_span: [4069, 5608]
     sentence_count: 10
     key_terms: [getting, amazon, years, bloomberg, get, join, chachachoud, lay]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c4"
-    char_span: [5611, 7689]
+    char_span: [5610, 7688]
     sentence_count: 15
     key_terms: [google, bloomberg, start, offer, years, date, because, pokerestock]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1ptijt2.md#c5"
-    char_span: [7434, 9381]
+    char_span: [7433, 9380]
     sentence_count: 11
     key_terms: [bloomberg, amazon, aws, team, working, resume, doors, "it's"]
     section: Comments

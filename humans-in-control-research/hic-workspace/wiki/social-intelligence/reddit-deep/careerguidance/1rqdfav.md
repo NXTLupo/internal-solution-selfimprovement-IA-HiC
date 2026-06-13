@@ -28,7 +28,7 @@ chunks:
     key_terms: [hypotheticals, competitive, potentially, actionable, relatively, adjacent, thankful, address]
     token_count: 73
   - id: "social-intelligence/reddit-deep/careerguidance/1rqdfav.md#c2"
-    char_span: [2605, 3377]
+    char_span: [2604, 3376]
     sentence_count: 7
     key_terms: [technical, solutions, analyst, people, help, like, implementation, communication]
     section: Comments

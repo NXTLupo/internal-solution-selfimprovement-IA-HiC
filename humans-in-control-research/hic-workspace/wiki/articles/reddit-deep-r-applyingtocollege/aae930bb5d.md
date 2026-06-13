@@ -15,17 +15,17 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c0"
-    char_span: [0, 2190]
+    char_span: [0, 2189]
     sentence_count: 19
     key_terms: [international, college, school, community, applyingtocollege, parents, scholarships, universities]
-    token_count: 500
+    token_count: 499
   - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c1"
-    char_span: [2192, 4012]
+    char_span: [2191, 4011]
     sentence_count: 17
     key_terms: [state, college-openings-update, administration, international, gpa, visa, interested, nacacnet]
     token_count: 445
   - id: "articles/reddit-deep-r-applyingtocollege/aae930bb5d.md#c2"
-    char_span: [4014, 4483]
+    char_span: [4013, 4482]
     sentence_count: 5
     key_terms: [because, dream, been, don, subconscious, unrealistic, everything, incredibly]
     token_count: 109

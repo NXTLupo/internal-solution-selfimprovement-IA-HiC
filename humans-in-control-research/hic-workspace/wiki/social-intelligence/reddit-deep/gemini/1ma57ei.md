@@ -23,7 +23,7 @@ chunks:
     key_terms: [gemini, unable, comments, security, passkey, access, edited, emails]
     token_count: 264
   - id: "social-intelligence/reddit-deep/gemini/1ma57ei.md#c1"
-    char_span: [1080, 2385]
+    char_span: [1079, 2384]
     sentence_count: 14
     key_terms: [shouldbeestudying, gemini, having, ticket, wallet, substantial-rice6344, haven, login]
     section: Comments

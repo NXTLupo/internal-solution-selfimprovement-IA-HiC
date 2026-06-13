@@ -23,37 +23,37 @@ chunks:
     key_terms: [cscareerquestions, comments, pivot, overqualified, reddit-deep, bachelors, horrible, industry]
     token_count: 122
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c1"
-    char_span: [470, 1998]
+    char_span: [469, 1997]
     sentence_count: 8
     key_terms: [jobs, fast, food, "i've", job, working, better, school]
     section: Comments
     token_count: 417
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c2"
-    char_span: [2000, 3948]
+    char_span: [1999, 3947]
     sentence_count: 14
     key_terms: [job, food, too, contract, expectations, using, far, fast]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c3"
-    char_span: [3953, 5990]
+    char_span: [3952, 5989]
     sentence_count: 15
     key_terms: [fast, food, get, job, degree, "you're", experience, asking]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c4"
-    char_span: [5992, 8004]
+    char_span: [5991, 8003]
     sentence_count: 19
     key_terms: [job, experience, degree, normie, co-workers, fast, food, better]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c5"
-    char_span: [8006, 10024]
+    char_span: [8005, 10023]
     sentence_count: 13
     key_terms: [job, dev, like, degree, shock-broad, bad, get, swe]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1syqr7i.md#c6"
-    char_span: [10026, 11335]
+    char_span: [10025, 11334]
     sentence_count: 11
     key_terms: [like, considered, experience, privileged, devil, get, nice, unemployment]
     section: Comments

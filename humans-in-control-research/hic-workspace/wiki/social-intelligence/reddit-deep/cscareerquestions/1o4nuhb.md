@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1o4nuhb/no_one_will_hire_me_what_now/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,91 @@ flair: "New Grad"
 extracted_at: "2026-06-06T23:23:15.631Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c0"
+    char_span: [0, 2056]
+    sentence_count: 18
+    key_terms: ["i'm", "i've", cscareerquestions, did, looking, several, years, good]
+    token_count: 479
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c1"
+    char_span: [2071, 4221]
+    sentence_count: 13
+    key_terms: [roles, friends, "don't", job, open, experience, recruiter, secondary]
+    section: Comments
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c2"
+    char_span: [4223, 5168]
+    sentence_count: 9
+    key_terms: [resume, interested, doing, engineeringresumes, good, "it's", job, look]
+    section: Comments
+    token_count: 223
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c3"
+    char_span: [5170, 6435]
+    sentence_count: 7
+    key_terms: [people, like, opinions, reviewed, resume, "that's", get, "i'm"]
+    section: Comments
+    token_count: 300
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c4"
+    char_span: [6437, 7452]
+    sentence_count: 6
+    key_terms: [resume, software, specific, already, making, niche, "it's", job]
+    section: Comments
+    token_count: 238
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c5"
+    char_span: [7454, 8975]
+    sentence_count: 10
+    key_terms: [because, resume, "i'm", difficult, interview, response, "doesn't", being]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c6"
+    char_span: [8977, 10263]
+    sentence_count: 7
+    key_terms: [illustrious-pound266, unfortunately, point, "true", treating, deleted, become, longer]
+    section: Comments
+    token_count: 311
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c7"
+    char_span: [10265, 12335]
+    sentence_count: 14
+    key_terms: [software, experience, get, engineering, people, work, "that's", job]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c8"
+    char_span: [12108, 13957]
+    sentence_count: 15
+    key_terms: [applied, applications, level, get, job, jobs, because, numbers]
+    section: Comments
+    token_count: 469
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c9"
+    char_span: [13959, 16069]
+    sentence_count: 24
+    key_terms: ["don't", good, "i'm", job, build, class, feel, high]
+    section: Comments
+    token_count: 510
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c10"
+    char_span: [16071, 17574]
+    sentence_count: 13
+    key_terms: [use, harsh793xd, programming, classmates, degree, syntax, "don't", learn]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c11"
+    char_span: [17576, 19754]
+    sentence_count: 15
+    key_terms: [company, find, get, deleted, school, doing, engineering, good]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c12"
+    char_span: [19471, 20663]
+    sentence_count: 10
+    key_terms: [software, job, corporate, different, get, america, easier, trying]
+    section: Comments
+    token_count: 261
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1o4nuhb.md#c13"
+    char_span: [20665, 22123]
+    sentence_count: 11
+    key_terms: [job, engineering, software, find, tech, try, use, work]
+    section: Comments
+    token_count: 345
 ---
-
 # No one will hire me. What now?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1o4nuhb/no_one_will_hire_me_what_now/)

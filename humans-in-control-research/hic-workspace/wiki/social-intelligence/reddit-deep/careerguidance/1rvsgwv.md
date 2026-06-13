@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, graphic, design, careerguidance, market, comments, social, media]
     token_count: 269
   - id: "social-intelligence/reddit-deep/careerguidance/1rvsgwv.md#c1"
-    char_span: [1200, 2077]
+    char_span: [1199, 2076]
     sentence_count: 8
     key_terms: [applying, better, build, since, seriousgourmetshit, like, work, coordination]
     section: Comments

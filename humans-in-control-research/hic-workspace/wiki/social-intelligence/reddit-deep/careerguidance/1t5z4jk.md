@@ -18,12 +18,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c0"
-    char_span: [0, 2212]
+    char_span: [0, 2211]
     sentence_count: 15
     key_terms: [robotics, non-technical, product, technology, marketing, because, careerguidance, engineering]
-    token_count: 495
+    token_count: 494
   - id: "social-intelligence/reddit-deep/careerguidance/1t5z4jk.md#c1"
-    char_span: [2214, 3257]
+    char_span: [2213, 3256]
     sentence_count: 7
     key_terms: [build, engineering, marketing, robotics, honest, people, skills, technology-driven]
     token_count: 216

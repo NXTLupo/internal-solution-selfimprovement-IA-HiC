@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tjifux.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tjifux/am_i_insane_to_leave_a_100k_job_at_23/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,55 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.881Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c0"
+    char_span: [0, 1862]
+    sentence_count: 10
+    key_terms: [long-term, higher, strong, years, stability, comments, careerguidance, offer]
+    token_count: 444
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c1"
+    char_span: [1877, 3185]
+    sentence_count: 9
+    key_terms: [security, long-term, job, training, pretty, sounds, field, years]
+    section: Comments
+    token_count: 339
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c2"
+    char_span: [3187, 4578]
+    sentence_count: 7
+    key_terms: [give, amount, option, worried-plankton2702, dontfeedagalasponge, lower, job, work]
+    section: Comments
+    token_count: 352
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c3"
+    char_span: [4580, 6500]
+    sentence_count: 18
+    key_terms: [years, training, happens, salary, worth, like, pay, something]
+    section: Comments
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c4"
+    char_span: [6502, 8395]
+    sentence_count: 8
+    key_terms: [years, training, year, job, current, working, chance, entire]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c5"
+    char_span: [8181, 8757]
+    sentence_count: 5
+    key_terms: [training, making, paying, years, coriolanuscangetit, year, pineapplelemur, professional]
+    section: Comments
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c6"
+    char_span: [8759, 10213]
+    sentence_count: 10
+    key_terms: [sounds, like, industry, training, salary, high, because, option]
+    section: Comments
+    token_count: 382
+  - id: "social-intelligence/reddit-deep/careerguidance/1tjifux.md#c7"
+    char_span: [10216, 11845]
+    sentence_count: 10
+    key_terms: [people, life, change, money, time, whether, happen, income]
+    section: Comments
+    token_count: 361
 ---
-
 # Am I insane to leave a $100k job at 23?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tjifux/am_i_insane_to_leave_a_100k_job_at_23/)

@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rgbvjm.md#c0"
-    char_span: [0, 797]
+    char_span: [0, 796]
     sentence_count: 8
     key_terms: [b1tz8ajtzprw97hda, survey, https, neu, comments, seattle, people, forms]
-    token_count: 228
+    token_count: 227
 ---
 # [Seattle Campus] Why do people quit? Help our AI project! (3-min survey)
 

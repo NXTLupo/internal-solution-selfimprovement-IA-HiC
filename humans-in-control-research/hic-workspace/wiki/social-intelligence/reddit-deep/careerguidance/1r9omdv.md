@@ -21,19 +21,19 @@ chunks:
     key_terms: [been, careerguidance, data, comments, complex, project, always, remote]
     token_count: 387
   - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c1"
-    char_span: [1869, 2665]
+    char_span: [1868, 2664]
     sentence_count: 6
     key_terms: [language, linkedin, working, been, "i've", transcriptionist, transitioning, application]
     section: Comments
     token_count: 218
   - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c2"
-    char_span: [2667, 4601]
+    char_span: [2666, 4600]
     sentence_count: 11
     key_terms: [assessment, did, working, got, pay, completed, cattawny, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1r9omdv.md#c3"
-    char_span: [4267, 5360]
+    char_span: [4266, 5359]
     sentence_count: 5
     key_terms: [beautiful-card-2340, task, assessment, completed, submitted, company, amount, going]
     section: Comments

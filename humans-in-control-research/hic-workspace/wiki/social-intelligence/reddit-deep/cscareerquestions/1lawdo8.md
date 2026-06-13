@@ -7,15 +7,13 @@ subreddit: "cscareerquestions"
 title: "Which New Grad offer to take: Entry-level SWE @ US Big Tech OR Tech lead @ Canadian startup?"
 author: "happylogicgate"
 date: "2025-06-14T01:10:59.000Z"
-score: 73
+score: 77
 upvote_ratio: 0.66
 num_comments: 163
 flair: ""
-extracted_at: "2026-05-26T14:31:41.272Z"
+extracted_at: "2026-06-08T18:49:42.891Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, informed by external market research and evidence. "
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c0"
     char_span: [0, 1402]
@@ -28,37 +26,37 @@ chunks:
     key_terms: [company, canada, startup, "i'm", tech, canadian, career, growth]
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c2"
-    char_span: [3459, 5353]
+    char_span: [3459, 5352]
     sentence_count: 14
     key_terms: [big, tech, startup, surelynotlikethis, company, heytherehellogoodbye, experience, stability]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c3"
-    char_span: [5131, 5608]
+    char_span: [5131, 5607]
     sentence_count: 2
     key_terms: [company, heytherehellogoodbye, tech, congratulations, almoschfamous, mile-high-guy, first-hire, different]
     section: Comments
     token_count: 134
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c4"
-    char_span: [5610, 7340]
+    char_span: [5609, 7339]
     sentence_count: 19
     key_terms: [tech, big, startup, lead, new, engineer, grad, take]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c5"
-    char_span: [7342, 9290]
+    char_span: [7341, 9289]
     sentence_count: 14
     key_terms: [tech, big, hawaii, socal, years, howzlife17, companies, almost]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c6"
-    char_span: [9292, 11430]
+    char_span: [9291, 11429]
     sentence_count: 13
     key_terms: [engineers, company, startup, equity, going, giving, recruiters, engineer]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lawdo8.md#c7"
-    char_span: [11432, 11592]
+    char_span: [11431, 11591]
     sentence_count: 2
     key_terms: [researchers, company, fuckton, job-hop, google, paying, poach, years]
     section: Comments
@@ -67,7 +65,7 @@ chunks:
 # Which New Grad offer to take: Entry-level SWE @ US Big Tech OR Tech lead @ Canadian startup?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1lawdo8/which_new_grad_offer_to_take_entrylevel_swe_us/)
-Posted by **happylogicgate** · **73↑** · **163 comments**
+Posted by **happylogicgate** · **77↑** · **163 comments**
 
 I'll be graduating university in Canada next summer (I'm a Canadian citizen) and am thinking about which offer to take.
 
@@ -120,24 +118,24 @@ The compensation is what I expected to be making near the end of my career, not 
 
 - **Impressive_Yam7957** (633↑): Tech lead as… a new grad? That sounds like 0 mentorship to me. I would go with new grad in USA, but to each their own.
   - **chrisonetime** (8↑): Doomed to fail
-- **SurelyNotLikeThis** (287↑): New grad being a tech lead is nuts. You need people to mentor you. Go to big tech and earn your stripes and that TC+stability bro.
-  - **LifeJustKeepsGoing** (115↑): Lol tech lead with no experience. What a joke
-  - **happylogicgate** (-79↑): The big company in the US is less stable than the startup in Canada, which worries me
-    - **amazinggun** (86↑): Big company is more risky than startup? am i reading that right?
+- **SurelyNotLikeThis** (288↑): New grad being a tech lead is nuts. You need people to mentor you. Go to big tech and earn your stripes and that TC+stability bro.
+  - **LifeJustKeepsGoing** (111↑): Lol tech lead with no experience. What a joke
+  - **happylogicgate** (-78↑): The big company in the US is less stable than the startup in Canada, which worries me
+    - **amazinggun** (88↑): Big company is more risky than startup? am i reading that right?
     - **SurelyNotLikeThis** (8↑): How in the world can that be true??? Either it's not big tech or it's not a startup
     - **13120dde** (1↑): Big companies are way less risky than startups, based on my own experience.
     - **davy_crockett_slayer** (1↑): Go with the big company. You’re being downvoted for good reason. You need mentorship and growth in an ecosystem of excellence. Focus on skills, not stability. Having marketable skills is what gives you stability.
   - **RadiantHC** (-15↑): lol big tech isn't stable nowadays will all the mass layoffs
     - **SurelyNotLikeThis** (21↑): More stable than startups
-- **heytherehellogoodbye** (97↑): You aren't a tech lead. Also, the main point of a startup is the equity. Which you aren't even getting. So go get that big tech on your resume and learn things relevant to your actual level of experience
-  - **finn-the-rabbit** (13↑): Absolutely sounds like they're looking for a potential fall guy or pawn for when something happens to the company, and OP is baited by the job title
-    - **heytherehellogoodbye** (10↑): not getting equity as the first-hire tech-lead of a startup is more than insulting, it's a hot jar of piss in the face
-- **mile-high-guy** (45↑): Those numbers are insane, I feel like I'm living in a different world than some of these posters. Congratulations
-- **AlmoschFamous** (29↑): Offering a tech lead to a new grad is not a good way to run a company.
-- **drew_eckhardt2** (34↑): The US company noting that's not big tech.
+- **heytherehellogoodbye** (98↑): You aren't a tech lead. Also, the main point of a startup is the equity. Which you aren't even getting. So go get that big tech on your resume and learn things relevant to your actual level of experience
+  - **finn-the-rabbit** (14↑): Absolutely sounds like they're looking for a potential fall guy or pawn for when something happens to the company, and OP is baited by the job title
+    - **heytherehellogoodbye** (9↑): not getting equity as the first-hire tech-lead of a startup is more than insulting, it's a hot jar of piss in the face
+- **mile-high-guy** (52↑): Those numbers are insane, I feel like I'm living in a different world than some of these posters. Congratulations
+- **AlmoschFamous** (30↑): Offering a tech lead to a new grad is not a good way to run a company.
+- **drew_eckhardt2** (39↑): The US company noting that's not big tech.
 
 As the only software engineer in a tiny startup you won't have anyone to learn from which you desperately need as a new engineer.
-- **TheNegligentInvestor** (16↑): A new grad "tech lead"  😂😂😂😂😂😂
+- **TheNegligentInvestor** (15↑): A new grad "tech lead"  😂😂😂😂😂😂
 
 
 I'm a SWE TLM in big tech. Been looking over "senior" engineer resumes just like yours for the past couple weeks. Title inflation is wild these days.
@@ -151,22 +149,22 @@ Edit: I've been reading over your replies to other comments. You're making a lot
 
 
 I'd take the big tech position in a heartbeat.
-- **howzlife17** (60↑): Buddy, I went to UOttawa. Big tech all the way. 9 years in I’m making $550k TC USD, living in LA all my friends who went to startups or even mid-size companies pretty much never went anywhere, also big tech opens every door there is. 
+- **howzlife17** (57↑): Buddy, I went to UOttawa. Big tech all the way. 9 years in I’m making $550k TC USD, living in LA all my friends who went to startups or even mid-size companies pretty much never went anywhere, also big tech opens every door there is. 
 
 The bay’s not as pricey as you think, you’ll be fine trust me. If for whatever reason it doesn’t work out you can pick your next move after, I guarantee that startup will still have you. 
 
 Also tech lead as a new grad is a bad idea. Go learn from some experienced devs, the best of the best work at these big tech companies. 
 
 DM me if you have any questions. Worked at 2 FAANGS and 2 other large companies you’ve heard of. My yearly TC’s almost 5x’d since I left Canada 4.5 years ago, but I’ve also gotten to live in incredible places (Hawaii and SoCal) in that time, and never had to de-ice my car once in the meantime.
-  - **happylogicgate** (9↑): Thanks for sharing. I'm assuming you're still in the US?
+  - **happylogicgate** (7↑): Thanks for sharing. I'm assuming you're still in the US?
 
 Have you ever thought about coming back to Canada, especially before you were just starting out in the US.
     - **howzlife17** (17↑): Yep still in the US, and nope never considered coming back, other than vacation and to visit family. Life’s just better here, don’t believe everything in the news if that’s what’s scaring you. Taxes are lower, healthcare’s actually better since you’ll be at a big firm, way more nature and stuff to do, and people you’ll be around are generally pretty happy and friendly, usually.
-  - **andrew2018022** (6↑): Damn dude you’re living the life. Being a higher earner in LA is the absolute dream
-    - **howzlife17** (9↑): West LA is legit, spent a few years working remotely from Hawaii during the pandemic that was something else. Still have a ton of friends and a sailboat there. 
+  - **andrew2018022** (8↑): Damn dude you’re living the life. Being a higher earner in LA is the absolute dream
+    - **howzlife17** (8↑): West LA is legit, spent a few years working remotely from Hawaii during the pandemic that was something else. Still have a ton of friends and a sailboat there. 
 
 Also I’ve only lived in Hawaii and SoCal, so maybe my overall view of the US is a lil bias but I think its pretty sweet
-  - **Kyanche** (3↑): > tech all the way. 9 years in I’m making $550k TC USD, living in LA
+  - **Kyanche** (4↑): > tech all the way. 9 years in I’m making $550k TC USD, living in LA
 
 How's the big tech like in LA? What kinda tech? I am in socal myself, but don't work in big tech. XD I admit... it'd be nice to afford a house here.....
     - **KingTyranitar** (1↑): He's probably at Snap
@@ -181,10 +179,10 @@ Being a tech lead at a tiny startup as a new grad will almost certainly screw yo
 * If they're promising you equity, it's probably going to be worthless whether the startup succeeds or not, either because the startup fails, it gets diluted, you leave before the cliff period ends, or investors and founders take everything during the exit.
 
 Those are five good reasons to take the big tech offer but do what you want.
-  - **alpacaMyToothbrush** (7↑): > If you're one of the few engineers there or the only engineer there, that's going to look fishy to future recruiters and force you to lie. They definitely care about how many engineers you worked with.
+  - **alpacaMyToothbrush** (8↑): > If you're one of the few engineers there or the only engineer there, that's going to look fishy to future recruiters and force you to lie. They definitely care about how many engineers you worked with.
 
 TBH this whole thing sounds fake as hell unless OP has an AI PHD from U ED.
-  - **happylogicgate** (-4↑): Thanks for your input as an Eng Manager, I appreciate your detailed response. I agree with all your points, but just want to add for the last 2 points that:
+  - **happylogicgate** (-1↑): Thanks for your input as an Eng Manager, I appreciate your detailed response. I agree with all your points, but just want to add for the last 2 points that:
 
 * The startup has been around for 10 years without firing anyone, so it has higher job security than the LLM company.
 * The startup is giving me the full 240K USD in base salary, no equity. On the other hand, the LLM company is giving me equity, so the equity risk is really a bit reversed from what you'd expect in this case.

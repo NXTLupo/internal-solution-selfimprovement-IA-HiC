@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, comments, reddit-deep, guidance, student, career, posted, reddit]
     token_count: 84
   - id: "social-intelligence/reddit-deep/careerguidance/1sk7fo9.md#c1"
-    char_span: [291, 1021]
+    char_span: [290, 1020]
     sentence_count: 4
     key_terms: [business, aimed, roles, data, show, transactions, description, internships]
     section: Comments

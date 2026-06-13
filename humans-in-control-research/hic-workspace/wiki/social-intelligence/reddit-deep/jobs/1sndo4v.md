@@ -21,19 +21,19 @@ chunks:
     key_terms: [experience, level, job, jobs, feel, like, absolutely, comments]
     token_count: 496
   - id: "social-intelligence/reddit-deep/jobs/1sndo4v.md#c1"
-    char_span: [2131, 3818]
+    char_span: [2130, 3817]
     sentence_count: 16
     key_terms: [job, vjvisser, congratulations, months, field, unemployed, something, brutal]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1sndo4v.md#c2"
-    char_span: [3586, 4550]
+    char_span: [3585, 4549]
     sentence_count: 6
     key_terms: [gap, getting, market, people, offer, infjgoestoplaces28, best, don]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/jobs/1sndo4v.md#c3"
-    char_span: [4552, 6399]
+    char_span: [4551, 6398]
     sentence_count: 7
     key_terms: [background, employer, because, checks, weary-ad-6615, lying, work, recommend]
     section: Comments

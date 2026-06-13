@@ -23,13 +23,13 @@ chunks:
     key_terms: [relationship, money, comments, partner, realize, alternative-log-6091, genz, hard]
     token_count: 252
   - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c1"
-    char_span: [1095, 2167]
+    char_span: [1094, 2166]
     sentence_count: 8
     key_terms: [partner, discord, people, talks, hard, fatcockroach002, automatically, automoderator]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/genz/1nzep2l.md#c2"
-    char_span: [2169, 3801]
+    char_span: [2168, 3800]
     sentence_count: 9
     key_terms: [money, partner, like, different, something, breakups, honestly, bonding]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, experience, comments, programs, pre-med, necessarily, reddit-deep, financial]
     token_count: 156
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mvkrxw.md#c1"
-    char_span: [640, 2208]
+    char_span: [639, 2207]
     sentence_count: 5
     key_terms: [financial, aid, need-based, help, students, college, premed, well-regarded]
     section: Comments

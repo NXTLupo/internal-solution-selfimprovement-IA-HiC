@@ -23,25 +23,25 @@ chunks:
     key_terms: [codex, gpt-5, max, comments, context, openai, window, temperatureno3082]
     token_count: 159
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c1"
-    char_span: [616, 2415]
+    char_span: [615, 2414]
     sentence_count: 13
     key_terms: [high, windows, performance, medium, codex, auto-compaction, without, model]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c2"
-    char_span: [2417, 3283]
+    char_span: [2416, 3282]
     sentence_count: 5
     key_terms: [agent, windows, around, code, full, better, issues, codex]
     section: Comments
     token_count: 225
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c3"
-    char_span: [3286, 5224]
+    char_span: [3285, 5223]
     sentence_count: 15
     key_terms: [windows, codex, wsl, works, context, coding, understanding, real]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1p1ggo1.md#c4"
-    char_span: [4979, 5456]
+    char_span: [4978, 5455]
     sentence_count: 3
     key_terms: [use, dumb, tool, panic-compact, understanding, auto-compact, explorations, satoshinotme]
     section: Comments

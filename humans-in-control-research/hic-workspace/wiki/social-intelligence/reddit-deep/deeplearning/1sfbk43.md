@@ -23,31 +23,31 @@ chunks:
     key_terms: [systems, deeplearning, maths, probability, interested, dynamical, gatsby-bridging-programme, comments]
     token_count: 423
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c1"
-    char_span: [1801, 2042]
+    char_span: [1800, 2041]
     sentence_count: 3
     key_terms: [comprehend, underlying, understand, vocabulary, andy-3290, something, problems, ability]
     section: Comments
     token_count: 54
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c2"
-    char_span: [2044, 4244]
+    char_span: [2043, 4243]
     sentence_count: 7
     key_terms: [background, brilliant-nectarine8, maths, "i'm", math, "you're", understanding, level]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c3"
-    char_span: [3958, 4496]
+    char_span: [3957, 4495]
     sentence_count: 3
     key_terms: [brilliant-nectarine8, cost, accommodation, aistearalainn, background, investment, preference, regardless]
     section: Comments
     token_count: 131
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c4"
-    char_span: [4498, 6215]
+    char_span: [4497, 6214]
     sentence_count: 15
     key_terms: [masters, course, understanding, research, intersection, neuroscience, background, beneficial]
     section: Comments
     token_count: 370
   - id: "social-intelligence/reddit-deep/deeplearning/1sfbk43.md#c5"
-    char_span: [6217, 7604]
+    char_span: [6216, 7603]
     sentence_count: 10
     key_terms: [research, brilliant-nectarine8, fearless-elephant-81, gatsby, opportunity, estimated, course, online]
     section: Comments

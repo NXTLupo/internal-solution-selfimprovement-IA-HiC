@@ -23,7 +23,7 @@ chunks:
     key_terms: [uwaterloo, comments, waterloo, "there's", business-week4389, reddit-deep, percentage, companies]
     token_count: 125
   - id: "social-intelligence/reddit-deep/uwaterloo/1kv51rn.md#c1"
-    char_span: [512, 2237]
+    char_span: [511, 2236]
     sentence_count: 13
     key_terms: [waterloo, companies, number, like, reserve, headcount, students, nrgxlr8tr]
     section: Comments

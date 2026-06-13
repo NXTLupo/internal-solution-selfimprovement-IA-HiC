@@ -15,17 +15,17 @@ industries: [ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-deeplearning/8dc40ddb6f.md#c0"
-    char_span: [0, 1819]
+    char_span: [0, 1818]
     sentence_count: 15
     key_terms: [multi-agent, agents, hallucinations, deeplearning, model, does, asking, reddit]
-    token_count: 387
+    token_count: 386
   - id: "articles/reddit-deep-r-deeplearning/8dc40ddb6f.md#c1"
-    char_span: [1821, 4083]
+    char_span: [1820, 4082]
     sentence_count: 2
     key_terms: [hallucinations, different, get, gets, llm, better, models, model]
     token_count: 474
   - id: "articles/reddit-deep-r-deeplearning/8dc40ddb6f.md#c2"
-    char_span: [4088, 4621]
+    char_span: [4087, 4620]
     sentence_count: 2
     key_terms: [whether, keep, programmatically, conversations, professional, satisfactory, evaluations, necroforest]
     token_count: 106

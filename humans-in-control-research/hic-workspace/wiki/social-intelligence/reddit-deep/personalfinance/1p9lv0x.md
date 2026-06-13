@@ -23,7 +23,7 @@ chunks:
     key_terms: [month, isa, personalfinance, london, right, financial, comments, account]
     token_count: 417
   - id: "social-intelligence/reddit-deep/personalfinance/1p9lv0x.md#c1"
-    char_span: [1641, 3473]
+    char_span: [1640, 3472]
     sentence_count: 8
     key_terms: [personalfinance, questions, ukpersonalfinance, cash, automatically, automoderator, fund, wiki]
     section: Comments

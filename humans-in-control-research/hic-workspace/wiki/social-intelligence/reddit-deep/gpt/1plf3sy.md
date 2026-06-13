@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1plf3sy.md#c0"
-    char_span: [0, 483]
+    char_span: [0, 482]
     sentence_count: 6
     key_terms: [free, gpt, plan, comments, new, habitjolly6495, excessively, reddit-deep]
-    token_count: 133
+    token_count: 132
 ---
 # New GPT free plan
 

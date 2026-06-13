@@ -38,7 +38,7 @@ chunks:
     key_terms: [important, science, nasa, nepotism, question, postdoc, whether, truth]
     token_count: 200
   - id: "social-intelligence/reddit-deep/askacademia/1tmya60.md#c4"
-    char_span: [6617, 7465]
+    char_span: [6616, 7464]
     sentence_count: 7
     key_terms: [gamecat89, someone, hoping, mycologistlower5247, read, economistwithad, arist0geiton, productivity]
     section: Comments

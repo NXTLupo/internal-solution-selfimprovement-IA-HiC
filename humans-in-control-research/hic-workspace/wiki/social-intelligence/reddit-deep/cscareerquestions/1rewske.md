@@ -23,55 +23,55 @@ chunks:
     key_terms: [cscareerquestions, narrative, comments, hiring, market, people, seeing, job]
     token_count: 207
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c1"
-    char_span: [872, 1588]
+    char_span: [871, 1587]
     sentence_count: 5
     key_terms: [jumping, offers, people, edwardstronghammer, keep, like, ship, remotejobseekers]
     section: Comments
     token_count: 161
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c2"
-    char_span: [1593, 3500]
+    char_span: [1592, 3499]
     sentence_count: 10
     key_terms: [experience, recruiters, market, applying, resume, been, got, "i've"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c3"
-    char_span: [3300, 5160]
+    char_span: [3299, 5159]
     sentence_count: 12
     key_terms: [resume, applying, been, good, got, recruiters, reviewed, getting]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c4"
-    char_span: [5162, 6516]
+    char_span: [5161, 6515]
     sentence_count: 17
     key_terms: [job, market, worse, been, got, jobs, everywhere, experience]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c5"
-    char_span: [6518, 7370]
+    char_span: [6517, 7369]
     sentence_count: 8
     key_terms: [boomers, job, ageism, market, substantial-elk4531, state, new, generational]
     section: Comments
     token_count: 219
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c6"
-    char_span: [7372, 8626]
+    char_span: [7371, 8625]
     sentence_count: 8
     key_terms: [companies, deleted, recruiters, seriously, struggles, honestly, respond, almost]
     section: Comments
     token_count: 332
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c7"
-    char_span: [8628, 10402]
+    char_span: [8627, 10401]
     sentence_count: 13
     key_terms: [interview, years, interviewer, incredible, perfection, questions, amazon, devops]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c8"
-    char_span: [10404, 12642]
+    char_span: [10403, 12641]
     sentence_count: 18
     key_terms: [people, engineers, find, resumes, being, competitive, need, team]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rewske.md#c9"
-    char_span: [12644, 13165]
+    char_span: [12643, 13164]
     sentence_count: 7
     key_terms: [market, being, mbathrowaway256, disappointment, opportunities, competitive, replacement, advertised]
     section: Comments

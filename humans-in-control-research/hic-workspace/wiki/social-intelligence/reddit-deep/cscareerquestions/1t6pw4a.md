@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, feel, lost, comments, setup, grad, job, new]
     token_count: 169
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t6pw4a.md#c1"
-    char_span: [693, 2177]
+    char_span: [692, 2176]
     sentence_count: 8
     key_terms: ["you're", comfortable, environment, experience, yesterday, feeling, working, months]
     section: Comments

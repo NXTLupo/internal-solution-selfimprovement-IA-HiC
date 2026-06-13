@@ -28,7 +28,7 @@ chunks:
     key_terms: [https, paper, doi, spec, reconstruction, peer-reviewed, reproducible, mdalexandre]
     token_count: 111
   - id: "social-intelligence/reddit-deep/deeplearning/1s10mkw.md#c2"
-    char_span: [2360, 4526]
+    char_span: [2359, 4525]
     sentence_count: 18
     key_terms: [model, real, format, method, tasks, json, like, test]
     section: Comments

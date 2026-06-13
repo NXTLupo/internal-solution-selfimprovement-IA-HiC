@@ -23,13 +23,13 @@ chunks:
     key_terms: [market, crash, investing, invest, month, eventually, comments, bubble]
     token_count: 285
   - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c1"
-    char_span: [1232, 3273]
+    char_span: [1231, 3272]
     sentence_count: 17
     key_terms: [market, invest, money, "i'm", saving, confusing, investing, floatingostrichs]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/investing/1o2fjyg.md#c2"
-    char_span: [3275, 5311]
+    char_span: [3274, 5310]
     sentence_count: 18
     key_terms: [recover, market, burst, com, dot, time, investing, business]
     section: Comments

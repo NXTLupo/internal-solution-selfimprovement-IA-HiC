@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-machinelearning/bba142db1b.md#c0"
-    char_span: [0, 1758]
+    char_span: [0, 1757]
     sentence_count: 8
     key_terms: [neuralos, com, traditional, generative, entirely, machinelearning, fully, yuntiandeng]
-    token_count: 401
+    token_count: 400
 ---
 # [R] NeuralOS: a generative OS entirely powered by neural networks
 

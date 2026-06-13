@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r9dyo1.md#c0"
-    char_span: [0, 1683]
+    char_span: [0, 1682]
     sentence_count: 11
     key_terms: [position, automotive, engineeringstudents, co-op, safety-operations, take, design, offer]
     token_count: 378

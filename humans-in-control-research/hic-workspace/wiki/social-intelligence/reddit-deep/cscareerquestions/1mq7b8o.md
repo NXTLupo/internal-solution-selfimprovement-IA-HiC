@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mq7b8o.md#c0"
-    char_span: [0, 811]
+    char_span: [0, 810]
     sentence_count: 4
     key_terms: [cscareerquestions, career, facilitation, opportunity, audience, comments, speaking, session]
-    token_count: 181
+    token_count: 180
 ---
 # How to Maximize a Guest Facilitation Opportunity for Career Growth in Tech?
 

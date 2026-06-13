@@ -23,43 +23,43 @@ chunks:
     key_terms: [cscareerquestions, comments, company, defence, looking, seems, evil, like]
     token_count: 178
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c1"
-    char_span: [767, 2821]
+    char_span: [766, 2820]
     sentence_count: 15
     key_terms: [good, work, world, engineering, financial, problems, research, looking]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c2"
-    char_span: [2550, 2983]
+    char_span: [2549, 2982]
     sentence_count: 3
     key_terms: [ding, sufficient-dinner319, chemical-fault-7331, disappointing, perspective, successful, financial, investors]
     section: Comments
     token_count: 111
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c3"
-    char_span: [2985, 4896]
+    char_span: [2984, 4895]
     sentence_count: 10
     key_terms: [ethical, bad, pay, candidates, profitable, competing, qualities, something]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c4"
-    char_span: [4898, 7248]
+    char_span: [4897, 7247]
     sentence_count: 15
     key_terms: [companies, medical, money, big, find, good, like, tech]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c5"
-    char_span: [7251, 9286]
+    char_span: [7250, 9285]
     sentence_count: 16
     key_terms: [people, jobs, building, wide-pop6050, here, healthcare, understand, careers]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c6"
-    char_span: [9288, 10579]
+    char_span: [9287, 10578]
     sentence_count: 8
     key_terms: [capitalism, against, smith, lanaegleria, inventions, confusing, designed, original]
     section: Comments
     token_count: 281
   - id: "social-intelligence/reddit-deep/cscareerquestions/1skpcir.md#c7"
-    char_span: [10581, 12431]
+    char_span: [10580, 12430]
     sentence_count: 14
     key_terms: [tech, companies, different, options, better, people, profit, system]
     section: Comments

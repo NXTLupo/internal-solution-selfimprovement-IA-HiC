@@ -26,19 +26,19 @@ chunks:
     key_terms: [life, college, because, doesn, right, good, got, perspective]
     token_count: 163
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c2"
-    char_span: [2676, 4298]
+    char_span: [2675, 4297]
     sentence_count: 19
     key_terms: [life, georgetown, something, because, college, getting, sharing, cherrychocolatepizza]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c3"
-    char_span: [4300, 5938]
+    char_span: [4299, 5937]
     sentence_count: 11
     key_terms: [life, college, scholarship, important, stanford, getting, person, school]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/applyingtocollege/1lp8ix8.md#c4"
-    char_span: [5940, 7120]
+    char_span: [5939, 7119]
     sentence_count: 9
     key_terms: [school, economicsjazzlike932, funny-negotiation304, thank, crinklednosesmile, life, like, love]
     section: Comments

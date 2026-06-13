@@ -21,19 +21,19 @@ chunks:
     key_terms: [companies, strategy, careerguidance, nobody, worked, connections, comments, industry]
     token_count: 444
   - id: "social-intelligence/reddit-deep/careerguidance/1rxvy71.md#c1"
-    char_span: [2042, 3845]
+    char_span: [2041, 3844]
     sentence_count: 20
     key_terms: [years, did, mellowtronic, experience, motivated, shopify, almost, being]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/careerguidance/1rxvy71.md#c2"
-    char_span: [3847, 5952]
+    char_span: [3846, 5951]
     sentence_count: 17
     key_terms: [honestly, downthegrapevine, mindcypress, free, like, mba, too, compliance]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/careerguidance/1rxvy71.md#c3"
-    char_span: [5954, 7980]
+    char_span: [5953, 7979]
     sentence_count: 6
     key_terms: [work, small, another, felt, lot, everything, companies, sometimes]
     section: Comments

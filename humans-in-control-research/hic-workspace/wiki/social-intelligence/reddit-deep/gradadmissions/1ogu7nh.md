@@ -18,7 +18,7 @@ industries: [higher_ed, fundraising, nonprofit]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1ogu7nh.md#c0"
-    char_span: [0, 1041]
+    char_span: [0, 1040]
     sentence_count: 7
     key_terms: [gradadmissions, advancement, considering, experience, motivation, comments, position, question]
     token_count: 230

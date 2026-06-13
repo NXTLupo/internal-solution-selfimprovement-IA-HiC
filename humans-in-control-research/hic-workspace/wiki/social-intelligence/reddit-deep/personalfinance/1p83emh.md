@@ -28,79 +28,79 @@ chunks:
     key_terms: [pay, retirement, financial, loan, house, concern, great, "i've"]
     token_count: 268
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c2"
-    char_span: [2876, 5005]
+    char_span: [2875, 5004]
     sentence_count: 21
     key_terms: [pool, "don't", "it's", live, risk, excavation, including, september]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c3"
-    char_span: [4736, 6334]
+    char_span: [4735, 6333]
     sentence_count: 11
     key_terms: [like, live, mom, lawn, pool, chemicals, already, retired]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c4"
-    char_span: [6336, 7412]
+    char_span: [6335, 7411]
     sentence_count: 11
     key_terms: [pool, insurance, became, remove, safety, cost, get, home]
     section: Comments
     token_count: 254
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c5"
-    char_span: [7414, 8601]
+    char_span: [7413, 8600]
     sentence_count: 11
     key_terms: [pool, mention, going, years, ago, did, mom, time]
     section: Comments
     token_count: 312
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c6"
-    char_span: [8603, 10094]
+    char_span: [8602, 10093]
     sentence_count: 16
     key_terms: [pool, maintenance, keep, costs, get, chemicals, interest, pokemonprofessor121]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c7"
-    char_span: [10096, 11406]
+    char_span: [10095, 11405]
     sentence_count: 10
     key_terms: [rate, pool, chemical, little, wildlifebiologist10, makes, prime, twice]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c8"
-    char_span: [11410, 12710]
+    char_span: [11409, 12709]
     sentence_count: 14
     key_terms: [pool, maintenance, question, looked, hereforthesportsball, above, bill, cash]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c9"
-    char_span: [12712, 14854]
+    char_span: [12711, 14853]
     sentence_count: 12
     key_terms: [payments, pool, principal, pay, tax, minimum, better, paying]
     section: Comments
     token_count: 487
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c10"
-    char_span: [14856, 16674]
+    char_span: [14855, 16673]
     sentence_count: 14
     key_terms: [retirement, higher, heloc, mom, pool, account, advisor, trigger]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c11"
-    char_span: [16676, 18568]
+    char_span: [16675, 18567]
     sentence_count: 12
     key_terms: [years, sassafras1232, costs, month, electricity, pay, nursing, replace]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c12"
-    char_span: [18571, 20019]
+    char_span: [18570, 20018]
     sentence_count: 8
     key_terms: [heloc, pool, contract, paying, person, "that's", independentfinallly, oneforallandbeyondd]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c13"
-    char_span: [20021, 21157]
+    char_span: [20020, 21156]
     sentence_count: 9
     key_terms: [financial, pool, boundaries, poopyinthepeepeehole, worth, good, idea, above-ground]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/personalfinance/1p83emh.md#c14"
-    char_span: [21159, 23040]
+    char_span: [21158, 23039]
     sentence_count: 11
     key_terms: [pool, ground, above, years, get, wants, deck, in-ground]
     section: Comments

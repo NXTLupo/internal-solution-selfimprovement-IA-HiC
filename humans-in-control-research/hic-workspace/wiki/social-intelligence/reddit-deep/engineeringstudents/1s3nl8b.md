@@ -23,25 +23,25 @@ chunks:
     key_terms: [engineeringstudents, engineering, comments, classes, makeup, people, doing, girls]
     token_count: 220
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c1"
-    char_span: [961, 2739]
+    char_span: [960, 2738]
     sentence_count: 12
     key_terms: [women, dress, "i'm", talk, work, classes, afraid, people]
     section: Comments
     token_count: 457
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c2"
-    char_span: [2741, 4860]
+    char_span: [2740, 4859]
     sentence_count: 10
     key_terms: [engineering, makes, engineers, like, classes, people, girly, level]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c3"
-    char_span: [4862, 5881]
+    char_span: [4861, 5880]
     sentence_count: 6
     key_terms: [because, almost, years, like, look, pink, thesixthvisitor, paperr-cranes]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/engineeringstudents/1s3nl8b.md#c4"
-    char_span: [5883, 7731]
+    char_span: [5882, 7730]
     sentence_count: 12
     key_terms: [like, "you're", johnbrownserection, dress, girly, going, lab, less]
     section: Comments

@@ -26,55 +26,55 @@ chunks:
     key_terms: [stocks, money, last, complacency, conclusion, government, millennium, ancestors]
     token_count: 131
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c2"
-    char_span: [2716, 4436]
+    char_span: [2715, 4435]
     sentence_count: 16
     key_terms: [people, market, crash, ready, cash, time, trillions, instead]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c3"
-    char_span: [4438, 6403]
+    char_span: [4437, 6402]
     sentence_count: 15
     key_terms: [ready, strategy, buy, shit, standard, fearful, "there's", without]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c4"
-    char_span: [6210, 6528]
+    char_span: [6209, 6527]
     sentence_count: 4
     key_terms: [former-artichoke2374, like, post, moneyforrent, jayrock1970, famously, glorious, remember]
     section: Comments
     token_count: 97
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c5"
-    char_span: [6530, 8109]
+    char_span: [6529, 8108]
     sentence_count: 17
     key_terms: [tradingdeck1, positions, comments, reddit, gonna, https, right, wrong]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c6"
-    char_span: [8111, 9047]
+    char_span: [8110, 9046]
     sentence_count: 6
     key_terms: [middle, people, trainingjellyfish643, times, east, keep, okay, unprecedented]
     section: Comments
     token_count: 212
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c7"
-    char_span: [9049, 10166]
+    char_span: [9048, 10165]
     sentence_count: 4
     key_terms: [invested, buying, people, crash, money, "it's", like, man]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c8"
-    char_span: [10169, 11803]
+    char_span: [10168, 11802]
     sentence_count: 6
     key_terms: [global, dollar, "don't", march, pound, worse, does, here]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c9"
-    char_span: [11805, 13134]
+    char_span: [11804, 13133]
     sentence_count: 4
     key_terms: [bought, internationaltwo3191, successful-bobcat701, feels, carrierarearrived, getup4thedownvote, llm, puts]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/stocks/1s2frw9.md#c10"
-    char_span: [13136, 14157]
+    char_span: [13135, 14156]
     sentence_count: 7
     key_terms: [market, year, defaulting, searches, banks, since, present-fudge-3156, dontforgetthedivy]
     section: Comments

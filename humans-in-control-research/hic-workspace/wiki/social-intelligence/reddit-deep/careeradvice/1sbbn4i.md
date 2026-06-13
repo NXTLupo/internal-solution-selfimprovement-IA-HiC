@@ -23,13 +23,13 @@ chunks:
     key_terms: [marketing, digital, careeradvice, comments, growing, career, field, modernwebmentor]
     token_count: 165
   - id: "social-intelligence/reddit-deep/careeradvice/1sbbn4i.md#c1"
-    char_span: [707, 2885]
+    char_span: [706, 2884]
     sentence_count: 12
     key_terms: [marketing, digital, tools, definitely, adjacent, requires, research, content]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/careeradvice/1sbbn4i.md#c2"
-    char_span: [2887, 3226]
+    char_span: [2886, 3225]
     sentence_count: 3
     key_terms: [marketing, haunting-clue7877, cut, department, experience, graduation, everyone, graphics]
     section: Comments

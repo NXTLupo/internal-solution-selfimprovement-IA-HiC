@@ -23,7 +23,7 @@ chunks:
     key_terms: [career, want, careeradvice, comments, learning, field, learn, shift]
     token_count: 240
   - id: "social-intelligence/reddit-deep/careeradvice/1osd4c4.md#c1"
-    char_span: [942, 2175]
+    char_span: [941, 2174]
     sentence_count: 10
     key_terms: [ultimatechaos233, lazyllama21, engineer, askiacareercoaching, field, data, jobs, less]
     section: Comments

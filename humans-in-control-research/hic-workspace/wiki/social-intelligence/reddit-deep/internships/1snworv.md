@@ -26,7 +26,7 @@ chunks:
     key_terms: [mechatronics, project, variety, doing, worth, deep, certifications, shallow-to-mid]
     token_count: 186
   - id: "social-intelligence/reddit-deep/internships/1snworv.md#c2"
-    char_span: [2971, 3529]
+    char_span: [2970, 3528]
     sentence_count: 2
     key_terms: [projects, early, get, everything, interviews, freelance, hopefully, anything]
     section: Comments

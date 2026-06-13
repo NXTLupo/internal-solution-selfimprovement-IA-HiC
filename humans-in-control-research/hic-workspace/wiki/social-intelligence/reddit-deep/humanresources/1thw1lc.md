@@ -23,7 +23,7 @@ chunks:
     key_terms: [professionals, convenience, retail, challenges, locations, humanresources, multi-location, gas]
     token_count: 417
   - id: "social-intelligence/reddit-deep/humanresources/1thw1lc.md#c1"
-    char_span: [2117, 3170]
+    char_span: [2116, 3169]
     sentence_count: 8
     key_terms: [post, subreddit, discord, mundane-jump-7546, work, gonebabythoughts, humanresources, multi-location]
     section: Comments

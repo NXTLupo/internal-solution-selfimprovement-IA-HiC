@@ -23,19 +23,19 @@ chunks:
     key_terms: [school, classes, grad, people, did, criticisms, gradschool, interested]
     token_count: 447
   - id: "social-intelligence/reddit-deep/gradschool/1tk0odl.md#c1"
-    char_span: [1945, 4061]
+    char_span: [1944, 4060]
     sentence_count: 19
     key_terms: [undergrad, school, like, time, feels, difficult, grad, because]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/gradschool/1tk0odl.md#c2"
-    char_span: [4063, 5720]
+    char_span: [4062, 5719]
     sentence_count: 18
     key_terms: [difficulty, school, grad, "i'm", year, experience, motivation, different]
     section: Comments
     token_count: 347
   - id: "social-intelligence/reddit-deep/gradschool/1tk0odl.md#c3"
-    char_span: [5722, 7523]
+    char_span: [5721, 7522]
     sentence_count: 11
     key_terms: [undergrad, harder, assignment, requires, because, courses, several, easier]
     section: Comments

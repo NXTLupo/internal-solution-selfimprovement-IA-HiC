@@ -23,67 +23,67 @@ chunks:
     key_terms: [people, passionate, issue, applyingtocollege, apps, extracurricular, college, project]
     token_count: 476
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c1"
-    char_span: [2250, 4260]
+    char_span: [2249, 4259]
     sentence_count: 8
     key_terms: [passion, passionate, right, because, applications, genuinely, detracts, research]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c2"
-    char_span: [4262, 5767]
+    char_span: [4261, 5766]
     sentence_count: 11
     key_terms: [passion, because, like, applicants, college, deserve, always, better]
     section: Comments
     token_count: 328
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c3"
-    char_span: [5769, 7595]
+    char_span: [5768, 7594]
     sentence_count: 10
     key_terms: [college, people, admissions, passionate, sageplusorbs, eightethans, apps, club]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c4"
-    char_span: [7597, 9509]
+    char_span: [7596, 9508]
     sentence_count: 6
     key_terms: [because, "don't", nonprofit, students, actions, college, learned, started]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c5"
-    char_span: [9511, 11350]
+    char_span: [9510, 11349]
     sentence_count: 16
     key_terms: [disingenuous, superficial, because, "can't", honestly, person, "you're", puzzleheadedsize7304]
     section: Comments
     token_count: 418
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c6"
-    char_span: [11352, 11824]
+    char_span: [11351, 11823]
     sentence_count: 5
     key_terms: ["don't", superficial, interview, job, disingenuous, application, "shouldn't", position]
     section: Comments
     token_count: 113
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c7"
-    char_span: [11826, 14114]
+    char_span: [11825, 14113]
     sentence_count: 16
     key_terms: [passionate, something, try, "you're", willingness, find, fine, like]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c8"
-    char_span: [13810, 14186]
+    char_span: [13809, 14185]
     sentence_count: 1
     key_terms: [year, clubs, like, activities, sophomore, favorite, freshman, possibly]
     section: Comments
     token_count: 81
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c9"
-    char_span: [14189, 15979]
+    char_span: [14188, 15978]
     sentence_count: 5
     key_terms: [doing, like, freshman, college, passion, strange, people, school]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c10"
-    char_span: [15981, 17949]
+    char_span: [15980, 17948]
     sentence_count: 15
     key_terms: [students, applications, did, "he's", requirements, college, elected, martial]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/applyingtocollege/1skjjgp.md#c11"
-    char_span: [17951, 18427]
+    char_span: [17950, 18426]
     sentence_count: 4
     key_terms: [doing, something, anything, externally, meaningful, motivation, motivated, problem]
     section: Comments

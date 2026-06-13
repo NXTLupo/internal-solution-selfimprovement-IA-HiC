@@ -28,43 +28,43 @@ chunks:
     key_terms: [like, classmates, completely, engineers, people, "don't", enjoy, find]
     token_count: 228
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c2"
-    char_span: [3571, 5575]
+    char_span: [3570, 5574]
     sentence_count: 19
     key_terms: [engineering, problem, fields, engineers, probably, issue, field-wide, behavior]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c3"
-    char_span: [5577, 7842]
+    char_span: [5576, 7841]
     sentence_count: 17
     key_terms: [engineering, experience, "you're", culture, school, like, people, specifically]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c4"
-    char_span: [7844, 10122]
+    char_span: [7843, 10121]
     sentence_count: 16
     key_terms: [understanding, levels, people, creativity, get, better, higher, unfortunately]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c5"
-    char_span: [10124, 12019]
+    char_span: [10123, 12018]
     sentence_count: 16
     key_terms: [teachers, people, "can't", good, classmates, engineers, research, crappy]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c6"
-    char_span: [12021, 14197]
+    char_span: [12020, 14196]
     sentence_count: 23
     key_terms: [professors, engineering, program, grades, "i'm", like, attracts, research]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c7"
-    char_span: [14199, 14978]
+    char_span: [14198, 14977]
     sentence_count: 5
     key_terms: [students, social, "don't", get, far-highway-9925, disciplines, engineering, businesses]
     section: Comments
     token_count: 173
   - id: "social-intelligence/reddit-deep/engineeringstudents/1oip8c9.md#c8"
-    char_span: [14982, 16849]
+    char_span: [14981, 16848]
     sentence_count: 12
     key_terms: [engineering, people, engineers, love, everywhere, something, thinking, enough]
     section: Comments

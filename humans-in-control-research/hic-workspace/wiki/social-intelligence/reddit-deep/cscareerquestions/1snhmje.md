@@ -23,31 +23,31 @@ chunks:
     key_terms: [cscareerquestions, specific, working, experience, companies, interview, comments, matching]
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c1"
-    char_span: [2036, 3755]
+    char_span: [2035, 3754]
     sentence_count: 12
     key_terms: [school, graduating, class, years, graduated, since, good, grad]
     section: Comments
     token_count: 445
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c2"
-    char_span: [3757, 4828]
+    char_span: [3756, 4827]
     sentence_count: 5
     key_terms: [junior, years, jobs, experience, cew-blog-major-payoff, illustrious-pound266, gold-flatworm-4313, known-tourist-6102]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c3"
-    char_span: [4830, 5776]
+    char_span: [4829, 5775]
     sentence_count: 4
     key_terms: [ai-and-a-frozen-job-market-leave-college-grads-underemployed, daily-labor-report, bloomberglaw, "they're", https, com, like, news]
     section: Comments
     token_count: 259
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c4"
-    char_span: [5781, 7889]
+    char_span: [5780, 7888]
     sentence_count: 8
     key_terms: [companies, build, mock, friends, project, short, until, collegestudentlol1]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1snhmje.md#c5"
-    char_span: [7628, 7901]
+    char_span: [7627, 7900]
     sentence_count: 2
     key_terms: [allknowinguser, underemployed, considering, graduating, graduates, required, atleast, offers]
     section: Comments

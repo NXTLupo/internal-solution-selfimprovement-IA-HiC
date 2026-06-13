@@ -21,13 +21,13 @@ chunks:
     key_terms: [interviewer, interview, dsa, mins, through, solved, internships, test]
     token_count: 503
   - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c1"
-    char_span: [2029, 3578]
+    char_span: [2029, 3577]
     sentence_count: 4
     key_terms: [northeastern-university-co-op-internship-opportunities, northeastern, microsoft, https, explore-microsoft, pipeline-programs, software-engineer, colleges]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/internships/1n5li6w.md#c2"
-    char_span: [3580, 4712]
+    char_span: [3579, 4711]
     sentence_count: 4
     key_terms: [microsoft, like, coldincident8236, sorryescape7, internships, opportunity, internship, university]
     section: Comments

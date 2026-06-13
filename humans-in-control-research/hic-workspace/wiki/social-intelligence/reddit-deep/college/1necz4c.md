@@ -61,13 +61,13 @@ chunks:
     key_terms: [https, sexual, articles, www, edu, gov, ncbi, nih]
     token_count: 504
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c9"
-    char_span: [10152, 12345]
+    char_span: [10152, 12344]
     sentence_count: 21
     key_terms: [sexual, people, consent, assault, "didn't", though, canada-consent-understanding-metoo, men]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/college/1necz4c.md#c10"
-    char_span: [12347, 13841]
+    char_span: [12346, 13840]
     sentence_count: 11
     key_terms: [assault, sexual, rape, greenhorror4252, ilikeneurons, fce40214d4be53aba902929a328e8e69, https, definition]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [civil, program, engineeringstudents, tech, engineering, experience, comments, transfer]
     token_count: 261
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ry99rd.md#c1"
-    char_span: [1190, 2265]
+    char_span: [1189, 2264]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

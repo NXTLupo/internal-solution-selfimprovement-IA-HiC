@@ -26,85 +26,85 @@ chunks:
     key_terms: ["i'm", realistic, pay, take, suggestions, employment, experience, anything]
     token_count: 111
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c2"
-    char_span: [2427, 3541]
+    char_span: [2426, 3540]
     sentence_count: 13
     key_terms: [get, chill, jobs, work, worked, broad-cranberry-9050, weeks, years]
     section: Comments
     token_count: 283
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c3"
-    char_span: [3543, 5736]
+    char_span: [3542, 5735]
     sentence_count: 19
     key_terms: [environment, people, worked, work, embedded, defense, development, engineering]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c4"
-    char_span: [5738, 7109]
+    char_span: [5737, 7108]
     sentence_count: 10
     key_terms: [expectations, jobs, "don't", everyone, clients, require, broad-cranberry-9050, feel]
     section: Comments
     token_count: 289
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c5"
-    char_span: [7111, 9334]
+    char_span: [7110, 9333]
     sentence_count: 16
     key_terms: [job, chill, something, work, defense, gringo-go-loco, jobs, pointless]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c6"
-    char_span: [9336, 11324]
+    char_span: [9335, 11323]
     sentence_count: 23
     key_terms: [doctor, job, bring, hate, "it's", like, tech, security]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c7"
-    char_span: [11326, 12466]
+    char_span: [11325, 12465]
     sentence_count: 14
     key_terms: [sales, software, successful, something, mathhhhhhhhhhhhhhhhh, occasionalgoodtakes, foo-bar-nlogn-100, mean]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c8"
-    char_span: [12468, 13556]
+    char_span: [12467, 13555]
     sentence_count: 9
     key_terms: [sales, lucrative, "master's", "they're", fields, pretty, jolly, easy]
     section: Comments
     token_count: 288
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c9"
-    char_span: [13558, 15501]
+    char_span: [13557, 15500]
     sentence_count: 15
     key_terms: [friends, better, fields, people, jobs, experience, peppiminti, companies]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c10"
-    char_span: [15503, 17527]
+    char_span: [15502, 17526]
     sentence_count: 16
     key_terms: ["you're", field, financial, gap, job, financially, away, feel]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c11"
-    char_span: [17529, 19404]
+    char_span: [17528, 19403]
     sentence_count: 6
     key_terms: [new, framework, project, learn, like, web, javascript, anything]
     section: Comments
     token_count: 449
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c12"
-    char_span: [19406, 20393]
+    char_span: [19405, 20392]
     sentence_count: 3
     key_terms: [conflictpotential204, too, seriouslysampson, wehavethemeeps, understanding, fundamentals, prerequisite, development]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c13"
-    char_span: [20397, 21899]
+    char_span: [20396, 21898]
     sentence_count: 12
     key_terms: ["don't", vue, want, because, looked, cobol, major, newer]
     section: Comments
     token_count: 365
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c14"
-    char_span: [21901, 23804]
+    char_span: [21900, 23803]
     sentence_count: 17
     key_terms: [myself, "i'm", "i've", "it's", going, worse, been, tech]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lwlwzm.md#c15"
-    char_span: [23806, 24984]
+    char_span: [23805, 24983]
     sentence_count: 14
     key_terms: [thought, construction, legitimate-mostlet, "it's", new, role, not-inevitable79, oversaturated]
     section: Comments

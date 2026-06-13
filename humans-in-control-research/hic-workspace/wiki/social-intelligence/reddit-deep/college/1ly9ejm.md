@@ -23,7 +23,7 @@ chunks:
     key_terms: ["i'm", happy, college, far, making, going, proud, able]
     token_count: 442
   - id: "social-intelligence/reddit-deep/college/1ly9ejm.md#c1"
-    char_span: [1810, 2628]
+    char_span: [1809, 2627]
     sentence_count: 7
     key_terms: [congratulations, intersection-focused, salt-difference-4770, saintsfan1622000, ubiquitousuguisu, transformative, funnyloud3067, engineering]
     section: Comments

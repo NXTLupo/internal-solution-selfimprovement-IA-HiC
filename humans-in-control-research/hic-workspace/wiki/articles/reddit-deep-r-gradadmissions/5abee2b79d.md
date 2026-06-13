@@ -15,10 +15,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-gradadmissions/5abee2b79d.md#c0"
-    char_span: [0, 1631]
+    char_span: [0, 1630]
     sentence_count: 12
     key_terms: [program, gradadmissions, international, find, mim, stem, consulting, experience]
-    token_count: 372
+    token_count: 371
 ---
 # Advices For Cornell MPA VS Boston University MIM (Master in management)
 

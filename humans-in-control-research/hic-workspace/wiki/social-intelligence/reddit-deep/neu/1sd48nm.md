@@ -21,19 +21,19 @@ chunks:
     key_terms: [year, campus, northeastern, comments, oakland, defiant-distance-755, ask, live]
     token_count: 240
   - id: "social-intelligence/reddit-deep/neu/1sd48nm.md#c1"
-    char_span: [1003, 1817]
+    char_span: [1002, 1816]
     sentence_count: 6
     key_terms: [oakland, parents, transfer, campus, asked, did, pleniluneglaze, adtough2930]
     section: Comments
     token_count: 206
   - id: "social-intelligence/reddit-deep/neu/1sd48nm.md#c2"
-    char_span: [1819, 3763]
+    char_span: [1818, 3762]
     sentence_count: 14
     key_terms: [parents, nyc, want, lakeorjanzo, let, admissions, campuses, oakland]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1sd48nm.md#c3"
-    char_span: [3488, 3802]
+    char_span: [3487, 3801]
     sentence_count: 6
     key_terms: [nyc, workaround, satellite, choosing, colleges, scholars, waitlist, hearing]
     section: Comments

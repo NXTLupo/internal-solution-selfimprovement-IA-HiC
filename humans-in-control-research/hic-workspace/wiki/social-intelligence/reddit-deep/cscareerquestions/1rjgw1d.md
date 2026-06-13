@@ -21,19 +21,19 @@ chunks:
     key_terms: [cscareerquestions, comments, project, internships, reddit-deep, experience, graduated, brother]
     token_count: 133
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rjgw1d.md#c1"
-    char_span: [505, 2006]
+    char_span: [504, 2005]
     sentence_count: 8
     key_terms: [known-tourist-6102, market, job, something, company, project, working, cooked]
     section: Comments
     token_count: 358
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rjgw1d.md#c2"
-    char_span: [2008, 4041]
+    char_span: [2007, 4040]
     sentence_count: 16
     key_terms: [resume, projects, jobs, job, project, applications, "can't", unemployed]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rjgw1d.md#c3"
-    char_span: [4043, 5905]
+    char_span: [4042, 5904]
     sentence_count: 13
     key_terms: [resume, technology, possible, brother, technically, put, definitely, projects]
     section: Comments

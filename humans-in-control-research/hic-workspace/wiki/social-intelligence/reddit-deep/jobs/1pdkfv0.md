@@ -23,25 +23,25 @@ chunks:
     key_terms: [experience, jobs, comments, without, though, completepurification, entry, back]
     token_count: 159
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c1"
-    char_span: [634, 2303]
+    char_span: [633, 2302]
     sentence_count: 15
     key_terms: [job, years, experience, get, applying, implementno2626, working, entry]
     section: Comments
     token_count: 410
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c2"
-    char_span: [2305, 3678]
+    char_span: [2304, 3677]
     sentence_count: 11
     key_terms: [lot, "don't", did, job, experience, projects, certain, started]
     section: Comments
     token_count: 335
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c3"
-    char_span: [3680, 4652]
+    char_span: [3679, 4651]
     sentence_count: 8
     key_terms: [job, department, "college's", career, people, jobs, personality, replacement]
     section: Comments
     token_count: 220
   - id: "social-intelligence/reddit-deep/jobs/1pdkfv0.md#c4"
-    char_span: [4654, 5946]
+    char_span: [4653, 5945]
     sentence_count: 8
     key_terms: [certain-working1864, years, someone, people, opportunity, experience, internship, offers]
     section: Comments

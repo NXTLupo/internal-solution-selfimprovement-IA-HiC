@@ -23,49 +23,49 @@ chunks:
     key_terms: [waterloo, comments, housing, new, neighborhoods, neighborhood, reddit-deep, sageme-2020]
     token_count: 164
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c1"
-    char_span: [673, 2623]
+    char_span: [672, 2622]
     sentence_count: 21
     key_terms: [realtor, available, good, suggest, laurelwood, schools, description, immediately]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c2"
-    char_span: [2625, 4190]
+    char_span: [2624, 4189]
     sentence_count: 12
     key_terms: [schools, school, sageme-2020, waterloo, funding, receive, walking, areas]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c3"
-    char_span: [4192, 6573]
+    char_span: [4191, 6572]
     sentence_count: 16
     key_terms: [school, kids, children, board, ratings, schools, neighbourhoods, enough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c4"
-    char_span: [6282, 6690]
+    char_span: [6281, 6689]
     sentence_count: 2
     key_terms: [children, school, disadvantages, neighbourhood, experiencing, environment, advantages, community]
     section: Comments
     token_count: 88
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c5"
-    char_span: [6692, 8365]
+    char_span: [6691, 8364]
     sentence_count: 13
     key_terms: [schools, school, kids, french, immersion, ratings, neighbourhoods, public]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c6"
-    char_span: [8368, 9803]
+    char_span: [8367, 9802]
     sentence_count: 15
     key_terms: [neighborhood, school, agent, elizabeth, recommend, process, months, allen]
     section: Comments
     token_count: 357
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c7"
-    char_span: [9806, 11956]
+    char_span: [9805, 11955]
     sentence_count: 18
     key_terms: [waterloo, community, kitchener, neighbourhood, centres, public, school, area]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/waterloo/1ky9nxm.md#c8"
-    char_span: [11958, 14121]
+    char_span: [11957, 14120]
     sentence_count: 16
     key_terms: [recommend, waterloo, looking, theyre, neighborhood, live, work, management]
     section: Comments

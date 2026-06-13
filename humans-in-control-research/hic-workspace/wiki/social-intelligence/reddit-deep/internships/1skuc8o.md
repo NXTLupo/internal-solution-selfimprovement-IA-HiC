@@ -23,13 +23,13 @@ chunks:
     key_terms: [internship, internships, work, graduate, job, comments, prepared, applied]
     token_count: 307
   - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c1"
-    char_span: [1304, 3344]
+    char_span: [1303, 3343]
     sentence_count: 17
     key_terms: [dry-remote826, school, hospital, scared, hours, match, week, internship]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1skuc8o.md#c2"
-    char_span: [3072, 3645]
+    char_span: [3071, 3644]
     sentence_count: 6
     key_terms: [school, hours, week, hospital, website, program, completing, internship]
     section: Comments

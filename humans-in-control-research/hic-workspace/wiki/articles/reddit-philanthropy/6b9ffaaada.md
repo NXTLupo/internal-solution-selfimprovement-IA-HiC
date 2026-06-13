@@ -15,10 +15,10 @@ industries: [nonprofit]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-philanthropy/6b9ffaaada.md#c0"
-    char_span: [0, 858]
+    char_span: [0, 857]
     sentence_count: 7
     key_terms: [nonprofit-compensation, salary, nonprofit, benchmarking, philanthropy, https, grantledger, data]
-    token_count: 196
+    token_count: 195
 ---
 # I built a free nonprofit salary benchmarking tool using IRS 990 data
 

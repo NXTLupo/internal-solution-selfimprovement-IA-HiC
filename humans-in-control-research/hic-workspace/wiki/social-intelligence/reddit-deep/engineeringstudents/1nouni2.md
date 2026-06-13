@@ -23,7 +23,7 @@ chunks:
     key_terms: [systems, power, engineeringstudents, graduate, student, experience, internship, companies]
     token_count: 249
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nouni2.md#c1"
-    char_span: [1122, 1758]
+    char_span: [1121, 1757]
     sentence_count: 4
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments

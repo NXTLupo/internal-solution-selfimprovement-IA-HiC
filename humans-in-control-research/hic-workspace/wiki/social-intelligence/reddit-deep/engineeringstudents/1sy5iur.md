@@ -23,19 +23,19 @@ chunks:
     key_terms: [engineeringstudents, internship, comments, manufacturing, engineering, reddit-deep, experience, mixerblaze]
     token_count: 122
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c1"
-    char_span: [494, 2318]
+    char_span: [493, 2317]
     sentence_count: 15
     key_terms: [engineeringstudents, mixerblaze, wiki, please, reddit, https, offer, com]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c2"
-    char_span: [2320, 4274]
+    char_span: [2319, 4273]
     sentence_count: 8
     key_terms: [mixerblaze, "you're", engineer, remember, asking, quick-atmosphere5801, maleficent-land3539, doing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sy5iur.md#c3"
-    char_span: [4078, 4498]
+    char_span: [4077, 4497]
     sentence_count: 3
     key_terms: [mixerblaze, quick-atmosphere5801, miku, used, dreamsequenced, subscription, lysol3435, mentioned]
     section: Comments

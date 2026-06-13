@@ -23,13 +23,13 @@ chunks:
     key_terms: [internship, coops, coop, summer, spring, northeastern, internships, best]
     token_count: 251
   - id: "social-intelligence/reddit-deep/neu/1secs91.md#c1"
-    char_span: [1119, 2919]
+    char_span: [1118, 2918]
     sentence_count: 13
     key_terms: [internship, internships, co-op, mid, august, background-matter-87, projects, summer]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/neu/1secs91.md#c2"
-    char_span: [2922, 3359]
+    char_span: [2921, 3358]
     sentence_count: 1
     key_terms: [internship, big, tech, summer, month, goldenorion99, internships, possible]
     section: Comments

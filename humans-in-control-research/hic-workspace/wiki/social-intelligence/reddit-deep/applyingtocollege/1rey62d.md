@@ -23,7 +23,7 @@ chunks:
     key_terms: [business, senior, applyingtocollege, extracurriculars, classes, library, policy, opportunities]
     token_count: 531
   - id: "social-intelligence/reddit-deep/applyingtocollege/1rey62d.md#c1"
-    char_span: [2453, 2591]
+    char_span: [2453, 2590]
     sentence_count: 1
     key_terms: [circumstances, extenuating, sashaisnice, enrollment, humanities, straight, mostly, dual]
     section: Comments

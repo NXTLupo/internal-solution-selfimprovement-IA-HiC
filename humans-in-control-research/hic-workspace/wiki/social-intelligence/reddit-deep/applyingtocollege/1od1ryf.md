@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1od1ryf.md#c0"
-    char_span: [0, 699]
+    char_span: [0, 698]
     sentence_count: 4
     key_terms: [applyingtocollege, like, low-income, comments, programs, college, help, prep]
-    token_count: 167
+    token_count: 166
 ---
 # Any Low-Income College prep programs still open?
 

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1rdsd8i.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1rdsd8i/effect_of_summer_research_internship_on_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Physical Sciences"
 extracted_at: "2026-06-06T23:23:15.587Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rdsd8i.md#c0"
+    char_span: [0, 1014]
+    sentence_count: 5
+    key_terms: [research, gradadmissions, school, summer, grad, experience, internship, attending]
+    token_count: 226
+  - id: "social-intelligence/reddit-deep/gradadmissions/1rdsd8i.md#c1"
+    char_span: [1029, 2944]
+    sentence_count: 14
+    key_terms: [great, research, physics, connections, work, biophysics, meaningful, princeton]
+    section: Comments
+    token_count: 417
 ---
-
 # Effect of Summer Research Internship on Grad School Application
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1rdsd8i/effect_of_summer_research_internship_on_grad/)

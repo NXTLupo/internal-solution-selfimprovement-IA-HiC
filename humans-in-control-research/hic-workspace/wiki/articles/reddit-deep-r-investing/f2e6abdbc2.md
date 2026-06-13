@@ -15,10 +15,10 @@ industries: [financial_services, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/f2e6abdbc2.md#c0"
-    char_span: [0, 1399]
+    char_span: [0, 1398]
     sentence_count: 9
     key_terms: [analyze, halilural, portfolio, look, returns, use, allocation, investment]
-    token_count: 359
+    token_count: 358
 ---
 # Do any of you use AI to analyze your investment portfolio?
 

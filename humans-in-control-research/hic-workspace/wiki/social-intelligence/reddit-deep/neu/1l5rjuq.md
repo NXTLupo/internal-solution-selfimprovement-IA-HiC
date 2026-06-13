@@ -23,13 +23,13 @@ chunks:
     key_terms: [student, suggestions, comments, college, looking, area, "i'm", neu]
     token_count: 191
   - id: "social-intelligence/reddit-deep/neu/1l5rjuq.md#c1"
-    char_span: [776, 2502]
+    char_span: [775, 2501]
     sentence_count: 12
     key_terms: [chilllfam, long-hold6548, question, allston, housing, jamaica, looking, boston]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1l5rjuq.md#c2"
-    char_span: [2265, 2564]
+    char_span: [2264, 2563]
     sentence_count: 5
     key_terms: [looking, moving, "i'm", potentially, definitely, chilllfam, transfer, friends]
     section: Comments

@@ -26,49 +26,49 @@ chunks:
     key_terms: [aid, department, dartmouth, financial, questions, received, already, emailed]
     token_count: 50
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c2"
-    char_span: [2492, 4313]
+    char_span: [2491, 4312]
     sentence_count: 18
     key_terms: [loans, yale, emory, take, people, ride, student, borrow]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c3"
-    char_span: [4315, 6299]
+    char_span: [4314, 6298]
     sentence_count: 25
     key_terms: [school, emory, medical, opportunities, undergraduate, scholarship, law, like]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c4"
-    char_span: [6301, 8426]
+    char_span: [6300, 8425]
     sentence_count: 10
     key_terms: [yale, emory, get, med, schools, thousands, like, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c5"
-    char_span: [8164, 10194]
+    char_span: [8163, 10193]
     sentence_count: 13
     key_terms: [yale, premed, emory, grade, financial, inflation, year, making]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c6"
-    char_span: [9886, 11454]
+    char_span: [9885, 11453]
     sentence_count: 10
     key_terms: [princeton, school, yale, premed, difference, medical, longjumpingpage7797, emory]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c7"
-    char_span: [11456, 12352]
+    char_span: [11455, 12351]
     sentence_count: 6
     key_terms: [friend, got, research, another, school, did, gpa, opportunities]
     section: Comments
     token_count: 203
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c8"
-    char_span: [12354, 14545]
+    char_span: [12353, 14544]
     sentence_count: 17
     key_terms: [debt, yale, harvard, league, ivy, pre-law, pre-med, school]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sio6jk.md#c9"
-    char_span: [14217, 14571]
+    char_span: [14216, 14570]
     sentence_count: 4
     key_terms: [debt, harvard, yale, unparalleled, overwhelmed, additional, afterwards, hospitals]
     section: Comments

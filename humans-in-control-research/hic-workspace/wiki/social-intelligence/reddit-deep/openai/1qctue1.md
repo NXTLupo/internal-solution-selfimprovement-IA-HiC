@@ -23,13 +23,13 @@ chunks:
     key_terms: [problem, code, anyone, issues, else, comments, merging, openai]
     token_count: 291
   - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c1"
-    char_span: [1112, 2919]
+    char_span: [1111, 2918]
     sentence_count: 11
     key_terms: [code, use, verbosity, changes, happens, prompts, smarter, almost]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/openai/1qctue1.md#c2"
-    char_span: [2921, 3409]
+    char_span: [2920, 3408]
     sentence_count: 3
     key_terms: [model, misconfigurations, work, slytherinspectre, experiences, performance, enterprise, inadequate]
     section: Comments

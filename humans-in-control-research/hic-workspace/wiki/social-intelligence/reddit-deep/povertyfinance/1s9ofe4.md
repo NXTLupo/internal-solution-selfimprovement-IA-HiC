@@ -23,43 +23,43 @@ chunks:
     key_terms: [because, povertyfinance, like, sometimes, comments, feeling, check, going]
     token_count: 404
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c1"
-    char_span: [1886, 3929]
+    char_span: [1885, 3928]
     sentence_count: 13
     key_terms: [friends, "don't", want, been, good, hang, something, watching]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c2"
-    char_span: [3718, 4335]
+    char_span: [3717, 4334]
     sentence_count: 4
     key_terms: [friends, littleredreadinghood, got, appreciated, embarrassed, inexpensive, margaritas, situations]
     section: Comments
     token_count: 157
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c3"
-    char_span: [4337, 6300]
+    char_span: [4336, 6299]
     sentence_count: 14
     key_terms: [library, friend, want, bottle, afternoon, company, friends, dinner]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c4"
-    char_span: [6302, 6749]
+    char_span: [6301, 6748]
     sentence_count: 5
     key_terms: ["didn't", like, everything, understand, financial, situation, feelings, charity]
     section: Comments
     token_count: 100
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c5"
-    char_span: [6751, 8955]
+    char_span: [6750, 8954]
     sentence_count: 13
     key_terms: [free, events, local, neighborhood, trivia, "there's", social, "that's"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c6"
-    char_span: [8656, 10286]
+    char_span: [8655, 10285]
     sentence_count: 10
     key_terms: [free, through, check, local, love, feeling, library, someone]
     section: Comments
     token_count: 360
   - id: "social-intelligence/reddit-deep/povertyfinance/1s9ofe4.md#c7"
-    char_span: [10288, 12221]
+    char_span: [10287, 12220]
     sentence_count: 13
     key_terms: [free, "it's", friends, around, broke, libraries, something, events]
     section: Comments

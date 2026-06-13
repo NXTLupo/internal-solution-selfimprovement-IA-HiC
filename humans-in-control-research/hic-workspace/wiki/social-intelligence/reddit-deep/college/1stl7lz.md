@@ -23,13 +23,13 @@ chunks:
     key_terms: [education, professor, reference, college, ask, comments, position, school]
     token_count: 229
   - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c1"
-    char_span: [1016, 2933]
+    char_span: [1015, 2932]
     sentence_count: 8
     key_terms: [reference, professor, ask, good, professors, willing, "they'd", write]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/college/1stl7lz.md#c2"
-    char_span: [2935, 3955]
+    char_span: [2934, 3954]
     sentence_count: 4
     key_terms: [request, totally, ask, give, good, got, job, jobs]
     section: Comments

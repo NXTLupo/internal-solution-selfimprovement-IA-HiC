@@ -23,49 +23,49 @@ chunks:
     key_terms: [quantitative, stocks, increasing, short-term, tightening, financial, investing, liquidity]
     token_count: 307
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c1"
-    char_span: [1511, 3469]
+    char_span: [1510, 3468]
     sentence_count: 16
     key_terms: [labor, continue, assets, demand, wealth, increasing, inflation, position]
     section: Comments
     token_count: 439
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c2"
-    char_span: [3471, 5493]
+    char_span: [3470, 5492]
     sentence_count: 16
     key_terms: [people, work, been, home, someone, equity, some-palpitation-314, asset]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c3"
-    char_span: [5495, 7376]
+    char_span: [5494, 7375]
     sentence_count: 7
     key_terms: [median, people, shakeandbakethatcake, worth, wealth, net, retirement, inflation]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c4"
-    char_span: [7378, 9264]
+    char_span: [7377, 9263]
     sentence_count: 13
     key_terms: [quantitative, understandingthin40, short, duration, spending, easing, making, professional]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c5"
-    char_span: [9266, 10440]
+    char_span: [9265, 10439]
     sentence_count: 11
     key_terms: [bank, quantity, quantitative, money, commercial, directly, original, specific]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c6"
-    char_span: [10442, 12210]
+    char_span: [10441, 12209]
     sentence_count: 8
     key_terms: [bank, central, buying, end, financial, western, crisis, easing]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c7"
-    char_span: [12212, 14418]
+    char_span: [12211, 14417]
     sentence_count: 12
     key_terms: [short, market, reserve-management-reinvestment-purchases-faq, different, fed, end, "it's", last]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/investing/1pkw2hq.md#c8"
-    char_span: [14420, 14984]
+    char_span: [14419, 14983]
     sentence_count: 5
     key_terms: [barkinginthestreet, illustrations, no-block-2095, commentators, injections, liquidity, replacing, tightened]
     section: Comments

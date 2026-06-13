@@ -15,22 +15,22 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c0"
-    char_span: [0, 1905]
+    char_span: [0, 1904]
     sentence_count: 15
     key_terms: [people, chatgpt, openai, reddit, use, artificial, attachment, concerning]
-    token_count: 431
+    token_count: 430
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c1"
-    char_span: [1907, 4303]
+    char_span: [1906, 4302]
     sentence_count: 20
     key_terms: [people, something, companionship, never, like, connection, situations, understand]
     token_count: 501
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c2"
-    char_span: [4305, 6341]
+    char_span: [4304, 6340]
     sentence_count: 11
     key_terms: [people, companionship, back, get, completely, companion, different, critique]
     token_count: 460
   - id: "articles/reddit-deep-r-artificial/f2feafe8c3.md#c3"
-    char_span: [6343, 7927]
+    char_span: [6342, 7926]
     sentence_count: 12
     key_terms: [work, listen, information, been, gpt, something, annoyed, changes]
     token_count: 381

@@ -28,7 +28,7 @@ chunks:
     key_terms: ["i'm", like, get, been, feel, "i've", job, direction]
     token_count: 398
   - id: "social-intelligence/reddit-deep/careerguidance/1sh0kda.md#c2"
-    char_span: [3854, 4162]
+    char_span: [3853, 4161]
     sentence_count: 1
     key_terms: [traditional, corporate, immediate, marketing, figuring, pressure, explore, hosting]
     section: Comments

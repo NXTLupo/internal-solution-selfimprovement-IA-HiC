@@ -23,19 +23,19 @@ chunks:
     key_terms: [manager, something, comments, managers, moments, support, helps, day]
     token_count: 298
   - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c1"
-    char_span: [1266, 3311]
+    char_span: [1265, 3310]
     sentence_count: 11
     key_terms: [work, narrow-ad-7856, small, operational, did, help, training, manager]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c2"
-    char_span: [3119, 3703]
+    char_span: [3118, 3702]
     sentence_count: 6
     key_terms: [kilimtilikum, context, "you're", great, bot, give, conversations, saduwastaken]
     section: Comments
     token_count: 169
   - id: "social-intelligence/reddit-deep/managers/1sdtgob.md#c3"
-    char_span: [3705, 4915]
+    char_span: [3704, 4914]
     sentence_count: 10
     key_terms: [everything, conversations, use, peopling, changes, context, place, app]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, weeks, interview, comments, response, company, however, usually]
     token_count: 250
   - id: "social-intelligence/reddit-deep/internships/1sygq12.md#c1"
-    char_span: [1029, 1746]
+    char_span: [1028, 1745]
     sentence_count: 3
     key_terms: [interviewed, longjumping-idea-866, old-requirement-7817, get, updates, hope, internships, responsive]
     section: Comments

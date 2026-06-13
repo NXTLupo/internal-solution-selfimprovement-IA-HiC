@@ -23,13 +23,13 @@ chunks:
     key_terms: [chatgpt, comments, https, png, dellevenjack, reddit-deep, criminals, situation]
     token_count: 165
   - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c1"
-    char_span: [478, 1588]
+    char_span: [477, 1587]
     sentence_count: 7
     key_terms: [please, automoderator, conversation, image, post, r-chatgpt-1050422060352024636, comments, concerns]
     section: Comments
     token_count: 277
   - id: "social-intelligence/reddit-deep/chatgpt/1p2p9uq.md#c2"
-    char_span: [1591, 3123]
+    char_span: [1590, 3122]
     sentence_count: 12
     key_terms: [hearts, save, criminals, billion, federal, society, budget, "didn't"]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [internship, work, automotive, experience, environmental, manufacturing, offer, similar]
     token_count: 305
   - id: "social-intelligence/reddit-deep/internships/1tdckco.md#c1"
-    char_span: [1485, 2902]
+    char_span: [1484, 2901]
     sentence_count: 5
     key_terms: [plant, culture, processing, food, working, impact, manufacturing, automotive]
     section: Comments

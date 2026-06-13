@@ -23,109 +23,109 @@ chunks:
     key_terms: [jobs, encountered, "i've", job, son, eventually, comments, continue]
     token_count: 356
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c1"
-    char_span: [1608, 2722]
+    char_span: [1607, 2721]
     sentence_count: 12
     key_terms: [making, almost, living, rising, years, back, get, yeah]
     section: Comments
     token_count: 295
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c2"
-    char_span: [2724, 4938]
+    char_span: [2723, 4937]
     sentence_count: 19
     key_terms: [been, get, work, government, supportive, employed, probably, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c3"
-    char_span: [4685, 5037]
+    char_span: [4684, 5036]
     sentence_count: 2
     key_terms: [literal, "add--there's", helplessness, advancement, happen--the, absolutely, something, frenzied]
     section: Comments
     token_count: 91
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c4"
-    char_span: [5039, 6952]
+    char_span: [5038, 6951]
     sentence_count: 17
     key_terms: [worse, been, job, insurance, because, receive, through, hiring]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c5"
-    char_span: [6954, 8602]
+    char_span: [6953, 8601]
     sentence_count: 15
     key_terms: [like, frustration, job, depressed, stranger, charactergeneral5769, "can't", right]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c6"
-    char_span: [8605, 10857]
+    char_span: [8604, 10856]
     sentence_count: 21
     key_terms: [job, encourage, molecular, like, because, being, find, probably]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c7"
-    char_span: [10859, 11555]
+    char_span: [10858, 11554]
     sentence_count: 6
     key_terms: [because, feels, like, intelligence, unemployment, drastically, encouraging, inspiration]
     section: Comments
     token_count: 155
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c8"
-    char_span: [11557, 13610]
+    char_span: [11556, 13609]
     sentence_count: 27
     key_terms: [help, advice, connections, everything, veetoo151, probably, already, instead]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c9"
-    char_span: [13321, 14008]
+    char_span: [13320, 14007]
     sentence_count: 9
     key_terms: [connections, help, support, people, great, get, interviewing, definitely]
     section: Comments
     token_count: 142
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c10"
-    char_span: [14010, 15401]
+    char_span: [14009, 15400]
     sentence_count: 17
     key_terms: [experience, hard, tech, assuming, stocking, shelves, people, right]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c11"
-    char_span: [15403, 16307]
+    char_span: [15402, 16306]
     sentence_count: 5
     key_terms: [easy, get, job, stocking, shelves, degree, jobs, honestly]
     section: Comments
     token_count: 239
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c12"
-    char_span: [16309, 18456]
+    char_span: [16308, 18455]
     sentence_count: 15
     key_terms: [job, experience, tech, stocking, shelves, charactergeneral5769, get, getting]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c13"
-    char_span: [18201, 19036]
+    char_span: [18200, 19035]
     sentence_count: 7
     key_terms: [market, experience, probably, itybitygreenieweenie, right, deal, job, constructive]
     section: Comments
     token_count: 179
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c14"
-    char_span: [19038, 20767]
+    char_span: [19037, 20766]
     sentence_count: 11
     key_terms: [helped, people, pretty, being, saved, hanagin-dengalbury, justgimmiethelight, been]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c15"
-    char_span: [20770, 22345]
+    char_span: [20769, 22344]
     sentence_count: 9
     key_terms: [job, covid, been, unemployed, davo300zx, superhero, probably, justice]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c16"
-    char_span: [22348, 24534]
+    char_span: [22347, 24533]
     sentence_count: 11
     key_terms: [job, right, requirements, good, son, time, experience, interviews]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c17"
-    char_span: [24536, 26709]
+    char_span: [24535, 26708]
     sentence_count: 35
     key_terms: [ask, like, times, shit, already, "doesn't", crappy, "didn't"]
     section: Comments
     token_count: 493
   - id: "social-intelligence/reddit-deep/jobs/1oe1luo.md#c18"
-    char_span: [26711, 27456]
+    char_span: [26710, 27455]
     sentence_count: 9
     key_terms: [been, unemployed, applying, masters, professional-act8414, day, here, "it's"]
     section: Comments

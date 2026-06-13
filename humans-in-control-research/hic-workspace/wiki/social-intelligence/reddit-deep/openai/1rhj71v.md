@@ -28,55 +28,55 @@ chunks:
     key_terms: [claude, job, memory, something, chatgpt, details, asked, been]
     token_count: 506
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c2"
-    char_span: [4373, 4593]
+    char_span: [4372, 4592]
     sentence_count: 2
     key_terms: [nickelchrome, situation, because, chatgpt, discuss, respect, stopped, claude]
     section: Comments
     token_count: 56
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c3"
-    char_span: [4595, 6353]
+    char_span: [4594, 6352]
     sentence_count: 8
     key_terms: [memory, incognito, chatgpt, accidentally, access, "that's", kindly-present-4867, lease]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c4"
-    char_span: [6072, 6642]
+    char_span: [6071, 6641]
     sentence_count: 4
     key_terms: [incognito, memory, wish, optimismneeded, superb-ad3821, preferences, complaint, mentioned]
     section: Comments
     token_count: 135
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c5"
-    char_span: [6644, 8545]
+    char_span: [6643, 8544]
     sentence_count: 15
     key_terms: [claude, claudehomies, better, because, project, going, chat, good]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c6"
-    char_span: [8547, 10124]
+    char_span: [8546, 10123]
     sentence_count: 2
     key_terms: [https, comments, claudehomies, sneakpeekbot, reddit, com, claude, redd]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c7"
-    char_span: [10126, 11966]
+    char_span: [10125, 11965]
     sentence_count: 15
     key_terms: [claude, limits, claudehomies, limit, tier, free, hit, account]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c8"
-    char_span: [11968, 13731]
+    char_span: [11967, 13730]
     sentence_count: 10
     key_terms: [like, "i've", went, work, claude, enough, feels, right]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c9"
-    char_span: [13733, 15656]
+    char_span: [13732, 15655]
     sentence_count: 14
     key_terms: [spreadsheet, reference, like, project, chat, use, approach, switched]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/openai/1rhj71v.md#c10"
-    char_span: [15658, 17333]
+    char_span: [15657, 17332]
     sentence_count: 10
     key_terms: [claudehomies, claude, limits, usage, reddit, https, terms, com]
     section: Comments

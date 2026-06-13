@@ -33,25 +33,25 @@ chunks:
     key_terms: [days, life, neighborhood, apartments, fulfilling, rocketship, sacrifice, something]
     token_count: 82
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c3"
-    char_span: [4563, 6725]
+    char_span: [4562, 6724]
     sentence_count: 17
     key_terms: [years, family, like, canadian, startups, excited, similar, decide]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c4"
-    char_span: [6727, 8385]
+    char_span: [6726, 8384]
     sentence_count: 17
     key_terms: [opportunity, back, kid, like, new, want, imagine, outcome]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c5"
-    char_span: [8387, 10550]
+    char_span: [8386, 10549]
     sentence_count: 22
     key_terms: [take, career, job, life, time, experience, generally, groundbreaking-history]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/careerguidance/1sjer1f.md#c6"
-    char_span: [10552, 10844]
+    char_span: [10551, 10843]
     sentence_count: 2
     key_terms: [comforts, home, important, anything, thinking, perfect, become, boring]
     section: Comments

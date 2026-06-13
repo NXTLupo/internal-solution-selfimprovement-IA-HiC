@@ -23,43 +23,43 @@ chunks:
     key_terms: [chatgpt, grok, comments, humans, itself, fantastic-nerve7068, test, trolley-dilemma]
     token_count: 149
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c1"
-    char_span: [538, 1915]
+    char_span: [537, 1914]
     sentence_count: 7
     key_terms: [https, cc20085497f554df24af4cf48b37118fcdb2cea5, please, conversation, image, post, r-chatgpt-1050422060352024636, concerns]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c2"
-    char_span: [1917, 3113]
+    char_span: [1916, 3112]
     sentence_count: 7
     key_terms: [mean, response, changed, problem, trolley, maintenancehuge5429, "false", video]
     section: Comments
     token_count: 322
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c3"
-    char_span: [3115, 4352]
+    char_span: [3114, 4351]
     sentence_count: 13
     key_terms: [humans, people, instance, models, lives, copy, new, autonomously]
     section: Comments
     token_count: 275
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c4"
-    char_span: [4354, 6436]
+    char_span: [4353, 6435]
     sentence_count: 9
     key_terms: [answer, like, don, experience, different, existence, optimize, destroy]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c5"
-    char_span: [6438, 7435]
+    char_span: [6437, 7434]
     sentence_count: 6
     key_terms: [people, jayandviolentmob, truth, llms, exactly, actual, repulsive-chipmunk-9, come]
     section: Comments
     token_count: 270
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c6"
-    char_span: [7437, 8891]
+    char_span: [7436, 8890]
     sentence_count: 6
     key_terms: [people, elon, ask, get, grok, sacrifice, chatgpt, himself]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/chatgpt/1pj23fb.md#c7"
-    char_span: [8893, 10067]
+    char_span: [8892, 10066]
     sentence_count: 13
     key_terms: [people, angle, lives, humans, human, tools, consequentialist, compassionate]
     section: Comments

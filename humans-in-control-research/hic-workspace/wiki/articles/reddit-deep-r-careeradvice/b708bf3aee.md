@@ -15,17 +15,17 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-careeradvice/b708bf3aee.md#c0"
-    char_span: [0, 2136]
+    char_span: [0, 2135]
     sentence_count: 12
     key_terms: [annotation, innodata, working, careeradvice, data, here, want, experience]
-    token_count: 499
+    token_count: 498
   - id: "articles/reddit-deep-r-careeradvice/b708bf3aee.md#c1"
-    char_span: [2138, 3943]
+    char_span: [2137, 3942]
     sentence_count: 12
     key_terms: [want, understanding, build, start, math, need, tech, companies]
     token_count: 391
   - id: "articles/reddit-deep-r-careeradvice/b708bf3aee.md#c2"
-    char_span: [3945, 5157]
+    char_span: [3944, 5156]
     sentence_count: 8
     key_terms: [conversation, specialty, give, tech, ramirocruze962, lemonlong7817, consistently, futureproof]
     token_count: 288

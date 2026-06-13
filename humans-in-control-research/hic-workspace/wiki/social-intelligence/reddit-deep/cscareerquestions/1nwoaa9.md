@@ -23,55 +23,55 @@ chunks:
     key_terms: [experience, cscareerquestions, fake, get, here, background, companies, comments]
     token_count: 243
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c1"
-    char_span: [1063, 3278]
+    char_span: [1062, 3277]
     sentence_count: 7
     key_terms: [companies, experience, consultancy, years, get, someone, consultancies, least]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c2"
-    char_span: [3038, 4149]
+    char_span: [3037, 4148]
     sentence_count: 10
     key_terms: [experience, years, references, companies, different, anyone, rarely, worked]
     section: Comments
     token_count: 263
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c3"
-    char_span: [4151, 5815]
+    char_span: [4150, 5814]
     sentence_count: 13
     key_terms: [background, startups, companies, like, company, checks, contractor, experience]
     section: Comments
     token_count: 407
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c4"
-    char_span: [5817, 7829]
+    char_span: [5816, 7828]
     sentence_count: 10
     key_terms: [years, worked, going, india, consultancy, background, companies, because]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c5"
-    char_span: [7831, 9523]
+    char_span: [7830, 9522]
     sentence_count: 16
     key_terms: [company, background, companies, check, worked, job, different, however]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c6"
-    char_span: [9527, 11039]
+    char_span: [9526, 11038]
     sentence_count: 10
     key_terms: [company, experience, fake, get, job, previous, problem, resumes]
     section: Comments
     token_count: 348
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c7"
-    char_span: [11041, 13073]
+    char_span: [11040, 13072]
     sentence_count: 11
     key_terms: [companies, consultancy, payroll, worked, interview, employer, people, "you're"]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c8"
-    char_span: [13075, 15071]
+    char_span: [13074, 15070]
     sentence_count: 9
     key_terms: [experience, legal, area, gray, company, worked, consultancy, contract]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nwoaa9.md#c9"
-    char_span: [15073, 16951]
+    char_span: [15072, 16950]
     sentence_count: 23
     key_terms: [experience, outage, years, get, good, background, companies, company]
     section: Comments

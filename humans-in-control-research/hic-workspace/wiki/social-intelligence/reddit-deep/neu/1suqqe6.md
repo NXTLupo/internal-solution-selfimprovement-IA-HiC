@@ -26,13 +26,13 @@ chunks:
     key_terms: ["i'm", career, little, everything, "it's", strong, northeastern, high]
     token_count: 305
   - id: "social-intelligence/reddit-deep/neu/1suqqe6.md#c2"
-    char_span: [3691, 5965]
+    char_span: [3690, 5964]
     sentence_count: 16
     key_terms: [here, college, quality, instructors, time, challenges, especially, professors]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1suqqe6.md#c3"
-    char_span: [5675, 6224]
+    char_span: [5674, 6223]
     sentence_count: 3
     key_terms: [yourself, curious-actuary5981, ahead, peers, find, good, continuousivy, northeastern]
     section: Comments

@@ -21,7 +21,7 @@ chunks:
     key_terms: [northeastern, engineering, analytics, software, co-op, data, scranton, trying]
     token_count: 486
   - id: "social-intelligence/reddit-deep/neu/1sp7drz.md#c1"
-    char_span: [2145, 2525]
+    char_span: [2144, 2524]
     sentence_count: 3
     key_terms: [levzn, else, like, few-lawyer3707, gooseclimber, engineering, personally, analytics]
     section: Comments

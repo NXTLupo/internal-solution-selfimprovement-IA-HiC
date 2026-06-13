@@ -23,7 +23,7 @@ chunks:
     key_terms: [theatre, psychology, productions, like, overall, student, school, northeastern]
     token_count: 413
   - id: "social-intelligence/reddit-deep/neu/1rrrot4.md#c1"
-    char_span: [1925, 3953]
+    char_span: [1924, 3952]
     sentence_count: 8
     key_terms: [theatre, opportunities, people, smaller, clubs, super, coop, good]
     section: Comments

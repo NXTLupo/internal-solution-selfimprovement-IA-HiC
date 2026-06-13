@@ -15,10 +15,10 @@ industries: [workforce, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-workonline/a9f9cf9bc7.md#c0"
-    char_span: [0, 1430]
+    char_span: [0, 1429]
     sentence_count: 11
     key_terms: [basic, get, clients, ratings, skills, short, small, tasks]
-    token_count: 339
+    token_count: 338
 ---
 # Beginner coder & video editor — can I start getting clients with basic skills?
 

@@ -1,0 +1,60 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: lock, hold, vanguard, buy, clark, rule, acats
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+ACATS lock? I read an article on Clark.com that says you can call Vanguard customer service and place a lock to prevent ACATS transfer:
+
+EXAMPLE 2:
+Vanguard didn’t send any alert for my ACAT transfer out I recently did a **partial ACAT transfer** from Vanguard to Schwab which was initiated at Schwab. Schwab messaged me at every step, and the shares showed up in my Schwab account in 2 days. Vanguard? **No email, no message, nothing.** The shares just disappeared from my account. If someone initiated a **fraudulent ACAT transfer**, it seems like there’d be no alert when the request is made—or even after it’s completed. Posting this as an FYI in case others want to factor this into their security decisions. Yeah, that’s crazy. [...]
+
+EXAMPLE 3:
+[https://clark.com/personal-finance-credit/investing-retirement/why-you-need-to-lock-your-brokerage-account-today/](https://clark.com/personal-finance-credit/investing-retirement/why-you-need-to-lock-your-brokerage-account-today/)
+
+EXAMPLE 4:
+Have any of you done this? I tried to call and reps were unaware of the need nor capability.
+Clark's article says you have to specifically ask for someone in the Security department. He says the regular "customer-no-service people" (what he calls them) don't know anything about it, much less how to do it. And you have to specify an ACATS lock, not an account lock.
+Thanks for trying!
+
+EXAMPLE 5:
+How about you?  Any other solid overseas companies you've been stunned to learn you can't buy?   Please share.     I appreciate your thoughts and contribution.  I would only counter that if Vanguard is seeking "buy and hold" investors - there are many, many established, respected overseas companies that are buy and hold investments.  You'll notice (below) a comment to try Robinhood.  But I ask you:  Should a buy and hold investor really have to open a Robinhood account so they can hold a company like Siemens AG?  I believe in Vanguard's ability to implement a better way. [...]
+
+EXAMPLE 6:
+Vanguard OTC rule seems backwards Vanguard says its OTC restrictions exist to protect investors from risky securities.
+
+EXAMPLE 7:
+Meanwhile I can buy **VinFast Auto** (VFS) — a Vietnamese EV startup that briefly rocketed to one of the largest market caps in the auto industry despite selling relatively few cars and having almost no public float.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. An ultra-short summary that:
+   - Captures the core concept in 4 words or less using highly general terms
+   - Avoids specific names, brands, or individual references
+   - Uses the most essential categorical keywords
+   - Focuses on the broad theme or pattern
+   - Is clear and meaningful at a high level
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

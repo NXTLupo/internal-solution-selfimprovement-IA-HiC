@@ -23,7 +23,7 @@ chunks:
     key_terms: [companies, follow, investing, investor, market, oportunities, etc, knowledge]
     token_count: 238
   - id: "social-intelligence/reddit-deep/investing/1p4mr0w.md#c1"
-    char_span: [1043, 2866]
+    char_span: [1042, 2865]
     sentence_count: 11
     key_terms: [individual, stocks, "you're", etfs, small-caps, channels, earnings, exposure]
     section: Comments

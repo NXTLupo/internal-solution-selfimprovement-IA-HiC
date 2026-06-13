@@ -15,10 +15,10 @@ industries: [retail, dtc]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-digitalmarketing/bfccf11c9e.md#c0"
-    char_span: [0, 927]
+    char_span: [0, 926]
     sentence_count: 1
     key_terms: [digitalmarketing, tracking, reddit, told, reconciliation, spreadsheets, conversion, generating]
-    token_count: 210
+    token_count: 209
 ---
 # A prospect just told me they can’t justify my retainer because "ai does the same thing for free now."
 

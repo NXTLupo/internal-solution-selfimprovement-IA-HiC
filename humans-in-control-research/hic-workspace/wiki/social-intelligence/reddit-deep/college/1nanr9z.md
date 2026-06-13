@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, because, parties, want, scared, apart, party, experience]
     token_count: 281
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c1"
-    char_span: [1170, 2750]
+    char_span: [1169, 2749]
     sentence_count: 9
     key_terms: ["don't", group, want, friends, parties, leave, party, college]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c2"
-    char_span: [2752, 4179]
+    char_span: [2751, 4178]
     sentence_count: 8
     key_terms: [parties, "i've", experience, friends, friend, hosted, "don't", maybe]
     section: Comments
     token_count: 343
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c3"
-    char_span: [4181, 5940]
+    char_span: [4180, 5939]
     sentence_count: 12
     key_terms: [party, "don't", drink, college, "you're", comfortable, interest, friends]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/college/1nanr9z.md#c4"
-    char_span: [5942, 7231]
+    char_span: [5941, 7230]
     sentence_count: 12
     key_terms: [don, want, college, went, pressure, together, parties, people]
     section: Comments

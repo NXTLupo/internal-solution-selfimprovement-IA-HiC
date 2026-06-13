@@ -23,13 +23,13 @@ chunks:
     key_terms: [instead, incomplete, because, classes, class, comments, graduate, chasing]
     token_count: 397
   - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c1"
-    char_span: [1645, 3364]
+    char_span: [1644, 3363]
     sentence_count: 7
     key_terms: [business, stocktelephone11, liberal, degree, arts, interested, nothing, better]
     section: Comments
     token_count: 414
   - id: "social-intelligence/reddit-deep/neu/1py5pe6.md#c2"
-    char_span: [3366, 4557]
+    char_span: [3365, 4556]
     sentence_count: 4
     key_terms: [incomplete, curious, advice, degree, worked, ok-impression-3082, grad, job]
     section: Comments

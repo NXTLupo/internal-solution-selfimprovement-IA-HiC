@@ -21,7 +21,7 @@ chunks:
     key_terms: [biochemistry, careerguidance, applications, something, comments, paycheck, career, field]
     token_count: 291
   - id: "social-intelligence/reddit-deep/careerguidance/1smhxhs.md#c1"
-    char_span: [1285, 2285]
+    char_span: [1284, 2284]
     sentence_count: 1
     key_terms: [get, work, companies, biotech, working, people, right, bioinformatics]
     section: Comments

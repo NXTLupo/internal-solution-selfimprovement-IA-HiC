@@ -21,43 +21,43 @@ chunks:
     key_terms: [because, offer, been, get, job, time, careerguidance, skills]
     token_count: 388
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c1"
-    char_span: [1590, 2454]
+    char_span: [1589, 2453]
     sentence_count: 6
     key_terms: [current, pension, afford, licgal, yesterdaysimilar2069, money, comp, polybiuschampion]
     section: Comments
     token_count: 231
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c2"
-    char_span: [2456, 4573]
+    char_span: [2455, 4572]
     sentence_count: 17
     key_terms: [job, current, maybe, get, side, something, vacation, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c3"
-    char_span: [4329, 6263]
+    char_span: [4328, 6262]
     sentence_count: 17
     key_terms: [job, weeks, pay, time, money, less, work, something]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c4"
-    char_span: [6265, 8163]
+    char_span: [6264, 8162]
     sentence_count: 14
     key_terms: [job, office, get, classes, "you're", need, take, time]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c5"
-    char_span: [8165, 10247]
+    char_span: [8164, 10246]
     sentence_count: 17
     key_terms: [pto, job, employees, jobs, benefits, higher, office, salary]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c6"
-    char_span: [10249, 11880]
+    char_span: [10248, 11879]
     sentence_count: 14
     key_terms: [time, days, job, "you're", worth, find, pto, another]
     section: Comments
     token_count: 404
   - id: "social-intelligence/reddit-deep/careerguidance/1ptv62t.md#c7"
-    char_span: [11882, 13070]
+    char_span: [11881, 13069]
     sentence_count: 10
     key_terms: [pto, deleted, unless, unpaid, days, job, like, take]
     section: Comments

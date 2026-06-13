@@ -23,19 +23,19 @@ chunks:
     key_terms: [submit, retake, applyingtocollege, sat, situation, anything, comments, schools]
     token_count: 361
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c1"
-    char_span: [1356, 2978]
+    char_span: [1355, 2977]
     sentence_count: 17
     key_terms: [score, school, scores, submit, above, college, common, data]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c2"
-    char_span: [2980, 4716]
+    char_span: [2979, 4715]
     sentence_count: 10
     key_terms: [submit, score, schools, extinctedpanda, assume, school, don, admissions]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pimsvl.md#c3"
-    char_span: [4718, 5383]
+    char_span: [4717, 5382]
     sentence_count: 4
     key_terms: [get, aviation, top, try, sorrycrossf1re, aeronautical, application, competitive]
     section: Comments

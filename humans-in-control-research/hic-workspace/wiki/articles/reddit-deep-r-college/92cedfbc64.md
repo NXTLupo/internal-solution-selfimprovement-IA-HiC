@@ -15,17 +15,17 @@ relevance: 55
 engagement_goal: "For a higher education institution, develop a strategic framework to increase donorship, giving, advancement, and alumni engagement, leveraging AI and digital marketing tactics. This framework must include a strategic narrative, industry analysis, competitive analysis, and opportunity analysis. Additionally, create a diverse set of 25 donor, student, alumni, and stakeholder personas, supported by evidence and quotes."
 chunks:
   - id: "articles/reddit-deep-r-college/92cedfbc64.md#c0"
-    char_span: [0, 1102]
+    char_span: [0, 1101]
     sentence_count: 11
     key_terms: [college, big, experience, university, school, community, illinois, stadium]
-    token_count: 244
+    token_count: 243
   - id: "articles/reddit-deep-r-college/92cedfbc64.md#c1"
-    char_span: [1104, 2601]
+    char_span: [1103, 2600]
     sentence_count: 10
     key_terms: [sports, illinois, school, state, big, definitely, fantastic, culture]
     token_count: 349
   - id: "articles/reddit-deep-r-college/92cedfbc64.md#c2"
-    char_span: [2603, 4511]
+    char_span: [2602, 4510]
     sentence_count: 10
     key_terms: [school, program, experience, big, attend, going, debt, "it's"]
     token_count: 407

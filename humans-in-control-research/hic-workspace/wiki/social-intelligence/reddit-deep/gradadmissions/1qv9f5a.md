@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1qv9f5a.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1qv9f5a/what_should_i_focus_on_for_international_grad/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,19 @@ flair: "Social Sciences"
 extracted_at: "2026-06-06T23:23:15.589Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qv9f5a.md#c0"
+    char_span: [0, 785]
+    sentence_count: 6
+    key_terms: [gradadmissions, international, comments, schools, school, etc, extracurriculars, development]
+    token_count: 184
+  - id: "social-intelligence/reddit-deep/gradadmissions/1qv9f5a.md#c1"
+    char_span: [800, 2799]
+    sentence_count: 4
+    key_terms: [journal, international, michigan, politics, egzjahjvbwuybggaeeuyotihcaeqiripatibcdqxotjqmgo3qaiasaia, programs, research, affairs]
+    section: Comments
+    token_count: 504
 ---
-
 # What should i focus on for international grad school admissions?
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1qv9f5a/what_should_i_focus_on_for_international_grad/)

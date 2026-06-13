@@ -23,7 +23,7 @@ chunks:
     key_terms: [startup, offer, engineering, internships, got, internship, on-campus, comments]
     token_count: 277
   - id: "social-intelligence/reddit-deep/internships/1tefjad.md#c1"
-    char_span: [1251, 2978]
+    char_span: [1250, 2977]
     sentence_count: 14
     key_terms: [get, like, time, classmates, different, floating, classes, picture]
     section: Comments

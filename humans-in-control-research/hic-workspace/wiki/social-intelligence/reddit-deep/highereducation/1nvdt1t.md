@@ -33,7 +33,7 @@ chunks:
     key_terms: [judge-rules-campaign-against-noncitizen-protesters-unlawful, insidehighered, free-speech, students, https, com, news, www]
     token_count: 81
   - id: "social-intelligence/reddit-deep/highereducation/1nvdt1t.md#c3"
-    char_span: [5173, 5475]
+    char_span: [5172, 5474]
     sentence_count: 3
     key_terms: [let, patricksaurus, application, carlitospig, unambiguous, precedent, american, fighting]
     section: Comments

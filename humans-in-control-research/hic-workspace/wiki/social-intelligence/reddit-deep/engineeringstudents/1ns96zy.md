@@ -23,7 +23,7 @@ chunks:
     key_terms: [chemical, year, engineeringstudents, engineering, successful, currently, comments, engineer]
     token_count: 393
   - id: "social-intelligence/reddit-deep/engineeringstudents/1ns96zy.md#c1"
-    char_span: [1709, 2705]
+    char_span: [1708, 2704]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

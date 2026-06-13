@@ -18,10 +18,10 @@ industries: [financial_services, higher_ed]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/personalfinance/1ncke5l.md#c0"
-    char_span: [0, 732]
+    char_span: [0, 731]
     sentence_count: 3
     key_terms: [personalfinance, comments, finance, spend, help, reddit-deep, authentic, clickbait]
-    token_count: 182
+    token_count: 181
 ---
 # Need advice for investing money so that i can spend later on my higher studies . & and help me with some good finance creators
 

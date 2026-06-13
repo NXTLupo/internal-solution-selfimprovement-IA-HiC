@@ -23,13 +23,13 @@ chunks:
     key_terms: [povertyfinance, bank, card, comments, without, called, credit, calls]
     token_count: 384
   - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c1"
-    char_span: [1619, 2851]
+    char_span: [1618, 2850]
     sentence_count: 11
     key_terms: [people, internet, money, spend, budgeting, little, mobile, congratulations]
     section: Comments
     token_count: 291
   - id: "social-intelligence/reddit-deep/povertyfinance/1s7plcu.md#c2"
-    char_span: [2853, 4526]
+    char_span: [2852, 4525]
     sentence_count: 10
     key_terms: [money, like, transfers, vanguard, account, people, doing, great]
     section: Comments

@@ -28,43 +28,43 @@ chunks:
     key_terms: [being, youtube, build, back, job, life, old, volunteering]
     token_count: 273
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c2"
-    char_span: [3469, 5762]
+    char_span: [3468, 5761]
     sentence_count: 21
     key_terms: [help, thank, helpful, people, please, find, depression, findapath]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c3"
-    char_span: [5764, 7352]
+    char_span: [5763, 7351]
     sentence_count: 13
     key_terms: [advice, small, questions, something, better, making, people, point]
     section: Comments
     token_count: 367
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c4"
-    char_span: [7354, 7957]
+    char_span: [7353, 7956]
     sentence_count: 9
     key_terms: [going, best, too, correct-gur-7842, phantomdiclonius, plsfartinmyface, guidancecards, nanocurrency]
     section: Comments
     token_count: 176
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c5"
-    char_span: [7959, 10129]
+    char_span: [7958, 10128]
     sentence_count: 9
     key_terms: [program, appropriate-tutor587, thank, don, mba, business, phantomdiclonius, administration]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c6"
-    char_span: [9857, 11838]
+    char_span: [9856, 11837]
     sentence_count: 11
     key_terms: [phantomdiclonius, flairpointsbot, thank, appropriate-tutor587, trickaccomplished200, confirming, good, provided]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c7"
-    char_span: [11580, 12143]
+    char_span: [11579, 12142]
     sentence_count: 5
     key_terms: [content-bicycle-7894, time, provided, awarded, helpful, advice, point, thank]
     section: Comments
     token_count: 160
   - id: "social-intelligence/reddit-deep/findapath/1p2ea6m.md#c8"
-    char_span: [12145, 13165]
+    char_span: [12144, 13164]
     sentence_count: 4
     key_terms: [meditate, journal, never, thank, able, been, like, phantomdiclonius]
     section: Comments

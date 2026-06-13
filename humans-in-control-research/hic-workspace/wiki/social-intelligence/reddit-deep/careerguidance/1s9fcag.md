@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1s9fcag.md#c0"
-    char_span: [0, 348]
+    char_span: [0, 347]
     sentence_count: 3
     key_terms: [careerguidance, comments, sympathymiddle6649, reddit-deep, motivate, outcomes, salaries, students]
-    token_count: 96
+    token_count: 95
 ---
 # Do your students care about career paths and salaries? Does showing real job outcomes motivate them to study?
 

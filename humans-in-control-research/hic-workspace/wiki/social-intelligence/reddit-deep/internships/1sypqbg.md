@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, comments, monosoloone, reddit-deep, internship, advice, career, posted]
     token_count: 69
   - id: "social-intelligence/reddit-deep/internships/1sypqbg.md#c1"
-    char_span: [242, 559]
+    char_span: [241, 558]
     sentence_count: 3
     key_terms: [resume, applications, nepternship, robertisaak, submissions, mattering, referrals, something]
     section: Comments

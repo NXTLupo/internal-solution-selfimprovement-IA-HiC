@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/jobs/1s8knk2.md#c0"
-    char_span: [0, 1061]
+    char_span: [0, 1060]
     sentence_count: 7
     key_terms: [entry-level, experience, internship, comments, guidance, finance, looking, remote]
-    token_count: 261
+    token_count: 260
 ---
 # Looking for Entry-Level HR Opportunity (Remote) – MBA + 1 Yr Experience | Open to Internship / Guidance
 

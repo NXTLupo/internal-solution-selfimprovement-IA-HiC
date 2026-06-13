@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rycj4q.md#c0"
-    char_span: [0, 1018]
+    char_span: [0, 1017]
     sentence_count: 6
     key_terms: [app, routes, northeastern, built, crime, comments, college, routing]
-    token_count: 233
+    token_count: 232
 ---
 # Free safety routing app using BPD crime data — built by a college student, looking for Northeastern feedback
 

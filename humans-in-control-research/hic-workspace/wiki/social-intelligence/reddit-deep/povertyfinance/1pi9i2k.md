@@ -23,67 +23,67 @@ chunks:
     key_terms: [college, kind, povertyfinance, people, school, scholarships, costs, job]
     token_count: 413
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c1"
-    char_span: [1834, 2760]
+    char_span: [1833, 2759]
     sentence_count: 3
     key_terms: ["that's", get, "it's", community, college, transit, people, school]
     section: Comments
     token_count: 232
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c2"
-    char_span: [2762, 4900]
+    char_span: [2761, 4899]
     sentence_count: 19
     key_terms: [colleges, college, community, expensive, generations, free, like, amherst]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c3"
-    char_span: [4902, 6422]
+    char_span: [4901, 6421]
     sentence_count: 7
     key_terms: [college, experience, cities, sports, opportunities, years, expensive, students]
     section: Comments
     token_count: 315
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c4"
-    char_span: [6424, 7416]
+    char_span: [6423, 7415]
     sentence_count: 6
     key_terms: [college, community, education, experience, student, degree, lordofthereef, multi-million]
     section: Comments
     token_count: 221
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c5"
-    char_span: [7418, 9213]
+    char_span: [7417, 9212]
     sentence_count: 7
     key_terms: [college, year, community, classes, parent, loans, get, government]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c6"
-    char_span: [9215, 10596]
+    char_span: [9214, 10595]
     sentence_count: 13
     key_terms: [don, scholarships, take, want, properly, college, degree, grants]
     section: Comments
     token_count: 324
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c7"
-    char_span: [10598, 11850]
+    char_span: [10597, 11849]
     sentence_count: 11
     key_terms: [force, air, pay, decade, school, trying, money, years]
     section: Comments
     token_count: 294
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c8"
-    char_span: [11852, 13925]
+    char_span: [11851, 13924]
     sentence_count: 13
     key_terms: [because, people, years, absolutely, consider, military, benefit, medical]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c9"
-    char_span: [13927, 15680]
+    char_span: [13926, 15679]
     sentence_count: 16
     key_terms: [job, experiences, people, got, kaiservonrisk, great, time, definitely]
     section: Comments
     token_count: 416
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c10"
-    char_span: [15682, 17663]
+    char_span: [15681, 17662]
     sentence_count: 18
     key_terms: [college, community, degree, get, help, classes, appointment, aid]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/povertyfinance/1pi9i2k.md#c11"
-    char_span: [17665, 19414]
+    char_span: [17664, 19413]
     sentence_count: 13
     key_terms: [based, merit, school, need, income, experience, year, scholarships]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [criminal, college, law, school, justice, first-gen, student, attorney]
     token_count: 268
   - id: "social-intelligence/reddit-deep/college/1l36irl.md#c1"
-    char_span: [1232, 2261]
+    char_span: [1231, 2260]
     sentence_count: 11
     key_terms: [law, school, major, lsat, criminal, justice, top, philosophy]
     section: Comments

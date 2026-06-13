@@ -18,10 +18,10 @@ industries: [higher_ed, workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1nvfovu.md#c0"
-    char_span: [0, 661]
+    char_span: [0, 660]
     sentence_count: 6
     key_terms: [gradschool, comments, research, looking, people, school, grad, conversation]
-    token_count: 151
+    token_count: 150
 ---
 # For people going into research after grad school, how do your finances look?
 

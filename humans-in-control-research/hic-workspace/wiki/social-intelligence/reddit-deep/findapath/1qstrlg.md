@@ -23,7 +23,7 @@ chunks:
     key_terms: [income, financially, findapath, comments, career, people, wouldn, paths]
     token_count: 197
   - id: "social-intelligence/reddit-deep/findapath/1qstrlg.md#c1"
-    char_span: [908, 2679]
+    char_span: [907, 2678]
     sentence_count: 14
     key_terms: [people, thank, everyone, helpful, helped, please, findapath, comments]
     section: Comments

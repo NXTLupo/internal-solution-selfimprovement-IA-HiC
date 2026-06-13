@@ -23,7 +23,7 @@ chunks:
     key_terms: [northeastern, assistant, neu, students, built, northeastern-university-chatbot, university, questions]
     token_count: 236
   - id: "social-intelligence/reddit-deep/neu/1phh5kl.md#c1"
-    char_span: [919, 1182]
+    char_span: [918, 1181]
     sentence_count: 1
     key_terms: [potential-monk-8877, theinhumaneme, exceeded, feedback, resolved, responds, checked, request]
     section: Comments

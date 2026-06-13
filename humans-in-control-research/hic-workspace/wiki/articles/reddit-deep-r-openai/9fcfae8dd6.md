@@ -15,10 +15,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/9fcfae8dd6.md#c0"
-    char_span: [0, 1042]
+    char_span: [0, 1041]
     sentence_count: 8
     key_terms: [questions, chatgpt, alternative, chat, comments, better, openai, reddit]
-    token_count: 250
+    token_count: 249
 ---
 # If all these alternative AI engines are said to use the same code as Chat GPT, why does Chat GPT seem so much better? Are there any good alternatives that can make review questions from PDFs?
 

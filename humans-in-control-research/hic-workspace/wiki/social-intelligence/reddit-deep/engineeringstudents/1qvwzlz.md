@@ -28,31 +28,31 @@ chunks:
     key_terms: [code, engineering, already, "doesn't", "you're", learn, job, like]
     token_count: 274
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c2"
-    char_span: [3279, 5226]
+    char_span: [3278, 5225]
     sentence_count: 18
     key_terms: [coding, because, everything, snowsharkk, anything, struggle, concept, course]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c3"
-    char_span: [5228, 6987]
+    char_span: [5227, 6986]
     sentence_count: 10
     key_terms: [coding, "you'll", one-liners, lines, understating, unexplained, code, part]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c4"
-    char_span: [6989, 8965]
+    char_span: [6988, 8964]
     sentence_count: 13
     key_terms: [logic, code, good, together, knowing, put, work, especially]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c5"
-    char_span: [8967, 10898]
+    char_span: [8966, 10897]
     sentence_count: 13
     key_terms: [class, programming, work, because, engineering, like, definitely, aerospace]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qvwzlz.md#c6"
-    char_span: [10900, 13093]
+    char_span: [10899, 13092]
     sentence_count: 13
     key_terms: [coding, code, use, vibe, netninja, youtube, engineering, acceptable]
     section: Comments

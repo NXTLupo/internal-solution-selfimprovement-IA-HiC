@@ -21,7 +21,7 @@ chunks:
     key_terms: [engineeringstudents, internship, questions, comments, effective-bit-8840, bsee, job, engineering]
     token_count: 142
   - id: "social-intelligence/reddit-deep/engineeringstudents/1nwckc8.md#c1"
-    char_span: [551, 1552]
+    char_span: [550, 1551]
     sentence_count: 6
     key_terms: [engineeringstudents, wiki, please, reddit, https, com, automoderator, read]
     section: Comments

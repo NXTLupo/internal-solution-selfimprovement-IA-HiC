@@ -15,12 +15,12 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-openai/b7e6d4cb5d.md#c0"
-    char_span: [0, 2117]
+    char_span: [0, 2116]
     sentence_count: 10
     key_terms: [context, window, performance, models, openai, input, uniformly, comments]
-    token_count: 498
+    token_count: 497
   - id: "articles/reddit-deep-r-openai/b7e6d4cb5d.md#c1"
-    char_span: [2121, 4075]
+    char_span: [2120, 4074]
     sentence_count: 10
     key_terms: [context, experience, gemini, tokens, conversation, been, use, amount]
     token_count: 470

@@ -28,7 +28,7 @@ chunks:
     key_terms: [psychology, applied, students, learning, academic, behaviour, subjects, undergraduate]
     token_count: 509
   - id: "social-intelligence/reddit-deep/careerguidance/1r9mjrv.md#c2"
-    char_span: [6078, 6889]
+    char_span: [6078, 6888]
     sentence_count: 3
     key_terms: [psychology, applied, undergraduate, students, degree, personal-bit-295, institutions, postgraduate]
     section: Comments

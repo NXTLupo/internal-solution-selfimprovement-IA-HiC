@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1s3co8v.md
 url: "https://www.reddit.com/r/findapath/comments/1s3co8v/i_finally_got_a_job_offer_with_a_big_salary_and_i/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,30 @@ flair: "Success Story Post"
 extracted_at: "2026-06-06T23:22:15.459Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c0"
+    char_span: [0, 1907]
+    sentence_count: 20
+    key_terms: [salary, job, current, professional, year, findapath, comments, searched]
+    token_count: 464
+  - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c1"
+    char_span: [1909, 2917]
+    sentence_count: 14
+    key_terms: ["couldn't", been, incredibly, "that's", dad, definitely, everything, afternoon]
+    token_count: 236
+  - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c2"
+    char_span: [2932, 4905]
+    sentence_count: 19
+    key_terms: [thank, helpful, please, job, findapath, comments, everyone, guidance]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/findapath/1s3co8v.md#c3"
+    char_span: [4907, 5697]
+    sentence_count: 9
+    key_terms: [congratulations, proud, congrats, amazing, necessarydoughnut222, dad, good, accomplishments]
+    section: Comments
+    token_count: 218
 ---
-
 # I finally got a job offer with a big salary and I had to tell someone
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1s3co8v/i_finally_got_a_job_offer_with_a_big_salary_and_i/)

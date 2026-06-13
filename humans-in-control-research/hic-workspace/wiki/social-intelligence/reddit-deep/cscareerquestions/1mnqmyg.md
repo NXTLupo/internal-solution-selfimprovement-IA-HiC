@@ -23,19 +23,19 @@ chunks:
     key_terms: [cybersecurity, concentration, cscareerquestions, help, computer, learning, science, certifications]
     token_count: 396
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c1"
-    char_span: [1849, 4057]
+    char_span: [1848, 4056]
     sentence_count: 19
     key_terms: [internship, "you're", "don't", graduate, without, people, fundamentals, learn]
     section: Comments
     token_count: 503
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c2"
-    char_span: [4059, 6279]
+    char_span: [4058, 6278]
     sentence_count: 19
     key_terms: [cybersecurity, help, job, mentorship, placement, concentration, internships, graduation]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/cscareerquestions/1mnqmyg.md#c3"
-    char_span: [6281, 6778]
+    char_span: [6280, 6777]
     sentence_count: 3
     key_terms: [developer, cybersecurity, tuition, degree, certs, offer, optimization, transferring]
     section: Comments

@@ -18,7 +18,7 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/managers/1rlkkve.md#c0"
-    char_span: [0, 2028]
+    char_span: [0, 2027]
     sentence_count: 29
     key_terms: [people, team, without, comments, everyone, managers, standups, because]
     token_count: 486

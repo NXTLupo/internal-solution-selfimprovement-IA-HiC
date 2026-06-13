@@ -28,37 +28,37 @@ chunks:
     key_terms: [budget, confident, stability, "don't", want, direction, stressing, finances]
     token_count: 135
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c2"
-    char_span: [2712, 4601]
+    char_span: [2711, 4600]
     sentence_count: 13
     key_terms: [interest, account, savings, retirement, money, emergency, something, badtastingparsnip]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c3"
-    char_span: [4603, 6416]
+    char_span: [4602, 6415]
     sentence_count: 15
     key_terms: [savings, get, account, emergency, investing, accounts, credit, money]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c4"
-    char_span: [6418, 8297]
+    char_span: [6417, 8296]
     sentence_count: 17
     key_terms: [savings, expenses, retirement, accounts, clouddancing108, account, bendallymill, like]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c5"
-    char_span: [8299, 10345]
+    char_span: [8298, 10344]
     sentence_count: 20
     key_terms: [account, accounts, car, maintenance, money, feel, enough, having]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c6"
-    char_span: [10347, 11880]
+    char_span: [10346, 11879]
     sentence_count: 14
     key_terms: [money, worth, treat, expenses, sleeping, going, spent, bag]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/povertyfinance/1sx2rqr.md#c7"
-    char_span: [11882, 12935]
+    char_span: [11881, 12934]
     sentence_count: 7
     key_terms: [budgeting, dozen, fund, get, half, tool, what-im-thinking, understanding]
     section: Comments

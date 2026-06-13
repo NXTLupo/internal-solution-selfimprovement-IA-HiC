@@ -26,25 +26,25 @@ chunks:
     key_terms: [immigration, been, feel, engagement, employee, proposal, because, program]
     token_count: 325
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c2"
-    char_span: [3510, 5526]
+    char_span: [3509, 5525]
     sentence_count: 20
     key_terms: [time, stress, immigration, boss, take, work, year, allowed]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c3"
-    char_span: [5528, 6832]
+    char_span: [5527, 6831]
     sentence_count: 8
     key_terms: [stress, system, given, going, space, lavender-dalmation, been, care]
     section: Comments
     token_count: 292
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c4"
-    char_span: [6834, 8751]
+    char_span: [6833, 8750]
     sentence_count: 16
     key_terms: [lavender-dalmation, boss, take, employees, support, become, swimming-moment-5315, great]
     section: Comments
     token_count: 484
   - id: "social-intelligence/reddit-deep/humanresources/1pq8wrq.md#c5"
-    char_span: [8753, 10232]
+    char_span: [8752, 10231]
     sentence_count: 17
     key_terms: [director, especially, holidays, yourself, sending, around, being, makes]
     section: Comments

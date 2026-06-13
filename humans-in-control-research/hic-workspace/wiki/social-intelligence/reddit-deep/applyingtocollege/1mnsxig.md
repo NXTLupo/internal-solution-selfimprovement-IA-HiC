@@ -33,43 +33,43 @@ chunks:
     key_terms: [hypsm, universities, great, backgrounds, fellowships, "it's", proportion, committee]
     token_count: 459
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c3"
-    char_span: [5538, 7269]
+    char_span: [5537, 7268]
     sentence_count: 8
     key_terms: [nobel, prize, economics, university, colleges, wealthy, winners, people]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c4"
-    char_span: [7271, 9358]
+    char_span: [7270, 9357]
     sentence_count: 10
     key_terms: [universities, physics, particularly, hypsm, univ, harvard, etc, professors]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c5"
-    char_span: [9360, 11674]
+    char_span: [9359, 11673]
     sentence_count: 22
     key_terms: [students, classes, professors, universities, princeton, fellowships, letters, recommendation]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c6"
-    char_span: [11676, 14075]
+    char_span: [11675, 14074]
     sentence_count: 16
     key_terms: [students, fellowships, hypsm, independent, student-led, lot, win, privileged]
     section: Comments
     token_count: 513
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c7"
-    char_span: [14077, 15486]
+    char_span: [14076, 15485]
     sentence_count: 1
     key_terms: [university, engineering, computer, stanford, science, electrical, school, mba]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c8"
-    char_span: [15488, 17368]
+    char_span: [15487, 17367]
     sentence_count: 12
     key_terms: [schools, ivy, league, attended, wharton, preponderance, hypsm, university]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/applyingtocollege/1mnsxig.md#c9"
-    char_span: [17370, 18327]
+    char_span: [17369, 18326]
     sentence_count: 3
     key_terms: [surprised, results, hypsm, throwaway-critic0, organizations, billionaires, considering, necessarily]
     section: Comments

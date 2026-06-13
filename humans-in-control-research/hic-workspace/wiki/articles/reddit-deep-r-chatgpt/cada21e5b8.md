@@ -15,22 +15,22 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c0"
-    char_span: [0, 1939]
+    char_span: [0, 1938]
     sentence_count: 13
     key_terms: [chatgpt, custody, full, years, back, lawyer, time, testament]
-    token_count: 442
+    token_count: 441
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c1"
-    char_span: [1941, 4228]
+    char_span: [1940, 4227]
     sentence_count: 18
     key_terms: [comments, believe, chatgpt, mother, circumstances, court, been, case]
     token_count: 488
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c2"
-    char_span: [4230, 5594]
+    char_span: [4229, 5593]
     sentence_count: 10
     key_terms: [lawyer, please, conversation, image, post, r-chatgpt-1050422060352024636, attorneys, concerns]
     token_count: 336
   - id: "articles/reddit-deep-r-chatgpt/cada21e5b8.md#c3"
-    char_span: [5596, 7467]
+    char_span: [5595, 7466]
     sentence_count: 18
     key_terms: [research, chatgpt, clients, better, gemini, deep, hallucinations, bad]
     token_count: 440

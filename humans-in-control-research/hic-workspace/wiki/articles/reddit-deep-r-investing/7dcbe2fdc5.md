@@ -15,10 +15,10 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/7dcbe2fdc5.md#c0"
-    char_span: [0, 1704]
+    char_span: [0, 1703]
     sentence_count: 8
     key_terms: [buy-america-bye-america-wall-street-exodus-gathers-pace-2026-02-20, investors, https, com, www, investing, business, comments]
-    token_count: 446
+    token_count: 445
 ---
 # From 'buy America' to 'bye America', Wall Street exodus gathers pace
 

@@ -1,0 +1,43 @@
+{
+  "positive": [
+    {
+      "point": "Vanguard allows for in-kind transfers during Roth conversions, avoiding the need to liquidate and re-buy shares.",
+      "post_refs": [
+        "1px4qdt"
+      ]
+    },
+    {
+      "point": "Vanguard provides an option to exchange funds directly, which can help avoid being out of the market for a day.",
+      "post_refs": [
+        "1t3rjpd"
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "point": "Vanguard's system is not user-friendly for active trading, as it is more aligned with buy-and-hold investing.",
+      "post_refs": [
+        "1tdtisv"
+      ]
+    },
+    {
+      "point": "Vanguard's interface and policies can be confusing and restrictive, such as the frequent trading limitations and the inability to directly exchange between different mutual fund companies.",
+      "post_refs": [
+        "1t40z0b",
+        "1t3rjpd"
+      ]
+    },
+    {
+      "point": "Vanguard's process for transferring funds between accounts is cumbersome, requiring multiple steps and manual timing.",
+      "post_refs": [
+        "1sz0bgk"
+      ]
+    },
+    {
+      "point": "Vanguard's cost basis management is seen as a hassle, with unclear documentation and the need for phone calls to manage specific ID cost basis.",
+      "post_refs": [
+        "1rsqafe"
+      ]
+    }
+  ]
+}

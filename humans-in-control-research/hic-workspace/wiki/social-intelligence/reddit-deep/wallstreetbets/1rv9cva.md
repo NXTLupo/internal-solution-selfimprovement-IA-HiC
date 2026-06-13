@@ -63,37 +63,37 @@ chunks:
     key_terms: [research, authors, newsletters, quality, returns, market, volume, alpha]
     token_count: 224
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c9"
-    char_span: [10358, 12230]
+    char_span: [10357, 12229]
     sentence_count: 13
     key_terms: [research, authors, global, newsletters, tech, discord, fundaai, quality]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c10"
-    char_span: [12232, 13343]
+    char_span: [12231, 13342]
     sentence_count: 7
     key_terms: [performance, calculated, newsletter, alpha, allegedly, nothing, period, pretty]
     section: Comments
     token_count: 224
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c11"
-    char_span: [13345, 15197]
+    char_span: [13344, 15196]
     sentence_count: 11
     key_terms: [tldr, something, horizons, imagine, various, market, fine-razzmatazz1791, a-big-texas-howdy]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c12"
-    char_span: [15199, 16123]
+    char_span: [15198, 16122]
     sentence_count: 4
     key_terms: [newsletters, analysis, without, useful, langdonalgerpuzzles, users, primaryconcern2608, automoderator]
     section: Comments
     token_count: 209
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c13"
-    char_span: [16125, 17392]
+    char_span: [16124, 17391]
     sentence_count: 6
     key_terms: [substack, something, getting, message, random, atmospheremiddle1682, confident-grab-7688, throwaway9gk0k4k569]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/wallstreetbets/1rv9cva.md#c14"
-    char_span: [17394, 18905]
+    char_span: [17393, 18904]
     sentence_count: 5
     key_terms: [shittybidet123, dick, soxx, capital, deleted, looking, primaryconcern2608, been]
     section: Comments

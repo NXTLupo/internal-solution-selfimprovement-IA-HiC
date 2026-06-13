@@ -21,13 +21,13 @@ chunks:
     key_terms: [friends, people, like, transferring, "everybody's", did, everybody, questions]
     token_count: 394
   - id: "social-intelligence/reddit-deep/neu/1r3i7sq.md#c1"
-    char_span: [1687, 3493]
+    char_span: [1686, 3492]
     sentence_count: 15
     key_terms: [friends, everyone, nuin, people, students, semester, close, back]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/neu/1r3i7sq.md#c2"
-    char_span: [3495, 5038]
+    char_span: [3494, 5037]
     sentence_count: 16
     key_terms: [parties, frat, get, guy, year, freshmen, friends, big]
     section: Comments

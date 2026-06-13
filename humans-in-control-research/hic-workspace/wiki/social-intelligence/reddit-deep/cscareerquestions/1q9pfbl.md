@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, comments, new, desperately, reddit-deep, looking, advice, posted]
     token_count: 103
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c1"
-    char_span: [369, 2131]
+    char_span: [368, 2130]
     sentence_count: 14
     key_terms: [dababolical, different, positions, grad, new, anything, programs, apply]
     section: Comments
     token_count: 437
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c2"
-    char_span: [2133, 3853]
+    char_span: [2132, 3852]
     sentence_count: 14
     key_terms: [experience, job, applied, did, get, year, interviews, recruiter]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/cscareerquestions/1q9pfbl.md#c3"
-    char_span: [3855, 5975]
+    char_span: [3854, 5974]
     sentence_count: 19
     key_terms: [going, medicine, engineering, "don't", "i'm", jobs, here, law]
     section: Comments

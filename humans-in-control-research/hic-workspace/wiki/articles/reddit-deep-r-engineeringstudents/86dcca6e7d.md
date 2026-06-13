@@ -15,17 +15,17 @@ relevance: 45
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-engineeringstudents/86dcca6e7d.md#c0"
-    char_span: [0, 1907]
+    char_span: [0, 1906]
     sentence_count: 16
     key_terms: [internships, engineeringstudents, through, engineering, gpa, job, especially, networking]
-    token_count: 427
+    token_count: 426
   - id: "articles/reddit-deep-r-engineeringstudents/86dcca6e7d.md#c1"
-    char_span: [1909, 4226]
+    char_span: [1908, 4225]
     sentence_count: 15
     key_terms: [people, casual, social, professional, darkblitz01, internships, job, like]
     token_count: 501
   - id: "articles/reddit-deep-r-engineeringstudents/86dcca6e7d.md#c2"
-    char_span: [4228, 6179]
+    char_span: [4227, 6178]
     sentence_count: 12
     key_terms: [people, conversation, got, hold, like, lot, put, talk]
     token_count: 432

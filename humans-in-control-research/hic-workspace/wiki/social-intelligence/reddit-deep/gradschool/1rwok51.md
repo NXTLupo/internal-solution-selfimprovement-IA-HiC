@@ -28,19 +28,19 @@ chunks:
     key_terms: [want, degree, comfortable, compromised, absolutely, hopefully, undergrad, "couldn't"]
     token_count: 128
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c2"
-    char_span: [2521, 4510]
+    char_span: [2520, 4509]
     sentence_count: 21
     key_terms: [research, get, job, masters, paying, experience, opportunities, high]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c3"
-    char_span: [4515, 6431]
+    char_span: [4514, 6430]
     sentence_count: 17
     key_terms: [get, job, degree, school, grad, per, because, pkr]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/gradschool/1rwok51.md#c4"
-    char_span: [6433, 7735]
+    char_span: [6432, 7734]
     sentence_count: 17
     key_terms: [publication, "you're", work, get, job, time, experience, academia]
     section: Comments

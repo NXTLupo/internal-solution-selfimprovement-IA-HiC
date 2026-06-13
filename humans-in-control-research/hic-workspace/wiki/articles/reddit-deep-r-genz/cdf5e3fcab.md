@@ -15,12 +15,12 @@ industries: [financial_services]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-genz/cdf5e3fcab.md#c0"
-    char_span: [0, 1517]
+    char_span: [0, 1516]
     sentence_count: 10
     key_terms: [credit, card, debt, genz, poor, christmas, comments, discord]
-    token_count: 385
+    token_count: 384
   - id: "articles/reddit-deep-r-genz/cdf5e3fcab.md#c1"
-    char_span: [1519, 2921]
+    char_span: [1518, 2920]
     sentence_count: 7
     key_terms: [debt, credit, people, card, get, bought, properobligation9779, like]
     token_count: 333

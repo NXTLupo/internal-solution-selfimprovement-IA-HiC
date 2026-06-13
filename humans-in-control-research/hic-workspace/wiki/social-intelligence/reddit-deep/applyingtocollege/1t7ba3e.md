@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, applyingtocollege, parents, guess, learn, don, want, depressive]
     token_count: 443
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c1"
-    char_span: [1884, 3984]
+    char_span: [1883, 3983]
     sentence_count: 9
     key_terms: [yourself, year, insurance, work, college, parents, get, good]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c2"
-    char_span: [3986, 5541]
+    char_span: [3985, 5540]
     sentence_count: 15
     key_terms: [college, grades, parents, final, don, pay, education, formal-research4531]
     section: Comments
     token_count: 376
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c3"
-    char_span: [5543, 7649]
+    char_span: [5542, 7648]
     sentence_count: 14
     key_terms: [college, parents, "you're", going, loan, pay, immediate, behavior]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/applyingtocollege/1t7ba3e.md#c4"
-    char_span: [7652, 7985]
+    char_span: [7651, 7984]
     sentence_count: 4
     key_terms: [parents, scholarships, reasonable, community, education, seemingly, seriously, applying]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [code, deeplearning, programming, experience, comments, project, pygame, hand]
     token_count: 264
   - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c1"
-    char_span: [1231, 2684]
+    char_span: [1230, 2683]
     sentence_count: 2
     key_terms: [prompt, structure, rules, time, constraint, passes, pygame, review]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/deeplearning/1sbkpe7.md#c2"
-    char_span: [2686, 4114]
+    char_span: [2685, 4113]
     sentence_count: 9
     key_terms: [code, intraluminal, ask, patterns, planning, clearly, defined, writing]
     section: Comments

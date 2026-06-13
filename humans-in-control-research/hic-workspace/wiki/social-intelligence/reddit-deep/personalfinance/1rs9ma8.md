@@ -23,7 +23,7 @@ chunks:
     key_terms: [personalfinance, comments, reddit-deep, budgeting, improving, stressful, disagree, opinions]
     token_count: 90
   - id: "social-intelligence/reddit-deep/personalfinance/1rs9ma8.md#c1"
-    char_span: [370, 1891]
+    char_span: [369, 1890]
     sentence_count: 7
     key_terms: [personalfinance, budgeting, better, habits, automatically, little, feels, tools]
     section: Comments

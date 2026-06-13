@@ -21,7 +21,7 @@ chunks:
     key_terms: [internships, experience, asked, environment, internship, currently, interview, technical]
     token_count: 261
   - id: "social-intelligence/reddit-deep/internships/1siqkhh.md#c1"
-    char_span: [1169, 2605]
+    char_span: [1168, 2604]
     sentence_count: 5
     key_terms: ["don't", ropeemotional0910, resume, interesting, traddev26, guidance, honestly, n8jjq1dj]
     section: Comments

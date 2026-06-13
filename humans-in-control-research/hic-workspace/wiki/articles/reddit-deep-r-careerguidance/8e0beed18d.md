@@ -15,12 +15,12 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/8e0beed18d.md#c0"
-    char_span: [0, 2125]
+    char_span: [0, 2124]
     sentence_count: 13
     key_terms: [long-term, years, training, higher, strong, stability, comments, security]
-    token_count: 503
+    token_count: 502
   - id: "articles/reddit-deep-r-careerguidance/8e0beed18d.md#c1"
-    char_span: [2127, 3448]
+    char_span: [2126, 3447]
     sentence_count: 9
     key_terms: [job, work, healthcare, security, pretty, sounds, level, like]
     token_count: 327

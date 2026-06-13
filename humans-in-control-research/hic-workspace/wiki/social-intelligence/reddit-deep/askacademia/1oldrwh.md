@@ -23,61 +23,61 @@ chunks:
     key_terms: [experience, community, teaching, advice, course, askacademia, get, appreciate]
     token_count: 478
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c1"
-    char_span: [2449, 4138]
+    char_span: [2448, 4137]
     sentence_count: 9
     key_terms: [minimumscore69, unfortunately, area, familiar, "master's", adjunct, efforts, new-ish]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c2"
-    char_span: [4140, 6296]
+    char_span: [4139, 6295]
     sentence_count: 14
     key_terms: [people, years, conferences, situation, volunteer, teaching, college, courses]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c3"
-    char_span: [6298, 8407]
+    char_span: [6297, 8406]
     sentence_count: 17
     key_terms: [teaching, experience, university, adjunct, anthropology, universities, hired, teach]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c4"
-    char_span: [8409, 10711]
+    char_span: [8408, 10710]
     sentence_count: 12
     key_terms: [develop, get, teaching, international, connections, time, experience, community]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c5"
-    char_span: [10713, 12033]
+    char_span: [10712, 12032]
     sentence_count: 7
     key_terms: [least, teaching, full-time, consider, position, "wouldn't", adjunct, classes]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c6"
-    char_span: [12035, 13399]
+    char_span: [12034, 13398]
     sentence_count: 6
     key_terms: [experience, department, community, teaching, college, getting, similar, direct]
     section: Comments
     token_count: 297
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c7"
-    char_span: [13401, 15124]
+    char_span: [13400, 15123]
     sentence_count: 6
     key_terms: [teaching, experience, adjunct, people, often, students, thinking, heading]
     section: Comments
     token_count: 386
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c8"
-    char_span: [15126, 17447]
+    char_span: [15125, 17446]
     sentence_count: 20
     key_terms: [anthro, teach, something, sections, teaching, courses, get, questions]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c9"
-    char_span: [17101, 17577]
+    char_span: [17100, 17576]
     sentence_count: 4
     key_terms: [colleges, cross-disciplinary, bite, universities, agriculture, appropriate, sustainable, culturally]
     section: Comments
     token_count: 99
   - id: "social-intelligence/reddit-deep/askacademia/1oldrwh.md#c10"
-    char_span: [17579, 18514]
+    char_span: [17578, 18513]
     sentence_count: 6
     key_terms: [module, thank, like, decent, resume, seems, list, undergraduate]
     section: Comments

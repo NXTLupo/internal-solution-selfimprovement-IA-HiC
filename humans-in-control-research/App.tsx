@@ -1746,10 +1746,19 @@ const App = () => {
         if (typeof window !== 'undefined') {
             window.addEventListener('hic:deliverable-persisted', onPersisted as EventListener);
         }
-        // Initial hydrate on mount + slug change.
-        void hydrate();
+        // 2026-06-08 (#1a fix): DEBOUNCE the goal-change hydration. This effect
+        // depends on [researchGoal], which changes on EVERY KEYSTROKE while the
+        // user types the goal. Each fire ran ~10 wiki fetches + (with a cached
+        // selection) a 25-file loadGenerationContext - a re-render storm of dozens
+        // of full hydrations per goal entry (verified live: goal typed letter-by-
+        // letter, each char firing a hydration). Wait 600ms after typing stops so
+        // hydration runs ONCE per committed goal, not per keystroke. The
+        // hic:deliverable-persisted listener fires hydrate() immediately (unchanged);
+        // only the goal-change path is debounced.
+        const _hydrateTimer = setTimeout(() => { void hydrate(); }, 600);
         return () => {
             cancelled = true;
+            clearTimeout(_hydrateTimer);
             if (typeof window !== 'undefined') {
                 window.removeEventListener('hic:deliverable-persisted', onPersisted as EventListener);
             }
@@ -2379,7 +2388,11 @@ const App = () => {
         Promise.all([
             import('react-dom/client'),
             import('./components/slideTemplates/web'),
-        ]).then(([{ createRoot }, w]) => {
+            import('./components/slideTemplates/goldPreviews'),
+        ]).then(([{ createRoot }, wBase, wGold]) => {
+            // 2026-06-11 (task #32) - gold previews supersede the legacy
+            // renderers for the 15 uplifted templates; spread order wins.
+            const w = { ...wBase, ...wGold } as any;
             const renderers: Record<string, (props: any) => any> = {
                 'stat-row': (props) => (w as any).StatRowSlide(props),
                 'principles': (props) => (w as any).PrinciplesSlide(props),

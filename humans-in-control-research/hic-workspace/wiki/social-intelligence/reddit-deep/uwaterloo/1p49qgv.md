@@ -23,7 +23,7 @@ chunks:
     key_terms: [projects, experience, uwaterloo, comments, metrics, design, feels, get]
     token_count: 220
   - id: "social-intelligence/reddit-deep/uwaterloo/1p49qgv.md#c1"
-    char_span: [943, 2259]
+    char_span: [942, 2258]
     sentence_count: 7
     key_terms: [work, lol, blackberry, technical, students, watching, nothing, impact]
     section: Comments

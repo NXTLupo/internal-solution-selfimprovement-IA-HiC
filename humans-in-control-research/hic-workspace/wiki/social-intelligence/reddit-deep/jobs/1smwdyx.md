@@ -21,13 +21,13 @@ chunks:
     key_terms: [comments, job, jobs, reddit-deep, mrerving1, linkedin, openings, analyst]
     token_count: 93
   - id: "social-intelligence/reddit-deep/jobs/1smwdyx.md#c1"
-    char_span: [358, 1738]
+    char_span: [357, 1737]
     sentence_count: 7
     key_terms: [analyst, roles, data, applied, developer, business, skills, offer]
     section: Comments
     token_count: 317
   - id: "social-intelligence/reddit-deep/jobs/1smwdyx.md#c2"
-    char_span: [1740, 3332]
+    char_span: [1739, 3331]
     sentence_count: 13
     key_terms: [offers, interview, asked, trainrweckz, data, mrerving1, snowflake, accepted]
     section: Comments

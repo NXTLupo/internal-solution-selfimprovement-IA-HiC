@@ -23,13 +23,13 @@ chunks:
     key_terms: [silver, shiny, rock, calls, wallstreetbets, portfolio, comments, decided]
     token_count: 399
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qbhv3i.md#c1"
-    char_span: [1532, 2978]
+    char_span: [1531, 2977]
     sentence_count: 10
     key_terms: [buying, silver, wsb, year, everyone, discord, squeeze, throwawaywhiteguy333]
     section: Comments
     token_count: 433
   - id: "social-intelligence/reddit-deep/wallstreetbets/1qbhv3i.md#c2"
-    char_span: [2980, 4620]
+    char_span: [2979, 4619]
     sentence_count: 8
     key_terms: [cowboycookie1337, c2f2c282eee8e58fd1b483b4a2792d6e5c6e6d1f, silver, troflecopter, puts, because, definitelynotshazbot, going]
     section: Comments

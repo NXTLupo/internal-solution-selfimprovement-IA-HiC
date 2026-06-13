@@ -18,10 +18,10 @@ industries: [higher_ed, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1rlnvt4.md#c0"
-    char_span: [0, 674]
+    char_span: [0, 673]
     sentence_count: 8
     key_terms: [registration, neu, comments, feedback, banner, appreciated, reddit-deep, collecting]
-    token_count: 168
+    token_count: 167
 ---
 # ...What do YOU think about the NEU Course Registration website, Banner?? Please let us know by filling out this 5 min survey!!
 

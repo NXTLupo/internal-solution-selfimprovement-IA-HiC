@@ -28,37 +28,37 @@ chunks:
     key_terms: [ctm, tasks, internal, classification, intelligence, calibration, challenging, work]
     token_count: 395
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c2"
-    char_span: [4183, 6160]
+    char_span: [4182, 6159]
     sentence_count: 17
     key_terms: [mazes, difficult, solving, problem, plausibility, challenging, like, biological]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c3"
-    char_span: [6162, 8192]
+    char_span: [6161, 8191]
     sentence_count: 9
     key_terms: [time, models, asking, reason, like, genuinely, gradients, hobbyists]
     section: Comments
     token_count: 469
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c4"
-    char_span: [8194, 10236]
+    char_span: [8193, 10235]
     sentence_count: 18
     key_terms: [space, representations, "they're", imagination, frequency, engineer, probably, research]
     section: Comments
     token_count: 432
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c5"
-    char_span: [10238, 12611]
+    char_span: [10237, 12610]
     sentence_count: 13
     key_terms: [llm, language, ctm, model, module, computation, pathfinding, algorithms]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c6"
-    char_span: [12323, 13473]
+    char_span: [12322, 13472]
     sentence_count: 11
     key_terms: [gramious, synapse, featurisation, model, use, dimension, slowest, models]
     section: Comments
     token_count: 286
   - id: "social-intelligence/reddit-deep/machinelearning/1kki38w.md#c7"
-    char_span: [13478, 13802]
+    char_span: [13477, 13801]
     sentence_count: 3
     key_terms: [synchronization, architecture, interested, multimodal, dimension, fine-tune, accurate, distinct]
     section: Comments

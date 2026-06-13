@@ -23,79 +23,79 @@ chunks:
     key_terms: [rent, month, expenses, without, povertyfinance, alone, insurance, utilities]
     token_count: 399
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c1"
-    char_span: [1597, 3641]
+    char_span: [1596, 3640]
     sentence_count: 16
     key_terms: [insurance, car, deductible, high, people, like, expensive, coverage]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c2"
-    char_span: [3643, 5377]
+    char_span: [3642, 5376]
     sentence_count: 12
     key_terms: [insurance, car, month, right, year, paying, drive, pay]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c3"
-    char_span: [5163, 7127]
+    char_span: [5162, 7126]
     sentence_count: 17
     key_terms: [life, insurance, whole, month, sons, car-insurance-prices-nj-save-money, right, car]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c4"
-    char_span: [6853, 7231]
+    char_span: [6852, 7230]
     sentence_count: 4
     key_terms: [policy, life, themselves, condition, dependent, insurance, support, through]
     section: Comments
     token_count: 86
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c5"
-    char_span: [7233, 9111]
+    char_span: [7232, 9110]
     sentence_count: 15
     key_terms: [insurance, need, pay, month, income, life, dependents, apartment]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c6"
-    char_span: [9113, 10809]
+    char_span: [9112, 10808]
     sentence_count: 14
     key_terms: [insurance, costs, car, life, apartment, negotiate, around, family]
     section: Comments
     token_count: 413
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c7"
-    char_span: [10811, 12113]
+    char_span: [10810, 12112]
     sentence_count: 12
     key_terms: [insurance, want, pay, coverage, parents, student, burden, dontneed2knowaccount]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c8"
-    char_span: [12115, 13935]
+    char_span: [12114, 13934]
     sentence_count: 13
     key_terms: [car, accident, gas, kia, pay, accidents, insurance, coverage]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c9"
-    char_span: [13937, 15915]
+    char_span: [13936, 15914]
     sentence_count: 12
     key_terms: [insurance, life, everything, unlimited, visible, mobile, month, mint]
     section: Comments
     token_count: 510
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c10"
-    char_span: [15917, 17182]
+    char_span: [15916, 17181]
     sentence_count: 9
     key_terms: [insurance, formula, anicespatula, car, expensive, changed, ijustseen2dudes1bike, unchanged-since-2009]
     section: Comments
     token_count: 336
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c11"
-    char_span: [17184, 18264]
+    char_span: [17183, 18263]
     sentence_count: 7
     key_terms: [been, insurance, roommates, minimum, answer, around, ijustseen2dudes1bike, sucks]
     section: Comments
     token_count: 287
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c12"
-    char_span: [18266, 19685]
+    char_span: [18265, 19684]
     sentence_count: 6
     key_terms: [roommates, live, rent, deleted, income, sometimes, roommate, living]
     section: Comments
     token_count: 377
   - id: "social-intelligence/reddit-deep/povertyfinance/1qnuqfx.md#c13"
-    char_span: [19687, 20653]
+    char_span: [19686, 20652]
     sentence_count: 6
     key_terms: [people, car, payment, advice, discourage, incredible, bruce2130, elpha1598]
     section: Comments

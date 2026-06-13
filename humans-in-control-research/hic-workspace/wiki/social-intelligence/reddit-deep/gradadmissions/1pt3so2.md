@@ -18,10 +18,10 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradadmissions/1pt3so2.md#c0"
-    char_span: [0, 913]
+    char_span: [0, 912]
     sentence_count: 6
     key_terms: [gradadmissions, professional, application, did, corporate, doctorate, comments, research]
-    token_count: 200
+    token_count: 199
 ---
 # Transitioning from corporate research to Grad School
 

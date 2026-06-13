@@ -23,43 +23,43 @@ chunks:
     key_terms: [phd, been, "i'm", always, askacademia, grad, academia, comments]
     token_count: 371
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c1"
-    char_span: [1559, 3086]
+    char_span: [1558, 3085]
     sentence_count: 11
     key_terms: [people, parents, kids, phd, undergrad, everyone, programs, students]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c2"
-    char_span: [3088, 4876]
+    char_span: [3087, 4875]
     sentence_count: 15
     key_terms: [being, month, student, connectfroot, able, get, plus, save]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c3"
-    char_span: [4878, 6583]
+    char_span: [4877, 6582]
     sentence_count: 13
     key_terms: [like, parents, loans, undergrad, stipend, student, educated-professional, people]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c4"
-    char_span: [6585, 8327]
+    char_span: [6584, 8326]
     sentence_count: 13
     key_terms: [phd, stipend, working, never, starting, because, program, salary]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c5"
-    char_span: [8329, 10175]
+    char_span: [8328, 10174]
     sentence_count: 13
     key_terms: [programs, stipend, people, places, school, years, "it's", looking]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c6"
-    char_span: [10177, 12091]
+    char_span: [10176, 12090]
     sentence_count: 16
     key_terms: [school, grad, month, rent, hours, ect, insurance, however]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/askacademia/1ma2mmz.md#c7"
-    char_span: [12093, 13690]
+    char_span: [12092, 13689]
     sentence_count: 13
     key_terms: [pensions, salaries, abroad, school, system, though, get, grad]
     section: Comments

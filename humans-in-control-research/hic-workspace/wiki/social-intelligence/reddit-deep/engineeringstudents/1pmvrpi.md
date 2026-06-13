@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineering, mechanical, engineeringstudents, computer, coding, fact, changing, comments]
     token_count: 364
   - id: "social-intelligence/reddit-deep/engineeringstudents/1pmvrpi.md#c1"
-    char_span: [1770, 2569]
+    char_span: [1769, 2568]
     sentence_count: 5
     key_terms: [eng, electrical, education, software, ended, comp, less, like]
     section: Comments

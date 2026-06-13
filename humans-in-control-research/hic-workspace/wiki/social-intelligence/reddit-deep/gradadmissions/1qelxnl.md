@@ -23,7 +23,7 @@ chunks:
     key_terms: [gradadmissions, comments, teachingelectronic86, reddit-deep, completely, admission, yesterday, accepted]
     token_count: 88
   - id: "social-intelligence/reddit-deep/gradadmissions/1qelxnl.md#c1"
-    char_span: [346, 1730]
+    char_span: [345, 1729]
     sentence_count: 9
     key_terms: [congratulations, congrats, awesome, smolaniashki, admitted, brief-dragonfly-4127, teachingelectronic86, final]
     section: Comments

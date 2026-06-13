@@ -21,55 +21,55 @@ chunks:
     key_terms: [careers, careerguidance, comments, question, software, another, never, love]
     token_count: 269
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c1"
-    char_span: [1161, 2365]
+    char_span: [1160, 2364]
     sentence_count: 8
     key_terms: [job, bad, good, leadership, working, pretty, being, money]
     section: Comments
     token_count: 303
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c2"
-    char_span: [2367, 4292]
+    char_span: [2366, 4291]
     sentence_count: 9
     key_terms: [carsareghey, something, job, work, company, dirtydatadawg, did, like]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c3"
-    char_span: [4294, 6187]
+    char_span: [4293, 6186]
     sentence_count: 12
     key_terms: [carsareghey, chemical, design, redbullshill, engineering, been, did, job]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c4"
-    char_span: [6189, 7177]
+    char_span: [6188, 7176]
     sentence_count: 2
     key_terms: [people, like, work, everything, deleted, middle, profit, being]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c5"
-    char_span: [7179, 8769]
+    char_span: [7178, 8768]
     sentence_count: 17
     key_terms: [pilot, alpachino87, photoshop, company, dirtydatadawg, comfortable, did, lot]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c6"
-    char_span: [8771, 10134]
+    char_span: [8770, 10133]
     sentence_count: 13
     key_terms: [property, job, work, company, deleted, existed, manager, started]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c7"
-    char_span: [10136, 11453]
+    char_span: [10135, 11452]
     sentence_count: 14
     key_terms: [work, film, love, new, currently, artist, nurses, people]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c8"
-    char_span: [11455, 13181]
+    char_span: [11454, 13180]
     sentence_count: 15
     key_terms: [people, management, different, therapist, help, oops-alltrauma, dirtydatadawg, field]
     section: Comments
     token_count: 394
   - id: "social-intelligence/reddit-deep/careerguidance/1oe61wt.md#c9"
-    char_span: [13183, 14252]
+    char_span: [13182, 14251]
     sentence_count: 13
     key_terms: [individuals, couples, therapy, concerns, families, master, counselors, therapists]
     section: Comments

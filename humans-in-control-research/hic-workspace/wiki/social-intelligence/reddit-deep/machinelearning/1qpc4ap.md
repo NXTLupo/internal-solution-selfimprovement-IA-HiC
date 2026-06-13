@@ -26,19 +26,19 @@ chunks:
     key_terms: [fashn-vton-1, fashn-ai, huggingface, garment, person, tryonpipeline, architecture, https]
     token_count: 307
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c2"
-    char_span: [3358, 5085]
+    char_span: [3357, 5084]
     sentence_count: 17
     key_terms: [time, use, distribution, https, model, inference, technical, representation-comparison]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c3"
-    char_span: [5087, 6973]
+    char_span: [5086, 6972]
     sentence_count: 10
     key_terms: [glasses, model, fit, currentscurrents, clothes, data, does, something]
     section: Comments
     token_count: 440
   - id: "social-intelligence/reddit-deep/machinelearning/1qpc4ap.md#c4"
-    char_span: [6975, 7485]
+    char_span: [6974, 7484]
     sentence_count: 3
     key_terms: [training, reckon, open, appreciate, nuclearvii, available, extremely, obviously]
     section: Comments

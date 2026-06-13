@@ -23,31 +23,31 @@ chunks:
     key_terms: [get, healthcare, careerguidance, career, school, field, like, tech]
     token_count: 405
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c1"
-    char_span: [1799, 2583]
+    char_span: [1798, 2582]
     sentence_count: 5
     key_terms: [hospitals, programs, pay, short-staffed, jdrelentless, certificate, credentials, perpetually]
     section: Comments
     token_count: 165
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c2"
-    char_span: [2585, 4515]
+    char_span: [2584, 4514]
     sentence_count: 9
     key_terms: [healthcare, job, poop, cna, eventually, hospital, college, medical]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c3"
-    char_span: [4517, 5800]
+    char_span: [4516, 5799]
     sentence_count: 13
     key_terms: [get, programs, looking, years, "i'm", something, program, little]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c4"
-    char_span: [5802, 7769]
+    char_span: [5801, 7768]
     sentence_count: 18
     key_terms: [healthcare, phlebotomy, like, beneficial-guess2140, entry, tech, places, certification]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/careerguidance/1tfygf8.md#c5"
-    char_span: [7771, 9405]
+    char_span: [7770, 9404]
     sentence_count: 23
     key_terms: [cna, don, programs, because, college, medical, science, course]
     section: Comments

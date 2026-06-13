@@ -7,15 +7,14 @@ subreddit: "highereducation"
 title: "Advice on Figuring Out A Path in Higher Ed"
 author: "Easy-Childhood-250"
 date: "2026-03-24T15:17:04.000Z"
-score: 13
-upvote_ratio: 0.81
+score: 12
+upvote_ratio: 0.8
 num_comments: 25
 flair: ""
-extracted_at: "2026-05-23T14:53:59.510Z"
+extracted_at: "2026-06-09T03:57:13.998Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed, workforce]
-industry_method: deterministic
+research_goal: "Trends in alumni giving and donor retention for universities"
+engagement: "trends-in-alumni-giving-and-donor-retention-for-universities"
 chunks:
   - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c0"
     char_span: [0, 2250]
@@ -23,13 +22,13 @@ chunks:
     key_terms: [additionally, student, higher, school, highereducation, affairs, applications, specifically]
     token_count: 490
   - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c1"
-    char_span: [2252, 3334]
+    char_span: [2252, 3333]
     sentence_count: 8
     key_terms: [controlled, adhd, therapist, vyvanse, easy-childhood-250, get, good, like]
     section: Comments
     token_count: 261
   - id: "social-intelligence/reddit-deep/highereducation/1s2gnr9.md#c2"
-    char_span: [3336, 5554]
+    char_span: [3335, 5554]
     sentence_count: 14
     key_terms: [easy-childhood-250, experience, tuition, advice, higher, use, especially, statement]
     section: Comments
@@ -74,7 +73,7 @@ chunks:
 # Advice on Figuring Out A Path in Higher Ed
 
 Source: [reddit-deep: r/highereducation](https://www.reddit.com/r/highereducation/comments/1s2gnr9/advice_on_figuring_out_a_path_in_higher_ed/)
-Posted by **Easy-Childhood-250** · **13↑** · **25 comments**
+Posted by **Easy-Childhood-250** · **12↑** · **25 comments**
 
 Hello! I posted about this on the Student Affairs subreddit and wanted to ask here as well, if that's okay!
 
@@ -92,14 +91,14 @@ TLDR: I was academically dismissed from my master's and don't know what to do. I
   - **Easy-Childhood-250** (1↑): So now I'd say it's a lot more controlled. During the course of my first year of school, into a part of my second, my main therapist left the field, and I had issues with the psychiatry office I was using, so I was searching for a while for good options. I had a big issue where no psychiatrist was willing to prescribe Vyvanse, even though it had worked before. Finally, I landed on a good therapist and just went to my PCP for the vyvanse and my other psych meds, and I feel a lot more controlled, like I can get both work done and just my general chores. 
 
 Additionally, my supervisor has helped a lot by finding a system for advising that works well for both of us, and I'll probably use a similar system in the future. I do feel like I still have some things to work on, but my focus is at a level I'm happy with now. It just sucks that such a psychiatric blow-up happened right before I started school, but that's life ig.
-    - **DaemonDesiree** (7↑): In all honestly, wait to get a master’s and just apply. Like someone else said, you can use the tuition benefits to your advantage.
-- **acagedrising** (18↑): I would strongly advise against a certificate before applying again especially if it isn’t free. Student affairs is already low pay for requiring the grad degree, I would focus on writing a really compelling personal statement for your applications and interview practice to communicate your growth since the first program and your passion/experience.
+    - **DaemonDesiree** (6↑): In all honestly, wait to get a master’s and just apply. Like someone else said, you can use the tuition benefits to your advantage.
+- **acagedrising** (19↑): I would strongly advise against a certificate before applying again especially if it isn’t free. Student affairs is already low pay for requiring the grad degree, I would focus on writing a really compelling personal statement for your applications and interview practice to communicate your growth since the first program and your passion/experience.
   - **Easy-Childhood-250** (1↑): Thank you for the advice! I guess I'm worried my GPA is just too low for even a good personal statement to save me, but I understand that certificates can be extremely expensive. I made a list of possible options, and some were approaching $20,000. FOR 12 CREDITS!
 - **follyjunebug** (32↑): You might consider getting a job (any job!) at a big enough college where you can use the tuition benefits to compete your masters degree and get work experience in higher ed at the same time. Usually you can move around jobs pretty easily once you’re in.
-  - **Easy-Childhood-250** (6↑): I think I'll be looking into doing this. Especially since my biggest issue was how many classes I was taking at once, I think limiting myself to however much tuition remission covers might make everything a bit easier. Thank you for the advice!
-- **sillyshallot** (9↑): I pivoted into higher ed a few years ago and I enjoy it. The fact that you have some experience working in higher ed, even if only temporary, will be a plus. As an advisor you’ll be doing a LOT of follow-ups so make sure you have systems in place for managing your ADHD. Also, I’m sure this is a no-brainer, but don’t apply at the school that academically dismissed you.
+  - **Easy-Childhood-250** (7↑): I think I'll be looking into doing this. Especially since my biggest issue was how many classes I was taking at once, I think limiting myself to however much tuition remission covers might make everything a bit easier. Thank you for the advice!
+- **sillyshallot** (11↑): I pivoted into higher ed a few years ago and I enjoy it. The fact that you have some experience working in higher ed, even if only temporary, will be a plus. As an advisor you’ll be doing a LOT of follow-ups so make sure you have systems in place for managing your ADHD. Also, I’m sure this is a no-brainer, but don’t apply at the school that academically dismissed you.
   - **Easy-Childhood-250** (1↑): Thanks for the advice! Yeah, my first job out of college was advising-adjacent, and I was undiagnosed and dealing with a lot more students than I probably should have been, which was a disaster. I feel a lot better with the systems I currently have. I won't be reapplying there, which is honestly one reason I feel disappointed in myself. It's my alma mater, and they had an amazing community and professors, and I messed it all up.
-- **Royal_Albatross3849** (6↑): Friend, about 30% of masters students don't ever complete the degree. You are not alone. Some of those students get a job that requires 100% of their attention. Some have a baby. Others have a car breakdown mid semester. And some, like you, have a brain breakdown mid semester. All of these are legitimate reasons to stop out of education. 
+- **Royal_Albatross3849** (7↑): Friend, about 30% of masters students don't ever complete the degree. You are not alone. Some of those students get a job that requires 100% of their attention. Some have a baby. Others have a car breakdown mid semester. And some, like you, have a brain breakdown mid semester. All of these are legitimate reasons to stop out of education. 
 
 You did not disappoint your advisors. You have not let down your faculty. We see it happen every year. Some of my most promising students have shut down & disappeared unexpectedly. Its ok. They did what they needed to do at the time. 
 
@@ -108,7 +107,7 @@ Notice that I called it a "stop-out" not a "drop out." You are welcome back!  Yo
 Apply to every position that you are interested in. If anyone asks about your masters (which they probably won't), tell them "life got in the way, but I plan to finish when I can." They'll understand.
   - **Easy-Childhood-250** (1↑): Thank you! I didn't know that at all. Looking around, it felt like everyone else in my cohort was doing so well while I struggled in the corner. And I genuinely feel like I could've done so much better, and it's so hard not to feel like I disappointed everyone who saw something in me. This really helps with just shifting that perspective. I'll make sure to apply to as many positions as possible. I'm lucky my current job gives me a bit of cushion, especially during the spring and summer months, when most graduating grad students start applying, so I'm grateful for that.
     - **Royal_Albatross3849** (1↑): Checking in on you - are you doing better now?
-- **CursorTN** (6↑): Have you considered going into Student Accessibility Services? Higher Ed work can very rewarding, but we are under siege right now. So many cuts to research, graduate FAFSA funding, and cuts to visas for overseas students paying cash for their out-of-state tuition. Huge cuts have been happening. 
+- **CursorTN** (7↑): Have you considered going into Student Accessibility Services? Higher Ed work can very rewarding, but we are under siege right now. So many cuts to research, graduate FAFSA funding, and cuts to visas for overseas students paying cash for their out-of-state tuition. Huge cuts have been happening. 
 
 I’ve been in higher ed, specifically student services for over 20 years. And even in the best of times you won’t get rich—but often you won’t even get comfortable. My partner works an admin (not programming) job supervising nobody in tech. She makes more than every VP at my small public college. Compound low earnings over many years and higher ed is quite a grind. Colleagues of mine make well below average wages near me supervising multiple ft staff. If my partner didn’t make good money, we’d have a very different life.
   - **Razzle_Dazzle15** (2↑): I have a masters degree in higher education and been trying to get a job in that field for a year. Unless you know someone, it is EXTREMELY difficult to get a job in that field of work!!

@@ -28,37 +28,37 @@ chunks:
     key_terms: [interested, colleague, email, feel, appreciated, situations, supervisor, academic]
     token_count: 112
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c2"
-    char_span: [2912, 3845]
+    char_span: [2911, 3844]
     sentence_count: 10
     key_terms: [decline, direct, having, opposite-bonus-1413, plate, right, "it's", like]
     section: Comments
     token_count: 256
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c3"
-    char_span: [3847, 5952]
+    char_span: [3846, 5951]
     sentence_count: 16
     key_terms: [advisor, external, letter, reason, comfortable, candidate, colleague, situation]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c4"
-    char_span: [5954, 7954]
+    char_span: [5953, 7953]
     sentence_count: 6
     key_terms: [work, authorship, icmje, defining-the-role-of-authors-and-contributors, following, roles-and-responsibilities, criteria, students]
     section: Comments
     token_count: 435
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c5"
-    char_span: [7956, 10015]
+    char_span: [7955, 10014]
     sentence_count: 5
     key_terms: [authorship, contributions, general, acquisition, criteria, editing, administrative, investigators]
     section: Comments
     token_count: 419
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c6"
-    char_span: [10017, 10903]
+    char_span: [10016, 10902]
     sentence_count: 6
     key_terms: [authorship, supervisor, research, "don't", grant, oldengoldentree, administrative, departmental]
     section: Comments
     token_count: 184
   - id: "social-intelligence/reddit-deep/askacademia/1tnebap.md#c7"
-    char_span: [10905, 12500]
+    char_span: [10904, 12499]
     sentence_count: 9
     key_terms: ["it's", supervisor, others, phd, required, because, author, common]
     section: Comments

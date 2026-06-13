@@ -31,31 +31,31 @@ chunks:
     key_terms: [companies, generalist, applying, right, been, like, part, role]
     token_count: 271
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c3"
-    char_span: [3860, 4977]
+    char_span: [3859, 4976]
     sentence_count: 12
     key_terms: [charliegct, workplace, health, mental, myself, toxic, under-appreciated, good]
     section: Comments
     token_count: 304
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c4"
-    char_span: [4979, 6832]
+    char_span: [4978, 6831]
     sentence_count: 19
     key_terms: [certification, health, mental, care, get, "it's", yourself, having]
     section: Comments
     token_count: 447
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c5"
-    char_span: [6834, 9050]
+    char_span: [6833, 9049]
     sentence_count: 19
     key_terms: [network, getting, interviews, job, "you're", certification, going, tough]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c6"
-    char_span: [8759, 10558]
+    char_span: [8758, 10557]
     sentence_count: 20
     key_terms: ["it's", myself, time, "you're", work, realizing, helped, living]
     section: Comments
     token_count: 442
   - id: "social-intelligence/reddit-deep/humanresources/1mon7us.md#c7"
-    char_span: [10560, 12263]
+    char_span: [10559, 12262]
     sentence_count: 22
     key_terms: [job, better, environment, absolutely, another, nothing, myself, best]
     section: Comments

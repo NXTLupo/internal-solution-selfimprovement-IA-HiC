@@ -28,31 +28,31 @@ chunks:
     key_terms: [going, comments, daycare, getting, school, didn, look, scholarship]
     token_count: 203
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c2"
-    char_span: [2767, 4716]
+    char_span: [2766, 4715]
     sentence_count: 16
     key_terms: [start, care, head, daughter, sister, averyrose2010, taxes, like]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c3"
-    char_span: [4718, 6765]
+    char_span: [4717, 6764]
     sentence_count: 18
     key_terms: [work, child, continue, school, requirements, start, state, get]
     section: Comments
     token_count: 475
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c4"
-    char_span: [6767, 7058]
+    char_span: [6766, 7057]
     sentence_count: 2
     key_terms: [get, garnishable, bankruptcy, defaulting, presumably, protection, full-time, consider]
     section: Comments
     token_count: 60
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c5"
-    char_span: [7060, 9047]
+    char_span: [7059, 9046]
     sentence_count: 16
     key_terms: [child, get, work, hours, time, daycare, getting, luckyyyyyy53]
     section: Comments
     token_count: 504
   - id: "social-intelligence/reddit-deep/povertyfinance/1nbtddq.md#c6"
-    char_span: [9050, 10970]
+    char_span: [9049, 10969]
     sentence_count: 15
     key_terms: [child, week, another, support, income, school, internationalrich252, psychologicalpark930]
     section: Comments

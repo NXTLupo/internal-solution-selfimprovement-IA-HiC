@@ -15,10 +15,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/e6aa85c2cc.md#c0"
-    char_span: [0, 1363]
+    char_span: [0, 1362]
     sentence_count: 10
     key_terms: [communications, job, distance, driving, florida, careerguidance, degree, within]
-    token_count: 304
+    token_count: 303
 ---
 # How do I find a career in the Florida job market?
 

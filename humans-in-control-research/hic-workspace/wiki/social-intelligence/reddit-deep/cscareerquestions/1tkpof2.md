@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1tkpof2/please_help_me_decide_between_trading_vs_quant/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,31 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.644Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c0"
+    char_span: [0, 1857]
+    sentence_count: 10
+    key_terms: [quant, trading, tech, graduate, trader, cscareerquestions, prop, london]
+    token_count: 410
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c1"
+    char_span: [1872, 3588]
+    sentence_count: 12
+    key_terms: [people, get, paperhandsthedip, network, weight, "you're", years, networking]
+    section: Comments
+    token_count: 383
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c2"
+    char_span: [3590, 4990]
+    sentence_count: 9
+    key_terms: [tech, finance, hedge, quant, back, fund, friends, happens]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1tkpof2.md#c3"
+    char_span: [4992, 5987]
+    sentence_count: 1
+    key_terms: [conversion, quant, good, interviewing, ugurcansoruc, recruiter, convert, perform]
+    section: Comments
+    token_count: 227
 ---
-
 # Please help me decide between Trading vs Quant Tech
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1tkpof2/please_help_me_decide_between_trading_vs_quant/)

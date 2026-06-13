@@ -18,10 +18,10 @@ industries: [enterprise_it, ai_research, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/careeradvice/1qzhwol.md#c0"
-    char_span: [0, 337]
+    char_span: [0, 336]
     sentence_count: 2
     key_terms: [careeradvice, comments, ai-generated, halfdeadlock, reddit-deep, playwright, assigned, learning]
-    token_count: 98
+    token_count: 97
 ---
 # Backend .NET dev (6+ yrs) assigned to AI-generated Playwright + React tests – good learning or career risk?
 

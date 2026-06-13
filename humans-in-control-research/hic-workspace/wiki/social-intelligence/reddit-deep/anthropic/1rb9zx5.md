@@ -18,7 +18,7 @@ industries: [ai_research, enterprise_it, saas]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1rb9zx5.md#c0"
-    char_span: [0, 694]
+    char_span: [0, 693]
     sentence_count: 6
     key_terms: [claude, desktop, app, anthropic, comments, windows, code, harjjotsinghh]
     token_count: 178

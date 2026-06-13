@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Develop a comprehensive digital and engagement strategy for Northeastern's First-Year advising during orientation. This strategy must improve first-year students' co-op readiness from day one by enabling early identification of experiential learning opportunities and resources, addressing skill gaps, democratizing knowledge access, and fostering competitive profile building. Support the strategy with evidence from provided transcripts and external research. #presentation #NU"
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t4e3lu.md#c0"
-    char_span: [0, 638]
+    char_span: [0, 637]
     sentence_count: 5
     key_terms: [engineeringstudents, telecommunications, engineering, internships, comments, resume, apply, late-training7359]
-    token_count: 142
+    token_count: 141
 ---
 # Advice for applying to telecommunications engineering internships
 

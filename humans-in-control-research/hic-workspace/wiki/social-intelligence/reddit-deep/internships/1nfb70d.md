@@ -23,7 +23,7 @@ chunks:
     key_terms: [finance, spring, https, weeks, engineering, internships, work, experience]
     token_count: 207
   - id: "social-intelligence/reddit-deep/internships/1nfb70d.md#c1"
-    char_span: [938, 1445]
+    char_span: [937, 1444]
     sentence_count: 3
     key_terms: [finance, makes, lot, wr3eckerlxix, engineering, wondering, probably, students]
     section: Comments

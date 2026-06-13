@@ -26,19 +26,19 @@ chunks:
     key_terms: [name, legal, system, documentation, publicized, preferred, promised, display]
     token_count: 361
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c2"
-    char_span: [3855, 6070]
+    char_span: [3854, 6069]
     sentence_count: 5
     key_terms: [government, identity, legal, get, "it's", name, different, rguiry913]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c3"
-    char_span: [5798, 8068]
+    char_span: [5797, 8067]
     sentence_count: 7
     key_terms: [name, good-information-383, legal, get, "it's", parents, been, "i'm"]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/neu/1ri34fk.md#c4"
-    char_span: [7771, 8683]
+    char_span: [7770, 8682]
     sentence_count: 3
     key_terms: [agency, good-information-383, co-op, fully, job, sexwithpaws69, appropriate, transgender]
     section: Comments

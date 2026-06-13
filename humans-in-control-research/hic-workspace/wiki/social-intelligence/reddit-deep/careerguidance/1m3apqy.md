@@ -26,43 +26,43 @@ chunks:
     key_terms: [something, remote, don, real, work, cybersecurity, independence, connections]
     token_count: 158
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c2"
-    char_span: [2713, 4602]
+    char_span: [2712, 4601]
     sentence_count: 11
     key_terms: [education, get, country, studying, online, cassiuswright, certificate, hospitality]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c3"
-    char_span: [4604, 6792]
+    char_span: [4603, 6791]
     sentence_count: 12
     key_terms: [studying, exams, hard, enough, exam, different, properly, students]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c4"
-    char_span: [6794, 9162]
+    char_span: [6793, 9161]
     sentence_count: 11
     key_terms: [mental, conditions, diagnosis, like, self-diagnosing, health, perspective, good]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c5"
-    char_span: [9164, 11391]
+    char_span: [9163, 11390]
     sentence_count: 13
     key_terms: [cybersecurity, projects, free, get, certificate, following, isc2, courses]
     section: Comments
     token_count: 514
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c6"
-    char_span: [11393, 11894]
+    char_span: [11392, 11893]
     sentence_count: 5
     key_terms: [support, customer, start, cybersecurity, jobspresso, adventure, attendant, languages]
     section: Comments
     token_count: 115
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c7"
-    char_span: [11896, 13829]
+    char_span: [11895, 13828]
     sentence_count: 13
     key_terms: [always, did, get, "it's", marketing, security, finance, crimes]
     section: Comments
     token_count: 459
   - id: "social-intelligence/reddit-deep/careerguidance/1m3apqy.md#c8"
-    char_span: [13831, 15138]
+    char_span: [13830, 15137]
     sentence_count: 7
     key_terms: [country, month, free, life, usd, bunchitabonita, lifeinthesc, everything]
     section: Comments

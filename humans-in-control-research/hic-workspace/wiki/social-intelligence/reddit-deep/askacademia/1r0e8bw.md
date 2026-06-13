@@ -23,19 +23,19 @@ chunks:
     key_terms: [askacademia, completely, education, academia, comments, learning, school, field]
     token_count: 346
   - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c1"
-    char_span: [1549, 3351]
+    char_span: [1548, 3350]
     sentence_count: 12
     key_terms: [phd, research, industry, "you're", another, setting, undergraduate, "don't"]
     section: Comments
     token_count: 415
   - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c2"
-    char_span: [3353, 5455]
+    char_span: [3352, 5454]
     sentence_count: 14
     key_terms: [phd, hate, doing, want, research, "you'd", don, find]
     section: Comments
     token_count: 494
   - id: "social-intelligence/reddit-deep/askacademia/1r0e8bw.md#c3"
-    char_span: [5460, 6201]
+    char_span: [5459, 6200]
     sentence_count: 5
     key_terms: [doing, against, want, extraordinarily, underestimate, exceedingly, absolutely, commitment]
     section: Comments

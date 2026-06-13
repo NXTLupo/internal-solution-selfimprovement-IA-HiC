@@ -28,19 +28,19 @@ chunks:
     key_terms: [market, investors, robinhood, capital, million, trading, crypto, worth]
     token_count: 269
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c2"
-    char_span: [2940, 4541]
+    char_span: [2939, 4540]
     sentence_count: 11
     key_terms: [market, pinpsychological82, robinhood, poly, invested, discord, months, month]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c3"
-    char_span: [4543, 6406]
+    char_span: [4542, 6405]
     sentence_count: 10
     key_terms: [priced, excitingpackage1301, "it's", probably, trading, market, polymarket, already]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pk7nd6.md#c4"
-    char_span: [6408, 8327]
+    char_span: [6407, 8326]
     sentence_count: 20
     key_terms: [sports, thatstodd, like, gambling, states, day, tax, want]
     section: Comments

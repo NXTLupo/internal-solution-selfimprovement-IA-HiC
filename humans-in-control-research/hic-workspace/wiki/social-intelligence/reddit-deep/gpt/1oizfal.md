@@ -18,27 +18,27 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c0"
-    char_span: [0, 1825]
+    char_span: [0, 1824]
     sentence_count: 10
     key_terms: [user, safety, policies, question, circumstance, task, work, clarifying]
-    token_count: 402
+    token_count: 401
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c1"
-    char_span: [1827, 3648]
+    char_span: [1826, 3647]
     sentence_count: 12
     key_terms: ["don't", user, unless, style, conversation, tools, keep, use]
     token_count: 368
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c2"
-    char_span: [3650, 6059]
+    char_span: [3649, 6058]
     sentence_count: 21
     key_terms: [check, use, answer, arithmetic, attention, test, web, language]
     token_count: 478
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c3"
-    char_span: [6061, 8492]
+    char_span: [6060, 8491]
     sentence_count: 21
     key_terms: [oververbosity, ideas, theories, particularly, user, thinking, message, always]
     token_count: 457
   - id: "social-intelligence/reddit-deep/gpt/1oizfal.md#c4"
-    char_span: [8494, 10262]
+    char_span: [8493, 10261]
     sentence_count: 14
     key_terms: [user, question, phrases, user-requested, follow, personality, end, artifacts]
     token_count: 356

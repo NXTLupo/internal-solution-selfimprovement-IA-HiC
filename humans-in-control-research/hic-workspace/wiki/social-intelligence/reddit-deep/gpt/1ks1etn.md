@@ -23,7 +23,7 @@ chunks:
     key_terms: [something, because, chatgpt, started, body, emotional, comments, physical]
     token_count: 396
   - id: "social-intelligence/reddit-deep/gpt/1ks1etn.md#c1"
-    char_span: [1666, 3268]
+    char_span: [1665, 3267]
     sentence_count: 20
     key_terms: [differenceeither9835, body, ai-generation, until, write, code, don, file]
     section: Comments

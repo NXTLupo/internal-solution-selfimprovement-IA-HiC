@@ -23,55 +23,55 @@ chunks:
     key_terms: [openai, comments, gemini, sea-efficiency5547, pro, performance, reddit-deep, benchmark]
     token_count: 98
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c1"
-    char_span: [316, 1678]
+    char_span: [315, 1677]
     sentence_count: 5
     key_terms: [gemini-3-pro-model-card, deepmind-media, https, model-cards, googleapis, impressive, web, archive]
     section: Comments
     token_count: 380
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c2"
-    char_span: [1680, 3868]
+    char_span: [1679, 3867]
     sentence_count: 13
     key_terms: [training, models, questions, problems, apex, data, question, because]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c3"
-    char_span: [3870, 5684]
+    char_span: [3869, 5683]
     sentence_count: 15
     key_terms: [gemini, model, aime, google, questions, data, guardrails, training]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c4"
-    char_span: [5686, 6979]
+    char_span: [5685, 6978]
     sentence_count: 11
     key_terms: [gemini, like, released, chatgpt, no-philosopher3977, sea-efficiency5547, knew, too]
     section: Comments
     token_count: 345
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c5"
-    char_span: [6981, 8490]
+    char_span: [6980, 8489]
     sentence_count: 10
     key_terms: [gemini, chatgpt, programming, work, different, machines, feature, manuals]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c6"
-    char_span: [8492, 9409]
+    char_span: [8491, 9408]
     sentence_count: 7
     key_terms: [google, gemini, look, lot, sure, hallucinating, fantasy-512, information]
     section: Comments
     token_count: 213
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c7"
-    char_span: [9411, 11051]
+    char_span: [9410, 11050]
     sentence_count: 12
     key_terms: [google, gemini-3-pro-model-card, sirrece, something, context, million, noticed, release]
     section: Comments
     token_count: 452
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c8"
-    char_span: [11053, 12626]
+    char_span: [11052, 12625]
     sentence_count: 10
     key_terms: [thinking, dc0b8eef0d96e79c449b38a9add429d4ae672f9f, math, problems, coding, gemini, solved, years]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/openai/1p09hzj.md#c9"
-    char_span: [12628, 13647]
+    char_span: [12627, 13646]
     sentence_count: 5
     key_terms: [coding, claude, development, benchmarks, better, gemini, bench, chart]
     section: Comments

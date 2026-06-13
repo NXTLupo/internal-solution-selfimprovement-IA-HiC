@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/college/1qm0wa8.md
 url: "https://www.reddit.com/r/college/comments/1qm0wa8/canshould_i_ask_for_a_stipend_for_an_informal/"
 kind: "social-post"
 source: "reddit-deep: r/college"
@@ -13,8 +14,42 @@ flair: ""
 extracted_at: "2026-06-06T23:23:15.570Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c0"
+    char_span: [0, 2071]
+    sentence_count: 14
+    key_terms: [class, course, time, advanced, college, community, checking, comments]
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c1"
+    char_span: [2073, 3768]
+    sentence_count: 17
+    key_terms: [payment, class, don, learning, student, being, "i'm", like]
+    token_count: 378
+  - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c2"
+    char_span: [3783, 5556]
+    sentence_count: 13
+    key_terms: [money, pay, per, semester, "can't", like, definitely, position]
+    section: Comments
+    token_count: 434
+  - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c3"
+    char_span: [5558, 6758]
+    sentence_count: 6
+    key_terms: [oksecretary1231, stipend, undergraduate, graduate, "there's", "you're", being, extra]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c4"
+    char_span: [6760, 7806]
+    sentence_count: 5
+    key_terms: [school, education, records, institutional, ferpa, consultants, pii, volunteers]
+    section: Comments
+    token_count: 207
+  - id: "social-intelligence/reddit-deep/college/1qm0wa8.md#c5"
+    char_span: [7808, 9242]
+    sentence_count: 12
+    key_terms: [student, class, university, bachelors, professor, degrees, unpaid, fragrantdifficulty68]
+    section: Comments
+    token_count: 330
 ---
-
 # Can/Should I ask for a stipend for an informal, unpaid TA position?
 
 Source: [reddit-deep: r/college](https://www.reddit.com/r/college/comments/1qm0wa8/canshould_i_ask_for_a_stipend_for_an_informal/)

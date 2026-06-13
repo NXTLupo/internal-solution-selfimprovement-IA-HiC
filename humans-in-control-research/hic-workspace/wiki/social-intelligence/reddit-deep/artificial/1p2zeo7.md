@@ -23,7 +23,7 @@ chunks:
     key_terms: [artificial, comments, image, captain-price, reddit-deep, determine, generated, whether]
     token_count: 77
   - id: "social-intelligence/reddit-deep/artificial/1p2zeo7.md#c1"
-    char_span: [295, 843]
+    char_span: [294, 842]
     sentence_count: 3
     key_terms: [generated, detect, content, google, images, itself, picklecomet9, amphiitrion]
     section: Comments

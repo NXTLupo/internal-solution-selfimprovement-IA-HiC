@@ -23,7 +23,7 @@ chunks:
     key_terms: [memory, evaluation, machinelearning, systems, scores, system, performance, different]
     token_count: 241
   - id: "social-intelligence/reddit-deep/machinelearning/1s8osi9.md#c1"
-    char_span: [1162, 2939]
+    char_span: [1161, 2938]
     sentence_count: 2
     key_terms: [eval, running, locomo, memory, comparisons, informative, own, benchmarks]
     section: Comments

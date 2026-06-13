@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/internships/1rdub5h.md
 url: "https://www.reddit.com/r/internships/comments/1rdub5h/unlucky_internship_hunt/"
 kind: "social-post"
 source: "reddit-deep: r/internships"
@@ -13,8 +14,37 @@ flair: "Applications"
 extracted_at: "2026-06-06T23:20:46.209Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c0"
+    char_span: [0, 1559]
+    sentence_count: 18
+    key_terms: [internships, career, saying, internship, resume, email, get, interview]
+    token_count: 369
+  - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c1"
+    char_span: [1574, 3338]
+    sentence_count: 10
+    key_terms: [applications, internship, around, summer, since, day, week, interviews]
+    section: Comments
+    token_count: 466
+  - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c2"
+    char_span: [3340, 5366]
+    sentence_count: 13
+    key_terms: [linkedin, day, people, internships, send, something, applying, recently]
+    section: Comments
+    token_count: 480
+  - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c3"
+    char_span: [5368, 6223]
+    sentence_count: 9
+    key_terms: [applying, applications, positions, consider, probably, chances, resume, apply]
+    section: Comments
+    token_count: 178
+  - id: "social-intelligence/reddit-deep/internships/1rdub5h.md#c4"
+    char_span: [6225, 7893]
+    sentence_count: 15
+    key_terms: [no-opposite-4285, going, send, too, business, probably, another, looking]
+    section: Comments
+    token_count: 423
 ---
-
 # Unlucky internship hunt
 
 Source: [reddit-deep: r/internships](https://www.reddit.com/r/internships/comments/1rdub5h/unlucky_internship_hunt/)

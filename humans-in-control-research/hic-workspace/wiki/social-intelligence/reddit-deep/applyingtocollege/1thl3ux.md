@@ -26,19 +26,19 @@ chunks:
     key_terms: [feel, like, nyu, employment, extremely, business, outcomes, program]
     token_count: 323
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c2"
-    char_span: [3657, 5449]
+    char_span: [3656, 5448]
     sentence_count: 13
     key_terms: [engineering, different, michigan, making, school, good, engineers, undergrad]
     section: Comments
     token_count: 375
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c3"
-    char_span: [5451, 7436]
+    char_span: [5450, 7435]
     sentence_count: 14
     key_terms: [michigan, school, business, better, arbor, engineering, ann, math]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/applyingtocollege/1thl3ux.md#c4"
-    char_span: [7438, 9318]
+    char_span: [7437, 9317]
     sentence_count: 19
     key_terms: [grads, stern, tuition, better, family, full, usc, dominate]
     section: Comments

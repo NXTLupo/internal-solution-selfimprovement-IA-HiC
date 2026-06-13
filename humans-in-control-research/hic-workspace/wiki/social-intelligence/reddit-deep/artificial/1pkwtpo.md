@@ -23,43 +23,43 @@ chunks:
     key_terms: [exams, oral, artificial, educators, platforms, comments, benefit, chatgpt]
     token_count: 355
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c1"
-    char_span: [1688, 3448]
+    char_span: [1687, 3447]
     sentence_count: 10
     key_terms: [students, education, information, deeply, system, reveal, teachers, teaching]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c2"
-    char_span: [3450, 5381]
+    char_span: [3449, 5380]
     sentence_count: 1
     key_terms: [competence, highschool, time, knowledge, obedience, dictated, relative, students]
     section: Comments
     token_count: 426
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c3"
-    char_span: [5383, 7114]
+    char_span: [5382, 7113]
     sentence_count: 6
     key_terms: [ai-artificial-intelligence-college-oral-exam, https, silent-resort-3076, education, washingtonpost, pixelpionerd, scale, unpaywalled]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c4"
-    char_span: [7116, 8686]
+    char_span: [7115, 8685]
     sentence_count: 8
     key_terms: [ai-artificial-intelligence-college-oral-exam, https, students, washingtonpost, understanding, memorization, university, education]
     section: Comments
     token_count: 373
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c5"
-    char_span: [8688, 10171]
+    char_span: [8687, 10170]
     sentence_count: 7
     key_terms: [themrcurious, questions, dashingthroughsnow12, never, been, lot, nds, oral]
     section: Comments
     token_count: 352
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c6"
-    char_span: [10173, 11255]
+    char_span: [10172, 11254]
     sentence_count: 3
     key_terms: [because, themrcurious, oral, autistic, representativebarber, silent-resort-3076, talk, accommodation]
     section: Comments
     token_count: 273
   - id: "social-intelligence/reddit-deep/artificial/1pkwtpo.md#c7"
-    char_span: [11257, 12260]
+    char_span: [11256, 12259]
     sentence_count: 7
     key_terms: [too, handwritten, pen, remaining, pens, work, impatience, photograph]
     section: Comments

@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Provide a strategic analysis for higher ed universities, identifying opportunities to enhance experiential learning, intern, and co-op success. based on deep industry research, stakeholder transcripts, social data, articles, and news."
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1tkhfgf.md#c0"
-    char_span: [0, 660]
+    char_span: [0, 659]
     sentence_count: 1
     key_terms: [social, internships, opportunity, comments, performance-based, work, recommendation, organization]
-    token_count: 175
+    token_count: 174
 ---
 # 🌟 Social Work Internship Opportunity 🌟
 

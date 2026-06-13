@@ -23,13 +23,13 @@ chunks:
     key_terms: [cscareerquestions, comments, because, school, dumb, grad, gre, too]
     token_count: 202
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c1"
-    char_span: [813, 2902]
+    char_span: [812, 2901]
     sentence_count: 16
     key_terms: [school, grad, job, market, required, fucked, papers, trying]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1n3vpyo.md#c2"
-    char_span: [2904, 4378]
+    char_span: [2903, 4377]
     sentence_count: 13
     key_terms: [school, internships, grad, because, bentoboxtofu, get, gre, "master's"]
     section: Comments

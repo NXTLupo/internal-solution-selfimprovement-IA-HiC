@@ -23,67 +23,67 @@ chunks:
     key_terms: [technical, personality, cscareerquestions, skills, comments, thoughts, because, being]
     token_count: 299
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c1"
-    char_span: [1389, 3597]
+    char_span: [1388, 3596]
     sentence_count: 17
     key_terms: [personality, attitude, "it's", company, skills, experience, leadership, coachable]
     section: Comments
     token_count: 499
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c2"
-    char_span: [3599, 5149]
+    char_span: [3598, 5148]
     sentence_count: 10
     key_terms: [personality, employees, company, people, want, leadership, thetarquin, qualities]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c3"
-    char_span: [5151, 7094]
+    char_span: [5150, 7093]
     sentence_count: 15
     key_terms: ["it's", learning, someone, people, skills, coach, hard, like]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c4"
-    char_span: [7096, 9229]
+    char_span: [7095, 9228]
     sentence_count: 10
     key_terms: [being, someone, down, work, engineers, everyone, overseas, company]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c5"
-    char_span: [9231, 11062]
+    char_span: [9230, 11061]
     sentence_count: 9
     key_terms: [skills, personality, technical, skill, communication, "don't", communicate, anyone]
     section: Comments
     token_count: 438
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c6"
-    char_span: [11064, 13136]
+    char_span: [11063, 13135]
     sentence_count: 5
     key_terms: [autism, advice-and-guidance, draining, suppress, topics, traits, expectations, personality]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c7"
-    char_span: [13138, 15343]
+    char_span: [13137, 15342]
     sentence_count: 20
     key_terms: [personality, "it's", autistic, recommendation, normal, people, being, like]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c8"
-    char_span: [15345, 17128]
+    char_span: [15344, 17127]
     sentence_count: 10
     key_terms: [emotional, people, therapy, being, "don't", elon, behavioral, cognitive]
     section: Comments
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c9"
-    char_span: [17130, 19280]
+    char_span: [17129, 19279]
     sentence_count: 12
     key_terms: [people, being, coworkers, work, "you're", personality, "it's", mean]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c10"
-    char_span: [19282, 20345]
+    char_span: [19281, 20344]
     sentence_count: 9
     key_terms: [adhd, people, struggles, barrier, autism, plenty, social, like]
     section: Comments
     token_count: 223
   - id: "social-intelligence/reddit-deep/cscareerquestions/1nigqsw.md#c11"
-    char_span: [20347, 21844]
+    char_span: [20346, 21843]
     sentence_count: 18
     key_terms: [technical, like, skills, teach, netflix, autism, people, social]
     section: Comments

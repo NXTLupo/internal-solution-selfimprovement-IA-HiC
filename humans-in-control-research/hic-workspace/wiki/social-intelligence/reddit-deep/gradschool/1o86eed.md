@@ -23,13 +23,13 @@ chunks:
     key_terms: [opportunities, undergrad, school, connections, gradschool, comments, masters, responsiblework3846]
     token_count: 212
   - id: "social-intelligence/reddit-deep/gradschool/1o86eed.md#c1"
-    char_span: [1000, 2340]
+    char_span: [999, 2339]
     sentence_count: 9
     key_terms: [job, program, prestigious, ivy, prospects, columbia, programs, degrees]
     section: Comments
     token_count: 319
   - id: "social-intelligence/reddit-deep/gradschool/1o86eed.md#c2"
-    char_span: [2342, 4177]
+    char_span: [2341, 4176]
     sentence_count: 6
     key_terms: [programs, grad, publications, quality, school, ivy, phd, tier]
     section: Comments

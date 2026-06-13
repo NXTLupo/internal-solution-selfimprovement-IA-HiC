@@ -18,10 +18,10 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tc4o8e.md#c0"
-    char_span: [0, 1415]
+    char_span: [0, 1414]
     sentence_count: 14
     key_terms: [frontend, careerguidance, client, months, continued, developer, comments, company]
-    token_count: 334
+    token_count: 333
 ---
 # Career choice path confusion in software development. Should I specialize or just be useful?
 

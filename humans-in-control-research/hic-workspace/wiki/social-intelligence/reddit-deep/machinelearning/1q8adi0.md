@@ -21,25 +21,25 @@ chunks:
     key_terms: [thinkpad, machinelearning, macbook, gpu, comments, macbooks, switched, training]
     token_count: 357
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c1"
-    char_span: [1552, 2812]
+    char_span: [1551, 2811]
     sentence_count: 7
     key_terms: [laptop, server, macbook, remote, small, get, gpu, ssh]
     section: Comments
     token_count: 318
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c2"
-    char_span: [2814, 4449]
+    char_span: [2813, 4448]
     sentence_count: 7
     key_terms: [laptop, battery, macbook, angledluffa, life, factorio, friction, research]
     section: Comments
     token_count: 399
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c3"
-    char_span: [4451, 6304]
+    char_span: [4450, 6303]
     sentence_count: 14
     key_terms: [gpu, need, laptop, access, work, powerful, cluster, macbook]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/machinelearning/1q8adi0.md#c4"
-    char_span: [6306, 6787]
+    char_span: [6305, 6786]
     sentence_count: 3
     key_terms: [carrying, cloud, gpu, semperputidus, comfortable, precision, accessed, anything]
     section: Comments

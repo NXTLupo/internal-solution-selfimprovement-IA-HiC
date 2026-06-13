@@ -23,19 +23,19 @@ chunks:
     key_terms: [professors, "i'm", college, network, being, weird, composition, "i've"]
     token_count: 322
   - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c1"
-    char_span: [1491, 3460]
+    char_span: [1490, 3459]
     sentence_count: 15
     key_terms: [office, class, hours, related, ask, talk, introduce, professor]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c2"
-    char_span: [3462, 5561]
+    char_span: [3461, 5560]
     sentence_count: 22
     key_terms: [class, recommendation, office, professors, hours, touch, remember, students]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/college/1pnu62y.md#c3"
-    char_span: [5566, 7914]
+    char_span: [5565, 7913]
     sentence_count: 19
     key_terms: [recommendation, professors, class, research, students, related, doing, write]
     section: Comments

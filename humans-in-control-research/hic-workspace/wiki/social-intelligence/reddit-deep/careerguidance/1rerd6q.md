@@ -26,31 +26,31 @@ chunks:
     key_terms: [job, day, boyfriend, commuting, hours, relationship, live, take]
     token_count: 429
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c2"
-    char_span: [3888, 5272]
+    char_span: [3887, 5271]
     sentence_count: 14
     key_terms: [day, commute, early-career, relationship, job, per, boyfriend, lawyer]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c3"
-    char_span: [5274, 7309]
+    char_span: [5273, 7308]
     sentence_count: 14
     key_terms: [job, salary, relationship, opportunity, days, get, life, stay]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c4"
-    char_span: [7314, 9163]
+    char_span: [7313, 9162]
     sentence_count: 11
     key_terms: [years, school, college, opportunities, law, philosophy, supportive, countries]
     section: Comments
     token_count: 460
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c5"
-    char_span: [9165, 10969]
+    char_span: [9164, 10968]
     sentence_count: 19
     key_terms: [job, career, relationship, college, commute, married, started, either]
     section: Comments
     token_count: 450
   - id: "social-intelligence/reddit-deep/careerguidance/1rerd6q.md#c6"
-    char_span: [10971, 12777]
+    char_span: [10970, 12776]
     sentence_count: 19
     key_terms: [career, partner, relationship, yourself, forever, better, place, right]
     section: Comments

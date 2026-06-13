@@ -21,7 +21,7 @@ chunks:
     key_terms: [careerguidance, electrical, industrial, comments, career, paths, best, hvac]
     token_count: 175
   - id: "social-intelligence/reddit-deep/careerguidance/1suwbjx.md#c1"
-    char_span: [757, 1514]
+    char_span: [756, 1513]
     sentence_count: 1
     key_terms: [controls, work, automation, electrical, industrial, companies, systems, hvac]
     section: Comments

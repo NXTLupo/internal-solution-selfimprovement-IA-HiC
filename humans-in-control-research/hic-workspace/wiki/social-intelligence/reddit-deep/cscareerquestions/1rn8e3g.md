@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1rn8e3g/have_we_professional_developers_already_lost_the/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,162 @@ flair: "Experienced"
 extracted_at: "2026-06-06T23:23:15.628Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c0"
+    char_span: [0, 2320]
+    sentence_count: 20
+    key_terms: [understand, cscareerquestions, code, through, asked, check, "don't", essentially]
+    token_count: 507
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c1"
+    char_span: [2322, 3338]
+    sentence_count: 9
+    key_terms: [understanding, companies, "i'm", using, does, handling, company, responsibility]
+    token_count: 205
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c2"
+    char_span: [3353, 4802]
+    sentence_count: 4
+    key_terms: [become, everything, understanding, ai-generated, use, developers, experience, vibecoders]
+    section: Comments
+    token_count: 306
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c3"
+    char_span: [4804, 6875]
+    sentence_count: 13
+    key_terms: [code, implementing, tools, mainframes, already, longer, people, review]
+    section: Comments
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c4"
+    char_span: [6579, 6906]
+    sentence_count: 4
+    key_terms: [code, explanation, accelerate, high-level, something, discover, relevant, specific]
+    section: Comments
+    token_count: 70
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c5"
+    char_span: [6908, 9066]
+    sentence_count: 15
+    key_terms: [hallucinations, code, bugs, grep, llm, leaving, theoretical, don]
+    section: Comments
+    token_count: 495
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c6"
+    char_span: [9069, 11289]
+    sentence_count: 20
+    key_terms: [programming, code, analysis, computer, without, senior, debugging, testing]
+    section: Comments
+    token_count: 450
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c7"
+    char_span: [11291, 13352]
+    sentence_count: 13
+    key_terms: [code, team, good, review, development, experience, companies, project]
+    section: Comments
+    token_count: 438
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c8"
+    char_span: [13354, 14687]
+    sentence_count: 9
+    key_terms: [too, code, experience, "doesn't", little, cute-performance4911, going, worse]
+    section: Comments
+    token_count: 307
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c9"
+    char_span: [14692, 16702]
+    sentence_count: 14
+    key_terms: [good, engineer, like, need, coding, want, understand, companies]
+    section: Comments
+    token_count: 470
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c10"
+    char_span: [16704, 18873]
+    sentence_count: 23
+    key_terms: [productive, makes, using, good, use, "don't", development, get]
+    section: Comments
+    token_count: 484
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c11"
+    char_span: [18875, 21141]
+    sentence_count: 15
+    key_terms: [though, good, engineer, because, leaving, using, time, describing]
+    section: Comments
+    token_count: 483
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c12"
+    char_span: [21143, 22933]
+    sentence_count: 15
+    key_terms: [juniors, works, code, "it's", something, codebase, hiring, people]
+    section: Comments
+    token_count: 433
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c13"
+    char_span: [22935, 24893]
+    sentence_count: 18
+    key_terms: [verification, without, verify, major, understand, described, engineers, expensive]
+    section: Comments
+    token_count: 409
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c14"
+    char_span: [24895, 26618]
+    sentence_count: 17
+    key_terms: [engineering, isnt, software, passing, agents, around, doing, going]
+    section: Comments
+    token_count: 412
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c15"
+    char_span: [26620, 28385]
+    sentence_count: 11
+    key_terms: [months, architecture, ago, here, companies, different, problem, coding]
+    section: Comments
+    token_count: 390
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c16"
+    char_span: [28387, 30545]
+    sentence_count: 12
+    key_terms: ["it's", review, "you'll", did, problems, because, letting, been]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c17"
+    char_span: [30547, 32434]
+    sentence_count: 13
+    key_terms: [code, tool, because, better, broken, harder, humans, doing]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c18"
+    char_span: [32436, 34567]
+    sentence_count: 19
+    key_terms: [get, better, engineers, questions, good, agents, enough, prompt]
+    section: Comments
+    token_count: 509
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c19"
+    char_span: [34569, 35912]
+    sentence_count: 12
+    key_terms: [use, like, claude, right, write, ask, code, get]
+    section: Comments
+    token_count: 325
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c20"
+    char_span: [35914, 37214]
+    sentence_count: 7
+    key_terms: [pretty, coding, tests, high, use, hallucinations, simultaneously, demonstrating]
+    section: Comments
+    token_count: 286
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c21"
+    char_span: [37216, 39115]
+    sentence_count: 14
+    key_terms: [like, without, get, "it's", industry, because, problem, actual]
+    section: Comments
+    token_count: 430
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c22"
+    char_span: [39117, 41016]
+    sentence_count: 17
+    key_terms: [junior, people, like, swe, experience, engineers, industry, tricky]
+    section: Comments
+    token_count: 457
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c23"
+    char_span: [41018, 42838]
+    sentence_count: 13
+    key_terms: [code, time, copying, reading, "won't", engineers, building, because]
+    section: Comments
+    token_count: 396
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c24"
+    char_span: [42840, 44257]
+    sentence_count: 15
+    key_terms: [trust, get, results, slowly, learn, bullshitter, experience, companies]
+    section: Comments
+    token_count: 321
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1rn8e3g.md#c25"
+    char_span: [44259, 45832]
+    sentence_count: 13
+    key_terms: [use, products, engineers, clients, seniors, perfect-campaign9551, skkkrrrrrrrrrrrrrrrr, codex]
+    section: Comments
+    token_count: 387
 ---
-
 # Have we, professional developers, already lost the battle against vibe coding?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1rn8e3g/have_we_professional_developers_already_lost_the/)

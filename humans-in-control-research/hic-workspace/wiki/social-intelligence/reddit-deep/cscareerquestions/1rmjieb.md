@@ -21,31 +21,31 @@ chunks:
     key_terms: [underpaid, cscareerquestions, months, experience, comments, average, company, living]
     token_count: 361
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c1"
-    char_span: [1456, 3371]
+    char_span: [1455, 3370]
     sentence_count: 15
     key_terms: [trimodal-nature-of-tech-compensation, underpaid, salary, ireallylikethemdogs, companies, pragmaticengineer, feature, "you're"]
     section: Comments
     token_count: 488
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c2"
-    char_span: [3374, 4815]
+    char_span: [3373, 4814]
     sentence_count: 14
     key_terms: [job, months, been, preparing, working, career, market, worked]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c3"
-    char_span: [4817, 5735]
+    char_span: [4816, 5734]
     sentence_count: 8
     key_terms: [ireallylikethemdogs, weekly-offer6899, underpaid, thanks, fosschemepirate88, bank, get, paid]
     section: Comments
     token_count: 244
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c4"
-    char_span: [5737, 7417]
+    char_span: [5736, 7416]
     sentence_count: 16
     key_terms: [ireallylikethemdogs, "you're", experience, direct-stuff-2469, responsibilities, months, blacksoxing, feel]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rmjieb.md#c5"
-    char_span: [7419, 7899]
+    char_span: [7418, 7898]
     sentence_count: 7
     key_terms: [blah, new, back, come, get, opportunity, respectful, companies]
     section: Comments

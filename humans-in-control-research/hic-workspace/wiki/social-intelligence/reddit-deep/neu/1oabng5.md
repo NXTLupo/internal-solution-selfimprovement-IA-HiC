@@ -16,27 +16,27 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c0"
-    char_span: [0, 1545]
+    char_span: [0, 1544]
     sentence_count: 4
     key_terms: [comments, neu, utm, students, missing, reddit, https, share]
-    token_count: 398
+    token_count: 397
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c1"
-    char_span: [1547, 4017]
+    char_span: [1546, 4016]
     sentence_count: 18
     key_terms: [boston, animal, students, northeastern, volunteer, help, animals, student]
     token_count: 513
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c2"
-    char_span: [4019, 6483]
+    char_span: [4018, 6482]
     sentence_count: 14
     key_terms: [volunteers, animal, volunteer, role, location, animals, shelter, administrative]
     token_count: 502
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c3"
-    char_span: [6485, 8247]
+    char_span: [6484, 8246]
     sentence_count: 9
     key_terms: [animals, volunteers, mspca, care, commitment, off-campus, certified, volunteer]
     token_count: 346
   - id: "social-intelligence/reddit-deep/neu/1oabng5.md#c4"
-    char_span: [8249, 10064]
+    char_span: [8248, 10063]
     sentence_count: 9
     key_terms: [shelters, animals, shelter, animal, organizations, organization, fundraising, cat]
     token_count: 374

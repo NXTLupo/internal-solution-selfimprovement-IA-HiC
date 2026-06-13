@@ -23,7 +23,7 @@ chunks:
     key_terms: [company, switch, looking, related, careeradvice, good, experience, chatbots]
     token_count: 467
   - id: "social-intelligence/reddit-deep/careeradvice/1onkdto.md#c1"
-    char_span: [1966, 2508]
+    char_span: [1965, 2507]
     sentence_count: 3
     key_terms: [programming, background, growing, learn, stats, math, videoconjeetu, sustainable]
     section: Comments

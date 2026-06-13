@@ -23,43 +23,43 @@ chunks:
     key_terms: [like, money, personalfinance, feel, fine, time, something, comments]
     token_count: 432
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c1"
-    char_span: [1897, 3990]
+    char_span: [1896, 3989]
     sentence_count: 22
     key_terms: [money, years, laptop, don, get, "i've", work, essentials]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c2"
-    char_span: [3993, 5814]
+    char_span: [3992, 5813]
     sentence_count: 18
     key_terms: [spending, like, need, "don't", maybe, tires, free, scarcity]
     section: Comments
     token_count: 429
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c3"
-    char_span: [5816, 7982]
+    char_span: [5815, 7981]
     sentence_count: 16
     key_terms: [like, budget, monthly, set, money, expenses, expense, great]
     section: Comments
     token_count: 472
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c4"
-    char_span: [7984, 9824]
+    char_span: [7983, 9823]
     sentence_count: 13
     key_terms: [discover, irresponsible, cheap, feel, like, emergency, week-long, vacation]
     section: Comments
     token_count: 427
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c5"
-    char_span: [9826, 10868]
+    char_span: [9825, 10867]
     sentence_count: 8
     key_terms: [mindset, entire, tires, unbridledoptimism, like, irresponsible, preventative, specifically]
     section: Comments
     token_count: 235
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c6"
-    char_span: [10870, 12975]
+    char_span: [10869, 12974]
     sentence_count: 17
     key_terms: [income, single, therapist, helpful, therapy, like, new, important]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/personalfinance/1qi8uyx.md#c7"
-    char_span: [12977, 13441]
+    char_span: [12976, 13440]
     sentence_count: 6
     key_terms: [category, budget, money, spend, dumb, got, permission, understand]
     section: Comments

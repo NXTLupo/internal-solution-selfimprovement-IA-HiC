@@ -21,31 +21,31 @@ chunks:
     key_terms: [because, "i'm", life, college, careerguidance, degree, skills, "don't"]
     token_count: 457
   - id: "social-intelligence/reddit-deep/careerguidance/1ny4u6d.md#c1"
-    char_span: [2114, 4119]
+    char_span: [2113, 4118]
     sentence_count: 19
     key_terms: [small, careerbridgeto, step, volunteering, don, need, time, progress]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/careerguidance/1ny4u6d.md#c2"
-    char_span: [4121, 6319]
+    char_span: [4120, 6318]
     sentence_count: 30
     key_terms: ["don't", point, bus, got, through, been, "i'm", job]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1ny4u6d.md#c3"
-    char_span: [6321, 7095]
+    char_span: [6320, 7094]
     sentence_count: 12
     key_terms: ["i'm", sharing, advice, thanks, leatherleafslug, chillysparks01, understanding, experiences]
     section: Comments
     token_count: 185
   - id: "social-intelligence/reddit-deep/careerguidance/1ny4u6d.md#c4"
-    char_span: [7097, 8838]
+    char_span: [7096, 8837]
     sentence_count: 13
     key_terms: [job, able, find, get, caretaker, health, little, mental]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/careerguidance/1ny4u6d.md#c5"
-    char_span: [8840, 11060]
+    char_span: [8839, 11059]
     sentence_count: 20
     key_terms: [get, apprenticeships, job, american, programs, yourself, working, career]
     section: Comments

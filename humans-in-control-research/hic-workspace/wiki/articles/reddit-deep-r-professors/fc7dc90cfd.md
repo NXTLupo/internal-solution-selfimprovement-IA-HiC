@@ -15,22 +15,22 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c0"
-    char_span: [0, 1908]
+    char_span: [0, 1907]
     sentence_count: 17
     key_terms: [students, lectures, reading, class, "it's", completely, professors, believing]
-    token_count: 434
+    token_count: 433
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c1"
-    char_span: [1910, 3728]
+    char_span: [1909, 3727]
     sentence_count: 12
     key_terms: [class, students, free, paper, handwritten, "it's", writing, finish]
     token_count: 434
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c2"
-    char_span: [3730, 5761]
+    char_span: [3729, 5760]
     sentence_count: 22
     key_terms: [students, institution, writing, phones, class, work, assessment, cheaters]
     token_count: 471
   - id: "articles/reddit-deep-r-professors/fc7dc90cfd.md#c3"
-    char_span: [5763, 6857]
+    char_span: [5762, 6856]
     sentence_count: 10
     key_terms: [class, classes, activities, multiple, rotating, sections, students, collect]
     token_count: 260

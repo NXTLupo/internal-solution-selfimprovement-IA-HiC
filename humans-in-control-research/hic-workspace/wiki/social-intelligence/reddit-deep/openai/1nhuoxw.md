@@ -23,61 +23,61 @@ chunks:
     key_terms: [openai, coding, codex, gpt-5, tasks, com, introducing-upgrades-to-codex, announced]
     token_count: 264
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c1"
-    char_span: [1084, 2111]
+    char_span: [1083, 2110]
     sentence_count: 3
     key_terms: [codex, model, gpt-5-codex, openai, high, reasoning, stream, auto]
     section: Comments
     token_count: 337
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c2"
-    char_span: [2113, 4050]
+    char_span: [2112, 4049]
     sentence_count: 11
     key_terms: [code, extension, cli, claude, using, "i'm", available, reasoning]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c3"
-    char_span: [3795, 5034]
+    char_span: [3794, 5033]
     sentence_count: 7
     key_terms: [claude, code, codex, anthropic, validated, admitted, checking, quality]
     section: Comments
     token_count: 309
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c4"
-    char_span: [5038, 7017]
+    char_span: [5037, 7016]
     sentence_count: 19
     key_terms: [junior, devs, telling, claude, requirements, changes, collect, mostly]
     section: Comments
     token_count: 448
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c5"
-    char_span: [7019, 8883]
+    char_span: [7018, 8882]
     sentence_count: 10
     key_terms: [architects, devs, junior, going, shift, skill, developers, another]
     section: Comments
     token_count: 434
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c6"
-    char_span: [8885, 9592]
+    char_span: [8884, 9591]
     sentence_count: 3
     key_terms: [deleted, etc, take, term, try, educational, novakaldwin, regrettably]
     section: Comments
     token_count: 182
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c7"
-    char_span: [9594, 11632]
+    char_span: [9593, 11631]
     sentence_count: 12
     key_terms: [junior, level, coding, senior, skills, requirements, money, code]
     section: Comments
     token_count: 468
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c8"
-    char_span: [11634, 12109]
+    char_span: [11633, 12108]
     sentence_count: 3
     key_terms: [ability, code, simultaneously, maintainable, productivity, architect, decisions, different]
     section: Comments
     token_count: 84
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c9"
-    char_span: [12111, 13859]
+    char_span: [12110, 13858]
     sentence_count: 5
     key_terms: [screenshot, askgpts, quality, like, web, cooking, junior, reddit]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/openai/1nhuoxw.md#c10"
-    char_span: [13637, 14794]
+    char_span: [13636, 14793]
     sentence_count: 5
     key_terms: [dangerously-bypass-approvals-and-sandbox, quality, screen, codex, issue, etc, get, gets]
     section: Comments

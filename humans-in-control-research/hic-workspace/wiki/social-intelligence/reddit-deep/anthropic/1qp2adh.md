@@ -18,7 +18,7 @@ industries: [ai_research, saas, enterprise_it]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/anthropic/1qp2adh.md#c0"
-    char_span: [0, 610]
+    char_span: [0, 609]
     sentence_count: 6
     key_terms: [awesome, claude, anthropic, reference, comments, https, humor, phone]
     token_count: 155

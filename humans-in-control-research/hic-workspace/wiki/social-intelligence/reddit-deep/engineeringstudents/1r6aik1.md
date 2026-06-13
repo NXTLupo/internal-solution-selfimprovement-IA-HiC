@@ -23,7 +23,7 @@ chunks:
     key_terms: [engineeringstudents, engineering, comments, learning, looking, student, better, trying]
     token_count: 264
   - id: "social-intelligence/reddit-deep/engineeringstudents/1r6aik1.md#c1"
-    char_span: [1298, 2348]
+    char_span: [1297, 2347]
     sentence_count: 9
     key_terms: [experience, projects, arduino, degree, either, money, start, get]
     section: Comments

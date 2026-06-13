@@ -23,19 +23,19 @@ chunks:
     key_terms: [cscareerquestions, comments, careers, affect, future, field, https, north]
     token_count: 190
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c1"
-    char_span: [785, 2899]
+    char_span: [784, 2898]
     sentence_count: 8
     key_terms: [companies, "don't", administrativehost15, exitingthedonut, being, work, fucking, western]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c2"
-    char_span: [2644, 3955]
+    char_span: [2643, 3954]
     sentence_count: 13
     key_terms: [people, government, companies, american, interest, administrativehost15, rates, watch]
     section: Comments
     token_count: 314
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lkla4c.md#c3"
-    char_span: [3957, 4707]
+    char_span: [3956, 4706]
     sentence_count: 1
     key_terms: [korea, north, leetcode, razza357, anxious-possibility, documentary, developers, government]
     section: Comments

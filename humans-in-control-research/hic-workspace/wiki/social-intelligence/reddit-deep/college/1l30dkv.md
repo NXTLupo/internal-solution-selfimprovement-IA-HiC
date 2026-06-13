@@ -21,7 +21,7 @@ chunks:
     key_terms: [month, sleep, spending, alone, share, scholarship, dorm, get]
     token_count: 508
   - id: "social-intelligence/reddit-deep/college/1l30dkv.md#c1"
-    char_span: [2108, 3458]
+    char_span: [2107, 3457]
     sentence_count: 11
     key_terms: [education, college, stocks, invest, extra, money, investing, donate]
     section: Comments

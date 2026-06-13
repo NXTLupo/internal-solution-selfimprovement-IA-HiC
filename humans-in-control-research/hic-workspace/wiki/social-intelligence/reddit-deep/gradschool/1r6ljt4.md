@@ -23,37 +23,37 @@ chunks:
     key_terms: ["i'm", experience, research, background, currently, neuropsychology, skills, opportunity]
     token_count: 503
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c1"
-    char_span: [2413, 4356]
+    char_span: [2412, 4355]
     sentence_count: 19
     key_terms: [research, opportunity, programs, catspoopinboxes, project, similar, found, lab]
     section: Comments
     token_count: 425
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c2"
-    char_span: [4358, 6527]
+    char_span: [4357, 6526]
     sentence_count: 25
     key_terms: [read, get, being, start, like, approaches, different, questions]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c3"
-    char_span: [6529, 8426]
+    char_span: [6528, 8425]
     sentence_count: 19
     key_terms: [get, research, experience, program, interesting, professors, psychology, difficult]
     section: Comments
     token_count: 420
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c4"
-    char_span: [8428, 10806]
+    char_span: [8427, 10805]
     sentence_count: 18
     key_terms: [research, psychology, community, university, satelliteabstract, get, bachelor, college]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c5"
-    char_span: [10506, 12778]
+    char_span: [10505, 12777]
     sentence_count: 18
     key_terms: [programs, research, neuroscience, dangerous-energy-331, experience, psychology, ok-vermicelli-6222, satelliteabstract]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/gradschool/1r6ljt4.md#c6"
-    char_span: [12557, 13390]
+    char_span: [12556, 13389]
     sentence_count: 6
     key_terms: [ok-vermicelli-6222, requirements, non-degree, university, degree, public, sense, did]
     section: Comments

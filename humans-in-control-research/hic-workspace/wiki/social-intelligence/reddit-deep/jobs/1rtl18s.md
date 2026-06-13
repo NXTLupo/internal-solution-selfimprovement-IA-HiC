@@ -21,13 +21,13 @@ chunks:
     key_terms: [jobs, comments, entry, level, fetus-deletus1, reddit-deep, experience, fucking]
     token_count: 90
   - id: "social-intelligence/reddit-deep/jobs/1rtl18s.md#c1"
-    char_span: [322, 1789]
+    char_span: [321, 1788]
     sentence_count: 15
     key_terms: [option, get, job, nepotism, company, agency, career, people]
     section: Comments
     token_count: 379
   - id: "social-intelligence/reddit-deep/jobs/1rtl18s.md#c2"
-    char_span: [1791, 3276]
+    char_span: [1790, 3275]
     sentence_count: 8
     key_terms: [experience, degree, entry, level, watermelonlollies, pay, doctorate, required]
     section: Comments

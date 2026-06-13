@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, internship, developer, comments, through, summer, seo, tech]
     token_count: 127
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sh7etp.md#c1"
-    char_span: [518, 745]
+    char_span: [517, 744]
     sentence_count: 1
     key_terms: [comments, csmajors, reddit, https, com, www, payapya, anyone]
     section: Comments

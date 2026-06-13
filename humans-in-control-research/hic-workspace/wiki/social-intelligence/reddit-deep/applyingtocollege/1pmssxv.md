@@ -21,61 +21,61 @@ chunks:
     key_terms: [applyingtocollege, comments, earlier, started, wish, applications, application, reddit-deep]
     token_count: 128
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c1"
-    char_span: [552, 2055]
+    char_span: [551, 2054]
     sentence_count: 4
     key_terms: [school, student, interests, parents, essays, get, starting, college]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c2"
-    char_span: [2057, 4163]
+    char_span: [2056, 4162]
     sentence_count: 16
     key_terms: [visit, necessarymeeting4873, schools, pretty, shared, essay, application, scholarship]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c3"
-    char_span: [4165, 5968]
+    char_span: [4164, 5967]
     sentence_count: 15
     key_terms: [kid, school, teacher, junior, "university's", did, done, year]
     section: Comments
     token_count: 401
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c4"
-    char_span: [5970, 8074]
+    char_span: [5969, 8073]
     sentence_count: 21
     key_terms: [year, school, early, list, worked, application, kid, wish]
     section: Comments
     token_count: 480
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c5"
-    char_span: [8076, 10222]
+    char_span: [8075, 10221]
     sentence_count: 16
     key_terms: [different, college, through, school, circumstances, comparison, deadlines, because]
     section: Comments
     token_count: 461
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c6"
-    char_span: [10224, 12035]
+    char_span: [10223, 12034]
     sentence_count: 21
     key_terms: [application, september, started, course, summer, end, good, like]
     section: Comments
     token_count: 409
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c7"
-    char_span: [12037, 14139]
+    char_span: [12036, 14138]
     sentence_count: 36
     key_terms: [financial, school, application, aid, "don't", done, need, parents]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c8"
-    char_span: [14141, 16315]
+    char_span: [14140, 16314]
     sentence_count: 18
     key_terms: [parents, kids, process, schools, fit, "it's", tarasshevckeno, independent]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c9"
-    char_span: [16317, 18200]
+    char_span: [16316, 18199]
     sentence_count: 19
     key_terms: [college, school, colleges, guide, best, good, admissions, detailed]
     section: Comments
     token_count: 396
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pmssxv.md#c10"
-    char_span: [18202, 19871]
+    char_span: [18201, 19870]
     sentence_count: 16
     key_terms: [college, counselors, schools, right, "i'm", kids, admissions, counselor]
     section: Comments

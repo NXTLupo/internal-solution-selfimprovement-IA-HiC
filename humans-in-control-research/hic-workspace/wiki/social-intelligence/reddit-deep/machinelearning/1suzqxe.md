@@ -16,17 +16,17 @@ extraction_method: "praw-deep"
 research_goal: "Map emerging AI design trends, essential skills, practical tools, platforms, and technical implementations that enable a company's creative team to integrate AI beyond concepting. Focus on applications supporting design production, system testing, asset generation, governance, and stakeholder confidence."
 chunks:
   - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c0"
-    char_span: [0, 2081]
+    char_span: [0, 2080]
     sentence_count: 14
     key_terms: [task, selection, reproducible, extraction, agent, tasks, benchmark, retrieval]
-    token_count: 449
+    token_count: 448
   - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c1"
-    char_span: [2083, 3954]
+    char_span: [2082, 3953]
     sentence_count: 9
     key_terms: [retrieval, techniques, agent, baseline, extraction, delta, per, technique]
     token_count: 486
   - id: "social-intelligence/reddit-deep/machinelearning/1suzqxe.md#c2"
-    char_span: [3956, 4882]
+    char_span: [3955, 4881]
     sentence_count: 8
     key_terms: [paper-lantern-challenges, coding-agent-benchmarks, https, paperlantern-ai, paperlantern, agent, retrieval, architecture-incompatible]
     token_count: 204

@@ -23,7 +23,7 @@ chunks:
     key_terms: [consultant, tech, mba, role, careerguidance, get, want, work]
     token_count: 323
   - id: "social-intelligence/reddit-deep/careerguidance/1tfl1i5.md#c1"
-    char_span: [1378, 3172]
+    char_span: [1377, 3171]
     sentence_count: 6
     key_terms: [consulting, management, mba, right, tech, background, definitely, operations]
     section: Comments

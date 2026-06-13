@@ -21,19 +21,19 @@ chunks:
     key_terms: [cscareerquestions, months, internships, bit, interview, comments, take, tech]
     token_count: 255
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c1"
-    char_span: [1021, 2693]
+    char_span: [1020, 2692]
     sentence_count: 14
     key_terms: ["it's", interview, working, take, especially, experience, unemployed, career]
     section: Comments
     token_count: 411
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c2"
-    char_span: [2695, 4264]
+    char_span: [2694, 4263]
     sentence_count: 7
     key_terms: [interviews, job, take, office, offer, get, interview, applying]
     section: Comments
     token_count: 382
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rq04qe.md#c3"
-    char_span: [4266, 6068]
+    char_span: [4265, 6067]
     sentence_count: 12
     key_terms: [interviews, take, resume, "you're", howholdpencil, job, interview, momentum]
     section: Comments

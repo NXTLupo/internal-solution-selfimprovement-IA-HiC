@@ -23,7 +23,7 @@ chunks:
     key_terms: [pathways, nasa, internships, shutdown, offer, experience, graduation, meaningful]
     token_count: 492
   - id: "social-intelligence/reddit-deep/internships/1prz7ws.md#c1"
-    char_span: [2520, 4455]
+    char_span: [2519, 4454]
     sentence_count: 20
     key_terms: [personalityfickle498, definitely, experience, take, riaxuez, having, competitive, internships]
     section: Comments

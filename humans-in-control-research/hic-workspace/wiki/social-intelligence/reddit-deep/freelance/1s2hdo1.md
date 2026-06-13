@@ -28,31 +28,31 @@ chunks:
     key_terms: [designers, instead, dms, "i'm", like, completely, motivation, different]
     token_count: 111
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c2"
-    char_span: [2845, 4978]
+    char_span: [2844, 4977]
     sentence_count: 16
     key_terms: [instagram, people, work, selling, design, ads, need, thirtysixx]
     section: Comments
     token_count: 497
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c3"
-    char_span: [4980, 6967]
+    char_span: [4979, 6966]
     sentence_count: 17
     key_terms: [people, get, right, acquisition, freelancers, positioning, dms, less]
     section: Comments
     token_count: 470
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c4"
-    char_span: [6969, 8182]
+    char_span: [6968, 8181]
     sentence_count: 9
     key_terms: [ads, through, business, clients, trying, email, leads, place]
     section: Comments
     token_count: 302
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c5"
-    char_span: [8184, 10360]
+    char_span: [8183, 10359]
     sentence_count: 12
     key_terms: [designs, ads, restaurant, people, instagram, target, budget, google]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/freelance/1s2hdo1.md#c6"
-    char_span: [10363, 12637]
+    char_span: [10362, 12636]
     sentence_count: 15
     key_terms: [ads, people, instagram, platforms, money, gigs, like, work]
     section: Comments

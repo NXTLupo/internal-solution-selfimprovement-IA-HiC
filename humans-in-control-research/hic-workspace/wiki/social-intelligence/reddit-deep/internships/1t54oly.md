@@ -23,7 +23,7 @@ chunks:
     key_terms: [marketing, overthinking, since, internships, strategist, expressed, comments, email]
     token_count: 192
   - id: "social-intelligence/reddit-deep/internships/1t54oly.md#c1"
-    char_span: [879, 1264]
+    char_span: [878, 1263]
     sentence_count: 1
     key_terms: [give, slow, definitely, everything, interested, honestly, afianne, another]
     section: Comments

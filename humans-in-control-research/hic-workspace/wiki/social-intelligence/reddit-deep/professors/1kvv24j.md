@@ -23,55 +23,55 @@ chunks:
     key_terms: [professors, comments, learning, students, writing, usage, care, themselves]
     token_count: 477
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c1"
-    char_span: [2169, 2817]
+    char_span: [2168, 2816]
     sentence_count: 6
     key_terms: [skills, use, college, learned, prestigious-survey67, learn, frankrizzo319, unfortunately]
     section: Comments
     token_count: 167
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c2"
-    char_span: [2819, 5136]
+    char_span: [2818, 5135]
     sentence_count: 20
     key_terms: [cheating, useful, basic, example, writing, complications, base, absolutely]
     section: Comments
     token_count: 498
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c3"
-    char_span: [5138, 6671]
+    char_span: [5137, 6670]
     sentence_count: 12
     key_terms: [cheating, blaming, unauthorized, generative, professors, students, learned, others]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c4"
-    char_span: [6673, 7693]
+    char_span: [6672, 7692]
     sentence_count: 7
     key_terms: [students, choosing, immoral, inevitability, cheat, pretending, unethical, military]
     section: Comments
     token_count: 227
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c5"
-    char_span: [7695, 9621]
+    char_span: [7694, 9620]
     sentence_count: 16
     key_terms: [option, strawberryearlgreyy, class, drawing, subject, assessments, assignments, need]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c6"
-    char_span: [9623, 11127]
+    char_span: [9622, 11126]
     sentence_count: 11
     key_terms: [going, real, students, thinking, "they'll", expect, trying, https]
     section: Comments
     token_count: 369
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c7"
-    char_span: [11129, 13418]
+    char_span: [11128, 13417]
     sentence_count: 13
     key_terms: [students, because, people, assessments, "it's", assessment, incentives, learning]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c8"
-    char_span: [13110, 13822]
+    char_span: [13109, 13821]
     sentence_count: 8
     key_terms: [assessment, "it's", accountability, institutions, universities, behavioral, committees, department]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/professors/1kvv24j.md#c9"
-    char_span: [13824, 15684]
+    char_span: [13823, 15683]
     sentence_count: 13
     key_terms: [demonstrated, "don't", lot, integrity, academic, students, because, certify]
     section: Comments

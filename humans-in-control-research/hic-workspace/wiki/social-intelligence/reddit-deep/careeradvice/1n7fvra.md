@@ -23,13 +23,13 @@ chunks:
     key_terms: [careeradvice, being, ideas, find, comments, cannot, spent, years]
     token_count: 342
   - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c1"
-    char_span: [1421, 2697]
+    char_span: [1420, 2696]
     sentence_count: 12
     key_terms: [universities, university, colleges, editing, looking, resume, "you're", beachyhaircitroen]
     section: Comments
     token_count: 290
   - id: "social-intelligence/reddit-deep/careeradvice/1n7fvra.md#c2"
-    char_span: [2699, 3647]
+    char_span: [2698, 3646]
     sentence_count: 3
     key_terms: [beachyhaircitroen, publishing, people, reedsy, art, don, self, sell]
     section: Comments

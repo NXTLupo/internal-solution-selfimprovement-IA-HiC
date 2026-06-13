@@ -21,49 +21,49 @@ chunks:
     key_terms: [jobs, comments, entry-level, reddit-deep, economists, nightmare, cakalusa, eating]
     token_count: 94
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c1"
-    char_span: [352, 2171]
+    char_span: [351, 2170]
     sentence_count: 12
     key_terms: [get, class, red-apple12, entitled, solution, anymore, deleted, elites]
     section: Comments
     token_count: 506
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c2"
-    char_span: [2173, 4051]
+    char_span: [2172, 4050]
     sentence_count: 16
     key_terms: [jobs, companies, service, people, overseas, economy, anyone, call]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c3"
-    char_span: [4053, 4875]
+    char_span: [4052, 4874]
     sentence_count: 6
     key_terms: [walkable, germany, spastical-mackerel, mfg, sasquatchgoose, potentially, convenient, population]
     section: Comments
     token_count: 217
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c4"
-    char_span: [4877, 6398]
+    char_span: [4876, 6397]
     sentence_count: 10
     key_terms: [jobs, because, automated, already, people, taking, guilty-shoulder-9214, "it's"]
     section: Comments
     token_count: 354
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c5"
-    char_span: [6400, 8425]
+    char_span: [6399, 8424]
     sentence_count: 18
     key_terms: [educational, lot, microscope, terrible, crashed, reading, schools, stopped]
     section: Comments
     token_count: 465
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c6"
-    char_span: [8427, 10430]
+    char_span: [8426, 10429]
     sentence_count: 11
     key_terms: [order, work, having, in-person, integrate, without, workers, people]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c7"
-    char_span: [10433, 11588]
+    char_span: [10432, 11587]
     sentence_count: 11
     key_terms: [called, being, information, "it's", seen, anyone, define, buzz]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/jobs/1nntdoa.md#c8"
-    char_span: [11590, 12669]
+    char_span: [11589, 12668]
     sentence_count: 2
     key_terms: [deleted, jobs, bankruptcy, complaintsdept123, administration, infrastructure, unfortunately, bootmerchant]
     section: Comments

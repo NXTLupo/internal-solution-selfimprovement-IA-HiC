@@ -23,25 +23,25 @@ chunks:
     key_terms: [chatgpt, claude, model, gemini, models, openai, "what's", "can't"]
     token_count: 375
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c1"
-    char_span: [1615, 2265]
+    char_span: [1614, 2264]
     sentence_count: 4
     key_terms: [openai, conversation, image, post, r-chatgpt-1050422060352024636, chatgpt-shared-links-faq, discord, support]
     section: Comments
     token_count: 171
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c2"
-    char_span: [2268, 4227]
+    char_span: [2267, 4226]
     sentence_count: 12
     key_terms: [chatgpt, claude, never, write, content, single, issue, spicy]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c3"
-    char_span: [4229, 5837]
+    char_span: [4228, 5836]
     sentence_count: 14
     key_terms: [like, "true", scientific, absolute, honestly, workflow, gpt-pro, minutes]
     section: Comments
     token_count: 406
   - id: "social-intelligence/reddit-deep/chatgpt/1s5kidk.md#c4"
-    char_span: [5839, 7743]
+    char_span: [5838, 7742]
     sentence_count: 12
     key_terms: [hallucinated, integration, chatgpt, partner, google, safety, like, microsoft]
     section: Comments

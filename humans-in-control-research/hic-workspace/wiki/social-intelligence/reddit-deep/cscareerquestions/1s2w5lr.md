@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md
 url: "https://www.reddit.com/r/cscareerquestions/comments/1s2w5lr/how_to_stay_in_it/"
 kind: "social-post"
 source: "reddit-deep: r/cscareerquestions"
@@ -13,8 +14,58 @@ flair: "New Grad"
 extracted_at: "2026-06-06T23:23:15.643Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c0"
+    char_span: [0, 1179]
+    sentence_count: 8
+    key_terms: ["i'd", working, cscareerquestions, day, time, comments, striking-speaker8686, years]
+    token_count: 287
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c1"
+    char_span: [1181, 2976]
+    sentence_count: 11
+    key_terms: [applications, point, whatever, "i'd", "i'm", less, like, questions]
+    token_count: 384
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c2"
+    char_span: [2978, 5319]
+    sentence_count: 19
+    key_terms: [whatever, problem, "you've", back, like, time, interview, probably]
+    token_count: 497
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c3"
+    char_span: [5321, 6098]
+    sentence_count: 7
+    key_terms: [interview, get, "i'm", applications, competitive, appreciate, motivation, thoroughly]
+    token_count: 169
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c4"
+    char_span: [6113, 7890]
+    sentence_count: 12
+    key_terms: [going, mhireofficial, sucks, programming, keep, interviews, questions, control]
+    section: Comments
+    token_count: 415
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c5"
+    char_span: [7892, 8969]
+    sentence_count: 7
+    key_terms: [question, codingjesus, gamemaker, stupid, trivia, bad, guy, like]
+    section: Comments
+    token_count: 253
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c6"
+    char_span: [8971, 11133]
+    sentence_count: 7
+    key_terms: ["you're", like, getting, trying, focus, everything, interviews, companies]
+    section: Comments
+    token_count: 472
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c7"
+    char_span: [11138, 13529]
+    sentence_count: 26
+    key_terms: [interview, like, problems, work, graduated, technical, applying, feeling]
+    section: Comments
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/cscareerquestions/1s2w5lr.md#c8"
+    char_span: [13531, 15415]
+    sentence_count: 15
+    key_terms: [manager, job, work, experience, percentile, income-percentile-calculator, company, degree]
+    section: Comments
+    token_count: 452
 ---
-
 # How to stay "in it"?
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1s2w5lr/how_to_stay_in_it/)

@@ -23,7 +23,7 @@ chunks:
     key_terms: [cscareerquestions, comments, eggshellwalker4, reddit-deep, copefuel, hopefuel, response, ropefuel]
     token_count: 103
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tka3y4.md#c1"
-    char_span: [378, 1091]
+    char_span: [377, 1090]
     sentence_count: 5
     key_terms: [industry, number, gloomy-pineapple1729, tight-requirement-15, most-bookkeeper-950, greed, job, stay]
     section: Comments

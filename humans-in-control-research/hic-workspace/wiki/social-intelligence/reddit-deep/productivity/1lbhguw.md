@@ -23,13 +23,13 @@ chunks:
     key_terms: [productivity, comments, quietly, stealth, testing, remote, help, inefficiencies]
     token_count: 147
   - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c1"
-    char_span: [714, 3090]
+    char_span: [713, 3089]
     sentence_count: 19
     key_terms: [monitoring, secret, silent, productivity, teams, like, employees, workflow]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/productivity/1lbhguw.md#c2"
-    char_span: [3092, 3214]
+    char_span: [3091, 3213]
     sentence_count: 1
     key_terms: [intelligence, productivity, surveillance, mechanism, approach, better, rather, tends]
     section: Comments

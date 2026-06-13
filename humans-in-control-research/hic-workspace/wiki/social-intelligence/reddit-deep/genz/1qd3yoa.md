@@ -23,19 +23,19 @@ chunks:
     key_terms: [number, comments, million, never, ordinary-fish-9791, dont, genz, guys]
     token_count: 219
   - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c1"
-    char_span: [924, 2572]
+    char_span: [923, 2571]
     sentence_count: 15
     key_terms: [get, hopefully, inflation, probably, discord, embarrassed-lab4446, coins, ordinary-fish-9791]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c2"
-    char_span: [2574, 3135]
+    char_span: [2573, 3134]
     sentence_count: 4
     key_terms: [cow, cattle, tangouniform2020, restaurants, eventually, operations, butchered, depending]
     section: Comments
     token_count: 144
   - id: "social-intelligence/reddit-deep/genz/1qd3yoa.md#c3"
-    char_span: [3137, 4700]
+    char_span: [3136, 4699]
     sentence_count: 11
     key_terms: [like, youchasechickens, tarchival-sage, work, retirement, industry, retiring, another]
     section: Comments

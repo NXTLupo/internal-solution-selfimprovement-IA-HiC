@@ -23,43 +23,43 @@ chunks:
     key_terms: [reddit, content, https, wiki, wikipedia, comments, visited, stocks]
     token_count: 296
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c1"
-    char_span: [1258, 2685]
+    char_span: [1257, 2684]
     sentence_count: 12
     key_terms: [reddit, stock, "it's", saying, rddt, overpriced, advertise, horrible]
     section: Comments
     token_count: 405
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c2"
-    char_span: [2687, 4743]
+    char_span: [2686, 4742]
     sentence_count: 8
     key_terms: [people, like, lot, reddit, been, lol, new, subreddits]
     section: Comments
     token_count: 509
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c3"
-    char_span: [4745, 6427]
+    char_span: [4744, 6426]
     sentence_count: 11
     key_terms: [reddit, alwaysfavoriteasian, ads, like, person, vanilaagorila, intrusive, people]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c4"
-    char_span: [6429, 8335]
+    char_span: [6428, 8334]
     sentence_count: 8
     key_terms: [reddit, selling, though, product, google, growth, comes, money]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c5"
-    char_span: [8082, 8858]
+    char_span: [8081, 8857]
     sentence_count: 2
     key_terms: [money, selling, reddit, rev, i-state-facts, accidentally, antoniafauci, organically]
     section: Comments
     token_count: 210
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c6"
-    char_span: [8860, 10680]
+    char_span: [8859, 10679]
     sentence_count: 13
     key_terms: [data, revenue, being, advertising, ptrboyz, selling, models, reddit]
     section: Comments
     token_count: 456
   - id: "social-intelligence/reddit-deep/stocks/1nw68mb.md#c7"
-    char_span: [10682, 11546]
+    char_span: [10681, 11545]
     sentence_count: 2
     key_terms: [people, orangehorton, high, since, accelerationfinish, genericusername71, nottakengreatname, soapinthepeehole]
     section: Comments

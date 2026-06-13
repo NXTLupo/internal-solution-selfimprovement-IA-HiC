@@ -21,13 +21,13 @@ chunks:
     key_terms: [neu, year, engineering, electrical, financial, comments, oakland, program]
     token_count: 243
   - id: "social-intelligence/reddit-deep/neu/1szsb9f.md#c1"
-    char_span: [956, 3142]
+    char_span: [955, 3141]
     sentence_count: 13
     key_terms: [engineering, tuition, northeastern, increase, scholarships, scholarship, accepted, probably]
     section: Comments
     token_count: 500
   - id: "social-intelligence/reddit-deep/neu/1szsb9f.md#c2"
-    char_span: [3144, 5158]
+    char_span: [3143, 5157]
     sentence_count: 11
     key_terms: [engineering, northeastern, students, campus, co-op, neu, want, difference]
     section: Comments

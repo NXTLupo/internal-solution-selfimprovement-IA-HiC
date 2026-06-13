@@ -23,7 +23,7 @@ chunks:
     key_terms: [international, job, tech, canada, something, cscareerquestions, stable, right]
     token_count: 389
   - id: "social-intelligence/reddit-deep/cscareerquestions/1sky7th.md#c1"
-    char_span: [1811, 2078]
+    char_span: [1810, 2077]
     sentence_count: 1
     key_terms: [something, no-assist-8734, mydevreddit, tuckfrump69, zmajevamuda, healthcare, computer, offshore]
     section: Comments

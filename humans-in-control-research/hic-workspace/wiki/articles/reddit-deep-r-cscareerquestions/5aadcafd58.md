@@ -15,17 +15,17 @@ relevance: 35
 engagement_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis.  "
 chunks:
   - id: "articles/reddit-deep-r-cscareerquestions/5aadcafd58.md#c0"
-    char_span: [0, 2280]
+    char_span: [0, 2279]
     sentence_count: 11
     key_terms: [graduated, been, because, internship, cscareerquestions, "i'm", focus, back]
-    token_count: 504
+    token_count: 503
   - id: "articles/reddit-deep-r-cscareerquestions/5aadcafd58.md#c1"
-    char_span: [2282, 4568]
+    char_span: [2281, 4567]
     sentence_count: 23
     key_terms: [job, interested, like, give, current, people, going, point]
     token_count: 499
   - id: "articles/reddit-deep-r-cscareerquestions/5aadcafd58.md#c2"
-    char_span: [4570, 6019]
+    char_span: [4569, 6018]
     sentence_count: 17
     key_terms: [people, build, study, job, use, want, advice, having]
     token_count: 336

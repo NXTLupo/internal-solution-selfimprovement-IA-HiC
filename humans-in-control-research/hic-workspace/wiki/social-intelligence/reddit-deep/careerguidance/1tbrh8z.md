@@ -21,7 +21,7 @@ chunks:
     key_terms: [industries, gcc, jobs, career, background, long-term, com, finance]
     token_count: 446
   - id: "social-intelligence/reddit-deep/careerguidance/1tbrh8z.md#c1"
-    char_span: [2065, 2336]
+    char_span: [2064, 2335]
     sentence_count: 1
     key_terms: [specifically, naukrigulf, recruiters, dozzieman, platforms, linkedin, hunting, market]
     section: Comments

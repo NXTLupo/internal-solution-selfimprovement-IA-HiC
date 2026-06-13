@@ -18,10 +18,10 @@ industries: [ai_research]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gpt/1t5bqpv.md#c0"
-    char_span: [0, 1825]
+    char_span: [0, 1824]
     sentence_count: 8
     key_terms: [workspace, email, agents, rendering, formatting, agent, workflows, gpt]
-    token_count: 358
+    token_count: 357
 ---
 # Workspace GPT Agents keep rendering email drafts as plain text instead of edit UI
 

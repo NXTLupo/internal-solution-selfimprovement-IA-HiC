@@ -23,55 +23,55 @@ chunks:
     key_terms: [commute, time, per, year, personalfinance, recurring, comments, personal]
     token_count: 411
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c1"
-    char_span: [1737, 3689]
+    char_span: [1736, 3688]
     sentence_count: 13
     key_terms: [commute, throwawayrefiguy, commuting, transit, public, bike, car, traffic]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c2"
-    char_span: [3455, 5371]
+    char_span: [3454, 5370]
     sentence_count: 12
     key_terms: [commute, take, relaxing, "it's", like, listen, pretty, daily]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c3"
-    char_span: [5132, 5381]
+    char_span: [5131, 5380]
     sentence_count: 2
     key_terms: [take, metallicgray, relaxing, confirm, morning, omadic, people, routes]
     section: Comments
     token_count: 67
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c4"
-    char_span: [5383, 7275]
+    char_span: [5382, 7274]
     sentence_count: 16
     key_terms: [commute, time, minute, rural, live, driving, instead, hourly]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c5"
-    char_span: [7277, 9198]
+    char_span: [7276, 9197]
     sentence_count: 11
     key_terms: [time, house, free, paying, extra, job, financial, liability]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c6"
-    char_span: [9200, 10953]
+    char_span: [9199, 10952]
     sentence_count: 12
     key_terms: [lowbatteries, costs, "it's", commute, hours, "isn't", childcare, commuting]
     section: Comments
     token_count: 436
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c7"
-    char_span: [10955, 12117]
+    char_span: [10954, 12116]
     sentence_count: 7
     key_terms: [time, important, clothing, money, get, isn, chickenshrimp92, ownmanagement]
     section: Comments
     token_count: 293
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c8"
-    char_span: [12119, 13323]
+    char_span: [12118, 13322]
     sentence_count: 10
     key_terms: [time, day, extra, apartment, free, commute, hours, money]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/personalfinance/1s5dwk6.md#c9"
-    char_span: [13325, 14644]
+    char_span: [13324, 14643]
     sentence_count: 6
     key_terms: [time, hours, otherwise, something, free, costing, blarfk, "that's"]
     section: Comments

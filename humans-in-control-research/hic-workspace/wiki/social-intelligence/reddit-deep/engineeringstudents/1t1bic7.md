@@ -21,13 +21,13 @@ chunks:
     key_terms: [position, salary, engineeringstudents, "i'm", internship, interview, negotiate, comments]
     token_count: 388
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t1bic7.md#c1"
-    char_span: [1781, 3723]
+    char_span: [1780, 3722]
     sentence_count: 16
     key_terms: [leverage, internships, market, pay, wage, internship, negotiable, companies]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/engineeringstudents/1t1bic7.md#c2"
-    char_span: [3725, 5592]
+    char_span: [3724, 5591]
     sentence_count: 11
     key_terms: [internship, offer, get, response, year, negotiate, flexible, company]
     section: Comments

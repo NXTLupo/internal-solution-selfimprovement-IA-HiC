@@ -21,37 +21,37 @@ chunks:
     key_terms: [cscareerquestions, comments, college, career, people, accomplishedcake3009, years, over-competition]
     token_count: 213
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c1"
-    char_span: [894, 3053]
+    char_span: [893, 3052]
     sentence_count: 19
     key_terms: [work, industry, always, people, being, laid, like, mortgage]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c2"
-    char_span: [3057, 5052]
+    char_span: [3056, 5051]
     sentence_count: 9
     key_terms: [family, income, money, laid, need, genuinely, because, housing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c3"
-    char_span: [4748, 5393]
+    char_span: [4747, 5392]
     sentence_count: 5
     key_terms: [genuinely, prepare, enough, money, timelysuccess7537, don, time, comfortably]
     section: Comments
     token_count: 152
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c4"
-    char_span: [5395, 6916]
+    char_span: [5394, 6915]
     sentence_count: 14
     key_terms: [get, students, opportunities, smart, year, university, doubleprecipation99, being]
     section: Comments
     token_count: 366
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c5"
-    char_span: [6918, 8276]
+    char_span: [6917, 8275]
     sentence_count: 10
     key_terms: [engineering, software, "you're", engineer, "it's", something, college, degrees]
     section: Comments
     token_count: 300
   - id: "social-intelligence/reddit-deep/cscareerquestions/1tevl9q.md#c6"
-    char_span: [8279, 9280]
+    char_span: [8278, 9279]
     sentence_count: 10
     key_terms: [engineering, "you're", good, emphasis, boring, degree, brilliant-meat-4426, point]
     section: Comments

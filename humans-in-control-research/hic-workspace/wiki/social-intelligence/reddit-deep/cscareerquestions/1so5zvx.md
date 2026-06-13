@@ -21,31 +21,31 @@ chunks:
     key_terms: [don, like, cscareerquestions, because, didn, job, comments, position]
     token_count: 440
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c1"
-    char_span: [1869, 3597]
+    char_span: [1868, 3596]
     sentence_count: 17
     key_terms: [something, "that's", problem, documentation, doing, going, life, manuals]
     section: Comments
     token_count: 390
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c2"
-    char_span: [3599, 5228]
+    char_span: [3598, 5227]
     sentence_count: 15
     key_terms: ["don't", years, something, time, choose, expectation, been, life]
     section: Comments
     token_count: 387
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c3"
-    char_span: [5233, 7292]
+    char_span: [5232, 7291]
     sentence_count: 12
     key_terms: [love, pursue, job, time, work, something, anything, bullshit]
     section: Comments
     token_count: 476
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c4"
-    char_span: [7294, 9192]
+    char_span: [7293, 9191]
     sentence_count: 14
     key_terms: [job, writing, try, definitely, another, passion, illustrious-pound266, being]
     section: Comments
     token_count: 430
   - id: "social-intelligence/reddit-deep/cscareerquestions/1so5zvx.md#c5"
-    char_span: [9194, 11026]
+    char_span: [9193, 11025]
     sentence_count: 8
     key_terms: [without, aware, use, management, mistakes, ability, people, stupid]
     section: Comments

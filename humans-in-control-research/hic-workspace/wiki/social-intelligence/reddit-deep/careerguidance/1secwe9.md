@@ -23,7 +23,7 @@ chunks:
     key_terms: [phd, job, careerguidance, future, market, rejection, academia, comments]
     token_count: 341
   - id: "social-intelligence/reddit-deep/careerguidance/1secwe9.md#c1"
-    char_span: [1406, 2392]
+    char_span: [1405, 2391]
     sentence_count: 8
     key_terms: [disability, academia, companies, inclusion, autism, people, leagueaggravating595, roles]
     section: Comments

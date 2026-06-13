@@ -23,19 +23,19 @@ chunks:
     key_terms: [uwaterloo, comments, roommate, waterloo, educationaljump5162, moved, here, room]
     token_count: 186
   - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c1"
-    char_span: [727, 2653]
+    char_span: [726, 2652]
     sentence_count: 10
     key_terms: [room, thespoiciestmemelord, agentindependent306, reach, worst, management, mattress, housing]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c2"
-    char_span: [2391, 3132]
+    char_span: [2390, 3131]
     sentence_count: 4
     key_terms: [like, housing, delicious-feature334, bed, year, ryebreadepic, responsible, management]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/uwaterloo/1n73lcv.md#c3"
-    char_span: [3134, 3910]
+    char_span: [3133, 3909]
     sentence_count: 4
     key_terms: [bedsheets, afford, redact, agentindependent306, objective-cup-2242, bed, eats, like]
     section: Comments

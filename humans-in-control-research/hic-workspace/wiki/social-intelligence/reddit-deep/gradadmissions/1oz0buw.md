@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/gradadmissions/1oz0buw.md
 url: "https://www.reddit.com/r/gradadmissions/comments/1oz0buw/so_i_am_filling_out_the_cal_state_application_and/"
 kind: "social-post"
 source: "reddit-deep: r/gradadmissions"
@@ -13,8 +14,13 @@ flair: "General Advice"
 extracted_at: "2026-06-06T23:23:15.594Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/gradadmissions/1oz0buw.md#c0"
+    char_span: [0, 564]
+    sentence_count: 2
+    key_terms: [gradadmissions, volunteer, comments, gold-zucchini-8910, frostluna11037, application, reddit-deep, employment]
+    token_count: 143
 ---
-
 # So I am filling out the cal state application and I am applying to grad schools for school psyc programs. Do I enter my Research Assistant position in the experience section as Employment, Internship, or Volunteer. (I took it for academic credits!!)
 
 Source: [reddit-deep: r/gradadmissions](https://www.reddit.com/r/gradadmissions/comments/1oz0buw/so_i_am_filling_out_the_cal_state_application_and/)

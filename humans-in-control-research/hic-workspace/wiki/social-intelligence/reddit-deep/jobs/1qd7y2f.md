@@ -23,55 +23,55 @@ chunks:
     key_terms: [jobs, comments, reddit-deep, experience, employers, pressures, struggles, economic]
     token_count: 108
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c1"
-    char_span: [434, 705]
+    char_span: [433, 704]
     sentence_count: 2
     key_terms: [onlyinamerica01, existential, old-people, population, retirement, medicare, already, entered]
     section: Comments
     token_count: 75
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c2"
-    char_span: [707, 2405]
+    char_span: [706, 2404]
     sentence_count: 15
     key_terms: [security, single, social, age, job, work, retirement, countries]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c3"
-    char_span: [2407, 3564]
+    char_span: [2406, 3563]
     sentence_count: 10
     key_terms: [years, through, psychologicalad6389, don, full, time, prettyadagio4210, ahxce3zksevsg]
     section: Comments
     token_count: 327
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c4"
-    char_span: [3566, 5297]
+    char_span: [3565, 5296]
     sentence_count: 12
     key_terms: [boomer, "didn't", "don't", retirement, boomers, parents, working, anyseaworthiness6472]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c5"
-    char_span: [5299, 5643]
+    char_span: [5298, 5642]
     sentence_count: 2
     key_terms: [opportunities, prioritizing, consistent, experience, long-term, potential, selective, becoming]
     section: Comments
     token_count: 73
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c6"
-    char_span: [5645, 7673]
+    char_span: [5644, 7672]
     sentence_count: 13
     key_terms: [people, companies, entrepreneurial, problem, opportunities, healthcare, available, because]
     section: Comments
     token_count: 477
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c7"
-    char_span: [7675, 9816]
+    char_span: [7674, 9815]
     sentence_count: 19
     key_terms: [been, people, complaints, job, "i've", businesses, experience, graduates]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c8"
-    char_span: [9493, 9921]
+    char_span: [9492, 9920]
     sentence_count: 4
     key_terms: [complaints, graduates, fewer, complaining, difference, experience, employers, pressures]
     section: Comments
     token_count: 90
   - id: "social-intelligence/reddit-deep/jobs/1qd7y2f.md#c9"
-    char_span: [9923, 10361]
+    char_span: [9922, 10360]
     sentence_count: 2
     key_terms: [lower, non-pensioneers, overqualified, rerorerox42, experience, interviews, ironically, supplement]
     section: Comments

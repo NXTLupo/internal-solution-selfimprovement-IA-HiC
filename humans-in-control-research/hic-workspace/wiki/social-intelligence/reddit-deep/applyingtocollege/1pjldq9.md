@@ -28,13 +28,13 @@ chunks:
     key_terms: [want, experiences, assistance, challenges, difficult, something, revising, stepping]
     token_count: 81
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c2"
-    char_span: [2674, 3897]
+    char_span: [2673, 3896]
     sentence_count: 6
     key_terms: [justthewriter, queen4jesus, hey, zealousideal-act4003, writingridingrunner, asked, inside-agency-2701, fusiondrifter5]
     section: Comments
     token_count: 364
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pjldq9.md#c3"
-    char_span: [3901, 4941]
+    char_span: [3900, 4940]
     sentence_count: 7
     key_terms: [famoustouch833, plagiarism, archive, essays, please, zealousideal-act4003, gs559, https]
     section: Comments

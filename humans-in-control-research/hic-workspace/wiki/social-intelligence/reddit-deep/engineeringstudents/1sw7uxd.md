@@ -28,43 +28,43 @@ chunks:
     key_terms: [engineering, flexible, working, job, own, turn, environment, flexibility]
     token_count: 219
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c2"
-    char_span: [3201, 3643]
+    char_span: [3200, 3642]
     sentence_count: 3
     key_terms: [engineeringstudents, wiki, reddit, https, com, read, www, resources]
     section: Comments
     token_count: 108
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c3"
-    char_span: [3645, 5751]
+    char_span: [3644, 5750]
     sentence_count: 18
     key_terms: [engineering, successful, because, engineer, dentist, "doesn't", teaches, demand]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c4"
-    char_span: [5471, 6390]
+    char_span: [5470, 6389]
     sentence_count: 12
     key_terms: [engineering, pay, dentist, harder, "you'll", "you're", certain-falcon-9802, like]
     section: Comments
     token_count: 243
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c5"
-    char_span: [6392, 7930]
+    char_span: [6391, 7929]
     sentence_count: 18
     key_terms: [years, company, couple, people, skills, certain-falcon-9802, civil, going]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c6"
-    char_span: [7932, 9504]
+    char_span: [7931, 9503]
     sentence_count: 13
     key_terms: [engineering, job, software, did, get, year, secondary, montreal]
     section: Comments
     token_count: 350
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c7"
-    char_span: [9506, 11828]
+    char_span: [9505, 11827]
     sentence_count: 16
     key_terms: [engineering, job, good, french, people, connections, get, otherwise]
     section: Comments
     token_count: 508
   - id: "social-intelligence/reddit-deep/engineeringstudents/1sw7uxd.md#c8"
-    char_span: [11830, 12008]
+    char_span: [11829, 12007]
     sentence_count: 1
     key_terms: [electricity, magically, otherwise, tomorrow, needing, thrive, going, gonna]
     section: Comments

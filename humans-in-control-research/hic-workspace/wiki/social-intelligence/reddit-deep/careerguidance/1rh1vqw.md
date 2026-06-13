@@ -23,25 +23,25 @@ chunks:
     key_terms: [job, careerguidance, depression, comments, quitting, physics, cooked, reason]
     token_count: 335
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c1"
-    char_span: [1431, 3473]
+    char_span: [1430, 3472]
     sentence_count: 15
     key_terms: [mental, health, exercise, someone, "you're", intelligence, feel, good]
     section: Comments
     token_count: 478
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c2"
-    char_span: [3475, 5520]
+    char_span: [3474, 5519]
     sentence_count: 20
     key_terms: [experience, jobs, company, people, "don't", smart, been, work]
     section: Comments
     token_count: 481
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c3"
-    char_span: [5522, 7367]
+    char_span: [5521, 7366]
     sentence_count: 22
     key_terms: [like, cooked, maybe, "master's", standard, startups, profile, berlin]
     section: Comments
     token_count: 467
   - id: "social-intelligence/reddit-deep/careerguidance/1rh1vqw.md#c4"
-    char_span: [7369, 8243]
+    char_span: [7368, 8242]
     sentence_count: 7
     key_terms: [cosmiccompass, psychological, strategic, career, health, help, life, intellectual]
     section: Comments

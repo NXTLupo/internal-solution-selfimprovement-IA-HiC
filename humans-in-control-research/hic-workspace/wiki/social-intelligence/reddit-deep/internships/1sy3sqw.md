@@ -23,19 +23,19 @@ chunks:
     key_terms: [internship, certificate, internships, tech, comments, urgently, college, "i'm"]
     token_count: 166
   - id: "social-intelligence/reddit-deep/internships/1sy3sqw.md#c1"
-    char_span: [667, 2630]
+    char_span: [666, 2629]
     sentence_count: 6
     key_terms: [robertlread, volunteer, invention, https, join, internship, interview, projects]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sy3sqw.md#c2"
-    char_span: [2370, 4372]
+    char_span: [2369, 4371]
     sentence_count: 9
     key_terms: [internship, college, aedegffcgkjmbaefclfjlklommhmeokf, internships, like, handshake, handshaker-handshake-auto, linkedin]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/internships/1sy3sqw.md#c3"
-    char_span: [4051, 5350]
+    char_span: [4050, 5349]
     sentence_count: 11
     key_terms: [companies, opportunities, internships, look, linkedin, openings, "you're", since]
     section: Comments

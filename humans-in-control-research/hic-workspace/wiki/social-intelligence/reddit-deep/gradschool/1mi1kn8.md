@@ -18,10 +18,10 @@ industries: [higher_ed]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1mi1kn8.md#c0"
-    char_span: [0, 1825]
+    char_span: [0, 1824]
     sentence_count: 10
     key_terms: [program, professional, years, applying, industry, sciences, semester, lors]
-    token_count: 432
+    token_count: 431
 ---
 # Grad School Admission Chances
 

@@ -23,43 +23,43 @@ chunks:
     key_terms: [stanford, "i'm", brown, applyingtocollege, rea, school, find, like]
     token_count: 453
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c1"
-    char_span: [2047, 4048]
+    char_span: [2046, 4047]
     sentence_count: 3
     key_terms: [brown, stanford, get, rea, risd, weather, decision, because]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c2"
-    char_span: [3769, 5781]
+    char_span: [3768, 5780]
     sentence_count: 6
     key_terms: [delicious-speaker-84, brown, get, rea, stanford, because, feel, like]
     section: Comments
     token_count: 496
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c3"
-    char_span: [5783, 7679]
+    char_span: [5782, 7678]
     sentence_count: 10
     key_terms: [schools, apply, consider, getting, top, universities, rea, want]
     section: Comments
     token_count: 421
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c4"
-    char_span: [7681, 8467]
+    char_span: [7680, 8466]
     sentence_count: 3
     key_terms: [applied, come, because, emory, get, deferred, probably, cornell]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c5"
-    char_span: [8469, 10448]
+    char_span: [8468, 10447]
     sentence_count: 17
     key_terms: [stanford, get, acceptance, rea, brown, athletes, "it's", applicant]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c6"
-    char_span: [10223, 10852]
+    char_span: [10222, 10851]
     sentence_count: 7
     key_terms: ["it's", legacy, does, too, stanford, brown, round, rea]
     section: Comments
     token_count: 166
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sks88m.md#c7"
-    char_span: [10854, 11676]
+    char_span: [10853, 11675]
     sentence_count: 11
     key_terms: [school, collegevine, acceptance, personally, stanford, chances, brown, get]
     section: Comments

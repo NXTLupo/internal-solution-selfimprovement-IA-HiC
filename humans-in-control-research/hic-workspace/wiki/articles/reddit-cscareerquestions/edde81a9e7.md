@@ -15,12 +15,12 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-cscareerquestions/edde81a9e7.md#c0"
-    char_span: [0, 2008]
+    char_span: [0, 2007]
     sentence_count: 19
     key_terms: ["didn't", everything, colab, cscareerquestions, later, file, good, team]
-    token_count: 470
+    token_count: 469
   - id: "articles/reddit-cscareerquestions/edde81a9e7.md#c1"
-    char_span: [2010, 2363]
+    char_span: [2009, 2362]
     sentence_count: 3
     key_terms: [fundamentals, eventually, companies, captures, mistakes, personal, replace, "they're"]
     token_count: 81

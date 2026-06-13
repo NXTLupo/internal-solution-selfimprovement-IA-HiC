@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, jobs, years, job, new, management, comments, account]
     token_count: 253
   - id: "social-intelligence/reddit-deep/jobs/1pejus9.md#c1"
-    char_span: [1103, 1780]
+    char_span: [1102, 1779]
     sentence_count: 5
     key_terms: [job, making, legitimatefig792, applications, bob-dolemite, interviews, submitting, potential]
     section: Comments

@@ -23,13 +23,13 @@ chunks:
     key_terms: [engineeringstudents, years, advice, applications, appreciated, employment, experience, interview]
     token_count: 425
   - id: "social-intelligence/reddit-deep/engineeringstudents/1st1ozi.md#c1"
-    char_span: [1794, 3915]
+    char_span: [1793, 3914]
     sentence_count: 13
     key_terms: [engineeringstudents, experience, wiki, reddit, resume, brilliant-wash-3040, https, com]
     section: Comments
     token_count: 490
   - id: "social-intelligence/reddit-deep/engineeringstudents/1st1ozi.md#c2"
-    char_span: [3917, 4941]
+    char_span: [3916, 4940]
     sentence_count: 8
     key_terms: [market, targeting, managers, country, strings, better, direct, bullyxldisrespector]
     section: Comments

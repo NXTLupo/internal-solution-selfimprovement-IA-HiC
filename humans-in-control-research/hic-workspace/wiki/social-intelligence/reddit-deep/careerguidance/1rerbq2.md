@@ -21,67 +21,67 @@ chunks:
     key_terms: [job, old, comments, current, careerguidance, closer, remote, cut]
     token_count: 438
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c1"
-    char_span: [1739, 3730]
+    char_span: [1738, 3729]
     sentence_count: 16
     key_terms: [time, daycare, going, wfh, daughter, "it's", work, without]
     section: Comments
     token_count: 491
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c2"
-    char_span: [3732, 4407]
+    char_span: [3731, 4406]
     sentence_count: 5
     key_terms: ["it's", "you're", hard, help, "i'm", says, wfh, randomwarthog79]
     section: Comments
     token_count: 178
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c3"
-    char_span: [4410, 6492]
+    char_span: [4409, 6491]
     sentence_count: 14
     key_terms: [childcare, baby, time, working, home, work, wfh, attention]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c4"
-    char_span: [6232, 7093]
+    char_span: [6231, 7092]
     sentence_count: 4
     key_terms: [baby, working, full, job, sec, time, work, conversation]
     section: Comments
     token_count: 208
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c5"
-    char_span: [7095, 8947]
+    char_span: [7094, 8946]
     sentence_count: 12
     key_terms: ["don't", cut, day, kid, daycare, income, please, care]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c6"
-    char_span: [8949, 10783]
+    char_span: [8948, 10782]
     sentence_count: 13
     key_terms: [change, worth, kids, commuting, expensive, recommend, budget, income]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c7"
-    char_span: [10785, 12080]
+    char_span: [10784, 12079]
     sentence_count: 11
     key_terms: [child, company, able, need, new, time, wfh, daughter]
     section: Comments
     token_count: 329
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c8"
-    char_span: [12082, 14071]
+    char_span: [12081, 14070]
     sentence_count: 17
     key_terms: [daycare, home, like, cut, day, wfh, work, working]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c9"
-    char_span: [13811, 15192]
+    char_span: [13810, 15191]
     sentence_count: 12
     key_terms: [cut, work, having, kids, pay, time, daycare, driving]
     section: Comments
     token_count: 341
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c10"
-    char_span: [15194, 16824]
+    char_span: [15193, 16823]
     sentence_count: 19
     key_terms: [closer, pay, job, move, current, daycare, cut, afford]
     section: Comments
     token_count: 464
   - id: "social-intelligence/reddit-deep/careerguidance/1rerbq2.md#c11"
-    char_span: [16826, 18031]
+    char_span: [16825, 18030]
     sentence_count: 10
     key_terms: [home, maybe, coworkers, current, working, office, algorithmpatterns17, cut]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [applyingtocollege, mental, applications, maintaining, comments, navigate, balance, college]
     token_count: 194
   - id: "social-intelligence/reddit-deep/applyingtocollege/1pg5nv5.md#c1"
-    char_span: [987, 1624]
+    char_span: [986, 1623]
     sentence_count: 3
     key_terms: [yourself, school, "don't", try, supplementals, applications, remembering, assignment]
     section: Comments

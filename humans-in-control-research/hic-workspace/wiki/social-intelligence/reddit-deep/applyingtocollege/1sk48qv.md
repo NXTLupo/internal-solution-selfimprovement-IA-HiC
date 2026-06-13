@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Northeastern University to enhance experiential learning and co-op success, specifically focusing on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development. Leverage deep industry research, stakeholder transcripts, social data, articles, and news to inform this strategic analysis. \n"
 chunks:
   - id: "social-intelligence/reddit-deep/applyingtocollege/1sk48qv.md#c0"
-    char_span: [0, 459]
+    char_span: [0, 458]
     sentence_count: 2
     key_terms: [applyingtocollege, applying, colleges, comments, career, reddit-deep, counselors, counselor]
-    token_count: 117
+    token_count: 116
 ---
 # Best career counselor for abroad students applying to the usa colleges?
 

@@ -23,7 +23,7 @@ chunks:
     key_terms: [internships, graduation, looking, date, grad, "i'm", gradschool, comments]
     token_count: 222
   - id: "social-intelligence/reddit-deep/gradschool/1onrjhj.md#c1"
-    char_span: [1010, 1687]
+    char_span: [1009, 1686]
     sentence_count: 6
     key_terms: [internships, country, student, across, better, summer, apply, find]
     section: Comments

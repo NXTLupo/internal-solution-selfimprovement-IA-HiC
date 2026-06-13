@@ -23,19 +23,19 @@ chunks:
     key_terms: ["i'm", feel, here, because, school, like, time, college]
     token_count: 390
   - id: "social-intelligence/reddit-deep/college/1nm4kxg.md#c1"
-    char_span: [1625, 2399]
+    char_span: [1624, 2398]
     sentence_count: 11
     key_terms: [people, clubs, girls, like, iknowallseven, engineering, friendship, university]
     section: Comments
     token_count: 186
   - id: "social-intelligence/reddit-deep/college/1nm4kxg.md#c2"
-    char_span: [2401, 4011]
+    char_span: [2400, 4010]
     sentence_count: 14
     key_terms: [school, fraternities-engineering, pledges, someone, making, place, day, don]
     section: Comments
     token_count: 423
   - id: "social-intelligence/reddit-deep/college/1nm4kxg.md#c3"
-    char_span: [4013, 5900]
+    char_span: [4012, 5899]
     sentence_count: 14
     key_terms: [school, through, engineering, remember, years, transferred, life, interested]
     section: Comments

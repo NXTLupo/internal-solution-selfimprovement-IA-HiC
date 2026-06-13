@@ -23,13 +23,13 @@ chunks:
     key_terms: [school, car, povertyfinance, right, debt, job, comments, continue]
     token_count: 306
   - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c1"
-    char_span: [1280, 2988]
+    char_span: [1279, 2987]
     sentence_count: 15
     key_terms: [school, work, job, "don't", get, student, finish, car]
     section: Comments
     token_count: 388
   - id: "social-intelligence/reddit-deep/povertyfinance/1lvt29o.md#c2"
-    char_span: [2990, 4153]
+    char_span: [2989, 4152]
     sentence_count: 8
     key_terms: [school, getting, "don't", debt, job, another, deleted, finish]
     section: Comments

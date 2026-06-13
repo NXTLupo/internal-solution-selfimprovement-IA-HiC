@@ -23,7 +23,7 @@ chunks:
     key_terms: [deeplearning, comments, thisguy123123, reddit-deep, generating, management, practices, context]
     token_count: 80
   - id: "social-intelligence/reddit-deep/deeplearning/1t5pqlv.md#c1"
-    char_span: [314, 1106]
+    char_span: [313, 1105]
     sentence_count: 3
     key_terms: [context, retrieval, aggressively, requirements, agentixlabs, constraints, clarifying, collecting]
     section: Comments

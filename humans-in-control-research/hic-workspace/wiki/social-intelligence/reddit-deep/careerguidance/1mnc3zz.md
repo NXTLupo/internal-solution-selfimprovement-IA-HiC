@@ -21,103 +21,103 @@ chunks:
     key_terms: [careerguidance, comments, career, no-promise9083, professionally, reddit-deep, everything, networking]
     token_count: 146
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c1"
-    char_span: [592, 2135]
+    char_span: [591, 2134]
     sentence_count: 11
     key_terms: [people, trying, early, get, impressive, looking, noticed, career]
     section: Comments
     token_count: 368
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c2"
-    char_span: [2137, 3796]
+    char_span: [2136, 3795]
     sentence_count: 15
     key_terms: [people, working, necessarily, hard, time, attitude, spending, yourself]
     section: Comments
     token_count: 381
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c3"
-    char_span: [3798, 5791]
+    char_span: [3797, 5790]
     sentence_count: 17
     key_terms: [director, whether, advice, get, bridges, getting, better, change]
     section: Comments
     token_count: 474
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c4"
-    char_span: [5793, 7304]
+    char_span: [5792, 7303]
     sentence_count: 11
     key_terms: [recommendation, since, connections, professor, awkward, letter, catvietnamflashback, corruptedstudiosent]
     section: Comments
     token_count: 362
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c5"
-    char_span: [7306, 8555]
+    char_span: [7305, 8554]
     sentence_count: 9
     key_terms: [job, connection, because, advice, always, never, apprehensivebat21, crazy-gene-9492]
     section: Comments
     token_count: 311
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c6"
-    char_span: [8557, 10380]
+    char_span: [8556, 10379]
     sentence_count: 11
     key_terms: [competence, good, everyone, industry, previous, depends, keeping, bosses]
     section: Comments
     token_count: 408
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c7"
-    char_span: [10382, 10934]
+    char_span: [10381, 10933]
     sentence_count: 6
     key_terms: [interaction, proactively, colleagues, narratives, understand, different, integrity, narrative]
     section: Comments
     token_count: 123
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c8"
-    char_span: [10936, 12829]
+    char_span: [10935, 12828]
     sentence_count: 8
     key_terms: [people, setbacks, get, good, like, because, explain, career]
     section: Comments
     token_count: 453
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c9"
-    char_span: [12831, 14464]
+    char_span: [12830, 14463]
     sentence_count: 11
     key_terms: [move, willing, "don't", get, "i'm", "it's", promotions, setbacks]
     section: Comments
     token_count: 395
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c10"
-    char_span: [14466, 16268]
+    char_span: [14465, 16267]
     sentence_count: 20
     key_terms: [job, performance, ask, role, promotion, started, family, people]
     section: Comments
     token_count: 483
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c11"
-    char_span: [16270, 17724]
+    char_span: [16269, 17723]
     sentence_count: 15
     key_terms: [job, like, better, "you're", environment, exceptional, etc, "it's"]
     section: Comments
     token_count: 363
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c12"
-    char_span: [17726, 19367]
+    char_span: [17725, 19366]
     sentence_count: 15
     key_terms: [family, been, "it's", move, everything, because, growing, career]
     section: Comments
     token_count: 412
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c13"
-    char_span: [19369, 21422]
+    char_span: [19368, 21421]
     sentence_count: 17
     key_terms: [advice, mentor, people, bad, get, career, friends, family]
     section: Comments
     token_count: 486
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c14"
-    char_span: [21424, 23600]
+    char_span: [21423, 23599]
     sentence_count: 16
     key_terms: [people, mentor, circumstances, linkedin, jonkl91, working, advice, senior]
     section: Comments
     token_count: 505
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c15"
-    char_span: [23602, 25518]
+    char_span: [23601, 25517]
     sentence_count: 16
     key_terms: [mintycaramelyhazel, mentor, bad, copy, good, time, work, personal]
     section: Comments
     token_count: 501
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c16"
-    char_span: [25520, 27747]
+    char_span: [25519, 27746]
     sentence_count: 21
     key_terms: [keep, positive, folder, talked, email, bad, need, everything]
     section: Comments
     token_count: 507
   - id: "social-intelligence/reddit-deep/careerguidance/1mnc3zz.md#c17"
-    char_span: [27749, 29556]
+    char_span: [27748, 29555]
     sentence_count: 11
     key_terms: [supportive, career, job, current, roasted-fungus, assignment, personal, tomorrow]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [waterloo, comments, job, recommendations, urfavnightmare9, reddit-deep, appreciate, part-time]
     token_count: 114
   - id: "social-intelligence/reddit-deep/waterloo/1mb2yjr.md#c1"
-    char_span: [455, 901]
+    char_span: [454, 900]
     sentence_count: 1
     key_terms: [urfavnightmare9, hiring, sweet, thank, xrainbowtreats, blackstone, "caroline's", experience]
     section: Comments

@@ -23,7 +23,7 @@ chunks:
     key_terms: [school, program, semesters, because, grad, gradschool, pathology, comments]
     token_count: 419
   - id: "social-intelligence/reddit-deep/gradschool/1m28eoc.md#c1"
-    char_span: [1822, 2254]
+    char_span: [1821, 2253]
     sentence_count: 4
     key_terms: [finish, back, slp, want, conversation, vexedcoffee, experience, programs]
     section: Comments

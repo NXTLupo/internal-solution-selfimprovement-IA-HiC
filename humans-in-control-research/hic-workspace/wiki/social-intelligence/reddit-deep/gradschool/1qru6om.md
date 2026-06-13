@@ -23,19 +23,19 @@ chunks:
     key_terms: ["i'm", work, country, abroad, considering, grad, visa, gradschool]
     token_count: 313
   - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c1"
-    char_span: [1424, 3194]
+    char_span: [1423, 3193]
     sentence_count: 11
     key_terms: [countries, language, "you're", visas, education, postgrad, depends, looking]
     section: Comments
     token_count: 372
   - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c2"
-    char_span: [3196, 5029]
+    char_span: [3195, 5028]
     sentence_count: 9
     key_terms: [work, job, people, grad, country, field, scholarship, professors]
     section: Comments
     token_count: 422
   - id: "social-intelligence/reddit-deep/gradschool/1qru6om.md#c3"
-    char_span: [5031, 6571]
+    char_span: [5030, 6570]
     sentence_count: 11
     key_terms: [get, like, whatever, because, process, being, years, job]
     section: Comments

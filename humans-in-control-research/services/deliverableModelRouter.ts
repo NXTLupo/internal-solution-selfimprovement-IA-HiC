@@ -128,6 +128,17 @@ export function resolveModelChain(deliverable: DeliverableKind, preferModel?: st
     // Honor the user's selection as the head when reachable.
     if (preferModel && chain.includes(preferModel)) {
         chain = [preferModel, ...chain.filter(m => m !== preferModel)];
+    } else if (
+        // 2026-06-12 - honor an explicit preference OUTSIDE the category
+        // chain (the Opus 4.8 deliverable-routing directive: claude-opus-4-8
+        // is not in any MODELS_FOR_CATEGORY list). A reachable registry
+        // model becomes the chain head; the category chain remains the
+        // fallback tail, so an Opus outage still completes on Gemini/GPT.
+        preferModel && MODEL_REGISTRY[preferModel]
+        && modelEndpoint(preferModel) !== null
+        && providers.has(MODEL_REGISTRY[preferModel].provider)
+    ) {
+        chain = [preferModel, ...chain];
     }
 
     // Health reorder: models whose provider is in 429 cooldown go to the back

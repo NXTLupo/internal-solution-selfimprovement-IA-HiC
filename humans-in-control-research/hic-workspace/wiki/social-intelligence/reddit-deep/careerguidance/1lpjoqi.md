@@ -21,7 +21,7 @@ chunks:
     key_terms: [student, careerguidance, school, summer, learn, high, comments, career]
     token_count: 265
   - id: "social-intelligence/reddit-deep/careerguidance/1lpjoqi.md#c1"
-    char_span: [1172, 2735]
+    char_span: [1171, 2734]
     sentence_count: 16
     key_terms: [looking, matter, get, creative, valuable, editing, fluffypreparation150, being]
     section: Comments

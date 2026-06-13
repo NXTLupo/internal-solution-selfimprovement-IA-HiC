@@ -28,43 +28,43 @@ chunks:
     key_terms: ["i'm", car, "can't", get, pay, apartment, anything, anymore]
     token_count: 325
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c2"
-    char_span: [2415, 3821]
+    char_span: [2414, 3820]
     sentence_count: 15
     key_terms: [without, same-past-2783, needs, world, through, better, "you'll", check]
     section: Comments
     token_count: 391
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c3"
-    char_span: [3823, 4736]
+    char_span: [3822, 4735]
     sentence_count: 9
     key_terms: [emergency-rent-and-utility-assistance, objective-kangaroo-7, going, https, place, economic-mobility, rental-assistance, good]
     section: Comments
     token_count: 242
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c4"
-    char_span: [4741, 6254]
+    char_span: [4740, 6253]
     sentence_count: 11
     key_terms: [homeless, brother, tenant-based-rental-assistance, through, utility, rental, "you're", "you've"]
     section: Comments
     token_count: 359
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c5"
-    char_span: [6256, 8199]
+    char_span: [6255, 8198]
     sentence_count: 18
     key_terms: [hope, same-past-2783, been, like, everything, something, camping, thanks]
     section: Comments
     token_count: 451
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c6"
-    char_span: [8201, 9077]
+    char_span: [8200, 9076]
     sentence_count: 7
     key_terms: [struggled, alterative-coping-skills, someone, website, please, mentalhealthrecovery, https, rental-assistance]
     section: Comments
     token_count: 215
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c7"
-    char_span: [9080, 11034]
+    char_span: [9079, 11033]
     sentence_count: 28
     key_terms: [phoenix, same-past-2783, area, sikh, assistance, churches, maricopa, brother]
     section: Comments
     token_count: 511
   - id: "social-intelligence/reddit-deep/povertyfinance/1tc6ocq.md#c8"
-    char_span: [11036, 11703]
+    char_span: [11035, 11702]
     sentence_count: 6
     key_terms: [stevedapirate91, dcs, instacart, paperwork, covering, directly, doordash, earnings]
     section: Comments

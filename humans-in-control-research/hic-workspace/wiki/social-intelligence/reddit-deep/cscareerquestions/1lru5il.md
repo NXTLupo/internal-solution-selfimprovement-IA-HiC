@@ -21,7 +21,7 @@ chunks:
     key_terms: [experience, cscareerquestions, software, over-qualified, career, applications, professional, environment]
     token_count: 467
   - id: "social-intelligence/reddit-deep/cscareerquestions/1lru5il.md#c1"
-    char_span: [2154, 4529]
+    char_span: [2153, 4528]
     sentence_count: 16
     key_terms: [companies, "you're", skills, background, experience, right, interviews, understand]
     section: Comments

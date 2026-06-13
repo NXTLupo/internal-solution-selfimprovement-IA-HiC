@@ -21,19 +21,19 @@ chunks:
     key_terms: [interview, sales, job, experience, zoom, entry, level, didn]
     token_count: 490
   - id: "social-intelligence/reddit-deep/jobs/1th2ma2.md#c1"
-    char_span: [2207, 2947]
+    char_span: [2207, 2946]
     sentence_count: 5
     key_terms: [did, hiring, inappropriate, interrogation, opportunity, completely, considered, especially]
     section: Comments
     token_count: 168
   - id: "social-intelligence/reddit-deep/jobs/1th2ma2.md#c2"
-    char_span: [2949, 4555]
+    char_span: [2948, 4554]
     sentence_count: 9
     key_terms: [job, like, questions, probably, because, anyway, glittering-entry2911, going]
     section: Comments
     token_count: 455
   - id: "social-intelligence/reddit-deep/jobs/1th2ma2.md#c3"
-    char_span: [4557, 5188]
+    char_span: [4556, 5187]
     sentence_count: 7
     key_terms: [interviews, time, personality, last, diagnosis-t43612, definitely, alongside, consuming]
     section: Comments

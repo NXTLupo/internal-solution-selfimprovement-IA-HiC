@@ -28,37 +28,37 @@ chunks:
     key_terms: [pay, around, debt, another, credit, "can't", house, month]
     token_count: 429
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c2"
-    char_span: [3727, 5610]
+    char_span: [3726, 5609]
     sentence_count: 18
     key_terms: [making, dui, good, got, year, another, because, driving]
     section: Comments
     token_count: 482
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c3"
-    char_span: [5612, 7610]
+    char_span: [5611, 7609]
     sentence_count: 23
     key_terms: [need, place, job, money, rent, opportunity, car, don]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c4"
-    char_span: [7612, 9925]
+    char_span: [7611, 9924]
     sentence_count: 16
     key_terms: ["i'm", myself, debt, appreciate, definitely, hopefully, accident, spending]
     section: Comments
     token_count: 492
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c5"
-    char_span: [9927, 11799]
+    char_span: [9926, 11798]
     sentence_count: 18
     key_terms: [get, job, unconventional, conventional, yourself, points, skills, "you're"]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c6"
-    char_span: [11801, 12864]
+    char_span: [11800, 12863]
     sentence_count: 11
     key_terms: [back, car, life, happening, ownership, gig-work, because, "isn't"]
     section: Comments
     token_count: 229
   - id: "social-intelligence/reddit-deep/povertyfinance/1rs7rjm.md#c7"
-    char_span: [12866, 14550]
+    char_span: [12865, 14549]
     sentence_count: 15
     key_terms: [get, months, work, important, somewhere, driving, income, places]
     section: Comments

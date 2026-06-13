@@ -15,12 +15,12 @@ industries: [higher_ed, education]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-applyingtocollege/eaa7e88ed8.md#c0"
-    char_span: [0, 1037]
+    char_span: [0, 1036]
     sentence_count: 7
     key_terms: [experience, applyingtocollege, through, professors, comments, college, reddit, great]
-    token_count: 240
+    token_count: 239
   - id: "articles/reddit-deep-r-applyingtocollege/eaa7e88ed8.md#c1"
-    char_span: [1039, 3174]
+    char_span: [1038, 3173]
     sentence_count: 12
     key_terms: [college, school, professors, university, "you're", keybother7510, great, kids]
     token_count: 457

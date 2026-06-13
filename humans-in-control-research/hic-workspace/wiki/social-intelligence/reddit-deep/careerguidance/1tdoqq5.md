@@ -16,10 +16,10 @@ extraction_method: "praw-deep"
 research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
 chunks:
   - id: "social-intelligence/reddit-deep/careerguidance/1tdoqq5.md#c0"
-    char_span: [0, 505]
+    char_span: [0, 504]
     sentence_count: 1
     key_terms: [careerguidance, comments, company, last, year, mother-onion-994, responsibilities, reddit-deep]
-    token_count: 134
+    token_count: 133
 ---
 # I had been Promoted last year to  a PM Role .but the job I did have No idea ? from One year There were No responsibilities , so due Skills decay started applying outside and ended up getting two Offers, so moral keep faith your last company is not your first company
 

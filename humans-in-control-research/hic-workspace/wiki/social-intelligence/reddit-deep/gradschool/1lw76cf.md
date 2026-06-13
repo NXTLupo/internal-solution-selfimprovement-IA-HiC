@@ -18,10 +18,10 @@ industries: [higher_ed, ai_research, workforce]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/gradschool/1lw76cf.md#c0"
-    char_span: [0, 1222]
+    char_span: [0, 1221]
     sentence_count: 9
     key_terms: [data, internships, gradschool, scientist, comments, projects, learned, summer]
-    token_count: 283
+    token_count: 282
 ---
 # ML/Data Scientist internships for Grad students?
 

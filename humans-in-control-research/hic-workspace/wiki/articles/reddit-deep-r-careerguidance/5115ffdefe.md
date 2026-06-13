@@ -15,10 +15,10 @@ relevance: 55
 engagement_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success"
 chunks:
   - id: "articles/reddit-deep-r-careerguidance/5115ffdefe.md#c0"
-    char_span: [0, 980]
+    char_span: [0, 979]
     sentence_count: 4
     key_terms: [academic, careerguidance, situation, guidance, forward, career, moving, reddit]
-    token_count: 191
+    token_count: 190
 ---
 # International Student Seeking Guidance on Academic and Career Path Moving Forward?
 

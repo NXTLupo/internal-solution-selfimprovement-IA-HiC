@@ -23,7 +23,7 @@ chunks:
     key_terms: [experience, engineeringstudents, comments, "y'all", add, put, non-engineering, engineering]
     token_count: 149
   - id: "social-intelligence/reddit-deep/engineeringstudents/1qo4y5g.md#c1"
-    char_span: [635, 1118]
+    char_span: [634, 1117]
     sentence_count: 1
     key_terms: [problem, solving, asked, like, collegemustache, troubleshooting, challenges, internship]
     section: Comments

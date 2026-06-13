@@ -26,43 +26,43 @@ chunks:
     key_terms: [help, either, don, like, want, encouragement, disappointed, opportunity]
     token_count: 159
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c2"
-    char_span: [2594, 4389]
+    char_span: [2593, 4388]
     sentence_count: 13
     key_terms: [bangladesh, fuckyouinparticular, get, getting, years, problems, starting, started]
     section: Comments
     token_count: 473
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c3"
-    char_span: [4391, 6180]
+    char_span: [4390, 6179]
     sentence_count: 13
     key_terms: [health, country, world, care, impoverished, thro0away12, developing, countries]
     section: Comments
     token_count: 403
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c4"
-    char_span: [6182, 7861]
+    char_span: [6181, 7860]
     sentence_count: 16
     key_terms: [problem, solving, already, programming, engineer, medicine, similar, senior]
     section: Comments
     token_count: 378
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c5"
-    char_span: [7863, 9632]
+    char_span: [7862, 9631]
     sentence_count: 15
     key_terms: [job, work, claude, find, medicine, security, nursing, "aren't"]
     section: Comments
     token_count: 458
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c6"
-    char_span: [9634, 11571]
+    char_span: [9633, 11570]
     sentence_count: 11
     key_terms: [semester, spring, summer, industry, yourself, fall, co-op, "don't"]
     section: Comments
     token_count: 446
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c7"
-    char_span: [11573, 13702]
+    char_span: [11572, 13701]
     sentence_count: 16
     key_terms: [models, point, get, "it's", jobs, completely, because, better]
     section: Comments
     token_count: 489
   - id: "social-intelligence/reddit-deep/cscareerquestions/1rpsaey.md#c8"
-    char_span: [13704, 15146]
+    char_span: [13703, 15145]
     sentence_count: 9
     key_terms: [improvements-in-reasoning-ai-models-may-slow-down-soon-analysis-finds, drastically, work, currently, promise, models, though, ai-data-restrictions]
     section: Comments

@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/careerguidance/1tfd4q5.md
 url: "https://www.reddit.com/r/careerguidance/comments/1tfd4q5/career_advice_for_getting_into_the_medical_field/"
 kind: "social-post"
 source: "reddit-deep: r/careerguidance"
@@ -13,8 +14,25 @@ flair: "Advice"
 extracted_at: "2026-06-06T23:21:13.889Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfd4q5.md#c0"
+    char_span: [0, 1807]
+    sentence_count: 15
+    key_terms: [experience, field, work, medical, careerguidance, healthcare, logistics, comments]
+    token_count: 398
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfd4q5.md#c1"
+    char_span: [1822, 4206]
+    sentence_count: 13
+    key_terms: [experience, emergency, hospitals, hospital, background, roles, response, nursing]
+    section: Comments
+    token_count: 461
+  - id: "social-intelligence/reddit-deep/careerguidance/1tfd4q5.md#c2"
+    char_span: [4208, 4619]
+    sentence_count: 3
+    key_terms: [career, transitions, gradsimple, interviews, navigating, newsletter, figuring, grounded]
+    section: Comments
+    token_count: 81
 ---
-
 # Career advice for getting into the medical field (RN path, no college experience yet)?
 
 Source: [reddit-deep: r/careerguidance](https://www.reddit.com/r/careerguidance/comments/1tfd4q5/career_advice_for_getting_into_the_medical_field/)

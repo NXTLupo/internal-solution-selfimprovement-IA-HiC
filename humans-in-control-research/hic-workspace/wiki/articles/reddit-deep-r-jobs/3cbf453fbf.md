@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: deterministic
 chunks:
   - id: "articles/reddit-deep-r-jobs/3cbf453fbf.md#c0"
-    char_span: [0, 1625]
+    char_span: [0, 1624]
     sentence_count: 12
     key_terms: [depression, great, jobs, hiring, levels, unemployment, comments, extended]
-    token_count: 365
+    token_count: 364
   - id: "articles/reddit-deep-r-jobs/3cbf453fbf.md#c1"
-    char_span: [1627, 3099]
+    char_span: [1626, 3098]
     sentence_count: 14
     key_terms: [right, recession, worse, unemployment, time, expensive, gambling, housing]
     token_count: 351
   - id: "articles/reddit-deep-r-jobs/3cbf453fbf.md#c2"
-    char_span: [3101, 4366]
+    char_span: [3100, 4365]
     sentence_count: 11
     key_terms: [intellectual, great, worse, depression, people, human, labor, media]
     token_count: 292

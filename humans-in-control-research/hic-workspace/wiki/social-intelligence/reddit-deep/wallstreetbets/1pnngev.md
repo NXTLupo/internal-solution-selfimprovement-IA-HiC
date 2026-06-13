@@ -48,31 +48,31 @@ chunks:
     key_terms: [png, https, preview, format, width, auto, redd, webp]
     token_count: 372
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c6"
-    char_span: [9055, 9122]
+    char_span: [9054, 9121]
     sentence_count: 1
     key_terms: [artistic, damn]
     section: Comments
     token_count: 23
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c7"
-    char_span: [9124, 10715]
+    char_span: [9123, 10714]
     sentence_count: 10
     key_terms: [e0890ccfcd65f6b66bcfbc18912b3be0f0d009ed, quinoasqueefs, deleted, breakfastmedical5164, least, rancidsmellingshit, bro, free]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c8"
-    char_span: [10479, 12107]
+    char_span: [10478, 12106]
     sentence_count: 7
     key_terms: [never, heard, quinoasqueefs, zyn, preview, circle, format, growth]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c9"
-    char_span: [11973, 12402]
+    char_span: [11972, 12401]
     sentence_count: 5
     key_terms: [robertpaulsonxx42, bisn9c3n6k7g1, d1ac034ea4e9e, no-jelly7026, amateur, deleted, preview, through]
     section: Comments
     token_count: 175
   - id: "social-intelligence/reddit-deep/wallstreetbets/1pnngev.md#c10"
-    char_span: [12404, 12907]
+    char_span: [12403, 12906]
     sentence_count: 7
     key_terms: [pouches, growth, extrapolating, quinoasqueefs, campcosmos3, sensitivity, anecdotal, something]
     section: Comments

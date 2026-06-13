@@ -23,25 +23,25 @@ chunks:
     key_terms: [get, jobs, told, right, back, work, everything, experience]
     token_count: 442
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c1"
-    char_span: [1832, 3932]
+    char_span: [1831, 3931]
     sentence_count: 27
     key_terms: [people, years, don, job, too, candidates, depression, experience]
     section: Comments
     token_count: 471
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c2"
-    char_span: [3934, 4801]
+    char_span: [3933, 4800]
     sentence_count: 8
     key_terms: [interviews, probably, getting, resume, point, gap, "i'm", "i've"]
     section: Comments
     token_count: 190
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c3"
-    char_span: [4803, 6935]
+    char_span: [4802, 6934]
     sentence_count: 17
     key_terms: [through, years, been, jobs, temp, situation, applying, getting]
     section: Comments
     token_count: 462
   - id: "social-intelligence/reddit-deep/jobs/1s0mz7z.md#c4"
-    char_span: [6937, 8044]
+    char_span: [6936, 8043]
     sentence_count: 10
     key_terms: [experience, companies, multiple, broken, like, work, hour-two-3104, overqualified]
     section: Comments

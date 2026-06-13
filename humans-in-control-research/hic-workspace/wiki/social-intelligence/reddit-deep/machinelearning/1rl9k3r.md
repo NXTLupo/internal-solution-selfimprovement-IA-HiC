@@ -31,19 +31,19 @@ chunks:
     key_terms: [compilation, weight, here, multi-step, mechramc, training, runtime, github]
     token_count: 312
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c3"
-    char_span: [5438, 7483]
+    char_span: [5437, 7482]
     sentence_count: 15
     key_terms: [ane, operations, model, architecture, generalize, vocabulary, polyfill, channel]
     section: Comments
     token_count: 466
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c4"
-    char_span: [7485, 9648]
+    char_span: [7484, 9647]
     sentence_count: 19
     key_terms: [compilation, christinetyip, recompilation, interesting, ane, work, compiled, compiler]
     section: Comments
     token_count: 454
   - id: "social-intelligence/reddit-deep/machinelearning/1rl9k3r.md#c5"
-    char_span: [9650, 10081]
+    char_span: [9649, 10080]
     sentence_count: 6
     key_terms: [something, inference-only, on-device, gradient, overhead, training, clients, compile]
     section: Comments

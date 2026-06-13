@@ -18,7 +18,7 @@ industries: [higher_ed, workforce]
 industry_method: deterministic
 chunks:
   - id: "social-intelligence/reddit-deep/engineeringstudents/1lkfwsa.md#c0"
-    char_span: [0, 781]
+    char_span: [0, 780]
     sentence_count: 4
     key_terms: [development, engineeringstudents, research, comments, engineer, front, end, like]
     token_count: 178

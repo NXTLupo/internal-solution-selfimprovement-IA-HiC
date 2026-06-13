@@ -23,37 +23,37 @@ chunks:
     key_terms: [help, "i'm", like, gradschool, comments, started, support, issues]
     token_count: 286
   - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c1"
-    char_span: [1249, 3607]
+    char_span: [1248, 3606]
     sentence_count: 14
     key_terms: [students, grad, stress, like, challenges, department, everything, university]
     section: Comments
     token_count: 502
   - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c2"
-    char_span: [3609, 4986]
+    char_span: [3608, 4985]
     sentence_count: 8
     key_terms: [donations, food, clothing, closet, aridorpheus, clothes, accept, alumni]
     section: Comments
     token_count: 325
   - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c3"
-    char_span: [4988, 6180]
+    char_span: [4987, 6179]
     sentence_count: 11
     key_terms: [university, admin, staff, people, unionization, help, support, fliers]
     section: Comments
     token_count: 276
   - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c4"
-    char_span: [6182, 8041]
+    char_span: [6181, 8040]
     sentence_count: 12
     key_terms: [union, school, staff, grad, tax, university, something, graduate]
     section: Comments
     token_count: 441
   - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c5"
-    char_span: [8043, 9219]
+    char_span: [8042, 9218]
     sentence_count: 10
     key_terms: [paid, understand, students, account, program, people, school, help]
     section: Comments
     token_count: 267
   - id: "social-intelligence/reddit-deep/gradschool/1qv1v8e.md#c6"
-    char_span: [9221, 10871]
+    char_span: [9220, 10870]
     sentence_count: 11
     key_terms: [immigration, resources, something, students, whistles, sizeinclusivecollective, helpful, option]
     section: Comments

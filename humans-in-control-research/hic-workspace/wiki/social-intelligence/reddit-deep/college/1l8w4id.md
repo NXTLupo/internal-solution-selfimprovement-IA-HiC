@@ -23,25 +23,25 @@ chunks:
     key_terms: [college, comments, money, full, good, job, time, iluvj3ffbuckley]
     token_count: 153
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c1"
-    char_span: [587, 1793]
+    char_span: [586, 1792]
     sentence_count: 10
     key_terms: [job, work, money, food, on-campus, online, server, pizza]
     section: Comments
     token_count: 298
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c2"
-    char_span: [1795, 3788]
+    char_span: [1794, 3787]
     sentence_count: 16
     key_terms: [job, campus, lavendertearose32, try, server, good, restaurant, draining]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c3"
-    char_span: [3574, 5490]
+    char_span: [3573, 5489]
     sentence_count: 10
     key_terms: [work, job, did, homework, iluvj3ffbuckley, school, get, law]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1l8w4id.md#c4"
-    char_span: [5200, 5631]
+    char_span: [5199, 5630]
     sentence_count: 5
     key_terms: [get, pay, restaurant, bills, gotta, job, whatsoever, stressful]
     section: Comments

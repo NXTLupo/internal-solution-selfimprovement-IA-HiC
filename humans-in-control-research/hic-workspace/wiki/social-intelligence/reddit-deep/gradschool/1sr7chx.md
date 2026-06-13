@@ -23,19 +23,19 @@ chunks:
     key_terms: [trying, "don't", feel, "it's", like, want, work, gradschool]
     token_count: 474
   - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c1"
-    char_span: [2031, 3910]
+    char_span: [2030, 3909]
     sentence_count: 12
     key_terms: [job, next, consider, "that's", oceansrising, depending, geography, undergrad]
     section: Comments
     token_count: 495
   - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c2"
-    char_span: [3912, 5337]
+    char_span: [3911, 5336]
     sentence_count: 5
     key_terms: [pay, funding, tuition, watership-down, funded, investments, "master's", masters]
     section: Comments
     token_count: 361
   - id: "social-intelligence/reddit-deep/gradschool/1sr7chx.md#c3"
-    char_span: [5339, 7281]
+    char_span: [5338, 7280]
     sentence_count: 21
     key_terms: [passion, grad, "i'm", try, experience, postfuture, position, yourself]
     section: Comments

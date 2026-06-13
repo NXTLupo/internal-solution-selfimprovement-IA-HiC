@@ -18,10 +18,10 @@ industries: [workforce, ai_research]
 industry_method: llm
 chunks:
   - id: "social-intelligence/reddit-deep/internships/1ohwnw5.md#c0"
-    char_span: [0, 1251]
+    char_span: [0, 1250]
     sentence_count: 7
     key_terms: [data, experience, learning, real-world, building, intern, opportunities, understanding]
-    token_count: 278
+    token_count: 277
 ---
 # Looking for internship opportunities to gain real-world experience in Data Science / AI
 

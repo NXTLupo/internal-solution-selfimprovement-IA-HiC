@@ -1,4 +1,5 @@
 ---
+id: social-intelligence/reddit-deep/findapath/1ssqawk.md
 url: "https://www.reddit.com/r/findapath/comments/1ssqawk/id_rather_work_a_warehouse_job_than_be_a_software/"
 kind: "social-post"
 source: "reddit-deep: r/findapath"
@@ -13,8 +14,43 @@ flair: "Findapath-College/Certs"
 extracted_at: "2026-06-06T23:22:15.458Z"
 extraction_method: "praw-deep"
 research_goal: "Identify strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success, based on collected and cached research data. "
+chunks:
+  - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c0"
+    char_span: [0, 1116]
+    sentence_count: 7
+    key_terms: [like, job, findapath, warehouse, comments, software, rather, trying]
+    token_count: 258
+  - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c1"
+    char_span: [1131, 2878]
+    sentence_count: 11
+    key_terms: [warehouse, thank, helpful, working, please, findapath, comments, everyone]
+    section: Comments
+    token_count: 407
+  - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c2"
+    char_span: [2880, 4923]
+    sentence_count: 13
+    key_terms: [warehouse, job, working, warehouses, corporate, too, monotonous, surrounded]
+    section: Comments
+    token_count: 474
+  - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c3"
+    char_span: [4925, 6778]
+    sentence_count: 16
+    key_terms: [warehouse, like, work, year, experience, understand, corporate, lifestyle]
+    section: Comments
+    token_count: 423
+  - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c4"
+    char_span: [6780, 8265]
+    sentence_count: 19
+    key_terms: ["you're", people, job, software, collar, blue, like, work]
+    section: Comments
+    token_count: 329
+  - id: "social-intelligence/reddit-deep/findapath/1ssqawk.md#c5"
+    char_span: [8267, 10413]
+    sentence_count: 16
+    key_terms: [job, software, collar, money, blue, physical, having, school]
+    section: Comments
+    token_count: 509
 ---
-
 # I’d Rather Work a Warehouse Job Than Be a Software Engineer
 
 Source: [reddit-deep: r/findapath](https://www.reddit.com/r/findapath/comments/1ssqawk/id_rather_work_a_warehouse_job_than_be_a_software/)

@@ -23,43 +23,43 @@ chunks:
     key_terms: [computers, professors, university, comments, classes, budget, campus, needed]
     token_count: 237
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c1"
-    char_span: [1051, 2931]
+    char_span: [1050, 2930]
     sentence_count: 14
     key_terms: [computers, study, computer, work, university, deleted, faculty, problem]
     section: Comments
     token_count: 485
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c2"
-    char_span: [2933, 4394]
+    char_span: [2932, 4393]
     sentence_count: 11
     key_terms: [lease, computers, software, already, laptops, leasing, network, redact]
     section: Comments
     token_count: 346
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c3"
-    char_span: [4396, 5546]
+    char_span: [4395, 5545]
     sentence_count: 4
     key_terms: [computers, anything, computer, personal, device, polish, "you'll", going]
     section: Comments
     token_count: 307
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c4"
-    char_span: [5548, 7437]
+    char_span: [5547, 7436]
     sentence_count: 13
     key_terms: [computers, like, nervous, course, "that's", admin, lease, money]
     section: Comments
     token_count: 463
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c5"
-    char_span: [7439, 8501]
+    char_span: [7438, 8500]
     sentence_count: 3
     key_terms: [computers, probably, upgrade, being, going, staff, anotheranteater1, infrastructure]
     section: Comments
     token_count: 251
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c6"
-    char_span: [8503, 10401]
+    char_span: [8502, 10400]
     sentence_count: 10
     key_terms: [tweakingforjesus, office, recycling, trash, garbage, bins, jreymermaid, use]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/professors/1n0ssxq.md#c7"
-    char_span: [10178, 10675]
+    char_span: [10177, 10674]
     sentence_count: 3
     key_terms: [personal, devices, office, "don't", guess, hours, don, miskatonicmus3]
     section: Comments

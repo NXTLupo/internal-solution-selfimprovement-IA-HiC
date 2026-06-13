@@ -7,7 +7,7 @@ industries: [enterprise_it]
 status: active
 chunks:
   - id: "industries/enterprise_it.md#c0"
-    char_span: [0, 768]
+    char_span: [0, 767]
     sentence_count: 2
     key_terms: [industries, sources, shared, social-intelligence, articles, reddit-deep-r-cscareerquestions, reddit-deep, reddit-deep-r-careerguidance]
     section: Cross-over verticals (shared sources) / Representative sources

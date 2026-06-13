@@ -7,13 +7,13 @@ subreddit: "cscareerquestions"
 title: "My job search experience (11 YOE, 564 applications, 1 offer)"
 author: "ImportantSquirrel"
 date: "2026-05-09T14:32:04.000Z"
-score: 223
+score: 224
 upvote_ratio: 0.97
 num_comments: 72
 flair: "Experienced"
-extracted_at: "2026-06-03T03:09:49.663Z"
+extracted_at: "2026-06-08T17:32:09.872Z"
 extraction_method: "praw-deep"
-research_goal: "Generate a strategic analysis identifying actionable opportunities for Northeastern University to enhance experiential learning and co-op success. Focus the analysis on First Year Student Preparedness, unifying fragmented student data into a 360 student profile, improving advisor capabilities, and strengthening corporate partner development."
+research_goal: "Identify actionable strategic opportunities for Higher Ed Universities to enhance experiential learning, intern, and co-op success."
 chunks:
   - id: "social-intelligence/reddit-deep/cscareerquestions/1t86ldv.md#c0"
     char_span: [0, 1993]
@@ -82,7 +82,7 @@ chunks:
 # My job search experience (11 YOE, 564 applications, 1 offer)
 
 Source: [reddit-deep: r/cscareerquestions](https://www.reddit.com/r/cscareerquestions/comments/1t86ldv/my_job_search_experience_11_yoe_564_applications/)
-Posted by **ImportantSquirrel** · **223↑** · **72 comments**
+Posted by **ImportantSquirrel** · **224↑** · **72 comments**
 
 I started my job search in October 2025. I was employed at a fairly well known tech company, but things had gotten a lot worse on my team and I wanted out. I am a senior software developer with 11 years of experience so I thought it would take a month or two to find something, like it did the last time I switched jobs (2019). This time it took until April to get an offer. A total of 564 applications. I was applying mostly to backend and full stack roles. I live an hour out of Toronto so I was applying only to hybrid roles in Toronto, as well as any remote roles open to Canadians. As time went on I started applying to fully on-site positions too. The offer I ended up getting is hybrid twice a week in Toronto.
 
@@ -110,7 +110,7 @@ Anyways I hope this summary helps people who are searching for a new role and if
 
 ## Comments
 
-- **I-Groot** (51↑): Congratulations 
+- **I-Groot** (50↑): Congratulations 
 
 I have been recently laid off from TD, been applying everywhere and it’s funny like how you described I am getting calls from faang adjacent companies than from other banks and insurance companies.
 
@@ -119,7 +119,7 @@ All that banking jobs have been moved to WITCH companies now.
 With third parties and staffing it is getting difficult, they are checking it with job description and expecting to match every single technology as far as same testing library and monitoring tool.
   - **ImportantSquirrel** (14↑): Dang I thought banks didn't do much layoffs, too bad. I guess there is no such thing as a stable job any more.
   - **MasterFricker** (2↑): I didnt think banks did much layoffs either
-- **Glum_Worldliness4904** (131↑): > Leetcode seems to be getting less prevalent
+- **Glum_Worldliness4904** (127↑): > Leetcode seems to be getting less prevalent
 
 Also noticed that and it’s actually a bad news.
 
@@ -132,13 +132,13 @@ We know how to prepare to LC style questions, but here are some examples which I
 - We have some code, tune GC configuration so for the throughput (totally bombed)
 
 I’m not sure that sort of questions can be prepared in any way unless one have faced them before
-  - **Vemyx** (63↑): that's kind of extreme, what title was this?
-    - **Glum_Worldliness4904** (24↑): The first 2 was from HFT hedge funds and the GC tune I was asked for a performance engineer role at big data team (mid size company)
-  - **ImportantSquirrel** (35↑): Sounds like they were searching for someone with very specific skills. I'm more of a jack-of-all-trades java developer so I wouldn't have been able to solve those, at least not without significant hints.
+  - **Vemyx** (67↑): that's kind of extreme, what title was this?
+    - **Glum_Worldliness4904** (27↑): The first 2 was from HFT hedge funds and the GC tune I was asked for a performance engineer role at big data team (mid size company)
+  - **ImportantSquirrel** (33↑): Sounds like they were searching for someone with very specific skills. I'm more of a jack-of-all-trades java developer so I wouldn't have been able to solve those, at least not without significant hints.
 
 One of the interviews I bombed, they asked very specific questions about authentication protocols and OAuth. I have used those and knew how they worked at a high level but they asked about the inner workings which I didn't know in detail. I'm sure I could have learned it given some time but I guess they wanted someone who could hit the ground running. Sometimes the role is just a bad fit.
-  - **azuredota** (30↑): Interviewing at fucking SkyNet or something? Jesus
-  - **CapableHerring** (23↑): I'm pretty sure most SWE's would bomb those questions... was this for a very niche role/title? Or for some extremely prestigious company?
+  - **azuredota** (31↑): Interviewing at fucking SkyNet or something? Jesus
+  - **CapableHerring** (24↑): I'm pretty sure most SWE's would bomb those questions... was this for a very niche role/title? Or for some extremely prestigious company?
 
 I can't imagine Geico asking those questions for example, even in this AI-landscape.
     - **uuhson** (7↑): 6 years at faang and I wouldn't even know where to begin with any of those without heavy prompting. I asked Claude to show me and I've legit never heard of AtomicReference or the unsafe memory management  libs in Java
@@ -147,7 +147,7 @@ I can't imagine Geico asking those questions for example, even in this AI-landsc
 In my recent job search i had similar experience but a bit more specific, was given a zip- containing java/kafka - request was to write thread safe consumer/build rudimentary analytics (no AI but ok with google/stackoverflow) - loved that interview
     - **Mundane-Fox-1669** (7↑): How can we prep for something like this if we have no exp with kafka
     - **gpacsu** (2↑): Howd you do it? I have no clue where to even start
-- **user2776632** (30↑): It wasn't you. It's the current market. If I was you I'd follow up on LinkedIn to see if any of those positions you interviewed for even got filled. There's a couple different ways to do people searches on LinkedIn that show new hires and people that change positions. Personally, I interviewed with 12 different places and I'd say over half never got filled. Even when they said they were very motivated to fill the position it never happened.
+- **user2776632** (29↑): It wasn't you. It's the current market. If I was you I'd follow up on LinkedIn to see if any of those positions you interviewed for even got filled. There's a couple different ways to do people searches on LinkedIn that show new hires and people that change positions. Personally, I interviewed with 12 different places and I'd say over half never got filled. Even when they said they were very motivated to fill the position it never happened.
 
 My experience was very similar to yours, though I'm US based. Out of nearly 150 apps I got two offers after 5 months.
 
@@ -155,18 +155,18 @@ My experience was very similar to yours, though I'm US based. Out of nearly 150 
 Additionally, I would say at least 1/3 or more of the positions that I applied for were ghost jobs. I could always tell when a posting was real if I heard something within a month. Some of my apps just hung there for months. I'm pretty sure there was never any intention to hire someone.
   - **ImportantSquirrel** (13↑): I did notice that several jobs I was rejected from, the exact same job was reposted shortly after. This includes several jobs where I'm very confident I did really well on the interview (eg a leetcode medium question that I solved perfectly). Not sure what is going on there.
     - **trulyhighlyregarded** (10↑): Ghost jobs is what's going on. Canada passed a law against it already but it's changed nothing. I bet even your interviewer didn't know that management had no real intention of hiring. LinkedIn and indeed are full of this crap... On Indeed, if you use a browser extension like JobScrub, you can see that like a third of the listings on there have been up for months if not years.
-- **Darkislife1** (22↑): High 120s with 11yoe??? That’s insane
+- **Darkislife1** (23↑): High 120s with 11yoe??? That’s insane
 - **multimodeviber** (17↑): Congrats! 105k from TD in Toronto seems criminal. I am at a similar pay and YOE in montreal as you got (120s) but I am pretty happy with the environment. It doesn't seem worth it to spend significant time to find better pay at the moment
-  - **ImportantSquirrel** (8↑): The big banks in Toronto seem to pay from 90-115 for senior dev roles, maybe a little more for lead roles. Junior and intermediate roles are more like 70-90. This is just from what I was able to observe from job descriptions, not all job descriptions had a salary listed.
+  - **ImportantSquirrel** (7↑): The big banks in Toronto seem to pay from 90-115 for senior dev roles, maybe a little more for lead roles. Junior and intermediate roles are more like 70-90. This is just from what I was able to observe from job descriptions, not all job descriptions had a salary listed.
   - **Proper_Jeweler_9238** (1↑): still no harm to sharp your interview skills, you never know when you will be let go and you abs don't want to start preparing it that time.
     - **multimodeviber** (3↑): Ugh true but I hate it. I need the fear. What I do instead is spend nothing and have a large cushion. Not foolproof but better for my mental health for sure
 - **fallwindss** (11↑): Thank you for the detailed account and congratulations on the offer!
-- **paranoid_throwaway51** (10↑): "I also applied to several government and government-adjacent roles such as municipal governments, hospitals, and universities and colleges, and none of them would interview me"
+- **paranoid_throwaway51** (11↑): "I also applied to several government and government-adjacent roles such as municipal governments, hospitals, and universities and colleges, and none of them would interview me"
 
 \- i sympathise with this.
 
 In my country, the govt sector is constantly complaing in the news about how they can't hire... so i sat the civil service exams, applied for jobs, completely ghosted... almost all the jobs were only open to internal candidates which i found pretty odd.
-- **obolli** (7↑): Congrats on the offer.   
+- **obolli** (6↑): Congrats on the offer.   
 I don't mean to overstep, I did make a similar post yesterday though with a different take away. I'm a first time searcher.  
 Did you apply to everything or did you see how you could be specifically suited to a particular company?
 
@@ -182,7 +182,7 @@ For places I was very suited for, even with hundreds of applicants (according to
 I have 3-4yoe, also in Toronto. I wanted to see how bad the market was for myself so I sent out 8 applications. I got 3 interviews, and 2 offers, both over 170k.
 
 How could there be this much variance? And you said you worked at a big tech company?
-  - **Proper_Jeweler_9238** (13↑): crazy. How you can get 3/8 interviews ? Stripe and Okta are 2 companies I know that can give such a TC and still hiring.
+  - **Proper_Jeweler_9238** (14↑): crazy. How you can get 3/8 interviews ? Stripe and Okta are 2 companies I know that can give such a TC and still hiring.
 
 Market is pretty bad based on my experiences.
     - **ImportantSquirrel** (9↑): I had interviews with both of those companies. The Okta interview was quite difficult, although from what I remember I interviewed for a lead position. The Stripe interview was a bit easier, they gave me some code and asked me to make a pretty simple addition to it. When I did that, they asked me to write some tests to verify the correctness. After that, they asked me to make another addition to the code, this time harder but still not too difficult. After I did that they let me ask them any questions about their company, and we had a discussion about what it was like to work there. Then the interview was over, and a few days later I got a rejection. Not sure what I did wrong, I thought the code I wrote was pretty good and it solved the problems they asked me to solve. I guess somebody else did it even better. Despite the rejection I still came away with a fairly positive impression of the company, the interviewers seemed pretty smart and I liked their interview format. I may apply there again some day.
@@ -190,14 +190,14 @@ Market is pretty bad based on my experiences.
     - **8004612286** (3↑): I had a stripe OA that I failed in one of those 8 lol
 
 Both of those offers came from F500. It was max of their band - I was pretty impressed with how high they went tbh. But also why I rejected. No point of jumping from big tech to a f500 unless it's real bad.
-  - **ImportantSquirrel** (20↑): I don't know how that's possible. Maybe you're just brilliant, or maybe it's dumb luck. Were you applying to backend dev roles? Are you able to name any of the companies you got offers from?
+  - **ImportantSquirrel** (21↑): I don't know how that's possible. Maybe you're just brilliant, or maybe it's dumb luck. Were you applying to backend dev roles? Are you able to name any of the companies you got offers from?
 
 I have worked for 3 companies prior to my current job. Two nobody has heard of, but the last one (where I worked since 2019) was a fairly well known big tech company, though not a particularly well regarded one.
-    - **nimbus-dimbus** (5↑): Do you have a degree?
+    - **nimbus-dimbus** (6↑): Do you have a degree?
     - **8004612286** (3↑): Backend. One OA plus one failed interview from big tech.
 
 The two offers both came from random F500s, hence why I didn't jump.
-  - **CapableHerring** (9↑): >How could there be this much variance?
+  - **CapableHerring** (8↑): >How could there be this much variance?
 
 There's always been this much variance. Even people that look very similar on paper can have completely different job searching experiences depending on a million factors besides just the companies you've worked for.
 

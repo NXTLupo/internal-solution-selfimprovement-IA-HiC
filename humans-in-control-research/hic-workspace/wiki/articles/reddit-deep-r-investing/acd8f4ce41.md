@@ -15,12 +15,12 @@ industries: [financial_services, government]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-investing/acd8f4ce41.md#c0"
-    char_span: [0, 2089]
+    char_span: [0, 2088]
     sentence_count: 14
     key_terms: [market, trump-media-cryptocom-launch-new-crypto-treasury-firm-via-spac-deal-2025-08-26, trump, com, https, www, administration, dow-jones-today-03102025-11693786]
-    token_count: 494
+    token_count: 493
   - id: "articles/reddit-deep-r-investing/acd8f4ce41.md#c1"
-    char_span: [2091, 3271]
+    char_span: [2090, 3270]
     sentence_count: 6
     key_terms: [yaboijack055, capitalism, corporations, socialism, market, usual-importance-893, free, goal]
     token_count: 294

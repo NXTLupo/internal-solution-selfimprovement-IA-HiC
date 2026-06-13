@@ -21,25 +21,25 @@ chunks:
     key_terms: [college, been, feel, like, course, having, "don't", going]
     token_count: 467
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c1"
-    char_span: [2009, 2344]
+    char_span: [2008, 2343]
     sentence_count: 3
     key_terms: [take, specifically, falsedrive, electives, necessary, decently, algebra, already]
     section: Comments
     token_count: 79
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c2"
-    char_span: [2346, 4392]
+    char_span: [2345, 4391]
     sentence_count: 29
     key_terms: [voice, yourself, tell, already, friend, class, going, start]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c3"
-    char_span: [4111, 5235]
+    char_span: [4110, 5234]
     sentence_count: 14
     key_terms: [voice, anxiety, louder, person, been, hard, less, work]
     section: Comments
     token_count: 262
   - id: "social-intelligence/reddit-deep/college/1mtfj0x.md#c4"
-    char_span: [5237, 6133]
+    char_span: [5236, 6132]
     sentence_count: 10
     key_terms: [yourself, already, usually, proven, feel, labs, work, unmanageable]
     section: Comments

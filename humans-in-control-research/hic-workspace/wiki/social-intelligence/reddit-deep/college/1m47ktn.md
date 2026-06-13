@@ -23,19 +23,19 @@ chunks:
     key_terms: [college, working, time, comments, walmart, thereshaminthepci, full, live]
     token_count: 169
   - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c1"
-    char_span: [700, 2720]
+    char_span: [699, 2719]
     sentence_count: 12
     key_terms: [scholarships, katekat0974, too, always, amazon, school, international, aid]
     section: Comments
     token_count: 512
   - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c2"
-    char_span: [2488, 3546]
+    char_span: [2487, 3545]
     sentence_count: 12
     key_terms: [job, tips, decent, jersey, office, pretty, shifts, major]
     section: Comments
     token_count: 274
   - id: "social-intelligence/reddit-deep/college/1m47ktn.md#c3"
-    char_span: [3548, 4961]
+    char_span: [3547, 4960]
     sentence_count: 10
     key_terms: [college, student, job, apartment, looking, tuition, making, offer]
     section: Comments

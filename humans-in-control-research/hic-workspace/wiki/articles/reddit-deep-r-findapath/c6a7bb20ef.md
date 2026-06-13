@@ -15,17 +15,17 @@ industries: [workforce]
 industry_method: llm
 chunks:
   - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c0"
-    char_span: [0, 1955]
+    char_span: [0, 1954]
     sentence_count: 4
     key_terms: [years, findapath, "i'm", like, another, studies, behind, myself]
-    token_count: 453
+    token_count: 452
   - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c1"
-    char_span: [1957, 3796]
+    char_span: [1956, 3795]
     sentence_count: 17
     key_terms: [therapist, life, thank, helpful, please, klistellacca, "he's", help]
     token_count: 413
   - id: "articles/reddit-deep-r-findapath/c6a7bb20ef.md#c2"
-    char_span: [3798, 5142]
+    char_span: [3797, 5141]
     sentence_count: 15
     key_terms: [life, good, work, through, working, people, lukasgoestoamygdala, buddy]
     token_count: 320
