@@ -3875,6 +3875,36 @@ const App = () => {
                         }
                         if (stats.archive_hits) breakdown.push(`archive=${stats.archive_hits}`);
                         console.info(`[App] CACHED-ONLY corpus assembled from YOUR KL FILTER: ${articles.length} articles, ${Math.round(fullCorpus.length/1024)}KB; breakdown: ${breakdown.join(' · ')}`);
+                        // 2026-06-19 - CACHED-ONLY PILLS FIX. In cached-only mode there is no
+                        // external collection, so liveSourceResults stayed EMPTY - the data-
+                        // retrieval page showed no source pills and the chat header read
+                        // "0 sources | 0 articles" even though the KL corpus assembled fine
+                        // (the "data collection failing" report). Populate liveSourceResults
+                        // from the assembled corpus, grouped by source, so the pills fill up
+                        // and sourceCount/articleCount (getContext above) reflect the real
+                        // curated corpus. Entry shape matches the live-collection path.
+                        try {
+                            const _bySource: Record<string, any[]> = {};
+                            for (const a of articles) {
+                                const key = a.source
+                                    || (a.wikiPath ? String(a.wikiPath).split('/').filter(Boolean).slice(-2, -1)[0] : '')
+                                    || 'cached';
+                                (_bySource[key] = _bySource[key] || []).push({
+                                    title: a.title || a.wikiPath || 'untitled',
+                                    url: a.url || '',
+                                    snippet: String(a.body || '').slice(0, 280),
+                                });
+                            }
+                            const _cachedCards = Object.entries(_bySource).map(([src, items]) => ({
+                                source: src,
+                                sourceId: src,
+                                credibilityTier: 2,
+                                items,
+                                total: items.length,
+                                status: 'complete' as const,
+                            }));
+                            if (_cachedCards.length) setLiveSourceResults(_cachedCards);
+                        } catch (_e) { /* pills are cosmetic; never block synthesis */ }
                         setDataSourceStatus(`Cached-only: ${articles.length} articles from your KL filter (${breakdown.slice(0,4).join(', ')}); running synthesis...`);
                         setThinkingEvents(prev => [...prev, {
                             type: 'PHASE',
