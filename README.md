@@ -18,14 +18,13 @@ multi-model AI (Gemini, Claude, OpenAI).
 
 1. [What you get](#what-you-get)
 2. [Prerequisites](#prerequisites) (install these first)
-3. [Quick start (TL;DR)](#quick-start-tldr)
-4. [Full fresh-install walkthrough](#full-fresh-install-walkthrough)
-5. [The cowork agent (NXT Intelligence Agent)](#the-cowork-agent-nxt-intelligence-agent)
-6. [Service + port map](#service--port-map)
-7. [Everyday operations](#everyday-operations)
-8. [Troubleshooting](#troubleshooting) (read this if anything looks broken)
-9. [Optional extras](#optional-extras)
-10. [Repository layout](#repository-layout)
+3. [Full fresh-install walkthrough](#full-fresh-install-walkthrough)
+4. [The cowork agent (NXT Intelligence Agent)](#the-cowork-agent-nxt-intelligence-agent)
+5. [Service + port map](#service--port-map)
+6. [Everyday operations](#everyday-operations)
+7. [Troubleshooting](#troubleshooting) (read this if anything looks broken)
+8. [Optional extras](#optional-extras)
+9. [Repository layout](#repository-layout)
 
 ---
 
@@ -85,32 +84,9 @@ You will also need **three AI API keys** (free tiers work to start):
 
 ---
 
-## Quick start (TL;DR)
-
-For the impatient. The detailed version with explanations is in the next section.
-
-```bash
-# 1. Get the code
-git clone https://github.com/NXTLupo/internal-solution-selfimprovement-IA-HiC.git
-cd internal-solution-selfimprovement-IA-HiC
-git checkout self-improvement-ia-2026-05-29
-
-# 2. Create .env with your three keys (see template below)
-#    (use: notepad .env  on Windows, or any text editor)
-
-# 3. Build + start EVERYTHING (first run: 15-30 min — it builds Playwright + PyTorch images)
-docker compose -f docker-compose-all.yml up -d --build
-
-# 4. Wait ~3-4 min for services to finish booting, then open:
-#    http://localhost:8000  (Launchpad)   http://localhost:5011  (HiC)
-
-# 5. One-time: build the HiC wiki semantic index (long, runs in background)
-curl -X POST http://localhost:5012/api/wiki/chunks-backfill
-```
-
----
-
 ## Full fresh-install walkthrough
+
+Follow every step in order. Each one is copy-paste; nothing is assumed.
 
 ### Step 1 — Get the code
 
