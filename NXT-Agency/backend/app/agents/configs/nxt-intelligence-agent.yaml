@@ -1,0 +1,5 @@
+model: claude-sonnet
+tier: 4
+temperature: 0.3
+max_tokens: 16384
+max_turns: 25

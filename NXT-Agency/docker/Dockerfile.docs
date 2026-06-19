@@ -1,0 +1,40 @@
+# Dockerfile for MkDocs documentation with Material theme
+FROM python:3.10-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apk add --no-cache \
+    gcc \
+    musl-dev \
+    libffi-dev
+
+# Copy requirements first for better caching
+COPY docs/requirements.txt ./
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy documentation source
+COPY docs/ ./
+
+# Create non-root user for security
+RUN addgroup -g 1001 -S mkdocs && \
+    adduser -S -D -H -u 1001 -h /app -s /sbin/nologin -G mkdocs -g mkdocs mkdocs
+
+# Change ownership of the app directory
+RUN chown -R mkdocs:mkdocs /app
+
+# Switch to non-root user
+USER mkdocs
+
+# Expose port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8000/ || exit 1
+
+# Start MkDocs development server
+CMD ["mkdocs", "serve", "--dev-addr=0.0.0.0:8000"]

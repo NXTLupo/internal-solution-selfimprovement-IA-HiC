@@ -1,0 +1,12 @@
+## Default runtime configuration for all agents.
+##
+## Per-agent overrides go in {slug}.yaml in this same directory.
+## Frontmatter values in the .md prompt file are used for metadata
+## (name, description, emoji, color, vibe).  Runtime parameters
+## below can be overridden per agent.
+
+model: claude-sonnet
+tier: 2
+temperature: 0.7
+max_tokens: 4096
+max_turns: 10

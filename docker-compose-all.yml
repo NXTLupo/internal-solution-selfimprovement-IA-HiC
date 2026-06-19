@@ -492,7 +492,7 @@ services:
     ports:
       - "${NXT_AGENCY_PORT:-5050}:80"
     volumes:
-      - ../NXT-Agency/agency-agents-launchpad/dist:/usr/share/nginx/html:ro
+      - ./NXT-Agency/agency-agents-launchpad/dist:/usr/share/nginx/html:ro
     networks:
       - nxt-humans-network
     depends_on:
@@ -517,7 +517,7 @@ services:
 
   nxt-agency-backend:
     build:
-      context: ../NXT-Agency
+      context: ./NXT-Agency
       dockerfile: docker/Dockerfile.backend
     container_name: nxt-agency-backend
     ports:
@@ -545,8 +545,8 @@ services:
       - COPILOT_RECIPE_GENERATOR_CLIENT_URL=http://localhost:${COPILOT_RECIPE_GENERATOR_PORT:-5013}
       - CONSISTENT_CHARACTER_GENERATOR_CLIENT_URL=http://localhost:${CONSISTENT_CHARACTER_GENERATOR_PORT:-5010}
     volumes:
-      - ../NXT-Agency/agent-prompts:/app/agent-prompts:ro
-      - ../NXT-Agency/backend/app:/app/app
+      - ./NXT-Agency/agent-prompts:/app/agent-prompts:ro
+      - ./NXT-Agency/backend/app:/app/app
     networks:
       - nxt-humans-network
     depends_on:

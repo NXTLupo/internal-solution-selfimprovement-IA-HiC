@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans 2026 — Buttons Component Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================================
+       NXT Humans 2026 Design Tokens
+       ======================================================== */
+    :root {
+      --nxt-teal: #115054;
+      --nxt-lime: #caca20;
+      --nxt-darkest: #141414;
+      --nxt-dark: #242424;
+      --nxt-med: #3a3a3a;
+      --nxt-gray: #525252;
+      --nxt-label: #acacac;
+      --nxt-light: #eaeaea;
+      --nxt-lightest: #fafafa;
+      --nxt-white: #ffffff;
+      --nxt-black: #000000;
+      --font-primary: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--nxt-darkest);
+      color: var(--nxt-white);
+      padding: 48px;
+    }
+
+    /* ========================================================
+       Showcase Layout
+       ======================================================== */
+    .showcase {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .showcase-title {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 24px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--nxt-lime);
+      margin-bottom: 48px;
+    }
+
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-family: var(--font-primary);
+      font-weight: 300;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--nxt-label);
+      margin-bottom: 20px;
+    }
+
+    .variant-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .variant-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .variant-label {
+      font-family: var(--font-primary);
+      font-weight: 300;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--nxt-gray);
+    }
+
+    /* ========================================================
+       Square Buttons — 110x48, 2px radius
+       ======================================================== */
+    .btn-square {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 110px;
+      height: 48px;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+      white-space: nowrap;
+    }
+
+    .btn-square:focus-visible {
+      outline: 2px solid var(--nxt-lime);
+      outline-offset: 2px;
+    }
+
+    /* Primary / CTA */
+    .btn-primary {
+      background-color: #c9c920;
+      color: var(--nxt-teal);
+    }
+    .btn-primary:hover {
+      background-color: #b8b81c;
+      box-shadow: 0 2px 8px rgba(201, 201, 32, 0.25);
+    }
+    .btn-primary:active {
+      background-color: #a8a819;
+    }
+
+    /* Secondary / Gray */
+    .btn-secondary {
+      background-color: var(--nxt-med);
+      color: var(--nxt-light);
+    }
+    .btn-secondary:hover {
+      background-color: #454545;
+      box-shadow: 0 2px 8px rgba(58, 58, 58, 0.4);
+    }
+    .btn-secondary:active {
+      background-color: #505050;
+    }
+
+    /* Dark */
+    .btn-dark {
+      background-color: var(--nxt-dark);
+      color: var(--nxt-light);
+    }
+    .btn-dark:hover {
+      background-color: #2e2e2e;
+      box-shadow: 0 2px 8px rgba(36, 36, 36, 0.5);
+    }
+    .btn-dark:active {
+      background-color: #383838;
+    }
+
+    /* ========================================================
+       Close Buttons — 88x88 circle
+       ======================================================== */
+    .btn-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: background-color 150ms ease, transform 150ms ease;
+    }
+
+    .btn-close:focus-visible {
+      outline: 2px solid var(--nxt-lime);
+      outline-offset: 2px;
+    }
+
+    .btn-close svg {
+      transition: stroke 150ms ease;
+    }
+
+    .btn-close:active {
+      transform: scale(0.95);
+    }
+
+    /* Close — Gray */
+    .btn-close-gray {
+      background-color: var(--nxt-med);
+    }
+    .btn-close-gray svg {
+      stroke: var(--nxt-light);
+    }
+    .btn-close-gray:hover {
+      background-color: var(--nxt-teal);
+    }
+    .btn-close-gray:hover svg {
+      stroke: var(--nxt-lime);
+    }
+
+    /* Close — Lime */
+    .btn-close-lime {
+      background-color: #c9c920;
+    }
+    .btn-close-lime svg {
+      stroke: var(--nxt-teal);
+    }
+    .btn-close-lime:hover {
+      background-color: var(--nxt-teal);
+    }
+    .btn-close-lime:hover svg {
+      stroke: var(--nxt-lime);
+    }
+
+    /* Close — Hover (shown as default=hover state) */
+    .btn-close-hover {
+      background-color: var(--nxt-teal);
+    }
+    .btn-close-hover svg {
+      stroke: var(--nxt-lime);
+    }
+    .btn-close-hover:hover {
+      background-color: #0d3e41;
+    }
+    .btn-close-hover:hover svg {
+      stroke: #e0e020;
+    }
+
+    /* ========================================================
+       Expand Buttons — 64x64 circle
+       ======================================================== */
+    .btn-expand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background-color: #c9c920;
+      transition: background-color 150ms ease, transform 150ms ease;
+    }
+
+    .btn-expand:focus-visible {
+      outline: 2px solid var(--nxt-light);
+      outline-offset: 2px;
+    }
+
+    .btn-expand svg {
+      stroke: var(--nxt-dark);
+      transition: stroke 150ms ease;
+    }
+
+    .btn-expand:hover {
+      background-color: #b8b81c;
+      transform: scale(1.05);
+    }
+
+    .btn-expand:active {
+      transform: scale(0.95);
+    }
+
+    /* ========================================================
+       LinkedIn Social — 40x40 circle
+       ======================================================== */
+    .btn-linkedin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      transition: background-color 150ms ease, transform 150ms ease;
+    }
+
+    .btn-linkedin:focus-visible {
+      outline: 2px solid var(--nxt-lime);
+      outline-offset: 2px;
+    }
+
+    .btn-linkedin:hover {
+      transform: scale(1.08);
+    }
+
+    .btn-linkedin:active {
+      transform: scale(0.95);
+    }
+
+    /* LinkedIn — Default (white bg, dark icon) */
+    .btn-linkedin-default {
+      background-color: var(--nxt-white);
+    }
+    .btn-linkedin-default svg {
+      fill: var(--nxt-dark);
+      transition: fill 150ms ease;
+    }
+    .btn-linkedin-default:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* LinkedIn — Colored (blue bg, white icon) */
+    .btn-linkedin-colored {
+      background-color: #2396bc;
+    }
+    .btn-linkedin-colored svg {
+      fill: var(--nxt-white);
+      transition: fill 150ms ease;
+    }
+    .btn-linkedin-colored:hover {
+      background-color: #1d80a2;
+    }
+
+    /* ========================================================
+       AI-Form Button — 180x48, 2px radius
+       ======================================================== */
+    .btn-ai-form {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 180px;
+      height: 48px;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      background-color: #c9c920;
+      color: #104f54;
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      transition: background-color 150ms ease, box-shadow 150ms ease;
+      white-space: nowrap;
+    }
+
+    .btn-ai-form:focus-visible {
+      outline: 2px solid var(--nxt-light);
+      outline-offset: 2px;
+    }
+
+    .btn-ai-form:hover {
+      background-color: #b8b81c;
+      box-shadow: 0 2px 12px rgba(201, 201, 32, 0.3);
+    }
+
+    .btn-ai-form:active {
+      background-color: #a8a819;
+    }
+
+    .btn-ai-form .icon-text-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-ai-form svg {
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="showcase">
+    <h1 class="showcase-title">NXT Humans 2026 — Buttons</h1>
+
+    <!-- ====================================================
+         SQUARE BUTTONS
+         ==================================================== -->
+    <section class="section" aria-labelledby="label-square">
+      <h2 class="section-label" id="label-square">Square Buttons / 110 x 48</h2>
+      <div class="variant-row">
+        <div class="variant-item">
+          <button class="btn-square btn-primary" type="button">Contact</button>
+          <span class="variant-label">Primary / CTA</span>
+        </div>
+        <div class="variant-item">
+          <button class="btn-square btn-secondary" type="button">Submit</button>
+          <span class="variant-label">Secondary / Gray</span>
+        </div>
+        <div class="variant-item">
+          <button class="btn-square btn-dark" type="button">Submit</button>
+          <span class="variant-label">Dark</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         CLOSE BUTTONS
+         ==================================================== -->
+    <section class="section" aria-labelledby="label-close">
+      <h2 class="section-label" id="label-close">Close Buttons / 88 x 88</h2>
+      <div class="variant-row">
+        <div class="variant-item">
+          <button class="btn-close btn-close-gray" type="button" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="18" y1="6" x2="6" y2="18"/>
+            </svg>
+          </button>
+          <span class="variant-label">Gray</span>
+        </div>
+        <div class="variant-item">
+          <button class="btn-close btn-close-lime" type="button" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="18" y1="6" x2="6" y2="18"/>
+            </svg>
+          </button>
+          <span class="variant-label">Lime</span>
+        </div>
+        <div class="variant-item">
+          <button class="btn-close btn-close-hover" type="button" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="6" y1="6" x2="18" y2="18"/>
+              <line x1="18" y1="6" x2="6" y2="18"/>
+            </svg>
+          </button>
+          <span class="variant-label">Hover State</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         EXPAND BUTTONS
+         ==================================================== -->
+    <section class="section" aria-labelledby="label-expand">
+      <h2 class="section-label" id="label-expand">Expand Buttons / 64 x 64</h2>
+      <div class="variant-row">
+        <div class="variant-item">
+          <button class="btn-expand" type="button" aria-label="Expand">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Top-right arrow -->
+              <polyline points="14,2 20,2 20,8"/>
+              <line x1="12" y1="10" x2="20" y2="2"/>
+              <!-- Bottom-left arrow -->
+              <polyline points="8,20 2,20 2,14"/>
+              <line x1="10" y1="12" x2="2" y2="20"/>
+            </svg>
+          </button>
+          <span class="variant-label">Expand / Lime</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         LINKEDIN SOCIAL BUTTONS
+         ==================================================== -->
+    <section class="section" aria-labelledby="label-linkedin">
+      <h2 class="section-label" id="label-linkedin">LinkedIn Social / 40 x 40</h2>
+      <div class="variant-row">
+        <div class="variant-item">
+          <button class="btn-linkedin btn-linkedin-default" type="button" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </button>
+          <span class="variant-label">Default</span>
+        </div>
+        <div class="variant-item">
+          <button class="btn-linkedin btn-linkedin-colored" type="button" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </button>
+          <span class="variant-label">Colored</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         AI-FORM BUTTON
+         ==================================================== -->
+    <section class="section" aria-labelledby="label-ai-form">
+      <h2 class="section-label" id="label-ai-form">AI-Form Button / 180 x 48</h2>
+      <div class="variant-row">
+        <div class="variant-item">
+          <button class="btn-ai-form" type="button">
+            <span class="icon-text-group">
+              <!-- Plus icon 16x16 -->
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#104f54" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="8" y1="3" x2="8" y2="13"/>
+                <line x1="3" y1="8" x2="13" y2="8"/>
+              </svg>
+              <span>Ask Us Anything</span>
+            </span>
+          </button>
+          <span class="variant-label">AI-Form / CTA</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

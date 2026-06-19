@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NXT Humans 2026 — Industries We Serve</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ── Design Tokens ─────────────────────────────────────────────── */
+  :root {
+    --nxt-teal: #115054;
+    --nxt-lime: #caca20;
+    --nxt-darkest: #141414;
+    --nxt-dark: #242424;
+    --nxt-med: #3a3a3a;
+    --nxt-gray: #525252;
+    --nxt-label: #acacac;
+    --nxt-light: #eaeaea;
+    --nxt-lightest: #fafafa;
+    --nxt-white: #ffffff;
+    --nxt-black: #000000;
+    --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+    --font-primary: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+
+    --panel-max-w: 1440px;
+    --panel-expanded-h: 1024px;
+    --panel-collapsed-h: 160px;
+    --transition-speed: 300ms;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-primary);
+    background: var(--nxt-darkest);
+    color: var(--nxt-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ── Section wrapper ───────────────────────────────────────────── */
+  .industries-section {
+    width: 100%;
+    max-width: var(--panel-max-w);
+    margin: 0 auto;
+  }
+
+  /* ── Intro / Hero Panel (lime) ─────────────────────────────────── */
+  .intro-panel {
+    width: 100%;
+    background: var(--nxt-lime);
+    color: var(--nxt-black);
+    padding: 120px 80px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .intro-panel::after {
+    content: '';
+    position: absolute;
+    right: -120px;
+    bottom: -120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+    pointer-events: none;
+  }
+
+  .intro-label {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--nxt-dark);
+    opacity: 0.7;
+  }
+
+  .intro-heading {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(72px, 10vw, 140px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    color: var(--nxt-black);
+  }
+
+  .intro-body {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: clamp(20px, 2.5vw, 32px);
+    line-height: 1.45;
+    max-width: 800px;
+    color: var(--nxt-dark);
+  }
+
+  .intro-stat-row {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+  }
+
+  .intro-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .intro-stat-number {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--nxt-black);
+  }
+
+  .intro-stat-label {
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--nxt-dark);
+    opacity: 0.65;
+  }
+
+  /* ── Accordion container ───────────────────────────────────────── */
+  .panels-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Single industry panel ─────────────────────────────────────── */
+  .industry-panel {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-bottom: 1px solid var(--nxt-dark);
+    background: #131313;
+    transition: height var(--transition-speed) ease;
+    height: var(--panel-collapsed-h);
+    user-select: none;
+  }
+
+  .industry-panel:first-child {
+    border-top: 1px solid var(--nxt-dark);
+  }
+
+  /* Active / expanded panel */
+  .industry-panel.is-active {
+    height: var(--panel-expanded-h);
+    cursor: default;
+  }
+
+  /* ── Background layer (hover / active state photo placeholder) ── */
+  .panel-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+  }
+
+  .panel-bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Gradient overlays for legibility */
+  .panel-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0.55) 75%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    z-index: 1;
+  }
+
+  .industry-panel.is-active .panel-bg {
+    opacity: 1;
+  }
+
+  /* Each industry gets a unique abstract gradient as photo stand-in */
+  .industry-panel[data-industry="higher-education"] .panel-bg-image {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #0f3460 60%, #533483 100%);
+  }
+  .industry-panel[data-industry="healthcare"] .panel-bg-image {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 30%, #415a77 60%, #778da9 100%);
+  }
+  .industry-panel[data-industry="finance"] .panel-bg-image {
+    background: linear-gradient(135deg, #1a1a2e 0%, #1f3c34 30%, #2d6a4f 60%, #40916c 100%);
+  }
+  .industry-panel[data-industry="retail"] .panel-bg-image {
+    background: linear-gradient(135deg, #2b1a2e 0%, #462137 30%, #6b2d3e 60%, #a4444a 100%);
+  }
+
+  /* ── Collapsed content layer ───────────────────────────────────── */
+  .panel-collapsed {
+    position: relative;
+    z-index: 2;
+    height: var(--panel-collapsed-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+    transition: opacity var(--transition-speed) ease;
+  }
+
+  .industry-panel.is-active .panel-collapsed {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .collapsed-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(36px, 4vw, 56px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--nxt-white);
+    line-height: 1;
+  }
+
+  .collapsed-index {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: var(--nxt-label);
+    text-transform: uppercase;
+  }
+
+  .collapsed-icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--nxt-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--transition-speed) ease,
+                background var(--transition-speed) ease;
+    flex-shrink: 0;
+  }
+
+  .industry-panel:hover .collapsed-icon {
+    border-color: var(--nxt-lime);
+    background: rgba(202, 202, 32, 0.08);
+  }
+
+  .collapsed-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--nxt-label);
+    stroke-width: 2;
+    transition: stroke var(--transition-speed) ease,
+                transform var(--transition-speed) ease;
+  }
+
+  .industry-panel:hover .collapsed-icon svg {
+    stroke: var(--nxt-lime);
+    transform: rotate(90deg);
+  }
+
+  /* ── Expanded content layer ────────────────────────────────────── */
+  .panel-expanded {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 80px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed) ease,
+                transform var(--transition-speed) ease;
+    pointer-events: none;
+  }
+
+  .industry-panel.is-active .panel-expanded {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .expanded-label {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--nxt-lime);
+    margin-bottom: 24px;
+  }
+
+  .expanded-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(80px, 12vw, 180px);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 0.88;
+    color: var(--nxt-white);
+    margin-bottom: 40px;
+  }
+
+  .expanded-body {
+    font-family: var(--font-primary);
+    font-weight: 200;
+    font-size: clamp(24px, 3vw, 44px);
+    line-height: 1.35;
+    color: var(--nxt-lightest);
+    max-width: 900px;
+    margin-bottom: 48px;
+  }
+
+  .expanded-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--nxt-lime);
+    text-decoration: none;
+    padding: 16px 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: gap var(--transition-speed) ease;
+  }
+
+  .expanded-cta:hover {
+    gap: 20px;
+  }
+
+  .expanded-cta svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--nxt-lime);
+    stroke-width: 2;
+  }
+
+  /* Close button inside expanded panel */
+  .panel-close {
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease,
+                border-color var(--transition-speed) ease;
+  }
+
+  .industry-panel.is-active .panel-close {
+    opacity: 1;
+  }
+
+  .panel-close:hover {
+    border-color: var(--nxt-lime);
+  }
+
+  .panel-close svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: var(--nxt-white);
+    stroke-width: 2;
+  }
+
+  .panel-close:hover svg {
+    stroke: var(--nxt-lime);
+  }
+
+  /* ── Bottom bar (visible in expanded state) ────────────────────── */
+  .panel-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 202px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 2;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 80px 40px;
+    opacity: 0;
+    transition: opacity var(--transition-speed) ease;
+    pointer-events: none;
+  }
+
+  .industry-panel.is-active .panel-bottom-bar {
+    opacity: 1;
+  }
+
+  /* ── Hover highlight on collapsed panels ───────────────────────── */
+  .industry-panel:not(.is-active):hover {
+    background: #1a1a1a;
+  }
+
+  .industry-panel:not(.is-active):hover .collapsed-title {
+    color: var(--nxt-lime);
+  }
+
+  /* ── Accessibility: focus-visible ──────────────────────────────── */
+  .industry-panel:focus-visible {
+    outline: 2px solid var(--nxt-lime);
+    outline-offset: -2px;
+  }
+
+  .panel-close:focus-visible {
+    outline: 2px solid var(--nxt-lime);
+    outline-offset: 2px;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 1024px) {
+    .intro-panel {
+      padding: 80px 48px;
+      min-height: 480px;
+    }
+    .intro-stat-row { gap: 48px; }
+    .panel-collapsed { padding: 0 48px; }
+    .panel-expanded { padding: 60px 48px; }
+    .panel-close { right: 48px; top: 32px; }
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      --panel-collapsed-h: 120px;
+      --panel-expanded-h: 720px;
+    }
+    .intro-panel {
+      padding: 64px 24px;
+      min-height: 400px;
+    }
+    .intro-stat-row {
+      flex-direction: column;
+      gap: 24px;
+    }
+    .panel-collapsed { padding: 0 24px; }
+    .panel-expanded { padding: 40px 24px; }
+    .panel-close { right: 24px; top: 24px; }
+    .expanded-title { margin-bottom: 24px; }
+    .expanded-body { margin-bottom: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="industries-section" aria-label="Industries We Serve">
+
+  <!-- Intro Panel -->
+  <div class="intro-panel">
+    <span class="intro-label">What We Do</span>
+    <h2 class="intro-heading">Industries<br>We Serve</h2>
+    <p class="intro-body">
+      NXT Humans partners with organizations across the industries that matter most,
+      delivering transformative customer experiences powered by people, data, and AI.
+    </p>
+    <div class="intro-stat-row">
+      <div class="intro-stat">
+        <span class="intro-stat-number">4</span>
+        <span class="intro-stat-label">Core Industries</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-number">172</span>
+        <span class="intro-stat-label">Active Agents</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-number">24/7</span>
+        <span class="intro-stat-label">Global Coverage</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accordion Panels -->
+  <div class="panels-container" role="list">
+
+    <!-- 1. Higher Education -->
+    <div class="industry-panel" data-industry="higher-education" role="listitem" tabindex="0"
+         aria-expanded="false" aria-label="Higher Education">
+      <div class="panel-bg">
+        <div class="panel-bg-image"></div>
+      </div>
+
+      <div class="panel-collapsed">
+        <div>
+          <span class="collapsed-index">01</span>
+          <h3 class="collapsed-title">Higher Education</h3>
+        </div>
+        <div class="collapsed-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+
+      <div class="panel-expanded">
+        <span class="expanded-label">Industry Focus</span>
+        <h3 class="expanded-title">Higher<br>Education</h3>
+        <p class="expanded-body">
+          We partner with leading universities and institutions to reimagine student engagement,
+          enrollment experiences, and alumni relations through AI-driven solutions.
+        </p>
+        <button class="expanded-cta" type="button">
+          Explore Solutions
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <button class="panel-close" aria-label="Close panel" type="button">
+        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- 2. Healthcare & Life Sciences -->
+    <div class="industry-panel" data-industry="healthcare" role="listitem" tabindex="0"
+         aria-expanded="false" aria-label="Healthcare and Life Sciences">
+      <div class="panel-bg">
+        <div class="panel-bg-image"></div>
+      </div>
+
+      <div class="panel-collapsed">
+        <div>
+          <span class="collapsed-index">02</span>
+          <h3 class="collapsed-title">Healthcare & Life Sciences</h3>
+        </div>
+        <div class="collapsed-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+
+      <div class="panel-expanded">
+        <span class="expanded-label">Industry Focus</span>
+        <h3 class="expanded-title">Healthcare &<br>Life Sciences</h3>
+        <p class="expanded-body">
+          We partner with healthcare providers and life sciences organizations to deliver
+          compassionate, compliant patient experiences at every touchpoint.
+        </p>
+        <button class="expanded-cta" type="button">
+          Explore Solutions
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <button class="panel-close" aria-label="Close panel" type="button">
+        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- 3. Finance & Insurance -->
+    <div class="industry-panel" data-industry="finance" role="listitem" tabindex="0"
+         aria-expanded="false" aria-label="Finance and Insurance">
+      <div class="panel-bg">
+        <div class="panel-bg-image"></div>
+      </div>
+
+      <div class="panel-collapsed">
+        <div>
+          <span class="collapsed-index">03</span>
+          <h3 class="collapsed-title">Finance & Insurance</h3>
+        </div>
+        <div class="collapsed-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+
+      <div class="panel-expanded">
+        <span class="expanded-label">Industry Focus</span>
+        <h3 class="expanded-title">Finance &<br>Insurance</h3>
+        <p class="expanded-body">
+          We partner with financial institutions and insurers to build secure, personalized
+          customer journeys that drive trust and long-term loyalty.
+        </p>
+        <button class="expanded-cta" type="button">
+          Explore Solutions
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <button class="panel-close" aria-label="Close panel" type="button">
+        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+
+    <!-- 4. Retail & Ecommerce -->
+    <div class="industry-panel" data-industry="retail" role="listitem" tabindex="0"
+         aria-expanded="false" aria-label="Retail and Ecommerce">
+      <div class="panel-bg">
+        <div class="panel-bg-image"></div>
+      </div>
+
+      <div class="panel-collapsed">
+        <div>
+          <span class="collapsed-index">04</span>
+          <h3 class="collapsed-title">Retail & Ecommerce</h3>
+        </div>
+        <div class="collapsed-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+
+      <div class="panel-expanded">
+        <span class="expanded-label">Industry Focus</span>
+        <h3 class="expanded-title">Retail &<br>Ecommerce</h3>
+        <p class="expanded-body">
+          We partner with brands and retailers to create seamless omnichannel experiences
+          that convert browsers into loyal customers across every platform.
+        </p>
+        <button class="expanded-cta" type="button">
+          Explore Solutions
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+
+      <button class="panel-close" aria-label="Close panel" type="button">
+        <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+
+  </div><!-- /panels-container -->
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  const panels = document.querySelectorAll('.industry-panel');
+
+  function activatePanel(panel) {
+    // Collapse all others
+    panels.forEach(function (p) {
+      if (p !== panel) {
+        p.classList.remove('is-active');
+        p.setAttribute('aria-expanded', 'false');
+      }
+    });
+    // Toggle the clicked panel
+    const isActive = panel.classList.toggle('is-active');
+    panel.setAttribute('aria-expanded', String(isActive));
+  }
+
+  function collapsePanel(panel) {
+    panel.classList.remove('is-active');
+    panel.setAttribute('aria-expanded', 'false');
+  }
+
+  panels.forEach(function (panel) {
+    // Click on panel to expand
+    panel.addEventListener('click', function (e) {
+      // Don't expand if clicking the close button or the CTA
+      if (e.target.closest('.panel-close') || e.target.closest('.expanded-cta')) return;
+      if (!panel.classList.contains('is-active')) {
+        activatePanel(panel);
+      }
+    });
+
+    // Close button
+    var closeBtn = panel.querySelector('.panel-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        collapsePanel(panel);
+      });
+    }
+
+    // Keyboard support
+    panel.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (panel.classList.contains('is-active')) {
+          collapsePanel(panel);
+        } else {
+          activatePanel(panel);
+        }
+      }
+      if (e.key === 'Escape' && panel.classList.contains('is-active')) {
+        collapsePanel(panel);
+        panel.focus();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

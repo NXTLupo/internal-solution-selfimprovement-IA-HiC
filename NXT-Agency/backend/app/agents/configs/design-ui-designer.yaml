@@ -1,0 +1,5 @@
+model: claude-opus
+tier: 4
+temperature: 0.6
+max_tokens: 65536
+max_turns: 20

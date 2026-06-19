@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans 2026 — Contact Form Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================================
+       NXT Humans 2026 Design Tokens
+       ======================================================== */
+    :root {
+      --nxt-teal: #115054;
+      --nxt-lime: #caca20;
+      --nxt-darkest: #141414;
+      --nxt-dark: #242424;
+      --nxt-med: #3a3a3a;
+      --nxt-gray: #525252;
+      --nxt-label: #acacac;
+      --nxt-light: #eaeaea;
+      --nxt-lightest: #fafafa;
+      --nxt-white: #ffffff;
+      --nxt-black: #000000;
+      --font-primary: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--nxt-darkest);
+      color: var(--nxt-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    /* ========================================================
+       Page Title / Documentation Header
+       ======================================================== */
+    .page-title {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .page-title h1 {
+      font-weight: 200;
+      font-size: 36px;
+      color: var(--nxt-white);
+      letter-spacing: -0.5px;
+    }
+    .page-title p {
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--nxt-label);
+      margin-top: 8px;
+    }
+
+    /* ========================================================
+       Contact Panel — Frosted Glass Overlay
+       ======================================================== */
+    .contact-panel {
+      position: relative;
+      width: 1440px;
+      max-width: 100%;
+      height: 1056px;
+      background: rgba(19, 19, 19, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
+
+    /* ========================================================
+       Close Button — Top Right Circle
+       ======================================================== */
+    .close-btn {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--nxt-med);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .close-btn:hover {
+      background: var(--nxt-gray);
+      transform: scale(1.04);
+    }
+    .close-btn:focus-visible {
+      outline: 2px solid var(--nxt-lime);
+      outline-offset: 3px;
+    }
+    .close-btn svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--nxt-light);
+      stroke-width: 2;
+      stroke-linecap: round;
+    }
+
+    /* ========================================================
+       Form Container — 448px Side Panel
+       ======================================================== */
+    .form-container {
+      width: 448px;
+      height: 1056px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .form-container--light {
+      background: var(--nxt-white);
+    }
+    .form-container--dark {
+      background: var(--nxt-dark);
+    }
+
+    /* ========================================================
+       Form Content — 368px Centered
+       ======================================================== */
+    .form-content {
+      width: 368px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ========================================================
+       Form Header
+       ======================================================== */
+    .form-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .form-subtitle {
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .form-title {
+      font-weight: 200;
+      font-size: 52px;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+
+    /* Light variant text colors */
+    .form-container--light .form-subtitle {
+      color: var(--nxt-med);
+    }
+    .form-container--light .form-title {
+      color: var(--nxt-dark);
+    }
+
+    /* Dark variant text colors */
+    .form-container--dark .form-subtitle {
+      color: var(--nxt-label);
+    }
+    .form-container--dark .form-title {
+      color: var(--nxt-white);
+    }
+
+    /* ========================================================
+       Form Fields
+       ======================================================== */
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 368px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    /* Light variant labels */
+    .form-container--light .form-label {
+      color: #131313;
+    }
+
+    /* Dark variant labels */
+    .form-container--dark .form-label {
+      color: var(--nxt-light);
+    }
+
+    .form-input {
+      width: 368px;
+      height: 56px;
+      border-radius: 2px;
+      padding: 0 16px;
+      font-family: var(--font-primary);
+      font-weight: 400;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Light variant inputs */
+    .form-container--light .form-input {
+      background: var(--nxt-white);
+      border: 1px solid var(--nxt-light);
+      color: var(--nxt-dark);
+    }
+    .form-container--light .form-input::placeholder {
+      color: var(--nxt-label);
+    }
+    .form-container--light .form-input:hover {
+      border-color: var(--nxt-med);
+    }
+    .form-container--light .form-input:focus {
+      border-color: var(--nxt-teal);
+      box-shadow: 0 0 0 1px var(--nxt-teal);
+    }
+
+    /* Dark variant inputs */
+    .form-container--dark .form-input {
+      background: var(--nxt-darkest);
+      border: 1px solid var(--nxt-med);
+      color: var(--nxt-white);
+    }
+    .form-container--dark .form-input::placeholder {
+      color: var(--nxt-gray);
+    }
+    .form-container--dark .form-input:hover {
+      border-color: var(--nxt-gray);
+    }
+    .form-container--dark .form-input:focus {
+      border-color: var(--nxt-lime);
+      box-shadow: 0 0 0 1px var(--nxt-lime);
+    }
+
+    /* ========================================================
+       Submit Button — Teal BG + Lime Text
+       ======================================================== */
+    .submit-btn {
+      width: 110px;
+      height: 48px;
+      background: var(--nxt-teal);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .submit-btn:hover {
+      background: #146468;
+      transform: translateY(-1px);
+    }
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+    .submit-btn:focus-visible {
+      outline: 2px solid var(--nxt-lime);
+      outline-offset: 2px;
+    }
+    .submit-btn span {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 12px;
+      color: #c9c920;
+      letter-spacing: 0.5px;
+    }
+
+    /* ========================================================
+       Variant Labels (documentation)
+       ======================================================== */
+    .variant-label {
+      position: absolute;
+      bottom: 24px;
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--nxt-gray);
+      pointer-events: none;
+    }
+    .variant-label--left {
+      left: 168px;
+    }
+    .variant-label--right {
+      left: 616px;
+    }
+
+    /* ========================================================
+       Right Side Content Area (filler for panel)
+       ======================================================== */
+    .panel-right {
+      flex: 1;
+      position: relative;
+    }
+
+    /* ========================================================
+       Responsive Note
+       ======================================================== */
+    .note {
+      margin-top: 32px;
+      font-size: 13px;
+      color: var(--nxt-gray);
+      text-align: center;
+      max-width: 640px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-title">
+    <h1>Contact Form</h1>
+    <p>White variant (left) and Dark variant (right) shown side by side at 1440 x 1056</p>
+  </div>
+
+  <!-- ========================================================
+       WHITE VARIANT — Left Panel
+       ======================================================== -->
+  <section class="contact-panel" aria-label="Contact form panel — both variants">
+
+    <!-- White Form Container -->
+    <div class="form-container form-container--light">
+      <form class="form-content" novalidate aria-label="Contact form — white variant">
+
+        <!-- Header -->
+        <div class="form-header">
+          <p class="form-subtitle">Contact a specialist</p>
+          <h2 class="form-title">What's nxt?</h2>
+        </div>
+
+        <!-- Fields -->
+        <div class="form-fields">
+          <div class="form-group">
+            <label class="form-label" for="name-light">Name</label>
+            <input class="form-input" type="text" id="name-light" name="name" placeholder="Your full name" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email-light">Email address</label>
+            <input class="form-input" type="email" id="email-light" name="email" placeholder="you@company.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company-light">Company</label>
+            <input class="form-input" type="text" id="company-light" name="company" placeholder="Company name" autocomplete="organization">
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" aria-label="Submit contact form">
+          <span>SUBMIT</span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Dark Form Container -->
+    <div class="form-container form-container--dark">
+      <form class="form-content" novalidate aria-label="Contact form — dark variant">
+
+        <!-- Header -->
+        <div class="form-header">
+          <p class="form-subtitle">Contact a specialist</p>
+          <h2 class="form-title">What's nxt?</h2>
+        </div>
+
+        <!-- Fields -->
+        <div class="form-fields">
+          <div class="form-group">
+            <label class="form-label" for="name-dark">Name</label>
+            <input class="form-input" type="text" id="name-dark" name="name" placeholder="Your full name" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email-dark">Email address</label>
+            <input class="form-input" type="email" id="email-dark" name="email" placeholder="you@company.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company-dark">Company</label>
+            <input class="form-input" type="text" id="company-dark" name="company" placeholder="Company name" autocomplete="organization">
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" aria-label="Submit contact form">
+          <span>SUBMIT</span>
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Right-side remaining area -->
+    <div class="panel-right"></div>
+
+    <!-- Close Button -->
+    <button class="close-btn" aria-label="Close contact panel">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="18" y1="6" x2="6" y2="18" />
+      </svg>
+    </button>
+
+    <!-- Variant Documentation Labels -->
+    <span class="variant-label variant-label--left">White Variant</span>
+    <span class="variant-label variant-label--right">Dark Variant</span>
+
+  </section>
+
+  <p class="note">
+    Both variants share identical layout geometry (448 x 1056 form container, 368 x 510 content area, 40px side padding).
+    The frosted-glass backdrop (rgba 19,19,19 at 75% + 24px blur) sits behind both form panels.
+    Submit button uses teal (#115054) background with lime (#c9c920) text.
+    Focus states: teal border on white variant, lime border on dark variant.
+  </p>
+
+</body>
+</html>

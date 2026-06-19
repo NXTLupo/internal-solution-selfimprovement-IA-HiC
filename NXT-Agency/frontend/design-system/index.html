@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans 2026 — Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --nxt-teal: #115054;
+      --nxt-lime: #caca20;
+      --nxt-teal-40: rgba(17, 80, 84, 0.4);
+      --nxt-blue: #00b1eb;
+      --nxt-orange: #fd8e2e;
+      --nxt-coral: #ff6958;
+      --nxt-purple: #5a07bf;
+      --nxt-linkedin: #2396bc;
+      --nxt-black: #000000;
+      --nxt-darkest: #141414;
+      --nxt-dark: #242424;
+      --nxt-med: #3a3a3a;
+      --nxt-gray: #525252;
+      --nxt-label: #acacac;
+      --nxt-light: #eaeaea;
+      --nxt-lightest: #fafafa;
+      --nxt-white: #ffffff;
+      --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+      --font-primary: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+      --font-accent: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-primary);
+      background: var(--nxt-darkest);
+      color: var(--nxt-white);
+      line-height: 1.5;
+    }
+
+    /* --- Hero --- */
+    .hero {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 80px 24px 64px;
+    }
+    .hero-logo { height: 40px; margin-bottom: 48px; }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 100px;
+      line-height: 100px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--nxt-white);
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--nxt-lime); }
+    .hero p {
+      font-weight: 200;
+      font-size: 24px;
+      line-height: 36px;
+      color: var(--nxt-light);
+      max-width: 640px;
+    }
+
+    /* --- Color Palette --- */
+    .section { max-width: 1440px; margin: 0 auto; padding: 48px 24px; }
+    .section-label {
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--nxt-label);
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-weight: 200;
+      font-size: 44px;
+      line-height: 52px;
+      margin-bottom: 32px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .color-swatch {
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid var(--nxt-med);
+    }
+    .color-swatch-preview {
+      height: 80px;
+      width: 100%;
+    }
+    .color-swatch-info {
+      padding: 12px;
+      background: var(--nxt-dark);
+    }
+    .color-swatch-name {
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--nxt-white);
+    }
+    .color-swatch-hex {
+      font-weight: 300;
+      font-size: 12px;
+      color: var(--nxt-label);
+      margin-top: 2px;
+    }
+
+    /* --- Typography --- */
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--nxt-med);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-meta {
+      width: 180px;
+      flex-shrink: 0;
+    }
+    .type-meta-name { font-weight: 500; font-size: 14px; color: var(--nxt-lime); }
+    .type-meta-spec { font-weight: 300; font-size: 12px; color: var(--nxt-label); margin-top: 4px; }
+
+    .display-xxxl { font-family: var(--font-display); font-weight: 900; font-size: 120px; line-height: 120px; text-transform: uppercase; }
+    .display-xxl  { font-family: var(--font-display); font-weight: 900; font-size: 80px; line-height: 80px; text-transform: uppercase; }
+    .heading-1    { font-family: var(--font-primary); font-weight: 200; font-size: 72px; line-height: 80px; }
+    .heading-2    { font-family: var(--font-primary); font-weight: 200; font-size: 52px; line-height: 56px; }
+    .heading-3    { font-family: var(--font-primary); font-weight: 200; font-size: 44px; line-height: 60px; }
+    .heading-4    { font-family: var(--font-primary); font-weight: 500; font-size: 21px; line-height: 40px; }
+    .body-lg      { font-family: var(--font-primary); font-weight: 300; font-size: 18px; line-height: 26px; }
+    .body-sm      { font-family: var(--font-primary); font-weight: 300; font-size: 16px; line-height: 18px; }
+    .caption      { font-family: var(--font-primary); font-weight: 300; font-size: 12px; line-height: 14px; }
+    .caption-bold { font-family: var(--font-primary); font-weight: 700; font-size: 12px; line-height: 14px; }
+    .button-text  { font-family: var(--font-primary); font-weight: 700; font-size: 12px; text-transform: uppercase; }
+
+    /* --- Component Gallery --- */
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .component-card {
+      background: var(--nxt-dark);
+      border: 1px solid var(--nxt-med);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: border-color 150ms ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .component-card:hover {
+      border-color: var(--nxt-lime);
+    }
+    .component-card iframe {
+      width: 100%;
+      height: 280px;
+      border: none;
+      pointer-events: none;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      width: 200%;
+      height: 560px;
+    }
+    .component-card-info {
+      padding: 16px;
+      border-top: 1px solid var(--nxt-med);
+    }
+    .component-card-name {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--nxt-white);
+    }
+    .component-card-desc {
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--nxt-label);
+      margin-top: 4px;
+    }
+    .component-card-source {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--nxt-lime);
+      letter-spacing: 0.5px;
+    }
+
+    /* --- Spacing Scale --- */
+    .spacing-grid {
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .spacing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .spacing-bar {
+      background: var(--nxt-lime);
+      border-radius: 1px;
+      width: 40px;
+    }
+    .spacing-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--nxt-label);
+    }
+    .spacing-value {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--nxt-gray);
+    }
+
+    /* --- Dimensions --- */
+    .dim-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .dim-item {
+      background: var(--nxt-dark);
+      border: 1px solid var(--nxt-med);
+      border-radius: 2px;
+      padding: 16px;
+    }
+    .dim-value {
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--nxt-lime);
+      font-family: var(--font-accent);
+    }
+    .dim-label {
+      font-weight: 300;
+      font-size: 14px;
+      color: var(--nxt-label);
+      margin-top: 4px;
+    }
+
+    /* --- Footer --- */
+    .footer {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      border-top: 1px solid var(--nxt-med);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--nxt-gray);
+    }
+    .footer-text a {
+      color: var(--nxt-lime);
+      text-decoration: none;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--nxt-med);
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="../images/new_logo.png" alt="NXT Humans" class="hero-logo" style="filter: invert(1);">
+    <h1>Design <span>System</span></h1>
+    <p>The complete NXT Humans 2026 design system — colors, typography, spacing, components, and page sections extracted from Figma.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- LOGO -->
+  <div class="section">
+    <div class="section-label">Foundation</div>
+    <div class="section-title">Logo</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px;">
+      <!-- White background (DEFAULT) -->
+      <div style="background: var(--nxt-white); border: 1px solid var(--nxt-med); border-radius: 2px; padding: 48px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; position: relative;">
+        <span style="position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: var(--nxt-lime); color: var(--nxt-teal); padding: 2px 8px; border-radius: 2px;">Default</span>
+        <img src="../images/new_logo.png" alt="NXT Humans logo on white" style="height: 48px;">
+        <span style="font-size: 12px; font-weight: 300; color: var(--nxt-gray);">On White (#ffffff)</span>
+      </div>
+      <!-- Light background -->
+      <div style="background: var(--nxt-lightest); border: 1px solid var(--nxt-med); border-radius: 2px; padding: 48px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;">
+        <img src="../images/new_logo.png" alt="NXT Humans logo on lightest" style="height: 48px;">
+        <span style="font-size: 12px; font-weight: 300; color: var(--nxt-gray);">On Lightest (#fafafa)</span>
+      </div>
+      <!-- Dark background (reversed) -->
+      <div style="background: var(--nxt-darkest); border: 1px solid var(--nxt-med); border-radius: 2px; padding: 48px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; position: relative;">
+        <span style="position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: var(--nxt-med); color: var(--nxt-light); padding: 2px 8px; border-radius: 2px;">Reversed</span>
+        <img src="../images/new_logo.png" alt="NXT Humans logo reversed on dark" style="height: 48px; filter: invert(1);">
+        <span style="font-size: 12px; font-weight: 300; color: var(--nxt-label);">On Dark (#141414) — filter: invert(1)</span>
+      </div>
+      <!-- Teal background (reversed) -->
+      <div style="background: var(--nxt-teal); border: 1px solid var(--nxt-med); border-radius: 2px; padding: 48px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; position: relative;">
+        <span style="position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: rgba(255,255,255,0.15); color: var(--nxt-white); padding: 2px 8px; border-radius: 2px;">Reversed</span>
+        <img src="../images/new_logo.png" alt="NXT Humans logo reversed on teal" style="height: 48px; filter: invert(1);">
+        <span style="font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.6);">On Teal (#115054) — filter: invert(1)</span>
+      </div>
+      <!-- Black background (reversed) -->
+      <div style="background: var(--nxt-black); border: 1px solid var(--nxt-med); border-radius: 2px; padding: 48px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; position: relative;">
+        <span style="position: absolute; top: 12px; right: 12px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: var(--nxt-med); color: var(--nxt-light); padding: 2px 8px; border-radius: 2px;">Reversed</span>
+        <img src="../images/new_logo.png" alt="NXT Humans logo reversed on black" style="height: 48px; filter: invert(1);">
+        <span style="font-size: 12px; font-weight: 300; color: var(--nxt-label);">On Black (#000000) — filter: invert(1)</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px;">
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--nxt-label);">File</div>
+        <div style="font-size: 14px; margin-top: 4px; color: var(--nxt-lime);">new_logo.png</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--nxt-label);">Path</div>
+        <div style="font-size: 14px; margin-top: 4px; color: var(--nxt-light);">/images/new_logo.png</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--nxt-label);">Default</div>
+        <div style="font-size: 14px; margin-top: 4px; color: var(--nxt-light);">Black logo on white/light backgrounds</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--nxt-label);">Reversed</div>
+        <div style="font-size: 14px; margin-top: 4px; color: var(--nxt-lime);">filter: invert(1) on dark backgrounds</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--nxt-label);">Min Height</div>
+        <div style="font-size: 14px; margin-top: 4px; color: var(--nxt-light);">28px (header), 40px (footer)</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div style="font-weight: 700; font-size: 12px; text-transform: uppercase; color: var(--nxt-label);">Clear Space</div>
+        <div style="font-size: 14px; margin-top: 4px; color: var(--nxt-light);">1x logo height on all sides</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COLORS -->
+  <div class="section">
+    <div class="section-label">Foundation</div>
+    <div class="section-title">Color Palette</div>
+
+    <div class="section-label" style="margin-top: 32px;">Brand</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #115054;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Teal</div><div class="color-swatch-hex">#115054</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #caca20;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Lime</div><div class="color-swatch-hex">#caca20</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Neutral Scale</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #000000;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Black</div><div class="color-swatch-hex">#000000</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #141414;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Darkest</div><div class="color-swatch-hex">#141414</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #242424;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Dark</div><div class="color-swatch-hex">#242424</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #3a3a3a;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Med</div><div class="color-swatch-hex">#3a3a3a</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #525252;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Gray</div><div class="color-swatch-hex">#525252</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #acacac;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Label</div><div class="color-swatch-hex">#acacac</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #eaeaea;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Light</div><div class="color-swatch-hex">#eaeaea</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #fafafa; border-bottom: 1px solid #3a3a3a;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Lightest</div><div class="color-swatch-hex">#fafafa</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #ffffff; border-bottom: 1px solid #3a3a3a;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">White</div><div class="color-swatch-hex">#ffffff</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Accent Colors</div>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #00b1eb;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Blue</div><div class="color-swatch-hex">#00b1eb</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #fd8e2e;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Orange</div><div class="color-swatch-hex">#fd8e2e</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #ff6958;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Coral</div><div class="color-swatch-hex">#ff6958</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #5a07bf;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">Purple</div><div class="color-swatch-hex">#5a07bf</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-preview" style="background: #2396bc;"></div>
+        <div class="color-swatch-info"><div class="color-swatch-name">LinkedIn</div><div class="color-swatch-hex">#2396bc</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section">
+    <div class="section-label">Foundation</div>
+    <div class="section-title">Typography</div>
+
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Display XXXL</div><div class="type-meta-spec">AgencyFB 900 / 180px</div></div>
+      <div class="display-xxxl" style="font-size: 80px; line-height: 80px;">NXT HUMANS</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Display XXL</div><div class="type-meta-spec">AgencyFB 900 / 100px</div></div>
+      <div class="display-xxl" style="font-size: 60px; line-height: 60px;">DESIGN SYSTEM</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">H1</div><div class="type-meta-spec">Archivo 200 / 72px</div></div>
+      <div class="heading-1" style="font-size: 48px; line-height: 56px;">Page Heading</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">H2</div><div class="type-meta-spec">Archivo 200 / 52px</div></div>
+      <div class="heading-2" style="font-size: 40px; line-height: 44px;">Section Heading</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">H3</div><div class="type-meta-spec">Archivo 200 / 44px</div></div>
+      <div class="heading-3" style="font-size: 36px; line-height: 48px;">Subsection Heading</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">H4</div><div class="type-meta-spec">Archivo 500 / 21px</div></div>
+      <div class="heading-4">Form Subtitle</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Body</div><div class="type-meta-spec">Archivo 300 / 18px</div></div>
+      <div class="body-lg">We partner with forward-thinking organizations to design and build AI-native digital experiences.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Body SM</div><div class="type-meta-spec">Archivo 300 / 16px</div></div>
+      <div class="body-sm">Navigation items, small text, secondary content</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Caption</div><div class="type-meta-spec">Archivo 300 / 12px</div></div>
+      <div class="caption">Section labels, step indicators, metadata</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Caption Bold</div><div class="type-meta-spec">Archivo 700 / 12px</div></div>
+      <div class="caption-bold">ACTIVE LABELS, TAGS</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta"><div class="type-meta-name">Button</div><div class="type-meta-spec">Archivo 700 / 12px UC</div></div>
+      <div class="button-text">SUBMIT &nbsp; CONTACT &nbsp; ASK US ANYTHING</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SPACING -->
+  <div class="section">
+    <div class="section-label">Foundation</div>
+    <div class="section-title">Spacing Scale</div>
+    <div class="spacing-grid">
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 4px;"></div>
+        <div class="spacing-label">XXS</div>
+        <div class="spacing-value">4px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 8px;"></div>
+        <div class="spacing-label">XS</div>
+        <div class="spacing-value">8px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 12px;"></div>
+        <div class="spacing-label">SM</div>
+        <div class="spacing-value">12px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 16px;"></div>
+        <div class="spacing-label">MD</div>
+        <div class="spacing-value">16px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 24px;"></div>
+        <div class="spacing-label">LG</div>
+        <div class="spacing-value">24px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 64px;"></div>
+        <div class="spacing-label">XL</div>
+        <div class="spacing-value">64px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 120px;"></div>
+        <div class="spacing-label">XXL</div>
+        <div class="spacing-value">120px</div>
+      </div>
+      <div class="spacing-item">
+        <div class="spacing-bar" style="height: 180px;"></div>
+        <div class="spacing-label">SECTION</div>
+        <div class="spacing-value">278px</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- KEY DIMENSIONS -->
+  <div class="section">
+    <div class="section-label">Foundation</div>
+    <div class="section-title">Key Dimensions</div>
+    <div class="dim-grid">
+      <div class="dim-item"><div class="dim-value">1440px</div><div class="dim-label">Desktop viewport</div></div>
+      <div class="dim-item"><div class="dim-value">1056px</div><div class="dim-label">Section panel height</div></div>
+      <div class="dim-item"><div class="dim-value">920px</div><div class="dim-label">Content width</div></div>
+      <div class="dim-item"><div class="dim-value">448px</div><div class="dim-label">Form container</div></div>
+      <div class="dim-item"><div class="dim-value">368px</div><div class="dim-label">Form inner width</div></div>
+      <div class="dim-item"><div class="dim-value">56px</div><div class="dim-label">Input height</div></div>
+      <div class="dim-item"><div class="dim-value">48px</div><div class="dim-label">Button height</div></div>
+      <div class="dim-item"><div class="dim-value">2px</div><div class="dim-label">Button / Input radius</div></div>
+      <div class="dim-item"><div class="dim-value">4px</div><div class="dim-label">Nav radius</div></div>
+      <div class="dim-item"><div class="dim-value">88px</div><div class="dim-label">Close button (circle)</div></div>
+      <div class="dim-item"><div class="dim-value">64px</div><div class="dim-label">Expand button (circle)</div></div>
+      <div class="dim-item"><div class="dim-value">40px</div><div class="dim-label">Social button (circle)</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMPONENT GALLERY -->
+  <div class="section">
+    <div class="section-label">Components & Sections</div>
+    <div class="section-title">Figma Reference Implementations</div>
+    <p class="body-lg" style="color: var(--nxt-label); margin-bottom: 32px;">
+      Each component below is a self-contained HTML file extracted from the NXT Humans 2026 Figma file
+      (<code style="color: var(--nxt-lime); font-size: 14px;">SPqccoINis4oLGTeT7C6Y7</code>).
+      Click to open full-size.
+    </p>
+
+    <div class="component-grid">
+      <a class="component-card" href="header.html" target="_blank">
+        <iframe src="header.html" loading="lazy" sandbox="allow-scripts"></iframe>
+        <div class="component-card-info">
+          <div class="component-card-name">Header</div>
+          <div class="component-card-desc">Navigation bar with logo, nav items, and CTA button</div>
+          <div class="component-card-source">Node 4:597 &rarr;</div>
+        </div>
+      </a>
+
+      <a class="component-card" href="buttons.html" target="_blank">
+        <iframe src="buttons.html" loading="lazy" sandbox="allow-scripts"></iframe>
+        <div class="component-card-info">
+          <div class="component-card-name">Buttons</div>
+          <div class="component-card-desc">Square, circle, social, and AI-form button variants</div>
+          <div class="component-card-source">Node 14:266 &rarr;</div>
+        </div>
+      </a>
+
+      <a class="component-card" href="industries.html" target="_blank">
+        <iframe src="industries.html" loading="lazy" sandbox="allow-scripts"></iframe>
+        <div class="component-card-info">
+          <div class="component-card-name">Industries</div>
+          <div class="component-card-desc">Accordion panels for Higher Ed, Healthcare, Finance, Retail</div>
+          <div class="component-card-source">Node 4:987 &rarr;</div>
+        </div>
+      </a>
+
+      <a class="component-card" href="approach.html" target="_blank">
+        <iframe src="approach.html" loading="lazy" sandbox="allow-scripts"></iframe>
+        <div class="component-card-info">
+          <div class="component-card-name">Approach</div>
+          <div class="component-card-desc">Stepped panels: Intro, AI Velocity, Intelligence, Development</div>
+          <div class="component-card-source">Node 184:647 &rarr;</div>
+        </div>
+      </a>
+
+      <a class="component-card" href="team.html" target="_blank">
+        <iframe src="team.html" loading="lazy" sandbox="allow-scripts"></iframe>
+        <div class="component-card-info">
+          <div class="component-card-name">Our Team</div>
+          <div class="component-card-desc">Team member rows with name, title, and LinkedIn links</div>
+          <div class="component-card-source">Node 14:286 &rarr;</div>
+        </div>
+      </a>
+
+      <a class="component-card" href="contact-form.html" target="_blank">
+        <iframe src="contact-form.html" loading="lazy" sandbox="allow-scripts"></iframe>
+        <div class="component-card-info">
+          <div class="component-card-name">Contact Form</div>
+          <div class="component-card-desc">Dark + White form variants with frosted glass overlay</div>
+          <div class="component-card-source">Node 14:509 &rarr;</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- VISUAL LANGUAGE -->
+  <div class="section">
+    <div class="section-label">Principles</div>
+    <div class="section-title">Visual Language</div>
+
+    <div class="dim-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+      <div class="dim-item">
+        <div class="dim-value" style="font-size: 18px;">No Shadows</div>
+        <div class="dim-label">All depth via background blur + layered opacity. Never use drop-shadow or box-shadow.</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value" style="font-size: 18px;">Frosted Glass</div>
+        <div class="dim-label">backdrop-filter: blur(32px) over teal/dark overlays for depth and elegance.</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value" style="font-size: 18px;">Minimal Radius</div>
+        <div class="dim-label">2px for buttons/inputs, 4px for nav. Circles only for icon buttons (50%).</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value" style="font-size: 18px;">High Contrast</div>
+        <div class="dim-label">White/lime text on very dark backgrounds. WCAG AA+ on all combinations.</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value" style="font-size: 18px;">Dark First</div>
+        <div class="dim-label">All backgrounds use the dark palette (#141414, #242424, #3a3a3a). White is for forms only.</div>
+      </div>
+      <div class="dim-item">
+        <div class="dim-value" style="font-size: 18px;">1px Progress Bars</div>
+        <div class="dim-label">Ultra-thin progress indicators: white for active, lightest for inactive segments.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FIGMA SOURCE -->
+  <div class="section">
+    <div class="section-label">Source</div>
+    <div class="section-title">Figma File Reference</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 800px;">
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">FILE KEY</div>
+        <div class="body-sm" style="color: var(--nxt-lime); margin-top: 4px;">SPqccoINis4oLGTeT7C6Y7</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">FILE NAME</div>
+        <div class="body-sm" style="margin-top: 4px;">NXT Humans Website 2026</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">HEADER</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 4:597</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">BUTTONS</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 14:266</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">INDUSTRIES</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 4:987</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">APPROACH</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 184:647</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">OUR TEAM</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 14:286</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">CONTACT FORM</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 14:509</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">FORM BG (DARK)</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 498:1676</div>
+      </div>
+      <div style="padding: 12px 0; border-bottom: 1px solid var(--nxt-med);">
+        <div class="caption-bold" style="color: var(--nxt-label);">FORM BG (WHITE)</div>
+        <div class="body-sm" style="margin-top: 4px;">Node 498:1536</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-text">NXT Humans 2026 Design System &mdash; Extracted from Figma via REST API</div>
+    <div class="footer-text"><a href="#">Back to top &uarr;</a></div>
+  </div>
+
+</body>
+</html>

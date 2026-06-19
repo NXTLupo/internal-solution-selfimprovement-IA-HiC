@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelligence Augmentation — NXT Humans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== NXT Humans 2026 Design System Tokens ===== */
+    /* Source: design-system/index.html — NO custom values */
+
+    :root {
+      /* Brand */
+      --nxt-teal: #115054;
+      --nxt-lime: #caca20;
+      --nxt-teal-40: rgba(17, 80, 84, 0.4);
+
+      /* Accent */
+      --nxt-blue: #00b1eb;
+      --nxt-orange: #fd8e2e;
+      --nxt-coral: #ff6958;
+      --nxt-purple: #5a07bf;
+      --nxt-linkedin: #2396bc;
+
+      /* Neutral Scale */
+      --nxt-black: #000000;
+      --nxt-darkest: #141414;
+      --nxt-dark: #242424;
+      --nxt-med: #3a3a3a;
+      --nxt-gray: #525252;
+      --nxt-label: #acacac;
+      --nxt-light: #eaeaea;
+      --nxt-lightest: #fafafa;
+      --nxt-white: #ffffff;
+
+      /* Font Families */
+      --font-display: 'Impact', 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+      --font-primary: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+      --font-accent: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    /* ===== Base Reset (from design system) ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-primary);
+      background: var(--nxt-darkest);
+      color: var(--nxt-white);
+      line-height: 1.5;
+    }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Typography Classes (from design system) ===== */
+    .display-xxxl { font-family: var(--font-display); font-weight: 900; font-size: 180px; line-height: 180px; letter-spacing: 1.8px; text-transform: uppercase; }
+    .display-xxl  { font-family: var(--font-display); font-weight: 900; font-size: 100px; line-height: 100px; letter-spacing: 1px; text-transform: uppercase; }
+    .heading-1    { font-family: var(--font-primary); font-weight: 200; font-size: 72px; line-height: 80px; }
+    .heading-2    { font-family: var(--font-primary); font-weight: 200; font-size: 52px; line-height: 56px; }
+    .heading-3    { font-family: var(--font-primary); font-weight: 200; font-size: 44px; line-height: 60px; }
+    .heading-4    { font-family: var(--font-primary); font-weight: 500; font-size: 21px; line-height: 40px; }
+    .body-lg      { font-family: var(--font-primary); font-weight: 300; font-size: 18px; line-height: 26px; }
+    .body-sm      { font-family: var(--font-primary); font-weight: 300; font-size: 16px; line-height: 18px; }
+    .caption      { font-family: var(--font-primary); font-weight: 300; font-size: 12px; line-height: 14px; }
+    .caption-bold { font-family: var(--font-primary); font-weight: 700; font-size: 12px; line-height: 14px; text-transform: uppercase; }
+    .button-text  { font-family: var(--font-primary); font-weight: 700; font-size: 12px; text-transform: uppercase; }
+
+    /* ===== Component Classes (from design system) ===== */
+
+    /* Layout */
+    .nxt-section { width: 100%; max-width: 1440px; margin: 0 auto; padding: 24px; }
+    .nxt-container { max-width: 920px; margin: 0 auto; }
+    .nxt-flex { display: flex; }
+    .nxt-flex-col { display: flex; flex-direction: column; }
+    .nxt-center { display: flex; align-items: center; justify-content: center; }
+    .nxt-between { display: flex; align-items: center; justify-content: space-between; }
+    .nxt-gap-xs  { gap: 8px; }
+    .nxt-gap-sm  { gap: 12px; }
+    .nxt-gap-md  { gap: 16px; }
+    .nxt-gap-lg  { gap: 24px; }
+    .nxt-gap-xl  { gap: 64px; }
+
+    /* Nav */
+    .nxt-nav {
+      background: var(--nxt-black);
+      border-radius: 4px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Buttons */
+    .nxt-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+      font-family: var(--font-primary); font-weight: 700; font-size: 12px; text-transform: uppercase;
+      padding: 16px 24px; border: none; border-radius: 2px; cursor: pointer;
+      transition: all 150ms ease; height: 48px; text-decoration: none;
+    }
+    .nxt-btn-primary { background: var(--nxt-lime); color: var(--nxt-teal); }
+    .nxt-btn-primary:hover { filter: brightness(1.1); }
+    .nxt-btn-secondary { background: var(--nxt-med); color: var(--nxt-light); }
+    .nxt-btn-secondary:hover { background: var(--nxt-dark); }
+
+    /* Card */
+    .nxt-card {
+      background: var(--nxt-dark);
+      border: 1px solid var(--nxt-med);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: border-color 150ms ease;
+    }
+    .nxt-card:hover { border-color: var(--nxt-lime); }
+
+    /* Frosted Glass */
+    .nxt-frosted {
+      background: var(--nxt-teal-40);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+    }
+
+    /* Divider */
+    .nxt-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--nxt-med);
+    }
+
+    /* Progress bar (1px, from visual language) */
+    .nxt-progress {
+      height: 1px;
+      width: 100%;
+      background: var(--nxt-lightest);
+    }
+    .nxt-progress-fill {
+      height: 1px;
+      background: var(--nxt-white);
+    }
+
+    /* ===== Page-specific layout using ONLY system tokens ===== */
+
+    /* Hero: 1440x1056 panel (Key Dimension) */
+    .hero-panel {
+      width: 100%;
+      max-width: 1440px;
+      height: 1056px;
+      margin: 0 auto;
+      background: var(--nxt-darkest);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background text — display-xxxl in accent orange, positioned behind content */
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      opacity: 0.06;
+      pointer-events: none;
+      color: var(--nxt-orange);
+    }
+
+    /* Frosted overlay on top of bg text */
+    .hero-frost {
+      position: absolute;
+      inset: 0;
+    }
+
+    /* Content layer: 920px container (Key Dimension), centered */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 64px 24px;
+    }
+
+    /* Step bar at bottom of hero */
+    .step-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      max-width: 1392px;
+      margin: 0 auto;
+      padding: 0 24px 24px;
+      z-index: 2;
+    }
+
+    /* Nav links */
+    .nav-link {
+      color: var(--nxt-light);
+      text-decoration: none;
+      transition: color 150ms ease;
+    }
+    .nav-link:hover { color: var(--nxt-lime); }
+
+    /* Feature cards grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Stat items */
+    .stat-value {
+      font-family: var(--font-accent);
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--nxt-orange);
+    }
+
+    /* Team row (from team component pattern) */
+    .team-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      border-bottom: 1px solid var(--nxt-med);
+      transition: all 150ms ease;
+    }
+    .team-row:hover { background: rgba(255,255,255,0.03); }
+    .team-row:hover .team-name { color: var(--nxt-lime); }
+    .team-name { transition: color 150ms ease; }
+
+    /* Close button (88px circle from buttons component) */
+    .close-btn {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: var(--nxt-med);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 150ms ease;
+    }
+    .close-btn:hover { background: var(--nxt-teal); }
+    .close-btn:hover svg { stroke: var(--nxt-lime); }
+    .close-btn svg { stroke: var(--nxt-light); }
+
+    /* Expand button (64px circle from buttons component) */
+    .expand-btn {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--nxt-lime);
+      border: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 150ms ease;
+    }
+    .expand-btn:hover { filter: brightness(1.1); }
+
+    @media (max-width: 1024px) {
+      .hero-panel { height: auto; min-height: 800px; }
+      .display-xxxl { font-size: 100px; line-height: 100px; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .heading-1 { font-size: 48px; line-height: 56px; }
+      .heading-2 { font-size: 36px; line-height: 44px; }
+      .display-xxxl { font-size: 60px; line-height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================ -->
+  <!-- HEADER — nxt-nav component (black bg, 4px radius, 48px h)    -->
+  <!-- ============================================================ -->
+  <div class="nxt-section" style="padding-top: 24px; padding-bottom: 0;">
+    <nav class="nxt-nav">
+      <a href="index.html">
+        <img src="../images/new_logo.png" alt="NXT Humans" style="height: 28px; filter: invert(1);">
+      </a>
+      <div class="nxt-flex nxt-gap-lg" style="align-items: center;">
+        <a href="industries.html" class="nav-link body-sm">Industries</a>
+        <a href="approach.html" class="nav-link body-sm">Approach</a>
+        <a href="team.html" class="nav-link body-sm">Team</a>
+        <a href="contact-form.html" class="nav-link body-sm">Contact</a>
+        <a href="#contact" class="nxt-btn nxt-btn-primary">Ask Us Anything</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- HERO PANEL — 1440x1056 (Key Dimension)                      -->
+  <!-- Background: display-xxxl in --nxt-orange at low opacity      -->
+  <!-- Overlay: nxt-frosted (teal-40 + blur 32px)                   -->
+  <!-- Content: 920px container (Key Dimension)                     -->
+  <!-- ============================================================ -->
+  <div class="hero-panel">
+    <!-- Background text: display-xxxl, --nxt-orange -->
+    <div class="hero-bg-text display-xxxl" style="font-size: 360px; line-height: 360px;">INTELLIGENCE</div>
+
+    <!-- Frosted overlay: nxt-frosted -->
+    <div class="hero-frost nxt-frosted"></div>
+
+    <!-- Content: 920px nxt-container -->
+    <div class="hero-content nxt-flex-col" style="justify-content: center; gap: 24px;">
+      <!-- Caption bold: step label -->
+      <div class="caption-bold" style="color: var(--nxt-orange); letter-spacing: 1px;">03. Intelligence Augmentation</div>
+
+      <!-- heading-1: page title -->
+      <h1 class="heading-1">Amplify human expertise<br>with AI-native systems</h1>
+
+      <!-- body-lg: description -->
+      <p class="body-lg" style="color: var(--nxt-light); max-width: 640px;">
+        We design intelligence layers that work alongside your teams — not instead of them.
+        Every system we build augments human judgment with machine speed, turning domain
+        expertise into scalable, AI-powered workflows.
+      </p>
+
+      <!-- nxt-btn-primary: CTA -->
+      <div class="nxt-flex nxt-gap-md" style="margin-top: 24px;">
+        <a href="#capabilities" class="nxt-btn nxt-btn-primary">Explore Capabilities</a>
+        <a href="#contact" class="nxt-btn nxt-btn-secondary">Talk to a Specialist</a>
+      </div>
+    </div>
+
+    <!-- Step bar: caption, 1px progress (from visual language) -->
+    <div class="step-bar">
+      <div class="nxt-flex nxt-between" style="margin-bottom: 16px;">
+        <span class="caption" style="color: var(--nxt-gray);">01. Intro</span>
+        <span class="caption" style="color: var(--nxt-gray);">02. AI Native Velocity</span>
+        <span class="caption-bold" style="color: var(--nxt-white);">03. Intelligence Augmentation</span>
+        <span class="caption" style="color: var(--nxt-gray);">04. AI-Assisted Development</span>
+      </div>
+      <!-- 1px progress bar (visual language: white active, lightest inactive) -->
+      <div class="nxt-progress">
+        <div class="nxt-progress-fill" style="width: 75%;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 1440px; margin: 0 auto;"><div class="nxt-divider"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- CAPABILITIES — nxt-card components in a grid                 -->
+  <!-- ============================================================ -->
+  <section id="capabilities" class="nxt-section" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="nxt-container">
+      <div class="caption-bold" style="color: var(--nxt-label); margin-bottom: 24px; letter-spacing: 1px;">Capabilities</div>
+      <h2 class="heading-2" style="margin-bottom: 16px;">What intelligence augmentation looks like</h2>
+      <p class="body-lg" style="color: var(--nxt-label); margin-bottom: 48px;">
+        Every engagement starts with your domain expertise. We build AI systems that learn from your best people
+        and scale their judgment across the organization.
+      </p>
+    </div>
+
+    <div class="nxt-container">
+      <div class="feature-grid">
+        <!-- Card 1: nxt-card -->
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="nxt-flex-col nxt-gap-md">
+            <!-- expand-btn (64px circle, lime — from buttons component) -->
+            <div class="expand-btn" style="width: 48px; height: 48px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#115054" stroke-width="2" stroke-linecap="round">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+            </div>
+            <div class="heading-4">Knowledge Capture</div>
+            <p class="body-sm" style="color: var(--nxt-label);">
+              Extract institutional knowledge from your senior team members and encode it into AI systems
+              that make that expertise available to everyone.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: nxt-card -->
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="nxt-flex-col nxt-gap-md">
+            <div class="expand-btn" style="width: 48px; height: 48px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#115054" stroke-width="2" stroke-linecap="round">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+              </svg>
+            </div>
+            <div class="heading-4">Decision Support</div>
+            <p class="body-sm" style="color: var(--nxt-label);">
+              AI-powered analysis surfaces the right data at the right time, so your people make
+              faster, better-informed decisions without information overload.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: nxt-card -->
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="nxt-flex-col nxt-gap-md">
+            <div class="expand-btn" style="width: 48px; height: 48px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#115054" stroke-width="2" stroke-linecap="round">
+                <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v-2M9 7a4 4 0 108 0 4 4 0 00-8 0zM22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <div class="heading-4">Workflow Automation</div>
+            <p class="body-sm" style="color: var(--nxt-label);">
+              Identify repetitive cognitive tasks and automate them with AI agents that handle
+              the routine so your team focuses on high-value work.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 4: nxt-card -->
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="nxt-flex-col nxt-gap-md">
+            <div class="expand-btn" style="width: 48px; height: 48px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#115054" stroke-width="2" stroke-linecap="round">
+                <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+              </svg>
+            </div>
+            <div class="heading-4">Contextual Training</div>
+            <p class="body-sm" style="color: var(--nxt-label);">
+              Custom fine-tuned models trained on your domain data, your terminology, and your
+              standards — not generic AI that needs constant correction.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 5: nxt-card -->
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="nxt-flex-col nxt-gap-md">
+            <div class="expand-btn" style="width: 48px; height: 48px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#115054" stroke-width="2" stroke-linecap="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="heading-4">Human-in-the-Loop</div>
+            <p class="body-sm" style="color: var(--nxt-label);">
+              Every critical decision stays with your people. Our AI systems recommend, draft, and
+              analyze — but humans approve, override, and steer.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 6: nxt-card -->
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="nxt-flex-col nxt-gap-md">
+            <div class="expand-btn" style="width: 48px; height: 48px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#115054" stroke-width="2" stroke-linecap="round">
+                <path d="M18 20V10M12 20V4M6 20v-6"/>
+              </svg>
+            </div>
+            <div class="heading-4">Continuous Learning</div>
+            <p class="body-sm" style="color: var(--nxt-label);">
+              Systems that get smarter over time by learning from every interaction, correction,
+              and outcome — compounding your team's collective intelligence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1440px; margin: 0 auto;"><div class="nxt-divider"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- METRICS — stat items using dim-value pattern + nxt-card      -->
+  <!-- ============================================================ -->
+  <section class="nxt-section" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="nxt-container">
+      <div class="caption-bold" style="color: var(--nxt-label); margin-bottom: 24px; letter-spacing: 1px;">Impact</div>
+      <h2 class="heading-2" style="margin-bottom: 48px;">Measured results</h2>
+
+      <div class="feature-grid">
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="stat-value">73%</div>
+          <p class="body-sm" style="color: var(--nxt-label); margin-top: 8px;">Reduction in time-to-decision for complex cases</p>
+        </div>
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="stat-value">4.2x</div>
+          <p class="body-sm" style="color: var(--nxt-label); margin-top: 8px;">Throughput increase without adding headcount</p>
+        </div>
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="stat-value">91%</div>
+          <p class="body-sm" style="color: var(--nxt-label); margin-top: 8px;">User adoption rate within 60 days of deployment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1440px; margin: 0 auto;"><div class="nxt-divider"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- PROCESS — step indicators using caption-bold + progress bar  -->
+  <!-- ============================================================ -->
+  <section class="nxt-section" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="nxt-container">
+      <div class="caption-bold" style="color: var(--nxt-label); margin-bottom: 24px; letter-spacing: 1px;">Process</div>
+      <h2 class="heading-2" style="margin-bottom: 48px;">How we build intelligence layers</h2>
+
+      <div class="nxt-flex-col" style="gap: 0;">
+        <!-- Step 1 -->
+        <div class="team-row" style="border-top: 1px solid var(--nxt-med);">
+          <div class="nxt-flex nxt-gap-lg" style="align-items: center;">
+            <span class="caption-bold" style="color: var(--nxt-orange);">01</span>
+            <span class="heading-4 team-name">Domain Immersion</span>
+          </div>
+          <span class="body-sm" style="color: var(--nxt-label);">2 weeks</span>
+        </div>
+        <!-- Step 2 -->
+        <div class="team-row">
+          <div class="nxt-flex nxt-gap-lg" style="align-items: center;">
+            <span class="caption-bold" style="color: var(--nxt-orange);">02</span>
+            <span class="heading-4 team-name">Knowledge Mapping</span>
+          </div>
+          <span class="body-sm" style="color: var(--nxt-label);">3 weeks</span>
+        </div>
+        <!-- Step 3 -->
+        <div class="team-row">
+          <div class="nxt-flex nxt-gap-lg" style="align-items: center;">
+            <span class="caption-bold" style="color: var(--nxt-orange);">03</span>
+            <span class="heading-4 team-name">Prototype & Validate</span>
+          </div>
+          <span class="body-sm" style="color: var(--nxt-label);">4 weeks</span>
+        </div>
+        <!-- Step 4 -->
+        <div class="team-row">
+          <div class="nxt-flex nxt-gap-lg" style="align-items: center;">
+            <span class="caption-bold" style="color: var(--nxt-orange);">04</span>
+            <span class="heading-4 team-name">Integrate & Scale</span>
+          </div>
+          <span class="body-sm" style="color: var(--nxt-label);">6 weeks</span>
+        </div>
+        <!-- Step 5 -->
+        <div class="team-row">
+          <div class="nxt-flex nxt-gap-lg" style="align-items: center;">
+            <span class="caption-bold" style="color: var(--nxt-orange);">05</span>
+            <span class="heading-4 team-name">Monitor & Evolve</span>
+          </div>
+          <span class="body-sm" style="color: var(--nxt-label);">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1440px; margin: 0 auto;"><div class="nxt-divider"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- INDUSTRIES — nxt-card with industry context                  -->
+  <!-- ============================================================ -->
+  <section class="nxt-section" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="nxt-container">
+      <div class="caption-bold" style="color: var(--nxt-label); margin-bottom: 24px; letter-spacing: 1px;">Industries</div>
+      <h2 class="heading-2" style="margin-bottom: 48px;">Intelligence augmentation across sectors</h2>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="caption-bold" style="color: var(--nxt-orange); margin-bottom: 12px;">Higher Education</div>
+          <div class="heading-4" style="margin-bottom: 8px;">AI-powered academic advising</div>
+          <p class="body-sm" style="color: var(--nxt-label);">
+            Augment advisors with student success predictions, personalized course recommendations,
+            and early intervention alerts — so no student falls through the cracks.
+          </p>
+        </div>
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="caption-bold" style="color: var(--nxt-orange); margin-bottom: 12px;">Healthcare</div>
+          <div class="heading-4" style="margin-bottom: 8px;">Clinical decision support</div>
+          <p class="body-sm" style="color: var(--nxt-label);">
+            Surface relevant research, flag drug interactions, and draft clinical notes —
+            giving physicians more time with patients instead of screens.
+          </p>
+        </div>
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="caption-bold" style="color: var(--nxt-orange); margin-bottom: 12px;">Finance</div>
+          <div class="heading-4" style="margin-bottom: 8px;">Risk analysis acceleration</div>
+          <p class="body-sm" style="color: var(--nxt-label);">
+            Automate initial risk assessments while keeping senior analysts in the loop for
+            final approval — faster decisions with the same rigor.
+          </p>
+        </div>
+        <div class="nxt-card" style="padding: 24px;">
+          <div class="caption-bold" style="color: var(--nxt-orange); margin-bottom: 12px;">Retail</div>
+          <div class="heading-4" style="margin-bottom: 8px;">Merchandising intelligence</div>
+          <p class="body-sm" style="color: var(--nxt-label);">
+            Combine buyer intuition with real-time demand signals, competitor pricing, and
+            inventory data to optimize assortment decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width: 1440px; margin: 0 auto;"><div class="nxt-divider"></div></div>
+
+  <!-- ============================================================ -->
+  <!-- CONTACT CTA — frosted glass panel + form pattern             -->
+  <!-- ============================================================ -->
+  <section id="contact" style="max-width: 1440px; margin: 0 auto; height: 1056px; position: relative; overflow: hidden;">
+    <!-- Frosted glass background -->
+    <div style="position: absolute; inset: 0; background: rgba(19,19,19,0.75); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);"></div>
+
+    <!-- Background text -->
+    <div class="display-xxl" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; color: var(--nxt-orange); white-space: nowrap; pointer-events: none; font-size: 200px; line-height: 200px;">AUGMENT</div>
+
+    <!-- Form container: 448px (Key Dimension) -->
+    <div style="position: relative; z-index: 1; width: 448px; height: 100%; background: var(--nxt-white); display: flex; align-items: center; justify-content: center;">
+      <!-- Form content: 368px inner (Key Dimension) -->
+      <div class="nxt-flex-col nxt-gap-lg" style="width: 368px;">
+        <!-- heading-2 + body-lg: form header -->
+        <div>
+          <p class="body-lg" style="color: var(--nxt-med); margin-bottom: 8px;">Start a conversation</p>
+          <h2 class="heading-2" style="color: var(--nxt-dark);">What's nxt?</h2>
+        </div>
+
+        <!-- Form fields: label (Archivo 500 18px) + input (368x56, 2px radius) -->
+        <form class="nxt-flex-col nxt-gap-lg">
+          <div class="nxt-flex-col" style="gap: 8px;">
+            <label style="font-weight: 500; font-size: 18px; color: var(--nxt-darkest);">Name</label>
+            <input type="text" style="width: 368px; height: 56px; padding: 16px; background: var(--nxt-white); border: 1px solid var(--nxt-light); border-radius: 2px; color: var(--nxt-dark); font-family: var(--font-primary); font-size: 14px; font-weight: 300; outline: none; transition: border-color 150ms;" onfocus="this.style.borderColor='var(--nxt-teal)'" onblur="this.style.borderColor='var(--nxt-light)'" placeholder="Your name">
+          </div>
+          <div class="nxt-flex-col" style="gap: 8px;">
+            <label style="font-weight: 500; font-size: 18px; color: var(--nxt-darkest);">Email address</label>
+            <input type="email" style="width: 368px; height: 56px; padding: 16px; background: var(--nxt-white); border: 1px solid var(--nxt-light); border-radius: 2px; color: var(--nxt-dark); font-family: var(--font-primary); font-size: 14px; font-weight: 300; outline: none; transition: border-color 150ms;" onfocus="this.style.borderColor='var(--nxt-teal)'" onblur="this.style.borderColor='var(--nxt-light)'" placeholder="you@company.com">
+          </div>
+          <div class="nxt-flex-col" style="gap: 8px;">
+            <label style="font-weight: 500; font-size: 18px; color: var(--nxt-darkest);">Company</label>
+            <input type="text" style="width: 368px; height: 56px; padding: 16px; background: var(--nxt-white); border: 1px solid var(--nxt-light); border-radius: 2px; color: var(--nxt-dark); font-family: var(--font-primary); font-size: 14px; font-weight: 300; outline: none; transition: border-color 150ms;" onfocus="this.style.borderColor='var(--nxt-teal)'" onblur="this.style.borderColor='var(--nxt-light)'" placeholder="Your company">
+          </div>
+          <!-- Submit: teal bg, lime text (from contact form component) -->
+          <button type="submit" class="nxt-btn" style="background: var(--nxt-teal); color: var(--nxt-lime); width: 110px;">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Close button: 88px circle (from buttons component) -->
+    <button class="close-btn" style="position: absolute; top: 24px; right: 24px; z-index: 2;" aria-label="Close">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke-width="2" stroke-linecap="round">
+        <line x1="8" y1="8" x2="24" y2="24"/>
+        <line x1="24" y1="8" x2="8" y2="24"/>
+      </svg>
+    </button>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER — nxt-section + body-sm + divider                     -->
+  <!-- ============================================================ -->
+  <div style="max-width: 1440px; margin: 0 auto;"><div class="nxt-divider"></div></div>
+  <footer class="nxt-section nxt-between" style="padding-top: 48px; padding-bottom: 48px;">
+    <span class="body-sm" style="color: var(--nxt-gray);">NXT Humans 2026 — Intelligence Augmentation</span>
+    <a href="#" class="body-sm" style="color: var(--nxt-lime); text-decoration: none;">Back to top</a>
+  </footer>
+
+</body>
+</html>

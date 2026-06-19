@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NXT Humans 2026 - Header</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Design Tokens ────────────────────────────────────── */
+    :root {
+      --nxt-teal: #115054;
+      --nxt-lime: #caca20;
+      --nxt-darkest: #141414;
+      --nxt-dark: #242424;
+      --nxt-med: #3a3a3a;
+      --nxt-gray: #525252;
+      --nxt-label: #acacac;
+      --nxt-light: #eaeaea;
+      --nxt-lightest: #fafafa;
+      --nxt-white: #ffffff;
+      --nxt-black: #000000;
+      --font-primary: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background: var(--nxt-darkest);
+      color: var(--nxt-white);
+    }
+
+    /* ── Header Outer Wrapper (teal background) ───────────── */
+    .header-section {
+      width: 100%;
+      background: var(--nxt-teal);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 96px;
+    }
+
+    /* ── Header Container (max 1440, padded 24px sides) ──── */
+    .header-container {
+      width: 100%;
+      max-width: 1440px;
+      padding: 0 24px;
+    }
+
+    /* ── Header Bar (black bg, rounded, inner content) ───── */
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--nxt-black);
+      border-radius: 4px;
+      padding: 16px 24px;
+      height: 48px;
+      gap: 278px;
+    }
+
+    /* ── Logo ─────────────────────────────────────────────── */
+    .header-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      max-height: 28px;
+      width: auto;
+      display: block;
+    }
+
+    /* ── Navigation ───────────────────────────────────────── */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-shrink: 0;
+    }
+
+    .header-nav a {
+      font-family: var(--font-primary);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1;
+      color: var(--nxt-white);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .header-nav a:hover,
+    .header-nav a:focus-visible {
+      color: var(--nxt-lime);
+    }
+
+    /* ── CTA Button ──────────────────────────────────────── */
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 24px;
+      background: var(--nxt-lime);
+      color: var(--nxt-teal);
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter 0.2s ease, background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .header-cta:hover,
+    .header-cta:focus-visible {
+      filter: brightness(1.15);
+      background: #d8d828;
+    }
+
+    /* ── Focus ring for accessibility ─────────────────────── */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--nxt-lime);
+      outline-offset: 2px;
+    }
+
+    /* ── Demo page content below header ──────────────────── */
+    .demo-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+
+    .demo-content h1 {
+      font-family: var(--font-primary);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--nxt-label);
+      margin-bottom: 16px;
+    }
+
+    .demo-content p {
+      font-family: var(--font-primary);
+      font-weight: 300;
+      font-size: 16px;
+      color: var(--nxt-gray);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════
+       NXT Humans 2026 Header
+       Figma node 4:597 — 1440x96, teal bg, black inner bar
+       ════════════════════════════════════════════════════════ -->
+  <header class="header-section" role="banner">
+    <div class="header-container">
+      <nav class="header-bar" aria-label="Primary navigation">
+
+        <!-- Logo -->
+        <a href="/" class="header-logo" aria-label="NXT Humans home">
+          <img src="../images/new_logo.png" alt="NXT Humans" />
+        </a>
+
+        <!-- Navigation + CTA -->
+        <div class="header-nav">
+          <a href="#industries">Industries</a>
+          <a href="#approach">Approach</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+          <a href="#ask" class="header-cta">Ask Us Anything</a>
+        </div>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- Demo area so the header is visible in context -->
+  <main class="demo-content">
+    <h1>Header Component Preview</h1>
+    <p>NXT Humans 2026 Design System</p>
+  </main>
+
+</body>
+</html>

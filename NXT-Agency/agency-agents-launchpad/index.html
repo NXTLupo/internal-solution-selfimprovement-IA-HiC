@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NXT Humans Agency Agent Launchpad - AI specialist agents powered by Claude, GPT, and Gemini" />
+    <title>NXT Humans | Agency Agent Launchpad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      /* NXT Humans 2026 Stark White overrides */
+      :root {
+        --nxt-bg: #ffffff;
+        --nxt-bg-secondary: #fafafa;
+        --nxt-bg-tertiary: #f5f5f5;
+        --nxt-text: #141414;
+        --nxt-text-secondary: #525252;
+        --nxt-text-muted: #acacac;
+        --nxt-border: #e5e5e5;
+        --nxt-border-hover: #d4d4d4;
+        --nxt-teal: #115054;
+        --nxt-lime: #caca20;
+        --nxt-orange: #fd8e2e;
+      }
+      html {
+        font-family: 'Archivo', sans-serif;
+        background: #ffffff;
+        color: #141414;
+      }
+      body {
+        margin: 0;
+        background: #ffffff;
+        color: #141414;
+        font-weight: 300;
+      }
+      /* Ensure no shadows anywhere */
+      * {
+        box-shadow: none !important;
+      }
+      /* Reduce hero section padding since IA banner header handles branding */
+      [data-hero-branding] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <header role="banner" style="background:#115054;height:200px;display:flex;align-items:center;justify-content:center;width:100%;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(45deg,transparent 0%,rgba(253,142,46,0.08) 30%,rgba(253,142,46,0.15) 60%,rgba(253,142,46,0.2) 100%);transform:skewX(-20deg) translateX(20%);z-index:1;"></div>
+      <div style="max-width:1440px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:center;gap:3rem;position:relative;z-index:2;">
+        <img src="/nxt-humans-logo.png?v=2" alt="NXT Humans Logo" style="width:220px;height:auto;filter:invert(1);object-fit:contain;" onerror="this.style.display='none'">
+        <div style="display:flex;flex-direction:column;align-items:flex-start;">
+          <span style="font-family:'Archivo',sans-serif;font-size:1.3rem;font-weight:200;color:rgba(255,255,255,0.9);letter-spacing:0.5px;">Intelligence Augmentation</span>
+          <div style="display:flex;flex-direction:column;">
+            <span style="font-family:'Archivo',sans-serif;font-size:3rem;font-weight:200;line-height:1.1;letter-spacing:-1.5px;color:#ffffff;">NXT Agency</span>
+            <span style="font-family:'Archivo',sans-serif;font-size:3rem;font-weight:200;line-height:1.1;letter-spacing:-1.5px;color:#fd8e2e;">Agent Launchpad</span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav role="navigation" aria-label="Service navigation" style="background:#ffffff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e5e5e5;">
+      <a href="http://localhost:8000" style="display:inline-flex;align-items:center;gap:8px;font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#525252;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;" aria-label="Back to Launchpad">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Launchpad
+      </a>
+      <span style="font-family:'Archivo',sans-serif;font-size:12px;font-weight:700;color:#141414;text-transform:uppercase;letter-spacing:0.05em;">Agent Launchpad</span>
+    </nav>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
