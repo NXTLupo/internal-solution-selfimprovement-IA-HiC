@@ -273,6 +273,13 @@ export interface ChatContext {
      *  (cite-by-pointer) and DEMOTES the bulk corpusText to a supplementary tail,
      *  honoring the wiki+MANIFEST grounding rule over bulk RAG. */
     manifestChunkCorpus?: string;
+    /** 2026-06-18 (research-run-failure-analysis P0.2) - when the user PASTES substantive,
+     *  structured content into an artifact request (e.g. "generate #slides … #### 1 … #### 10"),
+     *  that paste is the AUTHORITATIVE basis for the deliverable. buildGroundingContext emits it
+     *  ABOVE the manifest PRIMARY EVIDENCE so it outranks retrieved corpus, with a hard rule to
+     *  build FROM it (preserve item set/order/framing) and use the corpus only to corroborate/cite.
+     *  Fixes "the model ignores the verbatim info I shoved into the prompt". */
+    authoritativePaste?: string;
     /**
      * The data-source categories the user explicitly toggled ON during data
      * collection. The synthesis layer MUST cite from each of these. If a
@@ -564,6 +571,24 @@ export function isArtifactGenerationMessage(userMessage: string): boolean {
     return /#slides?\b/i.test(userMessage) || ARTIFACT_TPL.some(([re]) => re.test(userMessage));
 }
 
+/** 2026-06-18 (research-run-failure-analysis P0.2) - detect a SUBSTANTIVE pasted body inside an
+ *  artifact request. When present it becomes the AUTHORITATIVE basis for the deliverable (emitted
+ *  above PRIMARY EVIDENCE), fixing "the model ignores the verbatim info I shoved into the prompt".
+ *  Heuristic: long body, OR an enumerated/structured paste (#### N, "1." lists, or inline Source:
+ *  citations). Returns the full message (directive + content) so the model sees the complete spec;
+ *  returns null for short conversational artifact asks ("#slides on retail trends") which SHOULD
+ *  ground from the corpus, not from a one-line prompt. */
+export function extractAuthoritativePaste(userMessage: string): string | null {
+    const body = (userMessage || '').trim();
+    if (body.length < 300) return null;                          // a one-line ask: ground from corpus
+    const enumerated = /(^|\n)\s*#{2,4}\s*\d+[.)]/.test(body)    // "#### 1." headers
+        || /(^|\n)\s*\d+[.)]\s+\S/.test(body)                    // "1. " / "1) " lists
+        || /\bSources?:/i.test(body)                             // inline source attributions
+        || /\[[^\]]+\.(pdf|docx?|txt)[^\]]*\]/i.test(body);      // bracketed file citations
+    if (enumerated) return body;                                 // structured paste -> authoritative
+    return body.length >= 1200 ? body : null;                    // long-but-unstructured: require >=1200
+}
+
 /** The model that sendChatMessage will actually run for this message.
  *  Mirrors the force-route logic exactly: artifact hashtags -> Fable 5
  *  (when the Anthropic key is configured), everything else -> the caller's
@@ -668,6 +693,14 @@ IMPORTANT:
 - You can mix prose text with deliverable blocks (explain your reasoning, then output the blocks)
 
 SLIDE OUTPUT PROTOCOL - 18 TEMPLATES x 2 VISUAL BRANDS:
+
+HONOR THE USER'S EXPLICIT STRUCTURE (HARD RULE, 2026-06-15):
+When the user specifies the deck's STRUCTURE, that instruction OVERRIDES the default template grouping and you MUST follow it literally:
+  - A SLIDE COUNT ("15-slide deck", "exactly 8 slides") is a contract: emit that many content slides (a section-divider counts only if the user includes it in the count).
+  - "ONE SLIDE PER <X>" / "a slide for EACH <X>" / "dedicate a slide to every <X>" (app, product, tool, competitor, persona, capability, stakeholder, phase) is a COVERAGE contract: ENUMERATE every distinct <X> named in the grounded corpus / uploaded documents and emit ONE slide for EACH. Do NOT collapse them into a few thematic slides, and do NOT silently drop instances. If the uploads name nine apps, emit nine app slides - one per app, each with that app's own features, benefits, and use cases.
+  - "Rely exclusively on the uploaded documents" / "only the uploads" scopes grounding: build every claim from the uploaded sources, not external corpus or general knowledge.
+  - If the corpus does not contain enough named instances of <X> to satisfy a count, say so in ONE short line and emit a slide for each instance you CAN evidence - NEVER invent items to hit a number (No Fabrication rule).
+The user's explicit structure beats the template's default item-per-block grouping every time. Before emitting, re-read the user's directive and confirm your slide set satisfies it (right count, one per named entity, correct grounding scope).
 
 FIT THE CANVAS - CHARACTER BUDGETS ARE SUMMARIZATION TARGETS (HARD RULE, 2026-06-12):
 Every text field on a slide has a finite physical budget. The renderer does NOT scroll and a cut-off sentence makes the artifact unusable. YOU do the summarizing at generation time:
@@ -1412,6 +1445,7 @@ ORG CHART (#org) - the GOLD reporting-tier matrix. WHO reports to WHOM and WHO c
       ],
       "keyInsight": "<takeaway band - the one structural conclusion the chart proves, in qualitative language>" } }
   Rules: 2-4 tiers; 1-4 node cards per tier (5 dense); pair each tier label's number with its VERB (DECIDES / DIRECTS / DELIVERS / ADVISES). Every node card carries a NAMED source (where the role/reporting line is evidenced) - never generic. role is ONE concrete responsibility clause. Mark AT MOST one node emphasis:true. CSS-grid layout only; no overlapping connectors.
+  NAME THE ACTUAL LEADER (evidence-gated): when a source explicitly NAMES the person who heads a team AND ties that name to that team/role, the node title MUST be that person's name + role (e.g. "Diane McGillivray, SVP Advancement"), NOT a team label alone, and NEVER an anonymized code (C01, C02, ...). Resolve real names from roster/client-upload sources (which name people); anonymized-interview transcripts (filenames ending _anonymized) code speakers - do NOT carry those codes into node titles. STRICT: only attach a name to a team when the SAME source connects them; if the roster names a person but you are not certain which team they lead, use the role title alone rather than guess. NEVER invent or infer a name; NEVER anonymize a name the corpus provides. A correct role-only node beats a wrong or fabricated name.
   ORG FIELD BUDGETS (complete thoughts, never cut): node title <= 42 chars; role <= 110 chars (one clause); source <= 30 chars (the named source, no "SOURCE:" prefix - the renderer adds it); keyInsight <= 200 chars.
 
 EXECUTIVE BRIEF (#brief / #explainer / #report) - ONE GOLD slide template, THREE variants. Pick variant from the hashtag: #brief -> variant "brief", #explainer -> variant "explainer", #report -> variant "report".
@@ -1475,10 +1509,18 @@ FOUNDATIONAL CONSULTING MANDATES (apply to ALL responses):
    - REQUIRED: Extract and embed VERBATIM quotes with [SOURCE_NAME: "Article Title"] citations
    - Every factual claim must have a named source. Every insight must feature a direct quote or specific data point.
 
-4. ACTION TITLES: Every heading must be a complete sentence stating a conclusion with data.
-   - BAD: "The Landscape", "Key Findings", "Recommendations", "Overview"
-   - GOOD: "35% of first-year students do not return, costing $9B annually"
-   - GOOD: "Fragmented CRM systems force teams to spend 40% of time on manual data entry"
+4. ACTION TITLES: Every title is a complete sentence stating a SPECIFIC, CONTESTABLE conclusion - a named cause, mechanism, actor, or change a reader could disagree with. A title earns its place by being specific and contestable, NOT by carrying a figure.
+   - BAD (topic label): "The Landscape", "Key Findings", "Recommendations", "Overview"
+   - BAD (naked number, violates the Quantitative Claim Rule): a title built around a percentage or dollar figure. A number lives ONLY inside an attributed quote on the slide body, never in a title.
+   - BAD (generically true, nobody could disagree): "Customer experience matters", or a "Three core capabilities define the ..." list framing.
+   - GOOD: "Fragmented CRM systems force advancement teams into manual data entry instead of donor work"
+   - GOOD: "First-year students leave faster than the institution can replace them"
+   - NO colon-then-triad titles ("X: a, b, and c"). State the single claim; move any list into the body.
+   - NO antithesis / negative parallelism in a title, signal, or label: avoid the "X, not Y" form (e.g. "core practice, not a side task"; "proof, not pitch"), "it is not X, it is Y", "not just X but Y", "more than just", and "goes beyond". Assert the positive claim directly.
+   - NO preamble-noun-plus-colon openers ("The competitive thesis:", "The technical wedge:", "The go-to-market narrative:"). Lead with the claim, not the label for it.
+   - Use NO term on the anti-slop banlist (corporate cliches, marketing superlatives, and the Tier-1 AI-tell words). Substitute the plain word; avoid the "best of breed" superlative. Do not LEAN on the "value/worth" marketing pairing - name the specific worth (what it does, for whom) rather than reaching for the umbrella phrase.
+   - ONE message per slide: a title joining two claims with "and" becomes two slides.
+   - QUOTE FIDELITY: quotes are verbatim, with two corrections only - (a) fix an unambiguous transcription mis-hearing of a proper noun in the product's own domain (the model name rendered as "clawed" becomes "Claude" when that is plainly what was said), and (b) never pick a span carrying filler ("yada yada yada", "and so on"); choose a cleaner sentence that makes the same point. Never paraphrase; never invent.
 
 5. NO META-NARRATION: Never say "Good morning", "Today we will", "In this section", "As you can see", "Let me start by". Lead with the insight.
 `;
@@ -1599,7 +1641,7 @@ function buildCategoryRoster(ctx: ChatContext): string {
 
 // --- Grounding Context Builder ---
 
-function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
+export function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
     const parts: string[] = [];
     const modelConfig = AVAILABLE_MODELS.find(m => m.id === model);
     const maxCorpus = modelConfig?.maxCorpusChars || 500000;
@@ -1817,16 +1859,42 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push(`=== END WIKI MENU ===`);
     }
 
-    // Phase 1-retrofit - PRE-FETCHED ARTICLE BODIES for this specific
-    // user message. The caller keyword-matched the question against the
-    // wiki index and pulled top-N bodies. Insert them near the top so the
-    // AI treats them as primary evidence when it writes the response.
-    // This is the fast-path RAG: no tool call needed, real text is
-    // already in the prompt.
-    if (ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200) {
-        parts.push(`=== TOPIC-MATCHED ARTICLE BODIES (pre-fetched from wiki for THIS question) ===`);
-        parts.push(ctx.prefetchedArticlesBlock);
-        parts.push(`=== END TOPIC-MATCHED ARTICLES ===`);
+    // 2026-06-09 - MANIFEST-CHUNK CORPUS (the new engine, intent A.1) = PRIMARY
+    // evidence (cite-by-pointer). 2026-06-16 - MOVED ABOVE the pre-fetched article
+    // bodies + prior insights so the manifest LEADS and DRIVES the deliverable's
+    // structure/insights (the anti-RAG rule feedback_deliverables_manifest_wiki_not_rag).
+    // The article bodies + raw corpus below are explicitly SUPPLEMENTARY - factual
+    // reference only (e.g. resolving the real names/titles of team leaders that live
+    // in a client roster the manifest pack did not surface), never the driver.
+    // 2026-06-18 (research-run-failure-analysis P0.2) - AUTHORITATIVE USER CONTENT. When the user
+    // pastes substantive structured content into an artifact request, it is the ground truth for the
+    // deliverable and must OUTRANK the retrieved manifest corpus. Emitted FIRST so the model treats it
+    // as the spine; the PRIMARY EVIDENCE below becomes corroboration/citation, not a competing source.
+    if (ctx.authoritativePaste && ctx.authoritativePaste.length > 80) {
+        parts.push(`=== AUTHORITATIVE SOURCE CONTENT (user-supplied - THIS is the basis for the deliverable) ===`);
+        parts.push([
+            'The user pasted the content below as the authoritative material for this deliverable. Rules:',
+            '1. BUILD THE DELIVERABLE FROM THIS CONTENT. Do NOT drop, merge, renumber, re-order, or substitute',
+            '   its items; if it lists N enumerated items, produce coverage for all N, in the given order,',
+            '   preserving each item\'s title and framing.',
+            '2. Facts, figures, dates, and quotes present here are USER-ASSERTED GROUND TRUTH - use them as-is',
+            '   even if the corpus below phrases them differently or does not contain them. Do NOT swap a',
+            '   user-supplied fact for a corpus alternative.',
+            '3. The PRIMARY EVIDENCE / corpus below is SUPPLEMENTARY here: use it only to corroborate, add a',
+            '   source attribution, or fill a gap the paste leaves - never to override or replace the paste.',
+        ].join('\n'));
+        parts.push('');
+        parts.push(ctx.authoritativePaste);
+        parts.push(`=== END AUTHORITATIVE SOURCE CONTENT ===`);
+        parts.push('');
+    }
+
+    if (ctx.manifestChunkCorpus && ctx.manifestChunkCorpus.length > 80) {
+        parts.push(`=== PRIMARY EVIDENCE (manifest-selected, cite by pointer) ===`);
+        parts.push(chunkCitationInstructions());
+        parts.push('');
+        parts.push(ctx.manifestChunkCorpus);
+        parts.push('');
     }
 
     // Phase 1.9 - prior-engagement memory. Synthesis artifacts from previous
@@ -1841,17 +1909,18 @@ function buildGroundingContext(ctx: ChatContext, model: ChatModel): string {
         parts.push(`=== END PRIOR INSIGHTS ===`);
     }
 
-    // 2026-06-09 - MANIFEST-CHUNK CORPUS (the new engine, intent A.1). When the
-    // precompute in sendChatMessage resolved manifest chunks, this is the PRIMARY
-    // evidence block (cite-by-pointer), placed above the raw corpus. The model is
-    // told to quote verbatim from these spans and cite their pointers, and the
-    // bulk corpusText below is demoted to a supplementary tail.
-    if (ctx.manifestChunkCorpus && ctx.manifestChunkCorpus.length > 80) {
-        parts.push(`=== PRIMARY EVIDENCE (manifest-selected, cite by pointer) ===`);
-        parts.push(chunkCitationInstructions());
-        parts.push('');
-        parts.push(ctx.manifestChunkCorpus);
-        parts.push('');
+    // Phase 1-retrofit - PRE-FETCHED ARTICLE BODIES (keyword-matched wiki bodies for
+    // THIS question). 2026-06-16 - DEMOTED to a SUPPLEMENTARY factual reference placed
+    // AFTER the manifest PRIMARY block (was at the top, which made bulk RAG the driver
+    // and hollowed deliverables). It now carries the SPECIFIC FACTS the manifest pack
+    // can miss - the real names/titles of leaders in a client roster, dates, figures -
+    // WITHOUT setting the deliverable's structure. This is why #org could not name the
+    // team heads: the roster lived only in these bodies, and they were suppressed for
+    // artifacts. Now injected for artifacts too, but supplementary, so the manifest leads.
+    if (ctx.prefetchedArticlesBlock && ctx.prefetchedArticlesBlock.length > 200) {
+        parts.push(`=== SUPPLEMENTARY ARTICLE BODIES (factual reference for THIS question - real names, titles, dates, figures. The PRIMARY EVIDENCE above LEADS and drives structure/insights; use these ONLY to resolve specific facts, e.g. the actual person who heads a team) ===`);
+        parts.push(ctx.prefetchedArticlesBlock);
+        parts.push(`=== END SUPPLEMENTARY ARTICLES ===`);
     }
 
     // Raw corpus - model-specific cap.
@@ -2245,7 +2314,12 @@ export function matchSkills(userMessage: string, manifest: SkillManifestEntry[])
         if (directiveSkills.length > 0 && skill.category === 'research-deliverable') continue;
 
         let score = 0;
-        for (const trigger of skill.triggers) {
+        // 2026-06-14 - defensive: a manifest entry may omit `triggers` (e.g. a
+        // quality-enhancer that only composes_with, never keyword-matches). Iterating
+        // undefined threw "triggers is not iterable" and crashed matchSkills on every
+        // chat turn. Quality enhancers with no triggers simply score 0 here and load
+        // via composes_with instead.
+        for (const trigger of (skill.triggers || [])) {
             const normTrigger = trigger.toLowerCase();
             const triggerWords = normTrigger.split(' ').filter(w => w.length >= 2);
 
@@ -2395,6 +2469,20 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
         return ctx;
     }
 
+    // 2026-06-14 - HARDENING: a manifest entry with no `path` (or a non-string path)
+    // must NEVER crash the whole chat turn. Before this guard, a missing `path` slipped
+    // past the inline:// check above (undefined?.startsWith -> falsy) and threw
+    // "Cannot read properties of undefined (reading 'replace')" at skill.path.replace
+    // below, killing every chat turn (the human-voice-editor entry shipped without a
+    // path). Fall back to a description-only stub keyed on the skill id, same shape as
+    // the inline fallback. Sister fix to the `triggers || []` guard in matchSkills.
+    if (typeof skill.path !== 'string' || !skill.path) {
+        const stub = `# ${skill.name || skill.id}\n\n${skill.description || ''}\n`;
+        const ctx: SkillContext = { skill, skillContent: stub, companionContent: '' };
+        _skillContextCache.set(skill.id, ctx);
+        return ctx;
+    }
+
     const fetches: Promise<string>[] = [];
 
     // Fetch the SKILL.md
@@ -2413,14 +2501,19 @@ export async function loadSkillContext(skill: SkillManifestEntry): Promise<Skill
     }
 
     // Fetch wiki companions
-    for (const companion of skill.wikiCompanions) {
+    // GUARD (2026-06-15): a skill-manifest entry missing `wikiCompanions` /
+    // `benchmarks` threw "TypeError: wikiCompanions is not iterable" on every
+    // chat turn (unhandledrejection caught live in Playwright). Same crash-class
+    // as the missing-path / missing-triggers manifest bugs - skillReferences was
+    // already guarded with `|| []`; these two were not. Defensive transport.
+    for (const companion of (skill.wikiCompanions || [])) {
         fetches.push(
             fetch(`/hic-workspace/wiki/${companion}`).then(r => r.ok ? r.text() : '').catch(() => '')
         );
     }
 
     // Fetch benchmark companions
-    for (const benchmark of skill.benchmarks) {
+    for (const benchmark of (skill.benchmarks || [])) {
         fetches.push(
             fetch(`/hic-workspace/wiki/${benchmark}`).then(r => r.ok ? r.text() : '').catch(() => '')
         );
@@ -2617,6 +2710,23 @@ export function renderDeliverableJsonReply(text: string): string {
 // --- Main Send Function ---
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
+
+// SLIDES-deck archetype catalog (Figma 609). Fetched at runtime - the SAME #proto mechanism
+// (fetchProtoComponentManifest): the model COMPOSES a deck from the manifest, so adding/altering an
+// archetype is a manifest edit with ZERO code change. Cached per session; fail-open (empty -> the
+// model falls back to the legacy GOLD templates rather than erroring).
+let _slidesManifestCache: string | null = null;
+async function fetchSlidesArchetypeManifest(): Promise<string> {
+    if (_slidesManifestCache !== null) return _slidesManifestCache;
+    try {
+        const r = await fetch(`${PROXY_BASE}/api/wiki/read-article/${encodeURIComponent('design-system/slides-component-manifest.md')}`);
+        if (r.ok) {
+            const j = await r.json().catch(() => null);
+            _slidesManifestCache = (j && (j.content || j.body || j.markdown)) ? String(j.content || j.body || j.markdown) : '';
+        } else { _slidesManifestCache = ''; }
+    } catch { _slidesManifestCache = ''; }
+    return _slidesManifestCache;
+}
 
 export async function sendChatMessage(
     model: ChatModel,
@@ -2836,14 +2946,18 @@ export async function sendChatMessage(
     // rest of the grounding context still carries the chat. Gated on the
     // user message having enough substance (≥12 chars) and no prior block
     // already present - keeps double-loading at zero.
-    // 2026-06-12 - SUPPRESSED for artifact generations (standing rule
-    // feedback_deliverables_manifest_wiki_not_rag): deliverables ground via
-    // manifest chunk pointers ONLY (the MANIFEST-CHUNK block below, now with
-    // a whole-wiki tier-3 fallback in chunkRetrieval). Bulk-injecting 20
-    // embedding-ranked article BODIES is RAG injection, the documented root
-    // cause of hollow deliverables. Plain-chat Q&A keeps the pre-fetch.
-    if (!context.prefetchedArticlesBlock && userMessage && userMessage.trim().length >= 12
-        && !isArtifactGenerationMessage(userMessage)) {
+    // 2026-06-12 - was SUPPRESSED for artifact generations (standing rule
+    // feedback_deliverables_manifest_wiki_not_rag): deliverables ground via manifest
+    // chunk pointers. 2026-06-16 - RE-ENABLED for artifacts: the suppression made the
+    // artifact path BLIND to factual content that lives only in article bodies (the
+    // real names/titles of team leaders in a client roster), so #org could only emit
+    // anonymized codes (C01-C10) from the anonymized interview chunks even though the
+    // names existed in the selected corpus and plain chat could read them. The anti-RAG
+    // rule is now honored by PLACEMENT, not suppression: buildGroundingContext puts the
+    // manifest PRIMARY block FIRST (it drives structure/insights) and demotes this
+    // pre-fetch to a SUPPLEMENTARY factual-reference tail. So artifacts get the facts
+    // without bulk RAG driving the deliverable.
+    if (!context.prefetchedArticlesBlock && userMessage && userMessage.trim().length >= 12) {
         try {
             const { prefetchArticlesForMessage, formatArticlesAsCorpusBlock } = await import('./wikiIndexService');
             // Phase 2.5 (2026-04-28): pass the original engagement goal so the
@@ -2861,16 +2975,26 @@ export async function sendChatMessage(
             // ~3x more relevant evidence in front of the model BEFORE any
             // tool call is required, so artifacts answer denser even on
             // single-turn questions.
+            // 2026-06-16 - ARTIFACT path gets a LEAN pre-fetch (8 bodies / ~48KB),
+            // plain chat keeps the full pre-roll (20 / ~200KB). Rationale: for a
+            // deliverable the manifest PRIMARY block leads and these bodies are only a
+            // SUPPLEMENTARY factual reference (resolving real names/titles the manifest
+            // pack misses), so a lean budget gives the facts without re-introducing the
+            // bulk-RAG dilution + cost the anti-RAG rule warns about. Plain Q&A still
+            // benefits from the denser pre-roll.
+            const _isArtifact = isArtifactGenerationMessage(userMessage);
             const prefetchedArticles = await Promise.race([
                 prefetchArticlesForMessage(userMessage, {
-                    limit: 20, maxCharsPerArticle: 12_000, minChars: 500,
+                    limit: _isArtifact ? 8 : 20,
+                    maxCharsPerArticle: _isArtifact ? 6_000 : 12_000,
+                    minChars: 500,
                     engagementGoal,
                     goalBlendWeight: 0.30,
                 }),
                 new Promise<any[]>(resolve => setTimeout(() => resolve([]), 8000)),
             ]);
             if (prefetchedArticles && prefetchedArticles.length > 0) {
-                const block = formatArticlesAsCorpusBlock(prefetchedArticles, 200_000);
+                const block = formatArticlesAsCorpusBlock(prefetchedArticles, _isArtifact ? 48_000 : 200_000);
                 if (block.length > 200) {
                     context = { ...context, prefetchedArticlesBlock: block };
                     console.log(`[chat] wiki pre-fetch: injected ${prefetchedArticles.length} article bodies (${Math.round(block.length / 1024)}KB)`);
@@ -2925,6 +3049,19 @@ export async function sendChatMessage(
             if (_slug) {
                 const _picked = await pickChunksForPrompt(userMessage, _slug, {
                     extraContext: context.researchGoal || '',
+                    // 2026-06-16 FIX (#org "no data" despite data existing): the tier-1.5
+                    // objective-ranked admission ranks the WHOLE-WIKI candidate pool by this
+                    // objective. Passing the GOAL alone meant a SPECIFIC deliverable request
+                    // (e.g. "#org Northeastern Advancement, giving, alumni relations teams")
+                    // could not admit request-relevant chunks the engagement's KL selection /
+                    // goal did not already cover - so the org/reporting evidence (present in the
+                    // wiki) was never in the candidate pool, the MMR pack could not select it,
+                    // and Opus refused with "no data" even though the data EXISTS. Blend the
+                    // user's request INTO the admission objective (request leads, goal as
+                    // context) so the request pulls its own matching corpus into the pool; the
+                    // MMR pack still ranks the FINAL selection by userMessage + goal. Capped for
+                    // the chunks-by-goal URL query param.
+                    researchObjective: [userMessage, context.researchGoal || ''].filter(Boolean).join('\n').slice(0, 800),
                     tokenBudget: 30_000,
                 });
                 if (_picked.chunkIds.length > 0) {
@@ -2962,6 +3099,18 @@ export async function sendChatMessage(
             model = 'claude-opus-4-8';
         } else {
             console.warn(`[chat][route] Artifact hashtag detected but ANTHROPIC_API_KEY unavailable - keeping ${model} for this generation`);
+        }
+    }
+
+    // 2026-06-18 (research-run-failure-analysis P0.2) - if this artifact request carries a substantive
+    // pasted spec, mark it AUTHORITATIVE so buildGroundingContext emits it above PRIMARY EVIDENCE and
+    // the model builds FROM it instead of silently re-deriving from the corpus (dropping/renumbering
+    // items, swapping the user's facts for corpus alternatives).
+    if (!context.authoritativePaste && isArtifactGenerationMessage(userMessage)) {
+        const _paste = extractAuthoritativePaste(userMessage);
+        if (_paste) {
+            context = { ...context, authoritativePaste: _paste };
+            console.info(`[chat] AUTHORITATIVE PASTE detected (${_paste.length} chars) - user content leads; corpus demoted to corroboration`);
         }
     }
 
@@ -3122,7 +3271,7 @@ CITATION FORMAT (MANDATORY):
 Examples: [Higher Ed Dive: "Universities Struggle with Skills Gap"], [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"], [YouTube: "Columbia Alumni Q&A - Donor Engagement Panel 2025"], [OpenAlex: Smith et al. 2024]
 
 ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
-- Answer ONLY from evidence that EXISTS in the corpus below. Do not invent, fabricate, or extrapolate.
+- Answer ONLY from evidence that EXISTS in the corpus below, EXCEPT when an "AUTHORITATIVE SOURCE CONTENT" block is present above: that block is user-supplied ground truth, and its facts, figures, dates, and quotes ARE permitted and TAKE PRECEDENCE even if the corpus phrases them differently or does not contain them - never swap a user-supplied fact for a corpus alternative. Absent such a block, do not invent, fabricate, or extrapolate.
 - NEVER fabricate URLs. You may ONLY include a URL if it appears verbatim in the SOURCE PROVENANCE INDEX or the RAW RESEARCH CORPUS above. If no URL exists for a source, cite it by name only WITHOUT a URL.
 - NEVER invent case studies, institutions, dollar amounts, percentages, or quotes that are not explicitly present in the corpus. If the corpus contains 3 case studies, you have 3 case studies - not 10.
 - NEVER generate plausible-looking article URLs by pattern (e.g., highereddive.com/news/fake-slug/123456). A fabricated URL is worse than no URL.
@@ -3227,7 +3376,13 @@ Scan the CURRENT user message for these triggers BEFORE you respond:
        → VISUAL BLOCK MODE: emit a :::nxt:TYPE block.
 
   4. Otherwise (the overwhelming majority of turns): PLAIN PROSE.
-       → Answer the question. Cite named sources inline. Use markdown for readability.
+       → Answer the question in plain consultant prose. Cite named sources inline.
+       → Write the way a senior consultant writes a memo: short paragraphs, one idea
+         each, concrete nouns. Do NOT build a markdown brochure: no ### headers, no
+         **bold** walls, no decorative * bullet lists unless the user explicitly asked
+         for a list. A short bulleted list is fine when the content is genuinely a list.
+       → OBEY THE PLAIN-VOICE / ANTI-SLOP RULES below. They apply to prose answers
+         exactly as they apply to slides. A chat reply full of slop is a HARD failure.
        → NO fences. No :::slide. No :::deliverable:. No :::nxt:.
        → The knowledge graph is already populated automatically - you don't need
          to force cards just because the user asked about personas or themes.
@@ -3236,6 +3391,20 @@ Scan the CURRENT user message for these triggers BEFORE you respond:
 
 If none of triggers 1-3 are present, mode 4 (prose) is the answer. Do not guess.
 If triggers are ambiguous (e.g., user mentions "slides" in prose without #slide), stay in prose mode and OFFER to produce slides: "Add #slide if you'd like these formatted as slides."
+
+=== PLAIN-VOICE / ANTI-SLOP RULES (apply to EVERY prose answer) ===
+The reader is an expert. Write like a senior consultant, not a marketing brochure. The full NXT Humans banned-phrase list (350+ entries) is enforced on this reply downstream; do not make it work. These bans are absolute - a reply that breaks them is a hard failure, not a style nit:
+
+- BANNED corporate-cliche and AI-slop wording: robust, seamless, leverage / leverages / leveraging, holistic, synergy, ecosystem, enterprise-grade, world-class, comprehensive, foundational, multifaceted, and the rest of the corporate-buzzword and hype family. Say the plain thing.
+- BANNED verbal tics: delve, delve into, tapestry, meticulous, vibrant, garner, showcase, bolster, foster / fosters / fostering, facilitate / facilitates, utilize / utilizes (write "use"), underscore, paramount, embodies, epitomizes.
+- BANNED copula-avoidance: do not dress up "is" with "serves as", "stands as", "acts as". Write "X is Y", not "X serves as a Y".
+- BANNED "enhance rather than replace" and "enhance / enhances / enhancing" in your OWN voice (the verb is a tell). If a source said it verbatim, you may quote it with attribution; never narrate it yourself.
+- BANNED rhetorical patterns: the "Not just X, it's Y" parallelism; snappy three-word triads; mid-sentence rhetorical questions; press-release voice ("We are excited to...").
+- BANNED meta-narration: "The ultimate goal is to", "It is designed to", "successfully deployed", "plays a key / vital / crucial / pivotal role". State the thing plainly.
+- NO em-dash (U+2014) and NO emoji, anywhere.
+- Numbers are evidence carried by a cited quote, never a bare assertion you make.
+Write subject-verb-object sentences with concrete nouns and varied openings. If you catch yourself reaching for a buzzword, say the plain thing instead.
+=== END PLAIN-VOICE / ANTI-SLOP RULES ===
 
 === ANTI-HALLUCINATION REMINDER (re-read before responding) ===
 BEFORE including any URL in your response, verify it exists VERBATIM in the SOURCE PROVENANCE INDEX above. If you cannot find the exact URL, DO NOT include one - cite by source name only.
@@ -3345,6 +3514,22 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             slideModeTpl = tplHint;
             const brandHint = /#nu\b/i.test(userMessage) ? 'nu' : 'nxt';
             systemPrompt += `\n\n========================================================================\nSLIDE MODE IS ACTIVE - the user's message contains #slide/#slides or an artifact hashtag. You MUST respond with one or more :::slide fenced blocks per the SLIDE OUTPUT PROTOCOL above. Default template for THIS request: ${tplHint}; brand=${brandHint}. HARD RULES: (1) NEVER answer in markdown prose - no ###, no >, no * bullets; the renderer only draws cards from :::slide fences, so prose renders as raw markdown slop. (2) If the user named a count ("5 #personas", "8 #themes"), produce that many items - theme-cluster packs up to 4 themes per block, so 8 themes = 2 blocks. (3) Every slide's JSON must be valid and match the declared template schema. (4) Citations inside slide JSON use NAMED source names, never raw file paths or .md#cNN pointers. (5) Numbers appear only inside verbatim quotes with inline attribution, never as bare assertions in titles/keyInsight/painPoints.\n========================================================================`;
+
+            // DECK MODE (SLIDES archetype system, Figma 609). A multi-slide narrative deck
+            // (#slides without a specific artifact template, OR #presentation / #strategy) is COMPOSED
+            // from the registered SLIDES archetypes - the way #proto composes from its component
+            // manifest. The model SELECTS + VARIES archetypes per slide and emits
+            // `:::slide template=slides:<archetype>`; slideComposer renders each from the registry
+            // spec (no per-archetype code). Specific artifact hashtags (#personas/#themes/#journey/...)
+            // keep their GOLD templates - they are not decks.
+            const deckMode = /#presentation|#strateg/i.test(userMessage) || (/#slides?\b/i.test(userMessage) && !artifactTplHit);
+            console.info(`[chat][deck] DECK MODE ${deckMode ? 'ACTIVE - SLIDES archetype registry injected (model must vary archetypes)' : 'OFF (single artifact template: ' + slideModeTpl + ')'}`);
+            if (deckMode) {
+                const slidesManifest = await fetchSlidesArchetypeManifest();
+                if (slidesManifest) {
+                    systemPrompt += `\n\n========================================================================\nDECK MODE - COMPOSE FROM THE SLIDES ARCHETYPE REGISTRY (Figma 609)\nTHIS SUPERSEDES the "SLIDE OUTPUT PROTOCOL - 18 TEMPLATES" catalog above: for THIS deck do NOT use any of those GOLD template names (persona-card, theme-cluster, recommendation, timeline, case-study, etc.). Use ONLY the 14 SLIDES archetypes in the catalog below, EACH with the \`slides:\` prefix. A fence without \`slides:\` is a HARD FAILURE in deck mode.\nThis is a narrative DECK, composed from the registered SLIDES archetypes the same way a prototype is composed from its component manifest. For EVERY slide emit a fence of the form:\n  :::slide template=slides:<archetype> brand=${brandHint}\n  { ...payload exactly as the catalog's PAYLOAD line specifies for that archetype... }\n  :::\nThe \`slides:\` prefix is MANDATORY - it routes the slide through the registry composer. The JSON body fields MUST match the archetype's PAYLOAD contract verbatim (key names + array lengths).\nNARRATIVE ARC - PLAN THE BUSINESS ARGUMENT FIRST (MANDATORY; this GOVERNS the whole deck, archetype choice serves it):\nA deck is ONE argument told start to finish, NOT an assortment of on-topic slides. BEFORE choosing any archetype, decide the deck's spine and make every slide advance it:\n  1. THESIS: one contestable sentence the whole deck proves (state the answer up front, Minto). Every slide ladders up to it.\n  2. ARC (Rumelt kernel + SCQA), in this order: (a) SETUP / context the audience accepts; (b) COMPLICATION / DIAGNOSIS - the central tension or failure named with evidence (why the status quo is unacceptable); (c) EVIDENCE - the themes/proof that establish the diagnosis; (d) IMPLICATION / SO-WHAT for the business; (e) GUIDING POLICY + COHERENT ACTIONS - the recommendation and the moves that follow; (f) CLOSE - the decision or ask. A landscape/outlook deck STILL resolves to "and therefore..."; never end on a flat list.\n  3. CONNECTIVE TISSUE: consecutive slides must FOLLOW from one another - read top-to-bottom the titles alone must tell the whole argument (the Partner Test). Use section-divider / thesis-interstitial to mark arc TRANSITIONS, never as filler.\n  3a. TITLE CRAFT (CONCISE + LITERAL, NO METAPHOR - HARD): every slide title is SHORT and PLAIN. Aim <= 10 words / ~70 chars, one line; state the judgment in literal business language naming the mechanism, system, actor, or proper noun. BANNED: figurative/cliche business metaphors and imagery - e.g. "front door", "trust ceiling", "the meter", "margin closes" / "closes the margin", "where value leaks", "bleeds", "...eat(s) it", "opens the door", "walk through first", "redrawing the map". Name the literal thing instead. ("funnel" terms - top/front of the funnel - are LEGITIMATE marketing vocabulary, NOT banned.) BAD (wordy + metaphor): "AI moves the retail front door from search to the assistant, but the operators who win 2026 are the ones who capture the premium before the platform tax and the trust ceiling eat it" -> GOOD (tight + literal): "AI assistants now originate retail traffic and convert better than search". BAD: "Retail 2026: The AI Front Door Opens, the Margin Closes" -> GOOD: "AI raises conversion and adds new costs in 2026". The single deck THESIS line may run one sentence longer, but the metaphor ban has NO exception: the thesis, the synthesis, and the closing/recommendation titles are where the model is most tempted to reach for "front door / trust ceiling / margin closes" - they must stay just as literal as the body titles (length latitude is NOT license for figurative language). Keep titles contestable (a named cause/change a reader could disagree with), never topic labels.\n  3b. SUBJECT DISCIPLINE - NO META-NARRATION (HARD, applies to EVERY field of EVERY slide): the deck is ABOUT THE SUBJECT (the market, product, org, audience the user named), NEVER about the deck/report itself. NEVER describe how the deck is built, structured, sequenced, or where to go next in it. BANNED as content anywhere (title, subtitle, kicker, agenda items + group labels, section-divider supporting, thesis, body): "how this deck/report is built", "where to ideate", "from diagnosis to ideation", "the framework" (as a section name), "the (2026) takeaway" (as a section name), "at a glance" (as a section name), "how might we questions" (as a LABEL - real HMW questions belong in body content, never as a TOC entry), "the through-line / the pattern behind / the section order / setting up the narrative", and any "01: <name of a deck section>" agenda item that points at the deck's OWN parts. The AGENDA (slides:agenda), if used, lists the SUBJECT'S domains in plain business language (e.g. "Customer-facing failure modes", "Operational cost drivers", "The recommended response") - each item names a real content area of the SUBJECT, never a deck-process step. cover.subtitle / section-divider.supporting / thesis state a fact about the SUBJECT, never about the document. A reader must never see that this is a generated deck or how it was assembled.\n  4. SUBSTANCE LIVES IN BODY SLIDES: the argument is carried by CONTENT-DENSE archetypes (numbered-themes, evidence-table, block-quote, org-model, stat-row with real MEANS/MATTERS) - cover/agenda/divider/thesis are CONNECTIVE, not where the content goes. A deck that is mostly sparse connective slides is WRONG and reads as empty.\n  5. If AUTHORITATIVE SOURCE CONTENT is present (a user-pasted enumerated set), build the arc AROUND it IN THE USER'S ORDER - sequence their items into setup -> diagnosis -> evidence -> so-what; never drop, merge, or reorder them.\nSELECTION DOCTRINE (be SMART - choose the archetype that fits each slide's content AND its role in the arc above; do NOT default to one):\n  - PLAN FIRST (mandatory): before emitting any fence, decide the archetype for EACH slide from ITS content, then emit the slides in that order. Across the deck use AT LEAST 5 DISTINCT archetypes; a deck that is mostly one archetype is WRONG.\n  - slides:numbered-themes is NOT a catch-all. It profiles EXACTLY 4 items on ONE slide (a grouped summary, e.g. four themes/plays at a glance). Use it AT MOST once or twice per deck. NEVER use it for one-subject-per-slide content, and NEVER repeat it.\n  - Map each slide to the archetype that matches its SHAPE: opener -> slides:cover; contents (6+ slides) -> slides:agenda; section break or one-line assertion -> slides:section-divider / slides:thesis-interstitial; a single deep-dive subject (one app, one capability, one role) -> slides:block-quote (hero voice) OR slides:role-needs / slides:role-recommendation (single-subject layouts); compare named subjects across criteria -> slides:evidence-table; three hard proof numbers -> slides:stat-row; a 3-part model/architecture -> slides:org-model; two contrasting forces -> slides:problem-diptych; phased plan -> slides:role-roadmap / slides:aggregate-roadmap.\n  - For "one slide per X" coverage (e.g. nine apps): do NOT emit nine identical numbered-themes. GROUP them (four per numbered-themes slide), OR give each a single-subject archetype, and intersperse stat-row / block-quote / evidence-table / section-divider so consecutive slides differ.\n  - HARD: never emit the same body archetype twice in a row, and never more than twice total except section-dividers.\n  - For #presentation, narrative content scenes that want a supporting visual use slides:scene with { kicker, title, body, imageConcept, canvas:"dark" } - imageConcept is a literal SHAPES-AS-CONTENT description of the scene idea (e.g. "a human figure beside flowing lines converging to one point"); the runtime generates a tasteful on-brand transparent illustration from it. Do NOT supply an image URL; not every scene needs one.\n\n--- SLIDES ARCHETYPE CATALOG (the registry the composer renders from) ---\n${slidesManifest}\n========================================================================`;
+                }
+            }
         }
 
         // 2026-05-07 - Multi-provider dispatch. Gemini 3.1 Pro is primary;
@@ -3386,6 +3571,41 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
         }
 
+        // 2026-06-14 - CENTRALIZED JUNK-ANSWER NET (provider-agnostic).
+        // Last line of defense regardless of which tool loop produced the
+        // reply: a degenerate fragment ("}", "{}", "```json", whitespace) must
+        // never render. Root cause: gemini-3.5-flash stuck re-calling
+        // fetch_wiki_articles to the iteration cap and surfacing a stray "}".
+        // The per-loop guards finalize cleanly now; this net guarantees it even
+        // for any future code path, makes ONE forced no-tools synthesis attempt,
+        // and logs telemetry that the self-improvement layer mines.
+        if (_isJunkAnswer(responseText)) {
+            console.error(`[chat][junk-guard] degenerate reply detected (model=${activeModelId}, len=${(responseText || '').length}, raw=${JSON.stringify((responseText || '').slice(0, 40))}); attempting forced synthesis`);
+            _recordJunkGuardTelemetry(activeModelId, responseText, userMessage);
+            try {
+                const salvage = await callGemini(
+                    systemPrompt,
+                    `Your previous reply to the request below came back empty or malformed. Answer it now in plain prose using the corpus and any evidence already in context. Do not call tools. Do not return JSON, code fences, or a bare brace.\n\nREQUEST:\n"""\n${userMessage}\n"""`,
+                    conversationHistory,
+                    'gemini-3.5-flash',
+                );
+                // HONEST SURFACING (2026-06-15): the salvage always runs on
+                // gemini-3.5-flash. If the routed model was something else (e.g.
+                // claude-opus-4-8 force-routed for an artifact), the user just got
+                // a DIFFERENT model than they think. Artifact turns are caught by
+                // the RI fence-enforcement notice below; for plain chat, say so.
+                const _salvageSwappedModel = activeModelId !== 'gemini-3.5-flash';
+                responseText = _isJunkAnswer(salvage)
+                    ? 'I could not compose an answer for that question this time. Try rephrasing it, narrowing it to one topic or source, or asking again.'
+                    : (_salvageSwappedModel && !isArtifactGenerationMessage(userMessage)
+                        ? `[Note: ${activeModelId} returned an empty response, so this reply was generated by a fallback model (gemini-3.5-flash).]\n\n${salvage}`
+                        : salvage);
+            } catch (salvageErr: any) {
+                console.error('[chat][junk-guard] forced synthesis failed:', salvageErr?.message || salvageErr);
+                responseText = 'I could not compose an answer for that question this time. Try rephrasing it, narrowing it to one topic or source, or asking again.';
+            }
+        }
+
         // 2026-06-11 - REINFORCEMENT-INFERENCE FENCE ENFORCEMENT (RI-Replace).
         // If slide mode was active but the model answered in prose (the exact
         // Gemini 3.1 Pro failure from the 2026-06-11 #journey run), one
@@ -3422,27 +3642,18 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             }
         }
 
-        // Defense-in-depth: strip any leaked QA-annotation tokens
-        // ("EVIDENCE GAP", "Evidence Gap", "TBD", "[needs baseline]") from
-        // the chat reply before it's rendered. Prompts forbid these tokens;
-        // this layer guarantees they never reach the user.
+        // Defense-in-depth (LEGACY committed post-processing, restored 2026-06-17): render bare
+        // deliverable-JSON replies to prose, strip leaked QA-annotation tokens + format tells
+        // (em-dash / emoji), and resolve manifest chunk pointers to NAMED sources before the chat
+        // reply renders. No AIR gate, no summarize-to-budget, no rewrite-from-source slop repair, no
+        // plain-prose meta/process strip - writing quality is governed by the prompt contract
+        // (nxt-visual-renderer/anti-slop-rules.md) + the committed slidePostProcessor, per the
+        // committed baseline.
         try {
             const { stripQAAnnotations, stripFormatTells } = await import('./slidePostProcessor');
-            // 2026-05-27 - Render bare deliverable-JSON replies (#prd / #gap /
-            // #persona / #audit / #compete / #strategy / #case-study skill
-            // outputs) into clean markdown prose and strip leaked [CHUNK_XXX]
-            // markers. No-op for prose, tables, and fenced structured output.
             responseText = renderDeliverableJsonReply(responseText);
             responseText = stripQAAnnotations(responseText);
-            // 2026-05-26 - Em-dash hard-ban per .claude/CLAUDE.md ("Format
-            // Tells"). 2026-05-27 - extended to a HARD emoji ban too via
-            // stripFormatTells (em-dash + emoji). Chat replies were letting
-            // "data-including" and model emoji ("Pong! ") reach users.
-            // Applied unconditionally; ASCII hyphens + layout glyphs untouched.
             responseText = stripFormatTells(responseText);
-            // 2026-06-11 - resolve manifest chunk pointers ([path.md#cN]) to
-            // NAMED sources before anything renders. The citation contract
-            // tells models to cite by pointer; the reader must never see one.
             const { resolveManifestPointers } = await import('./citationPointerRegistry');
             responseText = resolveManifestPointers(responseText);
         } catch (e) { /* non-blocking */ }
@@ -3475,6 +3686,26 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         if (notices.length > 0) {
             responseText = notices.join('\n') + '\n\n' + responseText;
         }
+
+        // 2026-06-15 (P3 insight RETRIEVABILITY, karpathy-second-brain-realignment): persist substantive
+        // grounded analyst answers to the wiki so insights become RETRIEVABLE in future generations -
+        // previously they were ephemeral (vanished after the turn). Fire-and-forget, engagement-tagged;
+        // never blocks or throws into the chat path. Gated to plain-prose insights (not junk, not a
+        // fenced/:::-delimited artifact or hashtag deliverable, which are persisted on their own paths).
+        try {
+            if (responseText && !_isJunkAnswer(responseText)
+                && responseText.length >= 240 && responseText.length <= 8000
+                && !responseText.includes(':::') && !responseText.includes('```')) {
+                const _slug = currentEngagementSlug();
+                const _q = (userMessage || '').slice(0, 200).replace(/\s+/g, ' ').trim();
+                const _entry = `\n## ${new Date().toISOString()} - Analyst insight\n**Q:** ${_q}\n\n${responseText}\n`;
+                void fetch(`${PROXY_BASE}/api/wiki/append`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ path: `synthesis/chat-insights${_slug ? '-' + _slug : ''}.md`, content: _entry, engagement: _slug || '', kind: 'synthesis' }),
+                }).catch(() => { /* best-effort persistence */ });
+            }
+        } catch { /* never let insight persistence break the chat path */ }
 
         return {
             id: `msg_${Date.now()}`,
@@ -3522,6 +3753,48 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
 //     drawn on real body text pulled during the loop.
 
 const MAX_TOOL_ITER = 5;
+// 2026-06-14 - Junk-answer guard for tool loops. When a model (notably
+// gemini-3.5-flash) gets stuck re-calling fetch_wiki_articles and never
+// composes a final answer, it sometimes emits a stray structural fragment
+// alongside a tool call - a lone "}", "{}", "[]", "```json", whitespace.
+// The old return guards used `.trim().length > 0`, so that fragment was
+// surfaced verbatim to the user (observed: a chat reply that was just "}").
+// _isJunkAnswer() detects those degenerate fragments so the finalize paths
+// fall through to a forced no-tools synthesis call instead of returning junk.
+export function _isJunkAnswer(s: string | null | undefined): boolean {
+    const t = (s || '').trim();
+    if (!t) return true;
+    // Strip a leading ```lang fence and a trailing ``` fence.
+    const noFence = t.replace(/^```[a-z0-9]*\s*/i, '').replace(/\s*```$/i, '').trim();
+    if (!noFence) return true;
+    // Pure structural / punctuation noise (braces, brackets, quotes, commas...).
+    if (/^[{}\[\]()<>"'`,:;.\-\s]+$/.test(noFence)) return true;
+    // A real chat answer always carries prose; fewer than 3 letters total is junk.
+    const letters = (noFence.match(/[A-Za-z]/g) || []).length;
+    if (letters < 3) return true;
+    return false;
+}
+
+// 2026-06-14 - Self-improvement hook for the junk-answer net. Records every
+// degenerate-reply event as a mineable line in the synthesis log so the
+// cross-engagement pattern-miner / epoch-proposer can surface a recurring
+// provider or prompt that produces empty replies. Fire-and-forget; never
+// blocks or throws into the chat path.
+function _recordJunkGuardTelemetry(model: string, raw: string | null | undefined, userMessage: string): void {
+    try {
+        const ts = new Date().toISOString();
+        const line =
+            `- ${ts} model=${model} len=${(raw || '').length} ` +
+            `raw=${JSON.stringify((raw || '').slice(0, 60))} ` +
+            `prompt=${JSON.stringify((userMessage || '').slice(0, 120))}\n`;
+        // fire-and-forget; the proxy append endpoint creates the page if absent
+        void fetch(`${PROXY_BASE}/api/wiki/append`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ path: 'synthesis/chat-junk-guard-log.md', content: line }),
+        }).catch(() => { /* telemetry is best-effort */ });
+    } catch { /* never let telemetry break chat */ }
+}
 // 2026-05-26 - Wall-clock budget for chat tool loops. Caps the worst-case
 // at 3 minutes per turn (vs the 23-min case-study wait we observed during
 // pipeline contention). When the budget is exceeded, the loop short-circuits
@@ -4136,14 +4409,16 @@ async function callDeepSeek(
         if (!choice) throw new Error('DeepSeek returned no choices');
 
         const msg = choice.message || {};
-        if (typeof msg.content === 'string' && msg.content.trim().length > 0) {
+        if (typeof msg.content === 'string' && !_isJunkAnswer(msg.content)) {
             lastText = msg.content;
         }
         messages.push(msg);
 
         const toolCalls = Array.isArray(msg.tool_calls) ? msg.tool_calls : [];
         if (toolCalls.length === 0 || choice.finish_reason !== 'tool_calls') {
-            return lastText || msg.content || 'No response';
+            if (lastText && !_isJunkAnswer(lastText)) return lastText;
+            if (typeof msg.content === 'string' && !_isJunkAnswer(msg.content)) return msg.content;
+            return 'No response';
         }
 
         console.log(`[chat.tools] iter ${iter + 1}: DeepSeek called ${toolCalls.length} tool(s): ${toolCalls.map((tc: any) => tc.function.name).join(', ')}`);
@@ -4195,7 +4470,7 @@ async function callDeepSeek(
         }
     }
     console.warn(`[chat.tools] DeepSeek iteration cap ${MAX_TOOL_ITER} reached`);
-    return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+    return (lastText && !_isJunkAnswer(lastText)) ? lastText : 'The reasoning loop hit its iteration cap. Try a more focused question.';
     } catch (e) {
         if (_isExhaustionError(e)) {
             return _finalizeChatViaClaude(system, messages as _ChatMsgLike[], 'DeepSeek');
@@ -4286,14 +4561,16 @@ async function callOpenAI(
         if (!choice) throw new Error('OpenAI returned no choices');
 
         const msg = choice.message || {};
-        if (typeof msg.content === 'string' && msg.content.trim().length > 0) {
+        if (typeof msg.content === 'string' && !_isJunkAnswer(msg.content)) {
             lastText = msg.content;
         }
         messages.push(msg);
 
         const toolCalls = Array.isArray(msg.tool_calls) ? msg.tool_calls : [];
         if (toolCalls.length === 0 || choice.finish_reason !== 'tool_calls') {
-            return lastText || msg.content || 'No response';
+            if (lastText && !_isJunkAnswer(lastText)) return lastText;
+            if (typeof msg.content === 'string' && !_isJunkAnswer(msg.content)) return msg.content;
+            return 'No response';
         }
 
         // Execute every tool call this turn (parallel-safe within one turn)
@@ -4346,7 +4623,7 @@ async function callOpenAI(
         }
     }
     console.warn(`[chat.tools] OpenAI iteration cap ${MAX_TOOL_ITER} reached`);
-    return lastText || 'The reasoning loop hit its iteration cap. Try a more focused question.';
+    return (lastText && !_isJunkAnswer(lastText)) ? lastText : 'The reasoning loop hit its iteration cap. Try a more focused question.';
     } catch (e) {
         if (_isExhaustionError(e)) {
             return _finalizeChatViaClaude(system, messages as _ChatMsgLike[], 'OpenAI / GPT');
@@ -4482,13 +4759,18 @@ async function callGemini(
         const textBits = respParts
             .filter((p: any) => typeof p?.text === 'string' && p.text.length > 0)
             .map((p: any) => p.text);
-        if (textBits.length > 0) lastText = textBits.join('\n');
+        // 2026-06-14 - Only retain SUBSTANTIVE text. A stray "}" emitted next to
+        // a tool call must not clobber lastText, or it surfaces as the answer.
+        if (textBits.length > 0) {
+            const joined = textBits.join('\n');
+            if (!_isJunkAnswer(joined)) lastText = joined;
+        }
 
         // Execute every functionCall part
         const callParts = respParts.filter((p: any) => p?.functionCall);
         if (callParts.length === 0) {
             const finalText = lastText || (response as any).text || '';
-            if (finalText && finalText.trim().length > 0) return finalText;
+            if (finalText && !_isJunkAnswer(finalText)) return finalText;
 
             // 2026-05-23 - Empty-response guard. Gemini sometimes returns a
             // response with no function calls AND no text after a long tool
@@ -4527,7 +4809,7 @@ async function callGemini(
                 .join('\n')
                 || (retryResp as any).text
                 || '';
-            if (retryText.trim().length > 0) return retryText;
+            if (retryText.trim().length > 0 && !_isJunkAnswer(retryText)) return retryText;
             return 'Model returned an empty response after retrieving data. The API may be degraded - try again, or rephrase the question more narrowly.';
         }
 
@@ -4575,7 +4857,7 @@ async function callGemini(
         contents.push({ role: 'user', parts: responseParts });
     }
     console.warn(`[chat.tools] Gemini iteration cap ${MAX_TOOL_ITER} reached`);
-    if (lastText && lastText.trim().length > 0) return lastText;
+    if (lastText && !_isJunkAnswer(lastText)) return lastText;
     // ENHANCEMENT P1b (2026-06-08) — graceful finalize instead of a dead-end.
     // The loop fetched evidence but never emitted a final answer (common when
     // the user asks to "focus on articles, exclude social/<institution>" and the
@@ -4594,7 +4876,7 @@ async function callGemini(
         });
         const finalText = finalResp?.text
             || (finalResp?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('\n').trim();
-        if (finalText && finalText.trim().length > 0) return finalText;
+        if (finalText && !_isJunkAnswer(finalText)) return finalText;
     } catch (e: any) {
         console.warn('[chat.tools] graceful finalize failed (non-fatal):', e?.message || e);
     }

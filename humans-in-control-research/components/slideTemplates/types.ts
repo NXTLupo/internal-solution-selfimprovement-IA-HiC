@@ -58,6 +58,10 @@ export interface PersonaCardData {
      *  carry content, renderers route to the identity-column + 2x2 evidence
      *  quadrant layout instead of the two-column card. */
     behaviors?: string[];
+    // NOTE: persona-card is registered image-free (artifactImageSlots.ts persona-card mode:'none').
+    // The persona imagery lives on the personas OVERVIEW component (596:2 / 111:159), a different twin,
+    // NOT on this card. An earlier per-behavior `behaviorImages[]` carrier here was invented and is
+    // reverted (the dense card 614:10 has no Figma img-slot). Do not re-add it without an overview twin.
     /** What wins this persona over (acknowledgement-first recovery, one named
      *  owner, ...). Quadrant 4 of the dense layout. */
     winConditions?: string[];
@@ -462,8 +466,15 @@ export interface JourneyMapData {
     scope?: string;
     actors?: string;
     phasesLabel?: string;
-    /** Columns. critical=true renders the accent (red/rust) header - mark AT MOST one or two. */
-    stages: Array<{ name: string; critical?: boolean } | string>;
+    /** Columns. critical=true renders the accent (red/rust) header - mark AT MOST one or two.
+     *  image (optional) = a per-phase illustration URL/data-URI produced by the `illustrator`
+     *  agent for the Figma img-slot on this phase column (see wiki/brand/image-slots). */
+    stages: Array<{ name: string; critical?: boolean; image?: string } | string>;
+    /** Per-phase illustration URLs/data-URIs, aligned to stages[] (alternative carrier to
+     *  stage.image). Populated post-generation by the `illustrator` agent from the journey
+     *  img-slot metadata. When empty AND no stage.image is set, the thumbnail row is omitted
+     *  and the matrix renders identically to the pre-illustration layout (no regression). */
+    phaseImages?: string[];
     /** Rows: one lane per actor. cells[] aligns to stages[]; use "not engaged"
      *  for stages where the actor has no part (renders greyed). */
     lanes: Array<{ actor: string; role?: string; cells: string[] }>;
@@ -639,6 +650,19 @@ export const TOKENS = {
     // Lato (weight = hierarchy). Hydrated from font/title.
     FONT_TITLE: 'Archivo',
     TITLE_WEIGHT: '600',
+    // Brand seal / wordmark shown on section-divider footers (and any "brand
+    // signature" chrome). A TOKEN, not a renderer literal - the section-divider
+    // used to hardcode "Northeastern · Advancement" via a ternary, which forced
+    // NU chrome onto #NXT decks. Override per brand in brands.ts; hydrate from
+    // /api/design-tokens (font/seal-label or brand/name) when a Figma variable
+    // for it exists.
+    SEAL_LABEL: 'NXT Humans',
+    // 2026-06-15 - EXPLICIT brand discriminator. Renderers MUST switch brand on
+    // this, never on a font equality (`FONT_TITLE === 'Lora'`): NU migrated to a
+    // single-typeface Lato system + a Figma MODE (not a separate file), so the old
+    // font predicate silently returns false for NU and renders it as NXT. nuBrand
+    // overrides this to 'nu' in brands.ts.
+    BRAND_ID: 'nxt',
     // GOLD mono face is IBM Plex Mono (kicker, meta rows, labels, SOURCE lines)
     // per both Figma files. JetBrains Mono remains loaded for code surfaces
     // elsewhere in the SPA, but slide chrome resolves to IBM Plex Mono.
@@ -648,9 +672,108 @@ export const TOKENS = {
     // Agency FB is Office-available but not web-available, so web/PPTX split: web
     // display = Bebas Neue proxy (FONT_DISPLAY), PPTX display = Agency FB (this token).
     FONT_DISPLAY_PPTX: 'Agency FB',
+    // 2026-06-15 - BRAND LOGO (Figma-sourced; hydrated from /api/design-tokens `logo`
+    // block by hydrateTokensFromFigma). The masthead mark MUST come from the design
+    // system, never a hardcoded literal - this is what lets a designer's NEWLY DEPLOYED
+    // Figma logo reach slides without a renderer code change (the "new Figma components
+    // aren't deployed" gap: color/font tokens hydrated, the logo never did, so both
+    // twins fell back to a baked-in mark). Defaults are the NXT wordmark; live values
+    // overwrite at boot. NU supplies a monogram SVG via the token feed.
+    BRAND_LOGO_SVG: '',                 // inline <svg> monogram (brands that use a mark, e.g. NU)
+    BRAND_LOGO_WORDMARK: 'NXT HUMANS',  // wordmark text (NXT)
+    BRAND_LOGO_WEIGHT: '800',
+    BRAND_LOGO_TRACKING: '0.01em',
 } as const;
 
 export const hex = (c: string) => '#' + c;
+
+// === TYPOGRAPHIC SYSTEM (2026-06-14) ===
+// BUILD-TIME DEFAULTS ONLY - NOT the source of truth. The source of truth is the
+// Figma design system (named TEXT STYLES on the GOLD/Slides pages), surfaced via
+// the manifest + /api/design-tokens and hydrated into these objects at runtime by
+// hydrateTokensFromFigma() - exactly like TOKENS above. NOTHING here is hardcoded
+// canon: the literals stand only until the live Figma feed overwrites them (fail-
+// loud if the feed is missing). This honors the standing pipeline contract
+// (#prompt -> manifest -> Figma patterns -> generation -> self-improvement; no
+// hardcode, no RAG). They drive BOTH renderer twins (web.tsx 960x540 preview +
+// slideToStageHtml.ts 1920x1080 export) and the PPTX layer from ONE number, and
+// replace the ~45 ad-hoc sizes / all-8-weights / two-tracking-unit muddle the
+// 2026-06-14 real-PPTX audit found (see plans/typographic-system-redesign-2026-06-14.md).
+//
+// All SCALE values are STAGE px (1920-space). Conversions:
+//   web preview px = stagePx / 2   (webPx)
+//   PPTX pt        = stagePx / 2    (stagePt; PX2PT = 0.5)
+// so a single number drives all three targets and they can never drift.
+//
+// Content-dense posture: minor-third (~1.2) in the body band, a hard jump to the
+// action title so the title always dominates. Hero numerals are capped at LEAD
+// and may NEVER exceed the title on a content slide (section-divider exempt).
+export const SCALE = {
+    label: 17,   // mono kicker / meta / micro-label (Medium 500, grey, uppercase) = the floor (8.5pt); nothing renders smaller
+    caption: 18, // secondary annotation, source lines
+    body: 21,    // standard body / dense GOLD matrices + tables (Figma type/scale/body). NOT bumped - dense deliverables overflow at 28.
+    bodyReadable: 28, // 14pt PROSE readable floor (Figma type/scale/body-readable). Slides deck prose + prose GOLD opt in; dense stays at body.
+    lead: 25,    // hero WORDS, KPI values, emphasized body
+    name: 30,    // card / theme / persona names (h3)
+    subhead: 36, // rare sub-section heads (h2)
+    title: 46,   // ACTION TITLE (h1) - ALWAYS the largest element on a content slide
+    display: 60, // section-divider numeral ONLY (no competing title)
+    // DECK-TIER (slides-system / 609 archetypes) - bigger reading posture than the GOLD scale.
+    // Hydrated from Figma type/scale/{kicker,deckHeading,deckTitle,numeral,hero,sectionNumeral,quoteMark}.
+    kicker: 22,         // deck eyebrow / kicker (Archivo Bold uppercase)
+    deckHeading: 24,    // deck column heading / name (Archivo Bold)
+    deckTitle: 58,      // deck content-rail action title (Saira)
+    numeral: 80,        // deck column numeral (Saira)
+    hero: 120,          // full-bleed cover/section/thesis title (Saira)
+    sectionNumeral: 360,// section-divider giant numeral
+    quoteMark: 260,     // block-quote display quote mark
+    micro: 13,          // dense GOLD matrix/table cell (journey/gap/competitive grids)
+    nano: 11,           // ultra-dense matrix cell
+} as const;
+
+// HARD MINIMUM rendered size, any slide, any density. Below this -> overflow to a
+// continuation slide; NEVER shrink past it (the 2026-06-14 audit found real PPTX
+// text at 5.5pt). 17 stage px = 8.5pt.
+export const TYPO = {
+    HARD_MIN_PX: 17,        // never render text smaller than this (stage px) = absolute floor (8.5pt)
+    BODY_FLOOR_PX: 21,      // target for primary body text
+    READABLE_BODY_PX: 28,   // READABLE prose floor (14pt): registry-deck prose blocks clamp UP to this
+    HERO_CAP_PX: SCALE.subhead, // hero numerals/words capped here (prominent, but < title so the title governs)
+    MEASURE_CH: 62,         // max body line length (characters) for readability
+    KICKER_TRACK_PX: 4,     // uppercase mono kicker tracking (stage px)
+    LABEL_TRACK_PX: 1.5,    // uppercase mono label/meta tracking (stage px)
+    TITLE_TRACK_PX: -0.5,   // action-title optical tracking
+};
+
+// Line-height ladder (unitless). tight = single-spacing for display/headline lines;
+// body = the single-spaced value for readable prose blocks (1.0 collides glyphs at 28px,
+// so body prose uses ~1.15); prose = relaxed multi-paragraph. Hydrated from the Figma
+// `type.lineHeight` token alongside SCALE (see hydrateTokensFromFigma).
+export const LINE = {
+    tight: 1.0,   // display numerals, hero words, cover/section titles
+    body: 1.15,   // readable prose blocks (single-spaced; the deck-body default)
+    prose: 1.3,   // relaxed / multi-paragraph
+};
+
+// 3-weight ladder. Weight encodes importance: labels are NEVER heavier than the
+// content they label, and recede via size + grey instead. (NU title overrides to
+// 700 in brand tokens - its only contrast lever as a single-typeface brand.)
+export const WEIGHT = {
+    body: 400,   // body, captions, quotes, hero numerals (light = data, not shouting)
+    label: 500,  // labels, meta, mono, source lines - always grey
+    title: 600,  // action title, names, takeaway band
+} as const;
+
+// 4px-base spacing rhythm. Replaces ad-hoc per-template gaps/padding.
+export const SPACE = { xs: 4, sm: 8, md: 12, lg: 16, xl: 24, xxl: 32, xxxl: 48, huge: 64 } as const;
+
+/** Stage px -> web preview px (the 960x540 twin renders at half). */
+export const webPx = (stagePx: number): number => stagePx / 2;
+/** Stage px -> PPTX pt (PX2PT = 0.5). */
+export const stagePt = (stagePx: number): number => stagePx / 2;
+/** Clamp a computed size to the hard minimum (stage px). Use at every count-adaptive
+ *  sizing site so density can never push text below the legibility floor. */
+export const clampMin = (stagePx: number): number => Math.max(TYPO.HARD_MIN_PX, stagePx);
 
 // === UNIVERSAL DENSITY AXIS (2026-06-10) ===
 // Every template supports a slide-level density. The Analyst Desk model sets
@@ -734,6 +857,10 @@ export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target
         // GOLD slots (rail / hairline / grey are shared keys in both brand files;
         // NU maps its 'source' teal onto the cool accent and red onto kicker+warn).
         up('RAIL', c.rail); up('HAIRLINE', c.hairline); up('GREY', c.grey);
+        // SLIDES body/secondary text colors (Figma color/body + color/secondary). Distinct from
+        // rail/ink (headings) and grey (meta) - the deck composer paints body copy + source/quote
+        // text from these so it mirrors the 609 components' color/body + color/secondary bindings.
+        up('BODY_TEXT', c.body); up('SECONDARY_TEXT', c.secondary);
         up('KICKER', c.kicker || c.cyan || c.accent);
         up('ACCENT_COOL', c.source || c.cyan);
         up('ACCENT_WARN', c.warn || c.rust || c.accent);
@@ -748,6 +875,35 @@ export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target
         if (f['title-weight']) T.TITLE_WEIGHT = String(f['title-weight']);
         if (f.body) { T.FONT = f.body; T.FONT_BODY = f.body; }
         if (f.mono) T.FONT_MONO = f.mono;
+        // 2026-06-15 - hydrate the BRAND LOGO so the masthead paints the DEPLOYED Figma
+        // mark, not a baked-in literal. figma-tokens.json `logo`: {type, wordmark?,
+        // monogram?(inline svg), monogram_viewbox?, weight?, letter_spacing?}.
+        const lg: any = (t as any).logo || {};
+        // BRAND_LOGO_SVG = the true vector mark: NU red-N `monogram`, OR the NXT custom-vector
+        // wordmark `svg` (node 31:17, fill=currentColor - the renderer sets color per context).
+        // Either lands in BRAND_LOGO_SVG; the renderer prefers it over the typeset `wordmark` text.
+        if (typeof lg.monogram === 'string') T.BRAND_LOGO_SVG = lg.monogram;
+        else if (typeof lg.svg === 'string') T.BRAND_LOGO_SVG = lg.svg;
+        if (typeof lg.wordmark === 'string') T.BRAND_LOGO_WORDMARK = lg.wordmark;
+        if (lg.weight != null) T.BRAND_LOGO_WEIGHT = String(lg.weight);
+        if (lg.letter_spacing) T.BRAND_LOGO_TRACKING = String(lg.letter_spacing);
+        // 2026-06-14 - hydrate the TYPE SYSTEM (scale/weight/space/doctrine) from the
+        // Figma-sourced `type` block so renderers paint the scale from Figma, never from
+        // the build-time defaults above. Shared geometry (scale/space/floor) is identical
+        // across brands; per-brand title weight rides on TITLE_WEIGHT (font.title-weight).
+        const ty: any = (t as any).type || {};
+        if (ty && ty.scale) {
+            const S = SCALE as any, W = WEIGHT as any, SP = SPACE as any, TP = TYPO as any;
+            for (const k of Object.keys(ty.scale)) if (typeof ty.scale[k] === 'number') S[k] = ty.scale[k];
+            if (ty.space) for (const k of Object.keys(ty.space)) if (typeof ty.space[k] === 'number') SP[k] = ty.space[k];
+            if (ty.weight) { if (typeof ty.weight.body === 'number') W.body = ty.weight.body; if (typeof ty.weight.label === 'number') W.label = ty.weight.label; if (typeof ty.weight.title === 'number') W.title = ty.weight.title; }
+            if (typeof ty.floor === 'number') TP.HARD_MIN_PX = ty.floor;
+            if (typeof ty.readableBody === 'number') TP.READABLE_BODY_PX = ty.readableBody;
+            if (typeof ty.heroCap === 'number') TP.HERO_CAP_PX = ty.heroCap;
+            if (typeof ty.measureCh === 'number') TP.MEASURE_CH = ty.measureCh;
+            if (ty.lineHeight) { const L = LINE as any; for (const k of Object.keys(ty.lineHeight)) if (typeof ty.lineHeight[k] === 'number') L[k] = ty.lineHeight[k]; }
+            if (ty.track) { if (typeof ty.track.kicker === 'number') TP.KICKER_TRACK_PX = ty.track.kicker; if (typeof ty.track.label === 'number') TP.LABEL_TRACK_PX = ty.track.label; if (typeof ty.track.title === 'number') TP.TITLE_TRACK_PX = ty.track.title; }
+        }
         figmaTokensLoaded = true;
         console.log(`[tokens] Figma-live tokens hydrated into renderer TOKENS (${brand}): accent=${T.CHARTREUSE} teal=${T.TEAL} mono=${T.FONT_MONO}`);
         return true;

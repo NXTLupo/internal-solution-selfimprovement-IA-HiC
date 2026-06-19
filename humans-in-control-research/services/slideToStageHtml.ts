@@ -33,7 +33,9 @@
 
 // Permissive type alias - we read by-shape, not by-import. types.ts is a
 // pure-data module (no React), so importing the shared density spec is light.
-import { densityCaps, type SlideDensity } from '../components/slideTemplates/types';
+import { densityCaps, type SlideDensity, SCALE, WEIGHT, TYPO, clampMin, TOKENS } from '../components/slideTemplates/types';
+import { getBrand } from '../components/slideTemplates/brands';
+import { composeSlide } from './slideComposer';
 
 export interface SlideDataLike {
     id?: string;
@@ -45,6 +47,8 @@ export interface SlideDataLike {
     title?: string;
     subtitle?: string;
     sources?: string[];
+    /** SLIDES-deck archetype (template=slides:*) raw payload, read by composeSlide by exact key. */
+    composerPayload?: any;
     persona?: any;
     recommendation?: any;
     themeCluster?: any;
@@ -106,8 +110,16 @@ interface BrandTokens {
     washCool: string;
     /** GOLD meta/label grey. */
     grey: string;
+    /** SLIDES body copy (Figma color/body; softer than rail/ink: NXT #333333 / NU #16233C). */
+    bodyText: string;
+    /** SLIDES secondary/source/quote text (Figma color/secondary: NXT #666666 / NU #73757A). */
+    secondaryText: string;
     /** LESSON-block accent (NXT chartreuse / NU premium gold). */
     gold: string;
+    /** SLIDES dark-card fill (color/graphite, used on full-bleed-dark archetypes). */
+    graphite: string;
+    /** SLIDES on-dark secondary text (color/rule-mid; lighter than `grey` which is on-light). */
+    ruleMid: string;
 }
 
 const NXT: BrandTokens = {
@@ -132,7 +144,11 @@ const NXT: BrandTokens = {
     washWarn: '#FAF1EC',
     washCool: '#EBF7F8',
     grey: '#73757A',
+    bodyText: '#333333',
+    secondaryText: '#666666',
     gold: '#B8B800',
+    graphite: '#262626',
+    ruleMid: '#CCCCCC',
 };
 
 const NU: BrandTokens = {
@@ -158,11 +174,55 @@ const NU: BrandTokens = {
     washWarn: '#FAEDED',
     washCool: '#EDF7F5',
     grey: '#73757A',
+    bodyText: '#16233C',
+    secondaryText: '#73757A',
     gold: '#A4804A',
+    graphite: '#262626',
+    ruleMid: '#B9BEC7',
 };
 
-function brandTokens(b?: Brand): BrandTokens {
-    return b === 'nu' ? NU : NXT;
+// 2026-06-15 - the export twin now reads the HYDRATED Figma tokens (the same feed
+// web.tsx uses) instead of returning a baked-in palette, so the downloaded PPTX
+// reflects the live design system and matches the preview. NXT reads the hydrated
+// global TOKENS (the object hydrateTokensFromFigma mutates); NU reads the hydrated
+// nuBrand (its hydration target). The literal NXT/NU constants above are now PER-FIELD
+// FALLBACKS only - if the Figma feed is missing a key, that field keeps its prior
+// value, so this can never render worse than before. (Was: brandTokens returned the
+// hardcoded const wholesale, the deepest layer of "new Figma components aren't deployed".)
+export function brandTokens(b?: Brand | string): BrandTokens {
+    const id = (typeof b === 'string' ? b : (b as any)?.BRAND_ID) === 'nu' ? 'nu' : 'nxt';
+    const fb: BrandTokens = id === 'nu' ? NU : NXT;
+    const H: any = id === 'nu' ? getBrand('nu') : TOKENS;
+    const hx = (v: any, f: string) => (typeof v === 'string' && v) ? '#' + String(v).replace(/^#/, '') : f;
+    const ff = (v: any, f: string) => (typeof v === 'string' && v) ? `'${v}', sans-serif` : f;
+    return {
+        rail: hx(H.RAIL, fb.rail),
+        paper: hx(H.WHITE, fb.paper),
+        ink: hx(H.INK, fb.ink),
+        accent: hx(H.CHARTREUSE, fb.accent),
+        accent2: hx(H.CYAN, fb.accent2),
+        muted: hx(H.MUTED, fb.muted),
+        hair: hx(H.HAIRLINE, fb.hair),
+        band: hx(H.BAND, fb.band),
+        bandText: hx(H.BAND_TEXT, fb.bandText),
+        callout: hx(H.PANEL, fb.callout),
+        displayFont: ff(H.FONT_DISPLAY, fb.displayFont),
+        bodyFont: ff(H.FONT_BODY, fb.bodyFont),
+        monoFont: (typeof H.FONT_MONO === 'string' && H.FONT_MONO) ? `'${H.FONT_MONO}', monospace` : fb.monoFont,
+        titleFont: ff(H.FONT_TITLE, fb.titleFont),
+        titleWeight: Number(H.TITLE_WEIGHT) || fb.titleWeight,
+        kicker: hx(H.KICKER, fb.kicker),
+        accentWarn: hx(H.ACCENT_WARN, fb.accentWarn),
+        accentCool: hx(H.ACCENT_COOL, fb.accentCool),
+        washWarn: hx(H.WASH_WARN, fb.washWarn),
+        washCool: hx(H.WASH_COOL, fb.washCool),
+        grey: hx(H.GREY, fb.grey),
+        bodyText: hx(H.BODY_TEXT, fb.bodyText),
+        secondaryText: hx(H.SECONDARY_TEXT, fb.secondaryText),
+        gold: hx(H.GOLD_ACCENT, fb.gold),
+        graphite: hx(H.GRAPHITE, fb.graphite),
+        ruleMid: hx(H.RULE_MID, fb.ruleMid),
+    };
 }
 
 // Per-render density ceilings, set once at the top of slideDataToStageHtml
@@ -180,6 +240,15 @@ let _caps = densityCaps('', undefined);
 function esc(s: string | number | undefined | null): string {
     if (s === undefined || s === null) return '';
     return String(s)
+        // 2026-06-14 - Normalize smart punctuation to ASCII BEFORE escaping. The
+        // PPTX editable-text layer mangled curly quotes/dashes into the U+FFFD
+        // replacement char (the audited block-quote mojibake). ASCII also aligns
+        // with the house plain-text + em-dash-ban rules. Quote-mark wrappers the
+        // renderers add (&ldquo;/&rdquo;) are template entities, not passed here.
+        .replace(/[‘’‚‛]/g, "'")
+        .replace(/[“”„‟]/g, '"')
+        .replace(/[–—]/g, '-')
+        .replace(/…/g, '...')
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -235,9 +304,63 @@ function trunc(s: string | undefined | null, max: number): string {
         .replace(/[\s,;:.\-(“"‘']+$/, '').trim();
 }
 
+/** Strip a trailing source attribution that rode INTO a tight list item.
+ *  Per the no-truncation contract, attributions belong in the slide-level
+ *  sources[] / evidence fields, never inside a pain/opportunity cell - a
+ *  trailing "(Vanguard Working Session)" eats the char budget and gets
+ *  word-cut ("...skill optimization (Vanguard"). Only strips when the trailing
+ *  parenthetical LOOKS like a source (Source:, a Working Session, a year, a
+ *  known publisher); a legitimate content parenthetical is left intact. */
+function stripInlineSource(s: string): string {
+    return String(s ?? '').trim().replace(/\s*\((?:source:\s*)?[^)]*\)\s*$/i, (m) => {
+        const inner = m.replace(/[()]/g, '');
+        return /source:|working session|\bet al\b|\b(?:19|20)\d{2}\b|reddit|openalex|arxiv|vanguard/i.test(inner) ? '' : m;
+    }).trim();
+}
+
 // ---------------------------------------------------------------------------
 // Shared shell - head with fonts + base #stage container + footer sources strip.
 // ---------------------------------------------------------------------------
+
+// Google-fonts href covering BOTH brands' hydrated faces (+ legacy/quote faces). Shared by
+// buildShell and the SLIDES-archetype bare-stage doc so the composed deck loads the same faces.
+function computeFontsHref(): string {
+    const _famName = (f: any) => String(f || '').replace(/['"]/g, '').split(',')[0].trim();
+    const _fams = new Set<string>();
+    for (const B of [TOKENS as any, getBrand('nu') as any]) {
+        for (const k of ['FONT_DISPLAY', 'FONT_TITLE', 'FONT_BODY', 'FONT_MONO']) {
+            const n = _famName(B[k]); if (n) _fams.add(n);
+        }
+    }
+    ['Archivo', 'IBM Plex Mono', 'Bebas Neue', 'Lora', 'Saira Condensed', 'Lato'].forEach(n => _fams.add(n));
+    return 'https://fonts.googleapis.com/css2?'
+        + [..._fams].map(n => `family=${n.replace(/\s+/g, '+')}:wght@300;400;500;600;700;800`).join('&')
+        + '&display=swap';
+}
+
+// Bare 1920x1080 document shell for SLIDES-archetype slides composed by slideComposer. The composer
+// emits its OWN complete chrome (rail / dot-mark / masthead OR full-bleed), so this shell adds only
+// the doctype + font links + reset + the scalable #stage host - NO rail/title/kicker/takeaway.
+function composeArchetypeDoc(brand: Brand, title: string, stageInner: string): string {
+    return `<!DOCTYPE html>
+<html lang="en" data-brand="${brand}">
+<head>
+<meta charset="UTF-8">
+<title>${esc(title || 'Slide')}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="${computeFontsHref()}">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#080808;overflow:hidden}
+#stage{position:absolute;width:1920px;height:1080px;transform-origin:top left;overflow:hidden}
+</style>
+</head>
+<body>
+<div id="stage">${stageInner}</div>
+</body>
+</html>`;
+}
 
 function buildShell(opts: {
     brand: Brand;
@@ -254,16 +377,13 @@ function buildShell(opts: {
     takeaway?: string;
 }): string {
     const T = brandTokens(opts.brand);
-    const fontsHref = 'https://fonts.googleapis.com/css2'
-        + '?family=Bebas+Neue'
-        + '&family=Archivo:wght@200;300;400;500;600;700;900'
-        + '&family=Lora:ital,wght@0,400;0,500;0,600;1,400'
-        + '&family=IBM+Plex+Mono:wght@400;500;600'
-        + '&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800'
-        + '&family=Roboto:wght@300;400;500;600;700'
-        + '&family=Roboto+Mono:wght@400;500;600'
-        + '&family=JetBrains+Mono:wght@400;500;600'
-        + '&display=swap';
+    // 2026-06-15 - DERIVE the font href from the HYDRATED brand fonts of BOTH brands,
+    // not a static family list. The old hardcoded list omitted Saira Condensed (NXT
+    // display) and Lato (NU single-typeface), so after the token migration the CSS
+    // referenced faces the page never LOADED -> silent serif fallback (the Saira/Lato
+    // bug). Whatever Figma deploys into font/* now loads automatically. Legacy faces
+    // some saved decks still reference are kept so older artifacts don't regress.
+    const fontsHref = computeFontsHref();
     const sourcesStrip = (opts.sources && opts.sources.length > 0 && !opts.takeaway)
         ? `<div class="srcs">Sources: ${opts.sources.map(s => esc(s)).join('  ·  ')}</div>`
         : '';
@@ -277,10 +397,33 @@ function buildShell(opts: {
     // step so two lines stay comfortable. Server-side trunc, never clamp.
     const takeawayText = opts.takeaway ? trunc(opts.takeaway, 228) : '';
     const takeawayHtml = takeawayText
-        ? `<div class="takeaway"${takeawayText.length > 170 ? ' style="font-size:20px;line-height:1.42;padding:24px 48px"' : ''}>${esc(takeawayText)}</div>`
+        ? `<div class="takeaway"${takeawayText.length > 170 ? ' style="font-size:${SCALE.body}px;line-height:1.42;padding:24px 48px"' : ''}>${esc(takeawayText)}</div>`
         : '';
     // 3x3 GOLD dot mark, bottom of the rail (Figma: 12px squares, gap 6, at 30/990).
     const dotMark = `<div class="dotmark">${'<span></span>'.repeat(9)}</div>`;
+    // Official brand logo - HYDRATED from the Figma token feed (/api/design-tokens
+    // `logo` block -> hydrateTokensFromFigma -> TOKENS / nuBrand), NEVER hardcoded, so
+    // a designer's newly deployed mark reaches the EXPORT with no renderer code change
+    // (the "new Figma components aren't deployed" gap). NXT reads the hydrated global
+    // TOKENS; NU reads the hydrated nuBrand (its distinct hydration target). The
+    // wordmark is the fallback only if the feed has not populated a mark yet.
+    const _lt: any = opts.brand === 'nu' ? getBrand('nu') : TOKENS;
+    // 2026-06-17 - Logo strictly from the registry `logo` token (Brand/Logo masthead 619:2,
+    // hydrated to BRAND_LOGO_SVG=logo.monogram / BRAND_LOGO_WORDMARK=logo.wordmark). NU = the red-N
+    // monogram SVG ALONE (the NU 619:2 instance is the monogram - do NOT append a "NORTHEASTERN"
+    // wordmark beside it). NXT = the "NXT HUMANS" wordmark TYPESET in the display face (no vector).
+    // A brand-name text literal is a LAST-RESORT only if the registry token is absent (degraded) -
+    // it must never be the default, which was the prior hand-made bug. See
+    // plans/figma-audit/slides-archetypes/_chrome-logo-brick.md.
+    // Resolve fill=currentColor to the explicit ink color so the editable-PPTX export (which hides
+    // text via color:transparent) cannot blank the logo SVG. NU monogram carries its own red fill.
+    const _logoSvg = String(_lt.BRAND_LOGO_SVG || '').trim().replace(/currentColor/g, T.ink);
+    const _logoWm = String(_lt.BRAND_LOGO_WORDMARK || '').trim();
+    const brandLogoHtml = _logoSvg
+        ? `<div class="brandlogo">${_logoSvg}</div>`
+        : _logoWm
+            ? `<div class="brandlogo"><span class="wm">${esc(_logoWm)}</span></div>`
+            : `<div class="brandlogo"><span class="wm">${esc(opts.brand === 'nu' ? 'Northeastern' : 'NXT Humans')}</span></div>`;
     return `<!DOCTYPE html>
 <html lang="en" data-brand="${opts.brand}">
 <head>
@@ -296,14 +439,24 @@ html,body{width:100%;height:100%;background:#080808;overflow:hidden}
 .rail{position:absolute;left:0;top:0;width:92px;height:100%;background:${T.rail}}
 .dotmark{position:absolute;left:30px;top:990px;display:grid;grid-template-columns:repeat(3,12px);gap:6px}
 .dotmark span{width:12px;height:12px;background:${T.accent};display:block}
-.brand{position:absolute;top:50px;right:80px;font-family:${T.monoFont};font-size:20px;letter-spacing:7px;color:${T.grey};text-transform:uppercase}
+.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px;height:34px;color:${T.ink}}
+.brandlogo svg{display:block;height:34px;width:auto}
+/* Masthead wordmark uses the brand DISPLAY face (NXT = Saira Condensed SemiBold
+ * per Figma node 22:2; NU = Lato), hydrated via FONT_DISPLAY - NOT bodyFont.
+ * The 2026-06-13 Saira swap never reached this rule, so NXT mastheads rendered
+ * the wordmark in Archivo. displayFont===bodyFont for NU, so this is a no-op there. */
+.brandlogo .wm{font-family:${T.displayFont};font-weight:${opts.brand === 'nu' ? 800 : 600};font-size:${opts.brand === 'nu' ? '22px' : '26px'};letter-spacing:${opts.brand === 'nu' ? '3px' : '1px'};color:${T.ink};text-transform:uppercase}
 .canvas{position:absolute;left:172px;top:0;right:80px;bottom:${opts.takeaway ? '152px' : '96px'};padding:58px 0 12px 0;display:flex;flex-direction:column;overflow:hidden}
-.kicker{font-family:${T.monoFont};font-size:19px;letter-spacing:6px;color:${T.kicker};text-transform:uppercase;margin-bottom:16px;font-weight:600}
-h1{font-family:${T.titleFont};font-weight:${T.titleWeight};letter-spacing:${opts.brand === 'nu' ? '0' : '-0.5px'};font-size:46px;line-height:${opts.brand === 'nu' ? '1.12' : '1.08'};color:${T.ink};margin-bottom:24px;max-width:1400px}
-.metarow{font-family:${T.monoFont};font-weight:500;font-size:14px;letter-spacing:1px;line-height:1.6;color:${T.grey};text-transform:uppercase;margin-bottom:16px;white-space:pre-wrap}
+/* Chrome painted from the hydrated Figma type system (SCALE/WEIGHT/TYPO), not
+ * hardcoded - the 2026-06-14 typographic redesign. Kicker recedes to the label
+ * tier; the action title governs at SCALE.title; the takeaway band is the payoff
+ * line so it carries the TITLE weight (was 400, lighter than the h1 - audited). */
+.kicker{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.KICKER_TRACK_PX}px;color:${T.kicker};text-transform:uppercase;margin-bottom:16px;font-weight:${WEIGHT.label}}
+h1{font-family:${T.titleFont};font-weight:${T.titleWeight};letter-spacing:${opts.brand === 'nu' ? '0' : '-0.5px'};font-size:${SCALE.title}px;line-height:${opts.brand === 'nu' ? '1.12' : '1.08'};color:${T.ink};margin-bottom:24px;max-width:1400px}
+.metarow{font-family:${T.monoFont};font-weight:${WEIGHT.label};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;line-height:1.6;color:${T.grey};text-transform:uppercase;margin-bottom:16px;white-space:pre-wrap}
 .hairline{height:1px;background:${T.hair};width:100%;margin-bottom:17px}
-.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:${T.band};color:${T.bandText};padding:28px 48px;font-family:${T.titleFont};font-weight:400;font-size:23px;line-height:1.48}
-.srcs{position:absolute;left:172px;right:80px;bottom:34px;font-family:${T.monoFont};font-size:22px;letter-spacing:2px;color:${T.muted};border-top:2px solid ${T.hair};padding-top:18px;text-transform:uppercase}
+.takeaway{position:absolute;left:172px;top:944px;width:1568px;min-height:96px;background:${T.band};color:${T.bandText};padding:28px 48px;font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.4}
+.srcs{position:absolute;left:172px;right:80px;bottom:34px;font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};border-top:2px solid ${T.hair};padding-top:18px;text-transform:uppercase}
 /* 2026-06-05 - UNIVERSAL grid-overflow guards. Applies to every grid
  * container + every direct grid-item across all 18 templates so a long
  * unbreakable word or wide child element can't push the fr-track wider
@@ -331,7 +484,7 @@ h1{font-family:${T.titleFont};font-weight:${T.titleWeight};letter-spacing:${opts
 <div id="stage">
   <div class="rail"></div>
   ${dotMark}
-  <div class="brand">${opts.brand === 'nu' ? 'NORTHEASTERN' : 'NXT HUMANS'}</div>
+  ${brandLogoHtml}
   <div class="canvas">
 ${kickerHtml}
 ${opts.bodyInnerHtml}
@@ -383,17 +536,18 @@ function renderStatRow(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .stats{display:grid;grid-template-columns:repeat(${n},1fr);gap:${dense ? 24 : 32}px;margin-bottom:24px;flex-shrink:0}
 .stat{border-top:3px solid ${T.accent};padding-top:14px;display:flex;flex-direction:column;gap:10px}
-.stat .sv{font-family:${T.displayFont};font-weight:600;font-size:${dense ? 58 : 72}px;line-height:1.2;color:${T.ink}}
-.stat .sl{font-family:${T.bodyFont};font-size:${dense ? 26 : 33}px;line-height:1.28;color:${T.ink}}
+/* 2026-06-14 type system: hero capped below the title in body weight; roles on scale. */
+.stat .sv{font-family:${T.displayFont};font-weight:${WEIGHT.body};font-size:${TYPO.HERO_CAP_PX}px;line-height:1.2;color:${T.ink}}
+.stat .sl{font-family:${T.bodyFont};font-size:${SCALE.lead}px;line-height:1.28;color:${T.ink}}
 .stat .sd{display:flex;flex-direction:column;gap:6px;margin-top:6px}
-.stat .sd .lbl{font-family:${T.monoFont};font-size:20px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase}
-.stat .sd .pp{font-size:${dense ? 22 : 26}px;line-height:1.38;color:${T.ink}}
-.stat .src{font-family:${T.monoFont};font-size:20px;letter-spacing:1px;color:${T.muted};margin-top:auto;text-transform:uppercase}
+.stat .sd .lbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};text-transform:uppercase}
+.stat .sd .pp{font-size:${SCALE.body}px;line-height:1.38;color:${T.ink}}
+.stat .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.muted};margin-top:auto;text-transform:uppercase}
 .insight{background:${T.callout};padding:16px 24px;border-left:4px solid ${T.accent};flex-shrink:0}
-.insight .ilbl{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.accent2};text-transform:uppercase;margin-bottom:8px;font-weight:600}
-.insight .itxt{font-size:29px;line-height:1.38;color:${T.ink}}
-.insight .iptn{margin-top:6px;font-size:25px;line-height:1.36;color:${T.ink};border-top:1px solid ${T.hair};padding-top:6px}
-.insight .iptn span{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+.insight .ilbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.accent2};text-transform:uppercase;margin-bottom:8px;font-weight:${WEIGHT.label}}
+.insight .itxt{font-size:${SCALE.lead}px;line-height:1.38;color:${T.ink}}
+.insight .iptn{margin-top:6px;font-size:${SCALE.body}px;line-height:1.36;color:${T.ink};border-top:1px solid ${T.hair};padding-top:6px}
+.insight .iptn span{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:${WEIGHT.label}}
 </style>
 <div class="stats">${cards}</div>
 ${insightBlock}`;
@@ -416,16 +570,19 @@ function renderStatRowDense(stats: any[], insight: string, pattern: string, T: B
 .dwrap{display:grid;grid-template-columns:1.76fr 1fr;gap:28px;flex:1 1 auto;min-height:0}
 .dgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:26px;min-height:0}
 .dq{border-top:3px solid ${T.accent};padding:16px 20px 14px 0;display:flex;flex-direction:column;gap:9px;min-height:0;overflow:hidden}
-.dq .dqv{font-family:${T.displayFont};font-weight:600;font-size:62px;line-height:normal;color:${T.ink}}
-.dq .dql{font-family:${T.bodyFont};font-weight:500;font-size:25px;line-height:1.3;color:${T.ink}}
-.dq .dqm{font-size:22px;line-height:1.4;color:${T.ink}}
-.dq .dqs{font-family:${T.monoFont};font-size:17px;letter-spacing:1px;color:${T.accentCool};margin-top:auto;text-transform:uppercase}
+/* 2026-06-14 type system: hero is EVIDENCE (body weight, capped below the title so
+ * the title governs - was 62px/600, out-ranking the 46px h1). Other roles snap to
+ * scale steps so the slide uses <=6 sizes. */
+.dq .dqv{font-family:${T.displayFont};font-weight:${WEIGHT.body};font-size:${TYPO.HERO_CAP_PX}px;line-height:normal;color:${T.ink}}
+.dq .dql{font-family:${T.bodyFont};font-weight:${WEIGHT.label};font-size:${SCALE.lead}px;line-height:1.3;color:${T.ink}}
+.dq .dqm{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
+.dq .dqs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.accentCool};margin-top:auto;text-transform:uppercase}
 .dins{background:${T.ink};color:${T.paper};padding:34px 36px;display:flex;flex-direction:column;gap:20px;min-height:0;overflow:hidden}
-.dins .dlbl{font-family:${T.monoFont};font-size:18px;letter-spacing:3px;text-transform:uppercase;color:${T.accent};font-weight:600}
-.dins .ditxt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:31px;line-height:1.42;color:${T.paper}}
+.dins .dlbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.accent};font-weight:${WEIGHT.label}}
+.dins .ditxt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;line-height:1.42;color:${T.paper}}
 .dins .dhair{height:1px;background:${T.grey};width:100%}
-.dins .dplbl{font-family:${T.monoFont};font-size:18px;letter-spacing:3px;text-transform:uppercase;color:${T.gold};font-weight:600}
-.dins .dptxt{font-size:23px;line-height:1.48;color:${washHex(T.paper, 0.12)}}
+.dins .dplbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.gold};font-weight:${WEIGHT.label}}
+.dins .dptxt{font-size:${SCALE.body}px;line-height:1.48;color:${washHex(T.paper, 0.12)}}
 </style>
 <div class="dwrap">
   <div class="dgrid">${cards}</div>
@@ -446,7 +603,7 @@ function renderThemeSpotlight(slide: SlideDataLike, T: BrandTokens): string {
     const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, _caps.items) : [];
     const denseSup = themes.length >= 5;   // 4+ supporting entries in the right column
     const patternSignal: string = data.patternSignal || '';
-    if (themes.length === 0) return `<p style="font-size:33px">No theme data.</p>`;
+    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
     const primary = themes[0];
     const supporting = themes.slice(1);
     const supportingHtml = supporting.length > 0 ? `
@@ -477,23 +634,23 @@ function renderThemeSpotlight(slide: SlideDataLike, T: BrandTokens): string {
  * the slide. */
 .cols{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;flex:1;min-height:0;align-items:start}
 .primary{border-left:4px solid ${T.accent};padding-left:22px;display:flex;flex-direction:column;gap:12px;min-width:0;overflow:hidden}
-.primary .pidx{font-family:${T.monoFont};font-size:24px;letter-spacing:2px;color:${T.accent};text-transform:uppercase}
-.primary .pname{font-family:${T.displayFont};font-weight:600;font-size:40px;line-height:1.1;color:${T.ink};word-wrap:break-word}
-.primary .pinsight{font-size:32px;line-height:1.35;color:${T.ink};word-wrap:break-word}
-.primary .pq{font-family:${T.bodyFont};font-size:28px;line-height:1.4;color:${T.ink};border-left:3px solid ${T.accent2};padding:8px 14px;background:${T.callout};font-style:italic;word-wrap:break-word}
-.primary .pimp{font-family:${T.monoFont};font-size:20px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase}
-.primary .pimp + div{font-size:26px;line-height:1.35;color:${T.ink};word-wrap:break-word}
+.primary .pidx{font-family:${T.monoFont};font-size:${SCALE.lead}px;letter-spacing:2px;color:${T.accent};text-transform:uppercase}
+.primary .pname{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:1.1;color:${T.ink};word-wrap:break-word}
+.primary .pinsight{font-size:${SCALE.name}px;line-height:1.35;color:${T.ink};word-wrap:break-word}
+.primary .pq{font-family:${T.bodyFont};font-size:${SCALE.name}px;line-height:1.4;color:${T.ink};border-left:3px solid ${T.accent2};padding:8px 14px;background:${T.callout};font-style:italic;word-wrap:break-word}
+.primary .pimp{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase}
+.primary .pimp + div{font-size:${SCALE.lead}px;line-height:1.35;color:${T.ink};word-wrap:break-word}
 .supporting{display:flex;flex-direction:column;gap:12px;min-width:0;overflow:hidden}
-.splbl{font-family:${T.monoFont};font-size:22px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:8px}
+.splbl{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:8px}
 .sup{display:grid;grid-template-columns:46px 1fr;gap:12px;min-width:0}
 .sup > div:last-child{min-width:0;overflow:hidden}
-.sup .idx{font-family:${T.displayFont};font-size:${denseSup ? 34 : 42}px;color:${T.accent}}
-.sup .sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSup ? 24 : 28}px;color:${T.ink};margin-bottom:4px;word-wrap:break-word}
-.sup .si{font-size:${denseSup ? 21 : 24}px;line-height:1.35;color:${T.ink};margin-bottom:6px;word-wrap:break-word}
-.sup .se{font-size:${denseSup ? 19 : 21}px;font-style:italic;color:${T.muted};line-height:1.35;margin-bottom:4px;word-wrap:break-word}
-.sup .ss{font-family:${T.monoFont};font-size:${denseSup ? 16 : 18}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
-.pattern{margin-top:14px;font-size:26px;line-height:1.4;color:${T.ink};background:${T.callout};padding:12px 18px;border-left:4px solid ${T.accent2}}
-.pattern span{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+.sup .idx{font-family:${T.displayFont};font-size:${denseSup ? SCALE.subhead : SCALE.subhead}px;color:${T.accent}}
+.sup .sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSup ? SCALE.lead : SCALE.name}px;color:${T.ink};margin-bottom:4px;word-wrap:break-word}
+.sup .si{font-size:${denseSup ? SCALE.body : SCALE.lead}px;line-height:1.35;color:${T.ink};margin-bottom:6px;word-wrap:break-word}
+.sup .se{font-size:${denseSup ? SCALE.caption : SCALE.body}px;font-style:italic;color:${T.muted};line-height:1.35;margin-bottom:4px;word-wrap:break-word}
+.sup .ss{font-family:${T.monoFont};font-size:${denseSup ? SCALE.label : SCALE.caption}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
+.pattern{margin-top:14px;font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink};background:${T.callout};padding:12px 18px;border-left:4px solid ${T.accent2}}
+.pattern span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <div class="cols">
   <div class="primary">
@@ -518,19 +675,19 @@ ${patternBlock}`;
 function renderThemeCluster(slide: SlideDataLike, T: BrandTokens): string {
     const data = slide.themeCluster || {};
     const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, Math.min(_caps.items, 4)) : [];
-    if (themes.length === 0) return `<p style="font-size:33px">No theme data.</p>`;
+    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
     const n = themes.length;
     const dense = n >= 4;
     return `<style>
 .tcgrid{display:grid;grid-template-columns:repeat(${n},1fr);gap:${dense ? 20 : 28}px;flex:1;min-height:0}
 .tc{border-top:4px solid ${T.accent};padding-top:14px;display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden}
-.tc .idx{font-family:${T.monoFont};font-size:16px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
-.tc .nm{font-family:${T.displayFont};font-weight:600;font-size:${dense ? 28 : 32}px;line-height:1.12;color:${T.ink}}
-.tc .ins{font-size:${dense ? 22 : 25}px;line-height:1.4;color:${T.ink}}
-.tc .ev{font-size:${dense ? 21 : 23}px;line-height:1.4;font-style:italic;color:${T.ink};border-left:3px solid ${T.accent2};padding:6px 12px;background:${T.callout}}
-.tc .src{font-family:${T.monoFont};font-size:14px;letter-spacing:1px;color:${T.grey};text-transform:uppercase;font-style:normal;margin-top:5px}
-.tcptn{margin-top:12px;font-size:23px;line-height:1.35;color:${T.ink};background:${T.callout};padding:10px 18px;border-left:4px solid ${T.accent2}}
-.tcptn span{font-family:${T.monoFont};font-size:15px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:8px;font-weight:600}
+.tc .idx{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
+.tc .nm{font-family:${T.displayFont};font-weight:600;font-size:${dense ? SCALE.name : SCALE.name}px;line-height:1.12;color:${T.ink}}
+.tc .ins{font-size:${dense ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink}}
+.tc .ev{font-size:${dense ? SCALE.body : SCALE.body}px;line-height:1.4;font-style:italic;color:${T.ink};border-left:3px solid ${T.accent2};padding:6px 12px;background:${T.callout}}
+.tc .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase;font-style:normal;margin-top:5px}
+.tcptn{margin-top:12px;font-size:${SCALE.body}px;line-height:1.35;color:${T.ink};background:${T.callout};padding:10px 18px;border-left:4px solid ${T.accent2}}
+.tcptn span{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <div class="tcgrid">
 ${themes.map((t, i) => `
@@ -546,7 +703,7 @@ ${themes.map((t, i) => `
         : `<div class="src">${esc(t.source)}</div>`}
   </div>`).join('')}
 </div>
-${data.patternSignal ? `<div class="tcptn"><span>Pattern signal</span>${esc(data.patternSignal)}</div>` : ''}`;
+${data.patternSignal ? `<div class="tcptn"><span>Pattern signal</span> ${esc(data.patternSignal)}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -557,23 +714,23 @@ ${data.patternSignal ? `<div class="tcptn"><span>Pattern signal</span>${esc(data
 function renderThemeArc(slide: SlideDataLike, T: BrandTokens): string {
     const data = slide.themeCluster || {};
     const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, Math.min(_caps.items, 5)) : [];
-    if (themes.length === 0) return `<p style="font-size:33px">No theme data.</p>`;
+    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
     const n = themes.length;
     return `<style>
 .tagrid{display:grid;grid-template-columns:repeat(${n},1fr);gap:20px;flex:1;min-height:0}
 .ta{display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden;padding-top:14px}
 .ta .hd{display:flex;align-items:center;gap:10px}
-.ta .num{font-family:${T.displayFont};font-size:36px;line-height:1;color:${T.accent}}
+.ta .num{font-family:${T.displayFont};font-size:${SCALE.subhead}px;line-height:1;color:${T.accent}}
 .ta.last .num{color:${T.accentWarn}}
-.ta .arr{font-family:${T.monoFont};font-size:20px;color:${T.grey}}
-.ta .nm{font-family:${T.displayFont};font-weight:600;font-size:28px;line-height:1.12;color:${T.ink}}
-.ta .ins{font-size:21px;line-height:1.4;color:${T.ink}}
-.ta .ev{font-size:19px;line-height:1.35;font-style:italic;color:${T.grey}}
+.ta .arr{font-family:${T.monoFont};font-size:${SCALE.body}px;color:${T.grey}}
+.ta .nm{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.name}px;line-height:1.12;color:${T.ink}}
+.ta .ins{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
+.ta .ev{font-size:${SCALE.caption}px;line-height:1.35;font-style:italic;color:${T.grey}}
 .ta .ft{margin-top:auto;border-top:1px solid ${T.hair};padding-top:8px}
-.ta .sig{font-family:${T.monoFont};font-size:15px;letter-spacing:0.5px;color:${T.accent2};text-transform:uppercase;line-height:1.4}
-.ta .src{font-family:${T.monoFont};font-size:14px;letter-spacing:0.5px;color:${T.grey};text-transform:uppercase}
-.tcptn2{margin-top:12px;font-size:23px;line-height:1.35;color:${T.ink};background:${T.callout};padding:10px 18px;border-left:4px solid ${T.accent2}}
-.tcptn2 span{font-family:${T.monoFont};font-size:15px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:8px;font-weight:600}
+.ta .sig{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;color:${T.accent2};text-transform:uppercase;line-height:1.4}
+.ta .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;color:${T.grey};text-transform:uppercase}
+.tcptn2{margin-top:12px;font-size:${SCALE.body}px;line-height:1.35;color:${T.ink};background:${T.callout};padding:10px 18px;border-left:4px solid ${T.accent2}}
+.tcptn2 span{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <div class="tagrid">
 ${themes.map((t, i) => `
@@ -588,7 +745,7 @@ ${themes.map((t, i) => `
     </div>
   </div>`).join('')}
 </div>
-${data.patternSignal ? `<div class="tcptn2"><span>Pattern signal</span>${esc(data.patternSignal)}</div>` : ''}`;
+${data.patternSignal ? `<div class="tcptn2"><span>Pattern signal</span> ${esc(data.patternSignal)}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -599,21 +756,21 @@ ${data.patternSignal ? `<div class="tcptn2"><span>Pattern signal</span>${esc(dat
 function renderThemeMosaic(slide: SlideDataLike, T: BrandTokens): string {
     const data = slide.themeCluster || {};
     const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, 4) : [];
-    if (themes.length === 0) return `<p style="font-size:33px">No theme data.</p>`;
+    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
     return `<style>
 .tmgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;flex:1;min-height:0}
 .tm{padding:18px 24px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow:hidden}
 .tm.inv{background:${T.band}}
 .tm.std{background:${T.callout}}
-.tm .idx{font-family:${T.monoFont};font-size:15px;letter-spacing:2px;text-transform:uppercase}
+.tm .idx{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
 .tm.inv .idx{color:${T.accent}} .tm.std .idx{color:${T.grey}}
-.tm .nm{font-family:${T.displayFont};font-weight:600;font-size:28px;line-height:1.12}
+.tm .nm{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.name}px;line-height:1.12}
 .tm.inv .nm{color:${T.bandText}} .tm.std .nm{color:${T.ink}}
-.tm .ins{font-size:21px;line-height:1.38}
+.tm .ins{font-size:${SCALE.body}px;line-height:1.38}
 .tm.inv .ins{color:${T.bandText};opacity:0.92} .tm.std .ins{color:${T.ink}}
-.tm .ev{font-size:19px;line-height:1.35;font-style:italic}
+.tm .ev{font-size:${SCALE.caption}px;line-height:1.35;font-style:italic}
 .tm.inv .ev{color:${T.bandText};opacity:0.8} .tm.std .ev{color:${T.grey}}
-.tm .src{font-family:${T.monoFont};font-size:14px;letter-spacing:0.5px;text-transform:uppercase;margin-top:auto}
+.tm .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;margin-top:auto}
 .tm.inv .src{color:${T.accent}} .tm.std .src{color:${T.grey}}
 </style>
 <div class="tmgrid">
@@ -653,25 +810,25 @@ function renderBlockQuote(slide: SlideDataLike, T: BrandTokens): string {
           </div>`).join('')}
       </div>` : '';
     return `<style>
-.qctx{font-family:${T.monoFont};font-size:24px;letter-spacing:2.5px;color:${T.accent2};text-transform:uppercase;margin-bottom:14px}
-.qtext{font-family:${T.displayFont};font-weight:600;font-size:50px;line-height:1.18;color:${T.ink};margin-bottom:18px;max-width:1620px}
-.qctxp{font-size:33px;line-height:1.5;color:${T.ink};margin-bottom:18px;max-width:1620px}
-.attr{font-family:${T.bodyFont};font-size:30px;color:${T.muted};margin-bottom:24px}
+.qctx{font-family:${T.monoFont};font-size:${SCALE.lead}px;letter-spacing:2.5px;color:${T.accent2};text-transform:uppercase;margin-bottom:14px}
+.qtext{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:1.18;color:${T.ink};margin-bottom:18px;max-width:1620px}
+.qctxp{font-size:${SCALE.name}px;line-height:1.5;color:${T.ink};margin-bottom:18px;max-width:1620px}
+.attr{font-family:${T.bodyFont};font-size:${SCALE.name}px;color:${T.muted};margin-bottom:24px}
 .attr b{font-weight:600;color:${T.ink}}
 .corr{margin-top:auto;display:grid;grid-template-columns:repeat(${corrN},1fr);gap:${denseCorr ? 18 : 24}px;padding:18px 22px;background:${T.callout};border-left:4px solid ${T.accent}}
-.clbl{grid-column:1/-1;font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
-.ci .cv{font-family:${T.displayFont};font-size:${denseCorr ? 38 : 46}px;line-height:1.12;color:${T.ink}}
-.ci .cl{font-size:${denseCorr ? 22 : 26}px;line-height:1.35;color:${T.ink};margin:4px 0 6px}
-.ci .cs{font-family:${T.monoFont};font-size:18px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
-.impl{margin-top:18px;font-size:28px;line-height:1.45;color:${T.ink};border-top:1px solid ${T.hair};padding-top:14px}
-.impl span{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+.clbl{grid-column:1/-1;font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
+.ci .cv{font-family:${T.displayFont};font-size:${denseCorr ? SCALE.subhead : SCALE.subhead}px;line-height:1.12;color:${T.ink}}
+.ci .cl{font-size:${denseCorr ? SCALE.body : SCALE.lead}px;line-height:1.35;color:${T.ink};margin:4px 0 6px}
+.ci .cs{font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
+.impl{margin-top:18px;font-size:${SCALE.name}px;line-height:1.45;color:${T.ink};border-top:1px solid ${T.hair};padding-top:14px}
+.impl span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 ${q.context ? `<div class="qctx">${esc(q.context)}</div>` : ''}
 <div class="qtext">&ldquo;${esc(trunc(q.text, 260))}&rdquo;</div>
 ${q.contextParagraph ? `<div class="qctxp">${esc(trunc(q.contextParagraph, 240))}</div>` : ''}
 <div class="attr"><b>${esc(q.attribution)}</b>${q.role ? ' · ' + esc(q.role) : ''}${q.source ? ' · ' + esc(q.source) : ''}</div>
 ${corrHtml}
-${q.implication ? `<div class="impl"><span>Implication</span>${esc(trunc(q.implication, 200))}</div>` : ''}`;
+${q.implication ? `<div class="impl"><span>Implication</span> ${esc(trunc(q.implication, 200))}</div>` : ''}`;
 }
 
 /** block-quote DENSE twin of the GOLD exemplar (NU 199:3 / NXT 322:3): three
@@ -695,14 +852,14 @@ function renderBlockQuoteDense(q: any, extra: any[], T: BrandTokens): string {
     return `<style>
 .bvrow{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;flex:1 1 auto;min-height:0;margin-bottom:20px}
 .bvc{border-left:3px solid ${T.accent};padding:22px 26px 20px;display:flex;flex-direction:column;gap:11px;min-height:0;overflow:hidden}
-.bvc .bvm{font-family:${T.displayFont};font-size:54px;line-height:normal;color:${T.accent}}
-.bvc .bvq{font-family:${T.titleFont};font-weight:400;font-size:25px;line-height:1.5;color:${T.ink}}
-.bvc .bva{font-family:${T.monoFont};font-size:17px;letter-spacing:2px;color:${T.ink};text-transform:uppercase;font-weight:600;margin-top:auto}
-.bvc .bvs{font-family:${T.monoFont};font-size:15px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
-.bvc .bvr{font-size:16px;line-height:1.35;color:${T.grey}}
+.bvc .bvm{font-family:${T.displayFont};font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
+.bvc .bvq{font-family:${T.titleFont};font-weight:400;font-size:${SCALE.lead}px;line-height:1.5;color:${T.ink}}
+.bvc .bva{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.ink};text-transform:uppercase;font-weight:600;margin-top:auto}
+.bvc .bvs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
+.bvc .bvr{font-size:${SCALE.label}px;line-height:1.35;color:${T.grey}}
 .bsyn{display:grid;grid-template-columns:330px 1fr;gap:28px;align-items:center;background:${T.callout};padding:22px 32px;flex-shrink:0}
-.bsyn .bsl{font-family:${T.monoFont};font-size:17px;letter-spacing:3px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
-.bsyn .bst{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:26px;line-height:1.46;color:${T.ink}}
+.bsyn .bsl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
+.bsyn .bst{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.46;color:${T.ink}}
 </style>
 <div class="bvrow">${cards}</div>
 ${syn ? `<div class="bsyn"><div class="bsl">Where they converge</div><div class="bst">${esc(trunc(syn, 200))}</div></div>` : ''}`;
@@ -743,19 +900,19 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
         return `<style>
 .rbwrap{display:grid;grid-template-columns:1.62fr 1fr;gap:40px;flex:1 1 auto;min-height:0}
 .rbleft{display:flex;flex-direction:column;min-height:0;overflow:hidden}
-.rbrat{font-size:23px;line-height:1.4;color:${T.ink};margin-bottom:18px}
-.rblbl{font-family:${T.monoFont};font-size:17px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px;margin-bottom:6px}
+.rbrat{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink};margin-bottom:18px}
+.rblbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px;margin-bottom:6px}
 .rba{display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;padding:16px 0;border-bottom:1px solid ${T.hair}}
-.rba .rbn{font-family:${T.displayFont};font-weight:600;font-size:46px;line-height:normal;color:${T.accent}}
-.rba .rbt{font-family:${T.bodyFont};font-weight:600;font-size:25px;color:${T.ink};margin-bottom:5px}
-.rba .rbd{font-size:20px;line-height:1.36;color:${T.ink}}
+.rba .rbn{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
+.rba .rbt{font-family:${T.bodyFont};font-weight:600;font-size:${SCALE.lead}px;color:${T.ink};margin-bottom:5px}
+.rba .rbd{font-size:${SCALE.body}px;line-height:1.36;color:${T.ink}}
 .rbright{display:flex;flex-direction:column;gap:20px;min-height:0;overflow:hidden}
-.rbplbl{font-family:${T.monoFont};font-size:17px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px}
+.rbplbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;border-bottom:2px solid ${T.ink};padding-bottom:8px}
 .rbc{position:relative;background:${T.paper === '#FFFFFF' ? T.callout : '#FFFFFF'};padding:22px 26px;overflow:hidden}
 .rbc::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;background:${T.accent}}
-.rbc .rbcl{font-family:${T.monoFont};font-size:15px;letter-spacing:2.5px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
-.rbc .rbch{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:26px;line-height:1.18;color:${T.ink};margin-top:8px}
-.rbc .rbcb{font-size:18px;line-height:1.36;color:${T.ink};margin-top:9px}
+.rbc .rbcl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2.5px;color:${T.accentWarn};text-transform:uppercase;font-weight:600}
+.rbc .rbch{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.18;color:${T.ink};margin-top:8px}
+.rbc .rbcb{font-size:${SCALE.caption}px;line-height:1.36;color:${T.ink};margin-top:9px}
 </style>
 <div class="rbwrap">
   <div class="rbleft">
@@ -820,31 +977,31 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
         ${r.impactMetric ? `<div class="metric"><div class="mv">${esc(r.impactMetric.value)}</div><div class="ml">${esc(r.impactMetric.label)}</div></div>` : ''}
       </div>` : '';
     return `<style>
-.action{font-family:${T.displayFont};font-weight:600;font-size:42px;line-height:1.15;color:${T.ink};margin-bottom:${fullStack ? 9 : 12}px;max-width:1620px;border-left:4px solid ${T.accent};padding-left:18px;flex-shrink:0}
-.rationale{font-size:${fullStack ? 25 : 27}px;line-height:1.42;color:${T.ink};margin-bottom:${fullStack ? 8 : 16}px;max-width:1620px;flex-shrink:0}
+.action{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:1.15;color:${T.ink};margin-bottom:${fullStack ? 9 : 12}px;max-width:1620px;border-left:4px solid ${T.accent};padding-left:18px;flex-shrink:0}
+.rationale{font-size:${fullStack ? SCALE.lead : SCALE.lead}px;line-height:1.42;color:${T.ink};margin-bottom:${fullStack ? 8 : 16}px;max-width:1620px;flex-shrink:0}
 .cols{display:grid;grid-template-columns:1.2fr 1fr;gap:36px;flex:1 0 auto}
 .rcol{display:flex;flex-direction:column;gap:18px;min-width:0}
 .sup,.evi{display:flex;flex-direction:column;gap:10px}
-.splbl,.elbl,.glbl{font-family:${T.monoFont};font-size:22px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:6px;font-weight:600}
+.splbl,.elbl,.glbl{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:6px;font-weight:600}
 .sa{display:grid;grid-template-columns:42px 1fr;gap:12px;margin-top:${denseSa ? 4 : 8}px}
-.sa .idx{font-family:${T.displayFont};font-size:${denseSa ? 32 : 42}px;color:${T.accent}}
-.sa .sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSa ? 25 : 30}px;color:${T.ink};margin-bottom:3px}
-.sa .sd{font-size:${denseSa ? 20 : 24}px;line-height:1.36;color:${T.ink}}
+.sa .idx{font-family:${T.displayFont};font-size:${denseSa ? SCALE.name : SCALE.subhead}px;color:${T.accent}}
+.sa .sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSa ? SCALE.lead : SCALE.name}px;color:${T.ink};margin-bottom:3px}
+.sa .sd{font-size:${denseSa ? SCALE.body : SCALE.lead}px;line-height:1.36;color:${T.ink}}
 .eb{margin-top:6px}
-.eb .et{font-size:${denseSa ? 20 : 24}px;line-height:1.38;color:${T.ink};font-style:italic}
-.eb .ea{font-family:${T.monoFont};font-size:19px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:3px}
+.eb .et{font-size:${denseSa ? SCALE.body : SCALE.lead}px;line-height:1.38;color:${T.ink};font-style:italic}
+.eb .ea{font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:3px}
 .grid{background:${T.callout};padding:${fullStack ? 11 : 14}px 20px;border-left:4px solid ${T.accent2};flex-shrink:0}
 .grid .gcells{grid-template-columns:repeat(2,1fr)}
 .gcells{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px}
-.gc .gh{font-family:${T.monoFont};font-size:19px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase}
-.gc .gp{font-size:26px;line-height:1.35;color:${T.ink};margin-top:3px}
+.gc .gh{font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase}
+.gc .gp{font-size:${SCALE.lead}px;line-height:1.35;color:${T.ink};margin-top:3px}
 .metric{margin-top:${fullStack ? 8 : 12}px;display:flex;align-items:baseline;gap:14px;border-top:1px solid ${T.hair};padding-top:${fullStack ? 7 : 10}px}
-.metric .mv{font-family:${T.displayFont};font-size:${fullStack ? 40 : 46}px;color:${T.accent}}
-.metric .ml{font-size:26px;color:${T.ink}}
-.impl{margin-top:${fullStack ? 4 : 14}px;font-size:${fullStack ? 24 : 27}px;line-height:1.4;color:${T.ink}}
-.impl span{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+.metric .mv{font-family:${T.displayFont};font-size:${fullStack ? SCALE.subhead : SCALE.subhead}px;color:${T.accent}}
+.metric .ml{font-size:${SCALE.lead}px;color:${T.ink}}
+.impl{margin-top:${fullStack ? 4 : 14}px;font-size:${fullStack ? SCALE.lead : SCALE.lead}px;line-height:1.4;color:${T.ink}}
+.impl span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
-${r.actionTitle ? `<div class="action">${esc(trunc(r.actionTitle, 110))}</div>` : ''}
+${r.actionTitle ? `<div class="action">${esc(trunc(r.actionTitle, 120))}</div>` : ''}
 ${r.rationale ? `<div class="rationale">${esc(trunc(r.rationale, ratBudget))}</div>` : ''}
 <div class="cols">
   ${supportingHtml}
@@ -853,7 +1010,7 @@ ${r.rationale ? `<div class="rationale">${esc(trunc(r.rationale, ratBudget))}</d
     ${gridHtml}
   </div>
 </div>
-${r.implication ? `<div class="impl"><span>Implication</span>${esc(trunc(r.implication, fullStack ? 170 : 200))}</div>` : ''}`;
+${r.implication ? `<div class="impl"><span>Implication</span> ${esc(trunc(r.implication, fullStack ? 170 : 200))}</div>` : ''}`;
 }
 
 /** recommendation DENSE twin of the GOLD exemplar (NU 194:3 / NXT 319:3):
@@ -887,23 +1044,23 @@ function renderRecommendationDense(r: any, supporting: any[], evidence: any[], T
           </div>`).join('')}
       </div>` : '';
     return `<style>
-.daction{font-family:${T.displayFont};font-weight:600;font-size:38px;line-height:1.12;color:${T.ink};margin-bottom:8px;max-width:1620px;border-left:4px solid ${T.accent};padding-left:18px;flex-shrink:0}
-.drationale{font-size:23px;line-height:1.4;color:${T.ink};margin-bottom:10px;max-width:1620px;flex-shrink:0}
+.daction{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:1.12;color:${T.ink};margin-bottom:8px;max-width:1620px;border-left:4px solid ${T.accent};padding-left:18px;flex-shrink:0}
+.drationale{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink};margin-bottom:10px;max-width:1620px;flex-shrink:0}
 .dacts{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden}
 .dra{display:grid;grid-template-columns:74px 420px 1fr;gap:22px;align-items:start;padding:9px 0;border-bottom:1px solid ${T.hair}}
 .dra:first-child{border-top:2px solid ${T.ink}}
-.dra .dnum{font-family:${T.displayFont};font-weight:600;font-size:38px;line-height:normal;color:${T.accent}}
-.dra .dname{font-family:${T.bodyFont};font-weight:600;font-size:26px;line-height:1.25;color:${T.ink}}
-.dra .ddesc{font-size:22px;line-height:1.4;color:${T.ink}}
+.dra .dnum{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
+.dra .dname{font-family:${T.bodyFont};font-weight:600;font-size:${SCALE.lead}px;line-height:1.25;color:${T.ink}}
+.dra .ddesc{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
 .dband{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;background:${T.callout};padding:12px 24px;margin-top:10px;flex-shrink:0}
-.dbc .dbh{font-family:${T.monoFont};font-size:17px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
-.dbc .dbp{font-size:22px;line-height:1.34;color:${T.ink};margin-top:4px}
+.dbc .dbh{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
+.dbc .dbp{font-size:${SCALE.body}px;line-height:1.34;color:${T.ink};margin-top:4px}
 .devi{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px;flex-shrink:0}
 .dec{border-left:3px solid ${T.accentCool};padding:10px 18px;background:${T.paper}}
-.dec .det{font-size:21px;line-height:1.4;color:${T.ink};font-style:italic}
-.dec .dea{font-family:${T.monoFont};font-size:16px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:6px}
+.dec .det{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink};font-style:italic}
+.dec .dea{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:6px}
 </style>
-${r.actionTitle ? `<div class="daction">${esc(trunc(r.actionTitle, 110))}</div>` : ''}
+${r.actionTitle ? `<div class="daction">${esc(trunc(r.actionTitle, 120))}</div>` : ''}
 ${r.rationale ? `<div class="drationale">${esc(trunc(r.rationale, 200))}</div>` : ''}
 <div class="dacts">${rows}</div>
 ${band}
@@ -928,29 +1085,29 @@ function renderTimeline(slide: SlideDataLike, T: BrandTokens): string {
         <div class="agc"><div class="agtick${j === horizons.length - 1 ? ' last' : ''}"></div><p>${esc(trunc(c, 90))}</p></div>`).join('')}`).join('');
         return `<style>
 .aggrid{display:grid;grid-template-columns:220px repeat(${horizons.length},1fr);gap:18px;flex:1 1 auto;align-content:start;min-height:0}
-.agh{font-family:${T.monoFont};font-size:17px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;padding-bottom:10px;border-bottom:2px solid ${T.ink}}
+.agh{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600;padding-bottom:10px;border-bottom:2px solid ${T.ink}}
 .agh.last{color:${T.accent}}
 .aggrid>.agh:first-of-type{grid-column:2}
-.agrole{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:30px;color:${T.ink};padding-top:18px}
+.agrole{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;color:${T.ink};padding-top:18px}
 .agc{position:relative;background:${T.paper === '#FFFFFF' ? T.callout : '#FFFFFF'};padding:24px 22px 18px;min-height:130px;overflow:hidden}
 .agc .agtick{position:absolute;left:0;top:0;width:100%;height:3px;background:${T.accent}}
 .agc .agtick.last{background:${T.ink}}
-.agc p{font-size:20px;line-height:1.38;color:${T.ink}}
+.agc p{font-size:${SCALE.body}px;line-height:1.38;color:${T.ink}}
 </style>
 <div class="aggrid"><div></div>${head}${rows}</div>`;
     }
-    if (phases.length === 0) return `<p style="font-size:33px">No timeline data.</p>`;
+    if (phases.length === 0) return `<p style="font-size:${SCALE.name}px">No timeline data.</p>`;
     const cols = `repeat(${phases.length}, 1fr)`;
     const maxItems = Math.max(0, ...phases.map(p => Array.isArray(p.items) ? Math.min(p.items.length, _caps.sub) : 0));
     const denseTl = phases.length >= 6 || maxItems >= 6;
     return `<style>
 .phases{display:grid;grid-template-columns:${cols};gap:${denseTl ? 18 : 22}px;flex:1}
 .phase{display:flex;flex-direction:column;gap:10px;border-top:3px solid ${T.accent};padding-top:14px}
-.phase .pidx{font-family:${T.monoFont};font-size:${denseTl ? 18 : 20}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase}
-.phase .pdur{font-family:${T.bodyFont};font-size:${denseTl ? 21 : 24}px;color:${T.accent2};font-weight:600}
-.phase .pname{font-family:${T.displayFont};font-weight:600;font-size:${denseTl ? 33 : 39}px;color:${T.ink};line-height:1.1}
+.phase .pidx{font-family:${T.monoFont};font-size:${denseTl ? SCALE.caption : SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase}
+.phase .pdur{font-family:${T.bodyFont};font-size:${denseTl ? SCALE.body : SCALE.lead}px;color:${T.accent2};font-weight:600}
+.phase .pname{font-family:${T.displayFont};font-weight:600;font-size:${denseTl ? SCALE.name : SCALE.subhead}px;color:${T.ink};line-height:1.1}
 .phase ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:${denseTl ? 6 : 8}px}
-.phase li{font-size:${denseTl ? 23 : 27}px;line-height:1.4;color:${T.ink};padding-left:14px;position:relative}
+.phase li{font-size:${denseTl ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink};padding-left:14px;position:relative}
 .phase li::before{content:'';position:absolute;left:0;top:8px;width:6px;height:6px;background:${T.accent}}
 </style>
 <div class="phases">
@@ -988,22 +1145,23 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .pcols{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;flex:1}
 .pleft{display:flex;flex-direction:column;gap:18px}
-.pname{font-family:${T.displayFont};font-weight:600;font-size:58px;line-height:1.16;color:${T.ink}}
-.prole{font-family:${T.bodyFont};font-size:37px;color:${T.muted}}
-.pdem{font-family:${T.monoFont};font-size:24px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-top:1px solid ${T.hair};padding-top:10px}
-.pquote{font-family:${T.bodyFont};font-size:37px;line-height:1.5;color:${T.ink};font-style:italic;border-left:4px solid ${T.accent};padding:10px 18px;background:${T.callout}}
-.pbio{font-size:30px;line-height:1.5;color:${T.ink}}
+/* 2026-06-14 type system: name capped at subhead (< title); roles snap to scale. */
+.pname{font-family:${T.displayFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.16;color:${T.ink}}
+.prole{font-family:${T.bodyFont};font-size:${SCALE.lead}px;color:${T.muted}}
+.pdem{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-top:1px solid ${T.hair};padding-top:10px}
+.pquote{font-family:${T.bodyFont};font-size:${SCALE.lead}px;line-height:1.5;color:${T.ink};font-style:italic;border-left:4px solid ${T.accent};padding:10px 18px;background:${T.callout}}
+.pbio{font-size:${SCALE.body}px;line-height:1.5;color:${T.ink}}
 .pright{display:flex;flex-direction:column;gap:18px}
 .sect{display:flex;flex-direction:column;gap:8px}
-.sect h2{font-family:${T.monoFont};font-size:22px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:600}
+.sect h2{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;font-weight:${WEIGHT.label}}
 .goals{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
-.goal{border-top:2px solid ${T.accent};padding-top:8px;font-size:27px;line-height:1.4}
-.goal .gl{font-family:${T.monoFont};font-size:18px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;margin-bottom:4px}
+.goal{border-top:2px solid ${T.accent};padding-top:8px;font-size:${SCALE.body}px;line-height:1.4}
+.goal .gl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;margin-bottom:4px}
 .pains{display:flex;flex-direction:column;gap:${densePp ? 8 : 12}px}
 .pp{border-left:3px solid ${T.accent};padding:6px 14px}
-.pp .ppn{font-family:${T.bodyFont};font-weight:600;font-size:${densePp ? 24 : 29}px;color:${T.ink}}
-.pp .ppq{font-size:${densePp ? 22 : 26}px;line-height:1.45;color:${T.ink};font-style:italic;margin-top:4px}
-.pp .pps{font-family:${T.monoFont};font-size:${densePp ? 16 : 18}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:4px}
+.pp .ppn{font-family:${T.bodyFont};font-weight:${WEIGHT.title};font-size:${SCALE.lead}px;color:${T.ink}}
+.pp .ppq{font-size:${SCALE.body}px;line-height:1.45;color:${T.ink};font-style:italic;margin-top:4px}
+.pp .pps{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:4px}
 </style>
 <div class="pcols">
   <div class="pleft">
@@ -1016,7 +1174,7 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
     ${p.bio ? `<div class="pbio">${esc(p.bio)}</div>` : ''}
   </div>
   <div class="pright">
-    ${p.jtbd ? `<div class="sect"><h2>Jobs to be done</h2><div style="font-size:30px;line-height:1.5;color:${T.ink}">${esc(p.jtbd)}</div></div>` : ''}
+    ${p.jtbd ? `<div class="sect"><h2>Jobs to be done</h2><div style="font-size:${SCALE.body}px;line-height:1.5;color:${T.ink}">${esc(p.jtbd)}</div></div>` : ''}
     ${(goals.lifeGoal || goals.experienceGoal || goals.functionalGoal) ? `
       <div class="sect"><h2>Goals (Cooper hierarchy)</h2>
         <div class="goals">
@@ -1061,20 +1219,22 @@ function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens
     return `<style>
 .pdw{display:grid;grid-template-columns:520px 1fr;gap:32px;flex:1 1 auto;min-height:0}
 .pid{background:${T.ink};color:${T.paper};padding:34px;display:flex;flex-direction:column;gap:17px;min-height:0;overflow:hidden}
-.pid .pin{font-family:${T.displayFont};font-weight:600;font-size:52px;line-height:1.06;color:${T.paper};text-transform:uppercase}
-.pid .pirole{font-size:23px;line-height:1.35;color:${washHex(T.paper, 0.16)}}
-.pid .pidesc{font-family:${T.monoFont};font-size:16px;letter-spacing:1px;line-height:1.6;color:${T.gold};text-transform:uppercase}
+/* 2026-06-14 type system: name capped at subhead (below the 46px title so the title
+ * governs - was 52px out-ranking it); roles snap to scale; quad body at the floor. */
+.pid .pin{font-family:${T.displayFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.06;color:${T.paper};text-transform:uppercase}
+.pid .pirole{font-size:${SCALE.body}px;line-height:1.35;color:${washHex(T.paper, 0.16)}}
+.pid .pidesc{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;line-height:1.6;color:${T.gold};text-transform:uppercase}
 .pid .pihair{height:1px;background:${T.grey};width:100%}
-.pid .pilbl{font-family:${T.monoFont};font-size:15px;letter-spacing:3px;color:${T.accent};text-transform:uppercase;font-weight:600}
-.pid .piq{font-family:${T.titleFont};font-weight:400;font-size:25px;line-height:1.5;color:${T.paper}}
-.pid .pisrc{font-family:${T.monoFont};font-size:15px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
-.pid .pist{margin-top:auto;font-size:19px;line-height:1.48;color:${washHex(T.paper, 0.12)}}
+.pid .pilbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accent};text-transform:uppercase;font-weight:${WEIGHT.label}}
+.pid .piq{font-family:${T.titleFont};font-weight:${WEIGHT.body};font-size:${SCALE.lead}px;line-height:1.5;color:${T.paper}}
+.pid .pisrc{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
+.pid .pist{margin-top:auto;font-size:${SCALE.caption}px;line-height:1.48;color:${washHex(T.paper, 0.12)}}
 .pgrid2{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:24px;min-height:0}
 .pq{border-top:3px solid ${T.accent};padding:18px 22px 14px 0;display:flex;flex-direction:column;gap:11px;min-height:0;overflow:hidden}
-.pq .pql{font-family:${T.monoFont};font-size:17px;letter-spacing:3px;color:${T.ink};text-transform:uppercase;font-weight:600}
+.pq .pql{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.ink};text-transform:uppercase;font-weight:${WEIGHT.label}}
 .pqi{display:grid;grid-template-columns:12px 1fr;gap:11px;align-items:start}
 .pqi span{width:8px;height:8px;margin-top:8px;display:block}
-.pqi p{font-size:19px;line-height:1.42;color:${T.ink}}
+.pqi p{font-size:${SCALE.body}px;line-height:1.42;color:${T.ink}}
 </style>
 <div class="pdw">
   <div class="pid">
@@ -1135,20 +1295,20 @@ function renderCaseStudy(slide: SlideDataLike, T: BrandTokens): string {
         };
         const quote = c.pullQuote;
         return `<style>
-.cssrc{font-family:${T.monoFont};font-weight:500;font-size:12px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:8px}
+.cssrc{font-family:${T.monoFont};font-weight:500;font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:8px}
 .barow{display:flex;gap:26px;flex:1;min-height:0;margin-bottom:17px}
 .bap{flex:1;min-width:0;padding:30px 32px;display:flex;flex-direction:column;gap:16px}
-.balbl{font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase}
-.bahead{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:26px;line-height:1.15;color:${T.ink}}
+.balbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
+.bahead{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.15;color:${T.ink}}
 .bapts{flex:1;display:flex;flex-direction:column;justify-content:space-between;min-height:0}
 .bapt{display:flex;gap:12px;align-items:flex-start}
 .bapt span{width:7px;height:7px;flex-shrink:0;margin-top:7px;display:block}
 .bapt p{font-size:16.5px;line-height:1.4;color:${T.ink};font-family:${T.bodyFont}}
-.baarrow{align-self:center;font-family:${T.bodyFont};font-size:44px;color:${T.grey};width:44px;text-align:center;flex-shrink:0}
+.baarrow{align-self:center;font-family:${T.bodyFont};font-size:${SCALE.subhead}px;color:${T.grey};width:44px;text-align:center;flex-shrink:0}
 .bares{display:flex;gap:48px}
 .bares .col{flex:1;min-width:0}
-.bares .rlbl{font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:10px}
-.bares .rtxt{font-size:18px;line-height:1.42;color:${T.ink};font-family:${T.bodyFont}}
+.bares .rlbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:10px}
+.bares .rtxt{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink};font-family:${T.bodyFont}}
 .baq{display:flex;gap:14px}
 .baq .bar{width:4px;background:${T.accentCool};flex-shrink:0}
 .baq .qt{font-size:16.5px;line-height:1.42;color:${T.ink};font-family:${T.bodyFont}}
@@ -1170,7 +1330,7 @@ ${metaHtml}
         const qFs = rows.length >= 4 ? 21 : 24;   // 4 rows = slightly smaller quotes
         return `<style>
 .cssrc{font-family:${T.monoFont};font-weight:500;font-size:12.5px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:10px}
-.eslbl{font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:16px}
+.eslbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-bottom:16px}
 .esstack{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
 .esrow{display:flex;gap:28px;align-items:stretch}
 .esrow .bar{width:4px;background:${T.accentCool};flex-shrink:0}
@@ -1212,24 +1372,24 @@ ${rows.map((e: any) => `
     const comparables: any[] = Array.isArray(c.comparables) ? c.comparables.slice(0, 2) : [];
     const hasPanel = !!(c.keyMetric || metrics.length || c.pullQuote || comparables.length);
     return `<style>
-.cssrc{font-family:${T.monoFont};font-weight:500;font-size:12px;letter-spacing:1px;color:${T.accent};text-transform:uppercase;margin-top:8px}
+.cssrc{font-family:${T.monoFont};font-weight:500;font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accent};text-transform:uppercase;margin-top:8px}
 .fbgrid{display:grid;grid-template-columns:${hasPanel ? '1.9fr 1fr' : '1fr'};gap:26px;flex:1;min-height:0}
 .fbcol{display:flex;flex-direction:column;gap:12px;min-width:0}
 .fbblk{flex:1;display:grid;grid-template-columns:152px 1fr;gap:20px;padding:16px 24px;border-left:6px solid;min-width:0}
-.fbblk .lbl{font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:2px;text-transform:uppercase}
-.fbblk .txt{font-size:19px;line-height:1.45;color:${T.ink};font-family:${T.bodyFont}}
+.fbblk .lbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
+.fbblk .txt{font-size:${SCALE.caption}px;line-height:1.45;color:${T.ink};font-family:${T.bodyFont}}
 .fbpanel{background:${T.ink === '#16233C' ? '#16233C' : '#115054'};padding:24px 28px;display:flex;flex-direction:column;gap:18px;min-width:0;overflow:hidden}
-.fbpanel .plbl{font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:2.4px;text-transform:uppercase;color:${T.accent}}
-.fbpanel .hero{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:60px;line-height:1.14;color:#FFFFFF}
-.fbpanel .herol{font-size:17px;color:rgba(255,255,255,0.82);line-height:1.4;font-family:${T.bodyFont}}
+.fbpanel .plbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2.4px;text-transform:uppercase;color:${T.accent}}
+.fbpanel .hero{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.14;color:#FFFFFF}
+.fbpanel .herol{font-size:${SCALE.label}px;color:rgba(255,255,255,0.82);line-height:1.4;font-family:${T.bodyFont}}
 .fbpanel .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;border-top:1px solid rgba(255,255,255,0.18);padding-top:16px}
-.fbpanel .mv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:30px;line-height:1.05;color:${T.accent};white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fbpanel .ml{font-size:15px;color:rgba(255,255,255,0.72);margin-top:4px;line-height:1.35;font-family:${T.bodyFont}}
-.fbpanel .cmp .cn{font-size:17px;color:#FFFFFF;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:${T.bodyFont}}
-.fbpanel .cmp .co{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.4;margin-top:2px;font-family:${T.bodyFont}}
+.fbpanel .mv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;line-height:1.05;color:${T.accent};white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fbpanel .ml{font-size:${SCALE.label}px;color:rgba(255,255,255,0.72);margin-top:4px;line-height:1.35;font-family:${T.bodyFont}}
+.fbpanel .cmp .cn{font-size:${SCALE.label}px;color:#FFFFFF;font-weight:600;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:${T.bodyFont}}
+.fbpanel .cmp .co{font-size:${SCALE.label}px;color:rgba(255,255,255,0.72);line-height:1.4;margin-top:2px;font-family:${T.bodyFont}}
 .fbpanel .pq{border-top:1px solid rgba(255,255,255,0.18);padding-top:16px}
 .fbpanel .pq .qt{font-size:16.5px;color:rgba(255,255,255,0.92);line-height:1.45;border-left:4px solid ${T.accent};padding-left:16px;font-family:${T.bodyFont}}
-.fbpanel .pq .qs{font-family:${T.monoFont};font-size:12px;color:${T.accent};margin-top:8px;padding-left:20px;letter-spacing:1px;text-transform:uppercase}
+.fbpanel .pq .qs{font-family:${T.monoFont};font-size:${SCALE.label}px;color:${T.accent};margin-top:8px;padding-left:20px;letter-spacing:1px;text-transform:uppercase}
 </style>
 ${metaHtml}
 <div class="fbgrid">
@@ -1248,7 +1408,7 @@ ${metaHtml}
     ${c.pullQuote && c.pullQuote.text ? `<div class="pq"><div class="qt">&ldquo;${esc(c.pullQuote.text)}&rdquo;</div><div class="qs">SOURCE: ${esc(c.pullQuote.attribution)}${c.pullQuote.role ? ', ' + esc(c.pullQuote.role) : ''}</div></div>` : ''}
   </aside>` : ''}
 </div>
-${lessonText && !c.takeaway && !c.lesson ? `<div style="margin-top:16px;font-size:18px;line-height:1.42;color:${T.ink};border-top:1px solid ${T.hair};padding-top:12px;font-family:${T.bodyFont}"><span style="font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:12px">APPLICABILITY</span>${esc(lessonText)}</div>` : ''}`;
+${lessonText && !c.takeaway && !c.lesson ? `<div style="margin-top:16px;font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink};border-top:1px solid ${T.hair};padding-top:12px;font-family:${T.bodyFont}"><span style="font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:12px">APPLICABILITY</span> ${esc(lessonText)}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -1273,9 +1433,9 @@ function renderPrinciples(slide: SlideDataLike, T: BrandTokens): string {
 .dpwrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1 1 auto;align-content:center;min-height:0}
 .dpp{position:relative;background:${T.ink};padding:44px 48px;min-height:380px;overflow:hidden}
 .dpp .dpbar{position:absolute;left:0;top:0;width:100%;height:4px;background:${T.accent}}
-.dpp .dpnum{font-family:${T.displayFont};font-weight:600;font-size:56px;line-height:normal;color:${T.accent}}
-.dpp .dpname{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:36px;line-height:1.2;color:${T.paper};margin-top:8px}
-.dpp .dpbody{font-size:22px;line-height:1.46;color:${washHex(T.paper, 0.18)};margin-top:14px}
+.dpp .dpnum{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
+.dpp .dpname{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.2;color:${T.paper};margin-top:8px}
+.dpp .dpbody{font-size:${SCALE.body}px;line-height:1.46;color:${washHex(T.paper, 0.18)};margin-top:14px}
 </style>
 <div class="dpwrap">${panels}</div>`;
         }
@@ -1286,9 +1446,9 @@ function renderPrinciples(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .pgrid{display:grid;grid-template-columns:repeat(${cols},1fr);gap:${densePr ? 20 : 24}px;flex:1}
 .pitem{border-top:3px solid ${T.accent};padding-top:14px;display:flex;flex-direction:column;gap:10px}
-.pitem .pidx{font-family:${T.monoFont};font-size:${densePr ? 17 : 20}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase}
-.pitem .pn{font-family:${T.displayFont};font-weight:600;font-size:${densePr ? 30 : 39}px;line-height:1.1;color:${T.ink}}
-.pitem .pd{font-size:${densePr ? 23 : 29}px;line-height:1.45;color:${T.ink}}
+.pitem .pidx{font-family:${T.monoFont};font-size:${densePr ? SCALE.label : SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase}
+.pitem .pn{font-family:${T.displayFont};font-weight:600;font-size:${densePr ? SCALE.name : SCALE.subhead}px;line-height:1.1;color:${T.ink}}
+.pitem .pd{font-size:${densePr ? SCALE.body : SCALE.name}px;line-height:1.45;color:${T.ink}}
 </style>
 <div class="pgrid">
 ${items.map((it, i) => `
@@ -1311,15 +1471,15 @@ function renderSectionDivider(slide: SlideDataLike, T: BrandTokens): string {
     if (d.variant === 'thesis') {
         return `<style>
 .thwrap{flex:1;display:flex;flex-direction:column;justify-content:center}
-.thesis{font-family:${T.displayFont};font-weight:600;font-size:104px;line-height:normal;color:${T.ink};max-width:1500px}
+.thesis{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.display}px;line-height:normal;color:${T.ink};max-width:1500px}
 </style>
 <div class="thwrap"><div class="thesis">${esc(trunc(d.title || slide.title, 110))}</div></div>`;
     }
     return `<style>
 .sdwrap{flex:1;display:flex;flex-direction:column;justify-content:center}
-.sdnum{font-family:${T.displayFont};font-weight:600;font-size:144px;line-height:1.24;color:${T.accent};margin-bottom:20px}
-.sdtitle{font-family:${T.displayFont};font-weight:600;font-size:101px;line-height:1.2;color:${T.ink};margin-bottom:18px;max-width:1620px}
-.sdsub{font-family:${T.bodyFont};font-size:36px;line-height:1.4;color:${T.muted};max-width:1400px}
+.sdnum{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.display}px;line-height:1.24;color:${T.accent};margin-bottom:20px}
+.sdtitle{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.display}px;line-height:1.2;color:${T.ink};margin-bottom:18px;max-width:1620px}
+.sdsub{font-family:${T.bodyFont};font-size:${SCALE.subhead}px;line-height:1.4;color:${T.muted};max-width:1400px}
 </style>
 <div class="sdwrap">
   <div class="sdnum">${esc(d.number || '01')}</div>
@@ -1357,20 +1517,20 @@ function renderCompetitiveMatrix(slide: SlideDataLike, T: BrandTokens): string {
       </div>`).join('');
         return `<style>
 .ettbl{display:flex;flex-direction:column;flex:1 1 auto;min-height:0;overflow:hidden}
-.ethead{display:grid;grid-template-columns:8px 250px 1.05fr 1.15fr 200px;gap:20px;padding-bottom:10px;border-bottom:2px solid ${T.ink};font-family:${T.monoFont};font-size:16px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600}
+.ethead{display:grid;grid-template-columns:8px 250px 1.05fr 1.15fr 200px;gap:20px;padding-bottom:10px;border-bottom:2px solid ${T.ink};font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600}
 .etrow{display:grid;grid-template-columns:8px 250px 1.05fr 1.15fr 200px;gap:20px;align-items:start;padding:16px 0;border-bottom:1px solid ${T.hair}}
 .etrow.top{background:${T.paper === '#FFFFFF' ? T.callout : '#FFFFFF'};padding:20px 0}
 .etrow .etbar{width:4px;height:100%;background:${T.accent}}
-.etrow .etn{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:26px;color:${T.ink};line-height:1.2}
-.etrow .etn.s{font-size:20px;font-family:${T.bodyFont};font-weight:600}
-.etrow .etp{font-size:20px;line-height:1.32;color:${T.accentWarn};font-weight:600}
-.etrow .etp.s{font-size:18px;color:${T.ink};font-weight:400}
-.etrow .eti{font-size:19px;line-height:1.32;color:${T.ink}}
-.etrow .eti.s{font-size:17px}
-.etrow .ete{font-family:${T.monoFont};font-size:15px;letter-spacing:1px;color:${T.grey};text-transform:uppercase;line-height:1.3}
+.etrow .etn{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;color:${T.ink};line-height:1.2}
+.etrow .etn.s{font-size:${SCALE.body}px;font-family:${T.bodyFont};font-weight:600}
+.etrow .etp{font-size:${SCALE.body}px;line-height:1.32;color:${T.accentWarn};font-weight:600}
+.etrow .etp.s{font-size:${SCALE.caption}px;color:${T.ink};font-weight:400}
+.etrow .eti{font-size:${SCALE.caption}px;line-height:1.32;color:${T.ink}}
+.etrow .eti.s{font-size:${SCALE.label}px}
+.etrow .ete{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase;line-height:1.3}
 .etband{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;background:${T.ink};padding:18px 32px;margin-top:16px;flex-shrink:0}
-.etband .ebl{font-family:${T.monoFont};font-size:16px;letter-spacing:3px;color:${T.accent};text-transform:uppercase;font-weight:600}
-.etband .ebt{font-size:21px;line-height:1.36;color:${T.paper}}
+.etband .ebl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accent};text-transform:uppercase;font-weight:600}
+.etband .ebt{font-size:${SCALE.body}px;line-height:1.36;color:${T.paper}}
 </style>
 <div class="ettbl">
   <div class="ethead"><div></div><div>Institution</div><div>What they prove</div><div>Implication</div><div>Evidence</div></div>
@@ -1399,9 +1559,9 @@ ${m.patternLine ? `<div class="etband"><div class="ebl">Pattern</div><div class=
     return `<style>
 .cmtbl{width:100%;border-collapse:collapse;flex:1}
 .cmtbl th, .cmtbl td{padding:${denseCm ? '9px 10px' : '14px 12px'};border-bottom:1px solid ${T.hair};text-align:left;vertical-align:top}
-.cmtbl th{font-family:${T.monoFont};font-size:${denseCm ? 18 : 21}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-bottom:2px solid ${T.ink};font-weight:600}
+.cmtbl th{font-family:${T.monoFont};font-size:${denseCm ? SCALE.caption : SCALE.body}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-bottom:2px solid ${T.ink};font-weight:600}
 .cmtbl th .hcell{white-space:pre-line;line-height:1.35}
-.cmtbl td.name{font-family:${T.bodyFont};font-weight:600;font-size:${denseCm ? 25 : 30}px;color:${T.ink};min-width:200px}
+.cmtbl td.name{font-family:${T.bodyFont};font-weight:600;font-size:${denseCm ? SCALE.lead : SCALE.name}px;color:${T.ink};min-width:200px}
 .cmtbl td.name .ncell{white-space:pre-line;line-height:1.3}
 .dot{display:inline-block;width:18px;height:18px;border-radius:50%}
 .dot.full{background:${T.ink}}
@@ -1440,10 +1600,10 @@ function renderServiceBlueprint(slide: SlideDataLike, T: BrandTokens): string {
     // failPoint stages). All colors from BrandTokens; washes are SOLID brand
     // hexes (washWarn), never rgba, so the exporter needs no alpha.
     const stages: any[] = Array.isArray(slide.serviceBlueprint?.stages) ? slide.serviceBlueprint.stages.slice(0, Math.min(_caps.items || 4, 5)) : [];
-    if (stages.length === 0) return `<p style="font-size:33px">No blueprint stages.</p>`;
+    if (stages.length === 0) return `<p style="font-size:${SCALE.name}px">No blueprint stages.</p>`;
     const denseSb = stages.length >= 5;
     const cols = `${denseSb ? 130 : 150}px repeat(${stages.length}, 1fr)`;
-    const cellFs = denseSb ? 19 : 22;
+    const cellFs = denseSb ? SCALE.caption : SCALE.body;
     const labelFs = denseSb ? 15 : 17;
     const moodColor = (e?: string): string => {
         const low = (e || '').toLowerCase();
@@ -1500,7 +1660,7 @@ function renderServiceBlueprint(slide: SlideDataLike, T: BrandTokens): string {
 function renderOrgChart(slide: SlideDataLike, T: BrandTokens): string {
     const o: any = slide.orgChart || {};
     const tiers: any[] = Array.isArray(o.tiers) ? o.tiers.slice(0, Math.max(2, Math.min(_caps.items || 4, 5))) : [];
-    if (tiers.length === 0) return `<p style="font-size:33px">No org tiers.</p>`;
+    if (tiers.length === 0) return `<p style="font-size:${SCALE.name}px">No org tiers.</p>`;
     const subCap = Math.max(1, Math.min(_caps.sub || 4, 5));
     const card = (n: any) => `
       <div class="ocard${n && n.emphasis ? ' emph' : ''}">
@@ -1521,14 +1681,14 @@ function renderOrgChart(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .ogold{display:flex;flex-direction:column;flex:1;min-height:0;font-family:${T.bodyFont};color:${T.ink}}
 .otier{display:flex;align-items:stretch;gap:18px;flex:1;min-height:0}
-.olabel{flex:0 0 150px;width:150px;padding-top:18px;font-family:${T.monoFont};font-weight:600;font-size:13px;letter-spacing:1.5px;color:${T.grey};text-transform:uppercase;line-height:1.35}
+.olabel{flex:0 0 150px;width:150px;padding-top:18px;font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:1.5px;color:${T.grey};text-transform:uppercase;line-height:1.35}
 .onodes{flex:1;min-width:0;display:flex;gap:18px}
 .ocard{flex:1;min-width:0;background:${T.callout};border:1px solid ${T.hair};padding:16px 20px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
 .ocard.emph{border-top:4px solid ${T.accent}}
-.octitle{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:22px;line-height:1.15;color:${T.ink}}
-.ocrole{font-family:${T.bodyFont};font-size:15px;line-height:1.42;color:${T.ink}}
+.octitle{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.body}px;line-height:1.15;color:${T.ink}}
+.ocrole{font-family:${T.bodyFont};font-size:${SCALE.label}px;line-height:1.42;color:${T.ink}}
 .ocspacer{flex:1;min-height:0}
-.ocsrc{font-family:${T.monoFont};font-weight:400;font-size:11px;letter-spacing:0.5px;color:${T.accentCool};text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ocsrc{font-family:${T.monoFont};font-weight:400;font-size:${SCALE.label}px;letter-spacing:0.5px;color:${T.accentCool};text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .oconn{height:28px;display:flex;justify-content:center;flex:0 0 28px}
 .oline{width:2px;height:100%;background:${T.hair}}
 </style>
@@ -1544,7 +1704,7 @@ function renderExecutiveBrief(slide: SlideDataLike, T: BrandTokens): string {
     const d: any = slide.executiveBrief || {};
     const variant: string = d.variant || 'brief';
     const sections: any[] = Array.isArray(d.sections) ? d.sections.slice(0, Math.max(2, Math.min(_caps.items || 4, 6))) : [];
-    if (sections.length === 0 && !d.hero) return `<p style="font-size:33px">No brief content.</p>`;
+    if (sections.length === 0 && !d.hero) return `<p style="font-size:${SCALE.name}px">No brief content.</p>`;
     const gotchas: string[] = variant === 'explainer' && Array.isArray(d.gotchas) ? d.gotchas.slice(0, Math.min(_caps.sub || 4, 6)) : [];
     const cols = sections.length <= 2 ? 1 : 2;
     const stepped = variant === 'explainer';
@@ -1563,20 +1723,20 @@ function renderExecutiveBrief(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .ebgold{display:flex;flex-direction:column;flex:1;min-height:0;gap:18px;font-family:${T.bodyFont};color:${T.ink}}
 .ebhero{display:flex;align-items:baseline;gap:20px;background:${T.callout};border-left:6px solid ${T.accent};padding:18px 26px}
-.ebhv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:46px;line-height:1;color:${T.ink}}
-.ebhl{font-family:${T.monoFont};font-size:15px;letter-spacing:2px;text-transform:uppercase;color:${T.grey}}
+.ebhv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1;color:${T.ink}}
+.ebhl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;color:${T.grey}}
 .ebgrid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(${cols},1fr);gap:18px}
 .ebcard{background:${T.callout};border:1px solid ${T.hair};padding:18px 22px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
 .ebhead{display:flex;align-items:baseline;gap:12px}
-.ebnum{font-family:${T.monoFont};font-weight:700;font-size:19px;color:${T.accent}}
-.ebh{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:24px;line-height:1.15;color:${T.ink}}
-.ebbody{font-family:${T.bodyFont};font-size:17px;line-height:1.45;color:${T.ink}}
+.ebnum{font-family:${T.monoFont};font-weight:700;font-size:${SCALE.caption}px;color:${T.accent}}
+.ebh{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;line-height:1.15;color:${T.ink}}
+.ebbody{font-family:${T.bodyFont};font-size:${SCALE.label}px;line-height:1.45;color:${T.ink}}
 .ebq{margin-top:auto;border-left:3px solid ${T.accentCool};padding-left:12px}
-.ebqt{font-family:${T.titleFont};${T.titleFont.includes('Lora') ? 'font-style:italic;' : ''}font-size:16px;line-height:1.4;color:${T.ink}}
-.ebqs{font-family:${T.monoFont};font-size:12px;letter-spacing:0.5px;text-transform:uppercase;color:${T.accentCool};margin-top:3px}
+.ebqt{font-family:${T.titleFont};${T.titleFont.includes('Lora') ? 'font-style:italic;' : ''}font-size:${SCALE.label}px;line-height:1.4;color:${T.ink}}
+.ebqs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;color:${T.accentCool};margin-top:3px}
 .ebgot{background:${T.washWarn};border-left:6px solid ${T.accentWarn};padding:14px 24px}
-.ebgl{font-family:${T.monoFont};font-weight:700;font-size:14px;letter-spacing:2px;text-transform:uppercase;color:${T.accentWarn};margin-bottom:6px}
-.ebgi{font-family:${T.bodyFont};font-size:16px;line-height:1.4;color:${T.ink}}
+.ebgl{font-family:${T.monoFont};font-weight:700;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;color:${T.accentWarn};margin-bottom:6px}
+.ebgi{font-family:${T.bodyFont};font-size:${SCALE.label}px;line-height:1.4;color:${T.ink}}
 </style>
 <div class="ebgold">${heroHtml}<div class="ebgrid">${sections.map(card).join('')}</div>${gotchasHtml}</div>`;
 }
@@ -1611,10 +1771,10 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const stagesRaw: any[] = Array.isArray(d.stages) ? d.stages.slice(0, capItems) : [];
     const stages = stagesRaw.map(s => typeof s === 'string' ? { name: s, critical: false } : (s || {}));
     const lanes: any[] = (Array.isArray(d.lanes) ? d.lanes : []).slice(0, capLanes);
-    if (stages.length === 0 || lanes.length === 0) return `<p style="font-size:33px">No journey stages.</p>`;
+    if (stages.length === 0 || lanes.length === 0) return `<p style="font-size:${SCALE.name}px">No journey stages.</p>`;
     const n = stages.length;
     const dense = n >= 6;
-    const cellFs = dense ? 17 : 19;
+    const cellFs = dense ? SCALE.label : SCALE.caption;
     const labelFs = dense ? 13 : 15;
     const gridCols = `${dense ? 180 : 210}px repeat(${n}, 1fr)`;
     const ghost = (txt: string) => /^not engaged$/i.test((txt || '').trim()) || !(txt || '').trim();
@@ -1625,16 +1785,16 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const painsRaw: any[] = Array.isArray(d.painPoints) ? d.painPoints : [];
     const painCols: string[][] = stages.map((_: any, si: number) => {
         const v = painsRaw[si];
-        return Array.isArray(v) ? v.filter(Boolean).map(String) : (v ? [String(v)] : []);
+        return Array.isArray(v) ? v.filter(Boolean).map((x: any) => stripInlineSource(String(x))) : (v ? [stripInlineSource(String(v))] : []);
     });
-    const overall: string[] = (Array.isArray(d.overallPainPoints) ? d.overallPainPoints : []).filter(Boolean).map(String);
+    const overall: string[] = (Array.isArray(d.overallPainPoints) ? d.overallPainPoints : []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
     _spreadByArc(overall.length, n).forEach((col, i) => painCols[col].push(overall[i]));
 
     // Personas (JTBD voice) + opportunities distribute by arc into their rows.
     const personas: string[] = (Array.isArray(d.personas) ? d.personas : []).filter(Boolean).map(String);
     const voiceCols: string[][] = stages.map(() => []);
     _spreadByArc(personas.length, n).forEach((col, i) => voiceCols[col].push(personas[i]));
-    const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map(String);
+    const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
     const oppCols: string[][] = stages.map(() => []);
     _spreadByArc(opps.length, n).forEach((col, i) => oppCols[col].push(opps[i]));
 
@@ -1642,6 +1802,21 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const tiles: any[] = (Array.isArray(d.kpiTiles) ? d.kpiTiles : []).slice(0, 3);
     const tileByCol: any[] = stages.map(() => null);
     _spreadByArc(tiles.length, n).forEach((col, i) => { tileByCol[col] = tiles[i]; });
+
+    // Per-phase illustration thumbnails (illustrator-agent output for the journey
+    // img-slots, wiki/brand/image-slots/minor-pages-and-journey-variants.md).
+    // phaseImages[] aligns to stages[]; stage.image is an alternative carrier.
+    // EMPTY-STATE GUARD: when NO phase carries an image the thumbnail row is
+    // omitted entirely and the matrix renders byte-identical to the
+    // pre-illustration layout (no regression on the >99% of journeys with no art).
+    const phaseImages: string[] = Array.isArray(d.phaseImages) ? d.phaseImages : [];
+    const imgFor = (si: number): string => {
+        const direct = phaseImages[si];
+        const raw = stagesRaw[si];
+        const onStage = raw && typeof raw === 'object' ? (raw as any).image : '';
+        return String(direct || onStage || '').trim();
+    };
+    const hasImages = stages.some((_: any, si: number) => !!imgFor(si));
 
     const hasVoice = personas.length > 0;
     const hasPains = painCols.some(c => c.length > 0);
@@ -1652,7 +1827,7 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     // tighter char budgets keep the grid inside the 1080 stage (geometry
     // audit 2026-06-12 caught a 0.15in overflow on the first full payload).
     const full = hasVoice && hasOpps && painCols.some(c => c.length >= 3);
-    const fs = full ? cellFs - 2 : cellFs;
+    const fs = clampMin(full ? cellFs - 2 : cellFs);
     // Budgets match the SLIDE OUTPUT PROTOCOL's per-field summarization
     // targets (pain <= 80, cell <= 100, persona <= 95, opportunity <= 85) plus
     // ~15% slack so a model that wrote to spec is NEVER cut; trunc() is
@@ -1662,6 +1837,7 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
 
     const rowTemplate = [
         hasTiles ? 'minmax(86px,auto)' : 'minmax(52px,auto)',                 // header (+embedded signal)
+        ...(hasImages ? [dense ? 'minmax(84px,auto)' : 'minmax(104px,auto)'] : []), // phase illustration thumbnails
         ...(hasVoice ? ['minmax(58px,auto)'] : []),                            // persona voice
         ...lanes.map(() => 'minmax(64px,1fr)'),                                // actor lanes
         ...(hasPains ? ['minmax(64px,auto)'] : []),                            // stacked pains
@@ -1673,11 +1849,13 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
 .jmgrid>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair}}
 .jmh{background:${T.ink};color:#FFFFFF;font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;display:flex;flex-direction:column;justify-content:center;gap:3px;border-top:none!important}
 .jmh.crit{background:${T.accentWarn}}
-.jmh .sig{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${dense ? 24 : 28}px;line-height:1.05;text-transform:none;letter-spacing:0;color:#FFFFFF}
-.jmh .siglbl{font-family:${T.monoFont};font-weight:600;font-size:11px;letter-spacing:2px;color:${T.accent};text-transform:uppercase}
+.jmh .sig{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${dense ? SCALE.lead : SCALE.name}px;line-height:1.05;text-transform:none;letter-spacing:0;color:#FFFFFF}
+.jmh .siglbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.accent};text-transform:uppercase}
 .jmanchor{padding:8px 16px;background:${T.paper};display:flex;flex-direction:column;justify-content:center;gap:2px}
 .jmanchor .actor{font-family:${T.bodyFont};font-weight:700;font-size:${labelFs + 1}px;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;line-height:1.2}
-.jmanchor .role{font-family:${T.monoFont};font-size:11px;color:${T.grey};line-height:1.3}
+.jmanchor .role{font-family:${T.monoFont};font-size:${SCALE.label}px;color:${T.grey};line-height:1.3}
+${hasImages ? `.jmthumb{background:${T.paper};display:flex;align-items:center;justify-content:center;padding:6px;overflow:hidden}
+.jmthumb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}` : ''}
 .jmanchor.voice .actor{color:${T.accentCool}}
 .jmanchor.pain .actor{color:${T.accentWarn}}
 .jmanchor.opp .actor{color:${T.accentCool}}
@@ -1700,6 +1878,12 @@ function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
       ${t ? `<div class="siglbl">${esc(trunc(t.label, 26))}</div><div class="sig">${esc(trunc(t.value, 22))}</div>` : ''}
     </div>`;
     }).join('')}
+  ${hasImages ? `
+    <div class="jmanchor"></div>
+    ${stages.map((_: any, si: number) => {
+        const src = imgFor(si);
+        return `<div class="jmthumb">${src ? `<img src="${esc(src)}" alt="" loading="lazy"/>` : ''}</div>`;
+    }).join('')}` : ''}
   ${hasVoice ? `
     <div class="jmanchor voice"><div class="actor">Personas</div><div class="role">JTBD voice</div></div>
     ${voiceCols.map(items => `<div class="jmv">${items.map(p => `&ldquo;${esc(trunc(p, cellBudget))}&rdquo;`).join('<br/>')}</div>`).join('')}` : ''}
@@ -1737,12 +1921,12 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .gmtbl{width:100%;border-collapse:collapse;flex:1}
 .gmtbl th,.gmtbl td{padding:${denseGm ? '7px 8px' : '12px 10px'};border-bottom:1px solid ${T.hair};vertical-align:top;text-align:left}
-.gmtbl th{font-family:${T.monoFont};font-size:${denseGm ? 17 : 20}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-bottom:2px solid ${T.ink};font-weight:600}
-.gmtbl td.cap{font-family:${T.bodyFont};font-weight:600;font-size:${denseGm ? 24 : 29}px;color:${T.ink};min-width:240px}
+.gmtbl th{font-family:${T.monoFont};font-size:${denseGm ? SCALE.label : SCALE.body}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-bottom:2px solid ${T.ink};font-weight:600}
+.gmtbl td.cap{font-family:${T.bodyFont};font-weight:600;font-size:${denseGm ? SCALE.lead : SCALE.name}px;color:${T.ink};min-width:240px}
 .bar{width:160px;height:${denseGm ? 11 : 14}px;background:${T.hair};position:relative;overflow:hidden}
 .bar .fill{height:100%;background:${T.accent}}
-.gmtbl td.sev{font-family:${T.monoFont};font-size:${denseGm ? 17 : 20}px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
-.gmtbl td.imp{font-size:${denseGm ? 21 : 25}px;line-height:1.4;color:${T.ink}}
+.gmtbl td.sev{font-family:${T.monoFont};font-size:${denseGm ? SCALE.label : SCALE.body}px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.gmtbl td.imp{font-size:${denseGm ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink}}
 </style>
 <table class="gmtbl">
   <thead><tr><th>Capability</th><th>Current</th><th>Target</th><th>Severity</th><th>Impact</th></tr></thead>
@@ -1750,8 +1934,8 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
     ${gaps.map(g => `
       <tr>
         <td class="cap">${esc(g.capability)}</td>
-        <td>${bar(g.currentMaturity)}<div style="font-family:${T.monoFont};font-size:18px;color:${T.muted};margin-top:3px">L${g.currentMaturity}/${scaleMax}</div></td>
-        <td>${bar(g.targetMaturity)}<div style="font-family:${T.monoFont};font-size:18px;color:${T.muted};margin-top:3px">L${g.targetMaturity}/${scaleMax}</div></td>
+        <td>${bar(g.currentMaturity)}<div style="font-family:${T.monoFont};font-size:${SCALE.caption}px;color:${T.muted};margin-top:3px">L${g.currentMaturity}/${scaleMax}</div></td>
+        <td>${bar(g.targetMaturity)}<div style="font-family:${T.monoFont};font-size:${SCALE.caption}px;color:${T.muted};margin-top:3px">L${g.targetMaturity}/${scaleMax}</div></td>
         <td class="sev" style="color:${sevColor[g.severity] || T.ink}">${esc(g.severity)}</td>
         <td class="imp">${esc(g.impact)}</td>
       </tr>`).join('')}
@@ -1766,18 +1950,30 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
 function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
     const layers: any[] = Array.isArray(slide.architectureMap?.layers) ? slide.architectureMap.layers.slice(0, 6) : [];
     const flow: string = slide.architectureMap?.flowSummary || '';
-    if (layers.length === 0) return `<p style="font-size:33px">No architecture layers.</p>`;
+    if (layers.length === 0) return `<p style="font-size:${SCALE.name}px">No architecture layers.</p>`;
+    // 2026-06-16 COLLISION FIX: layers were `flex:1` (forced EQUAL vertical bands) with wrap-flow
+    // nodes + align-items:center -> a content-heavy layer's wrapped nodes overflowed its equal band
+    // and OVERLAPPED the next layer (labels + cards colliding, overrunning the flow band). Fix:
+    // layers size to CONTENT (no flex:1, align to start) so the flex column stacks them with a gap
+    // and they CANNOT overlap; count-adaptive compaction keeps dense decks inside the 1080 canvas.
+    const nodeTotal = layers.reduce((s, l) => s + Math.min((l.nodes || []).length, _caps.sub), 0);
+    const dense = nodeTotal > 9 || layers.length >= 5;
+    const nPad = dense ? '6px 11px' : '8px 14px';
+    const nMin = dense ? 132 : 160;
+    const nName = dense ? SCALE.body : SCALE.lead;
+    const lGap = dense ? 9 : 14;
+    const lblSize = dense ? SCALE.name : SCALE.subhead;
     return `<style>
-.amwrap{display:flex;flex-direction:column;gap:14px;flex:1;min-height:0}
-.amlayer{display:grid;grid-template-columns:210px 1fr;gap:14px;border-top:2px solid ${T.accent};padding-top:10px;flex:1;align-items:center}
-.amlname{font-family:${T.displayFont};font-size:36px;line-height:1.15;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;display:flex;align-items:center;overflow-wrap:anywhere}
-.amnodes{display:flex;flex-wrap:wrap;gap:10px}
-.amnode{background:${T.callout};border-left:3px solid ${T.accent2};padding:8px 14px;font-size:25px;line-height:1.3;min-width:160px}
+.amwrap{display:flex;flex-direction:column;gap:${lGap}px;flex:1;min-height:0;justify-content:flex-start}
+.amlayer{display:grid;grid-template-columns:200px 1fr;gap:14px;border-top:2px solid ${T.accent};padding-top:8px;align-items:start;flex-shrink:0}
+.amlname{font-family:${T.displayFont};font-size:${lblSize}px;line-height:1.1;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;align-self:start;overflow-wrap:anywhere}
+.amnodes{display:flex;flex-wrap:wrap;gap:${dense ? 8 : 10}px;align-content:start}
+.amnode{background:${T.callout};border-left:3px solid ${T.accent2};padding:${nPad};font-size:${nName}px;line-height:1.25;min-width:${nMin}px}
 .amnode .nn{font-weight:600;color:${T.ink}}
-.amnode .nt{font-family:${T.monoFont};font-size:18px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:2px}
-.amnode .nd{font-size:22px;color:${T.muted};margin-top:4px;line-height:1.4}
-.amflow{margin-top:14px;font-size:28px;line-height:1.45;color:${T.ink};background:${T.callout};padding:14px 18px;border-left:4px solid ${T.accent2}}
-.amflow span{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+.amnode .nt{font-family:${T.monoFont};font-size:${SCALE.caption}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase;margin-top:2px}
+.amnode .nd{font-size:${SCALE.body}px;color:${T.muted};margin-top:4px;line-height:1.4}
+.amflow{margin-top:14px;font-size:${SCALE.name}px;line-height:1.45;color:${T.ink};background:${T.callout};padding:14px 18px;border-left:4px solid ${T.accent2}}
+.amflow span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <div class="amwrap">
   ${layers.map(l => `
@@ -1792,7 +1988,7 @@ function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
           </div>`).join('')}
       </div>
     </div>`).join('')}
-  ${flow ? `<div class="amflow"><span>Flow</span>${esc(flow)}</div>` : ''}
+  ${flow ? `<div class="amflow"><span>Flow</span> ${esc(flow)}</div>` : ''}
 </div>`;
 }
 
@@ -1820,13 +2016,13 @@ function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
 .fgrid{display:grid;grid-template-columns:repeat(${cols},1fr);gap:${denseFt ? 20 : 24}px;flex:1}
 .feat{border-top:3px solid ${T.accent};padding-top:14px;display:flex;flex-direction:column;gap:${denseFt ? 8 : 10}px}
 .feat .fhead{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
-.feat .fn{font-family:${T.displayFont};font-weight:600;font-size:${denseFt ? 29 : 39}px;line-height:1.1;color:${T.ink}}
-.feat .fpri{font-family:${T.monoFont};font-size:${denseFt ? 16 : 20}px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:4px 10px;color:${T.ink};border:2px solid currentColor}
-.feat .fps{font-size:${denseFt ? 21 : 27}px;line-height:1.5;color:${T.ink}}
-.feat .fst{font-size:${denseFt ? 20 : 26}px;line-height:1.5;font-style:italic;color:${T.ink};border-left:3px solid ${T.accent2};padding:6px 12px;background:${T.callout}}
-.feat .faclbl{font-family:${T.monoFont};font-size:${denseFt ? 16 : 19}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;font-weight:600;margin-top:4px}
+.feat .fn{font-family:${T.displayFont};font-weight:600;font-size:${denseFt ? SCALE.name : SCALE.subhead}px;line-height:1.1;color:${T.ink}}
+.feat .fpri{font-family:${T.monoFont};font-size:${denseFt ? SCALE.label : SCALE.body}px;letter-spacing:2px;text-transform:uppercase;font-weight:700;padding:4px 10px;color:${T.ink};border:2px solid currentColor}
+.feat .fps{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.5;color:${T.ink}}
+.feat .fst{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.5;font-style:italic;color:${T.ink};border-left:3px solid ${T.accent2};padding:6px 12px;background:${T.callout}}
+.feat .faclbl{font-family:${T.monoFont};font-size:${denseFt ? SCALE.label : SCALE.caption}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;font-weight:600;margin-top:4px}
 .feat ul{list-style:none;display:flex;flex-direction:column;gap:${denseFt ? 4 : 6}px}
-.feat li{font-size:${denseFt ? 20 : 25}px;line-height:1.4;color:${T.ink};padding-left:14px;position:relative}
+.feat li{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink};padding-left:14px;position:relative}
 .feat li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;background:${T.accent}}
 </style>
 <div class="fgrid">
@@ -1873,17 +2069,17 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens): string {
 .pdg{display:grid;grid-template-columns:${features.length >= 2 ? '1fr 1fr' : '1fr'};gap:30px;flex:1 1 auto;min-height:0}
 .pdc{border-top:3px solid ${T.ink};padding:24px 28px 20px 0;display:flex;flex-direction:column;gap:13px;min-height:0;overflow:hidden}
 .pdh{display:flex;align-items:center;gap:18px}
-.pdh .pdn{font-family:${T.displayFont};font-weight:600;font-size:50px;line-height:normal;color:${T.accent}}
-.pdh .pdt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:30px;line-height:1.15;color:${T.ink};flex:1;min-width:0}
-.pdh .pdp{font-family:${T.monoFont};font-size:15px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:6px 13px;background:${T.ink};color:${T.paper};flex-shrink:0}
-.pdps{font-size:21px;line-height:1.42;color:${T.ink}}
-.pdl{font-family:${T.monoFont};font-size:16px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600}
-.pdst{font-size:22px;line-height:1.5;color:${T.ink};font-style:italic}
+.pdh .pdn{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
+.pdh .pdt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;line-height:1.15;color:${T.ink};flex:1;min-width:0}
+.pdh .pdp{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:6px 13px;background:${T.ink};color:${T.paper};flex-shrink:0}
+.pdps{font-size:${SCALE.body}px;line-height:1.42;color:${T.ink}}
+.pdl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;font-weight:600}
+.pdst{font-size:${SCALE.body}px;line-height:1.5;color:${T.ink};font-style:italic}
 .pdac{display:flex;flex-direction:column;gap:9px}
 .pdai{display:grid;grid-template-columns:14px 1fr;gap:11px;align-items:start}
 .pdai span{width:9px;height:9px;background:${T.accentCool};margin-top:8px;display:block}
-.pdai p{font-size:19px;line-height:1.42;color:${T.ink}}
-.pdf{margin-top:auto;border-top:1px solid ${T.hair};padding-top:11px;display:flex;flex-direction:column;gap:4px;font-family:${T.monoFont};font-size:15px;letter-spacing:1px;color:${T.grey};text-transform:uppercase}
+.pdai p{font-size:${SCALE.caption}px;line-height:1.42;color:${T.ink}}
+.pdf{margin-top:auto;border-top:1px solid ${T.hair};padding-top:11px;display:flex;flex-direction:column;gap:4px;font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase}
 </style>
 <div class="pdg">${cards}</div>`;
 }
@@ -1905,13 +2101,13 @@ function renderSystemsInventory(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .sitbl{width:100%;border-collapse:collapse}
 .sitbl th,.sitbl td{padding:${denseSi ? '7px 8px' : '11px 10px'};border-bottom:1px solid ${T.hair};text-align:left;vertical-align:top}
-.sitbl th{font-family:${T.monoFont};font-size:${denseSi ? 17 : 20}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-bottom:2px solid ${T.ink};font-weight:600}
-.sitbl td.sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSi ? 23 : 28}px;color:${T.ink};min-width:200px}
-.sitbl td.sc{font-family:${T.monoFont};font-size:${denseSi ? 17 : 20}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
-.sitbl td.ss{font-family:${T.monoFont};font-size:${denseSi ? 17 : 20}px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
-.sitbl td.sd{font-size:${denseSi ? 20 : 24}px;line-height:1.4;color:${T.ink}}
-.insight{margin-top:14px;font-size:28px;line-height:1.45;color:${T.ink};background:${T.callout};padding:14px 18px;border-left:4px solid ${T.accent}}
-.insight span{font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+.sitbl th{font-family:${T.monoFont};font-size:${denseSi ? SCALE.label : SCALE.body}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase;border-bottom:2px solid ${T.ink};font-weight:600}
+.sitbl td.sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSi ? SCALE.body : SCALE.name}px;color:${T.ink};min-width:200px}
+.sitbl td.sc{font-family:${T.monoFont};font-size:${denseSi ? SCALE.label : SCALE.body}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
+.sitbl td.ss{font-family:${T.monoFont};font-size:${denseSi ? SCALE.label : SCALE.body}px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700}
+.sitbl td.sd{font-size:${denseSi ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink}}
+.insight{margin-top:14px;font-size:${SCALE.name}px;line-height:1.45;color:${T.ink};background:${T.callout};padding:14px 18px;border-left:4px solid ${T.accent}}
+.insight span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
 </style>
 <table class="sitbl">
   <thead><tr><th>System</th><th>Category</th><th>Status</th><th>Risk</th><th>Notes</th></tr></thead>
@@ -1926,7 +2122,7 @@ function renderSystemsInventory(slide: SlideDataLike, T: BrandTokens): string {
       </tr>`).join('')}
   </tbody>
 </table>
-${insight ? `<div class="insight"><span>Insight</span>${esc(insight)}</div>` : ''}`;
+${insight ? `<div class="insight"><span>Insight</span> ${esc(insight)}</div>` : ''}`;
 }
 
 // ---------------------------------------------------------------------------
@@ -1945,12 +2141,12 @@ function renderGeneric(slide: SlideDataLike, T: BrandTokens): string {
     }
     // Surface a hint that this template lacks a dedicated 1920×1080 renderer.
     return `<style>
-.sub{font-size:37px;color:${T.muted};margin-bottom:24px}
-.body{font-size:33px;line-height:1.55;color:${T.ink};max-width:1620px;margin-bottom:24px}
+.sub{font-size:${SCALE.subhead}px;color:${T.muted};margin-bottom:24px}
+.body{font-size:${SCALE.name}px;line-height:1.55;color:${T.ink};max-width:1620px;margin-bottom:24px}
 ul{list-style:none;display:flex;flex-direction:column;gap:10px;max-width:1620px}
-li{font-size:31px;line-height:1.45;color:${T.ink};padding-left:18px;position:relative}
+li{font-size:${SCALE.name}px;line-height:1.45;color:${T.ink};padding-left:18px;position:relative}
 li::before{content:'';position:absolute;left:0;top:9px;width:8px;height:8px;background:${T.accent}}
-.note{margin-top:24px;font-family:${T.monoFont};font-size:20px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-top:1px solid ${T.hair};padding-top:12px}
+.note{margin-top:24px;font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-top:1px solid ${T.hair};padding-top:12px}
 </style>
 ${dump.join('\n')}
 <div class="note">Template &lt;${esc(slide.template || 'unknown')}&gt; rendered via the generic fallback. For full fidelity, add a dedicated renderer to slideToStageHtml.ts.</div>`;
@@ -1964,6 +2160,18 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
     const brand: Brand = slide.brand === 'nu' ? 'nu' : 'nxt';
     const T = brandTokens(brand);
     const template = (slide.template || '').toLowerCase();
+
+    // SLIDES-deck archetype system (Figma 609): `template=slides:<archetype>` is COMPOSED from the
+    // registry spec by slideComposer (Method A - no per-archetype renderX), the way #proto composes
+    // from its component manifest. The `slides:` namespace keeps the 14 deck archetypes distinct from
+    // the colliding GOLD artifact templates (stat-row / block-quote / section-divider). The SlideData
+    // fence body IS the archetype payload (composer reads fields by dot-path). composeSlide returns
+    // null for an unknown key, so a malformed name falls through to the normal GOLD dispatch.
+    if (template.startsWith('slides:')) {
+        const payload = slide.composerPayload || slide;
+        const composed = composeSlide(template.slice('slides:'.length), payload, brand);
+        if (composed) return composeArchetypeDoc(brand, slide.title || '', composed);
+    }
     // Universal density axis: resolve this slide's item ceilings before dispatch.
     _caps = densityCaps(template, slide.density);
 

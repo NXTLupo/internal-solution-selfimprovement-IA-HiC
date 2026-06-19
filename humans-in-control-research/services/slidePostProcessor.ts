@@ -169,6 +169,18 @@ const META_NARRATION_PATTERNS = [
     /\bthe next (slide|section|part) (will |)(show|cover|discuss|explore|present)/i,
     /\bour (objective|goal|aim|purpose) (is|here is) to\b/i,
     /\bthis (presentation|deck|report|document|analysis|section|slide) (will|is designed to|aims to|seeks to|covers|addresses|examines|presents|outlines|frames)\b/i,
+    // 2026-06-18 (research-run-failure-analysis, Issue 2) - self-referential STRUCTURE meta that the
+    // closed verb set above missed. A slides:agenda title "How this deck is built: themes, the ten…"
+    // shipped because no pattern covered "how/why/what this deck IS BUILT/structured/organized".
+    /\b(how|why|what|where)\s+(this|the)\s+(deck|presentation|report|document|analysis|brief|section|slide)\s+(is|was|gets?|will be|has been)\s+(built|structured|organized|arranged|laid out|put together|framed|composed|sequenced|set up|broken down)\b/i,
+    /\b(this|the)\s+(deck|presentation|report|document|analysis|brief)\s+(is|gets?)\s+(built|structured|organized|arranged|laid out|composed|sequenced)\b/i,
+    // 2026-06-19 - deck-PROCESS tells that narrate where to go in the deck rather than state the
+    // subject (agenda items / group labels were shipping these). High-confidence, unambiguous.
+    /\bwhere to ideate\b/i,
+    /\bfrom diagnosis to ideation\b/i,
+    /\bhow\s+might\s+we\s+questions\b/i,            // the LABEL "How Might We questions" (real HMW questions never put "questions" right after "we")
+    /\bsetting up the narrative\b/i,
+    /\bthe (section|deck|slide) order\b/i,
     /\bwelcome to\b/i,
     /\ballow me to\b/i,
     /\bI('d| would) like to (start|begin|open) by\b/i,
@@ -425,6 +437,13 @@ export function detectMetaNarration(text: string): string[] {
 export function removeMetaNarration(text: string): string {
     if (!text) return text;
 
+    // 2026-06-18 (research-run-failure-analysis) - FENCE GUARD. Structured deliverable output
+    // (:::slide JSON fences, ``` code blocks) must NOT be prose-swept: this drops the ENTIRE matched
+    // "sentence", and a slide's JSON has no sentence punctuation, so one match could span and delete
+    // several slides. Slide TITLES are scrubbed per-field via scrubMetaTitle() instead. Only sweep
+    // plain prose (chat replies, report/brief HTML body, presentation narrative text).
+    if (text.includes(':::slide') || text.includes('```')) return text;
+
     // Split into sentences
     const sentences = text.split(/(?<=[.!?])\s+/);
     const cleaned = sentences.filter(sentence => {
@@ -432,6 +451,93 @@ export function removeMetaNarration(text: string): string {
     });
 
     return cleaned.join(' ').trim();
+}
+
+/** 2026-06-18 (research-run-failure-analysis, Issue 2) - scrub a self-referential / "how this deck
+ *  is built" meta framing from a single SLIDE TITLE (safe per-field; no whole-sentence drop). If the
+ *  meta clause precedes a ":" the real subject after it is kept ("How this deck is built: Themes, the
+ *  ten…" -> "Themes, the ten…"); a wholly-meta title returns '' so the caller falls back to a neutral
+ *  label. Idempotent; leaves clean titles untouched. */
+export function scrubMetaTitle(title: string | undefined | null): string {
+    const t = (title || '').trim();
+    if (!t) return '';
+    const isMeta = META_NARRATION_PATTERNS.some(p => p.test(t));
+    if (!isMeta) return t;
+    const colon = t.match(/^\s*(?:how|why|what|where)\b[^:]*:\s*(.+)$/i);
+    if (colon && colon[1].trim().length > 3) {
+        let rest = colon[1].trim();
+        // 2026-06-19 - the kept subject can still carry a trailing deck-process meta clause
+        // ("Themes, the ten, and where to ideate" -> "Themes, the ten"). Strip it.
+        rest = rest.replace(/[,;:]?\s*(and\s+|then\s+)?(where to ideate|from diagnosis to ideation|how might we questions|setting up the narrative|the (section|deck|slide) order)\b.*$/i, '').replace(/[,;:]\s*$/, '').trim();
+        if (rest.length > 3) return rest.charAt(0).toUpperCase() + rest.slice(1);
+    }
+    return '';
+}
+
+// 2026-06-18 - CLICHE-METAPHOR TITLE GUARD (defense-in-depth)
+// ============================================================
+// User feedback: slide HEADERS came back wordy and leaning on cliche business
+// metaphors ("front door", "trust ceiling", "margin closes", "where value leaks").
+// The DECK MODE prompt now bans these, but the model still
+// reaches for them on the two highest-rhetoric slides (thesis + close). Per repo
+// doctrine ("prompt rules can be bypassed; the post-processor cannot"), this is a
+// runtime net. It is DELIBERATELY CONSERVATIVE: it only rewrites a curated set of
+// MULTI-WORD cliches where a clean literal swap preserves grammar, and leaves any
+// title it cannot safely fix untouched (never mangles, never blank). Single
+// ambiguous words (e.g. bare "leaks", "the meter") are left to the prompt.
+// NOTE: "funnel" terms (front/top of the funnel) are LEGITIMATE marketing vocabulary,
+// NOT cliche slop - deliberately excluded from this map (user, 2026-06-18).
+const TITLE_CLICHE_SWAPS: Array<[RegExp, string]> = [
+    [/\btrust ceiling\b/gi, 'trust limit'],
+    [/\bfront door\b/gi, 'entry point'],
+    [/\bcloses the margin\b/gi, 'shrinks the margin'],
+    [/\bmargin closes\b/gi, 'margin shrinks'],
+    [/\bwhere value leaks\b/gi, 'where value is lost'],
+    [/\bopens the door\b/gi, 'enables'],
+    [/\bwalk through first\b/gi, 'move first'],
+    [/\bredrawing the map\b/gi, 'redrawing the market'],
+    [/\beats? it\b/gi, 'absorbs it'],
+];
+export function deClicheText(text: string | undefined | null): string {
+    let t = (text || '');
+    if (!t) return '';
+    for (const [re, sub] of TITLE_CLICHE_SWAPS) t = t.replace(re, sub);
+    return t;
+}
+// Title variant: trims (title fields should not carry leading/trailing space).
+export function deClicheTitle(title: string | undefined | null): string {
+    return deClicheText((title || '').trim());
+}
+// 2026-06-18 - keys whose VALUES are verbatim corpus content or source identifiers.
+// A cliche inside a real quote ("...the new front door...") is what someone SAID, so
+// it must survive; the de-cliche pass only rewrites the model's OWN editorial voice
+// (titles, subtitles, body, interstitial text, MEANS/MATTERS). Source/author/citation
+// keys are likewise left untouched.
+const CLICHE_PROTECTED_KEYS = new Set<string>([
+    'quote', 'quotes', 'keyQuote', 'pullQuote', 'evidence', 'evidenceBasis',
+    'sources', 'source', 'sourceLabel', 'citation', 'citations', 'attribution',
+    'author', 'speaker', 'by',
+]);
+// Recursively de-cliche every model-voice string in a slide payload, skipping
+// verbatim/source keys (and internal `_` keys). Array items inherit their parent
+// key, so an array under `quotes` stays protected. Mutates in place.
+export function deClicheDeep<T>(value: T, key?: string): T {
+    if (value == null) return value;
+    if (typeof value === 'string') {
+        return (key && CLICHE_PROTECTED_KEYS.has(key)) ? value : (deClicheText(value) as any);
+    }
+    if (Array.isArray(value)) {
+        for (let i = 0; i < value.length; i++) value[i] = deClicheDeep(value[i], key);
+        return value;
+    }
+    if (typeof value === 'object') {
+        for (const k of Object.keys(value as any)) {
+            if (k.startsWith('_')) continue;
+            (value as any)[k] = deClicheDeep((value as any)[k], k);
+        }
+        return value;
+    }
+    return value;
 }
 
 // 2026-05-25 - EM-DASH AUTO-STRIP
@@ -649,6 +755,11 @@ const QA_ANNOTATION_PATTERNS: Array<{ pattern: RegExp; replace: string }> = [
     // or prior deliverables as if they were evidence. Strip the citation token.
     { pattern: /\bTri-?Model\s+Synthesis\b[^.\n]*/gi, replace: '' },
     { pattern: /(?:Source|Sources)\s*:\s*(?:Highlights|Gaps?\s+section|Pre-?Analysis|the\s+corpus|the\s+record|Prior\s+Findings)\b[^.\n]*/gi, replace: '' },
+    // 2026-06-18 - "HiC theme synthesis" cited as if it were a source (deck audit:
+    // a pull-quote attributed to "Ecommerce CX team via HiC theme synthesis"). HiC's
+    // own internal synthesis pass is NOT a citable source. Strip the attribution token
+    // (and a leading "via"/"per"/separator) so a real named source can stand alone.
+    { pattern: /\s*[,;]?\s*(?:via|per|from|source:?)?\s*HiC\s+theme\s+synthesis\b/gi, replace: '' },
     // Trailing fragments produced by removing the above
     { pattern: /\s*-\s*$/g, replace: '' },
     { pattern: /\s*\.\s*\.\s*\./g, replace: '.' },
