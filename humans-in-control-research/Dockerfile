@@ -17,6 +17,12 @@ FROM nginx:alpine
 COPY --from=builder /app/dist /usr/share/nginx/html
 # Copy DESIGN.md so designMdLoader can fetch it at /DESIGN.md in production
 COPY DESIGN.md /usr/share/nginx/html/DESIGN.md
+# Copy the masthead logo to the served root. The app references it at /logo.png
+# (App.tsx header + hero, slideTemplates/web.tsx). Vite's publicDir copy is
+# unreliable in this image (same reason documentation.html is copied below), so
+# copy it explicitly to guarantee /logo.png resolves instead of 404-ing to the
+# SPA HTML fallback (which renders as a broken image).
+COPY public/logo.png /usr/share/nginx/html/logo.png
 # Copy wiki knowledge layer so wikiService can fetch pages at runtime
 COPY hic-workspace/wiki /usr/share/nginx/html/hic-workspace/wiki
 # Copy manifest JSONs (skill routing, institution registry, YouTube channels).

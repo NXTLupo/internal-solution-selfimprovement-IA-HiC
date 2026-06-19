@@ -300,45 +300,17 @@ start_services() {
   echo -e "${YELLOW}Rebuilding Social Research frontend with fresh dependencies...${NC}"
   docker compose -f docker-compose-all.yml build --no-cache social-research-frontend 2>/dev/null || true
   
-  # Create or update the docker-compose-all.override.yml file with explicit API keys and HTTPS URLs
-  cat > docker-compose-all.override.yml << EOF
-services:
-  launchpad:
-    environment:
-      # Let Flask app handle dynamic HTTP/HTTPS URL detection
-      # No hardcoded CLIENT_URLs - app will determine based on request protocol
+  # NOTE (2026-06-18): the previously-generated docker-compose-all.override.yml
+  # is no longer needed. docker-compose-all.yml already injects every API key
+  # from .env (${ANTHROPIC_API_KEY}, ${OPENAI_API_KEY}, ${GEMINI_API_KEY}) and
+  # pins the correct models. The old override also defined a `claude4-journey-mapper`
+  # service that no longer exists in the base file (compose errored on it) and
+  # could embed interpolated keys. It is intentionally NOT generated anymore and
+  # is gitignored. The dead nxt-agency-* services are gated behind the "agency"
+  # compose profile, so a plain `up` skips them.
 
-  video-analyzer:
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - USE_WHISPER_API=true
-    volumes:
-      - ./internal-solutions-video-analyzer/static:/app/static
-
-  social-research-backend:
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - AZURE_OPENAI_API_KEY=${OPENAI_API_KEY}
-      - AZURE_OPENAI_KEY=${OPENAI_API_KEY}
-
-  journey-mapper:
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - ANTHROPIC_MODEL=claude-opus-4-5-20251101
-
-  claude4-journey-mapper:
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - CLAUDE4_MODEL=claude-sonnet-4-20250514
-
-  agent:
-    environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - ANTHROPIC_MODEL=claude-opus-4-5-20251101
-EOF
-
-  # Start all services without explicit list to avoid Docker Compose concurrency bug
-  docker compose -f docker-compose-all.yml -f docker-compose-all.override.yml up -d
+  # Start the full suite (default profile = 19 services; nxt-agency excluded).
+  docker compose -f docker-compose-all.yml up -d --build
   
   if [ $? -eq 0 ]; then
     echo -e "${GREEN}All HTTP services started successfully!${NC}"

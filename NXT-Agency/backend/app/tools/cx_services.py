@@ -260,8 +260,8 @@ class GenerateJourneyMapTool(BaseTool):
             return {
                 "error": f"Journey Mapper submission failed: {e}",
                 "suggestion": (
-                    "Try using the computer tool to navigate to "
-                    "http://journey-mapper:8000 and fill the form manually."
+                    "Try using the computer tool to navigate to the Journey Mapper "
+                    f"({journey_mapper_url}) and fill the form manually."
                 ),
                 "journey_mapper_client_url": journey_mapper_url,
             }

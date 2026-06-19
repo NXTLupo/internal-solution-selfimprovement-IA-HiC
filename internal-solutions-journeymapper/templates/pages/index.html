@@ -3,6 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Self-heal: Journey Mapper ships NO service worker, but a stale Vite/PWA
+    // service worker left registered on localhost:8080 by a prior app on this
+    // port can hijack navigations and render a blank page (symptom: a
+    // GET /dev-sw.js?dev-sw 404 in the server log). Unregister any SW and purge
+    // its caches so the server-rendered HTML always wins on the next load.
+    (function () {
+      try {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.getRegistrations()
+            .then(function (rs) { rs.forEach(function (r) { r.unregister(); }); })
+            .catch(function () {});
+        }
+        if (window.caches && caches.keys) {
+          caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); })
+            .catch(function () {});
+        }
+      } catch (e) { /* no-op */ }
+    })();
+  </script>
   <title>NXT Humans | Journey Mapper</title>
   <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="stylesheet" href="/static/nxt-humans-styles.css">

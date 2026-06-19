@@ -63,6 +63,9 @@ Thumbs.db
 # Docker
 .docker/
 docker-compose.override.yml
+# Regenerated locally by launch.sh; must never be committed (it can contain
+# interpolated API keys). Scrubbed from history 2026-06-18.
+docker-compose-all.override.yml
 
 # Application specific
 logs/

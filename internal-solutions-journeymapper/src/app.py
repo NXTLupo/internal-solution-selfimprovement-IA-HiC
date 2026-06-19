@@ -146,6 +146,41 @@ def get_available_models() -> List[str]:
         "claude-haiku-4-5-20251001",
     ]
 
+@app.get("/dev-sw.js")
+@app.get("/sw.js")
+async def self_destruct_service_worker():
+    """Kill-switch for stale service workers (fixes the 'blank page' symptom).
+
+    A previous Vite/PWA app on this localhost port may have left a service
+    worker registered in the user's browser that hijacks navigations and
+    renders a blank page (the tell is a `GET /dev-sw.js?dev-sw` in the log).
+    Journey Mapper ships NO service worker of its own. Serving this
+    self-destroying worker at the exact paths the stale SW re-fetches to
+    check for updates makes the browser install it, then immediately
+    unregister, clear caches, and reload every controlled tab clean.
+    """
+    from fastapi.responses import Response
+
+    sw = (
+        "self.addEventListener('install', function(){ self.skipWaiting(); });\n"
+        "self.addEventListener('activate', function(event){\n"
+        "  event.waitUntil((async function(){\n"
+        "    try { var keys = await caches.keys(); await Promise.all(keys.map(function(k){ return caches.delete(k); })); } catch (e) {}\n"
+        "    try { await self.registration.unregister(); } catch (e) {}\n"
+        "    try {\n"
+        "      var cs = await self.clients.matchAll({ type: 'window' });\n"
+        "      cs.forEach(function(c){ c.navigate(c.url); });\n"
+        "    } catch (e) {}\n"
+        "  })());\n"
+        "});\n"
+    )
+    return Response(
+        content=sw,
+        media_type="application/javascript",
+        headers={"Cache-Control": "no-store, no-cache, must-revalidate, max-age=0"},
+    )
+
+
 @app.get("/", response_class=HTMLResponse)
 async def get_home():
     """

@@ -1018,7 +1018,13 @@ async def websocket_chat(websocket: WebSocket, conversation_id: str):
                                 "type": "screenshot",
                                 "tool": "generate_journey_map",
                                 "image": source.get("data", ""),
-                                "url": "http://journey-mapper:8000",
+                                # Show the USER-facing service URL, not the internal
+                                # Docker hostname (journey-mapper:8000) the agent's
+                                # browser actually navigates to. The internal host
+                                # is unreachable from the user's browser.
+                                "url": os.environ.get(
+                                    "JOURNEY_MAPPER_CLIENT_URL", "http://localhost:8080"
+                                ),
                             })
 
                     # Send result

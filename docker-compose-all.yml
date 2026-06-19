@@ -341,6 +341,11 @@ services:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     volumes:
       - ./internal-solutions-consistent-character-generator:/app
+      # Keep the React UI that the Dockerfile built into the image: this
+      # anonymous volume shadows the host bind-mount (which has no dist/) so
+      # /app/dist is the built frontend, not missing. Without it, :5010 serves
+      # the "frontend needs to be built" placeholder.
+      - /app/dist
       - consistent-character-generator-data:/app/uploads
     working_dir: /app
     networks:
