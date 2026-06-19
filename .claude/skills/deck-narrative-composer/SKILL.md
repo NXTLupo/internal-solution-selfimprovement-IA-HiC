@@ -1,6 +1,6 @@
 ---
 name: deck-narrative-composer
-version: 1.7
+version: 1.19
 last_improved: 2026-05-23
 description: Content-block narrative generation for strategy decks using 12 block types, report-derived distillation, per-slide context injection, and layout auto-resolution. 2026-05-23 — per-slide narratives now use Verbalized Sampling (k=3 candidates with frame + probability) to escape templated McKinsey-prose phrasing.
 thinking: high
@@ -305,6 +305,71 @@ DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent;
 
 
 ## Learned behaviors
+
+
+<!-- learned behavior added 2026-06-18 from 38 feedback signals -->
+When generating presentations, always include a title page, a table of contents, and a structured narrative framework with clear themes.
+
+
+
+<!-- learned behavior added 2026-06-18 from 36 feedback signals -->
+When generating presentations, strictly adhere to the user's specified topic, narrative order, and source materials.
+
+
+
+<!-- learned behavior added 2026-06-18 from 37 feedback signals -->
+Good, clear, covers all signals.*
+
+5.  **Refine and Count Words:**
+    *
+
+
+
+<!-- learned behavior added 2026-06-18 from 35 feedback signals -->
+When generating presentations, strictly adhere to the user's specified topic, narrative order, and technical details. Reproduce provided
+
+
+
+<!-- learned behavior added 2026-06-18 from 33 feedback signals -->
+To ensure a logical, consulting-style narrative, the skill must default to a structure where "Frame the Strategy" always
+
+
+
+<!-- learned behavior added 2026-06-18 from 34 feedback signals -->
+The skill must default to a logical, consulting-style narrative structure, ensuring strategic framing always precedes execution phases (e.
+
+
+
+<!-- learned behavior added 2026-06-18 from 32 feedback signals -->
+Good, covers narrative structure (consulting style, strategy before experience), topic adherence, and clear slide briefs.*
+
+5
+
+
+
+<!-- learned behavior added 2026-06-18 from 31 feedback signals -->
+Default to a rigorous, logical consulting-deck narrative structure that prioritizes strategic framing before execution details. Strictly adhere to
+
+
+
+<!-- learned behavior added 2026-06-18 from 30 feedback signals -->
+The presentation skill must default to a structured, consulting-grade narrative that prioritizes strategic framing before execution details (
+
+
+
+<!-- learned behavior added 2026-06-17 from 29 feedback signals -->
+When generating presentations, strictly adhere to the user's specified topic, source transcripts, and requested items. Structure the
+
+
+
+<!-- learned behavior added 2026-06-17 from 28 feedback signals -->
+When generating presentations, strictly adhere to the user's specified topic and scope. Structure the deck using a logical, consulting
+
+
+
+<!-- learned behavior added 2026-06-17 from 27 feedback signals -->
+When generating presentations, strictly adhere to the user's specified topic and scope while structuring decks with a logical,
+
 
 
 <!-- learned behavior added 2026-06-12 from 11 feedback signals -->

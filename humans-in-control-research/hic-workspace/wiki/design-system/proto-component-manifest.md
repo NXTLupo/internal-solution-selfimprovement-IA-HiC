@@ -1,8 +1,5 @@
 ---
 id: design-system/proto-component-manifest.md
-title: "#proto Component Manifest (runtime pattern -> exact tokens for Opus 4.8)"
-type: design-system
-updated: 2026-06-13
 chunks:
   - id: "design-system/proto-component-manifest.md#c0"
     char_span: [0, 549]
@@ -136,11 +133,137 @@ chunks:
     section: "DOMAIN VISUALS category (14 components, both brands)"
     token_count: 318
   - id: "design-system/proto-component-manifest.md#c22"
-    char_span: [25855, 26290]
+    char_span: [25853, 26179]
+    sentence_count: 2
+    key_terms: [screenshot-verified, monochromatic, archetypes, categories, components, navigation, feedback, overlays]
+    section: "VOL I status: COMPLETE"
+    token_count: 94
+  - id: "design-system/proto-component-manifest.md#c23"
+    char_span: [26218, 27429]
+    sentence_count: 5
+    key_terms: [proto, palette, accent, data, ecru, gold, nxt, archetypes]
+    section: VOL II — extended pattern library
+    token_count: 329
+  - id: "design-system/proto-component-manifest.md#c24"
+    char_span: [27431, 28688]
     sentence_count: 3
-    key_terms: [screenshot-verified, brand, token, monochromatic, experiences, referencing, archetypes, categories]
-    section: "Library status: COMPLETE"
-    token_count: 115
+    key_terms: [proto, checkbox, accent, mono, name, rows, selected, headers]
+    section: VOL II — extended pattern library
+    token_count: 375
+  - id: "design-system/proto-component-manifest.md#c25"
+    char_span: [28690, 30244]
+    sentence_count: 1
+    key_terms: [proto, warn, cool, lines, bad, rows, accent, border]
+    section: VOL II — extended pattern library
+    token_count: 468
+  - id: "design-system/proto-component-manifest.md#c26"
+    char_span: [30246, 31555]
+    sentence_count: 3
+    key_terms: [proto, accent, row, text, swatch, ecru, pill, bubbles]
+    section: VOL II — extended pattern library
+    token_count: 357
+  - id: "design-system/proto-component-manifest.md#c27"
+    char_span: [31557, 33166]
+    sentence_count: 1
+    key_terms: [proto, text, price, grid, name, panel, exercise, labelled]
+    section: VOL II — extended pattern library
+    token_count: 500
+  - id: "design-system/proto-component-manifest.md#c28"
+    char_span: [33168, 34201]
+    sentence_count: 1
+    key_terms: [proto, text, bad, pill, warn, signed, dark, del]
+    section: VOL II — extended pattern library
+    token_count: 271
+  - id: "design-system/proto-component-manifest.md#c29"
+    char_span: [34230, 34988]
+    sentence_count: 2
+    key_terms: [pages, vol-ii, screenshot-verified, above, token, data, self-improvement, a11y-i18n-theme]
+    section: "VOL II status: COMPLETE"
+    token_count: 226
+  - id: "design-system/proto-component-manifest.md#c30"
+    char_span: [35048, 36571]
+    sentence_count: 7
+    key_terms: [color, proto, bar, nxt, ring, text, ranked, track]
+    section: "VOL III — AI-native & talent-lifecycle pattern library"
+    token_count: 423
+  - id: "design-system/proto-component-manifest.md#c31"
+    char_span: [36573, 38515]
+    sentence_count: 3
+    key_terms: [proto, suggestions, live, pill, helpful, answer, warn-border, provenance]
+    section: "VOL III — AI-native & talent-lifecycle pattern library"
+    token_count: 493
+  - id: "design-system/proto-component-manifest.md#c32"
+    char_span: [38517, 40416]
+    sentence_count: 2
+    key_terms: [proto, rows, accent, availability, label, offer, stage, shortlisted]
+    section: "VOL III — AI-native & talent-lifecycle pattern library"
+    token_count: 508
+  - id: "design-system/proto-component-manifest.md#c33"
+    char_span: [40418, 41720]
+    sentence_count: 2
+    key_terms: [proto, rows, relationship, role, text, shortlist, checkbox, relationshipnarrative]
+    section: "VOL III — AI-native & talent-lifecycle pattern library"
+    token_count: 355
+  - id: "design-system/proto-component-manifest.md#c34"
+    char_span: [41750, 42402]
+    sentence_count: 2
+    key_terms: [nxt, runtime, vol-iii, screenshot-verified, brand, token, node, talent-lifecycle]
+    section: "VOL III status: COMPLETE"
+    token_count: 170
+  - id: "design-system/proto-component-manifest.md#c35"
+    char_span: [42484, 44511]
+    sentence_count: 8
+    key_terms: [proto, token, archetypes, chartreuse, scale, elevation, nxt, ramp]
+    section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
+    token_count: 501
+  - id: "design-system/proto-component-manifest.md#c36"
+    char_span: [44513, 46309]
+    sentence_count: 1
+    key_terms: [proto, role, status, esc, aria-describedby, aria-expanded, aria-haspopup, aria-pressed]
+    section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
+    token_count: 428
+  - id: "design-system/proto-component-manifest.md#c37"
+    char_span: [46311, 48384]
+    sentence_count: 1
+    key_terms: [proto, aria-current, text, filtering, explicit, labelled, headers, ordered]
+    section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
+    token_count: 491
+  - id: "design-system/proto-component-manifest.md#c38"
+    char_span: [48386, 49559]
+    sentence_count: 2
+    key_terms: [proto, review-before-publish, states, focus, state, icon, text, critique-flagged]
+    section: "VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)"
+    token_count: 289
+  - id: "design-system/proto-component-manifest.md#c39"
+    char_span: [49588, 50283]
+    sentence_count: 3
+    key_terms: [archetypes, runtime, brands, vol-iv, screenshot-verified, brand, token, a11y]
+    section: "VOL IV status: COMPLETE"
+    token_count: 181
+  - id: "design-system/proto-component-manifest.md#c40"
+    char_span: [50337, 51750]
+    sentence_count: 4
+    key_terms: [proto, product, concierge, grounded, shopper, answer, autocomplete, archetypes]
+    section: VOL V — AI commerce patterns (retail / shopping)
+    token_count: 335
+  - id: "design-system/proto-component-manifest.md#c41"
+    char_span: [51752, 52623]
+    sentence_count: 1
+    key_terms: [proto, price, add, cart, filter, rating, count, stars]
+    section: VOL V — AI commerce patterns (retail / shopping)
+    token_count: 216
+  - id: "design-system/proto-component-manifest.md#c42"
+    char_span: [52651, 52937]
+    sentence_count: 2
+    key_terms: [archetypes, brands, screenshot-verified, placeholders, third-party, components, variable, dingbat]
+    section: "VOL V status: COMPLETE"
+    token_count: 81
+  - id: "design-system/proto-component-manifest.md#c43"
+    char_span: [53011, 53951]
+    sentence_count: 4
+    key_terms: [gutter, margin, col, mobile, layout-grids, desktop, proto, breakpointgrid]
+    section: "RESPONSIVE BREAKPOINT GRID (apply to ALL #proto / #prototype output)"
+    token_count: 291
 ---
 # #proto Component Manifest
 
@@ -563,8 +686,347 @@ is a labelled button; not focus-stealing.
 WHAT: feed-matched sponsored card. STRUCTURE: card clip [image placeholder + body (Sponsored --muted 10 + info "i"
 + title --text 13 SemiBold + advertiser --muted)]. "Sponsored" disclosure visible; matches feed format but labelled.
 
-## Library status: COMPLETE
-All 74 archetypes built as Figma COMPONENTS on both brand pages (NXT 403:2 / NU 332:2), token + variable bound,
-flat monochromatic SVG line icons (no emoji), screenshot-verified. Categories: AI-Chat (11), Navigation (9),
-Forms (3), Feedback (9), Data Display (14), Charts (9), Overlays (2), Misc (3), Domain (14). The Analyst Desk
-model composes #proto / #prototype experiences by referencing these specs + the brand token table above.
+## VOL I status: COMPLETE
+All 74 vol-I archetypes built as Figma COMPONENTS on the primary brand pages (NXT 403:2 / NU 332:2), token +
+variable bound, flat monochromatic SVG line icons (no emoji), screenshot-verified. Categories: AI-Chat (11),
+Navigation (9), Forms (3), Feedback (9), Data Display (14), Charts (9), Overlays (2), Misc (3), Domain (14).
+
+## VOL II — extended pattern library
+Vol II archetypes live on DEDICATED pages: NXT `469:2` ("GOLD · #proto patterns vol2 (nxt)") and NU `364:2`
+("GOLD · #proto patterns vol2 (nu)"). Same brand token table + ICONOGRAPHY rule as above. Multi-series chart
+palette = [--accent, --cool, NXT color/success / NU color/gold, --grey]. Built + screenshot-verified (28
+archetypes x 2 brands = 56 components):
+
+### Advanced Data Viz (11)
+proto/Treemap (horizontal value-sized rects, palette per cell). proto/Radar (concentric grid polygons --hairline
++ data polygon --accent outline). proto/Sankey (curved flow paths palette + end bars). proto/Network (--hairline
+edges + palette nodes). proto/Sunburst (two concentric arc rings, palette). proto/HeatCal (12-wide cell grid,
+--accent stepped opacity 0.2..1, empty --ecru). proto/Waterfall (rects, up=positive-color / down=negative-color).
+proto/Candlestick (wick line + body rect per candle, up/down colored). proto/BoxPlot (whisker --grey + box outline
+--accent + median line --accent). proto/Bullet (track --ecru + value bar --accent + target marker --ink 3px).
+proto/Gantt (task rows: label + --ecru track + palette bar offset by start%). All: role=img + aria-label / data-
+table fallback; never color-only.
+
+### Tables & Data Grids (5)
+proto/Grid (sortable header --ecru w/ aria-sort "▲" + select-all checkbox; rows checkbox+cells, selected row
+--ecru). proto/Pivot (row headers + value cells + bold Total column, scoped th). proto/ColManager (checkbox +
+column name + grip icon `M8 6h8M8 12h8M8 18h8`). proto/FilterBuilder ("Match [all] of:" + rule rows [field▾ +
+operator▾ + value input + remove-x `M6 6l12 12M18 6L6 18`] + "+ Add rule"). proto/TransferList (Available / ⇄ /
+Selected dual labelled listboxes). CHECKBOX = 15px radius3, on=--accent + check `M5 12l4.5 4.5L19 7` (--on-accent),
+off=--surface 1px --border.
+
+### Enterprise & Admin (6)
+proto/RoleMatrix (permission rows x Admin/Editor/Viewer columns, checkboxes, scoped headers). proto/AuditLog (mono
+timestamp + actor SemiBold + action --muted + channel pill). proto/FeatureFlags (mono flag name + rollout% +
+role=switch toggle). proto/ApiKeys (masked sk_live key mono + Reveal/Copy, secret masked by default). proto/UsageMeter
+(label + used/cap + bar: --accent under / warn-color near-limit / negative-color over + "⚠" text). proto/BillingPlan
+(plan name + price/renewal + next-invoice panel + Manage/Invoices). SWITCH = 38x21 pill radius999 (--accent on /
+--hairline off) + 17px --paper knob offset.
+
+### Developer Tools (6)
+All dark surfaces: bg --rail, text --paper, MONO font. proto/Terminal (prompt "➜" --ok + path --cool + command
+--paper + "warn" --warn + "✓" --ok). proto/LogViewer (level filter chips, active --accent; lines w/ level label
+colored INFO=--ok WARN=--warn ERROR=--bad DEBUG=--cool). proto/CodeDiff ("@@" hunk --cool, "-" lines --bad, "+"
+lines --ok). proto/Pipeline (stage nodes "✓"/"●"/"○"/"✕" with state-colored 1.5px border + connectors). proto/
+StatusPage (service rows: status dot + Operational/Degraded/Outage in WORDS). proto/StackTrace (error line --bad +
+frame lines --cool). status always conveyed by text, not color alone.
+
+### Interaction, Drag-Drop, Realtime & Collaboration (8)
+proto/Sortable (reorder rows: grip icon `M8 6h8M8 12h8M8 18h8` + label + #n; keyboard DnD: Space lift, arrows move).
+proto/DropZone (dashed --ecru zone + upload icon `M12 16V4M7 9l5-5 5 5M5 20h14` + "Drag files here or browse" + hint;
+role=button + file-picker fallback). proto/SplitPane (2 panes + 6px --ecru resize handle; role=separator aria-orientation).
+proto/ShortcutSheet (action rows + kbd chip --ecru 1px --border). proto/SyncStatus (well row: check/spinner/warn icon +
+state text --ok/--warn/--bad; role=status aria-live=polite). proto/Presence (overlapping avatars -8 + "N editing now" +
+cursor pill --accent/--on-accent; each avatar aria-label). proto/PrefMatrix (notification type rows x channel columns,
+checkboxes, scoped headers). proto/Conflict ("choose a version" + 2 version panels (--accent / --cool border) + Keep this).
+
+### Accessibility, i18n & Theming (5)
+proto/A11yDemo (skip-link button + focus-ring item row (focused = 2px --accent ring) + polite status text). proto/
+LiveRegion (Add-item button + aria-live status well). proto/LocaleSwitch (language select + "English · $1,234.50 ·
+date" formatted line; dir/lang flip). proto/ThemeCtrl (Density chips compact/comfortable + Accent swatch row).
+proto/ColorField (label + big accent swatch + swatch row + "#hex · contrast AA" text). Swatches bind to palette vars.
+
+### PM / CRM / Support / Productivity (8)
+proto/OrgChart (lead node --accent border + 1px connector + report-node row; node = bordered pill name+role; tree
+exposed as nested list). proto/ScoreCard (criterion rows + 5 star icons filled to score (`M12 3l2.6 6.3...`) + Submit;
+rating has n-of-5 text alt). proto/TicketThread (#id pill + priority pill + SLA + customer/agent message bubbles).
+proto/ChatConsole (conversation well + reply input | macro buttons column). proto/KBArticle (breadcrumb + h1 + body +
+tip callout --ecru + "Was this helpful? Yes/No"). proto/DocEditor (toolbar B/I/U/H1/•/link-icon --ecru + role=textbox
+body). proto/Whiteboard (dotted --ecru canvas + sticky notes: --paper + palette left-border). proto/CommentThread
+(nested avatar+name·time+text bubbles, replies indented + reply input).
+
+### Maps / Travel / Food / Real-Estate / Health (8)
+proto/SeatMap ("SCREEN/FRONT" + seat grid: available --ok / taken --hairline 0.5 / selected --accent; each seat
+labelled state). proto/FareCal (7-col day grid: date + $price, low fares --ok border+text not color-only). proto/
+ListingCard (image placeholder + home icon `M3 11l9-7 9 7M5 10v10h14V10` + price + bd/ba/sqft + address + Schedule tour).
+proto/Itinerary (vertical rail dot+line + Day/time + stop). proto/MenuItem (food thumb + name + price + modifier
+checkboxes + qty stepper + Add). proto/Rings (3 concentric SVG rings, dash-offset = pct, Move/Exercise/Stand colors +
+legend values). proto/WorkoutLog (exercise wells + set pills NxR). proto/Vitals (title + "♥ N bpm" --bad + line spark).
+
+### Fintech / Ecom / Gaming & Media (8)
+proto/Wallet (TOTAL BALANCE + big $ + asset rows: coin avatar + name + amount + +/-% --ok/--bad). proto/Swap (You-pay
+panel + down-arrow + You-receive panel + fee/slippage text + Review swap; rate/fee in text). proto/ProductRail (title +
+horizontal clipped card scroller: image + name + price). proto/OrderTrack (5-step circle progress ✓/● + status + ETA
+text). proto/Leaderboard (ranked rows: rank (top3 --gold) + name + tabular score, #1 row --ecru). proto/Achievements
+(badge grid: unlocked trophy `M8 4h8v4a4 4 0 0 1-8 0z...` --gold / locked `M6 10V7a6 6 0 0 1 12 0v3M5 10h14v11H5z`
+--grey + opacity). proto/HUD (dark --rail panel: heart/score/timer row + minimap box + item slots, values as text).
+proto/Inventory (slot grid: filled = item icon (shield/flask/gem/key) / empty; each slot labelled occupied/empty).
+
+### Gov / Legal / IoT / Trust (10)
+proto/Agenda (mono time + session title + room·speaker rows; times machine-readable). proto/Redline (del text
+strikethrough --bad + ins text --ok + author pill; ins/del semantics not color-only). proto/ESign (dashed signature
+box --ok + signed name + consent checkbox + Adopt/Signed button). proto/Approval (approver chain nodes: approved --ok /
+awaiting --warn / queued --grey border + connectors). proto/DeviceDial (thermostat SVG ring track --ecru + fill --warm
+dash-offset + temp° + Heating + -/+; role=slider value-in-text). proto/CameraGrid (2x2 dark --ink feeds: label +
+LIVE/OFF dot --ok/--bad). proto/CarDash (dark --rail readouts: speed/mph, battery%/range, climate°; values as text/live).
+proto/ModQueue (report rows: severity pill --bad/--warn + text + Keep outline + Remove destructive). proto/ContentWarn
+(warn triangle + "Sensitive content" + explicit "View anyway"; reveal is user action). proto/VerifyBadge (name + check
+badge --accent (aria-label, not icon-only) + Verified pill).
+
+## VOL II status: COMPLETE
+All ~75 vol-II archetypes built as Figma COMPONENTS on the vol2 pages (NXT 469:2 / NU 364:2), token + variable bound,
+flat monochromatic SVG line icons / mono text (no emoji), screenshot-verified, and registered above for runtime
+generation + self-improvement retrieval. 10 category groups: Advanced Data Viz (11), Tables & Data Grids (5),
+Enterprise & Admin (6), Developer Tools (6), Interaction/Realtime (8), A11y-i18n-Theme (5), PM/CRM/Support/Productivity
+(8), Maps/Travel/Food/RealEstate/Health (8), Fintech/Ecom/Gaming (8), Gov/Legal/IoT/Trust (10).
+
+The Analyst Desk model (Opus 4.8) composes #proto / #prototype experiences by referencing these specs + the brand
+token table above, across vol-I (pages 403:2 / 332:2) and vol-II (pages 469:2 / 364:2).
+
+## VOL III — AI-native & talent-lifecycle pattern library
+Vol III archetypes live on DEDICATED pages: NXT `486:2` ("GOLD · #proto patterns vol3 (nxt)") and NU `381:127`
+("GOLD · #proto patterns vol3 (nu)"). Surfaced by auditing AI-native co-op/talent products. Same brand token table +
+ICONOGRAPHY rule. Brand status map (NO color-only; always word+icon): NU ok=color/source(teal), warn=color/gold,
+bad=color/accent(red), bar/chart=color/source; NXT ok=color/success, warn=color/rust, bad=color/error, info/bar=color/cyan.
+aipill = --ecru bg + accent border + (NXT teal / NU red) text + "✦" glyph. have-chip = ok color "✓ X"; miss-chip = bad
+color "✗ X" strikethrough. Score ring = SVG (track --ecru, progress ok-color, centred Black-weight number). Meter =
+--ecru track + filled bar. Built + screenshot-verified (55 archetypes x 2 brands = 110 components).
+
+### Explainable AI & Ranking (7)
+proto/ScoreRing (ring + tier label "Strong/Good/Partial fit" in words + 0-100 caption; score is text not ring-only).
+proto/MatchCard (ring + name + role/cohort + ☆ shortlist + have/miss skill chips + "Why ranked here ▾" + rationale well).
+proto/MatchQueue (ranked rows: rank# + small ring + name + ★; ranked order announced). proto/SkillOverlap (have ✓ /
+miss ✗ chips + "N/M required" count text). proto/WhyRanked (well + aipill + plain-language rationale, live region).
+proto/FactorBars (contribution rows: label + bar + value; feature importance as text+bar). proto/ConfidenceMeter
+(level in words "High·88%" + track + marker + "verify before acting on low confidence" uncertainty note).
+
+### AI Authoring & Suggestions (5)
+proto/AIDraft (label + ✦ AI-draft pill + editable textarea + ↺ Regenerate / Accept + "edited by you · AI-assisted";
+provenance disclosed, output editable). proto/SuggestChip (✦ Suggestions + applied have-chip + suggestion wells with
+Apply/×). proto/LivePreview (two-pane: Fields | Live preview well + "✓ policy check passed"; editor+preview synced).
+proto/TemplatePicker (3 archetype cards, selected = accent border + "autofills..." consequence stated). proto/
+ProvenanceBadge (✦ AI-generated + "by <model>" + How this works link).
+
+### AI Trust, Provenance & Safety (5)
+proto/CitedAnswer (✦ Cited answer + grounded paragraph + "↗ Source" citation chips + "open a citation to verify").
+proto/RiskFlag ("! At risk" pill (warn) + "AI-derived signal" disclosure; signal in words not color-only). proto/
+HumanLoop (well + ✦ AI suggested + "needs your approval" + Approve/Edit/Reject; AI action gated on human approval).
+proto/FeedbackBar ("Was this AI result helpful?" + ↑ Helpful / ↓ Not helpful). proto/RecommendCard (✦ Recommended +
+action title + rationale + Do it/Dismiss).
+
+### AI Assist Surfaces (3)
+proto/AssistantDrawer (✦ Policy Assistant header + done status + you/answer lines + "Ask a follow-up…" composer;
+streamed answer in polite live region). proto/ReasonStream (well + ✦ Reasoning + step list ✓/◐/○ + text; reasoning is
+text not decorative). proto/AISummary (well + ✦ Summary + narrative paragraph in live region, supplementary to data).
+
+### Decision Support & Simulation (4)
+proto/TradeoffSim (✦ Trade-off simulator + "Relax preferred skills" slider + big result count "(+N)" + trade-off note).
+proto/RescuePanel (warn-border card + "! N days left" pill + ✦ Rescue suggestions list + Apply & re-rank; each fix
+quantified). proto/WhatIf (threshold slider + "Projected outcome: N" live value). proto/GapCallout (warn-border +
+"Under-covered" pill + skill + quantified remedy + Adjust posting).
+
+### Scoring, Rubrics & Evaluation (3)
+proto/RubricSlider (well + criteria rows: label + "n/5" + detent slider + ✦ AI summary note). proto/SentimentFlag
+("!" glyph (warn) + "At-risk sentiment" + "✦ flagged from evaluation notes"; sentiment in words+glyph). proto/
+EvalSummary (✦ AI-drafted-from-notes pill + editable textarea + Submit to coordinator + "routes to faculty" destination).
+
+### Talent Match & Sourcing (5)
+proto/PoolMeter (label + "N of M" count + bar + role caption; counts in text). proto/Funnel (stage rows: label + bar +
+count, Applicants→Offered). proto/ShortlistTray ("N selected" + rows: ★/☆ toggle + name + Shortlisted chip). proto/
+CandidateCard (ring + name + role + availability/history chips). proto/CohortFilter ("Filter & re-rank" + facet chips
+(pressed=accent " ×") + re-rank note).
+
+### Scheduling & Availability (2)
+proto/AvailabilityGrid (Mon-Fri header + cell grid: available ok-color / busy --hairline / recommended accent "★";
+each cell labelled). proto/SlotPicker (✦ Conflict-free slots + radio rows (selected accent border) + "best fit" chip +
+Confirm slot).
+
+### Offers & Status Lifecycle (4)
+proto/OfferBoard (Sent/Viewed/Decided columns + mini name cards). proto/ReadReceipt (3-dot stepper ✓/●/○ + status in
+words "Viewed · opened, no decision yet"). proto/Countdown ("Offer expires" + "N days left" warn + meter + Send a nudge).
+proto/OfferLetter (✦ Generated offer letter + letter well + Send offer/Edit; editable before send).
+
+### Lifecycle Progress & Pipelines (5)
+proto/CycleStrip (6 segment bars done/current/upcoming + stage labels + "currently in <stage>"). proto/RoleStatusCard
+(title + "! Nd" urgent pill + "Filled n/8" + progressbar + "Next: <action>"). proto/LifecycleStepper (vertical 6 steps
+✓/n + current bold). proto/FillGauge (ring + "N% filled" + target). proto/DeadlineAlert (warn row + "!" + "closes in N
+days with M shortlisted" + Rescue).
+
+### Coverage, Equity & Analytics (3)
+proto/CoverageMap (skill rows x role cells, level-stepped color, "!" marks gaps not color-only). proto/RepresentationBar
+(group rows: pool vs shortlist overlaid bars + "pool x% · shortlist y% ! under" text). proto/KpiTile (label + big value +
+"▲ N% vs last cycle" delta direction in icon+text).
+
+### Relationship & History (3)
+proto/Ledger (placement table: Co-op/Cycle/Rating/→FT, scoped headers, outcomes ✓/— in text). proto/RelationshipNarrative
+(well + ✦ Relationship summary paragraph + Export one-pager). proto/PartnershipScore (mono "PARTNERSHIP HEALTH" + ring +
+metric lines).
+
+### Onboarding & Handoff (3)
+proto/OnboardChecklist (✦ Auto-generated + "n/4 done" + checkbox rows, done=strikethrough). proto/DayOneAgenda (mono time
++ task rows + "✦ Generated from the role description"; times machine-readable). proto/ProvisionList (kind chip + item +
+"✓ ready / pending" status in words).
+
+### Bulk & Lifecycle Operations (3)
+proto/StalenessFlag (well + "! Stale" pill + role + drift reason + Apply suggested edits / Keep as-is). proto/BulkReview
+("Bulk-renew N roles" + "✦ M flagged" + checkbox rows + "needs update" miss-chip + Review & publish; review-before-apply).
+proto/FreshnessTag ("● Fresh" have-chip + "● Nd old" plain chip; freshness in words+age).
+
+## VOL III status: COMPLETE
+All 55 vol-III archetypes built as Figma COMPONENTS on the vol3 pages (NXT 486:2 / NU 381:127), token + variable bound,
+dingbat/SVG marks (no emoji), screenshot-verified both brands, and registered above for runtime generation + self-
+improvement retrieval. 14 category groups (6 universal AI-native + 8 talent-lifecycle domain). The Analyst Desk model
+composes #proto experiences from vol-I + vol-II + vol-III specs + the brand token table; the official brand LOGO (NU red
+N monogram node 25:5 / NXT "NXT HUMANS" wordmark node 22:2, chartreuse square removed) is pulled at runtime via
+/api/design-tokens and rendered in every masthead, never invented.
+
+## VOL IV — design-system uplift & gaps (foundations, primitives, a11y, states)
+Vol IV archetypes live on DEDICATED pages: NXT `498:101` ("GOLD · #proto patterns vol4 (nxt)") and NU `393:101`
+("GOLD · #proto patterns vol4 (nu)"). Deconstructed from the rendered CoopConnect prototype — the design-system gaps a
+real build exposed: missing token scales, only-2-of-12 buttons, untied labels, no feedback/overlay primitives, hover-only
+AI rationale (AA fail), color-only status, an empty interaction-state matrix, and brief-mandated compliance/equity
+guardrails. Same brand token table + status map as vol-III. Multi-variant archetypes (Btn, Chip, Field, Card, StateDemo)
+are built as ONE showcase component each displaying the key variants. NXT readability rule: chartreuse fails contrast for
+text/links/borders on light, so active states (Nav/Tabs/Card-selected/Focused/links) use color/teal; chartreuse stays a
+fill/segment device. Built + screenshot-verified (68 archetypes x 2 brands = 136 components). New build primitives this
+vol: rawSolid(hex) for the literal neutral grey ramp; node.effects=[DROP_SHADOW] for the elevation scale + focus ring;
+frame.dashPattern=[4,3] for gate/dropzone/empty borders.
+
+### Token Foundations (6)
+proto/Ramp (10-step neutral ramp + semantic role swatches; brand-red/chartreuse separated from danger-red; color never
+sole carrier). proto/Scale (spacing + type scale tokens as labelled bars, px in text — replaces inline rem literals).
+proto/Elevation (sm/md/lg shadow steps + a DISTINCT focus elevation token + z-index scale). proto/FocusTok (one
+:focus-visible ring token for every control, WCAG 2.4.7). proto/Motion (fast/base/slow/spring duration tokens +
+prefers-reduced-motion fallback). proto/ThemeTok (light/dark/system + compact/comfortable density, token-driven).
+
+### Button System (1 showcase, 12 variants)
+proto/Btn — primary/secondary, tertiary/ghost, link, danger, icon (aria-label), toggle (aria-pressed), split, segmented
+group, sizes sm/md/lg, loading (aria-busy spinner), FAB, disabled (aria-disabled + cue not opacity alone). Prototype
+shipped 2 of 12.
+
+### Chips, Badges & Status (2)
+proto/Chip (filter aria-pressed / removable tag with labelled remove / skill ✓✗ not color-only / count badge / dot
+status — one pill was doing 4 jobs). proto/StatusBadge (Open/Filled/Interviewing/Closed/At-risk: word + glyph + semantic
+token, never a grey pill).
+
+### Forms & Fields (3)
+proto/Field (label tied via htmlFor/id; help via aria-describedby; error via aria-invalid + described; required indicator;
+select/checkbox-group/radio-group/switch[role=switch]/range/counter/password variants). proto/FileDrop (focusable region
++ keyboard picker, not drop-only; drag state announced). proto/Autosave (polite live-region status: saving/saved/error+retry,
+never blocks editing).
+
+### Feedback & Status (9)
+proto/Toast (severity-aware live region, assertive for errors; dismiss + Undo). proto/Alert (info/success/warning/danger,
+icon + label not color-only). proto/Tooltip (focus-reachable not hover-only, aria-describedby). proto/Popover (aria-expanded
++ aria-haspopup; focus in/return; Esc + click-away). proto/EmptyState (explains + offers a next action). proto/ErrorState
+(role=alert + recovery + reassures data safety). proto/Skeleton (placeholder mirrors final layout, reduced-motion safe).
+proto/Progress (determinate role=progressbar + indeterminate role=status). proto/ConfirmSuccess (announced, icon + text).
+
+### Overlays & Containers (6)
+proto/Modal (role=dialog aria-modal, focus trap + return, scrim + Esc + click-away). proto/Drawer (slide-over: scrim +
+trap + Esc + restore). proto/Menu (role=menu/menuitem, aria-haspopup/expanded, roving focus, Esc). proto/Accordion
+(aria-expanded disclosure). proto/Card (stat / selectable[aria-pressed] / interactive variants). proto/SectionHeader (one
+titled-section component, action slot has accessible name).
+
+### Navigation (7)
+proto/Nav (aria-current=page on active). proto/Breadcrumb (ordered, last aria-current, separators aria-hidden). proto/Tabs
+(tablist/tab/tabpanel, aria-selected, arrow keys). proto/Pagination (current aria-current, prev disabled at bounds). proto/
+Stepper (aria-current=step, completed vs upcoming in icon+text). proto/SkipLink (first focusable, visible on focus, targets
+main; WCAG 2.4.1). proto/CmdPalette (combobox+listbox, aria-activedescendant, grouped, cmd-K).
+
+### Data Display (6)
+proto/Table (aria-sort headers + labelled row checkboxes + scoped headers). proto/KeyValue (semantic dl/dt/dd). proto/Avatar
+(single + group with name labels + overflow count in text). proto/Timeline (ordered event sequence, times in text). proto/
+SafeHeatmap (level by symbol + label + color, WCAG 1.4.1, deterministic — replaces random color-only intensity). proto/
+Legend (symbol + label keys, not color swatch alone).
+
+### AI Transparency & Control (10)
+proto/ScoreRing (value + tier word in accessible name, never ring-color alone). proto/Rationale (keyboard/touch-reachable,
+NOT hover-only — fixes the prototype AA fail). proto/Confidence (uncertainty band shown). proto/Provenance (discloses the
+model). proto/Contest (dispute a ranking, routes to human review — brief-mandated, was missing). proto/CitedCard (working
+source links, not dead hrefs). proto/StreamText (token stream in a polite live region). proto/Suggest (inline accept/dismiss,
+reversible). proto/Feedback (thumbs to rate AI output). proto/HumanApprove (gate AI actions behind explicit approval).
+
+### Compliance & Equity Guardrails (5)
+proto/FieldGate (FERPA — redact non-authorized fields, labelled restricted; auth server-side not CSS-hidden). proto/
+EquityGuard (block filtering by protected attributes, explained). proto/RepMetric (representation view-only, ⚠ under-rep in
+text — can NEVER drive filtering). proto/Consent (data-minimization notice + explicit acknowledgement + export/delete rights).
+proto/AuditEntry (machine-readable time + actor + action; sensitive-data access logged).
+
+### Lifecycle Screens (8, critique-flagged missing)
+proto/Rubric (Evaluation Center: rating sliders + AI summary). proto/OfferBoard (Sent→Viewed→Decided, status in text).
+proto/Ledger (placement history, outcomes ✓/— in text). proto/OnboardList (auto-generated onboarding checklist). proto/
+ConvertTracker (co-op→full-time conversion rate, progressbar). proto/BulkStale (review-before-publish bulk-renew with stale
+flags). proto/CycleStrip (the brief hero element — hiring-cycle progress, aria-current). proto/RoleCard (fill + next action +
+urgency in word+icon).
+
+### Accessibility Uplift (4)
+proto/FocusTrapDemo (focus cycles within overlays, returns to opener). proto/KeyGuard (shortcuts ignored while typing in a
+field — scope global hotkeys). proto/ColorSafe (icon + label + color together, WCAG 1.4.1). proto/LiveAnnounce (aria-live=polite
+announces state changes without stealing focus).
+
+### Interaction States (1 showcase, 10 states)
+proto/StateDemo — default / hover / pressed / disabled (aria-disabled + cue) / loading (aria-busy) / error / empty / selected
+(aria-pressed) / focused (visible ring) / read-only. Formalizes the prototype's near-empty state matrix.
+
+## VOL IV status: COMPLETE
+All 68 vol-IV archetypes built as Figma COMPONENTS on the vol4 pages (NXT 498:101 / NU 393:101), token + variable bound,
+dingbat/SVG marks + real DROP_SHADOW effects (no emoji), screenshot-verified both brands, and registered above for runtime
+generation + self-improvement retrieval. 13 category groups (10 universal foundations/primitives/a11y/states + 3 domain:
+AI transparency, compliance/equity, lifecycle). The Analyst Desk model now composes #proto experiences from vol-I + vol-II +
+vol-III + vol-IV (the foundation + primitive + a11y layer the prior vols assumed) + the brand token table + the official
+brand LOGO at runtime. Total library: 74 + 75 + 55 + 68 = 272 archetypes x 2 brands.
+
+## VOL V — AI commerce patterns (retail / shopping)
+Vol V archetypes live on DEDICATED pages: NXT `504:320` ("GOLD · #proto patterns vol5 (nxt)") and NU `399:118`
+("GOLD · #proto patterns vol5 (nu)"). Decomposed from AI-personal-shopper retail mobile screens (AI concierge,
+video avatar shopper, grounded answers, search/autocomplete, PDP, cart, reviews) into brand-neutral micro-components
+(generic product names like "Hydrating Serum" / "Daily Moisturizer" — representative content, no third-party brand).
+Same brand token table + status map. Built + screenshot-verified (22 archetypes x 2 brands = 44 components), masonry-
+laid-out (no overlaps).
+
+### AI Shopping & Concierge (9)
+proto/ConciergeWelcome (AI shopper header + welcome + suggested-action pills + "Ask me anything" composer). proto/
+ShopPromptChip (starter prompt pills — one tap to a grounded answer). proto/AIAnswer (grounded shopping answer: question +
+answer + cited source chips). proto/ShopperCTA (concierge callout box: Build your set / Get a product analysis). proto/
+AvatarShopper (video avatar tile: play + Live personal shopper + transcript; captions not video-only). proto/ProductRecCard
+(in-chat AI product recommendation: thumb + why-recommended + price + Add). proto/PeopleAlsoAsk (FAQ accordion rows). proto/
+FitAnalysis ("Is this right for you?" match score + factor rows; genericized product-fit/compatibility). proto/AutoComplete
+(search + query suggestions + product preview row).
+
+### Commerce & PDP (13)
+proto/ProductCard (badge + thumb + name + rating + price + size + Add to Cart). proto/ProductGrid (2-col product cards).
+proto/PriceBlock (price + compare-at strikethrough + discount + unit price). proto/RatingRow (stars + value + review count).
+proto/CommerceBadge (Bestseller/New/Sale/Low-stock semantic pills). proto/PDPHeader (gallery + thumbnails + title + rating +
+price + Add to Cart + Save). proto/SpecList (attribute rows — genericized from ingredients). proto/QtyStepper (− qty + + Add
+to cart). proto/CartLineItem (thumb + name + qty stepper + remove + price). proto/CartSummary (subtotal/shipping/tax/total +
+Checkout). proto/ReviewCard (reviewer + Verified + stars + text + Helpful). proto/BundleBuilder ("Complete the routine":
+3 thumbs + bundle price + Save + Add all). proto/FilterBar (count + Sort + Filter + active filter chips).
+
+## VOL V status: COMPLETE
+All 22 vol-V archetypes built as Figma COMPONENTS (NXT 504:320 / NU 399:118), token + variable bound, dingbat marks +
+generic product placeholders (no third-party brand), screenshot-verified both brands, masonry layout. Total library:
+74 + 75 + 55 + 68 + 22 = 294 archetypes x 2 brands.
+
+## RESPONSIVE BREAKPOINT GRID (apply to ALL #proto / #prototype output)
+Prototypes MUST be responsive across a mobile-first breakpoint grid. Tokens (also served at runtime by /api/design-tokens
+under _grid.breakpoints, and as real Figma column layout-grids on pages NU `408:2` / NXT `511:2`):
+- xs  · 360px  · 4 col  · margin 16 · gutter 16  (Mobile)
+- sm  · 480px  · 4 col  · margin 24 · gutter 16  (Mobile L)
+- md  · 768px  · 8 col  · margin 32 · gutter 24  (Tablet)
+- lg  · 1024px · 12 col · margin 48 · gutter 24  (Laptop)
+- xl  · 1280px · 12 col · margin 64 · gutter 32  (Desktop)
+- 2xl · 1440px · 12 col · margin 80 · gutter 32  (Wide / Desktop XL)
+Max content width 1440px, centered beyond 2xl. Styles cascade UP from mobile (min-width media queries). The Analyst Desk
+model must lay out #proto experiences fluidly: single-column stacks at xs/sm, multi-column grids from md up, and respect
+the per-breakpoint margin/gutter. proto/BreakpointGrid documents the spec; bind frame layout-grids to these values.

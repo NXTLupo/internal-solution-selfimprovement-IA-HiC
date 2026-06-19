@@ -1,0 +1,13 @@
+Topic 30 - Content Sample
+Number of content items: 23
+Top words: app, local, idea, mini, order ahead, donuts, town
+
+Content 1 (length: 210 chars):
+Idea check: a single app where every local café/shop has a mini 'order ahead + rewards' app — would this work? I've been thinking about an app idea and want some honest opinions before I sink real time into it.
+
+Content 2 (length: 331 chars):
+The idea: instead of every local business having its own app (which nobody downloads), there's **one** app where each local business — cafés, bakeries, whatever — has its own mini-app inside it. You download it once and get all of them (well, I guess you would pick the mini-apps you want based on where you actually go, but yeah).
+
+Content 3 (length: 382 chars):
+The thinking is that people already love order-ahead (look at how many chain orders happen on the phone), and small businesses want the loyalty/retention that rewards bring, plus the reduced rush hour stress by having smaller queues. I would of course start in one town, ie local to me, and once there are numerous e.g. cafes on the app from this one town, move to a different town.
+

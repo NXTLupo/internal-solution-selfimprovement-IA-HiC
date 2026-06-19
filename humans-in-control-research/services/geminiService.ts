@@ -472,6 +472,7 @@ export class GenAISession {
             const picked = await pickChunksForPrompt(promptText, slug, {
                 tokenBudget: opts.tokenBudget ?? DEFAULT_CORPUS_TOKEN_BUDGET,
                 extraContext: this.goal || '',
+                researchObjective: this.goal || '',   // tier-1.5: admit on-objective corpus by relevance
                 excludeIds: opts.excludeIds,       // shard window: skip prior-shard chunks
                 skipAutoPin: opts.skipAutoPin,     // shards 1..K do not re-pin cached selection
                 broaden: opts.broaden,             // Phase 2: floor-retry widens to relevance-ranked backfill
@@ -2527,7 +2528,9 @@ Now extract the full theme set from the widened evidence.`;
      */
     private async _runShardedBreadth(prompt: string, schema: Schema, onStream: (t: string) => void, label: string, broaden: boolean = false): Promise<StepResult_Themes | null> {
         const SAFETY_MAX_SHARDS = 10;   // cost guard, NOT the lever
-        const WAVE_SIZE = 3;            // shards run in parallel per wave
+        const WAVE_SIZE = 2;            // shards run in parallel per wave (2026-06-16: capped 3->2;
+                                       // 3 concurrent ~780KB Opus shards saturated the single-process
+                                       // research-proxy -> ERR_EMPTY_RESPONSE mid-run. 2 is proven-safe.)
         const SATURATION_NEW = 3;       // a wave adding < this many new themes => saturated
         const SHARD_TOKENS = 30_000;
         const usedChunks = new Set<string>();
@@ -2610,7 +2613,9 @@ Now extract the full theme set from the widened evidence.`;
         // are recovered per-shard on GPT-5.5 in _runBreadthShard, so a shard that still
         // degenerates contributes its themes instead of 0.
         const WINDOW_CHARS = 80_000;    // ~20K tokens/shard (was 120K; halved collapse pressure)
-        const WAVE_SIZE = 3;            // shards per parallel wave
+        const WAVE_SIZE = 2;            // shards per parallel wave (2026-06-16: capped 3->2; see note
+                                       // in _runShardedBreadth - 3 concurrent ~780KB Opus shards
+                                       // saturated the single-process proxy with ERR_EMPTY_RESPONSE)
         const SAFETY_MAX_SHARDS = 14;   // cost guard (raised 12->14 to cover ~1.1MB evidence at the smaller window)
         // The collapse-driving bulk is the EVIDENCE TEXT (goal-evidence pack +
         // substrate). Combine, then split into size-bounded windows on chunk/
@@ -3605,7 +3610,7 @@ Output JSON.`;
             required: ["methodology", "recommendations"]
         };
         onStream('Phase 1: Generating strategic recommendations...');
-        const result = await this.executeStepResilient<StepResult_Recommendations>(prompt, schema, [], onStream, 'Recommendations');
+        const result = await this.executeStepResilient<StepResult_Recommendations>(prompt, schema, [], onStream, 'Recommendations', /* groundedViaManifest */ true);
         if (!result.recommendations) result.recommendations = [];
         result.recommendations.forEach(r => { if (!r.actionItems) r.actionItems = []; });
 
@@ -4031,7 +4036,7 @@ Output JSON.`;
             },
             required: ["methodology", "stages"]
         };
-        const result = await this.executeStepResilient<StepResult_JourneyMap>(prompt, schema, [], onStream, 'ServiceBlueprint');
+        const result = await this.executeStepResilient<StepResult_JourneyMap>(prompt, schema, [], onStream, 'ServiceBlueprint', /* groundedViaManifest */ true);
         if (!result.stages) result.stages = [];
         // 2026-05-12 - R1 calibration inspection on journey stages.
         const journeyAssessment = normalizeSelfAssessment((result as any).selfAssessment);
@@ -4125,10 +4130,19 @@ Output JSON.`;
      */
     async generateOrgChart(feedback: string | undefined, onStream: (t: string) => void): Promise<{ orgChart: any }> {
         const now = Date.now();
-        const prompt = `STEP: ORGANIZATIONAL CHART. You are an organizational designer. Based on the research corpus and themes already reviewed in this session, identify the organizational structure described or implied - reporting lines, departments, key roles, vacancies if mentioned.
+        // 2026-06-16 - DE-RAG / anti-fabrication. orgChart was the ONLY generator
+        // with zero grounding: it relied on chat-session history and was instructed
+        // to "infer a plausible structure" when the corpus was silent - a direct
+        // fabrication path. Ground it through the manifest like every other
+        // deliverable (assembleDeliverableCorpus), and pass groundedViaManifest so
+        // executeStep does not re-inject the parallel embedding-RAG packs.
+        const evidenceBlock = await this.assembleDeliverableCorpus('Organizational structure reporting lines departments key roles named stakeholders', { tokenBudget: 30_000, minDistinctSources: 6 });
+        const prompt = `STEP: ORGANIZATIONAL CHART. You are an organizational designer. Using the EVIDENCE below (manifest-grounded corpus) plus the themes reviewed this session, identify the organizational structure described or implied - reporting lines, departments, key roles, vacancies if mentioned.
 
-If the corpus describes a specific organization, map what it says explicitly.
-If the corpus does NOT describe a specific org, infer a plausible structure from the themes, personas, and research context. NEVER return an empty nodes array.
+${evidenceBlock}
+
+If the evidence describes a specific organization, map what it says explicitly and cite the named sources.
+If the evidence does NOT name a specific org, infer a plausible structure ONLY from the themes/personas/evidence context - use role titles and the literal "VACANT" for unfilled roles; never invent named individuals. NEVER return an empty nodes array.
 
 ORG CHART REQUIREMENTS:
 - nodes: 5-25 node objects. Each node has:
@@ -4183,7 +4197,7 @@ Plain text only in every string. No markdown, no emoji. Output JSON.`;
             required: ["id", "type", "brand", "title", "nodes", "rootIds", "createdAt", "updatedAt"],
         };
 
-        const result = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'OrgChart');
+        const result = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'OrgChart', /* groundedViaManifest */ true);
 
         // Defensive post-processing: the schema cannot enforce referential
         // integrity, so we repair dangling references before returning.
@@ -4429,7 +4443,7 @@ Output JSON.`;
         };
         // PHASE 1: Generate PRD framework (title, purpose, metrics, sections)
         onStream('Phase 1: Generating PRD framework and sections...');
-        const result = await this.executeStep<StepResult_PRD>(prompt, schema, [], onStream);
+        const result = await this.executeStep<StepResult_PRD>(prompt, schema, [], onStream, /* groundedViaManifest */ true);
         // 2026-05-12 - R1 calibration inspection on PRD features.
         const prdAssessment = normalizeSelfAssessment((result as any).selfAssessment);
         if (prdAssessment) (result as any).selfAssessment = prdAssessment; else delete (result as any).selfAssessment;
@@ -4694,7 +4708,7 @@ Output JSON.`;
             },
             required: ["methodology", "roadmap"]
         };
-        const result = await this.executeStep<StepResult_Roadmap>(prompt, schema, [], onStream);
+        const result = await this.executeStep<StepResult_Roadmap>(prompt, schema, [], onStream, /* groundedViaManifest */ true);
         if (!result.roadmap) result.roadmap = { vision: "", items: [] } as any;
         if (!result.roadmap.items) result.roadmap.items = [];
         // 2026-05-12 - R1 calibration inspection on roadmap initiatives.
@@ -4846,7 +4860,7 @@ Output JSON.`;
             },
             required: ["methodology", "overview", "nodes", "flows"]
         };
-        const map = await this.executeStep<any>(mapPrompt, mapSchema, [], onStream);
+        const map = await this.executeStep<any>(mapPrompt, mapSchema, [], onStream, /* groundedViaManifest */ true);
 
         onStream(`Found ${(map.nodes || []).length} nodes, ${(map.flows || []).length} flows. Phase B: Writing architecture sections...`);
         const sectionsPrompt = `STEP: TECH ARCHITECTURE PHASE B - ARCHITECTURE DOCUMENT SECTIONS.
@@ -4865,7 +4879,7 @@ Output JSON.`;
             },
             required: ["sections"]
         };
-        const secs = await this.executeStep<any>(sectionsPrompt, sectionsSchema, [], onStream);
+        const secs = await this.executeStep<any>(sectionsPrompt, sectionsSchema, [], onStream, /* groundedViaManifest */ true);
 
         const result: StepResult_TechArch = {
             methodology: map.methodology || '',
@@ -5746,7 +5760,7 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
-        const gapResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'GapAnalysis');
+        const gapResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'GapAnalysis', /* groundedViaManifest */ true);
         const analysis = gapResult?.analysis || {};
         // 2026-05-12 - R1 calibration inspection on gaps.
         const gapAssessment = normalizeSelfAssessment(gapResult?.selfAssessment);
@@ -5931,7 +5945,7 @@ ${feedback ? 'USER FEEDBACK: ' + feedback : ''}`;
             },
             required: ["methodology", "systems"]
         };
-        const inventory = await this.executeStep<any>(inventoryPrompt, inventorySchema, [], onStream);
+        const inventory = await this.executeStep<any>(inventoryPrompt, inventorySchema, [], onStream, /* groundedViaManifest */ true);
         const systems = inventory.systems || [];
         // 2026-05-12 - R1 calibration inspection on tech audit systems.
         const auditAssessment = normalizeSelfAssessment(inventory?.selfAssessment);
@@ -6167,7 +6181,7 @@ Output JSON.`;
             },
             required: ["methodology", "analysis"]
         };
-        const compResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'CompetitiveAnalysis');
+        const compResult = await this.executeStepResilient<any>(prompt, schema, [], onStream, 'CompetitiveAnalysis', /* groundedViaManifest */ true);
         const analysis = compResult?.analysis || {};
         // 2026-05-12 - R1 calibration inspection on competitive peers.
         const compAssessment = normalizeSelfAssessment(compResult?.selfAssessment);
@@ -6376,8 +6390,16 @@ Output JSON.`;
         // This is what makes the report cite real intelligence instead of just deliverable abstracts
         // CRITICAL: The knowledge graph shows ~200 sources with full depth because it reads raw data.
         // The report MUST see the same depth. Inject liberally - Gemini 2.5 Flash has 1M token context.
+        // 2026-06-15 (WS1.1 karpathy-second-brain-realignment): manifest-FIRST grounding. Prefer the
+        // manifest chunk corpus (cite-by-pointer, the documented anti-RAG path); the rawSources
+        // bulk-injection below now runs ONLY as the depth-safe fallback when the manifest yields
+        // nothing (brand-new/untagged engagement). Mirrors assembleDeliverableCorpus's own contract.
         let evidenceCatalog = '';
-        if (rawSources && rawSources.length > 0) {
+        try {
+            const _manifestCorpus = await this.assembleDeliverableCorpus('strategic-report', { tokenBudget: 40_000, minDistinctSources: 8 });
+            if (_manifestCorpus && _manifestCorpus.trim().length > 0) evidenceCatalog = _manifestCorpus;
+        } catch (e: any) { console.warn('[generateStrategicReport] manifest corpus failed, will try rawSources fallback:', e?.message || e); }
+        if (!evidenceCatalog && rawSources && rawSources.length > 0) {
             const evidenceEntries: string[] = [];
             const tierLabels: Record<number, string> = { 1: 'TIER 1 (Academic/Gov)', 2: 'TIER 2 (Industry/News)', 3: 'TIER 3 (Community/Social)' };
             let totalArticlesInjected = 0;
@@ -6681,7 +6703,7 @@ synthesis work HERE on the framing and the kernel.`;
         onStream('Phase 1: Framing the space (diagnosis, landscape, pillars, summary)...');
         let framework: any = {};
         try {
-            framework = await this.executeStep<any>(frameworkPrompt, frameworkSchema, [], onStream);
+            framework = await this.executeStep<any>(frameworkPrompt, frameworkSchema, [], onStream, /* groundedViaManifest */ true);
         } catch (e) {
             console.warn('[StrategicReport] framework call failed:', e);
         }
@@ -6963,6 +6985,7 @@ Output JSON matching the section schema.`;
         parts: any[],
         onStream: (t: string) => void,
         stepLabel: string,
+        groundedViaManifest = false,
     ): Promise<T> {
         // 2026-06-05 (Meta-Harness M1) - Trace recorder intercept. Every outer
         // synthesis call records ONE TraceTurn carrying the composed prompt,
@@ -6975,7 +6998,7 @@ Output JSON matching the section schema.`;
         const _trace_started_at = Date.now();
         let _trace_model_id = 'gemini-3.1-pro-preview';
         try {
-            const result = await this.executeStep<T>(prompt, schema, parts, onStream);
+            const result = await this.executeStep<T>(prompt, schema, parts, onStream, groundedViaManifest);
             try {
                 const { recordTurn } = await import('./traceRecorder');
                 recordTurn({
@@ -6998,7 +7021,7 @@ Output JSON matching the section schema.`;
                 const fallback_chain = [_trace_model_id, 'gpt-5.5'];
                 _trace_model_id = 'gpt-5.5';
                 try {
-                    const result = await this.executeStepViaGPT<T>(prompt, schema, onStream, stepLabel);
+                    const result = await this.executeStepViaGPT<T>(prompt, schema, onStream, stepLabel, groundedViaManifest);
                     try {
                         const { recordTurn } = await import('./traceRecorder');
                         recordTurn({
@@ -7048,7 +7071,7 @@ Output JSON matching the section schema.`;
         }
     }
 
-    private async executeStepViaGPT<T>(prompt: string, schema: Schema, onStream: (t: string) => void, stepLabel: string = 'synthesis'): Promise<T> {
+    private async executeStepViaGPT<T>(prompt: string, schema: Schema, onStream: (t: string) => void, stepLabel: string = 'synthesis', groundedViaManifest = false): Promise<T> {
         const { analyzeTextJSON } = await import('./openaiService');
 
         const contextBlock = this.accumulatedContext.length > 0
@@ -7057,21 +7080,24 @@ Output JSON matching the section schema.`;
               '\n=== END ACCUMULATED CONTEXT ===\n'
             : '';
 
-        // 2026-05-19 - Same NotebookLM-style goal-evidence injection as
-        // executeStep, mirrored on the GPT fallback path so the model sees
-        // the same goal-anchored context regardless of which provider runs.
+        // 2026-06-16 - DE-RAG: mirror executeStep. When the caller grounded via the
+        // manifest, suppress the parallel embedding-RAG injection on the GPT fallback
+        // path too, so a Gemini->GPT repetition-collapse fallback does not silently
+        // re-introduce the hybrid hollow-deliverable injection the manifest replaced.
         let goalEvidenceBlock = '';
-        try {
-            goalEvidenceBlock = await this.getGoalEvidenceBlock();
-        } catch (e: any) {
-            console.warn('[executeStepViaGPT] goal-evidence retrieval skipped:', e?.message || e);
-        }
-        // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
         let substrateBlock = '';
-        try {
-            substrateBlock = await this.getSubstrateEvidenceBlock();
-        } catch (e: any) {
-            console.warn('[executeStepViaGPT] substrate retrieval skipped:', e?.message || e);
+        if (!groundedViaManifest) {
+            try {
+                goalEvidenceBlock = await this.getGoalEvidenceBlock();
+            } catch (e: any) {
+                console.warn('[executeStepViaGPT] goal-evidence retrieval skipped:', e?.message || e);
+            }
+            // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
+            try {
+                substrateBlock = await this.getSubstrateEvidenceBlock();
+            } catch (e: any) {
+                console.warn('[executeStepViaGPT] substrate retrieval skipped:', e?.message || e);
+            }
         }
         const effectivePrompt = [this.buildObjectiveAnchor(), goalEvidenceBlock, substrateBlock, prompt]
             .filter(s => s && s.length > 0)
@@ -7121,20 +7147,33 @@ Output JSON matching the section schema.`;
             `=== END OBJECTIVE ===\n`;
     }
 
-    private async executeStep<T>(prompt: string, schema: Schema, parts: any[] = [], onStream: (t: string) => void): Promise<T> {
+    private async executeStep<T>(prompt: string, schema: Schema, parts: any[] = [], onStream: (t: string) => void, groundedViaManifest = false): Promise<T> {
+        // 2026-06-16 - DE-RAG (anti-RAG convergence). When the caller already
+        // grounded this prompt through the MANIFEST (assembleDeliverableCorpus),
+        // the two embedding-RAG blocks below are redundant PARALLEL injection -
+        // the documented hollow-deliverable root cause (manifest corpus + 120-chunk
+        // fetch-articles pack + 18-article substrate pack all in one prompt). When
+        // groundedViaManifest is set we suppress them; the manifest IS the grounding.
+        // They remain the legacy FALLBACK for ungrounded steps (manifest empty, or
+        // non-deliverable steps that pass false). Bounded + reversible: default
+        // (false) preserves prior behavior exactly.
         // 2026-05-19 - NotebookLM-style goal-evidence injection.
         let goalEvidenceBlock = '';
-        try {
-            goalEvidenceBlock = await this.getGoalEvidenceBlock();
-        } catch (e: any) {
-            console.warn('[executeStep] goal-evidence retrieval skipped:', e?.message || e);
-        }
-        // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
         let substrateBlock = '';
-        try {
-            substrateBlock = await this.getSubstrateEvidenceBlock();
-        } catch (e: any) {
-            console.warn('[executeStep] substrate retrieval skipped:', e?.message || e);
+        if (!groundedViaManifest) {
+            try {
+                goalEvidenceBlock = await this.getGoalEvidenceBlock();
+            } catch (e: any) {
+                console.warn('[executeStep] goal-evidence retrieval skipped:', e?.message || e);
+            }
+            // 2026-06-05 (Step 5, volume-to-insight) - substrate (multi-angle coverage) block.
+            try {
+                substrateBlock = await this.getSubstrateEvidenceBlock();
+            } catch (e: any) {
+                console.warn('[executeStep] substrate retrieval skipped:', e?.message || e);
+            }
+        } else {
+            console.log('[executeStep] manifest-grounded step: embedding-RAG (goal+substrate) injection suppressed (de-RAG 2026-06-16)');
         }
         // 2026-05-23 - Karpathy Phase 2.3: Prepend recurring-shortfall topics
         // from cross-engagement memory. Topics that 2+ prior engagements have

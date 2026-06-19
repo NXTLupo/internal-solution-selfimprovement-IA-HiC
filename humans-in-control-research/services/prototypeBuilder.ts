@@ -17,7 +17,71 @@
 // compatible wire format the Gemini 3.1 Pro endpoint accepts).
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
+
+// ============================================================
+// 2026-06-13 — LIVE DESIGN-SYSTEM GROUNDING (nothing hardwired)
+// The #proto pipeline grounds every request on the SAME live sources the
+// Analyst Desk uses, so the design system the user has been building flows
+// straight into prototype generation:
+//   • /api/design-tokens          → Figma-MCP tokens (figma-tokens.json) — the
+//                                    single source of truth for color/font/space.
+//   • proto-component-manifest.md → the 150+ GOLD #proto components (vol1/2/3),
+//     manifest-chunked, with exact token/variable bindings + flat SVG icon paths.
+//   • synthesis/learned-constraints.md → the self-improvement engine's feedback.
+// These REPLACE the old hardcoded BRAND_TOKENS const, which had also gone stale
+// (it still declared NXT display = Bebas Neue after Figma moved to Saira
+// Condensed, and NU = Spectral/Roboto after Figma moved to single-typeface Lato).
+// Figma stays the source of truth; the manifest is the component vocabulary;
+// learned constraints close the self-improvement loop. No excuses, nothing baked.
+async function fetchLiveBrandTokens(brand: Brand): Promise<string> {
+    try {
+        const r = await fetch(`${PROXY_BASE}/api/design-tokens?brand=${brand}&format=prompt`);
+        if (r.ok) { const t = (await r.text()).trim(); if (t) return t; }
+        console.error(`[proto] design-tokens ${brand} HTTP ${r.status} — NOT falling back to hardcoded values`);
+    } catch (e: any) {
+        console.error('[proto] design-tokens fetch FAILED — NOT falling back to hardcoded values:', e?.message || e);
+    }
+    return `=== FIGMA DESIGN TOKENS (${brand}) UNAVAILABLE ===\nThe live Figma token source could not be reached. Do NOT invent hex values or font families; restrict to neutral greys plus a single placeholder accent and note that tokens were unavailable.`;
+}
+
+async function fetchProtoComponentManifest(): Promise<string> {
+    try {
+        const r = await fetch(`${PROXY_BASE}/api/wiki/read-article/${encodeURIComponent('design-system/proto-component-manifest.md')}`);
+        if (r.ok) {
+            const j = await r.json();
+            const body: string = (j && (j.content || j.body || '')) || '';
+            if (body) return body.replace(/^---[\s\S]*?\n---\n/, '').trim(); // drop chunk frontmatter, keep spec body
+        }
+        console.warn(`[proto] component-manifest HTTP ${r.status} — proceeding without component library`);
+    } catch (e: any) {
+        console.warn('[proto] component-manifest fetch failed — proceeding without component library:', e?.message || e);
+    }
+    return '';
+}
+
+async function fetchProtoLearnedConstraints(): Promise<string> {
+    try {
+        const r = await fetch(`${PROXY_BASE}/api/wiki/read-article/${encodeURIComponent('synthesis/learned-constraints.md')}`);
+        if (r.ok) {
+            const j = await r.json();
+            const body: string = (j && (j.content || j.body || '')) || '';
+            if (body) {
+                const lines = body.split('\n').filter(l => /CONSTRAINT \[(?:proto|prototype|all)\b/i.test(l) || /#proto\b/i.test(l));
+                if (lines.length) return lines.slice(0, 40).join('\n');
+            }
+        }
+    } catch (e: any) {
+        console.warn('[proto] learned-constraints fetch failed (non-fatal):', e?.message || e);
+    }
+    return '';
+}
 const STAGE_MODEL = 'gemini-3.1-pro-preview';
+// 2026-06-14 - The CODE-generation stages (Stage 4 Prototype Coder, Stage 5 critic's
+// corrected_code) run on Claude Opus 4.8 - the strongest code model. The planning stages
+// (concept, interaction, visual, recipe) stay on STAGE_MODEL (Gemini 3.1 Pro) since they
+// reason/plan rather than emit the shipping React file. Opus has a Gemini fallback at each
+// code call so a single-provider outage never kills a build.
+const CODE_MODEL = 'claude-opus-4-8';
 
 // 2026-05-14 - Design exemplar curator (Behance reference library). Pulls
 // matching exemplars by concept/interaction-pattern/brand-hashtag and
@@ -539,19 +603,23 @@ Every session must be SPECIFIC. "A busy user" is not specific. "Maya Chen, 34, n
 // STAGE 3: VISUAL DESIGNER
 // ============================================================
 
-function buildStage3System(brand: Brand): string {
-    const tokens = BRAND_TOKENS[brand];
+function buildStage3System(brand: Brand, liveTokens: string, componentManifest: string): string {
     return `<role>
 You are a visual designer producing a complete design system for a single-file prototype. You take an Experience Brief and an Interaction Spec and produce a Design System JSON that the code generator will translate into CSS variables and component styles. You design with restraint and intentionality.
 </role>
 
 <brand_context>
-This prototype uses the **${brand}** brand. Apply these tokens exactly. Do not invent colors. Do not add fonts beyond the listed type families.
+This prototype uses the **${brand}** brand. Apply these tokens EXACTLY — they are pulled LIVE from the Figma design system (the single source of truth). Do not invent colors. Do not add fonts beyond the listed type families. Do not approximate hex values.
 
-${tokens.description}
-
-${tokens.palette}
+${liveTokens}
 </brand_context>
+${componentManifest ? `
+<component_library>
+The GOLD #proto component library below is the brand-correct, Figma-built component set (every component token + variable bound, with flat monochromatic SVG icon paths). It is the canonical vocabulary for this brand. When you define component patterns in the Design System, COMPOSE them from this library: reuse the named structures, the exact token bindings (--accent/--surface/--ink/etc. mapping to the Figma variables above), and the provided icon paths. Do NOT invent component shapes or icons that contradict the library; do NOT emit emoji icons.
+
+${componentManifest}
+</component_library>
+` : ''}
 
 <instructions>
 1. Read the Brief and Spec.
@@ -602,660 +670,15 @@ Restraint over decoration. Every token must be used by the prototype. Use the ex
 }
 
 // ============================================================
-// STAGE 3.5: BUILD RECIPE AUTHOR
+// STAGES 3.5 + 4 + 5 - SUPERSEDED by the MULTI-AGENT POD BUILD (2026-06-16).
 // ============================================================
-//
-// 2026-05-13 - Inserted between Stage 3 and Stage 4. Produces an exhaustive,
-// Copilot-Recipe-Generator-style implementation plan that Stage 4 executes
-// verbatim. The recipe enumerates every screen's component tree, every state
-// variable, every event handler, every AI prompt (verbatim, with VS
-// envelope where applicable), every seed-data record (5+ fully-formed
-// anchors per entity that Stage 4 expands to the target count), every
-// piece of micro-copy. This separation gives the planner FULL thinking
-// budget on "what to build" without the executor's "how to write JSX"
-// stealing attention from completeness.
+// The monolithic Build Recipe Author (Stage 3.5, max-thinking 65K out),
+// Prototype Coder (Stage 4, 64K out), and Critic (Stage 5) were collapsed into
+// the orchestrator -> parallel screen pods -> deterministic assemble ->
+// integration reviewer pipeline (see the "MULTI-AGENT POD BUILD" section +
+// buildAppViaPods, lower in this file). The monolithic stages blew the proxy's
+// 300s ceiling (504) and fell off Opus; the pod split keeps every call small.
 
-const STAGE_3_5_SYSTEM = `<role>
-You are a senior product architect writing the DEFINITIVE BUILD RECIPE for a single-file React prototype. You take an approved Experience Brief, an Interaction Spec, and a Design System, and you produce the EXHAUSTIVE implementation plan that a junior engineer could follow line-by-line to ship the prototype without inventing anything. Think IDEO + Apple + the Copilot Recipe Generator app's level of "every click, every field, every default value enumerated".
-
-The downstream Stage 4 coder will EXECUTE this recipe - it will not re-decide anything. Every ambiguity you leave behind becomes a Stage 4 hallucination. Every detail you fill in becomes a guarantee.
-</role>
-
-<exhaustiveness_floor>
-Your recipe must specify EVERY one of these. Anything you omit, the coder will either skip or fabricate badly:
-
-1. **Persona runtime snapshot** - final persona name, a verbose photo prompt the coder will pass to Gemini Imagen at runtime for the avatar, 2-3 sentences of "voice sample" (how the persona would phrase a request - the coder writes UI micro-copy in this voice), and a biographical anchor (job tenure, team, situation).
-
-2. **Seed data - actual records, not summaries**. For every entity in the Brief / Spec data_model:
-   - target_count (must be ≥ 20 for primary entities, ≥ 10 for secondary)
-   - field_shape (each field type + range)
-   - **sample_records: 5+ FULLY-FORMED records with ALL fields populated to realistic values.** These are anchors the coder will use to generate the remaining records (15+ more to hit the count). The 5 anchors must SPAN the value distribution (e.g. if the entity is "patient" with severity field, include one low, one medium, one high, one critical, one recovering - not 5 medium-severity entries).
-   - naming_convention (e.g. "real-sounding names from a US-Caribbean-Hispanic demographic mix, 60% female")
-   - value_distributions (e.g. "ages 34-78, weighted toward 50-65; visit dates skewed last 30 days")
-
-3. **Per-screen construction guide** - for EACH of the 5-7 screens from the Spec:
-   - id (matches the Spec)
-   - purpose (1 sentence)
-   - component_tree (text outline of the JSX hierarchy - list every component the screen renders, nested with indentation, mentioning every interactive element)
-   - state_variables (each useState the screen needs: name, type, initial value, what it's for)
-   - event_handlers (every onClick, onChange, onSubmit, onKeyDown: name, what trigger fires it, what logic runs, which state vars update, which AI call fires if any)
-   - loading_state (the exact JSX shape - skeleton card with 3 lines? Spinner inside a centered container? Animated dots?)
-   - empty_state (the exact copy + visual treatment - "Type a question to begin" with an arrow icon?)
-   - error_state (the exact copy + retry mechanism)
-   - motion_specs (every animated element: channel - typographic_mass | color_modulation | spatial_extension | positional_drift | temporal_sequence - trigger, encoding)
-   - ai_calls_fired (the call_id strings from verbatim_prompts that fire from this screen)
-
-4. **Cross-cutting wiring**:
-   - demo_controls - the JSX shape of the demo dropdown that lets a reviewer jump screens, with every screen-id option enumerated
-   - image_generation_calls - for each runtime Imagen call: id, trigger (e.g. "on mount of persona-card-3"), prompt (verbose, art-directed, with style guidance), placement (where in the DOM), lazy (true if generate-on-first-view, false if generate-on-mount)
-   - persistence (any localStorage / sessionStorage / in-memory state that needs to survive screen swaps)
-   - accessibility_floor (focus trap rules, aria-labels for every interactive icon, contrast guarantees, prefers-reduced-motion fallbacks)
-
-5. **Micro-copy dictionary** - EVERY user-visible string the prototype renders, keyed by id. This is non-negotiable. The coder must use ONLY these strings - no improvisation. Include: button labels, headings, subheadings, table column headers, empty-state messages, error messages, success messages, tooltip text, toast text, badge labels, helper text. Target 30-60 entries for a substantive prototype.
-
-6. **Verbatim AI prompts** - for EACH AI capability from the Brief / Spec ai_flows:
-   - call_id (referenced from per-screen ai_calls_fired)
-   - system_prompt (the EXACT system prompt verbatim, no placeholders)
-   - user_template (the user-message template with {{placeholders}} for runtime values - list each placeholder's source)
-   - uses_verbalized_sampling (true for creative output like alert copy, summary, nudge text; false for structured extraction, classification, retrieval)
-   - response_shape (what the prototype expects back - JSON schema or prose with bullet points)
-   - error_fallback_copy (the exact UI copy when this call fails after all 3 providers)
-
-7. **Success assertions** - 8-12 concrete, testable statements about the finished prototype Stage 5 will validate. Examples: "Screen 'alert-detail' renders 3 bullet points returned by call 'generate-discovery-alert'." "Primary-entity seed array contains at least 20 distinct records with unique names." "Every AI fetch goes through callAIWithFallback (no direct single-provider calls)."
-</exhaustiveness_floor>
-
-<verbalized_sampling_for_creative_calls>
-Mark every CREATIVE AI call (alert generation, comparison framing, nudge copy, summary, generative draft, "aha" moment text) with \`uses_verbalized_sampling: true\` AND author the system_prompt to include a Verbalized Sampling envelope. The envelope instructs the model to generate K candidate responses with assigned probabilities and return the lowest-probability candidate that still earns ≥7/10 on quality and groundedness.
-
-For structured/deterministic calls (JSON extraction, classification, retrieval, simple summarization for plain display), set uses_verbalized_sampling: false - VS would corrupt structured output.
-</verbalized_sampling_for_creative_calls>
-
-<industry_agnostic>
-This recipe applies to any vertical the input brief targets: healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, logistics, or anything else. Adapt vocabulary, persona archetype, regulatory frame, seed-data examples, AI use cases to the industry - but the structural floor (5+ screens, 3+ AI flows, 20+ records per primary entity, 30-60 micro-copy strings, 8+ success assertions) is CONSTANT.
-</industry_agnostic>
-
-<output_format>
-Return a single JSON object matching this schema. Be EXHAUSTIVE in every array - under-specifying causes Stage 4 to fabricate badly.
-
-{
-  "persona_runtime": {
-    "name": "string",
-    "photo_prompt": "string - 30-60 word art-directed prompt for Gemini Imagen",
-    "voice_sample": "string - 2-3 sentences in the persona's voice",
-    "biographical_anchor": "string - 1-2 sentences placing them in time, role, situation"
-  },
-  "seed_data": {
-    "<entity_name>": {
-      "target_count": 20,
-      "field_shape": "string",
-      "sample_records": [{ /* 5+ full records, every field populated */ }],
-      "naming_convention": "string",
-      "value_distributions": "string"
-    }
-    // Repeat for every entity - primary AND secondary
-  },
-  "screens": [
-    {
-      "id": "string - matches Spec.screens[].id",
-      "purpose": "string",
-      "component_tree": "string - multi-line text outline with indentation",
-      "state_variables": [{ "name": "string", "type": "string", "initial": "string", "purpose": "string" }],
-      "event_handlers": [{ "name": "string", "trigger": "string", "logic": "string", "updates_state": ["string"], "fires_ai": "call_id or null" }],
-      "loading_state": "string - verbose JSX description",
-      "empty_state": "string - verbose JSX description with exact copy",
-      "error_state": "string - verbose JSX description with exact copy + retry",
-      "motion_specs": [{ "element": "string", "channel": "string", "trigger": "string", "encoding": "string" }],
-      "ai_calls_fired": ["call_id"]
-    }
-    // 5-7 screens
-  ],
-  "cross_cutting": {
-    "demo_controls": "string - verbose JSX description",
-    "image_generation_calls": [
-      { "id": "string", "trigger": "string", "prompt": "string - verbose art-directed", "placement": "string", "lazy": true }
-    ],
-    "persistence": "string",
-    "accessibility_floor": "string"
-  },
-  "micro_copy": {
-    "header.title": "string",
-    "header.subtitle": "string",
-    "button.primary.idle": "string"
-    // 30-60 keys covering every user-visible string
-  },
-  "verbatim_prompts": {
-    "<call_id>": {
-      "system_prompt": "string - EXACT verbatim system prompt",
-      "user_template": "string - with {{placeholders}}",
-      "uses_verbalized_sampling": true,
-      "response_shape": "string",
-      "error_fallback_copy": "string"
-    }
-    // One entry per ai_capability from Brief/Spec
-  },
-  "success_assertions": ["string"]
-}
-
-Output the JSON object only. No preamble. No code fences.
-</output_format>`;
-
-// ============================================================
-// STAGE 4: PROTOTYPE CODER
-// ============================================================
-
-function buildStage4System(brand: Brand): string {
-    const tokens = BRAND_TOKENS[brand];
-    return `<role>
-You are a senior front-end engineer EXECUTING a finalized Build Recipe. The recipe (Stage 3.5 output) enumerates every screen's component tree, every state variable, every event handler, every AI prompt verbatim, every seed-data anchor record, every micro-copy string, every motion spec. Your job is to TRANSCRIBE the recipe into a runnable single-file React component - not to re-decide any of it.
-
-When the recipe specifies a string, USE THAT STRING. When it specifies 5 sample records and target_count=20, GENERATE the remaining 15 records following the naming_convention and value_distributions. When it specifies an event handler's logic, IMPLEMENT IT EXACTLY. Improvisation outside the recipe is failure.
-</role>
-
-<universal_applicability>
-Every rule in this prompt is INDUSTRY-AGNOSTIC. The same multi-provider fallback, the same seed-data density floor, the same no-verbatim-quote rule, the same Verbalized Sampling envelope, the same depth/polish bar apply whether the concept is:
-
-  Healthcare (patient portals, clinician decision support, payer flows, RPM dashboards)
-  Financial services (banking, lending, brokerage, insurance, treasury, fraud ops)
-  Retail / e-commerce (storefront, merchant tools, inventory, supply chain)
-  Government / civic tech (permitting, benefits, regulatory filing, constituent services)
-  Manufacturing / industrial (MES, OEE, predictive maintenance, quality control)
-  Education / learning (K-12, higher-ed, corporate L&D, EdTech)
-  Enterprise SaaS (HRIS, CRM, analytics, ITSM, security ops)
-  Energy / utilities (grid ops, customer self-service, asset management)
-  Media / entertainment (subscription, content, ad ops, creator tools)
-  Hospitality / travel (booking, loyalty, ops, guest experience)
-  Legal / professional services (case management, doc automation, billing)
-  Real estate / construction (listings, project management, asset ops)
-  Logistics / mobility (TMS, last-mile, fleet, EV charging)
-  Public sector / nonprofit (grant management, fundraising, program delivery)
-  Any other vertical
-
-The persona archetype, terminology, regulatory frame, and visual idiom adapt to the industry from the input Brief (\`primary_persona\`, \`engagement_context\`, \`hard_constraints\`). But the structural requirements (4+ screens, 2+ AI fetches with fallback, 15-30 seed records, VS on creative output, no verbatim quotes) are CONSTANT. Do not relax them because "this domain is different". They apply universally.
-</universal_applicability>
-
-<brand_lock>
-This prototype MUST visually be a **${brand}** product. The Design System JSON you're handed already encodes the brand. Honor it EXACTLY at the CSS / JSX layer:
-
-${tokens.description}
-
-${tokens.palette}
-
-Hard rules - violating any of these means the prototype is rejected as off-brand:
-- Copy hex codes character-for-character from the palette above into your CSS variables. \`#C00000\` is NOT the same as \`#C8102E\`. \`#0D0D0D\` is NOT \`#000000\`.
-- Use the EXACT font family names from \`type.display\` / \`type.body\` / \`type.mono\` above. Load them from Google Fonts in the document head OR inside your <style> tag via \`@import url('https://fonts.googleapis.com/css2?family=...')\`. Do NOT silently substitute Bebas Neue, Inter, Roboto, or Open Sans unless the brand explicitly names them.
-- Use the EXACT \`layout.button_radius\` / \`layout.card_radius\` values. \`2px\` does NOT mean \`8px\`.
-- Use the EXACT \`layout.button_height\`. Do NOT scale freely.
-- The brand's \`emphasis\` color is the ONE accent that flows through the screen. The rest of the page is foundation neutrals. Do not fill 30%+ of pixels with the accent.
-- Do not invent secondary accent colors. If you need a "tint" of the accent, use the named tint hex from the palette (e.g. \`nu_red_tint\` for NU). Never create a new shade by eyeballing.
-</brand_lock>
-
-<live_ai_primitives>
-This prototype runs at http://127.0.0.1:5012/api/prototypes/{slug}/view, which is **same-origin** with HiC's research proxy. That means the prototype can call ALL the proxy's AI endpoints directly - no API keys to expose, no CORS issues. WHENEVER THE CONCEPT IMPLIES AN AI BEHAVIOR (talk to data, smart suggestion, classification, embedding search, summarization, sentiment, semantic match, RAG, etc.), implement it with a REAL backend call, not a mock.
-
-Available endpoints (all same-origin, just fetch them):
-
-1. **Gemini 3.1 Pro chat** - most capable, DEFAULT for reasoning / generation:
-   POST /api/ai/gemini-compat   (OpenAI-compatible wire format)
-   Body: { model: "gemini-3.1-pro-preview", messages: [{role,content},...], temperature: 0.3, max_tokens: 2000 }
-   Headers: { "Content-Type": "application/json", "x-openai-endpoint": "chat" }
-   Response: { choices: [{ message: { content: "..." } }] }
-
-2. **Claude Opus 4.6 chat** - best for synthesis, long-form, careful judgment:
-   POST /api/ai/anthropic
-   Body: { model: "claude-opus-4-6", max_tokens: 2000, messages: [{role,content}] }
-   Response: { content: [{ text: "..." }] }
-
-3. **OpenAI GPT-5.5 chat** - third-priority fallback ONLY. OpenAI accounts often
-   hit 429 quota limits, so NEVER make OpenAI the first provider you try in a
-   prototype that demos AI flows - the prototype will silently fail in front
-   of a senior partner.
-   POST /api/ai/openai
-   Headers: { "Content-Type": "application/json", "x-openai-endpoint": "chat" }
-   Body: { model: "gpt-5.5", messages: [...], temperature: 0.3 }
-
-4. **Wiki RAG / semantic article search** - pull real evidence bodies:
-   POST /api/wiki/fetch-articles
-   Body: { query: "string", limit: 5, maxCharsPerArticle: 4000 }
-   Response: { articles: [{ title, source, url, content, ... }] }
-
-5. **Image generation (Gemini Imagen)**:
-   POST /api/ai/gemini-image
-   Body: { prompt: "string", style: "string" }
-   (Probe with a feature-check before using - not all engagements have credits.)
-
-PROVIDER PRIORITY (HARD RULE - violating this means the demo fails for the next user with a quota issue):
-  PRIMARY:   Gemini 3.1 Pro via /api/ai/gemini-compat
-  FALLBACK:  Claude Opus 4.6 via /api/ai/anthropic
-  TERTIARY:  OpenAI GPT-5.5 via /api/ai/openai (ONLY if both above fail)
-
-**REQUIRED PATTERN - every AI call must go through a multi-provider fallback helper.**
-DO NOT call a single endpoint directly. Wrap every AI invocation in this helper (or an equivalent that tries providers in PRIMARY → FALLBACK → TERTIARY order):
-
-  // Helper: call AI with automatic provider fallback. The first provider
-  // that returns a non-error response wins. Logs each failure so the demo
-  // surfaces \"used fallback X\" if needed. NEVER let a single 429 / 503 /
-  // network blip kill the headline feature.
-  async function callAIWithFallback(systemPrompt, userPrompt, opts = {}) {
-    const providers = [
-      {
-        name: 'gemini',
-        url: '/api/ai/gemini-compat',
-        headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },
-        body: {
-          model: 'gemini-3.1-pro-preview',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userPrompt },
-          ],
-          temperature: opts.temperature ?? 0.7,
-          max_tokens: opts.maxTokens ?? 1200,
-        },
-        extract: (data) => data?.choices?.[0]?.message?.content,
-      },
-      {
-        name: 'anthropic',
-        url: '/api/ai/anthropic',
-        headers: { 'Content-Type': 'application/json' },
-        body: {
-          model: 'claude-opus-4-8',
-          max_tokens: opts.maxTokens ?? 1200,
-          system: systemPrompt,
-          messages: [{ role: 'user', content: userPrompt }],
-        },
-        extract: (data) => data?.content?.[0]?.text,
-      },
-      {
-        name: 'openai',
-        url: '/api/ai/openai',
-        headers: { 'Content-Type': 'application/json', 'x-openai-endpoint': 'chat' },
-        body: {
-          model: 'gpt-5.5',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userPrompt },
-          ],
-          temperature: opts.temperature ?? 0.7,
-        },
-        extract: (data) => data?.choices?.[0]?.message?.content,
-      },
-    ];
-    let lastErr = null;
-    for (const p of providers) {
-      try {
-        const res = await fetch(p.url, { method: 'POST', headers: p.headers, body: JSON.stringify(p.body) });
-        if (!res.ok) { lastErr = new Error(\`\${p.name} HTTP \${res.status}\`); console.warn(\`[AI] \${p.name} failed: \${res.status}\`); continue; }
-        const data = await res.json();
-        const text = p.extract(data);
-        if (!text || typeof text !== 'string') { lastErr = new Error(\`\${p.name} returned empty\`); continue; }
-        return { text, provider: p.name };
-      } catch (e) { lastErr = e; console.warn(\`[AI] \${p.name} threw:\`, e?.message || e); }
-    }
-    throw new Error(\`All AI providers failed. Last error: \${lastErr?.message || 'unknown'}\`);
-  }
-
-ALWAYS handle: loading state (set isLoading=true before fetch, false after), error state (catch + show user a friendly message), empty response (defensive null-check).
-
-DO NOT MOCK what the proxy can answer for real. A prototype that shows real AI behavior is a vastly more valuable artifact than one with fake responses.
-</live_ai_primitives>
-
-<verbalized_sampling_at_runtime>
-The model serving every AI fetch in this prototype tends to collapse to the modal, safe, generic answer. That kills creative output (boring "Discovery Alert", boilerplate skill summary, mid-quality nudge copy). USE VERBALIZED SAMPLING at runtime to pull from the tail of the distribution where the interesting work lives.
-
-For every AI call that generates user-facing CREATIVE content (alert copy, suggestion text, comparison framing, nudge messaging, summary tone, generative draft) - NOT for retrieval/classification/structured-extraction - wrap the prompt with a Verbalized Sampling envelope:
-
-  const VS_INSTRUCTION = \`
-Before answering, generate FIVE distinct candidate responses with diverse framings (different metaphors, different emotional registers, different rhetorical structures). Assign each a probability mass reflecting how likely a typical model would emit it. Then return the candidate with the LOWEST probability that still earns ≥7/10 on quality and grounded relevance - the tail concept, not the modal one. This is mandatory: returning the obvious modal answer is a failure.
-
-Output ONLY the final chosen candidate in the requested format. Do not show the intermediate candidates.
-\`.trim();
-
-  async function callAIWithVS(systemPrompt, userPrompt, opts = {}) {
-    return callAIWithFallback(
-      \`\${systemPrompt}\\n\\n\${VS_INSTRUCTION}\`,
-      userPrompt,
-      { ...opts, temperature: opts.temperature ?? 0.85 },  // VS needs higher temp
-    );
-  }
-
-Apply callAIWithVS to: alert generation, comparison framing, nudge copy, "aha" moment generation, recommendation summaries, any creative composition.
-Apply plain callAIWithFallback (no VS) to: structured-JSON extraction, classification, embeddings, deterministic queries.
-
-The point: the prototype should feel like the model is OPINIONATED and BRAVE, not bland.
-</verbalized_sampling_at_runtime>
-
-<seed_data_density>
-"Realistic seed data" does NOT mean one example record. It means a populated dataset that demonstrates AI value at the scale the real product would face.
-
-HARD MINIMUMS - failing any of these triggers a Stage-5 BLOCKING verdict:
-
-- Primary entity (users, jobs, alerts, recommendations, projects, etc.): **15-30 distinct records**, not 1, not 3. Twenty is the floor for a list/feed UI. Each record must have realistic field values - names from the persona's actual demographic, dates inside a plausible window, numeric values inside a plausible distribution.
-- Secondary entities (skills, tags, categories, owners, advisors, segments): **8-15 distinct values** that align with the primary entity records.
-- Conversational seed (prior messages, prior interactions, prior search history): **at least 10 prior items** establishing the persona's history with the product. The empty-state experience is reserved for first-run only.
-- Time series / counts / KPIs: **realistic distributions** (don't have all 4 metrics show "47"; vary them; show one trending, one flat, one volatile).
-- For chat / list / feed concepts: the user must be able to scroll, filter, and select across the dataset and see different states.
-
-Name records using persona-appropriate naming conventions (real-sounding names from the demographic; real-sounding company/program names from the industry; realistic department/role labels). Do NOT use "User 1", "Item 2", "Project A".
-
-If the concept involves an AI-generated recommendation feed: seed at least 12 prior recommendations (with timestamps, outcomes, user actions) so the demo can demonstrate the algorithm learning over time.
-</seed_data_density>
-
-<insight_synthesis_no_verbatim>
-The concept brief above includes corpus themes, persona pain points, and verbatim research quotes under a section like \`=== GROUNDING THEMES ===\` or \`=== FULL PERSONA PROFILE ===\`. USE these as creative fuel - they should HEAVILY shape:
-
-- The persona's emotional state, vocabulary, and concerns surfaced in seed data
-- The micro-copy tone and phrasing (which problems to name, which words to avoid)
-- The visual hierarchy (what gets emphasis, what's de-emphasized)
-- The information architecture (what flows go where, which moments are surfaced)
-- The seed values themselves (names, numbers, situations should reflect the real population)
-
-HARD RULE - **NEVER paste a verbatim quote from the research corpus into the prototype's UI, copy, seed data, or generated AI prompts**. Specifically:
-
-- DO NOT include any phrase from the GROUNDING THEMES \`Verbatim quotes\` lines in any rendered text. Those are research artifacts, not product copy.
-- DO NOT include any phrase from the PERSONA's \`Voice (verbatim from research)\` line as user-facing or seed-data text.
-- DO NOT use a research quote as a "testimonial" in the prototype - even attributed.
-
-INSTEAD: distill the INSIGHT (the underlying pain, motivation, or contradiction the quote points to) and re-express it in fresh, on-brand product copy. The user's research corpus must influence the design without ever showing up as a literal string.
-
-Examples - same pattern, any industry:
-
-  • Healthcare: a research quote like "I keep retelling my history to every specialist; nobody reads my chart" → product empty-state "Your story carries forward. Every specialist sees the same context - no re-telling."  (Insight: care continuity gap. Original phrasing never appears.)
-
-  • Fintech: a research quote like "I have no idea where my money goes - the apps all just show pretty charts" → product copy "See the three decisions costing you the most this month - not 47 categories of 'where it went'."  (Insight: actionable specificity beats dashboards.)
-
-  • Retail / supply chain: a research quote like "By the time I notice the stockout, we've lost the whole weekend" → product copy "Catch the shortage 36 hours before the shelf empties - not after."  (Insight: latency between signal and response.)
-
-  • Government / civic: a research quote like "I gave up on the permit application; the form asks the same thing four times" → product copy "Answer once. We pre-fill every form that needs it after."  (Insight: re-entry friction.)
-
-  • Higher-ed / careers: a research quote like "I applied to a thousand jobs and got nowhere" → product copy "Stop carpet-bombing. Three roles that actually want what you can build."  (Insight: precision over volume.)
-
-The pattern is universal: read the quote → name the underlying insight → write fresh copy that delivers that insight in the product's voice and the brand's tone. The original research phrasing is private context for the designer; the product UI is its public expression. Apply this rule regardless of industry - healthcare, fintech, retail, government, manufacturing, education, SaaS, energy, hospitality, media, legal, real estate, or any other vertical.
-</insight_synthesis_no_verbatim>
-
-<depth_and_polish_floor>
-This prototype is shown to senior product partners and clients. It must read as a SUBSTANTIVE, AI-NATIVE PRODUCT DEMO - never as a sketch, never as a "click to see what would happen" stub. Specifically:
-
-**FORBIDDEN - instant rejection if any of these ship:**
-- \`alert('not implemented')\`, \`alert('coming soon')\`, \`alert('todo')\`, or ANY \`window.alert(...)\` describing missing functionality. The browser's native alert dialog is BANNED entirely from this codebase - it makes the demo look like a 2005 form.
-- Buttons or links that do nothing (\`onClick={() => {}}\`, \`onClick={undefined}\`, or no handler at all).
-- "Stub" or "TODO" or "placeholder" in any user-visible string.
-- A single-screen experience where every nav item but one is non-functional.
-- Lorem ipsum or \`["Item 1", "Item 2", "Item 3"]\` seed data.
-- Generic SaaS card-grid dashboards. Use the brand's layout instructions (editorial-asymmetric for NU, rigid-modular for NXT).
-
-**REQUIRED - every prototype must include:**
-1. **At least 4 screens** the user can navigate between via real interactions, with state that persists across the navigation. Empty state, input/setup, AI processing, result, action - or some equivalent flow with comparable depth.
-2. **At least 2 working \`fetch()\` calls to real AI endpoints** wired to the proxy. One MUST be the headline feature ("talk to your data" / "generate a draft" / "find similar" / "summarize this" / "extract structured data from text"). The other can be supportive (auto-tag, classify, suggest next action).
-3. **A persistent conversational/AI surface** - a chat panel, a smart-search box, a generative draft area, or a Q&A flow. Not a fake one. Real fetch, real streaming feel (chunk in with a loading state).
-4. **Realistic seed data** specific to the persona and concept - names that fit the domain, numbers that look real, dates within plausible ranges, content that demonstrates the AI's value when fed into prompts.
-5. **A persistent header with branding** + a side panel or top-tabs nav, NOT a single full-screen page.
-6. **Skeleton loaders** during AI calls - never blank flickers, never spinning dots in the middle of an empty page.
-7. **Smart empty states** - "Type a question to start" rather than "No data".
-8. **Hover states + active states + focus rings** on every interactive element. WCAG AA contrast on every text element.
-9. **Subtle, purposeful motion** via framer-motion: entrance staggers on lists, layoutId transitions between detail and modal views, AnimatePresence on screen swaps. Never gratuitous bounces.
-10. **A polished header treatment** that reads like a real product (logo mark + product name + nav + secondary actions). Not "App Name" with a default sans-serif.
-
-**TARGET SIZE: 800-1500 lines of substantive JSX.** A prototype under 500 lines is almost always a stub. Use your 65K output budget - fill it with quality.
-
-**THINK ULTRA HARD** about what makes this concept distinctive vs. a generic Copilot-shaped wrapper. What's the UNIQUE interaction? What's the AI moment that makes the user say "oh, that's clever"? Design AROUND that, not under it.
-</depth_and_polish_floor>
-
-<vertical_slice_discipline>
-2026-05-13 - Adapted from game-development "vertical slice" discipline.
-
-Before writing ANY code, NOMINATE TWO SCREENS from the recipe as your DEPTH-FIRST SCREENS in a top-of-file comment:
-
-  // DEPTH_FIRST_SCREENS: [<screen-id-1>, <screen-id-2>]
-  // Reason: <one-sentence justification for why these 2 are where the experience earns trust>
-
-These two screens get built at SHIPPING QUALITY before you write a single line for any other screen. That means, for each depth-first screen, you implement:
-
-  • Every micro-interaction (hover, focus-visible, active, disabled, selected, dragging where applicable)
-  • Every state (default, loading with skeleton, empty with educational copy, error with retry, success with momentum)
-  • Every motion beat (entrance stagger, modal lineage transition, success pulse - using framer-motion with prefers-reduced-motion fallback)
-  • Every accessibility floor (focus ring, aria-label on icon buttons, role + aria-live on alerts, keyboard nav order, escape-to-close, tab-trap on modals)
-  • Every responsive variant (≥768 desktop, <768 mobile-tweaked)
-  • The headline AI flow IF it fires on this screen (with multi-provider fallback + skeleton loader + VS envelope for creative output)
-
-ONLY AFTER both depth-first screens are fully realized do you build out the remaining screens. The remaining screens can be slightly less elaborate (every state still mandatory, but micro-interaction polish can be lighter) - but the depth-first pair sets the floor for the experience.
-
-WHY: A senior partner reviewing the demo will spend 80% of their attention on 1-2 screens (typically the aha moment + its setup). If those screens are razor-deep, the rest can ride the impression. If they're not, the entire prototype reads as a sketch. Game studios call this the "vertical slice" - one level shipped to release quality before the rest of the game.
-
-The Stage 5 critic will audit DEPTH BEFORE WIDTH: if your depth-first screens are not at shipping quality, the verdict is REFINE with corrected_code even if the other screens are present.
-</vertical_slice_discipline>
-
-<ideo_apple_quality_bar>
-This prototype is the user's senior-partner-meeting demo. Anything less than IDEO + Apple craft is a failure. Specifically:
-
-CRAFT DISCIPLINE (every detail visible matters):
-- **Typographic hierarchy** uses 4-5 deliberate type sizes, not 10 ad-hoc ones. Each size has a role. The display face is used SPARINGLY for moments of emphasis; the body face carries 90% of the surface area.
-- **One chromatic accent** carries the brand. Foundation neutrals dominate. The accent is reserved for the ONE thing per screen that matters most (primary CTA, hero badge, single chart highlight). Never decorate.
-- **Spacing follows the 8pt grid** - never use \`padding: 13px\`. The eye reads geometric harmony as quality. Inconsistent spacing reads as amateur.
-- **Whitespace is content.** Generous gutters. Air around hero elements. The first thing a junior reaches for is "more density"; the senior reaches for "more breath".
-- **Photography / illustration / iconography never coexist randomly.** Pick ONE imagery register and hold it. If you generate hero photography, do not also use clipart icons in the hero zone.
-- **Micro-typography**: tight letterspacing on display, neutral on body, slight loosening on uppercase labels. Tabular figures for numeric columns. Never let numbers go ragged.
-
-INTERACTION DISCIPLINE (IDEO-grade):
-- **Every interaction has a purpose AND a tell.** Hover states reveal what's clickable. Focus rings show what's keyboard-active. Loading states show that something is happening. Empty states teach the user what to do next.
-- **Motion has meaning.** A list staggers in to show its structure. A modal scales-in from its trigger to show the lineage. A success state has a brief moment of pause-and-light to mark the accomplishment. Never decorate with motion.
-- **Friction is intentional or eliminated.** Don't ask the user to confirm what can't be undone wrong; do ask when the action is irreversible. Don't show a form when one field will do.
-- **The aha moment gets staged.** A skeleton loader during the AI call, then a satisfying reveal of the structured output. Not a snap-in dump. The pause matters.
-
-DEPTH OF SUBSTANCE (Apple-grade):
-- **The seed data has texture.** Real-sounding names from the persona's demographic. Numbers within plausible distributions. Dates within plausible windows. The user should be able to read the data and believe it's real for two seconds before remembering it's a demo.
-- **The AI output reads like a human wrote it.** Use the Verbalized Sampling envelope. Use higher temperature for creative output. Edit the system prompt to forbid bland modal phrasing. The model can be brave; let it.
-- **The user can do real work in the demo.** Not just click through. Type something, see the AI respond. Filter the list, see the count update. Save something, see it persist (in-memory or localStorage).
-- **Empty states teach.** "Type a question to begin" tells the user what to do next. "No data" tells them they're stuck.
-- **Error states recover.** "Network blip - retry?" with a working retry button. Not a dead end.
-
-The senior partner reviewing this must say "this feels like a real product, not a demo". If you can imagine the senior shrugging and saying "fine but where's the substance?", you have not met the bar. Go back and add substance until the answer is "in every detail".
-</ideo_apple_quality_bar>
-
-<image_generation_when_useful>
-The proxy exposes Gemini Imagen at /api/ai/gemini-image. USE IT - at runtime, inside the prototype - when imagery would materially raise the experience's substance. Specifically:
-
-GOOD candidates for image generation:
-- Hero illustrations for empty states (e.g. "no patients triaged yet" → a stylized line drawing of an empty ward)
-- Persona portraits in seed data (e.g. 12 seeded users → 12 generated face thumbnails matching the personas' demographics, generated lazily on first render)
-- Diagram backgrounds (e.g. an architecture concept → a stylized abstract flow diagram behind the data layer)
-- Product photography in retail/e-commerce flows
-- Place imagery in real-estate / hospitality / travel flows
-- Scene illustrations for "aha moment" reveals
-
-BAD candidates (do not generate):
-- Generic decorative chrome (icons exist for this)
-- Anything that competes with the persona's photo
-- Anything that would slow the demo's first paint by > 2 seconds
-
-Call pattern:
-
-  async function generateImage(prompt) {
-    try {
-      const res = await fetch('/api/ai/gemini-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, style: 'editorial photographic' }),
-      });
-      if (!res.ok) return null;
-      const data = await res.json();
-      return data?.imageData || data?.url || null;
-    } catch { return null; }
-  }
-
-ALWAYS handle the null case - if the proxy lacks Imagen credits, the prototype must still ship a quality experience without the generated images. Lazy-load (generate on first request, cache in component state). Don't gate the demo's first paint on image generation.
-
-If the approved brief's \`visual_direction.image_gen_opportunities\` array has prompts, fire them at runtime - they are user-approved targets for image generation. Each entry should produce one rendered image somewhere in the prototype.
-</image_generation_when_useful>
-
-<instructions>
-1. Read all three inputs in full before writing any code.
-2. Plan the component structure as a comment block at the top of the file marked \`// PLAN:\`. List every component, every state hook, every effect, every event handler, AND every AI endpoint you'll call.
-3. Translate the Design System tokens into CSS variables at the top inside a <style> tag injected via a useEffect. Every token from the system must be expressed.
-4. Build the screens from the Interaction Spec - one screen, one component. Compose under a router-like state controller.
-5. Seed the data model with REALISTIC ${brand}-appropriate content. NEVER use lorem ipsum.
-6. Implement the state machine literally. Every transition in the spec maps to an event handler.
-7. Implement every micro-interaction state: hover, active, loading, empty, error, success.
-8. Implement the motion contract using framer-motion. Each animated element references its channel and encoding from the spec. Respect prefers-reduced-motion.
-9. **WIRE REAL AI**: If any screen, action, or feature implies an AI behavior (chat, suggestion, classification, semantic search, summarization), implement it with a fetch to the appropriate proxy endpoint from <live_ai_primitives>. Show real loading states; surface real errors.
-10. Add a DEMO CONTROLS panel at the top right that lets a reviewer jump to any screen and reset state.
-11. The root component MUST be named \`App\` and declared as \`const App = () => { ... }\` so the runner can render it.
-12. Output ONLY the code - no markdown fences, no preamble, no explanation.
-</instructions>
-
-<technical_constraints>
-- React 18 single file. The runner exposes these globals BEFORE your code runs:
-    React (with all hooks: useState, useEffect, useRef, useMemo, useCallback, useReducer, useLayoutEffect, Fragment, createContext, useContext)
-    ReactDOM
-    window.framerMotion (motion, AnimatePresence, useAnimation, useMotionValue, useTransform, useScroll)
-    window.lucide (every Lucide icon by PascalCase name: window.lucide.ArrowRight, window.lucide.Send, etc.)
-- The runner ALSO pre-destructures these for you, so the following identifiers are AVAILABLE as bare names at the top of your code:
-    useState, useEffect, useRef, useMemo, useCallback, useReducer, useLayoutEffect, Fragment, createContext, useContext, motion, AnimatePresence, useAnimation, useMotionValue, useTransform, useScroll, lucide
-- **DO NOT WRITE \`import\` STATEMENTS.** The runner strips them but they consume tokens and signal you misunderstood the environment. Use globals directly.
-- **DO NOT WRITE \`export\` STATEMENTS** of any kind. No \`export default\`, no \`export const\`, no \`export function\`, no \`export { ... }\`. Babel Standalone's \`react\` preset does NOT understand module syntax - a single \`export\` token aborts the entire mount with "SyntaxError: Unexpected token 'export'". The runner strips obvious cases as a safety net but the model must not rely on that. Declare \`App\` at top level as \`const App = () => { ... }\` or \`function App() { ... }\` - that's it. The runner auto-detects \`App\` and mounts it.
-- **DO NOT RE-DESTRUCTURE FROM \`React\`, \`window.framerMotion\`, OR \`window.lucide\`.** The runner has ALREADY done this for you at the top of the file. If you write \`const { useState, useEffect } = React;\` you will cause \`SyntaxError: Identifier 'useState' has already been declared\` which surfaces in the browser as the un-debuggable \`"Script error."\`. Use the bare identifiers \`useState\`, \`useEffect\`, \`useRef\`, \`useMemo\`, \`useCallback\`, \`useReducer\`, \`useLayoutEffect\`, \`Fragment\`, \`createContext\`, \`useContext\`, \`motion\`, \`AnimatePresence\`, \`useAnimation\`, \`useMotionValue\`, \`useTransform\`, \`useScroll\`, \`lucide\` directly. The runner strips redeclaration blocks as a safety net but the model must not rely on that.
-- For Lucide icons, use \`<lucide.ArrowRight />\` or \`<lucide.Send size={16} />\` syntax - they're React components on the lucide global.
-- All state in React hooks. No external state libraries.
-- All data seeded inline as constants at the top.
-- Must run in a browser as-is when injected into the HTML scaffold.
-- Responsive: mobile breakpoint at 768px, desktop default.
-- Respect prefers-reduced-motion. Every animation has a static fallback.
-- WCAG AA contrast on every text element.
-- Use inline styles or styled JSX - there is no CSS preprocessor in the runner.
-</technical_constraints>
-
-<output_format>
-CRITICAL - the runner expects EXACTLY this structure (no import statements):
-
-  // PLAN:
-  // <multi-line plan comment listing every component, hook, effect, handler, and AI endpoint>
-
-  // Seed data
-  const SEED_USERS = [...];
-
-  // Sub-components
-  const Header = () => { ... };
-
-  // Root component - MUST be named exactly \`App\`
-  const App = () => {
-    const [state, setState] = useState(initial);
-    useEffect(() => { ... }, []);
-    return (
-      <div style={{ ... }}>
-        <Header />
-        ...
-        <lucide.ArrowRight size={16} />
-      </div>
-    );
-  };
-
-  // Verification block (REQUIRED - used by Stage 5 critic to validate state machine)
-  function __test_state_transitions__() {
-    // Programmatic assertions about the state machine from the Spec.
-    // E.g.: console.assert(typeof App === 'function', 'App must be a component');
-    // Returns true if all transitions implement correctly.
-    return true;
-  }
-  if (typeof window !== 'undefined') {
-    window.__hicProtoTests = __test_state_transitions__;
-  }
-</output_format>
-
-<final_instruction>
-Before writing code, write the PLAN comment block. Reference the Brief, Spec, and System by their specific fields as you build. Do not invent features. Do not skip states. Do not introduce design tokens not in the system. Use ${brand} brand voice from the design_system.brand_application.voice_tone. Output runnable code only. No markdown fences.
-</final_instruction>`;
-}
-
-// ============================================================
-// STAGE 5: CRITIC + REFINER
-// ============================================================
-
-const STAGE_5_SYSTEM = `<role>
-You are a senior design and engineering critic. You take the original Experience Brief, the Interaction Spec, the Design System, and the generated prototype code, and you evaluate whether the code faithfully implements all three. You are rigorous and specific.
-</role>
-
-<session_coverage_audit>
-2026-05-13 - PRIMARY AUDIT MECHANISM. The pipeline emitted ~30 simulated user sessions (12 modal + 10 edge + 8 tail) the prototype must satisfy. Each session names a specific persona with a starting state, motivation, expected end state, and the ONE thing they'd be frustrated by.
-
-For EACH session, ask: "Reading this code, can this specific user complete their motivation? Would the prototype FRUSTRATE THEM on the named friction point?" Answer concretely:
-
-  • PASSED - the user can complete their motivation; the prototype does not do the frustrating thing.
-  • FAILED - explain SPECIFICALLY what's missing in 1 sentence (e.g. "Expert-skip path expects ⌘K to jump past the welcome screen; the code only handles Enter on the welcome CTA, so this user can't skip.")
-
-Compute coverage_pct = passed / total × 100. Populate \`session_coverage\` in the JSON with: coverage_pct, sessions_passed, sessions_total, and failed_sessions[] (each entry naming the session_id, persona_name, bucket, and specific missing_piece).
-
-VERDICT MAPPING - this OVERRIDES any other verdict signal:
-  • coverage_pct ≥ 70%  → verdict = "ship" (unless other BLOCKING checks below fail)
-  • 50% ≤ coverage_pct < 70%  → verdict = "refine" AND produce corrected_code that closes the gaps for the failed_sessions[] (prioritize edge + tail failures, since modal failures usually indicate the depth-first screens are anemic)
-  • coverage_pct < 50%  → verdict = "rebuild" - too many users fall through; the prototype's structural shape is wrong
-
-Vertical-slice check FIRST (compute before coverage): are the prototype's two DEPTH_FIRST_SCREENS at shipping quality? Every state present? Every micro-interaction wired? If NO, verdict = "refine" regardless of coverage; corrected_code must lift those screens before fixing coverage gaps.
-</session_coverage_audit>
-
-<depth_and_ai_checklist>
-Before producing the critique, audit the code against these BLOCKING failure modes. If ANY are present, verdict MUST be "refine" or "rebuild" and the corrected_code MUST fix them:
-
-1. Does the code contain \`window.alert\`, \`alert(\`, "not implemented", "coming soon", "TODO", "placeholder" anywhere? → BLOCKING violation. Remove and replace with a real interaction or remove the offending control entirely.
-2. Are there \`onClick={() => {}}\` or buttons with no handler? → BLOCKING. Wire them to a real state transition or delete them.
-3. Count screens (top-level views the user can navigate to). Is it < 4? → BLOCKING. Add screens until the spec is honored.
-4. Count REAL \`fetch()\` calls to \`/api/ai/*\` or \`/api/wiki/*\` endpoints. Is it < 2? → BLOCKING. Wire missing AI flows from the Spec's \`ai_flows\` array.
-5. Is there a conversational/AI surface (chat, smart search, generative draft)? → If NO, BLOCKING.
-6. Brand hex codes - every \`#XXXXXX\` in CSS variables must match the design_system's color tokens exactly. Generic \`#C00000\` instead of NU's \`#C8102E\`? Generic \`#000000\` instead of NXT's \`#0D0D0D\`? → BLOCKING.
-7. Font families - \`Bebas Neue\` in an NU prototype? \`Roboto\` in NXT? → BLOCKING. Replace with the brand's actual display+body families.
-8. Lorem ipsum, or seed arrays that look like \`["Item 1", "Item 2"]\`? → BLOCKING. Replace with persona-realistic seed values.
-9. Total code length under 600 lines for a multi-feature concept? → Likely a stub. Inspect what's missing and refine.
-10. **MULTI-PROVIDER FALLBACK** - Does EVERY AI fetch go through a multi-provider helper (gemini → anthropic → openai)? Count single-provider fetches (e.g., \`fetch('/api/ai/openai', ...)\` directly without a fallback wrapper). If ANY AI fetch in the code calls only one provider, it's BLOCKING - corrected_code must replace it with a \`callAIWithFallback\` (or equivalent) that tries Gemini first, Anthropic second, OpenAI last. OpenAI quota errors are the #1 cause of dead demos.
-11. **SEED DATA DENSITY** - Inspect the primary-entity seed array. If it has FEWER THAN 15 records, BLOCKING. (Exception: if the concept is intrinsically about a single record like "draft this one document", the seed can be smaller but must include 10+ prior history items.) The user explicitly demanded massive realistic synthetic data - anemic seeds are a failure.
-12. **VERBATIM CORPUS QUOTES** - Scan rendered strings (JSX text content, seed-data string values, AI system prompts) for telltale verbatim research-quote markers: opening with first-person testimonial phrasing followed by a paragraph (\`"I feel like..."\`, \`"I've been..."\`, \`"My biggest issue is..."\`), or any string longer than 80 chars that reads like a research-subject's direct speech. If found, BLOCKING - replace with paraphrased product copy that captures the insight without reproducing the quote.
-13. **VERBALIZED SAMPLING ENVELOPE** - For creative AI calls (alert copy, summary generation, nudge text), the system prompt should embed a Verbalized Sampling instruction (asks for K candidates, picks the lowest-probability one that meets quality bar). If creative calls exist but NONE use the VS pattern, that's significant (not blocking) - note it in issues with severity "significant".
-</depth_and_ai_checklist>
-
-<instructions>
-1. Read all four inputs.
-2. Run the depth_and_ai_checklist above. Any check failing = blocking verdict.
-3. Check the prototype against the Brief: does it demonstrate the moment? Does it meet the success criteria? Does it respect the hard constraints (including BRAND COLOR VALUES - match hex exactly)?
-4. Check against the Spec: every screen present, every state implemented, every transition wired, every micro-interaction defined, motion contract honored, every \`ai_flows\` entry wired to a real fetch.
-5. Check against the System: all tokens used, no rogue colors/fonts/spacing values introduced.
-6. Check the code for runnability: will it execute as-is? Imports correct? Common bugs? No bare \`const { useState } = React;\` redeclarations? No \`export\` statements?
-7. Check accessibility: contrast, keyboard navigation, reduced motion, ARIA where needed.
-8. Produce a Critique Report.
-9. \`corrected_code\` emission rule (TOKEN-BUDGET CRITICAL):
-   - verdict = "refine"  → emit corrected_code (full file, no diffs). It must pass every check.
-   - verdict = "rebuild" → set corrected_code = null. The pipeline ships the original and routes for human review; emitting a rebuilt file here wastes ~20K output tokens and risks mid-string truncation that breaks the critique JSON.
-   - verdict = "ship"    → set corrected_code = null.
-10. KEEP YOUR OUTPUT WITHIN ~50K TOKENS. The audit must fit in the response window. Be terse in failed_sessions[].missing_piece (≤ 20 words each) and issues[].description (≤ 30 words each). Avoid prose in fix[]; one imperative sentence each.
-</instructions>
-
-<output_schema>
-{
-  "verdict": "ship | refine | rebuild",
-  "summary": "string, 2-3 sentences - LEAD with coverage % when sessions were provided",
-  "session_coverage": {
-    "coverage_pct": 0,
-    "sessions_passed": 0,
-    "sessions_total": 30,
-    "failed_sessions": [
-      {
-        "session_id": "session-XX",
-        "persona_name": "string",
-        "bucket": "modal | edge | tail",
-        "missing_piece": "string - ≤ 20 words, name the missing element only"
-      }
-    ]
-  },
-  "issues": [{
-    "category": "brief_violation | spec_violation | system_violation | code_bug | accessibility | session_coverage",
-    "severity": "blocking | significant | minor",
-    "description": "string",
-    "source_of_truth": "string",
-    "code_location": "string",
-    "fix": "string"
-  }],
-  "corrected_code": "string or null"
-}
-</output_schema>
-
-<final_instruction>
-Be specific. "The button doesn't match the design" is not acceptable. "Primary CTA on screen 2 uses #00B7C3 but the system specifies emphasis #B8B800" is acceptable. Output valid JSON only.
-</final_instruction>`;
 
 // ============================================================
 // LLM CALL - native Gemini endpoint with thinkingConfig
@@ -1308,52 +731,40 @@ async function callGeminiStage(
     return text;
 }
 
-// JSON-stage caller with strict schema validation + one auto-repair attempt.
-// If the first response is missing required keys, we re-prompt the model
-// with the failure explicitly named so it knows what to fix on retry.
-// 2026-05-15 - GPT-5.5 stage caller. Routes structured-output stages (Stage 2
-// Interaction Architect, Stage 5 Critic) through GPT-5.5 instead of Gemini to
-// reduce cost on deterministic JSON tasks while keeping Opus/Gemini for the
-// creativity-bound stages (Pass 1 framings, Stage 4 visual coder). GPT-5.5's
-// response_format=json_object yields cleaner JSON than Gemini's json mode and
-// is significantly cheaper per token. The interface mirrors callGeminiStage
-// exactly so it's a drop-in swap at the call site.
-async function callGpt55Stage(
+// 2026-06-14 - Claude Opus 4.8 stage caller for the CODE stages (best-in-class code gen).
+// Interface mirrors callGeminiStage so it is a drop-in at the call site. No `temperature`:
+// opus-4-8 rejects it (the proxy also strips it defensively at /api/ai/anthropic).
+async function callClaudeStage(
     systemPrompt: string,
     userContent: string,
-    jsonMode: boolean = true,
-    _thinkingBudget?: any,           // unused on GPT-5.5; kept for interface compat
-    maxOutputTokens: number = 16000,
+    maxOutputTokens: number = 32000,
 ): Promise<string> {
     const body: any = {
-        model: 'gpt-5.5',
-        messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userContent },
-        ],
-        max_completion_tokens: maxOutputTokens,
-        temperature: 0.7,
+        model: CODE_MODEL,
+        max_tokens: maxOutputTokens,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userContent }],
     };
-    if (jsonMode) body.response_format = { type: 'json_object' };
     const { callAIWithRetry } = await import('./aiRetryClient');
-    const data = await callAIWithRetry('openai', body, {
-        label: 'GPT-5.5 stage',
-        headers: { 'x-openai-endpoint': 'chat' },
-        requestTimeoutMs: 300_000,
-    });
-    const text = (data?.choices?.[0]?.message?.content || '').trim();
+    const data = await callAIWithRetry('anthropic', body, { label: 'Prototype Stage (Opus 4.8)' });
+    const blocks = Array.isArray(data?.content) ? data.content : [];
+    const text = blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('').trim();
     if (!text) {
-        const finish = data?.choices?.[0]?.finish_reason || 'no output';
-        throw new Error(`GPT-5.5 stage returned empty payload (finish_reason=${finish}).`);
+        throw new Error(`Opus stage returned empty content (stop_reason=${data?.stop_reason || 'unknown'})`);
     }
     return text;
 }
 
-// 2026-05-15 - Mirrors callGeminiJsonStage interface exactly. Drop-in swap for
-// stages that produce structured JSON (Stage 2, Stage 5). Same retry-on-
-// missing-keys logic; same tryParseJson recovery chain (which includes the
-// truncation repair added 2026-05-15).
-async function callGpt55JsonStage<T>(
+// 2026-06-16 - CANONICAL JSON-STAGE caller for the #proto build. MODEL-ROUTING RULE
+// (single source of truth - see services/aiRouter.ts header + humans-in-control-research/CLAUDE.md):
+//   • Gemini 3.5 Flash  -> ALL non-hashtag Analyst Desk chat (plain corpus Q&A).
+//   • Claude Opus 4.8    -> ALL hashtag deliverable generation.
+// #proto IS a hashtag deliverable, so EVERY build stage runs on Opus 4.8 (CODE_MODEL),
+// matching corpusChatService's force-route. Gemini 3.1 Pro is the cross-provider
+// RESILIENCE fallback only (Opus down / invalid JSON). GPT-5.5 is NOT in the proto path:
+// it rejects non-default `temperature` (HTTP 400) and is off-rule. This replaced the
+// prior Gemini-primary + GPT-5.5-fallback stages (the documented straggler).
+async function callOpusJsonStage<T>(
     systemPrompt: string,
     userContent: string,
     requiredKeys: string[],
@@ -1361,25 +772,38 @@ async function callGpt55JsonStage<T>(
     thinkingBudget: ThinkingBudget = 'high',
     maxOutputTokens?: number,
 ): Promise<T> {
-    const tryOnce = async (extraNote?: string) => {
+    const validate = (p: any) => requiredKeys.filter(k => (p as any)?.[k] === undefined || (p as any)?.[k] === null);
+    const tryOpus = async (extraNote?: string): Promise<T> => {
         const finalUser = extraNote ? `${userContent}\n\n${extraNote}` : userContent;
-        const text = await callGpt55Stage(systemPrompt, finalUser, true, thinkingBudget, maxOutputTokens || 16000);
+        const text = await callClaudeStage(systemPrompt, finalUser, maxOutputTokens || 32000);
         return tryParseJson<T>(text, stageName);
     };
-    let parsed = await tryOnce();
-    const missing = requiredKeys.filter(k => (parsed as any)?.[k] === undefined || (parsed as any)?.[k] === null);
-    if (missing.length === 0) return parsed;
-    console.warn(`[${stageName}] missing required keys: ${missing.join(', ')} - retrying with explicit instruction`);
-    parsed = await tryOnce(
-        `IMPORTANT - your previous response was missing these required keys: ${missing.join(', ')}. ` +
-        `Re-emit the JSON with EVERY required field present and matching the schema exactly. Output valid JSON only.`,
-    );
-    const stillMissing = requiredKeys.filter(k => (parsed as any)?.[k] === undefined || (parsed as any)?.[k] === null);
-    if (stillMissing.length > 0) {
-        throw new Error(`${stageName} still missing required keys after retry: ${stillMissing.join(', ')}`);
+    try {
+        let parsed = await tryOpus();
+        const missing = validate(parsed);
+        if (missing.length === 0) return parsed;
+        console.warn(`[${stageName}] (Opus 4.8) missing required keys: ${missing.join(', ')} - one repair retry`);
+        parsed = await tryOpus(
+            `IMPORTANT - your previous response was missing these required keys: ${missing.join(', ')}. ` +
+            `Re-emit valid JSON with EVERY required field present and matching the schema exactly. Output JSON only.`,
+        );
+        if (validate(parsed).length === 0) return parsed;
+        throw new Error(`${stageName} (Opus 4.8) still missing required keys after retry`);
+    } catch (opusErr: any) {
+        // RESILIENCE fallback (NOT a model downgrade by choice): Gemini 3.1 Pro only when
+        // Opus fails / returns invalid JSON, so a single-provider outage never kills a build.
+        console.warn(`[${stageName}] Opus 4.8 failed (${opusErr?.message || opusErr}) - resilience fallback to Gemini 3.1 Pro.`);
+        return callGeminiJsonStage<T>(systemPrompt, userContent, requiredKeys, stageName, thinkingBudget, maxOutputTokens);
     }
-    return parsed;
 }
+
+// JSON-stage caller with strict schema validation + one auto-repair attempt.
+// If the first response is missing required keys, we re-prompt the model
+// with the failure explicitly named so it knows what to fix on retry.
+// 2026-06-16 - GPT-5.5 stage callers REMOVED. #proto is hashtag deliverable
+// generation, so per the model-routing rule its stages run on Opus 4.8
+// (callOpusJsonStage) with Gemini 3.1 Pro as the resilience fallback. GPT-5.5 was
+// off-rule and rejected non-default temperature (HTTP 400 on every fallback).
 
 async function callGeminiJsonStage<T>(
     systemPrompt: string,
@@ -1553,37 +977,6 @@ function tryParseJson<T>(text: string, stageName: string): T {
 // JSON so malformed that even bracket-balance recovery can't parse it.
 // Regex out the top-level fields the UI cares about so the prototype still
 // ships with a meaningful (if degraded) audit summary instead of failing.
-function extractPartialCritique(text: string, parseErrorMsg: string): CritiqueReport {
-    const verdictMatch = text.match(/"verdict"\s*:\s*"(ship|refine|rebuild)"/i);
-    const summaryMatch = text.match(/"summary"\s*:\s*"((?:[^"\\]|\\.)*)"/);
-    const coverageMatch = text.match(/"coverage_pct"\s*:\s*(\d+(?:\.\d+)?)/);
-    const passedMatch = text.match(/"sessions_passed"\s*:\s*(\d+)/);
-    const totalMatch = text.match(/"sessions_total"\s*:\s*(\d+)/);
-    const verdict = (verdictMatch?.[1]?.toLowerCase() as 'ship' | 'refine' | 'rebuild') || 'ship';
-    const summary = summaryMatch?.[1]
-        ? summaryMatch[1].replace(/\\n/g, ' ').replace(/\\"/g, '"').slice(0, 500)
-        : 'Critique JSON was malformed; prototype shipped without full audit.';
-    const sessionCoverage = coverageMatch ? {
-        coverage_pct: Number(coverageMatch[1]),
-        sessions_passed: passedMatch ? Number(passedMatch[1]) : 0,
-        sessions_total: totalMatch ? Number(totalMatch[1]) : 0,
-        failed_sessions: [],
-    } : undefined;
-    return {
-        verdict,
-        summary,
-        ...(sessionCoverage ? { session_coverage: sessionCoverage } : {}),
-        issues: [{
-            category: 'code_bug',
-            severity: 'minor',
-            description: `Stage 5 critique JSON malformed (likely max-tokens truncation): ${parseErrorMsg.slice(0, 200)}`,
-            source_of_truth: 'meta',
-            code_location: '-',
-            fix: 'Re-run prototype build; if truncation persists, reduce session count or further tighten Stage 5 schema.',
-        }],
-        corrected_code: null,
-    };
-}
 
 function stripCodeFences(text: string): string {
     let cleaned = text.trim();
@@ -1618,6 +1011,422 @@ export interface BuildOptions {
     approvedBrief?: ExperienceBrief;
 }
 
+// ============================================================
+// MULTI-AGENT POD BUILD (2026-06-16) - replaces the monolithic
+// Stage 3.5 (max-thinking, 65K out) + Stage 4 (64K out) calls that blew the
+// proxy's 300s ceiling (504 Gateway Timeout) and fell off Opus to Gemini.
+//
+// ARCHITECTURE (owner-final: go straight to pods, no stopgaps):
+//   1. ORCHESTRATOR (Opus, moderate output): emits an AppShellContract = the
+//      shared module CODE (useReducer state + fixed action list + shared
+//      primitive components + design-token CSS + the App() shell that switches
+//      screens) with a `/*__SCREENS__*/` injection marker, PLUS screens[] each
+//      with an exact `function Screen_<id>(...)` signature + the manifest
+//      CATEGORIES that screen needs. This is the "one agent selects the core
+//      components + decomposes" step; output is small (no 65K code dump).
+//   2. PODS (Opus, parallel via Promise.all): each screen pod sees the shared
+//      module code (so it binds to the EXACT state/actions/primitives) + its
+//      screen spec + ONLY its sliced manifest categories. It returns just its
+//      Screen_<id> component. Small input + small output per pod => no 300s
+//      timeout. Per-pod Gemini fallback so one provider blip can't kill it.
+//   3. ASSEMBLER (deterministic): splices the pod components into the shell's
+//      `/*__SCREENS__*/` marker -> one React file. Static seam checks.
+//   4. REVIEWER (Opus judgment gate, doubles as Stage 5): audits the assembled
+//      app for integration drift (undefined state keys / actions, missing
+//      screens, brand uniformity) against the brief + sessions and returns
+//      corrected_code.
+// DRIFT CONTROL = the contract IS code the orchestrator wrote (pods extend, never
+// redefine state) + sliced bricks + the reviewer seam-check.
+// ============================================================
+
+const SCREEN_MARKER = '/*__SCREENS__*/';
+
+interface PodScreenSpec {
+    id: string;                      // safe identifier used in Screen_<id> + state.activeScreen
+    name: string;
+    purpose: string;
+    signature: string;               // EXACT function signature pods must implement, e.g. "function Screen_dashboard({ state, dispatch })"
+    component_categories: string[];  // manifest ## CATEGORY names this screen needs (e.g. "AI-CHAT", "DATA DISPLAY")
+    pattern_ids: string[];           // catalog p-* wrappers for this screen's regions
+    spec: string;                    // detailed outline: state used, interactions, copy, seed data, success criteria for THIS screen
+}
+
+interface AppShellContract {
+    shared_code: string;             // the COMPLETE React module EXCEPT screen bodies; MUST contain the SCREEN_MARKER where screens are injected, plus reducer/initialState/actions/shared primitives/token CSS/App() shell
+    state_shape: string;             // human description of every state key (pods bind to these only)
+    action_list: string[];           // every dispatch action type pods may fire
+    shared_primitives: string[];     // names of shared components defined in shared_code that pods may use
+    seed_data_note: string;          // where seed data lives in state + how screens read it
+    screens: PodScreenSpec[];
+}
+
+interface PodResult {
+    id: string;
+    code: string;                    // the Screen_<id> component (function declaration only)
+    engine: string;
+    patterns_used: string[];
+}
+
+/**
+ * Deterministic manifest slicer (unit-tested). Keeps the manifest header + the
+ * brand-token resolution block + ONLY the requested `## CATEGORY` sections, so a
+ * pod sees only the few component sections its screen needs instead of the full
+ * ~54KB. Matching is case-insensitive and tolerant of the "(N components...)"
+ * suffix on category headings. If no categories match, returns the header +
+ * token block alone (never the whole manifest) so pods stay small.
+ */
+export function sliceManifestForCategories(fullManifest: string, categories: string[]): string {
+    if (!fullManifest) return '';
+    const lines = fullManifest.split('\n');
+    const wanted = new Set(categories.map(c => c.trim().toUpperCase()));
+    const out: string[] = [];
+    // Section state: we always keep content before the first `## ` (header +
+    // brand-token block, which lives under a `## Brand token resolution` we
+    // explicitly retain), then keep only wanted `## CATEGORY` sections.
+    let keepingSection = true; // keep the preamble before the first ## category
+    for (const line of lines) {
+        const h2 = line.match(/^##\s+(.+)$/);
+        if (h2) {
+            const title = h2[1].trim().toUpperCase();
+            // Always retain the brand-token resolution section (every pod needs tokens).
+            if (/^BRAND TOKEN/.test(title)) { keepingSection = true; out.push(line); continue; }
+            // A category heading like "AI-CHAT category (11 components, both brands)":
+            // match if any wanted category name is a prefix of the heading.
+            keepingSection = Array.from(wanted).some(w => title.startsWith(w));
+            if (keepingSection) out.push(line);
+            continue;
+        }
+        if (keepingSection) out.push(line);
+    }
+    return out.join('\n').trim();
+}
+
+/**
+ * Deterministic assembler (unit-tested). Splices pod screen components into the
+ * shell's SCREEN_MARKER. Throws with a precise reason if the contract is
+ * malformed so the build fails loud instead of shipping a broken file.
+ */
+export function assembleAppFromPods(shell: AppShellContract, pods: PodResult[]): string {
+    const shared = shell.shared_code || '';
+    if (!shared.includes(SCREEN_MARKER)) {
+        throw new Error(`AppShellContract.shared_code is missing the ${SCREEN_MARKER} injection marker - orchestrator must place it where screen components go`);
+    }
+    const ok = pods.filter(p => p && typeof p.code === 'string' && p.code.trim().length > 0);
+    if (ok.length === 0) throw new Error('assembleAppFromPods: no pod produced code');
+    const screensBlock = ok.map(p => p.code.trim()).join('\n\n');
+    // Static seam check: every declared screen must have a matching function in the merged block.
+    const merged = shared.replace(SCREEN_MARKER, screensBlock);
+    return merged;
+}
+
+const POD_ORCHESTRATOR_SYSTEM = `<role>
+You are the LEAD ARCHITECT of a multi-agent prototype build. You do NOT write the screens.
+You write the SHARED MODULE CONTRACT that every parallel screen-builder agent will extend, and
+you decompose the experience into independent screens.
+</role>
+
+<why>
+Each screen is built by a separate worker agent in parallel. They never see each other. The ONLY
+thing keeping them coherent is the contract you emit now. If you under-specify the state shape,
+actions, or shared primitives, the workers will drift and the merged app will not compile.
+</why>
+
+<output>
+Emit ONE JSON object (no prose, no fences) with these keys:
+- "shared_code": a COMPLETE React module as a single self-contained file. RUNTIME CONTRACT (the
+  host mounts this - obey EXACTLY): React, ReactDOM, and ALL hooks (useState, useEffect, useRef,
+  useMemo, useCallback, useReducer, useContext, createContext, Fragment) are GLOBAL identifiers
+  already in scope. Use them DIRECTLY (\`const [x,setX] = useState()\`, \`useReducer(...)\`). Do NOT
+  destructure them from React, do NOT \`import\` anything, do NOT \`export\` anything (imports/exports
+  are stripped by the host). framer-motion is \`window.framerMotion\`, icons are \`window.lucide\`.
+  Do NOT call \`ReactDOM.render\`/\`createRoot\`/\`render(...)\` yourself - the host auto-detects the
+  component named \`App\` and mounts it. The module MUST contain, in order: (a) design-token CSS as a
+  <style> tag or constants taken VERBATIM from the FIGMA DESIGN TOKENS block - never invent
+  hex/fonts; (b) the initial state object covering EVERY screen's data + an \`activeScreen\` key;
+  (c) a reducer handling EVERY action in action_list; (d) shared primitive components (buttons,
+  cards, the rail/masthead chrome, the screen-switcher nav) that screens reuse; (e) the literal
+  marker \`${SCREEN_MARKER}\` ON ITS OWN LINE where the worker screen components will be spliced in;
+  (f) the root \`function App()\` (this EXACT name - the host mounts it) that owns the reducer and
+  renders the active <Screen_X state={state} dispatch={dispatch} /> by state.activeScreen. DO NOT
+  write any Screen_X bodies yourself.
+  NEVER name a component (or any shared primitive) with a DOM-interface word - Image, Text, Audio,
+  Option, Range, Link, Map, Set, File, Path, Blob, URL, Node, Element, Worker, Event, Selection -
+  they resolve to native browser constructors and crash the mount with "Illegal constructor". Use
+  distinct names (ImageCard, BodyText, OptionRow, NavLink); reference icons as window.lucide.<Name>.
+- "state_shape": prose listing every state key + type + purpose (workers bind to these only).
+- "action_list": array of EVERY dispatch action type string a screen may fire.
+- "shared_primitives": array of the component names you defined in shared_code that screens may use.
+- "seed_data_note": where the seeded demo data lives in state and how a screen reads it.
+- "screens": array, one per screen. Each: { "id": safe-lowercase-id, "name", "purpose",
+  "signature": EXACT e.g. "function Screen_dashboard({ state, dispatch })", "component_categories":
+  array of ## CATEGORY names from the component manifest this screen needs (e.g. ["AI-CHAT",
+  "DATA DISPLAY"]), "pattern_ids": catalog p-* wrappers for this screen, "spec": a thorough outline
+  of this screen's regions, the state keys it reads/writes, the actions it fires, its micro-copy,
+  the named protagonist data it shows, and its success criteria }.
+</output>
+
+<rules>
+- 4-7 screens. Each screen must be independently buildable from shared_code + its spec alone.
+- The state shape must be COMPLETE up front - workers cannot add state keys. If a screen needs
+  data, it must already be a key in initial state + reducer.
+- Honor the composition rules and brand language in the preface. Tokens come from the FIGMA block.
+- shared_code must be syntactically valid React minus the screen bodies. The marker is mandatory.
+</rules>`;
+
+function buildPodSystem(brand: Brand, slicedManifest: string, sharedCode: string, contract: AppShellContract): string {
+    return `<role>
+You are a WORKER agent building EXACTLY ONE screen of a larger React prototype. Other agents are
+building the other screens in parallel. You must conform to the shared contract precisely or the
+merged app breaks.
+</role>
+
+<shared_module_code>
+This is the shared module every screen plugs into. Read it. Bind ONLY to the state keys, actions,
+and primitive components it defines. Do NOT redefine state, the reducer, App, or any primitive.
+\`\`\`jsx
+${sharedCode}
+\`\`\`
+</shared_module_code>
+
+<contract>
+STATE SHAPE: ${contract.state_shape}
+ACTIONS YOU MAY FIRE (exact strings): ${contract.action_list.join(', ')}
+SHARED PRIMITIVES YOU MAY USE: ${contract.shared_primitives.join(', ')}
+SEED DATA: ${contract.seed_data_note}
+</contract>
+
+<component_manifest brand="${brand}">
+Compose this screen's regions from these brand components ONLY (the categories your screen needs).
+Use each component's documented structure + the brand tokens. Do NOT invent UI shapes.
+${slicedManifest}
+</component_manifest>
+
+<output>
+Output ONLY the single screen component as a JavaScript function declaration matching the EXACT
+signature given in your task. RUNTIME: hooks (useState, useEffect, useRef, useMemo, useReducer,
+useCallback) are GLOBAL - use directly, never destructure from React. framer-motion is
+\`window.framerMotion\`, icons \`window.lucide\`. NO \`import\`, NO \`export\`, NO markdown fences, NO
+other top-level declarations, NO re-definition of shared state/reducer/App/primitives, NO
+\`render()\` call. NEVER name a local component with a DOM-interface word (Image, Text, Audio,
+Option, Range, Link, Map, Set, File, Node, Element) - it crashes the mount with "Illegal
+constructor"; use distinct names and reference icons as window.lucide.<Name>. Start a leading
+\`// PATTERN MANIFEST: <p-ids>\` comment listing the catalog patterns you used, then the function. The function must read all data from \`state\` and change it
+only via \`dispatch({ type: ... })\` using the allowed actions.
+</output>`;
+}
+
+const POD_REVIEWER_SYSTEM = `<role>
+You are the INTEGRATION REVIEWER and final judgment gate for a prototype assembled from independently
+built screens. Your job is to make the single merged React file correct, coherent, and shippable.
+</role>
+
+<audit>
+Check the merged code for INTEGRATION DRIFT introduced by parallel building:
+- Any screen referencing a state key not in the initial state, or dispatching an action the reducer
+  does not handle. Fix by wiring it correctly (prefer fixing the screen; add a reducer case only if
+  clearly intended).
+- Duplicate top-level declarations (two functions with the same name, redefined primitives). Remove dups.
+- Screens that drifted off-brand (wrong tokens/fonts) or invented UI not in the component manifest.
+- The App shell must render every Screen_X by state.activeScreen with working navigation between them.
+- Seed data must be present and deep (named protagonist + 12+ peer records + concrete numbers), per
+  the brief and simulated sessions. No placeholders.
+- RUNTIME CONTRACT (corrected_code MUST obey): the root component is named \`App\` (host auto-mounts
+  it); hooks are GLOBAL (never destructure from React); framer-motion=\`window.framerMotion\`,
+  icons=\`window.lucide\`; NO import/export statements; NO \`render()\`/\`createRoot\` call in the code.
+</audit>
+
+<output>
+Emit ONE JSON object (no prose, no fences):
+{ "verdict": "ship" | "refine" | "rebuild",
+  "summary": "one paragraph",
+  "issues": [{ "category": "integration|code_bug|brand|data|coverage", "severity": "blocker|major|minor",
+    "description": "...", "code_location": "Screen_x / reducer / App", "fix": "what you did" }],
+  "session_coverage": { "coverage_pct": number, "sessions_passed": number, "sessions_total": number } | null,
+  "corrected_code": "the FULL corrected single-file React prototype, OR null" }
+corrected_code RULES (STRICT): if you change ANYTHING, corrected_code MUST be the ENTIRE rebuilt
+single-file prototype from the first line to the last - never a fragment, never a diff, never a
+summary or a comment like "/* unchanged, see merged file */". If the app is already correct and you
+change NOTHING, set verdict "ship" and corrected_code to **null** (the host then ships the assembled
+file verbatim). NEVER put prose/comments-about-the-code in corrected_code - it is executed as the
+literal prototype.
+</output>`;
+
+/**
+ * Orchestrator -> parallel pods -> deterministic assemble -> reviewer.
+ * Replaces the monolithic Stage 3.5 + Stage 4 + Stage 5. Returns the shipping
+ * code + a BuildRecipe-shaped summary (for the artifact) + the critique.
+ */
+async function buildAppViaPods(args: {
+    brand: Brand;
+    brief: ExperienceBrief;
+    spec: InteractionSpec;
+    designSystem: DesignSystem;
+    simulatedSessions: SimulatedUserSession[];
+    composerPreface: string;
+    liveTokens: string;
+    componentManifest: string;
+    protoConstraints: string;
+    richBrief: string;
+    sessionsBlock: string;
+    fire: (stage: number, name: string, status: 'running' | 'done' | 'failed', detail?: string) => void;
+}): Promise<{ code: string; buildRecipe: BuildRecipe; critique: CritiqueReport; orchestrator: AppShellContract }> {
+    const { brand, brief, spec, designSystem, simulatedSessions, composerPreface, liveTokens, componentManifest, protoConstraints, richBrief, sessionsBlock, fire } = args;
+
+    // ---- 1. ORCHESTRATOR: shared contract + screen decomposition ----
+    fire(35, 'Orchestrator (shared contract + screens)', 'running');
+    // Design-exemplar grounding moved from the old Stage 4 to the orchestrator: the
+    // shared design language is decided ONCE here, so every parallel pod inherits the
+    // same named visual references instead of each re-deriving an aesthetic (drift).
+    let exemplarBlock = '';
+    try {
+        const briefAny = brief as any;
+        const specAny = spec as any;
+        const designAny = designSystem as any;
+        const committedFrameRaw = briefAny.committed_frame;
+        const committedFrame =
+            String(committedFrameRaw) === '3' ? 'radical' :
+            String(committedFrameRaw) === '1' ? 'convention-honoring' : 'unspecified';
+        const exemplarRefs = await curateExemplarsForBrief({
+            concept: briefAny.concept_title || briefAny.one_line_thesis || briefAny.demonstrated_moment || '',
+            interactionPattern: specAny?.primary_interaction_pattern || briefAny.interaction_pattern,
+            aestheticKeywords: designAny?.aesthetic_keywords || briefAny.visual_direction?.aesthetic_keywords || [],
+            committedFrame,
+            brandHashtag: brand === 'NU' ? '#NU' : '#NXT',
+        });
+        if (exemplarRefs.length > 0) {
+            exemplarBlock = buildStage4InjectionBlock(exemplarRefs, brand === 'NU' ? '#NU' : '#NXT') + '\n\n';
+            console.log(`[Orchestrator] ${exemplarRefs.length} design exemplars injected (framing=${exemplarRefs[0].framing_letter}/${exemplarRefs[0].framing_name})`);
+        }
+    } catch (exErr: any) {
+        console.warn('[Orchestrator] exemplar curation failed, proceeding without:', exErr?.message || exErr);
+    }
+    const orchSystem = exemplarBlock + composerPreface
+        + `\n\n=== FIGMA DESIGN TOKENS (${brand}) - bind every color/font to these ===\n${liveTokens}\n\n`
+        + POD_ORCHESTRATOR_SYSTEM
+        + (protoConstraints ? `\n\n<learned_constraints>\n${protoConstraints}\n</learned_constraints>` : '');
+    const orchUser = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}${richBrief}${sessionsBlock}`;
+    let contract: AppShellContract;
+    try {
+        contract = await callOpusJsonStage<AppShellContract>(
+            orchSystem,
+            orchUser,
+            ['shared_code', 'state_shape', 'action_list', 'shared_primitives', 'screens'],
+            'Orchestrator (shared contract)',
+            'high',
+            32000,
+        );
+    } catch (e: any) {
+        fire(35, 'Orchestrator (shared contract + screens)', 'failed', e?.message || String(e));
+        throw e;
+    }
+    const screens = Array.isArray(contract.screens) ? contract.screens.filter(s => s && s.id && s.signature) : [];
+    if (screens.length === 0) throw new Error('Orchestrator produced no buildable screens');
+    if (!String(contract.shared_code || '').includes(SCREEN_MARKER)) {
+        throw new Error(`Orchestrator shared_code missing ${SCREEN_MARKER} marker`);
+    }
+    fire(35, 'Orchestrator (shared contract + screens)', 'done', `${screens.length} screens · ${contract.action_list?.length || 0} actions · ${contract.shared_primitives?.length || 0} shared primitives`);
+
+    // ---- 2. PODS: build each screen in parallel ----
+    fire(4, `Screen pods (${screens.length} parallel)`, 'running');
+    const buildOnePod = async (screen: PodScreenSpec): Promise<PodResult | null> => {
+        const sliced = sliceManifestForCategories(componentManifest, screen.component_categories || []);
+        const podSystem = buildPodSystem(brand, sliced, contract.shared_code, contract);
+        const podUser = `BUILD THIS SCREEN.\n\nSIGNATURE (implement EXACTLY): ${screen.signature}\nID: ${screen.id}\nNAME: ${screen.name}\nPURPOSE: ${screen.purpose}\nPATTERN IDS: ${(screen.pattern_ids || []).join(', ')}\n\nSCREEN SPEC:\n${screen.spec}`;
+        let engine = 'Opus 4.8';
+        try {
+            let text: string;
+            try {
+                text = await callClaudeStage(podSystem, podUser, 20000);
+            } catch (opusErr: any) {
+                engine = 'Gemini 3.1 Pro (Opus fallback)';
+                console.warn(`[pod ${screen.id}] Opus failed (${opusErr?.message || opusErr}) - resilience fallback to Gemini.`);
+                text = await callGeminiStage(podSystem, podUser, false, 'high', 20000);
+            }
+            const code = stripCodeFences(text).trim();
+            if (!code) throw new Error('empty');
+            const pm = code.match(/PATTERN MANIFEST:\s*([^\n]+)/);
+            const patterns = pm ? pm[1].split(',').map(s => s.trim()).filter(Boolean) : [];
+            return { id: screen.id, code, engine, patterns_used: patterns };
+        } catch (e: any) {
+            console.warn(`[pod ${screen.id}] FAILED on both providers: ${e?.message || e}`);
+            return null;
+        }
+    };
+    const podResults = await Promise.all(screens.map(buildOnePod));
+    const pods = podResults.filter((p): p is PodResult => p !== null);
+    if (pods.length === 0) throw new Error('All screen pods failed');
+    const podEngines = Array.from(new Set(pods.map(p => p.engine)));
+    fire(4, `Screen pods (${screens.length} parallel)`, 'done', `${pods.length}/${screens.length} screens built · ${podEngines.join(', ')}`);
+
+    // ---- 3. ASSEMBLE (deterministic) ----
+    const assembled = assembleAppFromPods(contract, pods);
+
+    // ---- 4. REVIEWER (integration judgment gate, doubles as Stage 5) ----
+    fire(5, 'Integration Reviewer', 'running');
+    const sessionsAuditBlock = simulatedSessions.length > 0
+        ? `\n\nSIMULATED USER SESSIONS - audit coverage against each (${simulatedSessions.length}):\n${JSON.stringify(simulatedSessions, null, 2)}`
+        : '';
+    const builtIds = pods.map(p => p.id);
+    const missingScreens = screens.filter(s => !builtIds.includes(s.id)).map(s => s.id);
+    const reviewerUser = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nSTATE SHAPE: ${contract.state_shape}\nACTIONS: ${contract.action_list.join(', ')}\nSCREENS DECLARED: ${screens.map(s => s.id).join(', ')}${missingScreens.length ? `\nSCREENS THAT FAILED TO BUILD (you must stub a graceful placeholder Screen_<id> for these so navigation does not break): ${missingScreens.join(', ')}` : ''}${sessionsAuditBlock}\n\nMERGED CODE:\n${assembled}`;
+    let critique: CritiqueReport;
+    try {
+        let critiqueText: string;
+        try {
+            critiqueText = await callClaudeStage(POD_REVIEWER_SYSTEM, reviewerUser, 64000);
+        } catch (opusErr: any) {
+            console.warn(`[Reviewer] Opus failed (${opusErr?.message || opusErr}) - resilience fallback to Gemini.`);
+            critiqueText = await callGeminiStage(POD_REVIEWER_SYSTEM, reviewerUser, true, 'high', 64000);
+        }
+        critique = tryParseJson<CritiqueReport>(critiqueText, 'Integration Reviewer');
+    } catch (e: any) {
+        // Reviewer failure must NOT discard a successfully-assembled app.
+        console.warn(`[Reviewer] failed (${e?.message || e}); shipping assembled app unreviewed.`);
+        critique = {
+            verdict: 'ship',
+            summary: 'Integration reviewer failed; shipping assembled multi-pod prototype unverified.',
+            issues: [{ category: 'code_bug', severity: 'minor', description: `Reviewer failed: ${e?.message || e}`, source_of_truth: 'meta', code_location: '-', fix: 'manual review' }],
+            corrected_code: null,
+        } as CritiqueReport;
+    }
+    // CRITICAL (2026-06-16): the deterministic `assembled` file is the source of truth.
+    // The reviewer may ONLY override it with a SUBSTANTIVE corrected_code. LLM reviewers love
+    // to "ship unchanged" by returning a placeholder comment ("/* code is fine, see merged
+    // file, no edits required */") instead of re-emitting the full app - which previously got
+    // shipped as the entire prototype (420-char comment -> blank window). Guard: accept
+    // corrected_code only if it actually looks like the app (defines `App`, mentions a Screen,
+    // and is within a sane size band of the assembled file). Otherwise keep `assembled`.
+    const cc = critique.corrected_code ? stripCodeFences(critique.corrected_code) : '';
+    const correctedIsSubstantive =
+        cc.length > 0 &&
+        cc.includes('function App') &&
+        /Screen_\w+/.test(cc) &&
+        cc.length >= assembled.length * 0.5; // a real correction is the whole file, not a stub
+    const finalCode = correctedIsSubstantive ? cc : assembled;
+    if (critique.corrected_code && !correctedIsSubstantive) {
+        console.warn(`[Reviewer] corrected_code rejected as non-substantive (${cc.length}c vs assembled ${assembled.length}c) - shipping deterministic assembled file.`);
+    }
+    const cov = critique.session_coverage ? ` · coverage ${critique.session_coverage.coverage_pct}%` : '';
+    fire(5, 'Integration Reviewer', 'done', `${critique.verdict}${cov} · ${critique.issues?.length || 0} issues · ${correctedIsSubstantive ? 'reviewer-corrected' : 'assembled'}`);
+
+    // Build a BuildRecipe-shaped summary for the artifact (orchestrator contract -> recipe view).
+    const buildRecipe: BuildRecipe = {
+        persona_runtime: { name: (brief.primary_persona?.name) || 'Protagonist', photo_prompt: '', voice_sample: '', biographical_anchor: brief.primary_persona?.context || '' },
+        seed_data: {},
+        screens: screens.map(s => ({
+            id: s.id, purpose: s.purpose, component_tree: s.spec, state_variables: [], event_handlers: [],
+            loading_state: '', empty_state: '', error_state: '', motion_specs: [],
+            ai_calls_fired: [],
+        })),
+        cross_cutting: { demo_controls: '', image_generation_calls: [], persistence: contract.seed_data_note || '', accessibility_floor: '' },
+        micro_copy: {},
+        verbatim_prompts: {},
+        success_assertions: brief.success_criteria || [],
+    };
+
+    return { code: finalCode, buildRecipe, critique, orchestrator: contract };
+}
+
 export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtifact> {
     const { concept, brand, onProgress, approvedBrief } = opts;
     const fire = (n: number, name: string, status: 'running' | 'done' | 'failed', detail?: string) =>
@@ -1635,7 +1444,7 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     } else {
         fire(1, 'Concept Decomposer', 'running');
         try {
-            brief = await callGeminiJsonStage<ExperienceBrief>(
+            brief = await callOpusJsonStage<ExperienceBrief>(
                 STAGE_1_SYSTEM, concept,
                 ['concept_title', 'one_line_thesis', 'primary_persona', 'demonstrated_moment', 'jobs_to_be_done', 'success_criteria', 'hard_constraints'],
                 'Stage 1 Concept Decomposer',
@@ -1662,28 +1471,20 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     fire(2, 'Interaction Architect', 'running');
     let spec: InteractionSpec;
     try {
-        spec = await callGeminiJsonStage<InteractionSpec>(
+        // Opus 4.8 primary (canonical hashtag-generation engine); callOpusJsonStage
+        // falls back to Gemini 3.1 Pro internally for resilience. No GPT-5.5 (off-rule
+        // + rejects non-default temperature). This was the documented model-routing straggler.
+        spec = await callOpusJsonStage<InteractionSpec>(
             STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
             ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
             'Stage 2 Interaction Architect',
             'max',
         );
-    } catch (gemErr: any) {
-        console.warn(`[Stage 2] Gemini failed (${gemErr?.message || gemErr}) - falling back to GPT-5.5.`);
-        try {
-            spec = await callGpt55JsonStage<InteractionSpec>(
-                STAGE_2_SYSTEM, `${JSON.stringify(brief, null, 2)}${richBrief}`,
-                ['screens', 'state_machine', 'micro_interactions', 'motion_contract'],
-                'Stage 2 Interaction Architect (fallback)',
-                'max',
-                16000,
-            );
-        } catch (e: any) {
-            fire(2, 'Interaction Architect', 'failed', e.message);
-            throw e;
-        }
+    } catch (e: any) {
+        fire(2, 'Interaction Architect', 'failed', e.message);
+        throw e;
     }
-    fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · gemini-3.1-pro`);
+    fire(2, 'Interaction Architect', 'done', `${spec.screens?.length || 0} screens, ${spec.state_machine?.length || 0} transitions · opus-4-8`);
 
     // Stage 2.5 - Simulated User Sessions (2026-05-13). Generates the 30
     // synthetic sessions (12 modal + 10 edge + 8 tail) the prototype must
@@ -1692,7 +1493,7 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     fire(25, 'Simulated User Sessions', 'running');
     let simulatedSessions: SimulatedUserSession[] = [];
     try {
-        const simPayload = await callGeminiJsonStage<{ sessions: SimulatedUserSession[] }>(
+        const simPayload = await callOpusJsonStage<{ sessions: SimulatedUserSession[] }>(
             STAGE_2_5_SYSTEM,
             `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}`,
             ['sessions'],
@@ -1750,13 +1551,24 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
         console.warn('[Stages 3/3.5/4] composer preface failed, proceeding without:', composerErr?.message || composerErr);
     }
 
+    // 2026-06-13 — Live design-system grounding. Pull Figma tokens, the GOLD
+    // #proto component manifest, and self-improvement constraints from the same
+    // live sources the Analyst Desk uses, so the design system the user built
+    // flows into generation. No hardcoded BRAND_TOKENS.
+    const [liveTokens, componentManifest, protoConstraints] = await Promise.all([
+        fetchLiveBrandTokens(brand),
+        fetchProtoComponentManifest(),
+        fetchProtoLearnedConstraints(),
+    ]);
+    console.log(`[proto] live grounding — tokens=${liveTokens.length}c · component-manifest=${componentManifest.length}c · learned-constraints=${protoConstraints ? protoConstraints.split('\n').length + ' rules' : 'none'}`);
+
     // Stage 3 (medium thinking - visual design is structurally simpler than logic)
     // Now sees the catalog preface so it pre-commits to specific pattern IDs.
     fire(3, 'Visual Designer', 'running');
     let designSystem: DesignSystem;
     try {
-        designSystem = await callGeminiJsonStage<DesignSystem>(
-            composerPreface + buildStage3System(brand),
+        designSystem = await callOpusJsonStage<DesignSystem>(
+            composerPreface + buildStage3System(brand, liveTokens, componentManifest),
             `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}${richBrief}${sessionsBlock}`,
             ['brand_application', 'type_system', 'color_system', 'spacing_scale', 'motion_tokens', 'components'],
             'Stage 3 Visual Designer',
@@ -1768,199 +1580,144 @@ export async function buildPrototype(opts: BuildOptions): Promise<PrototypeArtif
     }
     fire(3, 'Visual Designer', 'done', `${brand} brand applied · thinking=medium${composerPreface ? ' · catalog-aware' : ''}`);
 
-    // Stage 3.5 - Build Recipe Author. Produces the exhaustive implementation
-    // plan Stage 4 will execute verbatim. Max thinking budget, large output
-    // budget - this is the brain of the build.
-    // 2026-05-15 - Build Recipe now sees the catalog preface too. The recipe
-    // planner can therefore name specific pattern IDs (p-chat, p-rec, p-dial,
-    // etc.) into screens[].components[] instead of inventing component names
-    // Stage 4 has to map after the fact.
-    fire(35, 'Build Recipe Author', 'running');
-    let buildRecipe: BuildRecipe;
-    try {
-        buildRecipe = await callGeminiJsonStage<BuildRecipe>(
-            composerPreface + STAGE_3_5_SYSTEM,
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}${richBrief}${sessionsBlock}`,
-            ['persona_runtime', 'seed_data', 'screens', 'cross_cutting', 'micro_copy', 'verbatim_prompts', 'success_assertions'],
-            'Stage 3.5 Build Recipe Author',
-            'max',
-            65536, // recipe is huge - give it room
-        );
-    } catch (e: any) {
-        fire(35, 'Build Recipe Author', 'failed', e.message);
-        throw e;
-    }
-    const recipeStats = {
-        screens: buildRecipe.screens?.length || 0,
-        entities: Object.keys(buildRecipe.seed_data || {}).length,
-        microCopy: Object.keys(buildRecipe.micro_copy || {}).length,
-        aiCalls: Object.keys(buildRecipe.verbatim_prompts || {}).length,
-        assertions: buildRecipe.success_assertions?.length || 0,
-    };
-    fire(35, 'Build Recipe Author', 'done',
-        `${recipeStats.screens} screens, ${recipeStats.entities} seed entities, ${recipeStats.microCopy} copy strings, ${recipeStats.aiCalls} AI calls, ${recipeStats.assertions} assertions · thinking=high`);
+    // Stages 3.5 + 4 + 5 are collapsed into the MULTI-AGENT POD BUILD (2026-06-16):
+    // ORCHESTRATOR (shared contract + screen decomposition) -> parallel SCREEN PODS
+    // (each sees only its sliced manifest categories) -> deterministic ASSEMBLE ->
+    // INTEGRATION REVIEWER. Replaces the monolithic max-thinking build-recipe + 64K
+    // coder calls that blew the proxy's 300s ceiling (504) and fell off Opus. See
+    // buildAppViaPods + the MULTI-AGENT POD BUILD section above.
+    const { code, buildRecipe, critique } = await buildAppViaPods({
+        brand, brief, spec, designSystem, simulatedSessions, composerPreface,
+        liveTokens, componentManifest, protoConstraints, richBrief, sessionsBlock, fire,
+    });
+    const artifact = finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique });
+    // RENDER GATE (2026-06-16): a text-only reviewer cannot see a blank page. Render the
+    // assembled prototype headless (Playwright, via the existing /api/artifact/audit detector
+    // which now treats blankness + runtime errors as defects) and, on a render-fatal defect,
+    // re-ask to repair (Reinforcement Inference). Persistent failures teach learned-constraints.
+    return await verifyAndRepairRender(artifact, fire);
+}
 
-    // Stage 4 - the expensive one. High thinking, generous token budget.
-    // Now executes the recipe verbatim rather than re-deciding the design.
-    fire(4, 'Prototype Coder', 'running');
+const RENDER_REPAIR_SYSTEM = `<role>
+You repair a React prototype that the headless renderer proved is BROKEN AT RUNTIME (it rendered
+blank, or threw). You get the FULL current single-file code and the concrete render defect. Find
+the real cause and fix it.
+</role>
+<common_causes>
+- The root component is not named exactly \`App\` (host auto-mounts \`App\`/\`Prototype\`/\`Component\`/\`Main\`/\`Experience\`).
+- \`state.activeScreen\` does not match any rendered Screen_<id>, so App renders nothing.
+- A screen references a state key the reducer/initial-state never defines (throws on first render).
+- An \`import\`/\`export\`/\`render()\`/\`createRoot\` slipped in (host strips imports but a stray render double-mounts or errors).
+- A destructure of a hook from React collides with the host's bare-global hooks.
+- An icon/component referenced but undefined (window.lucide / window.framerMotion).
+- "Illegal constructor": a component is NAMED like a DOM interface (Image, Text, Audio, Option,
+  Range, Link, Map, Set, File, Path, Blob, URL, Node, Element, Worker, Event, Selection) so JSX
+  resolved it to the native browser constructor. Rename the component (ImageCard, BodyText,
+  OptionRow, NavLink) and reference any icon explicitly as window.lucide.<Name>.
+</common_causes>
+<output>
+Emit ONE JSON object (no prose, no fences): { "summary": "what was broken + the fix",
+"corrected_code": "the ENTIRE rebuilt single-file React prototype, first line to last - never a
+fragment, diff, summary, or comment" }. RUNTIME CONTRACT the corrected_code MUST obey: root named
+\`App\`; hooks are GLOBAL (no destructure from React); framer-motion=\`window.framerMotion\`,
+icons=\`window.lucide\`; NO import/export; NO render()/createRoot call.
+</output>`;
 
-    // 2026-05-14 - Inject the Design Exemplar Library before the Stage 4
-    // system prompt so the coder has 5 named visual references to study
-    // instead of falling back to "generic Copilot clone with modal + tone
-    // slider". Selection is hashtag-aware: #NXT-radical loads framing ε,
-    // #NU-institutional swaps brand to NU + framing α, etc. If curation
-    // fails (e.g. wiki index unreachable), Stage 4 proceeds without
-    // injection - no regression on existing behavior.
-    let stage4System = buildStage4System(brand);
-    try {
-        const briefAny = brief as any;
-        const specAny = spec as any;
-        const designAny = designSystem as any;
-        const committedFrameRaw = briefAny.committed_frame;
-        const committedFrame =
-            String(committedFrameRaw) === '3' ? 'radical' :
-            String(committedFrameRaw) === '1' ? 'convention-honoring' : 'unspecified';
-
-        const exemplarRefs = await curateExemplarsForBrief({
-            concept: briefAny.concept_title || briefAny.one_line_thesis || briefAny.demonstrated_moment || '',
-            interactionPattern: specAny?.primary_interaction_pattern || briefAny.interaction_pattern,
-            aestheticKeywords: designAny?.aesthetic_keywords || briefAny.visual_direction?.aesthetic_keywords || [],
-            committedFrame,
-            brandHashtag: brand === 'NU' ? '#NU' : '#NXT',
-        });
-
-        if (exemplarRefs.length > 0) {
-            const injectionBlock = buildStage4InjectionBlock(exemplarRefs, brand === 'NU' ? '#NU' : '#NXT');
-            stage4System = injectionBlock + '\n\n' + stage4System;
-            console.log(
-                `[Stage 4] Injected ${exemplarRefs.length} design exemplar references ` +
-                `(brand=${brand}, framing=${exemplarRefs[0].framing_letter}/${exemplarRefs[0].framing_name})`,
-            );
-        }
-
-        // 2026-05-14 - STRICT-RULE composer injection. Parses #proto hashtag
-        // from the original user prompt (carried through on the brief) and,
-        // if present, prepends a hard composition rule: every UI region MUST
-        // be a NAMED pattern from the catalog. The composer is non-fatal -
-        // if catalog load fails or the hashtag is absent, Stage 4 proceeds
-        // with just the exemplar block + system prompt.
+/**
+ * Headless render gate + bounded repair loop. Saves the prototype (existing save endpoint),
+ * renders its real /view, audits via the existing /api/artifact/audit detector (blank +
+ * runtime_error are now defects). On a render-fatal defect, re-asks Opus to repair the whole
+ * file and re-verifies (max 2 rounds). Persistent failure is recorded to learned-constraints so
+ * future builds are pre-warned. Non-fatal if the verifier itself is unavailable (no Chromium).
+ */
+async function verifyAndRepairRender(
+    artifact: PrototypeArtifact,
+    fire: (stage: number, name: string, status: 'running' | 'done' | 'failed', detail?: string) => void,
+): Promise<PrototypeArtifact> {
+    const saveDraft = async (a: PrototypeArtifact) => {
         try {
-            // 2026-05-15 - `concept` is the load-bearing field: it carries the
-            // user's verbatim `#proto <name> #NU|#NXT` hashtag from the chat
-            // input. Without it the composer's parseProtoHashtag never sees the
-            // hashtag and the strict-rule injection silently no-ops. Order
-            // matters: concept first, then fall back to anything else that
-            // might carry the hashtag.
-            const userPrompt = String(
-                opts.concept ||
-                briefAny.user_prompt ||
-                briefAny.original_prompt ||
-                opts.researchGoal ||
-                opts.title ||
-                briefAny.concept_title ||
-                ''
-            );
-            const composerResult = await buildComposerInjection({
-                prompt: userPrompt,
-                concept: briefAny.concept_title || briefAny.one_line_thesis || briefAny.demonstrated_moment || opts.concept || '',
-                brand_override: brand === 'NU' ? 'nu' : 'nxt',
+            // The save route is POST /api/prototypes (NOT /api/prototypes/save - that 405s and
+            // silently disabled the render gate). This draft-save is what lets the headless
+            // audit render the real /view; CorpusChatPanel re-saves the verified artifact after.
+            const resp = await fetch(`${PROXY_BASE}/api/prototypes`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    slug: a.slug, title: a.title, concept: a.concept, brand: a.brand,
+                    code: a.code, code_format: a.code_format, brief: a.brief,
+                }),
             });
-            if (composerResult.active && composerResult.injection) {
-                stage4System = composerResult.injection + '\n\n' + stage4System;
-                console.log(
-                    `[Stage 4] STRICT COMPOSER active - experience="${composerResult.hashtag.experience_name}", ` +
-                    `brand=${composerResult.hashtag.brand}, ` +
-                    `recommended patterns=${composerResult.recommended_patterns.length}`,
-                );
-            } else {
-                // Composer is always-on; if active is false, the catalog load failed.
-                console.warn('[Stage 4] STRICT COMPOSER inactive - catalog load failed; Stage 4 falling back to free-form generation. Check /hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json is reachable.');
-            }
-        } catch (composerErr: any) {
-            console.warn('[Stage 4] composer injection failed, proceeding without:', composerErr?.message || composerErr);
-        }
-    } catch (exErr: any) {
-        console.warn('[Stage 4] exemplar curation failed, proceeding without injection:', exErr?.message || exErr);
-    }
-
-    let codeText: string;
-    try {
-        codeText = await callGeminiStage(
-            stage4System,
-            `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (EXECUTE VERBATIM - every micro-copy string, every screen's component tree, every verbatim AI prompt, every seed-record anchor):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsBlock}`,
-            false,
-            'max',
-            65536, // generous output budget for a substantial single-file component with real AI flows
-        );
-    } catch (e: any) {
-        fire(4, 'Prototype Coder', 'failed', e.message);
-        throw e;
-    }
-    let code = stripCodeFences(codeText);
-    fire(4, 'Prototype Coder', 'done', `${Math.round(code.length / 1024)}KB · thinking=high`);
-
-    // Stage 5 - audits the code against the build recipe's success_assertions
-    // in addition to the brief/spec/system checks.
-    fire(5, 'Critic + Refiner', 'running');
-    let critiqueText: string;
-    try {
-        const sessionsAuditBlock = simulatedSessions.length > 0
-            ? `\n\nSIMULATED USER SESSIONS - AUDIT THE CODE AGAINST EACH OF THESE (${simulatedSessions.length} total). For EACH session, determine: "Can this user complete their motivation in this prototype as built? If not, what's the SPECIFIC missing piece?" Compute coverage % and populate \`session_coverage\` in the critique JSON:\n${JSON.stringify(simulatedSessions, null, 2)}`
-            : '';
-        // Stage 5 - Critic
-        // 2026-05-15 - Reverted to Gemini-primary because OpenAI quota is
-        // exhausted. GPT-5.5 is the fallback. Will flip back to GPT-5.5-primary
-        // once OpenAI quota is restored.
-        const stage5User = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nSPEC:\n${JSON.stringify(spec, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nBUILD RECIPE (audit code compliance against every screen, every micro-copy string, every verbatim AI prompt, every seed-data target_count, and every success_assertion):\n${JSON.stringify(buildRecipe, null, 2)}${richBrief}${sessionsAuditBlock}\n\nCODE:\n${code}`;
+            if (!resp.ok) console.warn(`[Render Verify] draft save HTTP ${resp.status} - audit may be stale`);
+        } catch (e) { /* save failure is surfaced by the audit step below */ }
+    };
+    const auditOnce = async (): Promise<{ available: boolean; passed?: boolean; defects?: any; detail?: any } | null> => {
         try {
-            critiqueText = await callGeminiStage(
-                STAGE_5_SYSTEM,
-                stage5User,
-                true,
-                'max',
-                64000, // Stage 5 must traverse the entire recipe + code + up to 30 sessions and still fit failed_sessions[] descriptions
-            );
-        } catch (gemErr: any) {
-            console.warn(`[Stage 5] Gemini failed (${gemErr?.message || gemErr}) - falling back to GPT-5.5.`);
-            critiqueText = await callGpt55Stage(STAGE_5_SYSTEM, stage5User, true, 'max', 64000);
-        }
-    } catch (e: any) {
-        // Critic transport failure (HTTP/network) - return what we have
-        fire(5, 'Critic + Refiner', 'failed', e.message);
-        const fallbackCritique: CritiqueReport = {
-            verdict: 'ship',
-            summary: 'Critic stage failed; shipping unverified prototype.',
-            issues: [{ category: 'code_bug', severity: 'minor', description: `Critic failed: ${e.message}`, source_of_truth: 'meta', code_location: '-', fix: 'manual review' }],
-            corrected_code: null,
-        };
-        return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique: fallbackCritique });
-    }
-    // 2026-05-14 - JSON parse failure must NOT kill the build. Stages 1-4 + 3.5
-    // already succeeded; the prototype is in `code` and is shippable. If the
-    // critique JSON is unparseable even after truncation recovery, extract
-    // verdict/summary/coverage_pct heuristically and ship a partial critique.
-    let critique: CritiqueReport;
-    try {
-        critique = tryParseJson<CritiqueReport>(critiqueText, 'Stage 5');
-    } catch (parseErr: any) {
-        console.warn(`[Stage 5] JSON parse failed; extracting heuristic critique. ${parseErr?.message || parseErr}`);
-        critique = extractPartialCritique(critiqueText, parseErr?.message || String(parseErr));
-        fire(5, 'Critic + Refiner', 'done', `partial critique extracted (JSON malformed) - shipping prototype, mark for human review`);
-        return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique });
-    }
-    const coverageStr = critique.session_coverage
-        ? `coverage ${critique.session_coverage.coverage_pct}% (${critique.session_coverage.sessions_passed}/${critique.session_coverage.sessions_total})`
-        : '';
-    if (critique.verdict === 'refine' && critique.corrected_code) {
-        code = stripCodeFences(critique.corrected_code);
-        fire(5, 'Critic + Refiner', 'done', `refined - ${critique.issues?.length || 0} issues fixed${coverageStr ? ` · ${coverageStr}` : ''}`);
-    } else if (critique.verdict === 'rebuild') {
-        fire(5, 'Critic + Refiner', 'done', `rebuild flagged${coverageStr ? ` (${coverageStr})` : ''} - shipping anyway, mark for human review`);
-    } else {
-        fire(5, 'Critic + Refiner', 'done', `ship${coverageStr ? ` · ${coverageStr}` : ''}`);
-    }
+            const viewResp = await fetch(`${PROXY_BASE}/api/prototypes/${encodeURIComponent(artifact.slug)}/view`);
+            if (!viewResp.ok) return null;
+            const html = await viewResp.text();
+            const auditResp = await fetch(`${PROXY_BASE}/api/artifact/audit`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ html, kind: 'proto' }),
+            });
+            if (!auditResp.ok) return null;
+            return await auditResp.json();
+        } catch (e) { return null; }
+    };
+    const renderFatal = (rep: any) => !!rep && rep.available && !rep.passed
+        && (rep.defects?.blank || rep.defects?.runtime_error
+            || rep.defects?.nav_runtime_error || rep.defects?.nav_blank);
 
-    return finalize({ concept, brand, title: opts.title, basedOn: opts.basedOn, researchGoal: opts.researchGoal, brief, spec, simulatedSessions, designSystem, buildRecipe, code, critique });
+    fire(5, 'Render Verify (headless)', 'running');
+    await saveDraft(artifact);
+    let report = await auditOnce();
+    if (!report || !report.available) {
+        fire(5, 'Render Verify (headless)', 'done', `skipped (renderer unavailable${report ? '' : ' / no view'})`);
+        return artifact;
+    }
+    let rounds = 0;
+    while (renderFatal(report) && rounds < 2) {
+        rounds++;
+        const d = report.defects || {};
+        const navErr = report.detail?.nav?.error_detail || report.detail?.nav?.error_label;
+        const diag = [
+            d.blank ? `BLANK: the mount rendered ~no content (text=${report.detail?.blank?.mount_text_len}, els=${report.detail?.blank?.mount_els}).` : '',
+            d.runtime_error ? `RUNTIME ERROR on the landing screen: ${String(report.detail?.runtime_error || '').slice(0, 300)}` : '',
+            d.nav_runtime_error ? `RUNTIME ERROR on a NON-LANDING screen reached by navigation (the landing screen rendered fine - a Screen_X crashes only when navigated to). Stack: ${String(report.detail?.nav?.error_detail || '').slice(0, 300)}. Audit EVERY Screen_X, not just the first.` : '',
+            d.nav_blank ? `A screen reached by navigation rendered BLANK ("${report.detail?.nav?.blank_label || ''}"). That Screen_X returns nothing or its state branch is empty.` : '',
+            (d.overflow || d.overlap || d.crush) ? `Layout: overflow=${d.overflow} overlap=${d.overlap} crush=${d.crush}.` : '',
+        ].filter(Boolean).join('\n');
+        const kind = d.blank ? 'blank' : d.runtime_error ? 'runtime error' : d.nav_runtime_error ? 'nav-screen crash' : d.nav_blank ? 'nav-screen blank' : 'layout';
+        fire(5, 'Render Verify (headless)', 'running', `defect → repair ${rounds}/2: ${kind}`);
+        try {
+            const repairUser = `RENDER DEFECT (from headless Playwright):\n${diag}\n\nFULL CURRENT CODE:\n${artifact.code}`;
+            const text = await callClaudeStage(RENDER_REPAIR_SYSTEM, repairUser, 64000);
+            const parsed = tryParseJson<{ corrected_code?: string; summary?: string }>(text, 'Render Repair');
+            const fixed = parsed?.corrected_code ? stripCodeFences(parsed.corrected_code) : '';
+            if (fixed.includes('function App') && /Screen_\w+/.test(fixed) && fixed.length > 500) {
+                artifact.code = fixed;
+                await saveDraft(artifact);
+                report = await auditOnce() || report;
+            } else {
+                break; // repair produced nothing usable; stop and report below
+            }
+        } catch (e) { break; }
+    }
+    (artifact.critique as any).render_verification = {
+        passed: !!report?.passed, defects: report?.defects, repair_rounds: rounds,
+    };
+    if (renderFatal(report)) {
+        fire(5, 'Render Verify (headless)', 'failed', `still ${report.defects?.blank ? 'blank' : 'erroring'} after ${rounds} repair(s) - shipping with flag`);
+        // SELF-IMPROVEMENT: record the failure so future #proto builds are pre-warned.
+        try {
+            const constraint = `- CONSTRAINT [proto/render]: A #proto build shipped with a render defect (${report.defects?.blank ? 'BLANK mount' : 'runtime error'}) after ${rounds} repair attempts (slug=${artifact.slug}). The orchestrator/pod prompts must guarantee: root component named exactly App; state.activeScreen matches a built Screen_<id>; every screen binds only to defined state keys; no import/export/render() in emitted code. (source: headless render gate ${new Date().toISOString().slice(0, 10)})`;
+            await fetch(`${PROXY_BASE}/api/wiki/append`, {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ path: 'synthesis/learned-constraints.md', content: constraint }),
+            });
+        } catch (e) { /* non-fatal */ }
+    } else {
+        fire(5, 'Render Verify (headless)', 'done', `render OK${rounds ? ` (repaired ×${rounds})` : ''} · no blank/runtime defects`);
+    }
+    return artifact;
 }
 
 function finalize(args: {

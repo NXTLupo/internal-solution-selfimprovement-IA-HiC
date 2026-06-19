@@ -325,7 +325,9 @@ export function journeyBriefToStageHtml(brief: JourneyBriefLike, brand: GoldBran
 html,body{width:100%;height:100%;background:#080808;overflow:hidden}
 #stage{position:absolute;width:1920px;height:1080px;background:${T.paper};font-family:${T.bodyFont};color:${T.ink};transform-origin:top left}
 .rail{position:absolute;left:0;top:0;width:92px;height:100%;background:${T.rail}}
-.brand{position:absolute;top:46px;right:80px;font-family:${T.monoFont};font-size:14px;letter-spacing:6px;color:${T.muted}}
+.brandlogo{position:absolute;top:40px;right:80px;display:flex;align-items:center;gap:14px}
+.brandlogo svg{display:block}
+.brandlogo .wm{font-family:${T.bodyFont};font-weight:800;font-size:${brand === 'nu' ? '22px' : '25px'};letter-spacing:${brand === 'nu' ? '3px' : '0.5px'};color:${T.ink};text-transform:uppercase}
 .canvas{position:absolute;left:92px;top:0;right:0;bottom:0;padding:46px 80px 36px 72px;display:flex;flex-direction:column;gap:18px}
 .kicker{font-family:${T.monoFont};font-size:14px;letter-spacing:5px;color:${T.accent2};text-transform:uppercase}
 h1{font-family:${T.displayFont};font-weight:600;letter-spacing:-0.5px;font-size:44px;line-height:1.1;color:${T.ink};margin-top:6px}
@@ -353,7 +355,9 @@ h1{font-family:${T.displayFont};font-weight:600;letter-spacing:-0.5px;font-size:
 <body>
 <div id="stage">
   <div class="rail"></div>
-  <div class="brand">${brand === 'nu' ? 'NORTHEASTERN' : 'NXT&nbsp;&nbsp;HUMANS'}</div>
+  ${brand === 'nu'
+    ? `<div class="brandlogo"><svg viewBox="0 0 64 53" height="34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M55.9355 15.9871C55.9355 8.40004 58.4903 5.92262 63.6 3.98714V2.70972H46.8774V3.94843C51.9871 5.88391 54.5419 8.36133 54.5419 15.9484V38.2065L19.1226 4.41294C17.4968 2.90327 17.071 2.74843 16.0258 2.74843H2.70969V3.98714C5.65162 4.29681 7.39356 5.10972 11.6129 9.21294L13.2387 10.7613V36.1549C13.2387 43.742 10.6839 46.2194 5.5742 48.1549V49.3936H22.2968V48.1549C17.1871 46.2194 14.6323 43.742 14.6323 36.1549V11.9226L54.6968 49.6646H55.9355V15.9871Z" fill="${T.accent}"/></svg><span class="wm">NORTHEASTERN</span></div>`
+    : `<div class="brandlogo"><span class="wm">NXT HUMANS</span></div>`}
   <div class="canvas">
     <div>
       <div class="kicker">${_esc(brief.journey_type || 'JOURNEY')} BRIEF</div>

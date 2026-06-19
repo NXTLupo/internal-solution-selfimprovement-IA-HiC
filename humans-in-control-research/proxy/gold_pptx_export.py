@@ -52,12 +52,15 @@ MEASURE = r"""
   };
   const walk=(el)=>{
     if(el.tagName==='svg' || el.closest('svg')) return;
-    const bounds=Array.from(el.children).filter(k=>k.tagName==='svg' || isBlock(k));
+    // <br> is a RUN boundary: a Range's toString() drops <br>, so two <br>-separated lines
+    // (e.g. OWNED OUTCOMES list items) glue into one word ("sessionOutput"). Treat <br> like a
+    // block split so each line emits as its OWN run with its own geometry -> separate lines, no glue.
+    const bounds=Array.from(el.children).filter(k=>k.tagName==='svg' || k.tagName==='BR' || isBlock(k));
     const rg=document.createRange(); rg.selectNodeContents(el);
     if(bounds.length) rg.setEndBefore(bounds[0]);
     emit(rg, el);
     bounds.forEach((bk,i)=>{
-      if(bk.tagName!=='svg') walk(bk);
+      if(bk.tagName!=='svg' && bk.tagName!=='BR') walk(bk);
       const after=document.createRange(); after.setStartAfter(bk);
       if(i+1<bounds.length) after.setEndBefore(bounds[i+1]); else after.setEnd(el, el.childNodes.length);
       emit(after, el);
@@ -161,6 +164,61 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
         "slides": [{"runs": r} for r in per_slide_runs],
         "total_runs": sum(per_slide_runs),
     }
+
+
+def html_list_to_faithful_pptx(html_list: list, out_path: str) -> dict:
+    """FAITHFUL render (the #proto workflow): each composed 1920x1080 HTML stage is rendered in a
+    real browser with fonts loaded, then captured as ONE full-bleed image per slide - NO graphics/
+    text split, NO native-text re-render, NO font substitution. The exported pixels are identical to
+    the Analyst Desk preview because they ARE the same rendered HTML (logo SVG, Saira/Archivo/Lato,
+    every archetype layout - all baked from the actual render). This is the unified-vision / prototype
+    contract: the composed HTML is the single source of truth and the artifact is a faithful capture
+    of it, never a re-interpretation. Trade-off: the slide text is not natively editable (it is the
+    rendered image) - fidelity over editability, exactly as #proto.
+    """
+    from playwright.sync_api import sync_playwright
+    from pptx import Presentation
+    from pptx.util import Emu
+
+    if not isinstance(html_list, list) or len(html_list) == 0:
+        raise ValueError("html_list must be a non-empty list of HTML strings")
+
+    prs = Presentation()
+    prs.slide_width, prs.slide_height = Emu(int(13.333 * EMU)), Emu(int(7.5 * EMU))
+    shots = []
+    try:
+        with sync_playwright() as p:
+            b = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
+            try:
+                for stage_html in html_list:
+                    doc = stage_html.replace("</head>", RESET + "</head>", 1) if "</head>" in stage_html else RESET + stage_html
+                    tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
+                    tmp.write(doc); tmp.close()
+                    shot = tempfile.NamedTemporaryFile(suffix=".png", delete=False); shot.close()
+                    shots.append((tmp.name, shot.name))
+                    pg = b.new_page(viewport={"width": W, "height": H}, device_scale_factor=2)
+                    pg.goto("file://" + tmp.name.replace("\\", "/"), wait_until="networkidle", timeout=30000)
+                    try:
+                        pg.evaluate("async () => { await document.fonts.ready; }")
+                    except Exception:
+                        pass
+                    pg.wait_for_timeout(500)   # let webfonts + the inline logo SVG settle before capture
+                    pg.screenshot(path=shot.name, clip={"x": 0, "y": 0, "width": W, "height": H})
+                    pg.close()
+            finally:
+                b.close()
+        for _html_tmp, shot_png in shots:
+            slide = prs.slides.add_slide(prs.slide_layouts[6])
+            slide.shapes.add_picture(shot_png, 0, 0, width=Emu(int(13.333 * EMU)), height=Emu(int(7.5 * EMU)))
+        prs.save(out_path)
+    finally:
+        for html_tmp, shot_png in shots:
+            for f in (html_tmp, shot_png):
+                try:
+                    os.unlink(f)
+                except Exception:
+                    pass
+    return {"path": out_path, "slides": [{"runs": 0} for _ in html_list], "total_runs": 0, "mode": "faithful"}
 
 
 def _render_into_presentation(prs, html_list: list) -> list:
@@ -321,7 +379,10 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         pp.space_before = Pt(0); pp.space_after = Pt(0)
                         run = pp.add_run(); run.text = txt
                         run.font.name = r.get("family") or "Archivo"
-                        run.font.size = Pt(max(5, _size_px * PX2PT))
+                        # 2026-06-14 - editable-overlay floor raised 5->8pt to match the
+                        # redesign's 8.5pt legibility floor (the renderer now sizes all text
+                        # at >=17 stage px); guarantees the PPTX text layer never undercuts it.
+                        run.font.size = Pt(max(8, _size_px * PX2PT))
                         run.font.bold = (r.get("weight", 400) >= 600)
                         run.font.italic = bool(r.get("italic"))
                         run.font.color.rgb = RGBColor.from_string(r.get("color") or "141414")
@@ -352,6 +413,10 @@ def _embed_gold_fonts(pptx_path: str) -> None:
             {"typeface": "Lora", "pitchFamily": 18, "charset": 0, "regular": "Lora.ttf"},
             {"typeface": "IBM Plex Mono", "pitchFamily": 49, "charset": 0,
              "regular": "IBMPlexMono-Regular.ttf", "bold": "IBMPlexMono-SemiBold.ttf"},
+            # NXT display/title face. Was MISSING from FONT_FAMILIES, so PowerPoint substituted
+            # Calibri/Arial for every Saira-Condensed title in the editable export.
+            {"typeface": "Saira Condensed", "pitchFamily": 34, "charset": 0,
+             "regular": "SairaCondensed-Regular.ttf", "bold": "SairaCondensed-SemiBold.ttf"},
         ]
         have = {f.get("typeface") for f in pe.FONT_FAMILIES}
         pe.FONT_FAMILIES = pe.FONT_FAMILIES + [f for f in extra if f["typeface"] not in have]

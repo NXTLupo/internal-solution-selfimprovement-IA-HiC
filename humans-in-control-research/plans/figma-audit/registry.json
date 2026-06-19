@@ -1,0 +1,95 @@
+{
+  "_meta": {
+    "source": "Figma file iSQhAVM7SI4QHAWB7y9C2z, NXT mode 221:0 / NU mode 535:0",
+    "audited": "2026-06-16",
+    "contract": "SPA does NOT instance Figma at runtime; components are design canon, mirrored into figma-tokens.json + renderer twins. registry is the machine-checkable parity contract.",
+    "sharedBrick": "92px rail (SLIDES=128px), 3x3 accent dot-mark, Brand/Logo masthead 619:2, cyan IBM-Plex-Mono kicker, Archivo-SemiBold action title, body region, accent/ink takeaway band"
+  },
+  "foundation": {
+    "tokensNode": "223:2",
+    "collection": "221:2",
+    "modes": { "NXT": "221:0", "NU": "535:0" },
+    "densityCollection": "537:2",
+    "logoComponent": "619:2",
+    "railPx": { "gold": 92, "slides": 128 }
+  },
+  "_slideArchetypes": {
+    "_note": "The SLIDES-system archetypes from Figma page 324:2 (NXT symbols 609:x / NU mode instances 626:x). These are the deck-native presentation archetypes the model should select among for #slides decks (distinct from the GOLD artifact templates in `deliverables`). `template` is the types.ts SlideTemplate key (or null if not yet a first-class template); `renderer` = present|variant|MISSING. figmaRegistryParity.test.ts asserts every present/variant archetype has a renderer + protocol entry, and lists MISSING ones as the tracked build gap. when_to_use is surfaced to the model so it selects the right archetype with variety (no repeating one template).",
+    "archetypes": {
+      "cover":             { "nxt": "609:2",  "nu": "626:2",   "template": "cover",             "renderer": "MISSING", "when_to_use": "deck opener: title, subtitle, brand mark" },
+      "agenda":            { "nxt": "609:3",  "nu": "626:15",  "template": "agenda",            "renderer": "MISSING", "when_to_use": "table of contents / what this deck covers, after the cover" },
+      "section-divider":   { "nxt": "609:4",  "nu": "626:36",  "template": "section-divider",   "renderer": "present", "when_to_use": "full-bleed divider between major sections" },
+      "thesis-interstitial":{ "nxt": "609:5", "nu": "626:49",  "template": "section-divider",   "renderer": "variant", "when_to_use": "one-line interstitial thesis (SectionDividerData.variant='thesis')" },
+      "stat-row":          { "nxt": "609:6",  "nu": "626:61",  "template": "stat-row",          "renderer": "present", "when_to_use": "3-4 anchor numbers with meaning + convergent insight" },
+      "block-quote":       { "nxt": "609:7",  "nu": "626:95",  "template": "block-quote",       "renderer": "present", "when_to_use": "a single voice/verbatim quote carrying the point" },
+      "numbered-themes":   { "nxt": "609:8",  "nu": "626:124", "template": "numbered-themes",   "renderer": "MISSING", "when_to_use": "3-6 numbered points/themes/profiles each with a short body - the natural fit for 'profile N apps/items'" },
+      "evidence-table":    { "nxt": "609:9",  "nu": "626:158", "template": "evidence-table",    "renderer": "MISSING", "when_to_use": "two-tier table comparing items across columns (peer measures, feature matrix)" },
+      "problem-diptych":   { "nxt": "609:10", "nu": "626:213", "template": "principles",        "renderer": "variant", "when_to_use": "two contrasting halves (PrinciplesData.variant='diptych')" },
+      "org-model":         { "nxt": "609:11", "nu": "626:236", "template": "org-model",         "renderer": "MISSING", "when_to_use": "three crisp columns describing a model/structure (NOT the org-chart tier matrix)" },
+      "role-needs":        { "nxt": "609:12", "nu": "626:286", "template": "role-needs",        "renderer": "MISSING", "when_to_use": "one role's challenges/needs (role-grid G1)" },
+      "role-recommendation":{ "nxt": "609:13","nu": "626:324", "template": "role-recommendation","renderer": "MISSING", "when_to_use": "one role's recommendations as impact cards (role-grid G2)" },
+      "role-roadmap":      { "nxt": "609:14", "nu": "626:367", "template": "role-roadmap",      "renderer": "MISSING", "when_to_use": "one role's phased roadmap (role-grid G3)" },
+      "aggregate-roadmap": { "nxt": "609:15", "nu": "626:425", "template": "aggregate-roadmap", "renderer": "MISSING", "when_to_use": "one roadmap across multiple roles/horizons (role rows x horizon columns)" }
+    },
+    "missing_renderers": ["cover", "agenda", "numbered-themes", "evidence-table", "org-model", "role-needs", "role-recommendation", "role-roadmap", "aggregate-roadmap"]
+  },
+  "_templateMap": {
+    "_note": "deliverable -> the FIRST-CLASS slide template-key it renders through. firstClass[] each have a types.ts SlideTemplate discriminant + a dispatch case in slideToStageHtml.ts switch + a TEMPLATE_PAYLOAD entry (asserted by figmaRegistryParity.test.ts). variants[] render via a PREDICATE inside a base renderX (dense/detail/index/spotlight) - no own dispatch case; they assert their baseTemplate instead. Verified 2026-06-16.",
+    "firstClass": {
+      "case-study": "case-study",
+      "journey-map": "journey-map",
+      "service-blueprint": "service-blueprint",
+      "themes": "theme-cluster",
+      "recommendations": "recommendation",
+      "executive-brief": "executive-brief",
+      "roadmap": "timeline",
+      "strategy": "recommendation",
+      "tech-audit": "systems-inventory",
+      "tech-architecture": "architecture-map",
+      "prd": "prd-feature",
+      "personas": "persona-card",
+      "competitive": "competitive-matrix",
+      "gap": "gap-matrix",
+      "org-chart": "org-chart"
+    },
+    "variants": {
+      "theme-index": "theme-cluster",
+      "prd-dense": "prd-feature",
+      "competitive-dense": "competitive-matrix",
+      "stat-row-dense": "stat-row",
+      "block-quote-dense": "block-quote",
+      "persona-detail": "persona-card",
+      "journey-phase-spotlight": "journey-map",
+      "slides-system": "section-divider"
+    },
+    "alsoEmits": {
+      "themes": ["theme-arc", "theme-mosaic", "theme-spotlight"],
+      "strategy": ["principles"]
+    }
+  },
+  "deliverables": {
+    "case-study": { "nxtComponents": ["585:2", "588:4", "588:5", "588:6", "588:7"], "nuInstances": ["625:169", "625:2", "625:94", "625:249", "625:314"], "page": "184:159", "codeTwins": ["web.tsx CaseStudySlide", "slideToStageHtml renderCaseStudy", "pptx.ts"], "defects": ["588:4 cyan borders raw #00b7c3"] },
+    "journey-map": { "nxtComponents": ["595:6", "595:4", "595:5"], "nuInstances": ["625:1426", "625:1082", "625:1263"], "page": "75:2", "codeTwins": ["web.tsx JourneyMapSlide", "slideToStageHtml renderJourneyMap", "pptx.ts exportJourneyMap"], "defects": [] },
+    "service-blueprint": { "nxtComponents": ["608:2", "608:4"], "nuInstances": ["625:3610", "625:3935"], "page": "72:2", "codeTwins": ["web.tsx", "slideToStageHtml renderBlueprint"], "defects": [] },
+    "themes": { "nxtComponents": ["590:12", "590:13", "590:9", "590:11"], "nuInstances": ["625:654", "625:722"], "page": "69:2", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": [] },
+    "theme-index": { "nxtComponents": ["614:12"], "nuInstances": ["626:1407"], "page": "323:71", "codeTwins": ["slideToStageHtml theme-index"], "defects": [] },
+    "recommendations": { "nxtComponents": ["614:5"], "nuInstances": ["626:845"], "page": "319:2", "codeTwins": ["web.tsx", "slideToStageHtml renderRecommendation"], "defects": [], "note": "dense IS canonical; no separate base frame" },
+    "executive-brief": { "nxtComponents": ["366:2"], "nuInstances": ["294:2"], "page": null, "codeTwins": ["web.tsx ExecutiveBriefSlide", "slideToStageHtml renderExecutiveBrief"], "defects": ["RAW FRAME not componentized", "literal-text masthead 367:2 will not NU-flip"] },
+    "roadmap": { "nxtComponents": ["599:2", "599:3"], "nuInstances": ["625:2262", "625:2370"], "page": "126:159", "codeTwins": ["web.tsx", "slideToStageHtml renderRoadmap"], "defects": ["base 599:2 literal borders"] },
+    "strategy": { "nxtComponents": ["604:2", "604:3"], "nuInstances": ["625:2797", "625:2894"], "page": "148:159", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": [] },
+    "tech-audit": { "nxtComponents": ["605:2", "605:3"], "nuInstances": ["625:2953", "625:3048"], "page": "153:159", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": [] },
+    "tech-architecture": { "nxtComponents": ["606:2"], "nuInstances": ["625:3115"], "page": "156:159", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": ["raster SVG connectors (collision ban)", "literal borders"] },
+    "prd": { "nxtComponents": ["607:2", "607:3", "607:4", "607:5"], "nuInstances": ["625:3240", "625:3531"], "page": "161:159", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": [] },
+    "prd-dense": { "nxtComponents": ["614:9"], "nuInstances": ["626:1165"], "page": "322:49", "codeTwins": ["slideToStageHtml prd-dense"], "defects": [] },
+    "personas": { "nxtComponents": ["614:10"], "nuInstances": ["626:1246"], "page": "322:123", "codeTwins": ["web.tsx PersonaCard", "slideToStageHtml"], "defects": [] },
+    "persona-detail": { "nxtComponents": ["602:2", "602:3"], "nuInstances": ["625:2524"], "page": "119:159", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": [] },
+    "competitive": { "nxtComponents": ["603:2", "603:3"], "nuInstances": ["625:2596"], "page": "131:159", "codeTwins": ["web.tsx", "slideToStageHtml"], "defects": [] },
+    "competitive-dense": { "nxtComponents": ["614:7"], "nuInstances": ["626:971"], "page": "321:56", "codeTwins": ["slideToStageHtml competitive-dense"], "defects": [] },
+    "stat-row-dense": { "nxtComponents": ["614:6"], "nuInstances": ["626:910"], "page": "321:2", "codeTwins": ["slideToStageHtml stat-row-dense"], "defects": [] },
+    "block-quote-dense": { "nxtComponents": ["614:8"], "nuInstances": ["626:1111"], "page": "322:2", "codeTwins": ["slideToStageHtml block-quote-dense"], "defects": [] },
+    "gap": { "nxtComponents": ["598:2", "598:3"], "nuInstances": ["625:1934"], "page": "62:2", "codeTwins": ["web.tsx", "slideToStageHtml renderGap", "pptx.ts"], "defects": ["target markers raw #00b7c3"] },
+    "org-chart": { "nxtComponents": ["610:2"], "nuInstances": ["mode-twin x=2220"], "page": "299:2", "codeTwins": ["web.tsx OrgChartSlide", "slideToStageHtml renderOrgChart", "pptx.ts exportOrgChart"], "defects": [] },
+    "journey-phase-spotlight": { "nxtComponents": ["614:11"], "nuInstances": ["mode-twin"], "page": "323:2", "codeTwins": ["slideToStageHtml phase-spotlight"], "defects": [] },
+    "slides-system": { "nxtComponents": ["609:2", "609:3", "609:4", "609:5", "609:6", "609:7", "609:8", "609:9", "609:10", "609:11", "609:12", "609:13", "609:14", "609:15"], "nuInstances": ["mode-twins"], "page": "324:2", "codeTwins": ["web.tsx", "slideToStageHtml", "goldPreviews"], "defects": [] }
+  }
+}

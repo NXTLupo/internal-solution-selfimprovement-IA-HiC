@@ -1,0 +1,111 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: phone, number, whatsapp, calls, voice, phone number, business
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+* One dedicated business number (I have already bought one)
+* Clients and vendors can reach us through:
+   * Regular phone calls
+   * SMS/text messages
+   * WhatsApp messages
+   * WhatsApp voice calls (I understand that may be tricky - so I'm okay not to have it)
+
+EXAMPLE 2:
+Second phone number Hello, I was curious how I can get a new phone number. I want to start a small business soon and I want a new phone number that I can use for it and my social media accounts so I can stay more private. I don’t know how to get a second phone number and if it’s possible to get it online.  Separate Google/Gmail and a Google voice number like the other comment said. You can also get cheap sim cards with a year of service very cheap so you have a separate number you can use with Google voice and you can put the sim card in any old phone 
+If you’re in the US, the easy starter ans [...]
+
+EXAMPLE 3:
+Two small gotchas: don’t use a number you might lose for important 2FA/logins, and record a basic voicemail greeting before you put it anywhere public. A surprising number of new businesses get calls and then sound unfinished because the phone side was an afterthought.
+
+EXAMPLE 4:
+If Aircall or JustCall feel a bit too pricey, pairing a shared inbox tool like Missive with a lightweight VoIP provider is another popular, affordable way to build a custom on-call schedule without the clunky call-center bloat.
+Do not try to make WhatsApp voice part of the same routing rule. WhatsApp messages can sit in a shared inbox, but voice calls are the piece most tools cannot hand off cleanly through the Business API. Pick the system based on shift ownership, call/SMS routing, and thread history first, then treat WhatsApp voice as a separate fallback path. [...]
+
+EXAMPLE 5:
+I have a trade business, my phone number is our point of contact. It relies on me and only me, if im busy its missed calls lost text messages. Days to get back to people lost work forgetting information whilst driving.
+
+EXAMPLE 6:
+If you want something that feels more “business” from day one, look at OpenPhone, Grasshopper, or your cell carrier’s second-line option. The paid ones are better if you’ll have multiple people answering later, need cleaner voicemail, or want better call history.
+
+EXAMPLE 7:
+And Meta's business API does not allow any third party software to receive inbound WhatsApp voice calls, so you will only be able to handle WhatsApp text and media no matter which platform you choose.
+
+EXAMPLE 8:
+A 1300 number or VoIP system can help, but it will not fix the core issue by itself. Right now every call, text, voicemail, and job detail depends on you personally seeing it, remembering it, and getting back to it while you are on site.
+
+EXAMPLE 9:
+We're a small team, so we don't need a full call center solution. Most of the time, only one person will be responsible for customer support and emergency assistance.
+
+EXAMPLE 10:
+When an agent is on duty, **all incoming communications (calls, SMS, WhatsApp messages, and ideally WhatsApp calls) should be routed to that person automatically.**
+
+EXAMPLE 11:
+What systems can we run that allows text messaging at no cost. Multiple people to receive and make calls, i would hope transcripts some one to track everything in one spot?  I would separate the phone number choice from the intake process.
+
+EXAMPLE 12:
+I was going to go a 1300 number with systems like 3cx. My issue is I receive a lot of text messages, and don't want to pass costs on to customers. Our service provider has changed message bank as well, to limit 99 missed calls. In less than a couple of days its full.
+
+EXAMPLE 13:
+If your wife is jumping in part time, I would pick the tool around whether she can see the whole thread and job context quickly, not just whether it can ring two phones.
+How much are willing to spend monthly? There are tons of options to solve this and get a 1300 number..plus there are things which can remind you for important messages missed like customer asking you to visit the site …dm me
+Budget is flexible depending on what gains are to be had. Not paying $1000 a month to not fully resolve our issue.
+
+EXAMPLE 14:
+1. One shared business number or shared inbox that both you and your wife can see.
+2. Every missed call and text turned into a callback task with a simple status: new, replied, booked, waiting on customer, not a fit.
+3. Notes or transcripts attached to the customer or job, not stuck in a separate phone app.
+4. A different path for current customers and booked jobs, so they do not compete with new quote requests.
+5. A same day follow up rule. If it does not get owned that day, it will keep turning into lost work.
+
+EXAMPLE 15:
+ChatGPT recommended Ringover to me, but I saw terrible reviews online, especially on Reddit... I saw good reviews for Twilio on Reddit, but ChatGPT told me it requires some development, and is too complex for my basic needs.
+
+EXAMPLE 16:
+A virtual receptionist is only impersonal if they pretend to be the business. For trades, the useful job is simple: answer, get the name, address, problem, timing, photos if needed, then hand you or your wife a clean callback or task.
+
+EXAMPLE 17:
+I'm the owner of a small travel agency (DMC) based in a Europe. We create custom tours for travelers mainly coming from North America.
+
+EXAMPLE 18:
+Both offer a unified inbox and let you set up strict time-based routing rules so Agent A's app rings during their shift and Agent B takes over smoothly afterward.
+
+EXAMPLE 19:
+* Agent A is on duty from Monday 10:00 AM to Sunday 10:00 AM
+* Agent B is on duty from Sunday 10:00 AM to Wednesday 10:00 AM
+* Etc.
+
+EXAMPLE 20:
+Has anyone implemented something similar? What software or combination of tools would you recommend?
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

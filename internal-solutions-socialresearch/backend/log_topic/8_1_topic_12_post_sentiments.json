@@ -1,34 +1,70 @@
 {
-  "1tcnh9r": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.7282155863940716
+  "1u8xy8k": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.2085476778447628
   },
-  "1rzlowr": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.2735084940989812
+  "1u876e4": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.3806205624714494
   },
-  "1rl0i9d": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.8257714435458183
+  "1u7r9ft": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.24931717291474342
   },
-  "1rjyrms": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.858386299572885
+  "1u7nr2o": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.7376664709299803
   },
-  "1rjry8z": {
+  "1u6suzi": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.1716245859861374
+    "sentiment_score": -0.25375722721219063
   },
-  "1qnp009": {
+  "1u6w2q3": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.4267077585682273
+  },
+  "1u6kbdi": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.18615731596946716
+  },
+  "1u5t55q": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.7274609766900539
+  },
+  "1u31qbv": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.5588410571217537
+    "sentiment_score": -0.31524550914764404
   },
-  "1qbubd4": {
+  "1u3o8z9": {
     "sentiment_category": "neutral",
-    "sentiment_score": -0.04128064215183258
+    "sentiment_score": 0.07297293841838837
   },
-  "1qbf9db": {
+  "1u33viw": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.22948992997407913
+  },
+  "1u394ir": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.568379970267415
+    "sentiment_score": -0.4414539933204651
+  },
+  "1u2u335": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.18216359987854958
+  },
+  "1u37ymp": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.10305134952068329
+  },
+  "1u2p060": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.16556160897016525
+  },
+  "1u2mr2v": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.16498040780425072
+  },
+  "1u27298": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.3088575676083565
   }
 }

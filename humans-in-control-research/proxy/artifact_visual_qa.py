@@ -79,12 +79,30 @@ _QA_JS = r"""
     if(ox*oy>150)overlap++;
   }
 
+  // 6. BLANK (2026-06-16): "nothing rendered" is a layout defect too. After JS has
+  //    run, the mount target must carry real content. A blank prototype (React failed
+  //    to mount, no root component, or an empty App) shows ~0 visible text and only a
+  //    stray icon. Measure the mount root (#root for prototypes, else body): visible
+  //    text length + the count of rendered, visible, non-chrome element nodes.
+  const mount = document.getElementById('root') || document.body;
+  const mountText = (mount && (mount.innerText || '').trim()) || '';
+  let mountEls = 0;
+  if (mount) mount.querySelectorAll('*').forEach(el => {
+    if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') return;
+    if (vis(el)) mountEls++;
+  });
+  // 7. RUNTIME ERROR: the /view wrapper appends a .__hic_proto_error block on any
+  //    window error (Babel/React mount failure). Its presence is a hard defect.
+  const protoError = document.querySelector('.__hic_proto_error');
+
   return {
     clientWidth: iw,
     horizScroll: document.documentElement.scrollWidth > iw+2,
     crush: crush.slice(0,12), crushCount: crush.length,
     overflow: overflow.slice(0,12), overflowCount: overflow.length,
     asymmetry, meterMisuse: meter, overlapCount: overlap,
+    mountTextLen: mountText.length, mountEls: mountEls,
+    protoError: protoError ? (protoError.textContent || '').slice(0, 400) : null,
   };
 }
 """
@@ -98,10 +116,80 @@ def _enforcement_style() -> str:
         return ""
 
 
-def audit_html(html: str, viewport: int = 1440, height: int = 1000) -> dict:
+# Per-screen re-check after a nav click: did the mount error, or go blank?
+_NAV_CHECK_JS = r"""
+() => {
+  const m = document.getElementById('root') || document.body;
+  const t = (m && (m.innerText || '').trim()) || '';
+  let els = 0;
+  if (m) m.querySelectorAll('*').forEach(el => {
+    if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') return;
+    const r = el.getBoundingClientRect();
+    if (r.width > 0 && r.height > 0 && el.offsetParent !== null) els++;
+  });
+  const err = document.querySelector('.__hic_proto_error');
+  return { textLen: t.length, els: els, protoError: err ? (err.textContent || '').slice(0, 300) : null };
+}
+"""
+
+
+def _probe_nav(page, max_clicks: int = 12) -> dict:
+    """Click each distinct nav/interactive control and re-check the mount. Catches screens that
+    render or interact only on navigation - the gate's blind spot (it only renders the landing
+    screen). The /view wrapper appends .__hic_proto_error on ANY window error and never clears it,
+    so the FIRST click that errors is the culprit; we record it and stop. Best-effort + bounded;
+    a click that can't fire (covered/detached) is skipped, not a defect."""
+    out = {"clicked": 0, "screens": [], "error_label": None, "blank_label": None}
+    # Prefer chrome nav; fall back to any button/link. Pod apps route via AppLayout nav buttons.
+    selectors = (
+        'nav button, nav a, aside button, aside a, [class*="rail"] button, [class*="sidebar"] button, '
+        '[class*="nav"] button, [role="tab"], [role="button"]'
+    )
+    try:
+        handles = page.query_selector_all(selectors)
+    except Exception:
+        handles = []
+    if not handles:
+        try:
+            handles = page.query_selector_all('button, a[href]')
+        except Exception:
+            handles = []
+    seen = set()
+    for h in handles:
+        if out["clicked"] >= max_clicks:
+            break
+        try:
+            label = (h.inner_text() or "").strip()[:48]
+        except Exception:
+            label = ""
+        key = label or f"_h{len(seen)}"
+        if key in seen:
+            continue
+        seen.add(key)
+        try:
+            h.click(timeout=1500)
+            page.wait_for_timeout(180)
+            r = page.evaluate(_NAV_CHECK_JS)
+        except Exception:
+            continue  # could not click (covered/detached) - not a defect
+        out["clicked"] += 1
+        out["screens"].append({"label": label, "textLen": r.get("textLen"), "els": r.get("els"), "err": bool(r.get("protoError"))})
+        if r.get("protoError"):
+            out["error_label"] = label
+            out["error_detail"] = r.get("protoError")
+            break  # error block is sticky; first culprit found, stop
+        if (r.get("textLen") or 0) < 40 and (r.get("els") or 0) < 8 and not out["blank_label"]:
+            out["blank_label"] = label
+    return out
+
+
+def audit_html(html: str, viewport: int = 1440, height: int = 1000, click_through: bool = False) -> dict:
     """Render `html` in headless Chromium and return a structured defect report.
     Renders WITH the serve-time enforcement CSS so it audits exactly what the user
-    sees. Returns {available: False, ...} if Chromium is unavailable (never raises)."""
+    sees. click_through=True (set for kind='proto') additionally clicks each nav/interactive
+    control and re-checks the mount, so a screen that errors or goes blank ONLY on navigation is
+    caught - the gate previously verified the landing screen alone. Returns {available: False, ...}
+    if Chromium is unavailable (never raises)."""
     if not html:
         return {"available": False, "reason": "empty html"}
     try:
@@ -130,6 +218,7 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000) -> dict:
             except Exception:
                 pass
             data = page.evaluate(_QA_JS)
+            nav = _probe_nav(page) if click_through else None
             browser.close()
     except Exception as e:
         return {"available": False, "reason": f"render: {e}"}
@@ -142,7 +231,21 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000) -> dict:
     if not data:
         return {"available": False, "reason": "no data"}
     asym = data.get("asymmetry") or {}
+    # BLANK: after JS, the mount carries essentially no content (React failed to mount,
+    # no root component, empty App). A real artifact/prototype has hundreds of chars +
+    # many visible nodes; a blank shows ~0 text and a stray icon or two.
+    mount_text = data.get("mountTextLen", 0)
+    mount_els = data.get("mountEls", 0)
+    blank = 1 if (mount_text < 40 and mount_els < 8) else 0
+    runtime_error = 1 if data.get("protoError") else 0
+    # NAV COVERAGE: a screen that errors/blanks only AFTER navigation (the gate's blind spot).
+    nav_runtime_error = 1 if (nav and nav.get("error_label") is not None) else 0
+    nav_blank = 1 if (nav and nav.get("blank_label")) else 0
     defects = {
+        "blank": blank,
+        "runtime_error": runtime_error,
+        "nav_runtime_error": nav_runtime_error,
+        "nav_blank": nav_blank,
         "crush": data.get("crushCount", 0),
         "overflow": data.get("overflowCount", 0),
         "overlap": data.get("overlapCount", 0),
@@ -150,7 +253,9 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000) -> dict:
         "margin_asymmetry": asym.get("delta", 0) if asym else 0,
         "horizontal_scroll": bool(data.get("horizScroll")),
     }
-    passed = (defects["crush"] == 0 and defects["overflow"] == 0 and defects["overlap"] == 0
+    passed = (defects["blank"] == 0 and defects["runtime_error"] == 0
+              and defects["nav_runtime_error"] == 0 and defects["nav_blank"] == 0
+              and defects["crush"] == 0 and defects["overflow"] == 0 and defects["overlap"] == 0
               and defects["meter_misuse"] == 0 and defects["margin_asymmetry"] <= 8
               and not defects["horizontal_scroll"])
     return {
@@ -158,6 +263,9 @@ def audit_html(html: str, viewport: int = 1440, height: int = 1000) -> dict:
         "passed": passed,
         "defects": defects,
         "detail": {
+            "blank": {"mount_text_len": mount_text, "mount_els": mount_els},
+            "runtime_error": data.get("protoError"),
+            "nav": nav,
             "crush": data.get("crush", []),
             "overflow": data.get("overflow", []),
             "meterMisuse": data.get("meterMisuse", []),

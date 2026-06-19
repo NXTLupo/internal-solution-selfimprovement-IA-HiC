@@ -7,7 +7,7 @@
 
 import React, { useEffect, useState, useRef, useMemo, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { fetchPayload } from './payloadFetcher';
+import { fetchPayload, PROXY_URL } from './payloadFetcher';
 import type { PresentationPayload, PresentationSection } from './types';
 import { ParallaxBackground } from './components/ParallaxBackground';
 import { SideNav } from './components/SideNav';
@@ -260,7 +260,72 @@ const SectionWrapper: React.FC<{
   const headlineScale = useTransform(scrollYProgress, [0, 0.3, 0.7], [1.6, 1, 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0.6]);
 
+  // 2026-06-17 — supporting illustration (Illustrator skill). PLACEMENT IS
+  // DETERMINISTIC AND COLLISION-FREE BY CONSTRUCTION: the art lives in its own
+  // grid track (side) or its own stacked block (hero) — never absolutely
+  // positioned over text. Only the faint `backdrop` safety-net is absolute, and
+  // it is a low-opacity wash that cannot compete with content. Layout doctrine
+  // (which kind gets which placement, and the parallax rationale) is documented
+  // in .claude/skills/illustrator/SKILL.md.
+  //
+  // Parallax: the art drifts gently AGAINST the scroll (a depth cue — it reads
+  // as sitting behind the text plane), and fades in/out with the section. It
+  // stays entirely inside its own zone, so the drift never crosses the text.
+  const illoRel = (section.data as Record<string, unknown>)?.illustration;
+  const illoSrc = (typeof illoRel === 'string' && illoRel)
+    ? (illoRel.startsWith('http') ? illoRel : `${PROXY_URL}${illoRel}`)
+    : null;
+  const illoDrift = useTransform(scrollYProgress, [0, 1], ['6%', '-6%']);
+  const illoOpacity = useTransform(scrollYProgress, [0, 0.25, 0.85, 1], [0, 1, 1, 0.55]);
+
+  // Text-light narrative kinds share a two-column row (text + art, no overlap).
+  // The hero stacks a focal graphic above the centered title. Data-dense kinds
+  // never get a side column; if one carries art it falls back to a faint wash.
+  const SIDE_KINDS = new Set(['context', 'cta', 'quotes']);
+  const layoutMode: 'stack' | 'side' | 'backdrop' | 'none' =
+    !illoSrc ? 'none'
+      : section.kind === 'hero' ? 'stack'
+        : SIDE_KINDS.has(section.kind) ? 'side'
+          : 'backdrop';
+
   const Component = SECTION_REGISTRY[section.kind] || PlaceholderSection;
+  const inner = (
+    <Component
+      data={section.data as any}
+      headlineScale={headlineScale as any}
+      index={index}
+      total={total}
+      payload={payload}
+    />
+  );
+
+  let body: React.ReactNode = inner;
+  if (layoutMode === 'side') {
+    // Editorial split: a generous text measure on the left and a LARGE art panel that fills the
+    // vertical rhythm and anchors to the outer (right) edge - not a small contained sticker. Two
+    // real grid tracks mean text can never enter the art track (collision-free by construction).
+    body = (
+      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) clamp(400px, 48%, 680px)', gap: 'clamp(16px, 2.5vw, 44px)', alignItems: 'center' }}>
+        <div style={{ minWidth: 0, maxWidth: '620px' }}>{inner}</div>
+        <motion.img
+          src={illoSrc!} alt="" aria-hidden="true" data-illustration="1"
+          style={{ y: illoDrift, opacity: illoOpacity, width: '100%', height: 'clamp(440px, 80vh, 840px)', objectFit: 'contain', justifySelf: 'center', pointerEvents: 'none' }}
+        />
+      </div>
+    );
+  } else if (layoutMode === 'stack') {
+    // Hero: a large, confident focal mark sitting close above the centered title (normal flow, no
+    // overlap). Scaled up + tight rhythm so the line art and the title read as one composition.
+    body = (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'clamp(8px, 1.5vh, 24px)' }}>
+        <motion.img
+          src={illoSrc!} alt="" aria-hidden="true" data-illustration="1"
+          style={{ y: illoDrift, opacity: illoOpacity, width: 'min(74vw, 780px)', maxHeight: '56vh', objectFit: 'contain', pointerEvents: 'none' }}
+        />
+        {inner}
+      </div>
+    );
+  }
 
   return (
     <section
@@ -272,16 +337,21 @@ const SectionWrapper: React.FC<{
         minHeight: '100vh',
         padding: '96px 24px',
         zIndex: 1,
+        overflow: 'hidden',
       }}
     >
-      <motion.div style={{ opacity, maxWidth: '1440px', margin: '0 auto' }}>
-        <Component
-          data={section.data as any}
-          headlineScale={headlineScale as any}
-          index={index}
-          total={total}
-          payload={payload}
+      {layoutMode === 'backdrop' && (
+        <motion.img
+          src={illoSrc!} alt="" aria-hidden="true" data-illustration="1"
+          style={{
+            position: 'absolute', right: 'clamp(-32px, -1vw, 0px)', top: '50%', translateY: '-50%',
+            y: illoDrift, width: 'clamp(280px, 28vw, 440px)', maxHeight: '58vh', objectFit: 'contain',
+            opacity: 0.12, zIndex: 0, pointerEvents: 'none',
+          }}
         />
+      )}
+      <motion.div style={{ opacity, maxWidth: '1440px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+        {body}
       </motion.div>
     </section>
   );

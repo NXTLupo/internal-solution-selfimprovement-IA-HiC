@@ -1,83 +1,79 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: account, transaction, money, purchase, settlement fund, vanguard, brokerage
+- Top keywords: website, site, business, wordpress, page, free, wix
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Click on your account. Click on Transact. Select Buy Mutual Funds or Trade ETFs and Stocks. From there, you're just buying what you want and the amount available for purchases is just the amount in your Settlement Fund.
+For many small businesses, even a simple 5-page WordPress site with proper local SEO and conversion tracking is enough. If there’s no traffic plan or conversion goal, then yes, it becomes just an expensive brochure.
+“Claude, make me a high converting website for my business.”
 
 EXAMPLE 2:
-As to your question, if you successfully deposited $200 into your Vanguard brokerage account, it should still be there in some form. What does the account balance say at the top level? Vanguard brokerage accounts don't hold 'cash' -- any funds not allocated to a particular investment are held in a money market account (VMFXX) until you need them, but that is for all intents and purposes basically cash with a decent interest rate.
+SIDE NOTE - this below does not need to be on website now but it’s something I currently am working on the side for
 
 EXAMPLE 3:
-Buying funds through my Roth IRA I thought it was possible to purchase funds through my Vanguard Roth IRA account. But When I try to do so, it tells me I must go through my settlement fund to do so as I've already maxed out my contribution for this year. Understandable. But I cannot seem to access this option to use the settlement on the "trade mutual funds" page for this account. I have more than enough money in the Roth settlements fund, and no pending purchases. So, the money is there. I can see it on the page. I just cannot access the option to use this as a funding source. [...]
+Overall, it depends on your budget and what you want out of it. No money or low budget? Just do it yourself and save the money for something else that brings more value. A decent website will cost at least $2k.
 
 EXAMPLE 4:
-vanguard account [hello, so I opened up a vanguard brokerage account in around August and I put in around 200 into the account and I didn't do anything with the money and just left it in the account. I'm very new to vanguard and I'm just confused on why I have only 2 cents in my account and if my 200 is still in my account or not? and if it is how can I get my 200 back. I'm 19 and I haven't had the time to learn or really invest in the account because of school and work and study but Im just concerned on where my 200 is and if I can get it back. ](https://preview.redd.it/vi6euqkfbvqf1. [...]
+If you are planning on scaling later, like booking system, order, checkout, payment gateway, you should let your website be built by a professional and be in touch with them for future upgrades, you can get all features that you want + website will be easily customizable according to your preference. You can also have a CMS integration for managing the content for your website and can also write a blog related to your work.
 
 EXAMPLE 5:
-Here is what I'm doing: After I go through "Transact" and "Buy & Sell", entering the ticker symbol and clicking "Trade", I get to the "Trade Mutual Funds" screen and select my brokerage account. I have three. I select the Roth IRA brokerage account and it goes to the "Trade mutual funds" screen. The fund I want to buy appears on the screen above my IRA fund. At this point there is a green bar in the upper right corner telling me I have fully funded my RIRA for 2026. In the left corner is the brokerage account number with the amount in my settlement fund labeled "available for purchase". [...]
+When I speak with business owners, most agree a website looks professional, but many still hesitate because of budget concerns or uncertainty about ROI.
 
 EXAMPLE 6:
-Duplicate transaction from banking account to Vanguard brokerage account I have a monthly investment scheduled that automatically withdraw money from my bank checking account to my Vanguard brokerage account. The transaction has always occurred at the beginning of the month. However a few days ago I got 2 alerts in my email about the transaction that were two days apart (on 1st Jan and 3rd Jan) from my Chase checking account to Vanguard. They are of the same amount ($3500).
+I'd love to hear real experiences from small business owners. GBP, Instagram, Yelp, marketplaces etc. are good for discovery, but the business doesn’t fully control them. A website becomes worth it when it has a clear job: calls, bookings, lead forms, local SEO pages, reviews, FAQs, pricing, and tracking.
 
 EXAMPLE 7:
-There is no option at any point in this to select where the money is coming from. I cannot see my settlement fund as an option to pay. It doesn't even let me purchase the fund through my bank account. I have looked at other brokerage accounts of mine and there are different. With those I CAN see the settlement fund with other brokerage accounts. So, for some reason the site seems to think I'm trying to contribute to the RIRA instead of purchasing funds in the brokerage account.
+Website building - where to start? OPEN to any advice I am starting an art business as well as tattooing and want to make a website to show off my art works as well as having art designs (prints skulls wood work) can be purchased. The website does not need to be able to book tattoo appointments right now (until I can actually book my own since I’m still apprenticing) but can provide regulations and policies towards my tattooing rules and provide a way people can ask for custom art work or specific artwork (like canvas on a wall in their house for example)
 
 EXAMPLE 8:
-If you already own a fund and you want more, it's even easier. Just click on Transact to the right of the fund that you want to purchase.
+I’m not sure why anyone would choose to battle with a bloated CMS like WordPress at this point.
+"Freelancer" and "wordpress" in the same sentence almost always is AI vibecoder
 
 EXAMPLE 9:
-Thank you for belonging to the Vanguard community of investors. Similar thing happened to me today, had my monthly autoinvest that’s set up for the first of the month process on 12/31 due to the holiday and then processed a second time today showing the money leaving my bank for the second time. Someone messed up on vanguards end and I’ll be calling on Monday.
+How much are you paying for your business website? Hello friends. I’m curious what you guys are paying for your business websites (monthly/yearly). And who you’re using to create them? Or who you go through.
 
 EXAMPLE 10:
-I could not contact Vanguard customer service since it is the weekend now but Chase customer service confirmed they see the 2nd transaction as pending (and my balance is deducted twice).
+$100 one time fee per page after 5, blog integration $250 for a custom blog that you can edit yourself.
 
 EXAMPLE 11:
-Two things about your screenshot confuse me. First, the Funds Received section says CASH. How did you deposit this $200? Second, it also says (adjustment) on that line, which is a little confusing. In my account, I see neither of those for my activity, as the source is always shown. Also, dividends are typically followed by a Reinvestment line. I'm seeing Sweep Outs, which are normally for purchases, but nothing that shows what was purchased. Is this your full account activity?
+We custom code. No wordpress. And have actual designers. So we’re a little more boutique. We’re not the cheapest but we’re also not the most expensive.
 
 EXAMPLE 12:
-The first transaction seems completed as I see it appears as funded in my Vanguard account. However the second transaction appears as pending in my Chase account but it does not appear anywhere in my Vanguard account.
+How are small businesses deciding whether a website is worth the investment in 2026? I'm a freelance WordPress developer and I've noticed that many small businesses rely entirely on Google Business Profiles, Instagram, or third-party platforms.
 
 EXAMPLE 13:
-If your account balance says ~$200 at the top, you should be fine and it may just be confusing how the activity is showing in the log. If your account balance is actually only $0.02 or something like that, and you didn't use those funds to buy anything, you should probably call Vanguard ASAP to find out what is going on. The only thing I could think of, assuming your account balance is ~$0.02, is that the initial $200 funding of your account didn't go through or somehow got reversed and Vanguard pulled it back out, but you still received some partial dividend from the period of time it was the [...]
+A simple, good looking yet unique portfolio website is what you should go with for now and later just keep on upgrading as you progress....
 
 EXAMPLE 14:
-**UPDATE**: I received an email titled “Update on your recent transaction” which says the following:
+I’m looking to start a business or businesses and I’m wondering what you guys are paying. Any links are appreciated as I can get more of an idea what you’re paying for.  Depends heavily on what the site needs to do. For a basic service business, Squarespace or Webflow at $20–30/month is plenty. Where people overspend early is paying for custom development before they even know what their customers actually need from the side.
+I run a web agency. You’re gonna get a wide range of answers. Which are not as simple.
 
 EXAMPLE 15:
-Edit: spoke to vanguard just now, they are aware of a widespread issue and are working on resolving. Was told I should have money back in my bank account within a week. I can see they updated things in my vanguard account to reflect the issue, but have to wait to get the extra money they took in error back. Goodluck to everyone impacted my this.
-I learned of this from an email I received just now from Vanguard. Fortunately I have enough in my bank to cover the double dip but wtf, this is so incompetent on Vanguard’s part. Email says funds will be returned in 1-3 days. [...]
+Freelancer - $1.5k and up. Some less. Many more. Depends on country of origin and level of skill. You can get a decent Wordpress site from a decently skilled developer for that price.
 
 EXAMPLE 16:
-**Due to a processing error on January 2, 2026, a duplicate automatic purchase was made within your account. We've addressed the cause of the processing issue, and the impacted funds are expected to be restored to the originating bank account within 1 to 3 days. You do not need to take any action.**
+I also am a child and Youth advocate so if there was a way I could have a way where I can make a button or sorts wheee you can click and it bring you to the page where it links to different lists (haven’t figured out this part much yet as I have been doing a lot of art) but I research organizations for local help for children and youth while also exploring institutions that are set up for bigger ways to help others like free care or education or even websites that provide some information for parents like teaching them about emotional development or sexual health and how to talk to their child [...]
 
 EXAMPLE 17:
-At the bottom of the screen are the order amount and "continue order". I click "continue order" and it goes to another screen. It says, in large letters, "You've reached your contribution limit. You have reached your contribution limit for all available tax years and you must use your settlement fund to pay for this order."
+Lump sum can add on the unlimited edits and support for $50 a month + hosting, so $75 a month for hosting and unlimited edits.
 
 EXAMPLE 18:
-Steps to BUY using uninvested funds sitting in your account:
-1. Transact
-2. Enter stock symbol you wish to buy
-3. Click buy
-4. “Select an account” pops up. Choose your Roth if that is where you are buying from. 
-5. Scroll down and buy will be highlighted.  Enter number of shares.   
-6. Select order type market or limit
-7. Choose market if you are DCA, select limit if you want to place your own bid  
-8. If you are placing a limit order you next choose how long you want your limit order to be active. I personally use GTC (good til cancelled     which in reality only sets it for 3 months)
+I am not sure what site to use that would be best for me to put on but I would want a way where some of my posts from social media’s to be able to upload on it as well when I post on Facebook or Instagram for example.
 
 EXAMPLE 19:
-First and foremost, while your screenshot is certainly helpful to see the activity, as without it we would be answering as just a guess, you have left some personal info unredacted in it (name and account number), so I would highly advise you to remove that ASAP. While it is unlikely someone could do something with just that, it exposes you to unnecessary risk.
+Fiver - $100+ and it’s gonna be ai content and regurgitated themes and made with the least amount of time possible to make as much profit for the very little price
 
 EXAMPLE 20:
-**We sincerely apologize for this inconvenience. You can track the status of the correction anytime through our website or mobile app in Transaction history.**
+Agency - $5k+. They have lots of overhead and costs and often times just slap themes together as well to maximize profits and minimize time costs.
 
 EXAMPLE 21:
-If it's still not working, you might need to describe in more detail the steps that you are taking and any messages that you receive.
-Thanks to all for your help.
+For tattooing: ways to have forms or regulations so people can sign if they are pregnant have medical issues or under age can be put here so I can have all the information I need for tattooing and as well getting them to sign for legal reasons. I don’t know the best way to have a system to keep clients information so I am open to any advice anyone has!!! I’m doing my best to learn more about the technology side of the business but my brain is legit in survival mode lately
 
 EXAMPLE 22:
-Has anyone have similar experience and how did you resolve it? I’m hoping it is just a glitch. Thanks!
+Did it actually help generate leads, bookings, or sales, or was it mainly for credibility and brand presence?
+
+EXAMPLE 23:
+This would be for shipping artwork and prints: Information like their address name I would want to make sure is under some privacy and to ensure security so their information won’t get leaked easily.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -100,14 +96,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

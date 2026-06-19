@@ -1,20 +1,17 @@
 Documents for Topic 2 (showing first 3):
 
 Document 1:
-Login down Anyone else seeing this? Can't login right now. It seems to be working now on browser and Android app....
+PEO Benefits Hey everyone, my company uses a PEO for benefits and payroll. We were exploring some other options die to costs, but our current PEO gave us a massive discount on medical benefits to stay. Has this ever happened to anyone and did you get a huge increase the following year? Who are you with currently?
+Pretty common tactic. They discount year one to keep you locked in, then renew at closer to standard rates once switching feels painful. Get the renewal terms in writing now, specifical...
 
 Document 2:
-Having 2 external bank accounts I would like to add another external checking account, But it is not letting me do it online. I connected my main checking account. The transfers take so long I'd rather use my secondary checking account. I could delete the account and add the other checking account. What do you think? I have connected 2 separate checking,  and 1 savings acct with no issues. Website may work better, in case you are using app. ​
-I'll try again
-When you add a new bank online you hav...
+I'm a solo dev. Someone on here wanted a dead-simple way to track stock + cash with no account and no subscription — so I built it. It's free and live today. A while back I kept seeing the same ask from small-shop owners: "I don't want a full POS, I don't want a spreadsheet, I just want to record a sale in seconds and know what's running low and how much cash I made today." Most apps for this are either bloated POS systems or want a monthly subscription and a cloud account.
+
+So I built \*\***Tal...
 
 Document 3:
-What happened to my online access? I tried to log into my Vanguard account and I got a message that I had several attempts to sign in, but it was my first try today.
+Best accounting software as Paint Contractor? Title
 
-Then I was asked to verify myself with last four digits of SS, my zip code and my birthday. Then I get the message that I have not set up an online account!!!
-
-In order to set up an online account, I need my account number, but I am traveling and don't have that.
-
-What is going on?  
- Make sure you're trying to log in to the correc...
+Thanks! The most top-of-mind answer is Quickbooks Online. However, it is relatively more expensive. So, I am not sure what your current income is, but Jobber is also a popular choice. If you want free, Wave is solid (but pretty barebones). 
+quickbooks online if you want the boring answer. for a paint contractor, the thing that matters is clean job costing by crew and material, not fancy features. most shops screw this up and then think they’re...
 

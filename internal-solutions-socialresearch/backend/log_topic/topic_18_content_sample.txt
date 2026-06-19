@@ -1,15 +1,14 @@
 Topic 18 - Content Sample
-Number of content items: 7
-Top words: lock, hold, vanguard, buy, clark, rule, acats
+Number of content items: 25
+Top words: credit, bank, business, cash, card, account, credit union
 
-Content 1 (length: 135 chars):
-ACATS lock? I read an article on Clark.com that says you can call Vanguard customer service and place a lock to prevent ACATS transfer:
+Content 1 (length: 551 chars):
+Just this past week, I set up some accounts with a credit union that a couple people recommended to me, but in trying to learn how to buy a building and possibly securing a SBA loan, I also spoke to some banks, one of which was very proactive and seemed great. I’m sort of getting the feel that the bank will be very helpful in getting my business up and running, but they obviously they want cut, whereas the credit union is not as tenacious or in the know of all the things to keep pushing my business forward, but I’ll get to keep more of my money.
 
-Content 2 (length: 1159 chars):
-Vanguard didn’t send any alert for my ACAT transfer out I recently did a **partial ACAT transfer** from Vanguard to Schwab which was initiated at Schwab. Schwab messaged me at every step, and the shares showed up in my Schwab account in 2 days. Vanguard? **No email, no message, nothing.** The shares just disappeared from my account. If someone initiated a **fraudulent ACAT transfer**, it seems like there’d be no alert when the request is made—or even after it’s completed. Posting this as an FYI in case others want to factor this into their security decisions. Yeah, that’s crazy.  What I suggest everyone do is call vanguard and request a ACATS lock on their account.  They have a prepared statement they have to read to you over the phone about Vanguard taking fraud seriously and they have robust systems in place and blah, blah, blah but then will put the freeze on the account upon your request. Overall, easy to do and will protect the account.
-Great advice, I didn't know this was an option.
-I will definitely do this today. By chance, do you know if it only lock ACATS, or all types of export (ie. removal of money into an approved bank account)?
+Content 2 (length: 116 chars):
+Should I pursue a bank or a credit union to continue by banking? check your dm
+Credit Union if you intend to borrow.
 
-Content 3 (length: 230 chars):
-[https://clark.com/personal-finance-credit/investing-retirement/why-you-need-to-lock-your-brokerage-account-today/](https://clark.com/personal-finance-credit/investing-retirement/why-you-need-to-lock-your-brokerage-account-today/)
+Content 3 (length: 262 chars):
+Furthermore, I am going to need to set up some sort of auto billing in the future and I’m wondering if they’re all the same? Specifically, the credit union and the bank said the same service, Elavon, and come to find out the bank (US Bank), actually owns Elavon.
 

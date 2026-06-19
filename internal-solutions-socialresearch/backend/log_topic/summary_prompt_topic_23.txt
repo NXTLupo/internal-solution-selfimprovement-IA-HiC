@@ -1,0 +1,117 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: traffic, sales, product, problem, maybe, dropped, actually
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+E-commerce site views drastically dropping My website has recently gone from about 50-100 views a day average down to 10. I sell a plumbing system that is DIY friendly. Anyone else seeing significantly less traffic recently? I have been uploading weekly videos to our YouTube channel and Facebook which have almost no views on any of the now 11 that I've posted.  sudden drops like that are usually technical (crawl issues, broken redirects from the rebuild, core web vitals tanking) or algorithm changes hitting your keywords. [...]
+
+EXAMPLE 2:
+For the next 7–10 days I’d track three buckets daily: foot traffic, people who engage with staff / pick things up, and actual transactions. If traffic is normal but transactions dropped, it’s probably price confidence, offer, merchandising, or objection handling. If traffic is down too, it’s more of a channel/local demand problem.
+
+EXAMPLE 3:
+Is anyone else experiencing this? Is this an industry wide drop? Is there anything I can do to even just get people to buy enough that I can limp by until consumer confidence improves and people want to spend?
+
+EXAMPLE 4:
+EDIT: fixed typo I’d separate “market got softer” from “something in our funnel changed,” because the fix is different.
+
+EXAMPLE 5:
+So, basically what the title says. I run a brick and mortar retail store with a decent online presence on a street with medium foot traffic. I’ve been open 2 years. Up until halfway through May, my YoY was FANTASTIC. Up 25-40% each week. Then, suddenly, nothing. No sales. People still come in, but don’t buy anything. June is down 20% YoY thus far. I think this coincides with the Iran war starting to impact prices, but I’m at a loss on what to do. Even online sales, which were a steady 5-10 a week, have dropped to maybe 1-2. Saturdays used to always be a guaranteed 1-1. [...]
+
+EXAMPLE 6:
+There is definitely been a reduction in traffic, but that's mostly due to lack of disposable income. It's not an up to 90% reduction though.
+
+EXAMPLE 7:
+A lot of products in this spot turn out to have one of three problems: the pain is real but too occasional, the product shows up too late in the workflow, or the free version already gives enough relief. Those look the same from the outside, but the fix is very different.
+This is genuinely helpful, thank you. The brutal mapping part hits hard... I've been optimizing onboarding based on assumptions instead of actually watching where people disappear. One thing I should have mentioned upfront: I don't even have consistent traffic yet. We're talking tens of visitors a week, not hundreds. [...]
+
+EXAMPLE 8:
+What are your backlinks like? Where do you primarily get your traffic from? Social media? I would strongly recommend you diversify if so. Meta has been atrocious lately for stable and reliable traffic. Do you have return traffic for your product? What's your outreach like (email, phone, letter, etc.?)
+
+EXAMPLE 9:
+- Put together a small “easy yes” table near the front: lower-ticket gifts, bestsellers, items with a clear story.
+- Ask browsers one casual question: “shopping for yourself or a gift?” You’ll learn fast if people are killing time, price-checking, or stuck on value.
+- Email/text past buyers if you have a list, but make it specific: new arrivals, limited batch, giftable under $X — not just “sale.”
+- Check whether your social traffic changed before online sales fell. If reach/clicks dropped first, that’s different from traffic staying flat and conversion dying.
+
+EXAMPLE 10:
+I would stop changing pricing and onboarding for a week and map the dropoff brutally: signup, first useful action, second session, and any moment that made the paid user behave differently from everyone else. Then talk to 10 people who vanished after the first session and ask what they expected to happen versus what actually happened.
+
+EXAMPLE 11:
+Has anyone been through something like this with their own business? What changed when things finally clicked? Or honestly — what did you learn if they never did? Yeah, this is normal, but demo compliments are weak signal. The real signal is whether people hit the pain, use the product for the core job, and come back without you nudging them.
+
+EXAMPLE 12:
+This is one of the areas of expertise that I have, and even I won't guarantee traffic results for clients. It is a seriously difficult job and there are a lot of aspects that are impossible to control. You can't just put a website or content out there and expect results.
+
+EXAMPLE 13:
+I've tried adjusting pricing. Rewrote the onboarding three times. Published content, launched on Product Hunt, posted on Indie Hackers, tried Reddit. Nothing sticks into a consistent flow of returning users.
+
+EXAMPLE 14:
+I built something that solves a real problem, got "wow that's great" from everyone who tried it - and still can't get paying customers. Is this normal? Looking for honest feedback from people who've been through the grind of early-stage business.
+
+EXAMPLE 15:
+**b) A distribution problem** \- I'm somehow reaching people who don't actually feel this pain acutely
+
+EXAMPLE 16:
+In the B2B space... trust is so important... we made a breakthrough when we started participating in tech exhibitions and meet clients face to face and arrange follow up meetings.
+
+EXAMPLE 17:
+I’d be careful with broad price cuts on unique goods. Better to make a few items feel easy to buy than train regulars to wait for discounts.
+This is INCREDIBLY helpful, thank you so much! I am going to put together an easy yes table tomorrow. I do occasional "gift guide" emails before big gifting holidays (Mother's Day, Father's Day, Ramadan, etc) but I'll expand them to more everyday stuff, and maybe get some everyday ads going alongside the holiday ads. I can't thank you enough for the advice! 
+Gas prices affect everyone and is an immediate sticker shock. [...]
+
+EXAMPLE 18:
+I spent about a year building a software tool for online sellers. The problem it solves is real - I know because I talked to dozens of people in that space before writing a single line of code. Not guessing, actual conversations.
+
+EXAMPLE 19:
+There's much more to a Web presence than just having a landing page or posting videos regularly. It is a living ecosystem that requires nurturing. Seriously.
+
+EXAMPLE 20:
+If you aren't going to pay for digital marketing talent, you need to take the role seriously and implement iterative campaigns to craft and hone your message. Brand authority takes serious time to achieve and a lot of effort (especially during a downturn economy.)
+
+EXAMPLE 21:
+Both rich and poor drive daily so even if someone has discretionary income, it’s something that is always in the back of their mind subconsciously.
+
+EXAMPLE 22:
+In fact many accepted to sign with us because they saw how enthusiastic I was and how I believed in the product.
+
+EXAMPLE 23:
+I tell you, "Take my Magnesium glycinate supplement, and it will solve your sleep issue." You nod at me, try it one day, and leave it on the counter to rot.
+
+EXAMPLE 24:
+On top of that, technical and on-page SEO is crucial. Pretty much every bot, whether it's for search engines or for generative engines like LLMs, uses the exact same pattern for accessing and parsing Web information.
+
+EXAMPLE 25:
+A doctor gives you the cheapest kind of Magnesium with some other useless medicine, and you take it three times a day for 15 days like it's a religion.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

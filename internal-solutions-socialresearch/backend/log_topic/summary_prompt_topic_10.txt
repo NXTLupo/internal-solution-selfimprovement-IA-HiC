@@ -1,108 +1,81 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: vanguard, loan, plan, ups, 401k, rollover, check
+- Top keywords: etsy, art, sell, products, nail, buy, handmade
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Lost/delayed 401k rollover check from vanguard UPDATE: Package(?) showed up two days late after having no scans in the UPS system for 3+ days. It got lost/delayed getting to the local hub in LA, but I don’t blame UPS.
+Looking for advice for college student small business! Hi! I’m a college student interested in making a little money on the side. I love all things art: sewing, knitting, crocheting, pottery/ceramics, embroidery, cooking/baking, and I just got into gel x nails/press ons. What would be a feasible small business idea that I could sell to either other college students or people around my age?
 
 EXAMPLE 2:
-Vanguard is very fast on ACH transfers, which are free.  Always 1 day as long as a weekend is not in the way.
-It’s a 401k rollover. If you can point me to an electronic rollover option, I’d love it. But I’m 99.999% certain the only option is a paper check.
+I have a sewing machine and access to a ceramics studio near me, and I always have yarn and knitting needles and crochet hooks. Whatever I sell, I don’t want it to be basic; I want it to be something that people can’t easily make and would like to buy.
 
 EXAMPLE 3:
-Apparently I have to open my own inquiry with UPS, then let Vanguard know I’ve done that, and after 10 days have passed from the initial check issuance, they will issue me a new check.
+But more than anything else, I'd recommend trying to get to the actual selling phase as quickly as possible. Don't get bogged down in planning, perfecting your social accounts, or trying to figure out the best course of action! Better to do something halfassed now, rather than a polished concept a month from now. 
+This was SO helpful thank you so much!! I really like the idea of writing everything out, will definitely be trying. [...]
 
 EXAMPLE 4:
-On 12/22/2025, I rolled over some money from my 401k to my VG IRA. Fair enough, I could not touch the money for 9 days and now it is ready and shows up in my account as ready to withdraw.
+I’m honestly having trouble coming up with ideas that aren’t just “crochet amigurumi” or “bake cookies,” because while those ideas are really cool, I worry the market is too saturated already for it. Also, I’m not sure how I would sell stuff. I thought about making an instagram/tiktok account to document my process so I can build up a following and then put whatever I make up for sale, but I need to figure out what would be most profitable. It's summertime now too, so I would be able to spend a lot of time working on my skills and items for whatever small business I choose!
 
 EXAMPLE 5:
-Get your act together Vanguard. Next time, I’ll probably skip the expedited service. I have another 401k to rollover at some point.  
-——
+Some ideas I have are: making press on nails or even gel x nail appointments, making ceramic flower pots and painting nice detailed designs on the outside with glaze, sewing tote bags or cuter school merch, maybe making a home cafe and selling different drinks and desserts every month?
 
 EXAMPLE 6:
-Ugh. Had a whole post written asking about how Vanguard handles this, but then I just decided to call Vanguard first.
+How do i run a business as an amateur artist i am 21 year old male artist who draws for fun. i’m really trying to figure out where i can sell my art digitally or through online payment. i figured using reddit as my main source, i havent sold anything. i have social media, and online banking. is there any help that anyone can provide?  Reddit's not where you sell art, it's where you'll get ignored. For a visual product, your channels are...
 
 EXAMPLE 7:
-Thank you  If two different Vanguard reps gave you the same incorrect rollover instructions and it caused a taxable event you never intended, that’s not on you. A few things I’d strongly recommend:
+For selling: digital prints and downloads through Gumroad or Etsy (Etsy gets you discovery, Gumroad keeps more of the money). For original pieces or commissions, just take payment through your online banking or PayPal/Stripe to start. Don't overcomplicate the payment side.
 
 EXAMPLE 8:
-3. Loop in your plan administrator (not just Vanguard).
-Your employer’s plan administrator or HR benefits department has more authority than you think.
-If the SRIP was mistakenly made available, that’s an employer plan error, and they may be required to correct it under IRS/ERISA rules.
+Order of operations build a following on IG/TikTok by posting consistently, funnel them to Etsy/Gumroad for products and commissions. The art isn't the hard part, the audience is. That's where the time goes.
 
 EXAMPLE 9:
-What hogwash. I should have just had it sent USPS. Why they don’t they have an electronic option in 2026 is baffling. Finally showed up today after making it to the origin facility last night, followed by all the scans you'd expect.
-FWIW:  I've linked my checking account to Vanguard for money transfers.  If I initiate a transfer at 10am on Monday, it will be at my Credit Union by 10 am on Tuesday.
+Instagram and TikTok first. This is the actual engine. Post your process, timelapses, work-in-progress, not just finished pieces. People follow artists for the making, then buy. Build the audience here.
 
 EXAMPLE 10:
-So my time with this company is up. I am have accounts with 2 other large brokerage houses and am sure they will be happy to receive my VG funds.
+If you have a handful of art products that you would love to sell, but you're stuck on not knowing how much demand there would be for them and what you could charge, you can also try putting out a quick poll on your socials: hi friends, I'm thinking of selling some of my artwork (or baked goods or nails or what have you). Here are 4 pieces I've made recently. Can you let me know which one is your favorite and how much you'd pay for this if you saw it online/at the art fair? Then pay attention to who responds (besides your immediate circle of besties who would support you through anything) and  [...]
 
 EXAMPLE 11:
-2 years ago, a Vanguard agent gave me erroneously instructions to roll in an outside 401k fund into my SRIP fund. My employer mistakenly made this fund available to a segment of their employees and should not be open, therefore will be liquidated. Last month, another agent did the same mistake to do a in-plan roll over, and it went again into the SRIP (which is will be close out). Vanguard, called me 2 days later to correct that, to roller over to my 401k. I open a ticket to Vanguard to possibly correct their mistake. [...]
+* What “niche” should I hone in on? (like making specialized ceramic mugs, or embroidered things, etc)
+* How and where do I sell my items
+* Any tips to get started? When I'm at this phase of ideation for a new business, it's helpful to get all the ideas out on paper and evaluate them against each other.
 
 EXAMPLE 12:
-Ready to move my investments from Vanguard I have been with Vanguard since 1992 and have a decent amount invested with them. I find that they are becoming a burden to deal with and after a bad experience today, have decided to dump them.
+This idea came about when I personally discovered I like exploring different hobbies, but the barrier to entry, usually purely from researching what is necessary to purchase to start the hobby becomes quite frustrating. Understand there will be entry gear as well as people who are serious with the hobby will purchase more expensive tools/equipment, but as a beginner I just want to give it a go without having to sign up for a workshop, order expensive items to have a feel if I enjoy the hobby. Hence how the idea was born. [...]
 
 EXAMPLE 13:
-I put the blame squarely on Vanguard for this. It was sent in a large paper mailing envelope, not a UPS overnight stiff cardboard envelope like it should have been. It clearly got stuck in a bag or bin somewhere. UPS is not setup to handle an envelope that USPS handles very well.
+Next: what is the hard part about this concept? Are you unsure that you can create really appealing portraits, or are you unsure that you can find the customers, or something else? That's the part you want to start testing. If making/doing the thing is the easy part, start with the marketing and try 2-3 channels (methods) of selling them. Ask AI to help you brainstorm where you could market your product/service with X amount of budget. [...]
 
 EXAMPLE 14:
-In short, my several hundred thousand dollar direct rollover check, sent expedited via UPS, was picked up by UPS on Saturday and has gone into limbo land since. No further scans, so very likely lost at this point.
+**The Concept:** Good Quality, high-aesthetic, **one-time purchase** Starter Boxes. No monthly subscription mess. Includes *only* the essential high-end tools, raw materials, and a step-by-step roadmap to pick up the hobby and give it a go.
 
 EXAMPLE 15:
-1. Escalate beyond the frontline reps.
-Ask to speak with:
-A supervisor or the vanguard Retirement Plan Services escalation team
+Start a google sheet with these columns: idea, setup costs, per item costs, per item price, how I'll reach customers (short blurb like: IG/TT posts, flyers around neighborhood/college, ad in college newspaper, weekly market, etc.), volume estimate (ballpark how much do you think you can sell? what's the level of desirability of this thing for customers?), and my own level of enthusiasm for doing this thing. Maybe there's other factors you want to throw in there that are important to you. [...]
 
 EXAMPLE 16:
-4. Ask about a “plan-level correction” under the IRS Employee Plans Compliance Resolution System (EPCRS).
-This is fancy IRS language for “fixing mistakes without punishing the employee.”
-If the plan or Vanguard gave bad direction, they might be required to correct the tax consequences.
+The real unlock is commissions. "DM me for a custom piece" converts way better than waiting for someone to buy a print, because people pay more for something personal. Post examples, make it obvious you take requests.
 
 EXAMPLE 17:
-I called (got a person in India) and was told that my funds had to be with them for 60 days before I could do anything. I asked for an override to do a QCD and they agreed. But, I had me jump through hoops. After answering all their questions they called my 401k administrator to verify my name, dob, address, $ amount rolled over, check number etc. etc. (with me on the line in tandem). Then the VG agent spent a good 30 minutes processing everything and informed me that I would have to seek their override permission every time I needed to do a QCD before their 60 day freeze was over. [...]
+Highly agree the components need to be transparent. I personally feel the product is more for people who dont want too much hassle and just wanna start trying and playing the hobby in a simple manner of buying a box or gifting a box and try. For those who would individually pick out components to source themselves, they are probably very into the hobby and might not be the target audience.
+This idea reminds me similar to Bespoke post a little bit, I like the idea, I feel you want to aim for good value based tools and things, not the cheapest Chinese crap but also these don't need to be tools t [...]
 
 EXAMPLE 18:
-2. Document everything.
-Write down:
-Dates of the calls
-What instructions were given
-Who told you to do the in-plan rollover
-The result of the SRIP liquidation
-The more bulletproof your timeline, the easier it is for them to reconsider.
+Any comments will be valuable! Thanks a lot! I like it. Cool idea. I would browse and likely buy if one of them caught my eye. It's going to be a challenge as a business though.
 
 EXAMPLE 19:
-7. Worst case, request Vanguard provide:
-A written statement acknowledging the bad guidance
-A tax indemnification letter
-Or a reimbursement for any taxes/penalties
-They won’t offer this upfront, but escalations sometimes approve it when the facts are clear.
+Launching a "one-time" Hobby Starter Box for busy adults. Love to recieve your advice on the idea and model! Hey everyone,
 
 EXAMPLE 20:
-That said, I moved my largest account out of Vanguard recently, though for different reasons. There are/were few people who were more of a Vanguard champion than me. I gave them grace for years, but eventually I couldn’t take it anymore - I had to move an account out. Customer service issues, website and app problems for 10+ years, restrictions on what investments you can buy/hold in a brokerage account, and then what became the most frustrating for me - charges for paper documents and how they handled that (implemented it, then changed the waiver criteria less than a year later.). [...]
+I’m validating a physical product idea aimed at busy adults who want to try a new analog hobby (like bookbinding or desktop aquascaping) but get stuck in the "research gridlock" of buying gear across multiple websites.
 
 EXAMPLE 21:
-6. Your accountant is right to be involved, but you may also want to consult an ERISA attorney.
-You don’t necessarily need to sue, but attorneys know the exact language to use so large custodians stop shrugging their shoulders.
+I'm a mobile mechanic so I know my tool brands well but I wouldn't make a mechanics box with snap on tools since it would be too expensive and most people buying the box aren't gonna use the tools regularly and get the value of them being snap on, a lisle or gear wrench tool would work just fine and if they eventually break it hopefully they got so many hours out of it that it's not a big deal. Like good stuff, generally good value stuff but not super high end because the other stuff can do most of what the high end tools can do and keep it affordable
 
 EXAMPLE 22:
-I tried to do a QCD online today, and got the following message "The shares you’re trying to redeem were recently purchased. To protect your account, we can send the proceeds from the sale of those shares only to the institution and account from which they originated.  
-To complete this transaction, you can choose to send the proceeds to the originating institution and account. If you purchased the shares by check, or if you have questions about this transaction, contact us for assistance."
+Also if you don't give each box a full list of contents, it'll annoy customers and cut sales. If you do give people a list of contents, it'll allow them to buy it all separately and cut sales. Damned if you do, damned if you don't
+Thank you for your feedback!
 
 EXAMPLE 23:
-I’m not aware if that 60-day hold is industry standard or not. (Does anyone know?)
-There is this fine line between “security” and inconvenience - I’ve been super frustrated by that with plenty of firms. However the amount of fraud out there is so great, you can understand why these firms have to put some practices in place to protect themselves, let alone us.
-
-EXAMPLE 24:
-Or specifically request their “Case Review Team”
-Frontline reps almost never admit fault, but escalations sometimes do.
-
-EXAMPLE 25:
-5. Since it happened twice and affected multiple employees this could be a pattern.
-That dramatically strengthens your argument.
-One rep messing up is human.
-Two reps plus other employees in the same situation is a systemic issue.
+These assumptions will likely be wrong in some ways, but seeing them all laid out will give you direction on the 1-2 most promising directions.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -125,14 +98,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

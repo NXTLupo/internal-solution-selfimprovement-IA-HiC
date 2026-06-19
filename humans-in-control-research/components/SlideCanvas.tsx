@@ -24,9 +24,17 @@ import {
     PrdFeatureSlide, SystemsInventorySlide,
 } from './slideTemplates/goldPreviews';
 import type { JourneyBrief } from '../services/journeyBriefExporter';
-import { exportSlideToPPTX, preprocessImageCover } from './slideTemplates/pptx';
+import { exportSlideToPPTX } from './slideTemplates/pptx';
 import { TOKENS } from './slideTemplates/types';
 import { getBrand, type BrandId } from './slideTemplates/brands';
+// 1:1 PREVIEW (2026-06-15): the preview renders the EXACT export stage HTML
+// (slideToStageHtml, the same 1920x1080 doc Playwright rasterizes for the native
+// editable PPTX) inside a style-isolated iframe scaled to the card. One renderer
+// feeds BOTH surfaces, so preview == export pixel-for-pixel and the GOLD preview
+// re-implementation (goldPreviews) can never drift/clamp away from the export
+// again. The renderTemplate() React path is kept ONLY as a fallback if stage HTML
+// generation throws. Export pipeline is unchanged (still native + editable).
+import { slideDataToStageHtml } from '../services/slideToStageHtml';
 import type {
     SlideTemplate, PersonaCardData, RecommendationData, ThemeClusterData,
     CompetitiveMatrixData, BlockQuoteData, CaseStudyData, PrinciplesData,
@@ -44,6 +52,8 @@ export interface SlideData {
     _evidenceGap?: { summary?: string; issues?: any[] };
     /** Visual brand: 'nxt' (default) or 'nu' (Northeastern). Set by hashtag detection in the parser. */
     brand?: BrandId;
+    /** SLIDES-deck archetype (template=slides:*) raw payload, handed to composeSlide untouched. */
+    composerPayload?: any;
     /** Universal density axis (2026-06-10). 'dense' raises every template's
      *  item ceilings per types.ts DENSITY_SPEC and renderers adapt type size
      *  to the actual item count. Set by the model (fence attr density=dense or
@@ -103,6 +113,10 @@ interface Props {
 
 const SLIDE_W = TOKENS.WEB_W;
 const SLIDE_H = TOKENS.WEB_H;
+// The export stage is a fixed 1920x1080 doc; the preview iframe renders it at
+// SLIDE_W/STAGE_W (= 0.5) so the card is a true scaled mirror of the export.
+const STAGE_W = 1920;
+const STAGE_H = 1080;
 
 function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNode {
     const sources = slide.sources || [];
@@ -237,9 +251,29 @@ export const SlideCanvas: React.FC<Props> = ({
     const statusColor = slide.status === 'approved' ? '#4CAF50' : slide.status === 'rejected' ? '#CC3333' : '#B8B800';
     const allowsImage = slide.template === 'persona-card';
 
+    // 1:1 stage HTML for this slide - the SAME doc the export rasterizes. Memoized
+    // so the iframe only re-renders when the slide changes. Falls back to the React
+    // template renderer only if stage generation throws (defensive, never silent).
+    const stageHtml = React.useMemo(() => {
+        try { return slideDataToStageHtml(slide as any); } catch (e) { console.warn('[SlideCanvas] stage HTML failed; falling back to React preview:', e); return ''; }
+    }, [slide]);
+
     const slideInternals = (
-        <div ref={slideRef} style={{ width: SLIDE_W, height: SLIDE_H, position: 'relative', overflow: 'hidden' }}>
-            {renderTemplate(slide, !!isGeneratingVisual)}
+        <div ref={slideRef} style={{ width: SLIDE_W, height: SLIDE_H, position: 'relative', overflow: 'hidden', background: '#FFFFFF' }}>
+            {stageHtml ? (
+                <iframe
+                    title={`${slide.template} preview`}
+                    srcDoc={stageHtml}
+                    scrolling="no"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                    style={{ width: STAGE_W, height: STAGE_H, border: 0, transform: `scale(${SLIDE_W / STAGE_W})`, transformOrigin: 'top left', pointerEvents: 'none', display: 'block' }}
+                />
+            ) : renderTemplate(slide, !!isGeneratingVisual)}
+            {/* Persona image-generation overlay (iframe path: shown at card level) */}
+            {isGeneratingVisual && slide.template === 'persona-card' && (
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.6)', zIndex: 4 }}><GeneratingOverlay /></div>
+            )}
             {/* Status badge */}
             {slide.status !== 'draft' && (
                 <div style={{ position: 'absolute', top: 8, right: 8, fontSize: 8, fontWeight: 700, letterSpacing: '1px', padding: '2px 8px', background: statusColor, color: '#FFFFFF', zIndex: 3 }}>
@@ -370,74 +404,46 @@ export const SlideCanvas: React.FC<Props> = ({
      * around it by cloning the slide into an off-screen container rendered at the natural
      * 960×540 with NO transform, capturing that, then cleaning up.
      */
+    // 1:1 capture (2026-06-15): rasterize the SAME stage HTML the export uses by
+    // rendering it in an off-screen 1920x1080 iframe (style-isolated, full font +
+    // CSS fidelity), then html2canvas the iframe's #stage. This keeps PNG/PDF
+    // pixel-identical to both the preview iframe and the PPTX export.
     const captureSlideAtNaturalSize = async (): Promise<HTMLCanvasElement | null> => {
-        if (!slideRef.current) return null;
-        const clone = slideRef.current.cloneNode(true) as HTMLElement;
-        // Strip any inherited transform / scaling and park it off-screen at true dimensions
-        clone.style.position = 'fixed';
-        clone.style.left = '-99999px';
-        clone.style.top = '0';
-        clone.style.width = SLIDE_W + 'px';
-        clone.style.height = SLIDE_H + 'px';
-        clone.style.transform = 'none';
-        clone.style.transformOrigin = 'top left';
-        clone.style.zoom = '1';
-        clone.style.zIndex = '-1';
-        clone.style.margin = '0';
-        clone.style.padding = '0';
-        document.body.appendChild(clone);
+        const html = stageHtml || (() => { try { return slideDataToStageHtml(slide as any); } catch { return ''; } })();
+        if (!html) return null;
+        const iframe = document.createElement('iframe');
+        Object.assign(iframe.style, {
+            position: 'fixed', left: '-99999px', top: '0',
+            width: STAGE_W + 'px', height: STAGE_H + 'px', border: '0', zIndex: '-1',
+        } as Partial<CSSStyleDeclaration>);
+        document.body.appendChild(iframe);
         try {
-            // Wait for fonts (Archivo) to finish loading so the clone captures in
-            // the correct typeface instead of a system fallback. Then give layout
-            // one frame to settle (images, flex, absolute positioning).
-            if ((document as any).fonts?.ready) {
-                try { await (document as any).fonts.ready; } catch {}
-            }
-            await new Promise(r => requestAnimationFrame(() => r(null)));
-            await new Promise(r => requestAnimationFrame(() => r(null)));
-
-            // html2canvas does NOT honor CSS `object-fit: cover` on <img> elements -
-            // it stretches images to fill the container. Pre-crop each image on a
-            // canvas so it arrives at its exact displayed dimensions with correct
-            // aspect ratio, then disable object-fit so html2canvas just blits it.
-            const imgs = Array.from(clone.querySelectorAll('img')) as HTMLImageElement[];
-            await Promise.all(imgs.map(async img => {
-                if (!img.src || img.src.startsWith('data:image/svg')) return;
-                const parent = img.parentElement;
-                if (!parent) return;
-                const rect = parent.getBoundingClientRect();
-                const w = Math.round(rect.width);
-                const h = Math.round(rect.height);
-                if (w <= 0 || h <= 0) return;
-                // Only pre-crop if the image is using cover-style display
-                const style = getComputedStyle(img);
-                if (style.objectFit !== 'cover' && !img.style.objectFit) {
-                    return; // logo or decorative image, leave alone
-                }
-                try {
-                    const cropped = await preprocessImageCover(img.src, w * 2, h * 2);
-                    img.src = cropped;
-                    img.style.objectFit = 'fill';
-                    img.style.width = w + 'px';
-                    img.style.height = h + 'px';
-                } catch {
-                    // Leave untouched on failure - slightly off-aspect is better than blank
-                }
-            }));
+            await new Promise<void>((resolve) => {
+                let done = false;
+                const finish = () => { if (!done) { done = true; resolve(); } };
+                iframe.addEventListener('load', () => finish());
+                iframe.srcdoc = html;
+                setTimeout(finish, 2000); // safety: never hang the export
+            });
+            const doc = iframe.contentDocument;
+            if (!doc) return null;
+            try { await (doc as any).fonts?.ready; } catch {}
+            await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => r(null))));
+            const stageEl = (doc.getElementById('stage') || doc.body) as HTMLElement;
             const html2canvas = (await import('html2canvas')).default;
-            const canvas = await html2canvas(clone, {
+            const canvas = await html2canvas(stageEl, {
                 scale: 2,
                 backgroundColor: '#FFFFFF',
                 useCORS: true,
-                width: SLIDE_W,
-                height: SLIDE_H,
-                windowWidth: SLIDE_W,
-                windowHeight: SLIDE_H,
+                width: STAGE_W,
+                height: STAGE_H,
+                windowWidth: STAGE_W,
+                windowHeight: STAGE_H,
                 logging: false,
             });
             return canvas;
         } finally {
-            document.body.removeChild(clone);
+            iframe.remove();
         }
     };
 

@@ -1,43 +1,55 @@
 {
   "positive": [
     {
-      "point": "Vanguard's platform is appreciated for being clean and straightforward, making it easy for new investors to set up and manage their portfolios.",
+      "point": "Hiring an admin or virtual assistant (VA) early on can help manage scheduling, follow-ups, and invoicing, which are significant time-consuming tasks for small businesses.",
       "post_refs": [
-        "1tko1j3"
+        "1u6rery"
       ]
     },
     {
-      "point": "The ability to buy specific dollar amounts of funds like VOO, allowing for partial share purchases, is seen as a positive feature for those with limited funds.",
+      "point": "Documenting processes before hiring helps businesses scale more smoothly by preventing communication gaps and ensuring consistent handoffs.",
       "post_refs": [
-        "1rhmboz"
+        "1u2zomr"
+      ]
+    },
+    {
+      "point": "Using simple tools like Trello to make work visible and organized can significantly improve business operations and growth.",
+      "post_refs": [
+        "1u07d3j"
+      ]
+    },
+    {
+      "point": "Implementing a simple daily habit of reviewing and updating the sales pipeline can reduce stale deals and improve pipeline management.",
+      "post_refs": [
+        "1u0wtac"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Users experience difficulty selling fractional shares of ETFs on Vanguard, as the platform only permits whole share sales, causing inconvenience for those wanting to liquidate entire positions.",
+      "point": "Follow-ups are a major headache for growing businesses, as they become difficult to manage consistently and can lead to lost clients if not handled properly.",
       "post_refs": [
-        "1rwq6f8",
-        "1omnjre"
+        "1u2zomr",
+        "1u6bb3t"
       ]
     },
     {
-      "point": "The inability to set up recurring investments for certain ETFs like SCHD or SGOL on Vanguard is a limitation, prompting some users to consider other brokerages like Fidelity.",
+      "point": "Small recurring tasks, such as follow-ups, emails, and scheduling, consume more time than expected and can detract from focusing on core business activities.",
       "post_refs": [
-        "1tko1j3"
+        "1u91fuc",
+        "1u7akfm"
       ]
     },
     {
-      "point": "Vanguard's app and website have limitations in selecting specific lots for sale using SpecID, causing frustration for users trying to manage their tax implications effectively.",
+      "point": "Growth can expose weak processes, leading to communication overhead and a reactive business environment if not addressed with proper systems and workflows.",
       "post_refs": [
-        "1tttfr9",
-        "1pytk43"
+        "1u4ph0x"
       ]
     },
     {
-      "point": "Users are unable to manage existing recurring ETF investments through the Vanguard app, as the interface only allows the creation of new transactions.",
+      "point": "Many software tools promise automation but often require ongoing management and can create additional tasks instead of reducing them.",
       "post_refs": [
-        "1roodnl"
+        "1u504xv"
       ]
     }
   ]

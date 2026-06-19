@@ -110,10 +110,25 @@ export function normalizeConstraintKey(line: string): string {
  * Evaluate a single constraint. Pass either a raw "- CONSTRAINT: ..." line or
  * a bare rule sentence - both are normalized before testing.
  */
+// 2026-06-14 - Lexicon-feedback rules are legitimately terse ("never use 'leverage'",
+// "'co-op' is the correct term, never reword it"). Exempt them from the 40-char floor so
+// a user's writing-voice correction can become a learned constraint and feed the loop
+// (the self-improvement wiring the writing-quality overhaul requires). They still face the
+// master-rule contradiction + generic-stub checks below.
+const LEXICON_RULE_PATTERNS: RegExp[] = [
+    /\b(never|don'?t|do not|stop|avoid|ban)\s+(use|using|say|saying|write|writing|reword|rephrase)\b/i,
+    /\bis (slop|fine|acceptable|allowed|banned|forbidden|the correct term)\b/i,
+    /\b(prefer|replace)\s+["'\w-]+\s+(with|over)\s+["'\w-]+/i,
+];
+
 export function evaluateConstraint(line: string): ConstraintVerdict {
     const body = extractRuleBody(line);
-    if (!body || body.length < MIN_CONSTRAINT_CHARS) {
-        return { accept: false, reason: body ? 'generic-stub' : 'empty', detail: 'below usefulness bar' };
+    if (!body) {
+        return { accept: false, reason: 'empty', detail: 'below usefulness bar' };
+    }
+    const isLexiconRule = LEXICON_RULE_PATTERNS.some(re => re.test(body));
+    if (!isLexiconRule && body.length < MIN_CONSTRAINT_CHARS) {
+        return { accept: false, reason: 'generic-stub', detail: 'below usefulness bar' };
     }
     for (const re of MASTER_RULE_DOLLAR_PATTERNS) {
         if (re.test(body)) {

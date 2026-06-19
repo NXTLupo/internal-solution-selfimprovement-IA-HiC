@@ -1,92 +1,90 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: dividends, year, tax, gains, income, capital gains, exempt
+- Top keywords: payment, client, work, invoice, contract, agreement, quote
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-I'm working on taxes to make sure I'm not under-withholding.  Had a sizable (for me) LT capital gains event in August.  I looked at the monthly statements and was surprised that all they showed were dividends.
+Overpayment scam: a "client" signed my web design agreement, then asked me to fold a "consultant fee" into the payment I run a one-person web and tech shop. About two weeks ago I got a cold inbound inquiry that turned into my first "won" RFP, and then turned into a textbook overpayment scam. What made it dangerous was how patient and polished it was. This wasn't a prince-in-exile email. It was a two-week courtship with a real brief, smart questions, and a signed agreement before the ask ever showed up.
 
 EXAMPLE 2:
-For VMFXX it's 66.61%. so if you had $10000 of dividends from VMFXX you would do $10000 x 66.61% = $6661 dollars would be exempt from state taxes.
+And one rule that makes most of this moot: never pay anyone out of a client's payment. If money needs to reach a consultant, the client pays the consultant directly. Full stop.
 
 EXAMPLE 3:
-* short term gains or losses are counted against income, and subject to your marginal income tax rates
-* long term gains or losses are counted against capital gains or losses, at the capital gains tax rate
-the dividend income is tax exempt, but any capital gain or loss on the fund is not
-(so yes you can sell it at a loss to offset capital gains - or ordinary income subject to the 3k limit with the rest carried over for future years)
+They finished and left, I sent the invoice, including the exact specifications that he requested in the notes, and all was well, or so I thought. (For context, I thought it was odd that he requested those exact things be cleaned, and not the whole house, so I made sure to be very specific with the scope, so the both sides know exactly was was expected. I want to provide quality service, and I didn't want him to come back and claim we did him dirty, no pun intended.)
 
 EXAMPLE 4:
-FreeTaxUSA is telling me to use the total dividends, $1357, to compute what portion is state-exempt, but wouldn't that mess things up and make some of my federal tax-exempt, too? I know this is pennies, but if I ever do have anything significant, I really want to learn what I should be looking at. There IS a breakdown on the Vanguard statement of the ETFs I own and how much interest came from each.
+No real business asks a brand-new vendor to pay its other vendors. That isn't an accounting convenience. It's the scam.
 
 EXAMPLE 5:
-I received my tax form from Vanguard. It must be consolidated because I need a magnifying glass to read anything on it. I'm trying to figure out which number I'm supposed to be using to calculate Pennsylvania tax-exempt dividends, total dividends or the particular ETFs? I have a variety of ETFs from Vanguard, as well as VMFXX. The TOTAL dividends are $1357, but only two of them (VTI & VYM) have interest in government securities.
+They signed the agreement and said the check was going out the next business day. My agreement says no work starts until funds clear, so I felt covered.
 
 EXAMPLE 6:
-My sizable Capital Gains event occurred in August, and I have paid estimated taxes before the Sep 15 deadline.
+Cost me two weeks and some proposal hours. Could have cost me $2,850 if I'd been less careful. If it saves one of you the same, worth the post. Real clients pay their vendors. Scammers need you to pay them. That's the whole difference. Honestly, this is the kind of thing I'd paste into runable just to sanity-check before sending any money.
+Whatever they sent isn't money in your account yet, it's a hold. Your bank has to make part of a check available fast under the funds availability rules, but a forged or bad one can bounce back 2 to 4 weeks later and they yank it right out of your balance. [...]
 
 EXAMPLE 7:
-While you've got the 1099 open, also look for Section 199A dividends and Foreign Tax Paid. If you have either of those, FreeTaxUSA will let you enter those, too.
+>As we move forward, I wanted to propose a small adjustment to simplify the payment process on our side.  
+>  
+>Since our project consultant is coordinating the design assets, brand materials, and ongoing product guidance that directly supports the development phase, we were considering consolidating the consultant's coordination fee of $2,850 into the same payment issued for the milestone.  
+>  
+>From an administrative standpoint, issuing a single payment allows us to streamline accounting, reduce multiple approvals internally, and keep all project-related expenses aligned. [...]
 
 EXAMPLE 8:
-TLDR:  If you're trying to look at taxable events in your taxable Vanguard accounts, search for "Year-to-date tax activity" in the Vanguard search field.  You will get a link to that function for your taxable accounts.
+We are 2 estimators in the company including myself, and our time is pretty valuable. Residential clients are very fast to quote but large parking lot / condos required a bit more time as they want a detailed written quote for different scope of work, cleaning, crack repairs, asphalt repairs, line stripping, sealing etc.
 
 EXAMPLE 9:
-Estimating Taxes near year end at Vanguard This post is meant to be a tip, but also hope to get some useful comments.
+Otherwise pick some samples from past jobs and mark it up a bit and ballpark it for a fast estimate for your free quote, and then if they say it's too expensive and ask for options that's when you could offer the more detailed quoting process and come in to discuss options.
 
 EXAMPLE 10:
-Here is Vanguards: https://investor.vanguard.com/content/dam/retail/publicsite/en/documents/taxes/usgo-2025.pdf
+1. I always offer free quotes, but I'm thinking about charging a 250$-500$ parking lot assessment fee / quote for these PM.  Most likely going to a response with "The other guys offer free quotes" This fee would be removed from the total invoice price if we get the job.
+2. Suggest a meeting with a condo board, or someone in charge that lives there that I can meet in person to show them in person what kind of work is needed, why we need to do specific work.
+3. [...]
 
 EXAMPLE 11:
-VWLUX Long term tax exempt fund If you bought this but the price went down and now you are in negative territory, and then you sell for a loss, does this fall in the category of reducing your income?  Such as if you bought United Airlines and the stock went down, you can take the loss as a deduction.   Or is this fund different somehow because it said "tax exempt fund."   In this context "tax exempt" means that distributions are not taxed. For VWLUX, it's because the fund invests in municipal bonds that aren't taxable by the IRS.
+My team unloads their stuff, and they go inside. The place isn't the worst that we've seen, but it has its bad parts. The team lead informs me that the bathroom is gross, and just wiping down the counters like they requested wouldn't really do anything. Basically lipstick on a pig. It certainly isn't terrible, but it at least needs a good clean if anyone is going to stay there, and at least it should be disinfected out of goodwill for the next person. [...]
 
 EXAMPLE 12:
-Each fund has their own percentage of dividends from government securities, so you would have entered the total in FreeTaxUSA previously, but you don't use the total for these calculations, calculate for each fund separately and add them together at the end.
+Quoting for Property Management companies seems like a waste of my time Hello everyone, small business owner here, been in business for 16 years now, located in Ontario, Canada. My business offers "High end" Asphalt maintenance services, from line stripping, hot asphalt repairs (pot holes, patches, garage ramps etc) Parking lot cleaning services (Power sweeping + pressure washing) Crack sealing and commercial seal coating.
 
 EXAMPLE 13:
-ℹ️ Important Notes
- * Who Pays: These payments are typically required for individuals who expect to owe at least $1,000 in taxes for the year and whose tax liability is not covered by wage withholding (e.g., self-employed individuals, those with substantial investment or rental income).
- * Final Payment Exception: You don't have to make the fourth payment (due in January) if you file your annual tax return (Form 1040) and pay the entire balance due by January 31 of the following year. [...]
+Realtor claims my company charged our client for nothing, and wants us to do tons of extra labor for free, I told her we did exactly what they asked. **Tldr: Realtor is angry because our client hired us for a very specific scope of work, and the realtor wants us to do a lot of extra labor outside of the scope, for free.**
 
 EXAMPLE 14:
-Now that you have the totals for each fund, add them together. In this case, it's $337.45. That's the number that you enter into FreeTaxUSA for dividends from federal government obligations.
+We are always fully booked 3-4 weeks in advance, mostly from past customers, or new customers that have had good references from us or seen our work. So selling my services to an existing customer or someone that has heard about us / seen our work is very simple. Give the price, quote accepted, schedule the work etc.
 
 EXAMPLE 15:
-I use FreeTaxUSA and that has just been updated for 2025 taxes, so I'm plugging in estimates to make the Jan 15 payment if needed.
+Offer a maintenance contract that evens out the spend over time. 
+That could work, something along the line of "we don't do remote bidding, we must meet on-site with someone to go over the expectation of work"
 
 EXAMPLE 16:
-| Quarter | Period When Income Was Earned | Payment Due Date |
-|---|---|---|
-| 1st Quarter | January 1 to March 31, 2026 | April 15, 2026 |
-| 2nd Quarter | April 1 to May 31, 2026 | June 15, 2026 |
-| 3rd Quarter | June 1 to August 31, 2026 | September 15, 2026 |
-| 4th Quarter | September 1 to December 31, 2026 | January 15, 2027 |
+Neither of those is a red flag. That's the point. On their own they're a normal payment method and a well-prepared client. It was only after the ask that they fit the pattern: the check is the bad-money vehicle, and the "consultant" is the third party I was supposed to forward money to. The scam wasn't hiding. It was built out of the two most forgettable lines in the brief.
 
 EXAMPLE 17:
-Thanks for the comment!
-Just know that the US uses an idiotic system that doesn't align on quarter boundaries for half of the year, and unfortunately Vanguard doesn't have a report structured around this payment schedule. To avoid risk of penalties, you should make quarterly estimated payments based on investment income per reporting period.
+Two: a project consultant would provide the logo, brand colors, photography, and all the design assets. If you do design work, you know this is the good kind of client. Most people show up with a phone photo and a logo they made in Canva. Someone arriving with professional branding and real photography makes the whole design phase better. I was glad to see it.
 
 EXAMPLE 18:
-For some reason, the Federal Money Market (settlement fund) is listed differently, and you'll find a reference to Note: 99 by those dividends. If you look for Note 99 on a later page, you'll see that VMFXX was 66.61% from U.S. government obligations. So, if you have $500 in dividends there, you'd have $333.05 from government obligations.
+Besides the bathroom, the area they were cleaning wasn't much better. There was broken glass and live maggots on the floor. I normally add a fee if there are any hazards that could potentially injure my team, but with the relatively small scope of what he asked, and the fact that it's only on the floor, I decided to cut him a break. My team cleaned the bathroom, and removed all the junk. They provided both before and after pictures, as is standard, and the only things that they didn't remove was construction equipment, and a dresser that the client requested stay.
 
 EXAMPLE 19:
-The quarterly estimated US income tax payments are due on a rolling basis, meaning the due dates do not align perfectly with calendar quarters. If a due date falls on a weekend or legal holiday, the deadline is shifted to the next business day.
-Here are the typical due dates and the corresponding income periods for the 2026 tax year:
+In many cases that literally is the process.  They have a contractual obligation to get multiple quotes, and then a fiduciary duty to pick the cheapest one that meets the standards necessary.
 
 EXAMPLE 20:
-Most of the funds are on a page where each fund has a heading called "PERCENTAGE OF INCOME FROM US GOVERNMENT SECURITIES". For example, I have VTI. It lists "Fed Source Total" as 0.44%. That's the only number you need. (Ignore the breakdown with U.S. Treasury, Fed Home Lone, etc..) So, if you have $1,000 in income from that fund, you'd have $4.40 from government obligations. (That's multiplying $1,000 by 0.0044.)
+Cold inbound. A catering startup wanted a website. The brief was genuinely good: project overview, target pages, two real catering sites as design references that I could actually go look at, a $5k to $15k budget, a two-month timeline. It read like a competent owner who'd done their homework. I was excited. I wrote a full proposal and threw in a CRM selection guide on top.
 
 EXAMPLE 21:
-Edit: Actually, is my math still wrong? Should I be multiplying $1357 x 0.0004? $7.55 x 0.0004? You need to find the end of the year US obligations documentation for your funds.
+Even if i explained everything in the quote about the work we do vs other competition, to reason why my prices will be higher, it seems like 95% of the time they don't really ask questions, call, email me, they simply get 5-6 quotes, briefly look at the quote and the final price, and find the cheapest company.
 
 EXAMPLE 22:
-In NY I have to make sure the fund met the >50% requirements for all 4 quarters.
-I'll chime in here, in case you still need help. If you get it figured out, please respond.
+I'm at my limit with this, and I just want to finish up the job and leave. I want to do right by them, but we were only paid for a very exact job. Normally we would clean the whole place, but our client was very clear he didn't want that. He wanted very specifically the bathroom. I can't tell if we messed up, or them. Should I have convinced them to have us clean the whole place beforehand? Should we have just left and refused the job? Is this the client's fault?: My fault? the realtor's? is anyone at fault? What's the honest thing to do here?
 
 EXAMPLE 23:
-I was told to move the decimal point and multiply with that extra 0. Sorry. My math brain was fried from epilepsy.
+There it is. Pay me extra, have me forward $2,850 to "the consultant." The check is fake or gets clawed back after it looks like it cleared, and I'm out the $2,850 of real money I sent.
 
 EXAMPLE 24:
-Sorry I can't figure out how to guide you to that function via the website, if you know how please post in comments.
+Here's where I need opinions on how to not waste my time with PM that are simply trying to find the cheapest quotes from multiple companies.
+
+EXAMPLE 25:
+We went back and forth for a week. They asked sharp, reasonable questions about design customization, copywriting, and how revisions work. Then they "reviewed the proposals with my wife" and chose me. Gave me a business name, an LLC, a billing address. Everything a real client does.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -109,14 +107,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

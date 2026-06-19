@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "purpose": "SINGLE SOURCE OF TRUTH for per-field character budgets used by (a) the pre-parse summarize-to-budget re-ask in corpusChatService and (b) the validate_no_truncation.py Stop hook. Mirrors the canonical render-contract spec .claude/skills/nxt-visual-renderer/references/web-layouts.md. The no-truncation contract: the model summarizes each field to a COMPLETE thought within its budget at generation time; the renderer never truncates/clamps. If a field exceeds its budget, the re-ask compresses it; the hook hard-blocks anything still over budget.",
+    "source": "web-layouts.md v3.0 field budgets + SLIDE OUTPUT PROTOCOL per-template budgets",
+    "updated": "2026-06-15",
+    "policy": "Budgets are the SMALLEST surface a field renders in. Positional hero/supporting nuance (e.g. theme-spotlight hero insight 400 vs supporting 220) is approximated by the larger value per template; the renderer is count-adaptive within budget."
+  },
+  "__common": {
+    "title": 120,
+    "subtitle": 200,
+    "patternSignal": 240,
+    "keyInsight": 200,
+    "takeaway": 200,
+    "signal": 56,
+    "implication": 260,
+    "context": 150
+  },
+  "theme-cluster": { "name": 55, "insight": 180, "evidence": 120 },
+  "theme-spotlight": { "name": 85, "insight": 400, "evidence": 280, "implication": 220 },
+  "theme-arc": { "name": 70, "insight": 280, "evidence": 140, "signal": 56 },
+  "theme-mosaic": { "name": 80, "insight": 240, "evidence": 140, "signal": 52 },
+  "stat-row": { "label": 90, "meaning": 160, "matters": 160, "convergentInsight": 320 },
+  "block-quote": { "text": 420, "contextParagraph": 480, "context": 150, "implication": 260, "label": 100 },
+  "persona-card": { "jtbd": 95, "demographics": 110, "quote": 130, "role": 60, "label": 60 },
+  "recommendation": { "actionTitle": 200, "rationale": 320, "description": 150, "implication": 260, "name": 52 },
+  "journey-map": { "keyInsight": 200 },
+  "org-chart": { "role": 110, "keyInsight": 200 },
+  "section-divider": { "subtitle": 200 }
+}

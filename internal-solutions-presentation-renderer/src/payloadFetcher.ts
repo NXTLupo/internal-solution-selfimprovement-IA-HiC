@@ -6,7 +6,7 @@
 
 import type { PresentationPayload } from './types';
 
-const PROXY_URL = (process.env as { PROXY_URL?: string }).PROXY_URL || 'http://localhost:5012';
+export const PROXY_URL = (process.env as { PROXY_URL?: string }).PROXY_URL || 'http://localhost:5012';
 
 export async function fetchPayload(slug: string): Promise<PresentationPayload> {
   const url = `${PROXY_URL}/api/presentations/${encodeURIComponent(slug)}`;

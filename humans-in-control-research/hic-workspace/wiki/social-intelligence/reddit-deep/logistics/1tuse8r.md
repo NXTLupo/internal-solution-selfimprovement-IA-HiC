@@ -1,0 +1,143 @@
+---
+id: social-intelligence/reddit-deep/logistics/1tuse8r.md
+url: "https://www.reddit.com/r/logistics/comments/1tuse8r/catch_up_on_what_happened_this_week_in_logistics/"
+kind: "social-post"
+source: "reddit-deep: r/logistics"
+subreddit: "logistics"
+title: "Catch up on what happened this week in Logistics: May 26 - June 1"
+author: "charlesholmes1"
+date: "2026-06-02T14:20:04.000Z"
+score: 18
+upvote_ratio: 0.93
+num_comments: 5
+flair: ""
+extracted_at: "2026-06-18T13:35:22.665Z"
+extraction_method: "praw-deep"
+research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
+engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+chunks:
+  - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c0"
+    char_span: [0, 2186]
+    sentence_count: 21
+    key_terms: [logistics, people, american, "you're", since, week, retirement, comments]
+    token_count: 511
+  - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c1"
+    char_span: [2188, 4174]
+    sentence_count: 22
+    key_terms: [usps, amazon, dhl, billion, weeks, does, delivery, edition]
+    token_count: 437
+  - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c2"
+    char_span: [4176, 6563]
+    sentence_count: 21
+    key_terms: [usps, stord, infrastructure, amazon, brands, been, competitor, enterprise]
+    token_count: 504
+  - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c3"
+    char_span: [6565, 8640]
+    sentence_count: 18
+    key_terms: [billion, refunds, acquisition, software-plus-warehouses, edition, seeing, "that's", valuation-arbitrage]
+    token_count: 445
+  - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c4"
+    char_span: [8642, 10264]
+    sentence_count: 11
+    key_terms: [administration, tariff, fraud, customs, million, brands, paying, refund]
+    token_count: 333
+  - id: "social-intelligence/reddit-deep/logistics/1tuse8r.md#c5"
+    char_span: [10279, 11679]
+    sentence_count: 9
+    key_terms: [logistics, "you're", particularly, management, inventory, sales, vndly, "it's"]
+    section: Comments
+    token_count: 297
+---
+# Catch up on what happened this week in Logistics: May 26 - June 1
+
+Source: [reddit-deep: r/logistics](https://www.reddit.com/r/logistics/comments/1tuse8r/catch_up_on_what_happened_this_week_in_logistics/)
+Posted by **charlesholmes1** · **18↑** · **5 comments**
+
+Hey everyone,
+
+If it's your first time reading one of my posts, I break down the top logistics news from the past week, so you're always up to date.
+
+Let's jump into it,
+
+# What’s really going on with the American consumer
+
+So this hospital operations director, who makes $194k a year, couldn’t sleep because she had a $15,000 credit card balance she couldn’t crack, since the 26% interest ate up every payment she made. 
+
+You'd think a $194K salary buys you out of that kind of fear. This week, the data explained why it doesn't. Because her story isn't really about her. It's the whole American economy.
+
+Thursday’s GDP report showed that wages are up 3% since 2019, while profits are up 50%. Which explains why the stock market is breaking all-time highs every day, while everyone you speak to seems to be struggling.  
+
+So let’s play out what happens when more money gets sent to shareholders instead of the people doing the work:
+
+Pay can't keep up, so people lean on credit cards. Card debt hit a record $1.25 trillion, and delinquencies are at their worst since 2008. Counselors say middle-class families are now borrowing just to get by.
+
+Cash gets tight, so people raid the retirement account. More workers took 401(k) loans and hardship withdrawals this quarter, often for small amounts to cover groceries and gas. When you're pulling retirement money for a grocery run, you're out of options.
+
+The bosses feel it too. CEO confidence dropped to 47 from 59 in a single quarter. Companies are still spending on AI and equipment, but they've gone quiet on hiring. Nobody's getting laid off, and nobody's getting hired either.
+
+Then it hits the stores, and sorts them into two. When people feel broke, they trade down. So Dollar Tree was the single best stock in the S&P 500 on Thursday, while Gap fell 16% and American Eagle dropped 10%, reflecting discretionary vs. necessity spending we covered a few weeks back. 
+
+Even the missing car buyers fit. New cars now average $50,000, so a million shoppers walked away. And automakers don't care, because they make more money selling fewer pricey trucks. Same move in every industry: chase the margin, price out the regular person.
+
+**What this means for you:** Honestly, predicting how the next couple of quarters shake out, and how many packages actually go out the door, is genuinely hard right now. You'd think the cheap everyday brands run away with it while the pricey stuff stalls. Except this is a K-shaped economy. The bottom is squeezed, but the top is doing better than ever, and that money has to land somewhere. So the luxury and premium brands might quietly have a great quarter too. 
+
+I’m sure a lot of you have really interesting stats on this given the variety of clients and industries you serve, so I’d love to hear from you. Hit me up in the DMs.
+
+# DHL just handed USPS a $10 billion lifeline. Three weeks after Amazon nearly walked.
+
+Timing is everything in logistics, and USPS just got some.
+
+DHL eCommerce signed an exclusive multi-year, last-mile delivery contract with the Postal Service worth well over $10 billion. DHL handles the pickup, sortation across its 19 automated hubs, and the linehaul. USPS does what it does better than anyone: the final mile, into more than 41,550 ZIP codes and 170 million delivery points, six days a week.
+
+If you've been reading us, you know why this lands the way it does. Back in Edition 44 we laid out the USPS crisis in full: a 35-year structural problem finally coming due, $9 billion lost last year, officials warning they could run out of cash by early 2027. Then in Edition 45, Amazon and USPS patched things up after weeks of public threats, with Amazon keeping about 80% of its volume. We told you USPS couldn't afford to lose its biggest customer.
+
+Now, three weeks later, the deal that actually moves the needle. Amazon staying was USPS not bleeding out. DHL signing up is fresh blood.
+
+USPS has spent the past two years quietly repositioning itself, not as a competitor to the big carriers, but as the final-mile layer everyone else plugs into. Insourcing its own transportation, then renting out the one thing it owns that nobody can replicate: the most complete delivery network in the country. DHL gets to skip building 41,550 ZIP codes' worth of last-mile infrastructure. USPS gets a decade of guaranteed volume. Both sides win, which is rare.
+
+**What this means for you:** If you've been mapping backup options away from USPS (and after Edition 44, you should have been), pump the brakes before you rip it out of your stack. A funded, contractually committed USPS is a more stable partner than the one we described a month ago. The bigger signal is the model itself: USPS is becoming infrastructure that carriers rent rather than a carrier they compete with. 
+
+# Stord raised $250M to out-Amazon Amazon. We've heard this pitch before, and so has the graveyard.
+
+Stord just pulled in $250 million at a $3 billion valuation, doubling its worth in twelve months. The Series F was led by Strike Capital, and the money goes toward "Stord Labs," a hub for building agentic AI and robotics trained on live fulfillment data from nearly 100 facilities. An IPO is clearly somewhere on the horizon.
+
+The pitch from CEO Sean Henry is the cleanest articulation yet of the bet many of you are quietly making: give independent brands the full commerce stack so they can deliver an experience that "surpasses Prime" without handing the keys to Amazon.
+
+That last part should sound familiar. In Edition 45, when Amazon opened its Supply Chain Services to everyone and the market took FedEx, UPS, and GXO down double digits, GXO's CEO made exactly this argument: enterprise brands will not hand a direct competitor visibility into their inventory, demand patterns, and financials. Stord is selling the same insight, just packaged for the direct-to-consumer crowd instead of the enterprise. Over 1,000 brands have bought in, including True Classic, AG1, and Native.
+
+And the numbers are loud. Gross merchandise value through the platform hit $15 billion, up 50% since late last year. The software business tripled. New bookings doubled quarter over quarter. Stord's been on an absolute tear, eight acquisitions in six years, including snapping up Ware2Go from UPS and Shipwire from Ceva.
+
+Here's where we'd be doing you a disservice if we just cheered. That acquisition pace is exactly what makes some people nervous. Eric Pong, who writes as the Ecommerce Logistician, put it bluntly: buying growth and market share isn't sustainable, and we've seen this movie. Flexport peaked at $8 billion and is now estimated around $3.5 billion. Convoy is gone. Deliverr got absorbed. His worry is that every 3PL acquisition adds integration risk and operational complexity, and at some point investors stop seeing a pure tech play and start seeing "a logistics company with in-house tech," then price it like one.
+
+Both things can be true. Stord may have genuinely cracked the integrated software-plus-warehouses model that the hybrids before it couldn't. Or it may be running the same valuation-arbitrage playbook that looked brilliant right up until it didn't. The tell will be whether the software margins hold as the acquisitions pile up.
+
+**What this means for you:** The "be the anti-Amazon" positioning is no longer a clever niche, it's becoming the consensus strategy, and that's worth sitting with. When Stord, GXO, and a dozen others are all selling the same "we're not your competitor" pitch, the pitch alone stops being a differentiator. What you actually execute on (the kitting, the custom packaging, the brand-specific judgment that Amazon's standardized bins can't handle) is what survives. 
+
+# The tariff money is flowing out the front door while the fraud cops kick in the back.
+
+We told you in Edition 42 the CAPE portal was going live, and in Edition 46 that the first refunds were hitting accounts faster than anyone expected. Now the scale is clear: the government has refunded more than $20 billion so far, with roughly $85 billion in refunds accepted for processing, per a CBP court filing. 
+
+One catch worth flagging: 4,185 consolidated refunds are stuck because importers never submitted their bank account info. If your clients filed and went quiet, that's almost certainly why the money hasn't landed. Easy fix, but someone has to actually do it.
+
+Importers are still paying the blanket 10% Section 122 tariff Trump rolled out after the SCOTUS ruling, and the administration now looks poised to restart that tariff's 150-day clock without asking Congress, on the theory that the statute never says you can't reuse it. So the refund window is open, but the tariff regime it's refunding hasn't actually gone away. Same whiplash we've been tracking all year.
+
+Now the back door. The DOJ accused bankrupt auto-parts supplier First Brands of tariff fraud, seeking roughly $286 million in unpaid duties and penalties. The allegation: after acquiring its Brake Parts and Centric Parts divisions in 2020, First Brands slashed the prices it reported paying its Chinese subsidiary by about 32%, thereby deflating what it owed customs, even as it hiked what it charged customers by double digits. The case grew out of a whistleblower suit, and the company's founder already faces a separate criminal fraud indictment.
+
+Put it next to the $549.5 million Perfectus Aluminum duty-evasion settlement we covered in Edition 46, and the pattern is unmistakable. With the Trade Fraud Task Force running at full speed, undervaluing imports is a dramatically riskier bet than it was even two years ago. The same administration writing the refund checks is funding the investigators.
+
+**What this means for you:** Two action items: If your clients imported under IEEPA and haven't filed, or filed and never gave CBP their banking info, get them moving; that's free money sitting in limbo. But if any client has ever gotten creative with declared customs values, the enforcement environment ha
+
+## Comments
+
+- **guahina** (2↑): Guau! Gracias por este tremendo resumen, muy útil!!
+- **AltairAssasin** (2↑): thank you for this man, appreciate it
+  - **charlesholmes1** (1↑): 🙏
+- **VNDLY** (2↑): Thanks for this comprehensive breakdown of the logistics landscape. It's a lot to digest, and the intricate dynamics you're highlighting really point to the shifting sands in the industry. The story about the American consumer is particularly eye-opening, showing how macroeconomic forces are impacting everyday lives. It seems like the retail sector is in a state of flux with the "K-shaped" recovery you mentioned, which definitely complicates demand forecasting for logistics.  
+
+
+
+Regarding the USPS and DHL deal, it’s a fascinating pivot to see USPS embracing its role as essential infrastructure rather than a direct competitor to other carriers. This could stabilize a lot of operations for those relying on last-mile delivery. If you're running or advising businesses that are navigating these logistics challenges, particularly in inventory and sales management, it's crucial to stay agile and possibly re-evaluate supply chain strategies in light of these shifts.  
+
+
+
+On a side note, if you're working with B2B or wholesale clients who are feeling the squeeze, tools like VNDLY can help streamline inventory and sales management, offering real-time insights that can be invaluable in unpredictable times.

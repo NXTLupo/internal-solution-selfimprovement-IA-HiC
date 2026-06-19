@@ -1,49 +1,65 @@
 {
   "positive": [
     {
-      "point": "Margin account performance calculations have been fixed, and users are receiving checks for previous errors.",
+      "point": "Direct access to a strong factory and supply chain, providing more control over quality and pricing.",
       "post_refs": [
-        "1ryi2nu"
+        "1u91xj8"
       ]
     },
     {
-      "point": "Vanguard's performance graph glitches have been fixed, improving the accuracy of account overviews.",
+      "point": "Interest in premium sleepwear/loungewear brand focused on comfort using high-quality fabrics.",
       "post_refs": [
-        "1slbluw"
+        "1u91xj8"
       ]
     },
     {
-      "point": "Vanguard's customer service is responsive, with advisors replying even on weekends.",
+      "point": "Excitement about opening a full boutique, consignment, and antique shop with an established online presence.",
       "post_refs": [
-        "1skkwul"
+        "1u8fooq"
+      ]
+    },
+    {
+      "point": "Interest in launching a small pet home/lifestyle goods brand with a focus on unique brand identity.",
+      "post_refs": [
+        "1u875lf"
+      ]
+    },
+    {
+      "point": "Interest in starting a clothing business catering to tall and curvy girls in the Philippines.",
+      "post_refs": [
+        "1u5cdwn"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Vanguard's performance calculations and UI have several bugs, causing confusion and mistrust among users.",
+      "point": "Concerns about the crowded and competitive market for premium sleepwear/loungewear brands.",
       "post_refs": [
-        "1t7f2wd",
-        "1qzc8w6"
+        "1u91xj8"
       ]
     },
     {
-      "point": "Vanguard's tools for tracking investment performance and diversification are lacking, leading to user frustration.",
+      "point": "Frustration with supplier communication being fragmented and time-consuming.",
       "post_refs": [
-        "1rjrp6q",
-        "1py5u15"
+        "1u6qa69"
       ]
     },
     {
-      "point": "Vanguard's communication about changes to tools and projections is insufficient, causing concern among users.",
+      "point": "Concerns about the quality and consistency of products when sourcing from Alibaba for a handbag business.",
       "post_refs": [
-        "1skkwul"
+        "1u725vk"
       ]
     },
     {
-      "point": "Vanguard's Portfolio Watch tool inaccurately measures diversification for 'all-in-one' funds.",
+      "point": "Challenges in finding reliable European exporters for a small first import order.",
       "post_refs": [
-        "1pvqumy"
+        "1u8gh3k"
+      ]
+    },
+    {
+      "point": "Difficulty in finding good private label manufacturers for skincare products.",
+      "post_refs": [
+        "1u34k7e"
       ]
     }
   ]

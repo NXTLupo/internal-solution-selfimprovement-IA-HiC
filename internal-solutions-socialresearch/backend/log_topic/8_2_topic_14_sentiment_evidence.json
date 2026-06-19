@@ -1,46 +1,53 @@
 {
   "positive": [
     {
-      "point": "The ability to perform a backdoor Roth conversion allows individuals over the income limit to still contribute to a Roth IRA, providing tax-free growth potential.",
+      "point": "Offering exclusive and high-quality products can create a sense of prestige and desirability, as seen in the idea of selling limited edition hoodies with premium designs.",
       "post_refs": [
-        "1q0ol4u",
-        "1pzwgl4"
+        "1u87rx2"
       ]
     },
     {
-      "point": "Even small over-contributions, such as 35 cents, are typically rounded down to zero for tax purposes, minimizing potential tax liabilities.",
+      "point": "Using a custom stamp for packaging is a cost-effective and flexible solution for small businesses to maintain brand consistency without overcommitting to large inventory.",
       "post_refs": [
-        "1q9bnun"
+        "1u93odq"
       ]
     },
     {
-      "point": "Paying taxes upfront on Roth conversions can prevent interest charges from the IRS and potentially result in a larger tax refund.",
+      "point": "The use of local printing and word-of-mouth marketing can be effective strategies for small businesses to build a loyal customer base and maintain quality control.",
       "post_refs": [
-        "1tuxqc4"
+        "1u56c7z"
+      ]
+    },
+    {
+      "point": "Designing mobile-friendly images by keeping important elements in the center ensures a polished look across devices, enhancing user experience.",
+      "post_refs": [
+        "1u4r0ob"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Confusion around the rules and processes of Roth conversions and backdoor Roths, such as understanding the pro-rata rule and basis calculations, can lead to mistakes and anxiety.",
+      "point": "Inconsistency in branding elements like fonts and colors across different platforms can make a brand appear less professional and cohesive.",
       "post_refs": [
-        "1qm68kv",
-        "1q7jzsq",
-        "1q0ol4u"
+        "1u8yydb"
       ]
     },
     {
-      "point": "The complexity of managing multiple accounts and transactions, such as ensuring zero balance in traditional IRAs for backdoor Roths, can be challenging and lead to errors.",
+      "point": "Custom packaging can quickly become obsolete due to changes in branding or product specifications, leading to wasted inventory and financial loss.",
       "post_refs": [
-        "1pzwgl4",
-        "1q7jzsq"
+        "1u93odq"
       ]
     },
     {
-      "point": "The need to file additional tax forms, like Form 8606, and the potential for penalties if not done correctly, adds to the complexity and stress of managing Roth conversions.",
+      "point": "The challenge of standing out in a saturated market, such as the t-shirt industry, where many rely on viral marketing without a solid foundational strategy.",
       "post_refs": [
-        "1tuxqc4",
-        "1q0ol4u"
+        "1u6zsl6"
+      ]
+    },
+    {
+      "point": "Mobile image cropping issues can make a website look less polished, affecting the overall perception of the brand.",
+      "post_refs": [
+        "1u4r0ob"
       ]
     }
   ]

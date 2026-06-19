@@ -1,0 +1,40 @@
+---
+id: social-intelligence/reddit-deep/customerexperience/1tjl3a1.md
+url: "https://www.reddit.com/r/customerexperience/comments/1tjl3a1/the_biggest_mistake_in_modern_support_putting_up/"
+kind: "social-post"
+source: "reddit-deep: r/customerexperience"
+subreddit: "customerexperience"
+title: "The biggest mistake in modern support: putting up a wall instead of actually solving the customer's problem"
+author: "hubtyper"
+date: "2026-05-21T13:48:03.000Z"
+score: 1
+upvote_ratio: 0.57
+num_comments: 0
+flair: ""
+extracted_at: "2026-06-18T13:35:35.115Z"
+extraction_method: "praw-deep"
+research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
+engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+chunks:
+  - id: "social-intelligence/reddit-deep/customerexperience/1tjl3a1.md#c0"
+    char_span: [0, 1961]
+    sentence_count: 10
+    key_terms: [support, operations, customerexperience, shift, like, customers, comments, decision]
+    token_count: 397
+---
+# The biggest mistake in modern support: putting up a wall instead of actually solving the customer's problem
+
+Source: [reddit-deep: r/customerexperience](https://www.reddit.com/r/customerexperience/comments/1tjl3a1/the_biggest_mistake_in_modern_support_putting_up/)
+Posted by **hubtyper** · **1↑** · **0 comments**
+
+I’ve been thinking a lot lately about a pretty obvious shift I’m seeing in meetings with support and operations teams over the last few weeks.
+
+Not too long ago, the obsession for almost every enterprise company was throwing in a rigid chatbot the kind with buttons or endless decision trees just to contain ticket volume. It didn't really matter if the user actually got an answer; success was measured by how many people didn't reach a human agent. In the end, all it did was leave customers incredibly frustrated, spending three minutes spamming "agent" or "talk to a human" on their screens.
+
+But lately, I’m noticing a pretty radical shift in mindset. The other day I was talking to a CX manager who said something that really stuck with me: "We spent a fortune on ticket deflection tools, and all we did was move the frustration from one channel to another."
+
+Now, it feels like the focus is shifting away from building barriers to keep customers out, and moving toward actually resolving issues on the first message. Operations teams are getting tired of endless decision trees. They’d rather use AI agents that understand natural context, or real integrations on channels like WhatsApp where a customer can actually change a booking or check a refund right there, without leaving the app and without it feeling like an interrogation.
+
+I get the feeling that we're finally breaking away from the idea that automating support inherently means ruining the user experience just to cut costs.
+
+Is anyone else in support operations seeing this mindset shift in their companies, or is the priority still just clearing the inbox at all costs?

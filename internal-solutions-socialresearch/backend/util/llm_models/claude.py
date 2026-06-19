@@ -37,7 +37,7 @@ def get_claude_completion(messages: list, temperature: float = 1) -> str:
         client = anthropic.Anthropic(api_key=api_key)
         
         # Get model name from environment variable or use a default
-        model_name = os.getenv("CLAUDE4_MODEL", "claude-sonnet-4-20250514")
+        model_name = os.getenv("CLAUDE4_MODEL", "claude-sonnet-4-6")
         print(f"[claude.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
         
         # Convert messages to Anthropic format if needed
@@ -68,7 +68,7 @@ def get_claude_completion_with_json(messages: list, temperature: float = 1) -> s
         client = anthropic.Anthropic(api_key=api_key)
         
         # Get model name from environment variable or use a default
-        model_name = os.getenv("CLAUDE4_MODEL", "claude-sonnet-4-20250514")
+        model_name = os.getenv("CLAUDE4_MODEL", "claude-sonnet-4-6")
         print(f"[claude.py] Using model: {model_name}, API Key: {api_key[:8]}...{api_key[-4:]}")
         
         # Convert messages to Anthropic format if needed

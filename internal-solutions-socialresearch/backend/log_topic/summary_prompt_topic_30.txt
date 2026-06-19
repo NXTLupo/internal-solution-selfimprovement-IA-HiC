@@ -1,0 +1,114 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: app, local, idea, mini, order ahead, donuts, town
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Idea check: a single app where every local café/shop has a mini 'order ahead + rewards' app — would this work? I've been thinking about an app idea and want some honest opinions before I sink real time into it.
+
+EXAMPLE 2:
+The idea: instead of every local business having its own app (which nobody downloads), there's **one** app where each local business — cafés, bakeries, whatever — has its own mini-app inside it. You download it once and get all of them (well, I guess you would pick the mini-apps you want based on where you actually go, but yeah).
+
+EXAMPLE 3:
+The thinking is that people already love order-ahead (look at how many chain orders happen on the phone), and small businesses want the loyalty/retention that rewards bring, plus the reduced rush hour stress by having smaller queues. I would of course start in one town, ie local to me, and once there are numerous e.g. cafes on the app from this one town, move to a different town.
+
+EXAMPLE 4:
+Inside each business's mini-app, you can order ahead and order without queuing, collect loyalty rewards, see the menu, find locations, and get offers. Basically the stuff a big chain's app does, but for independent local places that could never build or get people to download their own app.
+
+EXAMPLE 5:
+- pick one category, probably coffee/bakery/lunch, not "every local shop"
+- get 3-5 businesses close enough that a customer could realistically use more than one
+- make the first promise simple: order ahead + loyalty, not a whole chain-app replacement
+- prove the merchant setup takes almost no work, because small shops will not maintain another menu/app if it is fiddly
+- watch whether customers come back without being reminded by a QR code every time
+
+EXAMPLE 6:
+Business Idea: "DoNations" — A donut shop where you eat sweet treats by donating to charity. Hey everyone,
+
+EXAMPLE 7:
+​The concept is called DoNations (or Donat's). It’s a hybrid between a donut shop and a crowdfunding platform. The core hook is simple: You don’t buy donuts; you donate to a charity, and you get donuts as a reward.
+
+EXAMPLE 8:
+I'd validate the merchant side first. If local cafes say yes only when it is free and you do all the setup, that is not the same as demand. The question I'd want answered is: would a shop pay for this because it brings repeat orders they can measure, or is it just a nice extra customers might use once?
+Door Dash already allows pickup orders. How could you compete with that?
+
+EXAMPLE 9:
+My thought is that in a cafe which has a mini-app on my app, there would be QR codes on tables and at the entrance that prompt people to download so that they don't have to queue, and can collect rewards/ order ahead next time.   
+  
+So — does this seem genuinely useful, or is there an obvious flaw I'm not seeing? Would you actually use something like this, and if you run a business, would you want to be on it? I think the hard part is not the mini-app idea, it's getting both sides of the market to care before there is already density.
+
+EXAMPLE 10:
+The obvious competitor is not just Starbucks-style apps. It is Square, Toast, Clover, Uber/Doordash pickup, punch-card loyalty, and plain old "call us and we'll have it ready."
+
+EXAMPLE 11:
+Here's the idea: an app that lets you send any physical item to someone across the city within the hour. A vetted local driver picks it up from your door, takes a photo as proof, and delivers it to the other person.
+
+EXAMPLE 12:
+​I wanted to share a business concept I’ve been thinking about. I probably won't build it myself, so feel free to take it, build it, or give your feedback!
+
+EXAMPLE 13:
+Donuts are incredibly cheap to produce (usually around $0.20 to $0.30 cents each in food cost). The 30% kept by the restaurant ($4.50) easily covers the cost of goods sold (COGS) and leaves a healthy profit margin for the business overhead, while the charity gets a massive chunk of clean funding.
+
+EXAMPLE 14:
+​Organic Marketing: The packaging would be highly shareable on TikTok and Instagram (e.g., boxes saying "This box of donuts just funded 5 meals for someone in need").
+
+EXAMPLE 15:
+​The Reward: In exchange for their $15 donation, the customer gets a box of 4 to 6 fresh, classic donuts.
+
+EXAMPLE 16:
+​Community Impact: It turns a daily coffee-and-pastry routine into a massive engine for social good.
+
+EXAMPLE 17:
+​At the register (or a touchscreen kiosk), the customer selects which local or global cause they want to support (Animal shelters, environmental funds, children's hospitals, etc.).
+
+EXAMPLE 18:
+My girlfriend and I are from Phoenix and we're working on a local startup idea. We'd love 2 minutes of honest feedback from real people in the community.
+
+EXAMPLE 19:
+​Guilt-Free Treats: People love doing good, and they love sugar. Eating a donut feels way better when you know you just helped feed a shelter dog or plant a tree.
+
+EXAMPLE 20:
+[https://docs.google.com/forms/d/e/1FAIpQLSfEGvCLTFBCmOmsEEJVR2W25rw8XC9KPeRnbC7pvJ847rSfLQ/viewform?usp=dialog](https://docs.google.com/forms/d/e/1FAIpQLSfEGvCLTFBCmOmsEEJVR2W25rw8XC9KPeRnbC7pvJ847rSfLQ/viewform?usp=dialog)
+
+EXAMPLE 21:
+Think — forgot your keys at a friend's place, need to send documents across town, want to surprise someone with something. All done safely, tracked live, no contact required.
+
+EXAMPLE 22:
+​The Split: 70% of the money ($10.50) goes directly to the chosen charity. The remaining 30% ($4.50) is kept by the restaurant.
+
+EXAMPLE 23:
+​What do you guys think? Does this sound like a sustainable social enterprise, or are there flaws in the margins/model that I’m missing? Let me know! Ah yes the $0 labor and overhead infinite money glitch 
+​"Fair point, I forgot to turn off the 'free rent and infinite volunteer labor' mod in my simulation. 💀
+​Obviously, overhead and labor eat into that 30% big time. The idea would be to price the donation tiers high enough so that the remaining percentage actually covers operational costs, or structure it as a non-profit where overhead is paid before the final donation pool is cleared. [...]
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

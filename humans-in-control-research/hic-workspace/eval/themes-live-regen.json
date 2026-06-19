@@ -1,0 +1,131 @@
+{
+  "ran": "live-claude-opus-4-8",
+  "corpus_distinct_sources": 8,
+  "theme_count": 10,
+  "avg_distinct_sources_per_theme": 2,
+  "multi_source_theme_pct": 100,
+  "fixture_baseline_avg_distinct_sources_per_theme": 1,
+  "improved": true,
+  "themes": [
+    {
+      "name": "Alumni and advancement engagement depends on building authentic relationships and global partnerships rather than transactional fundraising asks",
+      "description": "Stakeholder interviews emphasize leadership, partnerships, and engagement as central to advancement work. The framing positions relationship-building and global leadership as prerequisites for effective alumni connection rather than one-off donation requests.",
+      "citations": [
+        {
+          "sourceName": "Client Uploads"
+        },
+        {
+          "sourceName": "reddit: AskAcademia"
+        }
+      ]
+    },
+    {
+      "name": "AI tools generate widespread skepticism that their productivity gains are overhyped relative to experienced human judgment",
+      "description": "Multiple posts argue that AI's capabilities are exaggerated by marketing, with one finding the bugs it flagged were unexploitable and another showing a manager spending hours on a task a human solved in minutes. This reveals a persistent tension between vendor claims and lived productivity outcomes.",
+      "citations": [
+        {
+          "sourceName": "reddit: anthropic"
+        },
+        {
+          "sourceName": "reddit: artificial"
+        }
+      ]
+    },
+    {
+      "name": "Despite skepticism, experienced practitioners still adopt AI into daily workflows because it delivers real comfort and value to them personally",
+      "description": "An engineer with 15+ years reports using Claude daily while making a comfortable living, and ChatGPT users describe deep loyalty and switching behavior tied to perceived value. The coexistence of skepticism and adoption shows AI value is contested and highly individual.",
+      "citations": [
+        {
+          "sourceName": "reddit: anthropic"
+        },
+        {
+          "sourceName": "reddit: ChatGPT"
+        }
+      ]
+    },
+    {
+      "name": "College admissions and career decisions are experienced as high-stakes paradoxes where authentic individuality is demanded yet difficult to demonstrate",
+      "description": "Applicants describe a 'paradox' where everyone is told to be passionate and special, while career posts weigh life-altering tradeoffs like doubling salary against personal relationships. This reveals an underlying tension between standardized expectations and authentic self-presentation.",
+      "citations": [
+        {
+          "sourceName": "reddit: ApplyingToCollege"
+        },
+        {
+          "sourceName": "reddit: careerguidance"
+        }
+      ]
+    },
+    {
+      "name": "Major life and career decisions are framed through emotional and behavioral cost-benefit tradeoffs rather than purely rational optimization",
+      "description": "Career posts weigh salary against proximity to a fiancée, while behavioral economics evidence shows households exhibit distinct psychological thresholds under varying financial stress. Together these suggest decisions are governed by emotional states and framing, not just financial logic.",
+      "citations": [
+        {
+          "sourceName": "reddit: careerguidance"
+        },
+        {
+          "sourceName": "reddit: BehavioralEconomics"
+        }
+      ]
+    },
+    {
+      "name": "Institutions are perceived as withholding low-cost ongoing value from their alumni and graduates",
+      "description": "Graduates question why universities don't offer lifetime library access at minimal maintenance cost, paralleling advancement stakeholders' focus on sustaining engagement. This exposes a gap between institutions' relationship rhetoric and the tangible ongoing benefits they extend.",
+      "citations": [
+        {
+          "sourceName": "reddit: AskAcademia"
+        },
+        {
+          "sourceName": "Client Uploads"
+        }
+      ]
+    },
+    {
+      "name": "Algorithmic and AI systems are seen as quietly shaping human identity and behavior in ways users do not consent to",
+      "description": "One post describes algorithms slowly conditioning users into someone they are not, while another recounts unintended consequences of exposing a child to a chatbot. These reveal anxiety about AI's behavioral influence operating below conscious awareness.",
+      "citations": [
+        {
+          "sourceName": "reddit: BehavioralEconomics"
+        },
+        {
+          "sourceName": "reddit: ChatGPT"
+        }
+      ]
+    },
+    {
+      "name": "Trust and reputation are fragile assets that, once damaged, create disproportionate downstream consequences",
+      "description": "A spouse fired for misconduct faces a reference and reemployment cliff, while academics fear research damage from funding cuts may be irrecoverable. Both reveal how single events or shocks cause lasting reputational and institutional harm.",
+      "citations": [
+        {
+          "sourceName": "reddit: careerguidance"
+        },
+        {
+          "sourceName": "reddit: AskAcademia"
+        }
+      ]
+    },
+    {
+      "name": "Mortality and unpredictability of life reframe how people prioritize achievement-oriented goals",
+      "description": "A post mourning a peer's sudden death urges consciousness about what matters, contrasting with the relentless achievement pressure of college admissions. This tension shows how external shocks destabilize the achievement narratives institutions promote.",
+      "citations": [
+        {
+          "sourceName": "reddit: ApplyingToCollege"
+        },
+        {
+          "sourceName": "reddit: careerguidance"
+        }
+      ]
+    },
+    {
+      "name": "Regulatory and political environments are emerging as major destabilizing forces for both AI and academic institutions",
+      "description": "Posts warn of severe criminalization of chatbot development and of irreversible damage to US science from funding cuts. Together they show external policy shocks as a shared threat across technology and higher education domains.",
+      "citations": [
+        {
+          "sourceName": "reddit: artificial"
+        },
+        {
+          "sourceName": "reddit: AskAcademia"
+        }
+      ]
+    }
+  ]
+}

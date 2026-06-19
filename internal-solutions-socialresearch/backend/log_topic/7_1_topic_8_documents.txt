@@ -1,27 +1,27 @@
 Documents for Topic 8 (showing first 3):
 
 Document 1:
-If I have 7.5 VXUS shares on a lot, when I sell 7, does the other 0.5 fractional share sell/liquidate automatically as well? Hi Vanguard experts,
-
-I have seen on couple forums mentioning:
-
-> If you have a lot that is at least one share, sell the whole number of shares. The remaining fraction will liquidate at the end of the day.
-
-Ref: https://www.bogleheads.org/forum/viewtopic.php?t=426966
-
-Is it still true the case?
-
-I just sold (first time selling) 7 shares  using **SpecID** through **Vanguard...
+Most annoying weekly task Hi All! I just launched my first small business. What would you say is the most time consuming weekly task as your small business grows? Is it scheduling, follow ups, writing quotes, sending invoices reminders? Trying to get ahead and get some advice on hiring - I should hire an admin or a finance person next and why. Thank you  What’s your business 
+Considering that they posted a survey about how others operate small businesses and emphasizing that “they’re not selling...
 
 Document 2:
-Not able to sell lots in Vanguard app Anyone know a way to sell specific lots in the Vanguard app or website? Google search pointed me to an old article to set “specified ID” but I wasn’t able to find the option.   You can't select SpecID per account any more, but you can select it during the sell flow - after selecting Quantity and Order Type, you'll see the option to select cost basis, and SpecID is listed there
-I have the app open and I can only see the order type as Market/Limit/Stop/Stop Li...
+What process caused the biggest headache once your business started growing? When my business was smaller, a lot of things worked because everyone knew what needed to be done.
+
+As things grew, some processes that seemed simple became much harder to manage consistently.
+
+* Customer onboarding. 
+* Follow-ups. 
+* Approvals. 
+* Hiring. 
+* Documentation. 
+* Communication.
+
+What process caused the biggest headache as your business grew, and how did you fix it? Oh no, not another generic AI-generated “...
 
 Document 3:
-Recurring Investments I recently opened a vanguard account and I am new to investing. I already have my portfolio set up the way I want to. I like vanguard because it’s clean and pretty straightforward.
+What's a process in your business that looked simple until you actually tracked the time spent on it? A while back, I started paying closer attention to where my time was actually going during the week.
 
-So I have my portfolio set up as  
-VTI VXUS SCHD and SGOL
+I expected the big projects to be the main time drain, but that was not really the case.
 
-I set it up so I am having it auto invest into VTI and VXUS every week but I can’t do the same for SCHD or SGOL. Is there something I’m missing? If I have to do it manually I don’t really care but it would be nice if I could set it up to...
+What surprised me was how much time disappeared into small recurring tasks. Things like following up on information, checking records, finding documents, and dealing with little issues that only take a few ...
 

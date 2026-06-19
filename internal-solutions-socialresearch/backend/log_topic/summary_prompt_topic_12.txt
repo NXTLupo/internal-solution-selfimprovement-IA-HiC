@@ -1,68 +1,87 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: vanguard, information, pe, account, database, vanguard main, ownyourfuture vanguard main
+- Top keywords: cleaning, unlimited, work, membership, residential, pay, business
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Curious how you "discovered" you have a Vanguard account. Do you know who created it and when? Was it inherited?
+1. Should I go for residential or commercial cleaning? I see commercial is more stable but less profitable especially at the start.
 
 EXAMPLE 2:
-How to learn what kind of account you have from the Dashboard? I recently discovered that I have a Vanguard account, but I'm not sure what it is. I've managed to log into their site, but I can't find any mention of the actual type of account I have. Where would I be able to find out? My parents invested $7000 into a Vanguard account when I was born. I had no idea about it until a few days ago, when my mother mentioned it to me. I managed to set up a password, logged in and saw that it had grown to $19,000. [...]
+3. How do you get the business to run without  (you the owner) doing cleans. I have a semi full time job as it is already. I am doing this in hopes I can work less in my job and have a successful business. I’ve done 2 cleans this month with a helper both times and I don’t see myself cleaning in the long run but how do I pull away?
 
 EXAMPLE 3:
-* https://ownyourfuture.vanguard.com/main/explore/iframing/rulesForPlan This gives me information for my 401k plan.
+Is starting a cleaning business a good idea and what can I expect? Hey everyone, I plan to start a cleaning business in the US, but only as a menager/owner. I won't be cleaning myself.
 
 EXAMPLE 4:
-* https://ownyourfuture.vanguard.com/main/change-investment/add-Investment This shows a *list* of possible investments, but no information about it.
+the money is in recurring, not one-offs. one-time cleans are a treadmill of constantly finding the next customer. recurring (weekly/biweekly residential, or commercial contracts) is predictable income + an actual sellable business later. aim everything toward recurring.
 
 EXAMPLE 5:
-Vanguard also has its legacy interface. Try this: https://retirementplans.vanguard.com/VGApp/pe/faces/Investments.xhtml?gh_sec=y
+Need Help with New Cleaning Business Finally started getting clients. Can you guys give me advice as to whether my pricing is okay.  I am doing what I found majority of people doing and it is charge based off square footage.. business is in the Bay Area - CA.
 
 EXAMPLE 6:
-I can see a list of all investments here, with their I-number. You need to replace the plan ID of 092604 (this is the one for Adobe) with your plan ID
-https://retirementplans.vanguard.com/VGApp/pe/faces/Exchange.xhtml?SelectedPlanId=092604
+1. Is my pricing appropriate? Min / Med / Max   
+1. Regular cleans 0.15 / 0.20 / 0.25   
+2. Deep 0.26 / 0.35 / 0.40   
+3. Bi weekly 10-15% off my regular fee and weekly is 15-20% off my regular fee.
 
 EXAMPLE 7:
-Where do I find Vanguard's charity database? I want to set up some Qualified Charitable Distributions from my IRA. In the instructions for QCDs, Vanguard says it has a database of charities, but I can't find anything about it in the FAQ or online help. Does anybody know how to access it? Thanks. I helped my Mom make QCDs at Vanguard and we never looked at any database. It might just be a helpful collection of names, addresses and/or Tax IDs if those are necessary. [...]
+Any tips / recs or anything you want to share I appreciate it! Thanks! I have 3 more cleans scheduled this month. Which is a win since I did 2 already. Starting off nice and slow. I would stop treating square footage as the price and use it as a starting point. Condition, bathrooms, pets, clutter, stairs, and how often the place has been cleaned will swing the labor more than raw size. If you underquote the first visit, the whole job feels bad. I would rather be a little high and explain what is included than win work on a price that only works on perfect houses.
 
 EXAMPLE 8:
-https://ownyourfuture.vanguard.com/main/change-investment/add-Investment
-I would just ignore the Self-Directed Brokerage Fund and stick with an index US large caps (and med/small if available) and international index funds
+I'm not looking to get rich in my first week of work. I'm just trying to build something real that's going to generate me good income and I can scale in order to build my wealth. Thank you to everyone who answers, it means a lot to someone brand new to this space. cleaning's a solid first business, low startup cost, real recurring demand, + you can start solo then scale with crews. but here's the honest 'what to expect':
 
 EXAMPLE 9:
-Note that for all these things, the "prospectus" is **always** a dead link. This is something worth emailing Vanguard about.
+For quoting, I would use an intake form with photos or a quick video walk through first, then do in person visits only for large homes, heavy deep cleans, or obvious red flags. And I would not try to step out of the cleaning too early. Do the next 20 jobs yourself, document your checklist, time each room, and figure out what a good hire has to do to match your standard. If you leave before the process is repeatable, you end up managing callbacks instead of managing a business.
+Yes I always say estimated quote and not final price for that reason. [...]
 
 EXAMPLE 10:
-[https://imgur.com/a/I2QCh92](https://imgur.com/a/I2QCh92) vanguard should have the prospectus online for those types of funds
-"Self-Directed Brokerage Fund 2733" This is what it says. There's no plan. It lets you pick stocks individually.
+it's competitive + easy to enter, which means lots of people start + most compete on price + burn out. the ones who win don't compete on being cheapest, they're reliable, communicate well, + build recurring relationships. reliability is genuinely the whole game, most cleaners flake or do inconsistent work, so just being dependable already puts you ahead of half the field.
 
 EXAMPLE 11:
-You may need to be logged into your account to see it. I hate how 401k and 403k funds aren't public. And there are different interfaces once you log into your retirement account, as opposed to your normal brokerage account.
+2. For every quote you do, do you actually see the house before doing the actual clean? If yes, what other ways besides an in person walk through do you suggest? Or is in person the best option?
 
 EXAMPLE 12:
-[https://www.whitecoatinvestor.com/how-to-take-a-qualified-charitable-distribution-at-vanguard/](https://www.whitecoatinvestor.com/how-to-take-a-qualified-charitable-distribution-at-vanguard/)
+How do you build a "franchisable," sticky membership model for a niche service business? I own a competitive dance studio, and I'm hoping to borrow some brains from people who run membership/recurring businesses (maybe gyms, gymnastics, or other sports models), because the "standard dance studio" playbook doesn't really fit what we do.
 
 EXAMPLE 13:
-* https://personal.vanguard.com/us/FundsSearchPriceHistoryFA?FundId=IO27&APP=PE&SelectedPlanId=REMOVED&RedemptionFee=false&intPort=N357&Wl=null is supposed to be "search for more information" but leads to a dead page, even without me removing the planId
+For anyone running gyms, martial arts, boutique fitness: how do you handle this? Is it sliding scale or memberships, and if memberships, how?
 
 EXAMPLE 14:
-Where can I find information on a couple funds available in my 403b that seem to have no details? In my 403b there are a couple funds with no acronym (like VSTSX, etc.) but I can't seem to find information online.
+If you run anything recurring/membership-based, I'd love to hear how you (1) structure your tiers, (2) keep attendance predictable while still offering flexibility, and (3) attract a premium/niche customer instead of casting the widest net.  Your unlimited tier is probably the real product. I would not force the lower tiers to feel just as flexible, because that is what will wreck your attendance planning. Keep the entry tiers as fixed attendance products with clear boundaries, then make schedule freedom the thing people graduate into when they join the premium tier.
 
 EXAMPLE 15:
-This takes me to my 401k portfolio. I have lists of what I'm invested in, and if I click on the blue links, like for "Target Date 2040 Portfolio" I get a long URL. The essential components of it are https://investor.vanguard.com/mutual-funds/profile/pe/overview/IO27?FundIntExt=EXT&intPort=N357
+Right now we run a sliding scale: 1 class/week = $80, 2 classes = $148, and so on (a discount for each class you add). Then at 9+ classes it flips into an unlimited membership: any class on the schedule, no RSVP, merch discount, free member events, etc.
 
 EXAMPLE 16:
-This has what I call the I-number listed. For example, for "Income Portfolio" it's "IO32" which I caj put into this URL to see what it is:
+costs are low to start (supplies, basic equipment, transport) but do get liability insurance, it's cheap + clients ask for it. price by the job based on time, know your hourly target, + don't underprice to win work, that just traps you in low-margin jobs.
 
 EXAMPLE 17:
-I've never had enough money to invest in anything before, and even though I'm not normally fond of gambling, I thought I might try to save at least a little bit for retirement.
-It's normally right in the name. If it doesn't say IRA or Roth or Cash Plus or maybe 529 and it's just Brokerage Account, then it's a taxable brokerage account.
+residential vs commercial are different games. residential is easier to start, faster to book, lower ticket. commercial (offices, medical, retail) is bigger contracts + steadier but slower to land + usually wants insurance + references first. a lot of people start residential + move toward commercial over time.
 
 EXAMPLE 18:
-(There's a lot more information in the URL, like your plan ID. That number is specific to your employer.)
+Thank you. 
+Well, it's good to hear that you are doing great! I'm a web developer and as for your pricing structure i don't have any idea about that but if you need any help with setting up a website for your business, feel free to reach out to me, I'll be happy to help you out.
 
 EXAMPLE 19:
-That `IO27` part is an identifier, which doesn't quite map to your "2733" or "5808". I can replace that in the URL with slightly different numbers to see different funds. That `N357` is also an identifier, a "fund number", but changing it doesn't change anything besides the own shown.
+So really I'm trying to solve membership structure and premium positioning in a way that actually scales.
+
+EXAMPLE 20:
+I *love* how that unlimited tier feels. They don't cancel when they miss classes because they don't need to RSVP, they enjoy the extra benefits, and they feel like they belong. I want the WHOLE model to feel like that (membership-based) instead of a transactional per-class scale.
+
+EXAMPLE 21:
+the stuff that actually drives clients: a fully set-up google business profile + aggressively asking every happy customer for a review (this is your number one engine for local), referrals, + nextdoor/local facebook groups.
+
+EXAMPLE 22:
+But I can't figure out how to build the tiers *below* unlimited without wrecking attendance. If I sell something like "3 classes/week," some families want 3 back-to-back on one day, and others want one Monday, one Wednesday, one Friday. If everyone picks and chooses totally freely, attendance won't work... One class overflowing, the next one empty, and it changes week to week.
+
+EXAMPLE 23:
+expect the first 6-12 months to be slow + mostly about stacking up reviews + referrals. it compounds, the grind early turns into word-of-mouth + repeat clients later.
+
+EXAMPLE 24:
+3. What net margins and income should I expect? I've seen people saying you can make a great income very quickly and others saying the opposite. I've also seen everything from 5-40% net margins mentioned.
+
+EXAMPLE 25:
+5. How much time do I need to put in in order to maximise my potential. I see people saying everything from 15 hours a week to 80.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -85,14 +104,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

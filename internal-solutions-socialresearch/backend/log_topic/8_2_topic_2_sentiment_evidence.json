@@ -1,67 +1,53 @@
 {
   "positive": [
     {
-      "point": "Once accounts are established, the process should be smoother and easier.",
+      "point": "TallyRun app is appreciated for its simplicity, offline functionality, and being free, making it ideal for small shop owners who don't want complex POS systems.",
       "post_refs": [
-        "1tsy2ch"
+        "1u8zf0t"
       ]
     },
     {
-      "point": "Vanguard's investment products are appreciated, despite technical issues.",
+      "point": "Discounts on medical benefits from PEOs can be significant, helping companies manage costs effectively.",
       "post_refs": [
-        "1tsy2ch"
+        "1u6wzdw"
       ]
     },
     {
-      "point": "Vanguard's security measures are seen as beneficial for protecting accounts.",
+      "point": "Introductory accounting classes are seen as valuable investments for small business owners to better understand their finances.",
       "post_refs": [
-        "1tsy2ch"
+        "1u808yp"
+      ]
+    },
+    {
+      "point": "Gusto is recommended for its affordability and ease of use for payroll management, especially for small businesses.",
+      "post_refs": [
+        "1u7qcux"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Users experience significant issues with account creation and login processes, often getting stuck in loops.",
+      "point": "Square's inventory management and sales data software is criticized for being clunky and lacking features like store credit tracking.",
       "post_refs": [
-        "1rop3zf",
-        "1sbenwg",
-        "1qtlbf5",
-        "1nz4wyc"
+        "1u23yry"
       ]
     },
     {
-      "point": "Customer service is not available 24/7, causing frustration for users needing immediate assistance.",
+      "point": "QuickBooks Payments faces issues with ACH payments being blocked or flagged, causing frustration for businesses handling large B2B transactions.",
       "post_refs": [
-        "1sbukpp",
-        "1riub85"
+        "1u6oycv"
       ]
     },
     {
-      "point": "Technical issues with the website and app, such as login problems and error messages, are common.",
+      "point": "App bloat in Shopify stores can lead to slow performance and high costs, with apps often conflicting with each other.",
       "post_refs": [
-        "1qaa6k2",
-        "1t213lc",
-        "1rcp9uu"
+        "1u6o6mt"
       ]
     },
     {
-      "point": "Users face difficulties with security features like Yubikey setup and 2FA, which are not intuitive.",
+      "point": "QuickBooks can be difficult to manage for businesses with complex billing and contract modifications, leading to reconciliation challenges.",
       "post_refs": [
-        "1rnbv4z",
-        "1p5w7l7"
-      ]
-    },
-    {
-      "point": "Vanguard's system does not handle non-standard email domains well, causing issues for some users.",
-      "post_refs": [
-        "1s4aopd"
-      ]
-    },
-    {
-      "point": "There are delays and complications in linking bank accounts and updating account information.",
-      "post_refs": [
-        "1u1o696",
-        "1t02gby"
+        "1u86il3"
       ]
     }
   ]

@@ -64,6 +64,11 @@ const CHARS_PER_TOKEN_ESTIMATE = 4;
 
 export interface ManifestChunkRecord {
     chunkId: string;        // <wikiPath>#c<index>
+    /** 2026-06-16 - true when this chunk came from the user's COMMITTED KL
+     *  selection (the cached-wiki data the user explicitly chose). User
+     *  selections TRUMP auto-ranking: these are never dropped by the keyword
+     *  gates and rank in a tier above non-selected chunks. */
+    userSelected?: boolean;
     sourcePath: string;
     chunkIndex: number;
     /** Manifest-declared key_terms for this source page (the page-level
@@ -94,7 +99,18 @@ async function _fetchSelectionCatalogIds(): Promise<SelectionCatalog> {
         const selResp = await fetch(`${PROXY_BASE}/api/user-selection/active`);
         if (!selResp.ok) return empty;
         const sel = await selResp.json();
-        if (!sel || sel._uncommitted) return empty;
+        if (!sel) return empty;
+        // 2026-06-16 - USER SELECTIONS AUTO-PASS THE GATES (user rule, stated twice).
+        // A committed KL selection that is merely DORMANT this session (_uncommitted -
+        // the no-auto-arm fresh-load state) STILL grounds deliverables: its IDs are
+        // preserved by the proxy by design. The no-auto-arm rule governs the scope-bar
+        // UI and EXTERNAL COLLECTION (different consumers that read /api/user-selection
+        // directly), NOT deliverable grounding - this function is ONLY called by the
+        // grounding-catalog reader (_readManifestCatalog). When the user explicitly
+        // requests a deliverable, their curated selection must be usable without a
+        // manual re-apply. (Supersedes the retrieval-consumer half of the prior
+        // no-auto-arm rule per the owner's current directive; UI/collection unchanged.)
+        const _dormant = !!sel._uncommitted;
         const body = {
             social_subreddits: Array.isArray(sel.social_subreddits) ? sel.social_subreddits : [],
             article_sources: Array.isArray(sel.article_sources) ? sel.article_sources : [],
@@ -108,8 +124,12 @@ async function _fetchSelectionCatalogIds(): Promise<SelectionCatalog> {
         });
         if (!resp.ok) return empty;
         const data = await resp.json();
+        const ids = Array.isArray(data?.chunk_ids) ? data.chunk_ids : [];
+        if (_dormant && ids.length) {
+            console.log(`[chunkRetrieval] grounding on DORMANT committed KL selection (${ids.length} chunk pointers): user selections auto-pass the gates for deliverable grounding (no-auto-arm still governs the scope-bar UI + external collection).`);
+        }
         return {
-            ids: Array.isArray(data?.chunk_ids) ? data.chunk_ids : [],
+            ids,
             pages: (data && typeof data.pages === 'object' && data.pages) ? data.pages : {},
         };
     } catch (e: any) {
@@ -118,14 +138,18 @@ async function _fetchSelectionCatalogIds(): Promise<SelectionCatalog> {
     }
 }
 
-async function _readManifestCatalog(engagementSlug: string, bypassCache = false): Promise<ManifestChunkRecord[]> {
+async function _readManifestCatalog(engagementSlug: string, bypassCache = false, researchObjective = ''): Promise<ManifestChunkRecord[]> {
     if (!engagementSlug) return [];
+    const _obj = (researchObjective || '').trim();
+    // Cache key folds in the objective: the objective-ranked union (tier-1.5)
+    // changes the catalog, so a different goal must not reuse a prior goal's cache.
+    const cacheKey = `${engagementSlug}::${_obj.slice(0, 48)}`;
     // ENHANCEMENT E (2026-06-08): bypass the 60s catalog TTL during sharded
     // breadth (excludeIds non-empty). Otherwise parallel shards read a stale
     // catalog and select OVERLAPPING windows despite excludeIds, defeating the
     // breadth diversity the sharding exists to produce.
     if (!bypassCache) {
-        const cached = _CATALOG_CACHE.get(engagementSlug);
+        const cached = _CATALOG_CACHE.get(cacheKey);
         if (cached && Date.now() - cached.ts < _CATALOG_TTL_MS) return cached.records;
     }
     try {
@@ -150,6 +174,10 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false)
         // _fetchSelectionCatalogIds already returns empty for an _uncommitted (dormant)
         // selection, honoring the no-auto-arm rule, so a fresh page load never injects it.
         const sel = await _fetchSelectionCatalogIds();
+        // 2026-06-16 - the user's COMMITTED KL selection. These chunk ids TRUMP
+        // auto-ranking: tagged userSelected on the record below so they are never
+        // dropped by the keyword gates and rank above non-selected chunks.
+        const _userSelectedIds = new Set<string>(sel.ids || []);
         if (sel.ids.length) {
             const have = new Set(ids);
             let added = 0;
@@ -157,6 +185,38 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false)
             // tier-1 (engagement) page metadata wins on key collision; sel fills the rest.
             pages = { ...sel.pages, ...pages };
             console.log(`[chunkRetrieval] unioned KL-selection catalog: +${added} new chunk pointers (total ${ids.length}, ${Object.keys(pages).length} pages)`);
+        }
+        // 2026-06-15 - tier-1.5 OBJECTIVE-RANKED admission. Engagement-slug tagging
+        // is a crude proxy; the real selector is RELEVANCE TO THE RESEARCH OBJECTIVE.
+        // Rank the WHOLE chunk store by semantic similarity to the goal (goal-blended
+        // cosine via the proven fetch-articles engine) and UNION the top manifest-TIED
+        // pointers. This is the fix for engagement-slug starvation (tier-1 alone
+        // returned 1 page): untagged-but-on-objective corpus is admitted by relevance,
+        // with engagement-tagged chunks BOOSTED (x1.15) not gated. The server validates
+        // every pointer against the manifest (chunk_count), so grounding stays
+        // frontmatter-tied - resolveChunks dereferences spans; raw store text never
+        // enters the prompt (anti-RAG: feedback_deliverables_manifest_wiki_not_rag).
+        if (_obj) {
+            try {
+                const goalUrl = `${PROXY_BASE}/api/manifest/chunks-by-goal?goal=${encodeURIComponent(_obj)}&engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload')}&limit=600`;
+                const gResp = await fetch(goalUrl);
+                if (gResp.ok) {
+                    const gData = await gResp.json();
+                    const gIds: string[] = Array.isArray(gData?.chunk_ids) ? gData.chunk_ids : [];
+                    const gPages = (gData && typeof gData.pages === 'object' && gData.pages) ? gData.pages : {};
+                    if (gIds.length) {
+                        const have = new Set(ids);
+                        let added = 0;
+                        for (const id of gIds) { if (!have.has(id)) { ids.push(id); have.add(id); added++; } }
+                        // tier-1 (engagement) + tier-2 (KL) page metadata WINS on collision;
+                        // objective-ranked pages fill the rest of the candidate pool.
+                        pages = { ...gPages, ...pages };
+                        console.log(`[chunkRetrieval] OBJECTIVE-RANKED admission: +${added} on-objective chunk pointers (manifest-tied, relevance to research goal; total ${ids.length}, ${Object.keys(pages).length} pages)`);
+                    }
+                }
+            } catch (e: any) {
+                console.warn('[chunkRetrieval] objective-ranked admission skipped (non-fatal):', e?.message || e);
+            }
         }
         // 2026-06-12 - tier-3 WHOLE-WIKI fallback. When tier-1 (engagement-
         // tagged records) AND tier-2 (committed KL selection) are both empty -
@@ -199,9 +259,10 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false)
                 sourceTitle: pm && pm.title ? pm.title : '',
                 sourceSubreddit: '',
                 sourceRelevance: pm ? (pm.relevance || 0) : 0,
+                userSelected: _userSelectedIds.has(id),
             };
         });
-        _CATALOG_CACHE.set(engagementSlug, { ts: Date.now(), records });
+        _CATALOG_CACHE.set(cacheKey, { ts: Date.now(), records });
         // 2026-06-11 - feed the render-time pointer resolver so [path.md#cN]
         // citations the model emits can resolve to NAMED sources on every
         // surface (chat prose, slide JSON, exports). Raw pointers leaking into
@@ -231,6 +292,13 @@ export interface PickChunksOptions {
      *  match when the user's prompt is short ("themes" alone is too vague
      *  to rank against). */
     extraContext?: string;
+    /** 2026-06-15 - the RESEARCH OBJECTIVE (engagement goal) text. Drives the
+     *  tier-1.5 objective-ranked admission: the whole chunk store is ranked by
+     *  semantic similarity to this objective and the top manifest-tied pointers
+     *  are unioned into the candidate pool, so untagged-but-on-objective corpus
+     *  is admitted by relevance rather than excluded by a missing engagement slug.
+     *  Falls back to extraContext when omitted. */
+    researchObjective?: string;
     /** Chunk pointers the caller wants forced into the selection regardless
      *  of relevance (e.g. user explicitly named a source, or a prior
      *  generation's insight chunk that must carry forward). */
@@ -327,7 +395,7 @@ export async function pickChunksForPrompt(
     for (const id of _exclude) pinned.delete(id);
     // Enhancement E: sharded runs (excludeIds present) bypass the catalog TTL
     // cache so each shard sees concurrent writes and picks non-overlapping windows.
-    let catalog = await _readManifestCatalog(engagementSlug, _exclude.size > 0);
+    let catalog = await _readManifestCatalog(engagementSlug, _exclude.size > 0, opts.researchObjective || opts.extraContext || '');
     if (_exclude.size > 0) {
         const before = catalog.length;
         catalog = catalog.filter(r => !_exclude.has(r.chunkId));
@@ -377,12 +445,17 @@ export async function pickChunksForPrompt(
         // ~1KB/chunk avg; 8x margin (raised from 4x) gives MMR a wider field while
         // staying far under the resolve-flood threshold (480 resolved cleanly; cap 1200).
         const shortlist = Math.min(1200, Math.max(400, Math.ceil((tokenBudget * CHARS_PER_TOKEN_ESTIMATE) / 1000) * 8));
+        // 2026-06-16 - USER SELECTIONS TRUMP AUTO RANKING: user-selected chunks sort
+        // FIRST within both matched and backfill groups, so they claim the (capped)
+        // resolve shortlist ahead of non-selected chunks - the auto-ranker can no
+        // longer starve the user's committed selection out of the candidate pool.
+        const _us = (x: { rec: ManifestChunkRecord }) => (x.rec.userSelected ? 1 : 0);
         const matched = prelim.filter(s => s.overlap > 0)
-            .sort((a, b) => (b.overlap - a.overlap) || (b.rel - a.rel) || (a.rec.chunkId < b.rec.chunkId ? -1 : 1));
+            .sort((a, b) => (_us(b) - _us(a)) || (b.overlap - a.overlap) || (b.rel - a.rel) || (a.rec.chunkId < b.rec.chunkId ? -1 : 1));
         let picked = matched.slice(0, shortlist);
         if (picked.length < shortlist) {
             const backfill = prelim.filter(s => s.overlap === 0)
-                .sort((a, b) => (b.rel - a.rel) || (a.rec.chunkId < b.rec.chunkId ? -1 : 1));
+                .sort((a, b) => (_us(b) - _us(a)) || (b.rel - a.rel) || (a.rec.chunkId < b.rec.chunkId ? -1 : 1));
             picked = picked.concat(backfill.slice(0, shortlist - picked.length));
         }
         candidateRecs = picked.map(s => s.rec);
@@ -408,8 +481,17 @@ export async function pickChunksForPrompt(
     }
     const scored: Scored[] = [];
     let droppedZeroScore = 0;
+    let _userSelectedKept = 0;
     const _broaden = !!(opts && (opts as any).broaden);
     let _broadenBackfill = 0;
+    // 2026-06-16 - USER SELECTIONS TRUMP AUTO RANKING (user rule). A user-selected
+    // chunk is NEVER dropped for zero keyword overlap and is lifted into a tier
+    // ABOVE every non-selected chunk. The tier is FINITE (not Infinity), so the
+    // token budget + MMR diversity still apply AMONG selected chunks - and they
+    // stay ordered by their OWN request relevance (an #org request surfaces the
+    // selected org chunks before the selected off-topic ones). Non-selected
+    // (objective-admitted) chunks fill only the budget the selection leaves.
+    const USER_SELECTED_TIER = 100000;
     for (const rec of candidateRecs) {
         const ch = byId.get(rec.chunkId);
         if (!ch) continue;
@@ -419,12 +501,12 @@ export async function pickChunksForPrompt(
         }
         const score = overlap * Math.max(1, ch.sentenceCount);
         const isPinned = pinned.has(ch.id);
-        if (!isPinned && score === 0) {
-            // 2026-06-08 PHASE 2 (broader retrieval). Strict pass DROPS zero-overlap
-            // chunks (precision). On a broaden retry, KEEP them as relevance-ranked
-            // backfill: a sub-1 score derived from manifest relevance so every matched
-            // chunk (score >= 1) still ranks first, but adjacent evidence fills the
-            // remaining budget instead of leaving the window starved at the matched set.
+        const isUserSel = !!rec.userSelected;
+        if (!isPinned && !isUserSel && score === 0) {
+            // NON-selected zero-overlap. 2026-06-08 PHASE 2 (broader retrieval):
+            // strict pass DROPS these (precision); a broaden retry KEEPS them as
+            // relevance-ranked backfill so adjacent evidence fills the budget
+            // instead of starving the window at the matched set.
             if (_broaden) {
                 const relScore = Math.max(0.01, Math.min(0.99, (rec.sourceRelevance || 0) / 100));
                 scored.push({ chunk: ch, score: relScore, charLen: ch.text.length });
@@ -434,7 +516,23 @@ export async function pickChunksForPrompt(
             droppedZeroScore++;
             continue;
         }
-        scored.push({ chunk: ch, score: isPinned ? Number.POSITIVE_INFINITY : score, charLen: ch.text.length });
+        let finalScore: number;
+        if (isPinned) {
+            finalScore = Number.POSITIVE_INFINITY;
+        } else if (isUserSel) {
+            // zero-overlap selected chunks get a relevance floor (rank last AMONG
+            // selected, never dropped); overlap-matched selected chunks keep their
+            // score - both lifted above every non-selected chunk by the tier.
+            const within = score > 0 ? score : Math.max(0.01, (rec.sourceRelevance || 0) / 100);
+            finalScore = USER_SELECTED_TIER + within;
+            _userSelectedKept++;
+        } else {
+            finalScore = score;
+        }
+        scored.push({ chunk: ch, score: finalScore, charLen: ch.text.length });
+    }
+    if (_userSelectedKept > 0) {
+        console.log(`[chunkRetrieval] USER-SELECTION priority: ${_userSelectedKept} committed-selection chunk(s) lifted above auto-ranked candidates (never dropped; ordered by request relevance within the tier)`);
     }
     if (_broaden && _broadenBackfill > 0) {
         console.log(`[chunkRetrieval] broaden: kept ${_broadenBackfill} zero-overlap chunk(s) as relevance-ranked backfill (was dropped in strict mode)`);
@@ -467,15 +565,31 @@ export async function pickChunksForPrompt(
         budgetChars -= s.charLen;
         selectedSets.push(_termSet(s.chunk));
     }
+    // 2026-06-18 - SOURCE-TYPE BALANCE (research-run-failure-analysis P0.1). Reddit/social chunks
+    // out-mass curated news/article/academic on raw volume, so a pure relevance+MMR pack let one
+    // engagement come back ~100% Reddit (themes cited reddit-deep 314x, external 0x). Apply a SOFT
+    // cap: non-(user-selected/pinned) SOCIAL chunks may fill at most SOCIAL_MAX_FRAC of the admitted
+    // pool WHILE non-social candidates remain to fill the budget; once non-social is exhausted, social
+    // may use the remainder (balance when both source types exist; never starve a genuinely social
+    // corpus). User-selected + pinned chunks are authoritative and are NEVER capped. Type is read from
+    // the manifest record's source path / subreddit.
+    const SOCIAL_MAX_FRAC = 0.4;
+    const _isSocialId = new Set<string>();
+    for (const rec of candidateRecs) {
+        if (rec.sourceSubreddit || /reddit|social-intelligence/i.test(rec.sourcePath || '')) _isSocialId.add(rec.chunkId);
+    }
+    let _socialSel = selected.reduce((n, id) => n + (_isSocialId.has(id) ? 1 : 0), 0);  // count any pinned social
+
     const LAMBDA = 0.7;   // relevance weight; (1-LAMBDA) penalizes redundancy
     const pool = scored
         .filter(s => s.score !== Number.POSITIVE_INFINITY)
-        .map(s => ({ s, set: _termSet(s.chunk), norm: 0, taken: false }));
+        .map(s => ({ s, set: _termSet(s.chunk), norm: 0, taken: false,
+            social: _isSocialId.has(s.chunk.id), prot: s.score >= USER_SELECTED_TIER }));
     const maxScore = pool.reduce((m, p) => Math.max(m, p.s.score), 0) || 1;
     for (const p of pool) p.norm = p.s.score / maxScore;
     while (true) {
-        let bestIdx = -1;
-        let bestMmr = -Infinity;
+        let bestIdx = -1, bestMmr = -Infinity;             // best overall
+        let bestOtherIdx = -1, bestOtherMmr = -Infinity;   // best NON-social (soft-cap fallback)
         for (let i = 0; i < pool.length; i++) {
             const p = pool[i];
             if (p.taken || p.s.charLen > budgetChars) continue;
@@ -483,17 +597,27 @@ export async function pickChunksForPrompt(
             for (const sel of selectedSets) { const j = _jaccard(p.set, sel); if (j > maxSim) maxSim = j; }
             const mmr = LAMBDA * p.norm - (1 - LAMBDA) * maxSim;
             if (mmr > bestMmr) { bestMmr = mmr; bestIdx = i; }   // strict > -> first in stable order wins ties
+            if (!p.social && mmr > bestOtherMmr) { bestOtherMmr = mmr; bestOtherIdx = i; }
         }
         if (bestIdx === -1) break;   // nothing left fits the budget
-        const chosen = pool[bestIdx];
+        // SOFT social cap: defer a non-protected social pick that would breach the running cap IN
+        // FAVOR of the best non-social candidate, but only when one still fits the budget.
+        let pickIdx = bestIdx;
+        const best = pool[bestIdx];
+        if (best.social && !best.prot && bestOtherIdx !== -1
+            && _socialSel + 1 > Math.ceil(SOCIAL_MAX_FRAC * (selected.length + 1))) {
+            pickIdx = bestOtherIdx;
+        }
+        const chosen = pool[pickIdx];
         chosen.taken = true;
         selected.push(chosen.s.chunk.id);
         usedChars += chosen.s.charLen;
         budgetChars -= chosen.s.charLen;
         selectedSets.push(chosen.set);
+        if (chosen.social) _socialSel++;
     }
     const droppedOverBudget = pool.filter(p => !p.taken).length;
-    console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates`);
+    console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates; source-type balance: ${_socialSel} social / ${selected.length - _socialSel} non-social (social soft-cap ${Math.round(SOCIAL_MAX_FRAC * 100)}%)`);
 
     return {
         chunkIds: selected,
@@ -581,6 +705,9 @@ export async function buildManifestCorpusForGoal(
         const picked = await pickChunksForPrompt(goal, engagementSlug, {
             tokenBudget: opts?.tokenBudget ?? 30_000,
             extraContext: opts?.extraContext || '',
+            // the goal IS the research objective for every deliverable engine routed
+            // through here - admit on-objective corpus by relevance (tier-1.5).
+            researchObjective: goal,
         });
         if (!picked.chunkIds.length) return empty;
         const resolved = await resolveChunks(picked.chunkIds);

@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "purpose": "Frozen held-out evaluation set for the self-improvement gate (goldenSetRunner.runGate + the SkillOpt accept-gate). Positive exemplars = the 2026-05-25 curated, brand-locked, post-processed HTML deliverable twins (should score HIGH). Negative failure corpus = raw cached engagement JSON deliverables (pre-render, carry banned phrases + em-dashes; should score LOW). DISCRIMINATION = mean(exemplar) - mean(failure) must stay positive and not shrink for an edit to be accepted. Built 2026-06-15 as the keystone that makes recursive self-improvement gating runnable; validated offline by scripts/benchmark.mjs Phase-6 (golden_set_discrimination_proxy > 0) before trusting it (gate-quality guardrail per plans/karpathy-second-brain-realignment-2026-06-15.md WS2).",
+  "frozen_at": "2026-06-15",
+  "tiers": {
+    "positive_exemplars": {
+      "role": "Curated gold deliverables that should score HIGH on the mechanical quality vector.",
+      "status": "frozen",
+      "registered": [
+        { "deliverable": "personas", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25-real-pipeline/01-personas-NU-real-pipeline.html" },
+        { "deliverable": "journey", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/02-journey-NU.html" },
+        { "deliverable": "blueprint", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/03-blueprint-NU.html" },
+        { "deliverable": "mindmap", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/04-mindmap-NU.html" },
+        { "deliverable": "brief-dialog", "brand": "NXT", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/05-brief-dialog-NXT.html" },
+        { "deliverable": "strategy", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/06-strategy-slide-NU.html" },
+        { "deliverable": "gap", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/07-gap-analysis-NU.html" },
+        { "deliverable": "roadmap", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/08-roadmap-NU.html" },
+        { "deliverable": "org", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/09-org-NU.html" },
+        { "deliverable": "arch", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/10-arch-NU.html" },
+        { "deliverable": "prd", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/11-prd-NU.html" },
+        { "deliverable": "tech-audit", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/12-tech-audit-NU.html" },
+        { "deliverable": "competitive", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/13-competitive-NU.html" },
+        { "deliverable": "heuristic-ux", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/14-heuristic-ux-NU.html" },
+        { "deliverable": "meta-themes", "brand": "NXT", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/15-meta-themes-NXT.html" },
+        { "deliverable": "presentation", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/17-presentation-NU.html" },
+        { "deliverable": "prototype", "brand": "NU", "html_twin": "hic-workspace/sample-artifacts/2026-05-25/18-prototype-NU.html" }
+      ]
+    },
+    "negative_failure_corpus": {
+      "role": "Raw cached engagement JSON deliverables (pre-render): carry banned phrases, em-dashes, and thinner evidence density; should score LOW vs the curated twins.",
+      "engagement_root": "hic-workspace/wiki/engagements",
+      "members": "identify-a-comprehensive-new-strategy-for-co-op-based-on-the/{themes,personas,competitive,gap,journey,recs}.json"
+    }
+  },
+  "failure_taxonomy": [
+    { "id": 1, "name": "banned-phrase slop", "lens": "writing-quality", "layer": "content" },
+    { "id": 2, "name": "em-dash format tell", "lens": "format", "layer": "content" },
+    { "id": 3, "name": "thin evidence density", "lens": "evidence-hierarchy", "layer": "structure" },
+    { "id": 4, "name": "client-upload citation dominance (<60% external)", "lens": "evidence-hierarchy", "layer": "structure" }
+  ],
+  "acceptance": {
+    "discrimination": "after.discrimination >= before.discrimination - 0.05",
+    "content_edit": "exemplar mean must not regress more than 0.05",
+    "wiring_edit": "discrimination must strictly increase",
+    "hard_zero_checks": ["em_dash_hits==0 on exemplars", "fabricated_quote_count==0 on exemplars"]
+  }
+}

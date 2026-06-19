@@ -463,6 +463,20 @@ const MERGED_SECTION_DATA_PROPERTIES: Record<string, unknown> = (() => {
       }
     }
   }
+  // 2026-06-17 - Illustrator hook. Any section MAY carry a `imageConcept` so the
+  // runtime generates ONE tasteful, on-brand, transparent flat-vector
+  // illustration (Illustrator skill) and floats it on the scene. The model
+  // supplies the CONCEPT (shapes-as-idea); the runtime fills `illustration`
+  // (the resolved image URL) after compose - the model never sets a URL.
+  merged.imageConcept = {
+    type: 'string',
+    description: 'OPTIONAL supporting illustration. A literal SHAPES-AS-CONTENT description of this section\'s core idea for a minimalist abstract flat-vector illustration (e.g. "many small geometric nodes converging into one unified larger shape"; "a calm human silhouette beside flowing signal lines resolving to one point"). NO text, words, logos, or literal scenes - just the abstract shape language of the idea. Add it ONLY to sections that genuinely benefit from a supporting visual (hero, context, a key theme, cta); leave it off the rest - negative space is a feature. Do NOT set an image URL; the runtime generates the on-brand transparent art from this concept.',
+  };
+  merged.imageCanvas = {
+    type: 'string',
+    enum: ['dark', 'light'],
+    description: 'OPTIONAL. The background the illustration will float on, so its colors contrast (dark -> light/accent subject; light -> dark/accent subject). Default "dark" for hero/cta, "light" otherwise. Only meaningful when imageConcept is set.',
+  };
   return merged;
 })();
 

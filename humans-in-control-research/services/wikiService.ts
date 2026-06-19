@@ -814,7 +814,8 @@ export interface AdHocUploadInput {
     pageCount?: number;
     /** Slide count for PPTX (optional) */
     slideCount?: number;
-    /** Set when the upload was an image - vision pending in Phase 3 */
+    /** Set when the upload was an image. parsedText now carries the Gemini
+     *  vision OCR/transcription (proxy /api/parse-upload image-vision-ocr). */
     isImage?: boolean;
     /** Which surface the upload came from: 'analyst' or 'designer' */
     chatSurface: 'analyst' | 'designer';
@@ -863,10 +864,21 @@ export async function writeAdHocUpload(
 
     const body = fmLines.join('\n') + (input.parsedText || '[no extracted text]');
 
+    // 2026-06-15 - chunk + engagement-tag in-chat uploads so they enter the
+    // manifest catalog (chunk_count>0) and reach BOTH engagement-scoped (tier-1)
+    // and objective-ranked (tier-1.5) deliverable grounding - exactly like
+    // landing-page uploads (seedWikiFromUploads / archiveUploadedDocs already do
+    // this). Without it, mid-chat uploads (including vision-OCR'd screenshots and
+    // image-only PDFs) persisted to the wiki but never reached generation, so a
+    // "one slide per uploaded app" request had nothing to ground on. Only chunk
+    // real extracted text - never the "[Image upload: ...]" no-content stub.
+    const _hasRealText = (input.parsedText || '').trim().length >= 40
+        && !/^\s*\[Image upload:/.test(input.parsedText.trim());
+
     try {
-        const ok = await writeWikiPage(wikiPath, body);
+        const ok = await writeWikiPage(wikiPath, body, { chunk: _hasRealText, engagement: sessionSlug });
         if (ok) {
-            console.log(`[WikiService] Ad-hoc upload persisted: ${wikiPath} (${body.length} chars)`);
+            console.log(`[WikiService] Ad-hoc upload persisted: ${wikiPath} (${body.length} chars, chunked=${_hasRealText}, engagement=${sessionSlug})`);
             return wikiPath;
         }
         return null;
@@ -952,7 +964,29 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
     let archived = 0;
     for (const f of uniqueFiles) {
         if (!f || !f.name) continue;
-        const text = extractTextFromUpload(f);
+        let text = extractTextFromUpload(f);
+        // 2026-06-16 fix (deck-ignored-uploads, sequencing): a binary upload (scanned/image PDF) whose
+        // slow vision-OCR was still in flight when the archive ran lands here with NO parsedText and gets
+        // skipped -> "Archived 1/3" -> its body never reaches the wiki/manifest (primary grounding), even
+        // though parsing eventually succeeds. Parse it inline NOW (idempotent; 280s budget matches the
+        // proxy's vision OCR) so every uploaded body is archived, not just the fast text docs.
+        if ((!text || text.length < 40) && f.data && !/\.(txt|md|json|csv)$/i.test(String(f.name))) {
+            try {
+                const pr = await fetch(`${PROXY_BASE}/api/parse-upload`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ filename: f.name, base64: f.data, mimeType: f.type }),
+                    signal: AbortSignal.timeout(280_000),
+                });
+                if (pr.ok) {
+                    const pj = await pr.json();
+                    if (pj && typeof pj.text === 'string' && pj.text.length >= 40) {
+                        text = pj.text;
+                        console.log(`[WikiService] inline-parsed ${f.name} for archive -> ${pj.text.length} chars via ${pj.method || '?'}`);
+                    }
+                }
+            } catch (e) { console.warn(`[WikiService] inline parse for archive failed for ${f.name}:`, e); }
+        }
         if (!text || text.length < 40) continue;
         try {
             // Synthetic URL uses the ORIGINAL filename so hashes stay stable

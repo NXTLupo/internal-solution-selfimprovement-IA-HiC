@@ -1,54 +1,53 @@
 {
   "positive": [
     {
-      "point": "Vanguard's simplicity and bare-bones approach is appreciated by users who prefer straightforward interfaces.",
+      "point": "Starting a cleaning business is considered a solid first business due to low startup costs and real recurring demand.",
       "post_refs": [
-        "1rjry8z"
+        "1u8xy8k"
       ]
     },
     {
-      "point": "The ability to see transaction history and details on the Vanguard website is valued by users for thorough checking.",
+      "point": "Unlimited memberships can create a sense of belonging and commitment among members, leading to better retention.",
       "post_refs": [
-        "1rjry8z",
-        "1qbf9db"
+        "1u7r9ft"
+      ]
+    },
+    {
+      "point": "A sliding scale pricing model can help balance fairness and compensation, allowing for pro bono work while maintaining revenue.",
+      "post_refs": [
+        "1u6w2q3"
+      ]
+    },
+    {
+      "point": "Focusing on niche services like curb appeal refreshes in landscaping can be a viable business model with potentially high returns.",
+      "post_refs": [
+        "1u33viw"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Users find it difficult to identify the type of account they have on the Vanguard dashboard.",
+      "point": "The cleaning business is highly competitive, with many entrants competing on price, leading to burnout.",
       "post_refs": [
-        "1tcnh9r"
+        "1u8xy8k"
       ]
     },
     {
-      "point": "Frustration with the lack of detailed information on certain funds within 403b accounts.",
+      "point": "Unlimited memberships can lead to decreased revenue per member if not priced correctly, as they may turn into discount programs.",
       "post_refs": [
-        "1rzlowr"
+        "1u876e4"
       ]
     },
     {
-      "point": "Difficulty in finding receipts for gifts-in-kind donations on the Vanguard website.",
+      "point": "Pricing cleaning jobs based solely on square footage can lead to underquoting, especially if not considering other factors like condition and travel.",
       "post_refs": [
-        "1rjyrms"
+        "1u6kbdi"
       ]
     },
     {
-      "point": "The mobile app lacks detailed transaction information compared to the website.",
+      "point": "Starting a dumpster rental business can be challenging due to customer acquisition, insurance, and regulatory hurdles.",
       "post_refs": [
-        "1rjry8z"
-      ]
-    },
-    {
-      "point": "Vanguard's site is often delayed in updating transaction information.",
-      "post_refs": [
-        "1qnp009"
-      ]
-    },
-    {
-      "point": "Challenges in finding banking transaction history on Vanguard's platform.",
-      "post_refs": [
-        "1qbf9db"
+        "1u3o8z9"
       ]
     }
   ]

@@ -1,48 +1,103 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: cash plus, plus account, cash plus account, card, automatic, vanguard cash plus, vanguard cash
+- Top keywords: review, google, yelp, google review, customer, businesses, ask
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Representative: "Thanks for confirming this, but there is not a option at this time to be able to do this on a recurring basis from your Cash Plus account to your other Vanguard account."
+\- create your Google review link  
+\- make a QR code  
+\- print a small card  
+\- train staff to ask at the right moment  
+\- track how many new reviews you get over 2 to 4 weeks
 
 EXAMPLE 2:
-Vanguard Cash Plus can't do automatic investments TLDR: there's no way to set up automatic investments from Vanguard Cash Plus into a Vanguard Brokerage Account.
+1. Do online businesses actually feel there is a problem worth solving around reviews and reputation?
+2. What frustrates you most about existing platforms like Trustpilot, G2, Sitejabber, Capterra, etc.?
+3. If you own or market an online business, what review/reputation tool would you happily pay for?
+4. Where do you currently collect reviews, and what is missing?
+5. If a new review platform appeared tomorrow, what would make you switch or even try it?
 
 EXAMPLE 3:
-Cash Plus Automatic Withdrawals Does the Vanguard Cash Plus Account not allow for automatic withdrawals? I have found the page for setting up automatic deposits, but not automatic withdrawals.
+Is anyone actually happy with their review platform? I keep looking into review platforms for small businesses and I seem to run into the same conversation over and over again:
 
 EXAMPLE 4:
-u/enki941 does it make sense to create a Wiki for this type of information? While I have the Vanguard Cash Plus account, I only use it as basically a long term savings account, with a mix of cash and VMRXX (which gives a slightly better return right now). I find it a little too limited for it to be a true cash management account like Fidelity has. I'm happy they have it, as it is a convenient place to park some cash, but I've heard similar reports of some stuff just not working. [...]
+We spent months building a review platform for local businesses. Now we're considering a pivot to online/e-commerce businesses. Looking for honest feedback. Hey everyone,
 
 EXAMPLE 5:
-Where can Vanguard Cash Plus Account not be used for payment? I have had the Vanguard Cash Plus Account for a few months and the only place it I can't use it is to pay my **Target Circle (formerly Red) Card**.
+“If you had a good experience today, you can scan this and leave us a quick Google review. It takes less than a minute.”
 
 EXAMPLE 6:
-I want to keep this split investment between fund A and B in my brokerage, but I want the funding source to be my vanguard cash plus account, not my external bank account. How do I do this? On the website, when I click on cash plus > transfer cash menu > withdraw, it allows me to do a one-time withdrawal, but that's not what I want. I want a recurring withdrawal, with the split allocation."
+Appreciate any honest thoughts, even if your answer is "don't do it." For local businesses, the hard part is not usually where reviews live. It is getting the happy-but-busy customers to leave one at all, then routing them to the place that actually affects discovery, usually Google. If you stay local, I would position around workflow and follow-up, not as another review destination competing with GBP.
+My first question would be: why would customers leave Google, Trustpilot, or G2 to review somewhere else? If I asked runable for software recommendations today, those are probably the review sit [...]
 
 EXAMPLE 7:
-"I have a cash plus account and a brokerage account. I want to make a weekly, automatic withdrawal from my cash plus account into my brokerage account.
+We're now considering pivoting toward online businesses, D2C brands, SaaS companies, agencies, and e-commerce stores, where reviews often have a direct impact on conversions, trust, and revenue.
 
 EXAMPLE 8:
-If it's not possible has anyone had success with setting up automatic ACH pulls from their financial institution from the Cash Plus account?  I'm not sure if it is possible to do automatic withdrawals, but you can definitely do ACH pulls from other financial institutions.
-You can set up direct debits of Cash Plus account (ACH pull) from other financial institutions, say, to pay rent/mortgage etc.
-I have setup automatics withdrawals from the other party’s end. To pull for my car payment, credit card etc
+How to get more Google reviews with gamification without annoying customers? I wanted to share something that worked well for us because getting customers to leave Google reviews is one of those things that sounds simple, but is actually hard to do consistently.
 
 EXAMPLE 9:
->Comenity / Bread Financial non-bank credit card issuer including Bread Amex and AAA signature VISA (added 03/2025)
+\- staff tries to remember to ask  
+\- customer says “sure, I’ll do it later”  
+\- later never happens  
+\- only the very unhappy customers are motivated enough to leave a review
 
 EXAMPLE 10:
-Currently, I invest in my brokerage account via an automatic weekly investment from my external (non-vanguard) bank. This automatic investment allows me to select a fixed allocation between the 2 funds in my brokerage account. Every week $200 goes to fund A and $100 goes to fund B. Both fund A and B are in my brokerage account.
+Curious if other small business owners here have tried gamification or QR codes for reviews. Did it help, or did customers ignore it? Have a poster which says 5% off/free cheap product on google review, when the person shoes you should give him a wheel spinner and have small portion to win condition 
+I'm in Thailand and businesses here have signs all over saying free gift or discount with Google review. Many also ask if you can leave a review right then and there.
+sounds like our idea just without the software
 
 EXAMPLE 11:
->Target Red Card "The routing and/or account number is incorrect. Please check your information and try again." (as of 03/2025)
+• Reviews from years ago can still heavily influence perception today.  
+• A one-time customer often carries the same weight as a long-term loyal customer.  
+• Most platforms only capture public feedback after a customer is already frustrated.  
+• Businesses get measured on isolated experiences rather than ongoing customer relationships.
 
 EXAMPLE 12:
-After poking around the website and app for 30 minutes I messaged a representative. Thought this might be useful information for others in this situation.
+Personally, I'd be more interested in platforms that focus on review quality and customer relationship signals than simply collecting more reviews.
 
 EXAMPLE 13:
-[https://www.bogleheads.org/forum/viewtopic.php?t=421345&sid=cdd627777e75e6e108b52cfd25b62efa](https://www.bogleheads.org/forum/viewtopic.php?t=421345&sid=cdd627777e75e6e108b52cfd25b62efa)
+Over the last several months, my co-founder and I have been building a reputation and review platform focused on businesses.
+
+EXAMPLE 14:
+After talking to business owners and studying the market more closely, we realized we're competing against giants like Google Business Profile and Justdial, which are already deeply embedded in how customers discover local businesses.
+
+EXAMPLE 15:
+Do not make people create an account. Do not ask for too much. Do not make the reward the main reason for the review. The review still needs to be honest and natural.
+
+EXAMPLE 16:
+* Trustpilot gets criticised for pricing
+* Judge me gets recommended because it's affordable
+* Yotpo seems aimed more at larger brands
+* Reviews io comes up quite a bit as a middle ground
+
+EXAMPLE 17:
+Our original thesis was that local offline businesses would care deeply about their online reputation and would be willing to pay to manage and showcase reviews.
+
+EXAMPLE 18:
+Instead of “please leave us a review”, we tested a simple gamified flow where the customer scans a QR code, goes through a short review flow, and gets a small incentive or reward-style experience.
+
+EXAMPLE 19:
+If you pay for a review platform, do you feel like it's worth it? Honestly most of them feel pretty similar once you're actually using one day to day. The platform itself mattered way less than just getting customers to actually leave a review in the first place. We switched once mainly over pricing, not because the old one was bad
+That's interesting, and honestly seems to be a recurring theme. The more I look into it, the more it feels like review collection strategy matters more than the platform itself. Pricing seems to be what pushes people to switch rather than a lack of features. [...]
+
+EXAMPLE 20:
+This removes friction. If the customer has to search for your business on Google manually, most people will not do it.
+
+EXAMPLE 21:
+Everyone debates pricing, integrations, and features, but the underlying review model hasn't changed much in years.
+
+EXAMPLE 22:
+What helped was making the review request part of the customer flow instead of treating it like an awkward favor.
+
+EXAMPLE 23:
+Before we spend months building in that direction, I'd love brutally honest feedback from founders, marketers, and business owners:
+
+EXAMPLE 24:
+The result is that reviews often become a reputation snapshot rather than an accurate reflection of current customer sentiment.
+
+EXAMPLE 25:
+Not days later. Not in a random email. The best moment is when the customer is happy and the experience is still fresh.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -65,14 +120,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

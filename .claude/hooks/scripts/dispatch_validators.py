@@ -407,6 +407,28 @@ def main() -> int:
         # reference real manifest chunks (catches model drift between
         # what it claimed to cite and what's actually addressable).
         "validate_insight_provenance.py",
+        # 2026-06-14 - Text-hierarchy / typographic-doctrine gate. The renderer
+        # enforces size+weight from the Figma type system; this enforces the
+        # content-side rules only the model controls: hero values stay short
+        # evidence (not headlines that out-rank the title), and prose is
+        # sentence-case (no ALL-CAPS shouting). See validate_text_hierarchy.py
+        # + the nxt-visual-renderer/references/typographic-system.md contract.
+        "validate_text_hierarchy.py",
+        # 2026-06-14 - Writing-quality / structural-tell gate (Anti-Slop Field Guide).
+        # Reads the single canonical lexicon (_lexicon.py), sanitize-first, weighted
+        # slop-score; catches negative parallelism, triads, dangling -ing, stacked
+        # hedging, Tier-2 clusters, same-opener cadence, low burstiness - the tells
+        # only the shadow detector logged before. SHADOW MODE today (exit 0); promote
+        # high-precision checks to blocking after the FPR ramp. The hic-output-qa
+        # sub-agent rubric cites this hook as its writing-tell source.
+        "validate_writing_quality.py",
+        # 2026-06-15 - No-truncation gate. Flags any slide field that exceeds its
+        # per-field export budget (would force the renderer/export to cut it) or
+        # already ends in an ellipsis. Both signals are exact (deterministic char
+        # count / suffix), so it BLOCKS. Single budget source shared with the TS
+        # summarize-to-budget re-ask: services/slideFieldBudgets.json. The runtime
+        # enforcement is the re-ask in corpusChatService; this is the regression guard.
+        "validate_no_truncation.py",
     ]
 
     all_failures: list[str] = []

@@ -1,0 +1,118 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: price, products, jewelry, handmade, packaging, high, 3d
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+My first product is an ESP32-based smart desk clock that displays time, temperature, and humidity, housed in a custom handmade metal frame.
+
+EXAMPLE 2:
+I plan to operate this out of a dedicated, high-end showroom section inside my established, premium smoke shop. Customers get elite pieces without the traditional 300% corporate showroom markup.
+
+EXAMPLE 3:
+Any advice, criticism, or suggestions would be a massive help. Thanks in advance. Custom packaging leads me to suggest you take a look at your alternatives. Plenty want to go all out with many frills customers wouldn't miss.
+
+EXAMPLE 4:
+I am legally blind, so my business model is built entirely on sourcing, logistics, and project management rather than physical bench labor. I source premium, pre-cast gold and silver components, buy certified diamonds and precious gemstones directly through wholesale trade portals, and contract specialized master setters on our local Jewelers Row to handle the physical assembly for a flat trade fee.
+
+EXAMPLE 5:
+I'm planning to sell it internationally and would appreciate advice from people who have experience selling handmade or hardware products.
+
+EXAMPLE 6:
+For product details you can check my profile  I will write it all out again. This is not a builder forum and not an amateur coder forum.
+
+EXAMPLE 7:
+Wanting to build a brand around unique, problem-solving quality products, I moved away from dropshipping. I found a supplier in China and ordered inventory/samples. My plan was to use these items to shoot high-quality, genuine video ads myself and master that part of the funnel.
+
+EXAMPLE 8:
+Without some reason for it to exist, without skillful marketing, you price it based on mass production competition. Now you know the real reason people zero-out price here. What you have is an expensive hobby -- the quintessential supply without demand or customer discovery -- of Build It And They Will Come thinking.
+
+EXAMPLE 9:
+I recently launched an e-commerce store in the **Kitchen and Home Decor/Accessories** niche. I initially started with traditional dropshipping, but I quickly realized the available winning products were completely saturated, outdated, and overdone.
+
+EXAMPLE 10:
+I’ve already had regular clients tell me straight up that they would absolutely buy their jewelry and engagement upgrades from me because of our established relationship and the transparent pricing. However, I want to scale this beyond my immediate circle.
+
+EXAMPLE 11:
+The Storefront Setup: How do consumers react to buying high-ticket custom jewelry (chains, bracelets, rings) out of a dedicated, upscale section within a high-end smoke shop, rather than a traditional standalone jewelry store?
+
+EXAMPLE 12:
+* **Quality vs. Price:** While the product does solve a genuine problem, the manufacturing cost is incredibly high relative to the actual material and build quality.
+* **The Margin Problem:** Once I add the cost of custom packaging, shipping, and ad spend, the final retail price would have to be ridiculously high. If I price it competitively, I will be operating at a guaranteed loss.
+
+EXAMPLE 13:
+Validating a high-end jewelry brand run by a blind entrepreneur out of a premium smoke shop So I'm an entrepreneur currently running a retail storefront. I am launching a custom jewelry venture, and I want to get some honest feedback on consumer psychology, branding, and trust.
+
+EXAMPLE 14:
+The Trust Factor: From a consumer standpoint, does an independent jeweler being legally blind build immediate trust regarding honesty and straight-shooting pricing, or do you think average consumers will worry about quality control? (Even though all stones are third-party certified and assembly is handled by master trade setters).
+
+EXAMPLE 15:
+I would price from fully loaded cost first: parts, your time, scrap rate, packaging, payment fees, support, warranty replacements, and the extra pain of shipping internationally. Then ask whether the final number still makes sense next to the alternatives your buyer could choose. If it does not, the answer may be to change the product or market before changing the price. Branding and packaging matter, but only after you know the unit economics are real.
+
+EXAMPLE 16:
+It is not much. Just 5 items. 
+I was thinking maybe the issue is with not buying in bulk?
+Bulk might reduce the cost.
+
+EXAMPLE 17:
+Appreciate any raw feedback or advice on how to position the branding! I have a smoke shop and couldn’t even remotely imagine selling jewelry to my clients, but you said there’s already interest- so go for it!
+Yeah, I know how it sounds, but you got to remember the new crowds like 30s and under are not looking for that upscale prestige jewelry store vibe, and my store happens to be one of the nicer ones so it’s another reason I think it could work out. My prices will be a whole lot better than the mall prices as well so that will play a huge part. [...]
+
+EXAMPLE 18:
+I don't absolutely hate the idea, but I do have concerns. Does being a smoke shop make you more liable to be robbed? For every jewellery customer who comes through your door, there are 99 non-jewellery customers, and some of them are going to get ideas. Do you have an idea of how much money you're willing to sink into this experiment? Have you looked into insurance? I'm guessing your existing insurer won't know anything about the jewellery industry. Do the castings come already polished? There is more to finishing than just stonesetting.
+
+EXAMPLE 19:
+You put running at a loss as one of the smartest options. It doesn't belong there.
+Did you buy inventory or just one sample?  If you have inventory you should probably get rid of it asap maybe by selling bulk to a close out store.  If you don't like the quality you'd probably be dealing with returns if you sold directly to customers.
+
+EXAMPLE 20:
+It does explain why everybody prices at ruinous rates for something they insist upon calling 'traction.' And why they all ask for the magical place complete strangers they don't understand so never could have built something for all hang out. That place is the builder's vivid imagination.
+Do not start low just to get customers unless you are deliberately running a short test and you know what you are learning from it. Handmade hardware has too many hidden costs for that game to stay cheap for long. [...]
+
+EXAMPLE 21:
+The founder's skill at copywriting and marketing determines price. Which is why a grocer doesn't have differently shaped generic boxes on shelves, all marked "Food." There is no magical right answer from the Big ol' Book of Business.
+
+EXAMPLE 22:
+Need advice: Unique product, but the numbers don't add up. Cut losses or test anyway? Hey everyone, looking for some honest advice and perspective from experienced e-commerce sellers.
+
+EXAMPLE 23:
+B2B Marketing: I plan to partner with local high-end salons and florists to hand out $150 "Trade Credit" gift tokens to their VIP clients. Do you think this premium framing works better than a standard percentage coupon for a luxury service?
+
+EXAMPLE 24:
+The unknowing will tell you to price your labor at common wage rates, add up component costs, include a margin -- that's your price. It doesn't explain how products vary widely based on target of well understood market segments. These are the people who think the auto industry validated the Edsel.
+
+EXAMPLE 25:
+* **Option A (Run ads at a loss):** Go ahead with shooting the genuine content, run the ads, and treat the inevitable financial loss purely as a "tuition fee" to learn the ad optimization and fulfillment process.
+* **Option B (Cut my losses and pivot):** Put this product aside, accept the sample/initial sourcing cost as a sunk cost, and immediately pivot to sourcing cheaper, local products where the margins actually make sense.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -143,19 +143,23 @@ async function _loadPrimarySkillPrompt(deliverableType: string): Promise<string>
  * contradiction-finder, second-order-thinker, slide-title-lab) were
  * loaded into that path's system prompts. This map closes the gap.
  */
+// 2026-06-14 - human-voice-editor (Pillar 4 positive voice) auto-loads on EVERY
+// deliverable, so theme summarization, headlines, and prose are humanized inline, not
+// just de-slopped. It pairs with the prohibition layer (anti-slop lexicon) the same way
+// the field guide's Pillar 4 pairs with Pillars 1-2.
 const QUALITY_SKILL_COMPOSITION: Record<string, string[]> = {
-    'THEMES':              ['source-ranker', 'contradiction-finder'],
-    'PERSONAS':            ['source-ranker'],
-    'STRATEGIC_RECS':      ['source-ranker', 'second-order-thinker'],
-    'STRATEGY_DECK':       ['slide-title-lab', 'second-order-thinker'],
-    'JOURNEY_MAP':         ['source-ranker'],
-    'GAP_ANALYSIS':        ['source-ranker', 'contradiction-finder'],
-    'ROADMAP':             ['source-ranker', 'second-order-thinker'],
-    'TECH_ARCH':           ['source-ranker'],
-    'TECH_AUDIT':          ['source-ranker'],
-    'COMPETITIVE_ANALYSIS':['source-ranker', 'contradiction-finder'],
-    'STRATEGIC_REPORT':    ['source-ranker', 'contradiction-finder', 'second-order-thinker', 'slide-title-lab'],
-    'PRD':                 ['source-ranker'],
+    'THEMES':              ['source-ranker', 'contradiction-finder', 'human-voice-editor'],
+    'PERSONAS':            ['source-ranker', 'human-voice-editor'],
+    'STRATEGIC_RECS':      ['source-ranker', 'second-order-thinker', 'human-voice-editor'],
+    'STRATEGY_DECK':       ['slide-title-lab', 'second-order-thinker', 'human-voice-editor'],
+    'JOURNEY_MAP':         ['source-ranker', 'human-voice-editor'],
+    'GAP_ANALYSIS':        ['source-ranker', 'contradiction-finder', 'human-voice-editor'],
+    'ROADMAP':             ['source-ranker', 'second-order-thinker', 'human-voice-editor'],
+    'TECH_ARCH':           ['source-ranker', 'human-voice-editor'],
+    'TECH_AUDIT':          ['source-ranker', 'human-voice-editor'],
+    'COMPETITIVE_ANALYSIS':['source-ranker', 'contradiction-finder', 'human-voice-editor'],
+    'STRATEGIC_REPORT':    ['source-ranker', 'contradiction-finder', 'second-order-thinker', 'slide-title-lab', 'human-voice-editor'],
+    'PRD':                 ['source-ranker', 'human-voice-editor'],
 };
 
 /** In-session cache so repeated generate*() calls don't re-fetch the same SKILL.md files. */

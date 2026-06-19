@@ -1,0 +1,117 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: merchant, employee, told, alo, policy, spouse, items
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Naturally, they both filed for unemployment.  Initially they were both denied, but then the guy claimed he had no idea what his fiancée was doing and that he was fired only for being guilty by association and was able to get his unemployment approved on that basis.  I have witnesses that will testify that he knew and that he specifically set lumber aside for their latest project.  So, I appealed and we have a hearing next month.  The woman appealed the denial and also has a hearing later this month.  Fun times.
+
+EXAMPLE 2:
+Afterward, the merchant offered various replacement items, including gift-with-purchase products, perfumes, shoes, and accessories. While I did receive some items, many of the promised replacement products were never delivered. I was repeatedly given explanations and assurances that did not materialize.
+
+EXAMPLE 3:
+I found out in April that they were planning on stealing furniture.  The woman would write up orders for the production guys and have custom pieces built using materials I paid for and on the clock.  I confirmed that these things were being made for this couple on the clock and that they ordered materials on my account, and then I fired them.  I also learned that the man was also just taking raw materials and another employee showed me a video of him loading a huge cushion into his car after hours one day.  The video was old, but it was the first time I had ever heard of it or seen it. [...]
+
+EXAMPLE 4:
+He took me through a sales presentation and then asked what credit card we'd be putting it on before even asking whether I was interested in purchasing their package. I told him I'd like some time to think about it, weigh my options and discuss it with my spouse before making a decision.
+
+EXAMPLE 5:
+About a week after I was informed that we had won the auction, the merchant told me that both the ALO pallet and the warehouse merchandise had been lost in transit and could no longer be tracked. As a result, I never received either shipment. I am uncertain whether the items were actually lost, as both orders reportedly disappeared during transit.
+
+EXAMPLE 6:
+At the beginning of the call, the representative asked whether I could make business decisions on my own or if I needed my spouse on the call. I assumed he meant general business decisions (which I make all the time) since I run my business myself, so I said yes.
+
+EXAMPLE 7:
+What really bothered me was how quickly I found myself on the defensive. Instead of the conversation being about whether their service was a good fit for my business, it became me having to justify why I wasn't comfortable spending $3,000 on the spot. To me, taking time to think through a major purchase and discussing it with my spouse is just common sense. Yet I spent a significant portion of the call defending that position while he repeatedly challenged it.
+
+EXAMPLE 8:
+Employee Theft - Do I Press Charges? I'm going to try to make this short.  I had a couple that worked for me.  The woman was my office manager and after about a year I hired her boyfriend to handle deliveries with the plan that he would learn to do wood finishing.  The business is a custom furniture manufacturing company.  They live together and both worked for me for more than 6 years.
+
+EXAMPLE 9:
+I am submitting this complaint because I believe I may have been misled regarding the purchase, shipment, replacement of merchandise, and repayment promises made by the merchant I just did a little research because I wasn't sure what an ALO liquidation pallet was but it took about 10 seconds to see that there are hundreds of posts warning that these are all scams.  You can and should report the fraud but it is very doubtful you will recover anything.  Either the pallets are never delivered, the merchant keeps adding fees like "insurance", the goods are counterfeit.
+
+EXAMPLE 10:
+Because I had used a credit card to make these purchases, I became concerned about the financial burden. The merchant then promised to help cover my credit card expenses by providing monthly payments and additional merchandise. However, these promises were not fulfilled. To date, I have only received approximately $2,300, which is significantly less than the amount I paid, and many of the promised items were never provided.
+
+EXAMPLE 11:
+For the next 10–15 minutes - nearly half the call - we went in circles. He repeatedly asked me why I didn't want to buy the package immediately. I repeatedly gave him the same answer: I'm not going to spend $3,000 after a short presentation without taking any time to think about it, and my spouse and I discuss large purchases together before making decisions.
+
+EXAMPLE 12:
+He also seemed to be using fear tactics, implying that the IRS was going to take a ton of my money come tax season if I didn't use their services and that I was leaving money on the table by not signing up immediately. When I again mentioned wanting to think about it for even just a day and talk to my spouse first, he became frustrated and said, "This is why I asked you if you needed your spouse on the call to make decisions."
+
+EXAMPLE 13:
+Can I report Online business Fraud to Attorney General? In April 2025, a merchant offered to bid on an ALO liquidation pallet on my behalf because I did not have the required LLC to participate in the auction. I paid for the pallet, and the merchant informed me that the winning bid amount was $4,300. I agreed to the purchase and was excited because ALO is a premium brand and I believed it would be a good investment.
+
+EXAMPLE 14:
+He also made a bizarre out of pocket comment along the lines of, "Clearly you like money, right? I mean, you're hesitant to spend $3,000 to save tons of money, so clearly you like money." and then tried to use that as a reason to buy their package.
+
+EXAMPLE 15:
+By red flag I mean, it’s over already between me and that company. 
+Yeah that was the first time I’d encountered something like that. I just started my business a couple months ago. Never owned a business before so it’s all still very new. Good lesson learned though on what to avoid!
+
+EXAMPLE 16:
+There are tons of scammers preying on people trying to make a quick buck online with reselling.  There are tons of scammers selling courses for how you can make money reselling this stuff online.  The whole online reseller industry is ripe with scams from top to bottom. 
+Stop doing shady business and you will avoid these pitfalls 
+Well, i am new to this kind of business and the merchant offered me items. I admit i don't have enough knowledge about liquidation. But i thought this merchant was honest and doing the right thing coz they have been in business for 5 yrs.
+
+EXAMPLE 17:
+These two just won't go away.  For a good month they were harassing me about various pieces of furniture they wanted from the shop.  I didn't know how to handle it, so I hired a lawyer and I've just been letting him handle it.
+
+EXAMPLE 18:
+What he failed to explain was that he apparently meant whether I was prepared to spend $3,000 on the spot without having any time to consider my options or discuss it with my spouse first.
+
+EXAMPLE 19:
+Beware of 1800-Accountant A couple months ago, I formed an LLC through ZenBusiness and received a free consultation with 1-800Accountant. Since I run a new, very small real estate photography business (it's literally just me), I was excited to learn more about taxes and ask some questions about what I should expect as a new business owner.
+
+EXAMPLE 20:
+At the same time, I also purchased warehouse merchandise, including 925 sterling silver jewelry, for a similar amount.
+
+EXAMPLE 21:
+What are the pros/cons to moving forward with this?  Is it worth it?  I mostly want to recover the cost of the labor and materials they wasted.  But I'm sure they have no money, so filing a suit in small claims court probably is not worth it, at least right now.
+
+EXAMPLE 22:
+The whole experience felt incredibly manipulative and unprofessional. I went into the call hoping to learn about taxes and small business finances, but instead it felt like a high-pressure sales pitch disguised as a consultation.
+
+EXAMPLE 23:
+I decided I should at least file a police report so I can submit it for the unemployment hearings and possibly use it in a civil suit to recover the cost of the labor and materials later.  When I filed the report, the original office said this was mostly civil stuff and wouldn't go anywhere.  But then he gave me a number that I could call and have them arrested immediately.  Then I got a call from a detective who also asked me if I wanted them to be arrested.  I guess that caught me off guard.  I thought they would need to do some sort of investigation first, before making an arrest.
+
+EXAMPLE 24:
+I feel overwhelmed with this.  If anyone has been in a similar situation, how did you handle it?  What's the best thing to do? Absolutely press charges. Their behavior was egregious. 
+💯 charge these fools. 
+OP says they can probably get him arrested as well though? Kinda sus.
+
+EXAMPLE 25:
+All that said, I have no clue how their actual service is but if that consultation was a taste of it, I wouldn’t recommend them.  That sounds awful! The service is also terrible.
+I see that question about decision making ability as a red flag if I encounter it in the very early stages of a sales process.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

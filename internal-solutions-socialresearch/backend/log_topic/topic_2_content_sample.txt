@@ -1,16 +1,20 @@
 Topic 2 - Content Sample
 Number of content items: 25
-Top words: account, browser, app, online, vanguard, log, tried
+Top words: quickbooks, payroll, accounting, bookkeeping, tax, software, business
 
-Content 1 (length: 193 chars):
-When you first log in to Vanguard's web application from a new browser or browser profile, the app challenges you with a texted code and gives you the option to trust the browser in the future.
+Content 1 (length: 197 chars):
+Best accounting software for small online food business? Shelf-stable items, <400 orders/month Hi all, looking for recommendations on accounting software and setup for a small online food business.
 
-Content 2 (length: 1654 chars):
-Set Up Online Account Access Glitch Hi! I just turned 18 and want to make my first investment, and I've chosen Vanguard as my broker. After the slightly painful process of making a brokerage account, I am trying to invest in the S&P500, but every time I try to click "buy and sell" from the transact menu, I am told to set up online account access. So, like a good little future-investor, I enter all the information they want from me, after which they tell me I've actually had online access the whole time! Whoops! Oh well, I guess I'll just try again! Transact, buy and sell...ohh...they want me to set up online account access. You get the idea. Anything I try to do on my individual brokerage account, whether in the app or the website, I am trapped in an infinite loop in which I can get nothing done. My sanity is slowly draining, so any help would be greatly appreciated! My friend had this same or similar issue - "create an account", "you already have an account",  followed by a message like can't reset password because there is no such account. He tried for weeks to get help from customer support, trying different things, such as "get the Chrome browser." They mostly just read from scripts. I could not help him either. I think they had permanently locked his account. Finally he went to the Schwab office in our town and transfered his account to them. (His was never a youth account, but was formerly a 401(k) account.) Sorry I don't have better news/experience for you. Good luck.
-Ditto, except we're switching to Fidelity.
-To be honest, I tend to have more issues in the app than the web interface, so I usually use that for anything.
+Content 2 (length: 671 chars):
+Thanks! For under 400 orders/month, I’d keep the accounting system boring and make the payout reconciliation clean. QBO or Xero can both work, but the part to decide early is how Stripe fees, shipping charges, sales tax, and inventory purchases land in the books so your CPA isn’t untangling mixed payout deposits later.
+qbo is fine for this. set up the stripe integration from day one so fees and payouts auto-match instead of you manually splitting every deposit later. at my agency we've seen people try to reconcile stripe manually at first and it becomes a mess by month 3 when they realize gross sales don't match net deposits and the CPA has to rebuild everything.
 
-Content 3 (length: 524 chars):
-edit: to add, all this is on Vanguards side.  when you click “trust this browser“ it saves a combination of these sessions credentials on their end to not prompt for 2FA until a certain time on their side.  I imagine you’ll need to get in touch with their web development team to get your credentials deleted from their trusted server
-\> this is on Vanguards side. when you click “trust this browser“ it saves a combination of these sessions credentials on their end to not prompt for 2FA until a certain time on their side.
+Content 3 (length: 539 chars):
+* Online-only specialty grocery / food business
+* Expected order volume is under 400 orders/month, at least initially
+* U.S.-based LLC
+* Payments will run through Stripe
+* Product/catalog/order data managed through Shopify, but we’re not using Shopify checkout
+* We’ll need to track sales, sales tax, payment fees, shipping/delivery fees, inventory purchases, COGS, packaging costs, and basic operating expenses
+* I want something clean enough for a CPA/bookkeeper later, but I don’t want to overbuild this before we have meaningful volume
 

@@ -1682,6 +1682,14 @@ const App = () => {
                     const resp = await fetch(`http://127.0.0.1:5012/api/wiki/read/engagements/${encodeURIComponent(slug)}/${key}.json`);
                     if (!resp.ok) continue;
                     const data = await resp.json();
+                    // 2026-06-16 - The proxy returns HTTP 200 for a MISSING file with
+                    // {content:"", exists:false} (not a 404). Treat that as "no file" and
+                    // skip SILENTLY - it is not a shape problem. Previously JSON.parse("")
+                    // threw, the wrapper object fell through the shape check, and every
+                    // un-persisted kind logged a false-alarm "SKIPPED ... shape missing"
+                    // (the 9 SKIPPED lines on a chat-driven engagement whose per-kind result
+                    // files were never written; those artifacts restore via designDeskStore).
+                    if (data && typeof data === 'object' && data.exists === false) continue;
                     let payload: any = data;
                     if (data && typeof data === 'object' && typeof data.content === 'string') {
                         try { payload = JSON.parse(data.content); } catch { /* keep raw */ }
@@ -4772,17 +4780,24 @@ const App = () => {
                         .filter(s => /^[a-z0-9_]{2,21}$/i.test(s))));
                 };
                 let deepSubreddits = parseUserSubreddits(subredditsInput);
-                if (deepSubreddits.length === 0) {
+                // 2026-06-18 (research-run-failure-analysis Issue 1): auto-inferred Reddit is SUPPORTING
+                // signal, not the corpus. The prior unconditional auto-infer fetched ~11 subreddits x 50
+                // full-body posts and out-massed the user's curated retail sources (themes cited reddit
+                // 314x, external 0x). Cap auto-inferred BREADTH (<=5 subs) + halve its post volume below;
+                // user-EXPLICIT subreddits keep full volume (they asked for it). The chunk-admission
+                // source-type cap (chunkRetrieval.ts) is the output-side guarantee; this bounds the fetch.
+                const redditAutoInferred = deepSubreddits.length === 0;
+                if (redditAutoInferred) {
                     // Auto-infer when empty. We don't block on this - if the
                     // LLM call fails we just skip the deep-Reddit pipeline.
                     try {
                         const { inferSubredditsFromGoal } = await import('./services/researchFabricOrchestrator');
-                        const inferred = await inferSubredditsFromGoal(researchGoal);
+                        const inferred = (await inferSubredditsFromGoal(researchGoal)).slice(0, 5);
                         if (inferred.length > 0) {
                             deepSubreddits = inferred;
                             setThinkingEvents(prev => [...prev, {
                                 type: 'LEARNING',
-                                content: `[REDDIT-DEEP] Auto-inferred ${inferred.length} subreddits from goal: ${inferred.map(s => 'r/' + s).join(', ')}. Full bodies + comment trees will be fetched for topic modeling.`,
+                                content: `[REDDIT-DEEP] Auto-inferred ${inferred.length} subreddit${inferred.length === 1 ? '' : 's'} from goal (capped at 5, supporting signal): ${inferred.map(s => 'r/' + s).join(', ')}. Curated sources lead; Reddit corroborates.`,
                             }]);
                         }
                     } catch (inferErr) {
@@ -4811,8 +4826,10 @@ const App = () => {
                         trustpilot: trustpilotTargets.trim() ? trustpilotTargets.split(',').map(s => s.trim()).filter(Boolean) : undefined,
                     } : undefined,
                     redditDeep: deepSubreddits.length > 0 ? {
+                        // Auto-inferred Reddit is supporting signal -> half the post volume so it cannot
+                        // out-mass the user's curated sources at fetch time; user-explicit subs stay at 50.
                         subreddits: deepSubreddits,
-                        postLimit: 50,
+                        postLimit: redditAutoInferred ? 25 : 50,
                         commentsPerPost: 10,
                         sort: 'relevance',
                         timeFilter: 'year',

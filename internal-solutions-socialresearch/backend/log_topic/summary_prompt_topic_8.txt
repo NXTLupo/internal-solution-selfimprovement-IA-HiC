@@ -1,94 +1,72 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: shares, method, term, sell, gain, tax, cost
+- Top keywords: business, things, task, small, follow, owners, day
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-> The MinTax cost basis method is generally designed to lower an individual's tax burden for the current transaction by identifying securities to sell based on the most favorable tax rate using the ordering rules described above. Each category is exhausted before moving to the next. If the cost of the original share is unknown, we'll treat the cost basis as zero.
-> 
-> In many cases, the MinTax cost basis method may reduce the tax impact, but it does not guarantee the lowest total tax liability. [...]
+What repetitive admin task still wastes the most time in your business? For small business owners: what repetitive admin task still wastes the most time in your business?
 
 EXAMPLE 2:
-> #How it works
-> Our system prioritizes your tax savings by selecting to sell securities in the order listed below:
-> 
-> * Short-term capital loss from largest to smallest.
-> * Long-term capital loss from largest to smallest.
-> * Short-term zero gain or loss.
-> * Long-term zero gain or loss.
-> * Long-term capital gain from smallest to largest.
-> * Short-term capital gain from the smallest to largest.
+Examples could be:
+- copying customer info between tools
+- following up with customers
+- booking appointments
+- updating spreadsheets
+- chasing documents
+- preparing quotes
+- keeping CRM/customer records updated
+- reporting what happened each week
 
 EXAMPLE 3:
-1. 0.330  purchased at $113.70 per share. Total pending gain in the whole lot is $42.77. Lot is up 113.99%
-2. 2.161 purchased at $186.87 per share. Total pending gain in the whole lot is $121.94. Lot is up 30.20%.
+**Also, I wouldn't frame these things as a waste of time.** If they were truly waste of time, people wouldn't do it. Successful small business don't see themselves as time wasters.
+For me the sneaky one is customer follow-up after the first contact. Not the big obvious stuff, but the half-finished handoffs: someone asked for a quote, someone needs a date confirmed, someone sent details in a text, someone is “probably interested” but nobody owns the next step.
 
 EXAMPLE 4:
-Vanguard offers the [**Highest in, first out** (HIFO) method](https://investor.vanguard.com/investor-resources-education/taxes/cost-basis-highest-in-first-out) --- do we know if this method would apply to shares, if they happen to have the highest cost basis? I sold the specific lots in the last few weeks, so I would not expect VG's procedures to have changed in such a short period of time.
-___________
-To liquidate those lots less than one whole shares; do you think the following might work? 
-Transfer all the lots with high basis (example: 0.2@$260, 0.8@$262, 0. [...]
+What task do you keep doing manually even though it feels like it should be easier? The problem with questions like this is that these things are all so broad the answers couldn't possibly be useful. I used to fish for business ideas this way, but it's not effective.
 
 EXAMPLE 5:
-> Our system prioritizes your tax savings by selecting to sell securities in the order listed below:
+- one place where every open customer item lands
+- one owner, even if two people are involved
+- one next step with a date
+- a daily 10-minute sweep of anything still open
 
 EXAMPLE 6:
-* Vanguard's **Market sell: SpecID** transaction only allows WHOLE numbers of shares (i.e. sell transaction will not proceed with 2.8 shares).
+For those of you who turned a stuck business around, what was the one change that actually did it? Always curious whether it comes down to a tool, a process, or just a shift in how the team works. the visibility thing is real. worked with a landscaping company that had the same problem. all the job scheduling lived in the owners head and one whiteboard that nobody updated after tuesday. clients would call asking about their appointment and the office manager had to physically walk to the board to check.
 
 EXAMPLE 7:
-Selling Fractional Stock at Vanguard I am diversifying a portfolio which has a big unrealized gains with Apple, but there are some shares with high basis. To minimize realized capital gains: I will sell the Apple shares with the highest basis first.
+The boring lesson: the problem was never effort, it was that everything lived in people's heads. The moment the work became visible on shared boards, things stopped falling through. We followed up on quotes we used to forget, crews stopped wasting their mornings, and clients got serviced on time.
 
 EXAMPLE 8:
-* I used a Vanguard **Market Order: SpecID** to sell the whole shares (2 shares and 1 share from the example above).
+A company stuck at the same revenue for 10 years grew about 75% in a year. The biggest change was getting everything out of people's heads and onto one shared board. I joined a small HVAC dealer at the end of 2024, 14 employees. They'd been in business since 2014 and had basically stood still the whole time, revenue parked around the same number every year. It wasn't the product or the people. Nothing was organized. Sales quotes were in WhatsApp and spreadsheets, the field crews never knew the day's plan, and recurring service jobs slipped.
 
 EXAMPLE 9:
-Edit: However it could choose shares that would lead to short-term capital gains instead of long-term capital gains for tax purposes.
-I think your edit describes VG's [MinTax method](https://investor.vanguard.com/investor-resources-education/taxes/cost-basis-minimum-tax), do you agree?
+The turning point was realizing that growth had exposed weak processes we could ignore when volume was low. Hiring helped less than I expected at first because new people amplified the need for systems. Clear ownership, standardized workflows, and fewer custom exceptions ended up mattering more than getting more leads.
+Growth didn’t create the problem, it exposed it. That’s been one of the biggest lessons I’ve learned. What worked with 5 clients often breaks at 50 if the systems never evolved. [...]
 
 EXAMPLE 10:
-The scedario below was to KEEP some shares of ABCD, but also: a better solution to my sitation is here: https://www.reddit.com/r/VanguardInvestments/comments/1omnjre/selling_fractional_stock_at_vanguard/
+At what point did growth create more problems than it solved in your business? As a service business owner, one thing I’ve noticed is that getting more customers isn’t always the hardest part. Sometimes the real challenge starts after the customer says yes.
 
 EXAMPLE 11:
-* I had hoped that selling the whole number of shares in the LOT would *also* sell the lot's fraction, but it wasn't so: I am left with 0.8 and 0.9 shares.
+More clients can mean more emails, more scheduling, more follow-ups, more employee issues, and more opportunities for things to fall through the cracks. I’ve seen businesses focus heavily on lead generation while struggling with communication, consistency, and internal processes.
 
 EXAMPLE 12:
-Do you have any suggestions for unloading those fractional shares withOUT liquidating my whole Apple position?
+I didn't buy expensive software. I put everything on Trello, which is free, and got the team to actually use it. Three simple boards: one for the sales pipeline (every quote is a card, moving from new lead through to won or lost), one for jobs and installs (each job a card with the address, docs, and customer contact), and one for recurring maintenance (a card per site showing its status). It took a few weeks of pushing to get everyone actually using it, but once it stuck the whole team was running smoother and honestly happier.
 
 EXAMPLE 13:
-If I sell 0.33 shares (and assuming Vanguard let you sell fractional shares) would it take it from the first lot, which has the smallest overall gain. Or from the second lot, which would give me the smallest gain on 0.33 shares?
+For instance if you said: "Small restaurant owners: what's repetitive admin tasks take up most of your time?" or, even better: "Small restaurant owners: how much time do you spend on \[task\] per week? Are you looking for ways to make that more efficient?"
 
 EXAMPLE 14:
-Selling fractional shares of ETF I was hoping to liquidate an entire ETF position but Vanguard only permits whole share sales. I also can’t buy enough fractional shares to round up to 1 share. Obviously this isn’t a new problem- is there a workaround? Thx.  [deleted]
-It doesn’t give me that option. And even if it did, it’s an ETF. The dollar value could change between the time I place the order and it executes. The only option is to sell whole shares. Can’t even do a limit order. 
-Edit:
-I mis-read your post: I overlooked ENTIRE.
+The lesson I’ve learned is that growth doesn’t automatically solve problems. In many cases, it magnifies them. For those who’ve been in business a while: **What operational challenge caught you off guard as your business grew?** The thing that caught me off guard was the communication overhead. When I was small, I could keep everything in my head. Once we added more clients and a few team members, simple tasks suddenly needed documentation, check-ins, approvals, and follow-ups. Nothing felt hard individually, but the accumulation was exhausting. [...]
 
 EXAMPLE 15:
-To me the second answer is the obviously right one, but I'm looking for confirmation. Without one, I'll be the guinea pig I guess. Today I made a limit order sale of 1 share. Based on market prices I should have done it yesterday. Now I can feel stress over $5.
+Over 2025 we went from around $800K to around $1.4M and grew to 20 people. The tool was free. The change was just making the work visible and keeping it current.
 
 EXAMPLE 16:
-* Short-term capital loss from largest to smallest.
-* Long-term capital loss from largest to smallest.
-* Short-term zero gain or loss.
-* Long-term zero gain or loss.
-* Long-term capital gain from smallest to largest.
-* Short-term capital gain from the smallest to largest.
+The useful split is “waiting on us vs waiting on the customer.” If it’s waiting on us, it should not be sitting in somebody’s memory or buried in texts. That little bit of structure saves more time than most fancy automation.
 
 EXAMPLE 17:
-* Many of the lots are fractional shares (e.g. 2.8 shares with $250 basis and 1.9 shares with $260 basis). All those fractions add up to a lot shares!
-
-EXAMPLE 18:
-~~1. open a second account, then ~~
-~~2. transfer that less-than-one share to the the new account (select by lot), example: the 0.3 of 2.3 shades of ABCD, two shares stay behind.~~
-~~3. Repeat for other fractionals~~
-~~4. Liquidate all those fractional shares (eg 0.3 shares, 0.5 shares, 0.8 shares).~~
-~~5. Profit!~~
-
-EXAMPLE 19:
-There are no lots with losses and no lots that are even, so the next lot that MinTax would select would be those with LTCG.
-
-EXAMPLE 20:
-Oddly, I have two brokerage accounts, and the entire basis has disappeared for all lots in the one I'm not using for this experiment. A little concerning but I don't need to move them right away so I hope this bug goes away soon.
+we didnt even use trello, just a shared google sheet with columns for status, address, crew assigned, and date. within two weeks the callbacks dropped because anyone could check the status without interrupting someone else. the tool genuinely doesnt matter as long as the information stops living in one persons memory.
+saw something similar at my own place. for years we just knew bookings were inconsistent and blamed ads or the season. then we actually put a number on it, tracked when people reached out versus when we got back to them. [...]
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -111,14 +89,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -66,6 +66,9 @@ export const nxtBrand: Brand = { ...TOKENS };
 //      separate "secondary accent" color; muted slate plays that role.
 export const nuBrand: Brand = {
     ...TOKENS,
+    // Explicit brand discriminator - renderers switch on this, NOT on font (NU is
+    // now single-typeface Lato + a Figma mode, so FONT_TITLE==='Lora' is dead).
+    BRAND_ID: 'nu',
     // 2026-06-10 - GOLD reconcile. Values now come from the LIVE NU design-system
     // Figma file (z2v9Pvhg23hlljEitPBdAt: token node 97:2 + GOLD case-study frames
     // 91:2 / 93:2), which is the deliverable design system the user built and
@@ -117,6 +120,13 @@ export const nuBrand: Brand = {
     FONT_DISPLAY: 'Lato',
     FONT_TITLE: 'Lato',
     TITLE_WEIGHT: '700',
+    // Brand seal / wordmark for section-divider footer chrome (token, not a
+    // renderer literal). NXT default 'NXT Humans' lives in TOKENS.
+    SEAL_LABEL: 'Northeastern · Advancement',
+    // NU masthead = red N monogram (hydrated as inline SVG from /api/design-tokens?brand=NU
+    // logo.monogram) + NORTHEASTERN wordmark. Build default is the wordmark; the SVG
+    // populates live at boot. Never hardcode the mark in the renderer.
+    BRAND_LOGO_WORDMARK: 'NORTHEASTERN',
     FONT_BODY: 'Lato',
     FONT_MONO: 'Lato',
     FONT_DISPLAY_PPTX: 'Lato',

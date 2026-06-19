@@ -1,0 +1,126 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: sri, spice, audience, shipping, usa, gifts, sri lankan
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Our target market is Sri Lankans and food lovers in the USA who don't have easy access to authentic Sri Lankan food.
+
+EXAMPLE 2:
+Your biggest advantage is direct access to a 300,000-person audience who already know your name and share your cultural background. That cuts out the hardest part of ecommerce, which is reaching people cold. The Sri Lankan spice market in the USA is not new, and several brands already operate in it, so you will need something that sets you apart from them. The central question for this idea is whether your audience will actually convert to paying customers at a price that covers what it costs to make the pouches, ship them internationally, and keep the business running. [...]
+
+EXAMPLE 3:
+A meaningful portion of your 300,000 followers, not just a tiny fraction, would need to buy repeatedly at a price point that leaves you with enough to reinvest and survive.
+Your spice blend would need to stand out enough in taste, convenience, or brand story that customers choose it over existing Sri Lankan spice brands already available in the USA.
+The cost of goods and shipping from Sri Lanka would need to allow a retail price that does not shock people who are price-sensitive on spice, which is typically a low-cost grocery item.
+WORTH TESTING FIRST
+
+EXAMPLE 4:
+Import Spice Blend from Sri Lanka to USA. Seeking Opinions I've always dreamed of becoming a businessman.
+
+EXAMPLE 5:
+Now, a friend and I are working with private-label manufacturers in Sri Lanka to develop "dumb-proof" Sri Lankan spice blend pouches that allow people to cook authentic Sri Lankan meals at home in under 30 minutes with just a few simple steps.
+
+EXAMPLE 6:
+For shipping, at this stage you are best off going through JP Post. Sign up for a International Mail MyPage account (its free) and learn how to fill out the forms. You will need to search the HS-codes for all the products. Some countrys in Europe are super strict on this. So best to just do it perfect for every country. Always print the shipping label out, and when it asks for how many invoices you want, just always choose what the country you are sending to requires. If you ask the post office, they will give you a bunch of the plastic shipping label packets to put on your package for free.
+
+EXAMPLE 7:
+for 40 addresses, ask suppliers directly about their december cutoff dates and whether they have a dedicated contact for bulk orders. the ones set up for corporate gifting will have a clear answer.
+
+EXAMPLE 8:
+I’m a Japanese woman trying to build a cultural bridge business — any advice on how to start? Hi everyone! I’m Yukiko, based in Japan near Mt. Fuji.  
+I’m in the early stages of starting a small personal shopper business, and I’d love honest advice from this community before I launch.  
+My concept is to be a “Culture Translator” — not just sourcing items, but sharing the real context and authenticity behind Japanese goods, delivered with genuine care. [...]
+
+EXAMPLE 9:
+To get there, I first focused on building an audience. Over the past few years, I've grown to about 300,000 followers across multiple platforms, mainly Sinhala-speaking Sri Lankans around the world (most are based in Sri Lanka). I currently live in the USA.
+
+EXAMPLE 10:
+First time organising Christmas gifts for 40 clients and I’m worried about messing up the logistics I’ve been asked to organise thank you gifts for about 40 of our top clients before Christmas, and I’m realising very quickly that this is not as simple as “pick a nice hamper and send it.” We are a small enough company, but a lot of our work comes from repeat clients and referrals, so the owners want to do something proper this year. Nothing ridiculous or flashy, just something that feels premium, thoughtful, and professional. [...]
+
+EXAMPLE 11:
+EMS is what you want to ship with. It is a little more expensive, but has tracking and arrives very fast. If its a smaller package, and the customer doesn't care about tracking, you can shoose SAL which arrives in around 10-14 days. Some countries have an option to add tracking as well, but its hit or miss. But it is much cheaper than EMS. (Basically EMS is priority, and SAL waits until there is an open slot on the flight for extra mail.)
+
+EXAMPLE 12:
+Let me know if you have more questions.
+It definitely works. The real issue is how you plan to handle the customs and logistics.
+
+EXAMPLE 13:
+Mixed
+You have a genuine advantage in audience and cultural knowledge, but the spice blend market is crowded and the money left on each sale is usually thin.
+COMMERCIAL REALITY
+
+EXAMPLE 14:
+Next, you are going to run into A LOT of people that don't want things you specialize in like what you listed. NPB jerseys, things that they don't realize can't be shipped internationally, video games that might be way harder to source than you realize, and some of the most niche anime that even the most oktaku of otakus don't even know. So be prepared to learn a lot about the things you don't know about.
+
+EXAMPLE 15:
+How much are you going to be investing? I found it best to start sourcing boxes, and type and stuff from ASKUL at first. They sell at normal wholesale price with no intimidatingly large minimum purchase orders. But there are better places if you are fine ordering boxes 100+ at a time. (Remember you are going to need many sizes of boxes, and you will want to know how big the largest box you can ship at lower rates is. If you need to go larger, it might actually be cheaper to ship 2 separate boxes than one large one.
+
+EXAMPLE 16:
+One thing I will say, is if you are offering this service, make sure you charge a premium for it. It's easy to undersell yourself for the time and service you are doing. So if you will be adding a special note that you need to type out and individualize to each customer, you still need to pay yourself for that extra effort you put in. I wish I knew that before the snack box.
+
+EXAMPLE 17:
+The money left on each sale after paying for manufacturing, packaging, international freight, payment processing, and returns will be so small that you need very high volume to build a real business, and most of your audience may see the price point as too high compared to what they can buy locally.
+WHAT WOULD HAVE TO BE TRUE
+
+EXAMPLE 18:
+Market Opportunity
+WORKABLE
+Audience exists but broader market is saturated.
+Margin Viability
+WEAK
+International shipping and manufacturing costs compress margins heavily.
+Competitive Position
+WORKABLE
+Cultural credibility and audience, but no exclusive product.
+Operational Complexity
+WORKABLE
+Private-label setup handles production, but international supply chain adds friction.
+Digital Readiness
+STRONG
+Established audience across multiple platforms ready to reach.
+THE BIGGEST RISK
+
+EXAMPLE 19:
+To start, you can use IG and get a PayPal routed to your Japanese bank, but eventually, you will want to get a website with a secure payment processor.
+
+EXAMPLE 20:
+The quickest signal on whether your audience will buy at a profitable price is to post the product, price, and shipping cost directly to your existing platforms and track how many people click through and how many actually complete a purchase. You will know in weeks whether the conversion is real or whether your audience engagement does not translate to sales at a price that works.
+
+EXAMPLE 21:
+There is definitely a need for your services, but you might want to expand outside of the things you listed above and be open to the stuff the general population is looking for.
+
+EXAMPLE 22:
+What do you think are the biggest strengths and weaknesses of this business idea? Here you go, buddy. This is from my business assessment tool. 👍
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

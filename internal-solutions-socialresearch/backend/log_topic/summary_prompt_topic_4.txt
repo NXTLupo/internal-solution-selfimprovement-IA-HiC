@@ -1,51 +1,90 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: vanguard, performance, returns, portfolio, graph, funds, voo
+- Top keywords: brand, order, quality, supplier, small, sourcing, manufacturer
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-VMFXX bugging out my performance UI I started investing minimally about 6 months ago and have only ever purchased 3 stocks on vanguard. I have never purchased vmfxx. The 3 stocks I have purchased total about $120 of profit. However, my performance view shows that I’m negative $680, with the cause being VMFXX. This stock doesn’t show up in my holdings, only in my performance table. The fact it’s claiming I’m down so big is worrying, does anybody have any insight or is this just a bug? i dont trust vanguard performance calculations. [...]
+Right now, my biggest challenge is finding reliable exporters. I've looked through Europages and a number of other directories, but it's difficult to know who is legitimate and who isn't. Some interactions have raised red flags. For example, one supplier sent me a price list on WhatsApp, deleted it, and then resent an updated version that suddenly included the exact product I had just asked about. That didn't inspire much confidence.
 
 EXAMPLE 2:
-Vanguard Portfolio Watch...poor job of classifying "all in one" funds to measure diversification I'm a long-time Vanguard user.  In preparing for retirement, we've begun using a couple of balanced, "all-in-one" funds, which are essentially funds-of-funds.   With that change, the Portfolio Watch tool no longer accurately measures diversification or Asset Mix; nearly 41% of the portfolio is now listed as "other" rather than domestic or international.
+For those with experience in importing food and beverages, what would you recommend? How do you verify exporters and avoid scams? Are there any best practices for small first orders?
 
 EXAMPLE 3:
-Also agree with the other post about VTI - "world" stock funds these days are usually two third US and everything is dominated by NVDA etc so you are not getting much diversification here.  If you want some international exposure you may want to pair VOO with an "ex US" ETF like VXUS.  You can see portfolio holdings on the Vanguard website and if you go thru that for VOO and VTI you'll see the similarity.
+My main challenge is that I'm starting small. Most of the larger suppliers and exporters have minimum order requirements of 20 pallets or more, while my initial order will likely be just one pallet as I test the market.
 
 EXAMPLE 4:
-on vanguard webpages you may sometimes see (-) in front of numbers when this dash wraps around the screen edge and appear to show negative number.  i would make sure the negative number u see is not this crazy UI bug/artifact. change your browser window size to confirm what u see is negative number
-Gotcha, yeah I am seeing I apparently have 11 cents in that market fund, I guess leftover from when I deposited into vanguard and then purchased other stocks. But this is def not that dash bug, tried on mobile and desktop and both show a super negative graph until I remove vmfxx from its filters.. [...]
+Drop your questions in the comments below. I’ll give you the most direct, transparent answers I can. Let’s talk logistics! I've got a few, these questions are coming from someone who hires a Shipping Broker for when we import equipment.
 
 EXAMPLE 5:
-Vanguard pretty much keeps their equity split right around 60/40 (dom/intl)and their bond split at 70/30 (dom/intl) so you're not missing much on the Portfolio Watch page, but it would be nice if they fixed this.
-I didn't realize this issue was recent.    These are all Vanguard funds, so it doesn't seem like too much to expect.   I sent Vanguard a note. I'm curious to see their response.
-Yeah, this has been a long-term problem with Portfolio Watch that Vanguard doesn't seem to concerned about. [...]
+Sourcing from Alibaba/1688 is easy, shipping is hard. I'm an operations lead at a Chinese freight forwarder. Let's talk FBA logistics, DDP vs FOB, and how to not get ripped off. AMA! Hi Everyone, I’m Matthew.
 
 EXAMPLE 6:
-I generally know how those newly acquired funds are invested, but I would like to see it as distributions are made.  It is a weird glitch, these are ALL Vanguard funds.   I submitted an inquiry to Vanguard....I've never had success getting responses on tech issues, so we'll see. I noticed the same thing for the target date funds I hold. It used to show the domestic/international split in Portfolio Watch until a few weeks ago. You can always just view the asset allocation on the details page for the fund you're invested in though.
+Finding a supplier on Alibaba, 1688, or Taobao is only half the battle. Getting those goods from a factory floor in China into a US or EU Amazon FBA warehouse safely, legally, and profitably is usually where things get complicated.
 
 EXAMPLE 7:
-Hope that helps.
-Btw, VTI is something like 87% VOO. No reason to do both, just go all in on one or the other
+Looking for a manufacturer for a sleepwear/loungewear brand Hi everyone! I’m launching a sleepwear/loungewear brand and currently looking for a clothing manufacturer.
 
 EXAMPLE 8:
-Can someone help me understand the app? Im a little confused on why the total deposits/withdraws aren’t matching with the total costs of the ETFs as well as why the investment returns are way higher than the total capital gain? Can someone help me understand this please. That’s not really an app issue. You’d see the same thing on the website/statements.
+Thanks! First, have you researched the legality of doing this in Canada and whether or not you or the supplier need any special import/export licenses, approvals and requirements?
 
 EXAMPLE 9:
-I assume investment returns includes dividends.
-so the cost basis for VOO and VTI will include dividends you presumably have reinvested which is the difference between 14309.62 and 14224 = 85.62.  Guessing on share count but you must have about 20 VOO and 4 VTI and would have caught 2 dividends for 2025 in September and December, VOO payout was 1.77+1.74 =3.51 \* 20 = $70 and VTI was 0.9508+0.9072=1.858 \* 4 = $7.43 so about $80 total ... so the $85 cost basis increase makes sense.
+Since this is a new venture, I want to test local demand before making a significant investment. My first order will likely be small—around one pallet—which may be part of the reason I'm having trouble finding established exporters willing to work with me.
 
 EXAMPLE 10:
-It's also possible the app is wrong - I would check again on Monday in case there was some issue with calculations due to year-end processing.  I've also found cost basis on Vanguard can have delays updating.
+* experienced in women’s garments
+* experienced in embroidery 
+* who can do the whole end to end process: fabric sourcing, sampling, embroidery, cut-and-sew, finishing, labelling
+* low MOQs
+* strict quality control
 
 EXAMPLE 11:
-as a money market fund vmfxx is almost always valued at $1; it's sole existence is to give u interest and be liquid.
+I’d like to find a manufacturer based in Pakistan, ideally in Lahore or Faisalabad. If you’re interested, please send me a DM with your company background, relevant experience, previous work/portfolio, MOQ, sampling process, lead times, and whether you have experience producing women’s cotton loungewear or embroidered garments. If you have an instagram link, it would be great if you could share that too.
 
 EXAMPLE 12:
-Your "total return" on these investments is the gain/loss plus the reinvested cost basis which is about 348+85=$433.
+That's the biggest obstacle I'm facing right now, and it's something I need to figure out before I can move forward.
+Established exporters often skip single pallet orders because the logistics costs are high. Having a contact in Belgium verify the supplier before sending any payment might be a safer move while you're still testing local demand.
 
 EXAMPLE 13:
-The difference between the ending balance and the market value on the positions is $471.  and if you add that to $433 you get the $904 investment return BUT I don't know from this why that $471 difference exists.
+I manage the operations side for an international freight forwarding company based in China. Over the years, I’ve seen countless Amazon sellers—from absolute beginners to 7-figure veterans—get completely tripped up by the logistics side of their business.
+
+EXAMPLE 14:
+Because of that, I need to find an exporter or supplier who can consistently provide the necessary documentation and support. Fortunately, food regulations in Europe are generally quite strict, so reputable suppliers usually have most of this information readily available.
+
+EXAMPLE 15:
+If you keep pursuing a factory in Pakistan, be prepared for one of two things: either a higher-than-expected sample-run price, or pressure to increase your quantity. Another option is to simplify the size range for the first drop and launch with S, M, and L only. That gets your units per size up and makes the order a lot more attractive to a factory.
+
+EXAMPLE 16:
+50 units spread across XS–XL is really only about 10 pieces per size, which is where you’re going to run into problems. Most full-service factories in Pakistan aren’t excited about orders that small, especially if you’re asking them to handle fabric sourcing, patterning, cutting, sewing, and embroidery. By the time they’ve set everything up, there’s just not much money in the job for them.
+
+EXAMPLE 17:
+What benefits does a logistics company offer over a shipping broker? Is it the difference between a shipment once a year vs regular batches?
+
+EXAMPLE 18:
+I live in Toronto, Canada, and I'm in the process of launching a business that imports European beverages for sale in Canada.
+
+EXAMPLE 19:
+I also have an uncle who lives in Belgium and has offered to help. I've found several reputable European distributors, but many only sell to businesses within Europe. One option I'm considering is having my uncle source products locally through those distributors while I arrange the ocean freight and import process into Canada.
+
+EXAMPLE 20:
+The main compliance requirements I'm referring to are the documents and information needed to satisfy the requirements of the Canadian Food Inspection Agency and to support my PCP. For example, I need accurate product specifications, ingredient lists, allergen declarations, nutrition information, manufacturing details, and other documentation that may be required for import and food safety compliance.
+
+EXAMPLE 21:
+Out of curiosity, are these basic cotton tees, heavyweight loungewear pieces, or something more specialized? The answer makes a big difference when you’re talking to factories.
+Hi! Thanks so much for your response. I might go towards S-L for some designs and XS-XL for the ones where more size variation is required, but these would be at a higher MOQ. Right now, I want to see what the MOQ is as a starting point.
+
+EXAMPLE 22:
+In terms of the designs, it's more specialised - cropped robe sets, flowy tops with panels, nighties, etc
+Sleepwear usually runs on MOQ 200-500 pieces per style. My advice: ask the factory for their pre-production sample specifically — not the showroom sample. Seen too many brands get beautiful samples and a completely different production run. Good luck with the launch.
+
+EXAMPLE 23:
+For context, there are 4 designs, with embroidery ranging from detailed to simple. Thread colours are minimal, but embroidery quality, thread quality, stitching, and finishing are all very important. The fabric will be cotton/natural fibres and needs to feel soft, premium, breathable and not see-through.
+
+EXAMPLE 24:
+* Find a small sample room or boutique manufacturer that’s used to working with startups and micro-runs. Your cost per piece will be higher, but you’ll actually be able to get the order made.
+* Use a high-quality blank that already matches the fabric and fit you’re after, then have the embroidery done separately by a local shop.
+
+EXAMPLE 25:
+Yes, I've already done a lot of research on the regulatory side, and I'm also working with a consultant who specializes in Preventive Control Plans (PCPs) and Canadian food-label compliance.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -68,14 +107,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

@@ -1,16 +1,14 @@
 Topic 15 - Content Sample
-Number of content items: 8
-Top words: 2025, contribution, ira, year, roth ira, maxed, prior
+Number of content items: 25
+Top words: business, buyers, consulting, sale, broker, owners, selling
 
-Content 1 (length: 118 chars):
-I made an IRA contribution and selected it for the prior tax year (2025, because I still had room left for that year).
+Content 1 (length: 305 chars):
+Pre Sale Consulting A bit of background: I currently work in investment banking on the sell side, and one of the most consistent themes I hear from clients is that they were caught off guard by how certain factors like customer concentration or owner dependency actually affected the offers they received.
 
-Content 2 (length: 283 chars):
-Vanguard says I’ve “maxed out IRA contributions for 2025” even though I haven’t contributed anything? I’m super confused and hoping someone here has run into this before. I’m trying to open/fund a Roth IRA on Vanguard, and when I go to make the contribution it gives me this message:
+Content 2 (length: 124 chars):
+• Broker or DIY? Are business brokers worth their fees, or did any of you manage a sale on your own and save the commission?
 
-Content 3 (length: 455 chars):
-But I haven’t put any money into a Roth IRA this year or anywhere else. I don’t even think I’ve contributed to a Roth IRA in the past at all.
-Does this just mean I accidentally selected the wrong contribution year? Or is Vanguard glitching because 2025 contributions aren’t open yet? Did you put money into any IRA? 
-i’ve never opened an account for this before.
-Do you have a Traditional IRA?  How much have you put in that?  They aren't separate limits.
+Content 3 (length: 371 chars):
+Seconding this. I sold my first business to my biggest competitor; it was worth the money to them to remove me from the marketplace. They paid me and shut everything down. 
+I’m on my second sale in two years, I am using a broker both times and would recommend it. They run the valuation and handle all the contracts as part of their commission, I found it to be worth it.
 

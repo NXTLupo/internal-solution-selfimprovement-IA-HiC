@@ -724,7 +724,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     const fire = opts.onProgress;
 
     // ---- Pass 1: skeletons ----
-    fire?.('thinking', 'Pass 1/2 - generating 5 distinct framings via Verbalized Sampling (Claude Opus 4.7)...');
+    fire?.('thinking', 'Pass 1/2 - generating 5 distinct framings via Verbalized Sampling (Claude Opus 4.8)...');
     let skeletonPayload: { briefs: SkeletonBrief[] };
     try {
         skeletonPayload = await callOpusJson<{ briefs: SkeletonBrief[] }>(
@@ -772,7 +772,7 @@ export async function generatePrototypeBriefs(opts: BriefGenerationOptions): Pro
     // Caller can still pass briefModelMode: 'hybrid' or 'gpt' explicitly to opt
     // back in once the quota is healthy.
     const mode = opts.briefModelMode || 'opus';
-    const deepenModelLabel = mode === 'opus' ? 'Claude Opus 4.7'
+    const deepenModelLabel = mode === 'opus' ? 'Claude Opus 4.8'
         : mode === 'gpt' ? 'GPT-5.5'
         : 'GPT-5.5 + Opus narrative gate';
     fire?.('thinking', `Pass 2/2 - deepening all ${skeletons.length} briefs in parallel (${deepenModelLabel} · 5 parallel calls, 32K tokens each, staggered starts)...`);

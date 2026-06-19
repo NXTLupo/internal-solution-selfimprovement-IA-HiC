@@ -57,6 +57,10 @@ function resolveProviderModelId(m: SlideSpecModel): string {
 
 async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
     const id = resolveProviderModelId(m);
+    // 2026-06-14 - inherit the self-improving writing voice (human-voice-editor skill +
+    // learned constraints), same as the Analyst Desk. No hardcoded prompt-stuffing.
+    const { designerVoiceAddendum } = await import('./voiceAddendum');
+    const sys = SYSTEM_PROMPT + await designerVoiceAddendum();
     // 2026-06-12 - Anthropic path (Claude Opus 4.8). Single-shot JSON
     // generation via the proxy /api/ai/anthropic (key attached server-side).
     // max_tokens cap unverified for opus-4-8 - lower if the API 400s.
@@ -66,7 +70,7 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
         const data: any = await callAIWithRetry('anthropic', {
             model: id,
             max_tokens: MAX_TOKENS,
-            system: SYSTEM_PROMPT,
+            system: sys,
             messages: [{ role: 'user', content: prompt }],
         }, { label: `SlideSpec (Claude ${id})`, maxAttempts: 2 });
         const blocks = Array.isArray(data?.content) ? data.content : [];
@@ -80,7 +84,7 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
             body: JSON.stringify({
                 model: id,
                 messages: [
-                    { role: 'system', content: SYSTEM_PROMPT },
+                    { role: 'system', content: sys },
                     { role: 'user', content: prompt },
                 ],
                 max_tokens: MAX_TOKENS,
@@ -96,12 +100,12 @@ async function callModel(prompt: string, m: SlideSpecModel): Promise<string> {
         const data = await resp.json();
         return data?.choices?.[0]?.message?.content || '';
     }
-    if (m === 'gpt-5.4') return analyzeTextOpenAI(SYSTEM_PROMPT, prompt, id, MAX_TOKENS, TEMPERATURE);
+    if (m === 'gpt-5.4') return analyzeTextOpenAI(sys, prompt, id, MAX_TOKENS, TEMPERATURE);
     const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
     const response = await ai.models.generateContent({
         model: id,
         contents: [{ role: 'user', parts: [{ text: prompt }] }],
-        config: { systemInstruction: SYSTEM_PROMPT, maxOutputTokens: MAX_TOKENS, temperature: TEMPERATURE, responseMimeType: 'application/json' },
+        config: { systemInstruction: sys, maxOutputTokens: MAX_TOKENS, temperature: TEMPERATURE, responseMimeType: 'application/json' },
     });
     return (response as any)?.text ?? '';
 }
@@ -305,13 +309,30 @@ function extractSlideSpecBlock(raw: string): { id?: string; kind?: string; brand
     if (delim) candidate = delim[1].trim();
 
     const first = candidate.indexOf('{');
+    if (first === -1) return null;
     const last = candidate.lastIndexOf('}');
-    if (first === -1 || last <= first) return null;
-    try {
-        return JSON.parse(candidate.slice(first, last + 1));
-    } catch {
-        return null;
+    // Primary: clean slice parse (the common case).
+    if (last > first) {
+        try { return JSON.parse(candidate.slice(first, last + 1)); } catch { /* fall through to repair */ }
     }
+    // 2026-06-15 (WS5 designer error-reduction): syntax-repair fallback for the #1 designer-chat
+    // failure ("Unterminated string in JSON at position N" / truncation at max-tokens from Gemini
+    // Flash). Repairs from the first brace to end: strip trailing commas, close an unterminated
+    // string, balance unclosed brackets/braces. Only runs when the clean parse already failed, so it
+    // can only RECOVER a lost slide spec, never regress a good one. (ai-output-syntax-repair skill.)
+    try { return JSON.parse(_repairJsonSlice(candidate.slice(first))); } catch { return null; }
+}
+
+/** Minimal, self-contained JSON-truncation repair for the designer-chat slide-spec parser. */
+function _repairJsonSlice(s: string): string {
+    let t = s.replace(/,\s*([}\]])/g, '$1'); // trailing commas before a close
+    const quotes = (t.match(/(?<!\\)"/g) || []).length;
+    if (quotes % 2 !== 0) t += '"'; // close an unterminated string (truncation mid-value)
+    const open = (t.match(/\{/g) || []).length, close = (t.match(/\}/g) || []).length;
+    const openA = (t.match(/\[/g) || []).length, closeA = (t.match(/\]/g) || []).length;
+    if (closeA < openA) t += ']'.repeat(openA - closeA);
+    if (close < open) t += '}'.repeat(open - close);
+    return t;
 }
 
 // ---------------------------------------------------------------------------

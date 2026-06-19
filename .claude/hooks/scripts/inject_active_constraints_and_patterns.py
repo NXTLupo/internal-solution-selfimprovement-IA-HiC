@@ -88,9 +88,19 @@ def _rule_body(line):
     return s.strip()
 
 
+# 2026-06-14 - lexicon-feedback rules are legitimately terse; exempt from the 40-char
+# floor so a writing-voice correction injects (mirrors constraintQualityGate.ts).
+_LEXICON_RULE_PATTERNS = [
+    re.compile(r"\b(never|don'?t|do not|stop|avoid|ban)\s+(use|using|say|saying|write|writing|reword|rephrase)\b", re.I),
+    re.compile(r"\bis (slop|fine|acceptable|allowed|banned|forbidden|the correct term)\b", re.I),
+    re.compile(r"\b(prefer|replace)\s+[\"'\w-]+\s+(with|over)\s+[\"'\w-]+", re.I),
+]
+
+
 def _is_acceptable(line):
     body = _rule_body(line)
-    if len(body) < 40:
+    is_lexicon = any(rx.search(body) for rx in _LEXICON_RULE_PATTERNS)
+    if not is_lexicon and len(body) < 40:
         return False
     for rx in _MASTER_RULE_PATTERNS:
         if rx.search(body):

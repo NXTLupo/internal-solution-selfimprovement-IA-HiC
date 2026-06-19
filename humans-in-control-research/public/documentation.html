@@ -3,1074 +3,309 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NXT HUMANS — Humans in Control Documentation</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>NXT HUMANS · Humans in Control · Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700&family=Archivo:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --nxt-white: #FFFFFF;
-  --nxt-black: #0D0D0D;
-  --nxt-chartreuse: #B8B800;
-  --nxt-cyan: #00B7C3;
-  --nxt-teal: #115054;
-  --nxt-negative: #CC6644;
-  --nxt-heading: #0D0D0D;
-  --nxt-body: #333333;
-  --nxt-secondary: #666666;
-  --nxt-muted: #999999;
-  --nxt-rule: #E0E0E0;
-  --nxt-panel: #F5F5F0;
-  --nxt-success: #0CCE6B;
-  --nxt-error: #FF5A5A;
+:root{
+  --white:#FFFFFF; --black:#0D0D0D; --chartreuse:#B8B800; --cyan:#00B7C3; --teal:#115054;
+  --rust:#CC6644; --ink:#141414; --body:#333333; --secondary:#5B6470; --muted:#9097A0;
+  --rule:#E4E8EE; --panel:#F6F7F9; --panel2:#EEF1F5; --success:#0CCE6B;
+  --disp:'Saira Condensed',sans-serif; --sans:'Archivo',sans-serif; --mono:'IBM Plex Mono',monospace;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Archivo', sans-serif; background: var(--nxt-white); color: var(--nxt-body); line-height: 1.65; -webkit-font-smoothing: antialiased; }
-.sidebar { position: fixed; left: 0; top: 0; width: 48px; height: 100vh; background: var(--nxt-black); z-index: 100; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 20px 0; }
-.sidebar .logo { writing-mode: vertical-rl; text-orientation: mixed; font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 3px; color: #fff; transform: rotate(180deg); }
-.sidebar .dots { display: grid; grid-template-columns: repeat(3, 6px); grid-template-rows: repeat(3, 6px); gap: 4px; }
-.sidebar .dots span { width: 6px; height: 6px; background: var(--nxt-chartreuse); display: block; }
-.main { margin-left: 48px; max-width: 1100px; padding: 48px 48px 96px; }
-h1 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--nxt-heading); line-height: 1; letter-spacing: 0.02em; margin-bottom: 8px; }
-.subtitle { font-size: 13px; color: var(--nxt-muted); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 32px; }
-h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.75rem; color: var(--nxt-heading); letter-spacing: 0.02em; margin: 48px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--nxt-rule); }
-h3 { font-family: 'Archivo', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--nxt-heading); margin: 24px 0 8px; }
-h4 { font-family: 'Archivo', sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--nxt-secondary); margin: 16px 0 6px; }
-p, li { font-size: 14px; line-height: 1.65; margin-bottom: 8px; }
-ul, ol { padding-left: 20px; margin-bottom: 12px; }
-code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--nxt-panel); padding: 2px 6px; border-radius: 2px; }
-pre { background: var(--nxt-black); color: #ddd; padding: 16px; border-radius: 2px; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.5; margin: 12px 0; }
-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
-th { background: var(--nxt-black); color: white; text-align: left; padding: 10px 14px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 10px; }
-td { padding: 10px 14px; border-bottom: 1px solid var(--nxt-rule); vertical-align: top; }
-tr:hover td { background: #FAFAFA; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
-.badge-live { background: #E8F5E9; color: #2E7D32; }
-.badge-new { background: var(--nxt-chartreuse); color: var(--nxt-black); }
-.badge-beta { background: #FFF8E1; color: #F57F17; }
-.badge-info { background: #E3F2FD; color: #1565C0; }
-.badge-teal { background: var(--nxt-teal); color: white; }
-.badge-cyan { background: var(--nxt-cyan); color: var(--nxt-black); }
-.badge-rust { background: var(--nxt-negative); color: white; }
-.badge-tier1 { background: var(--nxt-black); color: white; }
-.badge-tier2 { background: #444; color: white; }
-.badge-tier3 { background: transparent; color: #999; border: 1px dashed #CCC; }
-.badge-pending { background: #FFF3E0; color: #E65100; border: 1px solid #FFB74D; }
-.badge-shipped { background: #E8F5E9; color: #2E7D32; }
-.badge-wip { background: #FFF8E1; color: #F57F17; }
-.status-card { background: var(--nxt-panel); border-left: 3px solid var(--nxt-chartreuse); padding: 16px; margin: 16px 0; border-radius: 0 2px 2px 0; }
-.status-card.cyan { border-left-color: var(--nxt-cyan); }
-.status-card.teal { border-left-color: var(--nxt-teal); }
-.status-card.rust { border-left-color: var(--nxt-negative); }
-.nav { position: sticky; top: 0; background: white; border-bottom: 1px solid var(--nxt-rule); padding: 12px 0; margin-bottom: 24px; z-index: 50; }
-.nav a { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--nxt-muted); text-decoration: none; margin-right: 16px; }
-.nav a:hover { color: var(--nxt-heading); }
-.toc { background: var(--nxt-panel); padding: 24px; margin: 24px 0; border-radius: 2px; column-count: 2; column-gap: 24px; }
-.toc a { display: block; font-size: 13px; color: var(--nxt-secondary); text-decoration: none; padding: 4px 0; break-inside: avoid; }
-.toc a:hover { color: var(--nxt-heading); }
-.metric-row { display: flex; gap: 16px; margin: 16px 0; flex-wrap: wrap; }
-.metric { flex: 1; min-width: 140px; background: var(--nxt-panel); padding: 16px; text-align: center; border-top: 3px solid var(--nxt-chartreuse); }
-.metric.cyan { border-top-color: var(--nxt-cyan); }
-.metric.teal { border-top-color: var(--nxt-teal); }
-.metric .value { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: var(--nxt-heading); line-height: 1; }
-.metric .label { font-size: 10px; color: var(--nxt-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.diagram { background: var(--nxt-black); color: #ddd; padding: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.5; white-space: pre; overflow-x: auto; margin: 16px 0; border-radius: 2px; }
-.kbd { background: white; border: 1px solid var(--nxt-rule); padding: 2px 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; border-radius: 2px; box-shadow: 0 1px 0 rgba(0,0,0,0.1); }
-.accent-rule { width: 60px; height: 3px; background: var(--nxt-chartreuse); margin: 32px 0 16px; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased}
+.rail{position:fixed;left:0;top:0;width:64px;height:100vh;background:var(--black);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:22px 0}
+.rail .mark{display:grid;grid-template-columns:repeat(3,7px);grid-template-rows:repeat(3,7px);gap:5px}
+.rail .mark span{width:7px;height:7px;background:var(--chartreuse);display:block}
+.rail .wm{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--disp);font-weight:600;font-size:15px;letter-spacing:4px;color:#fff;text-transform:uppercase}
+.rail .yr{font-family:var(--mono);font-size:9px;color:#666;letter-spacing:1px}
+.shell{margin-left:64px;display:flex;gap:0;align-items:flex-start}
+.toc{position:sticky;top:0;align-self:flex-start;width:280px;height:100vh;overflow-y:auto;padding:40px 22px 60px;border-right:1px solid var(--rule);background:var(--panel)}
+.toc .kick{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin:18px 0 8px}
+.toc a{display:block;font-size:13px;color:var(--secondary);text-decoration:none;padding:4px 0;border-left:2px solid transparent;padding-left:10px;margin-left:-2px}
+.toc a:hover{color:var(--ink)}
+.toc a.h2{font-weight:600;color:var(--ink);margin-top:6px}
+.main{flex:1;max-width:1000px;padding:48px 56px 120px}
+h1{font-family:var(--disp);font-weight:700;font-size:3.4rem;color:var(--ink);line-height:0.98;letter-spacing:0.01em;margin-bottom:10px}
+.subtitle{font-family:var(--mono);font-size:12px;color:var(--secondary);letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
+.lede{font-size:18px;line-height:1.6;color:var(--ink);max-width:760px;margin-bottom:8px}
+h2{font-family:var(--disp);font-weight:600;font-size:2rem;color:var(--ink);letter-spacing:0.01em;margin:64px 0 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+h2 .n{color:var(--chartreuse);margin-right:10px}
+h3{font-family:var(--sans);font-size:1.18rem;font-weight:700;color:var(--ink);margin:30px 0 8px}
+h4{font-family:var(--mono);font-size:0.78rem;font-weight:600;color:var(--secondary);letter-spacing:1.5px;text-transform:uppercase;margin:22px 0 8px}
+p,li{font-size:14.5px;line-height:1.68;margin-bottom:9px}
+ul,ol{padding-left:22px;margin-bottom:14px}
+li{margin-bottom:6px}
+strong{color:var(--ink);font-weight:700}
+code{font-family:var(--mono);font-size:12.5px;background:var(--panel2);color:var(--ink);padding:2px 7px;border-radius:3px;white-space:nowrap}
+.hash{font-family:var(--mono);font-weight:600;color:var(--teal);background:#E7F0F0;padding:2px 8px;border-radius:3px;font-size:12.5px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--muted);text-transform:uppercase}
+.callout{background:var(--panel);border:1px solid var(--rule);border-left:4px solid var(--chartreuse);border-radius:3px;padding:16px 20px;margin:18px 0}
+.callout.teal{border-left-color:var(--teal)}
+.callout.cyan{border-left-color:var(--cyan)}
+.callout h4{margin-top:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}
+.card{border:1px solid var(--rule);border-radius:4px;padding:16px 18px;background:var(--white)}
+.card .t{font-weight:700;color:var(--ink);margin-bottom:4px;font-size:15px}
+.card .d{font-size:13px;color:var(--secondary);line-height:1.55}
+.pipeline{counter-reset:step;margin:20px 0}
+.pipeline .step{position:relative;padding:14px 18px 14px 56px;border:1px solid var(--rule);border-radius:4px;margin-bottom:10px;background:var(--white)}
+.pipeline .step::before{counter-increment:step;content:counter(step);position:absolute;left:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--black);color:var(--chartreuse);font-family:var(--mono);font-weight:600;font-size:13px;display:grid;place-items:center}
+.pipeline .step .t{font-weight:700;color:var(--ink);font-size:15px}
+.pipeline .step .d{font-size:13.5px;color:var(--secondary)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:var(--secondary);background:var(--panel)}
+td code{white-space:normal}
+.tag{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;border:1px solid var(--rule);background:var(--panel)}
+.tag.chart{color:#6b6b00;border-color:var(--chartreuse);background:#FAFAE0}
+hr{border:none;border-top:1px solid var(--rule);margin:40px 0}
+.foot{margin-top:80px;padding-top:20px;border-top:2px solid var(--ink);font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px}
+@media(max-width:1100px){.toc{display:none}.main{padding:40px 28px 100px}.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="sidebar">
-  <div class="logo">NXT HUMANS</div>
-  <div class="dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-</div>
-<div class="main">
-
-<h1>Humans in Control</h1>
-<div class="subtitle">Operator Documentation &mdash; v4.2 &mdash; May 24, 2026</div>
-
-<p style="font-size: 15px; color: var(--nxt-secondary); max-width: 760px; margin-bottom: 16px;">
-Humans in Control (HiC) is a research workbench that turns a research goal and a heterogeneous corpus (academic + news + government + social + client uploads) into consulting-grade deliverables with full citation traceability and cross-deliverable identity stability. A human operator drives every synthesis step. The system handles collection across 200+ data sources, multi-model resilient embedding + clustering, evidence-density-gated theme synthesis, and quality-gated artifact emission &mdash; surfaced through the <strong>Analyst Desk</strong> dashboard, the <strong>Analyst Chat</strong> workbench, the <strong>Design Desk</strong> + Designer window, the <strong>HTML artifact composer</strong>, and a <strong>wiki-as-RAG-store</strong> that lets the AI pull full article bodies on demand.
-</p>
-
-<div class="status-card" style="border-left-color: var(--nxt-negative);">
-<strong>v4.2 focus (2026-05-24) &mdash; Smart Topic Modeling + Pipeline Hardening + Standing Rules.</strong> Today&rsquo;s release lands the biggest single architectural reset of HiC&rsquo;s theme synthesis layer plus a comprehensive pipeline-defense layer (14 new Stop hooks, 7 subagents, 6 new skills, 6 standing rules in agent memory).
-<br><br>
-<strong>(1) Smart topic modeling (<code>topic_modeling.py</code> <code>run_pipeline_v2</code>).</strong> After forensic comparison with <code>internal-solutions-socialresearch/backend/util/BertTopic.py</code>, the HiC theme pipeline diverges from the sister service in 4 HiC-specific ways: <em>source-stratified clustering with cross-type centroid merge</em> (clusters within each source-type bucket, then merges across types where centroid cosine &ge; 0.75 &mdash; surfaces themes convergent across academic + news + government + client as the strongest signal), <em>coherence pre-filter</em> on top-terms (drops noise clusters before LLM naming), <em>evidence-density gate at cluster level</em> (clusters need &ge;2 distinct named sources or they&rsquo;re dropped), and <em>theme-count targeting by deliverable type</em> (themes-only=25, strategy=7, persona_inputs=5, deck=12).
-<br><br>
-<strong>(2) Multi-model resilience layer.</strong> Replaces single-provider reactive fallback (try OpenAI; on 429 try Gemini) with four-layer resilience: content-hash embedding cache (provider-keyed; repeat-corpus runs pay zero embedding cost), provider health tracker (skip a provider for 10min after a 429), per-corpus provider commitment (no mid-corpus switching across embedding spaces), and signature-keyed cache for LLM identity-class calls (same cluster signature &rarr; same cached name regardless of provider stochasticity). LLM naming now runs at <code>temperature=0</code> instead of unspecified-default-1.0.
-<br><br>
-<strong>(3) 14 new Stop hooks + 7 subagents + 14 new skills + 6 standing-rule memory entries.</strong> Pipeline now enforces evidence density, citation resolution, theme yield, evidence tier distribution, framework page existence, topic-model completion, corpus relevance distribution, AI output syntax repair, no silent fallback, deliverable coherence, quantification four-tuple, slide variety, theme reproducibility, and pre-export DOM audit &mdash; all at runtime. Standing rules now ban silent quality relaxation, mandate determinism for cached runs, require sister-service forensic reads before architecture decisions, require multi-model resilience as default pattern, and require finish-then-test execution.
-</div>
-
-<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
-<strong>v4.1 (2026-05-21) &mdash; Knowledge Library + cost meter + hybrid briefs + Phase B cache foundations.</strong> Knowledge Library cross-engagement Themes tab reads from <code>sessions/_topic-cache/</code> via new <code>/api/topic-cache/*</code> endpoints. Cost meter overlay shows live <code>$RUN</code> totals during long-running generation. Hybrid brief generator (Opus 4.7 deepen + GPT-5.5 breadth) for engagement briefs. Cache foundations: engagement-source archival writes pre-existing 500-char+ bodies that bypassed enrichment; library re-synthesis from cached corpus without re-collecting.
-</div>
-
-<div class="status-card cyan">
-<strong>v4.0 (2026-05-13) &mdash; Second Brain &middot; Vertical-Slice + 30-Session Coverage + Opus 4.7 Briefs.</strong> Pipeline: Opus 4.7 briefs (2-pass) &middot; Stage 2.5 30-session VS &middot; Stage 3.5 Build Recipe &middot; Stage 4 vertical slice &middot; Stage 5 coverage audit. Karpathy Second-Brain phase: cross-engagement-pattern miner, recurring shortfall topics injection into every generation context, contradiction scan, engagement-bundle compiler.
-</div>
-
-<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
-<strong>v3.8 (2026-05-12) &mdash; Verbalized Sampling + HTML-as-default + hashtag UX.</strong> VS at theme synthesis / recommendations / Stage 1 Concept Decomposer. HTML artifacts (#brief / #explainer / #report / #playground / #approaches) as canonical stakeholder format. Hashtag registry source-of-truth driving autocomplete + #help + chip suggestions.
-</div>
-
-<div class="status-card cyan">
-<strong>v3.7 (2026-05-08) &mdash; Gemini 3.1 Pro Primary + Slide Quality Hardening.</strong> Gemini 3.1 Pro to primary reasoning model (1M context, multi-modal). Slide quality: brand-fidelity red flags, 4+ screens minimum, NO alert() stubs.
-</div>
-
-<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
-<strong>v3.6 (2026-05-06) &mdash; Evidence catalog + zero QA annotations.</strong> Phase 0+4 depth maximization: evidence catalog injection across 8 deliverable generators. 5-layer defense strips &ldquo;Evidence Gap&rdquo; / &ldquo;TBD&rdquo; / &ldquo;Not specified&rdquo;. <code>prd-feature</code> slide DEEP-mode auto-detection.
-</div>
-
-<div class="status-card cyan">
-<strong>v3.5 (2026-04-29) &mdash; Source-Aware Fidelity + 400-Source Retail Pack.</strong> Hallucination guard on refined search queries (fidelity threshold 0.35). Body-aware relevance scoring at collection time. Wiki residual archival.
-</div>
-
-<div class="status-card" style="border-left-color: var(--nxt-chartreuse);">
-<strong>v3.3 (2026-04-27) &mdash; Design Desk + Freeform HTML artifacts + IndexedDB sync.</strong> Designer window in a new browser tab. BroadcastChannel sync. PPTX export with px&rarr;slide-pt downscaling.
-</div>
-
-<div class="status-card" style="border-left-color: var(--nxt-cyan);">
-<strong>v3.1 (2026-04-20) &mdash; Wiki-as-RAG retrieval.</strong> Wiki archive canonical store. <code>/api/wiki/index</code> menu. Native <code>fetch_wiki_articles</code> tool in chat. &#8984; READ ARCHIVED full-article viewer.
-</div>
-
-<div class="metric-row">
-  <div class="metric"><div class="value">200+</div><div class="label">Data sources</div></div>
-  <div class="metric cyan"><div class="value">8</div><div class="label">Connector kinds</div></div>
-  <div class="metric teal"><div class="value">30</div><div class="label">Institutions</div></div>
-  <div class="metric"><div class="value">50+</div><div class="label">Agent skills</div></div>
-  <div class="metric cyan"><div class="value">14</div><div class="label">Stop hooks</div></div>
-  <div class="metric teal"><div class="value">7</div><div class="label">Subagents</div></div>
-  <div class="metric"><div class="value">1M</div><div class="label">Context (Gemini 3.1 Pro)</div></div>
-  <div class="metric cyan"><div class="value">22+</div><div class="label">Hashtag commands</div></div>
-  <div class="metric teal"><div class="value">18</div><div class="label">Slide templates</div></div>
-  <div class="metric"><div class="value">15-25</div><div class="label">Themes per run (v2 pipeline)</div></div>
-</div>
-
-<div class="toc">
-  <strong style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--nxt-muted); column-span: all; display: block; margin-bottom: 8px;">Table of Contents</strong>
-  <a href="#what">1. What Humans in Control does</a>
-  <a href="#quickstart">2. Operator quickstart</a>
-  <a href="#hashtags">3. Hashtag command system <span class="badge badge-new">v4.2</span></a>
-  <a href="#architecture">4. System architecture</a>
-  <a href="#state-machine">5. App state machine</a>
-  <a href="#data-fabric">6. The research data fabric</a>
-  <a href="#institutions">7. Institution-aware collection</a>
-  <a href="#analyst-desk">8. The Analyst Desk</a>
-  <a href="#inference">9. Inference affordances</a>
-  <a href="#chat-workbench">10. Chat workbench &amp; corpus Q&amp;A</a>
-  <a href="#design-desk">11. Design Desk &amp; Designer window</a>
-  <a href="#freeform">12. Freeform HTML artifacts</a>
-  <a href="#deliverables">13. Deliverables</a>
-  <a href="#smart-topic-modeling">14. Smart topic modeling pipeline <span class="badge badge-new">v4.2</span></a>
-  <a href="#multi-model">15. Multi-model resilience layer <span class="badge badge-new">v4.2</span></a>
-  <a href="#skills">16. Agent skill manifest</a>
-  <a href="#stop-hooks">17. Quality gate system (Stop hooks) <span class="badge badge-new">v4.2</span></a>
-  <a href="#subagents">18. Subagent fleet <span class="badge badge-new">v4.2</span></a>
-  <a href="#standing-rules">19. Standing rules <span class="badge badge-new">v4.2</span></a>
-  <a href="#wiki">20. Wiki knowledge base</a>
-  <a href="#models">21. Model routing</a>
-  <a href="#proxy">22. Python proxy &amp; services</a>
-  <a href="#export">23. Export</a>
-  <a href="#brand">24. NXT brand system</a>
-  <a href="#ops">25. Operations &amp; troubleshooting</a>
-  <a href="#incomplete">26. Incomplete implementations <span class="badge badge-pending">PENDING</span></a>
-  <a href="#backlog">27. Backlog &amp; pending engineering <span class="badge badge-pending">PENDING</span></a>
-  <a href="#glossary">28. Glossary</a>
-</div>
-
-<h2 id="what">1. What Humans in Control does</h2>
-
-<p>HiC is designed for a specific operator: a strategist or consultant who needs to go from a research brief to a defensible, evidence-cited deliverable in hours instead of weeks. It treats collection as a <strong>data fabric problem</strong> (not a search problem), treats synthesis as a <strong>multi-model agentic problem</strong> with deterministic identity layers and stochastic exploration layers (not a single-prompt problem), and treats the final artifact as a <strong>knowledge graph</strong> the user can navigate (not a static document).</p>
-
-<div class="status-card cyan">
-<strong>Core claim.</strong> Every output element &mdash; themes, personas, barriers, recommendations &mdash; is traceable back to a named source, a tier, and a verbatim quote. Same cached corpus + same goal &rarr; same theme names + same cluster memberships (determinism enforced by BERTopic <code>random_state=42</code>, LLM naming at <code>temperature=0</code>, signature cache, and the <code>validate_theme_reproducibility.py</code> Stop hook).
-</div>
-
-<h3>Three modes</h3>
-<table>
-  <thead><tr><th>Mode</th><th>Trigger</th><th>Experience</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Research</strong></td><td>Goal + collect data</td><td>Full pipeline: data fabric &rarr; smart topic modeling (BERTopic v2) &rarr; themes &rarr; personas &rarr; journeys &rarr; recommendations &rarr; optional deck. 15-25 themes natively, source-stratified.</td></tr>
-    <tr><td><strong>UX Evaluation</strong></td><td>Heuristic Brief Intake</td><td>8-dimension heuristic audit (usability, conversational AI, agentic commerce, social, geo, trust, accessibility, visual design).</td></tr>
-    <tr><td><strong>Chat to Data</strong></td><td>Post-collection</td><td>Multi-turn Q&amp;A over corpus + deliverables with live citations and <code>fetch_wiki_articles</code> tool access.</td></tr>
-  </tbody>
-</table>
-
-<h2 id="quickstart">2. Operator quickstart</h2>
-
-<ol>
-  <li><strong>Enter a research goal.</strong> Be specific about the institution, outcome, and audience. The Brief Parser extracts named entities and seeds query refinement.</li>
-  <li><strong>Upload source documents.</strong> PDFs, plain text, CSV, JSON, transcripts. Client uploads shape personas + organizational framing but never dominate the citation base (60% external floor enforced).</li>
-  <li><strong>Select data sources.</strong> Toggle categories (Higher-Ed News, Academic Literature, Reddit Communities, Philanthropy, etc.). Defaults picked by Analytical Lens.</li>
-  <li><strong>Click <em>Collect Data</em>.</strong> The data fabric fans out, refines per-source queries with a 0.35 fidelity hallucination guard, scores body-aware relevance across 200+ connectors, and runs tri-model parallel analysis (Gemini + Claude + OpenAI) on top-ranked items.</li>
-  <li><strong>Land in the Analyst Desk.</strong> Themes auto-populate as a treemap. The v4.2 pipeline produces 15-25 themes natively from the corpus via BERTopic with auto-scaled hyperparameters &mdash; no relaxation tiers, no synthetic count floors.</li>
-  <li><strong>Inspect with breadcrumbs.</strong> Click any theme tile to see its cited evidence, linked sources, personas, and recommendations. <strong>Convergent-evidence themes</strong> (clusters that merged across &ge;2 source types) are flagged.</li>
-  <li><strong>Refine via Chat to Data.</strong> Ask follow-ups. Every answer is grounded in corpus text with inline citations.</li>
-  <li><strong>Export.</strong> PPTX deck, PDF, PNG. The <code>export-paint-sync</code> skill defeats html2canvas race conditions; the <code>export-render-verifier</code> subagent QAs the rendered file.</li>
-</ol>
-
-<h2 id="hashtags">3. Hashtag command system <span class="badge badge-new">v4.2</span></h2>
-
-<p>The Analyst Chat (and Designer Chat) accept inline hashtag and slash commands that route requests through deliverable-specific generation pipelines rather than the conversational chat path. Type the directive(s), describe what you want, hit send.</p>
-
-<div class="status-card cyan">
-<strong>Hashtag UX.</strong> Every directive is registered in <code>services/hashtagRegistry.ts</code>. <strong>Autocomplete:</strong> type <code>#</code> in chat &mdash; a styled dropdown appears with every directive, categorized, VS/CTX badges, navigable via Tab/Enter/Esc. <strong><code>#help</code>:</strong> generates a live HTML reference guide artifact in a new window, sharable URL. <strong>Suggested chips:</strong> prepend the correct directive so one click ships an artifact, not a one-shot answer.
-</div>
-
-<p>There are <strong>five distinct directive families</strong>:</p>
-
-<ol>
-  <li><strong>Experience builders</strong> &mdash; <code>#proto</code> (5-stage prototype pipeline with VS-reasoning), <code>#presentation</code> (multi-slide deck), <code>#prototypes</code> / <code>#presentations</code> (library browse). Produce interactive artifacts in new windows.</li>
-  <li><strong>Consulting deliverables (HTML artifact family)</strong> &mdash; <code>#recommendations</code> (VS-Multi: Defensible Consensus + Non-Obvious Bets), <code>#brief</code> (one-pager), <code>#explainer</code> (deep-dive), <code>#report</code> (long-form), <code>#playground</code> (interactive tuning surface), <code>#approaches</code> (3+3 decision picker), <code>#artifacts</code> (library). All compose verbalized-sampling + html-deliverable-composer skills. Most accept <code>--variants k</code> (2&ndash;6).</li>
-  <li><strong>Design Desk content hashtags</strong> &mdash; <code>#org</code>, <code>#journey</code>, <code>#blueprint</code>, <code>#arch</code>, <code>#roadmap</code>, <code>#prd</code>, <code>#strategy</code>, <code>#gap</code>, <code>#audit</code>, <code>#compete</code>, <code>#persona</code>, <code>#case-study</code>. Route to the Design Desk artifact pipeline.</li>
-  <li><strong>Brand &amp; modifier</strong> &mdash; <code>#NU</code>, <code>#NXT</code> (brand modifiers), <code>#slides</code> (multi-slide composition modifier).</li>
-  <li><strong>Utility &amp; system</strong> &mdash; <code>#help</code>, <code>#refine &lt;slug&gt;: &lt;tweak&gt;</code>, <code>#explore</code>, <code>#patterns</code>, <code>#cross-engagement</code>, <code>#quantify</code>, <code>#pre-mortem</code>, <code>#stakeholder-lens</code>, <code>#analog</code>, <code>#dissent</code>, <code>#second-order</code>, <code>#fallback</code>, <code>#brain-status</code>, <code>#quota</code>, <code>#cost</code>, <code>#deterministic</code>, <code>#reproducible</code>, <code>#repair-syntax</code>, <code>#json-recovery</code>, <code>#orphans</code>, <code>#wiki-curate</code>, <code>#audit-recommendation</code>, <code>#failure-modes</code>, slash: <code>/image</code> / <code>/portrait</code>.</li>
-</ol>
-
-<h3>HTML artifact directives (v3.8+)</h3>
-<table>
-  <thead><tr><th style="width: 130px;">Hashtag</th><th style="width: 110px;">Modifiers</th><th>What you get</th></tr></thead>
-  <tbody>
-    <tr><td><code>#brief</code></td><td><code>--variants k</code></td><td>Stakeholder-grade one-pager. NXT/NU branded. Finding-grade title, one hero data point, 2&ndash;3 supporting findings, VS-picked layout, Copy-as-prompt footer. 600&ndash;1200 words.</td></tr>
-    <tr><td><code>#explainer</code></td><td><code>--variants k</code></td><td>Deep-dive concept page. Flow diagram + annotated snippets + Gotchas. VS-picked IA. 1500&ndash;3500 words.</td></tr>
-    <tr><td><code>#report</code></td><td><code>--variants k</code></td><td>Long-form strategic report with tabbed sections + embedded charts. 3000&ndash;8000 words.</td></tr>
-    <tr><td><code>#playground</code></td><td>&mdash;</td><td>Self-contained interactive HTML for parameter tuning. VS picks the right interaction pattern.</td></tr>
-    <tr><td><code>#approaches</code></td><td><code>--variants k</code></td><td>VS-Multi inline picker: 3 Defensible Consensus + 3 Non-Obvious Bets (probability &lt; 0.05 distinct from consensus). 2&times;3 grid.</td></tr>
-    <tr><td><code>#recommendations</code></td><td>&mdash;</td><td>VS-Multi consulting-grade tool recommendations. Tile expandable to 12-field consulting brief.</td></tr>
-    <tr><td><code>#artifacts</code></td><td>&mdash;</td><td>Library list of saved HTML artifacts.</td></tr>
-    <tr><td><code>#help</code></td><td>&mdash;</td><td>Live reference guide of every directive. Categorized. Sharable URL.</td></tr>
-    <tr><td><code>#refine</code></td><td>&mdash;</td><td><code>#refine &lt;slug&gt;: &lt;tweak&gt;</code>. Re-runs the appropriate pipeline preserving slug.</td></tr>
-  </tbody>
-</table>
-
-<h3>v4.2 quality + diagnostic hashtags <span class="badge badge-new">NEW</span></h3>
-<p>These do not produce artifacts &mdash; they invoke quality skills or surface system state in the chat:</p>
-<table>
-  <thead><tr><th style="width: 200px;">Hashtag</th><th>What it does</th><th>Skill / Subagent</th></tr></thead>
-  <tbody>
-    <tr><td><code>#patterns</code> / <code>#cross-engagement</code></td><td>Mines prior session corpora for recurring patterns (recommendations, framings, source clusters)</td><td><code>cross-engagement-pattern-miner</code></td></tr>
-    <tr><td><code>#quantify &lt;rec&gt;</code></td><td>Forces baseline + target + measurement_method + refresh_cadence four-tuple on a recommendation</td><td><code>quantification-architect</code></td></tr>
-    <tr><td><code>#pre-mortem &lt;rec&gt;</code></td><td>Inverts second-order-thinker: assumes failure 18 months from now, reasons backward to 5 named failure modes</td><td><code>pre-mortem</code></td></tr>
-    <tr><td><code>#stakeholder-lens &lt;rec&gt;</code></td><td>Runs recommendation through 5 named stakeholder lenses (CIO/CTO, CFO, CMO, Frontline, Regulator)</td><td><code>stakeholder-lens-auditor</code></td></tr>
-    <tr><td><code>#analog</code> / <code>#cross-industry</code></td><td>Abstracts challenge to functional pattern, retrieves 3+ adjacent-industry analogues</td><td><code>analog-finder</code></td></tr>
-    <tr><td><code>#dissent</code> / <code>#panel</code></td><td>5 adversarial critics (Bain partner, burned CIO, frontline voice, skeptical CFO, regulator) each emit a 200-word critique</td><td><code>dissent-panel</code> subagent</td></tr>
-    <tr><td><code>#second-order &lt;rec&gt;</code></td><td>Maps 1st/2nd/3rd-order effects + feedback loops</td><td><code>second-order-thinker</code></td></tr>
-    <tr><td><code>#fallback</code> / <code>#brain-status</code></td><td>Shows live degradation events from the current run (model substitutions, retries, paint-sync warnings)</td><td><code>fallback-event-surfacing</code></td></tr>
-    <tr><td><code>#quota</code> / <code>#cost</code></td><td>Shows current provider quota status + run cost + projected daily spend</td><td><code>quota-monitor</code> subagent</td></tr>
-    <tr><td><code>#deterministic</code> / <code>#reproducible</code></td><td>Audits the current pipeline for non-deterministic touchpoints; lists temperature&gt;0 sites</td><td><code>deterministic-naming-pass</code></td></tr>
-    <tr><td><code>#repair-syntax &lt;text&gt;</code></td><td>Pre-parse repair pass on malformed JSON/HTML/SVG output</td><td><code>ai-output-syntax-repair</code></td></tr>
-    <tr><td><code>#orphans</code></td><td>Static-analyzes the codebase for exported symbols with zero callers</td><td><code>orphan-code-auditor</code> subagent</td></tr>
-    <tr><td><code>#wiki-curate</code></td><td>Triggers wiki curator: auto-fixes broken links, missing frontmatter, orphan pages</td><td><code>wiki-curator</code> subagent</td></tr>
-    <tr><td><code>#verify-export</code></td><td>Drives Playwright through the most recent export, screenshots every slide, fails on blank / leaked editor UI / clipped attribution</td><td><code>export-render-verifier</code> subagent</td></tr>
-    <tr><td><code>#corpus-check</code> / <code>#density-precheck</code></td><td>Audits the corpus BEFORE generation; predicts thick-evidence yield; fires upstream remediation if &lt;20 predicted</td><td><code>evidence-density-pre-checker</code></td></tr>
-  </tbody>
-</table>
-
-<h3>Anatomy of a hashtag command</h3>
-<p><code>#&lt;content&gt; #&lt;brand&gt; #&lt;view&gt; &lt;your prompt text&gt;</code>. Order doesn&rsquo;t matter; case doesn&rsquo;t matter. Plurals map to canonical singulars (<code>#orgs</code> &rarr; <code>#org</code>). Hashtags are stripped from the prompt before reaching the model. Brand defaults to <code>#nxt</code> if none specified.</p>
-
-<h2 id="architecture">4. System architecture</h2>
-
-<p>HiC is a React 19 + TypeScript + Vite 6 + Tailwind SPA backed by a FastAPI Python proxy (~11K LOC), with a wiki-as-RAG-store volume-mounted into both containers and a custom MCP server for cross-service tool exposure.</p>
-
-<div class="diagram">┌─────────────────────────────────────────────────────────────────┐
-│ React 19 SPA  (Vite, port 3000 dev / 5011 prod nginx)            │
-│                                                                  │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
-│  │ Analyst Desk │  │ Analyst Chat │  │ Designer Window      │   │
-│  │  (treemap)   │  │  (workbench) │  │  (1920×1080 canvas)  │   │
-│  └──────────────┘  └──────────────┘  └──────────────────────┘   │
-│        │                  │                    │                 │
-│        └─────── App.tsx state machine ─────────┘                 │
-│        │                  │                    │                 │
-│  services/aiRouter.ts   geminiService.ts   slidePostProcessor    │
-│        │                                       │                 │
-└────────┼───────────────────────────────────────┼─────────────────┘
-         │                                       │
-         ▼ fetch()                               ▼ html2canvas + paint-sync
-┌────────────────────────────────────────────────────────────────┐
-│ Research Proxy (FastAPI, port 5012, proxy/app.py — 11,165 LOC) │
-│                                                                │
-│ /api/ai/{anthropic,gemini,openai}  — provider fan-out          │
-│ /api/search/{source_id}            — 200+ sources              │
-│ /api/wiki/*                        — read/write/embed/fetch    │
-│ /api/topic-model/{analyze,status}  — v2 pipeline (smart)       │
-│ /api/topic-cache/{list,read}       — cluster cache             │
-│ /api/artifacts/*                   — HTML artifact library     │
-│ /api/parse-upload, /extract-pdf    — client ingestion          │
-│ /api/transcribe-youtube            — yt-dlp + Whisper          │
-└────────────────┬───────────────────────────────────────────────┘
-                 │
-                 ▼
-┌────────────────────────────────────────────────────────────────┐
-│ External sources (OpenAlex, Crossref, arXiv, RSS, CKAN, Reddit,│
-│ YouTube, news APIs, government data...) — 200+ connectors      │
-│                                                                │
-│ + hic-workspace/wiki/  (persistent LLM-maintained markdown KB) │
-│ + hic-workspace/sessions/_topic-cache/  (BERTopic results)     │
-│ + hic-workspace/sessions/_embedding-cache/  (vector cache)     │
-│ + hic-workspace/sessions/_name-cache/  (LLM naming cache)      │
-└────────────────────────────────────────────────────────────────┘</div>
-
-<h3>Critical files</h3>
-<table>
-  <thead><tr><th>File</th><th>LOC</th><th>Role</th></tr></thead>
-  <tbody>
-    <tr><td><code>App.tsx</code></td><td>~3,742</td><td>Root state machine; checkpoint orchestration; every deliverable stage flow</td></tr>
-    <tr><td><code>services/geminiService.ts</code></td><td>~5,300</td><td>Primary generation engine; <code>generateThemes()</code>; theme-count targeting (v4.2); stateful <code>GenAISession</code> chat</td></tr>
-    <tr><td><code>services/aiRouter.ts</code></td><td>~600</td><td>Model selection + provider routing</td></tr>
-    <tr><td><code>services/researchFabricOrchestrator.ts</code></td><td>~1,372</td><td>Multi-source aggregation, chunking, [CHUNK_NNN] ID scheme</td></tr>
-    <tr><td><code>services/slidePostProcessor.ts</code></td><td>~960</td><td>Runtime output discipline (350+ banned phrases, meta-narration regex, citation rewriting)</td></tr>
-    <tr><td><code>services/wikiService.ts</code></td><td>~1,872</td><td>Wiki read/write, <code>loadGenerationContext()</code>, banned-phrase detection</td></tr>
-    <tr><td><code>proxy/app.py</code></td><td>~11,165</td><td>FastAPI proxy; 200+ sources in <code>SOURCES</code> registry; topic-model job system; HTML artifact endpoints</td></tr>
-    <tr><td><code>proxy/topic_modeling.py</code></td><td>~1,236</td><td>BERTopic pipeline; v1 (Reddit-deep) + v2 (HiC smart with source-stratified clustering + caches)</td></tr>
-  </tbody>
-</table>
-
-<h2 id="state-machine">5. App state machine</h2>
-
-<p>HiC&rsquo;s state lifecycle, driven by <code>App.tsx</code>:</p>
-<table>
-  <thead><tr><th>State</th><th>Trigger</th><th>What happens</th></tr></thead>
-  <tbody>
-    <tr><td><strong>brief_intake</strong></td><td>App load</td><td>Goal entry, upload, source selection, analytical lens</td></tr>
-    <tr><td><strong>collecting</strong></td><td>Click Collect Data</td><td>Data fabric fans out across 200+ sources; refinement; body-aware relevance scoring; tri-model parallel analysis</td></tr>
-    <tr><td><strong>topic_modeling</strong></td><td>Post-collection</td><td>BERTopic v2 pipeline: embed (multi-model + cache) &rarr; source-stratified cluster &rarr; coherence + density gates &rarr; LLM naming at temp=0</td></tr>
-    <tr><td><strong>analyst_desk</strong></td><td>Pipeline complete</td><td>Treemap renders; personas / journeys / recommendations populate progressively</td></tr>
-    <tr><td><strong>chat_workbench</strong></td><td>Always available post-collection</td><td>Multi-turn Q&amp;A; <code>fetch_wiki_articles</code> tool; hashtag directives</td></tr>
-    <tr><td><strong>design_desk</strong></td><td>Hashtag directive</td><td>Designer window opens; multi-artifact loop populates 1920&times;1080 canvas</td></tr>
-    <tr><td><strong>export</strong></td><td>Export Deck PPTX/PDF</td><td>Paint-sync prep &rarr; html2canvas &rarr; pptxgenjs / jspdf &rarr; download; export-render-verifier subagent QAs the rendered file</td></tr>
-  </tbody>
-</table>
-
-<h2 id="data-fabric">6. The research data fabric</h2>
-
-<p>HiC treats data collection as a <strong>fabric problem</strong> &mdash; orchestrating 200+ connectors, 8 connector kinds, and 30+ institutions in parallel with hallucination-guarded query refinement and body-aware relevance scoring.</p>
-
-<h3>Connector kinds</h3>
-<table>
-  <thead><tr><th>Kind</th><th>Examples</th><th>What it returns</th></tr></thead>
-  <tbody>
-    <tr><td>REST</td><td>OpenAlex, Crossref, Semantic Scholar, CKAN, Socrata, arXiv</td><td>Structured JSON with full abstracts</td></tr>
-    <tr><td>RSS</td><td>Higher Ed Dive, Inside Higher Ed, EdSurge, Chronicle</td><td>Article headlines + bodies (full-text via Jina Reader)</td></tr>
-    <tr><td>Reddit Deep</td><td>r/cscareerquestions, r/ApplyingToCollege, r/college</td><td>Post + top 3 comments per item</td></tr>
-    <tr><td>YouTube</td><td>100 curated channels</td><td>Transcripts via yt-dlp + OpenAI Whisper</td></tr>
-    <tr><td>Government</td><td>BLS, NCES, ed.gov, Census, agency reports</td><td>Primary-source statistics</td></tr>
-    <tr><td>News API</td><td>NYT, FT, Bloomberg, Reuters</td><td>Article bodies via fetch + Jina</td></tr>
-    <tr><td>AI Research Labs</td><td>Anthropic, OpenAI, Google DeepMind, Meta AI, Stanford HAI, ML Mastery, Synced</td><td>Blog post bodies</td></tr>
-    <tr><td>Client uploads</td><td>PDFs, transcripts, internal docs</td><td>Extracted text via PyPDF2 / mammoth</td></tr>
-  </tbody>
-</table>
-
-<h3>Fabric pipeline</h3>
-<ol>
-  <li><strong>Query refinement</strong> — per-connector query variants generated from goal + entities. <strong>Hallucination guard:</strong> if a refined query has 5-token fidelity &lt; 0.35 vs the goal, replace with goal verbatim. Last run flagged 14/106 (13%) — guard worked.</li>
-  <li><strong>Body-aware relevance scoring</strong> — score each item on full body text (not headline-only). Distribution: HIGH / MODERATE / LOW.</li>
-  <li><strong>Tri-model parallel analysis</strong> — Gemini + Claude + OpenAI score top items concurrently. Validator <code>validate_corpus_relevance_distribution.py</code> fails if &gt;85% of items are LOW (calibrated against the 2026-05-24 Northeastern run).</li>
-  <li><strong>Content enrichment</strong> — Jina Reader fetches full bodies for items lacking them; residual archival writes pre-existing 500-char+ bodies that bypassed enrichment.</li>
-  <li><strong>Wiki archival</strong> — every retrieved article persists to <code>hic-workspace/wiki/articles/</code> with embeddings for semantic retrieval.</li>
-  <li><strong>Chunk-to-source map</strong> — <code>[CHUNK_NNN]</code> identifiers bind to canonical source names; <code>citationResolver.ts</code> resolves them at output time.</li>
-</ol>
-
-<h2 id="institutions">7. Institution-aware collection</h2>
-
-<p>HiC tracks 30 named institutions (Northeastern, MIT, Harvard, WPI, Drexel, Georgia Tech, BU, RIT, Waterloo, MSOE, CalState, etc.) via <code>institutionManifest.ts</code>. When a goal mentions an institution, the fabric:</p>
-<ul>
-  <li>Boosts query weights for that institution&rsquo;s publications and press</li>
-  <li>Routes through institution-specific feeds (Higher Ed Dive university search, university PR)</li>
-  <li>Loads relevant uploaded documents from <code>hic-workspace/sources/</code> if archived</li>
-  <li>Sources peer-institution baselines from <code>hic-workspace/wiki/benchmarks/</code> for comparative analysis</li>
-</ul>
-
-<h2 id="analyst-desk">8. The Analyst Desk</h2>
-
-<p>The Analyst Desk is HiC&rsquo;s dashboard surface &mdash; a treemap of themes with breadcrumb drill-down into evidence, sources, personas, and recommendations. Inference happens progressively; each section&rsquo;s status strip shows which stage is actively running.</p>
-
-<h3>Surfaces</h3>
-<ul>
-  <li><strong>Theme treemap</strong> — sized by evidence density (distinct named sources &times; citation count). v4.2: themes carry <code>evidence_tier</code>, <code>convergent_evidence</code>, <code>source_types</code> metadata. Convergent themes flagged visually.</li>
-  <li><strong>Persona roster</strong> — Cooper goal-directed personas with JTBD statements, verbatim quotes, key metrics.</li>
-  <li><strong>Journey map</strong> — Bitner 5-component model with fail points and emotion intensity.</li>
-  <li><strong>Recommendation panel</strong> — VS-Multi: 5 Defensible Consensus + 5 Non-Obvious Bets. Each tile expandable to 12-field consulting brief.</li>
-  <li><strong>Knowledge Library</strong> — cross-engagement Themes tab pulls from <code>sessions/_topic-cache/*.json</code> via new <code>/api/topic-cache/*</code> endpoints (v4.1+).</li>
-  <li><strong>Cost meter</strong> — live $RUN total overlay during long-running generation (v4.1+).</li>
-</ul>
-
-<h2 id="inference">9. Inference affordances</h2>
-
-<ul>
-  <li><strong>Reverse-pivot treemap</strong> — click a source chip to see only themes that source drives.</li>
-  <li><strong>Read Archived</strong> — &#8984; READ ARCHIVED button on every evidence node opens the full article in a viewer.</li>
-  <li><strong>Live Processing Indicator</strong> — pulsing dot + MM:SS elapsed counter on every long-running chat placeholder (v3.x).</li>
-  <li><strong>Brain Status notice</strong> — inline indicator below deliverables that surfaces <code>degradation_events[]</code> (model substitutions, paint-sync warnings, retry storms). Powered by <code>fallback-event-surfacing</code> skill.</li>
-  <li><strong>Reasoning Stream</strong> — live token stream during generation with stage markers.</li>
-</ul>
-
-<h2 id="chat-workbench">10. Chat workbench &amp; corpus Q&amp;A</h2>
-
-<p>Post-collection, the Analyst Chat is the multi-turn Q&amp;A surface over the corpus + all generated deliverables. Powered by Gemini 3.1 Pro primary (1M context, OpenAI-compatible tool-use). Native tools:</p>
-<ul>
-  <li><code>fetch_wiki_articles</code> — semantic embedding-ranked retrieval from <code>wiki/articles/</code></li>
-  <li><code>fetch_wiki_resource</code> — read a specific wiki page by path</li>
-  <li><code>search_corpus_chunks</code> — keyword + semantic search across collected items</li>
-</ul>
-
-<p>Hashtag directives route requests through deliverable-specific pipelines instead of the conversational path. The <code>verbalized-sampling</code> skill is applied at every creative touchpoint (theme synthesis, recommendations, prototype concept decomposition, persona rostering, slide narrative authoring) to escape mode-collapse.</p>
-
-<h3>Mid-chat upload</h3>
-<p>Drop a PDF / DOCX / TXT into the chat dropzone mid-conversation. The proxy <code>/api/parse-upload</code> extracts text and archives it to <code>wiki/uploads/</code>. The chat session sees the new content as a context part on the next turn.</p>
-
-<h2 id="design-desk">11. Design Desk &amp; Designer window</h2>
-
-<p>The Design Desk is HiC&rsquo;s artifact authoring surface. Trigger any artifact from the Analyst Chat with a hashtag command (<code>#org #NU</code>, <code>#journey #slide</code>). A dedicated Designer browser window opens (never replaces Analyst Desk) and renders consulting-grade 1920&times;1080 HTML artifacts using brand-locked exemplars.</p>
-
-<h3>Cross-window sync</h3>
-<ul>
-  <li><strong>BroadcastChannel</strong> — primary transport between Analyst Chat and Designer window</li>
-  <li><strong>IndexedDB</strong> — durable storage; survives window close + reopen</li>
-  <li><strong>designDeskStore.v1.sync</strong> — channel name; logged on boot</li>
-</ul>
-
-<h3>Multi-artifact loop</h3>
-<p>Each content hashtag in a single prompt generates one artifact, added to the design store via <code>addArtifact()</code> and broadcast in real time. Order doesn&rsquo;t matter; plurals dedupe; brand defaults to <code>#nxt</code> if unspecified.</p>
-
-<h2 id="freeform">12. Freeform HTML artifacts</h2>
-
-<p>Five legacy kinds route through the freeform HTML pipeline: <code>#org</code>, <code>#journey</code>, <code>#arch</code>, <code>#roadmap</code>, <code>#blueprint</code>. Persona keeps the legacy SlideCanvas + PPTX export path. Twelve case-study slides (v4.2) use the new case-study framework page.</p>
-
-<p>The composer inherits brand-locked CSS from <code>public/nu-design-gallery/</code> (NU) or NXT brand tokens. Plain text only in generated content (no markdown bold/italic/headers); the renderer owns formatting. Per-stage emission limits enforced by <code>validate_budgets.py</code> Stop hook.</p>
-
-<h2 id="deliverables">13. Deliverables</h2>
-
-<table>
-  <thead><tr><th>Deliverable</th><th>Skill</th><th>Wiki framework page</th><th>Quality gates</th></tr></thead>
-  <tbody>
-    <tr><td>Themes</td><td><code>theme-analyst</code> + <code>topic-cluster-to-theme-converter</code></td><td><code>frameworks/themes.md</code></td><td>thick-evidence (&ge;2 sources), TOP_N by deliverable type, validate_theme_yield, validate_theme_reproducibility</td></tr>
-    <tr><td>Personas</td><td><code>persona-architect</code></td><td><code>frameworks/personas.md</code></td><td>verbatim quotes mandatory, JTBD required, 3+ external citations, demographics-first auto-rejected</td></tr>
-    <tr><td>Journey map</td><td><code>service-blueprint-mapper</code></td><td><code>frameworks/journey.md</code></td><td>Bitner 5-component, fail points, emotion intensity per stage</td></tr>
-    <tr><td>Service blueprint</td><td><code>service-blueprint-mapper</code></td><td><code>frameworks/blueprint.md</code></td><td>same as journey</td></tr>
-    <tr><td>Recommendations</td><td><code>recommendation-architect</code></td><td><code>frameworks/recommendations.md</code></td><td>quantification four-tuple, stakeholder-lens-auditor, pre-mortem, validate_quantification</td></tr>
-    <tr><td>Strategy</td><td><code>strategy-author</code></td><td><code>frameworks/strategy.md</code></td><td>Rumelt&rsquo;s Kernel (Diagnosis / Guiding Policy / Coherent Actions), 20+ named sources, 15-section</td></tr>
-    <tr><td>Roadmap</td><td><code>roadmap-builder</code></td><td><code>frameworks/roadmap.md</code></td><td>NOW/NEXT/LATER horizon framework, problem framing, quantified success metric per item</td></tr>
-    <tr><td>PRD</td><td><code>prd-compiler</code></td><td><code>frameworks/prd.md</code></td><td>16 Cagan/SVPG sections, MoSCoW prioritization</td></tr>
-    <tr><td>Tech architecture</td><td><code>tech-arch-generator</code></td><td><code>frameworks/architecture.md</code></td><td>C4 Model node/flow mapping, citations per component</td></tr>
-    <tr><td>Tech audit</td><td><code>tech-audit-inspector</code></td><td><code>frameworks/tech-audit.md</code></td><td>systems inventory, integration map, capability matrix, consolidation opportunities</td></tr>
-    <tr><td>Gap analysis</td><td><code>gap-analysis-evaluator</code></td><td><code>frameworks/gap-analysis.md</code></td><td>Gartner 5-level maturity scoring, dollar-quantified gap impact (per learned constraint), risk register</td></tr>
-    <tr><td>Competitive analysis</td><td><code>competitive-analyst</code></td><td><code>frameworks/competitive.md</code></td><td>named entity extraction, archetype analysis, benchmark scoring, maturity matrix</td></tr>
-    <tr><td>Case study <span class="badge badge-new">NEW v4.2</span></td><td><code>case-study</code> template</td><td><code>frameworks/case-study.md</code></td><td>10-section spec, &le;8-char section labels, evidence density floor, all anti-patterns + brand rules</td></tr>
-    <tr><td>Slide deck</td><td><code>deck-narrative-composer</code></td><td><code>frameworks/deck.md</code></td><td>action-title compliance (validate_titles), slide variety (validate_slide_variety), content budgets</td></tr>
-  </tbody>
-</table>
-
-<h2 id="smart-topic-modeling">14. Smart topic modeling pipeline <span class="badge badge-new">v4.2</span></h2>
-
-<p>Replaces the prior LLM-extraction-first theme pipeline (which silently relaxed quality to hit count floors). The v2 pipeline is BERTopic-primary with HiC-specific divergences from the sister Social Research service.</p>
-
-<h3>The 7-stage v2 pipeline (<code>proxy/topic_modeling.py</code> <code>run_pipeline_v2</code>)</h3>
-
-<div class="diagram">┌──────────────────────────────────────────────────────────────┐
-│ Stage 1: EMBED via multi-model resilience layer              │
-│   • Content-hash cache pre-pass (zero cost on repeat runs)   │
-│   • Provider health routing (skip 429'd providers 10min)     │
-│   • OpenAI text-embedding-3-small (1536-d) or Gemini (3072-d)│
-│   • Per-corpus provider commitment                           │
-└──────────────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────────────┐
-│ Stage 2: SOURCE-STRATIFIED CLUSTERING                        │
-│   • Bucket by source_type (academic/news/government/social/  │
-│     client/unknown — _infer_source_type heuristic)           │
-│   • Cluster within each bucket: UMAP (random_state=42) +     │
-│     HDBSCAN (cluster_selection_method='leaf')                │
-│   • Cross-type centroid merge: cosine ≥ 0.75 → merge         │
-│   • Merged clusters flagged convergent_evidence: true        │
-└──────────────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────────────┐
-│ Stage 3: c-TF-IDF TOP-TERMS per cluster (deterministic)      │
-└──────────────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────────────┐
-│ Stage 4: COHERENCE PRE-FILTER (_is_cluster_coherent)         │
-│   • Drop clusters where ≥2 of top-3 terms are stopwords      │
-│   • Drop clusters where avg term length < 3.5 chars          │
-│   • Saves LLM naming cost + prevents noise themes shipping   │
-└──────────────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────────────┐
-│ Stage 5: EVIDENCE-DENSITY GATE (cluster-level, BEFORE naming)│
-│   • Drop clusters with <2 distinct named sources in top docs │
-│   • Enforces .claude/CLAUDE.md citation discipline upstream  │
-└──────────────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────────────┐
-│ Stage 6: LLM NAMING at temperature=0 with signature cache    │
-│   • Cluster-signature cache: same inputs → same cached name  │
-│   • Anthropic Claude Opus 4.6 primary; provider-health gated │
-│   • Multi-provider fallback with heuristic name on hard fail │
-│   • temperature=0 (was unspecified, defaulting to 1.0)       │
-└──────────────────────────────────────────────────────────────┘
-                            ↓
-┌──────────────────────────────────────────────────────────────┐
-│ Stage 7: THEME-COUNT TARGETING by deliverable type           │
-│   • themes_only: 25  |  strategy_section: 7                  │
-│   • persona_inputs: 5  |  slide_deck: 12                     │
-│   • gap_analysis: 8  |  roadmap_inputs: 10                   │
-│   • Sort: convergent_evidence first, then distinct_source    │
-│     count desc, then cluster size desc                       │
-└──────────────────────────────────────────────────────────────┘</div>
-
-<h3>Why this beats both prior versions</h3>
-<table>
-  <thead><tr><th>Property</th><th>Original (v3.8)</th><th>4-tier relaxation (briefly shipped)</th><th>v2 (current)</th></tr></thead>
-  <tbody>
-    <tr><td>Count discipline</td><td>Auto from LLM; often 13 themes</td><td>Hit 20 by relaxing quality</td><td>15-25 natural from BERTopic auto-scaling</td></tr>
-    <tr><td>Quality gates</td><td>Post-hoc Stop hooks</td><td>4 relaxation tiers admitted weak themes</td><td>Pre-naming gates (coherence + density)</td></tr>
-    <tr><td>Determinism</td><td>Stochastic LLM extraction</td><td>Mixed</td><td>Cluster identity stable (UMAP random_state=42) + name cache</td></tr>
-    <tr><td>Heterogeneous corpus handling</td><td>Uniform embedding</td><td>Uniform embedding</td><td>Source-stratified clustering with cross-type convergence flag</td></tr>
-    <tr><td>Cost on repeat runs</td><td>Full re-embedding</td><td>Full re-embedding</td><td>Cache pre-pass: zero embedding cost on cached corpus</td></tr>
-  </tbody>
-</table>
-
-<h3>Expected output by corpus size</h3>
-<table>
-  <thead><tr><th>Corpus docs</th><th>min_cluster_size</th><th>Typical theme count</th></tr></thead>
-  <tbody>
-    <tr><td>&lt;10</td><td>2</td><td>1&ndash;2</td></tr>
-    <tr><td>10&ndash;100</td><td>3</td><td>2&ndash;5</td></tr>
-    <tr><td>100&ndash;200</td><td>8</td><td>5&ndash;10</td></tr>
-    <tr><td>200&ndash;600</td><td>7</td><td>8&ndash;15</td></tr>
-    <tr><td>&gt;600</td><td>5</td><td>15&ndash;25</td></tr>
-  </tbody>
-</table>
-
-<h2 id="multi-model">15. Multi-model resilience layer <span class="badge badge-new">v4.2</span></h2>
-
-<p>Replaces single-provider reactive fallback with a four-layer resilience pattern. Lives in <code>proxy/topic_modeling.py</code>; should extend to <code>services/aiRouter.ts</code> as engineering follow-on.</p>
-
-<h3>The four layers</h3>
-<ol>
-  <li><strong>Content-hash embedding cache</strong> &mdash; same (provider, content) &rarr; cached vector on disk at <code>sessions/_embedding-cache/</code>. Provider is part of the key because OpenAI 1536-d and Gemini 3072-d vectors aren&rsquo;t interchangeable. Repeat-corpus runs pay zero embedding cost.</li>
-  <li><strong>Provider health tracker</strong> &mdash; <code>_provider_health</code> dict tracks <code>last_429_at</code> + <code>consecutive_429s</code> + <code>total_429s</code>. After a 429, skip the provider for <code>THROTTLE_COOLDOWN_S = 600</code> (10 min) in auto-routing. Reset on success.</li>
-  <li><strong>Per-corpus provider commitment</strong> &mdash; once you pick a provider for a corpus, embed everything with that provider. Mid-corpus switching mixes vector spaces and breaks downstream clustering.</li>
-  <li><strong>Signature-keyed name cache</strong> &mdash; for LLM identity-class calls (theme names, persona names), hash the INPUTS to the call (top_terms + sample_titles + research_goal) and cache the OUTPUT. Same inputs &rarr; same cached output regardless of which provider would name it fresh. Resolves the determinism gap when <code>temperature=0</code> alone isn&rsquo;t strictly deterministic (e.g., Anthropic <code>seed</code> isn&rsquo;t honored on all endpoints).</li>
-</ol>
-
-<h3>Cache directory map</h3>
-<table>
-  <thead><tr><th>Path</th><th>Key</th><th>Value</th><th>Retention</th></tr></thead>
-  <tbody>
-    <tr><td><code>sessions/_embedding-cache/{hash}.json</code></td><td>sha256(provider + content)</td><td>{provider, vector}</td><td>Until manually pruned (see backlog)</td></tr>
-    <tr><td><code>sessions/_name-cache/{signature}.json</code></td><td>sha256(top_terms + sample_titles + goal)</td><td>{name, summary, sentiment}</td><td>Until manually pruned</td></tr>
-    <tr><td><code>sessions/_topic-cache/topics-{job_id}.json</code></td><td>job_id (timestamp-based)</td><td>Full BERTopic result</td><td>Permanent (Knowledge Library reads this)</td></tr>
-    <tr><td><code>sessions/_topic-cache/_inflight/{job_id}.json</code></td><td>job_id</td><td>{status, research_goal, item_count, error}</td><td>Auto-cleared on success; persisted on failure</td></tr>
-    <tr><td><code>sessions/_reproducibility-baselines/{hash}.json</code></td><td>sha256(corpus + goal + frameworks)</td><td>identity_fingerprint, first_observed_at, run_count</td><td>Permanent; drift detection</td></tr>
-  </tbody>
-</table>
-
-<h2 id="skills">16. Agent skill manifest</h2>
-
-<p>HiC ships 50+ agent skills in <code>.claude/skills/</code>. Each is a markdown file with frontmatter that the proxy hot-mounts into both the research-generator nginx container and the research-proxy via Docker volume mounts. Skill files take effect on the next request &mdash; no rebuild.</p>
-
-<h3>Synthesis &amp; deliverables</h3>
-<table>
-  <thead><tr><th>Skill</th><th>Composes with</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>theme-analyst</code></td><td>topic-cluster-to-theme-converter, verbalized-sampling</td><td>6-lens theme extraction from corpus</td></tr>
-    <tr><td><code>topic-cluster-to-theme-converter</code> <span class="badge badge-new">v4.2</span></td><td>BERTopic v2 output</td><td>PRIMARY theme generator; reads BERTopic clusters, names each at temp=0</td></tr>
-    <tr><td><code>theme-yield-guarantee</code> v2.0 <span class="badge badge-new">v4.2</span></td><td>topic-cluster-to-theme-converter</td><td>Codifies count-from-algorithm-not-policy contract</td></tr>
-    <tr><td><code>persona-architect</code></td><td>verbalized-sampling, source-ranker</td><td>Cooper goal-directed personas, JTBD, evidence-density floor</td></tr>
-    <tr><td><code>recommendation-architect</code></td><td>quantification-architect, pre-mortem, stakeholder-lens-auditor</td><td>VS-Multi: Defensible Consensus + Non-Obvious Bets</td></tr>
-    <tr><td><code>strategy-author</code></td><td>second-order-thinker, pre-mortem</td><td>Rumelt&rsquo;s Kernel; 15-section strategy</td></tr>
-    <tr><td><code>strategic-report-writer</code></td><td>theme-analyst, source-ranker</td><td>McKinsey-format whitepaper, 20+ named sources</td></tr>
-    <tr><td><code>prd-compiler</code></td><td>quantification-architect</td><td>16-section PRD with MoSCoW</td></tr>
-    <tr><td><code>roadmap-builder</code></td><td>second-order-thinker, quantification-architect</td><td>NOW/NEXT/LATER horizon planning</td></tr>
-    <tr><td><code>service-blueprint-mapper</code></td><td>persona-architect</td><td>Bitner 5-component journey + blueprint</td></tr>
-    <tr><td><code>gap-analysis-evaluator</code></td><td>quantification-architect</td><td>Gartner 5-level maturity scoring</td></tr>
-    <tr><td><code>tech-arch-generator</code></td><td>theme-analyst</td><td>C4 Model node/flow mapping</td></tr>
-    <tr><td><code>tech-audit-inspector</code></td><td>theme-analyst</td><td>Systems inventory + consolidation opportunities</td></tr>
-    <tr><td><code>competitive-analyst</code></td><td>analog-finder, source-ranker</td><td>Named entity extraction, archetype analysis</td></tr>
-  </tbody>
-</table>
-
-<h3>Quality &amp; depth enhancers <span class="badge badge-new">v4.2</span></h3>
-<table>
-  <thead><tr><th>Skill</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>quantification-architect</code></td><td>Forces baseline + target + measurement_method + refresh_cadence four-tuple on every recommendation</td></tr>
-    <tr><td><code>pre-mortem</code></td><td>Inverts second-order-thinker: assumes failure, reasons backward to 5 named failure modes with likelihood &times; severity</td></tr>
-    <tr><td><code>stakeholder-lens-auditor</code></td><td>5 named lenses (CIO/CTO, CFO, CMO, Frontline, Regulator); emits objections + responses per recommendation</td></tr>
-    <tr><td><code>analog-finder</code></td><td>Abstracts challenge to functional pattern; retrieves 3+ adjacent-industry analogues (positive/negative/ongoing polarity)</td></tr>
-    <tr><td><code>second-order-thinker</code></td><td>Maps 1st/2nd/3rd-order effects + feedback loops</td></tr>
-    <tr><td><code>contradiction-finder</code></td><td>Surfaces within-corpus contradictions instead of smoothing consensus</td></tr>
-    <tr><td><code>source-ranker</code></td><td>4-dimension source scoring (credibility, recency, relevance, classification); Use/Verify/Cut verdicts</td></tr>
-    <tr><td><code>cross-engagement-pattern-miner</code></td><td>Mines prior sessions for recurring patterns; writes <code>wiki/synthesis/cross-engagement-patterns.md</code></td></tr>
-    <tr><td><code>verbalized-sampling</code></td><td>k=8 candidates with probability annotation; defeats mode collapse</td></tr>
-    <tr><td><code>reinforcement-inference</code></td><td>Uncertainty-triggered two-pass reasoning</td></tr>
-  </tbody>
-</table>
-
-<h3>Pipeline defense <span class="badge badge-new">v4.2</span></h3>
-<table>
-  <thead><tr><th>Skill</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>ai-output-syntax-repair</code></td><td>Pre-parse repair pass for JSON/HTML/SVG/CSS from AI providers; defeats &ldquo;Unterminated string at position N&rdquo;</td></tr>
-    <tr><td><code>export-paint-sync</code></td><td>Wraps html2canvas with font-load + image-decode + double-RAF + label-overflow + clip-detection + wordmark-presence checks</td></tr>
-    <tr><td><code>fallback-event-surfacing</code></td><td>Replaces 34 silent fallback sites with structured <code>degradation_events[]</code> the user sees inline</td></tr>
-    <tr><td><code>rate-limit-pacer</code></td><td>Provider-aware adaptive concurrency; replaces process-wide semaphore=3</td></tr>
-    <tr><td><code>deterministic-naming-pass</code></td><td>Temperature=0 + seed-binding contract for every LLM identity-class call</td></tr>
-    <tr><td><code>evidence-density-pre-checker</code></td><td>Audits corpus BEFORE generation; predicts thick-evidence yield; fires upstream remediation if &lt;20 predicted</td></tr>
-  </tbody>
-</table>
-
-<h3>Retrieval &amp; wiki</h3>
-<table>
-  <thead><tr><th>Skill</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>wiki-query-expander</code></td><td>3-4 angle variants per query; hits distinct vector-space neighborhoods</td></tr>
-    <tr><td><code>wiki-reranker</code></td><td>Cross-encoder reranker on retrieved articles (1-5 scoring)</td></tr>
-    <tr><td><code>wiki-synthesizer</code></td><td>Multi-angle retrieval + thematic clustering + Minto-style synthesis</td></tr>
-  </tbody>
-</table>
-
-<h3>Slide &amp; visual</h3>
-<table>
-  <thead><tr><th>Skill</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>deck-narrative-composer</code></td><td>12 content-block narrative; per-slide context injection; VS at narrative</td></tr>
-    <tr><td><code>slide-title-lab</code></td><td>15 candidate action-titles across 8 formats; scored against validate_titles.py</td></tr>
-    <tr><td><code>nxt-humans-slides</code></td><td>15 codified NXT-brand slide templates</td></tr>
-    <tr><td><code>nxt-visual-renderer</code></td><td>NXT design system renderer</td></tr>
-    <tr><td><code>html-deliverable-composer</code></td><td>NXT/NU brand-locked HTML artifacts; 8 information types; 5-7 SVG diagram recipes</td></tr>
-    <tr><td><code>design-exemplar-curator</code></td><td>Matches prototype brief to Behance exemplars; Stage 3/4 of prototype pipeline</td></tr>
-    <tr><td><code>experience-prototype-composer</code></td><td>Stage 4 prototype composer; strict catalog enforcement</td></tr>
-  </tbody>
-</table>
-
-<h3>Prompt engineering</h3>
-<table>
-  <thead><tr><th>Skill</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>diagnose-prompt</code></td><td>Maps failure patterns to structural fixes</td></tr>
-    <tr><td><code>stress-test</code></td><td>Adversarial input generation with severity scoring</td></tr>
-    <tr><td><code>constrain</code></td><td>Replaces vague instructions with measurable constraints</td></tr>
-    <tr><td><code>lock-format</code></td><td>Designs airtight output specifications</td></tr>
-    <tr><td><code>score-prompt</code></td><td>5-dimension reliability scoring</td></tr>
-    <tr><td><code>trim-prompt</code></td><td>Strips qualifiers, redundancy, filler</td></tr>
-    <tr><td><code>decompose</code></td><td>Turns monolithic prompts into multi-phase skill systems</td></tr>
-    <tr><td><code>guard</code> / <code>self-review</code> / <code>drift-check</code> / <code>qa-gate</code> / <code>preflight</code></td><td>Layered failure-prevention</td></tr>
-    <tr><td><code>failure-log</code> / <code>escape-audit</code> / <code>before-after</code></td><td>Build a structured failure history</td></tr>
-  </tbody>
-</table>
-
-<h3>Workflow &amp; operations</h3>
-<table>
-  <thead><tr><th>Skill</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>commit-prepare</code></td><td>Stages changes + emits structured pre-commit report (slop scan, HiC-touched warnings, diff stat). Does NOT commit &mdash; awaits explicit user approval per the standing rule.</td></tr>
-    <tr><td><code>git-branch-protocol</code></td><td>Background ruleset that loads NXT git discipline whenever Claude touches git: never-merge-to-main, branch-from-feature-branches, no-commit-without-approval. Ambient context; not user-invocable.</td></tr>
-    <tr><td><code>hic-rebuild-verify</code></td><td>Rebuilds research-generator after frontend edit, then curls the served bundle and greps for a marker string to verify the new dist is actually live. Enforces the "no HMR &mdash; full rebuild required" workflow.</td></tr>
-    <tr><td><code>mcp-service-bootstrap</code></td><td>Scaffolds a new MCP wrapper + core service: creates the wrapper directory, registers in docker-compose-all.yml, adds to <code>tool_services</code> dict, emits agent-restart command. Encodes the 5-step "Adding New Services" ritual.</td></tr>
-  </tbody>
-</table>
-
-<h3>Skill collections</h3>
-<p>Three directories under <code>.claude/skills/</code> contain sub-skills or knowledge artifacts rather than a single SKILL.md:</p>
-<table>
-  <thead><tr><th>Collection</th><th>Contents</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>brands/</code></td><td><code>brands/nu-style/</code>, <code>brands/nxt-style/</code></td><td>Brand-voice sub-skills: voice rules, banned phrases, signature phrases, do/don't catalog per brand. <code>nu-style</code> for Northeastern; <code>nxt-style</code> for NXT Humans. Loaded by the <code>html-deliverable-composer</code> and other branded generators.</td></tr>
-    <tr><td><code>diagrams/</code></td><td><code>arch-illustrator</code>, <code>blueprint-illustrator</code>, <code>journey-illustrator</code>, <code>org-illustrator</code>, <code>roadmap-illustrator</code></td><td>Five SVG-illustration sub-skills, one per diagram type. Each carries SVG primitives, palette tokens, the 5-7 diagram recipes per kind, and brand-specific layout rules. Used by Design Desk content hashtags (<code>#arch</code>, <code>#blueprint</code>, etc.) to produce 1920&times;1080 freeform-HTML artifacts.</td></tr>
-    <tr><td><code>intelligence/</code></td><td>PDFs, JSON, markdown reference artifacts</td><td>Reference knowledge the agent can read but does NOT invoke as a skill: <code>second_brain.json</code> (Karpathy second-brain principles), <code>reinforcement_inference.pdf</code>, <code>financial_sources_registry_v2.md</code> (200+ financial sources for cross-engagement research), Northeastern advancement deck, NXT Design System style guide. Acts as a curated reading list for context loading.</td></tr>
-  </tbody>
-</table>
-
-<h2 id="stop-hooks">17. Quality gate system (hooks) <span class="badge badge-new">v4.2</span></h2>
-
-<p>HiC enforces pipeline + output quality via three families of Claude Code hooks. PreToolUse hooks fire BEFORE a tool runs (can block); PostToolUse hooks fire AFTER (mostly informational reminders); Stop / SubagentStop hooks run after every generation event and validate the deliverable JSON. All hooks live in <code>.claude/hooks/scripts/</code> and are registered in <code>.claude/hooks/hooks.json</code> + <code>.claude/settings.json</code>.</p>
-
-<h3>PreToolUse hooks (block-or-allow gates)</h3>
-<table>
-  <thead><tr><th>Hook</th><th>Trigger</th><th>What it blocks</th></tr></thead>
-  <tbody>
-    <tr><td><code>precheck_slop.py</code></td><td>Edit / Write / NotebookEdit</td><td>Banned-phrase / meta-narration regex hits in HiC code (system prompts, exemplars, fallbacks). Scopes only files inside <code>humans-in-control-research/</code>. Wiki content, plans, design notes are exempt.</td></tr>
-    <tr><td><code>precheck_axios_pin.py</code></td><td>Edit / Write to <code>package.json</code> / <code>package-lock.json</code></td><td>Axios version-pin changes. Pins: miro-generator 1.6.2; socialresearch 1.7.9. Initial introduction allowed but flagged.</td></tr>
-    <tr><td><code>precheck_wiki_write.py</code> <span class="badge badge-new">v4.2</span></td><td>Edit / Write to <code>wiki/**.md</code></td><td>Wiki writes missing required frontmatter (<code>title:</code> + <code>type:</code>); writes that introduce &ge;3 broken target links. Skips Edit ops since only the diff is visible.</td></tr>
-    <tr><td><code>precheck_main_branch.py</code></td><td>Bash commands matching <code>git merge ... main</code> / <code>git push ... main</code> / <code>git rebase main</code></td><td>Merges or pushes to <code>main</code>. Main is owner-controlled; agents must branch from latest HiC-* feature branch.</td></tr>
-    <tr><td><code>precheck_commit_approval.py</code></td><td>Bash <code>git commit</code> / <code>git push</code></td><td>Commits or pushes without explicit user approval. Override: <code>CLAUDE_COMMIT_OK=1</code> env var OR <code>COMMIT_APPROVED</code> token in commit message.</td></tr>
-    <tr><td><code>precheck_startup_mode.py</code></td><td>Bash <code>npm run dev</code> in HiC / standalone <code>uvicorn</code> / <code>python app.py</code></td><td>Wrong startup mode: port 3000 is sacred to social-research-frontend; HiC tests via Docker rebuild, not <code>npm run dev</code>; always use <code>docker-compose-all.yml</code>.</td></tr>
-  </tbody>
-</table>
-
-<h3>PostToolUse hooks (informational reminders)</h3>
-<table>
-  <thead><tr><th>Hook</th><th>Trigger</th><th>What it surfaces</th></tr></thead>
-  <tbody>
-    <tr><td><code>post_hic_rebuild_reminder.py</code></td><td>Edit / Write / NotebookEdit on HiC files</td><td>Reminder that the <code>research-generator</code> container needs <code>docker compose -f docker-compose-all.yml up -d --build research-generator</code> + hard-refresh to pick up the change. Informational; does not block.</td></tr>
-    <tr><td><code>post_agent_restart_reminder.py</code></td><td>Edit / Write on <code>mcp-services/**</code> or <code>.claude/mcp-servers/**</code></td><td>Reminder that MCP server / agent containers need restart to pick up the tool-services change. Informational; does not block.</td></tr>
-    <tr><td><code>precheck_orphan_export.py</code> <span class="badge badge-new">v4.2</span></td><td>PostToolUse on TypeScript Write</td><td>Warns when a new exported symbol in <code>services/</code> has no caller anywhere in the codebase. Non-blocking; complements the weekly <code>orphan-code-auditor</code> subagent.</td></tr>
-    <tr><td><code>inject_active_constraints_and_patterns.py</code> <span class="badge badge-new">v4.2</span></td><td>UserPromptSubmit</td><td>Injects deduped <code>learned-constraints.md</code> + compacted <code>cross-engagement-patterns.md</code> into every Claude Code prompt as a <code>&lt;learned_context&gt;</code> block. 6KB budget.</td></tr>
-  </tbody>
-</table>
-
-<h3>Stop / SubagentStop hooks (deliverable validators)</h3>
-<table>
-  <thead><tr><th>Hook</th><th>What it enforces</th><th>Event</th></tr></thead>
-  <tbody>
-    <tr><td><code>validate_citations.py</code></td><td>[CHUNK_NNN] references resolve; named sources only</td><td>Stop, SubagentStop</td></tr>
-    <tr><td><code>validate_evidence.py</code></td><td>evidenceBasis fields non-empty + contain specifics (numbers/quotes/names)</td><td>Stop, SubagentStop</td></tr>
-    <tr><td><code>validate_titles.py</code></td><td>Action title compliance (data + verb + named entity)</td><td>Stop</td></tr>
-    <tr><td><code>validate_source_diversity.py</code></td><td>&ge;60% external sources</td><td>Stop</td></tr>
-    <tr><td><code>validate_budgets.py</code></td><td>Content budgets (title 120 / content 200 / quote 250 / narrative 400 / speakerNotes 600 chars)</td><td>Stop</td></tr>
-    <tr><td><code>validate_quantification.py</code> <span class="badge badge-new">v4.2</span></td><td>Recommendations have baseline + target + measurement_method + refresh_cadence</td><td>Stop, SubagentStop</td></tr>
-    <tr><td><code>validate_evidence_recency.py</code> <span class="badge badge-new">v4.2</span></td><td>Stale citation ratio by topic volatility tier</td><td>Stop</td></tr>
-    <tr><td><code>validate_deliverable_coherence.py</code> <span class="badge badge-new">v4.2</span></td><td>Personas &harr; recommendations &harr; roadmap cross-consistency</td><td>Stop</td></tr>
-    <tr><td><code>validate_ai_output_syntax.py</code> <span class="badge badge-new">v4.2</span></td><td>Embedded JSON/HTML repair-or-fail</td><td>Stop</td></tr>
-    <tr><td><code>validate_citation_resolution.py</code> <span class="badge badge-new">v4.2</span></td><td>No raw [CHUNK_NNN] in user-visible fields; no &ldquo;unknown&rdquo; / &ldquo;tbd&rdquo; / &ldquo;various sources&rdquo; placeholders</td><td>Stop</td></tr>
-    <tr><td><code>validate_minimum_yield.py</code> <span class="badge badge-new">v4.2</span></td><td>Themes &ge;4, gaps &ge;5, recommendations &ge;5, personas &ge;3, etc.</td><td>Stop</td></tr>
-    <tr><td><code>validate_slide_variety.py</code> <span class="badge badge-new">v4.2</span></td><td>min(7, N/3) distinct templates across slides[]; rejects unknown templates</td><td>Stop</td></tr>
-    <tr><td><code>validate_no_silent_fallback.py</code> <span class="badge badge-new">v4.2</span></td><td>Detects degraded paths (themes without depth, recs without quantification, calibration=NO-DATA)</td><td>Stop</td></tr>
-    <tr><td><code>validate_topic_model_completion.py</code> <span class="badge badge-new">v4.2</span></td><td>Orphan topic-model job IDs (created but no success/failure record)</td><td>Stop</td></tr>
-    <tr><td><code>validate_framework_page_exists.py</code> <span class="badge badge-new">v4.2</span></td><td>Required <code>wiki/frameworks/&lt;type&gt;.md</code> + <code>wiki/anti-patterns/&lt;type&gt;.md</code> present</td><td>Stop</td></tr>
-    <tr><td><code>validate_corpus_relevance_distribution.py</code> <span class="badge badge-new">v4.2</span></td><td>Fails if &gt;85% of retrieved items are LOW relevance</td><td>Stop</td></tr>
-    <tr><td><code>validate_theme_yield.py</code> <span class="badge badge-new">v4.2</span></td><td>&ge;20 themes shipped (backstop)</td><td>Stop</td></tr>
-    <tr><td><code>validate_evidence_tier_distribution.py</code> <span class="badge badge-new">v4.2</span></td><td>Canary: any reappearance of relaxation tiers (single_source/unresolved_citation/inherited_from_cache) above 30% combined</td><td>Stop</td></tr>
-    <tr><td><code>validate_theme_reproducibility.py</code> <span class="badge badge-new">v4.2</span></td><td>Same reproducibility_hash &rarr; same theme identity. Drift detection across runs.</td><td>Stop</td></tr>
-    <tr><td><code>pre_export_dom_audit.py</code> <span class="badge badge-new">v4.2</span></td><td>Catches orphan editor-only elements + missing <code>body[data-export-mode]</code> CSS rule (fires on export-session Stop events)</td><td>Stop</td></tr>
-  </tbody>
-</table>
-
-<p><strong>Helper file:</strong> <code>.claude/hooks/scripts/_lib.py</code> &mdash; shared utilities used by multiple hooks (JSON parsing, path normalization, common constants). Not a hook itself; imported by validators.</p>
-
-<h2 id="subagents">18. Subagent fleet <span class="badge badge-new">v4.2</span></h2>
-
-<p>HiC ships 7 specialized subagents in <code>.claude/agents/</code> that run in parallel contexts for adversarial review, retrieval, and substrate maintenance.</p>
-
-<table>
-  <thead><tr><th>Subagent</th><th>Trigger</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td><code>hic-output-qa</code></td><td>Auto on Stop event</td><td>Independent QA reviewer; audits citation diversity, evidence hierarchy, action-title compliance, content budgets, banned phrases</td></tr>
-    <tr><td><code>parallel-runner</code></td><td>Manual</td><td>Orchestrates parallel execution of independent deliverable skills</td></tr>
-    <tr><td><code>platform-health</code></td><td>Manual / restart</td><td>Multi-service health auditor; walks docker-compose-all.yml; verifies tool discovery</td></tr>
-    <tr><td><code>evidence-quality-auditor</code> <span class="badge badge-new">v4.2</span></td><td>Parallel with hic-output-qa</td><td>Per-citation Use/Verify/Cut verdict using source-ranker rubric at scale</td></tr>
-    <tr><td><code>dissent-panel</code> <span class="badge badge-new">v4.2</span></td><td><code>#dissent</code> hashtag</td><td>5 named critics (Bain partner / burned CIO / frontline / CFO / regulator) emit 200-word adversarial critiques</td></tr>
-    <tr><td><code>pre-mortem-runner</code> <span class="badge badge-new">v4.2</span></td><td>Auto-fires on strategy section Stop</td><td>Runs pre-mortem skill against every recommendation; emits risk_register[] field</td></tr>
-    <tr><td><code>export-render-verifier</code> <span class="badge badge-new">v4.2</span></td><td><code>#verify-export</code></td><td>Playwright-driven; drives PPTX/PDF/PNG export, screenshots every slide, fails on blank / leaked editor UI / clipped attribution / mid-word label break / wordmark missing</td></tr>
-    <tr><td><code>orphan-code-auditor</code> <span class="badge badge-new">v4.2</span></td><td>Weekly <code>/loop</code></td><td>Static-imports-graph scan; flags exported symbols with zero internal callers</td></tr>
-    <tr><td><code>wiki-curator</code> <span class="badge badge-new">v4.2</span></td><td>Weekly <code>/loop</code></td><td>Auto-fixes broken links, missing frontmatter, orphan pages</td></tr>
-    <tr><td><code>quota-monitor</code> <span class="badge badge-new">v4.2</span></td><td><code>/loop 15m</code> during active sessions</td><td>Observes provider quota; surfaces &ldquo;approaching quota&rdquo; warnings before 429 storms</td></tr>
-  </tbody>
-</table>
-
-<h2 id="standing-rules">19. Standing rules <span class="badge badge-new">v4.2</span></h2>
-
-<p>The agent operating under <code>.claude/CLAUDE.md</code> has 6 standing rules captured in memory that govern every architecture decision. These compose with the project-level <code>.claude/CLAUDE.md</code> output discipline (350+ banned phrases, citation protocol, consulting frameworks).</p>
-
-<table>
-  <thead><tr><th>Standing rule</th><th>Triggered by</th><th>What it forbids</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Quality first &mdash; never relax the default</strong></td><td>Any &ldquo;floor&rdquo;/&ldquo;guarantee&rdquo;/&ldquo;minimum&rdquo; request</td><td>Meeting count floors by accepting weaker evidence. Floors are met by upstream quality (better candidate generation, broader retrieval) or by failing loudly. Relaxation tiers are emergency-only and audited.</td></tr>
-    <tr><td><strong>Determinism first for cached runs</strong></td><td>Theme synthesis, persona naming, recommendation titling</td><td>Non-determinism in deliverable identity (names, memberships, structural shape) for cached corpus + same goal. Variance is opt-in and tagged.</td></tr>
-    <tr><td><strong>Check sister services FIRST</strong></td><td>Any new HiC architecture for capability that exists elsewhere</td><td>Inventing from scratch without reading <code>internal-solutions-socialresearch/</code>, <code>internal-solutions-journeymapper/</code>, etc. ALSO forbids: porting verbatim without examining context divergences.</td></tr>
-    <tr><td><strong>Multi-model resilience pattern</strong></td><td>Any AI integration</td><td>Single-provider designs. Default pattern: content-hash cache + provider health tracker + per-corpus commitment + signature-keyed identity cache.</td></tr>
-    <tr><td><strong>Finish then test &mdash; no phase gates</strong></td><td>Multi-part user goals</td><td>Pausing between sub-phases to ask &ldquo;want me to continue?&rdquo; The authorization is implicit when goal is stated. Execute fully, then validate.</td></tr>
-    <tr><td><strong>Never commit without approval</strong></td><td>Always</td><td>Auto-committing changes. Stage and report; commit awaits explicit user approval. Never merge to main.</td></tr>
-  </tbody>
-</table>
-
-<h2 id="wiki">20. Wiki knowledge base</h2>
-
-<p>The wiki at <code>hic-workspace/wiki/</code> is a persistent LLM-maintained knowledge layer with three concentric tiers:</p>
-
-<ol>
-  <li><code>hic-workspace/sources/</code> &mdash; raw, immutable source documents (client uploads + research files)</li>
-  <li><code>hic-workspace/wiki/</code> &mdash; LLM-maintained markdown knowledge base:
-    <ul>
-      <li><code>frameworks/</code> &mdash; framework specs (one per deliverable type): personas, themes, strategy, roadmap, prd, blueprint, architecture, tech-audit, gap-analysis, competitive, deck, script, <strong>case-study (NEW v4.2)</strong></li>
-      <li><code>anti-patterns/</code> &mdash; failure-mode pages per deliverable type</li>
-      <li><code>benchmarks/</code> &mdash; baseline data per domain</li>
-      <li><code>evidence/</code> &mdash; topic-specific evidence aggregates</li>
-      <li><code>industries/</code> &mdash; industry-specific context</li>
-      <li><code>brand/</code> &mdash; NXT/NU brand specs</li>
-      <li><code>engagements/&lt;slug&gt;/</code> &mdash; per-engagement themes.json, manifest.json, personas.json</li>
-      <li><code>articles/</code> &mdash; ingested external research with embedding index</li>
-      <li><code>synthesis/</code> &mdash; auto-generated logs:
-        <ul>
-          <li><code>learned-constraints.md</code> &mdash; user edit history constraints (auto-injected via hook)</li>
-          <li><code>cross-engagement-patterns.md</code> &mdash; output of pattern-miner skill</li>
-          <li><code>export-failures.md</code> &mdash; living log of visual defects (NEW v4.2)</li>
-          <li><code>generation-failures.md</code> &mdash; living log of pipeline failures (NEW v4.2)</li>
-          <li><code>lint-*.md</code>, <code>curator-log.md</code>, <code>uncertainty-ledger.md</code>, <code>verifier-history.md</code>, <code>quality-scores.md</code>, <code>improvement-lineage.md</code></li>
-        </ul>
-      </li>
-      <li><code>inspiration-hub/ai-patterns/</code> &mdash; 92+ AI Experience Patterns catalog</li>
-    </ul>
-  </li>
-  <li><code>hic-workspace/AGENTS.md</code> &mdash; the wiki schema. Co-evolves with the wiki. Read this before any wiki read/write.</li>
-</ol>
-
-<p>The wiki is served two ways: in dev via a custom Vite middleware plugin, in Docker via nginx static files copied at build time. The proxy&rsquo;s <code>/api/wiki/write*</code> endpoints write to a Docker volume mount so container writes persist to the host.</p>
-
-<h2 id="models">21. Model routing</h2>
-
-<p><code>services/aiRouter.ts</code> is the single source of truth for model selection. Current registry:</p>
-
-<table>
-  <thead><tr><th>Category</th><th>Default</th><th>Alternatives</th></tr></thead>
-  <tbody>
-    <tr><td>research</td><td><code>claude-opus-4-8</code></td><td>claude-sonnet-4-6, gpt-5.4, gemini-3.1-pro-preview, gemini-2.5-flash</td></tr>
-    <tr><td>fast_generation</td><td><code>gpt-5.5-mini</code></td><td>claude-sonnet-4-6, gemini-2.5-flash</td></tr>
-    <tr><td>vision</td><td><code>claude-opus-4-8</code></td><td>gpt-5.4, gemini-3.1-pro-preview</td></tr>
-    <tr><td>image/video</td><td><code>gemini-2.5-flash</code></td><td>imagen-4.0, veo-3.1 via Gemini API</td></tr>
-    <tr><td>topic-model naming</td><td><code>claude-opus-4-8</code> at temperature=0</td><td>Heuristic top-terms naming on hard fail (cached if available)</td></tr>
-    <tr><td>embeddings (proxy)</td><td><code>text-embedding-3-small</code> (OpenAI)</td><td>Gemini <code>gemini-embedding-001</code> on OpenAI 429/quota</td></tr>
-  </tbody>
-</table>
-
-<p><strong>Provider adapter capabilities:</strong> Claude Opus 4.8 supports assistant-message prefill; Sonnet does not. Anything using a prefilled-continuation pattern must stay on Opus. Opus 4.8 uses adaptive thinking by default and supports a 1M-token context window on the Anthropic API. OpenAI <code>seed</code> parameter is honored on chat completions. Gemini <code>responseSchemaSeed</code> on some endpoints. Multi-model resilience pattern (Section 15) is the default for any new AI call.</p>
-
-<h2 id="proxy">22. Python proxy &amp; services</h2>
-
-<p>The FastAPI proxy at <code>proxy/app.py</code> exposes ~50 endpoints across 6 families:</p>
-
-<table>
-  <thead><tr><th>Family</th><th>Endpoints</th></tr></thead>
-  <tbody>
-    <tr><td>AI fan-out</td><td><code>/api/ai/anthropic</code>, <code>/api/ai/gemini</code>, <code>/api/ai/openai</code></td></tr>
-    <tr><td>Search</td><td><code>/api/search/&lt;source_id&gt;</code>, <code>/api/multi-search</code></td></tr>
-    <tr><td>Wiki</td><td><code>/api/wiki/{read,write,write-article,index,fetch-articles,list}</code></td></tr>
-    <tr><td>Topic modeling</td><td><code>/api/topic-model/{analyze,status/&lt;job_id&gt;}</code> (v2 pipeline + structured 404 with sentinel), <code>/api/topic-cache/{list,read/&lt;file&gt;}</code></td></tr>
-    <tr><td>Ingestion</td><td><code>/api/parse-upload</code>, <code>/api/extract-pdf</code>, <code>/api/transcribe-youtube</code></td></tr>
-    <tr><td>Artifacts (v3.8+)</td><td><code>/api/artifacts/{save,list,fetch/&lt;slug&gt;,delete/&lt;slug&gt;,view/&lt;slug&gt;}</code></td></tr>
-  </tbody>
-</table>
-
-<h3>topic_modeling.py architecture (v4.2)</h3>
-<ul>
-  <li><code>run_pipeline</code> &mdash; original v1, Reddit-deep callers (backward compat)</li>
-  <li><code>run_pipeline_v2</code> &mdash; HiC smart pipeline (Section 14)</li>
-  <li><code>embed_documents</code> &mdash; multi-model with cache pre-pass + provider health routing</li>
-  <li><code>_llm_label_clusters</code> &mdash; temperature=0 + signature cache + multi-provider fallback</li>
-  <li><code>_source_stratified_cluster</code> &mdash; clusters by source-type with cross-type centroid merge</li>
-  <li><code>_is_cluster_coherent</code> &mdash; pre-filter for stopword-polluted noise clusters</li>
-  <li><code>_apply_quality_gates</code> &mdash; coherence + evidence-density gates before LLM naming</li>
-  <li><code>_provider_health</code> dict, <code>_hash_content</code>, <code>_cluster_signature</code>, <code>_load_cached_embedding</code>, <code>_save_cached_embedding</code>, <code>_load_cached_name</code>, <code>_save_cached_name</code>, <code>_topic_job_sentinel_path</code>, <code>_write_topic_sentinel</code></li>
-</ul>
-
-<h2 id="export">23. Export</h2>
-
-<p>Three export targets: PPTX (pptxgenjs), PDF (jspdf), PNG (html-to-image / html2canvas). The export flow:</p>
-
-<ol>
-  <li>User clicks Export Deck PPTX/PDF or per-slide PNG</li>
-  <li><code>export-paint-sync</code> skill prep: fonts loaded (<code>document.fonts.ready</code>), images decoded, double-RAF for React stability, <code>body[data-export-mode]</code> CSS class set to hide editor UI</li>
-  <li>Per-slide capture via html2canvas with <code>onclone</code> @font-face re-injection (defeats html2canvas iframe isolation font loss)</li>
-  <li>PPTX: pptxgenjs emits slides; per-slide template implementations in <code>components/slideTemplates/pptx.ts</code></li>
-  <li>PDF: jspdf assembles pages; pixel-to-pt downscaling</li>
-  <li>PNG: per-slide image download</li>
-  <li><code>export-render-verifier</code> subagent (if Playwright MCP installed): drives the actual export, screenshots every slide, validates against 9 defect classes</li>
-</ol>
-
-<h3>Defect classes the export-render-verifier catches</h3>
-<ul>
-  <li>Blank slide (pixel entropy / OCR text count below threshold)</li>
-  <li>Leaked editor UI (OCR for Delete/Edit/Save/Cancel keywords)</li>
-  <li>Preview-export parity drift (perceptual hash distance)</li>
-  <li>Font fallback (glyph shape similarity to expected brand font)</li>
-  <li>Slide count mismatch (deliverable.slides.length vs export pages)</li>
-  <li>Section label mid-word break (CHALLENG / E, APPROAC / H pattern)</li>
-  <li>Brand wordmark missing in sidebar</li>
-  <li>Attribution clipping (text bleeds off panel edge)</li>
-</ul>
-
-<h2 id="brand">24. NXT brand system</h2>
-
-<table>
-  <thead><tr><th>Token</th><th>NXT</th><th>NU</th></tr></thead>
-  <tbody>
-    <tr><td>Black</td><td><code>#0D0D0D</code></td><td><code>#0D0D0D</code></td></tr>
-    <tr><td>Primary accent</td><td>Chartreuse <code>#B8B800</code></td><td>NU Red <code>#C8102E</code></td></tr>
-    <tr><td>Secondary accent</td><td>Cyan <code>#00B7C3</code></td><td>NU Violet</td></tr>
-    <tr><td>Teal (headers)</td><td><code>#115054</code></td><td>&mdash;</td></tr>
-    <tr><td>Rust (negative)</td><td><code>#CC6644</code></td><td>&mdash;</td></tr>
-    <tr><td>Body font</td><td>Archivo (200-900)</td><td>Roboto (300-700)</td></tr>
-    <tr><td>Display font</td><td>Bebas Neue</td><td>Spectral</td></tr>
-    <tr><td>Mono font</td><td>JetBrains Mono</td><td>Roboto Mono</td></tr>
-    <tr><td>Separator</td><td><code>&middot;</code> (U+00B7)</td><td><code>&middot;</code> (U+00B7) &mdash; never <code>/</code></td></tr>
-    <tr><td>Border radius</td><td>2&ndash;4px</td><td>2&ndash;4px</td></tr>
-    <tr><td>Shadows</td><td>none</td><td>none</td></tr>
-  </tbody>
-</table>
-
-<p>NU design gallery at <code>public/nu-design-gallery/</code> ships 13 polished single-canvas HTML exemplars (one per deliverable type plus org-chart) + style guide + GUIDE.md with the <strong>thirteen don&rsquo;ts</strong> (no methodology blurbs, no per-slide source strips, no &ldquo;EVIDENCE GAP&rdquo; / &ldquo;TBD&rdquo; annotations, no AI-generated decorative illustrations).</p>
-
-<h2 id="ops">25. Operations &amp; troubleshooting</h2>
-
-<h3>Required environment</h3>
-<table>
-  <thead><tr><th>Variable</th><th>Purpose</th><th>Required</th></tr></thead>
-  <tbody>
-    <tr><td><code>GEMINI_API_KEY</code> (also <code>API_KEY</code>)</td><td>Primary reasoning model + embeddings fallback</td><td>Yes</td></tr>
-    <tr><td><code>ANTHROPIC_API_KEY</code></td><td>Claude Opus 4.7 (topic-model naming, brief generator)</td><td>Yes</td></tr>
-    <tr><td><code>OPENAI_API_KEY</code></td><td>Primary embeddings (text-embedding-3-small)</td><td>Yes for quality; Gemini embeddings fallback if absent</td></tr>
-    <tr><td><code>YOUTUBE_API_KEY</code></td><td>Channel discovery scheduler</td><td>Optional</td></tr>
-  </tbody>
-</table>
-
-<h3>Docker rebuild rituals</h3>
-<p>The <code>research-generator</code> container is nginx serving a pre-built static Vite dist &mdash; <strong>NO HMR</strong>. After any frontend edit (<code>*.tsx</code> / <code>*.ts</code> / <code>*.css</code>):</p>
-<pre>docker compose -f docker-compose-all.yml up -d --build research-generator</pre>
-<p>Then hard-refresh the browser (Ctrl+Shift+R). The proxy is a separate container:</p>
-<pre>docker compose -f docker-compose-all.yml up -d --build research-proxy</pre>
-<p>The <code>.claude/skills/</code> directory is volume-mounted into BOTH containers &mdash; skill file changes take effect on the next request without rebuild.</p>
-
-<h3>Common failure modes (cross-reference <code>wiki/synthesis/generation-failures.md</code>)</h3>
-<table>
-  <thead><tr><th>Symptom in log</th><th>Validator that catches it</th><th>Likely root cause</th></tr></thead>
-  <tbody>
-    <tr><td>Thick-evidence filter dropped ALL N themes</td><td>validate_no_silent_fallback (THICK_EVIDENCE_FALLBACK telltale)</td><td>Corpus too thin OR missing framework page</td></tr>
-    <tr><td>validate_no_silent_fallback fires CONFIDENCE_NO_DATA</td><td>Same</td><td>Model didn&rsquo;t emit calibration metadata</td></tr>
-    <tr><td>/wiki/frameworks/*.md &mdash; 404</td><td>validate_framework_page_exists</td><td>Missing framework page</td></tr>
-    <tr><td>topic-model/status/&lt;id&gt; &mdash; 404</td><td>validate_topic_model_completion</td><td>Proxy restart mid-flight OR job_id stale</td></tr>
-    <tr><td>relevance scoring: N high, N moderate, N low &mdash; LOW &gt; 85%</td><td>validate_corpus_relevance_distribution</td><td>Search query refinement broken OR framework page missing</td></tr>
-    <tr><td>OpenAI returned 429: quota exceeded</td><td>quota-monitor subagent</td><td>Daily quota hit; provider health tracker auto-routes</td></tr>
-    <tr><td>Unterminated string in JSON at position N</td><td>validate_ai_output_syntax</td><td>Max-tokens overflow; ai-output-syntax-repair attempts truncation close</td></tr>
-    <tr><td>Connector jina failed: signal timed out</td><td>fallback-event-surfacing</td><td>Jina rate-limit; rate-limit-pacer skill should pace future calls</td></tr>
-  </tbody>
-</table>
-
-<h3>Quick command reference</h3>
-<pre># Quick start (Windows)
-.\start-platform.ps1
-
-# Quick start (Mac/Linux/Git Bash)
-./launch.sh
-
-# Platform status
-docker compose -f docker-compose-all.yml ps
-
-# Logs (single service)
-docker compose -f docker-compose-all.yml logs -f agent
-
-# Full reset (destroys volumes)
-docker compose -f docker-compose-all.yml down -v && ./launch.sh
-
-# Port conflicts
-python port_scanner.py --fix</pre>
-
-<h2 id="incomplete">26. Incomplete implementations <span class="badge badge-pending">PENDING</span></h2>
-
-<p>The standing rule <em>finish-then-test, no phase gates</em> means most architecture work ships complete. The following are skill / hook / subagent CONTRACTS that exist in <code>.claude/</code> as live specs but have engineering wiring still pending in HiC&rsquo;s TypeScript / Python:</p>
-
-<table>
-  <thead><tr><th>Capability</th><th>Spec location</th><th>Wiring status</th><th>What&rsquo;s missing</th></tr></thead>
-  <tbody>
-    <tr><td>v2 topic modeling pipeline</td><td><code>proxy/topic_modeling.py</code> <code>run_pipeline_v2</code></td><td><span class="badge badge-shipped">SHIPPED</span></td><td>Wired into <code>app.py</code> <code>_run_topic_job</code> 2026-05-24. Falls back to v1 on error.</td></tr>
-    <tr><td>Multi-model resilience (embeddings)</td><td><code>proxy/topic_modeling.py</code></td><td><span class="badge badge-shipped">SHIPPED</span></td><td>Live in <code>embed_documents</code>. Should extend to <code>services/aiRouter.ts</code> for all AI calls (currently topic-modeling only).</td></tr>
-    <tr><td>Multi-model resilience (LLM naming)</td><td><code>proxy/topic_modeling.py</code></td><td><span class="badge badge-shipped">SHIPPED</span></td><td>Live in <code>_llm_label_clusters</code>. Should extend to deliverable-generation calls in <code>services/geminiService.ts</code>.</td></tr>
-    <tr><td>Theme-count targeting</td><td><code>services/geminiService.ts</code> generateThemes()</td><td><span class="badge badge-shipped">SHIPPED</span></td><td>Reads from <code>outputMode</code>/<code>deliverableType</code>. Callers should set the field explicitly per deliverable.</td></tr>
-    <tr><td><code>fallback-event-surfacing</code> skill (event taxonomy)</td><td><code>.claude/skills/fallback-event-surfacing/SKILL.md</code></td><td><span class="badge badge-wip">CONTRACT ONLY</span></td><td>34 silent fallback sites listed in skill spec; <code>surfacedFallback()</code> wrapper needs porting to each site. <code>geminiService.ts</code> ~lines 1467, 1500, 1569, 1749, 1876, 2839 are top priority.</td></tr>
-    <tr><td><code>rate-limit-pacer</code> skill (per-provider token-bucket)</td><td><code>.claude/skills/rate-limit-pacer/SKILL.md</code></td><td><span class="badge badge-wip">CONTRACT ONLY</span></td><td><code>proxy/app.py</code> still uses process-wide semaphore=3 for Jina. Per-provider token bucket needs implementing in <code>services/rateLimit.ts</code>.</td></tr>
-    <tr><td><code>ai-output-syntax-repair</code> (TypeScript port)</td><td><code>.claude/skills/ai-output-syntax-repair/SKILL.md</code></td><td><span class="badge badge-wip">CONTRACT ONLY</span></td><td>Python validator hook is live; TS implementation needs porting to <code>services/aiOutputRepair.ts</code> and wiring into provider adapters.</td></tr>
-    <tr><td><code>export-paint-sync</code> (TypeScript port)</td><td><code>.claude/skills/export-paint-sync/SKILL.md</code></td><td><span class="badge badge-wip">CONTRACT ONLY</span></td><td><code>paintSync()</code> function spec is complete; needs porting to <code>services/exportService.ts</code> and wiring around every <code>html2canvas()</code> call. CSS rule <code>body[data-export-mode] .editor-only { display: none !important; }</code> needs adding to brand stylesheet.</td></tr>
-    <tr><td><code>topic-cluster-to-theme-converter</code> (TypeScript wiring)</td><td><code>.claude/skills/topic-cluster-to-theme-converter/SKILL.md</code></td><td><span class="badge badge-wip">CONTRACT ONLY</span></td><td><code>services/geminiService.ts</code> <code>generateThemes()</code> should call <code>/api/topic-model/analyze</code> FIRST (v2 BERTopic-primary path), then LLM-name each cluster. Currently still uses legacy LLM extraction; v2 pipeline exists in proxy but isn&rsquo;t the primary caller path.</td></tr>
-    <tr><td><code>cross-engagement-pattern-miner</code> wiki injection</td><td><code>.claude/skills/cross-engagement-pattern-miner/SKILL.md</code></td><td><span class="badge badge-wip">PARTIAL</span></td><td>Output file <code>wiki/synthesis/cross-engagement-patterns.md</code> not read by <code>loadGenerationContext()</code> by default. Add <code>readWikiPage('synthesis/cross-engagement-patterns.md')</code> to wikiService.ts.</td></tr>
-    <tr><td><code>case-study</code> framework + slide template</td><td><code>wiki/frameworks/case-study.md</code></td><td><span class="badge badge-shipped">SHIPPED</span></td><td>Framework page authored 2026-05-24. Slide template <code>components/slideTemplates/web.tsx</code> + <code>pptx.ts</code> need section-label column width sync to enforce &le;8-char label rule.</td></tr>
-    <tr><td>Editor-only CSS contract</td><td><code>wiki/synthesis/export-failures.md</code></td><td><span class="badge badge-wip">PARTIAL</span></td><td><code>pre_export_dom_audit.py</code> hook found 10 orphan editor buttons in <code>CorpusChatPanel.tsx</code> + <code>AnalysisCheckpoint.tsx</code>. They need <code>className=&quot;editor-only&quot;</code> added; CSS rule needs adding to brand stylesheet.</td></tr>
-    <tr><td>research-data MCP server</td><td><code>.claude/mcp-servers/research-data-server.py</code></td><td><span class="badge badge-pending">FAILED CONNECT</span></td><td><code>claude mcp list</code> shows &ldquo;Failed to connect&rdquo;. Likely cause: missing <code>mcp</code> Python SDK in venv OR proxy not running. Manual investigation needed.</td></tr>
-    <tr><td>Playwright MCP-backed subagents</td><td><code>.claude/agents/export-render-verifier.md</code></td><td><span class="badge badge-pending">REQUIRES MCP</span></td><td>Playwright MCP confirmed connected. Subagent ready to invoke on demand via <code>#verify-export</code>.</td></tr>
-  </tbody>
-</table>
-
-<h2 id="backlog">27. Backlog &amp; pending engineering <span class="badge badge-pending">PENDING</span></h2>
-
-<p>Tracked work items beyond the wiring gaps above. Cross-references <code>plans/</code> directory + the <code>wiki/synthesis/*-failures.md</code> living logs.</p>
-
-<h3>Architecture follow-ons</h3>
-<ol>
-  <li><strong>geminiService.ts <code>generateThemes()</code> primary-path rewire</strong> &mdash; switch to BERTopic-primary flow calling <code>/api/topic-model/analyze</code> (v2 with target_topic_count) and LLM-naming each cluster at temperature=0. Currently the legacy LLM extraction path still ships. <strong>Highest-leverage remaining patch.</strong></li>
-  <li><strong>Port multi-model resilience to <code>services/aiRouter.ts</code></strong> &mdash; bring the four-layer cache + provider-health + signature-key pattern to ALL AI calls, not just topic_modeling.py. Affects deliverable generation, persona enrichment, slide titling.</li>
-  <li><strong>Port <code>ai-output-syntax-repair</code> to TypeScript</strong> &mdash; <code>services/aiOutputRepair.ts</code> new file; wire into every provider adapter response parser.</li>
-  <li><strong>Port <code>export-paint-sync</code> to <code>services/exportService.ts</code></strong> &mdash; wrap every html2canvas call; add CSS rule to brand stylesheet.</li>
-  <li><strong>Fix the 10 orphan editor buttons</strong> in <code>CorpusChatPanel.tsx</code> + <code>AnalysisCheckpoint.tsx</code> &mdash; add <code>className=&quot;editor-only&quot;</code>; verify <code>body[data-export-mode] .editor-only { display: none !important; }</code> rule in stylesheet.</li>
-  <li><strong>Sweep 12 temperature&gt;0 sites in <code>geminiService.ts</code></strong> &mdash; classify each per <code>deterministic-naming-pass</code> skill rubric; tighten identity-class calls to temperature=0.</li>
-  <li><strong>topic-cluster-to-theme-converter primary wiring</strong> &mdash; the v2 pipeline exists in proxy but geminiService still drives the legacy LLM extraction path. Need new TypeScript service file.</li>
-</ol>
-
-<h3>Substrate health</h3>
-<ol>
-  <li><strong>Cache retention policy</strong> &mdash; <code>sessions/_embedding-cache/</code> and <code>sessions/_name-cache/</code> grow without bound. Add LRU pruning or TTL cleanup. Disk-space monitoring.</li>
-  <li><strong>Wiki cleanup</strong> &mdash; 79 real broken links + 88 frontmatter-fixable pages identified by <code>wiki-curator</code> 2026-05-24 baseline. Schedule weekly auto-curator runs.</li>
-  <li><strong>Orphan code resolution</strong> &mdash; 47 orphan exports, 11 high-severity (chunkedGenerateBlueprint, coverageScorer.ts, queryFabric.ts, methods/MethodExecutor.ts, wikiCacheLoader.ts engagement-bundle layer, FeedbackReceipt.tsx file-still-on-disk, 4 aiRetryClient helpers). Decide: wire or delete each.</li>
-  <li><strong>Contradiction-scan false-positive fix</strong> &mdash; shipped 2026-05-24 (excludes auto-generated synthesis files). Verify contradiction count drops from 18,708 to &lt;500 on next run.</li>
-  <li><strong>Topic-modeling job sentinel cleanup</strong> &mdash; failed jobs persist their sentinel forever. Add cleanup after N days.</li>
-</ol>
-
-<h3>Observability</h3>
-<ol>
-  <li><strong>Reproducibility hash stamping</strong> &mdash; every deliverable should carry <code>reproducibility_hash</code> at top level. Currently <code>validate_theme_reproducibility.py</code> can compute it from corpus_hash + goal + framework_versions, but the runtime generator doesn&rsquo;t emit one.</li>
-  <li><strong>Degradation events surfacing in UI</strong> &mdash; the <code>fallback-event-surfacing</code> skill defines the taxonomy and the validator catches missing events, but the Brain Status notice in <code>CorpusChatPanel.tsx</code> doesn&rsquo;t render them yet.</li>
-  <li><strong>Cost telemetry</strong> &mdash; <code>quota-monitor</code> subagent writes to <code>wiki/synthesis/cost-telemetry.md</code> but the file doesn&rsquo;t exist yet (will be created on first invocation). Add to the wiki-curator&rsquo;s expected-files list.</li>
-</ol>
-
-<h3>Quality gates</h3>
-<ol>
-  <li><strong>research-data MCP reconnect</strong> &mdash; shows &ldquo;Failed to connect&rdquo;. Investigation needed.</li>
-  <li><strong>Slide template / pptx renderer sync</strong> &mdash; <code>components/slideTemplates/types.ts</code> defines 18 templates. The <code>web.tsx</code> and <code>pptx.ts</code> renderers must stay in lockstep. Add a consistency check.</li>
-  <li><strong>Section-label column width sync</strong> &mdash; case-study template requires section labels &le;8 chars per <code>wiki/synthesis/export-failures.md</code>. The pptx renderer&rsquo;s label column width must match the web renderer&rsquo;s to prevent mid-word break in export.</li>
-  <li><strong>Scheduled remote agents</strong> &mdash; <code>/schedule</code> created routines for wiki-curator-weekly + orphan-code-auditor-weekly but they require Claude GitHub App on the repo (not installed). Either install the App OR run via local <code>/loop</code> instead.</li>
-</ol>
-
-<h3>Active plans in <code>humans-in-control-research/plans/</code></h3>
-<ul>
-  <li><code>hic-honest-audit-and-remediation-2026-05-23.md</code> &mdash; the audit doc that prompted today&rsquo;s pipeline hardening</li>
-  <li><code>hic-chunking-and-output-quality-plan.md</code> &mdash; 7 chunked generators, 6 wired, 1 still orphan (Blueprint)</li>
-  <li><code>hic-self-improvement-loop-plan.md</code> &mdash; verifier pass, compile loop, per-section improve buttons</li>
-  <li><code>html-as-default-output-uplift.md</code> &mdash; sprints H1-H7; some sprints pending</li>
-  <li><code>karpathy-second-brain-uplift.md</code> &mdash; v4.0 work, mostly shipped; some contradiction detector work pending</li>
-  <li><code>reinforcement-inference-uplift.md</code> &mdash; service exists; wrapper integration pending</li>
-  <li><code>verbalized-sampling-uplift.md</code> &mdash; VS at theme + recommendation + Stage 1; persona Phase A pending</li>
-</ul>
-
-<h2 id="glossary">28. Glossary</h2>
-
-<table>
-  <tbody>
-    <tr><td><strong>Analyst Desk</strong></td><td>HiC&rsquo;s dashboard surface; treemap of themes with breadcrumb drill-down</td></tr>
-    <tr><td><strong>Analytical Lens</strong></td><td>Goal-driven preset that picks default source categories (general_cx / fundraising / student_learner / digital_product / enterprise_tech / custom)</td></tr>
-    <tr><td><strong>BERTopic</strong></td><td>Topic modeling library combining UMAP + HDBSCAN + c-TF-IDF. HiC uses v2 pipeline with HiC-specific divergences. Reference: Maarten Grootendorst 2022.</td></tr>
-    <tr><td><strong>BroadcastChannel</strong></td><td>Browser API for cross-window sync. HiC uses <code>designDeskStore.v1.sync</code> channel.</td></tr>
-    <tr><td><strong>Brain Status</strong></td><td>Inline UI notice rendering <code>degradation_events[]</code> from the receipt</td></tr>
-    <tr><td><strong>c-TF-IDF</strong></td><td>Class-based TF-IDF; computes term distinctiveness per cluster vs the rest of the corpus. Deterministic. Used in <code>_ctfidf_top_terms</code>.</td></tr>
-    <tr><td><strong>CHUNK_NNN</strong></td><td>Citation reference token; resolved at output time by <code>citationResolver.ts</code> to <code>SourceName: ArticleTitle</code></td></tr>
-    <tr><td><strong>Convergent evidence</strong></td><td>Theme flag (v4.2) marking clusters that merged across &ge;2 source types (academic + news, etc.)</td></tr>
-    <tr><td><strong>Cooper goal-directed</strong></td><td>Persona methodology (Alan Cooper 1999); 3-tier goals: Life / Experience / Functional</td></tr>
-    <tr><td><strong>Data fabric</strong></td><td>HiC&rsquo;s collection architecture; 200+ connectors, 8 connector kinds, parallel orchestration</td></tr>
-    <tr><td><strong>Degradation event</strong></td><td>Structured record (kind, stage, detail, timestamp) emitted when the pipeline falls back from its preferred path. Surfaced inline.</td></tr>
-    <tr><td><strong>Designer window</strong></td><td>Dedicated browser window opened by hashtag commands; 1920&times;1080 HTML artifact canvas</td></tr>
-    <tr><td><strong>Determinism layer</strong></td><td>Identity fields (theme names, persona names, cluster memberships) MUST be reproducible across runs with same corpus + goal. Variance allowed only on tagged exploratory fields.</td></tr>
-    <tr><td><strong>Evidence tier</strong></td><td>Per-theme marker. v4.2 ships only <code>thick</code> (&ge;2 distinct named sources). Tier-relaxation values (single_source / unresolved_citation / inherited_from_cache) are reserved as emergency canaries.</td></tr>
-    <tr><td><strong>HDBSCAN</strong></td><td>Hierarchical Density-Based Spatial Clustering; HiC uses <code>cluster_selection_method='leaf'</code> for finer-grained themes</td></tr>
-    <tr><td><strong>JTBD</strong></td><td>Jobs to Be Done (Christensen / Ulwick); mandatory format on personas: &ldquo;When [situation], I want to [motivation], so I can [outcome].&rdquo;</td></tr>
-    <tr><td><strong>Knowledge Library</strong></td><td>Cross-engagement Themes tab (v4.1+); reads from <code>sessions/_topic-cache/</code> via <code>/api/topic-cache/*</code></td></tr>
-    <tr><td><strong>Multi-model resilience</strong></td><td>Four-layer pattern (cache + health tracker + per-corpus commitment + identity-signature cache) shipped 2026-05-24</td></tr>
-    <tr><td><strong>NXT / NU</strong></td><td>Brand modifiers. NXT = NXT Humans brand (chartreuse / cyan / black). NU = Northeastern (red / violet).</td></tr>
-    <tr><td><strong>Provider health tracker</strong></td><td>Tracks <code>last_429_at</code> per provider; skips throttled providers for <code>THROTTLE_COOLDOWN_S = 600</code> seconds</td></tr>
-    <tr><td><strong>Reproducibility hash</strong></td><td>SHA-256 of (corpus_hash, goal_hash, framework_versions). Two runs with same hash must produce byte-identical identity fields.</td></tr>
-    <tr><td><strong>Rumelt&rsquo;s Kernel</strong></td><td>Strategy methodology (Richard Rumelt); Diagnosis &rarr; Guiding Policy &rarr; Coherent Actions</td></tr>
-    <tr><td><strong>Source-stratified clustering</strong></td><td>v4.2 architecture; clusters within each source_type bucket, then merges across types where centroid cosine &ge; 0.75</td></tr>
-    <tr><td><strong>Signature cache</strong></td><td>LLM identity-class cache keyed by sha256(top_terms + sample_titles + research_goal). Same signature &rarr; same cached name across runs.</td></tr>
-    <tr><td><strong>Stop hook</strong></td><td>Claude Code Python script that runs after every generation event; reads deliverable JSON from stdin; exits 0 (pass) or 2 (block + retry)</td></tr>
-    <tr><td><strong>UMAP</strong></td><td>Uniform Manifold Approximation and Projection; dimensionality reduction. HiC uses <code>random_state=42</code> for determinism.</td></tr>
-    <tr><td><strong>Verbalized Sampling (VS)</strong></td><td>Training-free prompting technique to escape mode collapse. k=8 candidates with probability annotation; probability &lt; 0.10 (moderate) or &lt; 0.05 (deep) as commitment device.</td></tr>
-    <tr><td><strong>Wiki-as-RAG</strong></td><td>v3.1 architecture; wiki is canonical store; chat has <code>fetch_wiki_articles</code> tool; embedding-ranked retrieval</td></tr>
-  </tbody>
-</table>
-
-<div class="accent-rule"></div>
-<p style="font-size: 11px; color: var(--nxt-muted); margin-top: 32px;">Humans in Control &mdash; NXT Humans &mdash; v4.2 documentation generated 2026-05-24. The Documents link in the app top nav points here. For source-of-truth on agent skills see <code>.claude/skills/</code>. For source-of-truth on quality gates see <code>.claude/hooks/scripts/</code>. For agent operating rules see <code>.claude/CLAUDE.md</code> and the operator memory at <code>C:\Users\&lt;user&gt;\.claude\projects\D--NXT-HUMANS-AI-CX-WORKBENCH\memory\MEMORY.md</code>.</p>
-
+<nav class="rail">
+  <div class="mark"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="wm">NXT HUMANS</div>
+  <div class="yr">HiC</div>
+</nav>
+
+<div class="shell">
+<aside class="toc">
+  <div class="kick">Start here</div>
+  <a class="h2" href="#what">What it is</a>
+  <a class="h2" href="#benefits">Why it matters</a>
+  <a class="h2" href="#quickstart">Operator quickstart</a>
+  <div class="kick">The pipeline</div>
+  <a class="h2" href="#pipeline">End-to-end pipeline</a>
+  <a href="#collect">Data collection</a>
+  <a href="#synthesis">Synthesis &amp; themes</a>
+  <a href="#analyst">Analyst Desk</a>
+  <a href="#selfimprove">Self-improvement engine</a>
+  <div class="kick">Make things</div>
+  <a class="h2" href="#hashtags">Hashtag deliverables</a>
+  <a class="h2" href="#instructions">How to generate</a>
+  <a class="h2" href="#proto">Experience prototypes</a>
+  <a class="h2" href="#designsystem">Design system &amp; manifest</a>
+  <a class="h2" href="#export">Export</a>
+  <div class="kick">Reference</div>
+  <a class="h2" href="#brands">Brands</a>
+  <a class="h2" href="#quality">Quality &amp; guardrails</a>
+  <a class="h2" href="#models">Model routing</a>
+  <a class="h2" href="#ops">Operations</a>
+  <a class="h2" href="#glossary">Glossary</a>
+</aside>
+
+<main class="main">
+  <div class="subtitle">Intelligence Augmentation Suite · Operator Documentation</div>
+  <h1>HUMANS IN CONTROL</h1>
+  <p class="lede">A research workbench that runs the full arc of a consulting engagement: gather evidence, synthesize it, and turn it into board-ready deliverables and working experience prototypes. The machine does the labor. You stay in control at every checkpoint.</p>
+
+  <h2 id="what"><span class="n">01</span>What Humans in Control does</h2>
+  <p>Humans in Control (HiC) compresses a multi-week consulting engagement into a single guided session. You give it a goal and a few source documents. It assembles a research corpus from your uploads plus a curated external evidence base, synthesizes that corpus into named themes, and then lets you generate any consulting artifact on demand by typing a hashtag in the Analyst Desk chat. The same corpus that powers a strategy deck also powers a clickable, on-brand experience prototype.</p>
+  <p>Every output is grounded in real, cited evidence. Every output carries the NXT Humans or Northeastern University design system. Nothing ships without passing a defense-in-depth quality layer that strips AI slop, resolves citations to named sources, and enforces the consulting frameworks a senior partner expects.</p>
+  <div class="callout">
+    <h4>The one-sentence version</h4>
+    <p style="margin-bottom:0">Research goes in, a cited corpus is built and synthesized, and any deliverable, from a strategy deck to a live prototype, comes out on demand, on brand, and grounded in evidence, while the system learns from your edits.</p>
+  </div>
+
+  <h2 id="benefits"><span class="n">02</span>Why it matters: end-to-end consulting automation</h2>
+  <p>Traditional consulting work is a relay of specialists: researchers gather, analysts synthesize, strategists frame, designers prototype, and editors enforce quality. HiC runs that whole relay as one continuous pipeline, with you as the single decision-maker.</p>
+  <div class="grid2">
+    <div class="card"><div class="t">Research to deliverable in one session</div><div class="d">No handoffs. The corpus the research stage builds is the same corpus every deliverable cites. Themes extracted once are reused across the deck, the personas, the blueprint, and the prototype.</div></div>
+    <div class="card"><div class="t">Evidence you can defend</div><div class="d">Every claim resolves to a named source ("Higher Ed Dive", "Reddit r/cscareerquestions", "OpenAlex: Smith 2024"). At least 60% of cited sources are external, not your own uploads.</div></div>
+    <div class="card"><div class="t">On brand by construction</div><div class="d">Colors, type, logo, spacing, and a 294-archetype component library are pulled live from the Figma design system at generation time. Output is NXT or Northeastern branded without manual styling.</div></div>
+    <div class="card"><div class="t">Research becomes a working product</div><div class="d">The same insight that fills a slide can be rendered as a clickable, multi-screen experience prototype with real AI behavior inside it, not a static mockup.</div></div>
+    <div class="card"><div class="t">It gets better with use</div><div class="d">Your edits at checkpoints are logged. After repeated corrections the system promotes a constraint and injects it into every future generation. The workbench learns your standards.</div></div>
+    <div class="card"><div class="t">Humans in control</div><div class="d">Checkpoints let you edit, approve, or reject at each stage. The AI proposes; you decide. Nothing is autopilot.</div></div>
+  </div>
+
+  <h2 id="quickstart"><span class="n">03</span>Operator quickstart</h2>
+  <ol>
+    <li><strong>State a goal.</strong> On the launch screen, write a research goal in the goal box (for example, "Identify unmet co-op program needs for Northeastern undergraduates over the next 24 months, focused on employer-side friction and student-side decision points"). Use <strong>Suggest from goal</strong> or <strong>Enhance</strong> to sharpen it.</li>
+    <li><strong>Add evidence (optional).</strong> Upload client documents (PDF, DOCX, TXT) and paste any source URLs. These become the uploaded-document layer of the corpus.</li>
+    <li><strong>Pick sources.</strong> Leave the run in <code>fresh</code> mode to query the external evidence base, or use <strong>Curate</strong> to select a knowledge-library (KL) subset.</li>
+    <li><strong>Run Research Analysis.</strong> HiC builds the corpus, ingests and chunks sources, and extracts themes. Review, edit, approve, or reject at each checkpoint.</li>
+    <li><strong>Open the Analyst Desk and generate.</strong> Type a hashtag deliverable command (see section 05). For example <code>#slides</code>, <code>#journey</code>, <code>#personas</code>, or <code>#proto a co-op match dashboard #NU</code>.</li>
+    <li><strong>Export.</strong> Push any deck to PPTX or PDF; prototypes run live in the browser and can be revised in chat.</li>
+  </ol>
+  <div class="callout teal">
+    <h4>Two front doors</h4>
+    <p style="margin-bottom:0"><strong>Research Analysis</strong> opens the Analyst Desk, the corpus-grounded chat where hashtag deliverables and experience prototypes are generated. <strong>Design Desk</strong> is a lighter designer chat for freeform brand documents (briefs, explainers, reports). <strong>UX Heuristic Analysis</strong> runs a tri-model audit of an interface brief.</p>
+  </div>
+
+  <h2 id="pipeline"><span class="n">04</span>The end-to-end pipeline</h2>
+  <p>This is the spine of the product. Data flows top to bottom; the corpus and its themes are reused by every downstream generator.</p>
+  <div class="pipeline">
+    <div class="step"><div class="t">Goal &amp; intake</div><div class="d">A structured research goal plus optional client uploads and source URLs define the engagement. Engagement memory checks for prior runs on similar goals and loads what was learned.</div></div>
+    <div class="step"><div class="t">Data collection</div><div class="d">The research fabric fans out across 200+ external sources (academic, news, government, social, video) through eight connector types, plus your uploaded documents. A connector-health ledger reroutes around failing sources.</div></div>
+    <div class="step"><div class="t">Ingestion &amp; chunking</div><div class="d">Each source is parsed to plain text, content-hash deduplicated, and split into retrievable chunks with stable IDs. Chunks are written into a manifest so deliverables can ground on specific passages rather than bulk text.</div></div>
+    <div class="step"><div class="t">Synthesis &amp; theme extraction</div><div class="d">A stateful multi-turn analysis pass clusters the corpus into named themes with supporting evidence and verbatim quotes. You edit, approve, or reject themes at a checkpoint. Themes become the shared backbone for every deliverable.</div></div>
+    <div class="step"><div class="t">Analyst Desk deliverable generation</div><div class="d">You type a hashtag. The generator retrieves the relevant manifest chunks, loads the matching consulting framework and brand standards, generates the artifact, then runs it through the post-processor quality layer.</div></div>
+    <div class="step"><div class="t">Experience prototypes</div><div class="d"><span class="hash">#proto</span> runs a five-stage flow that turns the concept into a clickable, on-brand, multi-screen prototype composed from the design-system component library, with real AI calls wired inside it.</div></div>
+    <div class="step"><div class="t">Export &amp; persistence</div><div class="d">Decks export to PPTX and PDF; prototypes run live and persist for revision. New artifacts and ingested articles are written back to the knowledge base.</div></div>
+    <div class="step"><div class="t">Self-improvement loop</div><div class="d">Your checkpoint edits are logged. Recurring corrections become learned constraints injected into future prompts. The skill library is mined offline and improved. The next session starts smarter.</div></div>
+  </div>
+
+  <h3 id="collect">Data collection</h3>
+  <p>The research fabric aggregates evidence from two categories. <strong>Uploaded client documents</strong> (a handful of PDFs you provide) supply organizational context. The <strong>external evidence base</strong> (roughly 200 articles from academic, news, government, and social sources) is the primary evidence. The system deliberately weights external sources heavily: a deliverable dominated by your own uploads is treated as a failure. Connectors cover REST, RSS, CKAN, Socrata, arXiv, OpenAlex, Crossref, Semantic Scholar, Reddit, YouTube transcription, and more. A connector-health ledger tracks which sources are responding and routes around the rest.</p>
+
+  <h3 id="synthesis">Synthesis &amp; theme extraction</h3>
+  <p>Synthesis is where raw chunks become an argument. The analysis pass groups the corpus into themes, each anchored to named sources and verbatim quotes, and surfaces convergence where multiple independent sources agree. Themes are the only auto-synthesized layer; every other deliverable grounds on the manifest chunks rather than re-injecting raw text, which is what keeps output from going hollow. You review themes at a checkpoint and steer the synthesis before any deliverable is built on top of it.</p>
+
+  <h3 id="analyst">The Analyst Desk</h3>
+  <p>The Analyst Desk is the corpus-grounded chat at the center of the workbench. Plain questions get answered as corpus Q&amp;A with citations. A hashtag command triggers a full deliverable build. Before generation, the system assembles a grounding context: the relevant manifest chunks, the consulting framework for that deliverable type, the brand standards, learned constraints, and engagement memory. The model generates against that context, and the output passes through the post-processor before you see it.</p>
+
+  <h3 id="selfimprove">The self-improvement engine</h3>
+  <p>HiC is designed to compound. Four mechanisms feed the loop:</p>
+  <ul>
+    <li><strong>Edit learning.</strong> Edits you make at checkpoints are logged. After several similar corrections, a constraint is promoted and stored in the learned-constraints ledger, then injected into every subsequent generation prompt.</li>
+    <li><strong>Engagement memory.</strong> Prior runs on similar goals are matched and loaded so the system builds on earlier insight instead of repeating analysis.</li>
+    <li><strong>Manifest-chunk retrieval.</strong> Deliverables ground on specific cited chunks, and on-demand outputs are persisted back into the manifest so they are retrievable next time.</li>
+    <li><strong>Offline skill optimization.</strong> A training pipeline mines past sessions, proposes edits to the agent skill library, gates them through an independent validator, and promotes the approved ones. Skills get better between sessions, not worse.</li>
+  </ul>
+
+  <h2 id="hashtags"><span class="n">05</span>The hashtag deliverable system</h2>
+  <p>In the Analyst Desk, a leading hashtag is a command to build a specific artifact. Plain text without a hashtag is answered as corpus Q&amp;A. Every artifact hashtag routes through the same grounded generation engine and the same quality layer. Append <span class="hash">#NXT</span> or <span class="hash">#NU</span> to set the brand, and <span class="hash">#dense</span> to raise the detail ceiling on a deck slide.</p>
+
+  <h4>Strategy &amp; analysis deck artifacts</h4>
+  <table>
+    <thead><tr><th>Command</th><th>Produces</th></tr></thead>
+    <tbody>
+      <tr><td><span class="hash">#slides</span></td><td>A multi-slide strategy deck of action-title slides on the GOLD frame, carrying the full narrative.</td></tr>
+      <tr><td><span class="hash">#themes</span></td><td>Theme clusters and spotlights drawn from the synthesis pass.</td></tr>
+      <tr><td><span class="hash">#personas</span></td><td>Evidence-grounded persona set with jobs-to-be-done and verbatim voice.</td></tr>
+      <tr><td><span class="hash">#journey</span></td><td>A journey map rendered as the entire slide body: phases as columns, personas, stacked pains, and opportunities as rows.</td></tr>
+      <tr><td><span class="hash">#blueprint</span></td><td>A service blueprint with frontstage and backstage lanes (Bitner model).</td></tr>
+      <tr><td><span class="hash">#recs</span> · <span class="hash">#recommendations</span></td><td>A recommendation architecture: diagnosis, guiding policy, coherent actions (Rumelt's kernel).</td></tr>
+      <tr><td><span class="hash">#competitive</span></td><td>A competitive matrix with named subjects and a comparison axis.</td></tr>
+      <tr><td><span class="hash">#case-study</span></td><td>Case studies with named subjects and diversified deep-dive variants.</td></tr>
+      <tr><td><span class="hash">#gap</span></td><td>A gap matrix: current state against target state.</td></tr>
+      <tr><td><span class="hash">#roadmap</span></td><td>A phased roadmap of initiatives.</td></tr>
+      <tr><td><span class="hash">#prd</span></td><td>A product requirements document with feature detail.</td></tr>
+      <tr><td><span class="hash">#arch</span></td><td>A technical architecture map.</td></tr>
+      <tr><td><span class="hash">#audit</span></td><td>A technical audit with a systems inventory.</td></tr>
+      <tr><td><span class="hash">#org</span></td><td>An organization chart.</td></tr>
+      <tr><td><span class="hash">#meta-themes</span> · <span class="hash">#mindmap</span></td><td>Cross-theme synthesis and a knowledge mind map.</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Experience &amp; document artifacts</h4>
+  <table>
+    <thead><tr><th>Command</th><th>Produces</th></tr></thead>
+    <tbody>
+      <tr><td><span class="hash">#proto</span> · <span class="hash">#prototype</span></td><td>A clickable, multi-screen experience prototype built from the design-system component library, brand-aware, with real AI behavior wired inside it. See section 07.</td></tr>
+      <tr><td><span class="hash">#presentation</span> <span class="hash">#NXT</span>|<span class="hash">#NU</span></td><td>A scroll-driven presentation handed to the presentation renderer service.</td></tr>
+      <tr><td><span class="hash">#brief</span> · <span class="hash">#explainer</span> · <span class="hash">#report</span></td><td>Freeform on-brand HTML documents (generated from the Design Desk designer chat).</td></tr>
+    </tbody>
+  </table>
+  <div class="callout cyan">
+    <h4>Modifiers</h4>
+    <p style="margin-bottom:0"><span class="hash">#NXT</span> / <span class="hash">#NU</span> set the brand (NXT Humans or Northeastern University). <span class="hash">#dense</span> raises the per-template item ceiling for a denser artifact rather than dropping content. A trailing label after the concept names the artifact.</p>
+  </div>
+
+  <h2 id="instructions"><span class="n">06</span>How to generate each deliverable</h2>
+  <h3>Decks and analysis artifacts</h3>
+  <ol>
+    <li>Complete a Research Analysis run so a corpus and themes exist.</li>
+    <li>In the Analyst Desk, type the hashtag plus any direction, for example <code>#journey the first-year student co-op search</code> or <code>#competitive #NU</code>.</li>
+    <li>The deliverable renders as preview slides. Review the action titles, citations, and evidence.</li>
+    <li>Edit or refine in chat. Add <code>#dense</code> if the slide should carry more detail.</li>
+    <li>Export to PPTX or PDF when satisfied.</li>
+  </ol>
+  <h3>Documents (brief, explainer, report)</h3>
+  <ol>
+    <li>Open <strong>Design Desk</strong>.</li>
+    <li>Type <code>#brief</code>, <code>#explainer</code>, or <code>#report</code> with your topic and a brand tag.</li>
+    <li>The designer chat emits an on-brand HTML document you can iterate on.</li>
+  </ol>
+  <h3>Corpus questions</h3>
+  <p>Type a plain question (no hashtag) in the Analyst Desk to query the corpus. Answers cite named sources. Fire two or three angle variants of a broad question to reach different parts of the evidence base.</p>
+
+  <h2 id="proto"><span class="n">07</span>Experience prototypes (#proto)</h2>
+  <p>This is what separates HiC from a slide generator: the same research becomes a working, clickable product. Type <code>#proto a co-op match dashboard #NU</code> and the system runs a five-stage pipeline:</p>
+  <div class="pipeline">
+    <div class="step"><div class="t">Concept decomposer</div><div class="d">Turns your one-line concept into a structured experience brief: persona, jobs-to-be-done, the demonstrated moment, success criteria.</div></div>
+    <div class="step"><div class="t">Interaction architect</div><div class="d">Designs the screens and transitions, and identifies where real AI inference is the value.</div></div>
+    <div class="step"><div class="t">Visual designer</div><div class="d">Applies the brand and selects the relevant patterns from the design-system component manifest. The build is catalog-aware: it composes from real components and does not invent UI shapes.</div></div>
+    <div class="step"><div class="t">Prototype coder</div><div class="d">Writes the full multi-screen React prototype. AI features call the proxy live; structured AI responses parse defensively and degrade gracefully; every loading state animates a catalog pattern (skeleton, token stream, progress, spinner).</div></div>
+    <div class="step"><div class="t">Critic &amp; refiner</div><div class="d">Audits the prototype against a depth, accessibility, and brand checklist, then fixes blocking issues before it ships.</div></div>
+  </div>
+  <p>The result is a runnable prototype with a screen switcher, real seed data, and live AI behavior. It persists and can be revised by chatting (for example, "make the match cards show a skill-gap bar"). Prototypes are brand-correct: the real Northeastern N monogram or NXT Humans wordmark, brand colors, type, and the responsive breakpoint grid are pulled from the design system at generation time.</p>
+  <div class="callout teal">
+    <h4>Grounded, not guessed</h4>
+    <p style="margin-bottom:0">The prototype is composed from a library of 294 named design-system component archetypes per brand, spanning AI-chat, navigation, data display, charts, forms, feedback, overlays, AI-transparency, commerce, compliance, accessibility, and interaction states. The model reads each component's exact structure and token bindings from the manifest and builds to match.</p>
+  </div>
+
+  <h2 id="designsystem"><span class="n">08</span>The design system &amp; component manifest</h2>
+  <p>Generation is grounded in a living design system maintained in Figma, mirrored to the workbench at runtime.</p>
+  <ul>
+    <li><strong>Brand tokens.</strong> Colors, fonts, spacing, and radius are served live from the Figma token sheet. Generators never hardcode brand values; they read the current tokens at build time.</li>
+    <li><strong>Brand logos.</strong> The official Northeastern N monogram and the NXT Humans wordmark are sourced from Figma and rendered in every masthead. A logo is never invented.</li>
+    <li><strong>Component manifest.</strong> A 294-archetype component library per brand is chunked into a manifest the prototype pipeline reads at generation time, so prototypes compose from real, on-brand components with exact token bindings.</li>
+    <li><strong>Responsive breakpoint grids.</strong> A mobile-first grid system (xs 360, sm 480, md 768, lg 1024, xl 1280, 2xl 1440, with columns, margins, and gutters per breakpoint) is part of the design system and is injected into prototype generation, so output is responsive from mobile to widescreen.</li>
+  </ul>
+
+  <h2 id="export"><span class="n">09</span>Export</h2>
+  <ul>
+    <li><strong>PPTX.</strong> Decks export to PowerPoint with the slide templates rendered at full fidelity.</li>
+    <li><strong>PDF.</strong> Decks export to PDF for distribution.</li>
+    <li><strong>Live prototypes.</strong> Prototypes run in the browser at their own URL and persist for revision; no export step is needed to share or demo them.</li>
+    <li><strong>Presentations.</strong> <span class="hash">#presentation</span> output is handed to a scroll-driven presentation renderer.</li>
+  </ul>
+
+  <h2 id="brands"><span class="n">10</span>Brands</h2>
+  <div class="grid2">
+    <div class="card"><div class="t">NXT Humans <span class="tag chart">#NXT</span></div><div class="d">Black, chartreuse accent, cyan, teal, rust. Display type Saira Condensed, body Archivo, mono IBM Plex Mono. The 3x3 dot mark and 92px rail are the signature GOLD devices.</div></div>
+    <div class="card"><div class="t">Northeastern University <span class="tag" style="color:#C8102E;border-color:#C8102E;background:#FBEAEC">#NU</span></div><div class="d">Northeastern red, navy ink, gold, teal source. Single-typeface Lato system. The official red N monogram is the brand mark.</div></div>
+  </div>
+
+  <h2 id="quality"><span class="n">11</span>Quality &amp; guardrails</h2>
+  <p>Every artifact passes a defense-in-depth quality layer that the prompt alone cannot bypass:</p>
+  <ul>
+    <li><strong>Citation protocol.</strong> Chunk references resolve to named sources. Generic references ("research", "studies", "data") are rejected.</li>
+    <li><strong>Evidence hierarchy.</strong> Lead with external evidence, corroborate with more external sources, then contextualize with client documents. At least 60% of cited sources are external.</li>
+    <li><strong>Quantitative-claim rule.</strong> Numbers appear only inside a cited quote, never as a bare assertion in a title or tile.</li>
+    <li><strong>Banned phrases.</strong> 350+ slop phrases and AI-writing tells are corrected automatically. Meta-narration, process references, and knowledge-cutoff disclaimers are stripped.</li>
+    <li><strong>Action titles.</strong> Every slide title is a complete-sentence conclusion a partner can read on its own.</li>
+    <li><strong>Consulting frameworks.</strong> Minto pyramid, Rumelt's kernel, and SCQA are enforced where the deliverable calls for them.</li>
+    <li><strong>Format hygiene.</strong> No em-dashes, no markdown in content fields, no fabricated authors or statistics, no QA annotations in user-facing text.</li>
+  </ul>
+  <p>Beyond the runtime layer, an independent subagent fleet audits deliverables (citation diversity, evidence quality, schema drift), and quality-gate hooks block a generation that violates a standing rule.</p>
+
+  <h2 id="models"><span class="n">12</span>Model routing &amp; resilience</h2>
+  <p>Model selection is centralized so call sites never hardcode a model. The canonical rule: <strong>plain (non-hashtag) Analyst Desk chat runs on Gemini 3.5 Flash</strong>, and <strong>every hashtag deliverable — including the <span class="hash">#proto</span> build pipeline's generation stages — runs on Claude Opus 4.8</strong>. A resilience layer adds a content-hash embedding cache, a per-provider health tracker, per-corpus provider commitment, and a cross-provider fallback (Opus, then Gemini) so a single provider outage does not kill a generation; the build path never falls back to GPT-5.5.</p>
+
+  <h2 id="ops"><span class="n">13</span>Operations &amp; troubleshooting</h2>
+  <ul>
+    <li><strong>A change is not visible.</strong> The app is served as a static build. After a code change the container is rebuilt and the browser hard-refreshed. If a result looks stale, a rebuild was likely missed.</li>
+    <li><strong>An external source is slow.</strong> Large uploads are parsed synchronously; very large PDFs can take up to a minute. The connector-health ledger routes around failing external sources automatically.</li>
+    <li><strong>A deliverable looks thin.</strong> Confirm a Research Analysis run completed and themes were approved. Deliverables ground on the corpus; an empty corpus yields a thin artifact.</li>
+    <li><strong>Branding looks off.</strong> Confirm the brand tag (<span class="hash">#NXT</span> / <span class="hash">#NU</span>) and that the design-system token feed is reachable; brand values are pulled live, not hardcoded.</li>
+  </ul>
+
+  <h2 id="glossary"><span class="n">14</span>Glossary</h2>
+  <table>
+    <tbody>
+      <tr><td><strong>Corpus</strong></td><td>The assembled set of sources for a run: uploaded documents plus the external evidence base.</td></tr>
+      <tr><td><strong>Chunk</strong></td><td>A retrievable passage of a source with a stable ID, used to ground deliverables on specific evidence.</td></tr>
+      <tr><td><strong>Manifest</strong></td><td>The index of chunks (and of design-system components) that generation retrieves from at build time.</td></tr>
+      <tr><td><strong>Theme</strong></td><td>A named cluster of the corpus with supporting evidence; the shared backbone of all deliverables.</td></tr>
+      <tr><td><strong>Analyst Desk</strong></td><td>The corpus-grounded chat where hashtag deliverables and prototypes are generated.</td></tr>
+      <tr><td><strong>Design Desk</strong></td><td>The designer chat for freeform on-brand documents.</td></tr>
+      <tr><td><strong>Checkpoint</strong></td><td>A point where you edit, approve, or reject the AI's output before the pipeline continues.</td></tr>
+      <tr><td><strong>Learned constraint</strong></td><td>A rule promoted from your repeated edits and injected into future generation prompts.</td></tr>
+      <tr><td><strong>KL (knowledge library)</strong></td><td>A curated subset of sources selected for a run.</td></tr>
+      <tr><td><strong>GOLD frame</strong></td><td>The signature slide layout: rail, dot mark, kicker, action title, takeaway band.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot">NXT HUMANS · HUMANS IN CONTROL · INTELLIGENCE AUGMENTATION SUITE · OPERATOR DOCUMENTATION</div>
+</main>
 </div>
 </body>
 </html>

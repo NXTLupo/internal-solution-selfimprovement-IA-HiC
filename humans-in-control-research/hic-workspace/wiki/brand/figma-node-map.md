@@ -132,7 +132,74 @@ until a frame is deleted. The agent re-pulls tokens into
 `hic-workspace/design-system/figma-tokens.json` (served at `/api/design-tokens`), and the
 GOLD exemplar frames have byte-faithful HTML twins under `wiki/design-system/gold/`.
 
-## NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`)
+> AUTHORITATIVE SECTION: read "COMPONENT REGISTRY (2026-06-16, LIVE)" below FIRST. Every other
+> table on this page lists PRE-componentization raw-frame IDs and is retained for history only.
+> The 2026-06-15 componentization (see "COMPONENTIZED DESIGN SYSTEM + MODES" at the foot of this
+> page) renumbered every deliverable into a COMPONENT with an NU-mode (535:0) instance twin. The
+> registry below is the byte-faithful audit of that componentized reality (full EVERY-page sweep,
+> 2026-06-16; per-deliverable detail in `plans/figma-audit/*.md`).
+
+## COMPONENT REGISTRY (2026-06-16, LIVE — single file `iSQhAVM7SI4QHAWB7y9C2z`)
+
+Single-file, NU-as-a-mode. NXT = mode `221:0`, NU = mode `535:0` of collection `NXT Brand
+Tokens` (`221:2`). Every deliverable below is a `figma.createComponent()` symbol, fully
+token-bound (`var(--color/*)`, `var(--font/*)`, `var(--space/*)`); the NU column is the
+materialized mode-535:0 INSTANCE twin (pure token swap, identical geometry: navy rail /
+red-N monogram / NU-teal kickers / white-on-red takeaway / Lato). Shared GOLD brick:
+92px rail · 3x3 accent dot-mark · `Brand/Logo · masthead` 619:2 · cyan mono kicker ·
+Archivo-SemiBold action title · body region · accent/ink takeaway band.
+
+### Foundation (every deliverable binds to these)
+| Node | Name | Role |
+|---|---|---|
+| 223:2 | DESIGN TOKENS - NXT (MCP-readable) | Live color vars; matches `figma-tokens.json.NXT.color` exactly (0 drift, 2026-06-16) |
+| 221:2 (collection) | NXT Brand Tokens | 46 vars, TWO MODES: NXT 221:0 / NU 535:0; + booleans `brand/is-nxt` / `brand/is-nu` (drive logo) |
+| 537:2 (collection) | Layout Density | modes standard / compact / dense (grid/columns 12, gutter 24/20/16, count/items-per-row 3/4/6) |
+| 619:2 | Brand/Logo · masthead (component) | NXT wordmark (child 619:3, `<-brand/is-nxt`) flips to red-N monogram (`<-brand/is-nu`); use in EVERY masthead |
+| — | Grid | GOLD shell rail = 92px; SLIDES system rail = 128px; rail-offset 12-col content 172->1832 (1660 wide, 80 right margin) |
+
+### Deliverables (NXT component · NU mode-535:0 instance · page)
+| Deliverable | NXT component(s) | NU instance | Page | Code twins |
+|---|---|---|---|---|
+| case-study | before-after 585:2 · 01-overview 588:4 · 02-detail 588:5 · evidence-stack 588:6 · four-block 588:7 | 625:169 / 625:2 / 625:94 / 625:249 / 625:314 | 184:159 | web.tsx CaseStudySlide · slideToStageHtml renderCaseStudy · pptx.ts |
+| journey-map | in-table base 595:6 (matrix 333:17) · T2 595:4 · T3 595:5 (KPI 250:2, matrix 267:2) | 625:1426 / 625:1082 / 625:1263 | 75:2 | web.tsx JourneyMapSlide · renderJourneyMap · pptx.ts exportJourneyMap |
+| service-blueprint | base 608:2 · T2 608:4 (matrix 287:2) | 625:3610 / 625:3935 | 72:2 | web.tsx · slideToStageHtml renderBlueprint |
+| themes | theme-arc 590:12 · theme-mosaic 590:13 · overview 590:9 · detail 590:11 | 625:654 / 625:722 | 69:2 | web.tsx · slideToStageHtml |
+| theme-index | 614:12 | 626:1407 | 323:71 | slideToStageHtml theme-index |
+| recommendations (dense) | 614:5 (dense IS canonical; no separate base frame) | 626:845 | 319:2 | web.tsx · slideToStageHtml renderRecommendation |
+| executive-brief | 366:2 **(RAW FRAME — not componentized; literal-text masthead 367:2)** | 294:2 (legacy-file twin) | — | web.tsx ExecutiveBriefSlide · renderExecutiveBrief |
+| roadmap | base 599:2 · NOW-horizon detail 599:3 | 625:2262 / 625:2370 | 126:159 | web.tsx · slideToStageHtml renderRoadmap |
+| strategy | kernel 604:2 · coherent-action 604:3 | 625:2797 / 625:2894 | 148:159 | web.tsx · slideToStageHtml |
+| tech-audit | 605:2 · risk-detail 605:3 | 625:2953 / 625:3048 | 153:159 | web.tsx · slideToStageHtml |
+| tech-architecture | system-map 606:2 **(raster SVG connectors — collision-ban + literal borders)** | 625:3115 | 156:159 | web.tsx · slideToStageHtml |
+| prd | stories 607:2 · story-detail 607:3 · requirements 607:4 · milestones 607:5 | 625:3240..625:3531 | 161:159 | web.tsx · slideToStageHtml |
+| prd (dense) | 614:9 | 626:1165 | 322:49 | slideToStageHtml prd-dense |
+| personas (dense) | 614:10 | 626:1246 | 322:123 | web.tsx PersonaCard · slideToStageHtml |
+| persona-detail | base 602:2 · fingerprint 602:3 | 625:2524 | 119:159 | web.tsx · slideToStageHtml |
+| competitive | base 603:2 · deep-dive 603:3 | 625:2596 | 131:159 | web.tsx · slideToStageHtml |
+| competitive (dense) | 614:7 | 626:971 | 321:56 | slideToStageHtml competitive-dense |
+| stat-row (dense) | 614:6 | 626:910 | 321:2 | slideToStageHtml stat-row-dense |
+| block-quote (dense) | 614:8 | 626:1111 | 322:2 | slideToStageHtml block-quote-dense |
+| gap | 598:2 (+ PPTX-twin 598:3) **(target markers raw #00b7c3)** | 625:1934 | 62:2 | web.tsx · slideToStageHtml renderGap |
+| org-chart | 610:2 (3-tier DECIDES/DIRECTS/DELIVERS matrix) | instance at x=2220 | 299:2 | web.tsx OrgChartSlide · renderOrgChart · pptx.ts |
+| journey-phase-spotlight | 614:11 (10-segment strip + VOICES quote cards) | (mode twin) | 323:2 | slideToStageHtml phase-spotlight |
+| slides system | 14 archetypes 609:2..609:15 (cover/agenda/section-divider/thesis/stat-row/block-quote/numbered-themes/evidence-table/diptych/org-model/role-needs/role-rec/role-roadmap/aggregate-roadmap) | (mode twins) | 324:2 | web.tsx · slideToStageHtml · goldPreviews |
+
+### Token-fidelity defects to remediate (found 2026-06-16 audit)
+1. **executive-brief 366:2** — still a RAW frame (not a component) and its masthead is a literal
+   TEXT node (367:2), NOT the `Brand/Logo` 619:2 instance, so it will NOT mode-flip to the NU
+   red-N monogram. Componentize + swap masthead to 619:2.
+2. **tech-architecture 606:2** — absolute-positioned rasterized SVG connectors (violates the
+   auto-layout / no-collision ban) + literal-hex borders that won't recolor under NU mode.
+3. **roadmap base 599:2** — literal-hex borders (won't NU-recolor).
+4. **case-study 588:4** — cyan left-borders (184:178/193/208) raw `#00b7c3`, not `var(--color/cyan)`.
+5. **gap 598:2** — maturity-track TARGET markers raw `#00b7c3` (need setBoundVariableForStroke).
+
+> PENDING: re-chunk THIS page via the manifest tooling so the registry above is retrievable at
+> runtime (do NOT hand-edit chunk char_spans). The legacy NU file `z2v9Pvhg23hlljEitPBdAt` and all
+> pre-component IDs in the historical tables below are REFERENCE-ONLY.
+
+## NXT Humans file (key `iSQhAVM7SI4QHAWB7y9C2z`) — HISTORICAL (pre-component IDs; see registry above)
 
 | Node | Name | Role | Code twin |
 |---|---|---|---|
@@ -145,6 +212,8 @@ GOLD exemplar frames have byte-faithful HTML twins under `wiki/design-system/gol
 | 260:2 | GOLD case-study (nxt) 05 case detail (Zappos four-block) | Four-block deep-dive exemplar (built 2026-06-10, fills bound to 221:2 variables; KEY OUTCOME panel 262:2, blocks under 261:3) | web.tsx CaseStudySlide default variant; slideToStageHtml renderCaseStudy four-block |
 
 ## Northeastern file (key `z2v9Pvhg23hlljEitPBdAt`)
+
+> SUPERSEDED (2026-06-15), retained for history. Per the ARCHITECTURE DECISION below (single-file, NU-as-a-mode), the LIVE Northeastern source is the NU MODE (`535:0`) of the `NXT Brand Tokens` collection in the NXT file `iSQhAVM7SI4QHAWB7y9C2z` - NOT this separate file. The color + font VALUES in the table below are correct and now live as the NU mode (figma-tokens.json `NU.*` is fed from mode 535:0). But the FILE KEY `z2v9Pvhg23hlljEitPBdAt` and its node IDs (the `95:2` collection, the `97:2` token node, and the NU GOLD frame nodes listed here and lower in this doc) are REFERENCE-ONLY history - they are NOT the generation source and must not be synced to. For #NU generation, brand resolves to the NU mode/token-swap on the one NXT component set; there is one component set, brand = mode.
 
 | Node | Name | Role | Code twin |
 |---|---|---|---|
@@ -385,6 +454,148 @@ behaviors[]+winConditions+descriptors+stakes (types.ts). Routing evaluates the
 RAW payload arrays before any density cap. Verified: 52/52 dual-brand stages,
 overflow audit CLEAN, live gold export of 12 dense stages with 0 defects.
 
+## IMAGE-SLOT REGISTRY (2026-06-17) — for the illustrator image-gen agent
+
+> **AGENT START HERE:** the step-by-step procedure for ENUMERATING every image reference and driving the
+> `illustrator` skill is in `wiki/brand/image-slots/AGENT-GUIDE-find-image-references.md`. Read that first;
+> this section + the 5 fragment files are the data it walks.
+
+Every image-affording layout carries a BLANK named region that tells the `illustrator` skill WHERE an
+image goes and WHAT it should mean. The slot has NO aesthetic of its own (no fill/stroke/label); the
+generated flat-vector illustration provides 100% of the visual. Slots are nested in the archetype
+COMPONENT, so they flow to the NU mode (535:0) twin automatically.
+
+CONVENTION:
+- `img-slot` = a hero/panel image region (kind=`hero` or `panel`). `glyph-slot` = a small corner mark
+  on dense layouts (kind=`glyph`). Transparent `FRAME`, no fill/stroke.
+- Metadata via `getSharedPluginData('nxt', key)`: `imgRole` (scene-concept seed - what the image means),
+  `imgGround` (`dark`|`light` - drives the illustrator canvas-contrast rule: dark ground -> art uses
+  LIGHT/accent brand colors; light ground -> dark/accent), `imgAspect`, `imgKind`, `imgOptional`.
+- LICENSE (owner, 2026-06-17): variants may be RE-LAID-OUT so imagery is structural, not decorative
+  (e.g. content-left / full-bleed-image-right split), not just dropped into leftover negative space.
+
+ILLUSTRATOR CONTRACT (how the agent consumes a slot): read the slot bounds (WHERE) + `imgRole` (the
+scene concept) + `imgGround`+brand -> build the illustrator prompt (flat vector, brand palette ONLY from
+`/api/design-tokens?brand=NXT|NU`, palette ordered by ground per the contrast rule, NO text/logo) ->
+generate (Nano Banana 2 default) -> knockout to transparent PNG -> composite into the slot region.
+
+PLACED (page `GOLD · slides (nxt)` 324:2; NU twin inherits via the component):
+| archetype | node | kind | ground | bounds (x,y,w,h) | role / scene-concept seed |
+|---|---|---|---|---|---|
+| cover (609:2) | 659:502 | panel | dark | 1100,0,820,1080 | full-bleed vertical right panel; signature abstract visual of the engagement subject |
+| section-divider (609:4) | 661:473 | panel | dark | 1100,0,820,1080 | RE-LAID-OUT: 2-line title left + full-bleed vertical right panel; bold transition visual |
+| thesis-interstitial (609:5) | 661:474 | panel | dark | 1000,0,920,1080 | RE-LAID-OUT to content-left / full-bleed-right panel; abstract visual of the thesis idea |
+
+CREATIVE-DIRECTOR PLACEMENT RULES (owner-ratified pattern, 2026-06-17) — apply per layout class:
+- LEFT-ANCHORED title/statement (cover, section-divider, thesis-interstitial): full-height vertical
+  RIGHT image panel (edge-to-edge, ~x1100 w820 h1080); reflow the title to 2 lines in the left column so
+  it clears the panel. NOT a timid floating box in the corner.
+- DENSE matrix/table (stat-row, numbered-themes, evidence-table, org-model, role-needs/recommendation/
+  roadmap, aggregate-roadmap): NO hero image (negative space is a feature). Small optional corner
+  `glyph-slot` only where a safe empty corner exists (clear of the source/footer line + top rule).
+- TWO-PANEL / quote (problem-diptych, block-quote): image only if a full column is free after re-layout;
+  else skip. block-quote already carries a right data panel -> skip or tiny glyph.
+- DELIVERABLE pages (persona-card, case-study, etc.): persona-portrait / case-visual zone sized to the
+  card; same blank-slot + metadata convention.
+
+SLIDES-PAGE RESOLUTION (creative-director, 2026-06-17): the 3 left-anchored layouts above carry full-bleed
+right panels. The remaining 11 are content-complete DATA/MATRIX slides (stat-row, numbered-themes,
+evidence-table, org-model, role-needs, role-recommendation, role-roadmap, aggregate-roadmap, problem-diptych,
+block-quote) -> DELIBERATELY NO IMAGE (verified on stat-row: full content + source footer, no clean corner;
+imagery would be noise; clean data + negative space IS the design). `agenda` is the one open candidate
+(side-band) - evaluate when reached. This honors the illustrator doctrine ("not every scene needs one").
+
+SCOPE CLARIFIED (creative-director, 2026-06-17): the HiC GOLD deliverable system is OVERWHELMINGLY dense,
+content-complete MATRIX/TABLE layouts ("matrix IS the body") - these correctly get NO image. Verified:
+personas (596:2) is a 4-BEHAVIOR MATRIX (not portrait cards) -> no image; same for blueprint
+72:2, gap 62:2, competitive 131:159, org 299:2, tech-arch 156:159, themes, prd, audit, roadmap.
+
+JOURNEY EXCEPTION (owner-directed, 2026-06-17 - "a thumbnail for each phase, be more creative"): the
+journey map (75:2) DOES carry imagery as a PER-PHASE THUMBNAIL ROW. The frame grew 1080 -> 1250 (in-system;
+the T3 variant is already 1560), the matrix (75:32) slid down 170px, the takeaway/dot-mark followed, and a
+band of 5 square `img-slot` thumbnails (150x150) was placed aligned to the 5 phase-column centers. Each
+thumbnail = that phase's abstract visual (light ground). PLACED on 595:2 (NU twin inherits):
+| phase | node | bounds (x,y,w,h) | scene concept |
+|---|---|---|---|
+| NOTICE | 676:769 | 405,286,150,150 | customer first spots the problem; a single emerging signal |
+| SEARCH | 676:770 | 704,286,150,150 | hunting for an answer; scattered fragments / a maze |
+| CONTACT | 676:771 | 1003,286,150,150 | reaching a person; a handoff / connection attempt |
+| WAIT | 676:772 | 1302,286,150,150 | stalled in a queue; repeated loops, no progress |
+| RESOLVE | 676:773 | 1601,286,150,150 | the loop closes or the thread breaks (resolution vs churn) |
+RENDERER-TWIN FOLLOW-UP (code): DONE 2026-06-17. Both journey twins now emit the phase-thumbnail row:
+`services/slideToStageHtml.ts renderJourneyMap` (export/PNG) and `components/slideTemplates/web.tsx
+JourneyMapSlide` (preview). The row appears as grid row 2 (directly under the phase headers), one square
+thumbnail per phase column, aligned to the Figma canon above. EMPTY-STATE GUARD: when no phase carries an
+image the row + its CSS are omitted entirely, so the >99% of journeys with no art render byte-identical to
+before (regression-tested in `services/slideToStageHtml.export.test.ts`).
+
+### RUNTIME PAYLOAD CONTRACT (illustrator agent — WHERE the generated URL goes)
+The Figma img-slot metadata (imgRole/imgGround/imgKind/imgElement) says WHAT to draw and HOW; this says
+WHICH PAYLOAD FIELD the generated illustration URL must be written into so the renderer twins pick it up.
+The SPA renders via the TS twins, NOT Figma, so the generated URL must land in the slide payload:
+- **journey-map**: write per-phase URLs/data-URIs into `journeyMap.phaseImages: string[]`, index-aligned to
+  `journeyMap.stages[]` (phaseImages[i] -> stages[i]). Alternative carrier: `journeyMap.stages[i].image`.
+  A blank/empty string at an index = that phase renders an empty cell (no `<img>`). Type:
+  `components/slideTemplates/types.ts JourneyMapData`. Both carriers documented there.
+- Per-element matrices on OTHER deliverables (personas behaviors, strategy actions, prd milestones,
+  competitive peers, explainer concepts) will follow the SAME pattern as their renderer twins are wired:
+  an index-aligned `<element>Images: string[]` (or a per-item `.image`) on that deliverable's payload.
+  Until a given deliverable's twin is wired (see REMAINING below), its slots live in Figma canon only.
+
+### PERSONA IMAGE RECONCILIATION (2026-06-17) — code vs Figma, resolved
+An agent hit a real divergence: the persona-dense card has no img-slot, yet the code renders persona
+thumbnails. Both observations are correct; there are TWO persona components and they were bridged at two
+different ends. Canonical resolution (Figma is the design source of truth):
+
+- **CANONICAL persona art = ONE archetype emblem per persona, on the OVERVIEW `596:2` ("GOLD · personas").**
+  The four slots `678:5471/5473/5475/5477` are persona ARCHETYPES (Self-Server / Repeater / Waiter /
+  Churner), 150x150 each, one emblem per persona. This is the persona image surface.
+- **The DENSE card (page `322:123` / component `614:10`, "identity column + 2x2 grid") is IMAGE-FREE BY
+  DESIGN.** Content-complete dense layout (rule 4); no img-slot was placed and none should be. Its negative
+  space is intentional. Never put a hero image there.
+- **RESOLVED (2026-06-17):** persona-card is registered **image-free** — `artifactImageSlots.ts`
+  `persona-card { mode:'none' }`. The earlier per-behavior `behaviorImages[]` carrier (dense card BEHAVIORS
+  quad) was INVENTED with no backing Figma slot and is **reverted** in all three places (types.ts field
+  removed, `slideToStageHtml renderPersonaCardDense` reverted, `web.tsx PersonaCardSlide` Behaviors block
+  reverted). Do not re-add it. The machine mirror of this whole registry is `services/artifactImageSlots.ts`
+  (the runtime coverage contract the illustrator loop walks + the twins read); keep it and this page in sync.
+- **PENDING (the one persona build left):** the canonical surface — the personas OVERVIEW `596:2` with its
+  four archetype emblems (`678:5471/5473/5475/5477`) — has **no renderer twin yet**, so those emblems are
+  Figma-canon-only and render in no deliverable. Lighting them up = a personas-overview twin + an
+  index-aligned `archetypeImages[]` carrier, then flip its `artifactImageSlots` entry `wired:true`. Follow
+  the journey reference pattern. (The competitive per-peer twin is the lower-risk first replication; see the
+  competitive spec `competitive-matrix { elementField:'rowsProse', carrier:'peerImages' }`.)
+
+## IMAGE-SLOT ROLLOUT (sub-agent batch, 2026-06-17)
+The placement rules live in `wiki/brand/image-slot-rules.md` (the contract every rollout agent follows).
+Four creative-director sub-agents placed slots across the deliverable pages in parallel (disjoint pages,
+NXT components only — NU twins inherit; verify-first with temp-outline screenshots; smart no-image where a
+dense table is content-complete). Per-page slot registers (the illustrator agent reads these):
+- `wiki/brand/image-slots/case-study-recs-strategy.md` — strategy 5x per-action thumbs; recs 1 panel; case-study=no-image
+- `wiki/brand/image-slots/personas-competitive.md` — personas 4x per-behavior thumbs (frame grown 1250); persona-detail 2 panels; competitive 4x per-peer thumbs
+- `wiki/brand/image-slots/gap-audit-arch-prd.md` — prd 4x milestone thumbs + 1 panel; tech-audit 1 panel; gap/tech-arch=no-image (connector-collision ban)
+- `wiki/brand/image-slots/roadmap-org-themes-blueprint-brief-explainer.md` — roadmap 1 panel; explainer 3 concept thumbs; themes 1 panel; org/blueprint=no-image
+- `wiki/brand/image-slots/minor-pages-and-journey-variants.md` — journey T2/T3/in-table variants matched to
+  the base (5/6/5 phase thumbs); meta-themes 4 per-card glyphs; mindmap 1 central glyph; agenda hero; presentation=no-image
+Plus the slides-page slots above (cover/section-divider/thesis panels + journey base 5 phase thumbs).
+PASS COMPLETE (Figma canon): all GOLD deliverable + slides pages swept; ~45 slots placed across panels/
+thumbnails/glyphs; dense content-complete tables deliberately image-free; every slot blank + metadata-tagged +
+NU-inheriting (verified on journey NU twin 625:785) + registered in the per-page fragments above.
+REMAINING (renderer twins): the journey-map twin is WIRED (2026-06-17, see RENDERER-TWIN FOLLOW-UP +
+RUNTIME PAYLOAD CONTRACT above) and is the reference pattern. The OTHER deliverable twins
+(slideToStageHtml.ts/web.tsx per deliverable) still need the same index-aligned image row added to emit
+their slots in GENERATED artifacts (Figma is canon; the SPA renders via the TS twins, not the components):
+personas (per-behavior), strategy (per-action), prd (per-milestone), competitive (per-peer), explainer
+(per-concept), plus the single-panel slides (recs/tech-audit/roadmap/themes/persona-detail). Then wire the
+`illustrator` generation/composite to populate the payload fields, and re-chunk the manifest via tooling. So
+"image placeholders on every layout" resolves mostly to "intentional no-image" (registered) + journey live;
+the rest is per-twin wiring following the journey pattern.
+IMAGE-AFFORDING layouts = the presentation/slides-system left-anchored ones (cover/section-divider/
+thesis-interstitial = DONE, full-bleed right panels) + the NARRATIVE deliverable layouts still to check:
+case-study (184:159 - four-block/before-after variants), brief (305:50), explainer (305:95). Those few are
+the remaining real image work; everything else is no-image by design. Append a row per placed slot; the NU
+twins inherit via the component; re-chunk the manifest via tooling after the pass.
+
 ## SLIDES SYSTEM PAGES (2026-06-11, NU_Giving uplift)
 The #slide/#slides presentation language (distinct from the artifact GOLD
 shell: deck-derived chrome with ink dividers, 128px content rail, red/accent
@@ -429,3 +640,26 @@ block). Verified: 62/62 dual-brand stages render, overflow audit CLEAN.
 - "GOLD · journey · in-table (base) — 2026-06-12" NXT frame 333:2 (matrix 333:17, takeaway 334:80) on page GOLD · journey (nxt), file iSQhAVM7SI4QHAWB7y9C2z
 - Anatomy: matrix IS the body as nested auto-layout (vertical of horizontal rows; anchor col FIXED 200, phase cells FILL): header row with embedded KPI signals (critical phase accent fill), PERSONAS JTBD-voice row, 3 actor lanes, PAIN POINTS stacks (at least 3 per phase, warn accent top border), OPPORTUNITIES row (cool accent). Spec: design-system/journey-map-in-table-anatomy.md. Code twins: web.tsx JourneyMapSlide / slideToStageHtml renderJourneyMap / pptx.ts exportJourneyMap.
 - KNOWN DEVIATION: fills are raw hex, not variable-bound (setBoundVariableForPaint pass pending; collections NXT 221:2 / NU 95:2).
+
+## COMPONENTIZED DESIGN SYSTEM + MODES (2026-06-15, in progress)
+
+APPROACH (user-final 2026-06-15): NO REDESIGN. The EXISTING NXT templates are componentized AS-IS; NU is the SAME components rendered in the brand MODE (Josh's "modes are themes"), not separate copies. Per template: bind every SOLID fill to its matching brand token by nearest-hex (NXT value == current hex, so the NXT render stays pixel-identical), set text on colored blocks to `color/on-accent` (black NXT / WHITE NU - accessibility: never black-on-red), apply the rail-offset grid, then createComponentFromNode. AI engine: instance the component, set its text, flip BRAND mode (NXT/NU) [+ DENSITY mode]; never recompute values at runtime.
+
+RUNTIME VARIANT CONTRACT (how the HiC agent creates brand + density variants at runtime - READ THIS FIRST):
+The SPA does NOT instance Figma at runtime. Variants are produced by the CODE renderers, grounded by tokens the proxy injects into the generation prompt. Two distinct planes:
+- BRAND (NXT|NU) - RUNTIME: generation emits `brand=NU` (or the `#NU` / `#presentation #NU` hashtag). The proxy injects that brand's FIGMA DESIGN TOKENS block (proxy/app.py ~L4865-4891, read from `hic-workspace/design-system/figma-tokens.json`, which now carries BOTH modes: NXT == mode 221:0, NU == mode 535:0) plus the NU slide-mode design-system path (proxy/app.py ~L15265) into the prompt. The renderer twins `services/slideToStageHtml.ts` (export, 1920x1080) + `components/slideTemplates/web.tsx` (preview) paint `.nxt-slide` frames using that mode's values, served per-brand at `/api/design-tokens?brand=NU`. NU resolves to navy rail / red-N monogram / NU-teal / white-on-red takeaway / Lato. This chain is LIVE (verified 2026-06-15 SPA smoke test: both NXT + NU token hydration logged).
+- DENSITY (base|dense) - RUNTIME: `density=dense` or `#dense` raises per-template item ceilings via DENSITY_SPEC in `components/slideTemplates/types.ts`; both twins use count-adaptive type so dense never overflows 16:9. Raises ceilings, not floors.
+- FIGMA-AUTHORING plane (NOT the SPA runtime): to build/edit a deliverable IN Figma, instance the component (e.g. `Brand/Logo · masthead` 619:2), set its text, and flip the layer's `NXT Brand Tokens` mode NXT(221:0) <-> NU(535:0). createInstance pins the NXT mode, so `clearExplicitVariableModeForCollection` (or set the explicit NU mode 535:0) to flip. This is for design authoring + the NU-file subscriber, not per-deliverable SPA rendering.
+- SOURCE OF TRUTH: the published Figma library (`iSQhAVM7SI4QHAWB7y9C2z`) + its modes are the DESIGN CANON. Claude Code mirrors that canon into `figma-tokens.json` + the renderer twins; `figma-tokens.json` is the runtime carrier. Never recompute values at runtime - read the mode. When the Figma library changes, re-pull both modes into figma-tokens.json and re-chunk this page.
+
+NXT file `iSQhAVM7SI4QHAWB7y9C2z` (the source library):
+- `NXT Brand Tokens` (collection 221:2) now has TWO MODES: `NXT` (mode 221:0) + `NU` (mode 535:0). 46 vars; brand-divergent: color/rail, ink, accent (chartreuse->red), cyan(cool->source teal), rust(warn->red), teal(premium->gold), success, error, fonts (Saira Condensed/Archivo/IBM Plex -> Lato), type/weight/title 600->700, track/title -0.5->0, logo/wordmark. Plus BOOLEANS brand/is-nxt + brand/is-nu (drive logo visibility). FLIP a frame's mode via the layer's variable-mode selector; cleared instance pins inherit it.
+- `Layout Density` (collection 537:2) modes `standard`/`compact`/`dense`: grid/columns(12), grid/gutter(24/20/16), grid/baseline(8), space/section-gap, space/block-gap, space/card-pad, count/items-per-row(3/4/6), type/scale-step(0/0/-1).
+- Grid styles: `16:9 Content · 12-col` (COLUMNS STRETCH, count+gutter bound to Layout Density; for a 1660px content sub-frame) + `16:9 Baseline · 8px` + `16:9 Slide · 12-col (rail-offset)` (COLUMNS MIN, offset 172 after the 92px rail, count+gutter bound) - APPLY THIS ONE to the full-bleed 1920 template frames so the 12-col content grid lands in the 172->1840 zone (80px right margin). Every componentized template MUST carry it.
+- `Brand/Logo` COMPONENT (556:15): real `nxt-logo` true-vector wordmark (visible<-brand/is-nxt) + NU red-N monogram (visible<-brand/is-nu). Use this in every masthead instead of literal text.
+- CASE-STUDY (page GOLD · case-study (nxt) 184:159) - the 5 EXISTING templates componentized AS-IS (no redesign; the earlier shell+body experiment was retired/deleted). Fills bound to brand tokens, takeaway-band text -> color/on-accent, rail-offset 12-col grid applied, NU verified as a pure mode flip (navy/red/teal/Lato, white-on-red takeaway). Components: `CaseStudy/before-after (Amazon)` 585:2; `01 overview` 588:4; `02 case detail` 588:5; `04 case detail (Stripe / evidence-stack)` 588:6; `05 case detail (Zappos / four-block)` 588:7.
+- NEW brand tokens added to 221:2 for full NU mode coverage (NXT / NU): `color/wash-warn` #FAF1EC/#FAEDED, `color/wash-cool` #EBF7F8/#EDF7F5, `color/on-accent` #0D0D0D/#FFFFFF (text on colored blocks - accessibility), `color/pale` #FAFAF7/#FAF9F4, `color/muted` #999999/#73757A. hex->token bind map: 0d0d0d=rail, 141414=ink, b8b800=accent, 00b7c3=cyan, cc6644=rust, 115054=teal, 73757a=grey, ddddd6=hairline, f2f1ea=ecru, fafaf7=pale, faf1ec=wash-warn, ebf7f8=wash-cool (near-dups bind by nearest within tolerance). Logo still the static nxt-logo (recolors but does not yet swap to NU monogram) - pending logo-component pass.
+
+ARCHITECTURE DECISION (user-final 2026-06-15): SINGLE-FILE, NU-AS-A-MODE. Everything lives in ONE file (`iSQhAVM7SI4QHAWB7y9C2z`). NXT and NU are both MODES of the one `NXT Brand Tokens` collection (NXT 221:0 / NU 535:0) on the one component set. To get Northeastern, flip a frame's mode - never a separate copy or a separate file. The 68 NU-mode twins beside each NXT component are the materialized "see both themes" view. The earlier publish-NXT-library -> NU-file-subscribes plan is SUPERSEDED and abandoned (it hit the team/plan wall and adds no value over a single dual-mode file; matches Josh's "modes are themes, edit once"). The legacy NU file `z2v9Pvhg23hlljEitPBdAt` (its own single-mode NU Color / NU Type / NU Brand Tokens collections) is now UNUSED for deliverables - do not sync to it.
+
+DONE - ALL ~29 NXT deliverable pages componentized as-is (fills bound to brand tokens, accent-text -> on-accent, rail-offset 12-col grid, NU verified as a mode flip; NXT pixel-identical): case-study, themes, journey, personas, persona-detail, recommendations, gap, roadmap, competitive, strategy, tech-audit, tech-architecture, prd, service-blueprint, slides, org, presentation, mindmap, meta-themes, brief, explainer + all 8 dense pages (recommendation/stat-row/competitive/block-quote/prd/persona-dense + journey-phase-spotlight + theme-index). Every top-level template frame on these pages is now a COMPONENT carrying the rail-offset grid. (proto pattern pages already components; Page 1 token board + NXT Design System spec page left as foundation.) LOGO DONE: `Brand/Logo · masthead` component 619:2 (156x44, wordmark<-brand/is-nxt / red-N monogram<-brand/is-nu); 28 nxt-logo frames swapped for instances across all deliverable pages so the logo flips to the NU monogram by mode (verified). NAME cleanup DONE (11 components renamed to their page artifact; the 3 stale "gap"-named strategy/tech components fixed). LOGO CONSISTENCY DONE (2026-06-15): 53 mastheads total now use `Brand/Logo · masthead` 619:2 - the first pass swapped 28 vector `nxt-logo` frames, a second pass caught 25 grey letter-spaced "NXT HUMANS" *text* logos on the dense/utility/org/presentation/brief/explainer pages that the first pass missed (that was the reported inconsistency). NU SUB-COMPONENTS DONE (2026-06-15): all 68 NXT components now have a materialized Northeastern-mode INSTANCE beside them (mode 535:0, mirrored to the right of each artifact, named "... · NU"); verified the flip renders navy rail / red-N monogram / NU-teal kickers / white-on-red takeaway / Lato. FIGMA-TOKENS.JSON DONE (2026-06-15): refreshed to 2026-06-15; NXT.color=33 / NU.color=31 keys; added on-accent, pale, muted, body, secondary, panel, accent-pale, teal-dark, status-red, graphite, rule-warm, slate, rule-mid (+ NXT accent-bright) for both modes; _meta now documents the single dual-mode collection (NXT 221:0 / NU 535:0). ARCHITECTURE: single-file, NU-as-a-mode (see ARCHITECTURE DECISION above) - no library publish / no NU-file subscription. PENDING: re-chunk THIS page via the manifest tooling (do NOT hand-edit chunk char_spans).

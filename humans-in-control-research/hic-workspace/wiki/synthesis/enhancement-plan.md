@@ -24,6 +24,17 @@ chunks:
     token_count: 346
 ---
 
- such as the 2026-04-12 run to create a comprehensive strategy and roadmap of tactics for Northeastern, have populated verified findings covering student learning, co-op programs, privacy-preserving technologies, donor engagement, cost-efficiency, digital advancement, and cybersecurity [evidence/research-findings.md].
+## Current State Assessment: Speculative Benchmarks vs. Active Findings
 
-    This looks solid, accurate, and strictly adheres to all rules. No meta-narration, exact frontmatter, explicit citations for every single claim. No contradictions found. Ready to output.
+Benchmark data within the research platform is currently categorized under speculative hypotheses [evidence/cx-maturity.md] [evidence/digital-transformation.md]. Specifically, benchmark data in `benchmarks/maturity-models` remains marked as HYPOTHESIS [evidence/cx-maturity.md], and benchmark data in `benchmarks/technology-adoption` is also marked as HYPOTHESIS [evidence/digital-transformation.md]. These benchmarks require the ingestion of primary source documents to be upgraded to PARTIALLY EVIDENCED or EVIDENCED status [evidence/cx-maturity.md] [evidence/digital-transformation.md].
+
+### Pending Evidence Categories Awaiting Ingestion
+*   **CX Maturity:** Primary sources such as Gartner reports, Forrester CX Index data, and client assessments are required to validate claims regarding organizational readiness, maturity assessment findings, progression patterns, and maturity-to-outcome correlations [evidence/cx-maturity.md].
+*   **Digital Transformation:** Primary sources including McKinsey transformation studies, Gartner surveys, Deloitte/MIT digital maturity research, and client case studies are required to validate claims regarding success/failure rates, technology adoption patterns, change management effectiveness, technology ROI, and organizational factors predicting transformation outcomes [evidence/digital-transformation.md].
+
+## Active Research Findings
+
+A research run executed on 2026-04-12 has populated verified findings to establish a comprehensive strategy and tactical roadmap for Northeastern [evidence/research-findings.md]. These active findings span several core institutional areas:
+*   **Student Learning and Co-op Programs:** Verified findings address student learning, academic planning, experiential learning, and co-op infrastructure, including logistical and interoperable information systems [evidence/research-findings.md].
+*   **Privacy and Cybersecurity:** Active findings cover privacy-preserving technologies, privacy, and cybersecurity [evidence/research-findings.md].
+*   **Donor and Advancement Opportunities:** Active findings address advancement, donor opportunities, digital initiatives, and cost-efficiency [evidence/research-findings.md].

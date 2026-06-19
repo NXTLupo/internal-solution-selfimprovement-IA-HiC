@@ -1,46 +1,114 @@
 {
-  "1q2gw0r": {
-    "sentiment_category": "positive",
-    "sentiment_score": 0.4749174006283283
-  },
-  "1tttfr9": {
-    "sentiment_category": "negative",
-    "sentiment_score": -0.5568022355437279
-  },
-  "1tko1j3": {
-    "sentiment_category": "positive",
-    "sentiment_score": 0.4928271919488907
-  },
-  "1sbhe21": {
+  "1u6rery": {
     "sentiment_category": "neutral",
-    "sentiment_score": 0.052514538168907166
+    "sentiment_score": -0.015373051166534424
   },
-  "1s4h3op": {
+  "1u2zomr": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.1425836756825447
+    "sentiment_score": -0.7235825769603252
   },
-  "1rwq6f8": {
+  "1u91fuc": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.5316553078591824
+    "sentiment_score": -0.37001887522637844
   },
-  "1roodnl": {
+  "1u95mv2": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.6011401582509279
+    "sentiment_score": -0.6636185422539711
   },
-  "1rhmboz": {
+  "1u95m00": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.35175759345293045
+    "sentiment_score": -0.461065448820591
   },
-  "1qgixt6": {
-    "sentiment_category": "positive",
-    "sentiment_score": 0.35726360976696014
-  },
-  "1pytk43": {
+  "1u8yzea": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.2334357500076294
+    "sentiment_score": -0.7114144191145897
   },
-  "1omnjre": {
+  "1u7umak": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.1624089302495122
+    "sentiment_score": -0.1320466361939907
+  },
+  "1u80sw1": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.757674204185605
+  },
+  "1u7akfm": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.36903989501297474
+  },
+  "1u7acbg": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5216600000858307
+  },
+  "1u6r6ne": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.7827040553092957
+  },
+  "1u6g2i6": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.415316179394722
+  },
+  "1u6bb3t": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.25890061259269714
+  },
+  "1u504xv": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.22091493010520935
+  },
+  "1u4ph0x": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.23564480245113373
+  },
+  "1u3q2g0": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.25683536753058434
+  },
+  "1u37zpl": {
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.05239392817020416
+  },
+  "1u2ouqp": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5168760186061263
+  },
+  "1u2lmfd": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.43817034363746643
+  },
+  "1u2qich": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5558353513479233
+  },
+  "1u2qltv": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.6350816078484058
+  },
+  "1u2fvvz": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5389127060770988
+  },
+  "1u1duqa": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.17290081083774567
+  },
+  "1u1bk02": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.39119791984558105
+  },
+  "1u0ywnp": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.5090459734201431
+  },
+  "1u0xnwq": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.7995958337560296
+  },
+  "1u07d3j": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.19745014980435371
+  },
+  "1u0wtac": {
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.03736737370491028
   }
 }

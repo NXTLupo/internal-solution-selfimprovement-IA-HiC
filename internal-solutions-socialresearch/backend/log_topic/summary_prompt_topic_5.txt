@@ -1,62 +1,92 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: ira, roth, vanguard, taxes, rmd, roth ira, account
+- Top keywords: google, local, business, social media, marketing, service, profile
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-This is what it currently shows on vanguard. On the “rollover IRA” account I clicked on convert to Roth IRA, and it transferred the money over to my Roth. I did this yesterday.
+Thanks in advance. google business profile + reviews first, then service pages on the site. gbp is free visibility and shows up in local pack, reviews build trust fast. for asking, text or email right after pickup works well, something like 'hey if you're happy with the work, a google review helps us a ton.' at my agency we see the biggest roi from consistent gbp optimization and getting 2-3 reviews a month, way more than social posting for local service businesses.
+Yeah I want our gbp to actually drive traffic to a new website I designed and actually funnel leads and generate traffic. [...]
 
 EXAMPLE 2:
-Total contributions Roth Am I right in thinking that Vanguard does NOT keep track of your total contributions in a Roth?  AND you can withdraw contributions at any time.  But you have to track your own contributions in order to only withdraw up to that amount prior to retirement age?  I'm planning to make a withdrawal (this is not my primary retirement account), and the nice folks at Vanguard said they don't track this.  Doesn't it have huge tax implications?  It seems odd that it's all on us if it has tax implications...
+Which platforms are actually worth focusing on for B2B/local service work… Facebook, Instagram, LinkedIn, Google Business Profile posts, TikTok?
 
 EXAMPLE 3:
-I need to take out all the money from my vanguard investments for something. I only have about $15k and am 30. I plan to restart after what I got to do. I know I'll be taxed on it. How does getting taxed on it work? Will the tax automatically reduce the total amount before i withdraw my money or will it hit me in my returns when i file taxes at the beginning of the Year?  If you withdraw your contributions from your Roth IRA there is no tax liability. Say you have contributed $21,000 over the years and it has grown to $26,000. [...]
+I recently started a residential cleaning company in Miami. We have a website with online booking, and just got our Google Business Profile verified.
 
 EXAMPLE 4:
-New Roth IRA assistance Hi all, very new here. Had to transfer over my 401k into a “rollover IRA” and then to my “Roth IRA”. What do I do with the rollover IRA account on vanguard? Do I put money into it once I max my Roth? This is my first Roth as I had to transfer over from my 401k after I left my previous job. To be clear, you had a 401k with both traditional and Roth sub-accounts, and rolled it over after leaving into a rollover (traditional) IRA and a Roth IRA?
+get listed everywhere relevant. Google Business Profile first, then Yelp, BBB, any trucking or commercial vehicle industry directories. the more consistent your NAP (name, address, phone) across listings, the better your local SEO stacks up.
 
 EXAMPLE 5:
-I literally copied and pasted by transaction history of buy orders from the screen on the website into a Word document; converted that to Excel; that to csv, and that to SPSS, where I could do whatever I wanted with it, including add up my 25 years of contributions.  The download function on Vanguard wouldn't let me go back before 2017.  I don't know if I missed a really easy way to do this.   They are right they don't track it. No firm does and they don't want responsibility. Vanguard doesn't know what other Roth accounts you have. [...]
+1. Start with accuracy. Make sure the business name, address, phone, website, and hours are correct in the places customers actually see.
+2. Focus on the important directories first. Google Business Profile, Apple Maps, Bing Places, Yelp, Facebook, industry directories, and local ones that actually matter in your area.
+3. Do not chase hundreds of listings just to hit a number. More citations will not fix weak reviews, a messy GBP, thin service pages, or a site that does not explain what the business does.
+4. For multi-location businesses, keep each location clean. [...]
 
 EXAMPLE 6:
-If you sell and withdraw funds from your brokerage account, you will probably owe capital gains tax on whatever you sell, assuming you made a profit. Vanguard won't withhold that. They will provide a statement showing how much capital gains you had, and you/your tax preparer/tax software will figure out how much you owe and you will be responsible for paying those taxes yourself.
-My plan is to withdraw everything including gains. If i tell vanguard to withhold everything needed for taxes the. [...]
+last but not least, just run ads man. if the business has been around 50 years i'm sure they can afford a small Google Ads budget. for a niche B2B service like this, paid search will move the needle way faster than SEO in the short term. SEO is the long game, ads are the bridge while you build it.
 
 EXAMPLE 7:
-If any of the funds in your Roth IRA came in via conversion (backdoor Roth) there are separate, stricter rules that apply. I'm going to assume that isn't the case here, but if it is, Google *backdoor Roth five year rule*.
+- your Google Business Profile fully filled out
+- a review ask built into the end of every job
+- fast response to every call/form/text
+- simple source tracking so you know what actually books
 
 EXAMPLE 8:
-Search your Roth accounts transaction history for "contributions" and "conversions" but be aware that sometimes Vanguard uses the word "conversion" for changing from investor-class shares to admiral-class shares. Also "buy" or anything else that might be a contribution.
+backlinks from your actual niche. don't chase cheap random paid backlinks. for a business like yours, think fleet management directories, trucking association websites, commercial vehicle industry listings. if there's a local trucking company or fleet manager blog that lists vendors, that's your backlink. the 50-year reputation you have is already good, you just need to get it indexed online. (make sure the website is properly indexed as well. on google console)
 
 EXAMPLE 9:
-My old job and had set up a 401k through Capital Group but I wanted to open a Vanguard account. So, going through the process, Vanguard had me open a Rollover IRA, do the rollover. Then open up a Roth IRA, then convert the rollover to the Roth.
+For anyone who has grown a small local service business online, what would you do if you only had a few hours per week to dedicate to marketing?
 
 EXAMPLE 10:
-You can invest both into a target date retirement fund. Just look up the Vanguard TDF for your desired retirement year and buy that with your funds in the IRAs.
+For those of you who run service businesses (cleaning, landscaping, handyman, etc.) — what actually worked for you in the early days? What was a waste of time/money in hindsight? With a $200-500/mo budget, I would make this boring and measurable for 60 days.For residential cleaning, the fastest early signals usually come from trust plus response speed, not broad blog content. I would focus on:- Google Business Profile: photos, correct service areas/categories, weekly updates, and asking every completed job for a review. [...]
 
 EXAMPLE 11:
-Need knowledge on taking out investments of roth ira and brokerage brfore retirement I know its not recommended, but i need some info. On how this process works.
+How should a small, old-school service business build SEO, online presence, and reviews without a full marketing team? Hey everyone,
 
 EXAMPLE 12:
-(Searching your non-Roth accounts is optional, but it let me verify in certain years I did a Trad IRA instead of a Roth IRA, which gave me more confidence.)
+Google's local ranking is still about relevance, distance, and prominence. Citations can help Google understand the business, but they are only one piece.
 
 EXAMPLE 13:
-Fortunately Vanguard has really good records. Like the best I've seen. I could go back to 1998 when Roths started. Other firms peter out after about 7 years. I can't get my tax forms from before 2017, but I can definitely pull the whole transaction history.
+* Running small Google Search Ads ($16/day)
+* Posting in local Facebook groups and Nextdoor
+* Working on SEO/blog content for different Miami neighborhoods
+* Planning to do some flyer distribution in Doral/Kendall
 
 EXAMPLE 14:
-The $7500/year limit is total across all IRAs regardless of type or location. You can’t fill up one IRA and then add more to another.
-https://preview.redd.it/h3rjaq1rbyag1.jpeg?width=1189&format=pjpg&auto=webp&s=ffc8961269bd16f6a89c1398f8ed0c3b6b08b04e
+I work for a small business that’s been around for about 50 years. We’re in a pretty niche service industry: fleet graphics/wraps, semi-truck and trailer painting, commercial vehicle refinishing, and we’re trying to grow more into fleet collision repair, PPF, and color change wraps.
 
 EXAMPLE 15:
-For future contributions I would just add to the Roth IRA, and keep buying into the TDF. You can set up automatic investments from your checking account.
+okay real talk, i might not be an SEO expert as i lean "more" towards optimizing for conversions and making the website actually connect, but here's what you can start with as someone stretched thin on time.
 
 EXAMPLE 16:
-Keep what records you can site in a drive next to your spreadsheet. If you haven't been saving your form 5498s, start now. See what old ones you can find, too. The IRS may have records at irs.gov in your account going back 10 years.
-The law requires 7 years of records kept for client accounts.  More is optional.
-Spent about 50 hours this month going through this, 40 years of taxes, and 20 years of Quicken. Saved my Vanguard transaction downloads, created a spreadsheet and made a Word doc tracking three types of IRAs in 12 accounts across 3 financial institutions. [...]
+Historically, most of our work has come from word of mouth, repeat customers, and long-time relationships. That’s great, but we’ve been pretty stagnant and I’m trying to help build a more consistent sales and marketing system.
 
 EXAMPLE 17:
-(Maybe it would have been different if we'd made firms track this information at the start. But we didn't, and no one wants to be responsible when records weren't complete.)
+What should we focus on first: service pages, blog posts, project photos, backlinks, Google reviews, or something else?
+
+EXAMPLE 18:
+The challenge is that I’m basically the one handling sales, follow-ups, reviews, online presence, and marketing — while also still helping with production/shop work. So I need something realistic and consistent, not a giant marketing plan that only works if I have 40 hours a week to spend on it.
+
+EXAMPLE 19:
+If the budget is small, I'd spend the next 30 days on GBP, photos, reviews, and one follow-up process before getting fancy with Facebook. For local cleaning, referrals + reviews + speed usually beat random posting.
+
+EXAMPLE 20:
+reviews. you already have decades of happy repeat customers. just ask them. right after a job wraps up, not days later. a simple "hey it'd mean a lot if you left us a quick Google review" goes a long way with people who've known you for years. and also make sure to ask for referrals. use it as a free opportunity to get free business in. make sure to remind them of what they got and then ask the request. (i have a dev friend, he can help you automate all this up)
+
+EXAMPLE 21:
+Cleaning up citations without wasting time Citations are often treated like magic. For small local businesses, I think they help, but only when used as a cleanup task, not a full local SEO strategy.
+
+EXAMPLE 22:
+A lot of service businesses think marketing is the hard part, but the leak is usually between inquiry and booked job. If someone finds you, waits hours for a reply, or gets a vague estimate, the lead is basically gone.
+
+EXAMPLE 23:
+What are the best ways to ask repeat customers and new customers for Google reviews without sounding pushy?
+
+EXAMPLE 24:
+blog if you can, but don't stress it. the traffic will be low since it's niche, but ranking for "semi truck fleet refinishing \[city\]" or "PPF for commercial vehicles" is very achievable when barely anyone else is writing about it.
+
+EXAMPLE 25:
+For small business owners: have citations actually moved your rankings? Or were they more of a cleanup step before the real work started? I have seen citations matter most when something is actively confusing the local footprint: old address, old phone, duplicate GBP/listings, wrong categories, or a business name variation that customers actually see in the wild.If everything is already consistent on the major surfaces, I would not expect citation cleanup alone to move much. [...]
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -79,14 +109,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

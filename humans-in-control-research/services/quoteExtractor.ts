@@ -60,10 +60,31 @@ function isJunkQuote(text: string | undefined): boolean {
     return JUNK_QUOTE_RX.test(text);
 }
 
+/** Correct unambiguous speech-to-text artifacts in transcript quotes so a
+ *  verbatim quote reflects what was actually SAID, not the ASR mishearing.
+ *  Conservative by design: "clawed" -> "Claude" ONLY in AI-product contexts
+ *  (so "the cat clawed the sofa" is untouched), and filler "yada yada yada"
+ *  is dropped (an evidence quote can't carry placeholder filler). This is the
+ *  defensive net for the theme path; the SLIDE OUTPUT PROTOCOL instructs Opus
+ *  to do the same at generation for every quote-bearing field. Exported for
+ *  reuse + testing. */
+export function correctTranscriptArtifacts(text: string): string {
+    return (text || '')
+        // ASR "clawed" -> "Claude" when followed by product-domain nouns...
+        .replace(/\bclawed\b(?=\s+(?:skills?|models?|code|agents?|api|opus|sonnet|haiku|out of the box))/gi, 'Claude')
+        // ...or preceded by a giving/using verb ("you get clawed", "use clawed")
+        .replace(/\b(get|got|getting|raw|use|using|via|on)\s+clawed\b/gi, '$1 Claude')
+        // drop "and yada yada yada" / "yada, yada" filler clauses from a quote
+        .replace(/\s*(?:,\s*|and\s+)?yada(?:[\s,]+yada\b)+/gi, '')
+        .replace(/\s{2,}/g, ' ')
+        .replace(/\s+([.,;:])/g, '$1')
+        .trim();
+}
+
 /** Strip salvageable leaked metadata and escaped-markdown from a quote body.
  *  Use AFTER isJunkQuote() has rejected the unsalvageable cases. */
 function sanitizeQuoteText(text: string): string {
-    return (text || '')
+    return correctTranscriptArtifacts((text || '')
         // leading "*Goal alignment: 94/100 · status: Validated*" stamp
         .replace(/^\s*\*?\s*goal\s+alignment\s*:[^*]*\*?\s*/i, '')
         // any inline "status: Validated" stamp
@@ -73,7 +94,7 @@ function sanitizeQuoteText(text: string): string {
         // stray surrounding emphasis asterisks
         .replace(/^\*+|\*+$/g, '')
         .replace(/\s{2,}/g, ' ')
-        .trim();
+        .trim());
 }
 
 // Stopwords that shouldn't drive keyword overlap scoring
@@ -595,8 +616,19 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
 
         const hasQuoteArray = Array.isArray(t.quotes) && t.quotes.length > 0;
         const quotesLookReal = hasQuoteArray && t.quotes.every((q: any) => !looksLikeTitle(q?.text));
-        const evidenceLooksLikeTitle = looksLikeTitle(t.evidence);
-        if (quotesLookReal && !evidenceLooksLikeTitle) return;    // healthy; skip
+        // A verbatim quote in the `evidence` STRING is just as healthy as one in
+        // a `quotes[]` array. Opus emits its grounded quote as `evidence` (string)
+        // with NO `quotes[]`, so the old `quotesLookReal && ...` skip never fired
+        // and EVERY theme got flagged for "upgrade". When the >=2-token wiki match
+        // then won, it OVERWROTE a correct on-topic quote with cross-engagement
+        // noise (2026-06-15 deck: 3 quotes replaced with stray Reddit sentences).
+        // The pre-scrub above has already emptied junk evidence, so a non-empty,
+        // non-title `evidence` here is a real quote we must NOT clobber.
+        const evidenceIsReal = typeof t.evidence === 'string'
+            && t.evidence.trim().length >= MIN_QUOTE_CHARS
+            && !looksLikeTitle(t.evidence)
+            && !isJunkQuote(t.evidence);
+        if (quotesLookReal || evidenceIsReal) return;    // healthy; skip backfill
         stats.needingBackfill++;
 
         const themeQuery = [t.name, t.insight].filter(Boolean).join(' ').trim();
@@ -607,7 +639,13 @@ async function backfillThemeCluster(themeCluster: any, fallbackQuery: string, st
         // tokens with the theme or they're likely off-topic noise from an
         // article that merely keyword-matched the search index.
         const themeAnchor = contentTokens(themeQuery);
-        const MIN_ANCHOR_OVERLAP = 2;
+        // Raised 2 -> 3 (2026-06-15): a 2-token surface overlap matched
+        // topically-unrelated articles (theme "Deterministic deliverables" pulled
+        // an r/MachineLearning "structured output benchmark" sentence; "Multi-source
+        // ingestion" pulled an r/stocks Reddit-citation-rate stat). Backfill only
+        // reaches this point when evidence is genuinely missing/title-like, so a
+        // stricter bar is safe: a weak match is worse than leaving evidence empty.
+        const MIN_ANCHOR_OVERLAP = 3;
 
         let articles = await fetchWikiArticles({
             query,

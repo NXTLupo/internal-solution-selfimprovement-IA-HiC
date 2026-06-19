@@ -65,5 +65,5 @@ The validation framework defines confidence levels (including HYPOTHESIS, PARTIA
 
 ### Pending Evidence Categories Awaiting Ingestion
 
-*   **CX Maturity**: Pending categories awaiting ingestion include organizational readiness, maturity assessment findings, progression patterns, and maturity-to-outcome correlations (such as maturity-to-revenue correlation, organizational structures, and employee alignment) [evidence/cx-maturity.md].
-*   **Digital Transformation**: Pending categories awaiting ingestion include success/failure rates, adoption patterns, change management effectiveness, technology ROI, and organizational factors (such as culture, change management, technology adoption, and failure rates) that predict transformation outcomes [evidence/digital-transformation.md].
+*   **CX Maturity**: Pending categories include organizational readiness, maturity assessment findings, progression patterns, and maturity-to-outcome correlations (such as maturity-to-revenue and employee structures) [evidence/cx-maturity.md].
+*   **Digital Transformation**: Pending categories include success/failure rates, adoption patterns, change management effectiveness, technology ROI, and organizational factors (such as culture, technology adoption, and change management) that predict transformation outcomes [evidence/digital-transformation.md].

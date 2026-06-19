@@ -1,0 +1,97 @@
+---
+id: social-intelligence/reddit-deep/ecommerce/1sknaow.md
+url: "https://www.reddit.com/r/ecommerce/comments/1sknaow/ecommerce_industry_news_recap_week_of_april_13th/"
+kind: "social-post"
+source: "reddit-deep: r/ecommerce"
+subreddit: "ecommerce"
+title: "E-commerce Industry News Recap 🔥 Week of April 13th, 2026"
+author: "adventurepaul"
+date: "2026-04-13T20:39:15.000Z"
+score: 10
+upvote_ratio: 0.82
+num_comments: 7
+flair: "📰 News"
+extracted_at: "2026-06-18T13:35:23.818Z"
+extraction_method: "praw-deep"
+research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
+engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+chunks:
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c0"
+    char_span: [0, 582]
+    sentence_count: 3
+    key_terms: [e-commerce, ecommerce, comments, industry, posted, "week's", recap, news]
+    token_count: 158
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c1"
+    char_span: [584, 2942]
+    sentence_count: 11
+    key_terms: [share, rezolve, "commerce's", board, offer, commerce, directly, toolkit]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c2"
+    char_span: [2622, 5204]
+    sentence_count: 13
+    key_terms: [paypal, experience, amazon, checkout, usps, partnership, agreement, embedded]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c3"
+    char_span: [4873, 7593]
+    sentence_count: 12
+    key_terms: [vulnerabilities, company, process, across, amazon, french, launch, vulnerability]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c4"
+    char_span: [7236, 9783]
+    sentence_count: 9
+    key_terms: [amazon, delivery, sellers, including, city, boycott, subcontractors, vulnerability]
+    token_count: 512
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c5"
+    char_span: [9462, 10255]
+    sentence_count: 2
+    key_terms: [disney, tiktok, delivery, shop, brick-and-mortar, creator-driven, muppets-themed, subcontractors]
+    token_count: 156
+  - id: "social-intelligence/reddit-deep/ecommerce/1sknaow.md#c6"
+    char_span: [10270, 11117]
+    sentence_count: 3
+    key_terms: [commerce, new, formerincome6352, developer-first, restructuring, attribution, bigcommerce, conversions]
+    section: Comments
+    token_count: 184
+---
+# E-commerce Industry News Recap 🔥 Week of April 13th, 2026
+
+Source: [reddit-deep: r/ecommerce](https://www.reddit.com/r/ecommerce/comments/1sknaow/ecommerce_industry_news_recap_week_of_april_13th/)
+Posted by **adventurepaul** · **10↑** · **7 comments**
+
+Hi r/ecommerce \- I'm Paul and I follow the e-commerce industry closely for my Shopifreaks E-commerce Newsletter. Every week for the past 5 years I've posted a summary recap of the week's top stories on this subreddit, which I cover in depth with sources in the full edition. Let's dive in to this week's top e-commerce news...
+
+___
+**STAT OF THE WEEK:** Google's AI Overviews answer questions correctly 91% of the time after upgrading to Gemini 3, up from 85% with Gemini 2, according to an analysis done by Oumi. While statistically impressive, a 9% error rate translates to tens of millions of incorrect answers every hour. Also notable is that more than half of the accurate responses linked to sources that did not fully support the information provided.
+___
+**Rezolve AI** is attempting a public and hostile takeover of **Commerce**, the parent company of BigCommerce, Feedonomics, and Makeswift. After submitting two crappy offers to Commerce's board and having both rejected, Rezolve is now bypassing the board and publishing letters directly to shareholders. In February, Rezolve privately sent Commerce an unsolicited all-stock acquisition proposal, offering 1 RZLV share for every 1 CMRC share. At the time that offer was sent, RZLV was trading at $2.15/share and CMRC at $3.02/share, so the offer represented a 28.8% discount on Commerce. Then they followed up with a worse offer in April, proposing 1 RZLV share ($2.88) for every 2 CMRC shares ($2.73), representing a 47.3% discount. Commerce's board rejected the offer, saying the proposal “significantly undervalues the company” and “does not warrant further engagement.” Rezolve issued a public response to the rejection, saying that Commerce's board is “asking its shareholders to believe in a fiction: that a thinly traded screen price is the same thing as a realizable value, and that 3% annual revenue growth constitutes a credible standalone recovery.”
+___
+**Shopify** released its AI Toolkit, a new layer of infrastructure that connects AI coding tools like Claude Code, Cursor, Codex, and Gemini directly to a merchant's Shopify store, giving those tools access to store data, documentation, and API schemas, as well as the ability to execute changes directly. The toolkit allows AI agents to handle tasks like bulk product updates, SEO and metafield edits, collection editing, inventory checks, custom reporting, and theme modifications. The only big caveat, which can be extremely dangerous on live stores, is that when you grant the toolkit mutation access, your requested changes execute immediately on your live store with no draft mode, no preview, and no undo. That's putting a lot of faith in your AI agent! Which is why Shopify is positioning AI Toolkit as more of a developer tool than a merchant feature, as developers should know how to create backup environments of their product catalogs and theme code before letting their AI agent loose.
+___
+In March, I reported that **Amazon**, which is the **Postal Service's** biggest customer, was planning to reduce the number of packages it sends through USPS by at least two-thirds after failing to reach agreement on business terms. Flash forward to last week… Amazon reached a new agreement with USPS in which it will retain about 80% of its existing deliveries, though neither party disclosed specific financial terms of the agreement. Many news outlets were quick to point out that USPS generated $6B in revenue from Amazon last year, so a 20% reduction represents a meaningful hit. However, what we don't know is what Amazon will be paying for the remaining 80% of packages it ships through the postal service. I'd like to think that USPS was able to negotiate new rates to offset that loss. Through the revised deal, it's very possible that USPS reduced their Amazon volume by 20%, but walked away with the same revenue (or close to it), which would be a win for the postal service in my book.
+___
+**PayPal** announced a partnership with **Meta** that allows Facebook users to purchase products with a single tap without leaving their feed, with PayPal handling payment processing via an embedded checkout window. The company said that Instagram was coming soon, but did not provide a date of when that would be. It's not exactly the “one-tap” payment experience PayPal described it as, but it's a legitimate embedded checkout experience within Facebook — probably the best checkout experience they've ever offered. The partnership could be a huge win for PayPal, depending on whether embedded commerce takes off on Meta's platforms.
+___
+**PayPal** also announced a partnership with **Canva** that allows the platform's 265M monthly users to add PayPal Payment Links and QR codes directly to their designs, turning any Canva creation into a checkout experience without needing a separate website or storefront. The integration supports PayPal, Venmo, and Pay Later options across approximately 200 markets, and is available now through the Canva Marketplace.
+___
+**PrestaShop** initiated a formal restructuring process under French labor law called a Plan de sauvegarde de l'emploi, which is essentially the French legal framework for collective layoffs that requires government approval before any cuts are finalized. The company cited intensifying competition, evolving merchant expectations, and accelerating innovation as the reasons behind the decision, but explicitly clarified that the move is NOT about AI replacing workers. The exact number of employees affected has not been disclosed, as the formal legal process under French law is still underway and nothing will be finalized until the government signs off on the plan. However, PrestaShop said existing merchant support, partner relationships, and product roadmaps will not be affected during the process.
+___
+**Amazon CEO Andy Jassy** published his annual letter to shareholders, in which he painted a picture of Amazon as a company deliberately pursuing multiple parallel bets across AI, logistics, and new technologies rather than chasing a single straight line to growth. In the letter, Jassy defended the company's $200B capex as not a "hunch" by pointing to concrete customer commitments to justify the expenditure. He also touched base on the success of Amazon's internal chip manufacturing, the launch of Amazon's Leo satellite Internet, the company's gains in the grocery market, and the rebuilt Alexa assistant, among other wins. Honestly, Amazon is crushing it right now. Who else wishes they had bought more AMZN in early 2023?
+___
+**Anthropic** announced the launch of **Project Glasswing**, a cybersecurity initiative that pairs its unreleased model, Claude Mythos Preview, with a coalition of twelve major tech and finance companies in an effort to find and patch software vulnerabilities across critical infrastructure before hackers can exploit them. At the moment, the company does not plan to make the model available to the public. Anthropic says it has already identified thousands of high-severity zero-day vulnerabilities in every major operating system and web browser using the model including a 27-year-old vulnerability in OpenBSD, a security-focused operating system, and a 16-year-old vulnerability in FFmpeg, a very commonly used video encoding and decoding library. Project Glasswing launch partners include Amazon Web Services, Apple, Broadcom, Cisco, CrowdStrike, Google, JPMorgan Chase, the Linux Foundation, Microsoft, Nvidia, and Palo Alto Networks, and Anthropic says it has extended invites to more than 40 other organizations that build or maintain critical software.
+___
+A group of **seven-figure Amazon sellers** is calling for a one-day boycott of Amazon advertising on April 15, 2026 in response to recent changes that sellers say are draining working capital from their businesses at an already difficult time. The boycott is being organized by Million Dollar Sellers co-founder Eugene Khayman, who runs a community of over 800 sellers doing a combined $15B in annual revenue on Amazon. The event is in response to a few recent changes by Amazon including payout delays, a 3.5% fuel surcharge on FBA shipments, an dad costs now being deducted from sales proceeds, not billed to cards. Sellers participating in the event plan to turn off all Amazon ad spend for one day and post screenshots to prove their zero spend. I support the message, but will a one day boycott make a difference? And is pausing ad spend, which has a negative impact on the sellers themselves, the best way to send that message to Amazon?
+___
+**Amazon** is fighting a revived bill in New York City called the Delivery Protection Act that would require last-mile delivery facilities to be licensed by the city and to directly employ their delivery workers. The bill would upend Amazon's model of relying on more than 40 subcontractors who employ more than 5,000 workers to drive its branded vans and e-bikes across the five boroughs. Amazon says that if the bill passes, it would likely relocate its 10 distribution centers in the city to nearby areas outside of city limits including in New Jersey, Long Island, and Westchester County, which would make delivery slower and more expensive for NYC residents. (Amazon would pass that cost increase onto consumers faster than it adds fuel surcharges to merchants!) The legislation would also impact FedEx, DHL, FreshDirect, DoorDash, and dozens of other last mile delivery services that rely on subcontractors for their delivery workforces.
+___
+**Disney** launched a collection of Muppets-themed plushies and keychains on TikTok Shop ahead of its own Disney Store website, making it the company's first-ever TikTok pre-release drop and its second TikTok Shop launch overall. In recent years, Disney has been moving its retail strategy away from brick-and-mortar stores, many of which they've shut down over the past decade, towards social commerce channels that reach younger audiences through short-form video and creator-driven content.
+
+## Comments
+
+- **FormerIncome6352** (1↑): Solid recap. Biggest takeaways for me:
+
+* Google’s AI Overviews, hitting 91% accuracy, is impressive, but attribution problems are still there.
+* Shopify’s new AI Toolkit looks powerful (letting AI agents directly edit stores via Claude/Cursor), but the “no draft mode, changes go live instantly” warning is scary. Definitely developer-first for now.
+* PayPal partnering with Meta for single-tap checkout straight in Facebook/Instagram feeds could be huge for social commerce conversions.
+* Rezolve AI’s hostile takeover attempt on BigCommerce’s parent company (Commerce) is getting spicy - two offers already rejected.
+* PrestaShop is going through a major restructuring in France.
+* Amazon sellers (the 7-figure ones) are organizing an ad boycott on April 15 over payout delays, new FBA fuel surcharges, and ad fees.

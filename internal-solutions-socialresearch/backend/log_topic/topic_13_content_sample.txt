@@ -1,13 +1,21 @@
 Topic 13 - Content Sample
-Number of content items: 13
-Top words: cash plus, plus account, cash plus account, card, automatic, vanguard cash plus, vanguard cash
+Number of content items: 25
+Top words: review, google, yelp, google review, customer, businesses, ask
 
-Content 1 (length: 187 chars):
-Representative: "Thanks for confirming this, but there is not a option at this time to be able to do this on a recurring basis from your Cash Plus account to your other Vanguard account."
+Content 1 (length: 179 chars):
+\- create your Google review link  
+\- make a QR code  
+\- print a small card  
+\- train staff to ask at the right moment  
+\- track how many new reviews you get over 2 to 4 weeks
 
-Content 2 (length: 161 chars):
-Vanguard Cash Plus can't do automatic investments TLDR: there's no way to set up automatic investments from Vanguard Cash Plus into a Vanguard Brokerage Account.
+Content 2 (length: 456 chars):
+1. Do online businesses actually feel there is a problem worth solving around reviews and reputation?
+2. What frustrates you most about existing platforms like Trustpilot, G2, Sitejabber, Capterra, etc.?
+3. If you own or market an online business, what review/reputation tool would you happily pay for?
+4. Where do you currently collect reviews, and what is missing?
+5. If a new review platform appeared tomorrow, what would make you switch or even try it?
 
-Content 3 (length: 192 chars):
-Cash Plus Automatic Withdrawals Does the Vanguard Cash Plus Account not allow for automatic withdrawals? I have found the page for setting up automatic deposits, but not automatic withdrawals.
+Content 3 (length: 176 chars):
+Is anyone actually happy with their review platform? I keep looking into review platforms for small businesses and I seem to run into the same conversation over and over again:
 

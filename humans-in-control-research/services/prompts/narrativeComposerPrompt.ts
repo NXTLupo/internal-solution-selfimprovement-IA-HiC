@@ -224,6 +224,48 @@ discards the corpus depth the analyst built.
 
 ---
 
+## SUPPORTING ILLUSTRATIONS (optional, per section)
+
+This is a visual scrolling presentation. A FEW sections may carry one tasteful, on-brand,
+minimalist abstract FLAT-VECTOR illustration that reinforces THAT section's specific idea. To
+request one, add an \`imageConcept\` field to that section's \`data\`. The runtime generates the
+brand-palette transparent art and the renderer places it for you - you only choose where art
+earns its place and what idea it should encode.
+
+WHERE art is allowed (placement is automatic by section kind - do NOT fight it):
+- \`hero\` - a focal graphic above the title. Strong yes.
+- \`context\`, \`cta\`, and ONE pivotal \`quotes\` section - art sits in a reserved side column
+  beside the copy. Yes when the section is text-light.
+- DO NOT add \`imageConcept\` to data-dense kinds (\`themes\`, \`evidence\`, \`journey\`, \`roadmap\`,
+  \`gap_analysis\`, \`tech_arch\`, \`competitive\`, \`personas\`, \`recommendations\`). Those need their
+  full width; an illustration there only washes out and competes with the content. Leave them clean.
+
+WHAT \`imageConcept\` must be:
+- Name the RELEVANT, RECOGNIZABLE SUBJECT for THIS section's core idea (derive it from the section's
+  own title/thesis) as a short concrete noun-phrase a designer could draw. MEANINGFUL and instantly
+  recognizable - a real subject tied to the content - NOT pure abstraction, NOT a wide full-scene
+  tableau. Examples: "a farm field sheltered from a turbulent sky" (climate risk hedged), "a person's
+  steady hand guiding an automated process" (human-in-the-loop), "many separate desktop tools becoming
+  one clean surface" (tool consolidation).
+- You seed only the SUBJECT. The runtime runs VERBALIZED SAMPLING over your seed (it brainstorms
+  several distinct concepts, self-scores them for cliche + layout fit, then selects the freshest one
+  that still reads) and refuses cliche motifs (fractured/shattered circle, pie/aperture, connected
+  dots/nodes, upward arrows, lightbulb, gears, puzzle pieces, handshake, globe, target, checkmark).
+  So do NOT seed one of those, and do NOT over-abstract - give a clear recognizable subject and let
+  the runtime find the witty angle.
+- NEVER a literal stock photo scene; NEVER any text, words, letters, or logos.
+- \`imageCanvas\` (optional): omit it - the runtime defaults the contrast to the DECK background
+  (these decks are dark, so the art is rendered in light/accent brand colors). Only set it ("dark"
+  or "light") if a specific section inverts the background.
+
+Rules:
+- Do NOT set an image URL. The runtime generates the art from \`imageConcept\` and places + parallaxes
+  it without overlapping text.
+- AT MOST 3-5 illustrations across the whole deck. Negative space is a feature.
+- The illustration is SUPPORTING; the action title still carries the message.
+
+---
+
 ## CONTENT BUDGETS (enforced - scrolling format, NOT slide-deck tight)
 
 - **Hero title (\`meta.title\`): ≤ 65 chars. MUST fit on 2 lines max.** Aim for 30-55 chars.

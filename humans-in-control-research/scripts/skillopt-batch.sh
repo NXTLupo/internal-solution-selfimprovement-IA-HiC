@@ -54,6 +54,11 @@ declare -A SKILLS=(
   [strategy-author]="$REPO_ROOT/.claude/skills/strategy-author/SKILL.md|strategy-slide-training.json"
   [service-blueprint-mapper]="$REPO_ROOT/.claude/skills/service-blueprint-mapper/SKILL.md|blueprint-training.json"
   [deck-narrative-composer]="$REPO_ROOT/.claude/skills/deck-narrative-composer/SKILL.md|strategy-slide-training.json"
+  # 2026-06-14 - writing-quality skills are SkillOpt targets so their voice rules
+  # self-improve weekly from rollouts + user feedback (NOT a static hardcoded map).
+  # human-voice-editor composes onto EVERY deliverable, so it trains on the broad
+  # strategy-slide rollout set; the lexicon trains on the same.
+  [human-voice-editor]="$REPO_ROOT/.claude/skills/human-voice-editor/SKILL.md|strategy-slide-training.json"
 )
 
 # Kind map (used by validate-candidate)
@@ -66,6 +71,7 @@ declare -A KINDS=(
   [strategy-author]=strategy-slide
   [service-blueprint-mapper]=blueprint
   [deck-narrative-composer]=strategy-slide
+  [human-voice-editor]=strategy-slide
 )
 
 TOTAL_COST=0

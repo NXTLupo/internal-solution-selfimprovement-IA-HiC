@@ -1,0 +1,13 @@
+Topic 21 - Content Sample
+Number of content items: 12
+Top words: insurance, liability, im, liability insurance, agent, coverage, public liability
+
+Content 1 (length: 264 chars):
+An insurance agent can help you consider options, but remember they aren't in the business to tell people they don't need insurance. You're a commission for them. Still, some type of general liability insurance policy is fairly common/standard for most businesses.
+
+Content 2 (length: 106 chars):
+Does anyone have any advise on how to go about getting Public Liability Insurance for something like this?
+
+Content 3 (length: 449 chars):
+If you don't have insurance and you're operating as a sole proprietor, you have a personal risk: if you get sued, you'll have pay to defend yourself and if you have liability you'll be personally responsible for everything. If you don't have insurance and you're operating as an LLC or C/S-Corp or similar, you could just decide to close the business upon getting served regarding a lawsuit and let there be a default judgement against a non-entity.
+

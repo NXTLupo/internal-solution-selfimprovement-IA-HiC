@@ -1,14 +1,13 @@
 Topic 4 - Content Sample
-Number of content items: 13
-Top words: vanguard, performance, returns, portfolio, graph, funds, voo
+Number of content items: 25
+Top words: brand, order, quality, supplier, small, sourcing, manufacturer
 
-Content 1 (length: 887 chars):
-VMFXX bugging out my performance UI I started investing minimally about 6 months ago and have only ever purchased 3 stocks on vanguard. I have never purchased vmfxx. The 3 stocks I have purchased total about $120 of profit. However, my performance view shows that I’m negative $680, with the cause being VMFXX. This stock doesn’t show up in my holdings, only in my performance table. The fact it’s claiming I’m down so big is worrying, does anybody have any insight or is this just a bug? i dont trust vanguard performance calculations.  i use an open source free application called Portfolio Performance.  Runs on Mac, Windows or Linux.    Alternatively pay for Quicken on Windows to get a similar result but a more widely used application.
-vmfxx is the default money market fund for any vanguard account.  so for example if your purchased securities produce dividends they become vmfxx
+Content 1 (length: 437 chars):
+Right now, my biggest challenge is finding reliable exporters. I've looked through Europages and a number of other directories, but it's difficult to know who is legitimate and who isn't. Some interactions have raised red flags. For example, one supplier sent me a price list on WhatsApp, deleted it, and then resent an updated version that suddenly included the exact product I had just asked about. That didn't inspire much confidence.
 
-Content 2 (length: 452 chars):
-Vanguard Portfolio Watch...poor job of classifying "all in one" funds to measure diversification I'm a long-time Vanguard user.  In preparing for retirement, we've begun using a couple of balanced, "all-in-one" funds, which are essentially funds-of-funds.   With that change, the Portfolio Watch tool no longer accurately measures diversification or Asset Mix; nearly 41% of the portfolio is now listed as "other" rather than domestic or international.
+Content 2 (length: 182 chars):
+For those with experience in importing food and beverages, what would you recommend? How do you verify exporters and avoid scams? Are there any best practices for small first orders?
 
-Content 3 (length: 408 chars):
-Also agree with the other post about VTI - "world" stock funds these days are usually two third US and everything is dominated by NVDA etc so you are not getting much diversification here.  If you want some international exposure you may want to pair VOO with an "ex US" ETF like VXUS.  You can see portfolio holdings on the Vanguard website and if you go thru that for VOO and VTI you'll see the similarity.
+Content 3 (length: 219 chars):
+My main challenge is that I'm starting small. Most of the larger suppliers and exporters have minimum order requirements of 20 pallets or more, while my initial order will likely be just one pallet as I test the market.
 

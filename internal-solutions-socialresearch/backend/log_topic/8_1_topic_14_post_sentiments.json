@@ -1,26 +1,66 @@
 {
-  "1qm68kv": {
+  "1u8yydb": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.27686912193894386
+    "sentiment_score": -0.14039401337504387
   },
-  "1tuxqc4": {
+  "1u93odq": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.7613989971578121
+  },
+  "1u87rx2": {
     "sentiment_category": "neutral",
-    "sentiment_score": -0.05565335601568222
+    "sentiment_score": 0.025317281484603882
   },
-  "1q9bnun": {
+  "1u7o87b": {
     "sentiment_category": "positive",
-    "sentiment_score": 0.2054530829191208
+    "sentiment_score": 0.7950862031430006
   },
-  "1q7jzsq": {
+  "1u6zsl6": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.17874715384095907
+  },
+  "1u7a2zs": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.6225037761032581
+  },
+  "1u76wrz": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.2360431421548128
+    "sentiment_score": -0.3357498198747635
   },
-  "1q0ol4u": {
+  "1u6m38u": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.43944937735795975
+  },
+  "1u56c7z": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.4235829431563616
+  },
+  "1u4s82l": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.5338434651494026
+  },
+  "1u4r0ob": {
+    "sentiment_category": "negative",
+    "sentiment_score": -0.10720743983983994
+  },
+  "1u3hfxn": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.6683393809944391
+  },
+  "1u29dyx": {
+    "sentiment_category": "positive",
+    "sentiment_score": 0.5906970100477338
+  },
+  "1u2ieml": {
     "sentiment_category": "neutral",
-    "sentiment_score": -0.0782234650105238
+    "sentiment_score": -0.011267125606536865
   },
-  "1pzwgl4": {
+  "1u12i2m": {
+    "sentiment_category": "neutral",
+    "sentiment_score": -0.0004609823226928711
+  },
+  "1u0lnu0": {
     "sentiment_category": "negative",
-    "sentiment_score": -0.15598029643297195
+    "sentiment_score": -0.23336614668369293
   }
 }

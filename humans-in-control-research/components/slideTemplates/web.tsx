@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import { TOKENS, hex, densityCaps, type SlideDensity } from './types';
+import { TOKENS, hex, densityCaps, type SlideDensity, SCALE, WEIGHT, TYPO, webPx, clampMin } from './types';
 import { nxtBrand, type Brand } from './brands';
 import type {
     PersonaCardData, RecommendationData, ThemeClusterData, CompetitiveMatrixData,
@@ -96,7 +96,7 @@ interface GoldFrameProps {
 
 export const GoldFrame: React.FC<GoldFrameProps> = ({ children, brand, kicker, title, meta, takeaway }) => {
     const T = resolveT(brand);
-    const isNu = T.FONT_TITLE === 'Lora';
+    const isNu = T.BRAND_ID === 'nu';
     return (
         <div style={{
             width: T.WEB_W, height: T.WEB_H, background: hex(T.WHITE),
@@ -109,24 +109,44 @@ export const GoldFrame: React.FC<GoldFrameProps> = ({ children, brand, kicker, t
             <div style={{ position: 'absolute', left: 15, top: 495, display: 'grid', gridTemplateColumns: 'repeat(3, 6px)', gap: 3 }}>
                 {Array(9).fill(0).map((_, i) => <span key={i} style={{ width: 6, height: 6, background: hex(T.CHARTREUSE) }} />)}
             </div>
-            {/* WORDMARK (top-right) */}
-            <div style={{ position: 'absolute', top: 25, right: 40, fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: 8, letterSpacing: '3px', color: hex(T.GREY), textTransform: 'uppercase' }}>
-                {isNu ? 'NORTHEASTERN' : 'NXT HUMANS'}
-            </div>
+            {/* OFFICIAL BRAND LOGO (top-right) - HYDRATED from the Figma token feed
+                (logo.monogram / logo.wordmark), never hardcoded, so a newly deployed
+                Figma mark reaches the preview. NXT reads the hydrated global TOKENS
+                (nxtBrand is a stale pre-hydration snapshot); NU reads the hydrated T
+                (nuBrand). Wordmark is the fallback until a mark populates. */}
+            {(() => {
+                const _lt: any = isNu ? T : TOKENS;
+                const _logoSvg = String(_lt.BRAND_LOGO_SVG || '').trim();
+                const _logoWm = String(_lt.BRAND_LOGO_WORDMARK || (isNu ? 'NORTHEASTERN' : 'NXT HUMANS'));
+                return (
+                    <div className="nxt-gf-logomark" style={{ position: 'absolute', top: 22, right: 40, display: 'flex', alignItems: 'center', gap: 7 }}>
+                        <style>{`.nxt-gf-logomark svg{height:17px;width:auto;display:block}`}</style>
+                        {_logoSvg ? <span style={{ display: 'inline-flex', alignItems: 'center' }} dangerouslySetInnerHTML={{ __html: _logoSvg }} /> : null}
+                        {_logoWm && (
+                            // Wordmark uses the brand DISPLAY face (NXT = Saira Condensed SemiBold
+                            // per Figma 22:2; NU = Lato), NOT FONT_BODY. Twin of slideToStageHtml
+                            // .brandlogo .wm. FONT_DISPLAY===FONT_BODY for NU, so no-op there.
+                            <span style={{ fontFamily: `'${T.FONT_DISPLAY}', sans-serif`, fontWeight: isNu ? 800 : 600, fontSize: isNu ? webPx(SCALE.body) : webPx(SCALE.lead), letterSpacing: isNu ? '1.5px' : '0.5px', color: hex(T.INK), textTransform: 'uppercase' }}>
+                                {_logoWm}
+                            </span>
+                        )}
+                    </div>
+                );
+            })()}
             {/* CONTENT COLUMN */}
             <div style={{ position: 'absolute', left: 86, top: 29, width: 834, bottom: 20, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {kicker && (
-                    <div style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontWeight: 600, fontSize: 9.5, letterSpacing: '3px', color: hex(T.KICKER), textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
+                    <div style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontWeight: 600, fontSize: webPx(SCALE.caption), letterSpacing: '3px', color: hex(T.KICKER), textTransform: 'uppercase', whiteSpace: 'nowrap' }}>
                         {kicker}
                     </div>
                 )}
                 {title && (
-                    <div style={{ fontFamily: `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`, fontWeight: Number(T.TITLE_WEIGHT) || 600, fontSize: 23, lineHeight: isNu ? 1.12 : 1.08, letterSpacing: isNu ? '0' : '-0.25px', color: hex(T.INK), maxWidth: 700 }}>
+                    <div style={{ fontFamily: `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`, fontWeight: Number(T.TITLE_WEIGHT) || 600, fontSize: webPx(SCALE.subhead), lineHeight: isNu ? 1.12 : 1.08, letterSpacing: isNu ? '0' : '-0.25px', color: hex(T.INK), maxWidth: 700 }}>
                         {title}
                     </div>
                 )}
                 {meta && (
-                    <div style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontWeight: 500, fontSize: 7, letterSpacing: '0.5px', lineHeight: 1.6, color: hex(T.GREY), textTransform: 'uppercase' }}>
+                    <div style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontWeight: 500, fontSize: webPx(SCALE.label), letterSpacing: '0.5px', lineHeight: 1.6, color: hex(T.GREY), textTransform: 'uppercase' }}>
                         {meta}
                     </div>
                 )}
@@ -138,7 +158,7 @@ export const GoldFrame: React.FC<GoldFrameProps> = ({ children, brand, kicker, t
                 {/* TAKEAWAY BAND */}
                 {takeaway && (
                     <div style={{ width: 784, minHeight: 48, background: hex(T.BAND), padding: '14px 24px', display: 'flex', alignItems: 'flex-start' }}>
-                        <div style={{ fontFamily: `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`, fontWeight: 400, fontSize: 11.5, lineHeight: 1.48, color: hex(T.BAND_TEXT) }}>
+                        <div style={{ fontFamily: `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`, fontWeight: 400, fontSize: webPx(SCALE.body), lineHeight: 1.48, color: hex(T.BAND_TEXT) }}>
                             {truncate(takeaway, 220)}
                         </div>
                     </div>
@@ -229,7 +249,7 @@ export function truncate(text: string | undefined, max: number): string {
 
 const Tag: React.FC<{ text: string; color?: string; brand?: Brand }> = ({ text, color, brand }) => {
     const T = resolveT(brand);
-    return <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', color: hex(color || T.CHARTREUSE_BRIGHT) }}>{text}</div>;
+    return <div style={{ fontSize: webPx(SCALE.body), fontWeight: 700, letterSpacing: '3px', textTransform: 'uppercase', color: hex(color || T.CHARTREUSE_BRIGHT) }}>{text}</div>;
 };
 
 const Title: React.FC<{ text: string; size?: number; brand?: Brand }> = ({ text, size = 28, brand }) => {
@@ -240,7 +260,7 @@ const Title: React.FC<{ text: string; size?: number; brand?: Brand }> = ({ text,
 const SourceFooter: React.FC<{ sources: string[]; brand?: Brand }> = ({ sources, brand }) => {
     const T = resolveT(brand);
     return sources && sources.length > 0 ? (
-        <div style={{ fontSize: 8, color: hex(T.MUTED), borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 6, marginTop: 'auto' }}>
+        <div style={{ fontSize: webPx(SCALE.label), color: hex(T.MUTED), borderTop: `1px solid ${hex(T.RULE)}`, paddingTop: 6, marginTop: 'auto' }}>
             Sources: {sources.join('  |  ')}
         </div>
     ) : null;
@@ -382,10 +402,10 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
             <header className="art-masthead" style={{ paddingBottom: 10 }}>
                 <div className="art-masthead__center" style={{ flex: 1, minWidth: 0 }}>
                     <div className="art-masthead__kicker">Persona · Discovery synthesis</div>
-                    <h1 className="art-masthead__title" style={{ fontSize: hasImage ? 22 : 26 }}>
+                    <h1 className="art-masthead__title" style={{ fontSize: hasImage ? webPx(SCALE.subhead) : webPx(SCALE.subhead) }}>
                         {p.name}
                     </h1>
-                    <div style={{ fontSize: 12, color: 'var(--fg-muted)', marginTop: 4, fontFamily: 'var(--font-mono)', letterSpacing: '.04em' }}>
+                    <div style={{ fontSize: webPx(SCALE.lead), color: 'var(--fg-muted)', marginTop: 4, fontFamily: 'var(--font-mono)', letterSpacing: '.04em' }}>
                         {p.role}{p.demographics ? ` · ${p.demographics}` : ''}
                     </div>
                 </div>
@@ -402,7 +422,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                                 fontFamily: 'var(--font-display)',
                                 fontStyle: 'italic',
                                 fontWeight: 400,
-                                fontSize: hasImage ? 12 : 14,
+                                fontSize: hasImage ? webPx(SCALE.lead) : webPx(SCALE.name),
                                 lineHeight: 1.4,
                                 color: 'var(--fg-strong)',
                             }}
@@ -412,8 +432,8 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                         </blockquote>
                     )}
                     {p.jtbd && (
-                        <div className="art-card" style={{ padding: '8px 12px', fontSize: 11, lineHeight: 1.45 }}>
-                            <span style={{ fontSize: 9, letterSpacing: '.14em', fontWeight: 700, textTransform: 'uppercase', color: 'var(--fg-muted)', marginRight: 8 }}>JTBD</span>
+                        <div className="art-card" style={{ padding: '8px 12px', fontSize: webPx(SCALE.body), lineHeight: 1.45 }}>
+                            <span style={{ fontSize: webPx(SCALE.caption), letterSpacing: '.14em', fontWeight: 700, textTransform: 'uppercase', color: 'var(--fg-muted)', marginRight: 8 }}>JTBD</span>
                             {p.jtbd}
                         </div>
                     )}
@@ -421,10 +441,10 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                         <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
                             {Object.entries(p.goals).filter(([, v]) => v).map(([k, v]) => (
                                 <div key={k} style={{ background: 'var(--bg-subtle)', padding: '8px 10px', borderTop: '2px solid var(--nu-red-600)' }}>
-                                    <dt style={{ fontSize: 9, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 4 }}>
+                                    <dt style={{ fontSize: webPx(SCALE.caption), fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 4 }}>
                                         {k.replace('Goal', '')}
                                     </dt>
-                                    <dd style={{ margin: 0, fontSize: 10.5, lineHeight: 1.4, color: 'var(--fg-strong)' }}>{v}</dd>
+                                    <dd style={{ margin: 0, fontSize: webPx(SCALE.body), lineHeight: 1.4, color: 'var(--fg-strong)' }}>{v}</dd>
                                 </div>
                             ))}
                         </dl>
@@ -434,28 +454,28 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
                     {p.painPoints && p.painPoints.length > 0 && (
                         <div>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6, display: 'flex', alignItems: 'center' }}>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6, display: 'flex', alignItems: 'center' }}>
                                 <span className="signal signal--red" style={{ marginRight: 6 }}></span>
                                 Pain points
                             </div>
                             {p.painPoints.slice(0, hasImage ? 2 : 3).map((pp, i) => (
-                                <div key={i} style={{ fontSize: hasImage ? 10 : 10.5, color: 'var(--fg-default)', marginBottom: 6, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>
+                                <div key={i} style={{ fontSize: hasImage ? webPx(SCALE.body) : webPx(SCALE.body), color: 'var(--fg-default)', marginBottom: 6, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>
                                     <strong style={{ color: 'var(--fg-strong)' }}>{pp.label}:</strong> “{truncate(pp.quote, 130)}”
-                                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 8.5, color: 'var(--fg-subtle)', marginLeft: 4 }}>({pp.source})</span>
+                                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), color: 'var(--fg-subtle)', marginLeft: 4 }}>({pp.source})</span>
                                 </div>
                             ))}
                         </div>
                     )}
                     {p.motivations && p.motivations.length > 0 && (
                         <div>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6, display: 'flex', alignItems: 'center' }}>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6, display: 'flex', alignItems: 'center' }}>
                                 <span className="signal signal--green" style={{ marginRight: 6 }}></span>
                                 Motivations
                             </div>
                             {p.motivations.slice(0, hasImage ? 2 : 3).map((m, i) => (
-                                <div key={i} style={{ fontSize: hasImage ? 10 : 10.5, color: 'var(--fg-default)', marginBottom: 6, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>
+                                <div key={i} style={{ fontSize: hasImage ? webPx(SCALE.body) : webPx(SCALE.body), color: 'var(--fg-default)', marginBottom: 6, paddingLeft: 10, borderLeft: '1px solid var(--border-subtle)', lineHeight: 1.4 }}>
                                     <strong style={{ color: 'var(--fg-strong)' }}>{m.label}:</strong> “{truncate(m.quote, 130)}”
-                                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: 8.5, color: 'var(--fg-subtle)', marginLeft: 4 }}>({m.source})</span>
+                                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), color: 'var(--fg-subtle)', marginLeft: 4 }}>({m.source})</span>
                                 </div>
                             ))}
                         </div>
@@ -495,7 +515,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                     <div className="art-masthead__kicker">{framingTagText}</div>
                     <h1 className="art-masthead__title">{title}</h1>
                     {data.personaContext && (
-                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--fg-muted)', marginTop: 6, letterSpacing: '.06em' }}>
+                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.body), color: 'var(--fg-muted)', marginTop: 6, letterSpacing: '.06em' }}>
                             {truncate(data.personaContext, 110)}
                         </div>
                     )}
@@ -504,26 +524,26 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
             <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 22, minHeight: 0, overflow: 'hidden' }}>
                 {/* LEFT - action title + rationale + supporting actions + evidence */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0, overflow: 'hidden' }}>
-                    <h2 className="art-finding" style={{ fontSize: 17, borderLeft: '3px solid var(--nu-red-600)', paddingLeft: 12 }}>
+                    <h2 className="art-finding" style={{ fontSize: webPx(SCALE.subhead), borderLeft: '3px solid var(--nu-red-600)', paddingLeft: 12 }}>
                         {data.actionTitle}
                     </h2>
                     {data.rationale && (
-                        <p style={{ fontSize: 11, color: 'var(--fg-default)', lineHeight: 1.55, margin: 0 }}>{truncate(data.rationale, 280)}</p>
+                        <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.55, margin: 0 }}>{truncate(data.rationale, 280)}</p>
                     )}
                     {data.supportingActions && data.supportingActions.length > 0 && (
                         <>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginTop: 2 }}>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginTop: 2 }}>
                                 {actionsLabelText}
                             </div>
                             <ol style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
                                 {data.supportingActions.slice(0, Math.min(_rc.items, 5)).map((a, i) => (
                                     <li key={i} style={{ display: 'grid', gridTemplateColumns: '28px 1fr', gap: 10, alignItems: 'baseline' }}>
-                                        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 22, color: 'var(--nu-red-600)', lineHeight: 1 }}>
+                                        <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: 'var(--nu-red-600)', lineHeight: 1 }}>
                                             {String(i + 1).padStart(2, '0')}
                                         </span>
                                         <div style={{ minWidth: 0 }}>
-                                            <div style={{ fontWeight: 700, fontSize: 11, color: 'var(--fg-strong)', marginBottom: 2 }}>{a.name}</div>
-                                            <div style={{ fontSize: 10.5, color: 'var(--fg-default)', lineHeight: 1.45 }}>{truncate(a.description, 150)}</div>
+                                            <div style={{ fontWeight: 700, fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', marginBottom: 2 }}>{a.name}</div>
+                                            <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45 }}>{truncate(a.description, 150)}</div>
                                         </div>
                                     </li>
                                 ))}
@@ -532,7 +552,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                     )}
                     {hasEvidence && (
                         <div style={{ marginTop: 4, borderTop: '1px solid var(--border-subtle)', paddingTop: 6, overflow: 'hidden' }}>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 4 }}>Evidence</div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 4 }}>Evidence</div>
                             <QuoteStack quotes={(data.evidence || []).slice(0, density === 'dense' ? 2 : 1)} size="compact" brand={brand} maxChars={150} />
                         </div>
                     )}
@@ -548,7 +568,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                             />
                             {data.heroImage!.caption && (
-                                <div style={{ fontSize: 9, fontFamily: 'var(--font-mono)', letterSpacing: '.1em', color: 'var(--fg-muted)', marginBottom: 6, textTransform: 'uppercase' }}>
+                                <div style={{ fontSize: webPx(SCALE.caption), fontFamily: 'var(--font-mono)', letterSpacing: '.1em', color: 'var(--fg-muted)', marginBottom: 6, textTransform: 'uppercase' }}>
                                     {truncate(data.heroImage!.caption, 50)}
                                 </div>
                             )}
@@ -560,8 +580,8 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                                         { k: 'Outcome', v: data.impactStrip?.outcome },
                                     ].filter(c => c.v).map((c, i, arr) => (
                                         <div key={c.k} style={{ display: 'grid', gridTemplateColumns: '52px 1fr', gap: 8, alignItems: 'baseline', borderBottom: i < arr.length - 1 ? '1px solid var(--border-subtle)' : 'none', paddingBottom: i < arr.length - 1 ? 4 : 0 }}>
-                                            <dt style={{ fontSize: 8.5, letterSpacing: '.12em', fontWeight: 700, color: 'var(--nu-red-600)', textTransform: 'uppercase' }}>{c.k}</dt>
-                                            <dd style={{ margin: 0, fontSize: 10, color: 'var(--fg-strong)', lineHeight: 1.4, fontWeight: 600 }}>{truncate(c.v || '', 60)}</dd>
+                                            <dt style={{ fontSize: webPx(SCALE.label), letterSpacing: '.12em', fontWeight: 700, color: 'var(--nu-red-600)', textTransform: 'uppercase' }}>{c.k}</dt>
+                                            <dd style={{ margin: 0, fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.4, fontWeight: 600 }}>{truncate(c.v || '', 60)}</dd>
                                         </div>
                                     ))}
                                 </dl>
@@ -569,7 +589,7 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                         </>
                     ) : hasGrid ? (
                         <>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 8 }}>Projected impact</div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 8 }}>Projected impact</div>
                             <dl style={{ margin: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                                 {[
                                     { k: 'Baseline', v: data.impactGrid?.baseline },
@@ -578,35 +598,35 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                                     { k: 'Owner', v: data.impactGrid?.owner },
                                 ].map(c => (
                                     <div key={c.k}>
-                                        <dt style={{ fontSize: 8.5, letterSpacing: '.12em', color: c.accent || 'var(--fg-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: 3 }}>{c.k}</dt>
-                                        <dd style={{ margin: 0, fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.3, fontWeight: 600 }}>{c.v ? truncate(c.v, 60) : ''}</dd>
+                                        <dt style={{ fontSize: webPx(SCALE.label), letterSpacing: '.12em', color: c.accent || 'var(--fg-muted)', fontWeight: 700, textTransform: 'uppercase', marginBottom: 3 }}>{c.k}</dt>
+                                        <dd style={{ margin: 0, fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.3, fontWeight: 600 }}>{c.v ? truncate(c.v, 60) : ''}</dd>
                                     </div>
                                 ))}
                             </dl>
                             {data.impactMetric && (
                                 <div style={{ marginTop: 10, paddingTop: 8, borderTop: '1px solid var(--border-subtle)' }}>
-                                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 28, color: 'var(--nu-red-700)', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                                    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: 'var(--nu-red-700)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                                         {data.impactMetric.value}
                                     </div>
-                                    <div style={{ fontSize: 10, color: 'var(--fg-muted)', marginTop: 4, lineHeight: 1.4 }}>{truncate(data.impactMetric.label, 70)}</div>
+                                    <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-muted)', marginTop: 4, lineHeight: 1.4 }}>{truncate(data.impactMetric.label, 70)}</div>
                                 </div>
                             )}
                         </>
                     ) : data.impactMetric ? (
                         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 8 }}>Projected impact</div>
-                            <div className="stat__value" style={{ fontSize: 44, color: 'var(--nu-red-700)' }}>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 8 }}>Projected impact</div>
+                            <div className="stat__value" style={{ fontSize: webPx(SCALE.subhead), color: 'var(--nu-red-700)' }}>
                                 {data.impactMetric.value}
                             </div>
-                            <div style={{ fontSize: 11, color: 'var(--fg-default)', marginTop: 10, lineHeight: 1.4 }}>{truncate(data.impactMetric.label, 90)}</div>
+                            <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', marginTop: 10, lineHeight: 1.4 }}>{truncate(data.impactMetric.label, 90)}</div>
                         </div>
                     ) : null}
                 </div>
             </div>
             {footerText && footerLabel && (
                 <div style={{ padding: '8px 28px 0', borderTop: '1px solid var(--border-subtle)', display: 'grid', gridTemplateColumns: '110px 1fr', gap: 12 }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-600)' }}>{footerLabel}</div>
-                    <div style={{ fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 600 }}>{truncate(footerText, 220)}</div>
+                    <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-600)' }}>{footerLabel}</div>
+                    <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 600 }}>{truncate(footerText, 220)}</div>
                 </div>
             )}
             <SourceFooter sources={sources} brand={brand} />
@@ -652,14 +672,14 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
                             overflow: 'hidden',
                         }}
                     >
-                        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 28, color: i === 0 ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: i === 0 ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                             {String(i + 1).padStart(2, '0')}
                         </div>
-                        <h3 className="art-finding art-finding--sm" style={{ fontSize: 12 }}>{truncate(t.name, 60)}</h3>
-                        <p style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 200)}</p>
+                        <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.lead) }}>{truncate(t.name, 60)}</h3>
+                        <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 200)}</p>
                         <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={130} />
                         {(!t.quotes || t.quotes.length === 0) && (
-                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--fg-subtle)', marginTop: 'auto', paddingTop: 6, letterSpacing: '.04em' }}>{truncate(t.source, 50)}</div>
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), color: 'var(--fg-subtle)', marginTop: 'auto', paddingTop: 6, letterSpacing: '.04em' }}>{truncate(t.source, 50)}</div>
                         )}
                     </div>
                 ))}
@@ -693,43 +713,43 @@ export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterDa
             <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: hasSupporting ? '3fr 2fr' : '1fr', gap: 24, minHeight: 0, overflow: 'hidden' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0, borderRight: hasSupporting ? '1px solid var(--border-subtle)' : 'none', paddingRight: hasSupporting ? 16 : 0 }}>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
-                        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 52, color: 'var(--nu-red-600)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>01</div>
-                        <h2 className="art-finding" style={{ fontSize: hasSupporting ? 16 : 22, lineHeight: 1.18, flex: 1, minWidth: 0 }}>
+                        <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: 'var(--nu-red-600)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>01</div>
+                        <h2 className="art-finding" style={{ fontSize: hasSupporting ? webPx(SCALE.name) : webPx(SCALE.subhead), lineHeight: 1.18, flex: 1, minWidth: 0 }}>
                             {truncate(hero.name, hasSupporting ? 90 : 140)}
                         </h2>
                     </div>
-                    <p style={{ fontSize: hasSupporting ? 11 : 13, color: 'var(--fg-default)', lineHeight: 1.55, margin: 0 }}>{truncate(hero.insight, hasSupporting ? 420 : 600)}</p>
+                    <p style={{ fontSize: hasSupporting ? webPx(SCALE.body) : webPx(SCALE.lead), color: 'var(--fg-default)', lineHeight: 1.55, margin: 0 }}>{truncate(hero.insight, hasSupporting ? 420 : 600)}</p>
                     <QuoteStack quotes={resolveThemeQuotes(hero)} size="hero" brand={brand} maxChars={hasSupporting ? 280 : 400} />
                     {data.patternSignal && (
                         <div className="art-card" style={{ padding: '9px 12px', borderLeft: '3px solid var(--ink-700)', background: 'var(--bg-subtle)' }}>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 3, display: 'flex', alignItems: 'center' }}>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 3, display: 'flex', alignItems: 'center' }}>
                                 <span className="signal signal--blue" style={{ marginRight: 6 }}></span>
                                 Pattern signal
                             </div>
-                            <div style={{ fontSize: 10.5, color: 'var(--fg-strong)', lineHeight: 1.5 }}>{truncate(data.patternSignal, 260)}</div>
+                            <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5 }}>{truncate(data.patternSignal, 260)}</div>
                         </div>
                     )}
                     {hero.implication && (
                         <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 8, marginTop: 'auto', display: 'grid', gridTemplateColumns: '110px 1fr', gap: 12 }}>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-600)' }}>Implication</div>
-                            <div style={{ fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 600 }}>{truncate(hero.implication, 220)}</div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-600)' }}>Implication</div>
+                            <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 600 }}>{truncate(hero.implication, 220)}</div>
                         </div>
                     )}
                 </div>
                 {hasSupporting && (
                     <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 8 }}>Supporting signals</div>
+                        <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 8 }}>Supporting signals</div>
                         {supporting.map((t, i) => (
                             <div key={i} style={{ display: 'grid', gridTemplateColumns: '32px 1fr', gap: 10, padding: '10px 0', borderBottom: i < supporting.length - 1 ? '1px solid var(--border-subtle)' : 'none' }}>
-                                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 22, color: 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                                     {String(i + 2).padStart(2, '0')}
                                 </span>
                                 <div style={{ minWidth: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                                    <div style={{ fontWeight: 700, fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.22 }}>{truncate(t.name, 80)}</div>
-                                    <div style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.45 }}>{truncate(t.insight, 220)}</div>
+                                    <div style={{ fontWeight: 700, fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.22 }}>{truncate(t.name, 80)}</div>
+                                    <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45 }}>{truncate(t.insight, 220)}</div>
                                     <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={160} />
                                     {t.signal && (
-                                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '.08em', color: 'var(--nu-red-700)', fontWeight: 700, textTransform: 'uppercase', marginTop: 2 }}>
+                                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), letterSpacing: '.08em', color: 'var(--nu-red-700)', fontWeight: 700, textTransform: 'uppercase', marginTop: 2 }}>
                                             Signal · {truncate(t.signal, 60)}
                                         </div>
                                     )}
@@ -765,7 +785,7 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
                 {themes.map((t, i) => (
                     <React.Fragment key={`n-${i}`}>
                         <div style={{ flex: 1, minWidth: 0, textAlign: 'center' }}>
-                            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 36, color: i === 0 ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                            <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: i === 0 ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                                 {String(i + 1).padStart(2, '0')}
                             </div>
                         </div>
@@ -781,11 +801,11 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
             <div style={{ flex: 1, padding: '6px 28px 0', display: 'grid', gridTemplateColumns: `repeat(${themes.length}, 1fr)`, gap: 0, minHeight: 0, overflow: 'hidden' }}>
                 {themes.map((t, i) => (
                     <div key={`c-${i}`} style={{ padding: '6px 10px', display: 'flex', flexDirection: 'column', gap: 5, borderLeft: i > 0 ? '1px solid var(--border-subtle)' : 'none', minWidth: 0 }}>
-                        <h3 className="art-finding art-finding--sm" style={{ fontSize: 11.5 }}>{truncate(t.name, 70)}</h3>
-                        <p style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 280)}</p>
+                        <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.body) }}>{truncate(t.name, 70)}</h3>
+                        <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 280)}</p>
                         <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={140} />
                         {t.signal && (
-                            <div style={{ marginTop: 'auto', borderTop: '1px solid var(--border-subtle)', paddingTop: 5, fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '.08em', color: 'var(--fg-muted)', fontWeight: 600, textTransform: 'uppercase', lineHeight: 1.4 }}>
+                            <div style={{ marginTop: 'auto', borderTop: '1px solid var(--border-subtle)', paddingTop: 5, fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), letterSpacing: '.08em', color: 'var(--fg-muted)', fontWeight: 600, textTransform: 'uppercase', lineHeight: 1.4 }}>
                                 Signal · <span style={{ color: 'var(--fg-strong)', textTransform: 'none', fontWeight: 700 }}>{truncate(t.signal, 56)}</span>
                             </div>
                         )}
@@ -795,8 +815,8 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
             {data.patternSignal && (
                 <div style={{ margin: '8px 28px 0', display: 'flex', alignItems: 'center', gap: 12 }}>
                     <span className="signal signal--red"></span>
-                    <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--nu-red-700)' }}>Pattern</span>
-                    <span style={{ fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 500 }}>{truncate(data.patternSignal, 240)}</span>
+                    <span style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--nu-red-700)' }}>Pattern</span>
+                    <span style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 500 }}>{truncate(data.patternSignal, 240)}</span>
                 </div>
             )}
             <SourceFooter sources={sources} brand={brand} />
@@ -839,15 +859,15 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
                             borderTop: isPrimary ? '3px solid var(--nu-red-600)' : '3px solid transparent',
                         }}>
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-                                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 28, color: isPrimary ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
+                                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: isPrimary ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                                     {String(i + 1).padStart(2, '0')}
                                 </span>
-                                <h3 className="art-finding art-finding--sm" style={{ fontSize: 12, flex: 1 }}>{truncate(t.name, 80)}</h3>
+                                <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.lead), flex: 1 }}>{truncate(t.name, 80)}</h3>
                             </div>
-                            <p style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 240)}</p>
+                            <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>{truncate(t.insight, 240)}</p>
                             <QuoteStack quotes={resolveThemeQuotes(t)} size="compact" brand={brand} maxChars={140} />
                             {t.signal && (
-                                <div style={{ marginTop: 'auto', paddingTop: 5, fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '.08em', color: 'var(--fg-muted)', fontWeight: 600, textTransform: 'uppercase' }}>
+                                <div style={{ marginTop: 'auto', paddingTop: 5, fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), letterSpacing: '.08em', color: 'var(--fg-muted)', fontWeight: 600, textTransform: 'uppercase' }}>
                                     Signal · <span style={{ color: 'var(--fg-strong)', textTransform: 'none', fontWeight: 700 }}>{truncate(t.signal, 52)}</span>
                                 </div>
                             )}
@@ -858,8 +878,8 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
             {data.patternSignal && (
                 <div style={{ margin: '8px 24px 0', display: 'flex', alignItems: 'center', gap: 12 }}>
                     <span className="signal signal--red"></span>
-                    <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--nu-red-700)' }}>Pattern</span>
-                    <span style={{ fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 500 }}>{truncate(data.patternSignal, 240)}</span>
+                    <span style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--nu-red-700)' }}>Pattern</span>
+                    <span style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 500 }}>{truncate(data.patternSignal, 240)}</span>
                 </div>
             )}
             <SourceFooter sources={sources} brand={brand} />
@@ -899,7 +919,7 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
                                 <th key={i} className="num" style={{ textAlign: 'center' }}>
                                     <div style={{ lineHeight: 1.2 }}>{truncate(c, 32)}</div>
                                     {data.columnDefs?.[i] && (
-                                        <div style={{ fontSize: 8, fontWeight: 400, marginTop: 3, color: 'var(--fg-muted)', letterSpacing: 0, textTransform: 'none', lineHeight: 1.3 }}>
+                                        <div style={{ fontSize: webPx(SCALE.label), fontWeight: 400, marginTop: 3, color: 'var(--fg-muted)', letterSpacing: 0, textTransform: 'none', lineHeight: 1.3 }}>
                                             {truncate(data.columnDefs[i], 50)}
                                         </div>
                                     )}
@@ -919,8 +939,8 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
                                     }}
                                 >
                                     <td className="lead">
-                                        <div style={{ fontWeight: isSubject ? 700 : 600, fontSize: 11, lineHeight: 1.2 }}>{truncate(row.name, 48)}</div>
-                                        {row.note && <div style={{ fontSize: 9, fontWeight: 400, color: 'var(--fg-muted)', marginTop: 3, lineHeight: 1.35, fontStyle: 'italic' }}>{truncate(row.note, 90)}</div>}
+                                        <div style={{ fontWeight: isSubject ? 700 : 600, fontSize: webPx(SCALE.body), lineHeight: 1.2 }}>{truncate(row.name, 48)}</div>
+                                        {row.note && <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 400, color: 'var(--fg-muted)', marginTop: 3, lineHeight: 1.35, fontStyle: 'italic' }}>{truncate(row.note, 90)}</div>}
                                     </td>
                                     {row.scores.map((s, si) => (
                                         <td key={si} style={{ textAlign: 'center', verticalAlign: 'middle' }}>
@@ -929,7 +949,7 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
                                                     <span key={di} style={{ width: 8, height: 8, background: di < s ? (isSubject ? 'var(--nu-red-600)' : 'var(--ink-800)') : 'var(--border-default)' }}></span>
                                                 ))}
                                             </div>
-                                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, fontWeight: 600, color: s === bestPerCol[si] ? 'var(--success-fg)' : s < bestPerCol[si] - 1 ? 'var(--nu-red-700)' : 'var(--fg-muted)' }}>
+                                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), fontWeight: 600, color: s === bestPerCol[si] ? 'var(--success-fg)' : s < bestPerCol[si] - 1 ? 'var(--nu-red-700)' : 'var(--fg-muted)' }}>
                                                 {s}/{max}{s < bestPerCol[si] ? ` · −${bestPerCol[si] - s}` : ''}
                                             </div>
                                         </td>
@@ -940,14 +960,14 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
                     </tbody>
                 </table>
                 {data.scaleLabels && data.scaleLabels.length === max && (
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: 8.5, color: 'var(--fg-muted)', letterSpacing: '.04em', paddingLeft: '22%', paddingTop: 6 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), color: 'var(--fg-muted)', letterSpacing: '.04em', paddingLeft: '22%', paddingTop: 6 }}>
                         {data.scaleLabels.map((l, i) => (
                             <span key={i} style={{ flex: 1, textAlign: 'center' }}>L{i + 1} · {truncate(l, 16)}</span>
                         ))}
                     </div>
                 )}
                 {data.insight && (
-                    <div className="art-card" style={{ marginTop: 8, padding: '8px 14px', borderLeft: '3px solid var(--nu-red-600)', fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5 }}>
+                    <div className="art-card" style={{ marginTop: 8, padding: '8px 14px', borderLeft: '3px solid var(--nu-red-600)', fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5 }}>
                         {truncate(data.insight, 280)}
                     </div>
                 )}
@@ -999,30 +1019,30 @@ export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[
                         “{smartQuoteClip(quoteText, hasSidebar ? 460 : 520)}”
                     </blockquote>
                     {data.contextParagraph && (
-                        <p style={{ fontSize: 11, color: 'var(--fg-default)', lineHeight: 1.55, margin: 0, paddingLeft: 18, borderLeft: '1px solid var(--border-subtle)' }}>
+                        <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.55, margin: 0, paddingLeft: 18, borderLeft: '1px solid var(--border-subtle)' }}>
                             {truncate(data.contextParagraph, 480)}
                         </p>
                     )}
                     <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 'auto' }}>
                         <div style={{ width: 40, height: 1, background: 'var(--nu-red-600)' }} />
                         <div>
-                            <div style={{ fontWeight: 700, fontSize: 12, color: 'var(--fg-strong)' }}>{data.attribution}</div>
-                            {data.role && <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--fg-muted)', marginTop: 2, letterSpacing: '.04em' }}>{data.role}</div>}
+                            <div style={{ fontWeight: 700, fontSize: webPx(SCALE.lead), color: 'var(--fg-strong)' }}>{data.attribution}</div>
+                            {data.role && <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.body), color: 'var(--fg-muted)', marginTop: 2, letterSpacing: '.04em' }}>{data.role}</div>}
                         </div>
                         <span className="pill pill--brand" style={{ marginLeft: 6 }}>verbatim</span>
                     </div>
                 </div>
                 {hasSidebar && (
                     <aside className="art-card" style={{ padding: '14px 16px', borderTop: '3px solid var(--nu-red-600)', display: 'flex', flexDirection: 'column', gap: 12, minWidth: 0, overflow: 'hidden' }}>
-                        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--fg-muted)' }}>Corroborating data</div>
+                        <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--fg-muted)' }}>Corroborating data</div>
                         {(data.corroboratingData || []).slice(0, Math.min(densityCaps('block-quote', density).sub, 5)).map((d, i) => (
                             <div key={i} style={{ borderTop: i > 0 ? '1px solid var(--border-subtle)' : 'none', paddingTop: i > 0 ? 10 : 0 }}>
-                                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: 28, color: 'var(--nu-red-700)', lineHeight: 1, letterSpacing: '-0.02em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: 'var(--nu-red-700)', lineHeight: 1, letterSpacing: '-0.02em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                     {d.value}
                                 </div>
-                                <div style={{ fontSize: 10.5, color: 'var(--fg-strong)', marginTop: 4, lineHeight: 1.4 }}>{truncate(d.label, 100)}</div>
+                                <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', marginTop: 4, lineHeight: 1.4 }}>{truncate(d.label, 100)}</div>
                                 {d.source && (
-                                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, letterSpacing: '.08em', color: 'var(--fg-subtle)', marginTop: 3, textTransform: 'uppercase' }}>{truncate(d.source, 40)}</div>
+                                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), letterSpacing: '.08em', color: 'var(--fg-subtle)', marginTop: 3, textTransform: 'uppercase' }}>{truncate(d.source, 40)}</div>
                                 )}
                             </div>
                         ))}
@@ -1031,8 +1051,8 @@ export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[
             </div>
             {data.implication && (
                 <div style={{ padding: '8px 30px 0', borderTop: '1px solid var(--border-subtle)', display: 'grid', gridTemplateColumns: '110px 1fr', gap: 12 }}>
-                    <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-600)' }}>Implication</div>
-                    <div style={{ fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 600 }}>{truncate(data.implication, 260)}</div>
+                    <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-600)' }}>Implication</div>
+                    <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5, fontWeight: 600 }}>{truncate(data.implication, 260)}</div>
                 </div>
             )}
             <SourceFooter sources={[data.source, ...sources.filter(s => s !== data.source)]} brand={brand} />
@@ -1053,7 +1073,7 @@ export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[
 export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const _cc = densityCaps('case-study', density);
     const T = resolveT(brand);
-    const isNu = T.FONT_TITLE === 'Lora';
+    const isNu = T.BRAND_ID === 'nu';
     const mono = `'${T.FONT_MONO}', monospace`;
     const body = `'${T.FONT_BODY}', sans-serif`;
     const titleFont = `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`;
@@ -1077,10 +1097,10 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
     const takeaway = data.takeaway || (isFourBlock ? data.implication : (data.lesson || data.implication));
 
     const monoLabel = (text: string, color: string): React.ReactNode => (
-        <div style={{ fontFamily: mono, fontWeight: 600, fontSize: 6.5, letterSpacing: '1px', color, textTransform: 'uppercase' }}>{text}</div>
+        <div style={{ fontFamily: mono, fontWeight: 600, fontSize: webPx(SCALE.label), letterSpacing: '1px', color, textTransform: 'uppercase' }}>{text}</div>
     );
     const sourceLine = (text: string): React.ReactNode => (
-        <div style={{ fontFamily: mono, fontWeight: 500, fontSize: 6, letterSpacing: '0.5px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase' }}>SOURCE: {truncate(text, 60)}</div>
+        <div style={{ fontFamily: mono, fontWeight: 500, fontSize: webPx(SCALE.label), letterSpacing: '0.5px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase' }}>SOURCE: {truncate(text, 60)}</div>
     );
 
     let bodyContent: React.ReactNode = null;
@@ -1094,12 +1114,12 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
             return (
                 <div style={{ flex: 1, minWidth: 0, background: wash, padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: 8 }}>
                     {monoLabel(side.label || (tone === 'warn' ? 'BEFORE' : 'AFTER'), accent)}
-                    <div style={{ fontFamily: titleFont, fontWeight: titleWeight, fontSize: 12.5, color: hex(T.INK), lineHeight: 1.15 }}>{truncate(side.headline, 60)}</div>
+                    <div style={{ fontFamily: titleFont, fontWeight: titleWeight, fontSize: webPx(SCALE.lead), color: hex(T.INK), lineHeight: 1.15 }}>{truncate(side.headline, 60)}</div>
                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 0, paddingBottom: 2, gap: 5 }}>
                         {(side.points || []).slice(0, _cc.items).map((p, i) => (
                             <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
                                 <span style={{ width: 4, height: 4, background: accent, flexShrink: 0, marginTop: 3 }} />
-                                <span style={{ fontFamily: body, fontSize: 8.25, lineHeight: 1.4, color: hex(T.INK) }}>{truncate(p, 140)}</span>
+                                <span style={{ fontFamily: body, fontSize: webPx(SCALE.label), lineHeight: 1.4, color: hex(T.INK) }}>{truncate(p, 140)}</span>
                             </div>
                         ))}
                     </div>
@@ -1110,7 +1130,7 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 8 }}>
                 <div style={{ display: 'flex', gap: 13, flex: 1, minHeight: 0 }}>
                     {panel(ba.before, 'warn')}
-                    <div style={{ alignSelf: 'center', fontFamily: body, fontSize: 22, color: hex(T.GREY), width: 22, textAlign: 'center', flexShrink: 0 }}>→</div>
+                    <div style={{ alignSelf: 'center', fontFamily: body, fontSize: webPx(SCALE.subhead), color: hex(T.GREY), width: 22, textAlign: 'center', flexShrink: 0 }}>→</div>
                     {panel(ba.after, 'cool')}
                 </div>
                 {(ba.result || quote) && (
@@ -1118,14 +1138,14 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                         {ba.result && (
                             <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5 }}>
                                 {monoLabel('RESULT', hex(T.GREY))}
-                                <div style={{ fontFamily: body, fontSize: 9, lineHeight: 1.42, color: hex(T.INK) }}>{truncate(ba.result, 220)}</div>
+                                <div style={{ fontFamily: body, fontSize: webPx(SCALE.caption), lineHeight: 1.42, color: hex(T.INK) }}>{truncate(ba.result, 220)}</div>
                             </div>
                         )}
                         {quote && (
                             <div style={{ flex: 1, minWidth: 0, display: 'flex', gap: 7 }}>
                                 <div style={{ width: 2, background: hex(T.ACCENT_COOL), flexShrink: 0 }} />
                                 <div style={{ display: 'flex', flexDirection: 'column', gap: 4, minWidth: 0 }}>
-                                    <div style={{ fontFamily: body, fontSize: 8.25, lineHeight: 1.42, color: hex(T.INK) }}>“{smartQuoteClip(quote.text, 140)}”</div>
+                                    <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK) }}>“{smartQuoteClip(quote.text, 140)}”</div>
                                     {data.pullQuote?.attribution && sourceLine(data.pullQuote.attribution)}
                                 </div>
                             </div>
@@ -1150,8 +1170,8 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                             </div>
                             {e.shows && (
                                 <div style={{ width: 220, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
-                                    <div style={{ fontFamily: mono, fontWeight: 600, fontSize: 5.75, letterSpacing: '1px', color: hex(T.GREY), textTransform: 'uppercase' }}>WHAT IT SHOWS</div>
-                                    <div style={{ fontFamily: body, fontSize: 8.25, lineHeight: 1.42, color: hex(T.INK) }}>{truncate(e.shows, 160)}</div>
+                                    <div style={{ fontFamily: mono, fontWeight: 600, fontSize: webPx(SCALE.label), letterSpacing: '1px', color: hex(T.GREY), textTransform: 'uppercase' }}>WHAT IT SHOWS</div>
+                                    <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK) }}>{truncate(e.shows, 160)}</div>
                                 </div>
                             )}
                         </div>
@@ -1176,8 +1196,8 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                         { label: 'Lesson', text: data.lesson, accent: hex(T.GOLD_ACCENT), wash: hex(T.PALE) },
                     ].filter(b => b.text).map((b, i) => (
                         <div key={i} style={{ flex: 1, display: 'grid', gridTemplateColumns: '76px 1fr', gap: 10, padding: '8px 12px', background: b.wash, borderLeft: `3px solid ${b.accent}`, minWidth: 0 }}>
-                            <div style={{ fontFamily: mono, fontSize: 6.5, fontWeight: 600, letterSpacing: '1px', color: b.accent, textTransform: 'uppercase' }}>{b.label}</div>
-                            <div style={{ fontFamily: body, fontSize: 9.5, color: hex(T.INK), lineHeight: 1.45 }}>{truncate(b.text, 460)}</div>
+                            <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), fontWeight: 600, letterSpacing: '1px', color: b.accent, textTransform: 'uppercase' }}>{b.label}</div>
+                            <div style={{ fontFamily: body, fontSize: webPx(SCALE.caption), color: hex(T.INK), lineHeight: 1.45 }}>{truncate(b.text, 460)}</div>
                         </div>
                     ))}
                 </div>
@@ -1185,11 +1205,11 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                     <aside style={{ background: hex(T.TEAL), padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 9, minWidth: 0, overflow: 'hidden' }}>
                         {data.keyMetric && (
                             <div>
-                                <div style={{ fontFamily: mono, fontSize: 6.5, fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase', color: hex(T.CHARTREUSE), marginBottom: 4 }}>Key outcome</div>
+                                <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase', color: hex(T.CHARTREUSE), marginBottom: 4 }}>Key outcome</div>
                                 <div style={{ fontFamily: titleFont, fontWeight: titleWeight, fontSize: heroNumberSize(data.keyMetric.value, { max: 30, min: 14, baseChars: 4 }), color: hex(T.WHITE), lineHeight: 1.05, overflow: 'hidden' }}>
                                     {data.keyMetric.value}
                                 </div>
-                                <div style={{ fontFamily: body, fontSize: 8.5, color: 'rgba(255,255,255,0.82)', marginTop: 4, lineHeight: 1.4 }}>{truncate(data.keyMetric.label, 90)}</div>
+                                <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), color: 'rgba(255,255,255,0.82)', marginTop: 4, lineHeight: 1.4 }}>{truncate(data.keyMetric.label, 90)}</div>
                             </div>
                         )}
                         {data.supportingMetrics && data.supportingMetrics.length > 0 && (
@@ -1197,18 +1217,18 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                                 {data.supportingMetrics.slice(0, 4).map((m, i) => (
                                     <div key={i} style={{ minWidth: 0 }}>
                                         <div style={{ fontFamily: titleFont, fontWeight: titleWeight, fontSize: heroNumberSize(m.value, { max: 15, min: 10, baseChars: 4 }), color: hex(T.CHARTREUSE), lineHeight: 1.05, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{m.value}</div>
-                                        <div style={{ fontFamily: body, fontSize: 7.5, color: 'rgba(255,255,255,0.72)', marginTop: 2, lineHeight: 1.35 }}>{truncate(m.label, 60)}</div>
+                                        <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), color: 'rgba(255,255,255,0.72)', marginTop: 2, lineHeight: 1.35 }}>{truncate(m.label, 60)}</div>
                                     </div>
                                 ))}
                             </div>
                         )}
                         {data.comparables && data.comparables.length > 0 && (
                             <div style={{ borderTop: '1px solid rgba(255,255,255,0.18)', paddingTop: 8, minWidth: 0, overflow: 'hidden' }}>
-                                <div style={{ fontFamily: mono, fontSize: 6.5, fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase', color: hex(T.CHARTREUSE), marginBottom: 4 }}>Comparables</div>
+                                <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase', color: hex(T.CHARTREUSE), marginBottom: 4 }}>Comparables</div>
                                 {data.comparables.slice(0, 2).map((c, i) => (
                                     <div key={i} style={{ marginBottom: 4, minWidth: 0 }}>
-                                        <div style={{ fontFamily: body, fontSize: 8.5, color: hex(T.WHITE), fontWeight: 600, lineHeight: 1.3, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{truncate(c.name, 36)}</div>
-                                        <div style={{ fontFamily: body, fontSize: 7.5, color: 'rgba(255,255,255,0.72)', lineHeight: 1.4, marginTop: 1 }}>{truncate(c.outcome, 64)}</div>
+                                        <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), color: hex(T.WHITE), fontWeight: 600, lineHeight: 1.3, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{truncate(c.name, 36)}</div>
+                                        <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), color: 'rgba(255,255,255,0.72)', lineHeight: 1.4, marginTop: 1 }}>{truncate(c.outcome, 64)}</div>
                                     </div>
                                 ))}
                             </div>
@@ -1217,10 +1237,10 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                             // Fixed gap, not marginTop:'auto' - the auto-spaced quote
                             // collided with comparables in export re-measure (2026-05-25).
                             <div style={{ marginTop: 8, borderTop: '1px solid rgba(255,255,255,0.18)', paddingTop: 8, minWidth: 0 }}>
-                                <div style={{ fontFamily: body, fontSize: 8.25, color: 'rgba(255,255,255,0.92)', lineHeight: 1.45, borderLeft: `2px solid ${hex(T.CHARTREUSE)}`, paddingLeft: 8 }}>
+                                <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), color: 'rgba(255,255,255,0.92)', lineHeight: 1.45, borderLeft: `2px solid ${hex(T.CHARTREUSE)}`, paddingLeft: 8 }}>
                                     “{smartQuoteClip(data.pullQuote.text, 160)}”
                                 </div>
-                                <div style={{ fontFamily: mono, fontSize: 6, color: hex(T.CHARTREUSE), marginTop: 4, paddingLeft: 10, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+                                <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), color: hex(T.CHARTREUSE), marginTop: 4, paddingLeft: 10, letterSpacing: '0.5px', textTransform: 'uppercase' }}>
                                     SOURCE: {truncate(data.pullQuote.attribution, 50)}{data.pullQuote.role ? `, ${truncate(data.pullQuote.role, 40)}` : ''}
                                 </div>
                             </div>
@@ -1277,7 +1297,7 @@ export const PrinciplesSlide: React.FC<{ title: string; data: PrinciplesData; so
                             style={{
                                 fontFamily: 'var(--font-display)',
                                 fontWeight: 300,
-                                fontSize: 32,
+                                fontSize: webPx(SCALE.subhead),
                                 color: 'var(--nu-red-600)',
                                 lineHeight: 0.95,
                                 letterSpacing: '-0.02em',
@@ -1289,7 +1309,7 @@ export const PrinciplesSlide: React.FC<{ title: string; data: PrinciplesData; so
                             <h3 className="art-finding art-finding--sm" style={{ marginBottom: 4 }}>
                                 {truncate(p.name, 90)}
                             </h3>
-                            <p style={{ fontSize: 12, color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>
+                            <p style={{ fontSize: webPx(SCALE.lead), color: 'var(--fg-default)', lineHeight: 1.5, margin: 0 }}>
                                 {truncate(p.description, 220)}
                             </p>
                         </div>
@@ -1344,18 +1364,18 @@ export const StatRowSlide: React.FC<{ title: string; data: StatRowData; sources?
                                     {unit && <span className="u"> {unit}</span>}
                                 </div>
                                 {s.meaning && (
-                                    <div style={{ fontSize: 11, color: 'var(--fg-default)', lineHeight: 1.45, marginTop: 6 }}>
-                                        <span style={{ fontSize: 9, letterSpacing: '.12em', color: 'var(--fg-muted)', fontWeight: 600, marginRight: 6, textTransform: 'uppercase' }}>Means</span>
+                                    <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45, marginTop: 6 }}>
+                                        <span style={{ fontSize: webPx(SCALE.caption), letterSpacing: '.12em', color: 'var(--fg-muted)', fontWeight: 600, marginRight: 6, textTransform: 'uppercase' }}>Means</span>
                                         {truncate(s.meaning, 140)}
                                     </div>
                                 )}
                                 {s.matters && (
-                                    <div className="stat__delta" style={{ fontSize: 11, color: 'var(--fg-default)', lineHeight: 1.45, marginTop: 4 }}>
-                                        <span style={{ fontSize: 9, letterSpacing: '.12em', color: 'var(--nu-red-600)', fontWeight: 700, marginRight: 6, textTransform: 'uppercase' }}>Matters</span>
+                                    <div className="stat__delta" style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45, marginTop: 4 }}>
+                                        <span style={{ fontSize: webPx(SCALE.caption), letterSpacing: '.12em', color: 'var(--nu-red-600)', fontWeight: 700, marginRight: 6, textTransform: 'uppercase' }}>Matters</span>
                                         {truncate(s.matters, 140)}
                                     </div>
                                 )}
-                                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--fg-subtle)', marginTop: 'auto', letterSpacing: '.06em', textTransform: 'uppercase', paddingTop: 6 }}>
+                                <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), color: 'var(--fg-subtle)', marginTop: 'auto', letterSpacing: '.06em', textTransform: 'uppercase', paddingTop: 6 }}>
                                     {truncate(s.source, 60)}
                                 </div>
                             </div>
@@ -1367,15 +1387,15 @@ export const StatRowSlide: React.FC<{ title: string; data: StatRowData; sources?
             {data.convergentInsight && (
                 <div style={{ padding: '8px 24px 0' }}>
                     <div className="art-card" style={{ borderLeft: '3px solid var(--nu-red-600)', padding: '12px 18px' }}>
-                        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--nu-red-700)', marginBottom: 6 }}>
+                        <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--nu-red-700)', marginBottom: 6 }}>
                             Convergent insight
                         </div>
-                        <div style={{ fontSize: 12, color: 'var(--fg-strong)', lineHeight: 1.55 }}>
+                        <div style={{ fontSize: webPx(SCALE.lead), color: 'var(--fg-strong)', lineHeight: 1.55 }}>
                             {truncate(data.convergentInsight, 320)}
                         </div>
                         {data.patternSignal && (
-                            <div style={{ fontSize: 11, color: 'var(--fg-default)', lineHeight: 1.5, marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--border-subtle)' }}>
-                                <span style={{ fontSize: 9, letterSpacing: '.16em', color: 'var(--fg-muted)', fontWeight: 700, marginRight: 8, textTransform: 'uppercase' }}>Pattern</span>
+                            <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--border-subtle)' }}>
+                                <span style={{ fontSize: webPx(SCALE.caption), letterSpacing: '.16em', color: 'var(--fg-muted)', fontWeight: 700, marginRight: 8, textTransform: 'uppercase' }}>Pattern</span>
                                 {truncate(data.patternSignal, 240)}
                             </div>
                         )}
@@ -1419,13 +1439,13 @@ export const TimelineSlide: React.FC<{ title: string; data: TimelineData; source
                 <div style={{ flex: 1, marginTop: 8, display: 'grid', gridTemplateColumns: `repeat(${phases.length}, 1fr)`, gap: 12, minHeight: 0 }}>
                     {phases.map((ph, i) => (
                         <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 6, padding: '0 4px', minWidth: 0 }}>
-                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, fontWeight: 600, letterSpacing: '.14em', color: 'var(--fg-muted)', textTransform: 'uppercase' }}>
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), fontWeight: 600, letterSpacing: '.14em', color: 'var(--fg-muted)', textTransform: 'uppercase' }}>
                                 Phase {String(i + 1).padStart(2, '0')}{ph.duration ? ` · ${ph.duration}` : ''}
                             </div>
-                            <h3 className="art-finding art-finding--sm" style={{ fontSize: 13 }}>{ph.name}</h3>
+                            <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.lead) }}>{ph.name}</h3>
                             <ul style={{ listStyle: 'none', padding: 0, margin: '4px 0 0', display: 'flex', flexDirection: 'column', gap: 4 }}>
                                 {ph.items.slice(0, Math.min(_tc.sub, 6)).map((item, ii) => (
-                                    <li key={ii} style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.45, paddingLeft: 12, position: 'relative' }}>
+                                    <li key={ii} style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45, paddingLeft: 12, position: 'relative' }}>
                                         <span className="signal signal--neutral" style={{ position: 'absolute', left: 0, top: 6 }}></span>
                                         {item}
                                     </li>
@@ -1455,25 +1475,35 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
             </div>
         );
     }
+    // 2026-06-14 - BRAND-AWARE. This renderer used to hardcode NU: data-brand
+    // defaulted to 'nu', the rule/kicker used var(--nu-red-*), and the footer
+    // literally said "Northeastern · Advancement" - so a #NXT deck showed NU
+    // section-dividers while every sibling template (which consumes the brand
+    // prop) rendered NXT. The mixed-brand deck the user flagged. Now it resolves
+    // tokens from the brand prop exactly like GoldFrame: rule + kicker use the
+    // brand accent (hex(T.KICKER)), fonts come from the brand, and the seal text
+    // switches on isNu.
+    const T = resolveT(brand);
+    const isNu = T.BRAND_ID === 'nu';
     return (
         <div
             className="nu-artifact-stage"
-            data-brand={brand || 'nu'}
+            data-brand={isNu ? 'nu' : 'nxt'}
             style={{
                 width: 960, height: 540, position: 'relative', overflow: 'hidden',
-                background: 'var(--ink-900)',
+                background: hex(T.INK),
                 padding: '48px 64px',
                 display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
             }}
         >
-            {/* Ghost number - large faded Spectral display behind the foreground */}
+            {/* Ghost number - large faded display numeral behind the foreground */}
             <div
                 aria-hidden="true"
                 style={{
                     position: 'absolute',
                     top: 40,
                     right: 64,
-                    fontFamily: 'var(--font-display)',
+                    fontFamily: `'${T.FONT_DISPLAY}', sans-serif`,
                     fontWeight: 200,
                     fontSize: heroNumberSize(data.number, { max: 280, min: 140, baseChars: 2 }),
                     color: 'rgba(255,255,255,0.04)',
@@ -1485,20 +1515,20 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
             >
                 {data.number}
             </div>
-            {/* Top - SECTION kicker + brand red rule */}
+            {/* Top - SECTION kicker + brand accent rule */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, position: 'relative' }}>
-                <div style={{ width: 36, height: 2, background: 'var(--nu-red-600)' }} />
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 600, letterSpacing: '.22em', textTransform: 'uppercase', color: 'var(--nu-red-100)' }}>
+                <div style={{ width: 36, height: 2, background: hex(T.KICKER) }} />
+                <span style={{ fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: webPx(SCALE.body), fontWeight: 600, letterSpacing: '.22em', textTransform: 'uppercase', color: hex(T.KICKER) }}>
                     Section · {data.number}
                 </span>
             </div>
-            {/* Bottom - title + subtitle in Spectral display */}
+            {/* Bottom - title + subtitle in the brand display face */}
             <div style={{ maxWidth: '92%', position: 'relative' }}>
                 <h1 style={{
-                    fontFamily: 'var(--font-display)',
-                    fontWeight: 300,
+                    fontFamily: `'${T.FONT_DISPLAY}', sans-serif`,
+                    fontWeight: Number(T.TITLE_WEIGHT) || 600,
                     fontSize: data.title.length > 40 ? 48 : data.title.length > 28 ? 56 : 64,
-                    color: 'var(--white)',
+                    color: hex(T.WHITE),
                     lineHeight: 1.05,
                     letterSpacing: '-0.02em',
                     margin: 0,
@@ -1506,14 +1536,14 @@ export const SectionDividerFullBleed: React.FC<{ data: SectionDividerData; brand
                     {data.title}
                 </h1>
                 {data.subtitle && (
-                    <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.7)', marginTop: 16, fontWeight: 300, lineHeight: 1.45, maxWidth: '70ch' }}>
+                    <p style={{ fontSize: webPx(SCALE.name), color: 'rgba(255,255,255,0.7)', marginTop: 16, fontWeight: 300, lineHeight: 1.45, maxWidth: '70ch' }}>
                         {truncate(data.subtitle, 180)}
                     </p>
                 )}
             </div>
             {/* Brand seal bottom right */}
-            <div style={{ position: 'absolute', bottom: 32, right: 64, fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '.16em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
-                Northeastern · Advancement
+            <div style={{ position: 'absolute', bottom: 32, right: 64, fontFamily: `'${T.FONT_MONO}', monospace`, fontSize: webPx(SCALE.body), letterSpacing: '.16em', color: 'rgba(255,255,255,0.3)', textTransform: 'uppercase' }}>
+                {T.SEAL_LABEL}
             </div>
         </div>
     );
@@ -1534,7 +1564,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
     // hairline, takeaway band. Geometry identical across brands; skin rides
     // on tokens (GOLD standing rule).
     const T = resolveT(brand);
-    const isNu = T.FONT_TITLE === 'Lora';
+    const isNu = T.BRAND_ID === 'nu';
     const capItems = (() => { try { return densityCaps('service-blueprint', density).items; } catch { return 4; } })();
     const stages = data.stages.slice(0, Math.max(2, Math.min(capItems || 4, 5)));
     const dense = stages.length >= 5;
@@ -1645,7 +1675,7 @@ export const ServiceBlueprintSlide: React.FC<{ title: string; data: ServiceBluep
 // brand-invariant; the skin rides on tokens (GOLD standing rule).
 export const OrgChartSlide: React.FC<{ title: string; data: OrgChartData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const T = resolveT(brand);
-    const isNu = T.FONT_TITLE === 'Lora';
+    const isNu = T.BRAND_ID === 'nu';
     const mono = `'${T.FONT_MONO}', monospace`;
     const bodyF = `'${T.FONT_BODY}', sans-serif`;
     const titleF = `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`;
@@ -1663,7 +1693,7 @@ export const OrgChartSlide: React.FC<{ title: string; data: OrgChartData; source
                         <React.Fragment key={`tier-${ti}`}>
                             <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'stretch', gap: 8 }}>
                                 {/* tier-label gutter */}
-                                <div style={{ width: 72, flex: '0 0 72px', paddingTop: 6, fontFamily: mono, fontSize: 6, fontWeight: 600, letterSpacing: '1px', color: hex(T.GREY), textTransform: 'uppercase', lineHeight: 1.3 }}>
+                                <div style={{ width: 72, flex: '0 0 72px', paddingTop: 6, fontFamily: mono, fontSize: webPx(SCALE.label), fontWeight: 600, letterSpacing: '1px', color: hex(T.GREY), textTransform: 'uppercase', lineHeight: 1.3 }}>
                                     {truncate(tier.label, 22)}
                                 </div>
                                 {/* node cards */}
@@ -1675,15 +1705,15 @@ export const OrgChartSlide: React.FC<{ title: string; data: OrgChartData; source
                                             borderTop: n.emphasis ? `3px solid ${hex(T.CHARTREUSE)}` : `1px solid ${hex(T.HAIRLINE)}`,
                                             padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 3, overflow: 'hidden',
                                         }}>
-                                            <div style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: 10.5, lineHeight: 1.15, color: hex(T.INK) }}>
+                                            <div style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: webPx(SCALE.body), lineHeight: 1.15, color: hex(T.INK) }}>
                                                 {truncate(n.title, 42)}
                                             </div>
-                                            <div style={{ fontFamily: bodyF, fontSize: 7.4, lineHeight: 1.4, color: hex(T.INK), overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
+                                            <div style={{ fontFamily: bodyF, fontSize: webPx(SCALE.label), lineHeight: 1.4, color: hex(T.INK), overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
                                                 {truncate(n.role, 110)}
                                             </div>
                                             <div style={{ flex: 1, minHeight: 0 }} />
                                             {n.source && (
-                                                <div style={{ fontFamily: mono, fontSize: 6, fontWeight: 500, letterSpacing: '0.5px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                                <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), fontWeight: 500, letterSpacing: '0.5px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                                     {`SOURCE: ${truncate(n.source, 30)}`}
                                                 </div>
                                             )}
@@ -1711,7 +1741,7 @@ export const OrgChartSlide: React.FC<{ title: string; data: OrgChartData; source
 // key-findings. GoldFrame chrome; brand-token skinned; CSS grid (no SVG).
 export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBriefData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const T = resolveT(brand);
-    const isNu = T.FONT_TITLE === 'Lora';
+    const isNu = T.BRAND_ID === 'nu';
     const mono = `'${T.FONT_MONO}', monospace`;
     const bodyF = `'${T.FONT_BODY}', sans-serif`;
     const titleF = `'${T.FONT_TITLE}', ${isNu ? 'serif' : 'sans-serif'}`;
@@ -1730,8 +1760,8 @@ export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBrief
                 {/* hero finding callout (brief / report) */}
                 {data.hero?.stat && variant !== 'explainer' && (
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, background: hex(T.PANEL), borderLeft: `3px solid ${hex(T.CHARTREUSE)}`, padding: '8px 12px' }}>
-                        <span style={{ fontFamily: titleF, fontWeight: isNu ? 600 : 700, fontSize: 22, lineHeight: 1, color: hex(T.INK) }}>{truncate(data.hero.stat, 40)}</span>
-                        <span style={{ fontFamily: mono, fontSize: 7.5, letterSpacing: '1px', textTransform: 'uppercase', color: hex(T.GREY) }}>{truncate(data.hero.label, 70)}</span>
+                        <span style={{ fontFamily: titleF, fontWeight: isNu ? 600 : 700, fontSize: webPx(SCALE.subhead), lineHeight: 1, color: hex(T.INK) }}>{truncate(data.hero.stat, 40)}</span>
+                        <span style={{ fontFamily: mono, fontSize: webPx(SCALE.label), letterSpacing: '1px', textTransform: 'uppercase', color: hex(T.GREY) }}>{truncate(data.hero.label, 70)}</span>
                     </div>
                 )}
                 {/* section cards */}
@@ -1739,14 +1769,14 @@ export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBrief
                     {sections.map((s, i) => (
                         <div key={`sec-${i}`} style={{ background: hex(T.PANEL), border: `1px solid ${hex(T.HAIRLINE)}`, padding: '8px 11px', display: 'flex', flexDirection: 'column', gap: 4, overflow: 'hidden' }}>
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: 6 }}>
-                                {stepped && <span style={{ fontFamily: mono, fontWeight: 700, fontSize: 9, color: hex(T.CHARTREUSE) }}>{String(i + 1).padStart(2, '0')}</span>}
-                                <div style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: 11, lineHeight: 1.15, color: hex(T.INK) }}>{truncate(s.heading, 64)}</div>
+                                {stepped && <span style={{ fontFamily: mono, fontWeight: 700, fontSize: webPx(SCALE.caption), color: hex(T.CHARTREUSE) }}>{String(i + 1).padStart(2, '0')}</span>}
+                                <div style={{ fontFamily: titleF, fontWeight: isNu ? 500 : 600, fontSize: webPx(SCALE.body), lineHeight: 1.15, color: hex(T.INK) }}>{truncate(s.heading, 64)}</div>
                             </div>
-                            <div style={{ fontFamily: bodyF, fontSize: 8, lineHeight: 1.42, color: hex(T.INK), overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical' }}>{truncate(s.body, 220)}</div>
+                            <div style={{ fontFamily: bodyF, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK), overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 4, WebkitBoxOrient: 'vertical' }}>{truncate(s.body, 220)}</div>
                             {s.evidence?.quote && (
                                 <div style={{ marginTop: 'auto', borderLeft: `2px solid ${hex(T.ACCENT_COOL)}`, paddingLeft: 6 }}>
-                                    <div style={{ fontFamily: titleF, fontStyle: isNu ? 'italic' : 'normal', fontSize: 8, lineHeight: 1.35, color: hex(T.INK) }}>{`“${truncate(s.evidence.quote, 130)}”`}</div>
-                                    <div style={{ fontFamily: mono, fontSize: 6, letterSpacing: '0.4px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase', marginTop: 1 }}>{truncate(s.evidence.source, 40)}</div>
+                                    <div style={{ fontFamily: titleF, fontStyle: isNu ? 'italic' : 'normal', fontSize: webPx(SCALE.label), lineHeight: 1.35, color: hex(T.INK) }}>{`“${truncate(s.evidence.quote, 130)}”`}</div>
+                                    <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), letterSpacing: '0.4px', color: hex(T.ACCENT_COOL), textTransform: 'uppercase', marginTop: 1 }}>{truncate(s.evidence.source, 40)}</div>
                                 </div>
                             )}
                         </div>
@@ -1755,10 +1785,10 @@ export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBrief
                 {/* GOTCHAS strip (explainer only) */}
                 {gotchas.length > 0 && (
                     <div style={{ background: hex(T.WASH_WARN), borderLeft: `3px solid ${hex(T.ACCENT_WARN)}`, padding: '6px 11px' }}>
-                        <div style={{ fontFamily: mono, fontWeight: 700, fontSize: 7, letterSpacing: '1.5px', textTransform: 'uppercase', color: hex(T.ACCENT_WARN), marginBottom: 3 }}>Gotchas</div>
+                        <div style={{ fontFamily: mono, fontWeight: 700, fontSize: webPx(SCALE.label), letterSpacing: '1.5px', textTransform: 'uppercase', color: hex(T.ACCENT_WARN), marginBottom: 3 }}>Gotchas</div>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                             {gotchas.map((g, i) => (
-                                <div key={`g-${i}`} style={{ fontFamily: bodyF, fontSize: 7.6, lineHeight: 1.35, color: hex(T.INK) }}>{`• ${truncate(g, 110)}`}</div>
+                                <div key={`g-${i}`} style={{ fontFamily: bodyF, fontSize: webPx(SCALE.label), lineHeight: 1.35, color: hex(T.INK) }}>{`• ${truncate(g, 110)}`}</div>
                             ))}
                         </div>
                     </div>
@@ -1776,7 +1806,7 @@ export const ExecutiveBriefSlide: React.FC<{ title: string; data: ExecutiveBrief
 // NOT the Bitner blueprint - #blueprint owns frontstage/backstage.
 export const JourneyMapSlide: React.FC<{ title: string; data: JourneyMapData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
     const T = resolveT(brand);
-    const isNu = T.FONT_TITLE === 'Lora';
+    const isNu = T.BRAND_ID === 'nu';
     const caps = densityCaps('journey-map', density);
     const stagesRaw = Array.isArray(data.stages) ? data.stages.slice(0, Math.max(3, caps.items)) : [];
     const stages = stagesRaw.map(s => typeof s === 'string' ? { name: s, critical: false } : s);
@@ -1803,28 +1833,49 @@ export const JourneyMapSlide: React.FC<{ title: string; data: JourneyMapData; so
     const n = stages.length;
     const spread = (count: number): number[] => count <= 0 ? [] : count === 1 ? [0]
         : Array.from({ length: count }, (_, i) => Math.min(n - 1, Math.round((i * (n - 1)) / (count - 1))));
+    // Source attributions belong in the slide-level sources[], NEVER inside a
+    // tight pain/opportunity cell (no-truncation-contract). Strip a trailing
+    // "(Vanguard Working Session)" / "(Source: X)" so the item reads as a
+    // complete thought; twin of slideToStageHtml.stripInlineSource.
+    const stripInlineSource = (s: string): string =>
+        String(s ?? '').trim().replace(/\s*\((?:source:\s*)?[^)]*\)\s*$/i, (m) => {
+            const inner = m.replace(/[()]/g, '');
+            return /source:|working session|\bet al\b|\b(?:19|20)\d{2}\b|reddit|openalex|arxiv|vanguard/i.test(inner) ? '' : m;
+        }).trim();
     const painsRaw: any[] = Array.isArray(data.painPoints) ? data.painPoints : [];
     const painCols: string[][] = stages.map((_, si) => {
         const v = painsRaw[si];
-        return Array.isArray(v) ? v.filter(Boolean).map(String) : (v ? [String(v)] : []);
+        return Array.isArray(v) ? v.filter(Boolean).map((x: any) => stripInlineSource(String(x))) : (v ? [stripInlineSource(String(v))] : []);
     });
-    const overall = (data.overallPainPoints || []).filter(Boolean).map(String);
+    const overall = (data.overallPainPoints || []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
     spread(overall.length).forEach((col, i) => painCols[col].push(overall[i]));
     const personas = (data.personas || []).filter(Boolean).map(String);
     const voiceCols: string[][] = stages.map(() => []);
     spread(personas.length).forEach((col, i) => voiceCols[col].push(personas[i]));
-    const opps = (data.opportunities || []).filter(Boolean).map(String);
+    const opps = (data.opportunities || []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
     const oppCols: string[][] = stages.map(() => []);
     spread(opps.length).forEach((col, i) => oppCols[col].push(opps[i]));
     const tiles = (data.kpiTiles || []).slice(0, 3);
     const tileByCol: (typeof tiles[number] | null)[] = stages.map(() => null);
     spread(tiles.length).forEach((col, i) => { tileByCol[col] = tiles[i]; });
+    // Per-phase illustration thumbnails (twin of renderJourneyMap). phaseImages[]
+    // aligns to stages[]; stage.image is an alternative carrier. Empty-state guard:
+    // no image on any phase -> no thumbnail row -> matrix identical to before.
+    const phaseImages: string[] = Array.isArray(data.phaseImages) ? data.phaseImages : [];
+    const imgFor = (si: number): string => {
+        const direct = phaseImages[si];
+        const raw = stagesRaw[si];
+        const onStage = raw && typeof raw === 'object' ? (raw as any).image : '';
+        return String(direct || onStage || '').trim();
+    };
+    const hasImages = stages.some((_, si) => !!imgFor(si));
     const hasVoice = personas.length > 0;
     const hasPains = painCols.some(c => c.length > 0);
     const hasOpps = opps.length > 0;
     const hasTiles = tiles.length > 0;
     const rowTemplate = [
         hasTiles ? 'minmax(30px,auto)' : 'minmax(16px,auto)',
+        ...(hasImages ? [dense ? 'minmax(30px,auto)' : 'minmax(38px,auto)'] : []),
         ...(hasVoice ? ['minmax(20px,auto)'] : []),
         ...lanes.map(() => 'minmax(24px,1fr)'),
         ...(hasPains ? ['minmax(22px,auto)'] : []),
@@ -1845,17 +1896,29 @@ export const JourneyMapSlide: React.FC<{ title: string; data: JourneyMapData; so
                         <div key={`h-${i}`} style={{ padding: '3px 8px', background: st.critical ? hex(T.ACCENT_WARN) : hex(T.INK), borderLeft: '1px solid rgba(255,255,255,0.14)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1, overflow: 'hidden' }}>
                             <div style={{ fontFamily: mono, fontWeight: 700, fontSize: labelFs, letterSpacing: '1px', color: '#FFFFFF', textTransform: 'uppercase', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>{truncate(st.name, 22)}</div>
                             {t && <>
-                                <div style={{ fontFamily: mono, fontWeight: 600, fontSize: 4.8, letterSpacing: '1px', color: hex(T.CHARTREUSE), textTransform: 'uppercase' }}>{truncate(t.label, 26)}</div>
-                                <div style={{ fontFamily: serif, fontWeight: Number(T.TITLE_WEIGHT) || 500, fontSize: 11, lineHeight: 1.05, color: '#FFFFFF' }}>{truncate(t.value, 22)}</div>
+                                <div style={{ fontFamily: mono, fontWeight: 600, fontSize: webPx(SCALE.label), letterSpacing: '1px', color: hex(T.CHARTREUSE), textTransform: 'uppercase' }}>{truncate(t.label, 26)}</div>
+                                <div style={{ fontFamily: serif, fontWeight: Number(T.TITLE_WEIGHT) || 500, fontSize: webPx(SCALE.body), lineHeight: 1.05, color: '#FFFFFF' }}>{truncate(t.value, 22)}</div>
                             </>}
                         </div>
                     );
                 })}
+                {/* Per-phase illustration thumbnails (illustrator-agent output) */}
+                {hasImages && ([
+                    <div key="il" style={{ borderTop: `1px solid ${hex(T.HAIRLINE)}`, background: hex(T.WHITE) }} />,
+                    ...stages.map((_, si) => {
+                        const src = imgFor(si);
+                        return (
+                            <div key={`il-${si}`} style={{ borderTop: `1px solid ${hex(T.HAIRLINE)}`, borderLeft: `1px solid ${hex(T.HAIRLINE)}`, background: hex(T.WHITE), display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 3, overflow: 'hidden' }}>
+                                {src ? <img src={src} alt="" loading="lazy" style={{ maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', objectFit: 'contain', display: 'block' }} /> : null}
+                            </div>
+                        );
+                    }),
+                ])}
                 {/* Persona voice row */}
                 {hasVoice && ([
                     <div key="vl" style={{ padding: '3px 8px', borderTop: `1px solid ${hex(T.HAIRLINE)}`, background: hex(T.WHITE), display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ fontFamily: `'${T.FONT_BODY}', sans-serif`, fontWeight: 700, fontSize: labelFs, color: hex(T.ACCENT_COOL), textTransform: 'uppercase', letterSpacing: '0.5px' }}>Personas</div>
-                        <div style={{ fontFamily: mono, fontSize: 4.8, color: hex(T.GREY) }}>JTBD voice</div>
+                        <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), color: hex(T.GREY) }}>JTBD voice</div>
                     </div>,
                     ...voiceCols.map((items, si) => (
                         <div key={`v-${si}`} style={{ padding: '3px 7px', borderTop: `1px solid ${hex(T.HAIRLINE)}`, borderLeft: `1px solid ${hex(T.HAIRLINE)}`, fontSize: cellFs - 0.6, lineHeight: 1.3, fontStyle: 'italic', color: hex(T.INK), background: hex(T.PANEL) + '99', overflow: 'hidden' }}>
@@ -1867,7 +1930,7 @@ export const JourneyMapSlide: React.FC<{ title: string; data: JourneyMapData; so
                 {lanes.map((lane, li) => ([
                     <div key={`ll-${li}`} style={{ padding: '4px 8px', borderTop: `1px solid ${hex(T.HAIRLINE)}`, background: hex(T.WHITE), display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 1 }}>
                         <div style={{ fontFamily: `'${T.FONT_BODY}', sans-serif`, fontWeight: 700, fontSize: labelFs + 0.6, color: hex(T.INK), textTransform: 'uppercase', letterSpacing: '0.5px', lineHeight: 1.2 }}>{truncate(lane.actor, 24)}</div>
-                        {lane.role && <div style={{ fontFamily: mono, fontSize: 5.2, color: hex(T.GREY), lineHeight: 1.2 }}>{truncate(lane.role, 28)}</div>}
+                        {lane.role && <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), color: hex(T.GREY), lineHeight: 1.2 }}>{truncate(lane.role, 28)}</div>}
                     </div>,
                     ...stages.map((_, si) => {
                         const txt = lane.cells?.[si] || '';
@@ -1939,15 +2002,15 @@ export const GapMatrixSlide: React.FC<{ title: string; data: GapMatrixData; sour
             <div style={{ flex: 1, padding: '0 28px', display: 'flex', flexDirection: 'column', gap: 6, minHeight: 0, overflow: 'hidden' }}>
                 {/* Scale header */}
                 <div style={{ display: 'grid', gridTemplateColumns: '30% 1fr 90px', gap: 12, alignItems: 'center' }}>
-                    <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)' }}>Capability</div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 9, fontWeight: 600, letterSpacing: '.08em', color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)' }}>
+                    <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)' }}>Capability</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: webPx(SCALE.caption), fontWeight: 600, letterSpacing: '.08em', color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)' }}>
                         {Array.from({ length: max }).map((_, i) => <span key={i}>L{i + 1}</span>)}
                     </div>
-                    <div style={{ fontSize: 9, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', textAlign: 'right' }}>Severity</div>
+                    <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', textAlign: 'right' }}>Severity</div>
                 </div>
                 {rows.map((g, i) => (
                     <div key={i} style={{ display: 'grid', gridTemplateColumns: '30% 1fr 90px', gap: 12, alignItems: 'center', padding: '6px 0', borderTop: '1px solid var(--border-subtle)' }}>
-                        <div style={{ fontSize: 11, color: 'var(--fg-strong)', fontWeight: 600, lineHeight: 1.3 }}>{g.capability}</div>
+                        <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', fontWeight: 600, lineHeight: 1.3 }}>{g.capability}</div>
                         <div className="matbar" style={{ position: 'relative' }}>
                             <div className="matbar__track" style={{ position: 'relative', height: 16, background: 'var(--bg-subtle)' }}>
                                 <div
@@ -1967,8 +2030,8 @@ export const GapMatrixSlide: React.FC<{ title: string; data: GapMatrixData; sour
                                         background: 'var(--nu-red-600)',
                                     }}
                                 />
-                                <span style={{ position: 'absolute', left: 6, top: 0, fontSize: 9, fontWeight: 700, color: 'var(--white)', lineHeight: '16px', mixBlendMode: 'difference' }}>{g.currentMaturity}</span>
-                                <span style={{ position: 'absolute', right: 6, top: 0, fontSize: 9, fontWeight: 700, color: 'var(--nu-red-700)', lineHeight: '16px' }}>→ {g.targetMaturity}</span>
+                                <span style={{ position: 'absolute', left: 6, top: 0, fontSize: webPx(SCALE.caption), fontWeight: 700, color: 'var(--white)', lineHeight: '16px', mixBlendMode: 'difference' }}>{g.currentMaturity}</span>
+                                <span style={{ position: 'absolute', right: 6, top: 0, fontSize: webPx(SCALE.caption), fontWeight: 700, color: 'var(--nu-red-700)', lineHeight: '16px' }}>→ {g.targetMaturity}</span>
                             </div>
                         </div>
                         <div style={{ textAlign: 'right' }}>
@@ -1977,7 +2040,7 @@ export const GapMatrixSlide: React.FC<{ title: string; data: GapMatrixData; sour
                     </div>
                 ))}
                 {/* Legend + insight */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginTop: 4, fontSize: 9, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', letterSpacing: '.04em' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 18, marginTop: 4, fontSize: webPx(SCALE.caption), color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', letterSpacing: '.04em' }}>
                     <span><span style={{ display: 'inline-block', width: 14, height: 6, background: 'var(--ink-800)', verticalAlign: 'middle', marginRight: 4 }}></span>Current</span>
                     <span><span style={{ display: 'inline-block', width: 3, height: 10, background: 'var(--nu-red-600)', verticalAlign: 'middle', marginRight: 4 }}></span>Target</span>
                     {data.insight && <span style={{ flex: 1, textAlign: 'right', color: 'var(--fg-strong)', textTransform: 'none', letterSpacing: 0 }}>{data.insight}</span>}
@@ -2014,7 +2077,7 @@ export const JourneyBriefSlide: React.FC<{ title: string; data: JourneyBrief; so
             </header>
             <div style={{ flex: 1, padding: '0 28px', display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0, overflow: 'hidden' }}>
                 {data.persona_line && (
-                    <div style={{ fontSize: 10, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', borderBottom: '1px solid var(--border-subtle)', paddingBottom: 6 }}>{data.persona_line}</div>
+                    <div style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', borderBottom: '1px solid var(--border-subtle)', paddingBottom: 6 }}>{data.persona_line}</div>
                 )}
 
                 {/* Stage grid: header row + PAIN row + OPPORTUNITY row */}
@@ -2023,17 +2086,17 @@ export const JourneyBriefSlide: React.FC<{ title: string; data: JourneyBrief; so
                         {/* header row */}
                         <div style={{ background: 'transparent' }} />
                         {stages.map((st, i) => (
-                            <div key={`h${i}`} style={{ background: 'var(--ink-900, #115054)', color: 'var(--white, #fff)', fontSize: 9, fontWeight: 700, letterSpacing: '.04em', padding: '6px 8px', textAlign: 'center', lineHeight: 1.15, borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,.18)' }}>{truncate(st.name, 46)}</div>
+                            <div key={`h${i}`} style={{ background: 'var(--ink-900, #115054)', color: 'var(--white, #fff)', fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.04em', padding: '6px 8px', textAlign: 'center', lineHeight: 1.15, borderLeft: i === 0 ? 'none' : '1px solid rgba(255,255,255,.18)' }}>{truncate(st.name, 46)}</div>
                         ))}
                         {/* PAIN row */}
-                        <div style={{ background: 'var(--bg-subtle, #f6f6f4)', borderLeft: '4px solid var(--nu-red-600, #cc4422)', borderTop: '1px solid var(--border-subtle)', fontSize: 8, fontWeight: 700, letterSpacing: '.08em', color: 'var(--nu-red-700, #cc4422)', padding: '6px 8px' }}>PAIN</div>
+                        <div style={{ background: 'var(--bg-subtle, #f6f6f4)', borderLeft: '4px solid var(--nu-red-600, #cc4422)', borderTop: '1px solid var(--border-subtle)', fontSize: webPx(SCALE.label), fontWeight: 700, letterSpacing: '.08em', color: 'var(--nu-red-700, #cc4422)', padding: '6px 8px' }}>PAIN</div>
                         {stages.map((st, i) => (
-                            <div key={`p${i}`} style={{ background: '#fff5f5', borderTop: '1px solid var(--border-subtle)', borderLeft: '1px solid var(--border-subtle)', fontSize: 8.5, color: 'var(--fg-strong)', padding: '6px 8px', lineHeight: 1.3 }}>{truncate(st.key_pain || '', 160)}</div>
+                            <div key={`p${i}`} style={{ background: '#fff5f5', borderTop: '1px solid var(--border-subtle)', borderLeft: '1px solid var(--border-subtle)', fontSize: webPx(SCALE.label), color: 'var(--fg-strong)', padding: '6px 8px', lineHeight: 1.3 }}>{truncate(st.key_pain || '', 160)}</div>
                         ))}
                         {/* OPPORTUNITY row */}
-                        <div style={{ background: 'var(--bg-subtle, #f6f6f4)', borderLeft: '4px solid var(--success, #0cce6b)', borderTop: '1px solid var(--border-subtle)', fontSize: 8, fontWeight: 700, letterSpacing: '.08em', color: '#0a8f4d', padding: '6px 8px' }}>OPPORTUNITY</div>
+                        <div style={{ background: 'var(--bg-subtle, #f6f6f4)', borderLeft: '4px solid var(--success, #0cce6b)', borderTop: '1px solid var(--border-subtle)', fontSize: webPx(SCALE.label), fontWeight: 700, letterSpacing: '.08em', color: '#0a8f4d', padding: '6px 8px' }}>OPPORTUNITY</div>
                         {stages.map((st, i) => (
-                            <div key={`o${i}`} style={{ background: '#f0fbf5', borderTop: '1px solid var(--border-subtle)', borderLeft: '1px solid var(--border-subtle)', fontSize: 8.5, color: 'var(--fg-strong)', padding: '6px 8px', lineHeight: 1.3 }}>{truncate(st.key_opportunity || '', 160)}</div>
+                            <div key={`o${i}`} style={{ background: '#f0fbf5', borderTop: '1px solid var(--border-subtle)', borderLeft: '1px solid var(--border-subtle)', fontSize: webPx(SCALE.label), color: 'var(--fg-strong)', padding: '6px 8px', lineHeight: 1.3 }}>{truncate(st.key_opportunity || '', 160)}</div>
                         ))}
                     </div>
                 )}
@@ -2045,9 +2108,9 @@ export const JourneyBriefSlide: React.FC<{ title: string; data: JourneyBrief; so
                         { label: 'STRATEGIC OPPORTUNITIES', items: data.strategic_opportunities, color: '#0a8f4d' },
                     ] as const).map((col, ci) => (
                         <div key={ci}>
-                            <div style={{ fontSize: 8.5, fontWeight: 700, letterSpacing: '.12em', color: col.color, marginBottom: 6 }}>{col.label}</div>
+                            <div style={{ fontSize: webPx(SCALE.label), fontWeight: 700, letterSpacing: '.12em', color: col.color, marginBottom: 6 }}>{col.label}</div>
                             {(col.items || []).slice(0, 3).map((it, i) => (
-                                <div key={i} style={{ display: 'flex', gap: 6, fontSize: 9, color: 'var(--fg-strong)', lineHeight: 1.3, marginBottom: 4 }}>
+                                <div key={i} style={{ display: 'flex', gap: 6, fontSize: webPx(SCALE.caption), color: 'var(--fg-strong)', lineHeight: 1.3, marginBottom: 4 }}>
                                     <span style={{ fontWeight: 700, color: col.color }}>{i + 1}.</span>
                                     <span>{truncate(it, 180)}</span>
                                 </div>
@@ -2061,8 +2124,8 @@ export const JourneyBriefSlide: React.FC<{ title: string; data: JourneyBrief; so
                     <div style={{ display: 'grid', gridTemplateColumns: `repeat(${kpis.length}, 1fr)`, gap: 10, marginTop: 2 }}>
                         {kpis.map((k, i) => (
                             <div key={i} style={{ background: i === 0 ? 'var(--ink-900, #115054)' : 'var(--bg-subtle, #f6f6f4)', padding: '8px 10px' }}>
-                                <div style={{ fontSize: 22, fontWeight: 800, lineHeight: 1, fontFamily: 'var(--font-display, Archivo)', color: i === 0 ? 'var(--white, #fff)' : 'var(--fg-strong)', letterSpacing: '-.02em' }}>{k.value}</div>
-                                <div style={{ fontSize: 8, color: i === 0 ? '#f0f0f0' : 'var(--fg-muted)', marginTop: 4, lineHeight: 1.25 }}>{truncate(k.label, 60)}</div>
+                                <div style={{ fontSize: webPx(SCALE.subhead), fontWeight: 800, lineHeight: 1, fontFamily: 'var(--font-display, Archivo)', color: i === 0 ? 'var(--white, #fff)' : 'var(--fg-strong)', letterSpacing: '-.02em' }}>{k.value}</div>
+                                <div style={{ fontSize: webPx(SCALE.label), color: i === 0 ? '#f0f0f0' : 'var(--fg-muted)', marginTop: 4, lineHeight: 1.25 }}>{truncate(k.label, 60)}</div>
                             </div>
                         ))}
                     </div>
@@ -2072,8 +2135,8 @@ export const JourneyBriefSlide: React.FC<{ title: string; data: JourneyBrief; so
                 {data.closing_quote && data.closing_quote.text && (
                     <div style={{ display: 'flex', gap: 10, borderLeft: `4px solid var(--accent, ${hex(TOKENS.CHARTREUSE_BRIGHT)})`, paddingLeft: 12, marginTop: 2 }}>
                         <div>
-                            <div style={{ fontSize: 10, fontStyle: 'italic', color: 'var(--fg-strong)', lineHeight: 1.35 }}>"{truncate(data.closing_quote.text, 200)}"</div>
-                            <div style={{ fontSize: 8, color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', marginTop: 3 }}>{truncate(data.closing_quote.attribution || '', 90)}</div>
+                            <div style={{ fontSize: webPx(SCALE.body), fontStyle: 'italic', color: 'var(--fg-strong)', lineHeight: 1.35 }}>"{truncate(data.closing_quote.text, 200)}"</div>
+                            <div style={{ fontSize: webPx(SCALE.label), color: 'var(--fg-muted)', fontFamily: 'var(--font-mono)', marginTop: 3 }}>{truncate(data.closing_quote.attribution || '', 90)}</div>
                         </div>
                     </div>
                 )}
@@ -2115,17 +2178,17 @@ export const ArchitectureMapSlide: React.FC<{ title: string; data: ArchitectureM
                 {layers.map((layer, i) => (
                     <div key={i} style={{ display: 'grid', gridTemplateColumns: '130px 1fr', gap: 10, alignItems: 'stretch', minHeight: 0, flex: 1 }}>
                         <div style={{ background: i === 0 ? 'var(--ink-900)' : 'var(--bg-subtle)', padding: '8px 12px', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: i === 0 ? '3px solid var(--nu-red-600)' : '3px solid var(--ink-700)' }}>
-                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, fontWeight: 600, letterSpacing: '.14em', color: i === 0 ? 'var(--nu-red-100)' : 'var(--fg-muted)', textTransform: 'uppercase' }}>
+                            <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), fontWeight: 600, letterSpacing: '.14em', color: i === 0 ? 'var(--nu-red-100)' : 'var(--fg-muted)', textTransform: 'uppercase' }}>
                                 Layer {String(i + 1).padStart(2, '0')}
                             </div>
-                            <div style={{ fontSize: 12, fontWeight: 700, color: i === 0 ? 'var(--white)' : 'var(--fg-strong)', marginTop: 3, lineHeight: 1.25 }}>{layer.name}</div>
+                            <div style={{ fontSize: webPx(SCALE.lead), fontWeight: 700, color: i === 0 ? 'var(--white)' : 'var(--fg-strong)', marginTop: 3, lineHeight: 1.25 }}>{layer.name}</div>
                         </div>
                         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignContent: 'flex-start' }}>
                             {layer.nodes.slice(0, 6).map((n, ni) => (
                                 <div key={ni} className="art-card" style={{ flex: '1 1 calc(33% - 6px)', minWidth: 0, padding: '6px 10px', borderLeft: `3px solid ${typeAccent(n.type)}` }}>
-                                    <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--fg-strong)', lineHeight: 1.2 }}>{n.name}</div>
-                                    {n.type && <div style={{ fontFamily: 'var(--font-mono)', fontSize: 8.5, fontWeight: 600, letterSpacing: '.1em', color: typeAccent(n.type), textTransform: 'uppercase', marginTop: 2 }}>{n.type}</div>}
-                                    {n.description && <div style={{ fontSize: 9, color: 'var(--fg-default)', lineHeight: 1.4, marginTop: 3 }}>{n.description}</div>}
+                                    <div style={{ fontSize: webPx(SCALE.body), fontWeight: 700, color: 'var(--fg-strong)', lineHeight: 1.2 }}>{n.name}</div>
+                                    {n.type && <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.label), fontWeight: 600, letterSpacing: '.1em', color: typeAccent(n.type), textTransform: 'uppercase', marginTop: 2 }}>{n.type}</div>}
+                                    {n.description && <div style={{ fontSize: webPx(SCALE.caption), color: 'var(--fg-default)', lineHeight: 1.4, marginTop: 3 }}>{n.description}</div>}
                                 </div>
                             ))}
                         </div>
@@ -2134,8 +2197,8 @@ export const ArchitectureMapSlide: React.FC<{ title: string; data: ArchitectureM
             </div>
             {data.flowSummary && (
                 <div className="art-card" style={{ margin: '8px 28px 0', padding: '8px 14px', borderLeft: '3px solid var(--nu-red-600)' }}>
-                    <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginRight: 8 }}>Flow</span>
-                    <span style={{ fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.45 }}>{data.flowSummary}</span>
+                    <span style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginRight: 8 }}>Flow</span>
+                    <span style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.45 }}>{data.flowSummary}</span>
                 </div>
             )}
             <SourceFooter sources={sources} brand={brand} />
@@ -2173,16 +2236,16 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                             <span className={prioPill(f.priority)}>{f.priority}</span>
-                            <h2 className="art-finding art-finding--sm" style={{ fontSize: 14 }}>{f.name}</h2>
+                            <h2 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.name) }}>{f.name}</h2>
                         </div>
-                        <div className="art-card" style={{ padding: '10px 12px', borderLeft: `3px solid ${prioAccent(f.priority)}`, fontStyle: 'italic', fontSize: 10.5, color: 'var(--fg-default)', lineHeight: 1.5 }}>
+                        <div className="art-card" style={{ padding: '10px 12px', borderLeft: `3px solid ${prioAccent(f.priority)}`, fontStyle: 'italic', fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5 }}>
                             {f.userStory}
                         </div>
                         <div>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6 }}>Acceptance criteria</div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6 }}>Acceptance criteria</div>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 {(Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 6).map((c, ci) => (
-                                    <li key={ci} style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.4, paddingLeft: 14, position: 'relative', marginBottom: 4 }}>
+                                    <li key={ci} style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.4, paddingLeft: 14, position: 'relative', marginBottom: 4 }}>
                                         <span style={{ position: 'absolute', left: 0, color: 'var(--success-fg)', fontWeight: 700 }}></span>{c}
                                     </li>
                                 ))}
@@ -2192,29 +2255,29 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, overflow: 'hidden' }}>
                         {f.problemSolved && (
                             <div>
-                                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-700)', marginBottom: 3 }}>Problem solved</div>
-                                <p style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.45, margin: 0 }}>{f.problemSolved}</p>
+                                <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--nu-red-700)', marginBottom: 3 }}>Problem solved</div>
+                                <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45, margin: 0 }}>{f.problemSolved}</p>
                             </div>
                         )}
                         {f.technicalDetails && (
                             <div>
-                                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 3 }}>Technical details</div>
-                                <p style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.45, margin: 0 }}>{f.technicalDetails}</p>
+                                <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 3 }}>Technical details</div>
+                                <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45, margin: 0 }}>{f.technicalDetails}</p>
                             </div>
                         )}
                         {f.stakeholders && (
                             <div>
-                                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 3 }}>Stakeholders</div>
-                                <p style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.45, margin: 0 }}>{f.stakeholders}</p>
+                                <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 3 }}>Stakeholders</div>
+                                <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.45, margin: 0 }}>{f.stakeholders}</p>
                             </div>
                         )}
                         {Array.isArray(f.evidence) && f.evidence.length > 0 && (
                             <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: 6 }}>
-                                <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 4 }}>Evidence</div>
+                                <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 4 }}>Evidence</div>
                                 {f.evidence.slice(0, 3).map((e, ei) => (
                                     <div key={ei} style={{ marginBottom: 5, paddingLeft: 10, borderLeft: '2px solid var(--nu-red-600)' }}>
-                                        <div style={{ fontSize: 9.5, color: 'var(--fg-strong)', lineHeight: 1.4, fontStyle: 'italic' }}>“{e.text}”</div>
-                                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 9, color: 'var(--fg-muted)', marginTop: 2, letterSpacing: '.04em' }}>
+                                        <div style={{ fontSize: webPx(SCALE.caption), color: 'var(--fg-strong)', lineHeight: 1.4, fontStyle: 'italic' }}>“{e.text}”</div>
+                                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: webPx(SCALE.caption), color: 'var(--fg-muted)', marginTop: 2, letterSpacing: '.04em' }}>
                                             {e.attribution ? `${e.attribution} · ` : ''}{e.source}
                                         </div>
                                     </div>
@@ -2245,13 +2308,13 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                 {features.map((f, i) => (
                     <div key={i} className="art-card" style={{ padding: 14, borderTop: `3px solid ${prioAccent(f.priority)}`, display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, overflow: 'hidden' }}>
                         <span className={prioPill(f.priority)} style={{ alignSelf: 'flex-start' }}>{f.priority}</span>
-                        <h3 className="art-finding art-finding--sm" style={{ fontSize: 13 }}>{f.name}</h3>
-                        <p style={{ fontSize: 10.5, color: 'var(--fg-default)', lineHeight: 1.5, fontStyle: 'italic', margin: 0, paddingBottom: 8, borderBottom: '1px solid var(--border-subtle)' }}>{f.userStory}</p>
+                        <h3 className="art-finding art-finding--sm" style={{ fontSize: webPx(SCALE.lead) }}>{f.name}</h3>
+                        <p style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.5, fontStyle: 'italic', margin: 0, paddingBottom: 8, borderBottom: '1px solid var(--border-subtle)' }}>{f.userStory}</p>
                         <div>
-                            <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6 }}>Acceptance</div>
+                            <div style={{ fontSize: webPx(SCALE.caption), fontWeight: 700, letterSpacing: '.14em', textTransform: 'uppercase', color: 'var(--fg-muted)', marginBottom: 6 }}>Acceptance</div>
                             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                                 {(Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria : []).slice(0, 5).map((c, ci) => (
-                                    <li key={ci} style={{ fontSize: 10, color: 'var(--fg-default)', lineHeight: 1.4, paddingLeft: 12, position: 'relative', marginBottom: 4 }}>
+                                    <li key={ci} style={{ fontSize: webPx(SCALE.body), color: 'var(--fg-default)', lineHeight: 1.4, paddingLeft: 12, position: 'relative', marginBottom: 4 }}>
                                         <span style={{ position: 'absolute', left: 0, color: 'var(--success-fg)', fontWeight: 700 }}></span>{c}
                                     </li>
                                 ))}
@@ -2299,9 +2362,9 @@ export const SystemsInventorySlide: React.FC<{ title: string; data: SystemsInven
                             <tr key={i}>
                                 <td className="lead">
                                     {s.name}
-                                    {s.description && <div style={{ fontSize: 9, color: 'var(--fg-muted)', fontWeight: 400, marginTop: 2, lineHeight: 1.35 }}>{s.description}</div>}
+                                    {s.description && <div style={{ fontSize: webPx(SCALE.caption), color: 'var(--fg-muted)', fontWeight: 400, marginTop: 2, lineHeight: 1.35 }}>{s.description}</div>}
                                 </td>
-                                <td style={{ color: 'var(--fg-default)', fontSize: 10 }}>{s.category}</td>
+                                <td style={{ color: 'var(--fg-default)', fontSize: webPx(SCALE.body) }}>{s.category}</td>
                                 <td style={{ textAlign: 'center' }}>
                                     <span className={statusClass(s.status)}>{s.status}</span>
                                 </td>
@@ -2313,7 +2376,7 @@ export const SystemsInventorySlide: React.FC<{ title: string; data: SystemsInven
                     </tbody>
                 </table>
                 {data.insight && (
-                    <div className="art-card" style={{ marginTop: 10, padding: '8px 14px', borderLeft: '3px solid var(--nu-red-600)', fontSize: 11, color: 'var(--fg-strong)', lineHeight: 1.5 }}>
+                    <div className="art-card" style={{ marginTop: 10, padding: '8px 14px', borderLeft: '3px solid var(--nu-red-600)', fontSize: webPx(SCALE.body), color: 'var(--fg-strong)', lineHeight: 1.5 }}>
                         {data.insight}
                     </div>
                 )}

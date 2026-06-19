@@ -352,6 +352,18 @@ def process_top_topics(topic_model, topic_info, topics, documents, post_ids, pos
             topic_data['short_summary'] = ""
             topic_data['one_sentence_summary'] = ""
 
+        # TITLE GUARD (2026-06-17): the card title is short_summary; it must be a descriptive theme
+        # phrase, NEVER a single bare word ("car", "water", "policy") - that reads as broken topic
+        # modeling. If the model still returned one word (or nothing), build a readable label from the
+        # one-sentence summary (preferred) or the top filtered terms.
+        _ss = (topic_data.get('short_summary') or '').strip()
+        if len(_ss.split()) < 2:
+            _oss = (topic_data.get('one_sentence_summary') or '').strip()
+            if _oss:
+                topic_data['short_summary'] = ' '.join(_oss.split()[:6]).rstrip('.,;:')
+            elif terms:
+                topic_data['short_summary'] = ', '.join(t['term'] for t in terms[:3]).title()
+
         # Add to appropriate sentiment category
         # 2026-06-01 — SYMMETRIC +/-0.10 band, matching analyze_topic_sentiment in
         # BertTopic.py. Was +0.15/-0.20 (asymmetric + wide), which mislabeled

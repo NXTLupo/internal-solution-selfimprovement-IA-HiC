@@ -27,7 +27,11 @@ async function parseFilesInBackground(
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ filename: f.name, base64: f.data, mimeType: f.type }),
-                signal: AbortSignal.timeout(45_000),
+                // 2026-06-16 fix: image/scanned PDFs fall back to Gemini vision OCR in the proxy,
+                // which budgets up to 240s (_gemini_multimodal_extract, proxy app.py ~L7752). The old
+                // 45s client abort cut that off -> "TimeoutError: signal timed out" -> upload body lost
+                // -> deck ignored the uploads. Client timeout MUST exceed the proxy's 240s vision budget.
+                signal: AbortSignal.timeout(280_000),
             });
             if (!resp.ok) return f;
             const data = await resp.json();

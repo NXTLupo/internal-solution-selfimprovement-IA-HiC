@@ -1,0 +1,213 @@
+---
+id: social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md
+url: "https://www.reddit.com/r/HealthInsurance/comments/1rb3f3b/need_help_in_navigating_cignas_mri_denial_for_tmj/"
+kind: "social-post"
+source: "reddit-deep: r/healthinsurance"
+subreddit: "healthinsurance"
+title: "Need help in navigating Cigna's MRI denial for TMJ via SPD interpretation and corrected claim submission process"
+author: "Awkward_Car4868"
+date: "2026-02-21T21:43:08.000Z"
+score: 2
+upvote_ratio: 1
+num_comments: 12
+flair: "Claims/Providers"
+extracted_at: "2026-06-17T19:26:43.268Z"
+extraction_method: "praw-deep"
+research_goal: "Deliver a comprehensive 2026 outlook on the global insurance industry that synthesizes market research and social listening to identify key shifts in consumer attitudes, marketing approaches, AI automation, enterprise needs, and technology trends."
+engagement: "deliver-a-comprehensive-2026-outlook-on-the-global-insurance"
+chunks:
+  - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c0"
+    char_span: [0, 1879]
+    sentence_count: 5
+    key_terms: [diagnosis, covered, mri, cigna, excluded, tmj, service, tmj-related]
+    token_count: 478
+  - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c1"
+    char_span: [1881, 4165]
+    sentence_count: 8
+    key_terms: [cigna, diagnostic, treatment, covered, imaging, diagnosis, additional, exclusion]
+    token_count: 448
+  - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c2"
+    char_span: [4167, 4767]
+    sentence_count: 7
+    key_terms: [self-funded, exclusion-interpretation, plan, administrator, documentation, adjudication, appreciate, exclusions]
+    token_count: 118
+  - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c3"
+    char_span: [4782, 6658]
+    sentence_count: 6
+    key_terms: [post, information, questions, please, following, edit, help, healthinsurance]
+    section: Comments
+    token_count: 388
+  - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c4"
+    char_span: [6660, 8863]
+    sentence_count: 13
+    key_terms: [tmj, please, eob, contact, diagnosis, questions, subreddit, post]
+    section: Comments
+    token_count: 505
+  - id: "social-intelligence/reddit-deep/healthinsurance/1rb3f3b.md#c5"
+    char_span: [8865, 10792]
+    sentence_count: 19
+    key_terms: [billing, hospital, doctor, code, plan, cigna, team, exclusion]
+    section: Comments
+    token_count: 445
+---
+# Need help in navigating Cigna's MRI denial for TMJ via SPD interpretation and corrected claim submission process
+
+Source: [reddit-deep: r/healthinsurance](https://www.reddit.com/r/HealthInsurance/comments/1rb3f3b/need_help_in_navigating_cignas_mri_denial_for_tmj/)
+Posted by **Awkward_Car4868** · **2↑** · **12 comments**
+
+Looking for input from those familiar with ERISA/self-funded plan interpretation and Cigna adjudication.
+
+**Plan type:** Employer-sponsored, self-funded Cigna OAP plan (Cigna = TPA).  
+**Service:** MRI of jaw (CPT 70336)  
+**Facility charge denied:** $2,250  
+**Radiologist fee:** Paid 100%, but the MRI was not paid
+
+**Background:**
+
+Cigna is denying the MRI as a “TMJ-excluded service” when billed with a TMJ-related diagnosis code.
+
+However:
+
+* CPT 70336 (MRI) is a covered service. The diagnosis code used for this service (26.631) is not covered as its a TMJ-related condition
+* The radiologist portion was paid at 100%.
+* The denial hinges on diagnosis labeling.
+
+Under *Covered Expenses*, the SPD states:
+
+“charges for advanced radiological imaging, including for example CT Scans, MRI, MRA and PET scans…”  
+  
+Under *Exclusions*, the only TMJ-related language states:  
+  
+“surgical and non-surgical treatment of Temporomandibular Joint Dysfunction (TMJ).”
+
+The SPD does NOT say:
+
+* Imaging of TMJ is excluded
+* Services related to TMJ are excluded
+* Evaluation of TMJ is excluded
+* Imaging irrespective of diagnosis is excluded
+
+It excludes treatment.
+
+**Important Additional Context:**
+
+On January 9th, I had a call with a Cigna rep about this claim.
+
+During that call, she reviewed my December 11 doctor visit, and explicitly identified multiple diagnosis codes that would be covered when paired with CPT 70336, including:
+
+* R68.84 (jaw pain)
+* N79.18
+* N27.9
+* N26.31
+
+She stated that covered, allowable diagnoses were present in the chart.
+
+This was the visit that I brought up the MRI denial from Cigna, and the doctor amended his clinical notes to include additional documented diagnostic symptoms relevant to my case. Those amended notes appear to be what allowed the rep to identify the additional allowable diagnosis codes during our call.
+
+I raised this with Mass General Hospital billing team, and they conducted a “code review.” However, when I spoke with the doctor's office directly, they told me no one contacted the physician’s office or physician's billing department directly or review the amended clinical notes when evaluating whether the claim could be corrected.
+
+So at this point:
+
+* The medical record reflects additional documented symptoms.
+* A Cigna rep acknowledged covered diagnosis pathways based on that documentation.
+* The claim remains denied under a TMJ diagnosis.
+
+**Action Taken**
+
+I have formally emailed Cigna escalating the matter to a supervisor and attached the SPD. In that email, I:
+
+* Quoted the Covered Expenses section listing MRI as covered.
+* Quoted the TMJ exclusion language limiting it to “treatment.”
+* Requested explicit citation from the SPD if Cigna’s position is that diagnostic imaging of the TMJ is categorically excluded.
+* Requested written clarification as to whether they are interpreting “treatment” to include diagnostic imaging.
+
+I am waiting for their written response.
+
+**Pattern Example**
+
+Earlier this year, I had a similar situation with physical therapy:
+
+* Provider initially intended to bill under a TMJ-specific code.
+* After diagnosis alignment discussion, they submitted under R68.84 (jaw pain).
+* Cigna paid without issue.
+
+This MRI denial feels like the same mechanical trigger.
+
+**Core Question**
+
+In a self-funded ERISA plan:
+
+Can diagnostic imaging be denied under a “treatment of TMJ” exclusion when:
+
+* MRI is explicitly listed as a covered expense
+* The SPD excludes only treatment
+* There is no explicit imaging exclusion
+* The clinical documentation supports alternative covered diagnoses
+* A Cigna rep acknowledged those diagnoses as allowable
+
+Is Cigna likely to argue that diagnostic imaging constitutes “treatment”?
+
+And if so, is that typically upheld under ERISA plan interpretation?
+
+**Potential Next Steps**
+
+At this stage, would you:
+
+1. Continue pushing for corrected claim submission using amended documentation?
+2. File a formal internal appeal focused strictly on plan language?
+3. Escalate to employer benefits administrator (since this is self-funded)?
+4. Prepare for external review if available under the plan? I've looked into potential regulatory reviews, and wondering if that's a warranted next step here.
+
+Trying to determine whether this is primarily:
+
+* A coding alignment issue
+* Or a broader exclusion-interpretation dispute
+
+Appreciate input from anyone who’s handled TMJ exclusions or Cigna self-funded adjudication.
+
+## Comments
+
+- **AutoModerator** (1↑): Thank you for your submission, /u/Awkward_Car4868. The following automatic comment contains important information about the subreddit:
+
+First, note that some new posts containing images, non-reddit links, crossposts, or certain keywords are automatically held for moderator review before going live to mitigate spam, ensure that images are appropriate, and that the post does not inadvertently contain personal information. If your post has been held for review like this, the moderators have been automatically notified and will review it as soon as possible, after which it will be live and be able to be seen and replied to by others. Note that this is sent to all new posts and does not mean that your post has necessarily been filtered in this way. 
+
+Please also read the following information carefully to help others assist with your questions:
+
+- **If you or someone else is experiencing a medical emergency, please call 911 or go to your nearest hospital.** 
+
+- Some common questions and answers can be found [in this megathread](https://www.reddit.com/r/HealthInsurance/s/jya9I6RpdY).
+
+- **Questions about which plan you should choose?** Please read through [this post](https://www.reddit.com/r/HealthInsurance/comments/1fvniop/questions_answered_which_plan_should_i_choose/) first for general information to help you understand your choices and some common considerations. If you still have questions after reading that post, please edit your post (or reply with a comment if unable to edit) with the specific questions you still have.
+
+- **If your post is regarding plan choice or cost of plans**, and you haven't included the following information already, please edit your post (or reply with a comment if unable to edit) including the following: your age, state, and estimated gross (pre-tax) income to help the community better help. 
+
+- **If your post is about the cost of a service, a bill you have received, or a claim denial**: please confirm if you have received an EOB (explanation of benefits) from your insurance via a member portal website or in the mail. If you can post a copy or image of the EOB (**PLEASE** ensure you censor or blank out any personal information before doing so) it will help people answer your questions. Alternatively, if you are unable to post a censored copy of your EOB, please have the EOB handy as people may ask for information from the EOB to answer your questions. 
+
+- **Reminder that ANY spam, solicitation, or attempts to take conversations off the subreddit will result in a permanent ban**.  If someone asks to contact them via DM, please report the post/comment using the report button. If someone attempts to contact you via your DMs, please contact us [via modmail to let us know](https://www.reddit.com/message/compose?to=%2Fr%2FHealthInsurance).
+
+- Lastly, always remember to be kind to one another and to report any replies that violate subreddit rules!
+
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/HealthInsurance) if you have any questions or concerns.*
+- **No-Produce-6720** (9↑): Overall, when a policy has a specific exclusion, such as TMJ, any claims that are billed for it are not available for coverage. They would deny as excluded services.
+
+If your doctor ordered the MRI with a TMJ diagnosis, then it would be assumed that a diagnosis of TMJ has already been confirmed, and that the MRI is being conducted as part of the treatment process. 
+
+If your TMJ remains unconfirmed, then your doctor has submitted the wrong diagnosis, and Cigna would have processed your claim correctly, according to the TMJ exclusion on your policy.
+
+Do you actually have TMJ, or just symptoms of it?
+  - **EffectiveEgg5712** (3↑): This. All of this. I work with many plans that have tmj exclusions. If the dr never diagnosed you with tmj, then another coding review needs to happen.
+    - **Awkward_Car4868** (0↑): Regarding the code review, I'm not even quite sure how they deemed it valid in the first place. 
+
+On December 11th I had a visit my doctor where I explained Cigna refused to cover this MRI. He amended his notes and added additional applicable symptoms to my case. It seems like he was on my side to help re-bill this correctly, so he updated my notes. This doctor works under the umbrella of the hospital.   
+  
+On December 22 I requested a code review with the billing team. On January 2nd, they informed me that the code was valid and deemed correct. It's still unclear to me as to how they came to that conclusion without contacting the doctor or his billing team in any way. They confirmed to me he wasn't contacted by the hospital. How does the doctor need to formally relay this update to the hospital billing team in the right way? When I speak his his billing assistant, she claims she's never had to do this before and doesn't know what documentation to email or provide or whom to send it to. 
+
+It's been a constant back and forth between the hospital billing, the provider's billing office and Cigna. Is a new code review the next step here?
+- **Jcarlough** (4↑): Your issues are with the hospital. Not with your insurance. The exclusion you list is why the denial occurred. You may not like that the exclusion isn’t more specific but, it’s specific “enough” to deny.
+
+You can also contact your employer since your plan is self-funded.
+- **Turbulent-Pay1150** (2↑): The insurer cannot change the billing.  That's up to the hospital/doctors/billing office.
+- **Actual-Government96** (2↑): Surgical and non-surgical treatment includes everything you listed (evaluations, imaging, services related to).  Your plan excludes TMJ.
+- **husky5050** (0↑): How does the plan define treatment?
+- **SabrinaFaire** (0↑): The SPD is a summary, the plan docs, which you can request, likely list TMJ as excluded. The hospital can try to submit an amended claim with a different diagnosis code as primary and Cigna may pay it then.

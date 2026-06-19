@@ -1,15 +1,13 @@
 Topic 9 - Content Sample
-Number of content items: 21
-Top words: shares, fund, sell, mutual, buy, sale, mutual fund
+Number of content items: 23
+Top words: app, tool, track, notes, team, use, crm
 
-Content 1 (length: 237 chars):
-Thoughts? I don't believe you can do an exchange between two different mutual fund companies. It has to be a sell and then a buy.
-Right, so what's the best approach to avoid being out of the market for a day?
-I'm not sure there is a way.
+Content 1 (length: 259 chars):
+I would love an app that I can just put some information in for each project and have it maybe color coded or something for different stages, like "Need to give quote" "Quote Given" "Follow Up" "Job Accepted" "Materials Ordered" "In Progress" "Completed" etc.
 
-Content 2 (length: 430 chars):
-Unless it's a Fidelity money market, no one knows what the proceeds of the sale will be until after the close on the day it's sold. If both funds are the same mutual fund company, it can be done as an exchange because one company handles both sides of the trade. You may be able to use 90% of the previous day's closing value of the Fidelity fund to purchase the Vanguard fund, however that may have to be a broker assisted trade.
+Content 2 (length: 540 chars):
+I run my own marine upholstery business, and this season I've had an uptick in messages and potential customers, but I am losing track of it all. For example, I get emails from my website contact form, social media inboxes etc, and then Ill be out working on a job at the docks and get maybe 2-4 new inquiries that I can't necessarily look at right then and there so I want to come back and give a quote. Right now I just have things scattered between my notes app on the phone, pad and paper back at the shop, and sticky notes at my house.
 
-Content 3 (length: 158 chars):
-exchange Fidelity fund for Vanguard fund. I transferred a Fidelity mutual fund (call it FXXXX) from my fidelity Roth to my new Vanguard Roth. (ACAT transfer).
+Content 3 (length: 372 chars):
+If it helps, I already use the free version of Square for taking payments. You should look at a CRM rather than project management software. Project management apps are designed more for collaboration on work across teams. CRM (customer relationship management) software is more for one person tracking the "next step" for a linear, time-bound process like issuing quotes.
 

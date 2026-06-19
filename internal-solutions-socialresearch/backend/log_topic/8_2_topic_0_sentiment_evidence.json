@@ -1,60 +1,65 @@
 {
   "positive": [
     {
-      "point": "Vanguard LifeStrategy funds are appreciated for their simplicity and no need for rebalancing.",
+      "point": "Starting a business as a student with low overhead and leveraging language skills and university connections is seen as a promising idea.",
       "post_refs": [
-        "1txy03e"
+        "1u7dneo"
       ]
     },
     {
-      "point": "Vanguard Target Date Funds (TDFs) are recommended for their balanced portfolio and automatic shift from stocks to bonds over time.",
+      "point": "The idea of turning hobbies into a business is encouraged, with emphasis on ignoring negative opinions and starting small.",
       "post_refs": [
-        "1tra9e0"
+        "1u7g107"
       ]
     },
     {
-      "point": "Consistent long-term investing in Vanguard funds like VWRP and VUAG has shown significant growth, proving the effectiveness of a simple investment strategy.",
+      "point": "A 16-year-old achieving $40K in revenue from a clothing brand in four months is seen as a significant success, indicating potential for serious growth.",
       "post_refs": [
-        "1ta10bz",
-        "1t3dupd"
+        "1u7z1vp"
       ]
     },
     {
-      "point": "Vanguard ETFs like VOO and VTI are praised for their strong capital-growth behavior and total return.",
+      "point": "The importance of building systems and maintaining momentum in business, even on low-energy days, is highlighted as a key to success.",
       "post_refs": [
-        "1tw8lpm"
+        "1u8l0jy"
       ]
     },
     {
-      "point": "Vanguard's low-cost index funds like VTSAX are recommended for maximum diversification and lower costs compared to other funds.",
+      "point": "The value of loyalty and treating employees well in a small business is recognized as a crucial factor for success.",
       "post_refs": [
-        "1tpt6hs"
+        "1u94aea"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Concerns about Vanguard retirement funds being weighted in CRSP, which may include risky IPOs like SpaceX.",
+      "point": "Concerns about the lack of diversification and risks associated with relying solely on a business for retirement instead of traditional retirement plans.",
       "post_refs": [
-        "1u19dur"
+        "1u6j1vx"
       ]
     },
     {
-      "point": "Frustration with the inability to buy fractional shares of non-Vanguard ETFs in a brokerage account.",
+      "point": "The stress and overwhelming responsibility of running a family business at a young age, leading to health issues and burnout.",
       "post_refs": [
-        "1s86mle"
+        "1u8wk3k"
       ]
     },
     {
-      "point": "Worries about the volatility of the stock market and the performance of ETFs like VEU.",
+      "point": "Feeling like owning a business is more like having a stressful job due to dependency on the owner for daily operations.",
       "post_refs": [
-        "1rtw67g"
+        "1u76ox8"
       ]
     },
     {
-      "point": "Concerns about the impact of tech IPOs on Vanguard index funds and the desire to avoid them.",
+      "point": "Burnout from working long hours in a business without seeing proportional financial rewards, leading to personal and marital stress.",
       "post_refs": [
-        "1tu7pyb"
+        "1u6e46q"
+      ]
+    },
+    {
+      "point": "Challenges in validating a business model in the senior care industry due to lack of customer follow-through and complex cases.",
+      "post_refs": [
+        "1u6t417"
       ]
     }
   ]

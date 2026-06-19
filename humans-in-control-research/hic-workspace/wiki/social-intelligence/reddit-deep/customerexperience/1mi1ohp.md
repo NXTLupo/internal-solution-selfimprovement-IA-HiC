@@ -1,0 +1,94 @@
+---
+id: social-intelligence/reddit-deep/customerexperience/1mi1ohp.md
+url: "https://www.reddit.com/r/customerexperience/comments/1mi1ohp/is_ai_improving_or_hurting_the_customer/"
+kind: "social-post"
+source: "reddit-deep: r/customerexperience"
+subreddit: "customerexperience"
+title: "Is AI Improving or Hurting the Customer Experience? Human vs AI in CX"
+author: "CryRevolutionary7536"
+date: "2025-08-05T06:25:00.000Z"
+score: 7
+upvote_ratio: 0.9
+num_comments: 14
+flair: ""
+extracted_at: "2026-06-18T13:35:35.123Z"
+extraction_method: "praw-deep"
+research_goal: "Deliver a comprehensive 2026 outlook report on the global retail and e-commerce sector, detailing emerging market trends, structural challenges, and the specific operational and customer-experience impacts of AI integration."
+engagement: "deliver-a-comprehensive-2026-outlook-report-on-the-global-re"
+chunks:
+  - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c0"
+    char_span: [0, 1233]
+    sentence_count: 8
+    key_terms: [human, customer, experience, customerexperience, automation, comments, support, handle]
+    token_count: 271
+  - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c1"
+    char_span: [1248, 2751]
+    sentence_count: 13
+    key_terms: [human, want, people, speed, real, experience, emotional, customer]
+    section: Comments
+    token_count: 344
+  - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c2"
+    char_span: [2753, 4445]
+    sentence_count: 13
+    key_terms: [customer, clients, support, agents, humans, "it's", experience, carefully]
+    section: Comments
+    token_count: 356
+  - id: "social-intelligence/reddit-deep/customerexperience/1mi1ohp.md#c3"
+    char_span: [4449, 6537]
+    sentence_count: 16
+    key_terms: [human, humans, customers, bots, chat, because, resolve, using]
+    section: Comments
+    token_count: 437
+---
+# Is AI Improving or Hurting the Customer Experience? Human vs AI in CX
+
+Source: [reddit-deep: r/customerexperience](https://www.reddit.com/r/customerexperience/comments/1mi1ohp/is_ai_improving_or_hurting_the_customer/)
+Posted by **CryRevolutionary7536** · **7↑** · **14 comments**
+
+Hey everyone,
+I've been thinking a lot about how AI is changing the way we handle customer experience. From chatbots to voice assistants, automation is everywhere now. While it definitely helps reduce wait times and handle repetitive queries, I'm wondering about the long-term impact.
+
+Do customers actually prefer speaking to AI when getting support, or do they still trust humans more for empathy and problem-solving?
+
+I'm curious to hear your thoughts or any experiences you've had – whether you’re working in CX, tech, or just as a customer. Are we heading toward a fully AI-driven support world, or is the ideal model still a hybrid of human + AI?
+
+Would love to hear:
+
+Any research or data you’ve seen around AI vs human preference in CX
+
+Your personal experience (good or bad) with AI in customer service
+
+How your company (if applicable) is balancing automation with human interaction
+
+Let’s discuss – Human vs AI: who’s really better for CX?
+
+## Comments
+
+- **AutoKnerd** (3↑): I think the key here is “appropriate use” and “proper direction.” AI is one hell of a tool, but it’s still just that, a tool. It can speed things up, cut down wait times, and handle the repetitive stuff that bogs down human teams. In that sense, it absolutely improves the customer experience by taking some of the friction out of the process.
+
+Where AI still falls short is in the messy, human part of CX: empathy, trust, and reading between the lines of what a customer is actually saying. A chatbot can answer “what’s my balance” in 3 seconds, but it can’t pick up on the stress in someone’s voice or the hesitation behind their question. That’s where a human steps in and makes the experience feel like more than just a transaction.
+
+So in my view, AI is premature as a complete replacement. The best setups I’ve seen use AI as the front line for speed and efficiency, then route the emotional or complex stuff to a person who can build a real connection. It’s not about human vs AI, it’s about hybrid CX that plays to the strengths of both.
+
+Because let’s be real: customers don’t just want answers, they want to feel understood. And that’s still something only a human can de
+- **Teri_AFHelper** (2↑): I'm not sure there's anyone who *prefers* speaking to AI. 
+
+People do want their issue handled quickly and painlessly, and AI can definitely help speed things up. But when it comes to real conversations, nuance, or anything emotional... people still want to talk to people.
+
+The ideal setup isn't AI *or* humans. It's using AI to support your humans. Give your team the tools to work faster and smarter, but keep real people front and center in the customer experience.
+- **Vivid-Currency-9865** (1↑): AI’s great at handling high-volume, repetitive tasks order tracking, FAQs, basic troubleshooting but empathy and complex problem-solving still lean heavily on human agents. In ecom, hybrid models often work best: AI for speed and efficiency upfront, humans for escalation and nuanced support. One thing that’s helped brands I’ve worked with? Training agents to seamlessly pick up where AI leaves off, so customers don’t feel like they’re starting from scratch. It’s about balance, not a full handoff to AI yet.
+- **Peak_Support** (1↑): Most of our clients are treading carefully with AI. For example, they're rolling out a chatbot for internal use at first, and only make it customer-facing once it has been carefully tested and trained.   
+  
+Many are also using it on the back-end to make it easier for human customer service agents to deliver high quality customer support. For example, we have built a QA tool which integrates directly into the browser, so there is zero integration cost for our clients - it's available for free on day 1 of any engagement. Our team members use it to summarize complex tickets, review their response for clarity, and make sure their responses don't miss any key issues. 
+
+It's like any other tool - it can be incredibly useful, and it can be mis-used. Our clients tend to be companies who really care about quality in customer experience, so they are cautious about rolling it out widely without proper testing and training.   
+  
+I don't believe we'll live in a world where AI will completely take over support (despite what Sam Altman says!). I think customers want to talk to humans, and I am guessing we will have legislation at some point which will mandate companies to disclose when they are using a bot. So, no matter how good AI tools get at faking human voice and intonation, I don't think they'll eliminate the human role.
+- **quietvectorfield** (1↑): I think most customers are less opinionated about AI versus humans than we assume. What they react to is whether their issue gets resolved and whether the path makes sense. AI feels fine when it shortens obvious work and carries context forward. It feels bad when it blocks access, guesses, or forces people to repeat themselves. In practice the best experiences I have seen are hybrid, not because humans are warmer, but because someone still owns judgment, exceptions, and accountability. When that ownership is visible, customers stop caring who or what answered first.
+- **Florian_Feedier** (1↑): The problem is that most companies use AI just to deflect tickets to save a quick buck. That is a guaranteed way to tank your CSAT scores because nobody wants to argue with a robot when they are frustrated. The real value is using AI in the background to listen rather than speak.   
+At Feedier we focus on using AI to analyze the unstructured feedback data so your human agents know exactly what the customer is actually mad about before they even pick up the phone. It shouldn’t be AI vs Human. It should be AI equipping the Human to be smarter.
+- **murph-from-melbourne** (1↑): I think there's a place for AI chat bots for simple CX or Tech support but when it comes to a situation where human intuition is needed AI chat bots fail. Any company who thinks CX human phone contact can be replaced by AI chat bots is mistaken. 
+
+Chat bots are not able to resolve complex tasks especially when there are technology bugs going on.
+
+AI assistants can only resolve known tasks but only humans can resolve unknown errors that AI is not programmed to recognise.

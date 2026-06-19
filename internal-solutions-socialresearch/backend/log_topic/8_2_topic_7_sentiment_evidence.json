@@ -1,55 +1,59 @@
 {
   "positive": [
     {
-      "point": "Some users report no issues with accessing their Vanguard accounts or using certain browsers like Firefox and Safari.",
+      "point": "Buying an existing business is often seen as less risky and provides immediate revenue, customers, and infrastructure.",
       "post_refs": [
-        "1t10h00",
-        "1sjc0r9"
+        "1u8twcy"
       ]
     },
     {
-      "point": "Vanguard's low fees are appreciated by users, despite some service issues.",
+      "point": "Seller financing is a common and effective way for first-time buyers in Canada to acquire a business without a large cash position.",
       "post_refs": [
-        "1t10h00"
+        "1u6w9v3"
+      ]
+    },
+    {
+      "point": "SBA loans are a recommended option for financing franchise opportunities due to potentially lower interest rates compared to using retirement funds.",
+      "post_refs": [
+        "1u35az0"
+      ]
+    },
+    {
+      "point": "Starting with a smaller test budget and increasing it after validating demand is a prudent approach to business investment.",
+      "post_refs": [
+        "1u3zm2s"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Users are experiencing significant technical issues with Vanguard's website, including inability to access accounts, cancel trades, or view balances.",
+      "point": "Online lending platforms often resell personal information to marketing companies, leading to excessive calls and messages.",
       "post_refs": [
-        "1t10h00",
-        "1sjrzcn",
-        "1sjry8p",
-        "1r2urb1",
-        "1qpb3yw"
+        "1u8r8mx"
       ]
     },
     {
-      "point": "There are ongoing problems with third-party data synchronization, affecting users' ability to track their investments accurately.",
+      "point": "The owner of a cafe being hesitant to provide accurate financial documents is a red flag and complicates the acquisition process.",
       "post_refs": [
-        "1qdjbqz",
-        "1pexz6a"
+        "1u7q66j"
       ]
     },
     {
-      "point": "Vanguard's customer service is perceived as declining, with long resolution times for technical issues.",
+      "point": "NexGen Fitness franchisee faced significant financing challenges and lack of support from the franchisor, leading to financial losses.",
       "post_refs": [
-        "1t10h00",
-        "1qpb3yw"
+        "1u5daa0"
       ]
     },
     {
-      "point": "Users report issues with withdrawing cash from accounts, possibly due to unclear policies or technical errors.",
+      "point": "A trucking company owner is overwhelmed by debt, including EIDL and OnDeck loans, which are difficult to manage.",
       "post_refs": [
-        "1sigsbt",
-        "1o26p25"
+        "1u2nlg9"
       ]
     },
     {
-      "point": "Problems with data downloads to financial software like Quicken, affecting users' financial tracking.",
+      "point": "A cybersecurity startup faced financial constraints and difficulty obtaining loans or sponsors, hindering its growth.",
       "post_refs": [
-        "1qahrf2"
+        "1u7efyo"
       ]
     }
   ]

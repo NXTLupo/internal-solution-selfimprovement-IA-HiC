@@ -1,86 +1,98 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: security, keys, security key, sms, 2fa, vanguard, security keys
+- Top keywords: app, free, built, feedback, generator, google, small
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-1. I went into Vanguard and added a Bitwarden Passkey to my account by selecting Security Key in 2FA. This somewhat surprisingly (to me) counts as one Security Key.
-2. I added my YubiKey as the second Security Key.
-3. The two security keys allowed me to disable Security Codes (SMS codes).
+They are 100% free to use and I’d just like feedback to make it better. I love building this sort of thing but I usually just do it for myself so feedback from real world users would be amazing.
 
 EXAMPLE 2:
-- How do I disable SMS 2FA in favor of more secure methods?
-     - Register two FIDO2 keys and the option will become available. ^[Source](https://www.reddit.com/r/VanguardInvestments/comments/1nyscgm/comment/ni0hfll/) I just added Security Keys to my Vanguard account and I want to share what I learned. I had the following configuration:
+The tools are:  
+\-Create a gmail signature in minutes with clickable links  
+\-Find out true cost of a service/product and work out your take home profit before you quote.  
+\-Profit calculator  
+\-Hourly rate calculator  
+\-Break even calculator  
+\-Profit margin calculator  
+\-Quote generator  
+\-Invoice generator  
+\-Receipt generator  
+\-Letterhead generator  
+\-Qr code generator  
+\-vCard QR code generator - this allows people to scan a code and directly save all your details to their phone contacts  
+\-Whatsapp link generator - opens a chat directly with you  
+\-Google review request ge [...]
 
 EXAMPLE 3:
-Vanguard Weakens Account 2FA Security TLDR; Management at Vanguard doesn't seem to understand computer security, and just weakened their security posture by forcing SMS backup codes, defeating the point of physical security keys.
+I’m looking for early users willing to try it at a significant discount in exchange for honest feedback.
 
 EXAMPLE 4:
-Looking around on Vanguard now on my account, yeah, I don't see security key anywhere on the security tab of my profile. But I may have found a roundabout way to get to security key registration. But I can't test it, since I don't have a security key yet.
+​Before I officially launch, I’m looking for a handful of small business owners to help me test it out. I’m not here to sell anything or push a product—I’m simply looking for 10 businesses to give a free account to in exchange for some honest feedback.
 
 EXAMPLE 5:
-Anyone with a little knowledge, and/or social engineering skill to trick your phone carrier, can now break into Vanguard accounts with just your password. Physical security keys won't help you. Someone at Vanguard with security policy authority doesn't seem to understand computer security.
+Free tools for Small Business Owners As someone who is very interested in starting my own business and making it as easy as possible to build momentum I have built some free tools to help business owners or people starting from scratch to actually make sales and not f&$k about on the things that don’t matter.
 
 EXAMPLE 6:
-Vanguard still allows you to add physical security keys to your account. However, within the last month they made a change. Vanguard now forces customers to have a phone number setup for "backup security codes" over SMS. There is no way to turn this off and force the use of the physical security keys. This was previously supported as long as you had 2 or more physical keys linked to your account.
+&#x200B; I am not sure what problem it solves exactly. Please elaborate.
+That's a great question. We built our app to solve three massive, expensive headaches for businesses that rely on shift workers:
 
 EXAMPLE 7:
-1. I logged into the Vanguard website on my desktop with Bitwarden and Vanguard successfully used my Bitwarden Passkey for 2FA. I noticed that logging into Vanguard with Username and Password now ALWAYS requires a Security Key to complete the login. This is a good thing!
-2. I logged into the Vanguard website on my desktop with Bitwarden, bypassed my Bitwarden Passkey, and used YubiKey to complete 2FA.
-3. I performed 1 and 2 on my Chromebook and it worked as expected.
-4. I scanned the QR code on the web page and logged in with the Vanguard Android App. [...]
+I built a CRM for small businesses with built-in loyalty cards, prepaid wallets, and gift cards — looking for early feedback I’m a developer and I’ve been building MoonyCRM — a simple CRM designed for small businesses and professional studios (hairdressers, beauticians, electricians, small retailers, and similar).
 
 EXAMPLE 8:
-How is it possible Vanguard took this important security feature away right now? Not an idle threat, today we move the money to Fidelity if we can't get answers here or by calling them. Can confirm this did work, thank you! We also used an incognito window to filter out cookies, etc. Not sure if that was a factor or not, but it worked to configure two keys.
-Yeah we're trying this exclusively on the desktop and browser (Windows 11 & Chrome, nothing exciting) as it was never available on the app (a security problem, we want to use a hardware key on the app also!).
+I do have a course people can buy that helps them follow up on leads, achieve inbox zero, track leads through a sales pipeline and the things I feel move the needle. I am looking for 10 people to give me feedback on that too so if you are keen I can send you a link to try the course for free.
+I'm excited for you as you start down the road of building a business. Can I softly push back that a suite of tools biggest purpose might be in your experience building them? In small business the ability to figure things out on your own is part of the fun. [...]
 
 EXAMPLE 9:
-What does this mean? SIM swap attacks are now a viable way to attack Vanguard accounts for all customers, regardless of whether they use hardware security keys. In fact, this policy change completely negates the benefits of having a U2F security key linked to Vanguard, because an attacker can just resort to using the fallback SMS verification method, which is far less secure.
+​I’m currently gearing up to launch my very first web app, designed to make staff rostering and scheduling a whole lot easier.
 
 EXAMPLE 10:
-Overall, I think this is a significant improvement to my Vanguard security!
-Your test #5 is where I think things need to improve. I no longer use Vanguard's app as it is missing some things, so I'm now only using their website via my Android browser. 
-I would love to be able to use a passkey while using the browser. This is clearly something wrong on Vanguard's end, as passkeys/yubikeys are definitely supported in most major Android browsers.
+A web app for your clients  
+One single app where your clients can check their card balance, view their appointments, and see notifications directly from you. Quotes management coming soon.
 
 EXAMPLE 11:
-It took me about 5 minutes total to get them on the phone and have it sorted. They removed the ability to use SMS 2fa for login.
+Do you currently offer any kind of loyalty or prepaid program to your clients? What’s your biggest frustration with it? [removed]
+this actually sounds like the kind of thing salons and barbers I know keep trying to hack together with spreadsheets and punch cards lol. biggest pain I’ve seen is staff forgetting to log points or losing track of balances, so the auto rules + client app part is the most interesting bit to me.
 
 EXAMPLE 12:
-I am a longtime Vanguard Personal Investment customer. I am a security conscious individual. One of the reasons I chose Vanguard as my brokerage is because of their support for U2F hardware security keys, such as the YubiKey line of products.
+We haven't exactly reinvented the wheel, there are plenty of rostering apps out there... We just feel like they dont quite hit the mark for what we've needed in the past, so we're trying to provide a solution that is a little more tailored to the needs of small business owners. (Predominately Hospitality, Security currently however it's more than usable in other industries too)
 
 EXAMPLE 13:
-Dumbing down security while we're facing cyber attacks? We added hardware keys to our banks, Fidelity, medical site logins as the strongest security available. However, it seems Vanguard has removed this capability from its security page. Iran is attacking right now, just put a medical company basically out of business yesterday.
+​If this sounds like something that could help your business, shoot me a message and I’ll help get you set up!
 
 EXAMPLE 14:
-Thanks for that workaround, we will try it and report back.
-I'm planning on getting a Yubico security key, for Vanguard and a few other sites I use, but haven't done so yet.
+Essentially, we turn a stressful, multi-hour administrative nightmare into a few taps on your phone. (Or Desktop device)
 
 EXAMPLE 15:
-Hope they get this sorted out shortly. 
-Just adding the YubiKeys did not remove the ability to SMS 2fa as a fallback. In Profile>Security on the website I saw no way to remove the SMS 2fa. While logging in I could X out of the Pinentry dialogue for the YubiKey and the option to use SMS as a fall back was still on the page.
+As I can’t post a link just dm me and I’ll send you the address. Looking for feedback and all tools are free [removed]
+Hmmm… amazing feedback. My thought process was getting them to make the sale and send a branded quote quickly. In my mind I thought of a person who goes to a sales call, uses the true cost calculator, adds adjustments and mark ups, works out profit accurately and then generates a quote and emails it within 10 minutes rather than going home and trying to do it on their own on paper and then worry about looking professional and so they design something on canva and so on and so  [...]
 
 EXAMPLE 16:
-Go to the Support page, scroll down to Technical Support & Security, click on Security & Fraud.  
-Under "Need to report suspected fraud?", click on the link to "Security Center". Scroll down to the section on "Security key & passkey", and click the link for "Register a Security key & passkey". No idea if that actually works, tho, since I can't test it, yet. (this is all on desktop, no idea about the app)
+Most CRMs are built for sales teams. MoonyCRM is built for people who serve customers in person every day.
 
 EXAMPLE 17:
-1. Linux Mint desktop
-2. Chromebook
-3. Pixel 9 Android Phone
-4. Bitwarden password manager on all devices
-5. 1 YubiKey 5 NFC
+Appointment calendar  
+Manage your own schedule directly in the CRM. Your clients can see their upcoming appointments in the mobile app.
 
 EXAMPLE 18:
-We finally got a callback from Vanguard. At first they tried saying it was my wife's problem, until she explained many more folks are complaining about this capability never really working right, then suddenly disappearing altogether.
+* **The Last-Minute No-Show:** Instead of calling 10 people to cover a no show or a sickie we have the ability to automatically broadcast the open shift to available, qualified staff who can claim it instantly.
+* **Compliance Disasters:** Tracking expiry dates on spreadsheets can be painful. We send automated alerts before a mandatory certification (like an RSA, security license, or nursing cert) expires, and automatically block unqualified staff from being rostered.
+* **Payroll Admin:** We eliminate manual data entry. [...]
 
 EXAMPLE 19:
-Oh, and as an added bonus, they also removed the ability to submit written tickets via their "Secure Message Center." Now you get to enjoy chatbots, generic help center articles, and automated phone support that if you are persistent enough eventually connects you to a demoralized human being with no authority to do anything, and who expects to soon be replaced by an AI agent.
+Client & sales management  
+Track your clients and their full purchase history. Every sale you register automatically triggers loyalty rules you’ve defined — no manual work.
 
 EXAMPLE 20:
-Then they said they could turn it back on but they'd have to "go into your account" which seems to indicate they're selectively turning it on for people? Why is that? Why was it removed? Not feeling too warm and fuzzy about having the money here with all the cyber attacks going on right now.
+Gift cards  
+Clients can receive or buy gift cards and redeem them as credit on their prepaid wallet.
 
 EXAMPLE 21:
-Is nothing safe from enshittification? I filed a complaint with FINRA, but it's like shouting into the void. I hate this timeline. Your post was removed for being extremely likely to become spam. If you significantly reduce your use of Redact, you can appeal this with the links to a few 2-6 month old, non-Redacted comments you've made.
+Loyalty & prepaid cards  
+Each client can have a points card and/or a prepaid wallet. Points and cashback are calculated and applied automatically every time you log a sale, based on rules you set.
+
+EXAMPLE 22:
+We need to make that first sale, learn from it and then improve on the next sale. What people do is procrastinate and try to get the perfect invoice, create letterheads, business cards, gmail signatures and much more.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -103,14 +115,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

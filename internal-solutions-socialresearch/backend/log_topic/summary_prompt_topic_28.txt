@@ -1,0 +1,121 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: business, trust, family, x200b, day, thing, shop
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+Our business is not highly computerized like a mall or a large retail chain. We run normal local shops, and many things are still managed manually.
+
+EXAMPLE 2:
+How do you manage multiple family-owned shops without family members running them? I come from a family business background. We currently have 3 shops, and all of them are managed by family members. We are planning to expand further by opening a general store and a small clothing shop.
+
+EXAMPLE 3:
+honestly the POS + cash controls are the thing that makes hired managers safe. without that visibility, expanding past your family headcount is genuinely risky. what kind of shops are they, mostly grocery/retail?
+
+EXAMPLE 4:
+a basic POS so every sale is recorded + you can see daily numbers per shop from your phone without standing there.
+
+EXAMPLE 5:
+The problem is that as we expand, we may not have enough family members available to manage every shop ourselves. The first thing I'd separate is cash control from day-to-day decision making. For local shops, you can often have non-family managers run staffing and customer issues, but daily sales, purchases, inventory counts, discounts, and supplier payments need a simple reporting rhythm that someone in the family reviews every day.
+the jump from family-only to hired managers is really a jump from running on trust + presence to running on systems + controls. [...]
+
+EXAMPLE 6:
+inventory tracking so stock-in vs stock-sold reconciles. shrinkage + theft is the number one risk with non-family running a cash shop, + you can't catch it manually across five locations.
+
+EXAMPLE 7:
+incentivize. a small bonus tied to the shop's numbers makes a hired manager act a bit more like an owner.
+
+EXAMPLE 8:
+the honest blocker is the 'mostly manual' part. you can't safely trust a non-family manager with a cash local shop if you have no way to see what's actually happening. so step one is some basic computerization, even simple, just enough for visibility:
+
+EXAMPLE 9:
+What are your best tips you wish you knew when you started? My friend and I are looking at getting into doing a small time IT/Digital Management company for other businesses in our area. We’re both pretty young, in our early 20s, and are starting to go through the steps to make the business legit. My friend is the brains behind the operations because he understands computers and I don’t, me on the other hand, am the sales guy and customer service guy. [...]
+
+EXAMPLE 10:
+Some say I can do that later. You can’t, your to busy doing other things. You have to many things to document.
+Huge congrats on landing your first customer!  
+  
+Definitely separate your personal and business finances by opening a business checking account! It's the easiest thing you can do to keep track of your business expenses; it makes tax time way easier and builds legitimacy with customers and vendors. More importantly, it also helps protect your personal finances (and credit), especially if you're forming an LLC or other legal business structure. [...]
+
+EXAMPLE 11:
+What's one thing you wish you knew before starting your business? One thing I've realized from talking to business owners is that the day-to-day reality of running a business is often very different from what people expect when they're first starting.
+
+EXAMPLE 12:
+give each manager a clear scope + a couple of targets (daily sales, stock levels) + review them weekly.
+
+EXAMPLE 13:
+Your first goal should not just be getting customers. It should be building a repeatable service that you can deliver consistently without chaos.
+OP lots of great advice here.
+
+EXAMPLE 14:
+write down how you do things, opening/closing, cash handling, restocking, how customers get treated. simple SOPs are how a manager runs it your way instead of inventing their own.
+
+EXAMPLE 15:
+1. Get everything in writing Even if the client is friendly, write down exactly what you are doing, what is not included, how much it costs, when payment is due, and what happens if they ask for extra work.
+2. Do not sell “unlimited support” too cheaply A small monthly retainer sounds great until one client starts calling/texting constantly. Define response times, support hours, and what counts as billable work.
+3. Document everything Passwords, devices, software licenses, websites, hosting, domains, backups, admin access, work performed, client requests. Future you will thank you.
+4. [...]
+
+EXAMPLE 16:
+Some people struggle with finding customers, others with pricing, hiring, time management, or simply wearing too many hats.
+
+EXAMPLE 17:
+I would add one big thing that is missing. Document your processes and standards from the beginning. Create SOP’s.
+
+EXAMPLE 18:
+I'd love to hear some real experiences from other owners. cash flow timing. revenue and profit look fine on paper but the gap between when you pay for inventory or production and when you actually collect from customers can quietly kill a business that's technically growing.
+
+EXAMPLE 19:
+daily cash reconciliation (cash counted vs POS total). this one control prevents most of the problems people fear with hired managers.
+
+EXAMPLE 20:
+then your job shifts from being in the shops to reviewing the numbers each week + visiting on a rotation. you manage by the dashboard, not by being physically present everywhere.
+
+EXAMPLE 21:
+I wish someone had told me to obsess over reviews from day one, not as a vanity metric but as a growth lever. Every happy customer who doesn't leave a review is a referral that never happened. Every business I've seen struggle with slow growth had the same problem: great service, almost no social proof.
+
+EXAMPLE 22:
+a lot of people i've talked to didn't realize how much of their energy would go into that gap instead of the actual work they started the business to do.
+A corollary with this is that there is such a thing as growing too quickly. Doubling your sales in one month is wonderful if you're running a coffee shop. If you're running a business with inventory and 30-day terms, congratulations! You've just sunk your business.
+That reputation compounds faster than anything else, in both directions.
+
+EXAMPLE 23:
+The businesses that figured this out early compounded. The ones that didn't spent years doing great work that nobody outside their existing customers ever knew about.
+
+EXAMPLE 24:
+The ask feels awkward at first. But asking within 24 hours while the experience is still fresh, sending a direct link, giving them the first sentence so they're not staring at a blank page - it becomes second nature fast.
+
+EXAMPLE 25:
+This allows you to have consistent standards. More importantly it allows you to be able to hand it off to someone as you grow. While following your processes.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

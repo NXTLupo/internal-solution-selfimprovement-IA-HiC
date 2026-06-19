@@ -98,23 +98,46 @@ export function tryRepairJson(jsonString: string): string {
         return JSON.stringify({ _error: "Model returned non-JSON text", _raw: cleaned.substring(0, 200) });
     }
 
-    // Bracket-balancing repair for truncated responses
+    // Bracket-balancing repair for truncated responses.
+    // 2026-06-14 - Also DROP stray/unmatched closing brackets that appear
+    // MID-STRING. The old pass only COUNTED brackets (to append missing
+    // closers) and could not remove an extra "]" or "}" sitting in the middle
+    // of the object. A real failure: a block-quote slide where Opus emitted
+    //   "quote": { ... }], "motivations": [...]
+    // (a stray "]" right after the quote object closed, plus out-of-schema
+    // fields). That unmatched "]" defeated JSON.parse AND the end-trim
+    // fallback below (the bad bracket is not at the end), so the entire slide
+    // collapsed to an error envelope and rendered blank ("Untitled Slide" +
+    // empty quote). We now REBUILD the string, skipping any closer that does
+    // not match the open stack. For well-formed JSON this is a pure no-op
+    // (no closer is ever stray); for the malformed case it recovers the
+    // slide's real title + quote instead of losing the whole card.
     let stack: string[] = [];
     let inString = false;
     let escaped = false;
+    let rebuilt = '';
 
     for (let i = 0; i < cleaned.length; i++) {
-        let char = cleaned[i];
-        if (escaped) { escaped = false; continue; }
-        if (char === '\\') { escaped = true; continue; }
-        if (char === '"') { inString = !inString; continue; }
+        const char = cleaned[i];
+        if (escaped) { rebuilt += char; escaped = false; continue; }
+        if (char === '\\') { rebuilt += char; escaped = true; continue; }
+        if (char === '"') { rebuilt += char; inString = !inString; continue; }
         if (!inString) {
-            if (char === '{' || char === '[') stack.push(char === '{' ? '}' : ']');
-            else if (char === '}' || char === ']') {
-                if (stack.length > 0 && stack[stack.length - 1] === char) stack.pop();
+            if (char === '{' || char === '[') {
+                stack.push(char === '{' ? '}' : ']');
+            } else if (char === '}' || char === ']') {
+                if (stack.length > 0 && stack[stack.length - 1] === char) {
+                    stack.pop();
+                } else {
+                    // Stray closer (stack empty, or top is the other bracket
+                    // type) - drop it rather than emit invalid JSON.
+                    continue;
+                }
             }
         }
+        rebuilt += char;
     }
+    cleaned = rebuilt;
 
     // Close unclosed string
     if (inString) cleaned += '"';
@@ -445,6 +468,29 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 //   - `fast_agentic` was already Flash
 // Quality is preserved on the export path; speed is recovered on the
 // interactive path. Users can override per-task via preferences.
+// ============================================================================
+// CANONICAL MODEL-ROUTING RULE (single source of truth — 2026-06-16, user-final)
+// ----------------------------------------------------------------------------
+//   • Gemini 3.5 Flash  →  ALL non-hashtag Analyst Desk chat (plain corpus Q&A).
+//   • Claude Opus 4.8   →  ALL hashtag deliverable generation — EVERY artifact
+//     hashtag (#slides #journey #org #personas #recs #prd #gap #competitive
+//     #case-study #roadmap #blueprint #brief #explainer #report ...) AND the
+//     #proto build pipeline's generation stages (brief, interaction spec, sim,
+//     design-system, build-recipe, code, critique).
+//   • Cross-provider FALLBACK (resilience only, never by choice): Gemini, then
+//     (last) OpenAI for the GENERATED prototype's own runtime; the HiC BUILD path
+//     never uses GPT-5.5 (it rejects non-default temperature → HTTP 400, and is off-rule).
+//
+// ENFORCEMENT POINTS (keep in lockstep — no parallel routing logic / no debt):
+//   • services/corpusChatService.ts routedModelFor() + the artifact force-route
+//     (plain → gemini-3.5-flash; hashtag → claude-opus-4-8).
+//   • services/prototypeBuilder.ts callOpusJsonStage + callClaudeStage (Opus
+//     primary; Gemini 3.1 Pro resilience fallback).
+//   • The DEFAULT_MODELS table below feeds non-deliverable agentic tasks only;
+//     deliverable routing is the force-route above, NOT a category default.
+// Mirrored in: documentation.html §12, .claude/CLAUDE.md, brand/figma-node-map +
+// memory. When this rule changes, update ALL of those together.
+// ============================================================================
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     research: 'gemini-3.1-pro-preview',
     fast_generation: 'gemini-3.5-flash',

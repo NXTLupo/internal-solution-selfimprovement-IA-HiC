@@ -1,8 +1,5 @@
 ---
 id: design-system/gold-visual-language.md
-title: GOLD Visual Language (deliverable design system)
-type: design-system
-updated: 2026-06-10
 chunks:
   - id: "design-system/gold-visual-language.md#c0"
     char_span: [0, 370]
@@ -22,19 +19,31 @@ chunks:
     section: Brand tokens
     token_count: 250
   - id: "design-system/gold-visual-language.md#c3"
-    char_span: [2092, 3278]
+    char_span: [2094, 3901]
+    sentence_count: 11
+    key_terms: [body, title, weight, hero, numerals, kicker, labels, label]
+    section: Typographic system (2026-06-14)
+    token_count: 505
+  - id: "design-system/gold-visual-language.md#c4"
+    char_span: [3903, 4774]
+    sentence_count: 4
+    key_terms: [continuation, never, artifacts, layout, floor, slide, competitive-matrix, service-blueprint]
+    section: Typographic system (2026-06-14)
+    token_count: 200
+  - id: "design-system/gold-visual-language.md#c5"
+    char_span: [4810, 5996]
     sentence_count: 4
     key_terms: [label, quote, justify-between, column, source, figma, panel, qualitative]
     section: Case-study deep-dive variants
     token_count: 337
-  - id: "design-system/gold-visual-language.md#c4"
-    char_span: [3325, 4010]
+  - id: "design-system/gold-visual-language.md#c6"
+    char_span: [6043, 6728]
     sentence_count: 1
     key_terms: [slidetemplates, components, design-system, gold, services, nxt-visual-renderer, twin, slidetostagehtml]
     section: "Code twins (keep in sync, in this order)"
     token_count: 195
-  - id: "design-system/gold-visual-language.md#c5"
-    char_span: [4052, 5045]
+  - id: "design-system/gold-visual-language.md#c7"
+    char_span: [6770, 7763]
     sentence_count: 6
     key_terms: [dense, density, ceilings, per-template, item, preview, export, raises]
     section: Universal density axis (2026-06-10)
@@ -80,6 +89,45 @@ Geometry is IDENTICAL across brands; only tokens change. All values below are th
 | body face | Archivo | Archivo |
 | mono face | IBM Plex Mono | IBM Plex Mono |
 | numerals | Bebas Neue | Lora |
+
+## Typographic system (2026-06-14)
+
+Source of truth: the Brand Tokens `type/*`, `track/*`, `space/scale-*` variables in
+both Figma files (NXT 221:2, NU 95:2), serialized to figma-tokens.json `type` and
+streamed via /api/design-tokens. Replaces the ~45 ad-hoc sizes / all-8-weights muddle
+the 2026-06-14 real-PPTX audit found (titles out-ranked by hero numerals; text at 5.5pt).
+All values are 1920-space stage px; web preview and PPTX render at half.
+
+### Modular scale (content-dense, minor-third body band, hard jump to title)
+label 15 | caption 17 | body 21 | lead 25 | name 30 | subhead 36 | title 46 | display 60.
+Body 21 is the reading floor; 17 is the HARD minimum any text may render (below it,
+overflow to a continuation slide, never shrink). display is the section-divider numeral only.
+
+### Weight ladder (3 weights; weight encodes importance)
+body 400 (body, quotes, hero numerals) | label 500 (labels/meta/mono, always grey) |
+title 600 NXT / 700 NU (action title, names, takeaway band). Labels are NEVER heavier
+than the content they introduce; they recede via size + grey, not weight.
+
+### Hierarchy doctrine (the prioritization rules)
+1. One governing line: the action title is the single largest text on a content slide.
+2. Hero cap: hero numerals/words are evidence, set at lead (25) in body weight, and NEVER
+   exceed the title. (Fixes the audited stat-row 31>23 and persona 26>23 inversions.)
+3. Labels recede: mono, label-weight, grey, sentence-case; UPPERCASE only on the kicker.
+4. Tracking (px, uppercase mono only): kicker 4, label 1.5, title NXT -0.5 / NU 0; body 0.
+5. Emphasis scarcity: one brand-accent emphasis per slide for the priority datum; structural
+   accents (warn=pain, cool=opportunity, kicker) keep their meaning.
+6. Measure: body lines cap ~62ch; vertical rhythm on the 4px space scale (xs4..huge64).
+
+### Density tie-break + continuation (locked with the user 2026-06-14)
+Content-dense, honoring each artifact's expert dimensions. Keep every evidenced item;
+type steps down within the scale to the 17px floor. If items still exceed the floor's
+capacity, OVERFLOW to a CONTINUATION slide; never truncate mid-sentence, never shrink
+below the floor. Continuation slides use a DIFFERENT but skill-valid layout for diversity:
+multi-instance artifacts cycle a VARIANT LADDER (theme: cluster->spotlight->arc->mosaic;
+case-study: four-block->before-after->evidence-stack; recommendation: grid->impact-cards->strip);
+single-canonical artifacts (org-chart, architecture-map, journey-map, service-blueprint,
+systems-inventory, competitive-matrix, gap-matrix) continue on a second slide of the SAME
+layout with a "(continued)" eyebrow, same columns, and never split a phase/row group.
 
 ## Case-study deep-dive variants
 

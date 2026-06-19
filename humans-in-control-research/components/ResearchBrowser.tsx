@@ -321,7 +321,27 @@ export const ResearchBrowser: React.FC<ResearchBrowserProps> = ({
             if (state.tagFilter && !it.topTerms.includes(state.tagFilter)) return false;
             if (state.query) {
                 const q = state.query.toLowerCase();
-                const hay = `${it.title} ${it.summary} ${it.topTerms.join(' ')}`.toLowerCase();
+                // 2026-06-14 - Search the FULL theme body, not just title+summary+topTerms.
+                // A user filtering "intell" on themes about an Intelligence-Augmentation
+                // product matched 0/28 because the abstract theme names ("Token-Cost
+                // Control", "Wiki-Manifest vs RAG") never literally say "intelligence" -
+                // the term lives in quotes, interpretation, implications and depth fields.
+                // Fold every searchable text field into the haystack.
+                const hay = [
+                    it.title,
+                    it.summary,
+                    it.topTerms.join(' '),
+                    (it.quotes || []).map((qq: any) => `${qq?.text || ''} ${qq?.sourceLabel || ''}`).join(' '),
+                    (it.implications || []).join(' '),
+                    it.depth ? [
+                        (it.depth.interpretation || []).join(' '),
+                        (it.depth.subThemes || []).join(' '),
+                        (it.depth.dimensions || []).join(' '),
+                        it.depth.contradiction || '',
+                        it.depth.temporalArc || '',
+                    ].join(' ') : '',
+                    (it.citations || []).map((c: any) => typeof c === 'string' ? c : (c?.sourceName || c?.sourceFile || '')).join(' '),
+                ].join(' ').toLowerCase();
                 if (!hay.includes(q)) return false;
             }
             return true;

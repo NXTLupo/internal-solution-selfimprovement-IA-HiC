@@ -1,58 +1,82 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: roth, traditional, traditional ira, basis, backdoor, year, tax
+- Top keywords: brand, logo, shirt, design, x200b, image, stickers
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Should those last two be "Roth IRA" instead of "traditional IRA"? If you did the backdoor Roth correctly your traditional IRA should be empty afterwards, or just a nominal amount of interest.
-I’m confused but it sounds like you are doing a Roth conversion not a backdoor Roth.  Backdoor Roths are for individuals making too much money to contribute to a Roth.  This year 153k for a single and 242k for a couple.  If you are below these amounts just put money directly in a Roth.
+I was thinking of making an exclusive sweater/hoodie brand for my university with 200g cotton and detailed embrodiery. I am an artist so i deeply care about the design itself as well. I want to sell a basic regular hoodie with my university name on it and another limited stock hoodie with a “premium” seasonal design like a big ass dragon embroidery or something. maybe a 1:1 hand painted hoodie being sold at a high price. i want to market the hoodies in a way where it would be a flex to own this item. [...]
 
 EXAMPLE 2:
-For the future, it sounds like I could’ve contributed to my traditional, then IMMEDIATELY converted to a Roth and avoided any tax penalties by filing a specific IRS form at tax time…? You're asking this on December 31st after the market has closed for 2025?
-Yeah, I called and learned. I was told I could convert next year but no clue how that would impact me when it comes to taxes, penalties etc. suffice to say, I guess I now have a traditional IRA in addition to my Roth. Woo hoo. [...]
+let me know if there’s any changes to this idea, so i can make a plan that prioritizes profit, while also maintaining an importance to design (because im very picky and i hate basic fashion) Don’t just sell it as “a hoodie with the university name.” Sell it as a limited campus identity piece. Something people want because it feels harder to get, better designed, and more personal than basic school merch. I’d also test demand before producing too much. Maybe start with mockups, collect pre-orders, and only give free pieces to people who actually influence buying behavior on campus. [...]
 
 EXAMPLE 3:
-Backdoor Roth confusion - help! Last year was my first year trying the backdoor Roth, and it is honestly still confusing to me despite reading information on several sites. I converted 7K from my traditional IRA to the Roth IRA, then bought 7k in stocks in my traditional IRA. My traditional IRA now has a total of 7,300 in stocks (given interest).
+I’m still refining it, so genuinely open to constructive feedback from other business owners who have been through the same process. For mobile banners, I'd separate brand story from product clarity. Your center-safe-zone approach is right, but text inside hero images is still brittle because every theme and device crops differently. If the brand promise matters, put the copy in HTML over or under the image and let the artwork stay mostly visual.
+Keep text as text, not pictures and layer them on top of images.
 
 EXAMPLE 4:
-What are my next steps for the backdoor Roth this year? I know the max is 7.5K. Below are specific questions and I appreciate any other guidance, thank you!
+Anyways, I could really see this taking off and I would hate to see this die with him. My question is, how do I do it? I would really like to get a heat press and sublimation printer and do it myself but they are so expensive. Also, say I do manage to get those, how do I get the name out there? I mean you see brands get one viral tiktok and then pop the heck off but I want to do this right. Advice? T-shirt shops are a rather saturated market. Every week, there's someone in here or r/reviewmyshopify thinking their shirts are going to "go viral" or wondering what they are doing wrong. [...]
 
 EXAMPLE 5:
-I put in like $8500 over the limit last year so that doesn't really jive with the $21k increase in basis either.
-The basis is what you contributed but not the growth or conversions. You cannot take this out within the 401k without penalty if the value is greater than basis because distributions from a Roth 401k are on a pro rata basis (meaning if half the account is basis and half is gain, drawing any amount will be treated as half gain half basis). This is notably different from a Roth IRA where basis may be drawn out first with no tax or penalty at any age for any reason. [...]
+Need a business plan for a clothing brand for my university the students in my university has created multiple successful small businesses selling custom jerseys with the university name on it and i do have a similar idea but with a twist.
 
 EXAMPLE 6:
-Form you file: Use Form 8606 whenever you make nondeductible traditional IRA contributions or do a Roth conversion.
+Instead of designing banners edge-to-edge, I now treat the centre of the image as the “safe zone.” Anything important — logo, headline, product, CTA, or artwork — needs to sit much closer to the middle of the frame.
 
 EXAMPLE 7:
-What is Roth Cost Basis on a 401k? I used to think the Roth Cost Basis was my Roth principle, ie the money I can take out whenever with no penalty. Comparing my end of 2024 and 2025 statements though the math didn't workout. I put in the $23.5K max as all Roth plus another $8.5K as an automatic After Tax Roth Conversion (MegaBackdoor Roth). My Roth Cost Basis only went up $21.8K though. So what is Roth Cost Basis and how do I find out my Total Roth Contributions for the account? The pic is on my quarterly 401K statement.  Commenting because I'm curious to see the answer. [...]
+My dad started a tshirt brand over 10 years ago and I helped with the first sketch, he passed 8 months ago and I want to keep it alive. Where do I start? So over 10 years ago my dad came up with a t shirt brand/ designs. I actually helped with the first sketch and then we had it perfected and they came out amazing. We sold some but had trouble with advertising and getting the word out.
 
 EXAMPLE 8:
-Conversion deadline: Roth conversions must be completed by December 31 to count in that year’s income.
+i forgot to mention— there is a small business in my university that sold hoodies and sweaters (but not in the way i described) they sold really basic designs that looked like fast fashion but still included my university name. the prices were okay (a little overpriced for me), the quality was suspicious. and the business was permanently closed with no explanation
 
 EXAMPLE 9:
-Apologies if this is still unclear. Conversions in a Roth 401k are a weird pseudo situation that are technically not gain or basis. When explaining this normally, I am doing so to financial professionals with a solid working understanding of these terms and rules.
+In my country, its very common to offer packages (the more jerseys you buy the more discounted it gets) and that naturally automates the marketing itself, because people will share it with their friends and multiple friend groups will buy the same seasonal jersey for a discount. i assume this has some good profit margins because i paid so much money for a 100 percent polyester jersey and a cheap screen printing for the text (i was hoping for a better material for the price)
 
 EXAMPLE 10:
-This year to clean it up I would like to convert the existing AND the new 7.5K that I add if that is ok to do.
-> I converted 7K from my traditional IRA to the Roth IRA, then bought 7k in stocks in my traditional IRA. My traditional IRA now has a total of 7,300 in stocks (given interest).
+maybe ill give away the hoodies for free to the popular kids in my uni as a walking advertisement, i also have graphic design/media skills that could be useful
 
 EXAMPLE 11:
-If the question is how much you may withdraw without early withdrawal penalty, it is the sum of the basis and all in plan conversion. Note this would still happen pro rata, triggering tax and penalty on gain If you plan to do that before a rollover to a Roth IRA and achieving age 59.5, because the pro rata rule will kick in. If the pro rata rule kicks in, your tax liability will be (basis + conversion) / total account basis * ordinary income tax rate + 10% penalty.
+Good luck man.
+It’s been idle for awhile so I would be starting from scratch other than the designs  yeha
+I’m really sorry for your loss, first and foremost.
 
 EXAMPLE 12:
-* Do conversions have to be cash, or can I convert the stock to Roth? 
-* How is interest treated - does it count towards the 7.5k max or not (e.g., can I add $500 or just $200)?
-* Can I still add $ this year to my traditional IRA and if so how much? It is unusual because I already had 7K sitting in my traditional, which I converted last year and then added 7K to the traditional last year.
+Wanting to keep something your dad created alive is one of the most meaningful reasons to build anything. That story alone gives your brand a heartbeat most people spend years trying to manufacture.
 
 EXAMPLE 13:
-Have cash in traditional Ira, want to move to Roth but I’m over income limit…what should I do? I somehow forget the rules around IRAs every year…but I contributed the max to my traditional IRA in the first quarter of the year. Subsequently, I never invested any of it. Now that it’s the last day of the year, I wanted to convert it to a Roth.
+On the practical side: you don’t need to buy all the equipment right away. A lot of apparel brands start with print‑on‑demand to validate demand before investing in a heat press or sublimation setup. Once you see traction, then you can bring production in‑house. It keeps the risk low while you figure out what resonates.
 
 EXAMPLE 14:
-Contribution deadline: You can make IRA contributions for a tax year up to the tax filing deadline (around April 15 of the following year).
+I’ve also started leaving more breathing room around the edges, reducing text size slightly, and avoiding placing key design elements too high, too low, or too close to the sides. Even if the platform crops the image differently on mobile, the important part still stays visible.
 
 EXAMPLE 15:
-If the question is why is the 8.5k conversion not added to basis, it is because it is not basis, but it is also not taxable as gains for purposes of early withdrawal like normal gains from the account with the exception of the 10% penalty for the first 5 years.
+The idea behind it is to create a spiritual self-mastery lifestyle brand around inner power, sacred geometry, mindset, emotional discipline, and personal growth. The tagline is “Awaken the Power Within.”
+
+EXAMPLE 16:
+On desktop, my banners and collection images looked strong. But on mobile, some of the important parts of the images were getting cut off — especially text, product details, and central artwork. It made the site look less polished, even though the actual images were high quality.
+
+EXAMPLE 17:
+If you want, I'd be happy to take a look at what you’ve got: the designs, the story, the structure, and point you toward the clearest next step.
+
+EXAMPLE 18:
+Has anyone else struggled with mobile image cropping on their small business website? Looking for honest feedback Has anyone else struggled with mobile image cropping on their small business website? Looking for honest feedback
+
+EXAMPLE 19:
+I’m building my own brand in public, so I give out free Clarity Audits™ to founders who want a quick diagnostic on where things are misaligned and what to focus on first. No pitches or anything like that. I'm just trying to help people openly as my business grows.
+
+EXAMPLE 20:
+Doing it all in-house has better margins, but you need startup money. The PODs quality is... well, it is what it is. Running one of these things is all gamble.
+
+EXAMPLE 21:
+For anyone else using platforms where you cannot upload separate desktop and mobile images, the best fix seems to be:
+
+EXAMPLE 22:
+Im in a college with expensive tuition fees, my friends and classmates do not care about money because only upper class people can afford it. we have a lot of rich snobs here. I notice that there are only jerseys being sold but not hoodies or sweaters for the cold lecture rooms.
+
+EXAMPLE 23:
+I’m Preston. I work with founders on the structural side of their business. I basically help them figure out why things feel stuck or overwhelming and what the next move should be.
+
+EXAMPLE 24:
+Fast forward to 8 months ago he got diagnosed with an extremely rare cancer and then very tragically passed weeks later.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -75,14 +99,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

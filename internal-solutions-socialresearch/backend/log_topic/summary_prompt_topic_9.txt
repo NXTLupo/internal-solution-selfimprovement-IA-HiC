@@ -1,75 +1,90 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: shares, fund, sell, mutual, buy, sale, mutual fund
+- Top keywords: app, tool, track, notes, team, use, crm
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-Thoughts? I don't believe you can do an exchange between two different mutual fund companies. It has to be a sell and then a buy.
-Right, so what's the best approach to avoid being out of the market for a day?
-I'm not sure there is a way.
+I would love an app that I can just put some information in for each project and have it maybe color coded or something for different stages, like "Need to give quote" "Quote Given" "Follow Up" "Job Accepted" "Materials Ordered" "In Progress" "Completed" etc.
 
 EXAMPLE 2:
-Unless it's a Fidelity money market, no one knows what the proceeds of the sale will be until after the close on the day it's sold. If both funds are the same mutual fund company, it can be done as an exchange because one company handles both sides of the trade. You may be able to use 90% of the previous day's closing value of the Fidelity fund to purchase the Vanguard fund, however that may have to be a broker assisted trade.
+I run my own marine upholstery business, and this season I've had an uptick in messages and potential customers, but I am losing track of it all. For example, I get emails from my website contact form, social media inboxes etc, and then Ill be out working on a job at the docks and get maybe 2-4 new inquiries that I can't necessarily look at right then and there so I want to come back and give a quote. Right now I just have things scattered between my notes app on the phone, pad and paper back at the shop, and sticky notes at my house.
 
 EXAMPLE 3:
-exchange Fidelity fund for Vanguard fund. I transferred a Fidelity mutual fund (call it FXXXX) from my fidelity Roth to my new Vanguard Roth. (ACAT transfer).
+If it helps, I already use the free version of Square for taking payments. You should look at a CRM rather than project management software. Project management apps are designed more for collaboration on work across teams. CRM (customer relationship management) software is more for one person tracking the "next step" for a linear, time-bound process like issuing quotes.
 
 EXAMPLE 4:
-1. Do I need to disable the weekly transaction or change anything?  Or will Vanguard put everything in money market?
+I can share the App Store link if allowed, but mostly looking for feedback on whether this problem is real outside my own business. Odoo erp, I use for mfg but it has field svc app
+Before choosing a tool, I would write down the job states you actually need to control.
 
 EXAMPLE 5:
-The 2-3 Customer Service Rep I spoke with all didn't believe this can't be done in 1 step.  As one of the largest Financial institutions in the world.    I'm surprise such a simple issue still exist and how big their development team is. Selling a mutual fund can go directly into another vsnguard mutual fund by doing an exchange or go into the settlement fund in the same account ao not aure why you are saying that can't happen. Your explanation is either poor or you're missing something. [...]
+I don't have any experience in your industry, but my favorite CRMs (in ascending order of cost/complexity) are:
 
 EXAMPLE 6:
-In Fidelity or Schwab.  I can just do step 3 and it will ask where to draw the funds and all within 1 Step.
+Project Management App Looking for an app that works across iPhone and Mac/PC to handle project management.
 
 EXAMPLE 7:
-I don't usually sell stuff in Vanguard, so forgive me.  I see there is a 30 day rule on buying more of the same.  Can I just hit sell or do I need to change my account in other ways?
+I tried existing tools, but a lot of them either felt outdated, were expensive per seat, or were built more like general CRMs instead of something for people actually working in the field.
 
 EXAMPLE 8:
-I have excess capital in a Vanguard **California Municipal** Money Market Mutual fund (for tax free purpose). and have a  Monthly re-occurring investment into Vanguard ETFs.   Vanguard have no direct way of accomplishing this all within 1 single account.
+Then decide what each field rep must update from their phone: photos, notes, arrival time, parts/materials, customer signature, payment status, etc.
 
 EXAMPLE 9:
-How can I work around this?  If I were to pay the $75 for a broker-assisted sale, would they be able to set this up even though the sold fund is Fidelity?   Or should I just sell 1/N of the fund and the next day buy the amount of the previous day's sale, and sell another tranche, thereby limiting my daily exposure to 1/N , but for N days, which in all likelihood would reduce the variance (but not the worst case, if the market did the exact same thing N days in a row).
+And for a one-person shop, you should avoid Hubspot. Frankly you can probably do most of this with a Google spreadsheet, but if you want just an app, check out that list.
+I agree with the spreadsheet, I was doing that for a while but the inability to do it easily from my phone kind of made the whole sheet fizzle out. 
+For a service business your size, the inbox chaos is usually simpler to fix than it looks. The real issue is that leads are coming in from 3-4 channels with no single place they land. [...]
 
 EXAMPLE 10:
-Context for doing this:  Earn as  much tax exempt (Fed & State) income as possible for the excess capital waiting for investment.
+It also has job tracking, geofenced timers, team chat, offline mode, Google Sheets export, revenue charts, and leaderboards.
 
 EXAMPLE 11:
-2.  Is it a problem that I've been buying it all last month and I need to stop for a month or six weeks before I do this?  
-  
-3.  What will happen in two weeks when I get dividends?
+A lot of spreadsheet mess happens because the spreadsheet is trying to be a CRM, dispatch board, job log, and invoice tracker at the same time. Even a simple field-service app works better once the workflow states are clear. If the process is fuzzy, every tool becomes another spreadsheet with a nicer UI.
 
 EXAMPLE 12:
-Your most recent shares have probably lost value, and you're going to have a loss, but because you're constantly buying it will be considered a wash sale. You can't recognize the loss now, but instead the loss will be added to the basis of the new shares (in a complicated order I don't pretend to understand). If you are doing any purchases inside a tax-advantaged account, it could be those shares that have their basis increased, meaning you will lose the loss entirely.
+* What are you using now?
+* What do you hate about it?
+* Do you actually want an all-in-one system, or is simple better?
+* What would make you trust a newer app?
+* Would map-based territory tracking matter for your business?
 
 EXAMPLE 13:
-I'd moved the assets to Vanguard because I prefer the Vanguard fund (call it VXXXX)  to the original.  I'd like to exchange the FXXXX for VXXXX in the shortest transaction possible, rather than liquidating to cash one evening and re-investing the next.  (I once suffered an sad loss by doing that on exactly the worst day.)
+Honestly for a clean field-inspection flow, a lot of people end up wanting something purpose-built, simple form, works great on a phone, photos, done. I build those (waypointlabs.info), but even if you go the no-code route, aim for the tool that makes the field team's part dead simple. That's the whole game with field software.
+If you're a Google Workspace company, I find AppSheet provides a bit better of an app interface than Airtable, even though Airtable is probably a more flexible tool overall. It's by no means the best tool ever, but it's fairly easy to learn. [...]
 
 EXAMPLE 14:
-Maybe edit your post to state exactly what you want to happen, rather than what Vanguard is forcing you to do.
-Updated in original post.   The excess capital is sitting in a Vanguard California Municipal Money Market Fund.
+Airtable vs Custom Mini-Apps: Which way to go? I need to build a simple tool for my field team to log site inspections. Airtable is the obvious choice, but I’m worried about the mobile experience and the clutter. I’ve been hearing more about these "dedicated mini-app" tools like Whacka lately, and I'm wondering if a single-purpose workflow app is better than a general-purpose database for this. Has anyone made the switch from a big database tool to something more specialized for one specific task? Made this exact call a few times. [...]
 
 EXAMPLE 15:
-When selling Vanguard **California Municipal** Money Market Mutual fund in (Account A) the proceeds can only go to settlement account in (Account B),  going directly to Settlement account in (Account A) is not an option.  So the only work around they have is create Account B.
+How are you guys managing field reps/jobs without everything turning into a spreadsheet mess? I’m curious how other small business owners handle this.
 
 EXAMPLE 16:
-Vanguard sale transaction is set up to allow you to link a buy action that uses the proceeds of the previous sale.  However, that feature is disabled when selling FXXXX.   One can work around it by placing a separate buy order, but then I get bold + red warnings that I don't currently have funds to cover the purchase, and if I don't by T+1,  that a number of bad things can happen, that I'd prefer to avoid.
+The main feature is that you can draw a territory on the map and it auto-populates the houses/addresses inside it. Then reps can update statuses and notes per house, and the owner/manager can see everything from the admin side.
 
 EXAMPLE 17:
-Questions on 30 day rule and selling stuff with dividends and recurring transactions I would like to have $25k in cash lying around (to pay for some house repair stuff that is coming up in the next few months), and I have decided would like to sell shares from my VTSAX account in my taxable brokerage to get the money.  Given the markets right now, I'd like to do this ASAP before it dumps any more.  I buy VTSAX every week on Fridays in a recurring transaction including last Friday (and am happy to continue to buy it weekly even after this sale), and when it gets dividends, it reinvests.
+I run a window cleaning business and once I started hiring reps/workers, I realized how hard it is to keep field operations organized without overcomplicating everything.
 
 EXAMPLE 18:
-4.  If I put "min tax" for my basis, will it try to sell the shares subject to short term capital gains because the current price is only a few months down?
+A few things that tip it toward a dedicated app: lots of non-technical field users, phone-first usage, photos attached to inspections, offline moments where signal is bad, and any approval or routing step after submission. If you've got most of those, Airtable will fight you.
 
 EXAMPLE 19:
-Is the "excess capital" is in the Settlement Fund MMF? Or did you purchase a separate MMF? The separate MMF probably won't work.
+The way I'd think about it: Airtable is a database that you can sort of use as an app. A dedicated mini-app is built around the one task. For something like site inspections, where the same form gets filled out over and over on a phone, the single-purpose tool almost always wins on the thing that actually matters, whether your team will actually use it without complaining. A tool people avoid is worse than no tool.
 
 EXAMPLE 20:
-\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Where Airtable still wins: if it's mostly you and a couple of people, the data's the point more than the workflow, and you want to change the structure constantly. Then the flexibility is worth the rough mobile feel.
 
 EXAMPLE 21:
-5.  The $25k was my best guess of how much money I want to have for home and other upcoming expenses-- am I triggering some sort of limit and should do a different amount?   Here is the order for "Min tax"
+new request -> estimated -> scheduled -> assigned -> in progress -> blocked/waiting -> completed -> invoiced/paid
+
+EXAMPLE 22:
+* which houses were knocked
+* which leads were warm
+* who owned the follow-up
+* what got booked
+* where workers were
+* what jobs were completed
+* what revenue came from which rep/area
+
+EXAMPLE 23:
+I’m not trying to pretend this is some giant company. I built it because I personally needed it, and now I’m trying to figure out if other small operators have the same problem.
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -92,14 +107,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.

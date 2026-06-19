@@ -1,13 +1,14 @@
 Topic 6 - Content Sample
-Number of content items: 22
-Top words: account, transaction, money, purchase, settlement fund, vanguard, brokerage
+Number of content items: 23
+Top words: website, site, business, wordpress, page, free, wix
 
-Content 1 (length: 219 chars):
-Click on your account. Click on Transact. Select Buy Mutual Funds or Trade ETFs and Stocks. From there, you're just buying what you want and the amount available for purchases is just the amount in your Settlement Fund.
+Content 1 (length: 276 chars):
+For many small businesses, even a simple 5-page WordPress site with proper local SEO and conversion tracking is enough. If there’s no traffic plan or conversion goal, then yes, it becomes just an expensive brochure.
+“Claude, make me a high converting website for my business.”
 
-Content 2 (length: 433 chars):
-As to your question, if you successfully deposited $200 into your Vanguard brokerage account, it should still be there in some form. What does the account balance say at the top level? Vanguard brokerage accounts don't hold 'cash' -- any funds not allocated to a particular investment are held in a money market account (VMFXX) until you need them, but that is for all intents and purposes basically cash with a decent interest rate.
+Content 2 (length: 115 chars):
+SIDE NOTE - this below does not need to be on website now but it’s something I currently am working on the side for
 
-Content 3 (length: 863 chars):
-Buying funds through my Roth IRA I thought it was possible to purchase funds through my Vanguard Roth IRA account. But When I try to do so, it tells me I must go through my settlement fund to do so as I've already maxed out my contribution for this year. Understandable. But I cannot seem to access this option to use the settlement on the "trade mutual funds" page for this account. I have more than enough money in the Roth settlements fund, and no pending purchases. So, the money is there. I can see it on the page. I just cannot access the option to use this as a funding source. Does anyone have any advice? Am I incorrect in thinking I can purchase separate funds through my Rother IRA brokerage account? It might actually be simpler than you think. You don't have to explicitly select the Settlement Fund for your purchase, it just happpens automatically.
+Content 3 (length: 210 chars):
+Overall, it depends on your budget and what you want out of it. No money or low budget? Just do it yourself and save the money for something else that brings more value. A decent website will cost at least $2k.
 

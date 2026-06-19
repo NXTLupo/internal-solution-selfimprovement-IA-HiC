@@ -11,11 +11,10 @@ score: 15
 upvote_ratio: 0.94
 num_comments: 2
 flair: "Academics"
-extracted_at: "2026-05-26T14:30:23.765Z"
+extracted_at: "2026-06-17T20:23:09.607Z"
 extraction_method: "praw-deep"
-research_goal: "Identify a comprehensive new strategy for co-op based on the current statement of work for NU, prior projects with NU, and fresh industry analysis of experiential learning and co-op engagement tactics to improve learner's chances of gaining meaningful experiential learning opportunities from pre-enrollment to graduate school\n"
-industries: [higher_ed]
-industry_method: llm
+research_goal: "Analyze the r/neu subreddit to synthesize social evidence, sentiment, and key friction points regarding alumni giving and donations at Northeastern University."
+engagement: "analyze-the-r-neu-subreddit-to-synthesize-social-evidence-se"
 chunks:
   - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c0"
     char_span: [0, 1849]
@@ -33,7 +32,7 @@ chunks:
     key_terms: [project, course, students, final, team, country, cohort, collaborative]
     token_count: 511
   - id: "social-intelligence/reddit-deep/neu/1pbpyxh.md#c3"
-    char_span: [6960, 7422]
+    char_span: [6960, 7423]
     sentence_count: 2
     key_terms: [course, stocktelephone11, global-issue, requirement, discussion, everything, experience, one-credit]
     section: Comments

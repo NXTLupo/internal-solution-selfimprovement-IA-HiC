@@ -101,6 +101,13 @@ import {
     formatPresentationDate,
     type PresentationSummary,
 } from '../services/presentationLibrary';
+// Illustrator (2026-06-17): resolves on-brand transparent illustrations into
+// presentation sections (data.illustration) before persist, per section imageConcept.
+import { resolvePresentationIllustrations } from '../services/presentationIllustrator';
+// Illustrator (2026-06-17): REGISTRY-DRIVEN artifact images for GOLD/#slides decks - fills every
+// IMAGE-SLOT the registry defines for each template (no-op for the deliberate no-image set).
+import { resolveArtifactImages } from '../services/artifactIllustrator';
+import { imageSpecFor } from '../services/artifactImageSlots';
 
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
@@ -4083,6 +4090,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     }, []);
 
     const parseSlideBlocks = useCallback((text: string, model?: string, userQuery?: string): SlideData[] => {
+        // NORMALIZE GLUED FENCES (2026-06-17): models sometimes collapse a slide's closing ":::" and
+        // the next slide's opening ":::slide" onto one run -> "::::::slide" (6 colons), which the
+        // parser can't split cleanly. Reconstruct the close+open; also trim stray 4-5 colon opens.
+        text = text
+            .replace(/:{6,}\s*slide\b/g, '\n:::\n:::slide')
+            .replace(/:{4,5}\s*slide\b/g, '\n:::slide');
         // Brand is chosen once per call: explicit JSON `brand` > hashtag in AI text > hashtag in user query > default nxt
         const brandFromText = detectBrandFromText(text);
         const brandFromQuery = userQuery ? detectBrandFromText(userQuery) : null;
@@ -4096,13 +4109,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         const kg = liveCtx?.knowledgeGraph;
 
         // Match :::slide [optional template=NAME] [optional brand=NAME] ... :::
-        const pattern = /:::slide((?:\s+[a-z]+=[a-z-]+)*)\s*\n([\s\S]*?):::/g;
+        // Attribute values allow ':' so SLIDES-deck archetypes (template=slides:numbered-themes) parse.
+        const pattern = /:::slide((?:\s+[a-z]+=[a-z:-]+)*)\s*\n([\s\S]*?):::/g;
         const result: SlideData[] = [];
         let match;
         while ((match = pattern.exec(text)) !== null) {
             try {
                 const attrs = match[1] || '';
-                const fenceTemplate = (attrs.match(/\btemplate=([a-z-]+)/i)?.[1] || '').toLowerCase();
+                const fenceTemplate = (attrs.match(/\btemplate=([a-z:-]+)/i)?.[1] || '').toLowerCase();
                 const fenceBrand = (attrs.match(/\bbrand=(nxt|nu|northeastern)/i)?.[1] || '').toLowerCase();
                 // Universal density axis: fence attr density=dense, JSON "density",
                 // or a #dense hashtag anywhere in the user's request.
@@ -4132,6 +4146,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     else if (parsed.architectureMap || parsed.architecture || parsed.layers) template = 'architecture-map';
                     else if (parsed.prdFeature || parsed.features) template = 'prd-feature';
                     else if (parsed.systemsInventory || parsed.systems) template = 'systems-inventory';
+                    else if (parsed.orgChart || parsed.tiers) template = 'org-chart';
+                    else if (parsed.executiveBrief) template = 'executive-brief';
                     else template = 'recommendation'; // safe default
                 }
                 // Normalize alternative field names
@@ -4190,6 +4206,19 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     architectureMap,
                     prdFeature,
                     systemsInventory,
+                    // 2026-06-16 - THE "No org tiers" / empty-brief BUG: result.push mapped every
+                    // OTHER template payload but silently OMITTED orgChart + executiveBrief, so
+                    // #org and #brief/#explainer/#report slides got template='org-chart'/'executive-brief'
+                    // with title+sources copied but their ENTIRE body payload (tiers / sections)
+                    // dropped -> renderer read `slide.orgChart || {}` -> "No org tiers". Deterministic,
+                    // not run-variance. Accept the nested object OR a top-level tiers[] fallback shape.
+                    orgChart: parsed.orgChart || (Array.isArray(parsed.tiers) ? { tiers: parsed.tiers, subject: parsed.subject, keyInsight: parsed.keyInsight } : undefined),
+                    executiveBrief: parsed.executiveBrief,
+                    // SLIDES-deck archetype (template=slides:*): the composer reads the RAW payload by
+                    // exact key (items/groups/cards/corroborating/challenges/phases/horizons/roles/...),
+                    // none of which map to the GOLD SlideData fields above. Carry the full parsed object
+                    // so slideDataToStageHtml can hand it to composeSlide untouched.
+                    composerPayload: String(template).startsWith('slides:') ? parsed : undefined,
                     body: parsed.body,
                     bullets: parsed.bullets,
                     blocks: (parsed.blocks || []).map((b: any) => ({ type: b.type, raw: JSON.stringify(b.data), data: b.data })),
@@ -4640,6 +4669,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     `Try rephrasing the edit instruction (more specific scope, smaller change).`,
                 );
             }
+            // Illustrator (2026-06-17): re-resolve illustrations on the revised
+            // payload before save. Exact concepts are reused from the library (no
+            // regen cost); only new/changed scenes generate. Fail-open.
+            try { await resolvePresentationIllustrations(p); } catch (illoErr) {
+                console.warn('[Library] illustration pass failed (non-blocking):', illoErr);
+            }
             const saved = await savePresentation(p);
 
             setMessages(prev => prev.map(m => m.id === editingMsgId ? {
@@ -4858,6 +4893,21 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (pendingAttachments.length > 0) {
             const liveCtxForSlug = getContext ? getContext() : context;
             const sessionSlug = buildEngagementSlug(liveCtxForSlug?.researchGoal || 'session', 50);
+            // HONEST SURFACING (2026-06-15): a PDF that yields no extractable text
+            // (scanned / image-only) was silently dropped (writeAdHocUpload skips
+            // empty parsedText with only a console.warn). The user then got a deck
+            // grounded on a starved corpus with no idea two of three uploads never
+            // made it in. Tell them in-chat so they can re-upload a text version.
+            const emptyUploads = pendingAttachments.filter(a => !a.isImage && (!a.parsedText || a.parsedText.trim().length < 40));
+            if (emptyUploads.length > 0) {
+                const names = emptyUploads.map(a => a.filename).join(', ');
+                setMessages(prev => [...prev, {
+                    id: `msg_${Date.now()}_upload_notice`,
+                    role: 'assistant',
+                    content: `I could not extract readable text from ${emptyUploads.length} of ${pendingAttachments.length} upload(s): ${names}. These look like scanned or image-only PDFs, so they were left out of the corpus and any answer below is grounded only on the sources I could read. Re-upload a text-based version (or paste the text) to ground on them.`,
+                    timestamp: Date.now(),
+                } as ChatMessage]);
+            }
             for (const att of pendingAttachments) {
                 writeAdHocUpload({
                     filename: att.filename,
@@ -5656,22 +5706,32 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     () => import('../services/prototypeBriefGenerator'),
                     'prototypeBriefGenerator (5-brief phase)',
                 );
-                const briefs = await generatePrototypeBriefs({
-                    concept: conceptText,
-                    brand: protoDirective.brand,
-                    industry: matchedContext?.industry,
-                    researchGoal: liveCtx?.researchGoal || '',
-                    basedOn: protoDirective.basedOn,
-                    onProgress: (stage, detail) => {
-                        setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
-                            ...m,
-                            content: `Generating 5 product briefs (brand=${protoDirective.brand})... [${stage}${detail ? ` - ${detail}` : ''}]`,
-                        } : m));
-                    },
-                });
+                // 2026-06-16 - #proto brief generation runs on Opus 4.8 (BRIEF_MODEL),
+                // so surface THAT in the live spinner, not the plain-chat default. Without
+                // this the indicator read `selectedModel` (Gemini 3.5 Flash) and falsely
+                // labeled an Opus 4.8 brief pass as "GEMINI 3.5 FLASH IS WORKING".
+                setInFlightModelId('claude-opus-4-8' as ChatModel);
+                let briefs;
+                try {
+                    briefs = await generatePrototypeBriefs({
+                        concept: conceptText,
+                        brand: protoDirective.brand,
+                        industry: matchedContext?.industry,
+                        researchGoal: liveCtx?.researchGoal || '',
+                        basedOn: protoDirective.basedOn,
+                        onProgress: (stage, detail) => {
+                            setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
+                                ...m,
+                                content: `Generating 5 product briefs (brand=${protoDirective.brand})... [${stage}${detail ? ` - ${detail}` : ''}]`,
+                            } : m));
+                        },
+                    });
+                } finally {
+                    setInFlightModelId(null);
+                }
                 setMessages(prev => prev.map(m => m.id === briefsMsgId ? {
                     ...m,
-                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" - review them and click BUILD THIS on the one you want shipped. The chosen brief flows through Stage 2 → 3 → 3.5 (Build Recipe) → 4 → 5 with no Stage 1 lossy compression.`,
+                    content: `${briefs.length} product briefs ready. Each is a distinct framing of "${matchedTile?.title || protoDirective.concept || 'your concept'}" - review them and click BUILD THIS on the one you want shipped. The chosen brief flows through spec → design → multi-agent pod build (orchestrator contract → parallel screen pods → integration reviewer), all on Opus 4.8.`,
                     prototypeBriefs: briefs,
                     prototypeBriefsMeta: {
                         brand: protoDirective.brand,
@@ -5916,6 +5976,23 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     },
                 });
 
+                // Illustrator (2026-06-17): generate + attach on-brand transparent
+                // illustrations to any section that emitted an imageConcept, BEFORE
+                // persist, so the saved payload (and the :5014 renderer) carry the
+                // image URLs. Fail-open: a scene without art still ships.
+                try {
+                    const n = await resolvePresentationIllustrations(composeResult.payload, (l) => {
+                        toolCallLog.push(`◯ illustrator → ${l}`);
+                        setMessages(prev => prev.map(m => m.id === composingMsgId ? {
+                            ...m,
+                            content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})...\n\n${toolCallLog.slice(-12).join('\n')}`,
+                        } : m));
+                    });
+                    if (n > 0) console.log(`[#presentation] attached ${n} illustration(s)`);
+                } catch (illoErr) {
+                    console.warn('[#presentation] illustration pass failed (non-blocking):', illoErr);
+                }
+
                 // Persist payload via proxy
                 const persistRes = await fetch('http://127.0.0.1:5012/api/presentations', {
                     method: 'POST',
@@ -6154,6 +6231,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 if (_mfSlug && (_retrievalGoal || parsed.cleanPrompt)) {
                     const _mfPicked = await pickChunksForPrompt(_retrievalGoal || parsed.cleanPrompt || '', _mfSlug, {
                         extraContext: liveCtx?.researchGoal || '',
+                        // tier-1.5: admit on-objective corpus by relevance to the research goal
+                        researchObjective: liveCtx?.researchGoal || _retrievalGoal || '',
                         tokenBudget: 30_000,
                     });
                     if (_mfPicked.chunkIds.length > 0) {
@@ -7039,6 +7118,64 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         }
                     } catch (err: any) {
                         console.warn('[slides] wiki quote backfill skipped:', err?.message || err);
+                    }
+                })();
+                // ILLUSTRATOR (2026-06-17): slides:scene scenes carry an imageConcept; generate a
+                // tasteful on-brand TRANSPARENT illustration per scene (proxy /api/ai/illustration ->
+                // Nano Banana 2 + knockout) and inject it. Non-blocking + parallel: scenes render
+                // immediately, illustrations drop in a few seconds later. Fail-open (a scene without
+                // an illustration is fine). The composer (slides:scene) renders payload.illustration.
+                (async () => {
+                    const scenes = stampedSlides.filter((s: any) =>
+                        String(s.template || '').toLowerCase() === 'slides:scene'
+                        && s.composerPayload?.imageConcept && !s.composerPayload?.illustration);
+                    if (!scenes.length) return;
+                    await Promise.all(scenes.map(async (s: any) => {
+                        try {
+                            const r = await fetch('http://127.0.0.1:5012/api/ai/illustration', {
+                                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ concept: s.composerPayload.imageConcept,
+                                    brand: s.brand || 'nxt', canvas: s.composerPayload.canvas || 'dark' }),
+                            });
+                            const j = await r.json().catch(() => null);
+                            const uri = j?.dataUri;
+                            if (uri) setSlides(prev => prev.map(x => x.id === s.id
+                                ? { ...x, composerPayload: { ...(x as any).composerPayload, illustration: uri } } : x));
+                        } catch (e: any) {
+                            console.warn(`[slides] illustration skipped for ${s.id}:`, e?.message || e);
+                        }
+                    }));
+                })();
+                // ILLUSTRATOR - REGISTRY-DRIVEN (2026-06-17): for GOLD/#slides artifacts, fill every
+                // image slot the IMAGE-SLOT REGISTRY defines for that template (artifactImageSlots.ts).
+                // Concept derived from live element content, brand + ground-correct, intra-artifact
+                // unique. Non-blocking + fail-open; no-op for the deliberate no-image set. Renderer
+                // twins read the carrier fields (journey wired; others as they land).
+                (async () => {
+                    const SUBFIELD: Record<string, string> = {
+                        'persona-card': 'persona', 'competitive-matrix': 'matrix', 'prd-feature': 'prdFeature',
+                        'journey-map': 'journeyMap', 'timeline': 'timeline', 'theme-cluster': 'themeCluster',
+                        'recommendation': 'recommendation',
+                    };
+                    for (const s of stampedSlides as any[]) {
+                        const tmpl = String(s.template || '');
+                        const spec = imageSpecFor(tmpl);
+                        // Only generate for artifacts whose renderer twin actually emits the carrier
+                        // (spec.wired). Unwired specs would burn image calls filling fields nothing
+                        // renders. Flip `wired:true` per artifact as its twin lands. Today: journey.
+                        if (!spec || spec.mode === 'none' || !spec.wired) continue;
+                        const field = SUBFIELD[tmpl];
+                        const sub = field ? s[field] : s;
+                        if (!sub || typeof sub !== 'object') continue;
+                        try {
+                            const n = await resolveArtifactImages(tmpl, sub, s.brand || 'nxt', s.theme || 'dark',
+                                (msg) => console.log('[slides:img]', msg));
+                            if (n > 0 && field) {
+                                setSlides(prev => prev.map(x => x.id === s.id ? { ...x, [field]: { ...sub } } : x));
+                            }
+                        } catch (e: any) {
+                            console.warn(`[slides] registry illustration skipped ${s.id} (${tmpl}):`, e?.message || e);
+                        }
                     }
                 })();
             }

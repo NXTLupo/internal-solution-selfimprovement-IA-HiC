@@ -4,7 +4,7 @@ import App from './App';
 import { DesignDesk } from './design-desk';
 import { installChunkLoadGuard } from './services/chunkLoadGuard';
 import { AppErrorBoundary } from './components/AppErrorBoundary';
-import { hydrateTokensFromFigma } from './components/slideTemplates/types';
+import { hydrateTokensFromFigma, TOKENS } from './components/slideTemplates/types';
 
 // 2026-06-03 — UNIVERSAL ERROR SURFACING. Deliverable-generation failures were
 // reported as SILENT resets to landing. Two root causes: (1) no React error
@@ -76,12 +76,17 @@ installChunkLoadGuard();
 // renderer (web.tsx/pptx.ts) paints from Figma rather than the hardcoded literals
 // in types.ts. Fire-and-forget; fail-loud inside (never silently guesses). NU brand
 // hydration is re-invoked per-deliverable where the renderer applies the NU override.
-void hydrateTokensFromFigma('NXT');
-// NU brand object hydrates from its own live token sheet (97:2) so both
-// brands paint Figma-live, not just the NXT default.
-void import('./components/slideTemplates/brands').then(({ getBrand }) =>
-    hydrateTokensFromFigma('NU', getBrand('nu') as any)
-).catch(() => { /* non-fatal: static NU values stand */ });
+// 2026-06-15 - NXT hydrates the global TOKENS, then we SYNC nxtBrand from it.
+// nxtBrand was a pre-hydration snapshot (`{...TOKENS}` at module load), so any
+// getBrand('nxt') consumer (web.tsx preview, exporters) saw STALE values while
+// only TOKENS got the live feed. Copying TOKENS -> nxtBrand after hydration keeps
+// both in lockstep, the NXT analogue of how NU hydrates its own object below.
+void import('./components/slideTemplates/brands').then(({ nxtBrand, getBrand }) => {
+    void hydrateTokensFromFigma('NXT').then(ok => { if (ok) Object.assign(nxtBrand, TOKENS); });
+    // NU brand object hydrates from its own live token sheet so both brands paint
+    // Figma-live, not just the NXT default.
+    void hydrateTokensFromFigma('NU', getBrand('nu') as any);
+}).catch(() => { /* non-fatal: static brand values stand */ });
 
 // ================================================================
 // BUNDLE VERSION BANNER — Second Brain identity stamp at boot
@@ -187,7 +192,7 @@ console.log(
     'color:#B8B800;background:#0D0D0D;padding:6px 12px;font-weight:700;letter-spacing:0.5px;font-family:ui-monospace,Menlo,Consolas,monospace;',
 );
 console.log(
-    `%c  Pipeline: Opus 4.8 briefs (2-pass) · Stage 2.5 30-session VS · Stage 3.5 Build Recipe · Stage 4 vertical slice · Stage 5 coverage audit`,
+    `%c  #proto pipeline (Opus 4.8 all stages · Gemini 3.1 Pro fallback): brief 2-pass · spec · 2.5 30-session VS · design · MULTI-AGENT PODS (orchestrator contract → parallel screen pods → assemble → integration reviewer)`,
     'color:#999999;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;',
 );
 console.log('[NXT HiC] Feature flags:', HIC_FEATURES);

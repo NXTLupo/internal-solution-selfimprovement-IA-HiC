@@ -1,0 +1,23 @@
+{
+  "ran": "live-claude-opus-4-8",
+  "ran_at": "2026-06-18T01:42:17.479Z",
+  "guardrails_off": {
+    "banned": 3,
+    "emdash": 0,
+    "meta": 0,
+    "strings": 40,
+    "parse_ok": 1,
+    "total_errors": 3
+  },
+  "guardrails_on": {
+    "banned": 1,
+    "emdash": 0,
+    "meta": 0,
+    "strings": 40,
+    "parse_ok": 1,
+    "total_errors": 1
+  },
+  "error_reduction_pct": 66.67,
+  "designer_on_total_errors": 1,
+  "designer_json_parse_ok": 1
+}

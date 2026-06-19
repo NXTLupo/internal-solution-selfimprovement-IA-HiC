@@ -1,0 +1,101 @@
+{
+  "generated_at_note": "timestamp omitted for deterministic diffs; set by --baseline freeze",
+  "fixture": "hic-workspace\\wiki\\engagements\\identify-a-comprehensive-new-strategy-for-co-op-based-on-the",
+  "phases": [
+    {
+      "phase": "DATA_COLLECTION",
+      "metrics": {
+        "journal_lines": 449,
+        "unique_manifest_records": 10724,
+        "chunked_corpus_records": 9635,
+        "chunk_retrievability_pct": 13.11,
+        "chunk_retrievability_tagged": 1263,
+        "article_provenance_pct": 99.84,
+        "fixture_citation_count": 25,
+        "fixture_external_citation_pct": 28,
+        "fixture_citation_named_pct": 100,
+        "report_grounds_via_manifest": 1,
+        "report_raw_injection_gated": 1
+      },
+      "probes": [
+        "LIVE: per-source/feed extraction yield + deep-research coverage need a live run",
+        "WS1.1: report now manifest-first (assembleDeliverableCorpus), rawSources gated to fallback. Live report run still recommended to confirm prose depth holds; code path + fallback verified."
+      ]
+    },
+    {
+      "phase": "THEMES",
+      "metrics": {
+        "theme_count": 25,
+        "theme_meets_breadth_floor": true,
+        "avg_goal_alignment": 88.76,
+        "themes_with_external_citation_pct": 28,
+        "validated_pct": 100,
+        "avg_citations_per_theme": 1,
+        "avg_subthemes_per_theme": 2,
+        "avg_evidence_refs_per_theme": 5.08,
+        "avg_distinct_sources_per_theme": 1,
+        "themes_mandate_multisource": 1,
+        "themes_live_distinct_sources_per_theme": 2,
+        "themes_live_multi_source_pct": 100
+      },
+      "probes": [
+        "P2 mechanism is on-vision (mandates >=2 distinct sources/theme, goalAlignment relevancy gate, manifest grounding). Fixture avg_citations=1 is a stale 2026-05-26 generation; OUTPUT-depth gains require a LIVE themes regen to measure (the one phase that genuinely needs it)."
+      ]
+    },
+    {
+      "phase": "ANALYST_CHAT",
+      "metrics": {
+        "chat_grounds_via_manifest": 1,
+        "chat_persists_insights": 1
+      },
+      "probes": [
+        "Mechanism now: manifest-grounded chat (PRIMARY EVIDENCE, cite-by-pointer) + fire-and-forget insight write-back to synthesis/chat-insights (retrievability).",
+        "LIVE: chat answer accuracy/depth/breadth/usefulness still need a golden Q/A live run to score; write-back FIRING is best confirmed with one live grounded question."
+      ]
+    },
+    {
+      "phase": "DELIVERABLES_DESIGN",
+      "metrics": {
+        "deliverables_parse_ok": "7/7",
+        "banned_phrase_hits": 92,
+        "em_dash_hits": 187,
+        "strings_scanned": 3813,
+        "renderer_hardcoded_brand_hex": 20,
+        "export_fonthref_token_derived": 1
+      },
+      "probes": [
+        "LIVE: action-title rate, prose quality, PPTX render fidelity + token-match need live export + auditors"
+      ]
+    },
+    {
+      "phase": "DESIGNER_CHAT",
+      "metrics": {
+        "sample_artifacts_found": 25,
+        "designer_slidespec_json_recovery": 1
+      },
+      "probes": [
+        "GAP: no per-run designer-chat error-rate trend; errors are caught (validate_ai_output_syntax) not counted over time.",
+        "LIVE: designer freeform error-rate needs a live #brief/#explainer/#report run series."
+      ]
+    },
+    {
+      "phase": "SELF_IMPROVEMENT",
+      "metrics": {
+        "golden_set_present": true,
+        "golden_set_exemplars_scored": 17,
+        "golden_set_exemplar_mean": 2.11,
+        "golden_set_degraded_mean": 0.58,
+        "golden_set_discrimination_proxy": 1.53,
+        "golden_set_discriminates": true,
+        "learned_constraints_count": 48,
+        "hook_rejections_logged": 1,
+        "epochs_ledger_present": false
+      },
+      "probes": [
+        "discrimination_proxy = clean exemplar vs deliberately-degraded control (same content + injected em-dashes/banned-phrases), LENGTH-NEUTRAL. Validates the scorer catches quality degradation (the gate's actual job) before the live gate is trusted. Live runGate uses the full qualityFrontier vector + /api/golden-set/failure-corpus.",
+        "GAP: golden-set discrimination gate not runnable until golden-set.json exists (WS2).",
+        "LIVE: epoch quality-delta trend needs goldenSetRunner + a frozen golden set."
+      ]
+    }
+  ]
+}

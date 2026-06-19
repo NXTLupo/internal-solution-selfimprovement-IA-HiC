@@ -1,47 +1,53 @@
 {
   "positive": [
     {
-      "point": "Vanguard provides detailed year-end distribution documents which are useful for estimating dividends and capital gains for tax planning purposes.",
+      "point": "Raising prices can lead to better clients who value the work more and are easier to work with.",
       "post_refs": [
-        "1pj2vd3"
+        "1u8cjp2"
       ]
     },
     {
-      "point": "There are tools and resources available, such as the DividendWatch calculator and Vanguard's cost basis summary page, to help estimate annual dividends and understand qualified versus unqualified dividends.",
+      "point": "Implementing late fees and clear payment terms can help manage late-paying customers effectively.",
       "post_refs": [
-        "1ntsemn"
+        "1u69dqj"
       ]
     },
     {
-      "point": "Vanguard's 'Year-to-date tax activity' function helps users track taxable events in their accounts, aiding in tax planning and ensuring proper withholding.",
+      "point": "Defining clear cut-off points and using soft launches can help manage clients who demand excessive perfection before release.",
       "post_refs": [
-        "1oxww58"
+        "1u8354x"
+      ]
+    },
+    {
+      "point": "Having a structured follow-up process for estimates can significantly improve conversion rates.",
+      "post_refs": [
+        "1u4pll7"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Discrepancies between Vanguard's 1099 forms and year-end summaries create confusion and problems in filing taxes.",
+      "point": "Clients who delay payments or require constant chasing can create cash-flow problems and frustration.",
       "post_refs": [
-        "1qp0h64"
+        "1u69dqj"
       ]
     },
     {
-      "point": "Complexity in calculating state-exempt dividends from total dividends, especially when dealing with multiple ETFs and different percentages of government securities.",
+      "point": "Third-party companies can be deceptive by hiding available products, causing issues with client orders.",
       "post_refs": [
-        "1rs578o"
+        "1u8f3xc"
       ]
     },
     {
-      "point": "The US tax system's quarterly estimated payment schedule does not align with calendar quarters, causing potential confusion and risk of penalties.",
+      "point": "Clients who demand excessive revisions or perfection can delay project timelines unnecessarily.",
       "post_refs": [
-        "1oxww58"
+        "1u8354x"
       ]
     },
     {
-      "point": "Unexpected capital gains from Treasury notes bought at auction and held to maturity can result in additional tax forms and calculations.",
+      "point": "Clients negotiating prices after work completion can be a recurring issue, requiring firm boundaries.",
       "post_refs": [
-        "1qna0lr"
+        "1u0u6au"
       ]
     }
   ]

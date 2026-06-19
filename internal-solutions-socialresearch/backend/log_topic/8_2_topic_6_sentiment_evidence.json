@@ -1,56 +1,58 @@
 {
   "positive": [
     {
-      "point": "Vanguard's settlement fund acts like a built-in savings account, earning interest at the current short-term rate.",
+      "point": "WordPress is popular for its flexibility and user-friendly layout, making it a recommended platform for creating websites.",
       "post_refs": [
-        "1sjuqjs"
+        "1u92jtx",
+        "1u3ype0"
       ]
     },
     {
-      "point": "Vanguard provides a clear process for buying mutual funds or trading ETFs and stocks through the settlement fund.",
+      "point": "Hiring a freelancer for website development can be cost-effective for small businesses, with prices ranging from $500 to $1500 for basic builds.",
       "post_refs": [
-        "1tq64du"
+        "1u6uzdm",
+        "1u3hitl"
+      ]
+    },
+    {
+      "point": "A website can enhance credibility and brand presence, and is worth the investment when it has a clear job like calls, bookings, or lead forms.",
+      "post_refs": [
+        "1u4h7lf"
+      ]
+    },
+    {
+      "point": "Offering free or affordable website development services can help new developers gain experience and build a portfolio.",
+      "post_refs": [
+        "1u32h2m",
+        "1u5sxsp"
       ]
     }
   ],
   "negative": [
     {
-      "point": "Vanguard has issues with transaction delays and settlement times, causing confusion and frustration among users.",
+      "point": "Client-side delays, such as waiting for content and reviews, can significantly slow down the website development process.",
       "post_refs": [
-        "1q2cfkf",
-        "1sxaw9h",
-        "1rufuka",
-        "1qnp33h",
-        "1qcp71u",
-        "1q37xdq"
+        "1u90i01"
       ]
     },
     {
-      "point": "Users experience difficulties with automatic contributions and transfers not going through as expected.",
+      "point": "Budget concerns and uncertainty about ROI are major barriers for small businesses considering investing in a website.",
       "post_refs": [
-        "1rufuka",
-        "1qcp71u"
+        "1u4hpaz",
+        "1u4h7lf"
       ]
     },
     {
-      "point": "Vanguard's customer service is often slow to respond and resolve issues, leading to user dissatisfaction.",
+      "point": "Redirecting a domain to a free Wix site can create trust and consistency issues, potentially affecting business credibility.",
       "post_refs": [
-        "1rufuka",
-        "1qcp71u",
-        "1q37xdq"
+        "1u2547s"
       ]
     },
     {
-      "point": "There are issues with duplicate transactions and processing errors, causing confusion and potential financial discrepancies.",
+      "point": "Many small businesses rely on social media and third-party platforms due to cost and the perceived complexity of managing a website.",
       "post_refs": [
-        "1q4vmt9",
-        "1q37xdq"
-      ]
-    },
-    {
-      "point": "Users find it difficult to track the date of record for transactions, which is not always clearly provided by Vanguard.",
-      "post_refs": [
-        "1srefmo"
+        "1u4hpaz",
+        "1u1sg3y"
       ]
     }
   ]

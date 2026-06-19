@@ -1,0 +1,68 @@
+{
+  "_meta": {
+    "purpose": "SINGLE SOURCE OF TRUTH for the anti-slop lexicon + positive-voice rules (Anti-Slop Field Guide Rule 99). Both the Python Stop-hooks (via _lexicon.py) and the TS runtime (slidePostProcessor / wikiService, migrating) import THIS file; the prose twin anti-slop-lexicon.md is the human-readable + manifest-retrieved version. A drift guard (scripts/lexicon-drift-guard.py) warns if the two diverge. Do not add a banned term to a hook or a skill inline - add it here.",
+    "source": "anti-slop-field-guide.md Rules 1-34 + Pillar 4 + the migrated slidePostProcessor.ts severity split (high=Tier-1, medium=Tier-2)",
+    "updated": "2026-06-14",
+    "refresh": "monthly via SkillOpt + the public lists (github.com/berenslab/llm-excess-vocab Kobak et al.; GPTZero monthly; Wikipedia Signs of AI writing)"
+  },
+  "tier1_always": {
+    "_rule": "Field guide Rule 1 - hard-flag on sight, any single occurrence. Replace with the plain equivalent.",
+    "words": ["delve","delves","delving","leverage","leverages","leveraging","robust","seamless","seamlessly","tapestry","testament","underscore","underscores","crucial","pivotal","realm","boasts","elevate","garner","garnered","showcase","showcasing","intricate","intricacies","meticulous","meticulously","harness","unlock","unleash","streamline","utilize","utilized","utilizing","paradigm","transformative","groundbreaking","game-changer","cutting-edge","best-in-class","vibrant","bustling","nestled","epitomizes","embodies","multifaceted"],
+    "replacements": {"leverage":"use","utilize":"use","foster":"build","garner":"get","showcase":"show","robust":"strong","harness":"use","streamline":"simplify","elevate":"raise","unlock":"open"}
+  },
+  "tier2_cluster": {
+    "_rule": "Field guide Rule 2 - fine in isolation, flagged only when TWO OR MORE appear in the same paragraph (or one slide). Do not hard-ban these; cluster-gate them.",
+    "words": ["significant","vital","essential","key","notable","valuable","enhance","enhances","enhancing","facilitate","facilitates","underpin","holistic","nuanced","cornerstone","beacon","illuminate","paramount","comprehensive","foundational","interplay","bolster","bolsters","value proposition"],
+    "cluster_threshold": 2
+  },
+  "openers_banned": {
+    "_rule": "Rules 3-6, 9, 29 - fire only at sentence/bullet/paragraph START.",
+    "phrases": ["furthermore","moreover","additionally","consequently","notably","importantly","indeed","firstly","secondly","lastly","in essence","ultimately","in today's fast-paced world","in today's rapidly evolving landscape","in the modern era","in an age of","now more than ever","it is important to note","it's important to note","it's worth noting","it should be noted","needless to say","as previously mentioned","certainly!","absolutely!","great question!","i'd be happy to","that's a great question"]
+  },
+  "closers_banned": {
+    "_rule": "Rules 5, 8 - grandiose conclusion fillers + engagement closers.",
+    "phrases": ["in conclusion","in summary","at the end of the day","when all is said and done","the future looks bright","only time will tell","one thing is certain","as we move forward","tag someone who needs this","let that sink in","read that again","the takeaway?","here's the kicker"]
+  },
+  "multiword_banned": {
+    "_rule": "Rule 10, 11 - token-sequence slop + GPTZero high-multiplier phrases.",
+    "phrases": ["navigate the complexities","gain valuable insights","a deeper understanding","plays a significant role","plays a crucial role","plays a pivotal role","plays a key role","plays a vital role","when it comes to","in the realm of","a testament to","stands as a testament","rich tapestry","ever-evolving","fast-paced","objective study aimed","crucial role in shaping","crucial role in understanding","best of breed","best-of-breed"]
+  },
+  "copula_inflation": {
+    "_rule": "Rule 12 - replace with plain is/does.",
+    "phrases": ["serves as","stands as","acts as","functions as","represents a","constitutes a"]
+  },
+  "structural_regex": {
+    "_rule": "Rule 23-34, 94.4 - the highest-signal STRUCTURAL tells. JS/Python compatible source strings; weight 3x a single word hit (Rule 95).",
+    "negative_parallelism": "(?i)\\b(it'?s not (just |only )?\\w[\\w ]{0,40}?,? it'?s\\b|not just \\w[\\w ]{0,40}? but\\b|isn'?t about \\w[\\w ]{0,40}? it'?s about\\b|more than just\\b|goes beyond\\b)",
+    "negative_parallelism_comma": "(?i),\\s+not\\s+(an?\\s+|just\\s+|only\\s+|merely\\s+)?[\\w-]+(\\s+[\\w-]+){0,3}[.?!]?$",
+    "dramatic_colon_fragment": "(?i)(there (was|is) only one \\w+:|the (best|hard|catch|kicker|truth) part\\?)",
+    "dangling_ing_significance": "(?i),\\s+(highlighting|underscoring|reflecting|improving|emphasizing|showcasing|demonstrating|illustrating) (the )?(importance|need|fact|trend|value|significance)\\b",
+    "rhetorical_midsentence_question": "(?i)\\b(the (solution|answer|truth|catch|result|kicker)\\?)\\s+[a-z]",
+    "rule_of_three_triad": "(?i)\\b(\\w+),\\s+(\\w+),?\\s+and\\s+(\\w+)\\.",
+    "bold_colon_label": "\\*\\*[A-Z][\\w ]{1,30}:\\*\\*",
+    "stacked_hedging": "(?i)\\b(could potentially|may,? in some (cases|circumstances),? possibly|generally speaking, in many cases)\\b",
+    "false_balance": "(?i)\\bon (the )?one hand\\b[\\s\\S]{0,200}?\\bon the other hand\\b"
+  },
+  "positive_voice": {
+    "_rule": "Pillar 4 - what GOOD prose does. These are PRESCRIPTIONS for the human-voice-editor skill + generation, not bans.",
+    "rules": [
+      "Lead with the answer (BLUF); the first sentence states the finding.",
+      "Active voice with a named actor.",
+      "Omit needless words (in order to->to, the fact that->cut, a number of->some).",
+      "Prefer the short concrete word (use/build/get/show/strong).",
+      "Anchor every claim to a name, place, mechanism, or concrete instance (a figure is one anchor among several, only inside a cited quote).",
+      "Vary cadence: mix short and long sentences; never three same-shape sentences or three same-opener sentences/bullets in a row.",
+      "Take a position; at most one qualifier per claim.",
+      "Earn emphasis; cut interestingly/notably/very/really/extremely.",
+      "Trust the reader; cut throat-clearing and self-structure narration.",
+      "Reuse the precise domain term verbatim; no elegant variation.",
+      "Contractions allowed and preferred in conversational chat replies.",
+      "Override (Orwell rule 6): break any rule sooner than write something barbarous; log the exception."
+    ]
+  },
+  "title_contestability": {
+    "_rule": "Rules 14/43-47/58 + HiC Quantitative Claim Rule. A headline/theme-name earns its place by being SPECIFIC and CONTESTABLE, never by carrying a figure.",
+    "reject_generically_true": ["matters","is important","is key","is critical","is essential","is vital"],
+    "require": "a verb / claim someone could disagree with; not a topic label; not a platitude; a figure does NOT satisfy."
+  }
+}

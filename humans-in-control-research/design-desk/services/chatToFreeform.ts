@@ -110,11 +110,13 @@ function resolveProviderModelId(chatModel: FreeformGenerationModel): string {
 // opus-4-8 - lower if the API 400s.
 async function callClaude(prompt: string, modelId: string): Promise<string> {
     const { callAIWithRetry } = await import('../../services/aiRetryClient');
+    const { designerVoiceAddendum } = await import('./voiceAddendum');
+    const sys = SYSTEM_PROMPT + await designerVoiceAddendum();
     // No `temperature`: opus-4-8 400s on it ("deprecated for this model").
     const data: any = await callAIWithRetry('anthropic', {
         model: modelId,
         max_tokens: MAX_TOKENS,
-        system: SYSTEM_PROMPT,
+        system: sys,
         messages: [{ role: 'user', content: prompt }],
     }, { label: `Freeform (Claude ${modelId})`, maxAttempts: 3 });
     const blocks = Array.isArray(data?.content) ? data.content : [];
@@ -123,13 +125,15 @@ async function callClaude(prompt: string, modelId: string): Promise<string> {
 
 // 2026-05-05 - Azure DeepSeek-V4-Flash via /api/ai/deepseek.
 async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
+    const { designerVoiceAddendum } = await import('./voiceAddendum');
+    const sys = SYSTEM_PROMPT + await designerVoiceAddendum();
     const resp = await fetch('http://127.0.0.1:5012/api/ai/deepseek', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             model: modelId,
             messages: [
-                { role: 'system', content: SYSTEM_PROMPT },
+                { role: 'system', content: sys },
                 { role: 'user', content: prompt },
             ],
             max_tokens: MAX_TOKENS,
@@ -147,6 +151,8 @@ async function callDeepSeek(prompt: string, modelId: string): Promise<string> {
 
 async function callGemini(prompt: string, modelId: string): Promise<string> {
     const ai = new GoogleGenAI({ apiKey: (process as any).env?.API_KEY ?? (process as any).env?.GEMINI_API_KEY });
+    const { designerVoiceAddendum } = await import('./voiceAddendum');
+    const sys = SYSTEM_PROMPT + await designerVoiceAddendum();
     // Retry-with-backoff (2026-05-29). A single transient Gemini failure (429
     // RESOURCE_EXHAUSTED when a bulk job saturates the shared quota, a 503, or a
     // network blip) previously killed the whole artifact with "Failed to fetch".
@@ -160,7 +166,7 @@ async function callGemini(prompt: string, modelId: string): Promise<string> {
                 model: modelId,
                 contents: [{ role: 'user', parts: [{ text: prompt }] }],
                 config: {
-                    systemInstruction: SYSTEM_PROMPT,
+                    systemInstruction: sys,
                     maxOutputTokens: MAX_TOKENS,
                     temperature: TEMPERATURE,
                 },

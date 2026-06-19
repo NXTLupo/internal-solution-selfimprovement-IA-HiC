@@ -2,24 +2,51 @@
 
 This file loads into every Claude agent session. All skills and subagents inherit these rules.
 
-## NXT Design System
+## UNIFIED VISION — read first (load-bearing)
 
-### Brand Colors
-- Black: `#0D0D0D` (dark backgrounds, sidebar)
-- Chartreuse/Lime: `#B8B800` (accent, highlights, buttons)
-- Cyan: `#00B7C3` (data panels, links, secondary accent)
-- Rust/Negative: `#CC6644` (problems, warnings, errors)
-- Teal: `#115054` (headers, primary actions)
-- Success: `#0CCE6B`
-- Error: `#FF5A5A`
-- Accent rotation for metrics: `#CC6644`, `#B8B800`, `#00B7C3`
+The platform's architecture + self-improvement philosophy is encoded in
+**[UNIFIED_VISION.md](UNIFIED_VISION.md)** (8 principles: Meta-Harness, RHO, SkillOpt,
+Reinforcement Inference, Verbalized Sampling, anti-RAG manifest grounding, Figma lego-brick
+assembly, Karpathy second-brain) + the meta-principle (CONVERGE / DELETE / GATE / SCHEDULE, do
+not build-new) + the Lego-brick doctrine (Track B Method A: the model composes deliverables from
+registered Figma bricks + tokens at generation time, NEVER hardcoded, the SPA never calls Figma
+live). Read it before any non-trivial HiC architecture or deliverable-generation work; every plan
+must trace back to it.
 
-### Typography
-- Body: Archivo (weights 200-900)
-- Display: Bebas Neue (section headers, large titles)
-- Code/Citations: JetBrains Mono (400-500)
-- Minimal border radius: 2-4px
-- No decorative shadows
+## NXT Design System — SINGLE SOURCE OF TRUTH
+
+The design system is the published Figma library **`iSQhAVM7SI4QHAWB7y9C2z`**, whose `NXT Brand
+Tokens` collection (`221:2`) carries TWO MODES: **NXT** (`221:0`) and **NU / Northeastern**
+(`535:0`). Brand is a MODE FLIP on one component set, never a separate file. That canon is mirrored
+(read-only) into `hic-workspace/design-system/figma-tokens.json` and served to the runtime at
+**`/api/design-tokens?brand=NXT|NU`**. The component registry that maps every deliverable to its
+bricks is `hic-workspace/wiki/brand/figma-node-map.md` ("COMPONENT REGISTRY").
+
+**RULE (per [UNIFIED_VISION.md](UNIFIED_VISION.md), Figma lego-brick / never-hardcoded):** generated
+output MUST resolve colors / fonts / spacing from tokens (`/api/design-tokens`, `var(--color/*)`,
+`var(--font/*)`, `var(--space/*)`), NEVER from a literal hex / font name / size baked into code or
+into this file. When the Figma library changes, re-pull both modes into `figma-tokens.json` and
+re-chunk the node map — do not edit values here and call it done.
+
+The values below are a NON-AUTHORITATIVE human reference (snapshot 2026-06-16). If they disagree with
+`figma-tokens.json`, the JSON (and Figma) win — fix this file, not the JSON.
+
+### Brand tokens (non-authoritative mirror)
+| token | NXT (mode 221:0) | NU (mode 535:0) | role |
+|---|---|---|---|
+| rail | `#0D0D0D` | `#0E1626` | dark rail / sidebar |
+| accent | `#B8B800` chartreuse | `#C8102E` red | accent, takeaway band, dot-mark |
+| cyan / cool | `#00B7C3` | `#1D6E64` source-teal | kickers, links, cool accent |
+| teal / premium | `#115054` | `#16233C` | dark panels |
+| on-accent | `#0D0D0D` (black) | `#FFFFFF` (white) | text on the accent block (a11y; never black-on-red) |
+| rust / warn | `#CC6644` | (red family) | problems / warnings |
+
+### Typography (non-authoritative mirror)
+- **NXT** — display `Saira Condensed SemiBold` (NOT Bebas Neue, dropped 2026-06-13), title/body
+  `Archivo` (title weight 600), mono `IBM Plex Mono`.
+- **NU** — SINGLE-TYPEFACE `Lato` (display=title=body=mono=Lato; weight + size carry hierarchy, per
+  Northeastern's model; web title-weight 700 since Google Lato lacks 600).
+- Minimal border radius 2-4px; no decorative shadows.
 
 ## Citation Protocol
 
@@ -89,6 +116,10 @@ The user chose to INCLUDE these ~200 articles. They MUST be heavily represented 
 - GOOD: "Fragmented CRM systems force advancement teams into manual data entry instead of donor work"
 - The Partner Test: A senior partner reading ONLY slide titles must understand the complete argument
 - Titles carry the JUDGMENT; the supporting number, if any, lives in a cited quote on the slide body, never in the title itself
+- CONCISE + LITERAL, NO METAPHOR (2026-06-18, HARD): a title is SHORT and PLAIN, aim <= 10 words / ~70 chars, one line. State the judgment in literal business language, naming the mechanism, system, actor, or proper noun. NO figurative or cliche business metaphors/imagery. BANNED examples: "front door", "trust ceiling", "the meter", "margin closes"/"closes the margin", "where value leaks", "bleeds", "...eat(s) it", "opens the door", "walk through first", "redrawing the map". Name the literal thing instead. (NOTE: "funnel" terms - top/front of the funnel - are LEGITIMATE marketing vocabulary, NOT banned.)
+- BAD (wordy + metaphor): "AI moves the retail front door from search to the assistant, but the operators who win 2026 capture the premium before the platform tax and the trust ceiling eat it" → GOOD (tight + literal): "AI assistants now originate retail traffic and convert better than search"
+- BAD: "Retail 2026: The AI Front Door Opens, the Margin Closes" → GOOD: "AI raises conversion and adds new costs in 2026"
+- The single deck THESIS line may run one sentence longer; every other title stays tight
 
 ### Quantitative Claim Rule (Mandatory, ALL Deliverables)
 Do NOT state standalone quantitative claims (percentages, ratios, counts, dollar figures, durations-as-metrics, "Nx", "N%") as the model's own assertions in ANY user-visible field: titles, headings, prose, narratives, KPI/stat tiles, pain or opportunity statements, captions, synthesis. A naked number reads as fabricated and is the #1 AI-slop tell flagged on this project.
@@ -124,7 +155,15 @@ The output is a finished consulting artifact. The reader must never see ANY refe
 
 If a process-reference prefix appears, STRIP it and keep the insight: "Based on the research, churn is the core retention failure" → "Churn is the core retention failure." (Per the Quantitative Claim Rule, the supporting figure rides in a cited quote, not as a bare assertion.) If a limitation phrase appears, omit the claim entirely and narrow the section around what IS evidenced. The reader must never see the model's awareness of what it doesn't know.
 
-These rules are enforced at runtime by `services/slidePostProcessor.ts` (META_NARRATION_PATTERNS, PROCESS_REFERENCE_REWRITES). Patterns can be bypassed by clever phrasing; the post-processor cannot.
+### Subject Discipline — the artifact is about its SUBJECT, never about the deliverable (2026-06-17, HARD)
+The artifact IS the strategy/analysis about the subject the user named (the product, market, org, audience). It is NOT a guide for how to WRITE, STRUCTURE, SEQUENCE, or POSITION the report/deck. The single worst slop failure on this project: a "#strategy for [product]" deck that came back as inside-baseball advice on how to write the marketing report ("Lead with the industry problem", "Open with the problem", "the report's section order", "Anchor the messaging on...", "Name the checkpoint promise", an "INTERNAL POSITIONING GUIDE" label). That is meta about the deliverable, not strategy.
+- Every slide/section is about: what the SUBJECT is/does (capabilities, the buyer's pain it removes), named evidence, and the decision the audience must make. The reader learns what the thing DOES and why it wins — never how the team plans to talk about it.
+- FORBIDDEN as content: "lead with", "open with", "the report/deck should", "section order", "the narrative", "positioning guide", "anchor the messaging", "name the X promise", "the report's opening", "setting up the narrative", "frame the story", and any instruction-to-the-writer phrasing.
+- When the corpus contains internal positioning notes or interview transcripts ABOUT how to write/position the deliverable, MINE them for the underlying subject substance (the capability, the pain, the proof) and state THAT. Never restate a writing instruction as a slide.
+- Quotes are CLEAN, COMPLETE sentences about the subject/buyer. NEVER raw interview filler ("like,", "you know", lowercase mid-sentence fragments). A transcript fragment about narrative strategy is NOT evidence.
+- Citations name a real source (document, person, external publication). Never cite an internal corpus/engagement label (an all-caps engagement slug, "INTERNAL POSITIONING GUIDE") as if it were a source.
+
+These rules are enforced at runtime by `services/slidePostProcessor.ts` (META_NARRATION_PATTERNS, PROCESS_REFERENCE_REWRITES) and, for strategy/presentation decks, by the AIR SUBJECT-DISCIPLINE block in `corpusChatService` + the AIR quality gate. Patterns can be bypassed by clever phrasing; the post-processor cannot.
 
 ## Banned Slop Phrases (350+ — Instant Rejection)
 

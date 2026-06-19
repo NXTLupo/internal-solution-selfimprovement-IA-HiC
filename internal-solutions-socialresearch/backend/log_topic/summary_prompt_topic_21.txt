@@ -1,0 +1,76 @@
+You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
+Given the following information about a topic discovered through topic modeling:
+- Top keywords: insurance, liability, im, liability insurance, agent, coverage, public liability
+- Example posts and discussions (longer excerpts to provide better context):
+
+EXAMPLE 1:
+An insurance agent can help you consider options, but remember they aren't in the business to tell people they don't need insurance. You're a commission for them. Still, some type of general liability insurance policy is fairly common/standard for most businesses.
+
+EXAMPLE 2:
+Does anyone have any advise on how to go about getting Public Liability Insurance for something like this?
+
+EXAMPLE 3:
+If you don't have insurance and you're operating as a sole proprietor, you have a personal risk: if you get sued, you'll have pay to defend yourself and if you have liability you'll be personally responsible for everything. If you don't have insurance and you're operating as an LLC or C/S-Corp or similar, you could just decide to close the business upon getting served regarding a lawsuit and let there be a default judgement against a non-entity.
+
+EXAMPLE 4:
+You want general liability insurance eith coverage for other property. Some venues like commercial properties or government owned wil require a certain amount of coverage and or be out on the insurance and that is where your agent comes in. Tom has been my guy for years and always helps and knows what to do if he can’t. I own a large indoor Lasertag and nerf field and have done huge outdoor events, mobile parties and camps. Good luck and let me know if you have any more questions.
+
+EXAMPLE 5:
+I am just hoping for some advice. I make designs for print-on-demand and am wondering what insurance I might need?
+
+EXAMPLE 6:
+**SRA-Insurance, LLC**  
+**e:** [**TomW@SRA-Insurance.com**](mailto:TomW@SRA-Insurance.com)  
+**m:** [**(773) 972-1235**](tel:(773)%20972-1235)
+
+EXAMPLE 7:
+Thanks for reading.  Ask an insurance agent 
+I have asked a few. One kept adding on stuff, another didn’t understand what my business was, and two others were over 300$ a month. 
+Not a dumb question, at all. Also, there's no perfectly right/correct answer: this is a question about risk, and only you can do the assessment to determine if the cost of insurance is worth it for your case. No matter what, you're always at risk of being sued for something (fair or unfair, reasonable or unreasonable), and at least in the US you're responsible for paying for your own defense. [...]
+
+EXAMPLE 8:
+ok so im about to launch a gel blaster business, arena play plus mobile setups for birthday parties and events Gel blasters shoot little water-based gel beads, super low impact, basically a step below nerf, buuuuut its still people running around shooting each other so im not about to wing it on the insurance side. Heres the problem, ive called like five agents now and every single one either has no idea what a gel blaster is or immediately treats me like im opening an indoor gun range. [...]
+
+EXAMPLE 9:
+Ive tried Bizcover and they have advised they won't be able to support this. Get in touch with an insurance broker and they'll be able to get you what you need. I run a rec sports company and when I need insurance I just email my contact at an insurance brokerage firm and say this is what I am doing, this is what I need, these are the requirements and within a day, I have a contract to sign and an invoice.
+
+EXAMPLE 10:
+What i actually need to figure out: general liability is obvious, but do i also need separate participant/accident coverage? and does the mobile side, showing up at peoples houses, parks, event venues, require its own policy or rider? Im assuming the venue stuff complicates things but i genuinely dont know how much, if anyone here runs something in the same world, paintball, airsoft, nerf arena, laser tag, anything where people are shooting at each other for fun, and you found an insurer that actually understands what the business is, id really appreciate a name or direction.  (mrs. [...]
+
+EXAMPLE 11:
+No inventory, no workplace, no employees, no customer information. It’s just me sticking designs online and another company handles everything for me.
+
+EXAMPLE 12:
+I don't know if I am allowed to name the company I use publicly but feel free to DM me and I am happy to share. I have no stake in the company nor do I work for them. I was in a similar boat to you about a year ago and a friend of mine who also runs a small business recommended them to me and they have been great.
+
+Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
+
+1. A long summary that:
+   - Incorporates the most relevant keywords
+   - States the main topic at a broader category level (e.g., "discussions about university majors" rather than focusing on "computer science")
+   - Primarily focuses on the general theme with a very broad perspective
+   - Captures the key points, concerns, or perspectives shared in the examples at a categorical level
+   - Uses neutral, objective language with broad, generalized terms
+   - Emphasizes overarching patterns and trends rather than specific cases
+   - Begins with the general conclusion and broad categorical description
+   - May include specific examples (names, brands, products, individual instances) as supplementary information AFTER establishing the general conclusion to illustrate the broader point
+   - Avoids mentioning Reddit users
+
+2. A one-sentence summary that:
+   - Focuses on the overarching theme or category rather than specific individuals, products, or cases
+   - Avoids mentioning specific names, brands, or individual instances
+   - Captures the general type of discussion or concern at a high level
+   - Uses broad, categorical language (e.g., "player injuries" instead of "Aaron Nesmith's injury")
+   - Emphasizes the general pattern or trend being discussed
+   - Is direct and informative about the broader topic
+
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
+
+Return your response as a JSON object with the following format:
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
+
+Provide ONLY the JSON object, without any additional explanation or formatting.

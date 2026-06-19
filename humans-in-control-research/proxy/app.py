@@ -4336,6 +4336,46 @@ async def prototype_view(slug: str = Path(...)):
         stripped_code,
         flags=_re_inj.MULTILINE,
     )
+    # 2026-06-13 — Bare `= window` destructure redeclarations. Models frequently
+    # emit `const { useState, useEffect, motion, AnimatePresence, Fragment } = window;`
+    # (destructuring hooks/motion off window instead of React/framerMotion). The
+    # wrapper preamble ALREADY declares every one of those as a bare const, so the
+    # model's line is a hard redeclaration → "SyntaxError: Identifier 'useState'
+    # has already been declared", which Babel Standalone fires from its cross-origin
+    # context and the browser cloaks as the opaque "Script error." (no stack, blank
+    # prototype). The earlier _redecl_re only matched `= React|framerMotion|Motion|
+    # lucide`, never bare `= window`, so this class slipped through and bricked the
+    # CoopConnect Employer Hub launch (2026-06-13). Strip the block ONLY when every
+    # destructured binding is already provided by the wrapper preamble + window-hoist,
+    # so the names remain resolvable as bare globals afterward; leave any block that
+    # pulls a non-provided symbol untouched (rare) to avoid creating ReferenceErrors.
+    _PROVIDED_GLOBALS = {
+        'useState', 'useEffect', 'useRef', 'useMemo', 'useCallback', 'useReducer',
+        'useLayoutEffect', 'Fragment', 'createContext', 'useContext', 'createElement',
+        'motion', 'AnimatePresence', 'useAnimation', 'useMotionValue', 'useTransform',
+        'useScroll', 'useSpring', 'lucide', 'React', 'ReactDOM',
+    }
+
+    def _strip_window_destructure(m):
+        inner = m.group(1)
+        names = []
+        for part in inner.split(','):
+            part = part.strip()
+            if not part:
+                continue
+            # binding name = after `:` (alias) and before `=` (default); ignore rest spread
+            binding = part.split(':')[-1].split('=')[0].strip().lstrip('.').strip()
+            if binding:
+                names.append(binding)
+        if names and all(n in _PROVIDED_GLOBALS for n in names):
+            return ''  # all already bare globals — safe to drop the redeclaration
+        return m.group(0)
+
+    stripped_code = _re_inj.sub(
+        r'(?:const|let|var)\s*\{([^{}]*)\}\s*=\s*window\s*;?',
+        _strip_window_destructure,
+        stripped_code,
+    )
     # `alert(...)` is BANNED in prototypes — native browser dialogs make demos
     # look like 2005 web forms. Replace any alert() call site with a no-op
     # console.warn so the missing-feature stub doesn't surface to the user.
@@ -4346,6 +4386,84 @@ async def prototype_view(slug: str = Path(...)):
         'console.warn("[hic-proto] alert() stripped — replace with real UI:",',
         stripped_code,
     )
+
+    # 2026-06-13 — De-hardwire the render shell. Build the Tailwind color + font
+    # config from the LIVE Figma tokens (the same figma-tokens.json /api/design-tokens
+    # serves) instead of baked-in hexes/fonts, so the wrapper never drifts from Figma.
+    import json as _json_tw
+    _tw_path = "/hic-workspace/design-system/figma-tokens.json"
+    if not os.path.exists(_tw_path):
+        _tw_path = os.path.join(os.path.dirname(__file__), "..", "hic-workspace", "design-system", "figma-tokens.json")
+    try:
+        with open(_tw_path, "r", encoding="utf-8") as _ftf:
+            _ft = _json_tw.load(_ftf)
+    except Exception:
+        _ft = {}
+    _nxtc = ((_ft.get("NXT") or {}).get("color") or {})
+    _nuc = ((_ft.get("NU") or {}).get("color") or {})
+    _proto_brand = (p.get("brand") or "NU").upper()
+    _bc = _nuc if _proto_brand == "NU" else _nxtc
+    _bf = ((_ft.get("NU") if _proto_brand == "NU" else _ft.get("NXT")) or {}).get("font") or {}
+    def _gtok(d, k, fb):
+        v = d.get(k)
+        return v if v else fb
+    _tw_extend = {
+        "colors": {
+            "nu-red": _gtok(_nuc, "accent", "#C8102E"), "nu-navy": _gtok(_nuc, "rail", "#0B1326"),
+            "nu-accent": _gtok(_nuc, "accent", "#C8102E"), "nu-source": _gtok(_nuc, "source", "#1D6E64"),
+            "nu-gold": _gtok(_nuc, "gold", "#A4804A"), "nu-ink": _gtok(_nuc, "ink", "#16233C"),
+            "nxt-chartreuse": _gtok(_nxtc, "accent", "#B8B800"), "nxt-accent": _gtok(_nxtc, "accent", "#B8B800"),
+            "nxt-cyan": _gtok(_nxtc, "cyan", "#00B7C3"), "nxt-rust": _gtok(_nxtc, "rust", "#CC6644"),
+            "nxt-teal": _gtok(_nxtc, "teal", "#115054"), "nxt-black": _gtok(_nxtc, "rail", "#0D0D0D"),
+            "nxt-paper": _gtok(_nxtc, "ecru", "#F5F5F0"),
+            "nu-slate": {"50": "#F8FAFC", "100": "#F1F5F9", "200": "#E2E8F0", "300": "#CBD5E1"},
+            # active-brand semantic aliases (the prototype's own CSS vars still win; these are utility fallbacks)
+            "accent": _gtok(_bc, "accent", "#C8102E"), "surface": _gtok(_bc, "paper", "#FFFFFF"),
+            "ink": _gtok(_bc, "ink", "#16233C"), "panel": _gtok(_bc, "ecru", "#F2F1EA"),
+            "border": _gtok(_bc, "hairline", "#DDDDD6"), "muted": _gtok(_bc, "grey", "#73757A"),
+            "text-primary": _gtok(_nxtc, "ink", "#0D0D0D"), "text-secondary": "#333333",
+            "text-tertiary": "#666666", "text-muted": "#999999", "border-soft": "#EEEEEE",
+        },
+        "fontFamily": {
+            "display": [_gtok(_bf, "display", "Archivo"), "Saira Condensed", "Lato", "serif"],
+            "body": [_gtok(_bf, "body", "Archivo"), "Lato", "Inter", "sans-serif"],
+            "data": [_gtok(_bf, "mono", "IBM Plex Mono"), "Lato", "ui-monospace", "monospace"],
+            "label": [_gtok(_bf, "heading", "Archivo"), "Lato", "sans-serif"],
+            # legacy single-typeface utilities kept for already-generated prototypes
+            "bebas": ["Bebas Neue", "Saira Condensed", "sans-serif"],
+            "spectral": ["Spectral", "Lora", "serif"],
+            "archivo": ["Archivo", "sans-serif"],
+            "roboto": ["Roboto", "Lato", "sans-serif"],
+        },
+        "keyframes": {
+            "shimmer": {"0%": {"transform": "translateX(-100%)"}, "100%": {"transform": "translateX(200%)"}},
+            "pulse-ring": {"0%,100%": {"transform": "scale(0.96)", "opacity": "0.4"}, "50%": {"transform": "scale(1.04)", "opacity": "1"}},
+        },
+        "boxShadow": {
+            "nu": "0 1px 2px rgba(11,19,38,0.04)",
+            "nu-md": "0 4px 12px rgba(11,19,38,0.08), 0 1px 3px rgba(11,19,38,0.04)",
+            "nu-lg": "0 12px 32px rgba(11,19,38,0.12), 0 2px 6px rgba(11,19,38,0.06)",
+        },
+        "borderRadius": {"nu-sm": "4px", "nu": "8px", "nxt": "2px"},
+    }
+    tw_config_js = "tailwind.config = { theme: { extend: " + _json_tw.dumps(_tw_extend) + " } };"
+
+    # 2026-06-13 — Official brand logo, Figma-sourced (NU node 25:5 monogram, NXT node 22:2
+    # wordmark sans chartreuse square). Exposed as window.__BRAND_LOGO__ so a prototype can
+    # render the REAL mark instead of an invented letter-in-a-box. Also injected into the
+    # Stage-4 prompt via /api/design-tokens, so generation uses it from the design system.
+    _lg = ((_ft.get(_proto_brand) or {}).get("logo")) or {}
+    if _lg.get("monogram"):
+        _brand_logo_html = _lg["monogram"]
+    elif _lg.get("wordmark"):
+        _brand_logo_html = (
+            "<span style=\"font-family:'" + _lg.get("font", "Archivo") + "',sans-serif;font-weight:"
+            + str(_lg.get("weight", 700)) + ";letter-spacing:" + str(_lg.get("letter_spacing", "0.01em"))
+            + ";white-space:nowrap\">" + str(_lg.get("wordmark", "")) + "</span>"
+        )
+    else:
+        _brand_logo_html = ""
+    brand_logo_js = "window.__BRAND_LOGO__ = " + _json_tw.dumps(_brand_logo_html) + ";"
 
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -4365,62 +4483,12 @@ async def prototype_view(slug: str = Path(...)):
          classes resolve. NU and NXT palettes both registered so the wrapper
          serves prototypes from either brand without rebuilds. -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {{
-        theme: {{
-          extend: {{
-            colors: {{
-              // Northeastern brand
-              'nu-red':       {{ DEFAULT: 'rgb(200, 16, 46)', deep: 'rgb(170, 29, 37)', tint: 'rgba(200, 16, 46, 0.08)', dark: 'rgb(140, 20, 35)' }},
-              'nu-navy':      {{ DEFAULT: 'rgb(11, 19, 38)', 800: 'rgb(20, 29, 48)', 700: 'rgb(26, 35, 51)' }},
-              'nu-slate':     {{ 50: 'rgb(248, 250, 252)', 100: 'rgb(241, 245, 249)', 200: 'rgb(226, 232, 240)', 300: 'rgb(203, 213, 225)' }},
-              // NXT Humans brand
-              'nxt-chartreuse': '#B8B800',
-              'nxt-cyan':       '#00B7C3',
-              'nxt-rust':       '#CC6644',
-              'nxt-teal':       '#115054',
-              'nxt-black':      '#0D0D0D',
-              'nxt-paper':      '#F5F5F0',
-              // Shared neutrals (used by both brands as semantic tokens)
-              'text-primary':   '#0D0D0D',
-              'text-secondary': '#333333',
-              'text-tertiary':  '#666666',
-              'text-muted':     '#999999',
-              'surface':        '#FAFAFA',
-              'panel':          '#F5F5F0',
-              'border':         '#E0E0E0',
-              'border-soft':    '#EEEEEE',
-            }},
-            fontFamily: {{
-              // NU prefers Spectral display + Roboto body; NXT prefers Bebas + Archivo.
-              // 'display' covers both via fallback chain — model picks the active brand.
-              'display':  ['Spectral', 'Bebas Neue', 'serif'],
-              'body':     ['Roboto', 'Archivo', 'Inter', '-apple-system', 'sans-serif'],
-              'data':     ['JetBrains Mono', 'Roboto Mono', 'ui-monospace', 'monospace'],
-              'label':    ['Roboto', 'Archivo', 'sans-serif'],
-              'bebas':    ['Bebas Neue', 'sans-serif'],
-              'spectral': ['Spectral', 'serif'],
-              'archivo':  ['Archivo', 'sans-serif'],
-              'roboto':   ['Roboto', 'sans-serif'],
-            }},
-            keyframes: {{
-              shimmer:  {{ '0%': {{ transform: 'translateX(-100%)' }}, '100%': {{ transform: 'translateX(200%)' }} }},
-              'pulse-ring': {{ '0%,100%': {{ transform: 'scale(0.96)', opacity: '0.4' }}, '50%': {{ transform: 'scale(1.04)', opacity: '1' }} }},
-            }},
-            boxShadow: {{
-              'nu':    '0 1px 2px rgba(11,19,38,0.04)',
-              'nu-md': '0 4px 12px rgba(11,19,38,0.08), 0 1px 3px rgba(11,19,38,0.04)',
-              'nu-lg': '0 12px 32px rgba(11,19,38,0.12), 0 2px 6px rgba(11,19,38,0.06)',
-            }},
-            borderRadius: {{
-              'nu-sm': '4px',
-              'nu':    '8px',
-              'nxt':   '2px',
-            }},
-          }},
-        }},
-      }};
-    </script>
+    <script>{tw_config_js}</script>
+    <!-- Official brand logo (Figma-sourced). Use window.__BRAND_LOGO__ or a
+         [data-brand-logo] element to render the real mark; never invent one. -->
+    <script>{brand_logo_js}</script>
+    <style>.ds-brand-logo,.ds-brand-logo svg{{height:26px;width:auto;display:inline-flex;align-items:center}}</style>
+    <script>document.addEventListener("DOMContentLoaded",function(){{document.querySelectorAll("[data-brand-logo]").forEach(function(el){{if(window.__BRAND_LOGO__){{el.innerHTML=window.__BRAND_LOGO__;el.classList.add("ds-brand-logo");}}}});}});</script>
     <style>
       html, body, #root {{ margin: 0; padding: 0; min-height: 100vh; }}
       body {{ font-family: 'Roboto', 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAFAFA; color: #0D0D0D; }}
@@ -4497,14 +4565,22 @@ async def prototype_view(slug: str = Path(...)):
           Comment: 1, Selection: 1, Storage: 1, URL: 1, Path: 1, Blob: 1,
           createIcon: 1, default: 1, __esModule: 1
         }};
-        var exposed = 0;
+        var exposed = 0, overrode = 0;
         for (var name in L) {{
           if (RESERVED[name]) continue;
           if (typeof L[name] !== 'function' && typeof L[name] !== 'object') continue;
-          if (window[name] !== undefined) continue;
-          try {{ window[name] = L[name]; exposed++; }} catch(_) {{}}
+          // 2026-06-16 - The lucide icon WINS for non-reserved names even when a same-named
+          // global already exists. Web-API interface constructors (Lock from the Web Locks API,
+          // Navigation, Highlight, etc.) are functions on window; the OLD guard
+          // `if (window[name] !== undefined) continue;` skipped hoisting the icon, so a prototype's
+          // bare <Lock/> resolved to the native interface constructor -> React render -> "Illegal
+          // constructor" (the advancement-alignment-console roadmap screen). Prototypes use these
+          // names as ICON COMPONENTS, never as native constructors; the RESERVED list already
+          // protects the names a prototype might want natively (Image/Audio/Map/Set/Document/...).
+          var pre = window[name];
+          try {{ window[name] = L[name]; if (pre !== undefined) overrode++; else exposed++; }} catch(_) {{}}
         }}
-        try {{ console.log('[HiC Prototype] exposed ' + exposed + ' lucide-react icons as bare globals'); }} catch(_) {{}}
+        try {{ console.log('[HiC Prototype] exposed ' + exposed + ' lucide-react icons as bare globals (' + overrode + ' overrode same-named natives e.g. Lock/Navigation)'); }} catch(_) {{}}
       }})();
     </script>
     <script type="text/babel" data-presets="react">
@@ -4826,6 +4902,39 @@ async def design_tokens(brand: str = "", format: str = "json"):
             "Fonts: " + ", ".join(f"{k}={v}" for k, v in fo.items()),
             "Spacing(px): " + ", ".join(f"{k}={v}" for k, v in sp.items()) + (f"; radius={rad}" if rad is not None else ""),
         ]
+        # TYPOGRAPHY + HIERARCHY DOCTRINE (Figma-sourced type system). Teaches the model
+        # how to PRIORITIZE and WEIGHT text so the title governs and labels recede - the
+        # 2026-06-14 redesign. Values are 1920-space stage px (web/pptx = px/2).
+        ty = t.get("type", {}) or {}
+        if ty:
+            sc = ty.get("scale", {}) or {}
+            wt = ty.get("weight", {}) or {}
+            tr = ty.get("track", {}) or {}
+            lines.append("=== TYPOGRAPHY (Figma type system - the EXACT scale, never invent sizes/weights) ===")
+            lines.append("Type scale (stage px; web preview and PPTX render at half): " + ", ".join(f"{k}={v}" for k, v in sc.items()))
+            lines.append(f"Weight ladder: body={wt.get('body',400)} (body, quotes, hero numerals), label={wt.get('label',500)} (labels/meta/mono, always grey), title={wt.get('title',600)} (action title, names, takeaway band).")
+            lines.append(f"Tracking (uppercase mono only, px): kicker={tr.get('kicker',4)}, label={tr.get('label',1.5)}, title={tr.get('title',0)}. Body text: no tracking.")
+            lines.append("=== HIERARCHY DOCTRINE (how to prioritize text - a deliverable that breaks this is a hard failure) ===")
+            lines.append("1. ONE governing line: the action title is the single most important text. It carries the conclusion. Never bury it under a bigger number, name, or label.")
+            lines.append(f"2. Hero cap: a hero numeral/word is EVIDENCE, not a headline. It is prominent but capped at {ty.get('heroCap',36)} (< the {sc.get('title',46)} title) in body weight; it must NOT out-rank the title. Numbers ride inside cited quotes (Quantitative Claim Rule).")
+            lines.append("3. Labels recede: a label is never heavier or darker than the content it introduces. Use mono, label-weight, grey, sentence-case. Reserve UPPERCASE for the single kicker only.")
+            lines.append(f"4. Legibility floor: every line of real content must read; do not compress an idea into a fragment. The renderer never shrinks below {ty.get('floor',17)} stage px - if it would, the idea is too long: tighten the wording or let it flow to a continuation slide.")
+            lines.append("5. Emphasis scarcity: reserve the brand accent for the ONE most important datum per slide. Structural accents (warn=pain, cool=opportunity, kicker) keep their meaning; do not spray accent everywhere.")
+            lines.append("6. One idea per cell, complete thoughts, varied sentence openings; the title is a full conclusion sentence (the Partner Test: reading only titles tells the whole story).")
+        # BRAND LOGO (Figma-sourced). The mark MUST come from the design system, never invented.
+        lg = t.get("logo", {}) or {}
+        if lg:
+            lines.append("=== BRAND LOGO (Figma-sourced - use this EXACT mark, NEVER invent a letter-in-a-box) ===")
+            _mark = lg.get("monogram") or lg.get("svg")
+            if _mark:
+                lines.append(f"{bn} mark is a custom vector. Render this EXACT inline SVG for the logo (size via height ~26px, width auto; if it uses fill=currentColor set CSS color: ink on light, white on dark): {_mark}")
+                lines.append(lg.get("usage", ""))
+            elif lg.get("wordmark"):
+                lines.append(
+                    f"{bn} logo is a WORDMARK: render the text \"{lg.get('wordmark')}\" in the heading font "
+                    f"(weight {lg.get('weight',700)}, letter-spacing {lg.get('letter_spacing','0.01em')}, "
+                    f"color {lg.get('on_light')} on light / {lg.get('on_dark')} on dark). " + lg.get("usage", "")
+                )
         return "\n".join(lines)
 
     def _grid_block():
@@ -4845,6 +4954,16 @@ async def design_tokens(brand: str = "", format: str = "json"):
             f"Journey matrix: labelGutter={jm.get('labelGutter')} matrixStartX={jm.get('matrixStartX')}; phase columns default={pc.get('default')} (variable {pc.get('min')}-{pc.get('max')}) width={pc.get('width')} gutter={pc.get('gutter')}; swimlanes default={sl.get('default')} rowHeight={sl.get('rowHeight')} rowGutter={sl.get('rowGutter')}; phaseHeaderH={jm.get('phaseHeaderH')} painRowH={jm.get('painRowH')} cellPadding={jm.get('cellPadding')}.",
             f"Extend rule: {jm.get('_extend','')}",
         ]
+        bps = (g.get("breakpoints", {}) or {})
+        if bps:
+            order = ["xs", "sm", "md", "lg", "xl", "2xl"]
+            parts = []
+            for k in order:
+                b = bps.get(k) or {}
+                if b:
+                    parts.append(f"{k}={b.get('min')}px/{b.get('cols')}col/m{b.get('margin')}/g{b.get('gutter')}")
+            lines.append("=== RESPONSIVE BREAKPOINT GRID (mobile-first; build prototypes responsive across these) ===")
+            lines.append("Breakpoints: " + " · ".join(parts) + f"; max content width {bps.get('maxContentWidth',1440)}, centered beyond 2xl. Styles cascade up from mobile.")
         return "\n".join(lines)
 
     if format == "prompt":
@@ -7590,6 +7709,68 @@ def _parse_office_bytes(raw: bytes) -> dict:
     except Exception as e:
         return {"text": "", "error": str(e)[:200], "method": "office-regex"}
 
+# =========================================================================
+# MULTIMODAL VISION EXTRACTION (2026-06-15) — the models have visual
+# intelligence; USE it. Screenshots and image-only/scanned PDFs (no text
+# layer) were previously dropped or stubbed with a "Phase 3 pending"
+# placeholder, so a user who uploaded launchpad screenshots got a deck that
+# ignored them entirely (the model never received the content). This sends
+# the bytes straight to Gemini (multimodal) to OCR + transcribe everything
+# shown into corpus text. Gemini accepts image/* AND application/pdf inline.
+# =========================================================================
+_VISION_EXTRACT_MODEL = "gemini-3.5-flash"  # canonical fast multimodal (aiRouter vision tier)
+_VISION_EXTRACT_PROMPT = (
+    "You are an OCR and visual-analysis engine feeding a research corpus. "
+    "Extract EVERYTHING in this file as plain text a downstream model can read:\n"
+    "- Transcribe ALL visible text VERBATIM (titles, labels, buttons, body, captions, menu items, footnotes).\n"
+    "- If this shows a product, app launchpad, dashboard, or tool grid, list EACH app/tool/card by its EXACT "
+    "name, then its visible description, features, tags, and status - one block per item.\n"
+    "- Describe charts, diagrams, screenshots, and layout structurally (what is shown), not as prose flourish.\n"
+    "- For a multi-page document, label each page ([Page 1], [Page 2], ...).\n"
+    "- Output ONLY the extracted content. No preamble, no 'this image shows', no commentary, no markdown."
+)
+
+
+async def _gemini_multimodal_extract(file_bytes: bytes, mime: str, hint: str = "") -> str:
+    """Send an image or PDF to Gemini (multimodal) and return transcribed/OCR'd text.
+    Returns '' on any failure so callers fall back gracefully. Supports image/* and
+    application/pdf inline_data (Gemini reads scanned/image-only PDFs via its vision)."""
+    import base64 as _b64v
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not file_bytes:
+        return ""
+    m = (mime or "").lower()
+    if not (m.startswith("image/") or m == "application/pdf"):
+        m = "image/png"
+    try:
+        b64 = _b64v.b64encode(file_bytes).decode("ascii")
+    except Exception as e:
+        logger.warning(f"[vision-extract] base64 encode failed: {e}")
+        return ""
+    prompt = _VISION_EXTRACT_PROMPT + (f"\n\nFile: {hint}" if hint else "")
+    body = {
+        "contents": [{"parts": [
+            {"text": prompt},
+            {"inline_data": {"mime_type": m, "data": b64}},
+        ]}],
+        "generationConfig": {"temperature": 0.0, "maxOutputTokens": 16384},
+    }
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{_VISION_EXTRACT_MODEL}:generateContent"
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=body, headers=_goog_key_headers(api_key), timeout=240.0)
+        if resp.status_code != 200:
+            logger.warning(f"[vision-extract] Gemini {resp.status_code}: {resp.text[:200]}")
+            return ""
+        data = resp.json()
+        parts = (((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
+        text = "".join(p.get("text", "") for p in parts if isinstance(p, dict)).strip()
+        return text
+    except Exception as e:
+        logger.warning(f"[vision-extract] request failed: {e}")
+        return ""
+
+
 @app.post("/api/parse-upload")
 async def parse_upload(req: ParseUploadRequest):
     """Parse an uploaded file (provided as base64) to plain text.
@@ -7620,7 +7801,18 @@ async def parse_upload(req: ParseUploadRequest):
     is_pdf = ext == "pdf" or "pdf" in mime or (len(raw) >= 5 and raw[:5] == b"%PDF-")
     if is_pdf:
         out = _parse_pdf_bytes(raw)
-        logger.info(f"[parse-upload] PDF {fn} → {len(out.get('text') or '')} chars ({out.get('pages', 0)} pages)")
+        _txt = (out.get("text") or "").strip()
+        # IMAGE-ONLY / SCANNED PDF FALLBACK (2026-06-15): many client uploads are
+        # full-page-image PDFs with NO text layer - PyPDF2 returns 0 chars and the
+        # file was silently dropped (the "deck ignored my uploads" root cause). The
+        # models are multimodal, so hand the PDF straight to Gemini vision to OCR +
+        # transcribe rather than discarding it.
+        if len(_txt) < 40 and 0 < len(raw) <= 18_000_000:
+            vtext = await _gemini_multimodal_extract(raw, "application/pdf", hint=fn)
+            if len((vtext or "").strip()) >= 40:
+                logger.info(f"[parse-upload] PDF {fn} had no text layer → VISION OCR → {len(vtext)} chars ({out.get('pages', 0)} pages)")
+                return {"filename": fn, "text": vtext, "method": "pdf-vision-ocr", "pages": out.get("pages", 0), "bytes": len(raw)}
+        logger.info(f"[parse-upload] PDF {fn} → {len(_txt)} chars ({out.get('pages', 0)} pages)")
         return {"filename": fn, **out, "bytes": len(raw)}
 
     # 2. Plain text / json / csv / markdown / xml
@@ -7656,11 +7848,23 @@ async def parse_upload(req: ParseUploadRequest):
     image_exts = {"png", "jpg", "jpeg", "gif", "webp", "bmp", "tiff", "tif", "heic", "heif", "svg"}
     is_image_mime = mime.startswith("image/")
     if ext in image_exts or is_image_mime:
-        logger.info(f"[parse-upload] IMAGE {fn} ({mime}, {len(raw)} bytes) — Phase 3 multimodal pending")
+        # MULTIMODAL VISION EXTRACTION (2026-06-15): the models have visual
+        # intelligence - send the screenshot to Gemini vision to OCR + transcribe
+        # its content (app names, features, UI labels, layout) into corpus text.
+        # Replaces the old "Phase 3 pending" placeholder that left every uploaded
+        # screenshot unreadable, so a "one slide per app shown" request had no app
+        # content to work from.
+        eff_mime = mime if mime.startswith("image/") else (f"image/{ext}" if ext in {"png", "jpg", "jpeg", "gif", "webp"} else "image/png")
+        if 0 < len(raw) <= 18_000_000:
+            vtext = await _gemini_multimodal_extract(raw, eff_mime, hint=fn)
+            if len((vtext or "").strip()) >= 10:
+                logger.info(f"[parse-upload] IMAGE {fn} ({mime}, {len(raw)} bytes) → VISION OCR → {len(vtext)} chars")
+                return {"filename": fn, "text": vtext, "method": "image-vision-ocr", "isImage": True, "bytes": len(raw)}
+        logger.info(f"[parse-upload] IMAGE {fn} ({mime}, {len(raw)} bytes) — vision extraction returned no text")
         return {
             "filename": fn,
-            "text": f"[Image upload: {fn} ({mime}, {len(raw)} bytes). Vision analysis is Phase 3 — content not yet readable by the model.]",
-            "method": "image-placeholder",
+            "text": f"[Image upload: {fn} ({mime}, {len(raw)} bytes). Vision extraction returned no readable content.]",
+            "method": "image-vision-empty",
             "isImage": True,
             "bytes": len(raw),
         }
@@ -8384,6 +8588,52 @@ from fastapi import Request
 # Passes the request body straight through to api.anthropic.com/v1/messages
 # with the server-side ANTHROPIC_API_KEY attached as x-api-key.
 
+# EMOJI ARE FORBIDDEN (hard ban, .claude/CLAUDE.md Format Tells). This mirrors the
+# canonical EMOJI_RE in services/slidePostProcessor.ts so the model NEVER receives
+# (and therefore can't echo) an emoji from ANY source - corpus, uploads, or the
+# user prompt. Same ranges as the output-side stripEmoji; enforced here at the
+# model INPUT boundary too.
+_EMOJI_RE = re.compile(
+    "["
+    "🀀-🫿"  # pictographs, emoticons, transport, symbols ext-A/B
+    "☀-⛿"          # miscellaneous symbols
+    "✀-➿"          # dingbats
+    "⬀-⯿"          # misc symbols & arrows (stars etc.)
+    "⌚-⌛"          # watch / hourglass
+    "⏠-⏿"          # misc technical (emoji subset)
+    "︀-️"          # variation selectors (emoji presentation)
+    "‍"                 # zero-width joiner (emoji sequences)
+    "]"
+)
+
+
+def _scrub_outbound_payload(obj):
+    """THE single chokepoint that sanitizes every outbound AI-provider request body.
+    Two jobs, applied recursively to every string in the JSON payload:
+      1. STRIP EMOJI (forbidden, .claude/CLAUDE.md) - mirrors slidePostProcessor.EMOJI_RE,
+         so no emoji from corpus/uploads/prompt ever reaches (or is echoed by) the model.
+      2. STRIP LONE/unpaired surrogates (U+D800-U+DFFF) - broken emoji halves left when
+         emoji-heavy corpus (Reddit) is sliced mid-pair by a chunk/char_span boundary;
+         Python's UTF-8 encoder throws "surrogates not allowed" on these, which crashed
+         the outbound httpx POST with a 502 (2026-06-15: took out #slides Opus generation).
+    Defensive transport sanitization - it removes only forbidden/broken glyphs, never
+    valid content. Apply in EVERY /api/ai/* handler right after request.json()."""
+    if isinstance(obj, str):
+        s = obj
+        if any('\ud800' <= ch <= '\udfff' for ch in s):
+            s = ''.join(ch for ch in s if not ('\ud800' <= ch <= '\udfff'))
+        if _EMOJI_RE.search(s):
+            s = _EMOJI_RE.sub('', s)
+            s = re.sub(r'[ \t]{2,}', ' ', s)
+            s = re.sub(r' +([.,;:!?])', r'\1', s)
+        return s
+    if isinstance(obj, dict):
+        return {k: _scrub_outbound_payload(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_scrub_outbound_payload(v) for v in obj]
+    return obj
+
+
 @app.post("/api/ai/anthropic")
 async def proxy_anthropic(request: Request):
     """Proxy requests to Anthropic API. Adds API key server-side, keeps CORS clean."""
@@ -8393,6 +8643,12 @@ async def proxy_anthropic(request: Request):
 
     try:
         body = await request.json()
+        # 2026-06-15 - strip lone surrogates (broken emoji halves from sliced corpus)
+        # before forwarding; Python's UTF-8 encoder rejects them and crashed the POST.
+        _clean = _scrub_outbound_payload(body)
+        if _clean != body:
+            logger.warning("Anthropic proxy: scrubbed emoji / lone-surrogate halves from request body before send")
+            body = _clean
         model = body.get("model", "claude-opus-4-8")
         # HARDENING (2026-06-02) — opus-4-7/4-8/4-9 reject `temperature` with a 400
         # ("temperature is deprecated for this model"). Strip it at this chokepoint
@@ -8460,6 +8716,7 @@ async def proxy_gemini(request: Request):
 
     try:
         body = await request.json()
+        body = _scrub_outbound_payload(body)  # 2026-06-15 - emoji/surrogate ban (see proxy_anthropic)
         # 2026-06-12 - default swapped off the retired gemini-2.5-flash tier
         # to the canonical fast-text model (canonical-models standing rule).
         model = body.get("model", "gemini-3.5-flash")
@@ -8664,6 +8921,7 @@ async def proxy_openai(request: Request):
 
     try:
         body = await request.json()
+        body = _scrub_outbound_payload(body)  # 2026-06-15 - broken-emoji-half guard (see proxy_anthropic)
         # Determine endpoint: responses API vs chat completions
         endpoint = request.headers.get("x-openai-endpoint", "responses")
         if endpoint == "chat":
@@ -8785,6 +9043,7 @@ async def proxy_gemini_openai_compat(request: Request):
 
     try:
         body = await request.json()
+        body = _scrub_outbound_payload(body)  # 2026-06-15 - emoji/surrogate ban (see proxy_anthropic)
         # 2026-05-19 — Same surrogate sanitization as /api/ai/gemini (see comment
         # there). The OpenAI-compatible endpoint goes through the same Gemini
         # backend and is equally vulnerable to UnicodeEncodeError on lone
@@ -8871,6 +9130,7 @@ async def proxy_deepseek_azure(request: Request):
 
     try:
         body = await request.json()
+        body = _scrub_outbound_payload(body)  # 2026-06-15 - emoji/surrogate ban (see proxy_anthropic)
     except Exception as e:
         return JSONResponse({"error": f"invalid request body: {e}"}, status_code=400)
 
@@ -12097,7 +12357,7 @@ async def wiki_embed_backfill(limit: int = 0, force: int = 0):
 # legacy backfill. Keeping them separate also lets the operator backfill
 # Phase 2 without re-embedding the legacy sidecar, and vice-versa.
 @app.post("/api/wiki/chunks-backfill")
-async def wiki_chunks_backfill(limit: int = 0, force: int = 0, log_every: int = 25):
+async def wiki_chunks_backfill(limit: int = 0, force: int = 0, log_every: int = 25, path_contains: str = ""):
     """Walk every article in the wiki, chunk it, embed each chunk, upsert to
     the chunk store at wiki/.vectors.db. Skips articles that already have
     chunks unless force=1.
@@ -12133,6 +12393,10 @@ async def wiki_chunks_backfill(limit: int = 0, force: int = 0, log_every: int = 
         h = e.get("id")
         wp = e.get("wikiPath") or ""
         if not h or not wp:
+            continue
+        # 2026-06-15 - targeted re-chunk: limit to pages whose path matches path_contains
+        # (e.g. "figma-node-map" to re-embed just a changed design page, not the corpus).
+        if path_contains and path_contains not in wp:
             continue
         if not force:
             try:
@@ -12728,6 +12992,113 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
     if include_pages:
         out["pages"] = pages
     return out
+
+
+@app.get("/api/manifest/chunks-by-goal")
+async def manifest_chunks_by_goal(
+    goal: str = "",
+    prompt: str = "",
+    engagement: str = "",
+    types: str = "social-post,article,upload",
+    limit: int = 600,
+    goal_blend_weight: float = 0.5,
+    min_relevance: int = 0,
+):
+    """RELEVANCE-TO-OBJECTIVE chunk admission (2026-06-15).
+
+    Rank the WHOLE chunk store by semantic similarity to the research
+    OBJECTIVE (goal), optionally blended with the user prompt, and return
+    the top chunk POINTERS — but ONLY pointers that exist in the manifest
+    frontmatter (the page's record carries chunk_count > idx). Those pointers
+    are dereferenced downstream by resolveChunks() against the page's
+    frontmatter spans, so grounding stays manifest-tied, never raw-text RAG
+    stuffing. Engagement-tagged chunks are BOOSTED (store.search
+    prefer_engagement_goal, x1.15) — never gated — so untagged-but-on-objective
+    corpus is admitted by RELEVANCE, which is the whole point: the ~8k corpus
+    docs with no engagement slug stop being invisible to deliverable grounding.
+
+    Shape mirrors /api/manifest/chunks (chunk_ids + pages) so chunkRetrieval
+    can union it into the candidate catalog with no shape change.
+    """
+    empty = {"engagement": engagement, "source_count": 0, "chunk_id_count": 0, "chunk_ids": [], "pages": {}}
+    store = _get_chunk_store()
+    g = (goal or "").strip()
+    p = (prompt or "").strip()
+    if store is None or not (g or p):
+        return empty
+
+    # Build the goal-blended query embedding (reuses the proven fetch-articles path).
+    base_text = g or p  # rank by the OBJECTIVE first; prompt only sharpens it
+    try:
+        qvec = _embed_query_with_retry(base_text)
+    except Exception as e:
+        logger.warning(f"[chunks-by-goal] query embed failed: {e}")
+        return empty
+    if g and p and goal_blend_weight and goal_blend_weight > 0.001:
+        try:
+            pvec = _embed_query_with_retry(p)
+            # blend the prompt INTO the objective embedding; goal_blend_weight is
+            # the objective's share, so a high weight keeps ranking objective-led.
+            qvec = _blend_embeddings(pvec, qvec, goal_blend_weight)
+        except Exception as e:
+            logger.warning(f"[chunks-by-goal] prompt blend failed, objective-only: {e}")
+
+    try:
+        rows = store.search(qvec, limit=max(limit, 50), prefer_engagement_goal=(g or engagement or None))
+    except Exception as e:
+        logger.warning(f"[chunks-by-goal] store.search failed: {e}")
+        return empty
+
+    records = _manifest_load()
+    want_types = set(t.strip() for t in (types or "").split(",") if t.strip())
+    chunk_ids: list[str] = []
+    pages: dict = {}
+    seen_paths: set[str] = set()
+    dropped_unmanifested = 0
+    for r in rows:
+        wp = r.get("wiki_path") or ""
+        ci = r.get("chunk_idx")
+        if not wp or ci is None:
+            continue
+        rec = records.get(wp)
+        if not rec:
+            dropped_unmanifested += 1  # store hit not tied to a manifest record - skip (anti-RAG)
+            continue
+        cc = int(rec.get("chunk_count") or 0)
+        if cc <= 0 or int(ci) >= cc:
+            dropped_unmanifested += 1  # pointer beyond the page's declared frontmatter chunks
+            continue
+        if want_types and rec.get("type") not in want_types:
+            continue
+        try:
+            rs = int(rec.get("relevance") or 0)
+        except (TypeError, ValueError):
+            rs = 0
+        if min_relevance and rs < int(min_relevance):
+            continue
+        chunk_ids.append(f"{wp}#c{int(ci)}")
+        if wp not in pages:
+            kt = rec.get("key_terms") or rec.get("keyTerms") or []
+            pages[wp] = {
+                "title": str(rec.get("title") or r.get("title") or ""),
+                "relevance": rs,
+                "key_terms": list(kt) if isinstance(kt, (list, tuple)) else [],
+            }
+        seen_paths.add(wp)
+        if len(chunk_ids) >= limit:
+            break
+    logger.info(
+        f"[chunks-by-goal] objective-ranked admission: {len(chunk_ids)} manifest-tied pointers "
+        f"from {len(seen_paths)} pages (dropped {dropped_unmanifested} unmanifested store hits); "
+        f"goal={g[:50]!r}"
+    )
+    return {
+        "engagement": engagement,
+        "source_count": len(seen_paths),
+        "chunk_id_count": len(chunk_ids),
+        "chunk_ids": chunk_ids,
+        "pages": pages,
+    }
 
 
 # =========================================================================
@@ -13451,12 +13822,22 @@ async def gold_export_pptx_multi(payload: dict):
     out_dir = tempfile.mkdtemp(prefix="hic-gold-deck-pptx-")
     out_path = os.path.join(out_dir, filename)
 
+    # EDITABLE (default, REQUIRED): native PowerPoint text + a pixel-exact graphic background. The
+    # exported text stays editable. The graphic layer now renders the brand logo (its SVG fill is
+    # resolved to an explicit color upstream so HIDE_TEXT can't blank it) and the native text embeds
+    # the brand fonts (Saira Condensed / Archivo / Lato), so it matches the preview WITHOUT
+    # flattening to an image. mode="faithful" (opt-in only) is a pure raster fallback.
+    mode = str(payload.get("mode") or "editable").lower()
     try:
-        from gold_pptx_export import html_list_to_editable_pptx
-        rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path)
+        if mode == "faithful":
+            from gold_pptx_export import html_list_to_faithful_pptx
+            rep = await asyncio.to_thread(html_list_to_faithful_pptx, stages, out_path)
+        else:
+            from gold_pptx_export import html_list_to_editable_pptx
+            rep = await asyncio.to_thread(html_list_to_editable_pptx, stages, out_path)
         runs_per_slide = ",".join(str(s.get("runs", 0)) for s in rep.get("slides", []))
-        logger.info("gold pptx-multi export: %d slides, runs=%s -> %s",
-                    len(stages), runs_per_slide, filename)
+        logger.info("gold pptx-multi export (mode=%s): %d slides, runs=%s -> %s",
+                    mode, len(stages), runs_per_slide, filename)
     except Exception as e:
         logger.exception("gold pptx-multi export failed")
         raise HTTPException(status_code=500, detail=f"gold deck export failed: {e}")
@@ -15399,6 +15780,348 @@ async def _generate_gemini_image(prompt: str, brand: str) -> str:
         return ""
 
 
+# ── BRAND ILLUSTRATION (Illustrator skill runtime, 2026-06-17) ──────────────────
+# Tasteful, on-brand, minimalist abstract FLAT-VECTOR scene art for #presentation (later #slides),
+# generated by Nano Banana 2 (gemini-3.1-flash-image-preview) and made TRANSPARENT via a flood-fill
+# knockout (neither image model outputs native alpha). The palette is the brand tokens ONLY, ordered
+# by canvas so the subject contrasts the scene (light/accent on dark, dark on light). Spec lives in
+# .claude/skills/illustrator/SKILL.md.
+_ILLUS_PALETTE = {
+    "nxt": {"all": "chartreuse yellow-green (#B8B800), deep teal (#115054), bright cyan (#00B7C3), near-black (#0D0D0D)",
+            "dark": "bright chartreuse (#B8B800), bright cyan (#00B7C3), and white - LIGHT colors only, NO black, NO dark navy",
+            "light": "near-black (#0D0D0D), deep teal (#115054), chartreuse (#B8B800), cyan (#00B7C3)"},
+    "nu":  {"all": "crimson Huskies red (#C8102E), deep navy (#0E1626), muted teal (#1D6E64), warm gold (#A4804A)",
+            "dark": "crimson red (#C8102E), warm gold (#A4804A), light teal (#1D6E64), and white - NO dark navy, NO black",
+            "light": "deep navy (#0E1626), crimson red (#C8102E), warm gold (#A4804A), muted teal (#1D6E64)"},
+}
+
+# House line-art palette: the continuous LINE color + the OFF-REGISTER flat color shapes behind it.
+# Line colors are never near-white (the transparency knockout clears >=224-on-all-channels, which would
+# erase a white line). On a DARK deck the line is a bright brand color; on LIGHT it is the dark ink/navy.
+_ILLUS_LINEART = {
+    "nxt": {
+        "dark":  {"line": "bright chartreuse (#B8B800)", "blobs": "bright cyan (#00B7C3) and deep teal (#115054)"},
+        "light": {"line": "near-black (#0D0D0D)",        "blobs": "chartreuse (#B8B800) and bright cyan (#00B7C3)"},
+    },
+    "nu": {
+        "dark":  {"line": "warm gold (#A4804A)",  "blobs": "crimson Huskies red (#C8102E) and muted teal (#1D6E64)"},
+        "light": {"line": "deep navy (#0E1626)",  "blobs": "crimson Huskies red (#C8102E) and warm gold (#A4804A)"},
+    },
+}
+
+
+def _illustration_prompt(concept: str, brand: str, canvas: str) -> str:
+    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    canvas = "dark" if str(canvas).lower() == "dark" else "light"
+    la = _ILLUS_LINEART[brand][canvas]
+    # HOUSE STYLE (user-locked 2026-06-17): fluid CONTINUOUS single-line art + bold flat color shapes
+    # sitting OFF-REGISTER behind the line, hyper-minimalist, on white (knocked out to transparent),
+    # in the brand palette. Mirrors the reference prompt the user supplied. The single unbroken line
+    # inherently resists the object-mashup/clip-art slop that detailed prompts produced.
+    return (
+        "A minimalist abstract vector illustration utilizing a SINGLE CONTINUOUS UNBROKEN "
+        f"{la['line']} LINE to form an elegant, fluid, slightly ambiguous depiction of: {concept.strip()}. "
+        f"Bold flat shapes of {la['blobs']} sit OFF-REGISTER (slightly offset) behind the line as "
+        "simple organic color fields. "
+        "Hyper-minimalist, clean confident vector paths, one elegant continuous line of even weight, "
+        "high contrast, elegant simplicity, generous negative space. "
+        # Bans that keep it line-art, not busy clip-art.
+        "ONE single subject only - do NOT fuse or collage multiple objects. NO small icons, symbols, "
+        "tick marks, dials, gauges, numerals, hatching, dotted/halftone texture, or fine detail. NO "
+        "realism, NO 3D, NO gradients, NO drop shadows, NO outlines around the color shapes. "
+        "The color shapes are flat and simple; the line is the hero. "
+        "Pure WHITE background ONLY - NO background fill, NO ground, NO box, NO frame. "
+        "Absolutely NO text, NO words, NO letters, NO numbers, NO logos, NO watermarks anywhere."
+    )
+
+
+# Worn motifs the illustrator must refuse (shared by the generation prompt + the VS ideation step).
+_ILLUS_CLICHE = (
+    "fractured/shattered circle, pie chart or camera aperture, scattered shards, dots/nodes connected by "
+    "lines (network/constellation), upward arrows or bar-chart growth, lightbulb, brain, gears/cogs, "
+    "puzzle pieces, handshake, globe/world map, target/bullseye, chess piece, rocket, mountain/summit, "
+    "maze, winding road, compass, checkmark, generic connection webs, anything logo-like"
+)
+
+# What the image will be placed INTO (so VS selects a concept whose composition fits the layout slot).
+_ILLUS_SLOT_NOTE = {
+    "hero": "a HERO focal graphic centered ABOVE a large title; medium scale, roughly square or landscape, "
+            "anchors the top of the composition - a single confident subject reads best",
+    "side": "a vertical PANEL in a ~38% side column beside body copy; portrait/squarish, must hold a tall "
+            "zone with balanced weight - a single subject with vertical presence reads best",
+    "backdrop": "a faint, simple background wash behind copy; must stay legible and uncluttered at low contrast",
+    # GOLD/#slides registry kinds:
+    "panel": "a TALL vertical panel (portrait) filling a side or full-bleed column; one confident subject "
+             "with vertical presence, edge-to-edge composition",
+    "thumbnail": "a SMALL near-square thumbnail in a table/matrix row; one instantly-legible subject reduced "
+                 "to its simplest reading, since it renders small (~150px)",
+    "glyph": "a TINY square glyph/mark (~72px); a single ultra-reduced emblem readable at very small size, "
+             "almost an icon but still hand-drawn line-art, no fine detail",
+}
+
+_ILLUS_VS_MODEL = "gemini-3.5-flash"
+
+
+def _parse_json_array(raw: str) -> list:
+    """Tolerant extraction of a JSON array from a model reply (handles ```json fences / prose)."""
+    import json as _json
+    if not raw:
+        return []
+    t = raw.strip()
+    if t.startswith("```"):
+        t = re.sub(r"^```[a-zA-Z]*\s*", "", t).rsplit("```", 1)[0].strip()
+    i, j = t.find("["), t.rfind("]")
+    if i != -1 and j != -1 and j > i:
+        try:
+            v = _json.loads(t[i:j + 1])
+            return v if isinstance(v, list) else []
+        except Exception:
+            pass
+    return []
+
+
+async def _vs_select_concept(idea: str, brand: str, canvas: str, slot: str) -> str:
+    """VERBALIZED SAMPLING for the visual concept. The image model alone collapses to the mode (cliche);
+    so first ask a text model for a DISTRIBUTION of diverse, RECOGNIZABLE metaphors with self-rated
+    typicality + layout fit, then SELECT the best-fitting non-obvious one. Returns the chosen concept
+    sentence (falls back to the original idea on any failure)."""
+    idea = (idea or "").strip()
+    if not idea:
+        return idea
+    slotnote = _ILLUS_SLOT_NOTE.get(slot, _ILLUS_SLOT_NOTE["side"])
+    vs_prompt = (
+        "You are an elegant minimalist illustrator working in ONE house style: a SINGLE CONTINUOUS "
+        "UNBROKEN LINE that forms a fluid, slightly ambiguous subject, with one or two bold flat color "
+        "shapes sitting off-register behind it (think Picasso one-line drawings / modern line-art prints).\n"
+        f"Pick the SUBJECT to draw for this idea: \"{idea}\".\n"
+        f"It will be placed as {slotnote}.\n\n"
+        "Use VERBALIZED SAMPLING: propose FIVE genuinely DISTINCT subject choices that span the space of "
+        "strong ideas (not five variants of one). Each MUST be:\n"
+        "- MEANINGFUL, RELEVANT, and instantly RECOGNIZABLE: a real, concrete subject a viewer names at a "
+        "glance and connects to the idea. NOT pure abstraction.\n"
+        "- A SINGLE fluid form drawable as ONE continuous line - one organic subject (a face/profile, a "
+        "hand, a plant or leaf, a figure, a single object), NEVER a collage or fusion of multiple objects, "
+        "NEVER anything needing small detail/icons/text.\n"
+        "- NOT predictable or cliche. Refuse these worn motifs entirely: " + _ILLUS_CLICHE + ".\n\n"
+        "Return ONLY a JSON array of exactly 5 objects, each: "
+        '{"concept": "<one phrase naming the single fluid subject to draw as one continuous line>", '
+        '"typicality": <0.0-1.0 how obvious/overused>, "fit": <0.0-1.0 how well it reads as a single-line drawing at the stated placement>}'
+    )
+    # NOTE: _ILLUS_VS_MODEL (gemini-3.5-flash) is a THINKING model; with thinking on it burns the
+    # output budget on hidden thoughts and truncates the JSON (finishReason=MAX_TOKENS) -> empty parse
+    # -> silent fallback. Disable thinking (thinkingBudget:0) so the full array comes back as STOP.
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key:
+        return idea
+    try:
+        vurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_ILLUS_VS_MODEL}:generateContent"
+        async with httpx.AsyncClient() as client:
+            vresp = await client.post(vurl, headers=_goog_key_headers(api_key), timeout=60.0, json={
+                "contents": [{"role": "user", "parts": [{"text": vs_prompt}]}],
+                "generationConfig": {"temperature": 1.0, "maxOutputTokens": 1200,
+                                     "thinkingConfig": {"thinkingBudget": 0}},
+            })
+        if vresp.status_code != 200:
+            logger.warning(f"[illustration] VS HTTP {vresp.status_code}: {vresp.text[:160]} - using raw idea")
+            return idea
+        raw = "".join(p.get("text", "") for p in
+                      (((vresp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts") or []))
+    except Exception as e:
+        logger.warning(f"[illustration] VS ideation failed, using raw idea: {e}")
+        return idea
+    cands = _parse_json_array(raw)
+    best, best_score = None, -9.0
+    for c in cands:
+        if not isinstance(c, dict):
+            continue
+        concept = str(c.get("concept", "")).strip()
+        if len(concept) < 10:
+            continue
+        try:
+            fit = float(c.get("fit", 0.5)); typ = float(c.get("typicality", 0.5))
+        except Exception:
+            fit, typ = 0.5, 0.5
+        # Reward layout fit, penalize the obvious. Require a baseline of recognizable fit.
+        score = fit - 0.6 * typ
+        if fit >= 0.4 and score > best_score:
+            best, best_score = concept, score
+    if best:
+        logger.info(f"[illustration] VS picked (slot={slot}, {len(cands)} cands): {best[:90]}")
+        return best
+    logger.warning(f"[illustration] VS produced no usable candidate ({len(cands)} parsed) - using raw idea")
+    return idea
+
+
+def _knockout_to_transparent(png_bytes: bytes) -> bytes:
+    """Flat-on-white -> transparent PNG: flood-fill the connected background to alpha from the frame
+    seeds (swallows the AI-white dither), then clear the residual near-white halo (brand palette has
+    no white fills). Returns PNG bytes; on any failure returns the original bytes unchanged."""
+    try:
+        import io as _io
+        from PIL import Image as _Image, ImageDraw as _ImageDraw
+        im = _Image.open(_io.BytesIO(png_bytes)).convert("RGB")
+        w, h = im.size
+        SENT = (255, 0, 255)  # sentinel not in NXT/NU palette
+        for s in [(0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1), (w // 2, 0), (w // 2, h - 1), (0, h // 2), (w - 1, h // 2)]:
+            _ImageDraw.floodfill(im, s, SENT, thresh=110)
+        im = im.convert("RGBA")
+        px = im.load()
+        for y in range(h):
+            for x in range(w):
+                r, g, b, a = px[x, y]
+                if (r, g, b) == SENT:
+                    px[x, y] = (0, 0, 0, 0)
+                elif r >= 224 and g >= 224 and b >= 224:
+                    px[x, y] = (r, g, b, 0)
+        out = _io.BytesIO()
+        im.save(out, format="PNG")
+        return out.getvalue()
+    except Exception as e:
+        logger.warning(f"[illustration] knockout failed, returning opaque: {e}")
+        return png_bytes
+
+
+# Persisted image LIBRARY (the reusable, cataloged illustration registry). Every generated
+# illustration is saved here as a transparent PNG + a catalog entry, served statically at
+# /hic-workspace/wiki/design-system/illustrations/<id>.png (so the :5014 renderer + PPTX can fetch
+# it by URL), and reused on an exact concept+brand+canvas match (agentic reuse before regenerating).
+# Phase B componentizes these into Figma + adds tag-based fuzzy retrieval.
+_ILLUS_DIR = os.path.join(WIKI_BASE, "design-system", "illustrations")
+_ILLUS_REGISTRY = os.path.join(_ILLUS_DIR, "_registry.json")
+_ILLUS_STOP = {"a", "an", "the", "and", "or", "of", "to", "into", "on", "with", "for", "in", "by",
+               "abstract", "flat", "vector", "illustration", "minimalist", "shapes", "one"}
+
+
+def _illus_id(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0) -> str:
+    # Key on the ORIGINAL idea (+ brand/canvas/slot), NOT the VS-selected concept, so reuse stays
+    # deterministic across the non-deterministic VS step: the same section idea always returns its
+    # cached image. Slot is in the key because hero vs side warrant different compositions. `variant`
+    # (>0) lets a caller force a DISTINCT image for the same idea (used to break intra-deck repeats);
+    # variant 0 keeps the cross-deck library key, so existing cached art is untouched.
+    import hashlib
+    suffix = f"|v{variant}" if variant else ""
+    return hashlib.sha1(f"{brand}|{canvas}|{slot}|{' '.join(concept.lower().split())}{suffix}".encode()).hexdigest()[:16]
+
+
+def _illus_tags(concept: str) -> list:
+    seen, tags = set(), []
+    for w in re.findall(r"[a-z]{3,}", concept.lower()):
+        if w in _ILLUS_STOP or w in seen:
+            continue
+        seen.add(w); tags.append(w)
+    return tags[:12]
+
+
+def _illus_registry_load() -> list:
+    try:
+        with open(_ILLUS_REGISTRY, "r", encoding="utf-8") as f:
+            import json as _json
+            return _json.load(f) or []
+    except Exception:
+        return []
+
+
+def _illus_registry_append(entry: dict) -> None:
+    try:
+        import json as _json
+        reg = _illus_registry_load()
+        reg = [e for e in reg if e.get("id") != entry.get("id")] + [entry]
+        with open(_ILLUS_REGISTRY, "w", encoding="utf-8") as f:
+            _json.dump(reg, f, indent=2, ensure_ascii=False)
+    except Exception as e:
+        logger.warning(f"[illustration] registry write failed: {e}")
+
+
+async def _brand_illustration(concept: str, brand: str, canvas: str, slot: str = "side", variant: int = 0) -> dict:
+    """Generate (or REUSE) one transparent, on-brand flat-vector illustration, persist it to the image
+    library + catalog, and return {url, dataUri, id, reused}. Empty url/dataUri on failure (fail-open).
+
+    Pipeline: section IDEA -> VERBALIZED SAMPLING (diverse recognizable metaphors, layout-aware select)
+    -> image gen -> knockout -> persist + catalog. `slot` (hero|side|backdrop) shapes both the VS
+    selection and the dedup key. `variant`>0 forces a DISTINCT image for the same idea (breaks intra-deck
+    repeats)."""
+    import base64
+    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    canvas = "dark" if str(canvas).lower() == "dark" else "light"
+    slot = slot if slot in _ILLUS_SLOT_NOTE else "side"
+    try:
+        variant = max(0, int(variant))
+    except Exception:
+        variant = 0
+    iid = _illus_id(concept, brand, canvas, slot, variant)
+    os.makedirs(_ILLUS_DIR, exist_ok=True)
+    out_path = os.path.join(_ILLUS_DIR, f"{iid}.png")
+    url = f"/hic-workspace/wiki/design-system/illustrations/{iid}.png"
+    # REUSE: exact idea+brand+canvas+slot already in the library -> return it (agentic reuse).
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, "rb") as f:
+                raw = f.read()
+            return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(raw).decode(),
+                    "id": iid, "reused": True}
+        except Exception:
+            pass
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not concept:
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+    # VERBALIZED SAMPLING: diversify the idea into a fresh, recognizable, layout-fit concept.
+    visual_concept = await _vs_select_concept(concept, brand, canvas, slot)
+    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
+    body = {"contents": [{"parts": [{"text": _illustration_prompt(visual_concept, brand, canvas)}]}],
+            "generationConfig": {"responseModalities": ["IMAGE"]}}
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=120.0)
+        if resp.status_code != 200:
+            logger.warning(f"[illustration] HTTP {resp.status_code}: {resp.text[:200]}")
+            return {"url": "", "dataUri": "", "id": iid, "reused": False}
+        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
+        for part in parts:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                png = _knockout_to_transparent(base64.b64decode(inline["data"]))
+                with open(out_path, "wb") as f:
+                    f.write(png)
+                _illus_registry_append({"id": iid, "idea": concept, "concept": visual_concept,
+                                        "brand": brand, "canvas": canvas, "slot": slot,
+                                        "tags": _illus_tags(concept + " " + visual_concept),
+                                        "file": f"{iid}.png", "url": url,
+                                        "model": _GEMINI_IMAGE_MODEL, "transparent": True})
+                return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(),
+                        "id": iid, "reused": False}
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+    except Exception as e:
+        logger.warning(f"[illustration] generation error: {e}")
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+
+
+@app.post("/api/ai/illustration")
+async def ai_illustration(payload: dict):
+    """Generate (or reuse) ONE tasteful on-brand TRANSPARENT flat-vector illustration for a scene, and
+    catalog it in the image library. Body: { concept, brand:"nxt|nu", canvas:"dark|light", slot:"hero|side|backdrop" }.
+    Returns { url, dataUri, id, reused, brand, canvas } - url is a static path served by this proxy;
+    fail-open (empty url/dataUri if generation fails - a scene without an illustration is fine)."""
+    concept = (payload.get("concept") or "").strip()
+    if not concept:
+        return JSONResponse({"error": "concept required"}, status_code=400)
+    res = await _brand_illustration(concept, payload.get("brand", "nxt"), payload.get("canvas", "light"),
+                                    payload.get("slot", "side"), payload.get("variant", 0))
+    res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
+    return res
+
+
+@app.get("/api/ai/illustrations")
+async def ai_illustrations_catalog(brand: str = "", tag: str = ""):
+    """The image-library catalog (for agentic retrieval + Phase-B Figma componentization). Optional
+    ?brand= and ?tag= filters. Returns { count, illustrations:[{id,concept,brand,canvas,tags,url}] }."""
+    reg = _illus_registry_load()
+    if brand:
+        reg = [e for e in reg if e.get("brand") == brand.lower()]
+    if tag:
+        reg = [e for e in reg if tag.lower() in (e.get("tags") or [])]
+    return {"count": len(reg), "illustrations": reg}
+
+
 async def _inject_persona_images(html: str, brand: str) -> str:
     """Find persona-img slots, generate an image for each (concurrently, capped),
     and inline the result as a data URI on the slot's src. Slots beyond the cap
@@ -16953,7 +17676,9 @@ async def _run_visual_qa(kind: str, html: str) -> dict | None:
     try:
         import asyncio
         import artifact_visual_qa as _vqa
-        report = await asyncio.to_thread(_vqa.audit_html, html)
+        # kind='proto' -> click through each nav control + re-check, so a screen that errors/blanks
+        # only on navigation is caught (the gate previously verified the landing screen alone).
+        report = await asyncio.to_thread(_vqa.audit_html, html, 1440, 1000, kind == "proto")
         if not report.get("available"):
             logger.info(f"[artifact/{kind}] visual QA unavailable: {report.get('reason')}")
         elif report.get("passed"):
@@ -16984,6 +17709,8 @@ async def artifact_audit(payload: dict):
         return JSONResponse({"error": "provide html or a known artifact_id"}, status_code=400)
     report = await _run_visual_qa(payload.get("kind") or "audit", html)
     return report or {"available": False}
+
+
 
 
 @app.post("/api/artifact/generate")

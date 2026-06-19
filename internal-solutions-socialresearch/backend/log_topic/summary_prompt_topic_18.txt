@@ -1,30 +1,93 @@
 You are a helpful assistant tasked with summarizing Reddit discussion topics for topic modeling analysis.
 Given the following information about a topic discovered through topic modeling:
-- Top keywords: lock, hold, vanguard, buy, clark, rule, acats
+- Top keywords: credit, bank, business, cash, card, account, credit union
 - Example posts and discussions (longer excerpts to provide better context):
 
 EXAMPLE 1:
-ACATS lock? I read an article on Clark.com that says you can call Vanguard customer service and place a lock to prevent ACATS transfer:
+Just this past week, I set up some accounts with a credit union that a couple people recommended to me, but in trying to learn how to buy a building and possibly securing a SBA loan, I also spoke to some banks, one of which was very proactive and seemed great. I’m sort of getting the feel that the bank will be very helpful in getting my business up and running, but they obviously they want cut, whereas the credit union is not as tenacious or in the know of all the things to keep pushing my business forward, but I’ll get to keep more of my money.
 
 EXAMPLE 2:
-Vanguard didn’t send any alert for my ACAT transfer out I recently did a **partial ACAT transfer** from Vanguard to Schwab which was initiated at Schwab. Schwab messaged me at every step, and the shares showed up in my Schwab account in 2 days. Vanguard? **No email, no message, nothing.** The shares just disappeared from my account. If someone initiated a **fraudulent ACAT transfer**, it seems like there’d be no alert when the request is made—or even after it’s completed. Posting this as an FYI in case others want to factor this into their security decisions. Yeah, that’s crazy. [...]
+Should I pursue a bank or a credit union to continue by banking? check your dm
+Credit Union if you intend to borrow.
 
 EXAMPLE 3:
-[https://clark.com/personal-finance-credit/investing-retirement/why-you-need-to-lock-your-brokerage-account-today/](https://clark.com/personal-finance-credit/investing-retirement/why-you-need-to-lock-your-brokerage-account-today/)
+Furthermore, I am going to need to set up some sort of auto billing in the future and I’m wondering if they’re all the same? Specifically, the credit union and the bank said the same service, Elavon, and come to find out the bank (US Bank), actually owns Elavon.
 
 EXAMPLE 4:
-Have any of you done this? I tried to call and reps were unaware of the need nor capability.
-Clark's article says you have to specifically ask for someone in the Security department. He says the regular "customer-no-service people" (what he calls them) don't know anything about it, much less how to do it. And you have to specify an ACATS lock, not an account lock.
-Thanks for trying!
+Use a Bank or a Credit Union? Hello, I run a small martial art school in Portland, Oregon, which is my side business. I have a main job I love, but I also teach martial arts about seven or eight hours a week and made about 20k last year. I got myself an LLC and EIN no I am wondering if the credit union or bank is a better option for me to go. In my heart, I really want to do a credit union because I’ve always had a credit union for my personal finances.
 
 EXAMPLE 5:
-How about you?  Any other solid overseas companies you've been stunned to learn you can't buy?   Please share.     I appreciate your thoughts and contribution.  I would only counter that if Vanguard is seeking "buy and hold" investors - there are many, many established, respected overseas companies that are buy and hold investments.  You'll notice (below) a comment to try Robinhood.  But I ask you:  Should a buy and hold investor really have to open a Robinhood account so they can hold a company like Siemens AG?  I believe in Vanguard's ability to implement a better way. [...]
+Personal CC for business expenses and keeping the receipts separate General question here. I just bought a practice and have some startup expenses as well as some recurring expenses that need to be addressed before I setup a business credit card. My questions are:
 
 EXAMPLE 6:
-Vanguard OTC rule seems backwards Vanguard says its OTC restrictions exist to protect investors from risky securities.
+3. Does the processing fee charged on those personal credit cards basically make the whole thing a wash? For example, if I pay $500 for my annual license renewal using my personal card with 2% cash back but there is a 3% fee associated with the expense and any additional accounting fees involved - does it make more sense to write a check or transfer it directly from my bank account?
 
 EXAMPLE 7:
-Meanwhile I can buy **VinFast Auto** (VFS) — a Vietnamese EV startup that briefly rocketed to one of the largest market caps in the auto industry despite selling relatively few cars and having almost no public float.
+Bank if you want the full suite of banking services and products, as an example one of my credit unions still does not have Zelle activated.
+What other services can a bank offer in their "full suite". I am happy to report my credit union has Zelle.
+
+EXAMPLE 8:
+Using a Personal Card for Business Expenses. You can absolutely use your personal card and submit only the specific business receipts to your accounting system. This is a standard practice known as an accountable plan or an expense reimbursement process.
+
+EXAMPLE 9:
+The Math: Credit Card Fees vs. Cash Back. 
+If a vendor charges a credit card processing fee that outpaces your rewards rate, you are actively losing money on the transaction.
+
+EXAMPLE 10:
+1. Can I use a personal credit card for business expenses, print out the specific business expense receipts and submit only those (as opposed to ALL expenses on that card) to my accounting so they can deduct it as an expense?
+
+EXAMPLE 11:
+But even when sales are growing and customers are buying, cash flow can still become a serious challenge. One thing I've noticed is that some of the busiest businesses are often the ones under the most financial pressure.
+
+EXAMPLE 12:
+* A contractor lands a great project but has to wait months to get paid while salaries, rent and suppliers need to be paid today.
+* A retailer sees demand picking up and uses most of their cash to buy stock, only to find themselves short on cash for day-to-day operations.
+* A business lands a large order that looks like a breakthrough, but fulfilling it requires so much upfront spending that it creates a cash crunch before payment comes in (and the payment always takes longer than expected!).
+
+EXAMPLE 13:
+For the entrepreneurs here, what's been the biggest financial challenge you've faced while growing your business?
+
+EXAMPLE 14:
+That's why I've come to believe that understanding the cash conversion cycle is just as important as understanding profitability. A profitable business can survive a bad month. A business that runs out of cash often doesn't get a second chance.
+With due respect.. if your finance/accountant not tracking those 3 then you have a bigger problem than cash flow.
+
+EXAMPLE 15:
+I'll be writing my CPA these same questions but wanted to know what everyone on here thought. Thanks. Do yourself a favor, separate your business and personal expenses as soon as possible. Separate credit cards separate bank accounts separate email address addresses.  The longer you intermingle the two the harder will be to solve this in the future and if you ever sell your business, buyers will treat you like a pariah. 
+Yes, you can absolutely do this, but there are a few important guardrails you'll want to keep in mind so your accountant doesn't get a headache.
+
+EXAMPLE 16:
+A business might land its biggest order ever or have its best run of sales and think it's winning, only to discover it now needs more inventory, more staff, more transportation costs, or more working capital before a single cent from that order hits the bank account.
+
+EXAMPLE 17:
+We run a 10 employee startup and our finance manager track our expenses and cash flow expected revenues for the next 60 days.
+
+EXAMPLE 18:
+1. How much cash do we actually have today?
+2. What payments are due over the next 30 days?
+3. What cash are we realistically expecting to receive during that period?
+
+EXAMPLE 19:
+You can be profitable and still run out of cash As both a business owner and someone who works with businesses, this is one lesson I've had to learn repeatedly. Now, to be fair, many times the problem is revenue too!
+
+EXAMPLE 20:
+I've experienced some of these challenges myself, and they've made me realize that revenue, profit and cash are three very different things. The questions I find myself asking every month are:
+
+EXAMPLE 21:
+*Business Insurances: Malpractice, business overhead, cyber liability, and general commercial insurance are 100% ordinary business expenses. Paying them personally and reimbursing yourself is totally fine.
+
+EXAMPLE 22:
+*Personal/Entity-Specific Insurances: Healthcare, disability, and life insurance deductions depend heavily on your specific entity structure (e.g., Sole Proprietorship, S-Corp, or LLC). For instance, as an owner, your health insurance often has to be handled through specific payroll adjustments or deducted on your personal 1040 tax return rather than as a straight business expense line item. Definitely have your CPA tag these properly from day one.
+
+EXAMPLE 23:
+A complicating factor is that my wife received some of her inheritance, about 100k, and we’re looking to invest it so that she can work less and instead of manage a piece of property. We are contemplating a piece of commercial property that I can also run my business through, but subdividing/sublet to renters as well.
+
+EXAMPLE 24:
+A job can be profitable on paper but still hurt you if payroll, materials, rent, and suppliers are due before the customer pays. That gets worse when the customer is slow or the project grows.
+Exactly.
+
+EXAMPLE 25:
+Handling Insurance Premium.
+Yes, the exact same logic applies to your insurance premiums, but with one critical nuance regarding the type of insurance:
 
 Your goal is to create meaningful topic summaries for topic modeling results. Based on these examples, please provide three summaries of this topic:
 
@@ -47,14 +110,13 @@ Your goal is to create meaningful topic summaries for topic modeling results. Ba
    - Emphasizes the general pattern or trend being discussed
    - Is direct and informative about the broader topic
 
-3. An ultra-short summary that:
-   - Captures the core concept in 4 words or less using highly general terms
-   - Avoids specific names, brands, or individual references
-   - Uses the most essential categorical keywords
-   - Focuses on the broad theme or pattern
-   - Is clear and meaningful at a high level
+3. A short topic HEADLINE (this becomes the card TITLE, so write it like a sharp analyst's finding) that:
+   - Names WHAT THE EVIDENCE SHOWS IS TRUE about this theme - the specific finding, tension, or recurring concern - in 4 to 8 words. Good: "Water damage claims drag on unresolved", "Geico quotes jump at renewal", "Roof and HOA disputes stall repairs", "Totaled-car payouts feel lowballed".
+   - Is NEVER a bare keyword ("water", "insurance") and NEVER a comma-separated TERM LIST ("Water, Claim, Damage"). A term list is the cluster's raw keywords, NOT a finding, and is an automatic FAILURE.
+   - Uses the top keywords + the example posts as anchors, but states the PATTERN the discussion reveals (the problem, friction, or sentiment), not just the nouns.
+   - Stays at the theme level (a recurring pattern many posts share), not one person, brand, or single post.
 
 Return your response as a JSON object with the following format:
-{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "Your core concept summary here"}
+{"long_summary": "Your main topic summary here", "one_sentence_summary": "Your single sentence summary here", "short_summary": "A 4-8 word finding headline - what the evidence shows, never a keyword/term list"}
 
 Provide ONLY the JSON object, without any additional explanation or formatting.
