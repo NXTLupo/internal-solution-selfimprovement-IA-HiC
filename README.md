@@ -91,9 +91,10 @@ After any edit under `humans-in-control-research/`, **rebuild** (no hot reload i
 - **Python 3.11** — the HiC proxy runs on 3.11+; Social Research backend requires exactly 3.11.
 - POSIX shell; on **Windows** use **Git Bash** (scripts assume Unix paths).
 
-API keys: **required** `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`. **Optional**
-`REDDIT_CLIENT_ID`/`SECRET`, `FIGMA_API_TOKEN`, `TAVILY_API_KEY`, `DEEPSEEK_API_KEY`,
-`MIRO_ACCESS_TOKEN`, `YOUTUBE_API_KEY`.
+API keys: **required** `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`. **Optional, per
+feature:** Reddit (`REDDIT_CLIENT_ID`/`SECRET`/`USER_AGENT`/`REDIRECT_URI`, plus
+`REDDIT_USERNAME`/`PASSWORD` for Social Analytics), Miro (`MIRO_ACCESS_TOKEN` + `MIRO_BOARD_ID`),
+`FIGMA_API_TOKEN`, `TAVILY_API_KEY`, `DEEPSEEK_API_KEY`, `YOUTUBE_API_KEY`. See *Environment*.
 
 A fresh clone includes all source, the HiC `hic-workspace/wiki/` knowledge base (~11k markdown
 files), and every manifest/registry. Gitignored (regenerated locally): `wiki/.vectors.db`
@@ -112,19 +113,37 @@ ANTHROPIC_API_KEY=sk-ant-...
 GEMINI_API_KEY=...
 OPENAI_API_KEY=sk-...
 
-# --- Optional ---
+# --- Reddit (Social Data Collector :5001, Social Analytics :8081, HiC deep-reddit) ---
+# Create an app at https://www.reddit.com/prefs/apps (type: "script").
 REDDIT_CLIENT_ID=...
 REDDIT_CLIENT_SECRET=...
-REDDIT_USER_AGENT=nxt-humans/1.0
+REDDIT_USER_AGENT=script:nxt-humans:1.0
+REDDIT_REDIRECT_URI=http://localhost:5001/callback
+REDDIT_USERNAME=...          # Social Analytics uses PRAW script auth (username + password)
+REDDIT_PASSWORD=...
+
+# --- Miro (Miro Board Generator :5004) ---
+# Token from https://miro.com/app/settings/user-profile/apps (or a dev app); board = target board id.
+MIRO_ACCESS_TOKEN=...
+MIRO_BOARD_ID=...            # the Miro board the generator writes into
+
+# --- Other optional ---
 FIGMA_API_TOKEN=...
 TAVILY_API_KEY=...
 DEEPSEEK_API_KEY=...
+YOUTUBE_API_KEY=...
 
 # --- Database defaults (fine for local) ---
 POSTGRES_USER=postgres
 POSTGRES_DB=app
 JWT_SECRET_KEY=change-me
 ```
+
+Per-app variable map:
+- **Social Data Collector** (`reddit-ripper`, :5001): `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USER_AGENT`, `REDDIT_REDIRECT_URI`.
+- **Social Analytics** (`social-research-backend`, :8081): the four above **plus** `REDDIT_USERNAME` + `REDDIT_PASSWORD` (PRAW script login).
+- **Miro Board Generator** (`miro-generator`, :5004): `MIRO_ACCESS_TOKEN` + `MIRO_BOARD_ID`.
+- **HiC deep-reddit** (research proxy): `REDDIT_CLIENT_ID`/`SECRET`/`USER_AGENT` (read-only, no login).
 
 `GEMINI_API_KEY` is also exposed to the HiC frontend as `API_KEY` at build time (legacy paths)
 — both come from this one variable. Verify a container received keys:
