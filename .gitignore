@@ -136,3 +136,18 @@ archive/
 **/journey_maps/journey_map_*.html
 **/sessions/_journey-html/*.html
 **/sessions/_journey-rollouts/*.json
+
+# --- Generated runtime artifacts (cleaned 2026-06-19): keep the dir via .gitkeep, ignore contents ---
+humans-in-control-research/hic-workspace/sessions/*
+!humans-in-control-research/hic-workspace/sessions/.gitkeep
+humans-in-control-research/hic-workspace/prototypes/*
+!humans-in-control-research/hic-workspace/prototypes/.gitkeep
+humans-in-control-research/hic-workspace/sources/*
+!humans-in-control-research/hic-workspace/sources/.gitkeep
+humans-in-control-research/hic-workspace/sample-artifacts/
+humans-in-control-research/hic-workspace/eval/
+internal-solutions-video-analyzer/transcripts/*
+!internal-solutions-video-analyzer/transcripts/.gitkeep
+internal-solutions-socialresearch/backend/log_topic/*
+!internal-solutions-socialresearch/backend/log_topic/.gitkeep
+temp-components/
