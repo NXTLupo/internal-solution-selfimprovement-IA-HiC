@@ -2,6 +2,19 @@
 import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
 import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
 import { tryRepairJson } from './aiRouter';
+import { recordAICall } from './costMeter';
+
+// 2026-06-20 COST METER FIX. The GoogleGenAI client below talks DIRECT to Google
+// (no proxy baseUrl), so these calls bypass BOTH the proxy and callAIWithRetry -
+// the only place wired to the cost meter. The in-app cost calculator therefore
+// under-counted the dominant spend (the breadth-pass Gemini 3.1 Pro calls were
+// invisible - the root reason a $750 Gemini bill was a surprise). Record every
+// direct SDK call here. Accounting must NEVER throw into a generation path.
+//   - Non-stream: pass the response (has .usageMetadata).
+//   - Stream: pass { usageMetadata } captured from the final chunk.
+function recordDirectGeminiCall(label: string, model: string, response: any): void {
+    try { recordAICall({ label, model, response, durationMs: 0 }); } catch { /* never break generation */ }
+}
 import { getActiveConstraints } from './promptImprovementEngine';
 import { buildEvidenceCatalogBlock, loadDeliverableContext, renderDeliverableContextBlock } from './evidenceCatalogBuilder';
 import { buildVerbalizedConfidenceDirective, inspectCalibration, normalizeSelfAssessment } from './verbalizedConfidence';
@@ -1099,6 +1112,7 @@ Output JSON.`;
                     `THEMES:\n${list}\n\nReturn ONLY JSON: {"scores":[{"i":<index>,"r":<0-100>}]}`,
                 config: { temperature: 0, responseMimeType: 'application/json' } as any,
             });
+            recordDirectGeminiCall('themes:relevance-score', 'gemini-3.5-flash', resp);
             let txt = (resp.text || '').trim();
             if (txt.includes('```')) txt = txt.replace(/```json|```/g, '').trim();
             const pg = JSON.parse(txt);
@@ -1204,6 +1218,7 @@ Return ONLY a JSON array of strings. Example:
 NO commentary, NO markdown, JUST the JSON array.`,
                     config: { temperature: 0.4 },  // slight diversity for angle variety
                 });
+                recordDirectGeminiCall('themes:angles', 'gemini-3.5-flash', angleResp);
                 let txt = angleResp.text || '[]';
                 if (txt.includes('```json')) txt = txt.split('```json')[1].split('```')[0].trim();
                 else if (txt.includes('```')) txt = txt.split('```')[1].split('```')[0].trim();
@@ -2325,7 +2340,9 @@ Now extract the full theme set from the widened evidence.`;
                     const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
                     let fullText = '';
                     let _lastRepCheck = 0;
+                    let _usage: any = null;   // 2026-06-20 cost meter: capture real usage from the final chunk
                     for await (const chunk of stream) {
+                        if ((chunk as any).usageMetadata) _usage = (chunk as any).usageMetadata;
                         const text = chunk.text;
                         if (text) {
                             fullText += text;
@@ -2353,6 +2370,7 @@ Now extract the full theme set from the widened evidence.`;
                             }
                         }
                     }
+                    recordDirectGeminiCall(`themes:${label}:breadth`, 'gemini-3.1-pro-preview', { usageMetadata: _usage });
                     return fullText;
                 }, 2, 3000, `Gemini 3.1 Pro ${label} BREADTH`);
 
@@ -2478,7 +2496,9 @@ Now extract the full theme set from the widened evidence.`;
                 const stream = (result.stream || result) as AsyncIterable<GenerateContentResponse>;
                 let fullText = '';
                 let _lastRepCheck = 0;
+                let _usage: any = null;   // 2026-06-20 cost meter: real usage from final chunk
                 for await (const chunk of stream) {
+                    if ((chunk as any).usageMetadata) _usage = (chunk as any).usageMetadata;
                     const text = chunk.text;
                     if (text) {
                         fullText += text;
@@ -2496,6 +2516,7 @@ Now extract the full theme set from the widened evidence.`;
                         }
                     }
                 }
+                recordDirectGeminiCall(`themes:${label}:breadth-shard`, 'gemini-3.1-pro-preview', { usageMetadata: _usage });
                 return fullText;
             }, 1, 3000, `Gemini 3.1 Pro ${label} SHARD`);
             const parsed = JSON.parse(tryRepairJson(proResult)) as StepResult_Themes;
@@ -3019,6 +3040,7 @@ Now produce the depth JSON object per the schema in your system instructions.`;
                 3000,
                 'Theme depth (Gemini Pro)',
             );
+            recordDirectGeminiCall('themes:depth', 'gemini-3.1-pro-preview', response);
             const rawText = response.text || '';
             try {
                 depth = JSON.parse(rawText);
