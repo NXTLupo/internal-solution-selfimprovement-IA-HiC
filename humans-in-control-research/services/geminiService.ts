@@ -2206,6 +2206,41 @@ Now extract the full theme set from the widened evidence.`;
             mcrCorpusBlock = await this.buildChunkCorpusBlock(`${this.goal} ${label}`, { tokenBudget: 30_000, broaden });
         }
         const useMcr = this.useMcrCorpus && mcrCorpusBlock.length > 0;
+        // 2026-06-20 COST GUARD (anti-RAG enforcement on the legacy fresh-run path).
+        // When MCR is unavailable (fresh/upload runs: articles aren't engagement-
+        // scoped, so the manifest catalog is empty by design), themes fell through
+        // to bulk evidence that was observed at ~804KB and got sharded into ~14
+        // premium Gemini 3.1 Pro calls + a floor-retry — the documented $100+/run
+        // spike (Jun 7: $137). The MCR path proves a 30K-token (~120KB) budget is
+        // sufficient for theme breadth, and the goal-evidence pack is already
+        // goal-relevance-ranked, so cap the legacy evidence to the SAME budget.
+        // This collapses the ~14-shard fan-out into a single bounded call (the
+        // sharder returns null below WINDOW_CHARS), cutting Pro input ~5-15x with
+        // no model change. Breadth quality holds: it keeps the strongest-ranked
+        // slice, and the floor-retry still broadens if the count comes up short.
+        const LEGACY_EVIDENCE_CHAR_CAP = 120_000;   // ~30K tokens, matches MCR budget
+        if (useMcr) {
+            // ANTI-RAG PRIMARY (Unified Vision): themes ground on goal-relevance-
+            // ranked manifest CHUNK POINTERS (cite-by-pointer, ~30K-token budget),
+            // not bulk corpus. This is the intended path on every run including
+            // fresh ones now that the embedding index powers chunks-by-goal.
+            onStream(`[${label}] Grounding: ANTI-RAG manifest chunks (goal-relevance-ranked, ${Math.round(mcrCorpusBlock.length / 1024)}KB pointers).`);
+            console.log(`[${label}] GROUNDING=anti-rag-mcr block=${Math.round(mcrCorpusBlock.length / 1024)}KB (goal-relevance manifest pointers)`);
+        } else {
+            // LEGACY BOUNDED FALLBACK (only when the manifest/embedding path yields
+            // nothing - e.g. a brand-new install before the wiki backfill runs).
+            // This is NOT the intended path: warn LOUDLY so a silent regression to
+            // bulk-corpus injection (the root cause of the 2026-06 Gemini cost spike)
+            // can never go unnoticed again. Evidence is hard-capped to the SAME
+            // budget as MCR so the cost stays bounded even here.
+            console.warn(`[${label}] GROUNDING=LEGACY-BULK-FALLBACK (anti-RAG manifest path returned no chunks - is the wiki backfill complete? run POST /api/wiki/chunks-backfill). Capping evidence to ${LEGACY_EVIDENCE_CHAR_CAP / 1024}KB to bound premium-Pro cost.`);
+            onStream(`[${label}] Grounding: legacy bulk fallback (manifest empty) - capped to ${LEGACY_EVIDENCE_CHAR_CAP / 1024}KB. Run the wiki backfill to enable anti-RAG manifest grounding.`);
+            if (goalEvidenceBlock.length > LEGACY_EVIDENCE_CHAR_CAP) {
+                goalEvidenceBlock = goalEvidenceBlock.slice(0, LEGACY_EVIDENCE_CHAR_CAP);
+            }
+            const remaining = Math.max(0, LEGACY_EVIDENCE_CHAR_CAP - goalEvidenceBlock.length);
+            if (substrateBlock.length > remaining) substrateBlock = substrateBlock.slice(0, remaining);
+        }
         const effectivePrompt = useMcr
             ? [this.buildObjectiveAnchor(), mcrCorpusBlock, prompt].filter(s => s && s.length > 0).join('\n')
             : [this.buildObjectiveAnchor(), goalEvidenceBlock, substrateBlock, prompt].filter(s => s && s.length > 0).join('\n');
@@ -2616,7 +2651,10 @@ Now extract the full theme set from the widened evidence.`;
         const WAVE_SIZE = 2;            // shards per parallel wave (2026-06-16: capped 3->2; see note
                                        // in _runShardedBreadth - 3 concurrent ~780KB Opus shards
                                        // saturated the single-process proxy with ERR_EMPTY_RESPONSE)
-        const SAFETY_MAX_SHARDS = 14;   // cost guard (raised 12->14 to cover ~1.1MB evidence at the smaller window)
+        const SAFETY_MAX_SHARDS = 8;    // 2026-06-20 COST GUARD: lowered 14->8. With the
+                                        // 120KB evidence cap in _runBreadthPass this path
+                                        // rarely runs at all; 8 is the hard ceiling on premium
+                                        // Pro calls per breadth pass if it ever does.
         // The collapse-driving bulk is the EVIDENCE TEXT (goal-evidence pack +
         // substrate). Combine, then split into size-bounded windows on chunk/
         // paragraph boundaries so each shard sees coherent, intact evidence.
@@ -2652,7 +2690,15 @@ Now extract the full theme set from the widened evidence.`;
             onStream(`[${label}] Legacy-corpus breadth wave ${Math.floor(base / WAVE_SIZE) + 1}: ${waveWindows.length} shard(s) in parallel (evidence too large for one-shot; sharding to avoid Pro collapse)...`);
             const results = await Promise.all(waveWindows.map((win, i) => {
                 const eff = [anchor, win, prompt].filter(s => s && s.length > 0).join('\n');
-                return this._runBreadthShard([{ role: 'user', parts: [...fileParts, { text: eff }] }], eff, schema, onStream, `${label}-LP${shardsRun + i + 1}`);
+                // 2026-06-20 COST GUARD: only the FIRST shard carries the client-upload
+                // file parts. Previously EVERY shard re-sent them, so uploaded PDFs were
+                // re-billed to premium Gemini 3.1 Pro up to (shards x floor-retry) times.
+                // One shard seeing the uploads is enough for breadth; the rest ground on
+                // the windowed evidence text.
+                const shardParts = (base === 0 && i === 0 && fileParts.length > 0)
+                    ? [...fileParts, { text: eff }]
+                    : [{ text: eff }];
+                return this._runBreadthShard([{ role: 'user', parts: shardParts }], eff, schema, onStream, `${label}-LP${shardsRun + i + 1}`);
             }));
             shardsRun += waveWindows.length;
             let waveNew = 0;
