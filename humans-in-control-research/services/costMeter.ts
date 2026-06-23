@@ -15,7 +15,9 @@
 export type ModelId =
     | 'gemini-3.1-pro-preview'
     | 'gemini-3.1-pro'
+    | 'gemini-3.5-flash'
     | 'gemini-2.5-flash'
+    | 'deepseek-v4-pro'
     | 'claude-opus-4-8'
     | 'claude-opus-4-7'
     | 'claude-opus-4-6'
@@ -34,7 +36,9 @@ export type ModelId =
 const PRICING: Record<ModelId, { in: number; out: number }> = {
     'gemini-3.1-pro-preview': { in: 3.50, out: 10.50 },
     'gemini-3.1-pro':         { in: 3.50, out: 10.50 },
+    'gemini-3.5-flash':       { in: 0.30, out: 1.20 },
     'gemini-2.5-flash':       { in: 0.30, out: 1.20 },
+    'deepseek-v4-pro':        { in: 0.55, out: 2.20 },
     'claude-opus-4-8':        { in: 5.00, out: 25.0 },
     'claude-opus-4-7':        { in: 15.0, out: 75.0 },
     'claude-opus-4-6':        { in: 15.0, out: 75.0 },
@@ -143,7 +147,13 @@ export function normalizeModel(raw: string | undefined): ModelId {
     if (s.includes('gpt-5.4') || s.includes('gpt-5')) return 'gpt-5.4';
     if (s.includes('gemini-3.1-pro-preview')) return 'gemini-3.1-pro-preview';
     if (s.includes('gemini-3.1-pro')) return 'gemini-3.1-pro';
-    if (s.includes('gemini-2.5-flash') || s.includes('gemini-flash')) return 'gemini-2.5-flash';
+    // 2026-06-20 - gemini-3.5-flash is the canonical fast model. Without this it
+    // fell through to 'unknown' (the "Unknown model" in the cost widget) because
+    // 'gemini-3.5-flash'.includes('gemini-flash') is FALSE. Match it explicitly,
+    // and keep 'gemini-flash' as a generic alias for any future flash id.
+    if (s.includes('gemini-3.5-flash') || s.includes('gemini-flash')) return 'gemini-3.5-flash';
+    if (s.includes('gemini-2.5-flash')) return 'gemini-2.5-flash';
+    if (s.includes('deepseek') && s.includes('pro')) return 'deepseek-v4-pro';
     if (s.includes('deepseek')) return 'deepseek-v4-flash';
     return 'unknown';
 }
@@ -305,7 +315,9 @@ export const MODEL_DISPLAY_NAMES: Record<ModelId, string> = {
     'claude-haiku-4-5':        'Claude Haiku 4.5',
     'gemini-3.1-pro-preview':  'Gemini 3.1 Pro',
     'gemini-3.1-pro':          'Gemini 3.1 Pro',
+    'gemini-3.5-flash':        'Gemini 3.5 Flash',
     'gemini-2.5-flash':        'Gemini 2.5 Flash',
+    'deepseek-v4-pro':         'DeepSeek V4 Pro',
     'gpt-5.5':                 'GPT-5.5',
     'gpt-5.4':                 'GPT-5.4',
     'gpt-5.4-mini':            'GPT-5.4 Mini',
