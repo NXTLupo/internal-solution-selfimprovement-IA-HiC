@@ -23,6 +23,13 @@ import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type 
 // 2026-05-08 - Mid-chat upload dropzone (shared with the AI Analyst CorpusChatPanel)
 import ChatAttachmentDropzone, { type ChatAttachment } from '../components/ChatAttachmentDropzone';
 import { writeAdHocUpload, buildEngagementSlug } from '../services/wikiService';
+// 2026-06-22 - Designer-side manifest-chunk grounding (symmetry with the
+// Analyst Desk). The Designer composes from pre-shaped intelligence, but ALL
+// collected data (incl. the new healthcare pack + persisted insights) must also
+// be reachable here via the SAME anti-RAG manifest-chunk path the Analyst uses,
+// so every hashtag deliverable can cite primary evidence by pointer.
+import { pickChunksForPrompt, assembleChunkCorpus } from '../services/chunkRetrieval';
+import { resolveChunks, currentEngagementSlug } from '../services/wikiPointerResolver';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from '../components/PromptEnhancer';
 // 2026-05-20 - Improvement lineage panel: shows the user, in-line with the
 // artifact chat, what changed since the prior generation of this kind. Surfaces
@@ -238,6 +245,41 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         return decoratedParts.join('\n\n');
     };
 
+    /**
+     * 2026-06-22 - Compose the Designer generation corpus WITH live manifest-
+     * chunk grounding prepended as PRIMARY EVIDENCE, mirroring the Analyst Desk
+     * (corpusChatService.sendChatMessage). This is the anti-RAG path: pickChunks
+     * pre-ranks the engagement catalog (now incl. healthcare-pack articles and
+     * persisted 'insight' chunks), resolveChunks dereferences pointers to
+     * verbatim spans, assembleChunkCorpus renders the cite-by-pointer block.
+     * The shaped intelligence + corpus snapshot follow as supplementary context.
+     * Best-effort: any failure falls back to the snapshot corpus alone.
+     */
+    const buildPromptCorpusGrounded = async (userPrompt: string): Promise<string> => {
+        const snapshot = buildPromptCorpus();
+        try {
+            const slug = currentEngagementSlug();
+            if (slug) {
+                const picked = await pickChunksForPrompt(userPrompt, slug, {
+                    researchObjective: [userPrompt, ctx.researchGoal || ''].filter(Boolean).join('\n').slice(0, 800),
+                    tokenBudget: 30_000,
+                });
+                if (picked.chunkIds.length > 0) {
+                    const resolved = await resolveChunks(picked.chunkIds);
+                    if (resolved.chunks.length > 0) {
+                        const primary = '=== PRIMARY EVIDENCE (manifest chunks, cite by pointer) ===\n'
+                            + assembleChunkCorpus(resolved.chunks);
+                        console.log(`[DesignDeskChat] manifest-chunk grounding: ${resolved.chunks.length} chunks from ${resolved.sourcesRead} pages (catalog=${picked.catalogSize})`);
+                        return primary + '\n\n' + snapshot;
+                    }
+                }
+            }
+        } catch (e: any) {
+            console.warn('[DesignDeskChat] manifest-chunk grounding failed (non-fatal), using snapshot corpus:', e?.message || e);
+        }
+        return snapshot;
+    };
+
     const send = async (textOverride?: string) => {
         // 2026-05-23 - `textOverride` lets Apply-now re-fire the original
         // user prompt with feedback appended, going through the same
@@ -317,7 +359,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                 return;
             }
             setBusy(true);
-            const corpus = buildPromptCorpus();
+            const corpus = await buildPromptCorpusGrounded(parsed.cleanPrompt);
             // Revision path - route by active artifact's type. Freeform artifacts
             // (org/journey/arch/roadmap/blueprint) go through chatToFreeform; persona
             // remains on the legacy structured pipeline.
@@ -402,7 +444,7 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
         }
 
         setBusy(true);
-        const corpus = buildPromptCorpus();
+        const corpus = await buildPromptCorpusGrounded(parsed.cleanPrompt);
         for (const contentTag of parsed.content) {
             // Diagram kinds → freeform pipeline. Persona → legacy structured pipeline.
             if (FREEFORM_KINDS.has(contentTag as FreeformKind)) {

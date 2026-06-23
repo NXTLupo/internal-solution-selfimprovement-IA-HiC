@@ -1922,6 +1922,22 @@ SOURCES = {
 
 }
 
+# ----------------------------------------------------------------------------
+# Healthcare & Life Sciences data pack (2026-06-22) — 200 verified free
+# sources merged from healthcare_sources.py (auto-generated from the registry).
+# Every entry uses a connector this proxy supports (rss | static_url | rest |
+# web_search); see SOURCE_PACKS["healthcare"]. Merged into SOURCES so they flow
+# through the SAME search -> chunk -> wiki -> manifest -> retrieval pipeline as
+# every other source. Non-fatal if the module is missing (keeps the proxy
+# bootable on a partial checkout).
+# ----------------------------------------------------------------------------
+try:
+    from healthcare_sources import HEALTHCARE_SOURCES as _HEALTHCARE_SOURCES
+    SOURCES.update(_HEALTHCARE_SOURCES)
+    logger.info(f"[sources] merged {len(_HEALTHCARE_SOURCES)} Healthcare/Life-Sciences sources")
+except Exception as _hc_err:
+    logging.getLogger("app").warning(f"[sources] healthcare pack not loaded: {_hc_err}")
+
 # ================================================================
 # CONNECTOR ENGINE — Generic handlers for each connector type
 # ================================================================
@@ -7104,6 +7120,19 @@ SOURCE_PACKS = {
     "financial_services": {"name": "Financial Services", "kind": "industry", "industries": ["financial_services"],
         "description": "Payments, checkout, and economic/market data relevant to financial services.",
         "categories": ["Payments & Checkout", "Economic Data", "Retail Economic Data"]},
+    "healthcare": {"name": "Healthcare & Life Sciences", "kind": "industry",
+        "industries": ["healthcare", "life_sciences", "pharma", "medtech", "digital_health"],
+        "description": "200 free sources: FDA/CDC/WHO + regulatory, medical journals & preprints, "
+                       "pharma/biotech/medtech trade press, health think tanks, digital-health & AI-in-medicine, "
+                       "clinical/professional communities, and health economics & policy data.",
+        "pack_match": "healthcare",
+        "categories": ["Government, Regulatory & Public Health Data",
+                        "Medical & Scientific Journals & Preprints",
+                        "Industry Trade Press & News",
+                        "Research Institutions, Think Tanks & Associations",
+                        "Digital Health, AI in Medicine & MedTech",
+                        "Specialty, Clinical & Professional Communities",
+                        "Health Economics, Policy & Market Data"]},
     # ---- Cross-cutting theme packs ----
     "ai_trends": {"name": "AI Trends", "kind": "theme", "industries": ["ai_research"],
         "description": "AI lab blogs, AI news, models/datasets, conferences, policy & ethics.",
@@ -7415,6 +7444,38 @@ async def _search_source_impl(source_id: str, q: str, limit: int = 20):
                         # Handle Reddit's nested {data: {title: ...}} structure
                         if "data" in item and isinstance(item["data"], dict) and "title" in item["data"]:
                             item = item["data"]
+                        # 2026-06-22 - Healthcare-pack nested-JSON shapes. The
+                        # generic title/content/url extraction below assumes a flat
+                        # record; ClinicalTrials.gov v2 and openFDA nest their
+                        # fields, so without this they'd dump raw JSON into title.
+                        # Flatten the high-value biomedical shapes to clean fields.
+                        if "protocolSection" in item and isinstance(item.get("protocolSection"), dict):
+                            ps = item["protocolSection"]
+                            idm = ps.get("identificationModule", {}) if isinstance(ps.get("identificationModule"), dict) else {}
+                            desc = ps.get("descriptionModule", {}) if isinstance(ps.get("descriptionModule"), dict) else {}
+                            stat = ps.get("statusModule", {}) if isinstance(ps.get("statusModule"), dict) else {}
+                            nct = idm.get("nctId", "")
+                            item = {
+                                "title": idm.get("officialTitle") or idm.get("briefTitle") or nct,
+                                "description": desc.get("briefSummary") or desc.get("detailedDescription") or "",
+                                "url": f"https://clinicaltrials.gov/study/{nct}" if nct else "",
+                                "date": (stat.get("lastUpdatePostDateStruct", {}) or {}).get("date") or stat.get("overallStatus", ""),
+                            }
+                        elif ("reason_for_recall" in item or "product_description" in item or "openfda" in item):
+                            ofda = item.get("openfda", {}) if isinstance(item.get("openfda"), dict) else {}
+                            brand = ofda.get("brand_name") or ofda.get("generic_name") or []
+                            brand_s = (brand[0] if isinstance(brand, list) and brand else (brand if isinstance(brand, str) else ""))
+                            title = (item.get("product_description") or brand_s
+                                     or item.get("reason_for_recall") or item.get("recall_number") or "openFDA record")
+                            content_bits = [item.get("reason_for_recall"), item.get("status"),
+                                            item.get("classification"), item.get("recalling_firm"),
+                                            item.get("distribution_pattern")]
+                            item = {
+                                "title": str(title)[:160],
+                                "description": " | ".join(str(b) for b in content_bits if b),
+                                "url": item.get("more_code_info") or "",
+                                "date": item.get("report_date") or item.get("recall_initiation_date") or "",
+                            }
                         raw_title = item.get("title") or item.get("name") or item.get("modelId") or item.get("id") or item.get("school.name")
                         # OpenAlex returns abstract_inverted_index; decode to plain text before falling back
                         abstract = item.get("abstract") or decode_inverted_index(item.get("abstract_inverted_index"))
@@ -7707,11 +7768,59 @@ async def multi_search(q: str = Query(...), sources: str = Query(...), limit: in
 # ================================================================
 
 @app.get("/api/extract-pdf")
-async def extract_pdf_endpoint(url: str = Query(...), max_pages: int = Query(30)):
-    return await _extract_pdf_impl(url, max_pages)
+async def extract_pdf_endpoint(url: str = Query(...), max_pages: int = Query(30),
+                               engagement: Optional[str] = Query(None),
+                               persist: int = Query(1)):
+    return await _extract_pdf_impl(url, max_pages, engagement=engagement, persist=bool(persist))
 
-async def _extract_pdf_impl(url: str, max_pages: int = 30):
-    """Download a PDF from URL, extract text content. Returns structured text."""
+async def _persist_remote_pdf(url: str, text: str, pages: int,
+                              engagement: Optional[str] = None) -> None:
+    """Persist a remote-PDF extraction to the wiki archive so it flows through
+    the SAME chunk+manifest+retrieval pipeline as uploads and transcripts.
+
+    Closes Gap B: before this, /api/extract-pdf returned text for in-context use
+    only and the PDF never reached the wiki or the manifest, so the evidence was
+    invisible to manifest-chunk retrieval and unreusable on the next run. Now a
+    URL-fetched PDF becomes a first-class, chunk-addressable, citable article.
+    Fire-and-forget: never blocks or breaks the extraction response. Content-hash
+    dedup in wiki_write_article makes repeat extractions cheap (alias, not dupe)."""
+    try:
+        if not text or len(text) < 200:
+            return
+        try:
+            host = urlparse(url).netloc or "Remote PDF"
+        except Exception:
+            host = "Remote PDF"
+        # Title: first non-empty content line (strip the [Page N] marker), else host.
+        title = None
+        for line in text.splitlines():
+            s = line.strip()
+            if s and not s.startswith("[Page "):
+                title = s[:160]
+                break
+        req_obj = WikiArticleWriteRequest(
+            url=url,
+            content=text,
+            source=host,
+            title=title or f"PDF from {host}",
+            tier=1,
+            method="pdf-remote",
+            kind="article",
+            engagement=engagement or None,
+            page_count=pages or None,
+        )
+        write_resp = await wiki_write_article(req_obj)
+        if isinstance(write_resp, dict) and write_resp.get("wikiPath"):
+            logger.info(f"[extract-pdf] persisted {url[:60]} -> {write_resp['wikiPath']}")
+    except Exception as e:
+        logger.warning(f"[extract-pdf] wiki persist failed for {url[:60]} (non-fatal): {e}")
+
+async def _extract_pdf_impl(url: str, max_pages: int = 30,
+                            engagement: Optional[str] = None, persist: bool = True):
+    """Download a PDF from URL, extract text content. Returns structured text.
+    When persist=True (default), a successful extraction is also archived to the
+    wiki (kind=article, method=pdf-remote) so it chunks + manifests + becomes
+    retrievable by both chats and every hashtag deliverable (Gap B)."""
     import io
     try:
         async with httpx.AsyncClient(follow_redirects=True) as client:
@@ -7752,6 +7861,17 @@ async def _extract_pdf_impl(url: str, max_pages: int = 30):
                         pages.append(f"[Page {i+1}]\n{text.strip()}")
 
                 full_text = "\n\n".join(pages)
+                # Gap B: archive the extracted PDF to the wiki pipeline so it
+                # chunks + manifests + becomes retrievable. Fire-and-forget so
+                # extraction latency (and search fan-out) is unaffected.
+                if persist and full_text:
+                    try:
+                        asyncio.create_task(
+                            _persist_remote_pdf(url, full_text, len(pages), engagement=engagement)
+                        )
+                    except RuntimeError:
+                        # No running loop (sync context) - persist inline best-effort.
+                        await _persist_remote_pdf(url, full_text, len(pages), engagement=engagement)
                 return {
                     "url": url,
                     "extracted": True,
@@ -8828,6 +8948,72 @@ def _scrub_outbound_payload(obj):
     return obj
 
 
+# ============================================================================
+# PROMPT CACHING (2026-06-22) — single-chokepoint cache control plane.
+# Per the multi-LLM caching design: the orchestrator (this proxy) owns cache
+# policy; providers own prefix-KV reuse. Anthropic needs EXPLICIT cache_control
+# breakpoints; the cached prefix is formed in tools -> system -> messages order
+# and must be byte-stable to hit. HiC puts its large STABLE grounding (design
+# system, banned-phrase rules, framework pages, manifest corpus, shaped
+# intelligence) in the top-level `system` string and the DYNAMIC user turn in
+# the trailing `messages` — exactly the most-stable-first / dynamic-suffix shape
+# caching wants. So one ephemeral breakpoint at the end of `system` caches the
+# whole tools+system prefix; the live turn stays uncached. Default 5-min cache
+# (GA, no beta header) suits same-session reuse: theme breadth waves, depth
+# enrichment, regenerations, and the multi-deliverable run all share the prefix.
+# ============================================================================
+PROMPT_CACHE_ENABLED = os.environ.get("PROMPT_CACHE_ENABLED", "1") not in ("0", "false", "False")
+# Anthropic's minimum cacheable prefix is ~1024 tokens (Opus/Sonnet). Use a
+# char proxy (~3.5 chars/token) so we only pay the 1.25x write premium when the
+# prefix is large enough to clear the minimum AND plausibly recur.
+try:
+    ANTHROPIC_CACHE_MIN_CHARS = int(os.environ.get("ANTHROPIC_CACHE_MIN_CHARS", "4000"))
+except ValueError:
+    ANTHROPIC_CACHE_MIN_CHARS = 4000
+
+def _inject_anthropic_cache_control(body: dict) -> bool:
+    """Mark the stable prompt prefix with an ephemeral cache breakpoint in place.
+    Returns True if a breakpoint was added. Best-effort: never raises."""
+    if not PROMPT_CACHE_ENABLED or not isinstance(body, dict):
+        return False
+    try:
+        sys = body.get("system")
+        # Case 1 (dominant): system is a plain string. Convert to a single text
+        # block carrying the breakpoint -> caches tools + system prefix.
+        if isinstance(sys, str):
+            if len(sys) >= ANTHROPIC_CACHE_MIN_CHARS:
+                body["system"] = [{
+                    "type": "text", "text": sys,
+                    "cache_control": {"type": "ephemeral"},
+                }]
+                return True
+            return False
+        # Case 2: system already a block array. Put the breakpoint on the LAST
+        # block (caches everything up to and including it) if big enough and not
+        # already marked.
+        if isinstance(sys, list) and sys:
+            total = sum(len(b.get("text", "")) for b in sys if isinstance(b, dict))
+            if total >= ANTHROPIC_CACHE_MIN_CHARS:
+                last = sys[-1]
+                if isinstance(last, dict) and "cache_control" not in last:
+                    last["cache_control"] = {"type": "ephemeral"}
+                    return True
+            return False
+        # Case 3: no usable system. Fall back to marking the last tool so a large
+        # tool-definitions prefix still caches.
+        tools = body.get("tools")
+        if isinstance(tools, list) and tools:
+            total = len(json.dumps(tools))
+            if total >= ANTHROPIC_CACHE_MIN_CHARS:
+                last_tool = tools[-1]
+                if isinstance(last_tool, dict) and "cache_control" not in last_tool:
+                    last_tool["cache_control"] = {"type": "ephemeral"}
+                    return True
+        return False
+    except Exception as e:
+        logger.warning(f"[prompt-cache] anthropic cache_control injection skipped: {e}")
+        return False
+
 @app.post("/api/ai/anthropic")
 async def proxy_anthropic(request: Request):
     """Proxy requests to Anthropic API. Adds API key server-side, keeps CORS clean."""
@@ -8856,7 +9042,16 @@ async def proxy_anthropic(request: Request):
                 if isinstance(body.get(_k), dict):
                     body[_k].pop("temperature", None)
         content_size = len(json.dumps(body))
-        logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars")
+        # Prompt caching: mark the stable system/tools prefix with an ephemeral
+        # breakpoint so repeated same-prefix calls read cached input at ~0.1x
+        # instead of full price (1.25x write premium amortized across the
+        # same-session reuse). Done HERE at the single chokepoint so all 17+
+        # client call sites + the legacy fallback path benefit with no per-site
+        # edits. The latest user turn (in `messages`) is intentionally left
+        # uncached as the dynamic suffix.
+        cached_prefix = _inject_anthropic_cache_control(body)
+        logger.info(f"Anthropic proxy: model={model}, content_size={content_size:,} chars, "
+                    f"cache_breakpoint={'yes' if cached_prefix else 'no'}")
 
         headers = {
             "x-api-key": api_key,
@@ -8892,6 +9087,21 @@ async def proxy_anthropic(request: Request):
             result = {"error": "Anthropic API returned non-JSON", "raw": resp.text[:500]}
         if resp.status_code != 200:
             logger.warning(f"Anthropic API error {resp.status_code}: {json.dumps(result)[:300]}")
+        else:
+            # Prompt-cache telemetry: surface read/write token counts so we can
+            # confirm hits and compute the discount. cache_read at ~0.1x,
+            # cache_creation at ~1.25x of the base input rate.
+            try:
+                usage = result.get("usage") if isinstance(result, dict) else None
+                if isinstance(usage, dict):
+                    cr = usage.get("cache_read_input_tokens") or 0
+                    cc = usage.get("cache_creation_input_tokens") or 0
+                    if cr or cc:
+                        inp = usage.get("input_tokens") or 0
+                        logger.info(f"[prompt-cache] anthropic model={model} "
+                                    f"cache_read={cr} cache_write={cc} fresh_input={inp}")
+            except Exception:
+                pass
         return JSONResponse(result, status_code=resp.status_code)
     except httpx.TimeoutException:
         logger.error("Anthropic proxy timeout")
@@ -9116,6 +9326,14 @@ async def proxy_openai(request: Request):
     try:
         body = await request.json()
         body = _scrub_outbound_payload(body)  # 2026-06-15 - broken-emoji-half guard (see proxy_anthropic)
+        # Prompt caching (2026-06-22): OpenAI auto-caches prompts >=1024 tokens;
+        # `prompt_cache_key` steers same-prefix requests to the same cache shard
+        # for a higher hit rate. Key on the engagement slug (stable across a
+        # run's many calls) when the client provides it; harmless if absent.
+        if PROMPT_CACHE_ENABLED and isinstance(body, dict) and "prompt_cache_key" not in body:
+            _sess = request.headers.get("x-hic-session", "").strip()
+            if _sess:
+                body["prompt_cache_key"] = f"hic:{_sess[:120]}"
         # Determine endpoint: responses API vs chat completions
         endpoint = request.headers.get("x-openai-endpoint", "responses")
         if endpoint == "chat":
@@ -11091,6 +11309,110 @@ def _manifest_backfill() -> dict:
     logger.info(f"[manifest] backfill complete: {len(records)} records across {len(counts)} types {counts}")
     return counts
 
+def _manifest_read_head(ap: str) -> Optional[str]:
+    """Read a wiki file's head for manifest recording. Mirrors the backfill's
+    extended-read: a `chunks:` frontmatter block can exceed 8KB (synthesis
+    pages carry 25-67 chunks), so keep reading past 8000 until the closing
+    `---` so _manifest_record counts EVERY chunk (an undercount leaves real
+    chunks tier-1 invisible to retrieval)."""
+    try:
+        with open(ap, 'r', encoding='utf-8') as f:
+            head = f.read(8000)
+            if head.startswith('---') and '\n---\n' not in head:
+                extra_cap = 256_000
+                while '\n---\n' not in head and len(head) < extra_cap:
+                    more = f.read(16_000)
+                    if not more:
+                        break
+                    head += more
+            return head
+    except Exception:
+        return None
+
+def _manifest_reconcile() -> dict:
+    """Incremental self-heal: index every wiki file the manifest is MISSING or
+    that changed on disk since last recorded, WITHOUT a full base rewrite.
+
+    Why this exists: every programmatic write (/api/wiki/write*, write-article)
+    calls _manifest_upsert, so the manifest stays fresh for API writes. But
+    files created by DIRECT DISK I/O (design-system/brand tooling exports, agent
+    file drops, manual synthesis notes) never hit that path and stay invisible
+    to manifest-chunk retrieval (the anti-RAG grounding chokepoint). Backfill
+    closed that gap only on manual demand. This reconcile runs on boot and on a
+    cadence so the chokepoint is SELF-HEALING (UNIFIED_VISION SCHEDULE
+    principle), and it is cheap: it head-reads only the files that are new or
+    stale, then O(1)-appends them to the journal via _manifest_upsert.
+
+    Returns {checked, indexed, stale, by_type}.
+    """
+    records = _manifest_load() or {}
+    checked = 0
+    indexed = 0
+    stale = 0
+    by_type: dict = {}
+    for ap, rel, mt in _manifest_walk_all():
+        checked += 1
+        rec = records.get(rel)
+        if rec is not None:
+            try:
+                prev_mt = float(rec.get('mtime') or 0.0)
+            except (TypeError, ValueError):
+                prev_mt = 0.0
+            # Up to date: present and not changed on disk (1s tolerance for FS
+            # mtime granularity). Skip — no work.
+            if prev_mt and abs(prev_mt - mt) < 1.0:
+                continue
+            stale += 1
+        head = _manifest_read_head(ap)
+        if head is None:
+            continue
+        _manifest_upsert(rel, text=head, abs_path=ap)
+        indexed += 1
+        try:
+            t = _manifest_record(rel, mt, head[:8000]).get('type', 'page')
+        except Exception:
+            t = 'page'
+        by_type[t] = by_type.get(t, 0) + 1
+    if indexed:
+        logger.info(f"[manifest] reconcile: indexed {indexed} file(s) "
+                    f"({stale} stale, {checked} checked) {by_type}")
+    return {"checked": checked, "indexed": indexed, "stale": stale, "by_type": by_type}
+
+# Self-heal cadence: reconcile on boot then on an interval so direct-disk writes
+# never stay invisible to retrieval. Disable with MANIFEST_RECONCILE_ENABLED=0.
+MANIFEST_RECONCILE_ENABLED = os.environ.get("MANIFEST_RECONCILE_ENABLED", "1") not in ("0", "false", "False")
+try:
+    MANIFEST_RECONCILE_INTERVAL_SEC = int(os.environ.get("MANIFEST_RECONCILE_INTERVAL_SEC", "1800"))
+except ValueError:
+    MANIFEST_RECONCILE_INTERVAL_SEC = 1800
+
+async def _manifest_reconcile_loop() -> None:
+    """Background task: reconcile shortly after boot, then every interval.
+    The initial delay lets embedding/store init finish first so boot isn't
+    blocked. Each pass runs in a worker thread (reconcile does blocking I/O)."""
+    try:
+        await asyncio.sleep(20)
+    except asyncio.CancelledError:
+        return
+    while True:
+        try:
+            await asyncio.to_thread(_manifest_reconcile)
+        except Exception as e:
+            logger.warning(f"[manifest] reconcile pass failed (non-fatal): {e}")
+        try:
+            await asyncio.sleep(max(60, MANIFEST_RECONCILE_INTERVAL_SEC))
+        except asyncio.CancelledError:
+            return
+
+@app.on_event("startup")
+async def _start_manifest_reconcile() -> None:
+    if MANIFEST_RECONCILE_ENABLED:
+        asyncio.create_task(_manifest_reconcile_loop())
+        logger.info(f"[manifest] self-heal reconcile scheduled "
+                    f"(every {MANIFEST_RECONCILE_INTERVAL_SEC}s)")
+    else:
+        logger.info("[manifest] self-heal reconcile DISABLED via env")
+
 def _walk_wiki_archive():
     """Yield (abs_path, rel_path, mtime) for every .md file under the
     articles/, transcripts/, uploads/ namespaces. Skips dotfiles and dirs."""
@@ -11274,6 +11596,19 @@ async def wiki_manifest_rebuild():
         return {"status": "ok", "total": total, "by_type": counts}
     except Exception as e:
         logger.error(f"[manifest] rebuild failed: {e}")
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.post("/api/wiki/manifest/reconcile")
+async def wiki_manifest_reconcile():
+    """Incremental self-heal: index any wiki file the manifest is MISSING or
+    that changed on disk, WITHOUT a full base rewrite. Cheaper than /rebuild;
+    runs automatically on boot + on a cadence (see _manifest_reconcile_loop).
+    Use to force an immediate pass after a direct-disk import."""
+    try:
+        result = await asyncio.to_thread(_manifest_reconcile)
+        return {"status": "ok", **result}
+    except Exception as e:
+        logger.error(f"[manifest] reconcile failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
 
 

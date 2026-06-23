@@ -52,7 +52,12 @@ export interface CallRecord {
     model: ModelId;
     inputTokens: number;
     outputTokens: number;
+    cacheReadTokens?: number;
+    cacheWriteTokens?: number;
     costUSD: number;
+    /** What the call WOULD have cost with zero cache reuse (full-price input).
+     *  costUSD <= costNoCacheUSD; the delta is the caching saving. */
+    costNoCacheUSD?: number;
     timestamp: number;
     durationMs?: number;
 }
@@ -61,7 +66,11 @@ export interface RunTotals {
     callCount: number;
     inputTokens: number;
     outputTokens: number;
+    cacheReadTokens: number;
+    cacheWriteTokens: number;
     totalUSD: number;
+    /** Cumulative full-price-equivalent; (savedUSD = costNoCache - totalUSD). */
+    totalNoCacheUSD: number;
     byModel: Record<string, { callCount: number; inputTokens: number; outputTokens: number; costUSD: number }>;
     byLabel: Record<string, { callCount: number; costUSD: number }>;
     startedAt: number;
@@ -83,7 +92,10 @@ function emptyTotals(): RunTotals {
         callCount: 0,
         inputTokens: 0,
         outputTokens: 0,
+        cacheReadTokens: 0,
+        cacheWriteTokens: 0,
         totalUSD: 0,
+        totalNoCacheUSD: 0,
         byModel: {},
         byLabel: {},
         startedAt: Date.now(),
@@ -145,32 +157,55 @@ export function normalizeModel(raw: string | undefined): ModelId {
  * OpenAI:           response.usage.{prompt_tokens, completion_tokens}
  * Anthropic:        response.usage.{input_tokens, output_tokens}
  */
-export function extractTokenUsage(response: any): { input: number; output: number } {
-    if (!response || typeof response !== 'object') return { input: 0, output: 0 };
+export interface TokenUsage {
+    /** Fresh (full-price) input tokens. For Anthropic this EXCLUDES cached
+     *  tokens; for OpenAI/Gemini it is the total prompt count (cacheRead is a
+     *  discounted subset of it - see recordAICall cost math). */
+    input: number;
+    output: number;
+    /** Cached input tokens READ at a steep discount (~0.1x). */
+    cacheRead: number;
+    /** Input tokens WRITTEN to cache this call (Anthropic: ~1.25x premium;
+     *  other providers report 0 - their cache writes are not separately billed). */
+    cacheWrite: number;
+}
 
-    // Gemini native - usageMetadata
+export function extractTokenUsage(response: any): TokenUsage {
+    const z: TokenUsage = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
+    if (!response || typeof response !== 'object') return z;
+
+    // Gemini native - usageMetadata. cachedContentTokenCount is the cached
+    // subset of promptTokenCount (implicit/explicit context cache).
     const um = response.usageMetadata;
     if (um) {
         const input = um.promptTokenCount || 0;
-        // Thinking budget tokens are billed at output rate - sum them in.
         const output = (um.candidatesTokenCount || 0) + (um.thoughtsTokenCount || 0);
-        if (input || output) return { input, output };
+        const cacheRead = um.cachedContentTokenCount || 0;
+        if (input || output) return { input, output, cacheRead, cacheWrite: 0 };
     }
 
-    // OpenAI / Gemini-compat - usage
+    // OpenAI / Gemini-compat / Anthropic - usage
     const u = response.usage;
     if (u) {
         if (typeof u.input_tokens === 'number' || typeof u.output_tokens === 'number') {
-            // Anthropic shape
-            return { input: u.input_tokens || 0, output: u.output_tokens || 0 };
+            // Anthropic shape: input_tokens EXCLUDES cached; cache_read +
+            // cache_creation are reported separately.
+            return {
+                input: u.input_tokens || 0,
+                output: u.output_tokens || 0,
+                cacheRead: u.cache_read_input_tokens || 0,
+                cacheWrite: u.cache_creation_input_tokens || 0,
+            };
         }
         if (typeof u.prompt_tokens === 'number' || typeof u.completion_tokens === 'number') {
-            // OpenAI / Gemini-compat shape
-            return { input: u.prompt_tokens || 0, output: u.completion_tokens || 0 };
+            // OpenAI / Gemini-compat shape: prompt_tokens INCLUDES the cached
+            // subset reported under prompt_tokens_details.cached_tokens.
+            const cacheRead = (u.prompt_tokens_details && u.prompt_tokens_details.cached_tokens) || 0;
+            return { input: u.prompt_tokens || 0, output: u.completion_tokens || 0, cacheRead, cacheWrite: 0 };
         }
     }
 
-    return { input: 0, output: 0 };
+    return z;
 }
 
 /**
@@ -183,15 +218,44 @@ export function recordAICall(args: {
     durationMs?: number;
 }): CallRecord {
     const model = normalizeModel(args.model);
-    const { input, output } = extractTokenUsage(args.response);
+    const { input, output, cacheRead, cacheWrite } = extractTokenUsage(args.response);
     const pricing = PRICING[model] || PRICING['unknown'];
-    const costUSD = (input / 1_000_000) * pricing.in + (output / 1_000_000) * pricing.out;
+    // Prompt-cache cost math (2026-06-22). Discount factors:
+    //   cache READ  ~ 0.1x base input rate (heavily discounted reuse)
+    //   cache WRITE ~ 1.25x base input rate (Anthropic one-time premium)
+    // Provider shapes differ on whether `input` already includes the cached
+    // subset (see extractTokenUsage): Anthropic input EXCLUDES cache tokens;
+    // OpenAI/Gemini input INCLUDES cacheRead, so we bill the non-cached
+    // remainder at full rate + the cached remainder at the read discount.
+    const CACHE_READ_FACTOR = 0.1;
+    const CACHE_WRITE_FACTOR = 1.25;
+    const isAnthropicShape = cacheWrite > 0 || (cacheRead > 0 && input > 0 && model.startsWith('claude'));
+    let inputCostUSD: number;
+    if (isAnthropicShape) {
+        // input excludes cached; add read + write components separately.
+        inputCostUSD = (input / 1_000_000) * pricing.in
+            + (cacheRead / 1_000_000) * pricing.in * CACHE_READ_FACTOR
+            + (cacheWrite / 1_000_000) * pricing.in * CACHE_WRITE_FACTOR;
+    } else {
+        // input includes cacheRead (OpenAI/Gemini); discount only the cached part.
+        const fresh = Math.max(0, input - cacheRead);
+        inputCostUSD = (fresh / 1_000_000) * pricing.in
+            + (cacheRead / 1_000_000) * pricing.in * CACHE_READ_FACTOR;
+    }
+    const outputCostUSD = (output / 1_000_000) * pricing.out;
+    const costUSD = inputCostUSD + outputCostUSD;
+    // What this call would have cost with NO cache reuse (all input at full rate).
+    const fullInputTokens = isAnthropicShape ? (input + cacheRead + cacheWrite) : input;
+    const costNoCacheUSD = (fullInputTokens / 1_000_000) * pricing.in + outputCostUSD;
     const record: CallRecord = {
         label: args.label,
         model,
         inputTokens: input,
         outputTokens: output,
+        cacheReadTokens: cacheRead || undefined,
+        cacheWriteTokens: cacheWrite || undefined,
         costUSD,
+        costNoCacheUSD,
         timestamp: Date.now(),
         durationMs: args.durationMs,
     };
@@ -202,7 +266,10 @@ export function recordAICall(args: {
     currentRun.callCount += 1;
     currentRun.inputTokens += input;
     currentRun.outputTokens += output;
+    currentRun.cacheReadTokens += cacheRead;
+    currentRun.cacheWriteTokens += cacheWrite;
     currentRun.totalUSD += costUSD;
+    currentRun.totalNoCacheUSD += costNoCacheUSD;
     currentRun.lastCallAt = record.timestamp;
 
     if (!currentRun.byModel[model]) currentRun.byModel[model] = { callCount: 0, inputTokens: 0, outputTokens: 0, costUSD: 0 };
@@ -310,7 +377,14 @@ export function summarizeRun(): string {
         .sort(([, a], [, b]) => b.costUSD - a.costUSD)
         .map(([m, b]) => `${m} ${formatUSD(b.costUSD)}`)
         .join(' · ');
-    return `Run cost ≈ ${formatUSD(t.totalUSD)} across ${t.callCount} AI call${t.callCount === 1 ? '' : 's'} (${t.inputTokens.toLocaleString()} in / ${t.outputTokens.toLocaleString()} out). Breakdown: ${byModelLine}.`;
+    // Prompt-cache savings: full-price-equivalent minus actual spend.
+    const savedUSD = Math.max(0, t.totalNoCacheUSD - t.totalUSD);
+    let cacheLine = '';
+    if (t.cacheReadTokens > 0 && savedUSD > 0) {
+        const pct = t.totalNoCacheUSD > 0 ? Math.round((savedUSD / t.totalNoCacheUSD) * 100) : 0;
+        cacheLine = ` Prompt caching saved ≈ ${formatUSD(savedUSD)} (${pct}%, ${t.cacheReadTokens.toLocaleString()} cached input tokens reused).`;
+    }
+    return `Run cost ≈ ${formatUSD(t.totalUSD)} across ${t.callCount} AI call${t.callCount === 1 ? '' : 's'} (${t.inputTokens.toLocaleString()} in / ${t.outputTokens.toLocaleString()} out). Breakdown: ${byModelLine}.${cacheLine}`;
 }
 
 /** Expose on window for console inspection. */

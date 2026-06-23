@@ -2780,6 +2780,17 @@ export async function writeEngagementDeliverable(
                 // Non-fatal - the deliverable is on disk. Manifest can be repaired later.
                 console.warn(`[WikiService] Manifest fingerprint update for ${slug} failed (non-fatal):`, manifestErr);
             }
+            // Gap C (2026-06-22): UNIVERSAL second-brain loop. Every persisted
+            // deliverable re-chunks its insights into the wiki/manifest so future
+            // runs can cite past synthesis by pointer (UNIFIED_VISION #8). Fire-
+            // and-forget + dynamic import (no load-order cycle); idempotent via
+            // content-hash dedup in /api/wiki/write-article.
+            try {
+                const fp: any = extractDeliverableFingerprint(payload);
+                void import('./chunkRetrieval').then(({ persistDeliverableInsights }) =>
+                    persistDeliverableInsights(slug, kind, payload, fp?.model || '', undefined)
+                ).catch(() => { /* non-fatal */ });
+            } catch { /* non-fatal */ }
         }
         return ok;
     } catch (e) {

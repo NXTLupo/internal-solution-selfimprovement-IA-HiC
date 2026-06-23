@@ -158,7 +158,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // so title+relevance pre-ranking works; types scoped to the two the theme/persona
         // pipelines consume. This is what fresh runs now resolve through, the SAME clean-
         // chunk path cached runs use - no more raw-blob fallback.
-        const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload')}&include_pages=true`;
+        const url = `${PROXY_BASE}/api/manifest/chunks?engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload,insight')}&include_pages=true`;
         const resp = await fetch(url);
         if (!resp.ok) return [];
         const data = await resp.json();
@@ -198,7 +198,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // enters the prompt (anti-RAG: feedback_deliverables_manifest_wiki_not_rag).
         if (_obj) {
             try {
-                const goalUrl = `${PROXY_BASE}/api/manifest/chunks-by-goal?goal=${encodeURIComponent(_obj)}&engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload')}&limit=600`;
+                const goalUrl = `${PROXY_BASE}/api/manifest/chunks-by-goal?goal=${encodeURIComponent(_obj)}&engagement=${encodeURIComponent(engagementSlug)}&types=${encodeURIComponent('social-post,article,upload,insight')}&limit=600`;
                 const gResp = await fetch(goalUrl);
                 if (gResp.ok) {
                     const gData = await gResp.json();
@@ -231,7 +231,7 @@ async function _readManifestCatalog(engagementSlug: string, bypassCache = false,
         // the on-goal slice. Grounding stays manifest-pointer-based with
         // verbatim chunk citations; bulk-RAG never carries a deliverable.
         if (ids.length === 0) {
-            const wholeUrl = `${PROXY_BASE}/api/manifest/chunks?engagement=&types=${encodeURIComponent('social-post,article,upload')}&include_pages=true`;
+            const wholeUrl = `${PROXY_BASE}/api/manifest/chunks?engagement=&types=${encodeURIComponent('social-post,article,upload,insight')}&include_pages=true`;
             const wResp = await fetch(wholeUrl);
             if (wResp.ok) {
                 const wData = await wResp.json();
@@ -897,7 +897,15 @@ export async function persistInsightAsChunk(input: InsightPersistInput): Promise
                 title,
                 content,
                 source: 'NXT-Insight',
-                kind: `insight-${safeKind}`,
+                // 2026-06-22 - STABLE single manifest type 'insight' (not
+                // insight-<kind>): the manifest type filter is exact-match, so a
+                // per-kind type would be excluded from chat retrieval. The
+                // specific deliverable kind is preserved in the wikiPath
+                // (synthesis/insights/<slug>/<kind>/) and the provenance block.
+                // Kept DISTINCT from 'article' so synthesis never masquerades as
+                // external evidence in the 60%-external evidence-hierarchy check.
+                // Chat admission includes 'insight' (chunkRetrieval types= list).
+                kind: 'insight',
                 tier: 1,
                 engagement: input.engagementSlug,
                 engagementGoal: input.researchGoal || '',
@@ -943,6 +951,132 @@ export function notifyDeliverablePersisted(engagementSlug: string, kind: string)
             }));
         }
     } catch { /* non-fatal */ }
+}
+
+// ---------------------------------------------------------------------------
+// persistDeliverableInsights - UNIVERSAL second-brain loop (Gap C, 2026-06-22)
+// ---------------------------------------------------------------------------
+
+/** Pull a plausible item array out of a persisted-deliverable payload,
+ *  whatever its envelope shape (array | {themes|personas|recommendations|
+ *  items|data: [...]} | first array-valued property). */
+function _extractDeliverableItems(payload: any): any[] {
+    if (!payload) return [];
+    if (Array.isArray(payload)) return payload;
+    const named = ['themes', 'personas', 'recommendations', 'recs', 'gaps', 'competitors',
+        'features', 'initiatives', 'stages', 'systems', 'items', 'data', 'phases'];
+    for (const k of named) {
+        const v = (payload as any)[k];
+        if (Array.isArray(v) && v.length) return v;
+    }
+    // Last resort: first array-valued property with object items.
+    for (const v of Object.values(payload)) {
+        if (Array.isArray(v) && v.length && typeof v[0] === 'object') return v as any[];
+    }
+    return [];
+}
+
+function _slugifyInsightId(s: string): string {
+    return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+}
+
+/** Map an item's citations[] / sourceChunks / chunks to a flat string[] of
+ *  provenance identifiers (chunk pointers when present, else source ids). */
+function _itemSourceChunks(item: any): string[] {
+    const out: string[] = [];
+    const push = (x: any) => { if (typeof x === 'string' && x.trim()) out.push(x.trim()); };
+    const cites = item?.citations ?? item?.sourceChunks ?? item?.chunks ?? item?.sources;
+    if (Array.isArray(cites)) {
+        for (const c of cites) {
+            if (typeof c === 'string') push(c);
+            else if (c && typeof c === 'object') push(c.chunkId || c.wikiPath || c.sourceFile || c.url || c.sourceName);
+        }
+    }
+    return Array.from(new Set(out)).slice(0, 24);
+}
+
+/** Compose the substantive body of an insight item from whatever
+ *  content-bearing fields the deliverable kind uses. */
+function _itemText(item: any, title: string): string {
+    const parts: string[] = [];
+    const seen = new Set<string>();
+    const add = (v: any) => {
+        if (typeof v === 'string') {
+            const s = v.trim();
+            if (s && !seen.has(s)) { seen.add(s); parts.push(s); }
+        }
+    };
+    add(title);
+    for (const f of ['description', 'summary', 'narrative', 'rationale', 'recommendation',
+        'text', 'body', 'detail', 'whatItShows', 'insight', 'so_what', 'soWhat',
+        'problem', 'opportunity', 'quote', 'jtbd', 'mindset']) {
+        add(item?.[f]);
+    }
+    return parts.join('\n\n').slice(0, 4000);
+}
+
+/**
+ * UNIVERSAL second-brain write-back. Given a persisted engagement deliverable
+ * (themes, personas, recommendations, gap, competitive, blueprint, journey,
+ * ...), write each insight item back to the wiki as its own chunk-addressable
+ * page via persistInsightAsChunk, so the manifest grows from synthesis and
+ * future runs can cite past insights by pointer (UNIFIED_VISION principle #8).
+ *
+ * Gap C fix: previously this only fired on the two chat-path deliverables that
+ * passed emitDeliverable.insightPersist; the flagship themes path (and most
+ * others) persisted engagement JSON but never re-chunked. Calling this from the
+ * single writeEngagementDeliverable chokepoint makes the loop UNIVERSAL with no
+ * per-call-site wiring. Idempotent: persistInsightAsChunk writes a deterministic
+ * path and /api/wiki/write-article content-hash-dedups, so re-persisting the
+ * same item is an alias, never a duplicate (no manifest bloat, no code debt).
+ *
+ * Best-effort + fire-and-forget friendly: never throws into the writer path.
+ * Returns the number of insights persisted.
+ */
+export async function persistDeliverableInsights(
+    engagementSlug: string,
+    kind: string,
+    payload: any,
+    model: string,
+    researchGoal?: string,
+): Promise<number> {
+    try {
+        if (!engagementSlug || !kind || payload == null) return 0;
+        const items = _extractDeliverableItems(payload?.data ?? payload);
+        if (!items.length) return 0;
+        const singular = String(kind).replace(/s$/, '');  // themes->theme, recs->rec
+        let persisted = 0;
+        // Cap to keep a pathological payload from fanning out unbounded writes.
+        const capped = items.slice(0, 80);
+        await Promise.all(capped.map(async (item, i) => {
+            if (!item || typeof item !== 'object') return;
+            const title = (item.name || item.title || item.headline || item.competitor
+                || item.feature || item.persona || item.phase || '').toString().slice(0, 120);
+            const text = _itemText(item, title);
+            if (!text || text.length < 40) return;   // skip empty / trivial items
+            const insightId = _slugifyInsightId(
+                item.clusterId || item.id || item.insightId || title || `${singular}-${i}`,
+            ) || `${singular}-${i}`;
+            const r = await persistInsightAsChunk({
+                engagementSlug,
+                kind: singular,
+                insightId,
+                text,
+                sourceChunks: _itemSourceChunks(item),
+                model: model || '',
+                researchGoal,
+                title: title || undefined,
+            });
+            if (r.ok) persisted++;
+        }));
+        if (persisted > 0) {
+            console.info(`[persistDeliverableInsights] ${kind}: wrote ${persisted}/${capped.length} insight(s) to wiki/synthesis/insights/${engagementSlug}/${singular}/ (second-brain loop)`);
+        }
+        return persisted;
+    } catch (e: any) {
+        console.warn(`[persistDeliverableInsights] ${kind} failed (non-fatal):`, e?.message || e);
+        return 0;
+    }
 }
 
 /**

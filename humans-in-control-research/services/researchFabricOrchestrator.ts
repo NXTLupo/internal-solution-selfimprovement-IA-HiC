@@ -1626,14 +1626,24 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     // Both paths still respect the relevance floor.
     const needsEnrichment = items.filter(item => {
         if (!item.url || !item.url.startsWith('http')) return false;
-        if (((item as any).relevanceScore || 0) < ENRICHMENT_RELEVANCE_FLOOR) return false;
         // Skip Reddit/Twitter/Discord/etc. - the native connector already
         // returned the selftext/body, and Jina can't scrape these anyway.
         // (Unless the URL is ALSO a known full-text source, which no social
         // URL matches, but keep the guard order safe.)
         if (isJinaBlockedUrl(item.url) && !isLikelyFullTextSource(item.url)) return false;
         const len = item.content?.length || 0;
-        return isLikelyFullTextSource(item.url) || len < ENRICHMENT_GENERIC_LENGTH_GATE;
+        const thin = len < ENRICHMENT_GENERIC_LENGTH_GATE;
+        // 2026-06-22 (healthcare-pack manifest fix): a THIN external item's
+        // relevance score is computed on a title+snippet and is unreliable, so
+        // enrich it to full body REGARDLESS of the floor. Without this, curated
+        // RSS/REST feeds (FDA, journals, trade press) whose snippets score "low"
+        // never get a full body -> get dropped before manifest persistence ->
+        // manifest-grounded chat sees only high-volume social. Enrich-then-score
+        // re-rates them on the full body afterward. Substantial-body items still
+        // respect the floor (don't spend a 45s fetch on a long off-topic page).
+        if (thin) return true;
+        if (((item as any).relevanceScore || 0) < ENRICHMENT_RELEVANCE_FLOOR) return false;
+        return isLikelyFullTextSource(item.url);
     });
 
     // 2026-04-29 - DO NOT early-return when needsEnrichment is empty.
@@ -1885,8 +1895,17 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
     const residualToArchive = items.filter(item => {
         if (enriched.has(item)) return false;                         // already in wiki via enrichment
         const len = (item.content || '').length;
-        if (len < 500) return false;                                  // pure headlines - skip (future: on-demand extraction tool)
-        if (((item as any).relevanceScore || 0) < 30) return false;  // noise - drop
+        if (len < 500) return false;                                  // pure headlines - skip (thin items were enriched above)
+        // 2026-06-22 (healthcare-pack manifest fix): the relevance<30 drop kept
+        // full-body curated EXTERNAL articles (FDA / journals / trade press that
+        // score "low" against a broad goal) OUT of the wiki + manifest, so the
+        // manifest-grounded chat path saw only high-volume social. Persist
+        // non-social external items regardless of the pre-archival score - they
+        // carry real bodies, and chat-time relevance ranking + the social
+        // soft-cap decide final surfacing. KEEP the relevance gate for SOCIAL
+        // items so reddit volume can never flood the manifest.
+        const social = !item.url || (isJinaBlockedUrl(item.url) && !isLikelyFullTextSource(item.url));
+        if (social && ((item as any).relevanceScore || 0) < 30) return false;  // social noise - drop
         return true;
     });
     if (residualToArchive.length > 0) {
