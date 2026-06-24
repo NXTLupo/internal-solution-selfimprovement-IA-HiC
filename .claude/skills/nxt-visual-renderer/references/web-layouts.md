@@ -21,7 +21,9 @@ The canvas is 960×540 (16:9). The renderer DOES truncate overflow, but truncati
 
 ---
 
-## theme-spotlight (1 hero + 2-3 supporting) — v3.0 DENSIFIED
+> CANONICAL THEME LAYOUTS (2026-06-23): the Figma-backed theme set is **theme-overview** (590:9, the 4-column grid, DEFAULT) and **theme-detail** (590:11, one-theme deep-dive), plus **theme-arc** and **theme-mosaic**. `theme-spotlight` and `theme-cluster` below are DEPRECATED ALIASES (no Figma component); emit theme-detail instead of theme-spotlight and theme-overview instead of theme-cluster. theme-overview adds per-theme `dominance`/`mood`/`subthemes[]`/`tension` + slide `takeaway`; theme-detail adds `quotes[]`/`whatItMeans`/`convergenceLabel`. The shape/budget notes below still apply to the aliased layouts.
+
+## theme-spotlight (1 hero + 2-3 supporting) — v3.0 DENSIFIED [DEPRECATED ALIAS → theme-detail]
 
 ### Field budgets
 | Field | Budget | Required |
@@ -417,7 +419,7 @@ NAMED real entities (institution / company / program), never archetypes.
 
 ---
 
-## theme-cluster (equal 3-4 columns, default theme layout)
+## theme-cluster (equal 3-4 columns) [DEPRECATED ALIAS → theme-overview; emit theme-overview, which adds dominance/mood/subthemes/tension + takeaway band]
 
 | Field | Budget | Required |
 |---|---|---|

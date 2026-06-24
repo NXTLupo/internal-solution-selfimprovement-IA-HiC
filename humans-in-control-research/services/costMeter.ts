@@ -230,6 +230,32 @@ export function recordAICall(args: {
     const model = normalizeModel(args.model);
     const { input, output, cacheRead, cacheWrite } = extractTokenUsage(args.response);
     const pricing = PRICING[model] || PRICING['unknown'];
+    // 2026-06-23 - APP-LEVEL EXACT-MATCH cache hit. The proxy replayed a stored
+    // response and stamped `_hic_exact_cache_hit` (no provider call happened).
+    // Book it at $0 actual cost; the full would-be cost (input+output at list
+    // rate) is pure SAVING. Counts as a call but adds nothing to spend.
+    if (args.response && args.response._hic_exact_cache_hit) {
+        const wouldBeUSD = (input / 1_000_000) * pricing.in + (output / 1_000_000) * pricing.out;
+        const rec: CallRecord = {
+            label: args.label, model,
+            inputTokens: input, outputTokens: output,
+            cacheReadTokens: input || undefined, cacheWriteTokens: undefined,
+            costUSD: 0, costNoCacheUSD: wouldBeUSD,
+            timestamp: Date.now(), durationMs: args.durationMs,
+        };
+        recentCalls.push(rec);
+        if (recentCalls.length > MAX_RECENT) recentCalls.shift();
+        currentRun.callCount += 1;
+        currentRun.cacheReadTokens += input;
+        currentRun.totalNoCacheUSD += wouldBeUSD;   // savings = totalNoCache - total
+        currentRun.lastCallAt = rec.timestamp;
+        if (!currentRun.byModel[model]) currentRun.byModel[model] = { callCount: 0, inputTokens: 0, outputTokens: 0, costUSD: 0 };
+        currentRun.byModel[model].callCount += 1;
+        if (!currentRun.byLabel[args.label]) currentRun.byLabel[args.label] = { callCount: 0, costUSD: 0 };
+        currentRun.byLabel[args.label].callCount += 1;
+        subscribers.forEach(s => s(currentRun));
+        return rec;
+    }
     // Prompt-cache cost math (2026-06-22). Discount factors:
     //   cache READ  ~ 0.1x base input rate (heavily discounted reuse)
     //   cache WRITE ~ 1.25x base input rate (Anthropic one-time premium)

@@ -1,0 +1,106 @@
+{
+  "_comment": "Machine-readable Figma<->code<->token contract (Track B / Method A). The SINGLE source of truth the figmaRegistryParity gate reads. Rebuilt 2026-06-23 from wiki/brand/figma-node-map.md + LIVE Figma audit (file iSQhAVM7SI4QHAWB7y9C2z; themes 69:2, proto 403:2, slides 324:2 verified exact). The SPA never calls Figma at runtime; the components are CANON, mirrored into the code renderers + figma-tokens.json. RE-PULL tokens + re-verify when the Figma library changes.",
+  "fileKeys": { "nxt": "iSQhAVM7SI4QHAWB7y9C2z", "nu_legacy": "z2v9Pvhg23hlljEitPBdAt" },
+
+  "_templateMap": {
+    "_comment": "firstClass: deliverable -> renderer template, each backed by a real Figma component (see figmaNodes). Every entry MUST exist in the types.ts SlideTemplate union + a slideToStageHtml dispatch case + a payload-contract entry. variants: dense/predicate-routed deliverable -> its base firstClass template.",
+    "firstClass": {
+      "architecture": "architecture-map",
+      "block-quote": "block-quote",
+      "case-study": "case-study",
+      "competitive": "competitive-matrix",
+      "executive-brief": "executive-brief",
+      "gap": "gap-matrix",
+      "journey-map": "journey-map",
+      "org": "org-chart",
+      "personas": "persona-card",
+      "prd": "prd-feature",
+      "recommendations": "recommendation",
+      "roadmap": "timeline",
+      "section-divider": "section-divider",
+      "service-blueprint": "service-blueprint",
+      "stat-row": "stat-row",
+      "strategy": "principles",
+      "tech-audit": "systems-inventory",
+      "themes-arc": "theme-arc",
+      "themes-mosaic": "theme-mosaic",
+      "themes-overview": "theme-overview",
+      "themes-detail": "theme-detail"
+    },
+    "variants": {
+      "recommendations-dense": "recommendation",
+      "competitive-dense": "competitive-matrix",
+      "stat-row-dense": "stat-row",
+      "block-quote-dense": "block-quote",
+      "prd-dense": "prd-feature",
+      "personas-dense": "persona-card",
+      "persona-detail": "persona-card",
+      "competitive-deep-dive": "competitive-matrix"
+    }
+  },
+
+  "renderer_only": {
+    "_comment": "Renderer templates with NO Figma component. They must NEVER masquerade as Figma-grounded. decision drives remediation; alias = the Figma-backed template they should route to until deprecated.",
+    "theme-cluster": {
+      "reason": "Figma themes page 69:2 defines overview/theme-detail/theme-arc/theme-mosaic. There is NO theme-cluster component. This renderer-invented layout only wears the brand tokens.",
+      "decision": "deprecate",
+      "alias": "theme-overview"
+    },
+    "theme-spotlight": {
+      "reason": "Same as theme-cluster: no Figma theme-spotlight component on 69:2.",
+      "decision": "deprecate",
+      "alias": "theme-detail"
+    }
+  },
+
+  "planned_renderers": {
+    "_comment": "Figma components that exist but have no renderer twin YET (reverse gap). Building the twin moves it from here into firstClass; the gate forces union+dispatch+payload at that point. EMPTY as of 2026-06-23: theme-overview (590:9) + theme-detail (590:11) twins were built and promoted to firstClass."
+  },
+
+  "figmaNodes": {
+    "_comment": "Node-anchoring (was missing). NXT component node id(s) + NU mode-535:0 twin(s) + page, from the live audit. Enables drift detection + targeted get_design_context re-pulls.",
+    "architecture": { "nxt": ["606:2"], "nu": ["625:3115"], "page": "156:159" },
+    "block-quote": { "nxt": ["614:8"], "nu": ["626:1111"], "page": "322:2" },
+    "case-study": { "nxt": ["585:2", "588:4", "588:5", "588:6", "588:7"], "nu": ["625:169", "625:2", "625:94", "625:249", "625:314"], "page": "184:159" },
+    "competitive": { "nxt": ["603:2", "603:3"], "nu": ["625:2596"], "page": "131:159" },
+    "executive-brief": { "nxt": ["366:2"], "nu": ["294:2"], "page": "-", "note": "RAW FRAME, not componentized; masthead 367:2 is literal text (won't NU-flip). Componentize." },
+    "gap": { "nxt": ["598:2", "598:3"], "nu": ["625:1934"], "page": "62:2" },
+    "journey-map": { "nxt": ["595:6", "595:4", "595:5"], "nu": ["625:1426", "625:1082", "625:1263"], "page": "75:2" },
+    "org": { "nxt": ["610:2"], "nu": [], "page": "299:2" },
+    "personas": { "nxt": ["614:10", "602:2", "602:3"], "nu": ["626:1246", "625:2524"], "page": "322:123" },
+    "prd": { "nxt": ["607:2", "607:3", "607:4", "607:5"], "nu": ["625:3240"], "page": "161:159" },
+    "recommendations": { "nxt": ["614:5"], "nu": ["626:845"], "page": "319:2" },
+    "roadmap": { "nxt": ["599:2", "599:3"], "nu": ["625:2262", "625:2370"], "page": "126:159" },
+    "section-divider": { "nxt": ["609:4"], "nu": ["626:36"], "page": "324:2", "note": "Shares the canonical slides section-divider symbol (609:4); the GOLD renderer mirrors it." },
+    "service-blueprint": { "nxt": ["608:2", "608:4"], "nu": ["625:3610", "625:3935"], "page": "72:2" },
+    "stat-row": { "nxt": ["614:6"], "nu": ["626:910"], "page": "321:2" },
+    "strategy": { "nxt": ["604:2", "604:3"], "nu": ["625:2797", "625:2894"], "page": "148:159" },
+    "tech-audit": { "nxt": ["605:2", "605:3"], "nu": ["625:2953", "625:3048"], "page": "153:159" },
+    "themes-arc": { "nxt": ["590:12"], "nu": ["625:654"], "page": "69:2" },
+    "themes-mosaic": { "nxt": ["590:13"], "nu": ["625:722"], "page": "69:2" },
+    "themes-overview": { "nxt": ["590:9"], "nu": ["625:385"], "page": "69:2" },
+    "themes-detail": { "nxt": ["590:11"], "nu": ["625:581"], "page": "69:2" }
+  },
+
+  "_slideArchetypes": {
+    "_comment": "The slides-system deck archetypes (Figma page 324:2, symbols 609:2..609:15). Rendered by services/slideComposer.ts composeSlide() (the slides: namespace), NOT the GOLD dispatch. 'present' == implemented in ARCHETYPE_SPECS (archetypeKeys()). All 14 verified present 2026-06-23 (migration complete); missing_renderers empty.",
+    "page": "324:2",
+    "archetypes": {
+      "cover": { "template": "slides:cover", "node": "609:2", "nu": "626:2", "renderer": "present" },
+      "agenda": { "template": "slides:agenda", "node": "609:3", "nu": "626:15", "renderer": "present" },
+      "section-divider": { "template": "slides:section-divider", "node": "609:4", "nu": "626:36", "renderer": "present" },
+      "thesis-interstitial": { "template": "slides:thesis-interstitial", "node": "609:5", "nu": "626:49", "renderer": "present" },
+      "stat-row": { "template": "slides:stat-row", "node": "609:6", "nu": "626:61", "renderer": "present" },
+      "block-quote": { "template": "slides:block-quote", "node": "609:7", "nu": "626:95", "renderer": "present" },
+      "numbered-themes": { "template": "slides:numbered-themes", "node": "609:8", "nu": "626:124", "renderer": "present" },
+      "evidence-table": { "template": "slides:evidence-table", "node": "609:9", "nu": "626:158", "renderer": "present" },
+      "problem-diptych": { "template": "slides:problem-diptych", "node": "609:10", "nu": "626:213", "renderer": "present" },
+      "org-model": { "template": "slides:org-model", "node": "609:11", "nu": "626:236", "renderer": "present" },
+      "role-needs": { "template": "slides:role-needs", "node": "609:12", "nu": "626:286", "renderer": "present" },
+      "role-recommendation": { "template": "slides:role-recommendation", "node": "609:13", "nu": "626:324", "renderer": "present" },
+      "role-roadmap": { "template": "slides:role-roadmap", "node": "609:14", "nu": "626:367", "renderer": "present" },
+      "aggregate-roadmap": { "template": "slides:aggregate-roadmap", "node": "609:15", "nu": "626:425", "renderer": "present" }
+    },
+    "missing_renderers": []
+  }
+}

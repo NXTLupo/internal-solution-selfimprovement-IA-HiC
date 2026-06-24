@@ -8971,48 +8971,386 @@ try:
 except ValueError:
     ANTHROPIC_CACHE_MIN_CHARS = 4000
 
+# ============================================================================
+# APP-LEVEL DETERMINISTIC EXACT-MATCH CACHE (2026-06-23)
+# Layer above provider-native prefix caching: when the SAME logical request
+# repeats, skip the provider call ENTIRELY and replay the stored response. This
+# is the report's "ship immediately" exact-match layer - the highest-value,
+# lowest-risk reuse (correctness risk ~0 because the cache is keyed on the FULL
+# normalized request, so a changed grounding corpus / prompt / model = different
+# key = miss; an identical request = an identical deterministic answer).
+#
+# Safety gates:
+#  - ONLY caches DETERMINISTIC calls (temperature 0 or absent). Anthropic Opus
+#    strips temperature -> deterministic -> eligible. Gemini default temp 0.2 and
+#    any temp>0 call are NOT cached (a sampled answer must vary).
+#  - Key is content-addressed over provider + model + system + messages/contents
+#    + tools + response schema (+ a version), so corpus/version drift auto-misses.
+#  - TTL-bounded + size-capped in-process L1 (matches HiC's single-proxy deploy;
+#    no new infra). Survives within a session; a restart simply re-warms.
+# On a hit the replayed body carries `_hic_exact_cache_hit: true` so costMeter
+# books it at $0 (full saving) instead of double-counting the original cost.
+# ============================================================================
+EXACT_CACHE_ENABLED = os.environ.get("EXACT_CACHE_ENABLED", "1") not in ("0", "false", "False")
+try:
+    EXACT_CACHE_TTL_SEC = int(os.environ.get("EXACT_CACHE_TTL_SEC", "3600"))
+except ValueError:
+    EXACT_CACHE_TTL_SEC = 3600
+try:
+    EXACT_CACHE_MAX = int(os.environ.get("EXACT_CACHE_MAX", "512"))
+except ValueError:
+    EXACT_CACHE_MAX = 512
+_EXACT_CACHE_VERSION = "v1"
+_AI_EXACT_CACHE_STATS = {"hits": 0, "misses": 0, "stores": 0}   # per-worker counters
+
+# SHARED cross-worker cache store. The proxy runs PROXY_WORKERS (default 4)
+# uvicorn worker PROCESSES, so a per-process dict cache never hits across
+# workers (request N and N+1 round-robin to different workers). Back the
+# exact-match + tool caches with a process-safe SQLite file (WAL) on the wiki
+# volume so ALL workers share one cache (the report's L2/L3 shared tier; here
+# 4 workers = 4 "pods"). Content-addressed keys + TTL make persistence across a
+# restart a safe warm-start, not staleness.
+_cache_db_local = threading.local()
+
+def _cache_db():
+    conn = getattr(_cache_db_local, "conn", None)
+    if conn is not None:
+        return conn
+    import sqlite3 as _sq
+    path = os.path.join(WIKI_BASE, ".ai_cache.db") if os.path.isdir(WIKI_BASE) else ".ai_cache.db"
+    conn = _sq.connect(path, timeout=5.0, isolation_level=None, check_same_thread=False)
+    conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA busy_timeout=5000")
+    conn.execute("CREATE TABLE IF NOT EXISTS kv (k TEXT PRIMARY KEY, ns TEXT, expiry REAL, val TEXT)")
+    conn.execute("CREATE INDEX IF NOT EXISTS kv_ns_exp ON kv(ns, expiry)")
+    _cache_db_local.conn = conn
+    return conn
+
+def _cache_db_get(ns: str, key: str):
+    try:
+        cur = _cache_db().execute("SELECT expiry, val FROM kv WHERE k=?", (f"{ns}:{key}",))
+        row = cur.fetchone()
+        if not row:
+            return None
+        expiry, val = row
+        if expiry < time.time():
+            try:
+                _cache_db().execute("DELETE FROM kv WHERE k=?", (f"{ns}:{key}",))
+            except Exception:
+                pass
+            return None
+        return json.loads(val)
+    except Exception:
+        return None
+
+def _cache_db_put(ns: str, key: str, value, ttl: int) -> None:
+    try:
+        db = _cache_db()
+        db.execute(
+            "INSERT OR REPLACE INTO kv(k, ns, expiry, val) VALUES(?,?,?,?)",
+            (f"{ns}:{key}", ns, time.time() + ttl, json.dumps(value)),
+        )
+        # Opportunistic prune of expired rows in this namespace (cheap, indexed).
+        db.execute("DELETE FROM kv WHERE ns=? AND expiry < ?", (ns, time.time()))
+        # Hard row cap per namespace: evict the soonest-to-expire rows beyond it
+        # so a long-running proxy can't grow the cache db unbounded.
+        db.execute(
+            "DELETE FROM kv WHERE ns=? AND k NOT IN "
+            "(SELECT k FROM kv WHERE ns=? ORDER BY expiry DESC LIMIT ?)",
+            (ns, ns, EXACT_CACHE_MAX),
+        )
+    except Exception:
+        pass
+
+def _cache_db_size(ns: str) -> int:
+    try:
+        cur = _cache_db().execute("SELECT COUNT(*) FROM kv WHERE ns=? AND expiry >= ?", (ns, time.time()))
+        return int(cur.fetchone()[0])
+    except Exception:
+        return 0
+
+def _request_is_deterministic(provider: str, body: dict) -> bool:
+    """Whether this request is safe to exact-match cache.
+
+    Provider-aware because the 'temperature absent' default differs:
+      - anthropic: Opus 4.8 strips temperature and reasoning models don't sample
+        on a temp knob -> absent OR 0 is deterministic enough for exact reuse.
+      - openai:    default temperature is 1.0 (SAMPLED) when absent -> require an
+        EXPLICIT temperature == 0 to cache.
+      - gemini:    the proxy applies a 0.2 default -> require EXPLICIT 0 to cache.
+    Any explicit temperature > 0 is never cached for any provider.
+    """
+    temps = []
+    explicit = False
+    for loc in (body, body.get("config"), body.get("generationConfig")):
+        if isinstance(loc, dict) and isinstance(loc.get("temperature"), (int, float)):
+            temps.append(float(loc["temperature"]))
+            explicit = True
+    eff = max(temps) if temps else 0.0
+    if eff > 0.0:
+        return False
+    if provider == "anthropic":
+        return True            # absent (stripped) or explicit 0
+    return explicit            # openai/gemini: only when temperature explicitly 0
+
+def _ai_exact_cache_key(provider: str, body: dict) -> "str | None":
+    """Deterministic content-addressed key, or None if this request must NOT be
+    cached (caching disabled, or a sampled/non-deterministic call)."""
+    if not EXACT_CACHE_ENABLED or not isinstance(body, dict):
+        return None
+    if not _request_is_deterministic(provider, body):
+        return None  # sampled output must vary; never serve a stale identical answer
+    import hashlib as _hl
+    # Only the SEMANTICALLY-relevant fields enter the hash. Exclude nothing that
+    # changes the answer; include nothing volatile (there are no trace ids here).
+    norm = {
+        "v": _EXACT_CACHE_VERSION,
+        "provider": provider,
+        "model": body.get("model"),
+        "system": body.get("system"),
+        "messages": body.get("messages"),
+        "contents": body.get("contents"),
+        "systemInstruction": body.get("systemInstruction"),
+        "tools": body.get("tools"),
+        "config": body.get("config"),
+        "response_format": body.get("response_format"),
+        "max_tokens": body.get("max_tokens") or body.get("max_completion_tokens"),
+    }
+    try:
+        blob = json.dumps(norm, sort_keys=True, ensure_ascii=False, default=str)
+    except Exception:
+        return None
+    return f"{provider}:{_hl.sha256(blob.encode('utf-8', 'ignore')).hexdigest()}"
+
+def _ai_exact_cache_get(key: "str | None") -> "dict | None":
+    if not key:
+        return None
+    resp = _cache_db_get("exact", key)
+    if resp is None:
+        _AI_EXACT_CACHE_STATS["misses"] += 1
+        return None
+    _AI_EXACT_CACHE_STATS["hits"] += 1
+    # Stamp as a hit so the cost meter books it at $0.
+    if isinstance(resp, dict):
+        resp["_hic_exact_cache_hit"] = True
+    return resp
+
+def _ai_exact_cache_put(key: "str | None", response: dict) -> None:
+    if not key or not isinstance(response, dict):
+        return
+    # Never cache an error/partial payload.
+    if response.get("error") or response.get("type") == "error":
+        return
+    _cache_db_put("exact", key, response, EXACT_CACHE_TTL_SEC)
+    _AI_EXACT_CACHE_STATS["stores"] += 1
+
+# ----------------------------------------------------------------------------
+# TOOL/STAGE RESULT CACHE (2026-06-23) — report's "cache stable sub-results"
+# layer. Caches deterministic retrieval-tool outputs (fetch-articles) keyed on
+# the request + a cheap CORPUS-VERSION token. Any wiki write changes the version
+# -> the key misses -> never serves stale evidence. Separate store from the AI
+# exact-match cache so hit/miss stats stay distinct and TTLs are independent.
+# ----------------------------------------------------------------------------
+TOOL_CACHE_ENABLED = os.environ.get("TOOL_CACHE_ENABLED", "1") not in ("0", "false", "False")
+try:
+    TOOL_CACHE_TTL_SEC = int(os.environ.get("TOOL_CACHE_TTL_SEC", "900"))
+except ValueError:
+    TOOL_CACHE_TTL_SEC = 900
+_TOOL_CACHE_STATS = {"hits": 0, "misses": 0, "stores": 0}   # per-worker counters
+
+def _corpus_version() -> str:
+    """Cheap token that changes whenever the wiki/manifest changes. Built from
+    the manifest base mtime + journal size, so any /api/wiki/write* bumps it and
+    invalidates dependent tool-cache entries without explicit invalidation."""
+    try:
+        bm = os.path.getmtime(MANIFEST_FILE) if os.path.exists(MANIFEST_FILE) else 0
+    except OSError:
+        bm = 0
+    try:
+        js = os.path.getsize(MANIFEST_JOURNAL) if os.path.exists(MANIFEST_JOURNAL) else 0
+    except OSError:
+        js = 0
+    return f"{int(bm)}:{js}"
+
+def _tool_cache_get(key: "str | None"):
+    if not TOOL_CACHE_ENABLED or not key:
+        return None
+    val = _cache_db_get("tool", key)
+    if val is None:
+        _TOOL_CACHE_STATS["misses"] += 1
+        return None
+    _TOOL_CACHE_STATS["hits"] += 1
+    return val
+
+def _tool_cache_put(key: "str | None", value) -> None:
+    if not TOOL_CACHE_ENABLED or not key:
+        return
+    _cache_db_put("tool", key, value, TOOL_CACHE_TTL_SEC)
+    _TOOL_CACHE_STATS["stores"] += 1
+
+def _tool_cache_key(name: str, payload: dict) -> "str | None":
+    if not TOOL_CACHE_ENABLED:
+        return None
+    import hashlib as _hl
+    try:
+        norm = {"tool": name, "cv": _corpus_version(), "args": payload}
+        blob = json.dumps(norm, sort_keys=True, ensure_ascii=False, default=str)
+    except Exception:
+        return None
+    return f"{name}:{_hl.sha256(blob.encode('utf-8','ignore')).hexdigest()}"
+
+# ----------------------------------------------------------------------------
+# VERIFIED SEMANTIC CACHE (2026-06-23) — report's LAST layer, behind exact-match.
+# Serves a stored answer when a NEW request is near-identical to a prior one
+# (same provider+model+system-grounding+corpus-version, query cosine >= a HIGH
+# threshold). The report stages this last and ONLY behind correctness gates
+# (eval harness, evidence-overlap, unsafe-served-rate metric), and it adds a
+# per-call embedding cost. HiC's exact-match layer already captures the
+# deterministic repeat-generation wins at zero added cost/risk, so this layer is
+# SHIPPED OFF BY DEFAULT (SEMANTIC_CACHE_ENABLED=0): real + wired + flippable,
+# but dormant until an offline eval harness justifies enabling it. When off it
+# adds ZERO overhead (the lookup early-returns before any embedding call).
+# Safety: only same-grounding/same-corpus buckets, cosine >= 0.97 (near-dupe).
+# ----------------------------------------------------------------------------
+SEMANTIC_CACHE_ENABLED = os.environ.get("SEMANTIC_CACHE_ENABLED", "0") in ("1", "true", "True")
+try:
+    SEMANTIC_CACHE_THRESHOLD = float(os.environ.get("SEMANTIC_CACHE_THRESHOLD", "0.97"))
+except ValueError:
+    SEMANTIC_CACHE_THRESHOLD = 0.97
+SEMANTIC_CACHE_MAX_PER_BUCKET = 32
+_SEMANTIC_CACHE: "dict[str, list]" = {}   # bucket -> [(embedding, response), ...]
+_SEMANTIC_CACHE_LOCK = threading.Lock()
+_SEMANTIC_CACHE_STATS = {"hits": 0, "misses": 0, "stores": 0}
+
+def _semantic_query_text(provider: str, body: dict) -> "str | None":
+    """The DYNAMIC text whose meaning varies between requests (the live user
+    turn). System grounding is the stable bucket key, not the embed target."""
+    try:
+        if provider == "anthropic":
+            msgs = body.get("messages") or []
+            for m in reversed(msgs):
+                if isinstance(m, dict) and m.get("role") == "user":
+                    c = m.get("content")
+                    if isinstance(c, str):
+                        return c
+                    if isinstance(c, list):
+                        return " ".join(p.get("text", "") for p in c if isinstance(p, dict))
+        return None
+    except Exception:
+        return None
+
+def _semantic_bucket(provider: str, body: dict, corpus_version: str) -> str:
+    import hashlib as _hl
+    sysrepr = json.dumps(body.get("system"), sort_keys=True, default=str)[:200000]
+    raw = f"{provider}|{body.get('model')}|{corpus_version}|{_hl.sha256(sysrepr.encode('utf-8','ignore')).hexdigest()}"
+    return _hl.sha256(raw.encode("utf-8")).hexdigest()
+
+async def _semantic_cache_lookup(provider: str, body: dict) -> "dict | None":
+    if not SEMANTIC_CACHE_ENABLED:
+        return None
+    if not _request_is_deterministic(provider, body):
+        return None
+    qtext = _semantic_query_text(provider, body)
+    if not qtext or len(qtext) < 8:
+        return None
+    bucket = _semantic_bucket(provider, body, _corpus_version())
+    with _SEMANTIC_CACHE_LOCK:
+        entries = list(_SEMANTIC_CACHE.get(bucket, []))
+    if not entries:
+        with _SEMANTIC_CACHE_LOCK:
+            _SEMANTIC_CACHE_STATS["misses"] += 1
+        return None
+    try:
+        qvec = (await asyncio.to_thread(_embed_texts, [qtext], "query"))[0]
+    except Exception:
+        return None
+    best, best_resp = 0.0, None
+    for emb, resp in entries:
+        s = _cosine(qvec, emb)
+        if s > best:
+            best, best_resp = s, resp
+    with _SEMANTIC_CACHE_LOCK:
+        if best >= SEMANTIC_CACHE_THRESHOLD and best_resp is not None:
+            _SEMANTIC_CACHE_STATS["hits"] += 1
+            out = dict(best_resp)
+            out["_hic_semantic_cache_hit"] = True
+            out["_hic_exact_cache_hit"] = True   # cost meter books it at $0
+            logger.info(f"[semantic-cache] HIT {provider} cosine={best:.3f}")
+            return out
+        _SEMANTIC_CACHE_STATS["misses"] += 1
+    return None
+
+async def _semantic_cache_store(provider: str, body: dict, response: dict) -> None:
+    if not SEMANTIC_CACHE_ENABLED or not isinstance(response, dict):
+        return
+    if response.get("error") or not _request_is_deterministic(provider, body):
+        return
+    qtext = _semantic_query_text(provider, body)
+    if not qtext or len(qtext) < 8:
+        return
+    try:
+        qvec = (await asyncio.to_thread(_embed_texts, [qtext], "query"))[0]
+    except Exception:
+        return
+    bucket = _semantic_bucket(provider, body, _corpus_version())
+    with _SEMANTIC_CACHE_LOCK:
+        lst = _SEMANTIC_CACHE.setdefault(bucket, [])
+        lst.append((qvec, response))
+        if len(lst) > SEMANTIC_CACHE_MAX_PER_BUCKET:
+            del lst[0]
+        _SEMANTIC_CACHE_STATS["stores"] += 1
+
+# Cache TTL: "1h" (extended, ~2x write premium, needs the beta header) or "5m"
+# (GA default). HiC default = 1h: a single engagement fans out many deliverables
+# + chat turns over far more than 5 minutes against the SAME grounding prefix, so
+# the longer-lived cache is read back many times and amortizes the write premium.
+# Override with ANTHROPIC_CACHE_TTL=5m for short bursty workloads.
+ANTHROPIC_CACHE_TTL = os.environ.get("ANTHROPIC_CACHE_TTL", "1h")
+ANTHROPIC_EXTENDED_CACHE_BETA = "extended-cache-ttl-2025-04-11"
+
+def _anthropic_cc() -> dict:
+    """The cache_control object honoring the configured TTL."""
+    cc = {"type": "ephemeral"}
+    if ANTHROPIC_CACHE_TTL == "1h":
+        cc["ttl"] = "1h"
+    return cc
+
 def _inject_anthropic_cache_control(body: dict) -> bool:
-    """Mark the stable prompt prefix with an ephemeral cache breakpoint in place.
-    Returns True if a breakpoint was added. Best-effort: never raises."""
+    """Mark the stable prompt prefix with cache breakpoint(s) in place. Sets up
+    to TWO breakpoints (Anthropic allows 4): one on the TOOLS array (so a large,
+    stable tool-definitions prefix caches independently of the system text) and
+    one on the SYSTEM block. Returns True if any breakpoint was added. Best-
+    effort: never raises."""
     if not PROMPT_CACHE_ENABLED or not isinstance(body, dict):
         return False
+    added = False
     try:
+        # Breakpoint 1: TOOLS (the most stable prefix segment; comes before system
+        # in Anthropic's tools->system->messages cache order). Mark the LAST tool
+        # so everything up to and including the tool array caches.
+        tools = body.get("tools")
+        if isinstance(tools, list) and tools and len(json.dumps(tools)) >= ANTHROPIC_CACHE_MIN_CHARS:
+            last_tool = tools[-1]
+            if isinstance(last_tool, dict) and "cache_control" not in last_tool:
+                last_tool["cache_control"] = _anthropic_cc()
+                added = True
+        # Breakpoint 2: SYSTEM (the large grounding prefix).
         sys = body.get("system")
-        # Case 1 (dominant): system is a plain string. Convert to a single text
-        # block carrying the breakpoint -> caches tools + system prefix.
         if isinstance(sys, str):
             if len(sys) >= ANTHROPIC_CACHE_MIN_CHARS:
-                body["system"] = [{
-                    "type": "text", "text": sys,
-                    "cache_control": {"type": "ephemeral"},
-                }]
-                return True
-            return False
-        # Case 2: system already a block array. Put the breakpoint on the LAST
-        # block (caches everything up to and including it) if big enough and not
-        # already marked.
-        if isinstance(sys, list) and sys:
+                body["system"] = [{"type": "text", "text": sys, "cache_control": _anthropic_cc()}]
+                added = True
+        elif isinstance(sys, list) and sys:
             total = sum(len(b.get("text", "")) for b in sys if isinstance(b, dict))
             if total >= ANTHROPIC_CACHE_MIN_CHARS:
                 last = sys[-1]
                 if isinstance(last, dict) and "cache_control" not in last:
-                    last["cache_control"] = {"type": "ephemeral"}
-                    return True
-            return False
-        # Case 3: no usable system. Fall back to marking the last tool so a large
-        # tool-definitions prefix still caches.
-        tools = body.get("tools")
-        if isinstance(tools, list) and tools:
-            total = len(json.dumps(tools))
-            if total >= ANTHROPIC_CACHE_MIN_CHARS:
-                last_tool = tools[-1]
-                if isinstance(last_tool, dict) and "cache_control" not in last_tool:
-                    last_tool["cache_control"] = {"type": "ephemeral"}
-                    return True
-        return False
+                    last["cache_control"] = _anthropic_cc()
+                    added = True
+        return added
     except Exception as e:
         logger.warning(f"[prompt-cache] anthropic cache_control injection skipped: {e}")
-        return False
+        return added
 
 @app.post("/api/ai/anthropic")
 async def proxy_anthropic(request: Request):
@@ -9041,6 +9379,20 @@ async def proxy_anthropic(request: Request):
             for _k in ("config", "generationConfig"):
                 if isinstance(body.get(_k), dict):
                     body[_k].pop("temperature", None)
+        # App-level EXACT-MATCH cache (deterministic only). Compute the key on
+        # the post-scrub / post-temp-strip body BEFORE cache_control injection so
+        # it is stable across calls. On a hit, skip the Anthropic call entirely.
+        _exact_key = _ai_exact_cache_key("anthropic", body)
+        _cached = _ai_exact_cache_get(_exact_key)
+        if _cached is not None:
+            logger.info(f"[exact-cache] HIT anthropic model={model} (skipped provider call)")
+            return JSONResponse(_cached, status_code=200)
+        # Verified semantic cache (behind exact-match; OFF by default). Near-
+        # identical request against the same grounding+corpus -> replay.
+        _sem = await _semantic_cache_lookup("anthropic", body)
+        if _sem is not None:
+            return JSONResponse(_sem, status_code=200)
+
         content_size = len(json.dumps(body))
         # Prompt caching: mark the stable system/tools prefix with an ephemeral
         # breakpoint so repeated same-prefix calls read cached input at ~0.1x
@@ -9058,6 +9410,10 @@ async def proxy_anthropic(request: Request):
             "anthropic-version": "2023-06-01",
             "Content-Type": "application/json",
         }
+        # The 1-hour extended cache TTL requires the beta opt-in header. Only add
+        # it when we actually set a 1h breakpoint (no-op for the 5m default).
+        if cached_prefix and ANTHROPIC_CACHE_TTL == "1h":
+            headers["anthropic-beta"] = ANTHROPIC_EXTENDED_CACHE_BETA
         # 2026-06-05 — Replaced per-provider asyncio.Semaphore with the
         # rate-limit pacer. The pacer auto-shrinks Anthropic concurrency on
         # 429 and retries with exponential backoff before the request
@@ -9068,7 +9424,12 @@ async def proxy_anthropic(request: Request):
                     "https://api.anthropic.com/v1/messages",
                     json=body,
                     headers=headers,
-                    timeout=300.0,
+                    # 2026-06-23: 300 -> 600s. The heaviest #proto Opus stages
+                    # (orchestrator + full catalog, reviewer + whole assembled
+                    # app at 64K output + adaptive thinking) legitimately exceed
+                    # 300s; the old ceiling 504'd them before the client's own
+                    # 600s budget. Matches Gemini's generous ceiling.
+                    timeout=600.0,
                 )
         try:
             resp = await _pacer_with_rate_limit(
@@ -9102,10 +9463,13 @@ async def proxy_anthropic(request: Request):
                                     f"cache_read={cr} cache_write={cc} fresh_input={inp}")
             except Exception:
                 pass
+            # Store the successful deterministic response for exact-match replay.
+            _ai_exact_cache_put(_exact_key, result)
+            await _semantic_cache_store("anthropic", body, result)
         return JSONResponse(result, status_code=resp.status_code)
     except httpx.TimeoutException:
-        logger.error("Anthropic proxy timeout")
-        return JSONResponse({"error": "Anthropic API timeout (300s)"}, status_code=504)
+        logger.error("Anthropic proxy timeout (600s)")
+        return JSONResponse({"error": "Anthropic API timeout (600s)"}, status_code=504)
     except Exception as e:
         logger.error(f"Anthropic proxy error: {e}")
         return JSONResponse({"error": f"Anthropic proxy error: {str(e)[:200]}"}, status_code=502)
@@ -9126,6 +9490,14 @@ async def proxy_gemini(request: Request):
         model = body.get("model", "gemini-3.5-flash")
         contents = body.get("contents", "")
         config = body.get("config", {})
+
+        # App-level EXACT-MATCH cache (deterministic only; Gemini requires an
+        # explicit config.temperature==0, since the proxy default is 0.2).
+        _exact_key = _ai_exact_cache_key("gemini", body)
+        _cached = _ai_exact_cache_get(_exact_key)
+        if _cached is not None:
+            logger.info(f"[exact-cache] HIT gemini model={model} (skipped provider call)")
+            return JSONResponse(_cached, status_code=200)
 
         # Build Gemini API request
         gen_config: Dict[str, Any] = {
@@ -9242,6 +9614,8 @@ async def proxy_gemini(request: Request):
             # means the pacer exhausted attempts. Escalate to DeepSeek same
             # as before.
             if resp.status_code != 429:
+                if resp.status_code == 200:
+                    _ai_exact_cache_put(_exact_key, result)
                 return JSONResponse(result, status_code=resp.status_code)
             pacer_exhausted = True
 
@@ -9334,6 +9708,16 @@ async def proxy_openai(request: Request):
             _sess = request.headers.get("x-hic-session", "").strip()
             if _sess:
                 body["prompt_cache_key"] = f"hic:{_sess[:120]}"
+        # App-level EXACT-MATCH cache (deterministic only; OpenAI requires an
+        # explicit temperature==0). prompt_cache_key is engagement-stable so it
+        # does not perturb the key across a run; exclude it from the hash below
+        # by computing on a copy without it.
+        _oa_key_body = {k: v for k, v in body.items() if k != "prompt_cache_key"}
+        _exact_key = _ai_exact_cache_key("openai", _oa_key_body)
+        _cached = _ai_exact_cache_get(_exact_key)
+        if _cached is not None:
+            logger.info(f"[exact-cache] HIT openai model={body.get('model')} (skipped provider call)")
+            return JSONResponse(_cached, status_code=200)
         # Determine endpoint: responses API vs chat completions
         endpoint = request.headers.get("x-openai-endpoint", "responses")
         if endpoint == "chat":
@@ -9370,7 +9754,10 @@ async def proxy_openai(request: Request):
                     f"OpenAI API {resp.status_code} for model={body.get('model')} endpoint={endpoint}: {resp.text[:600]}"
                 )
             if resp.status_code != 429:
-                return JSONResponse(resp.json(), status_code=resp.status_code)
+                _oa_result = resp.json()
+                if resp.status_code == 200:
+                    _ai_exact_cache_put(_exact_key, _oa_result)
+                return JSONResponse(_oa_result, status_code=resp.status_code)
             pacer_exhausted = True
 
         if pacer_exhausted:
@@ -11598,6 +11985,38 @@ async def wiki_manifest_rebuild():
         logger.error(f"[manifest] rebuild failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
 
+@app.get("/api/ai/cache-stats")
+async def ai_cache_stats():
+    """Cache observability. NOTE: hit/miss/store counters are PER-WORKER (this
+    proxy runs PROXY_WORKERS processes); `size` is the SHARED SQLite truth across
+    all workers, so it is the authoritative signal that entries are landing."""
+    stats = dict(_AI_EXACT_CACHE_STATS)
+    total = stats["hits"] + stats["misses"]
+    stats["hit_rate"] = round(stats["hits"] / total, 4) if total else 0.0
+    stats["size"] = _cache_db_size("exact")
+    stats["enabled"] = EXACT_CACHE_ENABLED
+    stats["ttl_sec"] = EXACT_CACHE_TTL_SEC
+    stats["counters_note"] = "per-worker; size is shared (sqlite)"
+    tstats = dict(_TOOL_CACHE_STATS)
+    ttotal = tstats["hits"] + tstats["misses"]
+    tstats["hit_rate"] = round(tstats["hits"] / ttotal, 4) if ttotal else 0.0
+    tstats["size"] = _cache_db_size("tool")
+    tstats["enabled"] = TOOL_CACHE_ENABLED
+    tstats["ttl_sec"] = TOOL_CACHE_TTL_SEC
+    with _SEMANTIC_CACHE_LOCK:
+        ssize = sum(len(v) for v in _SEMANTIC_CACHE.values())
+        sstats = dict(_SEMANTIC_CACHE_STATS)
+    sstats["enabled"] = SEMANTIC_CACHE_ENABLED
+    sstats["threshold"] = SEMANTIC_CACHE_THRESHOLD
+    sstats["size"] = ssize
+    return {
+        "exact_match": stats,
+        "tool_stage": tstats,
+        "semantic": sstats,
+        "anthropic_prefix": {"enabled": PROMPT_CACHE_ENABLED, "ttl": ANTHROPIC_CACHE_TTL},
+    }
+
+
 @app.post("/api/wiki/manifest/reconcile")
 async def wiki_manifest_reconcile():
     """Incremental self-heal: index any wiki file the manifest is MISSING or
@@ -11706,6 +12125,20 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
     """Return full article bodies matching the request. This is the AI's
     retrieval primitive: it sees metadata via /api/wiki/index, then calls
     this endpoint with ids or a query to get real text for citation."""
+    # Tool/stage cache: identical retrieval against an UNCHANGED corpus is
+    # deterministic, so replay the prior result instead of re-scoring + re-
+    # reading bodies. Keyed on the request + corpus-version (auto-invalidates
+    # on any wiki write). Skipped silently if the request can't be serialized.
+    _tk = _tool_cache_key("fetch-articles", {
+        "ids": req.ids, "wikiPaths": req.wikiPaths, "query": req.query,
+        "kind": req.kind, "source": req.source, "minChars": req.minChars,
+        "limit": req.limit, "maxCharsPerArticle": req.maxCharsPerArticle,
+        "engagementGoal": req.engagementGoal, "goalBlendWeight": req.goalBlendWeight,
+    })
+    _tc = _tool_cache_get(_tk)
+    if _tc is not None:
+        logger.info(f"[tool-cache] HIT fetch-articles (query={(req.query or '')[:40]!r}, skipped re-retrieval)")
+        return _tc
     try:
         entries = _get_wiki_index_cached(summary_len=0)
     except Exception as e:
@@ -11964,12 +12397,14 @@ async def wiki_fetch_articles(req: WikiFetchArticlesRequest):
         if chunks:
             article_dict['matched_chunks'] = chunks
         articles.append(article_dict)
-    return {
+    _result = {
         'total_matched': len(selected),
         'returned': len(articles),
         'articles': articles,
         'retrieval_mode': 'chunked' if matched_chunks_by_path else ('none' if req.query else 'direct'),
     }
+    _tool_cache_put(_tk, _result)
+    return _result
 
 
 # ================================================================

@@ -746,7 +746,18 @@ async function callClaudeStage(
         messages: [{ role: 'user', content: userContent }],
     };
     const { callAIWithRetry } = await import('./aiRetryClient');
-    const data = await callAIWithRetry('anthropic', body, { label: 'Prototype Stage (Opus 4.8)' });
+    // #proto Opus stages are the heaviest calls in the app (full catalog +
+    // exemplars at orchestration, the entire assembled app at review, 64K output
+    // + adaptive thinking). The old 300s default aborted legitimately-long
+    // stages as "signal timed out", then retried the same doomed call 3× (~15
+    // min) before the stage-level Gemini fallback fired. Give Opus a realistic
+    // 600s ceiling (matches the proxy) and DON'T retry a true timeout — fail once
+    // so the caller's Gemini fallback fires fast. Transient 5xx/429 still retry.
+    const data = await callAIWithRetry('anthropic', body, {
+        label: 'Prototype Stage (Opus 4.8)',
+        requestTimeoutMs: 600_000,
+        retryOnTimeout: false,
+    });
     const blocks = Array.isArray(data?.content) ? data.content : [];
     const text = blocks.map((b: any) => (typeof b?.text === 'string' ? b.text : '')).join('').trim();
     if (!text) {
@@ -1047,7 +1058,7 @@ interface PodScreenSpec {
     purpose: string;
     signature: string;               // EXACT function signature pods must implement, e.g. "function Screen_dashboard({ state, dispatch })"
     component_categories: string[];  // manifest ## CATEGORY names this screen needs (e.g. "AI-CHAT", "DATA DISPLAY")
-    pattern_ids: string[];           // catalog p-* wrappers for this screen's regions
+    component_ids: string[];         // EXACT proto/<Name> component ids from the manifest this screen composes from (e.g. "proto/List", "proto/Stepper"). NOT invented p-* ids.
     spec: string;                    // detailed outline: state used, interactions, copy, seed data, success criteria for THIS screen
 }
 
@@ -1065,6 +1076,20 @@ interface PodResult {
     code: string;                    // the Screen_<id> component (function declaration only)
     engine: string;
     patterns_used: string[];
+    /** proto/<Name> ids the pod DECLARED that do NOT exist in the manifest vocabulary
+     *  (fabricated / typo'd / a fake p-* id). Empty = fully grounded. */
+    invented_components?: string[];
+}
+
+/** The real proto/<Name> component vocabulary present in the manifest text (## headings,
+ *  ### headings, and inline prose mentions). The single ground-truth set the #proto build
+ *  is allowed to compose from - mirrors the Figma proto pages (NXT 403:2 / vol2-5). A pod
+ *  declaring any proto/<Name> NOT in this set has invented a UI shape (the 2026-06-23 audit
+ *  failure mode). Pure + exported for the unit test. */
+export function extractManifestProtoIds(manifest: string): Set<string> {
+    const ids = new Set<string>();
+    for (const m of (manifest || '').matchAll(/\bproto\/[A-Z][A-Za-z0-9]+/g)) ids.add(m[0]);
+    return ids;
 }
 
 /**
@@ -1160,9 +1185,13 @@ Emit ONE JSON object (no prose, no fences) with these keys:
 - "screens": array, one per screen. Each: { "id": safe-lowercase-id, "name", "purpose",
   "signature": EXACT e.g. "function Screen_dashboard({ state, dispatch })", "component_categories":
   array of ## CATEGORY names from the component manifest this screen needs (e.g. ["AI-CHAT",
-  "DATA DISPLAY"]), "pattern_ids": catalog p-* wrappers for this screen, "spec": a thorough outline
-  of this screen's regions, the state keys it reads/writes, the actions it fires, its micro-copy,
-  the named protagonist data it shows, and its success criteria }.
+  "DATA DISPLAY"]), "component_ids": the EXACT \`proto/<Name>\` component ids THIS screen composes
+  from - copied verbatim from the component manifest's \`### proto/<Name>\` headings (e.g.
+  ["proto/List", "proto/Stepper", "proto/Accordion"]). DO NOT invent ids and DO NOT use a \`p-*\`
+  scheme - there is no \`p-*\` catalog; the only real ids are the \`proto/<Name>\` ones in the manifest.
+  "spec": a thorough outline of this screen's regions (name the proto/<Name> component each region
+  uses), the state keys it reads/writes, the actions it fires, its micro-copy, the named protagonist
+  data it shows, and its success criteria }.
 </output>
 
 <rules>
@@ -1209,8 +1238,18 @@ useCallback) are GLOBAL - use directly, never destructure from React. framer-mot
 other top-level declarations, NO re-definition of shared state/reducer/App/primitives, NO
 \`render()\` call. NEVER name a local component with a DOM-interface word (Image, Text, Audio,
 Option, Range, Link, Map, Set, File, Node, Element) - it crashes the mount with "Illegal
-constructor"; use distinct names and reference icons as window.lucide.<Name>. Start a leading
-\`// PATTERN MANIFEST: <p-ids>\` comment listing the catalog patterns you used, then the function. The function must read all data from \`state\` and change it
+constructor"; use distinct names and reference icons as window.lucide.<Name>.
+A JSX TAG POSITION CANNOT HOLD AN EXPRESSION. Never write \`<motion && motion.div ...>\`,
+\`<cond ? A : B ...>\`, or any logical/ternary in a tag name - it is a hard compile error. To pick a
+component conditionally, resolve it to a variable FIRST then render that variable:
+\`const Box = (window.framerMotion && window.framerMotion.motion) ? window.framerMotion.motion.div : 'div'; return <Box ...>...</Box>;\`
+or branch with two COMPLETE elements: \`{cond ? (<motion.div .../>) : (<div .../>)}\`. Start a leading
+\`// PROTO COMPONENTS: <comma-separated proto/Name list>\` comment naming the EXACT manifest
+components you composed this screen from (the real \`proto/<Name>\` ids - never a \`p-*\` id, that
+scheme does not exist). Then the function. Each region of the screen MUST be built from one of the
+listed proto/<Name> components, following that component's documented structure (border, radius,
+padding, font, icon slots) from the manifest above - do NOT invent a different UI shape for a region
+a manifest component already covers. The function must read all data from \`state\` and change it
 only via \`dispatch({ type: ... })\` using the allowed actions.
 </output>`;
 }
@@ -1328,10 +1367,13 @@ async function buildAppViaPods(args: {
 
     // ---- 2. PODS: build each screen in parallel ----
     fire(4, `Screen pods (${screens.length} parallel)`, 'running');
+    // FIDELITY GROUND TRUTH (2026-06-23): the real proto/<Name> vocabulary from the manifest.
+    // Every component a pod declares is checked against this; anything absent was invented.
+    const manifestProtoIds = extractManifestProtoIds(componentManifest);
     const buildOnePod = async (screen: PodScreenSpec): Promise<PodResult | null> => {
         const sliced = sliceManifestForCategories(componentManifest, screen.component_categories || []);
         const podSystem = buildPodSystem(brand, sliced, contract.shared_code, contract);
-        const podUser = `BUILD THIS SCREEN.\n\nSIGNATURE (implement EXACTLY): ${screen.signature}\nID: ${screen.id}\nNAME: ${screen.name}\nPURPOSE: ${screen.purpose}\nPATTERN IDS: ${(screen.pattern_ids || []).join(', ')}\n\nSCREEN SPEC:\n${screen.spec}`;
+        const podUser = `BUILD THIS SCREEN.\n\nSIGNATURE (implement EXACTLY): ${screen.signature}\nID: ${screen.id}\nNAME: ${screen.name}\nPURPOSE: ${screen.purpose}\nPROTO COMPONENTS TO COMPOSE FROM (exact manifest proto/<Name> ids - build each region from one of these, following its documented anatomy): ${(screen.component_ids || []).join(', ') || '(none specified - choose the closest proto/<Name> components from the manifest categories above)'}\n\nSCREEN SPEC:\n${screen.spec}`;
         let engine = 'Opus 4.8';
         try {
             let text: string;
@@ -1344,9 +1386,18 @@ async function buildAppViaPods(args: {
             }
             const code = stripCodeFences(text).trim();
             if (!code) throw new Error('empty');
-            const pm = code.match(/PATTERN MANIFEST:\s*([^\n]+)/);
+            // Read the components the pod declared it used. New marker is
+            // "PROTO COMPONENTS:"; fall back to the legacy "PATTERN MANIFEST:" so
+            // older cached pods still parse. Only count REAL proto/<Name> ids.
+            const pm = code.match(/PROTO COMPONENTS:\s*([^\n]+)/) || code.match(/PATTERN MANIFEST:\s*([^\n]+)/);
             const patterns = pm ? pm[1].split(',').map(s => s.trim()).filter(Boolean) : [];
-            return { id: screen.id, code, engine, patterns_used: patterns };
+            // FIDELITY CHECK: a declared component is GROUNDED only if it exists in the manifest
+            // vocabulary. proto/<Name> not in the manifest (or a fake p-* id) = invented UI shape.
+            const invented = patterns.filter(p => !manifestProtoIds.has(p));
+            const grounded = patterns.length - invented.length;
+            if (invented.length) console.warn(`[pod ${screen.id}] FIDELITY: ${grounded}/${patterns.length} grounded; INVENTED (not in manifest): ${invented.join(', ')}`);
+            else if (patterns.length) console.log(`[pod ${screen.id}] FIDELITY: ${patterns.length}/${patterns.length} components grounded in the manifest.`);
+            return { id: screen.id, code, engine, patterns_used: patterns, invented_components: invented };
         } catch (e: any) {
             console.warn(`[pod ${screen.id}] FAILED on both providers: ${e?.message || e}`);
             return null;
@@ -1368,7 +1419,15 @@ async function buildAppViaPods(args: {
         : '';
     const builtIds = pods.map(p => p.id);
     const missingScreens = screens.filter(s => !builtIds.includes(s.id)).map(s => s.id);
-    const reviewerUser = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nSTATE SHAPE: ${contract.state_shape}\nACTIONS: ${contract.action_list.join(', ')}\nSCREENS DECLARED: ${screens.map(s => s.id).join(', ')}${missingScreens.length ? `\nSCREENS THAT FAILED TO BUILD (you must stub a graceful placeholder Screen_<id> for these so navigation does not break): ${missingScreens.join(', ')}` : ''}${sessionsAuditBlock}\n\nMERGED CODE:\n${assembled}`;
+    // FIDELITY AUDIT: components pods declared that aren't in the manifest vocabulary - a region
+    // built from an invented UI shape rather than the registered Figma proto/<Name> component.
+    const inventedByPod = pods
+        .filter(p => (p.invented_components || []).length)
+        .map(p => `${p.id}: ${(p.invented_components || []).join(', ')}`);
+    const fidelityBlock = inventedByPod.length
+        ? `\n\nFIDELITY AUDIT (components NOT in the Figma proto/<Name> manifest - flag any region that invented a UI shape instead of composing the registered component, and prefer rebuilding it from the nearest real proto/<Name>):\n${inventedByPod.join('\n')}`
+        : '';
+    const reviewerUser = `BRIEF:\n${JSON.stringify(brief, null, 2)}\n\nDESIGN SYSTEM:\n${JSON.stringify(designSystem, null, 2)}\n\nSTATE SHAPE: ${contract.state_shape}\nACTIONS: ${contract.action_list.join(', ')}\nSCREENS DECLARED: ${screens.map(s => s.id).join(', ')}${missingScreens.length ? `\nSCREENS THAT FAILED TO BUILD (you must stub a graceful placeholder Screen_<id> for these so navigation does not break): ${missingScreens.join(', ')}` : ''}${fidelityBlock}${sessionsAuditBlock}\n\nMERGED CODE:\n${assembled}`;
     let critique: CritiqueReport;
     try {
         let critiqueText: string;
@@ -1389,6 +1448,18 @@ async function buildAppViaPods(args: {
             corrected_code: null,
         } as CritiqueReport;
     }
+    // FIDELITY (2026-06-23): record any invented (non-manifest) components as a critique issue so
+    // fabrication is visible in the build report even when the reviewer does not flag it itself.
+    if (inventedByPod.length) {
+        (critique.issues = critique.issues || []).push({
+            category: 'code_bug',
+            severity: 'minor',
+            description: `Pods declared components not in the Figma proto/<Name> manifest (invented UI shapes): ${inventedByPod.join('; ')}.`,
+            source_of_truth: 'design_system',
+            code_location: 'pod PROTO COMPONENTS declarations',
+            fix: 'Rebuild each invented region from the nearest real proto/<Name> component in the manifest.',
+        } as any);
+    }
     // CRITICAL (2026-06-16): the deterministic `assembled` file is the source of truth.
     // The reviewer may ONLY override it with a SUBSTANTIVE corrected_code. LLM reviewers love
     // to "ship unchanged" by returning a placeholder comment ("/* code is fine, see merged
@@ -1402,10 +1473,15 @@ async function buildAppViaPods(args: {
         cc.includes('function App') &&
         /Screen_\w+/.test(cc) &&
         cc.length >= assembled.length * 0.5; // a real correction is the whole file, not a stub
-    const finalCode = correctedIsSubstantive ? cc : assembled;
+    let finalCode = correctedIsSubstantive ? cc : assembled;
     if (critique.corrected_code && !correctedIsSubstantive) {
         console.warn(`[Reviewer] corrected_code rejected as non-substantive (${cc.length}c vs assembled ${assembled.length}c) - shipping deterministic assembled file.`);
     }
+    // DETERMINISTIC COMPILE GATE: the reviewer is an LLM opinion and can miss a
+    // hard JSX syntax error (e.g. `<motion && motion.div>`). Parse-check the code
+    // with the SAME Babel the /view runtime uses, and surgically repair any
+    // SyntaxError before this ever reaches save/serve. Renderer-independent.
+    finalCode = await ensureCompiles(finalCode, fire);
     const cov = critique.session_coverage ? ` · coverage ${critique.session_coverage.coverage_pct}%` : '';
     fire(5, 'Integration Reviewer', 'done', `${critique.verdict}${cov} · ${critique.issues?.length || 0} issues · ${correctedIsSubstantive ? 'reviewer-corrected' : 'assembled'}`);
 
@@ -1622,6 +1698,123 @@ fragment, diff, summary, or comment" }. RUNTIME CONTRACT the corrected_code MUST
 \`App\`; hooks are GLOBAL (no destructure from React); framer-motion=\`window.framerMotion\`,
 icons=\`window.lucide\`; NO import/export; NO render()/createRoot call.
 </output>`;
+
+// ============================================================================
+// DETERMINISTIC COMPILE GATE (2026-06-23)
+// The reviewer is an LLM judgment and the headless render gate SKIPS when the
+// renderer is unavailable - so a hard JSX syntax error (e.g. `<motion &&
+// motion.div>`, an unclosed tag, a duplicate declaration) could reach the user
+// as the red "Prototype compile error" page. This gate COMPILES the assembled
+// code with the SAME Babel the /view runtime uses, BEFORE we save or serve it.
+// On a SyntaxError it runs a surgical syntax-repair stage with the exact Babel
+// error + line, recompiles, and loops (bounded). Only code that parses ships.
+// Deterministic and renderer-independent: it always runs.
+// ============================================================================
+const SYNTAX_REPAIR_SYSTEM = `<role>
+You fix a SYNTAX ERROR in a single-file React (JSX) prototype that FAILS TO COMPILE under Babel.
+You are given the exact Babel error (with line:column) and the FULL current code. Fix ONLY what is
+needed to make it parse. Change NOTHING else - no refactors, no renames, no feature edits, no
+reformatting. Preserve every component, style, and behavior exactly.
+</role>
+<common_syntax_faults>
+- Conditional component written as an INVALID TAG NAME, e.g. \`<motion && motion.div ...>\` or
+  \`<cond ? A : B ...>\`. JSX tag position cannot hold a logical/ternary expression. Fix by choosing
+  the component into a variable FIRST, then rendering it:
+    \`const Tag = (motion && motion.div) ? motion.div : 'div'; return <Tag ...>...</Tag>;\`
+  or by branching with two complete JSX returns inside \`{cond ? (<motion.div .../>) : (<div .../>)}\`.
+- Unclosed/mismatched JSX tag or missing \`)\`/\`}\`.
+- A lexical \`const X\` declared twice in the same scope ("already been declared").
+- A stray \`import\`/\`export\` (host strips these; remove them).
+</common_syntax_faults>
+<output>
+Emit ONE JSON object (no prose, no fences): { "summary": "the syntax fault + the minimal fix",
+"corrected_code": "the ENTIRE single-file prototype, first line to last - never a fragment, diff,
+or comment" }. The corrected_code MUST obey the runtime contract: root named \`App\`; hooks are
+GLOBAL (no destructure from React); framer-motion=\`window.framerMotion\`, icons=\`window.lucide\`;
+NO import/export; NO render()/createRoot call.
+</output>`;
+
+/** Ensure window.Babel (the same standalone compiler the /view runtime uses) is
+ *  loaded in the SPA so we can parse-check generated code. Returns null if it
+ *  cannot be loaded (offline) - the caller then relies on the render gate. */
+let _babelLoadPromise: Promise<any> | null = null;
+function ensureBabel(): Promise<any | null> {
+    if (typeof window === 'undefined') return Promise.resolve(null);
+    if ((window as any).Babel) return Promise.resolve((window as any).Babel);
+    if (_babelLoadPromise) return _babelLoadPromise;
+    _babelLoadPromise = new Promise<any | null>((resolve) => {
+        try {
+            const s = document.createElement('script');
+            s.src = 'https://unpkg.com/@babel/standalone@7.25.6/babel.min.js';
+            s.async = true;
+            s.onload = () => resolve((window as any).Babel || null);
+            s.onerror = () => resolve(null);
+            document.head.appendChild(s);
+        } catch { resolve(null); }
+    });
+    return _babelLoadPromise;
+}
+
+/** Compile-check generated JSX. Returns the Babel error string, or null if it
+ *  parses cleanly. Mirrors the /view runner: presets:['react']. */
+function babelCompileError(Babel: any, code: string): string | null {
+    try {
+        Babel.transform(code, { presets: ['react'], filename: 'prototype.jsx' });
+        return null;
+    } catch (e: any) {
+        return (e && (e.message || String(e))) || 'unknown compile error';
+    }
+}
+
+/**
+ * Compile gate: guarantee the assembled prototype actually parses before it is
+ * saved/served. On a SyntaxError, run the surgical SYNTAX_REPAIR_SYSTEM stage
+ * with the exact Babel error, recompile, loop (bounded). Returns code that
+ * compiles, or - if Babel can't load or repair fails - the best-effort input
+ * (the downstream render gate + error surfacing remain as backstops).
+ */
+async function ensureCompiles(
+    code: string,
+    fire: (stage: number, name: string, status: 'running' | 'done' | 'failed', detail?: string) => void,
+): Promise<string> {
+    const Babel = await ensureBabel();
+    if (!Babel) {
+        fire(5, 'Compile Gate', 'done', 'skipped (Babel unavailable) — render gate is the backstop');
+        return code;
+    }
+    let cur = code;
+    let err = babelCompileError(Babel, cur);
+    if (!err) {
+        fire(5, 'Compile Gate', 'done', 'parses clean');
+        return cur;
+    }
+    for (let i = 0; i < 3 && err; i++) {
+        fire(5, 'Compile Gate', 'running', `syntax error → repair ${i + 1}/3: ${err.slice(0, 80)}`);
+        let fixed = '';
+        try {
+            const repairUser = `BABEL COMPILE ERROR (the assembled prototype does not parse):\n${err}\n\nFULL CURRENT CODE:\n${cur}`;
+            const text = await callClaudeStage(SYNTAX_REPAIR_SYSTEM, repairUser, 64000);
+            const parsed = tryParseJson<{ corrected_code?: string; summary?: string }>(text, 'Syntax Repair');
+            fixed = parsed?.corrected_code ? stripCodeFences(parsed.corrected_code) : '';
+        } catch (e: any) {
+            console.warn(`[Compile Gate] repair call failed: ${e?.message || e}`);
+            break;
+        }
+        // A real fix is the whole file; reject stubs/comments.
+        if (!(fixed.includes('function App') && /Screen_\w+/.test(fixed) && fixed.length > 500)) {
+            console.warn('[Compile Gate] repair returned non-substantive code; keeping prior.');
+            break;
+        }
+        cur = fixed;
+        err = babelCompileError(Babel, cur);
+    }
+    if (err) {
+        fire(5, 'Compile Gate', 'failed', `still failing after repair: ${err.slice(0, 80)} — shipping with render-gate backstop`);
+    } else {
+        fire(5, 'Compile Gate', 'done', 'parses clean (repaired)');
+    }
+    return cur;
+}
 
 /**
  * Headless render gate + bounded repair loop. Saves the prototype (existing save endpoint),

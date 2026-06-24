@@ -16,6 +16,8 @@ import { resolve } from 'path';
 const TEMPLATE_PAYLOAD: Record<string, string> = {
     'persona-card': 'persona',
     'recommendation': 'recommendation',
+    'theme-overview': 'themeCluster',
+    'theme-detail': 'themeCluster',
     'theme-cluster': 'themeCluster',
     'theme-spotlight': 'themeCluster',
     'theme-arc': 'themeCluster',

@@ -595,116 +595,12 @@ function renderStatRowDense(stats: any[], insight: string, pattern: string, T: B
 }
 
 // ---------------------------------------------------------------------------
-// theme-spotlight - N themes, primary surfaced as spotlight + supporting list
+// theme-overview / theme-detail (the real Figma GOLD theme layouts, 590:9 / 590:11)
+// live just below renderThemeMosaic. theme-cluster ALIASES theme-overview and
+// theme-spotlight ALIASES theme-detail in the dispatch (2026-06-23 audit: cluster/
+// spotlight have no Figma component). The old bespoke cluster/spotlight renderers
+// were removed in favor of the Figma-faithful twins.
 // ---------------------------------------------------------------------------
-
-function renderThemeSpotlight(slide: SlideDataLike, T: BrandTokens): string {
-    const data = slide.themeCluster || {};
-    const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, _caps.items) : [];
-    const denseSup = themes.length >= 5;   // 4+ supporting entries in the right column
-    const patternSignal: string = data.patternSignal || '';
-    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
-    const primary = themes[0];
-    const supporting = themes.slice(1);
-    const supportingHtml = supporting.length > 0 ? `
-      <div class="supporting">
-        <div class="splbl">Supporting signals</div>
-        ${supporting.map((t, i) => `
-          <div class="sup">
-            <div class="idx">${String(i + 2).padStart(2, '0')}</div>
-            <div>
-              <div class="sn">${esc(t.name)}</div>
-              <div class="si">${esc(t.insight)}</div>
-              ${t.evidence && !denseSup ? `<div class="se">&ldquo;${esc(t.evidence)}&rdquo;</div>` : ''}
-              <div class="ss">${esc(t.source)}</div>
-            </div>
-          </div>`).join('')}
-      </div>` : '';
-    const patternBlock = patternSignal
-        ? `<div class="pattern"><span>Pattern signal</span> ${esc(patternSignal)}</div>` : '';
-    return `<style>
-/* 2026-06-05 - Column-overlap fix observed in user's theme-spotlight.pptx
- * export: primary column boxes were 7.88" wide and bled into the 7.96"
- * supporting column. Root cause: CSS grid items default to min-width:auto
- * which lets content (long words / quote borders / etc.) push tracks
- * past their fr widths. Adding min-width:0 + overflow:hidden to each
- * grid item forces them to respect the 1.4fr 1fr ratio. min-height:0
- * on the grid itself + density reductions below let the whole thing
- * fit in the 1080 stage so the implication footer doesn't spill below
- * the slide. */
-.cols{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;flex:1;min-height:0;align-items:start}
-.primary{border-left:4px solid ${T.accent};padding-left:22px;display:flex;flex-direction:column;gap:12px;min-width:0;overflow:hidden}
-.primary .pidx{font-family:${T.monoFont};font-size:${SCALE.lead}px;letter-spacing:2px;color:${T.accent};text-transform:uppercase}
-.primary .pname{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:1.1;color:${T.ink};word-wrap:break-word}
-.primary .pinsight{font-size:${SCALE.name}px;line-height:1.35;color:${T.ink};word-wrap:break-word}
-.primary .pq{font-family:${T.bodyFont};font-size:${SCALE.name}px;line-height:1.4;color:${T.ink};border-left:3px solid ${T.accent2};padding:8px 14px;background:${T.callout};font-style:italic;word-wrap:break-word}
-.primary .pimp{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:1.5px;color:${T.muted};text-transform:uppercase}
-.primary .pimp + div{font-size:${SCALE.lead}px;line-height:1.35;color:${T.ink};word-wrap:break-word}
-.supporting{display:flex;flex-direction:column;gap:12px;min-width:0;overflow:hidden}
-.splbl{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;border-bottom:1px solid ${T.hair};padding-bottom:8px}
-.sup{display:grid;grid-template-columns:46px 1fr;gap:12px;min-width:0}
-.sup > div:last-child{min-width:0;overflow:hidden}
-.sup .idx{font-family:${T.displayFont};font-size:${denseSup ? SCALE.subhead : SCALE.subhead}px;color:${T.accent}}
-.sup .sn{font-family:${T.bodyFont};font-weight:600;font-size:${denseSup ? SCALE.lead : SCALE.name}px;color:${T.ink};margin-bottom:4px;word-wrap:break-word}
-.sup .si{font-size:${denseSup ? SCALE.body : SCALE.lead}px;line-height:1.35;color:${T.ink};margin-bottom:6px;word-wrap:break-word}
-.sup .se{font-size:${denseSup ? SCALE.caption : SCALE.body}px;font-style:italic;color:${T.muted};line-height:1.35;margin-bottom:4px;word-wrap:break-word}
-.sup .ss{font-family:${T.monoFont};font-size:${denseSup ? SCALE.label : SCALE.caption}px;letter-spacing:1px;color:${T.muted};text-transform:uppercase}
-.pattern{margin-top:14px;font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink};background:${T.callout};padding:12px 18px;border-left:4px solid ${T.accent2}}
-.pattern span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
-</style>
-<div class="cols">
-  <div class="primary">
-    <div class="pidx">01 · Primary theme</div>
-    <div class="pname">${esc(primary.name)}</div>
-    <div class="pinsight">${esc(primary.insight)}</div>
-    ${primary.evidence ? `<div class="pq">&ldquo;${esc(primary.evidence)}&rdquo;</div>` : ''}
-    ${primary.implication ? `<div><div class="pimp">Implication</div>${esc(primary.implication)}</div>` : ''}
-  </div>
-  ${supportingHtml}
-</div>
-${patternBlock}`;
-}
-
-// ---------------------------------------------------------------------------
-// theme-cluster - equal-weight columns (2026-06-11, task #32 parity: the
-// stage previously collapsed all four theme templates into the spotlight
-// layout, so preview != export for cluster/arc/mosaic). 2x the goldPreviews
-// web twin.
-// ---------------------------------------------------------------------------
-
-function renderThemeCluster(slide: SlideDataLike, T: BrandTokens): string {
-    const data = slide.themeCluster || {};
-    const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, Math.min(_caps.items, 4)) : [];
-    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
-    const n = themes.length;
-    const dense = n >= 4;
-    return `<style>
-.tcgrid{display:grid;grid-template-columns:repeat(${n},1fr);gap:${dense ? 20 : 28}px;flex:1;min-height:0}
-.tc{border-top:4px solid ${T.accent};padding-top:14px;display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden}
-.tc .idx{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
-.tc .nm{font-family:${T.displayFont};font-weight:600;font-size:${dense ? SCALE.name : SCALE.name}px;line-height:1.12;color:${T.ink}}
-.tc .ins{font-size:${dense ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink}}
-.tc .ev{font-size:${dense ? SCALE.body : SCALE.body}px;line-height:1.4;font-style:italic;color:${T.ink};border-left:3px solid ${T.accent2};padding:6px 12px;background:${T.callout}}
-.tc .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase;font-style:normal;margin-top:5px}
-.tcptn{margin-top:12px;font-size:${SCALE.body}px;line-height:1.35;color:${T.ink};background:${T.callout};padding:10px 18px;border-left:4px solid ${T.accent2}}
-.tcptn span{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase;margin-right:8px;font-weight:600}
-</style>
-<div class="tcgrid">
-${themes.map((t, i) => `
-  <div class="tc">
-    <div class="idx">${String(i + 1).padStart(2, '0')}</div>
-    <div class="nm">${esc(t.name)}</div>
-    <div class="ins">${esc(t.insight)}</div>
-    ${t.evidence
-        /* 2026-06-12 user feedback: source rides INSIDE the evidence block,
-           directly underneath the quote (was margin-top:auto, which floated
-           it to the card bottom away from the quote). */
-        ? `<div class="ev">&ldquo;${esc(t.evidence)}&rdquo;<div class="src">${esc(t.source)}</div></div>`
-        : `<div class="src">${esc(t.source)}</div>`}
-  </div>`).join('')}
-</div>
-${data.patternSignal ? `<div class="tcptn"><span>Pattern signal</span> ${esc(data.patternSignal)}</div>` : ''}`;
-}
 
 // ---------------------------------------------------------------------------
 // theme-arc - narrative progression chain with SIGNAL rows (Figma theme-arc
@@ -782,6 +678,124 @@ ${themes.map((t, i) => `
     ${t.evidence ? `<div class="ev">&ldquo;${esc(t.evidence)}&rdquo;</div>` : ''}
     <div class="src">${esc(t.source)}</div>
   </div>`).join('')}
+</div>`;
+}
+
+// ---------------------------------------------------------------------------
+// theme-overview - faithful twin of Figma GOLD themes overview (590:9 / NU
+// 625:385). 4-column theme grid: numeral, name, [dominance pill + mood], insight,
+// quote, cyan SOURCE, sub-theme chips, rust tension line; full-width accent
+// takeaway band. theme-cluster ALIASES here. All color/type bound from T.*/SCALE.
+// (no literal hex - policed by figmaRegistryParity no-hardcode ceiling).
+// ---------------------------------------------------------------------------
+
+function renderThemeOverview(slide: SlideDataLike, T: BrandTokens): string {
+    const data = slide.themeCluster || {};
+    const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, Math.min(_caps.items, 4)) : [];
+    if (themes.length === 0) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
+    const n = themes.length;
+    const band = data.takeaway || data.patternSignal || '';
+    const chip = (s: string) => `<span class="tochip">${esc(s)}</span>`;
+    return `<style>
+.tocols{display:grid;grid-template-columns:repeat(${n},1fr);gap:${n >= 4 ? 40 : 54}px;flex:1;min-height:0;align-items:start}
+.toc{display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden}
+.toc .num{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.title}px;line-height:1;color:${T.ink}}
+.toc .nm{font-family:${T.bodyFont};font-weight:${WEIGHT.title};font-size:${SCALE.lead}px;line-height:1.1;letter-spacing:-0.3px;color:${T.ink}}
+.toc .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toc .pill{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.nano}px;letter-spacing:1px;text-transform:uppercase;padding:4px 9px;border-radius:2px}
+.toc .pill.dom{background:${T.accent};color:${T.bandText}}
+.toc .pill.rec{background:${T.hair};color:${T.ink}}
+.toc .mood{font-family:${T.monoFont};font-size:${SCALE.nano}px;letter-spacing:0.5px;color:${T.grey}}
+.toc .ins{font-family:${T.bodyFont};font-size:${SCALE.caption}px;line-height:1.5;color:${T.ink}}
+.toc .q{font-family:${T.bodyFont};font-size:${SCALE.caption}px;line-height:1.48;font-style:italic;color:${T.ink}}
+.toc .src{font-family:${T.monoFont};font-size:${SCALE.nano}px;letter-spacing:1px;text-transform:uppercase;color:${T.kicker}}
+.toc .subs{display:flex;flex-wrap:wrap;gap:6px}
+.tochip{font-family:${T.monoFont};font-size:${SCALE.nano}px;color:${T.ink};border:1px solid ${T.hair};border-radius:2px;padding:3px 8px}
+.toc .ten{font-family:${T.bodyFont};font-size:${SCALE.micro}px;line-height:1.4;color:${T.ink};border-left:2px solid ${T.accentWarn};padding-left:10px}
+.toband{margin-top:24px;background:${T.accent};color:${T.bandText};padding:22px 40px;font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.deckHeading}px;line-height:1.3}
+</style>
+<div class="tocols">
+${themes.map((t, i) => `
+  <div class="toc">
+    <div class="num">${String(i + 1).padStart(2, '0')}</div>
+    <div class="nm">${esc(t.name)}</div>
+    ${(t.dominance || t.mood) ? `<div class="meta">
+      ${t.dominance ? `<span class="pill ${t.dominance === 'RECURRING' ? 'rec' : 'dom'}">${esc(t.dominance)}</span>` : ''}
+      ${t.mood ? `<span class="mood">${esc(t.mood)}</span>` : ''}
+    </div>` : ''}
+    <div class="ins">${esc(t.insight)}</div>
+    ${t.evidence ? `<div class="q">&ldquo;${esc(t.evidence)}&rdquo;</div>` : ''}
+    ${t.source ? `<div class="src">Source: ${esc(t.source)}</div>` : ''}
+    ${Array.isArray(t.subthemes) && t.subthemes.length ? `<div class="subs">${t.subthemes.slice(0, _caps.sub).map(chip).join('')}</div>` : ''}
+    ${t.tension ? `<div class="ten">${esc(t.tension)}</div>` : ''}
+  </div>`).join('')}
+</div>
+${band ? `<div class="toband">${esc(band)}</div>` : ''}`;
+}
+
+// ---------------------------------------------------------------------------
+// theme-detail - faithful twin of Figma GOLD theme detail (590:11 / NU 625:581).
+// One theme deep-dive: insight line, [dominance pill + mood + convergence pill],
+// two-column body (CONVERGENT EVIDENCE quote stack | WHAT IT MEANS / SUB-THEMES /
+// THE TENSION), full-width accent takeaway band. theme-spotlight ALIASES here.
+// ---------------------------------------------------------------------------
+
+function renderThemeDetail(slide: SlideDataLike, T: BrandTokens): string {
+    const data = slide.themeCluster || {};
+    const themes: any[] = Array.isArray(data.themes) ? data.themes : [];
+    const t: any = themes[0] || {};
+    if (!t.name && !t.insight) return `<p style="font-size:${SCALE.name}px">No theme data.</p>`;
+    // Quote stack: prefer the multi-quote block; fall back to the singular evidence.
+    const quotes: any[] = Array.isArray(t.quotes) && t.quotes.length
+        ? t.quotes.slice(0, _caps.sub)
+        : (t.evidence ? [{ text: t.evidence, source: t.source }] : []);
+    const band = data.takeaway || data.patternSignal || '';
+    const chip = (s: string) => `<span class="tdchip">${esc(s)}</span>`;
+    return `<style>
+.tdwrap{display:flex;flex-direction:column;gap:18px;flex:1;min-height:0}
+.tdlede{font-family:${T.bodyFont};font-size:${SCALE.deckHeading}px;line-height:1.42;color:${T.ink};max-width:1660px}
+.tdmeta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.tdpill{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.nano}px;letter-spacing:1px;text-transform:uppercase;padding:5px 11px;border-radius:2px}
+.tdpill.dom{background:${T.accent};color:${T.bandText}}
+.tdpill.conv{border:1.5px solid ${T.hair};color:${T.grey}}
+.tdmood{font-family:${T.monoFont};font-size:${SCALE.nano}px;letter-spacing:0.5px;color:${T.grey}}
+.tdgrid{display:grid;grid-template-columns:1.55fr 1fr;gap:60px;flex:1;min-height:0;align-items:start}
+.tdlbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.micro}px;letter-spacing:2.5px;text-transform:uppercase;color:${T.ink};margin-bottom:14px}
+.tdq{display:flex;flex-direction:column;gap:8px;border-left:4px solid ${T.accentWarn};padding:6px 0 6px 18px;margin-bottom:26px}
+.tdq.alt{border-left-color:${T.accent2}}
+.tdq .qt{font-family:${T.bodyFont};font-size:${SCALE.lead}px;line-height:1.4;color:${T.ink}}
+.tdq .qs{font-family:${T.monoFont};font-size:${SCALE.nano}px;letter-spacing:1px;text-transform:uppercase;color:${T.grey}}
+.tdmean{font-family:${T.bodyFont};font-size:${SCALE.caption}px;line-height:1.5;color:${T.ink};margin-bottom:26px}
+.tdsubs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.tdchip{font-family:${T.monoFont};font-size:${SCALE.nano}px;color:${T.ink};border:1px solid ${T.hair};border-radius:2px;padding:4px 9px}
+.tdten{border-left:5px solid ${T.accentWarn};padding:6px 0 6px 16px;display:flex;flex-direction:column;gap:7px}
+.tdten .tl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.nano}px;letter-spacing:2px;text-transform:uppercase;color:${T.accentWarn}}
+.tdten .tt{font-family:${T.bodyFont};font-weight:500;font-size:${SCALE.caption}px;line-height:1.4;color:${T.ink}}
+.tdband{margin-top:8px;background:${T.accent};color:${T.bandText};padding:22px 40px;font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.deckHeading}px;line-height:1.3}
+</style>
+<div class="tdwrap">
+  ${t.insight ? `<div class="tdlede">${esc(t.insight)}</div>` : ''}
+  ${(t.dominance || t.mood || t.convergenceLabel) ? `<div class="tdmeta">
+    ${t.dominance ? `<span class="tdpill dom">${esc(t.dominance)}</span>` : ''}
+    ${t.mood ? `<span class="tdmood">${esc(t.mood)}</span>` : ''}
+    ${t.convergenceLabel ? `<span class="tdpill conv">${esc(t.convergenceLabel)}</span>` : ''}
+  </div>` : ''}
+  <div class="tdgrid">
+    <div class="tdleft">
+      <div class="tdlbl">Convergent evidence</div>
+      ${quotes.map((q: any, i: number) => `
+      <div class="tdq${i % 2 === 1 ? ' alt' : ''}">
+        <div class="qt">&ldquo;${esc(q.text || q.quote || '')}&rdquo;</div>
+        ${q.source ? `<div class="qs">Source: ${esc(q.source)}</div>` : ''}
+      </div>`).join('')}
+    </div>
+    <div class="tdright">
+      ${(t.whatItMeans || t.implication) ? `<div class="tdlbl">What it means</div><div class="tdmean">${esc(t.whatItMeans || t.implication)}</div>` : ''}
+      ${Array.isArray(t.subthemes) && t.subthemes.length ? `<div class="tdlbl">Sub-themes</div><div class="tdsubs">${t.subthemes.map(chip).join('')}</div>` : ''}
+      ${t.tension ? `<div class="tdten"><div class="tl">The tension</div><div class="tt">${esc(t.tension)}</div></div>` : ''}
+    </div>
+  </div>
+  ${band ? `<div class="tdband">${esc(band)}</div>` : ''}
 </div>`;
 }
 
@@ -2205,11 +2219,21 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
         case 'stat-row':
             body = renderStatRow(slide, T);
             break;
+        case 'theme-overview':
+            body = renderThemeOverview(slide, T);
+            break;
+        case 'theme-detail':
+            body = renderThemeDetail(slide, T);
+            break;
+        // 2026-06-23 - theme-cluster/theme-spotlight are renderer-invented layouts with NO Figma
+        // component (audit 2026-06-23). They ALIAS to the real Figma theme components so any model
+        // that still emits them renders a Figma-faithful layout. Generation guidance now emits
+        // overview/detail/arc/mosaic; these aliases are the compatibility floor.
         case 'theme-spotlight':
-            body = renderThemeSpotlight(slide, T);
+            body = renderThemeDetail(slide, T);
             break;
         case 'theme-cluster':
-            body = renderThemeCluster(slide, T);
+            body = renderThemeOverview(slide, T);
             break;
         case 'theme-arc':
             body = renderThemeArc(slide, T);

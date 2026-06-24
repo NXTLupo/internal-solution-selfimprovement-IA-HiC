@@ -13,10 +13,10 @@ triggers:
   - deck
   - presentation
   - "#slide"
-  - theme-spotlight
+  - theme-overview
+  - theme-detail
   - theme-arc
   - theme-mosaic
-  - theme-cluster
   - case-study
   - case study
   - recommendation
@@ -56,8 +56,8 @@ Both brands share the same 16:9 canvas, same 18 templates, same typography ladde
 |---|----------|------------|------------------------|
 | 01 | persona-card | Customer archetype with JTBD | — (existing schema) |
 | 02 | recommendation | Single strategic action | **impactGrid** (baseline/target/timeframe/owner), **evidence[]**, **implication** |
-| 03 | theme-cluster | 3-4 equal-weight themes | per-theme **implication**, **signal** |
-| 03a | theme-spotlight | 1 hero + 2-3 supporting themes | **patternSignal**, per-supporting **signal**, hero **implication** |
+| 03 | theme-overview | 3-4 themes, Figma GOLD 590:9 grid (DEFAULT) | per-theme **dominance** (DOMINANT/RECURRING), **mood**, **subthemes[]**, **tension**; slide **takeaway** band |
+| 03a | theme-detail | ONE theme deep-dive, Figma GOLD 590:11 | **quotes[]** (convergent evidence), **whatItMeans**, **subthemes[]**, **tension**, **convergenceLabel**, **dominance**, **mood**; slide **takeaway** |
 | 03b | theme-arc | 3-4 themes in narrative chain | per-step **signal**, cluster **patternSignal** |
 | 03c | theme-mosaic | 2x2 grid, 4 parallel themes — **REDESIGNED** ivory surface, hairline rules, chartreuse accent only on primary cell | per-cell **signal**, cluster **patternSignal** |
 | 04 | competitive-matrix | Capability scoring 1-5 | — |
@@ -73,7 +73,7 @@ Both brands share the same 16:9 canvas, same 18 templates, same typography ladde
 | 14 | prd-feature | MoSCoW feature specs | — |
 | 15 | systems-inventory | Tech audit register | — |
 
-When the user requests multiple slides on themes, ROTATE through theme-cluster, theme-spotlight, theme-arc, and theme-mosaic — variety reads as designerly, repetition reads as templated. Pick the layout that matches the evidence shape, not the one that's easiest.
+When the user requests multiple slides on themes, ROTATE through theme-overview, theme-detail, theme-arc, and theme-mosaic — variety reads as designerly, repetition reads as templated. Pick the layout that matches the evidence shape, not the one that's easiest. (theme-cluster / theme-spotlight are DEPRECATED aliases of theme-overview / theme-detail; the four Figma-backed theme layouts above are the canon. Do not emit the alias names.)
 
 ## Universal contract (every template)
 

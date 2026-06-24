@@ -19,6 +19,7 @@ import {
 import {
     PersonaCardSlide, RecommendationSlide, ThemeClusterSlide,
     ThemeSpotlightSlide, ThemeArcSlide, ThemeMosaicSlide,
+    ThemeOverviewSlide, ThemeDetailSlide,
     CompetitiveMatrixSlide, BlockQuoteSlide, PrinciplesSlide,
     StatRowSlide, TimelineSlide, GapMatrixSlide, ArchitectureMapSlide,
     PrdFeatureSlide, SystemsInventorySlide,
@@ -135,13 +136,23 @@ function renderTemplate(slide: SlideData, isGenerating: boolean): React.ReactNod
             return slide.recommendation ? (
                 <RecommendationSlide title={slide.title} density={slide.density} data={slide.recommendation} sources={sources} brand={brand} />
             ) : null;
+        case 'theme-overview':
+            return slide.themeCluster ? (
+                <ThemeOverviewSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
+            ) : null;
+        case 'theme-detail':
+            return slide.themeCluster ? (
+                <ThemeDetailSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
+            ) : null;
+        // theme-cluster/theme-spotlight have NO Figma component (2026-06-23 audit); they ALIAS to
+        // the Figma-faithful overview/detail twins so legacy emissions still render on-canon.
         case 'theme-cluster':
             return slide.themeCluster ? (
-                <ThemeClusterSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
+                <ThemeOverviewSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
             ) : null;
         case 'theme-spotlight':
             return slide.themeCluster ? (
-                <ThemeSpotlightSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
+                <ThemeDetailSlide title={slide.title} density={slide.density} data={slide.themeCluster} sources={sources} brand={brand} />
             ) : null;
         case 'theme-arc':
             return slide.themeCluster ? (

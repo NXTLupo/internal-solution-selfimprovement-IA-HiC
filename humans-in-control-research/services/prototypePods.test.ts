@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { sliceManifestForCategories, assembleAppFromPods } from './prototypeBuilder';
+import { sliceManifestForCategories, assembleAppFromPods, extractManifestProtoIds } from './prototypeBuilder';
 
 // 2026-06-16 - Track the deterministic seams of the multi-agent #proto pod build.
 // The LLM stages (orchestrator, pods, reviewer) need a live run to validate; these
@@ -90,5 +90,37 @@ describe('assembleAppFromPods', () => {
         expect(() => assembleAppFromPods(shell as any, [
             { id: 'a', code: '   ', engine: 'x', patterns_used: [] },
         ])).toThrow(/no pod produced code/);
+    });
+});
+
+describe('extractManifestProtoIds (#proto fidelity ground truth)', () => {
+    const M = [
+        '## AI-CHAT category',
+        '### proto/Composer  (NXT 404:2 / NU 332:2)',
+        'spec mentions proto/ChatMessage inline and proto/Reasoning.',
+        '## DATA DISPLAY',
+        '### proto/List',
+        '### proto/Card',
+    ].join('\n');
+
+    it('extracts proto/<Name> ids from headings AND inline prose', () => {
+        const ids = extractManifestProtoIds(M);
+        expect(ids.has('proto/Composer')).toBe(true);
+        expect(ids.has('proto/ChatMessage')).toBe(true); // inline mention counts
+        expect(ids.has('proto/Reasoning')).toBe(true);
+        expect(ids.has('proto/List')).toBe(true);
+        expect(ids.has('proto/Card')).toBe(true);
+    });
+
+    it('a declared component absent from the manifest is INVENTED (the fidelity check)', () => {
+        const ids = extractManifestProtoIds(M);
+        const declared = ['proto/Composer', 'proto/List', 'proto/Frobnicator', 'p-42'];
+        const invented = declared.filter(p => !ids.has(p));
+        expect(invented).toEqual(['proto/Frobnicator', 'p-42']);
+    });
+
+    it('does not match a bare "proto/" or lowercase noise', () => {
+        const ids = extractManifestProtoIds('proto/ lowercase proto/widget PROTO/Thing');
+        expect(ids.size).toBe(0); // requires proto/ + UpperCamel
     });
 });

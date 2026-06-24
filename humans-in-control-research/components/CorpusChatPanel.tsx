@@ -19,6 +19,7 @@ import {
     type ChatMessage, type ChatModel, type ChatContext, type SkillManifestEntry,
 } from '../services/corpusChatService';
 import { NxtBlockRenderer, parseNxtBlocks, type NxtBlock } from './NxtOutputRenderer';
+import { ChatProse } from './ChatProse';
 import { DeliverableBatch, type DeliverableItem, type DeliverableType } from './DeliverableCard';
 import SlideCanvas, { type SlideData } from './SlideCanvas';
 import { detectBrandFromText, getBrand, type BrandId } from './slideTemplates/brands';
@@ -1275,11 +1276,26 @@ const PrototypeLaunchCard: React.FC<{
         setExporting(true);
         setExportError('');
         try {
-            const [{ getPrototype }, { exportPrototypeAsZip }] = await Promise.all([
+            const [libMod, expMod] = await Promise.all([
                 safeDynamicImport(() => import('../services/prototypeLibrary'), 'prototypeLibrary (zip export)'),
                 safeDynamicImport(() => import('../services/prototypeExporter'), 'prototypeExporter'),
             ]);
+            // Defensive: a stale page (older bundle after an app update) can resolve a
+            // dynamic import to a module whose expected export is missing. Destructuring
+            // straight off it would crash with a cryptic "Cannot read properties of
+            // undefined (reading 'exportPrototypeAsZip')". Guard + give clear recovery.
+            const getPrototype = (libMod as any)?.getPrototype;
+            const exportPrototypeAsZip = (expMod as any)?.exportPrototypeAsZip;
+            if (typeof getPrototype !== 'function' || typeof exportPrototypeAsZip !== 'function') {
+                throw new Error(
+                    'Export tooling could not load — this tab is likely running an older app version. ' +
+                    'Click "Save Session" in the header, then hard-refresh (Ctrl+Shift+R) and reopen from "Continue Session".'
+                );
+            }
             const artifact = await getPrototype(meta.slug);
+            if (!artifact || !artifact.code) {
+                throw new Error(`Prototype "${meta.slug}" has no saved code to export (try re-opening it, or rebuild).`);
+            }
             await exportPrototypeAsZip({
                 title: artifact.title || meta.title || meta.slug,
                 slug: meta.slug,
@@ -7201,10 +7217,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             clean = clean.replace(/:::slide\n[\s\S]*?:::/g, '');
             clean = clean.replace(/```json\s*[\s\S]*?```/g, '');
         }
-        // Light markdown cleanup
-        clean = clean.replace(/^#{1,4}\s+/gm, '');
-        clean = clean.replace(/\*\*([^*]+)\*\*/g, '$1');
-        clean = clean.replace(/\*([^*]+)\*/g, '$1');
+        // 2026-06-23 - DO NOT flatten markdown anymore. The chat path now renders
+        // structured prose through <ChatProse>, which parses headings/bold/lists. The
+        // old strip (removing `##` and `**`) is exactly what produced the unreadable
+        // 11px text wall. We only collapse excess blank lines.
         clean = clean.replace(/\n{3,}/g, '\n\n');
         return clean.trim();
     };
@@ -7275,7 +7291,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             </div>
 
             {/* Messages */}
-            <div ref={messagesScrollRef} style={{ flex: 1, overflowY: 'auto', padding: '12px 16px', display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <div ref={messagesScrollRef} style={{ flex: 1, overflowY: 'auto', padding: '16px 16px 24px', display: 'flex', flexDirection: 'column', gap: 16, background: '#FAFAF7' }}>
                 {messages.length === 0 && (
                     <div style={{ textAlign: 'center', padding: '16px 0' }}>
                         <div style={{ fontSize: 12, fontWeight: 600, color: '#333', marginBottom: 6 }}>Ask anything about your research data</div>
@@ -7317,11 +7333,23 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     );
                 })()}
 
-                {messages.map(msg => {
+                {messages.map((msg, _msgIdx) => {
                     // Find deliverables/slides associated with this message
                     const msgDels = deliverables.filter(d => d.model === msg.model && Math.abs(d.timestamp - msg.timestamp) < 5000);
                     const msgSlides = slides.filter(s => s.model === msg.model && Math.abs(s.timestamp - msg.timestamp) < 5000);
                     const hasCards = msgDels.length > 0 || msgSlides.length > 0;
+                    // COUNT-CONSISTENCY: if the user message that prompted this reply asked for an
+                    // explicit count ("10 steps", "top 5 ways"), render the reply as ONE consistently
+                    // numbered list regardless of how the flaky model formatted it.
+                    let _forceOrdered = false;
+                    if (msg.role === 'assistant') {
+                        for (let k = _msgIdx - 1; k >= 0; k--) {
+                            if (messages[k].role === 'user') {
+                                _forceOrdered = /\b\d{1,2}\s+(steps?|items?|ways?|points?|reasons?|phases?|tips?|examples?|factors?|stages?|things?|principles?|tactics?|plays?)\b/i.test(messages[k].content || '');
+                                break;
+                            }
+                        }
+                    }
 
                     return (
                         <div key={msg.id} style={{ alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: msg.role === 'user' ? '80%' : '100%' }}>
@@ -7335,11 +7363,19 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                 </div>
                             )}
                             <div style={{
-                                padding: '8px 12px',
-                                background: msg.role === 'user' ? '#0D0D0D' : '#F5F5F0',
-                                color: msg.role === 'user' ? '#FFFFFF' : '#333',
-                                fontSize: 11, lineHeight: 1.6, whiteSpace: 'pre-wrap',
-                                borderLeft: msg.role === 'assistant' ? `3px solid ${AVAILABLE_MODELS.find(m => m.id === msg.model)?.color || '#888'}` : 'none',
+                                // 2026-06-23 - assistant replies get a roomy card (the "spacing is
+                                // terrible" / "chat UI so awful vs the theme cards" fix): generous
+                                // padding, white surface, soft border + radius like a GOLD card. User
+                                // turns stay a tight dark bubble. ChatProse owns its own type/rhythm.
+                                padding: msg.role === 'assistant' ? '16px 18px' : '8px 12px',
+                                background: msg.role === 'user' ? '#0D0D0D' : '#FFFFFF',
+                                color: msg.role === 'user' ? '#FFFFFF' : '#33332E',
+                                fontSize: msg.role === 'assistant' ? 13.5 : 11,
+                                lineHeight: 1.6,
+                                whiteSpace: msg.role === 'assistant' ? 'normal' : 'pre-wrap',
+                                border: msg.role === 'assistant' ? '1px solid #E4E4DC' : 'none',
+                                borderLeft: msg.role === 'assistant' ? `3px solid ${AVAILABLE_MODELS.find(m => m.id === msg.model)?.color || '#B8B800'}` : 'none',
+                                borderRadius: msg.role === 'assistant' ? '2px' : 0,
                             }}>
                                 {msg.role === 'assistant' && isProcessingPlaceholder(msg.content) && (
                                     <LiveProcessingIndicator
@@ -7361,33 +7397,35 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                     if (!cleaned) return null;
                                     // Parse NXT visual blocks
                                     const nxtSegments = parseNxtBlocks(cleaned);
+                                    // 2026-06-23 - renderRun: a single inline text fragment -> citation
+                                    // links + #proto chips. ChatProse calls this for every prose run so
+                                    // structure (headings/bold/lists) AND citations both render.
+                                    const renderRun = (runText: string, keyB: string): React.ReactNode => {
+                                        const { segments: cits } = parseChatCitations(runText, (getContext ? getContext() : context).sourceReferences);
+                                        return cits.map((c, ci) => {
+                                            if (c.type === 'citation') {
+                                                return c.url ? (
+                                                    <a key={`${keyB}-${ci}`} href={c.url} target="_blank" rel="noopener noreferrer" style={{ color: '#115054', background: '#E8F4F5', padding: '1px 5px', textDecoration: 'none', fontSize: 10, fontWeight: 600, borderBottom: '1px solid #00B7C3' }}>
+                                                        {c.sourceName}: "{c.title?.substring(0, 40)}{(c.title?.length || 0) > 40 ? '...' : ''}"
+                                                    </a>
+                                                ) : (
+                                                    <span key={`${keyB}-${ci}`} style={{ color: '#115054', background: '#F0F0E8', padding: '1px 5px', fontSize: 10, fontWeight: 600 }}>
+                                                        {c.sourceName}: "{c.title?.substring(0, 40)}{(c.title?.length || 0) > 40 ? '...' : ''}"
+                                                    </span>
+                                                );
+                                            }
+                                            return <span key={`${keyB}-${ci}`}>{renderProtoChips(c.content, (text) => {
+                                                setInput(text);
+                                                setTimeout(() => inputRef.current?.focus(), 50);
+                                            })}</span>;
+                                        });
+                                    };
                                     return nxtSegments.map((seg, si) => {
                                         if (seg.type === 'nxt-block' && seg.block) {
                                             return <div key={si} style={{ margin: '8px 0' }}><NxtBlockRenderer block={seg.block} /></div>;
                                         }
-                                        // Plain text with citation parsing
-                                        const { segments: cits } = parseChatCitations(seg.content, (getContext ? getContext() : context).sourceReferences);
-                                        return (
-                                            <span key={si}>{cits.map((c, ci) => {
-                                                if (c.type === 'citation') {
-                                                    return c.url ? (
-                                                        <a key={ci} href={c.url} target="_blank" rel="noopener noreferrer" style={{ color: '#115054', background: '#E8F4F5', padding: '1px 5px', textDecoration: 'none', fontSize: 10, fontWeight: 600, borderBottom: '1px solid #00B7C3' }}>
-                                                            {c.sourceName}: "{c.title?.substring(0, 40)}{(c.title?.length || 0) > 40 ? '...' : ''}"
-                                                        </a>
-                                                    ) : (
-                                                        <span key={ci} style={{ color: '#115054', background: '#F0F0E8', padding: '1px 5px', fontSize: 10, fontWeight: 600 }}>
-                                                            {c.sourceName}: "{c.title?.substring(0, 40)}{(c.title?.length || 0) > 40 ? '...' : ''}"
-                                                        </span>
-                                                    );
-                                                }
-                                                // 2026-05-11 - Detect `#proto ...` backtick commands and turn
-                                                // them into clickable chips that pre-fill the input.
-                                                return <span key={ci}>{renderProtoChips(c.content, (text) => {
-                                                    setInput(text);
-                                                    setTimeout(() => inputRef.current?.focus(), 50);
-                                                })}</span>;
-                                            })}</span>
-                                        );
+                                        // Structured prose (headings, bold, lists) with inline citations + chips.
+                                        return <ChatProse key={si} text={seg.content} renderRun={renderRun} forceOrderedList={_forceOrdered} />;
                                     });
                                 })() : msg.content}
                                 {/* Inline image */}

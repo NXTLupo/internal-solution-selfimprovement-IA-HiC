@@ -9,8 +9,10 @@
 export type SlideTemplate =
     | 'persona-card'        // persona-architect
     | 'recommendation'      // strategy-author
-    | 'theme-cluster'       // theme-analyst - equal-weight horizontal columns (3-4 themes)
-    | 'theme-spotlight'     // theme-analyst - hero theme + 2-3 supporting (asymmetric)
+    | 'theme-overview'      // theme-analyst - Figma GOLD themes overview (590:9): 4-col theme grid + dominance/mood/subthemes/tension + accent takeaway band
+    | 'theme-detail'        // theme-analyst - Figma GOLD theme detail (590:11): one theme deep-dive, convergent-evidence column + WHAT IT MEANS / sub-themes / tension
+    | 'theme-cluster'       // theme-analyst - equal-weight horizontal columns (3-4 themes) [renderer-only, ALIAS of theme-overview]
+    | 'theme-spotlight'     // theme-analyst - hero theme + 2-3 supporting (asymmetric) [renderer-only, ALIAS of theme-detail]
     | 'theme-arc'           // theme-analyst - narrative chain with progression connectors
     | 'theme-mosaic'        // theme-analyst - 2x2 inverse-checkerboard grid (4 parallel themes)
     | 'competitive-matrix'  // competitive-analyst
@@ -167,10 +169,30 @@ export interface ThemeClusterData {
          *  "Central Pennsylvania Food Bank: 10% wallet adoption"). Used by
          *  theme-arc and theme-cluster to tag each step. */
         signal?: string;
+        /** GOLD theme-overview/theme-detail (Figma 590:9 / 590:11) ENRICHMENT.
+         *  All optional; the renderer degrades gracefully when absent so legacy
+         *  theme JSON still renders. Mirror of the real Figma component anatomy:
+         *  - dominance: the prevalence pill ('DOMINANT' = filled accent pill;
+         *    'RECURRING' = hairline pill).
+         *  - mood: one lowercase affect word beside the pill (impatient, exhausted).
+         *  - subthemes: short chip labels (3-4 words each).
+         *  - tension: the rust left-border one-liner naming the conflict.
+         *  - whatItMeans (theme-detail right column): the interpretation paragraph.
+         *  - convergenceLabel (theme-detail): the hairline pill text, e.g.
+         *    "CONVERGENT ACROSS THREE SOURCE TYPES". */
+        dominance?: 'DOMINANT' | 'RECURRING';
+        mood?: string;
+        subthemes?: string[];
+        tension?: string;
+        whatItMeans?: string;
+        convergenceLabel?: string;
     }>;
     /** Cross-theme pattern callout. Rendered under the hero quote on
      *  theme-spotlight, below the arc on theme-arc, as a footer on mosaic. */
     patternSignal?: string;
+    /** GOLD overview/detail accent takeaway band (Figma 590:9 / 590:11 bottom
+     *  band): the single synthesis line. Falls back to patternSignal if absent. */
+    takeaway?: string;
 }
 
 export interface CompetitiveMatrixData {
@@ -577,6 +599,8 @@ export interface SystemsInventoryData {
 export type TemplateData =
     | { template: 'persona-card'; data: PersonaCardData }
     | { template: 'recommendation'; data: RecommendationData }
+    | { template: 'theme-overview'; data: ThemeClusterData }
+    | { template: 'theme-detail'; data: ThemeClusterData }
     | { template: 'theme-cluster'; data: ThemeClusterData }
     | { template: 'competitive-matrix'; data: CompetitiveMatrixData }
     | { template: 'block-quote'; data: BlockQuoteData }
@@ -798,8 +822,10 @@ interface DensityCaps {
 const DENSITY_SPEC: Record<string, { base: DensityCaps; dense: DensityCaps }> = {
     'persona-card':       { base: { items: 3,  sub: 2 }, dense: { items: 5,  sub: 3 } },  // pains / motivations
     'recommendation':     { base: { items: 3,  sub: 2 }, dense: { items: 5,  sub: 4 } },  // actions / evidence
-    'theme-cluster':      { base: { items: 4,  sub: 2 }, dense: { items: 6,  sub: 3 } },  // themes / quotes per theme
-    'theme-spotlight':    { base: { items: 4,  sub: 2 }, dense: { items: 6,  sub: 3 } },  // 1 hero + supporting
+    'theme-overview':     { base: { items: 4,  sub: 3 }, dense: { items: 4,  sub: 4 } },  // 4-col Figma grid (590:9); sub = subtheme chips
+    'theme-detail':       { base: { items: 1,  sub: 3 }, dense: { items: 1,  sub: 4 } },  // 1 theme deep-dive (590:11); sub = convergent quotes
+    'theme-cluster':      { base: { items: 4,  sub: 2 }, dense: { items: 6,  sub: 3 } },  // themes / quotes per theme [ALIAS->overview]
+    'theme-spotlight':    { base: { items: 4,  sub: 2 }, dense: { items: 6,  sub: 3 } },  // 1 hero + supporting [ALIAS->detail]
     'theme-arc':          { base: { items: 4,  sub: 2 }, dense: { items: 5,  sub: 3 } },
     'theme-mosaic':       { base: { items: 4,  sub: 2 }, dense: { items: 4,  sub: 3 } },  // 2x2 fixed; dense = more quotes
     'competitive-matrix': { base: { items: 7,  sub: 6 }, dense: { items: 10, sub: 7 } },  // rows / columns

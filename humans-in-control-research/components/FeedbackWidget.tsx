@@ -111,6 +111,26 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
             setStage('submitted');
             setLastResult({ ok: true, id: result.id || undefined });
             setPriorCount(c => c + 1);
+            // 2026-06-23 - DURABLE LEARNING BRIDGE. Previously the FeedbackWidget path persisted a
+            // feedback EVENT but never ran the classifier that promotes a correction into a learned
+            // constraint - so a high-value "rule" (e.g. "exclude the meta-commentary") only ever
+            // applied to the one-shot regen and was forgotten. The classifier was wired ONLY on the
+            // inline next-message path. Now BOTH "Save for Next Time" and "Apply Now" feed it: a
+            // 'rule' (confidence >= 0.75) bypasses the 5-occurrence threshold and persists immediately.
+            if (signal_type === 'text' && (extra.text_value || '').trim()) {
+                void (async () => {
+                    try {
+                        const { classifyMessage } = await import('../services/chatFeedbackExtractor');
+                        const signal = await classifyMessage(String(extra.text_value), '', 'analyst', deliverable_type);
+                        if (signal) {
+                            const { logChatFeedback } = await import('../services/promptImprovementEngine');
+                            logChatFeedback(signal);
+                        }
+                    } catch (err) {
+                        console.warn('[FeedbackWidget] durable-learning bridge failed (non-blocking):', err);
+                    }
+                })();
+            }
             // 2026-05-23 - Trigger the learning pass IMMEDIATELY after every
             // feedback submit. This closes the loop that was previously
             // dev-console-only. Result is rendered as visible evidence so the

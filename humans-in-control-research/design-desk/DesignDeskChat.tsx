@@ -17,6 +17,7 @@ const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
 
 import { useDesignDeskStore } from './store/designDeskStore';
 import FeedbackWidget from '../components/FeedbackWidget';
+import { ChatProse } from '../components/ChatProse';
 import { regenerateWithFeedback } from '../services/feedbackRegeneration';
 import type { DesignTokens } from './services/designMdLoader';
 import { loadDesignContext, subscribeDesignContext, buildCombinedEvidence, type DesignContext } from './services/designContext';
@@ -572,12 +573,22 @@ export const DesignDeskChat: React.FC<Props> = ({ designMdRaw, corpusText: corpu
                             gap: 4,
                         }}>
                             <div style={{
-                                padding: '8px 12px', fontSize: 13, lineHeight: 1.5,
+                                padding: isAssistant ? '16px 18px' : '8px 12px',
+                                fontSize: isAssistant ? 13.5 : 13, lineHeight: 1.6,
                                 background: m.role === 'user' ? '#0D0D0D' : '#FFFFFF',
-                                color: m.role === 'user' ? '#FFFFFF' : '#333',
-                                border: m.role === 'system' ? '1px solid #E0E0E0' : 'none',
-                                whiteSpace: 'pre-wrap',
-                            }}>{m.content}</div>
+                                color: m.role === 'user' ? '#FFFFFF' : '#33332E',
+                                border: isAssistant ? '1px solid #E4E4DC' : (m.role === 'system' ? '1px solid #E0E0E0' : 'none'),
+                                borderLeft: isAssistant ? '3px solid #B8B800' : undefined,
+                                borderRadius: isAssistant ? 2 : 0,
+                                whiteSpace: isAssistant ? 'normal' : 'pre-wrap',
+                            }}>
+                                {/* 2026-06-23 - assistant replies render as STRUCTURED prose
+                                    (headings/bold/lists) via ChatProse instead of a pre-wrap text
+                                    wall; user/system bubbles stay verbatim. */}
+                                {isAssistant && typeof m.content === 'string'
+                                    ? <ChatProse text={m.content} size={13} />
+                                    : m.content}
+                            </div>
                             {isAssistant && (
                                 <FeedbackWidget
                                     engagement_slug={engagementSlug}

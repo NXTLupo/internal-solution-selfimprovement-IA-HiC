@@ -323,6 +323,31 @@ const META_NARRATION_PATTERNS = [
     // "At the end of the day", "at the heart of it" - empty filler
     /\bat\s+the\s+end\s+of\s+the\s+day\b/i,
     /\bat\s+the\s+heart\s+of\s+(it|this|the\s+matter)\b/i,
+
+    // ════════════════════════════════════════════════════════════════════════
+    // 2026-06-23 - CORPUS / PIPELINE / SELF-REFERENCE META (chat #slides escape).
+    // The Analyst-Desk #slides reply shipped these because the chat path ran no
+    // meta strip. The model narrates the CORPUS ("the corpus names no second PE
+    // firm"), the GENERATION PIPELINE ("ingest X before the next pass"), what it
+    // CAN/CANNOT build, and points at the deck itself. The reader sees a finished
+    // artifact, never the model's awareness of its corpus, its limits, or its run.
+    // ════════════════════════════════════════════════════════════════════════
+    // "the corpus names/contains/holds/includes/lacks/has no ..." (corpus as subject)
+    /\bthe\s+(collected\s+|external\s+|research\s+|available\s+|broader\s+|vendor\s+|assembled\s+)?corpus\s+(names?|contains?|holds?|includes?|lacks?|has|shows?|reveals?|surfaces?|documents?|evidences?|offers?|provides?|yields?)\b/i,
+    // "excluding/aside from X, the corpus/record/dataset names no ..." (the exact Gen-2 tell)
+    /\b(excluding|aside from|apart from|other than|beyond)\s+[A-Z][\w-]+,?\s+the\s+(corpus|record|dataset|data|evidence|sources?)\b/i,
+    // pipeline next-steps: "to verify/confirm ..., ingest/add/collect/run ... before the next pass/run/iteration"
+    /\bbefore\s+the\s+next\s+(pass|run|iteration|cycle|generation)\b/i,
+    /\b(ingest|add|collect|gather|source|pull in|feed in|load)\s+[^.]*\b(before|so|to)\s+(the\s+)?(next|verify|confirm|validate|close the gap)/i,
+    // "what I can build instead is ..." / "what the corpus does/doesn't evidence is ..."
+    /\bwhat\s+(I|we)\s+can\s+(build|do|offer|produce|provide)\s+(instead|here|is)\b/i,
+    /\bthe\s+(slides?|deck|charts?|sections?)\s+(below|above|that follow|here)\s+(frame|show|cover|present|lay out|capture)\b/i,
+    // self-ref to "stated honestly on the deck" / "flagged on the deck" / "noted on the slide"
+    /\b(stated|flagged|noted|called out|surfaced|disclosed)\s+(honestly\s+)?(on|in)\s+the\s+(deck|slide|page|report|brief)\b/i,
+    // "the evidence/research documents/names X" with the non-"shows" verbs the rewrites miss
+    /\bthe\s+(evidence|research|corpus|data|literature)\s+(documents?|names?|catalog(s|ues?)?|records?|captures?|notes?)\b/i,
+    // evidence/data "gap" as the SUBJECT of a slide field (the Gen-2 "evidence gap to close" agenda item)
+    /\bthe\s+(evidence|data|research|named[\w-]*)\s+gap\s+to\s+close\b/i,
 ];
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -630,6 +655,10 @@ const PROCESS_REFERENCE_REWRITES: Array<{ pattern: RegExp; preserveGroup: 1 | 2 
     { pattern: /\b[Dd]rawing on (?:the |our )?(?:research|analysis|data|evidence|findings|sources|corpus|literature)[^,.]*,\s*([a-z].*)/g, preserveGroup: 1 },
     // "(Research|Studies|Sources) (show|indicate|...) (that )? Y" → Y
     { pattern: /\b(?:[Rr]esearch|[Ss]tudies|[Ss]ources|[Ee]vidence|[Dd]ata|[Ff]indings)\s+(?:show|shows|showed|indicate|indicates|indicated|reveal|reveals|revealed|suggest|suggests|suggested|confirm|confirms|confirmed)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    // 2026-06-23 - "The evidence/research documents/names/records Y" (verbs the set above missed) → Y
+    { pattern: /\b[Tt]he (?:research|data|analysis|corpus|evidence|literature) (?:documents?|names?|records?|catalogs?|catalogues?|captures?|notes?)\s+(?:that\s+)?([a-z].*)/g, preserveGroup: 1 },
+    // 2026-06-23 - artifact self-label opener "A case study: Y" / "This playbook: Y" → Y (keep the subject)
+    { pattern: /\b(?:[Aa]|[Tt]his|[Tt]he following|[Tt]he present)\s+(?:case\s+study|playbook|report|analysis|brief|deck|deep[\s-]?dive|write[\s-]?up)\s*[:\-]\s*([a-z].*)/g, preserveGroup: 1 },
 ];
 
 /**
@@ -653,6 +682,96 @@ export function stripProcessReferences(text: string): string {
     }
     // Collapse double spaces / orphan punctuation produced by replacements.
     return cleaned.replace(/\s+([.,;!?])/g, '$1').replace(/\s{2,}/g, ' ').trim();
+}
+
+// 2026-06-23 - CHAT-REPLY META SCRUB (fixes the Analyst-Desk #slides escape).
+// The chat finalizer ran only stripQAAnnotations + stripFormatTells, so meta-narration
+// in the conversational PREAMBLE and inside :::slide JSON FIELDS shipped unfiltered
+// (removeMetaNarration / stripProcessReferences both bail or over-reach on fenced JSON:
+// removeMetaNarration short-circuits on ':::', and the prefix-rewrites' greedy `.*`
+// would eat the rest of a single-line slide JSON object). This scrubber is FENCE-AWARE:
+//   - prose-only replies (no fences): full sentence-level sweep is safe.
+//   - #slides replies: drop pre/post-fence prose (the protocol forbids prose outside
+//     fences) then run ONLY BOUNDED ([^."}] / [^)]) field-level deletions that strip the
+//     meta clause from inside a string value WITHOUT touching JSON structure.
+// Every pattern is curated from a real escape (chat-2026-06-23): corpus-as-subject,
+// pipeline-next-steps, deck self-reference, evidence-documents, tool-as-source, and the
+// "A case study:" artifact self-label.
+const CHAT_FENCE_META_STRIPS: Array<{ pattern: RegExp; replace: string }> = [
+    // "Excluding Medforth, the corpus names no second PE firm with a documented playbook."
+    { pattern: /\b(?:excluding|aside from|apart from|other than)\s+[A-Z][\w-]+,?\s+the\s+(?:corpus|record|dataset|data|evidence|sources?)\b[^."}]*\.?/gi, replace: '' },
+    // "the (collected) corpus names/contains/holds/lacks ... <to sentence end or value end>"
+    { pattern: /\bthe\s+(?:collected\s+|external\s+|research\s+|available\s+|broader\s+|assembled\s+|vendor\s+)?corpus\s+(?:names?|contains?|holds?|includes?|lacks?|has|surfaces?|documents?|evidences?)\b[^."}]*\.?/gi, replace: '' },
+    // pipeline next-steps: any clause that ends in "before the next pass/run/iteration"
+    { pattern: /[^."}]*\bbefore\s+the\s+next\s+(?:pass|run|iteration|cycle|generation)\b\.?/gi, replace: '' },
+    // "to verify these plays..., ingest/add/collect ... case studies" (pipeline self-instruction)
+    { pattern: /\bto\s+(?:verify|confirm|validate)\b[^."}]*\b(?:ingest|add|collect|gather|source|pull in|load)\b[^."}]*\.?/gi, replace: '' },
+    // "What I/we can build instead is ..."
+    { pattern: /\bwhat\s+(?:I|we)\s+can\s+(?:build|do|offer|produce|provide)\s+(?:instead|here)?\s*is\b[^."}]*\.?/gi, replace: '' },
+    // "The slides/deck below frame/show/cover ..."
+    { pattern: /\b(?:the\s+)?(?:slides?|deck|charts?|sections?)\s+(?:below|above|that follow|here)\s+(?:frame|show|cover|present|lay out|capture)\b[^."}]*\.?/gi, replace: '' },
+    // "..., with the named-PE-firm gap stated honestly on the deck"
+    { pattern: /,?\s*(?:with|and)?\s*[^.",}]*\bstated\s+(?:honestly\s+)?(?:on|in)\s+the\s+(?:deck|slide|page|report|brief)\b\.?/gi, replace: '' },
+    // "the evidence/research documents/names" PHRASE (Gen-3 "two failure modes the evidence documents")
+    { pattern: /\bthe\s+(?:evidence|research|corpus|data|literature)\s+(?:documents?|names?|records?|catalog(?:s|ues?)?|captures?|notes?)\b/gi, replace: '' },
+    // tool/model leaked as a source: "(gemini focused research)", "(claude deep research)"
+    { pattern: /\s*\((?:gemini|claude|gpt|gpt-?\d[\w.-]*|openai|deepseek|chatgpt|llm|ai)\b[^)]*\)/gi, replace: '' },
+    // artifact self-label opener "A case study: ", "This playbook - " -> keep the subject that follows
+    { pattern: /\b(?:a|this|the following|the present)\s+(?:case\s+study|playbook|report|analysis|brief|deck|deep[\s-]?dive|write[\s-]?up)\s*[:\-]\s*/gi, replace: '' },
+];
+
+/**
+ * Fence-aware meta/process scrub for a chat reply (the surface corpusChatService renders).
+ * Safe to run on a reply that mixes prose and :::slide JSON fences.
+ */
+export function scrubChatReplyMeta(text: string): string {
+    if (!text) return text;
+
+    if (text.includes(':::slide')) {
+        let out = text;
+        // 1. Drop a protocol-violating PREAMBLE (any prose before the first fence).
+        const first = out.indexOf(':::slide');
+        if (first > 0) out = out.slice(first);
+        // 2. Drop a trailing POSTAMBLE (prose after the final closing ':::' that isn't JSON).
+        const lastClose = out.lastIndexOf(':::');
+        if (lastClose >= 0) {
+            const tail = out.slice(lastClose + 3);
+            if (tail.trim().length > 0 && !tail.includes('{')) out = out.slice(0, lastClose + 3);
+        }
+        // 3. BOUNDED in-field deletions (never cross a '"' or '}', so JSON stays valid).
+        for (const { pattern, replace } of CHAT_FENCE_META_STRIPS) out = out.replace(pattern, replace);
+        // 4. Tidy artifacts left inside values (whitespace before punctuation, doubled
+        //    separators, leading/trailing space inside a value). All JSON-safe.
+        out = out
+            .replace(/\s+([,.;:!?])/g, '$1')
+            .replace(/([,;])\s*([,;])/g, '$1')
+            .replace(/"\s{2,}/g, '"')
+            .replace(/\s{2,}"/g, ' "')
+            .replace(/\s{2,}/g, ' ');
+        return out;
+    }
+
+    // Plain-prose reply: scrub meta/process slop WHILE PRESERVING BLOCK STRUCTURE.
+    // 2026-06-23 - CRITICAL: removeMetaNarration() does sentences.join(' ') and
+    // stripProcessReferences() collapses \s{2,} -> ' ', so running them over the whole
+    // reply FLATTENS every newline into one line - which is exactly why a Markdown-
+    // structured chat answer (## headers, - bullets on their own lines) rendered as one
+    // run-on paragraph with inline "## 1." markers. Process LINE BY LINE so the line
+    // breaks that carry the structure survive to <ChatProse>. Structural lines (headers,
+    // bullets, numbered, blockquote, rules, blanks) pass through verbatim; only prose
+    // lines get the sentence-level sweep.
+    const STRUCTURAL = /^\s*(?:#{1,4}\s|[-*+]\s|\d+[.)]\s|>\s|([-*_])\1{2,}\s*$)/;
+    const lines = text.replace(/\r\n/g, '\n').split('\n');
+    const scrubbed = lines.map(line => {
+        if (!line.trim()) return '';                 // keep blank lines (paragraph breaks)
+        if (STRUCTURAL.test(line)) return line;       // keep headers/bullets/quotes verbatim
+        let p = stripProcessReferences(line);
+        p = removeMetaNarration(p);                   // safe on a single prose line
+        p = deClicheText(p);
+        return p;
+    });
+    // Collapse 3+ consecutive blank lines to a single paragraph break; trim ends.
+    return scrubbed.join('\n').replace(/\n{3,}/g, '\n\n').trim();
 }
 
 // ============================================================

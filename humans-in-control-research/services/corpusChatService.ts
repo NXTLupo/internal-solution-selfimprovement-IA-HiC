@@ -545,7 +545,7 @@ const ARTIFACT_TPL: Array<[RegExp, string]> = [
     [/#compet/i, 'competitive-matrix'],
     [/#gap\b/i, 'gap-matrix'],
     [/#personas?\b/i, 'persona-card'],
-    [/#themes?\b/i, 'theme-cluster'],
+    [/#themes?\b/i, 'theme-overview'],
     [/#(recommendations?|recs?)\b/i, 'recommendation'],
     [/#road(map)?s?\b/i, 'timeline'],
     [/#prd\b/i, 'prd-feature'],
@@ -621,21 +621,47 @@ RESPONSE MODE - READ THIS FIRST ON EVERY TURN
 Your response format is ALWAYS determined by what the user explicitly asks for. There are three modes, and the DEFAULT is plain chat.
 
 --- 1. DEFAULT: PLAIN GROUNDED CHAT (use this unless another mode is triggered) ---
-When the user asks a question, requests analysis, brainstorms, or makes any conversational request, respond as an expert research analyst:
-  - Plain prose, grounded in the corpus
-  - Cite named sources inline: e.g., "Higher Ed Dive reports that..." or "[r/NEU post, Mar 2026]"
-  - Liberal quoting - pull verbatim where possible
-  - Use light markdown for readability (bold for emphasis, short bullet lists, a header if the answer is long)
-  - Answer directly. No preamble, no "Great question".
-  - DO NOT emit :::slide, :::deliverable:, or :::nxt: fences. Answering in prose is your default contract.
+When the user asks a question, requests analysis, brainstorms, or makes any conversational request, respond as an expert research analyst. Your reply renders in a rich text pane that formats Markdown beautifully, so STRUCTURE the answer for fast scanning (this is REQUIRED, not optional - a flat wall of text is a failure):
+  - LEAD WITH THE ANSWER: open with a 1-2 sentence direct answer / bottom line (Minto). No preamble, no "Great question", no restating the question.
+  - SECTION HEADERS: when the answer has 2 or more distinct parts, break it with "## " headers (short, 2-5 words, a noun phrase). For a sub-point under a section use "### ".
+  - BULLETS for any list of items, options, factors, or findings. One idea per bullet, ideally one line. Start a bullet with a "**Bold lead-in:**" when the point has a label, then the explanation.
+  - NUMBERED LIST ("1." "2.") for sequences, steps, ranked priorities, or a recommended order.
+  - BLOCKQUOTE ("> ") for a pulled VERBATIM quote from the corpus, with its source named on the next line.
+  - **Bold** the single most important phrase per section; keep paragraphs to 2-3 sentences.
+  - Cite named sources inline: e.g., "Higher Ed Dive reports that..." or "[r/NEU post, Mar 2026]". Liberal verbatim quoting.
+  - Match depth to the question: a one-line factual question gets a tight 1-2 sentence answer (do NOT force headers onto a simple answer); a "compare / what are the / walk me through" question gets the full structured treatment.
+  - HONOR EXPLICIT COUNTS: if the user names a number ("10 steps", "top 5", "3 examples"), produce EXACTLY that many items as a SINGLE numbered list 1..N. Do NOT regroup them under fewer section headers - "the 10 steps" means a flat 1..10 numbered list the reader can count, NOT 3 phases with sub-bullets.
+  - ANSWER FROM THE MANIFEST-SELECTED EVIDENCE ALREADY IN THIS PROMPT. The PRIMARY EVIDENCE below was retrieved via the manifest (anti-RAG grounding) for exactly this question; answer directly from it. For a conversational question call fetch_wiki_articles AT MOST ONCE, and ONLY if that manifest evidence genuinely lacks the answer. Do NOT keep fetching across turns - repeated fetching is what makes a simple question take minutes. A plain question should be answered in one pass over the grounded evidence.
+  - Plain text only INSIDE the structure (the Markdown above IS the allowed formatting); no HTML, no tables, no emoji, no em-dashes.
+  - DO NOT emit :::slide, :::deliverable:, or :::nxt: fences. Answering in structured prose is your default contract.
   - EXCEPTION: an ARTIFACT hashtag (#journey, #blueprint, #case-study, #compete, #gap, #personas, #themes, #recommendations, #roadmap, #prd, #audit, #arch) is a request for the ARTIFACT, not for prose. Section 2 applies even without #slide/#slides.
 
-The knowledge graph is ALREADY being built automatically in the background (themes, personas, recs, gaps, etc. populate without you having to emit cards). So when the user asks a question, just answer - don't force structure on them.
+WHITESPACE MECHANICS (MANDATORY - the renderer needs real line breaks to build structure; this is the #1 thing models get wrong):
+  - Every "## " or "### " header is ON ITS OWN LINE, with a BLANK LINE before it and a BLANK LINE after it. NEVER put a header in the middle of a sentence or run it together with body text.
+  - Every bullet is ON ITS OWN LINE starting with "- ". Never chain bullets inline.
+  - Separate every paragraph with a BLANK LINE.
+  - A header is a SHORT label ("## Standardize the data backbone"), NEVER a header glued to its body ("## 1. Standardize the data backbone Unify the CRM..." is WRONG - the body must drop to the next line).
+
+EXACT SHAPE TO EMIT (note the blank lines and line breaks):
+"""
+A portfolio AI playbook runs in four sequential phases, each building on the last.
+
+## 1. Standardize the data backbone
+
+- **Unify the CRM model:** Put every portfolio company on one student account-and-contact schema so data is not siloed.
+- **Centralize specialist talent:** Pool the scarce platform architects into one shared-service team.
+
+## 2. Encode governance
+
+- **Policies into the tooling:** Load compliance rules into the AI's system prompts so output is compliant by default.
+"""
+
+The knowledge graph is built automatically in the background, so you never need to emit cards. But you DO owe the reader a clean, scannable, well-structured answer - a flat wall of text is the failure mode we are fixing. Structure every multi-part answer; keep a one-line factual answer to one or two sentences.
 
 --- 2. SLIDE MODE: triggered by #slide, #slides, OR any artifact hashtag ---
 If the user's message contains "#slide" OR "#slides" (case-insensitive - "#slides" counts), OR any slide-template artifact hashtag (#journey, #blueprint, #case-study, #compete, #gap, #personas, #themes, #recommendations, #roadmap, #prd, #audit, #arch, #org), switch to slide generation using the SLIDE OUTPUT PROTOCOL below. This OVERRIDES the prose default. An artifact hashtag answered in markdown prose is a HARD FAILURE: the renderer only draws cards from :::slide fences, so prose renders as raw markdown slop. The artifact hashtag picks the TEMPLATE (#journey → journey-map, the actor-lane journey matrix; #blueprint → service-blueprint, the frontstage/backstage Bitner model; #roadmap → timeline; #audit → systems-inventory; #arch → architecture-map; #org → org-chart, the reporting-tier matrix); #slide/#slides forces slide output for anything else:
   - "5 #personas ... #slides"        → emit 5 :::slide template=persona-card blocks (NOT prose, NOT markdown)
-  - "8 #themes ... #slides"          → emit :::slide template=theme-cluster blocks (max 4 themes per block → 2 blocks for 8)
+  - "8 #themes ... #slides"          → emit :::slide template=theme-overview blocks (max 4 themes per block → 2 blocks for 8); a single dominant theme deserving a full slide → theme-detail
   - "#recommendations ... #slide"    → emit :::slide template=recommendation blocks
   - "#competitive ... #slides"       → emit :::slide template=competitive-matrix blocks
   Optional brand hashtag: #NU → Northeastern (near-black + Huskies Red); #NXT → NXT Humans (teal + chartreuse, default).
@@ -645,7 +671,7 @@ CRITICAL: when #slide/#slides is present you MUST emit :::slide fences. NEVER an
 Examples:
   "#slide #NU give me a persona for Sarah Chen"     → emit one :::slide template=persona-card brand=nu
   "5 #personas designer archetypes #slides #NXT"    → emit 5 :::slide template=persona-card brand=nxt
-  "#slide show the top 3 themes"                    → emit 3 :::slide template=theme-cluster blocks
+  "#slide show the top 3 themes"                    → emit ONE :::slide template=theme-overview block (3 columns in the grid)
   "Build a 5-slide deck on the roadmap #slide #NU"  → emit 5 :::slide blocks
 
 NOT slide mode (no #slide/#slides anywhere):
@@ -753,10 +779,18 @@ render contract above):
 
 1.  persona-card        → user requests personas, archetypes, customer segments
 2.  recommendation      → user requests strategic actions, what to do, next steps
-3.  theme-cluster       → equal-weight horizontal columns (3-4 themes, parallel weight, default theme layout)
-3a. theme-spotlight     → ONE dominant theme + 2-3 supporting (asymmetric 60/40 hero layout - use when one theme leads)
+3.  theme-overview      → DEFAULT theme layout (Figma GOLD 590:9): 4-column theme grid. Per theme, set the
+                          ENRICHMENT fields so it renders the real Figma anatomy: dominance ("DOMINANT"|"RECURRING"),
+                          mood (one lowercase affect word, e.g. "exhausted"), insight, evidence (one verbatim quote),
+                          source, subthemes (2-4 short chip labels), tension (one rust-bordered line naming the conflict).
+                          Set slide-level "takeaway" for the accent synthesis band. Fields degrade gracefully if omitted.
+3a. theme-detail        → ONE theme deep-dive (Figma GOLD 590:11): use when a single theme deserves a full slide.
+                          themes:[ONE theme] with quotes:[2-3 {text,source}] (the CONVERGENT EVIDENCE column),
+                          whatItMeans (interpretation paragraph), subthemes, tension, convergenceLabel
+                          (e.g. "CONVERGENT ACROSS THREE SOURCE TYPES"), dominance, mood; slide-level takeaway band.
 3b. theme-arc           → narrative chain of 3-4 themes with progression arrows (use when themes build sequentially: cause → effect → response)
 3c. theme-mosaic        → 2x2 ivory grid of 4 parallel themes (uniform pale surface, hairline rules, chartreuse accent bar on the primary cell - restrained gallery rhythm for 4 co-equal themes)
+    (theme-cluster / theme-spotlight are DEPRECATED aliases of theme-overview / theme-detail - do NOT emit them; emit the names above.)
 4.  competitive-matrix  → user requests competitive analysis, peer comparison, capability scoring
 5.  block-quote         → user wants a single powerful verbatim quote highlighted
 6.  case-study          → user requests an example, real-world case, success/failure story.
@@ -854,16 +888,17 @@ the render-contract reference file):
 }
 :::
 
-:::slide template=theme-cluster
+:::slide template=theme-overview
 {
-  "title": "3 themes converge on a single failure mode: trust erosion before contact",
+  "title": "Themes converge on a single failure mode: trust erosion before contact",
   "sources": ["r/NEU","r/internships","Higher Ed Dive","CASE 2024"],
   "themeCluster": {
     "themes": [
-      {"name":"Co-op scarcity is breaking the experiential promise","insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition.","evidence":"Two years. No TA. No RA. No co-ops. No internships.","source":"r/NEU"},
-      {"name":"Tuition skepticism is eroding future donor base","insight":"The cohort Advancement must convert is entering alumni status already disillusioned with ROI.","evidence":"Most Gen Z graduates now think college was waste of money.","source":"r/highereducation"},
-      {"name":"Political posture is now a giving variable","insight":"Public university statements directly shape whether alumni open or close their wallets.","evidence":"President Aoun joins more than 320 university leaders in joint statement.","source":"r/NEU"}
-    ]
+      {"name":"Co-op scarcity is breaking the experiential promise","dominance":"DOMINANT","mood":"betrayed","insight":"Current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition.","evidence":"Two years. No TA. No RA. No co-ops. No internships.","source":"r/NEU","subthemes":["Experiential promise","Year-one disappointment"],"tension":"Tuition is sold on co-ops the school cannot supply."},
+      {"name":"Tuition skepticism is eroding the future donor base","dominance":"RECURRING","mood":"disillusioned","insight":"The cohort Advancement must convert enters alumni status already disillusioned with the return on a degree.","evidence":"Most Gen Z graduates now think college was a waste of money.","source":"r/highereducation","subthemes":["ROI doubt","Pre-soured donors"],"tension":"The future donor is skeptical before first contact."},
+      {"name":"Political posture is now a giving variable","dominance":"RECURRING","mood":"wary","insight":"Public university statements directly shape whether alumni open or close their wallets.","evidence":"President Aoun joins more than 320 university leaders in a joint statement.","source":"r/NEU","subthemes":["Statement risk","Pledge volatility"],"tension":"Each public stance moves giving in both directions."}
+    ],
+    "takeaway": "Trust leaks during enrollment, compounds through graduation, and Advancement never sees it because the data layer cannot assemble a unified donor view."
   }
 }
 :::
@@ -873,35 +908,29 @@ priority, quote-density rules, and theme-count minimums are in the render
 contract's references/anti-slop-rules.md and references/web-layouts.md - do
 not restate them here.)
 
-:::slide template=theme-spotlight
+:::slide template=theme-detail
 {
-  "title": "Trust erosion before contact dominates the dataset - 3 corroborating signals follow",
-  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","r/highereducation"],
+  "title": "Co-op scarcity breaks the experiential promise that justifies tuition",
+  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","NXT Stakeholder Interview"],
   "themeCluster": {
     "themes": [
       {
-        "name":"Co-op scarcity is breaking the experiential promise",
-        "insight":"Reddit posts from current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition. This signal recurs in 47 of 312 sampled posts (15%) and is the single most-cited grievance across r/NEU threads in the last 12 months.",
-        "evidence":"Two years. No TA. No RA. No co-ops. No internships. The whole reason I picked Northeastern is gone and nobody will answer me on what's happening.",
-        "source":"r/NEU",
-        "implication":"Advancement cannot ask the cohort for donations in 10 years if the experiential promise breaks during enrollment."
-      },
-      {
-        "name":"Tuition skepticism is eroding the future donor base",
-        "insight":"The cohort Advancement must convert enters alumni status already disillusioned with ROI. Gen Z cohort data shows 54% of graduates skeptical of degree value vs 22% for Millennials at the same career stage.",
-        "evidence":"Most Gen Z graduates now think college was a waste of money.",
-        "source":"r/highereducation",
-        "signal":"54% Gen Z ROI skepticism (vs 22% Millennial)"
-      },
-      {
-        "name":"Political posture is now a giving variable",
-        "insight":"Public university statements directly shape whether alumni open or close their wallets. CASE 2024 tracked a 12-point swing in giving intent tied to institutional political statements across 14 surveyed schools.",
-        "evidence":"President Aoun joins more than 320 university leaders in a joint statement - I'm canceling my monthly pledge until I see what this means.",
-        "source":"r/NEU",
-        "signal":"12-pt giving-intent swing per political statement"
+        "name":"Co-op scarcity",
+        "dominance":"DOMINANT",
+        "mood":"betrayed",
+        "convergenceLabel":"CONVERGENT ACROSS THREE SOURCE TYPES",
+        "insight":"Students arrive expecting co-ops and internships; their absence is the defining disappointment of year one and the most-cited grievance across r/NEU.",
+        "quotes":[
+          {"text":"Two years. No TA. No RA. No co-ops. No internships. The whole reason I picked Northeastern is gone.","source":"r/NEU"},
+          {"text":"The career office told me to apply harder. There just are not enough postings.","source":"r/internships"},
+          {"text":"We promise experiential learning in every brochure and cannot place the students we admit.","source":"NXT Stakeholder Interview"}
+        ],
+        "whatItMeans":"The gap is not a student failing; it is a supply failing. The brand promise that justifies tuition breaks during enrollment, before Advancement ever makes contact.",
+        "subthemes":["Experiential promise","Supply shortfall","Year-one disappointment"],
+        "tension":"Tuition is sold on co-ops the institution cannot supply."
       }
     ],
-    "patternSignal":"Three independent signals converge on one mechanism: trust leaks during enrollment, compounds through graduation, and Advancement never sees it because the data layer cannot assemble a unified donor view."
+    "takeaway": "Fix placement supply and the year-one grievance disappears at its source; leave it and the cohort enters alumni status already disillusioned."
   }
 }
 :::
@@ -1351,7 +1380,8 @@ Users will ask for deliverables in many different ways. Infer intent from synony
 |------------------------------------------------------------------|------------------------|
 | "who are our audiences" / "customer types" / "archetypes"        | persona-card           |
 | "what should we do" / "next steps" / "play" / "prescription"     | recommendation         |
-| "what's emerging" / "key findings" / "topics" / "patterns"       | theme-cluster          |
+| "what's emerging" / "key findings" / "topics" / "patterns"       | theme-overview         |
+| "unpack one theme" / "full slide on the dominant theme"          | theme-detail           |
 | "how do we stack up" / "vs peers" / "competitive landscape"      | competitive-matrix     |
 | "voice of customer" / "hero quote" / "what they said"            | block-quote            |
 | "real-world example" / "proof point" / "how X did it"            | case-study             |
@@ -1462,8 +1492,8 @@ EXECUTIVE BRIEF (#brief / #explainer / #report) - ONE GOLD slide template, THREE
   BRIEF FIELD BUDGETS (complete thoughts, never cut): heading <= 64 chars; body <= 220 chars; evidence quote <= 150 chars; gotcha item <= 110 chars; hero stat <= 40 chars; keyInsight <= 200 chars.
 
 DECOMPOSITION RULE (UNBOUNDED DENSITY - MANDATORY): a 16:9 slide has a PHYSICAL ceiling; when the user's request exceeds a template's dense ceiling, NEVER cram and NEVER drop evidenced items - DECOMPOSE into multiple :::slide blocks: one OVERVIEW slide + DETAIL slides per segment. Recipes:
-  - 10-phase journey -> journey-map OVERVIEW (all phases, compressed cells, dashboard) + journey-map DETAIL slides of 4-5 phases each; "N quotes per phase" -> per-phase block-quote or theme-spotlight slides carrying the verbatim quotes
-  - 10 themes -> theme-mosaic/cluster INDEX slide + theme-cluster slides of 3-4 themes each (or theme-spotlight per priority theme)
+  - 10-phase journey -> journey-map OVERVIEW (all phases, compressed cells, dashboard) + journey-map DETAIL slides of 4-5 phases each; "N quotes per phase" -> per-phase block-quote or theme-detail slides carrying the verbatim quotes
+  - 10 themes -> theme-mosaic INDEX slide + theme-overview slides of 3-4 themes each (or theme-detail per priority theme)
   - heavy case-study evidence -> four-block deep-dive slide + an evidence-stack CONTINUATION slide for the extra verbatim quotes
   - deep PRD stories -> max 2 fully-detailed features per prd-feature slide; emit additional prd-feature slides
   - 4-level org -> level-1/2 overview slide + one branch slide per major sub-tree
@@ -3505,7 +3535,7 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         if (slideModeActive) {
             const tplHint = artifactTplHit ? artifactTplHit[1]
               : /#personas?\b/i.test(userMessage) ? 'persona-card'
-              : /#themes?\b/i.test(userMessage) ? 'theme-cluster'
+              : /#themes?\b/i.test(userMessage) ? 'theme-overview'
               : /(#recommendations?|#recs?)\b/i.test(userMessage) ? 'recommendation'
               : /#compet/i.test(userMessage) ? 'competitive-matrix'
               : /#case/i.test(userMessage) ? 'case-study'
@@ -3530,6 +3560,33 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
                     systemPrompt += `\n\n========================================================================\nDECK MODE - COMPOSE FROM THE SLIDES ARCHETYPE REGISTRY (Figma 609)\nTHIS SUPERSEDES the "SLIDE OUTPUT PROTOCOL - 18 TEMPLATES" catalog above: for THIS deck do NOT use any of those GOLD template names (persona-card, theme-cluster, recommendation, timeline, case-study, etc.). Use ONLY the 14 SLIDES archetypes in the catalog below, EACH with the \`slides:\` prefix. A fence without \`slides:\` is a HARD FAILURE in deck mode.\nThis is a narrative DECK, composed from the registered SLIDES archetypes the same way a prototype is composed from its component manifest. For EVERY slide emit a fence of the form:\n  :::slide template=slides:<archetype> brand=${brandHint}\n  { ...payload exactly as the catalog's PAYLOAD line specifies for that archetype... }\n  :::\nThe \`slides:\` prefix is MANDATORY - it routes the slide through the registry composer. The JSON body fields MUST match the archetype's PAYLOAD contract verbatim (key names + array lengths).\nNARRATIVE ARC - PLAN THE BUSINESS ARGUMENT FIRST (MANDATORY; this GOVERNS the whole deck, archetype choice serves it):\nA deck is ONE argument told start to finish, NOT an assortment of on-topic slides. BEFORE choosing any archetype, decide the deck's spine and make every slide advance it:\n  1. THESIS: one contestable sentence the whole deck proves (state the answer up front, Minto). Every slide ladders up to it.\n  2. ARC (Rumelt kernel + SCQA), in this order: (a) SETUP / context the audience accepts; (b) COMPLICATION / DIAGNOSIS - the central tension or failure named with evidence (why the status quo is unacceptable); (c) EVIDENCE - the themes/proof that establish the diagnosis; (d) IMPLICATION / SO-WHAT for the business; (e) GUIDING POLICY + COHERENT ACTIONS - the recommendation and the moves that follow; (f) CLOSE - the decision or ask. A landscape/outlook deck STILL resolves to "and therefore..."; never end on a flat list.\n  3. CONNECTIVE TISSUE: consecutive slides must FOLLOW from one another - read top-to-bottom the titles alone must tell the whole argument (the Partner Test). Use section-divider / thesis-interstitial to mark arc TRANSITIONS, never as filler.\n  3a. TITLE CRAFT (CONCISE + LITERAL, NO METAPHOR - HARD): every slide title is SHORT and PLAIN. Aim <= 10 words / ~70 chars, one line; state the judgment in literal business language naming the mechanism, system, actor, or proper noun. BANNED: figurative/cliche business metaphors and imagery - e.g. "front door", "trust ceiling", "the meter", "margin closes" / "closes the margin", "where value leaks", "bleeds", "...eat(s) it", "opens the door", "walk through first", "redrawing the map". Name the literal thing instead. ("funnel" terms - top/front of the funnel - are LEGITIMATE marketing vocabulary, NOT banned.) BAD (wordy + metaphor): "AI moves the retail front door from search to the assistant, but the operators who win 2026 are the ones who capture the premium before the platform tax and the trust ceiling eat it" -> GOOD (tight + literal): "AI assistants now originate retail traffic and convert better than search". BAD: "Retail 2026: The AI Front Door Opens, the Margin Closes" -> GOOD: "AI raises conversion and adds new costs in 2026". The single deck THESIS line may run one sentence longer, but the metaphor ban has NO exception: the thesis, the synthesis, and the closing/recommendation titles are where the model is most tempted to reach for "front door / trust ceiling / margin closes" - they must stay just as literal as the body titles (length latitude is NOT license for figurative language). Keep titles contestable (a named cause/change a reader could disagree with), never topic labels.\n  3b. SUBJECT DISCIPLINE - NO META-NARRATION (HARD, applies to EVERY field of EVERY slide): the deck is ABOUT THE SUBJECT (the market, product, org, audience the user named), NEVER about the deck/report itself. NEVER describe how the deck is built, structured, sequenced, or where to go next in it. BANNED as content anywhere (title, subtitle, kicker, agenda items + group labels, section-divider supporting, thesis, body): "how this deck/report is built", "where to ideate", "from diagnosis to ideation", "the framework" (as a section name), "the (2026) takeaway" (as a section name), "at a glance" (as a section name), "how might we questions" (as a LABEL - real HMW questions belong in body content, never as a TOC entry), "the through-line / the pattern behind / the section order / setting up the narrative", and any "01: <name of a deck section>" agenda item that points at the deck's OWN parts. The AGENDA (slides:agenda), if used, lists the SUBJECT'S domains in plain business language (e.g. "Customer-facing failure modes", "Operational cost drivers", "The recommended response") - each item names a real content area of the SUBJECT, never a deck-process step. cover.subtitle / section-divider.supporting / thesis state a fact about the SUBJECT, never about the document. A reader must never see that this is a generated deck or how it was assembled.\n  4. SUBSTANCE LIVES IN BODY SLIDES: the argument is carried by CONTENT-DENSE archetypes (numbered-themes, evidence-table, block-quote, org-model, stat-row with real MEANS/MATTERS) - cover/agenda/divider/thesis are CONNECTIVE, not where the content goes. A deck that is mostly sparse connective slides is WRONG and reads as empty.\n  5. If AUTHORITATIVE SOURCE CONTENT is present (a user-pasted enumerated set), build the arc AROUND it IN THE USER'S ORDER - sequence their items into setup -> diagnosis -> evidence -> so-what; never drop, merge, or reorder them.\nSELECTION DOCTRINE (be SMART - choose the archetype that fits each slide's content AND its role in the arc above; do NOT default to one):\n  - PLAN FIRST (mandatory): before emitting any fence, decide the archetype for EACH slide from ITS content, then emit the slides in that order. Across the deck use AT LEAST 5 DISTINCT archetypes; a deck that is mostly one archetype is WRONG.\n  - slides:numbered-themes is NOT a catch-all. It profiles EXACTLY 4 items on ONE slide (a grouped summary, e.g. four themes/plays at a glance). Use it AT MOST once or twice per deck. NEVER use it for one-subject-per-slide content, and NEVER repeat it.\n  - Map each slide to the archetype that matches its SHAPE: opener -> slides:cover; contents (6+ slides) -> slides:agenda; section break or one-line assertion -> slides:section-divider / slides:thesis-interstitial; a single deep-dive subject (one app, one capability, one role) -> slides:block-quote (hero voice) OR slides:role-needs / slides:role-recommendation (single-subject layouts); compare named subjects across criteria -> slides:evidence-table; three hard proof numbers -> slides:stat-row; a 3-part model/architecture -> slides:org-model; two contrasting forces -> slides:problem-diptych; phased plan -> slides:role-roadmap / slides:aggregate-roadmap.\n  - For "one slide per X" coverage (e.g. nine apps): do NOT emit nine identical numbered-themes. GROUP them (four per numbered-themes slide), OR give each a single-subject archetype, and intersperse stat-row / block-quote / evidence-table / section-divider so consecutive slides differ.\n  - HARD: never emit the same body archetype twice in a row, and never more than twice total except section-dividers.\n  - For #presentation, narrative content scenes that want a supporting visual use slides:scene with { kicker, title, body, imageConcept, canvas:"dark" } - imageConcept is a literal SHAPES-AS-CONTENT description of the scene idea (e.g. "a human figure beside flowing lines converging to one point"); the runtime generates a tasteful on-brand transparent illustration from it. Do NOT supply an image URL; not every scene needs one.\n\n--- SLIDES ARCHETYPE CATALOG (the registry the composer renders from) ---\n${slidesManifest}\n========================================================================`;
                 }
             }
+
+            // 2026-06-23 - LEARNED-CONSTRAINT INJECTION (closes the feedback loop on the chat
+            // #slides path). getActiveConstraints() was wired into geminiService + evidenceCatalog
+            // but NEVER into corpusChatService, so durable user corrections (e.g. a learned
+            // "no meta-narration" rule) never reached the deck-generation prompt. Scope to the
+            // deliverable kind; the getter also folds in 'all'-scoped rules. Non-blocking.
+            try {
+                const { getActiveConstraints } = await import('./promptImprovementEngine');
+                const _kind = deckMode ? 'deck'
+                    : artifactTplHit ? (/(persona)/.test(slideModeTpl) ? 'persona'
+                        : /theme/.test(slideModeTpl) ? 'theme'
+                        : /journey/.test(slideModeTpl) ? 'journey'
+                        : /(recommendation)/.test(slideModeTpl) ? 'recommendation'
+                        : /(competitive)/.test(slideModeTpl) ? 'competitive'
+                        : /(timeline|roadmap)/.test(slideModeTpl) ? 'roadmap'
+                        : /(blueprint|service)/.test(slideModeTpl) ? 'blueprint'
+                        : /(architecture|systems)/.test(slideModeTpl) ? 'arch'
+                        : /(gap)/.test(slideModeTpl) ? 'gap'
+                        : /(org)/.test(slideModeTpl) ? 'org'
+                        : /(prd)/.test(slideModeTpl) ? 'prd'
+                        : 'all')
+                    : 'all';
+                const learned = getActiveConstraints(_kind);
+                if (learned && learned.trim()) {
+                    systemPrompt += `\n\n========================================================================\nLEARNED CONSTRAINTS (from this user's prior corrections - these are HARD, apply to every field):\n${learned}\n========================================================================`;
+                }
+            } catch { /* constraint injection is best-effort; never block generation */ }
         }
 
         // 2026-05-07 - Multi-provider dispatch. Gemini 3.1 Pro is primary;
@@ -3650,8 +3707,15 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         // (nxt-visual-renderer/anti-slop-rules.md) + the committed slidePostProcessor, per the
         // committed baseline.
         try {
-            const { stripQAAnnotations, stripFormatTells } = await import('./slidePostProcessor');
+            const { stripQAAnnotations, stripFormatTells, scrubChatReplyMeta } = await import('./slidePostProcessor');
             responseText = renderDeliverableJsonReply(responseText);
+            // 2026-06-23 - META/PROCESS STRIP on the chat reply. Previously this path ran ONLY
+            // QA-annotation + format-tell strips, so meta-narration in the conversational preamble
+            // AND in :::slide JSON fields shipped (chat-2026-06-23: "the collected corpus names only
+            // Medforth...", "before the next pass", deck self-reference). scrubChatReplyMeta is
+            // fence-aware: it drops prose outside the fences and runs BOUNDED, JSON-safe deletions
+            // inside slide fields, with a full sentence sweep on plain-prose replies.
+            responseText = scrubChatReplyMeta(responseText);
             responseText = stripQAAnnotations(responseText);
             responseText = stripFormatTells(responseText);
             const { resolveManifestPointers } = await import('./citationPointerRegistry');
@@ -4681,8 +4745,15 @@ async function callGemini(
 
     let lastText = '';
     const _geminiLoopStart = Date.now();
+    // 2026-06-23 - PLAIN-CHAT LATENCY FIX. The conversational chat path (gemini-3.5-flash)
+    // was burning all 5 agentic tool-iterations re-fetching the wiki (the prompt pushes
+    // fetch_wiki_articles even though the manifest corpus is ALREADY injected), each round
+    // growing the context -> 270s+ for a simple question. The corpus is in the prompt, so a
+    // conversational answer needs at most ONE optional fetch. Cap the chat loop at 3 iterations.
+    // (Hashtag deliverables force-route to Opus / callClaude, which keeps the full MAX_TOOL_ITER.)
+    const _chatIterCap = Math.min(MAX_TOOL_ITER, 3);
     try {
-    for (let iter = 0; iter < MAX_TOOL_ITER; iter += 1) {
+    for (let iter = 0; iter < _chatIterCap; iter += 1) {
         // 2026-05-26 - Abort + wall-clock check at each iteration boundary
         const _sig = (globalThis as any).__hicChatAbortSignal as AbortSignal | undefined;
         if (_sig?.aborted) throw new DOMException('Cancelled by user', 'AbortError');
@@ -4691,7 +4762,7 @@ async function callGemini(
             break;
         }
         const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
-        _prog?.(`Reasoning... iter ${iter + 1}/${MAX_TOOL_ITER} (Gemini)`);
+        _prog?.(`Reasoning... iter ${iter + 1}/${_chatIterCap} (Gemini)`);
         // 2026-05-26 - 429 fallback to DeepSeek-V4-Flash. When Gemini returns
         // quota-exhausted (HTTP 429 or "Resource exhausted" message), don't
         // grind through retries - immediately re-fire the same call through
@@ -4706,7 +4777,9 @@ async function callGemini(
                 config: {
                     systemInstruction: system,
                     temperature: 0.2,
-                    maxOutputTokens: 65536,
+                    // 2026-06-23 - a conversational chat answer is short; a 64K cap pushed
+                    // gemini-3.5-flash into its slowest generation mode. 16K is ample.
+                    maxOutputTokens: 16384,
                     tools: tools as any,
                 } as any,
             });

@@ -2231,9 +2231,14 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
         case 'recommendation':
             if (args.recommendation) exportRecommendation(s, args.title, args.recommendation, sources, geom, args.imageUrl);
             break;
+        // theme-overview / theme-detail are the Figma-backed theme layouts (590:9 / 590:11).
+        // In PPTX they export through the equal-column / hero-detail exporters (closest grid
+        // shapes); theme-cluster/theme-spotlight ALIAS to the same exporters (2026-06-23 audit).
+        case 'theme-overview':
         case 'theme-cluster':
             if (args.themeCluster) exportThemeCluster(s, args.title, args.themeCluster, sources, geom);
             break;
+        case 'theme-detail':
         case 'theme-spotlight':
             if (args.themeCluster) exportThemeSpotlight(s, args.title, args.themeCluster, sources, geom);
             break;

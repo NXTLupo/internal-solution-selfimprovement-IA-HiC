@@ -1030,3 +1030,52 @@ under _grid.breakpoints, and as real Figma column layout-grids on pages NU `408:
 Max content width 1440px, centered beyond 2xl. Styles cascade UP from mobile (min-width media queries). The Analyst Desk
 model must lay out #proto experiences fluidly: single-column stacks at xs/sm, multi-column grids from md up, and respect
 the per-breakpoint margin/gutter. proto/BreakpointGrid documents the spec; bind frame layout-grids to these values.
+
+## PROTO COMPONENT NODE INDEX (NXT page 403:2, live-verified 2026-06-23)
+
+Authoritative `proto/<Name>` -> NXT Figma node id map, pulled from `get_metadata` on page
+`403:2` of file `iSQhAVM7SI4QHAWB7y9C2z`. This NODE-ANCHORS the component vocabulary above
+(the headings previously carried only the page id 403:2, not per-component nodes), enabling
+drift detection and targeted `get_design_context` re-pulls. NU twins live on file
+`z2v9Pvhg23hlljEitPBdAt` page `332:2`. The model composes from the `proto/<Name>` NAMES; this
+table is the canon for tooling that needs the exact node.
+
+| component | NXT node | component | NXT node |
+|---|---|---|---|
+| proto/Composer | 404:2 | proto/ChatMessage | 404:9 |
+| proto/Reasoning | 405:2 | proto/Tool | 405:10 |
+| proto/Cite | 408:2 | proto/Starters | 408:18 |
+| proto/Model | 410:2 | proto/Artifact | 410:18 |
+| proto/ConvList | 412:2 | proto/Agent | 412:15 |
+| proto/Voice | 412:33 | proto/NavBar | 440:2 |
+| proto/Breadcrumb | 441:2 | proto/Tabs | 441:8 |
+| proto/Pagination | 441:21 | proto/Stepper | 441:36 |
+| proto/Sidebar | 442:2 | proto/BottomNav | 442:19 |
+| proto/Footer | 444:2 | proto/MegaMenu | 444:26 |
+| proto/Field | 448:2 | proto/CheckGroup | 448:13 |
+| proto/FormCard | 448:25 | proto/Toast | 450:2 |
+| proto/Alert | 450:6 | proto/Badge | 450:31 |
+| proto/Empty | 450:44 | proto/NotifList | 450:51 |
+| proto/Spinner | 451:2 | proto/Progress | 451:6 |
+| proto/Skeleton | 451:13 | proto/Tooltip | 451:18 |
+| proto/List | 454:2 | proto/Card | 454:27 |
+| proto/Stat | 454:39 | proto/Avatars | 454:50 |
+| proto/Chips | 454:61 | proto/Accordion | 455:2 |
+| proto/Tree | 455:17 | proto/Timeline | 455:34 |
+| proto/Calendar | 455:62 | proto/Kanban | 456:2 |
+| proto/Carousel | 456:17 | proto/Gallery | 456:48 |
+| proto/Code | 456:67 | proto/Compare | 456:75 |
+| proto/Bar | 460:2 | proto/Line | 460:11 |
+| proto/Area | 460:23 | proto/Scatter | 460:28 |
+| proto/Funnel | 460:39 | proto/Pie | 461:2 |
+| proto/Gauge | 461:24 | proto/Heatmap | 461:32 |
+| proto/MapViz | 461:83 | proto/Modal | 462:2 |
+| proto/Drawer | 462:11 | proto/Button | 462:21 |
+| proto/Cmd | 462:34 | proto/Wizard | 462:50 |
+| proto/Product | 465:2 | proto/Pricing | 465:20 |
+| proto/Hero | 465:57 | proto/FeatureGrid | 465:65 |
+| proto/Video | 466:2 | proto/Audio | 466:16 |
+| proto/Feed | 466:28 | proto/Story | 466:52 |
+| proto/Profile | 466:78 | proto/Bento | 467:2 |
+| proto/Testimonial | 467:16 | proto/LogoCloud | 467:24 |
+| proto/Ad | 467:35 | proto/NativeAd | 467:41 |

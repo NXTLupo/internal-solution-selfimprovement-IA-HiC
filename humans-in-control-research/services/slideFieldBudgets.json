@@ -15,6 +15,8 @@
     "implication": 260,
     "context": 150
   },
+  "theme-overview": { "name": 55, "insight": 180, "evidence": 130, "mood": 24, "tension": 110 },
+  "theme-detail": { "name": 60, "insight": 200, "evidence": 200, "whatItMeans": 360, "tension": 130, "mood": 24, "convergenceLabel": 56 },
   "theme-cluster": { "name": 55, "insight": 180, "evidence": 120 },
   "theme-spotlight": { "name": 85, "insight": 400, "evidence": 280, "implication": 220 },
   "theme-arc": { "name": 70, "insight": 280, "evidence": 140, "signal": 56 },

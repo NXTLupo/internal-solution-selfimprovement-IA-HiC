@@ -67,8 +67,19 @@ export interface CallAIOptions {
     /** Per-request fetch timeout in milliseconds. Default 300_000 (5 min).
      *  Long-running stages like prototype Stage 4 / Stage 3.5 can take 90-180s
      *  with high thinking budget; we cap at 5 min so a truly hung backend
-     *  fails cleanly instead of blocking the UI forever. */
+     *  fails cleanly instead of blocking the UI forever. The heaviest #proto
+     *  Opus stages (orchestrator + full catalog, reviewer + whole assembled app
+     *  at 64K output + adaptive thinking) legitimately need more — they pass
+     *  600_000 and pair it with retryOnTimeout:false (below). */
     requestTimeoutMs?: number;
+    /** Whether a genuine request TIMEOUT (AbortSignal fired) should be retried.
+     *  Default true (preserves global behavior). A timeout is NOT transient like
+     *  a 5xx/429 — retrying the same too-slow call with the same ceiling just
+     *  burns maxAttempts × timeout (e.g. 3 × 600s = 30 min) and still fails.
+     *  Set FALSE on calls that have their own fast fallback (the #proto stages
+     *  fall back to Gemini) so a timeout fails ONCE and the fallback fires
+     *  immediately. Transient 5xx/429 retries are unaffected. */
+    retryOnTimeout?: boolean;
 }
 
 /** Map endpoint id to its proxy URL + the model-family name surfaced in error messages. */
@@ -195,6 +206,14 @@ export async function callAIWithRetry(
             // Re-throw user-thrown errors (4xx-from-above) so they bubble up immediately
             if (e?.message?.includes('returned HTTP 4')) throw e;
             lastErrText = e?.message || String(e);
+            // A genuine request TIMEOUT (AbortSignal.timeout fired) is not
+            // transient. When the caller opted out of retrying timeouts (it has
+            // its own fast fallback), throw immediately so the fallback fires
+            // instead of waiting out maxAttempts × the (already-long) ceiling.
+            const isTimeout = e?.name === 'TimeoutError' || /timed out|aborted/i.test(lastErrText);
+            if (isTimeout && options.retryOnTimeout === false) {
+                throw new Error(`${label} (${family}): timed out after ${Math.round(timeoutMs / 1000)}s; not retrying (caller has a fallback).`);
+            }
             console.warn(`[aiRetry/${label}] ${family} network failure (attempt ${attempt + 1}/${maxAttempts}): ${lastErrText.slice(0, 200)}`);
             if (options.onRetry) {
                 const schedule = options.backoffMs ?? DEFAULT_BACKOFF_5XX;

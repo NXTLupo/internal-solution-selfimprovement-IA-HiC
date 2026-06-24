@@ -240,6 +240,102 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
     );
 };
 
+// === THEME OVERVIEW (Figma GOLD themes overview 590:9 / NU 625:385) =========
+// 4-column theme grid: numeral, name, [dominance pill + mood], insight, quote,
+// cyan SOURCE, sub-theme chips, rust tension; accent takeaway band (GoldFrame).
+// theme-cluster ALIASES here. Enrichment fields degrade gracefully when absent.
+export const ThemeOverviewSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
+    const T = resolveT(brand); const F = fonts(T);
+    const caps = densityCaps('theme-overview', density);
+    const themes = (data.themes || []).slice(0, Math.min(caps.items, 4));
+    const n = Math.max(themes.length, 1); const dense = n >= 4;
+    return (
+        <GoldFrame brand={brand} kicker="EMERGING THEMES" title={title} meta={srcMeta(sources)} takeaway={data.takeaway || data.patternSignal}>
+            <div style={{ display: 'grid', gridTemplateColumns: `repeat(${n},1fr)`, gap: dense ? 12 : 16, flex: 1, minHeight: 0 }}>
+                {themes.map((t, i) => (
+                    <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 5, minWidth: 0, overflow: 'hidden' }}>
+                        <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: 24, lineHeight: 1, color: hex(T.INK) }}>{String(i + 1).padStart(2, '0')}</div>
+                        <div style={{ fontFamily: F.body, fontWeight: 600, fontSize: dense ? 13 : 14, lineHeight: 1.1, letterSpacing: '-0.2px', color: hex(T.INK), ...clamp(2) }}>{t.name}</div>
+                        {(t.dominance || t.mood) && (
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, alignItems: 'center' }}>
+                                {t.dominance && <span style={{ fontFamily: F.mono, fontWeight: 600, fontSize: 7, letterSpacing: '0.5px', textTransform: 'uppercase', padding: '2px 5px', borderRadius: 2, background: t.dominance === 'RECURRING' ? hex(T.HAIRLINE) : hex(T.CHARTREUSE), color: t.dominance === 'RECURRING' ? hex(T.INK) : hex(T.BAND_TEXT) }}>{t.dominance}</span>}
+                                {t.mood && <span style={{ fontFamily: F.mono, fontSize: 7, letterSpacing: '0.3px', color: hex(T.GREY) }}>{t.mood}</span>}
+                            </div>
+                        )}
+                        <div style={{ fontSize: dense ? 10.5 : 11.5, lineHeight: 1.5, color: hex(T.INK), ...clamp(3) }}>{t.insight}</div>
+                        {t.evidence && <div style={{ fontSize: dense ? 10 : 11, lineHeight: 1.48, fontStyle: 'italic', color: hex(T.INK), ...clamp(2) }}>&ldquo;{t.evidence}&rdquo;</div>}
+                        {t.source && <div style={{ fontFamily: F.mono, fontSize: 7, letterSpacing: '0.5px', textTransform: 'uppercase', color: hex(T.ACCENT_COOL), ...clamp(1) }}>Source: {t.source}</div>}
+                        {Array.isArray(t.subthemes) && t.subthemes.length > 0 && (
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                                {t.subthemes.slice(0, caps.sub).map((s, j) => (
+                                    <span key={j} style={{ fontFamily: F.mono, fontSize: 7, color: hex(T.INK), border: `1px solid ${hex(T.HAIRLINE)}`, borderRadius: 2, padding: '2px 5px' }}>{s}</span>
+                                ))}
+                            </div>
+                        )}
+                        {t.tension && <div style={{ fontSize: 8.5, lineHeight: 1.4, color: hex(T.INK), borderLeft: `2px solid ${hex(T.ACCENT_WARN)}`, paddingLeft: 6, ...clamp(2) }}>{t.tension}</div>}
+                    </div>
+                ))}
+            </div>
+        </GoldFrame>
+    );
+};
+
+// === THEME DETAIL (Figma GOLD theme detail 590:11 / NU 625:581) =============
+// One theme deep-dive: insight lede, [dominance pill + mood + convergence pill],
+// two-column body (CONVERGENT EVIDENCE quote stack | WHAT IT MEANS / SUB-THEMES /
+// THE TENSION), accent takeaway band. theme-spotlight ALIASES here.
+export const ThemeDetailSlide: React.FC<{ title: string; data: ThemeClusterData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ title, data, sources = [], brand, density }) => {
+    const T = resolveT(brand); const F = fonts(T);
+    const caps = densityCaps('theme-detail', density);
+    const t: any = (data.themes || [])[0] || {};
+    const quotes: any[] = Array.isArray(t.quotes) && t.quotes.length
+        ? t.quotes.slice(0, caps.sub)
+        : (t.evidence ? [{ text: t.evidence, source: t.source }] : []);
+    return (
+        <GoldFrame brand={brand} kicker={`THEME DETAIL${t.name ? ` · ${String(t.name).toUpperCase()}` : ''}`} title={title} meta={srcMeta(sources)} takeaway={data.takeaway || data.patternSignal}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 9, flex: 1, minHeight: 0 }}>
+                {t.insight && <div style={{ fontFamily: F.body, fontSize: 13, lineHeight: 1.42, color: hex(T.INK), ...clamp(2) }}>{t.insight}</div>}
+                {(t.dominance || t.mood || t.convergenceLabel) && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7, alignItems: 'center' }}>
+                        {t.dominance && <span style={{ fontFamily: F.mono, fontWeight: 600, fontSize: 7.5, letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 6px', borderRadius: 2, background: hex(T.CHARTREUSE), color: hex(T.BAND_TEXT) }}>{t.dominance}</span>}
+                        {t.mood && <span style={{ fontFamily: F.mono, fontSize: 7.5, letterSpacing: '0.3px', color: hex(T.GREY) }}>{t.mood}</span>}
+                        {t.convergenceLabel && <span style={{ fontFamily: F.mono, fontWeight: 600, fontSize: 7.5, letterSpacing: '0.5px', textTransform: 'uppercase', padding: '3px 6px', borderRadius: 2, border: `1px solid ${hex(T.HAIRLINE)}`, color: hex(T.GREY) }}>{t.convergenceLabel}</span>}
+                    </div>
+                )}
+                <div style={{ display: 'grid', gridTemplateColumns: '1.55fr 1fr', gap: 24, flex: 1, minHeight: 0, alignItems: 'start' }}>
+                    <div style={{ minWidth: 0, overflow: 'hidden' }}>
+                        <SectLabel T={T}>Convergent evidence</SectLabel>
+                        {quotes.map((q, i) => (
+                            <div key={i} style={{ borderLeft: `2px solid ${i % 2 === 1 ? hex(T.ACCENT_COOL) : hex(T.ACCENT_WARN)}`, paddingLeft: 9, marginTop: 8, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                                <div style={{ fontFamily: F.body, fontSize: 12, lineHeight: 1.4, color: hex(T.INK), ...clamp(3) }}>&ldquo;{q.text || q.quote || ''}&rdquo;</div>
+                                {q.source && <div style={{ fontFamily: F.mono, fontSize: 7, letterSpacing: '0.5px', textTransform: 'uppercase', color: hex(T.GREY), ...clamp(1) }}>Source: {q.source}</div>}
+                            </div>
+                        ))}
+                    </div>
+                    <div style={{ minWidth: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        {(t.whatItMeans || t.implication) && (
+                            <div><SectLabel T={T}>What it means</SectLabel><div style={{ fontSize: 11, lineHeight: 1.5, color: hex(T.INK), marginTop: 3, ...clamp(5) }}>{t.whatItMeans || t.implication}</div></div>
+                        )}
+                        {Array.isArray(t.subthemes) && t.subthemes.length > 0 && (
+                            <div><SectLabel T={T}>Sub-themes</SectLabel>
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, marginTop: 4 }}>
+                                    {t.subthemes.map((s: string, j: number) => <span key={j} style={{ fontFamily: F.mono, fontSize: 7.5, color: hex(T.INK), border: `1px solid ${hex(T.HAIRLINE)}`, borderRadius: 2, padding: '3px 6px' }}>{s}</span>)}
+                                </div>
+                            </div>
+                        )}
+                        {t.tension && (
+                            <div style={{ borderLeft: `3px solid ${hex(T.ACCENT_WARN)}`, paddingLeft: 9, display: 'flex', flexDirection: 'column', gap: 3 }}>
+                                <div style={{ fontFamily: F.mono, fontWeight: 600, fontSize: 7.5, letterSpacing: '1.5px', textTransform: 'uppercase', color: hex(T.ACCENT_WARN) }}>The tension</div>
+                                <div style={{ fontSize: 11, lineHeight: 1.4, fontWeight: 500, color: hex(T.INK), ...clamp(3) }}>{t.tension}</div>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </GoldFrame>
+    );
+};
+
 // === BLOCK QUOTE ============================================================
 export const BlockQuoteSlide: React.FC<{ data: BlockQuoteData; sources?: string[]; brand?: Brand; density?: SlideDensity }> = ({ data: q, sources = [], brand, density }) => {
     const T = resolveT(brand); const F = fonts(T);
