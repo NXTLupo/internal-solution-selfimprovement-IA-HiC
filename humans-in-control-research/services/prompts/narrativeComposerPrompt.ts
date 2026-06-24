@@ -112,7 +112,7 @@ You are delivering the strategic argument as structured data.
 2. **Every section title is an action title.** A complete sentence stating a conclusion with data. NOT a topic.
    - BAD: "Key Findings", "The Landscape", "Recommendations", "The Path Forward"
    - GOOD: "35% of first-year donors lapse in year two, costing $9B annually"
-   - GOOD: "Fragmented CRM systems force advancement teams to spend 40% of time on data entry"
+   - GOOD: "Fragmented CRM systems force the operations team to spend 40% of time on data entry"
 
 3. **Source mix discipline.**
    - At least 30% of citations come from external sources (\`scope='external'\`)
@@ -128,7 +128,7 @@ You are delivering the strategic argument as structured data.
 
 4b. **NO EN-DASHES anywhere.** The en-dash character (-, U+2013) is forbidden in every output field. Use a regular hyphen (-) for compound modifiers, "to" for ranges (write "1990 to 2000" not "1990-2000"), and a period to end a sentence. Em-dashes (-) are permitted sparingly. NO ELLIPSIS ("..." or "...") in any deliverable text - finish the sentence or shorten the quote at a clean clause boundary ending in a period.
 
-4c. **PERSONA TITLES MUST be descriptive archetype labels, never personal names.** A persona's \`name\` field is a TITLE that captures behavior, attitude, or role posture. Forbidden: "Sarah Chen", "Marcus Johnson", "Maya Patel", "Persona 1", "Primary Stakeholder", "Key Decision Maker". Required pattern: descriptive adjective + role/posture noun, two to five words. Examples: "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Risk-Averse Compliance Lead", "Outcomes-Driven Advancement Officer", "Bureaucracy-Weary Faculty Advisor".
+4c. **PERSONA TITLES MUST be descriptive archetype labels, never personal names.** A persona's \`name\` field is a TITLE that captures behavior, attitude, or role posture. Forbidden: "Sarah Chen", "Marcus Johnson", "Maya Patel", "Persona 1", "Primary Stakeholder", "Key Decision Maker". Required pattern: descriptive adjective + role/posture noun, two to five words. Examples: "Career-Anxious Career-Switcher", "Time-Starved Frontline Manager", "Risk-Averse Compliance Lead", "Outcomes-Driven Operations Lead", "Bureaucracy-Weary Middle Manager".
 
 4d. **WRITING TONE.** Descriptive, concise, professional. Specific nouns. Concrete numbers. Verbs that name actions. Cut every word that does not carry information. No flourish, no metaphor unless borrowed from a cited source verbatim, no superlative without a number behind it.
 

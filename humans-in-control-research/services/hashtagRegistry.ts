@@ -100,7 +100,7 @@ export const DIRECTIVES: HashtagDirective[] = [
             { token: '#auto-open', description: 'Synchronous popup workaround' },
         ],
         examples: [
-            '#presentation Co-op readiness strategy for first-year students #NU',
+            '#presentation Customer onboarding strategy for new users #NU',
             '#presentation #sections=themes,recs #export-pptx',
         ],
         requiresContext: true,
@@ -134,7 +134,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         aliases: ['#recs', '#recommendation'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides', '#dense'],
         examples: [
-            '#recommendations First-year co-op readiness for Northeastern; Microsoft Copilot preferred, FERPA, Liz + Jen as stakeholders #NU',
+            '#recommendations Customer onboarding readiness for [your org]; preferred vendor + a compliance constraint + two named stakeholders',
             '#recs Advancement modernization moves grounded in the corpus #slides',
         ],
         requiresContext: true,
@@ -237,7 +237,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         aliases: ['#orgs', '#orgchart', '#orgcharts'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides', '#dense'],
         examples: [
-            '#org Northeastern Advancement Office reporting hierarchy #NU',
+            '#org [your org] operations reporting hierarchy',
             '#org Co-op program stakeholders: Liz, Jen, deans, employer partners',
         ],
         requiresContext: true,
@@ -285,8 +285,8 @@ export const DIRECTIVES: HashtagDirective[] = [
         aliases: ['#prds'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
-            '#prd Co-op readiness self-assessment widget #slide',
-            '#prd Donor identification AI assistant for advancement officers',
+            '#prd Customer onboarding self-assessment widget #slide',
+            '#prd Lead identification AI assistant for sales teams',
         ],
         requiresContext: true,
         usesVerbalizedSampling: false,
@@ -381,7 +381,7 @@ export const DIRECTIVES: HashtagDirective[] = [
         aliases: ['#strategies'],
         combinesWith: ['#NXT', '#NU', '#slide', '#slides'],
         examples: [
-            '#strategy Win first-year co-op readiness for SME employers #NU',
+            '#strategy Win new-customer activation for SME buyers #NU',
             '#strategy Reposition advancement office around verified outcomes',
         ],
         requiresContext: true,
@@ -442,7 +442,7 @@ export const DIRECTIVES: HashtagDirective[] = [
             { token: '--variants k', description: 'Emit k distinct report-structure variants' },
         ],
         examples: [
-            '#report 2026 first-year co-op readiness state-of-the-union #NU',
+            '#report 2026 customer activation state-of-the-union #NU',
         ],
         requiresContext: true,
         usesVerbalizedSampling: true,

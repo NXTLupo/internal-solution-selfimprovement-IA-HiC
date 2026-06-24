@@ -5135,10 +5135,15 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (firstHit) {
             const directive = firstHit.directive;
             const buildMsgId = `msg_${Date.now()}_artifact_${directive.generator.replace('#', '')}`;
+            // 2026-06-24 - artifact hashtags force-route to Claude Opus 4.8 (this
+            // path calls callWithModelChain preferModel:'claude-opus-4-8' below).
+            // Drive the loading indicator with the ROUTED model so it never falsely
+            // reads "GEMINI 3.5 FLASH IS WORKING" (the slide path already does this).
+            setInFlightModelId('claude-opus-4-8' as ChatModel);
             setMessages(prev => [...prev, {
                 id: buildMsgId,
                 role: 'assistant',
-                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})...\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via Gemini 3.1 Pro with max thinking budget.`,
+                content: `Generating ${firstHit!.label} (${directive.generator}, brand=${directive.brand}${directive.variants > 1 ? `, ${directive.variants} variants` : ''})...\n\nLoading verbalized-sampling + html-deliverable-composer skills, then composing the HTML artifact via Claude Opus 4.8 (max thinking budget).`,
                 timestamp: Date.now(),
             }]);
             try {
@@ -5251,7 +5256,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     const _parts: string[] = [];
                     if (_gc?.framework) _parts.push('=== FRAMEWORK SPECIFICATION (from wiki) ===\n' + String(_gc.framework).slice(0, 12000));
                     if (_gc?.antiPatterns) _parts.push('=== ANTI-PATTERNS TO AVOID (from wiki) ===\n' + String(_gc.antiPatterns).slice(0, 8000));
-                    if (_gc?.crossEngagementPatterns) _parts.push('=== CROSS-ENGAGEMENT PORTFOLIO PATTERNS (from prior runs) ===\n' + String(_gc.crossEngagementPatterns).slice(0, 6000));
+                    if (_gc?.crossEngagementPatterns) _parts.push('=== CROSS-ENGAGEMENT PORTFOLIO PATTERNS (from PRIOR, possibly DIFFERENT-INDUSTRY engagements) ===\nThese are observations mined from EARLIER runs that may belong to a COMPLETELY DIFFERENT INDUSTRY than the current subject. Use a pattern ONLY if it genuinely fits the user\'s subject and corpus. NEVER import their domain, named entities, or vocabulary (e.g. higher-ed / co-op / donor / advancement / student) into an unrelated subject - if a pattern is off-domain, ignore it entirely.\n' + String(_gc.crossEngagementPatterns).slice(0, 6000));
                     if (_gc?.engagementGoals) _parts.push(String(_gc.engagementGoals));
                     genContextBlock = _parts.join('\n\n');
                     if (genContextBlock) console.log(`[${directive.generator}] loadGenerationContext injected (framework=${!!_gc?.framework}, antiPatterns=${!!_gc?.antiPatterns}, patterns=${!!_gc?.crossEngagementPatterns})`);
@@ -5268,7 +5273,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
 
                 setMessages(prev => prev.map(m => m.id === buildMsgId ? {
                     ...m,
-                    content: `Generating ${firstHit!.label} (${directive.generator})...\n\n Loaded verbalized-sampling skill (${vsResp.length} chars)\n Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Gemini 3.1 Pro (max thinking)...`,
+                    content: `Generating ${firstHit!.label} (${directive.generator})...\n\n Loaded verbalized-sampling skill (${vsResp.length} chars)\n Loaded html-deliverable-composer skill (${htmlResp.length} chars)\n○ Calling Claude Opus 4.8 (max thinking)...`,
                 } : m));
 
                 // 2026-05-27 - Route the html-deliverable-composer family
@@ -5334,7 +5339,16 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         buildScoreInput: (text) => ({ text, label: directive.generator }),
                     });
                     const text = _emit.result.text;
-                    return (text || '').replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();
+                    let cleaned = (text || '').replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();
+                    // 2026-06-24 - HTML-safe meta/process scrub. This client artifact
+                    // path previously ran NO meta strip (only the fence strip above),
+                    // so corpus/process self-references leaked into the output (e.g.
+                    // "the only corpus-confirmed model ..." in a live #brief title).
+                    try {
+                        const { scrubArtifactHtmlMeta } = await import('../services/slidePostProcessor');
+                        cleaned = scrubArtifactHtmlMeta(cleaned);
+                    } catch { /* non-fatal: meta scrub is best-effort */ }
+                    return cleaned;
                 };
                 // Visible-word floor per directive (#brief is intentionally short;
                 // #playground/#approaches are interactive, not prose-graded).
@@ -5423,6 +5437,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     content: `Artifact generation failed: ${e?.message || 'unknown'}`,
                 } : m));
             }
+            setInFlightModelId(null);
             setIsLoading(false);
             if (pendingAttachments.length > 0) setPendingAttachments([]);
             return;

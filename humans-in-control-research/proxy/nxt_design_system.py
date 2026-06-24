@@ -76,6 +76,10 @@ def _figma_root_override(brand: str) -> str:
     ink = c.get("ink", "#141414")
     mono = f.get("mono", "IBM Plex Mono")
     body = f.get("body", "Archivo")
+    secondary = c.get("secondary", "#666666")
+    rail = c.get("rail", "#0d0d0d")
+    paper = c.get("paper", "#ffffff")
+    display = f.get("display", "Saira Condensed")
     decls = (
         f"--nxt-lime:{accent}!important;"
         f"--nxt-teal:{teal}!important;"
@@ -83,6 +87,12 @@ def _figma_root_override(brand: str) -> str:
         f"--nxt-ink:{ink}!important;"
         f"--nxt-mono:'{mono}',ui-monospace,monospace!important;"
         f"--nxt-body:'{body}',-apple-system,'Segoe UI',sans-serif!important;"
+        # Bare-name aliases (2026-06-24) so any var(--ink)/--accent/--cyan/etc. the
+        # model or gallery CSS emits resolves - kills the undefined-var class of bug.
+        f"--accent:{accent}!important;--ink:{ink}!important;--cyan:{cyan}!important;"
+        f"--teal:{teal}!important;--secondary:{secondary}!important;--rail:{rail}!important;--paper:{paper}!important;"
+        f"--font-display:'{display}',sans-serif!important;"
+        f"--font-body:'{body}',sans-serif!important;--font-mono:'{mono}',monospace!important;"
     )
     # Per-artifact, single-brand: :root{...!important} wins over the gallery's
     # non-important var defaults regardless of selector specificity (is_nu only
@@ -97,10 +107,10 @@ def _figma_root_override(brand: str) -> str:
 _FONTS_LINK_FIGMA = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">'
     '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-    '<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue'
-    '&family=Lora:wght@400;500;600;700'
+    '<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700'
     '&family=Archivo:wght@200;300;400;500;600;700;800'
-    '&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">'
+    '&family=Lato:wght@300;400;700;900'
+    '&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">'
 )
 
 # Classes that are INTENTIONALLY dark; never whiten these, and force their text white.

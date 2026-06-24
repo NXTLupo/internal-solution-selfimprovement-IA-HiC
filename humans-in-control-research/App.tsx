@@ -6404,7 +6404,7 @@ ${synthesisParts.join('\n')}
                                              rows={4}
                                              className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-secondary)] rounded p-4 text-base font-medium focus:ring-2 focus:ring-[var(--nxt-teal)] outline-none transition-all resize-y"
                                              style={{ fontFamily: "'Archivo', sans-serif", lineHeight: 1.5, minHeight: 110 }}
-                                             placeholder="e.g. Identify unmet co-op program needs for Northeastern undergraduates over the next 24 months, with a focus on employer-side friction and student-side decision points."
+                                             placeholder="e.g. Identify unmet needs in [your market or audience] over the next 24 months, with a focus on the friction on each side of the relationship and the decisions that drive them."
                                          />
                                          <div className="flex justify-end mt-2">
                                              <EnhanceButton handle={goalEnhancer} accentColor="#00B7C3" />

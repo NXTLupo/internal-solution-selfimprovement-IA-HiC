@@ -634,7 +634,7 @@ export const NARRATIVE_TOOLS: ToolDefinition[] = [
         },
         source_name: {
           type: 'string',
-          description: 'Substring match on source name or file name. Use this whenever the user has restricted the composition to a specific document or source ("only use Northeastern_CoOp_CLR_Executive_Summary.docx" → source_name: "Northeastern_CoOp_CLR_Executive_Summary"). When set, ONLY chunks from sources whose name contains this substring are returned. The user override is absolute: if the named source has no material on the requested theme, return zero results rather than supplementing.',
+          description: 'Substring match on source name or file name. Use this whenever the user has restricted the composition to a specific document or source ("only use Acme_Strategy_Brief.docx" → source_name: "Acme_Strategy_Brief"). When set, ONLY chunks from sources whose name contains this substring are returned. The user override is absolute: if the named source has no material on the requested theme, return zero results rather than supplementing.',
         },
         engagement_goal: {
           type: 'string',

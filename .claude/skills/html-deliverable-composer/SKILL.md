@@ -65,9 +65,9 @@ Every HTML artifact MUST use the NXT design system unless the user explicitly in
   --nxt-friction: #CC6644;
   --nxt-error: #FF5A5A;
   /* Type */
-  --nxt-font-display: 'Bebas Neue', sans-serif;
+  --nxt-font-display: 'Saira Condensed', sans-serif;
   --nxt-font-body: 'Archivo', sans-serif;
-  --nxt-font-mono: 'JetBrains Mono', monospace;
+  --nxt-font-mono: 'IBM Plex Mono', monospace;
   /* Layout */
   --nxt-radius: 2px;          /* sharp corners — NEVER 8px+ */
   --nxt-radius-card: 2px;
@@ -86,8 +86,8 @@ For `#NU` artifacts, swap the accent system to:
   --nu-red: #C8102E;          /* PANTONE 200 C — official NU red. NEVER #C00000. */
   --nu-red-deep: #9E0A24;
   --nu-red-tint: #FBE7EA;
-  --nxt-font-display: 'Roboto Condensed', sans-serif;
-  --nxt-font-body: 'Open Sans', sans-serif;
+  --nxt-font-display: 'Lato', sans-serif;
+  --nxt-font-body: 'Lato', sans-serif;
 }
 ```
 

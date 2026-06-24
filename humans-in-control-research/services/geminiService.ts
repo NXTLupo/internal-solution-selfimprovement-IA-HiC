@@ -780,7 +780,7 @@ ${wikiKnowledge}
             - The research corpus contains items tagged as [CHUNK_001], [CHUNK_002], etc.
             - Each chunk header shows "SOURCE: [source name]" - use this source name when citing.
             - When generating themes: include full citation objects with sourceFile, sourceName, text, and url.
-            - The "sourceName" field is CRITICAL - it MUST match the SOURCE header (e.g. "Higher Ed Dive", "OpenAlex", "Reddit: r/highereducation"). This is what humans read.
+            - The "sourceName" field is CRITICAL - it MUST match the SOURCE header (e.g. "Industry Trade Press", "OpenAlex", "Reddit: r/<community>"). This is what humans read.
             - The "text" field MUST be a VERBATIM quote copy-pasted from the chunk (10-30 words exactly as written).
             - When generating persona pain points: cite the specific chunk AND source name that evidences each pain point.
             - When generating recommendations: cite the chunks that support each recommendation.
@@ -1210,10 +1210,10 @@ of each other).
 GOAL: "${this.goal}"
 
 Return ONLY a JSON array of strings. Example:
-["alumni engagement digital channels 2025 2026",
- "donor lifecycle CRM technology higher education",
- "philanthropic giving Gen Z behavioral trends",
- "advancement operations workflow automation"]
+["customer engagement digital channels 2025 2026",
+ "buyer lifecycle CRM technology mid-market",
+ "Gen Z purchasing behavioral trends",
+ "operations workflow automation"]
 
 NO commentary, NO markdown, JUST the JSON array.`,
                     config: { temperature: 0.4 },  // slight diversity for angle variety
@@ -1501,20 +1501,20 @@ METHODOLOGY: Perform MULTI-DIMENSIONAL thematic analysis across these 6 lenses. 
 
 SOLUTION-NAMED THEMES ARE FORBIDDEN (HARD RULE - NON-NEGOTIABLE):
 A theme is a FINDING - a pattern, tension, or condition the evidence reveals. It is NOT a product, feature, tool, initiative, or recommendation. NEVER name a theme after a thing to build or do.
-   "Student Life Assistant", "Partner Assistant", "Experience Builder", "Alumni Matchmaking", "Partner Growth Crawler", "Predictive Placement Engine" (these are SOLUTIONS/FEATURES, not findings)
+   "Onboarding Assistant", "Partner Assistant", "Experience Builder", "Account Matchmaking", "Growth Crawler", "Predictive Routing Engine" (these are SOLUTIONS/FEATURES, not findings)
    Any noun phrase that names an app, platform, agent, tool, or program to deploy
-   "Co-op matching is fragmented across disconnected systems" (a finding/condition)
-   "Students distrust opaque AI placement decisions" (a tension the evidence shows)
-   "Pre-enrollment advising is disjointed and manual" (a current-state pattern)
+   "Intake matching is fragmented across disconnected systems" (a finding/condition)
+   "Customers distrust opaque automated decisions" (a tension the evidence shows)
+   "Pre-purchase guidance is disjointed and manual" (a current-state pattern)
 A theme names WHAT THE EVIDENCE SHOWS IS TRUE, never WHAT SOMEONE SHOULD BUILD. Solutions belong in the recommendations deliverable. A theme named like a product is INSTANTLY REJECTED.
 
 META-THEMES ARE FORBIDDEN (HARD RULE - NON-NEGOTIABLE):
 A theme describes a PATTERN OR FINDING FROM THE EVIDENCE. A meta-theme complains about the evidence itself. Meta-themes are INSTANTLY REJECTED.
 
 FORBIDDEN theme names (these will be filtered out post-generation):
-   "General higher education news lacking advancement focus"
-   "Pervasive lack of quantified advancement case studies"
-   "Insufficient data for specific advancement modernization benchmarking"
+   "General industry news lacking subject focus"
+   "Pervasive lack of quantified case studies"
+   "Insufficient data for specific modernization benchmarking"
    "Anecdotal criticism of industry conferences for productivity"
    "Marketing claims versus quantified institutional outcomes" (if it describes what the corpus lacks, not what it shows)
    "Limited evidence on X" / "Scarcity of data on Y" / "Absence of Z"
@@ -1537,14 +1537,14 @@ SOURCE DIVERSITY REQUIREMENT (critical):
 Your corpus contains evidence from MULTIPLE source types. ALL sources start with EQUAL credibility - their value is determined by what they actually contribute to the research objective, not by where they came from. The corpus includes:
 - CLIENT DOCUMENTS: Uploaded PDFs, proposals, SOWs, transcripts - the client's specific organizational context
 - ACADEMIC PAPERS: OpenAlex, Crossref, Semantic Scholar, ERIC - peer-reviewed research
-- NEWS & INDUSTRY: Higher Ed Dive, GDELT, industry blogs - current trends and developments
-- GOVERNMENT DATA: College Scorecard, Federal Register, Data.gov - official statistics and policy
+- NEWS & INDUSTRY: trade press, GDELT, industry blogs - current trends and developments
+- GOVERNMENT DATA: Federal Register, Data.gov, official statistics portals - official statistics and policy
 - SOCIAL/COMMUNITY: Reddit, forums - unfiltered practitioner sentiment and grassroots experience
 
 EVIDENCE EVALUATION RULES:
 - Judge EVERY source by its SPECIFIC CONTRIBUTION to the research objective, not its category
-- A Reddit post from an advancement VP describing exactly the client's problem is MORE valuable than an academic paper about philanthropy in a different country
-- An uploaded SOW detailing the client's budget and timeline is MORE valuable than 50 news articles about general fundraising trends
+- A Reddit post from a frontline practitioner describing exactly the client's problem is MORE valuable than an academic paper on the topic from a different region
+- An uploaded SOW detailing the client's budget and timeline is MORE valuable than 50 news articles about general industry trends
 - The strongest themes have CONVERGENT evidence: multiple independent sources - regardless of type - pointing to the same finding
 - Every theme MUST cite sources from at least 2 DIFFERENT source names (not just Reddit + Reddit)
 - After extracting themes, mentally rank which sources ACTUALLY contributed the most - that's the real credibility assessment
@@ -1553,9 +1553,9 @@ EXTRACTION RULES - CORPUS-DENSITY BASED, NO HARD CEILING:
 - Analyze EVERY chunk in the corpus - client docs, intelligence sources, AND social data
 - Each chunk may support MULTIPLE themes. A single source can contribute to 3-5 themes.
 - INSIGHTFUL TITLES (REQUIRED): a theme NAME must state the SPECIFIC TENSION, SHIFT, or FINDING - a complete insight a partner grasps from the title alone - NOT a bland category or a solution label.
-     GENERIC BUCKET (banned): "Technology", "Student Support", "Career Challenges", "AI Adoption", "Data Integration", "Alumni Engagement"
-     SOLUTION/PRODUCT NAME (banned): "Career Pathing AI", "Alumni Matchmaking", "Advisor Dashboard"
-     INSIGHTFUL FINDING: "Fragmented co-op systems force advisors into manual data entry", "Students distrust opaque AI placement decisions", "First-year advising collapses under one-advisor-for-many caseloads", "Employers ghost applicants after final-round co-op interviews"
+     GENERIC BUCKET (banned): "Technology", "Customer Support", "Operational Challenges", "AI Adoption", "Data Integration", "Engagement"
+     SOLUTION/PRODUCT NAME (banned): "Workflow AI", "Matchmaking Engine", "Ops Dashboard"
+     INSIGHTFUL FINDING: "Manual data reconciliation consumes a third of the frontline team's week", "Customers distrust opaque automated decisions", "Frontline support collapses under a one-specialist-for-many ratio", "Prospects go silent after the final evaluation step"
     Name what the evidence reveals is TRUE and why it matters - the friction, the shift, or the stance. If the title could head two unrelated insights, it is too generic; sharpen it.
 - Description: 3-5 sentences with specific data points, statistics, names, dates from the evidence
 - Floor: 12 themes minimum (the analyst expects breadth across the 6 lenses).
@@ -1580,7 +1580,7 @@ CITATION REQUIREMENTS (non-negotiable):
 - "sourceFile" = CHUNK ID (e.g. "CHUNK_001") from corpus
 - "text" = VERBATIM quote from that chunk (10-30 words, copy-pasted exactly)
 - "url" = URL from the chunk metadata (appears after "URL:" in chunk header)
-- "sourceName" = source name from the SOURCE header (e.g. "Higher Ed Dive", "OpenAlex")
+- "sourceName" = source name from the SOURCE header (e.g. "Industry Trade Press", "OpenAlex")
 - "author" = author if present, empty string otherwise
 - "publicationDate" = date from "Date:" line, empty string otherwise
 - "quote" = the single BEST direct quote exemplifying this theme (with chunk reference)
@@ -1589,7 +1589,7 @@ CITATION REQUIREMENTS (non-negotiable):
 CRITICAL - EXTERNAL INTELLIGENCE DIVERSITY MANDATE:
 The corpus contains UPLOADED CLIENT DOCUMENTS (3-10 PDFs) and EXTERNAL INTELLIGENCE (~200 articles from academic, news, government, social, AI sources).
 - At least 50% of themes MUST be grounded primarily in EXTERNAL intelligence (not uploaded PDFs)
-- At least 30% of ALL citations must come from external sources (Higher Ed Dive, Reddit, OpenAlex, ERIC, Federal Register, arXiv, NIST, etc.)
+- At least 30% of ALL citations must come from external sources (Industry Trade Press, Reddit, OpenAlex, ERIC, Federal Register, arXiv, NIST, etc.)
 - Uploaded documents provide organizational context. External intelligence provides evidence of trends, competition, and best practices.
 - The STRONGEST themes weave both: external finding + client context alignment
 - If you find yourself citing the same 4-5 uploaded PDFs for most themes, STOP and go read the CHUNK_XXX items from the intelligence_sources section of the corpus
@@ -2015,7 +2015,7 @@ Extract themes spanning the FULL widened evidence set:
   1. Read EVERY chunk in this widened window, including the newly-included adjacent evidence.
   2. The adjacent evidence surfaces themes the narrow first pass could not see - find them.
   3. Where a single umbrella theme conflates distinct evidenced findings, separate them
-     (e.g. "AI in Fundraising" -> "AI wealth screening", "AI donor-history summarization",
+     (e.g. "AI in Sales" -> "AI lead scoring", "AI account-history summarization",
      "AI email personalization") ONLY when each split is independently supported by a chunk.
   4. Each theme MUST cite at least one chunk; do NOT invent themes to hit a number. If the
      widened corpus genuinely supports fewer than ${BREADTH_FLOOR}, return what the evidence
@@ -2985,7 +2985,7 @@ CRITICAL RULES:
   rapidly evolving landscape, it's important to note, at the end of the day, deep dive
   as filler, low-hanging fruit, etc.).
 - subThemes are DISTINCT mechanisms / verbs / sub-patterns inside the umbrella theme.
-  If the umbrella is "AI-driven donor matching reshapes major-gift workflows", sub-themes
+  If the umbrella is "AI-driven matching reshapes high-value deal workflows", sub-themes
   are concrete sub-patterns like "wealth-screening models replace manual prospect research",
   "predictive next-best-action queues for gift officers", "AI-summarized donor history
   in CRM record views" - NOT generic restatements of the umbrella.
@@ -3219,7 +3219,7 @@ ${feedback ? `USER FEEDBACK (follow this direction): "${feedback}"` : ''}
 CRITICAL - PERSONA NAMING RULE (NON-NEGOTIABLE):
 The "name" field MUST be a descriptive archetype TITLE that captures behavior, attitude, or role posture. NEVER a personal name (no "Sarah Chen", "Marcus Johnson", "Maya Patel", etc.). NEVER a generic placeholder ("Primary Stakeholder", "Key User", "Persona 1").
 
-GOOD archetype titles: "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Skeptical Department Head", "Outcomes-Driven Advancement Officer", "Bureaucracy-Weary Faculty Advisor", "Risk-Averse Compliance Lead"
+GOOD archetype titles: "Career-Anxious Career-Switcher", "Time-Starved Frontline Manager", "Skeptical Department Head", "Outcomes-Driven Operations Lead", "Bureaucracy-Weary Middle Manager", "Risk-Averse Compliance Lead"
 
 BAD archetype titles: "Sarah Chen", "Marcus the Manager", "Persona 1", "User A", "Primary Stakeholder", "Key Decision Maker"
 
@@ -3384,7 +3384,7 @@ REQUIRED JSON FIELDS (populate EVERY field - empty fields are a failure):
   CRITICAL: NO numeric scores. Each attribute MUST have a behavioral descriptor that is verifiable against research.
   Example: { "name": "Strategic Thinking", "behavior": "Makes decisions based on 3-5 year institutional impact" }
   NEVER use arbitrary numbers. Behavioral descriptors are verifiable; scores are fabricated.
-- "motivations": [{ "label": "motivation name", "quote": "VERBATIM quote from a specific research source", "source": "source name (e.g., 'Higher Ed Dive', 'Reddit: r/cscareerquestions', 'OpenAlex: Smith 2024')" }] (3-4 items)
+- "motivations": [{ "label": "motivation name", "quote": "VERBATIM quote from a specific research source", "source": "source name (e.g., 'Industry Trade Press', 'Reddit: r/cscareerquestions', 'OpenAlex: Smith 2024')" }] (3-4 items)
   CRITICAL: Every motivation MUST have a real source name and a direct quote from the evidence. NEVER use generic sources like "research" or "studies."
 - "tasks": [{ "label": "task description grounded in research" }] (3-4 items)
 - "painPoints": [{ "label": "pain point from evidence", "quote": "VERBATIM quote from a specific source proving this pain", "source": "real source name" }] (3-4 items)
@@ -3632,7 +3632,7 @@ REQUIREMENTS:
   d) QUANTIFY expected impact where possible (%, $, timeframe)
 - Impact Level: HIGH = urgent + high ROI, MEDIUM = important but longer timeline, LOW = nice-to-have
 - Action Items: 4-5 concrete, specific, assignable next steps. Each starts with a verb. Include WHO should do it.
-- citations: Array of 2-4 source names that evidence this recommendation (e.g., "Higher Ed Dive", "Reddit: r/cscareerquestions", "OpenAlex: Smith 2024")
+- citations: Array of 2-4 source names that evidence this recommendation (e.g., "Industry Trade Press", "Reddit: r/cscareerquestions", "OpenAlex: Smith 2024")
 - evidenceBasis: 1-2 sentences summarizing the specific data that proves this recommendation is needed. Include statistics, quotes, or findings.
 - Every recommendation must map to at least one theme or persona pain point
 
@@ -3952,7 +3952,7 @@ Minimum 1 fail point per 2 stages. These are the highest-value elements of a blu
 
 TECHNOLOGY LAYER (B-05): Add a technology/systems field to each stage.
 List the specific systems, platforms, and tools that support each stage.
-Example: "Blackbaud Raiser's Edge NXT, SIS integration, AI donor prediction model"
+Example: "the core CRM, data-warehouse integration, AI propensity model"
 
 EMOTION LINE: Each stage must have an emotion field with: emotion name AND intensity score (1-5).
 Not just colored dots - named emotions with scores.
@@ -3998,7 +3998,7 @@ EVIDENCE GROUNDING:
 - EVERY painPoint, actorBehaviors, and emotion must cite [CHUNK_XXX]
 - actors must reference persona names from Step 3
 - opportunityForImprovement should reference recommendations from Step 5
-- citations: For each stage, list 2-4 source names that evidence this stage (e.g., "Higher Ed Dive", "Reddit: r/highereducation", "OpenAlex: Jones 2024")
+- citations: For each stage, list 2-4 source names that evidence this stage (e.g., "Industry Trade Press", "Reddit: r/<community>", "OpenAlex: Jones 2024")
 - evidenceBasis: 1-2 sentences summarizing the specific research evidence that informed this stage - quote data points, articles, or posts
 
 ANTI-FABRICATION + ANTI-ANNOTATION (composer rule 8): NEVER invent percentages, frequencies, or named systems. If the catalog has no fail-point frequency for a stage, omit the number entirely - describe the failure mode qualitatively. Made-up "42% drop off" anywhere is grounds for rejection. Never write QA-style annotations, debug labels, or "TBD" placeholders in any field - the output is a finished deliverable, not a draft.
@@ -4226,7 +4226,7 @@ ORG CHART REQUIREMENTS:
       - "person" for individuals (default)
 - rootIds: array of ids for top-level nodes (usually 1 entry; multiple allowed for federated structures)
 - INTEGRITY: Every id in rootIds MUST exist in nodes[]. Every id in any directReports[] MUST exist in nodes[]. No dangling references.
-- citations: 2-6 evidence objects. Each has label (fact being cited, e.g. "CRO reports to CEO") and source (named source like "Higher Ed Dive" or the uploaded document name).
+- citations: 2-6 evidence objects. Each has label (fact being cited, e.g. "CRO reports to CEO") and source (named source like "Industry Trade Press" or the uploaded document name).
 - title: Action-title describing the org/division (e.g. "University Advancement - 12 roles, 2 vacancies in major gifts").
 
 OUTPUT CONSTANTS (must be exactly as specified):
@@ -4477,7 +4477,7 @@ FOR EACH FEATURE:
 - priority: Must-have / Should-have / Could-have / Won't-have
 - description: 40-60 words covering: what it does, which persona it serves, which pain point it addresses, expected impact. Must cite [CHUNK_XXX].
 - acceptanceCriteria: 2-3 testable conditions for "done"
-- citations: Array of 2-3 source names that evidence the need for this feature (e.g., "Higher Ed Dive", "Reddit: r/cscareerquestions", "Persona: Sarah Chen pain point #2")
+- citations: Array of 2-3 source names that evidence the need for this feature (e.g., "Industry Trade Press", "Reddit: r/cscareerquestions", "Persona: <persona name> pain point #2")
 - evidenceBasis: 1-2 sentences with specific data proving this feature is needed. Quote the persona pain point or research finding.
 
 ANTI-PATTERNS:
@@ -4905,7 +4905,7 @@ NODES (minimum 6): Every system mentioned in the corpus. CITE where you found ea
 - label: Exact system name from research (e.g., "Salesforce CRM", "Student Portal")
 - type: "User" | "Application" | "Database" | "Integration" | "External" | "AI/ML"
 - description: What it does and current state. Must cite [CHUNK_XXX] where this system was mentioned.
-- citations: Array of source names where this system was found (e.g., ["Client SOW", "Higher Ed Dive"])
+- citations: Array of source names where this system was found (e.g., ["Client SOW", "Industry Trade Press"])
 
 FLOWS (minimum 5): Connections between nodes.
 - fromId/toId: Node IDs
@@ -5123,7 +5123,7 @@ MINTO'S PYRAMID PRINCIPLE (non-negotiable):
 - State the CONCLUSION first, then support with evidence
 - Every slide title MUST be a COMPLETE SENTENCE stating a conclusion - NOT a topic label
   BAD: "Market Overview", "Current Challenges", "Recommendations"
-  GOOD: "Young alumni giving declined 12% while overall fundraising grew 3%, creating a generational crisis"
+  GOOD: "Repeat-customer revenue declined 12% while overall revenue grew 3%, creating a retention crisis"
 - THE PARTNER TEST: A senior partner reading ONLY the slide titles in order must understand the complete argument.
 - All arguments must be MECE (Mutually Exclusive, Collectively Exhaustive)
 
@@ -5963,7 +5963,7 @@ Research goal: "${this.goal}".
 Scan the entire research corpus for EVERY mention of technology systems, software platforms, tools, databases, APIs, vendors, and digital processes. You MUST find at least 8 systems. If the research mentions any organization, they use technology - identify it.
 
 LOOK FOR:
-- CRM systems (Salesforce, HubSpot, Blackbaud, Raiser's Edge, Slate, etc.)
+- CRM systems (Salesforce, HubSpot, etc.)
 - ERP/SIS systems (Banner, Workday, PeopleSoft, Ellucian, etc.)
 - LMS platforms (Canvas, Blackboard, Moodle, Brightspace, etc.)
 - Data/Analytics tools (Tableau, Power BI, Snowflake, Google Analytics, etc.)
@@ -5980,7 +5980,7 @@ For each system found:
 - users: Who uses it
 - department: Which department owns it
 - status: active | legacy | deprecated | planned
-- citations: Array of source names where this system was mentioned (e.g., ["Client SOW", "Higher Ed Dive", "Reddit"])
+- citations: Array of source names where this system was mentioned (e.g., ["Client SOW", "Industry Trade Press", "Reddit"])
 - evidenceBasis: 1 sentence with specific evidence of this system's role or issues (e.g., "SOW mentions Raiser's Edge NXT as primary CRM but staff report 40% of data entry is manual")
 
 Generate at LEAST 8 systems. If the corpus mentions an organization, that organization has a CRM, a website, email, databases, and likely an LMS - include them even if the specific vendor isn't named (label as "Unspecified CRM" etc.).
@@ -6153,7 +6153,7 @@ TWO ANALYSIS MODES - use BOTH:
 
 MODE 1: NAMED ENTITIES - Extract every organization, vendor, platform, institution, or product mentioned BY NAME in the corpus.
   - Search ALL chunks for proper nouns: company names, university names, software products, vendors, government agencies
-  - Example: If corpus mentions "Salesforce", "Blackbaud", "Stanford", "MIT" - these are peers/players
+  - Example: If corpus mentions "Salesforce", "HubSpot", "Acme Corp", "Globex" - these are peers/players
   - For each named entity found: name, role in the ecosystem, strengths (from evidence), weaknesses (from evidence)
   - MUST cite [CHUNK_XXX] for every claim about a named entity
 
@@ -6513,7 +6513,7 @@ MANDATORY EVIDENCE USAGE:
 - CASE STUDIES: When an article describes a specific organization's experience, present it as a 2-3 sentence case study.
 - VERBATIM SOCIAL EVIDENCE: Reddit posts, forum comments, and reviews are primary practitioner evidence. Quote them DIRECTLY with attribution: "One advancement director on Reddit wrote: '...'"
 - ACADEMIC CITATIONS: Reference papers by title and author when available: "A 2024 OpenAlex study by Smith et al. found that..."
-- DATA POINTS: Extract specific numbers, percentages, dates, dollar amounts from articles. "According to Higher Ed Dive, enrollment dropped 15% at 23 institutions in Q1 2025."
+- DATA POINTS: Extract specific numbers, percentages, dates, dollar amounts from articles. "According to Industry Trade Press, enrollment dropped 15% at 23 institutions in Q1 2025."
 - CONVERGENT EVIDENCE: When multiple sources agree, explicitly note convergence: "This finding is corroborated by three independent sources: [source1], [source2], and [source3]."
 - COUNTER-EVIDENCE: When sources disagree, note the tension: "While [source1] reports growth, [source2] documented contraction in the same segment."
 - SOURCE NAMES: ALWAYS cite the source by its publication/platform name, never as "research" or "studies" or "intelligence sources."
@@ -6597,7 +6597,7 @@ RUMELT'S KERNEL (the report must contain all three):
 NARRATIVE STRUCTURE (McKinsey Whitepaper Format):
 - Executive Summary: 500-800 words in SCR format. State the conclusion first. Reference at least 5 distinct intelligence sources.
 - Each section: 400-800 words of analytical prose that reads like a published research report.
-- WRITE LIKE A JOURNALIST: Name specific articles, quote specific people, cite specific data. "According to a February 2025 Higher Ed Dive report..." not "according to research."
+- WRITE LIKE A JOURNALIST: Name specific articles, quote specific people, cite specific data. "According to a February 2025 Industry Trade Press report..." not "according to research."
 - USE CASE STUDIES: When an article describes a real institution, company, or person's experience, present it as a 2-3 sentence case study. "Amazon's January 2024 layoff of 16,000 corporate employees, reported across multiple Reddit communities, illustrates the volatility facing graduates..."
 - CITE SOCIAL EVIDENCE: Reddit posts and community discussions are primary practitioner evidence. Quote them directly: "One practitioner on a community forum wrote: 'We waited three weeks for onboarding...', a sentiment echoed by dozens of similar posts in the dataset."
 - WEAVE MULTIPLE SOURCES: Each paragraph should reference 2-3 different sources, showing convergent evidence. "Federal Register data confirms the regulatory shift, while a Hechinger Report investigation revealed the implementation gap at ground level."
@@ -6673,12 +6673,12 @@ ${sourceCatalog}
 CRITICAL CITATION AND EVIDENCE REQUIREMENTS:
 1. The RAW INTELLIGENCE EVIDENCE section above contains articles from ${rawSources?.length || 0} sources with ${rawSources?.reduce((s: number, r: any) => s + (r.items?.length || 0), 0) || 0} total collected items. THIS IS YOUR PRIMARY EVIDENCE BASE - the knowledge graph shows all this depth and YOUR REPORT MUST MATCH IT.
 2. Your report MUST cite evidence from at LEAST 20 different named sources - not just the uploaded client documents. The knowledge graph connects ~200 evidence nodes; your report should reference a significant fraction of them.
-3. CITE SPECIFIC ARTICLES BY NAME: "According to Higher Ed Dive's article 'Universities Struggle with Skills Gap'..." or "A Reddit post in r/cscareerquestions noted that..."
-4. QUOTE SPECIFIC DATA: Use specific statistics, dates, percentages, dollar amounts, and findings from the evidence articles. NEVER generalize what can be specified. BAD: "Research shows enrollment declined." GOOD: "Higher Ed Dive reported a 15% enrollment decline across 23 public universities in Q1 2025, with rural institutions hit hardest at 22% [Higher Ed Dive]."
+3. CITE SPECIFIC ARTICLES BY NAME: "According to Industry Trade Press's article 'Universities Struggle with Skills Gap'..." or "A Reddit post in r/cscareerquestions noted that..."
+4. QUOTE SPECIFIC DATA: Use specific statistics, dates, percentages, dollar amounts, and findings from the evidence articles. NEVER generalize what can be specified. BAD: "Research shows enrollment declined." GOOD: "Industry Trade Press reported a 15% enrollment decline across 23 public universities in Q1 2025, with rural institutions hit hardest at 22% [Industry Trade Press]."
 5. USE CASE STUDY FORMAT: When an article describes a specific institution's experience, present it as a 2-4 sentence case study within the relevant section. MINIMUM 3 case studies across the report. Example: "CASE STUDY: Southern Oregon University received a $15M state lifeline in March 2025 to maintain operations after enrollment dropped below sustainability thresholds. The investment, paired with a workforce-aligned curriculum redesign, is projected to recover 60% of lost enrollment within 18 months [GDELT News]."
-6. SOCIAL EVIDENCE IS PRIMARY EVIDENCE: Reddit posts, forum discussions, TrustPilot reviews, and community data are unfiltered practitioner voices. Quote them DIRECTLY and EXTENSIVELY: "A senior advancement officer wrote on r/highereducation: 'We've been doing the same thing for 20 years and wondering why young alumni don't give' - a sentiment echoed in 14 similar posts across the dataset."
+6. SOCIAL EVIDENCE IS PRIMARY EVIDENCE: Reddit posts, forum discussions, TrustPilot reviews, and community data are unfiltered practitioner voices. Quote them DIRECTLY and EXTENSIVELY: "A senior practitioner wrote on r/<community>: 'We've been doing the same thing for 20 years and wondering why our numbers keep slipping' - a sentiment echoed in 14 similar posts across the dataset."
 7. The uploaded client documents provide ORGANIZATIONAL CONTEXT. The intelligence sources provide EXTERNAL EVIDENCE. Every section must weave BOTH: what the client's documents say about their situation + what the broader evidence reveals about the landscape they operate in.
-8. Each section's "citations" array must list 5-10 ACTUAL source names (e.g., "Higher Ed Dive", "OpenAlex", "Reddit: r/cscareerquestions", "Semantic Scholar: Smith 2024") - NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
+8. Each section's "citations" array must list 5-10 ACTUAL source names (e.g., "Industry Trade Press", "OpenAlex", "Reddit: r/cscareerquestions", "Semantic Scholar: Smith 2024") - NEVER generic references like "intelligence_sources" or "CHUNK_XXX" or "research data."
 9. EVERY section must include keyMetrics with 2-4 specific numbers drawn from the evidence (not approximations), and keyQuote with a VERBATIM quote from a named source.
 10. If a section relies only on uploaded client documents with no external evidence, narrow the section's claims to what IS evidenced - do NOT pad. Never write "EVIDENCE GAP", "Evidence Gap", "TBD", or any meta-annotation in user-facing fields.
 11. AIM FOR 400-800 WORDS PER SECTION. The report should feel like a published research paper, not a slide deck in paragraph form. Use analytical prose with evidence weaving, not bullet-point summaries.

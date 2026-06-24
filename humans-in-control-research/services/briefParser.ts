@@ -124,7 +124,7 @@ QUESTIONS: extract every explicit research question from the brief. Assign IDs Q
 
 DATE FILTER: extract the from/to window if the brief declares one. Use ISO-8601 YYYY-MM-DD. If the brief says "last two years" without dates, leave empty - do not guess.
 
-INCLUDE RULES: short phrases describing positive filters ("donor acquisition", "alumni re-engagement via digital channels"). Quote the brief's own language. Each rule is one phrase, not a sentence.
+INCLUDE RULES: short phrases describing positive filters ("customer acquisition", "lapsed-customer re-engagement via digital channels"). Quote the brief's own language. Each rule is one phrase, not a sentence.
 
 EXCLUDE RULES: same for negative filters ("generic AI technology articles", "political commentary without a giving angle"). Quote verbatim where possible.
 

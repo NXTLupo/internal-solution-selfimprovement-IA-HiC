@@ -684,6 +684,38 @@ export function stripProcessReferences(text: string): string {
     return cleaned.replace(/\s+([.,;!?])/g, '$1').replace(/\s{2,}/g, ' ').trim();
 }
 
+// 2026-06-24 - HTML-SAFE artifact meta scrub. The client-orchestrated HTML
+// artifact path (#brief/#report/#explainer/#strategy/... in CorpusChatPanel)
+// previously ran NO meta strip on its Opus output (only a code-fence strip), so a
+// corpus/process self-reference leaked into a live #brief title ("the only
+// corpus-confirmed model ..."). The slide/proxy paths scrub; this one didn't.
+// This scrub uses ONLY targeted phrase replacements with NO greedy `.*` (which
+// would mangle single-line HTML / eat tags) so it is safe to run on a full HTML
+// document. It removes the corpus-compound-adjective family + a few high-signal
+// process lead-ins; it does NOT collapse whitespace globally (would corrupt
+// <pre>/code). Extend ARTIFACT_META_PHRASE_STRIPS as new leaks surface.
+const ARTIFACT_META_PHRASE_STRIPS: Array<[RegExp, string]> = [
+    // compound process-adjective: "corpus-confirmed model" -> "model"; also
+    // research-/data-/evidence-/source-/literature- prefixed variants.
+    [/\b(?:corpus|research|data|evidence|source|literature)-(?:confirmed|validated|verified|backed|sourced|evidenced|derived|grounded|based|documented)\b\s*/gi, ''],
+    // "the (collected) corpus confirms/names/shows (that) ..." lead-in
+    [/\bthe (?:collected |external |available |broader |assembled )?corpus (?:confirms?|names?|shows?|reveals?|indicates?|documents?|evidences?|surfaces?)(?: that)?\s*/gi, ''],
+    // "based on/according to the research/corpus/data, " prefix (bounded, no greedy .*)
+    [/\b[Bb]ased on (?:the |our |this )?(?:research|analysis|data|evidence|findings|sources|corpus|review)[^,.<>]{0,40},\s*/gi, ''],
+    [/\b[Aa]ccording to (?:the |our )?(?:research|analysis|data|evidence|findings|sources|corpus|report)[^,.<>]{0,40},\s*/gi, ''],
+];
+
+/** HTML-safe meta/process-reference scrub for generated HTML artifacts. Safe to
+ *  run on a complete <!doctype html>...</html> document (no greedy patterns). */
+export function scrubArtifactHtmlMeta(html: string): string {
+    if (!html || typeof html !== 'string') return html;
+    let out = html;
+    for (const [re, sub] of ARTIFACT_META_PHRASE_STRIPS) out = out.replace(re, sub);
+    // Only fix space-before-punctuation that our deletions may have created;
+    // never touch other whitespace (protects <pre>/code).
+    return out.replace(/ +([.,;:])/g, '$1');
+}
+
 // 2026-06-23 - CHAT-REPLY META SCRUB (fixes the Analyst-Desk #slides escape).
 // The chat finalizer ran only stripQAAnnotations + stripFormatTells, so meta-narration
 // in the conversational PREAMBLE and inside :::slide JSON FIELDS shipped unfiltered

@@ -470,6 +470,54 @@ These fold into the phased plan: **delta-collection -> Phase 1** (with the conne
 **search-vs-think tier -> a new Phase 1.5** (cheap before expensive), **dream-cycle precompute ->
 Phase 4**. None require importing either repo's engine.
 
+# PART 5 — PERPLEXICA EVALUATION (cost-savings lens, 2026-06-24)
+
+Repo: https://github.com/BunsDev/perplexica-search-engine-ai (a "Vane"-rebranded fork of
+ItzCrazyKns/Perplexica). MIT. TypeScript/Next.js + Drizzle ORM + Docker.
+
+## What it is
+An open-source AI search engine (Perplexity alternative): web search via **SearXNG** (free,
+self-hosted metasearch over Google/Bing/DuckDuckGo/etc., no API key) -> embeddings + similarity +
+rerank -> an LLM synthesizes a **cited answer**. LLM providers: Ollama (local/free), OpenAI,
+Anthropic, Gemini, Groq, any OpenAI-compatible. Smart modes (Speed/Balanced/Quality), focus modes
+(web/academic/discussions). Exposes an `/api/search` endpoint. Fully self-hostable with $0 cloud cost
+when paired with local Ollama.
+
+## The cost reality it would address (grounded in proxy/app.py)
+- HiC web search/body-fetch today = **Jina Reader free tier** (the `jina` + 199 `web_search`
+  connectors) + **Google News RSS** (`news.google.com/rss/search?q=site:X`) + 200+ free
+  REST/RSS/CKAN/arXiv sources.
+- **There are NO Brave / Tavily / SerpAPI / Exa / Jina API keys in the pipeline** (grep clean).
+  **HiC already pays $0 for web search.** The only "cost" is Jina free-tier RATE LIMITING (the
+  documented "backing off Jina Reader for 60s per-process" cascade) - a throughput/reliability cost,
+  not a dollar cost.
+- The one place a paid search key appears is `TAVILY_API_KEY` in **NXT-Agency** (optional, cowork
+  agent web search) - not HiC's research pipeline, and Tavily has a free tier.
+- HiC LLM spend is already cache-optimized (Part 4) and deliberately uses premium models
+  (Gemini/Claude/Opus) for quality per the vision.
+
+## Verdict: NOT worth pursuing for cost savings. Hard-reject the app; narrow conditional on SearXNG.
+
+| Dimension | Finding |
+|---|---|
+| **Direct cost savings** | **~$0.** The thing Perplexica replaces (paid search) is a cost HiC does not have. Its Ollama-local LLM option can't cut HiC's LLM cost without tanking deliverable quality (the vision mandates premium models for hashtag artifacts; cache stack already optimizes spend). |
+| **Architecture vs vision** | **HARD REJECT the app.** Perplexica IS a RAG synthesizer (web -> embeddings -> rerank -> LLM cited answer) - the embedding-RAG-as-primary-grounding pattern principles 6+8 explicitly reject (same verdict as GBrain's engine). Adopting it = a 2nd grounding path + a 2nd chat + a 2nd Next.js/Drizzle stack = violates ONE-chokepoint + converge-don't-build-new. |
+| **Extractable component (SearXNG)** | **Conditional MAYBE - on reliability, NOT cost.** SearXNG as a free, keyless metasearch CONNECTOR feeding the manifest could (a) remove the Jina free-tier rate-limit cascade and (b) help the hub-page collection gap (find real articles via metasearch instead of a dead `static_url` landing page, e.g. the KPMG case). But it ADDS a self-hosted container (RAM/CPU/maintenance) and SearXNG itself gets throttled/blocked by the engines it scrapes - so it trades a free-but-rate-limited dependency for a self-hosted-but-also-throttleable one. HiC already has 199 web_search connectors, so this is an alternative backend, not a new capability. |
+| **Operational cost** | Pursuing the app = MORE infra (Next.js app + Drizzle DB + SearXNG + optional Ollama), the opposite of a saving. |
+
+**Recommendation (RI-calibrated, confidence: high on the verdict, medium on the SearXNG upside
+magnitude):** Do **not** adopt Perplexica. The cost premise does not hold - HiC's search is already
+free and its LLM cost is already optimized. The only piece worth a *future* spike is **SearXNG as an
+optional fallback/alternative search backend**, and that decision should be made on **reliability
+grounds** (is the Jina 60s back-off actually starving collection? - measure it first) not cost. If
+collection reliability is the real pain, a SearXNG connector is a small, doctrine-aligned add (like
+the Lobsters/Bluesky connectors) that also helps the parked static_url hub-page problem - but it is a
+reliability/breadth play, explicitly not the cost-savings play the goal asked about.
+
+**What to verify before any SearXNG spike:** the actual frequency/impact of the Jina rate-limit
+back-off in real runs (proxy logs), and whether self-hosted SearXNG's own throttling by Google/Bing
+nets out better than Jina free-tier for HiC's query volume.
+
 ## Appendix — file:line index used in this analysis
 
 - Vision: `.claude/UNIFIED_VISION.md`; output canon `.claude/CLAUDE.md`.

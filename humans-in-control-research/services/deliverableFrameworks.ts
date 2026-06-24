@@ -318,13 +318,13 @@ Order of ideas in every body element:
   (c) Show the named gap or current-state condition that, when addressed, captures the opportunity.
   (d) State the specific action that captures it.
 
-GOOD section lead: "Northeastern's first-year cohort already trusts peer networks for co-op preparation. Codifying that pattern into a formal peer-mentor layer turns existing trust into faster placement velocity."
-BAD section lead: "Students are flying blind without advisors. The system is broken."
+GOOD section lead: "The audience already trusts peer networks for onboarding guidance. Codifying that pattern into a formal peer-mentor layer turns existing trust into faster activation velocity."
+BAD section lead: "Users are flying blind without support. The system is broken."
 
 GOOD recommendation: "Expand peer-mentor coverage from 12 dorms to all 28 by Fall 2026. Pilot data shows mentored students place ~2 weeks faster on average."
 BAD recommendation: "Fix the broken advising system."
 
-GOOD persona pain point: "Students lose ~6 hours per week reconciling co-op deadlines across three systems - time that returns to coursework when those systems share a calendar."
+GOOD persona pain point: "Users lose ~6 hours per week reconciling deadlines across three systems - time that returns to core work when those systems share a calendar."
 BAD persona pain point: "Students are drowning in fragmented systems."
 
 ---
@@ -354,7 +354,7 @@ Sentence-level discipline. Apply to every text field.
 
   - Active voice. "The advisor reviews the resume" - not "The resume is reviewed by the advisor".
   - One idea per sentence. If you write "and" twice in a sentence, split it.
-  - Specific nouns over general ones. "Co-op coordinator" not "key stakeholder". "NUworks" not "the platform". "Dr. Quinn" not "leadership".
+  - Specific nouns over general ones. "Regional operations lead" not "key stakeholder". "the named system" not "the platform". "the VP of Ops" not "leadership".
   - Verbs that name what happens, not what is. "Students reconcile deadlines across three systems" - not "There is misalignment in deadline management".
   - Numbers wherever the corpus supports them. "12 hours per week" beats "significant time". "~2 weeks faster" beats "noticeably faster".
   - Avoid hedge words ("perhaps", "potentially", "might possibly", "in some cases") unless the evidence is genuinely thin - and when it is, name what's missing.
@@ -458,7 +458,7 @@ For each slide, follow this:
 HEADING FORMAT:
 - Sentence case, max 2 lines. Heading IS the "so what" - a conclusion, not a topic label.
 - Always end with chartreuse period: append "." in #B8B800 accent color.
-- BAD: "Market Overview" | GOOD: "Young alumni giving declined 12% while overall fundraising grew, creating a generational crisis."
+- BAD: "Market Overview" | GOOD: "Repeat-customer revenue declined 12% while overall revenue grew, creating a retention crisis."
 
 BULLET FORMAT:
 - Max 3 bullets per slide. Bold key stats/phrases within text.
@@ -551,8 +551,8 @@ DECK_STRUCTURE: `RESEARCH OBJECTIVE: The user's research goal drives this strate
 
 RUMELT'S KERNEL TEST (non-negotiable):
 This deck MUST contain:
-1. DIAGNOSIS: Name THE central challenge. Not "things are changing." A diagnosis is specific: "Donor retention among affluent millennials declined 18% in 3 years because advancement offices optimize for institutional loyalty while donors now prioritize measurable impact."
-2. GUIDING POLICY: State the approach. Not "improve donor experience." A policy is a DECISION: "Shift from loyalty-based solicitation to impact-verified giving."
+1. DIAGNOSIS: Name THE central challenge. Not "things are changing." A diagnosis is specific: "Customer retention among high-value accounts declined 18% in 3 years because the team optimizes for tenure-based loyalty while customers now prioritize measurable impact."
+2. GUIDING POLICY: State the approach. Not "improve customer experience." A policy is a DECISION: "Shift from loyalty-based outreach to impact-verified offers."
 3. COHERENT ACTIONS: 5-7 actions that SUPPORT EACH OTHER, not a random list.
 
 3-LAYER DEPTH REQUIREMENT (every analysis paragraph):
@@ -579,7 +579,7 @@ NON-NEGOTIABLE RULES:
 SLIDE-LEVEL REQUIREMENTS:
 - Every slide has an ACTION TITLE - a complete sentence stating a conclusion, NOT a topic label
   BAD: "Market Overview"
-  GOOD: "Higher ed fundraising grew 3% overall but young alumni giving declined 12%, creating a generational crisis"
+  GOOD: "Total revenue grew 3% overall but repeat-customer revenue declined 12%, creating a retention crisis"
 - THE PARTNER TEST: A senior partner reading ONLY slide titles should understand the complete argument
 - Each slide communicates exactly ONE insight
 - The "So What" test: if an element doesn't connect to the action title, remove it
@@ -631,7 +631,7 @@ ANTI-SLOP ENFORCEMENT (every deliverable, every field):
 - NEVER use AI-slop preambles: "in today's rapidly evolving landscape", "in the ever-evolving", "as we navigate", "as we move forward", "it's important to note", "it's worth noting", "needless to say", "at the end of the day", "the reality is", "the fact of the matter", "ultimately", "essentially", "fundamentally", "in essence".
 - NEVER use FORBIDDEN PUNCTUATION: en-dashes (-) are banned everywhere. Use a regular hyphen (-) for compound modifiers, "to" for ranges ("1990 to 2000"), and a period to end a sentence. Em-dashes (-) are permitted sparingly only when no other punctuation works.
 - NEVER use ELLIPSIS in deliverable text. Do not write "..." or "..." to trail off - finish the sentence. If a quote must be shortened, end it with a period at the last clean clause boundary.
-- NEVER fabricate personal names in persona titles. Persona "name" must be a descriptive archetype TITLE (adjective + role/posture noun), e.g., "Career-Anxious Career-Switcher", "Time-Starved First-Generation Student", "Risk-Averse Compliance Lead". Forbidden: "Sarah Chen", "Marcus Johnson", "Maya Patel", "Persona 1", "Primary Stakeholder".
+- NEVER fabricate personal names in persona titles. Persona "name" must be a descriptive archetype TITLE (adjective + role/posture noun), e.g., "Career-Anxious Career-Switcher", "Time-Starved Frontline Manager", "Risk-Averse Compliance Lead". Forbidden: "Sarah Chen", "Marcus Johnson", "Maya Patel", "Persona 1", "Primary Stakeholder".
 - LEAD with the insight. First sentence = the finding with a number.
 - Every slide bullet must cite its source. No uncited claims.
 - Write descriptive, concise, professional prose. Specific nouns. Concrete numbers. Verbs that name actions. Cut every word that does not carry information.
@@ -643,7 +643,7 @@ PLAIN TEXT ONLY - NO MARKDOWN:
 3-LAYER DEPTH:
 Every slide narrative MUST go beyond observation:
 BAD: "The philanthropic world is fundamentally shifting."
-GOOD: "Affluent donor retention has declined 18% since 2023. For advancement offices still optimizing loyalty-based solicitation, this means a projected $2.3M revenue gap by 2027. Recommendation: Reallocate 30% of solicitation budget to impact-verified platforms within 18 months."
+GOOD: "High-value customer retention has declined 18% since 2023. For teams still optimizing loyalty-based outreach, this means a projected $2.3M revenue gap by 2027. Recommendation: Reallocate 30% of the outreach budget to impact-verified channels within 18 months."
 
 You are writing consulting-grade slide content using the Assertion-Evidence model.
 
@@ -746,7 +746,7 @@ QUALITY TEST: Aakash Gupta rated a typical PRD template 9/10 as template but 2/1
 ROADMAP: `MANDATORY ROADMAP FIELDS (R-01, R-03):
 
 Every roadmap initiative MUST include:
-- "successMetric": A specific, measurable target. Example: "Reduce donor churn by 15% within 6 months (baseline: 22%)"
+- "successMetric": A specific, measurable target. Example: "Reduce customer churn by 15% within 6 months (baseline: 22%)"
 - "strategicTheme": Which strategic pillar this serves (e.g., "Data Unification", "AI Personalization", "Trust & Transparency")
 - "owner": Who is responsible (role, not person name)
 - "dependencies": What must happen first (reference other initiative names)
@@ -757,7 +757,7 @@ Each theme should have items across NOW/NEXT/LATER horizons.
 
 PROBLEM FRAMING: Every initiative MUST be framed as a PROBLEM, not a feature.
 BAD: "Build unified constituent data hub"
-GOOD: "Advancement practitioners waste 30% of outreach time cross-referencing fragmented systems"
+GOOD: "Frontline practitioners waste 30% of outreach time cross-referencing fragmented systems"
 
 You are producing a consulting-grade product/CX roadmap using Janna Bastow's NOW-NEXT-LATER framework.
 

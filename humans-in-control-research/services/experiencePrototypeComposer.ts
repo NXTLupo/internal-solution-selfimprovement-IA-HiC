@@ -62,7 +62,7 @@ export interface HashtagParsed {
  * Parse `#proto <experience-name> #NU | #NXT` from a user prompt.
  *
  * Examples:
- *   "#proto trailblazer-match #NU build the alumni match experience"
+ *   "#proto talent-match #NU build the candidate match experience"
  *     → { has_proto: true, experience_name: "trailblazer-match", brand: "nu" }
  *
  *   "#proto cohort-pulse-dashboard #NXT"
@@ -155,7 +155,7 @@ export async function loadCatalog(): Promise<CatalogShape> {
 function brandLanguage(brand: ComposerBrand): string {
     if (brand === 'nu') {
         return [
-            'NORTHEASTERN UNIVERSITY · Advancement Design System',
+            'NU BRAND · Design System',
             '  Display: Spectral Light (300 weight) serif for hero, Spectral Semibold for anchors',
             '  Body: Roboto',
             '  Mono: Roboto Mono (tabular figures for data)',
@@ -348,7 +348,7 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
         '',
         ` 11. EXEMPLAR REFERENCE: Three reference exemplars exist at`,
         `     /hic-workspace/wiki/inspiration-hub/exemplar-apps/`,
-        `       trailblazer-match-nu.html        (NU, 14 patterns, alumni match experience)`,
+        `       talent-match-nu.html            (NU, 14 patterns, candidate match experience)`,
         `       footprint-library-nxt.html       (NXT, 13 patterns, data library experience)`,
         `       counterfactual-coop-nxt.html     (NXT, 18 patterns, time-machine + cohort reveal)`,
         `     Match or exceed the pattern density and data depth of the closest reference.`,

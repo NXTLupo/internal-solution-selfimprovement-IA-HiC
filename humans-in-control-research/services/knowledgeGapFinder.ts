@@ -119,12 +119,12 @@ Output 8-15 SPECIFIC, ANSWERABLE research questions implied by this goal. Each q
 Anti-patterns:
 - Vague: "How can we improve outcomes?"
 - Restating the goal: "How do we [goal phrase]?"
-- Definitions: "What is donor retention?"
+- Definitions: "What is customer retention?"
 
-Examples of GOOD questions for a higher-ed advancement goal:
-- "What is the current donor retention rate at peer institutions of similar size?"
-- "Which donor segments contribute the largest share of mid-major gifts ($1K-10K)?"
-- "How do advancement officers currently allocate their time across prospect research vs. outreach?"
+Examples of GOOD questions for a customer-strategy goal:
+- "What is the current customer retention rate at peer companies of similar size?"
+- "Which customer segments contribute the largest share of mid-tier revenue?"
+- "How does the team currently allocate time across research vs. outreach?"
 
 Output STRICT JSON: { "questions": ["q1", "q2", ...] }`;
 
@@ -348,7 +348,7 @@ If cached engagements are provided above, include AT LEAST ONE source of type "c
 
 Examples of GOOD remediation sources:
 - type: "subreddit", query: "site:reddit.com/r/cscareerquestions \\"first job advisor\\" 2024..2025", rationale: "First-hand student voice on advisor experience", estimatedYield: "high"
-- type: "academic", query: "Google Scholar: 'donor retention rate' 'higher education' 2022-2024", rationale: "Peer-reviewed retention benchmarks", estimatedYield: "high"
+- type: "academic", query: "Google Scholar: 'customer retention rate' industry benchmarks 2022-2024", rationale: "Peer-reviewed retention benchmarks", estimatedYield: "high"
 - type: "youtube", query: "youtube.com/results?search_query=university+advisor+ratemyprofessor+experience", rationale: "Long-form student testimony", estimatedYield: "medium"
 
 Also write a single OPTIMIZED RESEARCH PROMPT the user can paste into ChatGPT/Claude/Perplexity to research this directly. The prompt should:

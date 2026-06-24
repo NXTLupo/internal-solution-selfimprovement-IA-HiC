@@ -388,7 +388,7 @@ function fallbackSuggestions(phase: CollectionPhase, state: SuggestionState, n: 
         out.push({ text: 'Help me structure a research brief for my project', kind: 'synthesis', rationale: 'AI walks you through a brief template' });
         out.push({ text: 'What makes a strong research objective vs a vague one?', kind: 'synthesis', rationale: 'Pattern coaching before you commit' });
         out.push({ text: 'What named entities (peers, vendors, programs) should I specify in my brief?', kind: 'evidence-probe', rationale: 'Specificity drives source quality' });
-        out.push({ text: 'What sources should I enable for a higher-ed advancement brief?', kind: 'source-coverage', rationale: 'Source selection guidance' });
+        out.push({ text: 'What sources should I enable for this research brief?', kind: 'source-coverage', rationale: 'Source selection guidance' });
         out.push({ text: 'What uploaded documents would strengthen this research?', kind: 'document-drill', rationale: 'Gap-fill before collecting' });
         out.push({ text: 'Give me 3 example research briefs I can adapt', kind: 'synthesis', rationale: 'Concrete templates' });
     } else if (phase === 'pre-collection') {

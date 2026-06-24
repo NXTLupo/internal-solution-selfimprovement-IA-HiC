@@ -628,7 +628,7 @@ When the user asks a question, requests analysis, brainstorms, or makes any conv
   - NUMBERED LIST ("1." "2.") for sequences, steps, ranked priorities, or a recommended order.
   - BLOCKQUOTE ("> ") for a pulled VERBATIM quote from the corpus, with its source named on the next line.
   - **Bold** the single most important phrase per section; keep paragraphs to 2-3 sentences.
-  - Cite named sources inline: e.g., "Higher Ed Dive reports that..." or "[r/NEU post, Mar 2026]". Liberal verbatim quoting.
+  - Cite named sources inline: e.g., "Industry Press reports that..." or "[r/example post, Mar 2026]". Liberal verbatim quoting.
   - Match depth to the question: a one-line factual question gets a tight 1-2 sentence answer (do NOT force headers onto a simple answer); a "compare / what are the / walk me through" question gets the full structured treatment.
   - HONOR EXPLICIT COUNTS: if the user names a number ("10 steps", "top 5", "3 examples"), produce EXACTLY that many items as a SINGLE numbered list 1..N. Do NOT regroup them under fewer section headers - "the 10 steps" means a flat 1..10 numbered list the reader can count, NOT 3 phases with sub-bullets.
   - ANSWER FROM THE MANIFEST-SELECTED EVIDENCE ALREADY IN THIS PROMPT. The PRIMARY EVIDENCE below was retrieved via the manifest (anti-RAG grounding) for exactly this question; answer directly from it. For a conversational question call fetch_wiki_articles AT MOST ONCE, and ONLY if that manifest evidence genuinely lacks the answer. Do NOT keep fetching across turns - repeated fetching is what makes a simple question take minutes. A plain question should be answered in one pass over the grounded evidence.
@@ -648,7 +648,7 @@ A portfolio AI playbook runs in four sequential phases, each building on the las
 
 ## 1. Standardize the data backbone
 
-- **Unify the CRM model:** Put every portfolio company on one student account-and-contact schema so data is not siloed.
+- **Unify the CRM model:** Put every portfolio company on one user account-and-contact schema so data is not siloed.
 - **Centralize specialist talent:** Pool the scarce platform architects into one shared-service team.
 
 ## 2. Encode governance
@@ -664,12 +664,12 @@ If the user's message contains "#slide" OR "#slides" (case-insensitive - "#slide
   - "8 #themes ... #slides"          → emit :::slide template=theme-overview blocks (max 4 themes per block → 2 blocks for 8); a single dominant theme deserving a full slide → theme-detail
   - "#recommendations ... #slide"    → emit :::slide template=recommendation blocks
   - "#competitive ... #slides"       → emit :::slide template=competitive-matrix blocks
-  Optional brand hashtag: #NU → Northeastern (near-black + Huskies Red); #NXT → NXT Humans (teal + chartreuse, default).
+  Optional brand hashtag: #NU → the client organization (near-black + Huskies Red); #NXT → NXT Humans (teal + chartreuse, default).
 
 CRITICAL: when #slide/#slides is present you MUST emit :::slide fences. NEVER answer a #slides request in markdown prose (no ###, no >, no * bullets) - that is a hard failure. The renderer only draws cards from :::slide blocks.
 
 Examples:
-  "#slide #NU give me a persona for Sarah Chen"     → emit one :::slide template=persona-card brand=nu
+  "#slide #NU give me a persona for Jordan Ellis"     → emit one :::slide template=persona-card brand=nu
   "5 #personas designer archetypes #slides #NXT"    → emit 5 :::slide template=persona-card brand=nxt
   "#slide show the top 3 themes"                    → emit ONE :::slide template=theme-overview block (3 columns in the grid)
   "Build a 5-slide deck on the roadmap #slide #NU"  → emit 5 :::slide blocks
@@ -737,7 +737,7 @@ Every text field on a slide has a finite physical budget. The renderer does NOT 
 
 WRITE LIKE A HUMAN CONSULTANT (HARD RULE, 2026-06-12):
   - Plain, direct sentences a partner would say out loud. Subject-verb-object. Contractions are fine.
-  - Concrete nouns over abstractions: "students build their own spreadsheets" not "users employ manual tracking methodologies".
+  - Concrete nouns over abstractions: "users build their own spreadsheets" not "users employ manual tracking methodologies".
   - One idea per cell or bullet. No stacked qualifiers, no noun chains, no consulting filler.
   - Vary sentence openings across cells; sibling cells must not all start with the same verb or noun.
 
@@ -748,9 +748,9 @@ VISUAL BRAND (chosen via hashtag in the user's prompt):
   Use the EXACT color / font / spacing values from the "FIGMA DESIGN TOKENS" block above (pulled
   live from Figma via MCP). Do NOT hardcode or invent any hex code or font name. If the FIGMA DESIGN
   TOKENS block is absent, state that brand tokens are unavailable rather than guessing a value.
-  #NXT = NXT Humans (DEFAULT).  #NU = Northeastern University - use only when Northeastern is requested.
+  #NXT = NXT Humans (DEFAULT).  #NU = the client organization - use only when the client organization is requested.
 
-If the user's prompt contains #NU (or "Northeastern"), you MAY echo brand=nu on the fence:
+If the user's prompt contains #NU (or "the client organization"), you MAY echo brand=nu on the fence:
   :::slide template=persona-card brand=nu
     {...}
   :::
@@ -843,19 +843,35 @@ references/web-layouts.md - do not restate them here.)
 Template-specific JSON shape examples (kept for templates not yet migrated to
 the render-contract reference file):
 
+=== READ FIRST - THE EXAMPLES BELOW ARE STRUCTURE-ONLY (DOMAIN-BLIND) ===
+Every example slide below exists ONLY to show the JSON shape, keys, and field
+types for its template. The examples use ASSORTED, FICTIONAL subjects purely as
+filler. They are NOT your subject, NOT your evidence, and NOT a domain hint.
+HARD RULES:
+  - Build EVERY field from the USER'S actual corpus and the subject named in the
+    user's message. Match only the SHAPE of these examples, never their content.
+  - NEVER copy an example's domain, named entities, sources, numbers, or phrasing.
+    If the user's subject is retail / healthcare / fintech / anything, your output
+    must be entirely about THAT subject.
+  - The strings "the client organization", "Peer A", "Peer B", "Peer C", "Peer D",
+    "operations", "placement", "customer", "customers", "high-value-deal", "the subscription", "r/example",
+    "Industry Panel 2024", "Outreach", "Gong", "Linear" are EXAMPLE FILLER. If any of them
+    (or any other entity the user did not provide) appears in your output and the
+    user did not supply it, that is a HARD FAILURE - regenerate from the corpus.
+
 :::slide template=persona-card
 {
-  "title": "Sarah Chen: The Data-Frustrated Advancement Officer",
-  "sources": ["NXT Stakeholder Interview", "Northeastern Assessment Final Report"],
+  "title": "Jordan Ellis: The Data-Frustrated Operations Officer",
+  "sources": ["NXT Stakeholder Interview", "the client organization Assessment Final Report"],
   "persona": {
-    "name": "Sarah Chen",
-    "role": "Director of Annual Giving",
+    "name": "Jordan Ellis",
+    "role": "Director of Renewals",
     "demographics": "42, MBA, 15 years in higher ed",
     "quote": "I spend 40% of my time reconciling data across three CRMs",
-    "jtbd": "When alumni engagement drops, I want predictive outreach so I can re-engage donors before churn",
-    "goals": {"lifeGoal":"Promote to VP","experienceGoal":"Build data-driven team","functionalGoal":"Unify donor view"},
+    "jtbd": "When customers engagement drops, I want predictive outreach so I can re-engage customers before churn",
+    "goals": {"lifeGoal":"Promote to VP","experienceGoal":"Build data-driven team","functionalGoal":"Unify customer view"},
     "painPoints": [{"label":"Data Fragmentation","quote":"I wouldn't know in our database that Andrew works with Rob","source":"NXT Stakeholder Interview"}],
-    "motivations": [{"label":"Donor Retention","quote":"We need to understand giving patterns before we lose them","source":"NXT Interview"}]
+    "motivations": [{"label":"Customer Retention","quote":"We need to understand spend patterns before we lose them","source":"NXT Interview"}]
   }
 }
 :::
@@ -863,27 +879,27 @@ the render-contract reference file):
 :::slide template=recommendation
 {
   "title": "Consolidate three Salesforce instances into one to recover $2.4M annually",
-  "sources": ["Northeastern CRM Assessment", "Gartner Higher-Ed CRM Report 2025", "Cornell Advancement Annual Report 2025"],
+  "sources": ["the client organization CRM Assessment", "Gartner CRM 2025", "Peer A Operations Annual Report 2025"],
   "recommendation": {
-    "actionTitle": "Migrate Annual Giving, Major Gifts, and Reunion to a single Salesforce org by Q4",
-    "rationale": "Three separate orgs create reconciliation overhead consuming 40% of advancement-officer time per the CRM Assessment. Cornell's 18-month consolidation lifted major-gift conversion 34% - that is the pattern to follow.",
+    "actionTitle": "Migrate Renewals, Key Accounts, and Reunion to a single Salesforce org by Q4",
+    "rationale": "Three separate orgs create reconciliation overhead consuming 40% of operations-officer time per the CRM Assessment. Peer A's 18-month consolidation lifted high-value-deal conversion 34% - that is the pattern to follow.",
     "supportingActions": [
       {"name":"Data audit","description":"Inventory all custom objects across the three orgs and map duplicates. Dedicated team runs this for 8 weeks before migration planning begins."},
       {"name":"Pilot migration","description":"Migrate Reunion (smallest dataset) first to validate model and process. Two-week instrumentation sprint follows cutover."},
-      {"name":"Training","description":"Run 5 sessions for the 80-person advancement team before cutover - job-role-specific, not generic product training."}
+      {"name":"Training","description":"Run 5 sessions for the 80-person operations team before cutover - job-role-specific, not generic product training."}
     ],
     "impactGrid": {
       "baseline": "40% officer time on reconciliation across 3 orgs",
       "target": "<12% reconciliation time, single unified org",
       "timeframe": "9 months, 3-phase cutover",
-      "owner": "VP Advancement Services + 12-person program team"
+      "owner": "VP Operations + 12-person program team"
     },
     "impactMetric": {"value":"$2.4M","label":"annual recovered productivity"},
     "evidence": [
-      {"text":"I wouldn't know in our database right now that Andrew, you work with Rob - that's exactly the relationship that closes a major gift.","source":"NXT Stakeholder Interview","attribution":"Major Gifts Officer"},
-      {"text":"Within six months we stopped asking 'do we know this donor?' - we already knew, and we knew the next best action.","source":"CASE 2024 panel","attribution":"VP Advancement Services, Cornell"}
+      {"text":"I wouldn't know in our database right now that Andrew, you work with Rob - that's exactly the relationship that closes a high-value deal.","source":"NXT Stakeholder Interview","attribution":"Account Lead"},
+      {"text":"Within six months we stopped asking 'do we know this customer?' - we already knew, and we knew the next best action.","source":"Industry Panel 2024 panel","attribution":"VP Operations, Peer A"}
     ],
-    "implication":"This is the unlock for every downstream Advancement initiative - prospect scoring, predictive outreach, and stewardship automation are all blocked by the fragmented data layer."
+    "implication":"This is the unlock for every downstream Operations initiative - prospect scoring, predictive outreach, and retention automation are all blocked by the fragmented data layer."
   }
 }
 :::
@@ -891,14 +907,14 @@ the render-contract reference file):
 :::slide template=theme-overview
 {
   "title": "Themes converge on a single failure mode: trust erosion before contact",
-  "sources": ["r/NEU","r/internships","Higher Ed Dive","CASE 2024"],
+  "sources": ["r/example","r/example","Industry Press","Industry Panel 2024"],
   "themeCluster": {
     "themes": [
-      {"name":"Co-op scarcity is breaking the experiential promise","dominance":"DOMINANT","mood":"betrayed","insight":"Current students cite the absence of internships as the top complaint, undermining the brand promise that justifies tuition.","evidence":"Two years. No TA. No RA. No co-ops. No internships.","source":"r/NEU","subthemes":["Experiential promise","Year-one disappointment"],"tension":"Tuition is sold on co-ops the school cannot supply."},
-      {"name":"Tuition skepticism is eroding the future donor base","dominance":"RECURRING","mood":"disillusioned","insight":"The cohort Advancement must convert enters alumni status already disillusioned with the return on a degree.","evidence":"Most Gen Z graduates now think college was a waste of money.","source":"r/highereducation","subthemes":["ROI doubt","Pre-soured donors"],"tension":"The future donor is skeptical before first contact."},
-      {"name":"Political posture is now a giving variable","dominance":"RECURRING","mood":"wary","insight":"Public university statements directly shape whether alumni open or close their wallets.","evidence":"President Aoun joins more than 320 university leaders in a joint statement.","source":"r/NEU","subthemes":["Statement risk","Pledge volatility"],"tension":"Each public stance moves giving in both directions."}
+      {"name":"Placement scarcity is breaking the core value promise","dominance":"DOMINANT","mood":"betrayed","insight":"Current users cite the absence of promised placements as the top complaint, undermining the brand promise that justifies the price.","evidence":"Two years. No TA. No RA. No placements. No onboarding.","source":"r/example","subthemes":["Experiential promise","Year-one disappointment"],"tension":"The plan is sold on placements the provider cannot supply."},
+      {"name":"Value skepticism is eroding the future customer base","dominance":"RECURRING","mood":"disillusioned","insight":"The cohort Operations must convert enters customers status already disillusioned with the return on the purchase.","evidence":"Most Gen Z buyers now think the purchase was a waste of money.","source":"r/industry","subthemes":["ROI doubt","Pre-soured customers"],"tension":"The future customer is skeptical before first contact."},
+      {"name":"Political posture is now a spend variable","dominance":"RECURRING","mood":"wary","insight":"Public university statements directly shape whether customers open or close their wallets.","evidence":"the CEO joins more than 320 university leaders in a joint statement.","source":"r/example","subthemes":["Statement risk","Pledge volatility"],"tension":"Each public stance moves spend in both directions."}
     ],
-    "takeaway": "Trust leaks during enrollment, compounds through graduation, and Advancement never sees it because the data layer cannot assemble a unified donor view."
+    "takeaway": "Trust leaks during enrollment, compounds through graduation, and Operations never sees it because the data layer cannot assemble a unified customer view."
   }
 }
 :::
@@ -910,107 +926,107 @@ not restate them here.)
 
 :::slide template=theme-detail
 {
-  "title": "Co-op scarcity breaks the experiential promise that justifies tuition",
-  "sources": ["r/NEU","Higher Ed Dive","CASE 2024","NXT Stakeholder Interview"],
+  "title": "Placement scarcity breaks the core value promise that justifies the subscription",
+  "sources": ["r/example","Industry Press","Industry Panel 2024","NXT Stakeholder Interview"],
   "themeCluster": {
     "themes": [
       {
-        "name":"Co-op scarcity",
+        "name":"Placement scarcity",
         "dominance":"DOMINANT",
         "mood":"betrayed",
         "convergenceLabel":"CONVERGENT ACROSS THREE SOURCE TYPES",
-        "insight":"Students arrive expecting co-ops and internships; their absence is the defining disappointment of year one and the most-cited grievance across r/NEU.",
+        "insight":"Users arrive expecting placements and onboarding; their absence is the defining disappointment of year one and the most-cited grievance across r/example.",
         "quotes":[
-          {"text":"Two years. No TA. No RA. No co-ops. No internships. The whole reason I picked Northeastern is gone.","source":"r/NEU"},
-          {"text":"The career office told me to apply harder. There just are not enough postings.","source":"r/internships"},
-          {"text":"We promise experiential learning in every brochure and cannot place the students we admit.","source":"NXT Stakeholder Interview"}
+          {"text":"Two years. No TA. No RA. No placements. No onboarding. The whole reason I picked the client organization is gone.","source":"r/example"},
+          {"text":"The career office told me to apply harder. There just are not enough postings.","source":"r/example"},
+          {"text":"We promise experiential learning in every brochure and cannot place the users we admit.","source":"NXT Stakeholder Interview"}
         ],
-        "whatItMeans":"The gap is not a student failing; it is a supply failing. The brand promise that justifies tuition breaks during enrollment, before Advancement ever makes contact.",
+        "whatItMeans":"The gap is not a user failing; it is a supply failing. The brand promise that justifies the subscription breaks during enrollment, before Operations ever makes contact.",
         "subthemes":["Experiential promise","Supply shortfall","Year-one disappointment"],
-        "tension":"Tuition is sold on co-ops the institution cannot supply."
+        "tension":"The plan is sold on placements the provider cannot supply."
       }
     ],
-    "takeaway": "Fix placement supply and the year-one grievance disappears at its source; leave it and the cohort enters alumni status already disillusioned."
+    "takeaway": "Fix placement supply and the year-one grievance disappears at its source; leave it and the cohort enters customers status already disillusioned."
   }
 }
 :::
 
 :::slide template=theme-arc
 {
-  "title": "Donor trust breaks in three sequential stages - enrollment, graduation, alumni",
-  "sources": ["r/NEU","CASE 2024","Higher Ed Dive","Gartner Higher-Ed CRM 2025"],
+  "title": "Customer trust breaks in three sequential stages - enrollment, graduation, customers",
+  "sources": ["r/example","Industry Panel 2024","Industry Press","Gartner CRM 2025"],
   "themeCluster": {
     "themes": [
       {
         "name":"Experiential promise breaks at enrollment",
-        "insight":"Students arrive expecting co-ops and internships; 15% of r/NEU threads cite their absence as the defining disappointment of year one.",
-        "evidence":"Two years. No TA. No RA. No co-ops. No internships.",
-        "source":"r/NEU",
-        "signal":"47 of 312 r/NEU posts cite experiential gap"
+        "insight":"Users arrive expecting placements and onboarding; 15% of r/example threads cite their absence as the defining disappointment of year one.",
+        "evidence":"Two years. No TA. No RA. No placements. No onboarding.",
+        "source":"r/example",
+        "signal":"47 of 312 r/example posts cite experiential gap"
       },
       {
         "name":"ROI skepticism crystallizes at graduation",
-        "insight":"By the time students graduate, 54% already believe their degree was not worth the cost, locking in a skeptical posture before Advancement ever makes first contact.",
-        "evidence":"Most Gen Z graduates now think college was a waste of money.",
-        "source":"r/highereducation",
+        "insight":"By the time users churn, 54% already believe the purchase was not worth the cost, locking in a skeptical posture before Operations ever makes first contact.",
+        "evidence":"Most Gen Z buyers now think the purchase was a waste of money.",
+        "source":"r/industry",
         "signal":"54% Gen Z ROI skepticism (vs 22% Millennial)"
       },
       {
-        "name":"Alumni disengagement hardens within 5 years",
-        "insight":"Disengaged alumni do not return. CASE 2024 shows participation declines 12% per migration event, and recovery takes 7-10 years when it happens at all.",
+        "name":"Customers disengagement hardens within 5 years",
+        "insight":"Disengaged customers do not return. Industry Panel 2024 shows participation declines 12% per migration event, and recovery takes 7-10 years when it happens at all.",
         "evidence":"Participation is now at 14%, down from 19% pre-migration.",
-        "source":"CASE 2024",
+        "source":"Industry Panel 2024",
         "signal":"-12% participation per platform migration"
       },
       {
-        "name":"Advancement loses visibility before it can act",
-        "insight":"Three separate Salesforce instances mean Advancement cannot see these signals until they surface as giving declines - by which point the trust has already left the building.",
+        "name":"Operations loses visibility before it can act",
+        "insight":"Three separate Salesforce instances mean Operations cannot see these signals until they surface as spend declines - by which point the trust has already left the building.",
         "evidence":"I wouldn't know in our database that Andrew works with Rob.",
         "source":"NXT Stakeholder Interview",
         "signal":"3 disconnected orgs, zero cross-college visibility"
       }
     ],
-    "patternSignal":"Trust erosion is not one event - it is a four-stage cascade. Advancement today sees only stage four, and only as a lagging indicator."
+    "patternSignal":"Trust erosion is not one event - it is a four-stage cascade. Operations today sees only stage four, and only as a lagging indicator."
   }
 }
 :::
 
 :::slide template=theme-mosaic
 {
-  "title": "Four parallel advancement frictions - each isolated, together compounding",
-  "sources": ["NXT Interview","CASE 2024","Gartner 2025","Cornell Annual Report 2025"],
+  "title": "Four parallel operations frictions - each isolated, together compounding",
+  "sources": ["NXT Interview","Industry Panel 2024","Gartner 2025","Peer A Annual Report 2025"],
   "themeCluster": {
     "themes": [
       {
         "name":"Data Fragmentation",
-        "insight":"Three Salesforce orgs prevent a single donor view. Officers reconcile 40% of their week manually.",
+        "insight":"Three Salesforce orgs prevent a single customer view. Officers reconcile 40% of their week manually.",
         "evidence":"I spend 40% of my time reconciling data across three CRMs.",
         "source":"NXT Interview",
         "signal":"40% officer time on reconciliation"
       },
       {
         "name":"Prospect Blindness",
-        "insight":"No ML propensity model means high-capacity donors go un-scored. Peer schools run this at L4 maturity; Northeastern sits at L1.",
+        "insight":"No ML propensity model means high-capacity customers go un-scored. Peer schools run this at L4 maturity; the client organization sits at L1.",
         "evidence":"We have the data, we just cannot see it across the three systems we are running.",
         "source":"NXT Interview",
         "signal":"L1 maturity vs peer median L4"
       },
       {
         "name":"Mobile Giving Gap",
-        "insight":"1.2% mobile conversion vs Columbia at 44%. The giving page was not rebuilt after the last platform migration.",
-        "evidence":"Mobile conversion sits at 1.2% - Columbia runs 44% on a rebuilt responsive page.",
+        "insight":"1.2% mobile conversion vs Peer D at 44%. The checkout page was not rebuilt after the last platform migration.",
+        "evidence":"Mobile conversion sits at 1.2% - Peer D runs 44% on a rebuilt responsive page.",
         "source":"Gartner 2025",
         "signal":"1.2% vs 44% peer mobile conversion"
       },
       {
-        "name":"Stewardship Latency",
+        "name":"Retention Latency",
         "insight":"Behavior-triggered outreach does not exist. Cadences are manual and batched monthly - peers run trigger-based daily.",
-        "evidence":"Within six months we stopped asking do we know this donor.",
-        "source":"Cornell Annual Report 2025",
+        "evidence":"Within six months we stopped asking do we know this customer.",
+        "source":"Peer A Annual Report 2025",
         "signal":"0 triggered touchpoints; peers run 12+/quarter"
       }
     ],
-    "patternSignal":"All four frictions share one upstream cause: the data layer. Fix the unified donor view and every downstream Advancement capability becomes accessible."
+    "patternSignal":"All four frictions share one upstream cause: the data layer. Fix the unified customer view and every downstream Operations capability becomes accessible."
   }
 }
 :::
@@ -1043,45 +1059,23 @@ Example of the same competitive-matrix pattern applied to a B2B SaaS corpus (ven
 }
 :::
 
-:::slide template=competitive-matrix
-{
-  "title": "Northeastern lags 4 named peers by one full maturity tier on AI-driven advancement",
-  "sources": ["CASE 2024","Gartner Higher-Ed CRM 2025","Cornell Advancement Annual Report","BU Philanthropy Report 2025"],
-  "matrix": {
-    "subjectRow": "Northeastern",
-    "columns": ["Unified Donor View","AI Prospect Scoring","Mobile Giving UX","Predictive Outreach"],
-    "columnDefs": ["Single profile across all CRMs + SIS + ERP","ML-based propensity + capacity scoring","Responsive giving page + wallet pay","Behavior-triggered stewardship cadence"],
-    "rows": [
-      {"name":"Northeastern University","scores":[2,1,3,1],"note":"3 Salesforce orgs, no ML pipeline, 1.2% mobile conv","source":"Northeastern CRM Assessment 2025"},
-      {"name":"Boston University","scores":[4,3,4,3],"note":"Single Blackbaud CRM + deployed EverTrue scoring","source":"BU Philanthropy Report 2025"},
-      {"name":"NYU","scores":[5,4,5,4],"note":"Salesforce AEM + Gravyty AI at mass scale","source":"NYU Advancement Disclosure 2025"},
-      {"name":"Cornell University","scores":[5,5,5,5],"note":"Unified platform post-18mo consolidation, +34% major-gift conv","source":"Cornell Advancement Annual Report 2025"},
-      {"name":"Columbia University","scores":[4,4,4,3],"note":"Custom propensity model + 44% mobile giving","source":"Columbia Advancement 2025"}
-    ],
-    "scaleMax": 5,
-    "scaleLabels": ["Absent","Ad-hoc","Defined","Managed","Optimized"],
-    "insight": "Every critical capability sits at L1-L2 for Northeastern while the peer median is L4. The largest gap is AI Prospect Scoring (-4), which is the leading indicator of major-gift conversion at Cornell and NYU."
-  }
-}
-:::
-
 :::slide template=block-quote
 {
-  "title": "The advancement system that exists vs. the one staff describe",
-  "sources": ["NXT Stakeholder Interview","CASE 2024","Gartner Higher-Ed CRM 2025"],
+  "title": "The operations system that exists vs. the one staff describe",
+  "sources": ["NXT Stakeholder Interview","Industry Panel 2024","Gartner CRM 2025"],
   "quote": {
-    "text": "I wouldn't know in our database right now that Andrew, you work with Rob - and that's exactly the relationship that closes a major gift. We have the data, we just can't see it across the three systems we're running.",
-    "attribution": "Anonymous Major Gifts Officer",
-    "role": "20-year veteran, Northeastern Advancement",
+    "text": "I wouldn't know in our database right now that Andrew, you work with Rob - and that's exactly the relationship that closes a high-value deal. We have the data, we just can't see it across the three systems we're running.",
+    "attribution": "Anonymous Account Lead",
+    "role": "20-year veteran, the client organization Operations",
     "source": "NXT Stakeholder Interview, March 2026",
     "context": "ON DATA FRAGMENTATION",
-    "contextParagraph":"This quote comes from a stakeholder interview conducted during the March 2026 CRM assessment. The officer is describing how three siloed Salesforce instances - one per college - prevent even basic relationship mapping across donor households. This is the single most-cited friction point across 14 stakeholder interviews.",
+    "contextParagraph":"This quote comes from a stakeholder interview conducted during the March 2026 CRM assessment. The officer is describing how three siloed Salesforce instances - one per college - prevent even basic relationship mapping across customer households. This is the single most-cited friction point across 14 stakeholder interviews.",
     "corroboratingData": [
       {"value":"40%","label":"of officer time spent on manual data reconciliation","source":"NXT Interview"},
-      {"value":"-12%","label":"alumni participation since the last platform migration","source":"CASE 2024"},
-      {"value":"L1","label":"Northeastern maturity tier vs. peer median of L4","source":"Gartner 2025"}
+      {"value":"-12%","label":"customers participation since the last platform migration","source":"Industry Panel 2024"},
+      {"value":"L1","label":"the client organization maturity tier vs. peer median of L4","source":"Gartner 2025"}
     ],
-    "implication":"Consolidating to a unified donor view is a prerequisite to every other advancement initiative - prospect scoring, predictive outreach, and stewardship automation all assume a single system of record."
+    "implication":"Consolidating to a unified customer view is a prerequisite to every other operations initiative - prospect scoring, predictive outreach, and retention automation all assume a single system of record."
   }
 }
 :::
@@ -1115,52 +1109,17 @@ Example of the same case-study pattern applied to a B2B SaaS corpus - note how s
 }
 :::
 
-:::slide template=case-study
-{
-  "title": "Cornell's 18-month CRM consolidation lifted major-gift conversion 34% and reclaimed 624 officer-hours/year",
-  "sources": ["CASE 2024","Cornell Advancement Annual Report 2025","Gartner Higher-Ed CRM 2025"],
-  "caseStudy": {
-    "subject": "Cornell University",
-    "subjectMeta": "Ivy League · Ithaca, NY · 26K students · $2.4B endowment",
-    "timeframe": "18 months (Q2 2023 → Q4 2024)",
-    "investment": "$7.2M program cost · 14-person program team + 3 Salesforce SIs",
-    "challenge": "Cornell's Advancement operated 4 disconnected CRMs across colleges - each with its own data model and stewardship cadence. Major-gift officers reconciled donor profiles manually, cycle time averaged 90 days longer than peer benchmarks, and prospects known to one college were invisible to the rest.",
-    "approach": "College-by-college consolidation to a single Salesforce Advancement Cloud instance. Phase 1: 3-month data-quality remediation (dedup 140K records, resolve 4K conflicts). Phase 2: sequenced migration - smallest college first - with 6-week user training per wave. Phase 3: retire legacy, launch unified propensity scoring.",
-    "outcome": "Major-gift conversion rate rose 34% (13.8% → 18.5%). Average cycle time dropped 90 days. Officer administrative time fell from 22 hrs/wk to 10 hrs/wk - reclaiming ~624 hrs per officer per year. Year-one ROI: 2.1× program cost.",
-    "keyMetric": {"value":"+34%","label":"major-gift conversion rate, 12 months post-cutover"},
-    "supportingMetrics": [
-      {"value":"-90 days","label":"cycle time reduction"},
-      {"value":"624 hrs","label":"officer time reclaimed / year"},
-      {"value":"140K","label":"records deduped"},
-      {"value":"2.1×","label":"program-cost ROI, Year 1"}
-    ],
-    "pullQuote": {
-      "text":"Within six months we stopped asking 'do we know this donor?' - we already knew, and we knew the next best action.",
-      "attribution":"VP Advancement Services, Cornell",
-      "role":"17-year Advancement veteran, CASE 2024 panelist"
-    },
-    "lesson": "Consolidation pays back fastest when the smallest college migrates first - it validates the data model at low risk and creates internal champions who sell the remaining cutovers.",
-    "comparables": [
-      {"name":"BU Advancement (2022)","outcome":"Consolidated 3 orgs → 1 in 14 months; 28% major-gift conversion lift","source":"CASE 2024"},
-      {"name":"NYU (2023)","outcome":"Unified 6 colleges into single Salesforce org; +$18M annual giving year-over-year","source":"NYU Annual Report 2024"},
-      {"name":"Michigan (2024)","outcome":"2.4× officer productivity post-consolidation, 12-month program","source":"Gartner Higher-Ed CRM 2025"}
-    ],
-    "implication":"The pattern holds across every peer case: consolidation is not a CRM project - it is the prerequisite for every AI-driven advancement initiative in the next 24 months."
-  }
-}
-:::
-
 :::slide template=principles
 {
-  "title": "Five principles guide the Advancement transformation",
+  "title": "Five principles guide the Operations transformation",
   "sources": ["NXT Strategy Working Session","Rumelt: Good Strategy/Bad Strategy"],
   "principles": {
     "items": [
-      {"name":"Donor view before tooling","description":"Every system decision is judged by whether it makes the unified donor view stronger or weaker."},
+      {"name":"Customer view before tooling","description":"Every system decision is judged by whether it makes the unified customer view stronger or weaker."},
       {"name":"Migrate, don't accumulate","description":"New capability replaces old; we sunset legacy on every release."},
       {"name":"Predictive over descriptive","description":"Reports must drive action - if a dashboard cannot trigger an outreach, it's not on the roadmap."},
       {"name":"Officer time is sacred","description":"Any tool that increases manual entry is rejected, even if it adds analytical depth."},
-      {"name":"Privacy is a moat","description":"Donor data discipline becomes a brand asset, not a compliance overhead."}
+      {"name":"Privacy is a moat","description":"Customer data discipline becomes a brand asset, not a compliance overhead."}
     ]
   }
 }
@@ -1168,48 +1127,48 @@ Example of the same case-study pattern applied to a B2B SaaS corpus - note how s
 
 :::slide template=stat-row
 {
-  "title": "Three numbers explain why Advancement velocity has stalled",
-  "sources": ["Northeastern CRM Assessment","NXT Stakeholder Interview","CASE 2024"],
+  "title": "Three numbers explain why Operations velocity has stalled",
+  "sources": ["the client organization CRM Assessment","NXT Stakeholder Interview","Industry Panel 2024"],
   "statRow": {
     "stats": [
       {
         "value":"40%",
         "label":"of officer time spent reconciling data across CRMs",
-        "meaning":"Front-line fundraisers burn nearly half their week on manual record merging instead of donor conversations.",
-        "matters":"Every reclaimed hour compounds: peer schools freed 600+ hrs/officer/year and moved major-gift close-rates 30%+.",
+        "meaning":"Front-line fundraisers burn nearly half their week on manual record merging instead of customer conversations.",
+        "matters":"Every reclaimed hour compounds: peer schools freed 600+ hrs/officer/year and moved high-value-deal close-rates 30%+.",
         "source":"NXT Stakeholder Interview"
       },
       {
         "value":"3",
         "label":"separate Salesforce instances in production",
         "meaning":"Three disconnected orgs means prospect work at one college is invisible to every other college.",
-        "matters":"Cornell consolidated 4 → 1 and unlocked 34% conversion lift in 18 months - the window is closing as peers move.",
-        "source":"Northeastern CRM Assessment"
+        "matters":"Peer A consolidated 4 → 1 and unlocked 34% conversion lift in 18 months - the window is closing as peers move.",
+        "source":"the client organization CRM Assessment"
       },
       {
         "value":"-12%",
-        "label":"alumni participation decline since platform migration",
-        "meaning":"Participation is the leading indicator of major-gift pipeline 7-10 years out, and it is moving the wrong direction.",
-        "matters":"Without action the cohort Advancement must convert in the next decade will enter alumni status already disengaged.",
-        "source":"CASE 2024"
+        "label":"customers participation decline since platform migration",
+        "meaning":"Participation is the leading indicator of high-value-deal pipeline 7-10 years out, and it is moving the wrong direction.",
+        "matters":"Without action the cohort Operations must convert in the next decade will enter customers status already disengaged.",
+        "source":"Industry Panel 2024"
       }
     ],
-    "convergentInsight":"Three independent signals - officer time, system fragmentation, and participation decline - all point to the same root cause: Advancement is operating a platform, not a unified donor system. Fix the platform and the other two metrics move together.",
-    "patternSignal":"Peer institutions (Cornell, BU, NYU) that closed this gap in 12-18 months posted 30%+ major-gift conversion lifts within the first post-cutover year."
+    "convergentInsight":"Three independent signals - officer time, system fragmentation, and participation decline - all point to the same root cause: Operations is operating a platform, not a unified customer system. Fix the platform and the other two metrics move together.",
+    "patternSignal":"Peer institutions (Peer A, BU, Peer B) that closed this gap in 12-18 months posted 30%+ high-value-deal conversion lifts within the first post-cutover year."
   }
 }
 :::
 
 :::slide template=timeline
 {
-  "title": "An 18-month consolidation sequenced to de-risk the major-gift cycle",
-  "sources": ["NXT Implementation Plan","Cornell case study"],
+  "title": "An 18-month consolidation sequenced to de-risk the high-value-deal cycle",
+  "sources": ["NXT Implementation Plan","Peer A case study"],
   "timeline": {
     "phases": [
       {"name":"Discover","duration":"Month 1-2","items":["Object inventory","Field-level data audit","Stakeholder interviews"]},
       {"name":"Pilot","duration":"Month 3-6","items":["Migrate Reunion CRM","Validate data model","Train 12 officers"]},
-      {"name":"Migrate","duration":"Month 7-12","items":["Annual Giving cutover","Major Gifts cutover","Decommission legacy"]},
-      {"name":"Optimize","duration":"Month 13-18","items":["Predictive scoring","Mobile giving launch","Quarterly review cadence"]}
+      {"name":"Migrate","duration":"Month 7-12","items":["Renewals cutover","Key Accounts cutover","Decommission legacy"]},
+      {"name":"Optimize","duration":"Month 13-18","items":["Predictive scoring","Mobile spend launch","Quarterly review cadence"]}
     ]
   }
 }
@@ -1244,32 +1203,16 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 }
 :::
 
-:::slide template=service-blueprint
-{
-  "title": "Two of four journey stages are fail points, leaking 28% of first-gift intent before stewardship",
-  "sources": ["NXT Stakeholder Interviews","Northeastern CRM Assessment","Google Analytics Q1 2026"],
-  "serviceBlueprint": {
-    "stages": [
-      {"phase":"Awareness","duration":"Week 1","emotion":"Curious","customerAction":"Alum opens segmented email appeal","frontstage":"Marketing Cloud journey w/ dynamic content","backstage":"Nightly Snowflake segmentation + ML scoring","support":"Snowflake, Marketing Cloud, ML service","painPoint":"Generic segmentation - open rate stuck at 40%","failPoint":false},
-      {"phase":"Consideration","duration":"Day 1-3","emotion":"Frustrated","customerAction":"Clicks 'Give Now', waits 7s for page","frontstage":"Static landing page, no personalization","backstage":"Pardot event tracker fires once","support":"Pardot, CDN","painPoint":"7s load time, no donor recognition, 28% bounce after click","failPoint":true},
-      {"phase":"Gift","duration":"Minutes","emotion":"Confused","customerAction":"Enters card details in 4-field form","frontstage":"Legacy form, no Apple Pay / Google Pay","backstage":"Stripe tokenize → GL journal in Workday","support":"Stripe, Banner, Workday","painPoint":"Tokenization errors on 12% of mobile attempts","failPoint":true},
-      {"phase":"Stewardship","duration":"Day 1-30","emotion":"Hopeful","customerAction":"Expects personalized thank-you","frontstage":"Template email + occasional gift-officer call","backstage":"Manual CRM entry, no trigger automation","support":"Salesforce, ZoomInfo","painPoint":"Only 8% of mid-gifts ($1k-$5k) receive any stewardship","failPoint":false}
-    ],
-    "keyInsight": "The two fail stages (Consideration + Gift) drop 28% of interested alumni before a card is even charged. Fixing page speed + tokenization would unlock an estimated $1.8M in annual recovered revenue before any spend-increase."
-  }
-}
-:::
-
 :::slide template=gap-matrix
 {
-  "title": "Northeastern trails peers by one full maturity tier on every advancement capability",
-  "sources": ["Gartner Higher-Ed CRM 2025","peer institution websites","Northeastern CRM Assessment"],
+  "title": "the client organization trails peers by one full maturity tier on every operations capability",
+  "sources": ["Gartner CRM 2025","peer institution websites","the client organization CRM Assessment"],
   "gapMatrix": {
     "gaps": [
-      {"capability":"Unified Donor View","currentMaturity":2,"targetMaturity":4,"severity":"critical","impact":"blocks major-gift personalization"},
-      {"capability":"Predictive Donor Scoring","currentMaturity":1,"targetMaturity":4,"severity":"critical","impact":"officers miss 60% of ready-to-give signals"},
+      {"capability":"Unified Customer View","currentMaturity":2,"targetMaturity":4,"severity":"critical","impact":"blocks high-value-deal personalization"},
+      {"capability":"Predictive Customer Scoring","currentMaturity":1,"targetMaturity":4,"severity":"critical","impact":"officers miss 60% of ready-to-give signals"},
       {"capability":"Mobile Giving UX","currentMaturity":3,"targetMaturity":5,"severity":"high","impact":"50% of clicks are mobile; conv rate 1.2%"},
-      {"capability":"Data Quality Governance","currentMaturity":2,"targetMaturity":4,"severity":"high","impact":"12% of donor records have duplicate IDs"},
+      {"capability":"Data Quality Governance","currentMaturity":2,"targetMaturity":4,"severity":"high","impact":"12% of customer records have duplicate IDs"},
       {"capability":"Attribution & Reporting","currentMaturity":2,"targetMaturity":4,"severity":"medium","impact":"cannot quantify channel ROI"}
     ],
     "scaleMax": 5,
@@ -1280,29 +1223,29 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 
 :::slide template=architecture-map
 {
-  "title": "Four layers of technology must consolidate to enable the unified donor view",
-  "sources": ["Northeastern CRM Assessment","Stakeholder interviews"],
+  "title": "Four layers of technology must consolidate to enable the unified customer view",
+  "sources": ["the client organization CRM Assessment","Stakeholder interviews"],
   "architectureMap": {
     "layers": [
       {"name":"Client Tier","nodes":[
         {"name":"Web / Mobile Giving","type":"Experience","description":"Salesforce Experience Cloud + custom React"},
         {"name":"Officer Console","type":"Experience","description":"Salesforce Lightning"},
-        {"name":"Alumni Portal","type":"Experience","description":"Drupal + SSO"}
+        {"name":"Customers Portal","type":"Experience","description":"Drupal + SSO"}
       ]},
       {"name":"API & Orchestration","nodes":[
         {"name":"MuleSoft","type":"iPaaS","description":"Integration bus between CRMs and core systems"},
         {"name":"Segment","type":"CDP","description":"Event collection and identity resolution"}
       ]},
       {"name":"Systems of Record","nodes":[
-        {"name":"Salesforce Annual Giving","type":"CRM"},
-        {"name":"Salesforce Major Gifts","type":"CRM"},
+        {"name":"Salesforce Renewals","type":"CRM"},
+        {"name":"Salesforce Key Accounts","type":"CRM"},
         {"name":"Banner","type":"SIS"},
         {"name":"Workday","type":"ERP"}
       ]},
       {"name":"Analytics & Data","nodes":[
         {"name":"Snowflake","type":"Warehouse"},
         {"name":"Tableau","type":"BI"},
-        {"name":"DataBricks","type":"ML","description":"Donor-propensity models (on hold)"}
+        {"name":"DataBricks","type":"ML","description":"Customer-propensity models (on hold)"}
       ]}
     ],
     "flowSummary": "Gift events flow left-to-right; identity resolution happens in Segment before Salesforce writes; analytics reads from Snowflake only."
@@ -1312,17 +1255,17 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 
 :::slide template=prd-feature
 {
-  "title": "Three MUST-have features unblock the unified donor view in Q3",
-  "sources": ["NXT Stakeholder Interviews","Cornell Advancement Annual Report 2025"],
+  "title": "Three MUST-have features unblock the unified customer view in Q3",
+  "sources": ["NXT Stakeholder Interviews","Peer A Operations Annual Report 2025"],
   "prdFeature": {
     "features": [
       {
-        "name":"Unified Donor Profile API",
+        "name":"Unified Customer Profile API",
         "priority":"must",
-        "userStory":"As a major-gifts officer, I want to see every touchpoint a donor has had across all 3 Salesforce orgs on one screen so I can reference them in a prospect call without switching systems.",
+        "userStory":"As a high-value-deals officer, I want to see every touchpoint a customer has had across all 3 Salesforce orgs on one screen so I can reference them in a prospect call without switching systems.",
         "acceptanceCriteria":[
-          "Profile page loads in < 2s for 95% of donors",
-          "Displays giving history, event attendance, email opens, volunteer hours",
+          "Profile page loads in < 2s for 95% of customers",
+          "Displays spend history, event attendance, email opens, volunteer hours",
           "Identity resolves across all 3 Salesforce orgs via Segment anonymous_id",
           "Officer-initiated note syncs back to owning org within 30s"
         ]
@@ -1338,12 +1281,12 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
         ]
       },
       {
-        "name":"One-Click Stewardship Flow",
+        "name":"One-Click Retention Flow",
         "priority":"must",
         "userStory":"As a gift officer, I want to trigger a personalized thank-you within 24 hours of any gift over $1k without copying data between systems.",
         "acceptanceCriteria":[
           "Auto-draft email + hand-written note queue",
-          "Mobile-signable on iPad from donor event",
+          "Mobile-signable on iPad from customer event",
           "Confirmation logged in Salesforce Activity"
         ]
       }
@@ -1354,20 +1297,20 @@ Example of the same service-blueprint pattern applied to a B2B SaaS onboarding c
 
 :::slide template=systems-inventory
 {
-  "title": "22 advancement systems - 9 are legacy and 4 carry critical risk",
-  "sources": ["Northeastern Tech Audit 2025","CRM Assessment"],
+  "title": "22 operations systems - 9 are legacy and 4 carry critical risk",
+  "sources": ["the client organization Tech Audit 2025","CRM Assessment"],
   "systemsInventory": {
     "systems": [
-      {"name":"Salesforce Annual Giving","category":"CRM","status":"current","risk":"medium","description":"Primary gift intake; 8 custom objects"},
-      {"name":"Salesforce Major Gifts","category":"CRM","status":"current","risk":"high","description":"40% schema drift from Annual org"},
+      {"name":"Salesforce Renewals","category":"CRM","status":"current","risk":"medium","description":"Primary gift intake; 8 custom objects"},
+      {"name":"Salesforce Key Accounts","category":"CRM","status":"current","risk":"high","description":"40% schema drift from Annual org"},
       {"name":"Millennium Fundraising","category":"CRM","status":"legacy","risk":"critical","description":"20-yr old, no vendor support since 2023"},
       {"name":"Raiser's Edge NXT","category":"CRM","status":"deprecated","risk":"critical","description":"Parallel prospect data; migration stalled"},
       {"name":"Banner SIS","category":"SIS","status":"current","risk":"medium","description":"Student-of-record, modern API"},
       {"name":"Workday Financials","category":"ERP","status":"current","risk":"low","description":"GL + reconciliation"},
-      {"name":"Snowflake","category":"Warehouse","status":"current","risk":"low","description":"All giving data since 2022"},
+      {"name":"Snowflake","category":"Warehouse","status":"current","risk":"low","description":"All spend data since 2022"},
       {"name":"Pardot","category":"Marketing","status":"legacy","risk":"high","description":"Being replaced by Marketing Cloud"}
     ],
-    "insight": "Legacy CRMs (Millennium, Raiser's Edge) hold 18% of prospect data and represent the largest single risk to the unified donor view."
+    "insight": "Legacy CRMs (Millennium, Raiser's Edge) hold 18% of prospect data and represent the largest single risk to the unified customer view."
   }
 }
 :::
@@ -1411,15 +1354,15 @@ DENSITY DISCIPLINE (case-study, competitive-matrix, service-blueprint specifical
 
 These three templates fail most often because generators produce sparse, under-evidenced content. Every time you emit one, you MUST:
 
-DOMAIN ADAPTATION - the examples below happen to be higher-ed advancement, but the PATTERN is what matters, not the vocabulary. Adapt entity types, units, scale labels, timeframes, and jargon to the domain of the ACTUAL research corpus. Translation guide:
+DOMAIN ADAPTATION - the examples below happen to be higher-ed operations, but the PATTERN is what matters, not the vocabulary. Adapt entity types, units, scale labels, timeframes, and jargon to the domain of the ACTUAL research corpus. Translation guide:
 
   | Slot                 | Higher ed            | B2B SaaS             | Healthcare           | Retail / DTC         | Financial services   |
   |----------------------|----------------------|----------------------|----------------------|----------------------|----------------------|
   | case-study subject   | University name      | Vendor / customer    | Health system        | Brand / retailer     | Bank / insurer       |
-  | subjectMeta          | endowment, students  | ARR, headcount, ICP  | beds, payer mix      | SKUs, stores, GMV    | AUM, branches, tier  |
+  | subjectMeta          | balance sheet, users  | ARR, headcount, ICP  | beds, payer mix      | SKUs, stores, GMV    | AUM, branches, tier  |
   | timeframe unit       | academic year / Qs   | quarters / sprints   | care episodes        | seasons / quarters   | cycles / quarters    |
   | investment unit      | program cost         | license + services   | capital outlay       | capex + OPEX         | program + compliance |
-  | competitive columns  | Unified Donor View   | CDP, AI Scoring, etc | EHR, RCM, Analytics  | Inventory, Personal- | Core banking, KYC    |
+  | competitive columns  | Unified Customer View   | CDP, AI Scoring, etc | EHR, RCM, Analytics  | Inventory, Personal- | Core banking, KYC    |
   | scale labels         | Absent→Optimized     | Basic→World-class    | Manual→Automated     | Manual→Predictive    | Legacy→Real-time     |
   | blueprint stages     | Awareness→Steward    | Trial→Onboard→Renew  | Refer→Treat→Follow-up| Discover→Buy→Retain  | Prospect→KYC→Close   |
   | blueprint metrics    | gifts, retention     | ACV, NDR, CAC        | readmit, NPS         | conv rate, AOV, LTV  | deposit growth, FTE  |
@@ -1429,7 +1372,7 @@ The STRUCTURE (5 data vectors for case studies, 4+ named entities for matrices, 
 Then, every time you emit one, you MUST:
 
 CASE STUDY - the card has FIVE data vectors, not one:
-  1. subject + subjectMeta (industry/region/size/endowment/etc)
+  1. subject + subjectMeta (industry/region/size/balance sheet/etc)
   2. timeframe (explicit - "18 months", "Q2 2023 → Q4 2024")
   3. investment (program cost + team size)
   4. challenge + approach + outcome, each with at least one quantified detail per block
@@ -1448,10 +1391,10 @@ JOURNEY MAP (#journey) - the GOLD actor-lane matrix. WHO does WHAT at each stage
   THE MATRIX IS THE ENTIRE SLIDE BODY (2026-06-12 redesign): personas render as a PERSONAS voice row inside the table, pain points render as stacked per-phase cells, opportunities render as an OPPORTUNITIES row, and kpiTiles embed inside their phase header cells. Nothing sits above the table.
   JSON shape (emit as :::slide template=journey-map):
   { "title": "<action title>", "sources": ["<named source>", ...], "journeyMap": {
-      "journeyType": "<context, e.g. ADVANCEMENT STAFF VIEW>",
-      "scope": "<one clause>", "actors": "<actor list>", "phasesLabel": "<e.g. Five, matriculation to giving>",
-      "stages": [ {"name": "Matriculation"}, {"name": "Co-op", "critical": true}, ... ],   // 4-5 base, 6 dense; mark AT MOST 1-2 critical
-      "lanes": [ {"actor": "Advancement staff", "role": "owns the pipeline", "cells": ["<what they do at stage 1>", "not engaged", ...]}, ... ],  // 3 base, 4 dense; cells align to stages
+      "journeyType": "<context, e.g. OPERATIONS STAFF VIEW>",
+      "scope": "<one clause>", "actors": "<actor list>", "phasesLabel": "<e.g. Five, matriculation to spend>",
+      "stages": [ {"name": "Matriculation"}, {"name": "Placement", "critical": true}, ... ],   // 4-5 base, 6 dense; mark AT MOST 1-2 critical
+      "lanes": [ {"actor": "Operations staff", "role": "owns the pipeline", "cells": ["<what they do at stage 1>", "not engaged", ...]}, ... ],  // 3 base, 4 dense; cells align to stages
       "painPoints": [ ["<pain 1>", "<pain 2>", "<pain 3>"], ... ],            // aligns to stages; EACH PHASE gets an ARRAY of AT LEAST THREE evidenced pains (user rule 2026-06-12) - stack renders inside that phase's cell. Never pad: if the corpus evidences fewer for a phase, emit what is evidenced.
       "personas": ["<JTBD one-liner>", ...],                                   // ORDERED BY JOURNEY ARC: first persona maps to the first phase, last to the final phase (they distribute start->end into the voice row)
       "overallPainPoints": ["<pattern> (Named Source)", ...],                  // ORDERED BY ARC: distribute start->end INTO the per-phase pain stacks
@@ -1475,7 +1418,7 @@ ORG CHART (#org) - the GOLD reporting-tier matrix. WHO reports to WHOM and WHO c
       ],
       "keyInsight": "<takeaway band - the one structural conclusion the chart proves, in qualitative language>" } }
   Rules: 2-4 tiers; 1-4 node cards per tier (5 dense); pair each tier label's number with its VERB (DECIDES / DIRECTS / DELIVERS / ADVISES). Every node card carries a NAMED source (where the role/reporting line is evidenced) - never generic. role is ONE concrete responsibility clause. Mark AT MOST one node emphasis:true. CSS-grid layout only; no overlapping connectors.
-  NAME THE ACTUAL LEADER (evidence-gated): when a source explicitly NAMES the person who heads a team AND ties that name to that team/role, the node title MUST be that person's name + role (e.g. "Diane McGillivray, SVP Advancement"), NOT a team label alone, and NEVER an anonymized code (C01, C02, ...). Resolve real names from roster/client-upload sources (which name people); anonymized-interview transcripts (filenames ending _anonymized) code speakers - do NOT carry those codes into node titles. STRICT: only attach a name to a team when the SAME source connects them; if the roster names a person but you are not certain which team they lead, use the role title alone rather than guess. NEVER invent or infer a name; NEVER anonymize a name the corpus provides. A correct role-only node beats a wrong or fabricated name.
+  NAME THE ACTUAL LEADER (evidence-gated): when a source explicitly NAMES the person who heads a team AND ties that name to that team/role, the node title MUST be that person's name + role (e.g. "Diane McGillivray, SVP Operations"), NOT a team label alone, and NEVER an anonymized code (C01, C02, ...). Resolve real names from roster/client-upload sources (which name people); anonymized-interview transcripts (filenames ending _anonymized) code speakers - do NOT carry those codes into node titles. STRICT: only attach a name to a team when the SAME source connects them; if the roster names a person but you are not certain which team they lead, use the role title alone rather than guess. NEVER invent or infer a name; NEVER anonymize a name the corpus provides. A correct role-only node beats a wrong or fabricated name.
   ORG FIELD BUDGETS (complete thoughts, never cut): node title <= 42 chars; role <= 110 chars (one clause); source <= 30 chars (the named source, no "SOURCE:" prefix - the renderer adds it); keyInsight <= 200 chars.
 
 EXECUTIVE BRIEF (#brief / #explainer / #report) - ONE GOLD slide template, THREE variants. Pick variant from the hashtag: #brief -> variant "brief", #explainer -> variant "explainer", #report -> variant "report".
@@ -1483,7 +1426,7 @@ EXECUTIVE BRIEF (#brief / #explainer / #report) - ONE GOLD slide template, THREE
   { "title": "<finding-grade action title>", "sources": ["<named source>", ...],
     "executiveBrief": {
       "variant": "brief" | "explainer" | "report",
-      "subject": "<kicker subject, e.g. FIRST-YEAR CO-OP READINESS>",
+      "subject": "<kicker subject, e.g. ONBOARDING READINESS>",
       "hero": {"stat": "<ONE qualitative dominant finding word/phrase>", "label": "<what it measures>"},   // brief/report only; omit for explainer. Per the Quantitative Claim Rule a bare number belongs in a cited section quote, not here.
       "sections": [ {"heading": "<finding / concept step / exec-summary point>", "body": "<1-3 sentence prose>", "evidence": {"quote": "<verbatim corpus quote>", "source": "<Named Source>"}} ],   // 2-4 base, 6 dense
       "gotchas": ["<pitfall / caveat>", ...],   // EXPLAINER variant only: severity-flagged pitfalls
@@ -1522,7 +1465,7 @@ SERVICE BLUEPRINT (#blueprint) - frontstage/backstage Bitner model, maximum 4 st
   3. Every stage needs all four lanes: customerAction, frontstage, backstage, support
   4. Mark explicit failPoint:true only on stages where the process genuinely breaks - not every stage
   5. keyInsight names the STRUCTURAL cost of the fail points in qualitative language (the system, the handoff, the named pattern). Numbers appear ONLY inside a verbatim quote with inline source attribution, never as your own assertion (Quantitative Claim Rule)
-  6. painPoint/citation fields cite NAMED sources ("NXT Stakeholder Interviews", "Northeastern CRM Assessment"), never raw file paths or chunk pointers
+  6. painPoint/citation fields cite NAMED sources ("NXT Stakeholder Interviews", "the client organization CRM Assessment"), never raw file paths or chunk pointers
 `;
 
 // --- Foundational Consulting Mandates ---
@@ -1543,8 +1486,8 @@ FOUNDATIONAL CONSULTING MANDATES (apply to ALL responses):
    - BAD (topic label): "The Landscape", "Key Findings", "Recommendations", "Overview"
    - BAD (naked number, violates the Quantitative Claim Rule): a title built around a percentage or dollar figure. A number lives ONLY inside an attributed quote on the slide body, never in a title.
    - BAD (generically true, nobody could disagree): "Customer experience matters", or a "Three core capabilities define the ..." list framing.
-   - GOOD: "Fragmented CRM systems force advancement teams into manual data entry instead of donor work"
-   - GOOD: "First-year students leave faster than the institution can replace them"
+   - GOOD: "Fragmented CRM systems force operations teams into manual data entry instead of customer work"
+   - GOOD: "First-year users leave faster than the institution can replace them"
    - NO colon-then-triad titles ("X: a, b, and c"). State the single claim; move any list into the body.
    - NO antithesis / negative parallelism in a title, signal, or label: avoid the "X, not Y" form (e.g. "core practice, not a side task"; "proof, not pitch"), "it is not X, it is Y", "not just X but Y", "more than just", and "goes beyond". Assert the positive claim directly.
    - NO preamble-noun-plus-colon openers ("The competitive thesis:", "The technical wedge:", "The go-to-market narrative:"). Lead with the claim, not the label for it.
@@ -1588,11 +1531,11 @@ function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
     for (const ref of refs) {
         const name = (ref.sourceName || '').toLowerCase();
         const isUpload = name.includes('upload') || name.includes('client') || name.includes('uploaded');
-        const isYoutube = name.includes('youtube') || name.includes('alumni-association');
+        const isYoutube = name.includes('youtube') || name.includes('customers-association');
         const isReddit = name.includes('reddit') || name.includes('r/');
         const isAcademic = name.includes('openalex') || name.includes('crossref') || name.includes('semantic scholar') || name.includes('doaj') || name.includes('arxiv') || name.includes('europe pmc') || name.includes('eric');
         const isJina = name.includes('jina') || name.includes('web extract') || name.includes('news.northeastern') || name.includes('president.northeastern') || name.includes('finance.northeastern');
-        const isRss = name.includes('rss') || name.includes('higher ed dive') || name.includes('inside higher ed') || name.includes('chronicle') || name.includes('edsurge') || name.includes('diverse') || name.includes('education week') || name.includes('philanthropy') || name.includes('news') || name.includes('case');
+        const isRss = name.includes('rss') || name.includes('higher ed dive') || name.includes('inside higher ed') || name.includes('chronicle') || name.includes('edsurge') || name.includes('diverse') || name.includes('education week') || name.includes('spend') || name.includes('news') || name.includes('case');
 
         let bucket: keyof typeof buckets = 'other';
         if (isUpload) bucket = 'upload';
@@ -1617,9 +1560,9 @@ function computeCorpusSourceBreakdown(ctx: ChatContext): CorpusBreakdown {
         `Total corpus: ${totalKB}KB across ${refs.length} cataloged sources`,
         `  Uploaded client docs: ${uploadKB}KB (${Math.round(uploadKB / totalKB * 100)}%) - ${buckets.upload} sources`,
         `  External corpus: ${corpusKB}KB (${Math.round(corpusKB / totalKB * 100)}%) - ${externalRefCount} sources, broken down:`,
-        `    • RSS / news (Higher Ed Dive, IHE, Chronicle, EdSurge, etc.): ${buckets.rss} sources`,
+        `    • RSS / news (Industry Press, IHE, Chronicle, EdSurge, etc.): ${buckets.rss} sources`,
         `    • Jina-reader web scrapes (institutional sites, peer URLs): ${buckets.jina} sources`,
-        `    • YouTube alumni-engagement transcripts: ${buckets.youtube} sources`,
+        `    • YouTube customers-engagement transcripts: ${buckets.youtube} sources`,
         `    • Reddit topical threads: ${buckets.reddit} sources`,
         `    • Academic papers (OpenAlex, Crossref, Semantic Scholar, DOAJ): ${buckets.academic} sources`,
         `    • Other / uncategorized: ${buckets.other} sources`,
@@ -3082,7 +3025,7 @@ export async function sendChatMessage(
                     // 2026-06-16 FIX (#org "no data" despite data existing): the tier-1.5
                     // objective-ranked admission ranks the WHOLE-WIKI candidate pool by this
                     // objective. Passing the GOAL alone meant a SPECIFIC deliverable request
-                    // (e.g. "#org Northeastern Advancement, giving, alumni relations teams")
+                    // (e.g. "#org the client organization Operations, spend, customers relations teams")
                     // could not admit request-relevant chunks the engagement's KL selection /
                     // goal did not already cover - so the org/reporting evidence (present in the
                     // wiki) was never in the candidate pool, the MMR pack could not select it,
@@ -3268,15 +3211,15 @@ ABSOLUTE RULES:
    content - the user is an expert; if they toggled it and there's evidence,
    it's relevant.
 4. Out-of-domain evidence is a FEATURE, not a bug. Cross-industry analogies
-   (retail loyalty patterns for alumni engagement, supply-chain orchestration
-   patterns for donor pipelines, AI-lab innovation cycles for advancement
+   (retail loyalty patterns for customers engagement, supply-chain orchestration
+   patterns for customer pipelines, AI-lab innovation cycles for operations
    technology) are EXACTLY the kind of lateral insight an expert researcher
    curates. Embrace them.
 5. When citing out-of-industry evidence, frame as PATTERN to borrow:
-   GOOD: "Borrow Sephora's tiered-loyalty pattern for alumni status."
+   GOOD: "Borrow Sephora's tiered-loyalty pattern for customers status."
    GOOD: "The retail abandoned-cart recovery playbook applies directly to
           incomplete donation flows."
-   BAD: "Sephora has a tiered alumni program" (implies an existing thing)
+   BAD: "Sephora has a tiered customers program" (implies an existing thing)
 
 === ACTIVE CATEGORIES WITH CONTENT (cite from these when relevant) ===
 ${categoryRoster}
@@ -3293,12 +3236,12 @@ SOURCE-MIX DISCIPLINE (MANDATORY):
 - External sources (RSS articles, jina-reader web scrapes, YouTube transcripts, Reddit threads, OpenAlex/Crossref/Semantic Scholar papers, DOAJ open-access research) provide EVIDENCE - third-party validation, peer-institution comparisons, sector benchmarks
 - ≥40% of citations in any analysis MUST come from non-upload external sources
 - If your draft response leans >60% on uploads, you are FAILING the source-mix discipline - REVISE before delivering
-- Citations from "Higher Ed Dive", "Inside Higher Ed", "Chronicle of Higher Education", "EdSurge", "Diverse Issues in Higher Ed", YouTube alumni-engagement transcripts, OpenAlex papers, and topical Reddit threads are FIRST-CLASS evidence - not optional padding
+- Citations from "Industry Press", "Inside Higher Ed", "Chronicle of Higher Education", "EdSurge", "Diverse Issues in Higher Ed", YouTube customers-engagement transcripts, OpenAlex papers, and topical Reddit threads are FIRST-CLASS evidence - not optional padding
 - For every theme/recommendation/persona, surface BOTH internal (upload) and external evidence - the convergence is the strategic insight
 
 CITATION FORMAT (MANDATORY):
 [SOURCE_NAME: "Article Title"]
-Examples: [Higher Ed Dive: "Universities Struggle with Skills Gap"], [Reddit r/philanthropy: "nonprofit laid off staff due to funding cuts"], [YouTube: "Columbia Alumni Q&A - Donor Engagement Panel 2025"], [OpenAlex: Smith et al. 2024]
+Examples: [Industry Press: "Universities Struggle with Skills Gap"], [Reddit r/spend: "nonprofit laid off staff due to funding cuts"], [YouTube: "Peer D Customers Q&A - Customer Engagement Panel 2025"], [OpenAlex: Smith et al. 2024]
 
 ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - Answer ONLY from evidence that EXISTS in the corpus below, EXCEPT when an "AUTHORITATIVE SOURCE CONTENT" block is present above: that block is user-supplied ground truth, and its facts, figures, dates, and quotes ARE permitted and TAKE PRECEDENCE even if the corpus phrases them differently or does not contain them - never swap a user-supplied fact for a corpus alternative. Absent such a block, do not invent, fabricate, or extrapolate.
@@ -3311,7 +3254,7 @@ ANTI-HALLUCINATION RULES (STRICTLY ENFORCED):
 - When asked for "top N" or "N case studies", only provide as many as actually exist in the corpus. If only 4 exist, provide 4 - never pad to reach the requested number.
 
 ON-DEMAND WIKI RETRIEVAL (function-calling - used by Gemini Pro on this branch):
-You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE giving up on a claim, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
+You have the fetch_wiki_articles tool. The in-prompt corpus is always capped by the context window, but the WIKI ARCHIVE (hundreds of articles, transcripts, and documents) is queryable end-to-end via this tool. Call it BEFORE spend up on a claim, BEFORE using an article title as a quote, and BEFORE saying "the corpus is limited":
 
   - Asked for 3 verbatim quotes per theme? Call fetch_wiki_articles(query: <theme terms>, limit: 30) to pull 30 real bodies, then select the 3 best quotes. Synthesis tasks: use limit 40-60. Narrow factual lookups: 10-15.
   - Need a specific peer institution's outcome? Call fetch_wiki_articles(query: "<peer name> <topic>", source: "<outlet>") to retrieve the article body.
@@ -3334,7 +3277,7 @@ Decision rule for which tool to call:
   - User asks for framework / anti-pattern / benchmark / brand standard → fetch_wiki_resource
 
 DIVERSE-KIND RETRIEVAL (CRITICAL for source-mix discipline):
-When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds - not just uploads. The wiki has three kinds: \`article\` (RSS scrapes, jina-reader web extracts, OpenAlex papers, Reddit threads), \`transcript\` (YouTube alumni transcripts, interview transcripts), \`upload\` (client PDFs).
+When retrieving evidence for a major claim, pull from MULTIPLE wiki kinds - not just uploads. The wiki has three kinds: \`article\` (RSS scrapes, jina-reader web extracts, OpenAlex papers, Reddit threads), \`transcript\` (YouTube customers transcripts, interview transcripts), \`upload\` (client PDFs).
   - For evidence/data sections: call fetch_wiki_articles(query, kind: "article") to retrieve external research first.
   - For human voice / lived-experience sections: call fetch_wiki_articles(query, kind: "transcript") to retrieve YouTube + interview content.
   - For client-context sections only: call fetch_wiki_articles(query, kind: "upload") to retrieve client PDFs.
@@ -3394,7 +3337,7 @@ Scan the CURRENT user message for these triggers BEFORE you respond:
 
   1. Contains "#slide" (case-insensitive)?
        → SLIDE MODE: follow the SLIDE OUTPUT PROTOCOL. One :::slide block per slide.
-         Respect optional brand: #NU = Northeastern, #NXT = NXT Humans (also default).
+         Respect optional brand: #NU = the client organization, #NXT = NXT Humans (also default).
          Mark the template on the fence: :::slide template=NAME [brand=nu|nxt]
 
   2. Contains explicit approvable-card phrasing ("card I can approve", "approvable personas",
@@ -3884,10 +3827,10 @@ Returns: array of articles with title, source, url, date, and body text (up to m
     input_schema: {
         type: 'object',
         properties: {
-            query: { type: 'string', description: 'Keyword search over article titles + summaries + sources. Use 3-8 concrete terms - names, entities, topics. Example: "Wyoming EverTrue donor experience revenue"' },
+            query: { type: 'string', description: 'Keyword search over article titles + summaries + sources. Use 3-8 concrete terms - names, entities, topics. Example: "Wyoming a scoring tool customer experience revenue"' },
             ids: { type: 'array', items: { type: 'string' }, description: 'OPTIONAL: specific article IDs (10-char url_hash values from the WIKI ARCHIVE MENU). Use this when you already know which articles you want.' },
             wikiPaths: { type: 'array', items: { type: 'string' }, description: 'OPTIONAL: direct wiki paths (e.g. "articles/higher-ed-dive/ab12cd34ef.md"). Rarely needed; prefer ids or query.' },
-            source: { type: 'string', description: 'OPTIONAL: substring filter on source name. Example: "Higher Ed Dive", "Reddit r/MBA", "EverTrue"' },
+            source: { type: 'string', description: 'OPTIONAL: substring filter on source name. Example: "Industry Press", "Reddit r/MBA", "a scoring tool"' },
             kind: { type: 'string', enum: ['article', 'transcript', 'upload'], description: 'OPTIONAL: restrict to articles, YouTube transcripts, or uploaded client documents.' },
             minChars: { type: 'number', description: 'OPTIONAL: skip entries shorter than this many body chars. Default 500 (filters out archive stubs).' },
             limit: { type: 'number', description: 'Max articles to return. Default 25, hard max 80. Use 40-60 for synthesis tasks that need broad evidence coverage; 10-15 for narrow factual lookups.' },
@@ -4057,13 +4000,13 @@ Use this when the user asks about a SPECIFIC theme, persona, source, or finding 
 Good times to call:
   - "What evidence supports the X theme?" → query_knowledge_graph(seed: "X", hops: 2) returns the theme + its linked evidence + the sources those evidence pieces came from
   - "Which themes did r/CareerAdvice drive?" → query_knowledge_graph(seed: "CareerAdvice", hops: 2)
-  - "What recommendations address the donor-ghosting gap?" → query_knowledge_graph(seed: "ghosting", hops: 2)
+  - "What recommendations address the customer-ghosting gap?" → query_knowledge_graph(seed: "ghosting", hops: 2)
 
 Returns the connected nodes (with evidence body excerpts) + edges. Falls back gracefully when the seed has no match - use fetch_wiki_articles for free-text searches instead.`,
     input_schema: {
         type: 'object',
         properties: {
-            seed: { type: 'string', description: 'A theme name, persona name, source name, or topic term. Case-insensitive substring match. Example: "ghosting", "first-year readiness", "Higher Ed Dive".' },
+            seed: { type: 'string', description: 'A theme name, persona name, source name, or topic term. Case-insensitive substring match. Example: "ghosting", "first-year readiness", "Industry Press".' },
             hops: { type: 'number', description: 'How many graph hops to expand from the seed. 1 = direct neighbors only (fast, focused). 2 = neighbors-of-neighbors (DEFAULT - typical theme→evidence→source path). 3 = wide (use sparingly).' },
             maxNodes: { type: 'number', description: 'Cap on returned nodes. Default 25, max 60. Lower for tight focused queries.' },
         },

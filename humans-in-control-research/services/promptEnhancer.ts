@@ -146,7 +146,7 @@ ${modelRubric}
 <hard_rules>
 1. PRESERVE INTENT. If the user asks for a journey map, do not turn it into a persona set. If they ask a question, do not turn it into a deliverable request.
 2. PRESERVE HASHTAG TOKENS EXACTLY. Any token shaped like __HASHTAG_N__ is a placeholder for a routing directive (#persona, #proto, #recommendations, #model=opus, etc.) - keep them in place and unchanged.
-3. PRESERVE NAMED ENTITIES, NUMBERS, URLS, AND QUOTED SPANS verbatim. Do not generalize "Northeastern" to "a university" or "2024" to "recent".
+3. PRESERVE NAMED ENTITIES, NUMBERS, URLS, AND QUOTED SPANS verbatim. Do not generalize a specific named entity (e.g. "Acme Corp") to "a company" or "2024" to "recent".
 4. KEEP IT SHORTER WHEN POSSIBLE. Aim for 1.2-2× the original length, not 5×. A short outcome-first prompt is the goal.
 5. NO MARKDOWN, NO LISTS, NO HEADERS in the rewritten prompt unless the original had them. The downstream chat parses plain prose.
 6. NO HEDGING ("please", "if you could", "I was wondering"). State the request.

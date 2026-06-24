@@ -1411,7 +1411,7 @@ ITEMS (each labeled --- N --- where N is the local index 0..${batch.items.length
 ${block}
 
 Return ONLY a JSON array - one object per item, EVERY item scored:
-[{"i": 0, "s": 85, "r": "Body discusses Northeastern alumni engagement metrics"}]
+[{"i": 0, "s": 85, "r": "Body discusses the subject's customer engagement metrics"}]
 Where i=local index 0..${batch.items.length - 1}, s=score 0-100, r=one-sentence reason grounded in the body content.
 You MUST emit all ${batch.items.length} objects. Do not stop early.
 Be STRICT - if the body doesn't substantively engage with the research goal, score under 60.`;

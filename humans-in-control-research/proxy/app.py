@@ -4647,7 +4647,7 @@ async def prototype_view(slug: str = Path(...)):
     <title>{title} — HiC Prototype</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@200;300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Archivo:wght@200;300;400;500;600;700;900&family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- 2026-05-15 — Tailwind CDN added. The Stage 4 prompt + the AI Experience
          Patterns catalog instruct the coder to emit Tailwind classes (bg-nu-red,
          font-display, text-text-primary, etc.). Without Tailwind loaded here,
@@ -4665,7 +4665,7 @@ async def prototype_view(slug: str = Path(...)):
     <script>document.addEventListener("DOMContentLoaded",function(){{document.querySelectorAll("[data-brand-logo]").forEach(function(el){{if(window.__BRAND_LOGO__){{el.innerHTML=window.__BRAND_LOGO__;el.classList.add("ds-brand-logo");}}}});}});</script>
     <style>
       html, body, #root {{ margin: 0; padding: 0; min-height: 100vh; }}
-      body {{ font-family: 'Roboto', 'Archivo', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAFAFA; color: #0D0D0D; }}
+      body {{ font-family: 'Archivo', 'Lato', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #FAFAFA; color: #0D0D0D; }}
       * {{ box-sizing: border-box; }}
       .__hic_proto_error {{
         padding: 24px; margin: 16px; max-width: 720px;
@@ -4993,9 +4993,9 @@ NXT_BRAND_TOKENS_CSS = """
   --nxt-friction: #CC6644;
   --nxt-error: #FF5A5A;
   /* Type */
-  --nxt-font-display: 'Bebas Neue', sans-serif;
+  --nxt-font-display: 'Saira Condensed', sans-serif;
   --nxt-font-body: 'Archivo', sans-serif;
-  --nxt-font-mono: 'JetBrains Mono', monospace;
+  --nxt-font-mono: 'IBM Plex Mono', monospace;
   /* Layout */
   --nxt-radius: 2px;
   --nxt-radius-card: 2px;
@@ -5010,8 +5010,8 @@ NXT_BRAND_TOKENS_CSS = """
   --nu-red: #C8102E;
   --nu-red-deep: #9E0A24;
   --nu-red-tint: #FBE7EA;
-  --nxt-font-display: 'Roboto Condensed', sans-serif;
-  --nxt-font-body: 'Open Sans', sans-serif;
+  --nxt-font-display: 'Lato', sans-serif;
+  --nxt-font-body: 'Lato', sans-serif;
 }
 html, body { margin: 0; padding: 0; min-height: 100vh; }
 body {
@@ -5092,6 +5092,135 @@ button.__hic_primary:hover { background: var(--nxt-text-primary); color: var(--n
 """
 
 
+def _load_figma_tokens() -> dict:
+    """Load the Figma-MCP-sourced design tokens (the runtime source of truth,
+    mirrored from Figma NXT 223:2 / NU mode 535:0). Returns {} on failure so
+    callers degrade rather than crash."""
+    import json as _json
+    tok_path = "/hic-workspace/design-system/figma-tokens.json"
+    if not os.path.exists(tok_path):
+        tok_path = os.path.join(os.path.dirname(__file__), "..", "hic-workspace", "design-system", "figma-tokens.json")
+    try:
+        with open(tok_path, "r", encoding="utf-8") as f:
+            return _json.load(f)
+    except Exception:
+        return {}
+
+
+def _design_token_block(bn: str, t: dict) -> str:
+    c = t.get("color", {}) or {}
+    fo = t.get("font", {}) or {}
+    sp = t.get("space", {}) or {}
+    rad = (t.get("radius", {}) or {}).get("base")
+    lines = [
+        f"=== FIGMA DESIGN TOKENS ({bn}) - the design-system source of truth, pulled from Figma via MCP ===",
+        "Use these EXACT values for every color/font/spacing decision. Do NOT invent hex codes or fonts.",
+        "Colors: " + ", ".join(f"{k}={v}" for k, v in c.items()),
+        "Fonts: " + ", ".join(f"{k}={v}" for k, v in fo.items()),
+        "Spacing(px): " + ", ".join(f"{k}={v}" for k, v in sp.items()) + (f"; radius={rad}" if rad is not None else ""),
+    ]
+    ty = t.get("type", {}) or {}
+    if ty:
+        sc = ty.get("scale", {}) or {}
+        wt = ty.get("weight", {}) or {}
+        tr = ty.get("track", {}) or {}
+        lines.append("=== TYPOGRAPHY (Figma type system - the EXACT scale, never invent sizes/weights) ===")
+        lines.append("Type scale (stage px; web preview and PPTX render at half): " + ", ".join(f"{k}={v}" for k, v in sc.items()))
+        lines.append(f"Weight ladder: body={wt.get('body',400)} (body, quotes, hero numerals), label={wt.get('label',500)} (labels/meta/mono, always grey), title={wt.get('title',600)} (action title, names, takeaway band).")
+        lines.append(f"Tracking (uppercase mono only, px): kicker={tr.get('kicker',4)}, label={tr.get('label',1.5)}, title={tr.get('title',0)}. Body text: no tracking.")
+        lines.append("=== HIERARCHY DOCTRINE (how to prioritize text - a deliverable that breaks this is a hard failure) ===")
+        lines.append("1. ONE governing line: the action title is the single most important text. It carries the conclusion. Never bury it under a bigger number, name, or label.")
+        lines.append(f"2. Hero cap: a hero numeral/word is EVIDENCE, not a headline. It is prominent but capped at {ty.get('heroCap',36)} (< the {sc.get('title',46)} title) in body weight; it must NOT out-rank the title. Numbers ride inside cited quotes (Quantitative Claim Rule).")
+        lines.append("3. Labels recede: a label is never heavier or darker than the content it introduces. Use mono, label-weight, grey, sentence-case. Reserve UPPERCASE for the single kicker only.")
+        lines.append(f"4. Legibility floor: every line of real content must read; do not compress an idea into a fragment. The renderer never shrinks below {ty.get('floor',17)} stage px - if it would, the idea is too long: tighten the wording or let it flow to a continuation slide.")
+        lines.append("5. Emphasis scarcity: reserve the brand accent for the ONE most important datum per slide. Structural accents (warn=pain, cool=opportunity, kicker) keep their meaning; do not spray accent everywhere.")
+        lines.append("6. One idea per cell, complete thoughts, varied sentence openings; the title is a full conclusion sentence (the Partner Test: reading only titles tells the whole story).")
+    lg = t.get("logo", {}) or {}
+    if lg:
+        lines.append("=== BRAND LOGO (Figma-sourced - use this EXACT mark, NEVER invent a letter-in-a-box) ===")
+        _mark = lg.get("monogram") or lg.get("svg")
+        if _mark:
+            lines.append(f"{bn} mark is a custom vector. Render this EXACT inline SVG for the logo (size via height ~26px, width auto; if it uses fill=currentColor set CSS color: ink on light, white on dark): {_mark}")
+            lines.append(lg.get("usage", ""))
+        elif lg.get("wordmark"):
+            lines.append(
+                f"{bn} logo is a WORDMARK: render the text \"{lg.get('wordmark')}\" in the heading font "
+                f"(weight {lg.get('weight',700)}, letter-spacing {lg.get('letter_spacing','0.01em')}, "
+                f"color {lg.get('on_light')} on light / {lg.get('on_dark')} on dark). " + lg.get("usage", "")
+            )
+    return "\n".join(lines)
+
+
+def _design_grid_block(tokens: dict) -> str:
+    g = tokens.get("_grid", {}) or {}
+    if not g:
+        return ""
+    cv = g.get("canvas", {}) or {}
+    pg = g.get("page", {}) or {}
+    jm = g.get("journeyMatrix", {}) or {}
+    pc = jm.get("phaseCols", {}) or {}
+    sl = jm.get("swimlanes", {}) or {}
+    lines = [
+        "=== LAYOUT GRID (EXACT spacing/padding - use when adding/removing/changing elements) ===",
+        f"Canvas PPTX: {cv.get('pptx',{}).get('w')}x{cv.get('pptx',{}).get('h')} 16:9 STRICT - everything fits in {cv.get('pptx',{}).get('h')}px height, never overflow a slide.",
+        f"Canvas HTML: width {cv.get('html',{}).get('w')}, height FLEXIBLE (may scroll); same horizontal grid as PPTX.",
+        f"Page: rail={pg.get('rail')} contentLeft={pg.get('contentLeft')} contentWidth={pg.get('contentWidth')} marginRight={pg.get('marginRight')} top={pg.get('top')}.",
+        f"Journey matrix: labelGutter={jm.get('labelGutter')} matrixStartX={jm.get('matrixStartX')}; phase columns default={pc.get('default')} (variable {pc.get('min')}-{pc.get('max')}) width={pc.get('width')} gutter={pc.get('gutter')}; swimlanes default={sl.get('default')} rowHeight={sl.get('rowHeight')} rowGutter={sl.get('rowGutter')}; phaseHeaderH={jm.get('phaseHeaderH')} painRowH={jm.get('painRowH')} cellPadding={jm.get('cellPadding')}.",
+        f"Extend rule: {jm.get('_extend','')}",
+    ]
+    bps = (g.get("breakpoints", {}) or {})
+    if bps:
+        order = ["xs", "sm", "md", "lg", "xl", "2xl"]
+        parts = []
+        for k in order:
+            b = bps.get(k) or {}
+            if b:
+                parts.append(f"{k}={b.get('min')}px/{b.get('cols')}col/m{b.get('margin')}/g{b.get('gutter')}")
+        lines.append("=== RESPONSIVE BREAKPOINT GRID (mobile-first; build prototypes responsive across these) ===")
+        lines.append("Breakpoints: " + " · ".join(parts) + f"; max content width {bps.get('maxContentWidth',1440)}, centered beyond 2xl. Styles cascade up from mobile.")
+    return "\n".join(lines)
+
+
+def build_design_tokens_prompt(brand: str = "") -> str:
+    """SHARED builder for the Figma-token prompt block. ONE source used by BOTH the
+    /api/design-tokens?format=prompt endpoint AND the HTML-artifact generator
+    (_artifact_generation_prompt), so the design-system grounding can never drift
+    between the slide path and the artifact path (UNIFIED_VISION #7, never-hardcoded).
+    Returns '' if tokens are unavailable so callers degrade gracefully."""
+    tokens = _load_figma_tokens()
+    if not tokens:
+        return ""
+    b = (brand or "").strip().upper()
+    grid = _design_grid_block(tokens)
+    suffix = ("\n\n" + grid) if grid else ""
+    if b in ("NXT", "NU"):
+        return _design_token_block(b, tokens.get(b, {})) + suffix
+    return _design_token_block("NXT", tokens.get("NXT", {})) + "\n\n" + _design_token_block("NU", tokens.get("NU", {})) + suffix
+
+
+def _design_token_css_vars(brand: str) -> str:
+    """CSS custom-property lines for EVERY Figma token under its BARE name
+    (--accent, --ink, --cyan, --rail, --body, --secondary, --font-display, ...).
+    Injected into a generated artifact's :root so any var(--<token>) the model
+    emits (following the injected token block, which lists tokens by bare name)
+    ALWAYS resolves - this kills the undefined-var class of bug (e.g. var(--ink)
+    rendering as nothing). Sourced from figma-tokens.json, never hardcoded."""
+    t = _load_figma_tokens().get("NU" if (brand or "").lower() == "nu" else "NXT", {})
+    out = []
+    for k, v in (t.get("color", {}) or {}).items():
+        out.append(f"    --{k}: {v} !important;")
+    fo = t.get("font", {}) or {}
+    if fo.get("display"):
+        out.append(f"    --font-display: '{fo['display']}', sans-serif !important;")
+    if fo.get("body"):
+        out.append(f"    --font-body: '{fo['body']}', sans-serif !important;")
+    if fo.get("title"):
+        out.append(f"    --font-title: '{fo['title']}', sans-serif !important;")
+    if fo.get("mono"):
+        out.append(f"    --font-mono: '{fo['mono']}', monospace !important;")
+    return "\n".join(out)
+
+
 @app.get("/api/design-tokens")
 async def design_tokens(brand: str = "", format: str = "json"):
     """Serve the Figma-MCP-sourced design tokens (NXT + NU) for runtime grounding.
@@ -5116,91 +5245,8 @@ async def design_tokens(brand: str = "", format: str = "json"):
         return JSONResponse({"error": f"figma-tokens.json unavailable: {e}"}, status_code=503)
     b = (brand or "").strip().upper()
 
-    def _block(bn, t):
-        c = t.get("color", {}) or {}
-        fo = t.get("font", {}) or {}
-        sp = t.get("space", {}) or {}
-        rad = (t.get("radius", {}) or {}).get("base")
-        lines = [
-            f"=== FIGMA DESIGN TOKENS ({bn}) - the design-system source of truth, pulled from Figma via MCP ===",
-            "Use these EXACT values for every color/font/spacing decision. Do NOT invent hex codes or fonts.",
-            "Colors: " + ", ".join(f"{k}={v}" for k, v in c.items()),
-            "Fonts: " + ", ".join(f"{k}={v}" for k, v in fo.items()),
-            "Spacing(px): " + ", ".join(f"{k}={v}" for k, v in sp.items()) + (f"; radius={rad}" if rad is not None else ""),
-        ]
-        # TYPOGRAPHY + HIERARCHY DOCTRINE (Figma-sourced type system). Teaches the model
-        # how to PRIORITIZE and WEIGHT text so the title governs and labels recede - the
-        # 2026-06-14 redesign. Values are 1920-space stage px (web/pptx = px/2).
-        ty = t.get("type", {}) or {}
-        if ty:
-            sc = ty.get("scale", {}) or {}
-            wt = ty.get("weight", {}) or {}
-            tr = ty.get("track", {}) or {}
-            lines.append("=== TYPOGRAPHY (Figma type system - the EXACT scale, never invent sizes/weights) ===")
-            lines.append("Type scale (stage px; web preview and PPTX render at half): " + ", ".join(f"{k}={v}" for k, v in sc.items()))
-            lines.append(f"Weight ladder: body={wt.get('body',400)} (body, quotes, hero numerals), label={wt.get('label',500)} (labels/meta/mono, always grey), title={wt.get('title',600)} (action title, names, takeaway band).")
-            lines.append(f"Tracking (uppercase mono only, px): kicker={tr.get('kicker',4)}, label={tr.get('label',1.5)}, title={tr.get('title',0)}. Body text: no tracking.")
-            lines.append("=== HIERARCHY DOCTRINE (how to prioritize text - a deliverable that breaks this is a hard failure) ===")
-            lines.append("1. ONE governing line: the action title is the single most important text. It carries the conclusion. Never bury it under a bigger number, name, or label.")
-            lines.append(f"2. Hero cap: a hero numeral/word is EVIDENCE, not a headline. It is prominent but capped at {ty.get('heroCap',36)} (< the {sc.get('title',46)} title) in body weight; it must NOT out-rank the title. Numbers ride inside cited quotes (Quantitative Claim Rule).")
-            lines.append("3. Labels recede: a label is never heavier or darker than the content it introduces. Use mono, label-weight, grey, sentence-case. Reserve UPPERCASE for the single kicker only.")
-            lines.append(f"4. Legibility floor: every line of real content must read; do not compress an idea into a fragment. The renderer never shrinks below {ty.get('floor',17)} stage px - if it would, the idea is too long: tighten the wording or let it flow to a continuation slide.")
-            lines.append("5. Emphasis scarcity: reserve the brand accent for the ONE most important datum per slide. Structural accents (warn=pain, cool=opportunity, kicker) keep their meaning; do not spray accent everywhere.")
-            lines.append("6. One idea per cell, complete thoughts, varied sentence openings; the title is a full conclusion sentence (the Partner Test: reading only titles tells the whole story).")
-        # BRAND LOGO (Figma-sourced). The mark MUST come from the design system, never invented.
-        lg = t.get("logo", {}) or {}
-        if lg:
-            lines.append("=== BRAND LOGO (Figma-sourced - use this EXACT mark, NEVER invent a letter-in-a-box) ===")
-            _mark = lg.get("monogram") or lg.get("svg")
-            if _mark:
-                lines.append(f"{bn} mark is a custom vector. Render this EXACT inline SVG for the logo (size via height ~26px, width auto; if it uses fill=currentColor set CSS color: ink on light, white on dark): {_mark}")
-                lines.append(lg.get("usage", ""))
-            elif lg.get("wordmark"):
-                lines.append(
-                    f"{bn} logo is a WORDMARK: render the text \"{lg.get('wordmark')}\" in the heading font "
-                    f"(weight {lg.get('weight',700)}, letter-spacing {lg.get('letter_spacing','0.01em')}, "
-                    f"color {lg.get('on_light')} on light / {lg.get('on_dark')} on dark). " + lg.get("usage", "")
-                )
-        return "\n".join(lines)
-
-    def _grid_block():
-        g = tokens.get("_grid", {}) or {}
-        if not g:
-            return ""
-        cv = g.get("canvas", {}) or {}
-        pg = g.get("page", {}) or {}
-        jm = g.get("journeyMatrix", {}) or {}
-        pc = jm.get("phaseCols", {}) or {}
-        sl = jm.get("swimlanes", {}) or {}
-        lines = [
-            "=== LAYOUT GRID (EXACT spacing/padding - use when adding/removing/changing elements) ===",
-            f"Canvas PPTX: {cv.get('pptx',{}).get('w')}x{cv.get('pptx',{}).get('h')} 16:9 STRICT - everything fits in {cv.get('pptx',{}).get('h')}px height, never overflow a slide.",
-            f"Canvas HTML: width {cv.get('html',{}).get('w')}, height FLEXIBLE (may scroll); same horizontal grid as PPTX.",
-            f"Page: rail={pg.get('rail')} contentLeft={pg.get('contentLeft')} contentWidth={pg.get('contentWidth')} marginRight={pg.get('marginRight')} top={pg.get('top')}.",
-            f"Journey matrix: labelGutter={jm.get('labelGutter')} matrixStartX={jm.get('matrixStartX')}; phase columns default={pc.get('default')} (variable {pc.get('min')}-{pc.get('max')}) width={pc.get('width')} gutter={pc.get('gutter')}; swimlanes default={sl.get('default')} rowHeight={sl.get('rowHeight')} rowGutter={sl.get('rowGutter')}; phaseHeaderH={jm.get('phaseHeaderH')} painRowH={jm.get('painRowH')} cellPadding={jm.get('cellPadding')}.",
-            f"Extend rule: {jm.get('_extend','')}",
-        ]
-        bps = (g.get("breakpoints", {}) or {})
-        if bps:
-            order = ["xs", "sm", "md", "lg", "xl", "2xl"]
-            parts = []
-            for k in order:
-                b = bps.get(k) or {}
-                if b:
-                    parts.append(f"{k}={b.get('min')}px/{b.get('cols')}col/m{b.get('margin')}/g{b.get('gutter')}")
-            lines.append("=== RESPONSIVE BREAKPOINT GRID (mobile-first; build prototypes responsive across these) ===")
-            lines.append("Breakpoints: " + " · ".join(parts) + f"; max content width {bps.get('maxContentWidth',1440)}, centered beyond 2xl. Styles cascade up from mobile.")
-        return "\n".join(lines)
-
     if format == "prompt":
-        grid = _grid_block()
-        suffix = ("\n\n" + grid) if grid else ""
-        if b in ("NXT", "NU"):
-            return Response(_block(b, tokens.get(b, {})) + suffix, media_type="text/plain")
-        return Response(
-            _block("NXT", tokens.get("NXT", {})) + "\n\n" + _block("NU", tokens.get("NU", {})) + suffix,
-            media_type="text/plain",
-        )
+        return Response(build_design_tokens_prompt(b), media_type="text/plain")
     if b in ("NXT", "NU"):
         return JSONResponse(tokens.get(b, {}))
     return JSONResponse(tokens)
@@ -5460,21 +5506,16 @@ async def artifact_view(slug: str = Path(...)):
     if body_strip.startswith("<!doctype") or body_strip.startswith("<html"):
         return HTMLResponse(content=html_body)
 
-    # 2026-05-12 — Font loading split by brand requirement.
-    # NXT: Bebas Neue (display) + Archivo (body) + JetBrains Mono (code)
-    # NU:  Spectral (display, serif, multi-weight) + Roboto (body) + Roboto Mono (code)
-    # Both brands' fonts are loaded so a single artifact can mix them if the
-    # model emits a brand switch mid-document. Spectral is requested at the
-    # weights specified by the official NU design system (200/300/400/500/600/700/800).
+    # 2026-06-24 — Font loading matches the Figma design system (was stale
+    # Bebas/Spectral/Roboto/Open Sans). NXT: Saira Condensed (display) + Archivo
+    # (title/body) + IBM Plex Mono (code). NU: Lato (single-typeface system, all
+    # slots). Both brands loaded so an artifact can mix if it switches brand.
     google_fonts = (
         "https://fonts.googleapis.com/css2"
-        "?family=Bebas+Neue"
-        "&family=Archivo:wght@200;300;400;500;700;900"
-        "&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500"
-        "&family=Roboto:wght@300;400;500;600;700"
-        "&family=Roboto+Mono:wght@400;500;600"
-        "&family=Open+Sans:wght@300;400;600;700"
-        "&family=Roboto+Condensed:wght@400;600;700"
+        "?family=Saira+Condensed:wght@400;500;600;700"
+        "&family=Archivo:wght@200;300;400;500;600;700;900"
+        "&family=Lato:wght@300;400;700;900"
+        "&family=IBM+Plex+Mono:wght@400;500;600"
         "&family=JetBrains+Mono:wght@400;500"
         "&display=swap"
     )
@@ -5701,9 +5742,9 @@ async def artifact_view(slug: str = Path(...)):
                 panel:       'F1F5F9',   // slate-100 — subtle surface
                 pale:        'F8FAFC',   // slate-50 — page background tint
                 white:       'FFFFFF',
-                fontDisplay: 'Spectral',
-                fontBody:    'Roboto',
-                fontMono:    'Roboto Mono',
+                fontDisplay: 'Lato',
+                fontBody:    'Lato',
+                fontMono:    'Lato',
               }};
             }}
             // NXT default
@@ -5721,9 +5762,9 @@ async def artifact_view(slug: str = Path(...)):
               panel:       'F5F5F0',
               pale:        'FAFAF7',
               white:       'FFFFFF',
-              fontDisplay: 'Bebas Neue',
+              fontDisplay: 'Saira Condensed',
               fontBody:    'Archivo',
-              fontMono:    'JetBrains Mono',
+              fontMono:    'IBM Plex Mono',
             }};
           }}
           // 2026-05-12 — Comprehensive parser. The html-deliverable-composer skill
@@ -7211,10 +7252,19 @@ async def fonts_embed_css():
     import base64 as _b64
     # (family, weight, style, file) — files live in proxy/fonts/static/.
     faces = [
-        ("Bebas Neue", 400, "normal", "BebasNeue-Regular.ttf"),
+        # Current design-system fonts (2026-06-24): NXT display=Saira Condensed,
+        # title/body=Archivo, mono=IBM Plex Mono. (NU=Lato has no TTF here yet, so
+        # NU export falls back to the Google-loaded webfont.)
+        ("Saira Condensed", 400, "normal", "SairaCondensed-Regular.ttf"),
+        ("Saira Condensed", 600, "normal", "SairaCondensed-SemiBold.ttf"),
+        ("Saira Condensed", 700, "normal", "SairaCondensed-Bold.ttf"),
+        ("IBM Plex Mono", 400, "normal", "IBMPlexMono-Regular.ttf"),
+        ("IBM Plex Mono", 600, "normal", "IBMPlexMono-SemiBold.ttf"),
         ("Archivo", 400, "normal", "Archivo-Regular.ttf"),
         ("Archivo", 700, "normal", "Archivo-Bold.ttf"),
         ("Archivo", 400, "italic", "Archivo-Italic.ttf"),
+        # Legacy faces kept so already-generated artifacts still embed correctly.
+        ("Bebas Neue", 400, "normal", "BebasNeue-Regular.ttf"),
         ("Spectral", 400, "normal", "Spectral-Regular.ttf"),
         ("Spectral", 700, "normal", "Spectral-Bold.ttf"),
         ("JetBrains Mono", 400, "normal", "JetBrainsMono-Regular.ttf"),
@@ -16219,11 +16269,11 @@ _BRAND_TOKENS = {
         "primary": "#C8102E",     # NU red — PANTONE 200 C
         "primary_deep": "#9E0A24",
         "secondary": "#0091B6",
-        "text_primary": "#000000",
-        "text_secondary": "#414141",
-        "surface": "#F7F7F7",
-        "font_display": "'Roboto Condensed', sans-serif",
-        "font_body": "'Open Sans', sans-serif",
+        "text_primary": "#16233C",
+        "text_secondary": "#73757A",
+        "surface": "#F2F1EA",
+        "font_display": "'Lato', sans-serif",
+        "font_body": "'Lato', sans-serif",
     },
     "nxt": {
         "primary": "#B8B800",     # NXT chartreuse
@@ -16232,10 +16282,39 @@ _BRAND_TOKENS = {
         "text_primary": "#0D0D0D",
         "text_secondary": "#525252",
         "surface": "#FAFAFA",
-        "font_display": "'Bebas Neue', sans-serif",
+        "font_display": "'Saira Condensed', sans-serif",
         "font_body": "'Archivo', sans-serif",
     },
 }
+
+
+def _brand_tokens(brand: str) -> dict:
+    """Live design tokens in the legacy _BRAND_TOKENS shape, sourced from
+    figma-tokens.json (NEVER hardcoded) so the post-processor's injected CSS uses
+    the REAL Figma fonts/colors. This is what kills brand drift: NU is the
+    single-typeface Lato system and NXT display is Saira Condensed - both flow
+    from the token file, not stale literals. Falls back to the static mirror only
+    if the token file is unavailable."""
+    bl = (brand or "nxt").lower()
+    bn = "NU" if bl == "nu" else "NXT"
+    t = (_load_figma_tokens().get(bn) or {})
+    c = t.get("color", {}) or {}
+    fo = t.get("font", {}) or {}
+    if not c or not fo:
+        return _BRAND_TOKENS.get(bl if bl in _BRAND_TOKENS else "nxt")
+    disp = fo.get("display") or "Archivo"
+    body = fo.get("body") or "Archivo"
+    fb = _BRAND_TOKENS.get(bl if bl in _BRAND_TOKENS else "nxt")
+    return {
+        "primary": c.get("accent", fb["primary"]),
+        "primary_deep": c.get("accent", fb["primary_deep"]),
+        "secondary": c.get("cyan", fb["secondary"]),
+        "text_primary": c.get("ink", fb["text_primary"]),
+        "text_secondary": c.get("secondary", fb["text_secondary"]),
+        "surface": c.get("pale", fb["surface"]),
+        "font_display": f"'{disp}', sans-serif",
+        "font_body": f"'{body}', sans-serif",
+    }
 
 # ─── Anti-slop substitutions (mirrors slidePostProcessor SLOP_BLACKLIST) ──────
 # Fragments assembled at runtime so this file's slop-precheck doesn't trip.
@@ -16547,7 +16626,7 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     out = _resolve_inline_citation_markers(out)
 
     is_nu = (brand or "nxt").lower() == "nu"
-    tokens = _BRAND_TOKENS.get((brand or "nxt").lower(), _BRAND_TOKENS["nxt"])
+    tokens = _brand_tokens(brand)
 
     # ─── 3d. NU SLIDE-MODE → design-system template path (2026-06-01) ─────
     # When an NU artifact is SLIDE-MODE (carries .nxt-slide frames), route it
@@ -16632,9 +16711,9 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
         '<link rel="preconnect" href="https://fonts.googleapis.com">\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
         + (
-            '<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Spectral:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+            '<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">'
             if is_nu else
-            '<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">'
+            '<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=Archivo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">'
         )
     )
 
@@ -16644,10 +16723,12 @@ def _apply_brand_and_anti_slop(html: str, brand: str) -> str:
     #   1. CSS variable substitution (covers var(--*)-driven JM templates)
     #   2. Body-level color/background/font enforcement (covers raw color usage)
     #   3. Common dark-theme overrides (covers JM's dark-navy variant)
+    token_css_vars = _design_token_css_vars(brand)
     brand_override = f"""{fonts_link}
 <style>
   /* HiC brand override (2026-05-25): colors + fonts only. */
   :root {{
+{token_css_vars}
     --primary-color: {tokens['primary']} !important;
     --primary-light: {tokens['primary']} !important;
     --secondary-color: {tokens['secondary']} !important;
@@ -17961,6 +18042,11 @@ def _artifact_generation_prompt(kind: str, brand: str, goal: str, corpus: str, s
     """
     w, h = KIND_DIMENSIONS.get(kind, (1280, 1800))
     is_nu = brand.lower() == "nu"
+    # FIGMA-LIVE DESIGN TOKENS (2026-06-24) - the SINGLE source of truth, shared
+    # with the slide path via build_design_tokens_prompt(). Injected into BOTH
+    # brand branches so the HTML-artifact model uses the EXACT design system and
+    # never invents/hardcodes colors or fonts (UNIFIED_VISION #7, never-hardcoded).
+    design_tokens_block = build_design_tokens_prompt(brand)
 
     # ─── NXT: build with the injected Design System (2026-05-30) ──────────
     # The stark-white component CSS + tabs JS + icon sprite + real wordmark are
@@ -17985,6 +18071,9 @@ working-tabs script are AUTOMATICALLY INJECTED into your output. So:
   NO dark cards, NO dark panels. Dark appears ONLY via the intentional .nxt-block--ink/--teal
   classes (which carry white text automatically). NEVER dark text on a dark background.
 - NEVER invent a tiny "N" / "NXT" box logo. Use the provided wordmark span.
+
+DESIGN SYSTEM TOKENS (Figma-live, the source of truth - the auto-injected stylesheet uses these EXACT values; for any intentional color (.nxt-block--teal/--ink/--lime) or accent, use ONLY these tokens, NEVER invent a hex or font):
+{design_tokens_block}
 
 REQUIRED DOCUMENT SHELL (use verbatim class names):
 <header class="nxt-masthead"><span class="nxt-logo">NXT HUMANS</span><span class="nxt-masthead__label">{kind.upper().replace('-', ' ')}</span></header>
@@ -18069,11 +18158,10 @@ REMEMBER: COMPLETE HTML using the nxt- classes. The KIND STRUCTURE above is mand
 <style> theme. NO methodology/"how this was built" section. NO em-dashes. NO placeholders.
 """
 
-    # ─── NU: legacy brand prompt (unchanged) ──────────────────────────────
-    accent = "NU red (#C8102E)"
-    font_display = "Roboto Condensed"
-    font_body = "Open Sans"
-
+    # ─── NU: token-grounded brand prompt (Figma-live, never hardcoded 2026-06-24) ──
+    # Previously hardcoded "Roboto Condensed"/"Open Sans" - STALE + WRONG (NU is the
+    # single-typeface Lato system per Figma NU mode 535:0). The design_tokens_block
+    # above now carries the EXACT live values; the model must use them verbatim.
     return f"""**INSTRUCTION**: You are a MASTER {kind.upper().replace('-', ' ')} REPORT ANALYST with exceptional data analysis and HTML visualization skills. Activate extended thinking. Produce the most detailed, evidence-grounded {kind} analysis possible.
 
 CRITICAL INSTRUCTION: YOUR RESPONSE MUST BE A COMPLETE, INTERACTIVE HTML DOCUMENT WITH ALL TAGS INTACT. START WITH <!DOCTYPE html>, INCLUDE <html>, <head> (with <style>), <body>, AND END WITH </body></html>.
@@ -18085,7 +18173,8 @@ ESSENTIAL REQUIREMENTS:
 2. WCAG AA accessibility: minimum 7:1 contrast for text, semantic HTML, ARIA attributes
 3. Modern aesthetics with clean visual hierarchy
 4. Direct quotes from source data with inline citations
-5. Use brand palette: primary accent {accent}; display font '{font_display}'; body font '{font_body}'
+5. DESIGN SYSTEM (Figma tokens, the SINGLE source of truth - use these EXACT colors/fonts, NEVER invent or substitute a hex/font; emit a complete :root{{ ... }} that defines every token below as a CSS variable so this self-contained file styles itself and no var(--...) is ever undefined):
+{design_tokens_block}
 
 ═══════════════════════════════════════════════════════════════
 DOMAIN EXPERTISE FROM THE {kind.upper()} SKILL (apply rigorously)
@@ -18107,13 +18196,13 @@ HTML STRUCTURE REQUIREMENTS
 ═══════════════════════════════════════════════════════════════
 1. Return ONLY HTML — no markdown fences, no JSON, no explanations
 2. Start with <!DOCTYPE html>, end with </html>
-3. Complete <head> with viewport meta, <title>, <link> for Google Fonts ('{font_display}' + '{font_body}' + 'JetBrains Mono'), and complete <style> block
+3. Complete <head> with viewport meta, <title>, the Google Fonts <link> for the EXACT fonts named in the DESIGN SYSTEM tokens above (do NOT substitute), and a complete <style> block whose :root defines every design token as a CSS variable
 4. Use modern CSS: CSS variables, grid layout, flexbox
 5. Vanilla JavaScript for interactive elements (tabs, expandable sections, sortable tables)
 6. NO em-dash characters (U+2014) — use comma, hyphen, semicolon, or colon
 7. NO banned slop phrases: delve, tapestry, testament, meticulous, pivotal moment, leveraging, utilize, comprehensive (use "complete"), facilitate (use "help"), enhance (use "improve")
 8. Every claim cites a source from the corpus
-9. Hex colors that match the brand: avoid blue/purple/cyan accent gradients; use {accent}
+9. Use ONLY the accent and palette from the DESIGN SYSTEM tokens above; never invent off-brand blue/purple gradients
 
 ═══════════════════════════════════════════════════════════════
 ANTI-FABRICATION
@@ -18169,9 +18258,10 @@ def _artifact_revision_prompt(kind: str, brand: str, current_html: str, revision
     """Build the revision prompt. Preserves layout + structure of the current
     HTML while applying the user's natural-language revision."""
     is_nu = brand.lower() == "nu"
-    accent = "NU red (#C8102E)" if is_nu else "NXT chartreuse (#B8B800)"
-    font_display = "Roboto Condensed" if is_nu else "Bebas Neue"
-    font_body = "Open Sans" if is_nu else "Archivo"
+    # Figma-live tokens (2026-06-24, never hardcoded). Replaces the stale
+    # Roboto/Open Sans/Bebas literals - the revision must preserve the design
+    # system, so the model gets the EXACT current tokens to hold the palette.
+    design_tokens_block = build_design_tokens_prompt(brand)
 
     return f"""You are revising an existing {kind} HTML report. Apply the user's revision request while PRESERVING the existing layout, structure, sections, CSS classes, and visual design language. Only change what the user asks to change.
 
@@ -18195,7 +18285,8 @@ REVISION DISCIPLINE
 3. Apply ONLY the user's revision request
 4. NO em-dashes (use comma, hyphen, semicolon, or colon)
 5. NO banned slop phrases: delve, tapestry, testament, meticulous, leveraging, utilize, comprehensive, facilitate, enhance
-6. Brand palette: {accent} accent; '{font_display}' display font; '{font_body}' body font
+6. Preserve the DESIGN SYSTEM exactly - these Figma tokens are the source of truth; keep the existing palette/fonts and never substitute a different hex or font:
+{design_tokens_block}
 7. Preserve all corpus citations and verbatim quotes
 
 Return ONLY the revised HTML document. Start with <!DOCTYPE html>, end with </html>.
