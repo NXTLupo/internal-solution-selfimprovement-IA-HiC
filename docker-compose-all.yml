@@ -492,12 +492,15 @@ services:
   # ============================================
 
   nxt-agency-launchpad:
-    image: nginx:alpine
+    # Source-built so a fresh clone needs no host-side npm build. (Previously this
+    # was bare nginx mounting a gitignored host-built dist/, which served an empty
+    # page on a clean clone.) See NXT-Agency/agency-agents-launchpad/Dockerfile.
+    build:
+      context: ./NXT-Agency/agency-agents-launchpad
+      dockerfile: Dockerfile
     container_name: nxt-agency-launchpad
     ports:
       - "${NXT_AGENCY_PORT:-5050}:80"
-    volumes:
-      - ./NXT-Agency/agency-agents-launchpad/dist:/usr/share/nginx/html:ro
     networks:
       - nxt-humans-network
     depends_on:
