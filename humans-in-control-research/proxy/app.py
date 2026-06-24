@@ -298,6 +298,22 @@ SOURCES = {
         "query_param": "query", "limit_param": "hitsPerPage", "default_limit": 20,
         "results_path": "hits", "total_path": "nbHits"},
 
+    # 2026-06-23 - free, no-key social/community connectors (last30days-inspired).
+    # Bluesky public AppView (no auth for public post search; free). Subject to the
+    # SOURCE-TYPE BALANCE social soft-cap via the generalized classifier (name token
+    # "bluesky"). The public AppView can 403 some egress IPs; the REST connector's
+    # non-200 branch returns gracefully (no items), so this never breaks a run.
+    "bluesky": {"name": "Bluesky", "category": "Tech & Social", "type": "rest", "tier": 3,
+        "base_url": "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts",
+        "query_param": "q", "limit_param": "limit", "default_limit": 25,
+        "results_path": "posts"},
+    # Lobsters tech-community feed. search.json rejects query params (verified live),
+    # so use the queryless hottest.json recency feed; downstream relevance scoring +
+    # keyword filtering decide what survives, exactly like the RSS feeds.
+    "lobsters": {"name": "Lobsters", "category": "Tech & Social", "type": "rest", "tier": 3,
+        "base_url": "https://lobste.rs/hottest.json",
+        "results_path": ""},
+
     # --- VIDEO ---
     "youtube": {"name": "YouTube Search", "category": "Video", "type": "invidious", "tier": 3},
 
@@ -7382,6 +7398,20 @@ async def _search_source_impl(source_id: str, q: str, limit: int = 20):
                     if isinstance(val, list): return ", ".join(str(v) for v in val[:5])
                     return str(val)
 
+                def _engagement_score(it: dict) -> int:
+                    """2026-06-23 - cross-platform engagement signal (last30days idea:
+                    rank social/community evidence by what people actually engaged
+                    with). Reads the first present count field; 0 when none. Used as
+                    a relevance hint downstream; never a standalone quantitative claim."""
+                    if not isinstance(it, dict):
+                        return 0
+                    for k in ("engagement", "points", "score", "likeCount", "like_count",
+                              "ups", "num_comments", "comment_count", "stargazers_count"):
+                        v = it.get(k)
+                        if isinstance(v, (int, float)):
+                            return int(v)
+                    return 0
+
                 def decode_inverted_index(inv_idx):
                     """Decode OpenAlex abstract_inverted_index {word: [pos, ...]} to plain text."""
                     if not isinstance(inv_idx, dict) or not inv_idx:
@@ -7476,6 +7506,27 @@ async def _search_source_impl(source_id: str, q: str, limit: int = 20):
                                 "url": item.get("more_code_info") or "",
                                 "date": item.get("report_date") or item.get("recall_initiation_date") or "",
                             }
+                        # 2026-06-23 - Bluesky AppView post shape (app.bsky.feed.searchPosts).
+                        # Text lives in record.text, no title, and the at:// URI is not a
+                        # web link, so the generic extractor would dump raw JSON. Flatten to
+                        # clean fields + a web post URL + an engagement count. (The public
+                        # AppView may 403 some egress IPs; the non-200 branch above returns
+                        # gracefully with no items, so this never crashes a run.)
+                        elif isinstance(item.get("record"), dict) and (str(item.get("uri", "")).startswith("at://") or "likeCount" in item):
+                            rec = item.get("record", {}) if isinstance(item.get("record"), dict) else {}
+                            author = item.get("author", {}) if isinstance(item.get("author"), dict) else {}
+                            handle = author.get("handle", "")
+                            uri = str(item.get("uri", ""))
+                            rkey = uri.rsplit("/", 1)[-1] if "/" in uri else ""
+                            text = rec.get("text", "") if isinstance(rec, dict) else ""
+                            eng = (item.get("likeCount") or 0) + (item.get("repostCount") or 0) + (item.get("replyCount") or 0)
+                            item = {
+                                "title": (text[:80] + ("..." if len(text) > 80 else "")) or f"Bluesky post by @{handle}",
+                                "description": text,
+                                "url": f"https://bsky.app/profile/{handle}/post/{rkey}" if (handle and rkey) else "",
+                                "date": rec.get("createdAt", "") if isinstance(rec, dict) else "",
+                                "engagement": int(eng),
+                            }
                         raw_title = item.get("title") or item.get("name") or item.get("modelId") or item.get("id") or item.get("school.name")
                         # OpenAlex returns abstract_inverted_index; decode to plain text before falling back
                         abstract = item.get("abstract") or decode_inverted_index(item.get("abstract_inverted_index"))
@@ -7496,9 +7547,10 @@ async def _search_source_impl(source_id: str, q: str, limit: int = 20):
                             "date": to_str(item.get("date") or item.get("published") or item.get("publication_date") or item.get("created_at") or item.get("lastModified") or item.get("created_utc")),
                             "pdfUrl": pdf_url,
                             "fullTextAvailable": bool(pdf_url),
+                            "engagement": _engagement_score(item),
                         })
                     else:
-                        items.append({"title": str(item)[:100], "content": str(item)[:500], "url": "", "date": "", "pdfUrl": "", "fullTextAvailable": False})
+                        items.append({"title": str(item)[:100], "content": str(item)[:500], "url": "", "date": "", "pdfUrl": "", "fullTextAvailable": False, "engagement": 0})
 
                 if dropped_gated > 0:
                     logger.info(f"[gated-filter] {src['name']}: dropped {dropped_gated} abstract-only items (no open-access PDF)")

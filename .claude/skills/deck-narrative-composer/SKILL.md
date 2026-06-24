@@ -306,97 +306,17 @@ DESIGN RESPONSE, PROOF IT WORKED, PEAKS). NO em-dash. Content is data-dependent;
 
 ## Learned behaviors
 
+<!-- Section cleaned 2026-06-23: the ungated skill-patch loop (learningEngine.applySkillPatch,
+     now gated by evaluateConstraint + isCompleteSkillPatch + patchAlreadyPresent) had accreted
+     truncated fragments, CoT-scratchpad leaks, near-duplicates, and one HARMFUL rule
+     ("never use the Archivo font" -- Archivo IS the NXT title/body font). Reduced to the
+     complete, correct, non-duplicate instructions derived from the original feedback signals. -->
 
-<!-- learned behavior added 2026-06-18 from 38 feedback signals -->
+<!-- learned behavior (consolidated 2026-06-18, 38 feedback signals) -->
 When generating presentations, always include a title page, a table of contents, and a structured narrative framework with clear themes.
 
-
-
-<!-- learned behavior added 2026-06-18 from 36 feedback signals -->
+<!-- learned behavior (consolidated 2026-06-18, 36 feedback signals) -->
 When generating presentations, strictly adhere to the user's specified topic, narrative order, and source materials.
 
-
-
-<!-- learned behavior added 2026-06-18 from 37 feedback signals -->
-Good, clear, covers all signals.*
-
-5.  **Refine and Count Words:**
-    *
-
-
-
-<!-- learned behavior added 2026-06-18 from 35 feedback signals -->
-When generating presentations, strictly adhere to the user's specified topic, narrative order, and technical details. Reproduce provided
-
-
-
-<!-- learned behavior added 2026-06-18 from 33 feedback signals -->
-To ensure a logical, consulting-style narrative, the skill must default to a structure where "Frame the Strategy" always
-
-
-
-<!-- learned behavior added 2026-06-18 from 34 feedback signals -->
-The skill must default to a logical, consulting-style narrative structure, ensuring strategic framing always precedes execution phases (e.
-
-
-
-<!-- learned behavior added 2026-06-18 from 32 feedback signals -->
-Good, covers narrative structure (consulting style, strategy before experience), topic adherence, and clear slide briefs.*
-
-5
-
-
-
-<!-- learned behavior added 2026-06-18 from 31 feedback signals -->
-Default to a rigorous, logical consulting-deck narrative structure that prioritizes strategic framing before execution details. Strictly adhere to
-
-
-
-<!-- learned behavior added 2026-06-18 from 30 feedback signals -->
-The presentation skill must default to a structured, consulting-grade narrative that prioritizes strategic framing before execution details (
-
-
-
-<!-- learned behavior added 2026-06-17 from 29 feedback signals -->
-When generating presentations, strictly adhere to the user's specified topic, source transcripts, and requested items. Structure the
-
-
-
-<!-- learned behavior added 2026-06-17 from 28 feedback signals -->
-When generating presentations, strictly adhere to the user's specified topic and scope. Structure the deck using a logical, consulting
-
-
-
-<!-- learned behavior added 2026-06-17 from 27 feedback signals -->
-When generating presentations, strictly adhere to the user's specified topic and scope while structuring decks with a logical,
-
-
-
-<!-- learned behavior added 2026-06-12 from 11 feedback signals -->
-To optimize presentation outputs, always include at least three pain points per phase in journey slides and omit the "comparables"
-
-
-
-<!-- learned behavior added 2026-06-12 from 10 feedback signals -->
+<!-- learned behavior (consolidated 2026-06-12, 10 feedback signals) -->
 For all presentation outputs, eliminate redundant source citations, increase body copy size, and align sources directly beneath quotes.
-
-
-
-<!-- learned behavior added 2026-06-12 from 9 feedback signals -->
-For all presentation outputs, increase body copy size and never use the Archivo font. In case studies, completely remove
-
-
-
-<!-- learned behavior added 2026-06-12 from 8 feedback signals -->
-For all presentation deliverables, increase body copy size and never use the Archivo font. Eliminate redundant source citations,
-
-
-
-<!-- learned behavior added 2026-06-12 from 7 feedback signals -->
-For all presentation deliverables, never use the Archivo font. In case studies, completely omit the "comparables
-
-
-
-<!-- learned behavior added 2026-06-12 from 6 feedback signals -->
-For all presentation deliverables, never use the Archivo font. In case studies, omit the "comparables" section
-

@@ -19,7 +19,7 @@
 
 import { readFeedbackIndex, type FeedbackSummary, type FeedbackIndex } from './feedbackService';
 import { persistChunkOverride, type ArtifactType } from './chunkBudgetCalculator';
-import { evaluateConstraint } from './constraintQualityGate';
+import { evaluateConstraint, normalizeConstraintKey } from './constraintQualityGate';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -380,8 +380,63 @@ async function applySkillPatch(candidate: ImprovementCandidate): Promise<{ ok: b
     if (!skillName) {
         return { ok: false };
     }
+    // QUALITY GATE (2026-06-23): the skill-patch path was the ONE self-improvement
+    // writer that bypassed the gate its sibling applyConstraint() has used since
+    // 2026-05-29. The Gemini-synthesized "under-80-word" patch lands verbatim in a
+    // live SKILL.md, so a truncated/duplicate payload accreted into
+    // deck-narrative-composer/SKILL.md (8 mid-sentence, near-duplicate appends).
+    // Gate it identically + add a completeness check (evaluateConstraint cannot
+    // catch truncation: a fragment clears the 40-char floor and the stub patterns).
+    const verdict = evaluateConstraint(candidate.payload);
+    if (!verdict.accept) {
+        console.log(`[LearningEngine] Skill patch rejected by quality gate (${verdict.reason}): ${candidate.payload}`);
+        return { ok: false, skillName };
+    }
+    const completeness = isCompleteSkillPatch(candidate.payload);
+    if (!completeness.ok) {
+        console.log(`[LearningEngine] Skill patch rejected as incomplete (${completeness.reason}): ${candidate.payload}`);
+        return { ok: false, skillName };
+    }
     const success = await patchSkillFile(skillName, candidate);
     return { ok: success, skillName };
+}
+
+/**
+ * Completeness gate for a skill patch (2026-06-23). The Learned-behaviors drift
+ * was truncated LLM output (max-token cut): patches ending mid-word/clause with
+ * no terminal punctuation ("...with comprehensive", "Strictly adhere",
+ * "...Establish a clear") or beginning mid-sentence with a connective ("and a
+ * structured table of contents..."). A real instruction is a complete sentence.
+ */
+export function isCompleteSkillPatch(text: string): { ok: boolean; reason?: string } {
+    const t = (text || '').trim();
+    if (!t) return { ok: false, reason: 'empty' };
+    if (/^(and|or|but|so|yet|nor|because|which|that|with|to|of|for|including|such as)\b/i.test(t)) {
+        return { ok: false, reason: 'leading-connective-fragment' };
+    }
+    // A complete instruction ends on terminal punctuation. Truncated patches end
+    // on a word/comma/colon with none.
+    if (!/[.!?]["')\]]?$/.test(t)) {
+        return { ok: false, reason: 'no-terminal-punctuation' };
+    }
+    return { ok: true };
+}
+
+/**
+ * Dedupe guard (2026-06-23): the drift was also near-duplicate appends (8
+ * variations of "always include a title page and a table of contents"). Compare
+ * the candidate against every prior learned-behavior body by the same normalized
+ * head the constraint gate uses, so a re-synthesized restatement is a no-op.
+ */
+export function patchAlreadyPresent(oldContent: string, patch: string): boolean {
+    const key = normalizeConstraintKey(patch);
+    if (!key) return false;
+    const blocks = oldContent.split(/<!--\s*learned behavior added[^>]*-->/i).slice(1);
+    for (const b of blocks) {
+        const body = b.split('<!--')[0];
+        if (normalizeConstraintKey(body) === key) return true;
+    }
+    return false;
 }
 
 async function patchSkillFile(skillName: string, candidate: ImprovementCandidate): Promise<boolean> {
@@ -403,6 +458,11 @@ async function patchSkillFile(skillName: string, candidate: ImprovementCandidate
         const newVersion = incrementVersion(oldVersion);
         const today = new Date().toISOString().split('T')[0];
         const updated = patchSkillContent(oldContent, candidate.payload, newVersion, today, candidate.cluster.count);
+        if (updated === oldContent) {
+            // Dedupe no-op: the patch already exists. Nothing to write; not a failure.
+            console.log(`[LearningEngine] Skill patch is a duplicate of an existing learned behavior; skipped: ${skillName}`);
+            return true;
+        }
         const writeResp = await fetch(`${PROXY_BASE}/api/skill/write`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -432,6 +492,11 @@ function incrementVersion(v: string): string {
 }
 
 function patchSkillContent(oldContent: string, patch: string, newVersion: string, today: string, signalCount: number): string {
+    // Dedupe: a re-synthesized restatement of an existing learned behavior is a
+    // no-op (returns oldContent unchanged so the version is NOT bumped for nothing).
+    if (patchAlreadyPresent(oldContent, patch)) {
+        return oldContent;
+    }
     // Bump version in frontmatter
     let updated = oldContent;
     if (/^version:\s*[0-9.]+/m.test(updated)) {

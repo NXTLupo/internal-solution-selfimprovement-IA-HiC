@@ -2735,6 +2735,32 @@ function extractDeliverableFingerprint(payload: any): { model?: string; reproduc
     return fp;
 }
 
+/**
+ * 2026-06-23 - collect the user-visible text from ANY deliverable payload shape
+ * (themes/personas/recs/slides/journey/etc.) for output-quality scoring at the
+ * persist chokepoint. Walks string leaves, skips keys/ids/urls/hashes, bounded
+ * so a huge payload can't balloon the scorer. Best-effort; returns '' on failure.
+ */
+export function _collectDeliverableText(payload: any): string {
+    const SKIP_KEY = /^(id|.*_id|.*Id|url|href|hash|reproducibility_hash|model|kind|slug|template|schema_version|stamped_at|saved_at|created_at|generated_at)$/;
+    const out: string[] = [];
+    let budget = 20000;
+    const walk = (v: any, key?: string): void => {
+        if (budget <= 0 || v == null) return;
+        if (typeof v === 'string') {
+            if (key && SKIP_KEY.test(key)) return;
+            if (/^https?:\/\//i.test(v)) return;
+            const s = v.trim();
+            if (s.length > 1) { out.push(s); budget -= s.length; }
+            return;
+        }
+        if (Array.isArray(v)) { for (const x of v) walk(x); return; }
+        if (typeof v === 'object') { for (const k of Object.keys(v)) walk(v[k], k); }
+    };
+    try { walk(payload && payload.data ? payload.data : payload); } catch { /* defensive */ }
+    return out.join('\n').slice(0, 20000);
+}
+
 export async function writeEngagementDeliverable(
     slug: string,
     kind: DeliverableKind,
@@ -2785,11 +2811,32 @@ export async function writeEngagementDeliverable(
             // runs can cite past synthesis by pointer (UNIFIED_VISION #8). Fire-
             // and-forget + dynamic import (no load-order cycle); idempotent via
             // content-hash dedup in /api/wiki/write-article.
+            const fp: any = extractDeliverableFingerprint(payload);
             try {
-                const fp: any = extractDeliverableFingerprint(payload);
                 void import('./chunkRetrieval').then(({ persistDeliverableInsights }) =>
                     persistDeliverableInsights(slug, kind, payload, fp?.model || '', undefined)
                 ).catch(() => { /* non-fatal */ });
+            } catch { /* non-fatal */ }
+            // 2026-06-23: UNIVERSAL self-recursive quality signal (UNIFIED_VISION
+            // #1 Meta-Harness / #2 RHO). emitDeliverable (trace + Pareto score) was
+            // wired into only ~2 chat-path deliverables, so the epoch loop never saw
+            // the other ~20 generators' output. Converge the score onto THIS single
+            // persist chokepoint: every persisted deliverable feeds an evaluatePareto
+            // vector to the active epoch's outcome tracker. The output-quality dims
+            // (slop, meta-narration, action-title rate, evidence density) need only
+            // the text we already have. No-op when no epoch is active; fire-and-
+            // forget; NEVER blocks the write.
+            try {
+                const text = _collectDeliverableText(payload);
+                if (text) {
+                    void Promise.all([import('./qualityFrontier'), import('./epochOutcomeTracker')])
+                        .then(([{ evaluatePareto }, { getActiveEpochId, scoreEpochOutcome }]) => {
+                            if (getActiveEpochId() === null) return undefined;
+                            const vec = evaluatePareto({ text, label: kind, id: fp?.reproducibility_hash });
+                            return scoreEpochOutcome(kind, vec.dimensions as Record<string, number>);
+                        })
+                        .catch(() => { /* non-fatal */ });
+                }
             } catch { /* non-fatal */ }
         }
         return ok;

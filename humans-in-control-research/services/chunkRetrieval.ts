@@ -62,6 +62,21 @@ const CHARS_PER_TOKEN_ESTIMATE = 4;
 // Manifest catalog read (with shape + cache around the proxy endpoint)
 // ---------------------------------------------------------------------------
 
+/**
+ * 2026-06-23 — centralized social/community-source classifier for the
+ * SOURCE-TYPE BALANCE soft-cap. Originally inline + reddit-only; generalized so
+ * the cap automatically balances EVERY community/social platform (the new free
+ * connectors — Hacker News, Bluesky, Lobsters — plus X/Mastodon/Threads) against
+ * curated news/academic/government sources. New social connectors persist under
+ * `social-intelligence/<platform>/`, so the path test catches them; the source-
+ * name tokens are belt-and-suspenders. Curated sources never match.
+ */
+const SOCIAL_SOURCE_RE = /reddit|social-intelligence|hacker[\s_-]?news|hackernews|\bhn\b|bluesky|\bbsky\b|lobste\.?rs|lobsters|mastodon|\btwitter\b|\bx\.com\b|threads|\bdigg\b/i;
+export function isSocialSource(sourcePath?: string, sourceTitle?: string): boolean {
+    const hay = `${sourcePath || ''} ${sourceTitle || ''}`;
+    return SOCIAL_SOURCE_RE.test(hay);
+}
+
 export interface ManifestChunkRecord {
     chunkId: string;        // <wikiPath>#c<index>
     /** 2026-06-16 - true when this chunk came from the user's COMMITTED KL
@@ -576,7 +591,7 @@ export async function pickChunksForPrompt(
     const SOCIAL_MAX_FRAC = 0.4;
     const _isSocialId = new Set<string>();
     for (const rec of candidateRecs) {
-        if (rec.sourceSubreddit || /reddit|social-intelligence/i.test(rec.sourcePath || '')) _isSocialId.add(rec.chunkId);
+        if (rec.sourceSubreddit || isSocialSource(rec.sourcePath, rec.sourceTitle)) _isSocialId.add(rec.chunkId);
     }
     let _socialSel = selected.reduce((n, id) => n + (_isSocialId.has(id) ? 1 : 0), 0);  // count any pinned social
 
