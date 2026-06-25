@@ -115,3 +115,44 @@ describe('normalizeMarkdown rebuilds structure from Gemini-Flash INLINE markers 
         expect(b[0].kind).toBe('p');
     });
 });
+
+describe('separator-noise cleanup (2026-06-25 - the dangling/standalone dash bug)', () => {
+    // Verbatim shape of the screenshotted Luanne reply: a trailing " -" on a sentence
+    // and bare "-" lines between bullets that rendered as junk <p>-</p> paragraphs and
+    // fragmented the bullets into separate single-item lists.
+    const noisy = [
+        '## Alignment with the broader corpus',
+        "Brooks's testimony is highly consistent and directly supports the corpus. -",
+        '- **Data fragmentation and loss:** Other directors confirm the migration stripped records.',
+        '-',
+        '- **Reporting bottlenecks:** The data team reports standard reports are inadequate.',
+        '-',
+    ].join('\n');
+    const b = parseBlocks(noisy);
+
+    it('drops the trailing dangling dash from the paragraph', () => {
+        const p = b.find(x => x.kind === 'p') as any;
+        expect(p.text).toMatch(/supports the corpus\.$/);
+        expect(p.text).not.toMatch(/-\s*$/);
+    });
+
+    it('emits NO junk paragraph that is just a dash', () => {
+        expect(b.some(x => x.kind === 'p' && (x as any).text.trim() === '-')).toBe(false);
+    });
+
+    it('merges the blank/dash-separated bullets into ONE list', () => {
+        const uls = b.filter(x => x.kind === 'ul');
+        expect(uls.length).toBe(1);
+        expect((uls[0] as any).items.length).toBe(2);
+    });
+
+    it('still renders a real 3+ char horizontal rule (--- not treated as noise)', () => {
+        const r = parseBlocks('Above\n\n---\n\nBelow');
+        expect(r.map(x => x.kind)).toEqual(['p', 'hr', 'p']);
+    });
+
+    it('does not strip a legitimate trailing hyphen inside a word at wrap', () => {
+        const r = parseBlocks('The data-quality crisis persists across teams.');
+        expect((r[0] as any).text).toContain('data-quality');
+    });
+});

@@ -147,6 +147,18 @@ export function normalizeMarkdown(src: string): string {
     // 5. Inline blockquote marker -> own line.
     t = t.replace(/([^\n])\s+>\s+(?=["“\w])/g, '$1\n\n> ');
 
+    // 6. 2026-06-25 - SEPARATOR-NOISE cleanup. Gemini Flash sprinkles stray lone
+    //    dashes/punctuation as section separators ("...crisis. -", a bare "-" on its
+    //    own line between bullets). Untreated, a lone "-" fails the list+hr regexes and
+    //    renders as a junk <p>-</p>, and a trailing " -" dangles off a sentence. Drop a
+    //    line that is a SINGLE separator char (a real 3+ char rule "---"/"***" is NOT a
+    //    single char, so <hr> is preserved), and strip a dangling lone dash at line end.
+    t = t.split('\n').map(ln => {
+        const s = ln.trim();
+        if (/^[-–—,;:·•*_]$/.test(s)) return '';          // lone separator -> blank line
+        return ln.replace(/\s+[-–—]\s*$/, '');             // dangling trailing dash
+    }).join('\n');
+
     return t.replace(/\n{3,}/g, '\n\n').trim();
 }
 
@@ -182,20 +194,32 @@ export function parseBlocks(src: string): Block[] {
             blocks.push({ kind: 'quote', text: q.join(' ') });
             continue;
         }
-        // unordered list
+        // unordered list. 2026-06-25 - tolerate a SINGLE blank line between items so a
+        // model that double-spaces its bullets renders as ONE list, not N single-item
+        // lists with big gaps (the fragmentation seen once separator-noise was removed).
         if (/^[-*+]\s+/.test(t)) {
             flushPara();
             const items: string[] = [];
-            while (i < lines.length && /^[-*+]\s+/.test(lines[i].trim())) { items.push(lines[i].trim().replace(/^[-*+]\s+/, '')); i++; }
+            while (i < lines.length) {
+                const lt = lines[i].trim();
+                if (/^[-*+]\s+/.test(lt)) { items.push(lt.replace(/^[-*+]\s+/, '')); i++; continue; }
+                if (lt === '' && i + 1 < lines.length && /^[-*+]\s+/.test(lines[i + 1].trim())) { i++; continue; }
+                break;
+            }
             i--;
             blocks.push({ kind: 'ul', items });
             continue;
         }
-        // ordered list
+        // ordered list (same blank-tolerant collection)
         if (/^\d+[.)]\s+/.test(t)) {
             flushPara();
             const items: string[] = [];
-            while (i < lines.length && /^\d+[.)]\s+/.test(lines[i].trim())) { items.push(lines[i].trim().replace(/^\d+[.)]\s+/, '')); i++; }
+            while (i < lines.length) {
+                const lt = lines[i].trim();
+                if (/^\d+[.)]\s+/.test(lt)) { items.push(lt.replace(/^\d+[.)]\s+/, '')); i++; continue; }
+                if (lt === '' && i + 1 < lines.length && /^\d+[.)]\s+/.test(lines[i + 1].trim())) { i++; continue; }
+                break;
+            }
             i--;
             blocks.push({ kind: 'ol', items });
             continue;

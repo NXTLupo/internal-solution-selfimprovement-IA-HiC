@@ -1583,6 +1583,25 @@ function isJinaBlockedUrl(url: string): boolean {
 }
 
 const ENRICHMENT_PER_ITEM_CAP = 30_000; // 30KB per item (was 3KB) - fits comfortably in 1M-token Claude/Gemini context
+
+/** 2026-06-25 (article-capture fix) - per-item body cap for wiki persistence.
+ *  Web-fetched articles stay capped (bounded storage/embeds). CLIENT UPLOADS are
+ *  Tier-1 primary evidence and are captured IN FULL: the prior 30K cap dropped the
+ *  tail of every long interview/PDF so it was never chunked and never retrievable
+ *  (the "Crowdfunding Survival Guide" miss). The manifest-pointer model injects only
+ *  SELECTED chunks into prompts, so full capture does NOT balloon corpus assembly. */
+function isUploadItem(item: any): boolean {
+    return !!item && (
+        item.extractionMethod === 'upload' ||
+        item.method === 'upload' ||
+        item.sourceName === 'Client Uploads' ||
+        (typeof item.url === 'string' && item.url.startsWith('upload://'))
+    );
+}
+function capItemBody(item: any, content: string): string {
+    const c = content || '';
+    return isUploadItem(item) ? c : c.substring(0, ENRICHMENT_PER_ITEM_CAP);
+}
 const ENRICHMENT_RELEVANCE_FLOOR = 40;   // was 60 - let medium-relevance items through
 const ENRICHMENT_GENERIC_LENGTH_GATE = 5_000; // was 300 - abstracts run 1-3KB; only skip if item already has substantial body
 // Phase 1-retrofit (2026-04-20): the wiki is the canonical RAG store - we archive EVERYTHING
@@ -1802,7 +1821,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                 console.log(`  Wiki cache HIT "${item.title?.substring(0, 40)}" (${cached.content.length} chars, ${cached.wikiPath})`);
                 if (enriched.has(item)) collisionWarnings++;
                 enriched.set(item, {
-                    content: cached.content.substring(0, ENRICHMENT_PER_ITEM_CAP),
+                    content: capItemBody(item, cached.content),
                     method: 'wiki-cache',
                     wikiPath: cached.wikiPath,
                 });
@@ -1847,7 +1866,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     const method = data.method; // 'pdf' or 'jina'
                     if (fullContent && fullContent.length > (item.content?.length || 0)) {
                         console.log(`  Enriched "${item.title?.substring(0,40)}" via ${method} (${fullContent.length} chars)`);
-                        const capped = fullContent.substring(0, ENRICHMENT_PER_ITEM_CAP);
+                        const capped = capItemBody(item, fullContent);
                         const wikiPath = await writeWikiArticle(item, capped, method, (item as any).sourceName || '');
                         if (wikiPath) wikiWrites++;
                         return { item, content: capped, method, wikiPath: wikiPath || undefined };
@@ -1934,7 +1953,7 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     const pseudoItem = { ...item, url: stableUrl };
                     const wp = await writeWikiArticle(
                         pseudoItem as DataSourceItem,
-                        (item.content || '').substring(0, ENRICHMENT_PER_ITEM_CAP),
+                        capItemBody(item, item.content || ''),
                         (item as any).extractionMethod || 'source-native',
                         (item as any).sourceName || ''
                     );

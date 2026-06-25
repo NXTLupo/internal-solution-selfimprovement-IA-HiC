@@ -273,6 +273,12 @@ export interface ChatContext {
      *  (cite-by-pointer) and DEMOTES the bulk corpusText to a supplementary tail,
      *  honoring the wiki+MANIFEST grounding rule over bulk RAG. */
     manifestChunkCorpus?: string;
+    /** 2026-06-25 - by-name retrieval note. When the user NAMED a specific document,
+     *  this states which named docs were found in the corpus and which were NOT, with
+     *  a hard instruction: answer the found ones from their pointer-cited chunks, and
+     *  for the missing ones say plainly they are not in the corpus - NEVER fabricate a
+     *  source (the documented `(Source: Gemini)` hallucination). */
+    namedDocNote?: string;
     /** 2026-06-18 (research-run-failure-analysis P0.2) - when the user PASTES substantive,
      *  structured content into an artifact request (e.g. "generate #slides … #### 1 … #### 10"),
      *  that paste is the AUTHORITATIVE basis for the deliverable. buildGroundingContext emits it
@@ -1862,6 +1868,13 @@ export function buildGroundingContext(ctx: ChatContext, model: ChatModel): strin
         parts.push('');
     }
 
+    if (ctx.namedDocNote && ctx.namedDocNote.length > 0) {
+        parts.push(`=== NAMED-DOCUMENT DIRECTIVE (the user referenced specific document(s)) ===`);
+        parts.push(ctx.namedDocNote);
+        parts.push(`=== END NAMED-DOCUMENT DIRECTIVE ===`);
+        parts.push('');
+    }
+
     if (ctx.manifestChunkCorpus && ctx.manifestChunkCorpus.length > 80) {
         parts.push(`=== PRIMARY EVIDENCE (manifest-selected, cite by pointer) ===`);
         parts.push(chunkCitationInstructions());
@@ -3037,6 +3050,24 @@ export async function sendChatMessage(
                     researchObjective: [userMessage, context.researchGoal || ''].filter(Boolean).join('\n').slice(0, 800),
                     tokenBudget: 30_000,
                 });
+                // 2026-06-25 - BY-NAME honesty floor. If the user named specific
+                // document(s), tell the model which were FOUND (answer from their
+                // pointer-cited chunks) and which were NOT (say so; never fabricate a
+                // source). This kills the documented `(Source: Gemini)` hallucination
+                // when a named doc misses retrieval.
+                const _matched = _picked.namedRefsMatched || [];
+                const _missing = _picked.namedRefsMissing || [];
+                if (_matched.length || _missing.length) {
+                    const _noteLines: string[] = [];
+                    if (_matched.length) {
+                        _noteLines.push(`FOUND in the corpus (answer from their chunks below, cite by [wikiPath#cN]): ${_matched.map(t => `"${t}"`).join(', ')}.`);
+                    }
+                    if (_missing.length) {
+                        _noteLines.push(`NOT FOUND in the corpus: ${_missing.map(t => `"${t}"`).join(', ')}. For these, state plainly that the document is not in the current corpus and offer to ingest it. Do NOT summarize it from memory, do NOT infer its contents, and NEVER attribute a claim to a model name or a generic source (e.g. "Source: Gemini") - that is a fabrication.`);
+                    }
+                    context = { ...context, namedDocNote: _noteLines.join('\n') };
+                    console.log(`[chat] BY-NAME: matched=${JSON.stringify(_matched)} missing=${JSON.stringify(_missing)}`);
+                }
                 if (_picked.chunkIds.length > 0) {
                     const _resolved = await resolveChunks(_picked.chunkIds);
                     if (_resolved.chunks.length > 0) {

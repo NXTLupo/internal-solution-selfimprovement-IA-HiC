@@ -84,6 +84,11 @@ export interface ManifestChunkRecord {
      *  selections TRUMP auto-ranking: these are never dropped by the keyword
      *  gates and rank in a tier above non-selected chunks. */
     userSelected?: boolean;
+    /** 2026-06-25 - true when this chunk's page TITLE fuzzy-matched a document the
+     *  user NAMED in the prompt (the by-name retrieval tier). Treated with the same
+     *  never-dropped priority as userSelected: an explicitly named document must
+     *  reach the prompt, not lose to embedding/objective ranking. */
+    namedRef?: boolean;
     sourcePath: string;
     chunkIndex: number;
     /** Manifest-declared key_terms for this source page (the page-level
@@ -336,6 +341,10 @@ export interface PickChunksOptions {
      *  only when the floor is missed - meeting the floor via UPSTREAM retrieval, not
      *  by manufacturing themes from the same chunks. */
     broaden?: boolean;
+    /** 2026-06-25 - skip the by-name (named-document) admission tier. Off by
+     *  default; sharded breadth passes set it so each shard's window is purely
+     *  relevance-ranked (a named ref only makes sense for the first/whole pass). */
+    skipNamedRefs?: boolean;
 }
 
 export interface PickedChunks {
@@ -346,6 +355,96 @@ export interface PickedChunks {
     tokenBudget: number;
     estimatedTokens: number;
     elapsedMs: number;
+    /** 2026-06-25 - documents the user NAMED in the prompt that a by-name lookup
+     *  matched to a real manifest page (titles). */
+    namedRefsMatched?: string[];
+    /** 2026-06-25 - documents the user NAMED that matched NO manifest page. The
+     *  honesty floor: the chat must say it could not find these, never fabricate. */
+    namedRefsMissing?: string[];
+}
+
+/**
+ * 2026-06-25 - BY-NAME retrieval. Extract document references a user NAMED in a
+ * prompt: quoted phrases ("...", '...', curly quotes) and explicit filename tokens
+ * (foo.pdf / notes.docx / transcript.json). These are the handles a user gives when
+ * they mean ONE specific document; embedding/objective ranking alone misses them.
+ * Returns a deduped, length-bounded list (empty when nothing is named).
+ */
+export function extractNamedReferences(text: string): string[] {
+    if (!text) return [];
+    const out = new Set<string>();
+    const add = (s?: string) => {
+        const v = (s || '').trim().replace(/\s+/g, ' ');
+        // require a couple of real words so "ok", "yes", a stray quote don't match
+        if (v.length >= 4 && /[a-z]{3,}.*[a-z]{2,}/i.test(v)) out.add(v);
+    };
+    // straight + curly quotes (double and single)
+    const quoteRes = [
+        /"([^"]{3,120})"/g,
+        /“([^”]{3,120})”/g,
+        /'([^']{4,120})'/g,
+        /‘([^’]{4,120})’/g,
+    ];
+    for (const re of quoteRes) {
+        for (const m of text.matchAll(re)) add(m[1]);
+    }
+    // explicit filenames (with or without surrounding quotes)
+    for (const m of text.matchAll(/\b([\w][\w .()&-]{2,}\.(?:pdf|docx?|txt|json|csv|vtt|pptx?|md))\b/gi)) {
+        add(m[1]);
+    }
+    return Array.from(out).slice(0, 4); // cap: at most a few named docs per turn
+}
+
+interface NamedRefFetch {
+    records: ManifestChunkRecord[];
+    matchedTitles: string[];
+    missingRefs: string[];
+}
+
+/** Fetch manifest chunk pointers for documents the user named, via the proxy
+ *  /api/manifest/chunks-by-title fuzzy title match. Records are tagged namedRef so
+ *  pickChunksForPrompt lifts them into the never-dropped priority tier. Anti-RAG:
+ *  the endpoint returns manifest-tied pointers only; bodies are resolved by span. */
+async function _fetchChunksByTitle(refs: string[]): Promise<NamedRefFetch> {
+    const records: ManifestChunkRecord[] = [];
+    const matchedTitles: string[] = [];
+    const missingRefs: string[] = [];
+    const seen = new Set<string>();
+    for (const ref of refs) {
+        try {
+            const url = `${PROXY_BASE}/api/manifest/chunks-by-title?q=${encodeURIComponent(ref)}&limit=3`;
+            const resp = await fetch(url);
+            if (!resp.ok) { missingRefs.push(ref); continue; }
+            const data = await resp.json();
+            const ids: string[] = Array.isArray(data?.chunk_ids) ? data.chunk_ids : [];
+            const pages: Record<string, { key_terms?: string[]; relevance?: number; title?: string }> =
+                (data && typeof data.pages === 'object' && data.pages) ? data.pages : {};
+            const titles: string[] = Array.isArray(data?.matched_titles) ? data.matched_titles : [];
+            if (!ids.length) { missingRefs.push(ref); continue; }
+            for (const t of titles) if (t) matchedTitles.push(t);
+            for (const id of ids) {
+                if (seen.has(id)) continue;
+                seen.add(id);
+                const [src, frag] = id.split('#');
+                const idx = frag && frag.startsWith('c') ? parseInt(frag.slice(1), 10) : 0;
+                const pm = pages[src || ''];
+                const kt = pm && Array.isArray(pm.key_terms) ? pm.key_terms : [];
+                records.push({
+                    chunkId: id,
+                    sourcePath: src || '',
+                    chunkIndex: Number.isFinite(idx) ? idx : 0,
+                    sourceKeyTerms: kt.length ? kt : (pm && pm.title ? Array.from(_tokenize(pm.title)) : []),
+                    sourceTitle: pm && pm.title ? pm.title : '',
+                    sourceSubreddit: '',
+                    sourceRelevance: pm ? (pm.relevance || 0) : 0,
+                    namedRef: true,
+                });
+            }
+        } catch {
+            missingRefs.push(ref);
+        }
+    }
+    return { records, matchedTitles, missingRefs };
 }
 
 const _WORD_RE = /\b[a-z][a-z0-9'-]{2,}\b/g;
@@ -418,6 +517,37 @@ export async function pickChunksForPrompt(
             console.log(`[chunkRetrieval] shard window: excluded ${before - catalog.length} prior-shard chunks; ${catalog.length} remain in catalog`);
         }
     }
+    // 2026-06-25 - BY-NAME admission. When the user named a specific document in
+    // the prompt, fuzzy-match it against manifest page titles and merge that doc's
+    // chunks into the candidate pool as a never-dropped priority tier (namedRef).
+    // This is the fix for "what does <document> say?" returning nothing because the
+    // doc lost to embedding/objective ranking. Tracks which named docs matched and
+    // which did NOT (the honesty floor - the caller tells the model to say so).
+    let namedRefsMatched: string[] = [];
+    let namedRefsMissing: string[] = [];
+    if (!opts.skipNamedRefs) {
+        const refs = extractNamedReferences(userPrompt);
+        if (refs.length) {
+            const nr = await _fetchChunksByTitle(refs);
+            namedRefsMatched = Array.from(new Set(nr.matchedTitles));
+            namedRefsMissing = nr.missingRefs;
+            if (nr.records.length) {
+                // Clone-merge: never mutate the cached catalog array/records.
+                const namedIds = new Set(nr.records.map(r => r.chunkId));
+                const working = catalog.map(r => namedIds.has(r.chunkId) ? { ...r, namedRef: true } : r);
+                const have = new Set(working.map(r => r.chunkId));
+                let added = 0;
+                for (const rec of nr.records) {
+                    if (!have.has(rec.chunkId)) { working.push(rec); have.add(rec.chunkId); added++; }
+                }
+                catalog = working;
+                console.log(`[chunkRetrieval] BY-NAME admission: matched doc(s) [${namedRefsMatched.join(' | ').slice(0, 160)}], +${added} priority chunk(s) merged; missing=${JSON.stringify(namedRefsMissing)}`);
+            } else if (namedRefsMissing.length) {
+                console.warn(`[chunkRetrieval] BY-NAME: named doc(s) NOT found in manifest: ${JSON.stringify(namedRefsMissing)} (honesty floor will apply)`);
+            }
+        }
+    }
+
     if (catalog.length === 0) {
         return {
             chunkIds: Array.from(pinned),
@@ -427,6 +557,8 @@ export async function pickChunksForPrompt(
             tokenBudget,
             estimatedTokens: 0,
             elapsedMs: Date.now() - t0,
+            namedRefsMatched,
+            namedRefsMissing,
         };
     }
 
@@ -464,7 +596,7 @@ export async function pickChunksForPrompt(
         // FIRST within both matched and backfill groups, so they claim the (capped)
         // resolve shortlist ahead of non-selected chunks - the auto-ranker can no
         // longer starve the user's committed selection out of the candidate pool.
-        const _us = (x: { rec: ManifestChunkRecord }) => (x.rec.userSelected ? 1 : 0);
+        const _us = (x: { rec: ManifestChunkRecord }) => ((x.rec.userSelected || x.rec.namedRef) ? 1 : 0);
         const matched = prelim.filter(s => s.overlap > 0)
             .sort((a, b) => (_us(b) - _us(a)) || (b.overlap - a.overlap) || (b.rel - a.rel) || (a.rec.chunkId < b.rec.chunkId ? -1 : 1));
         let picked = matched.slice(0, shortlist);
@@ -516,7 +648,7 @@ export async function pickChunksForPrompt(
         }
         const score = overlap * Math.max(1, ch.sentenceCount);
         const isPinned = pinned.has(ch.id);
-        const isUserSel = !!rec.userSelected;
+        const isUserSel = !!(rec.userSelected || rec.namedRef);
         if (!isPinned && !isUserSel && score === 0) {
             // NON-selected zero-overlap. 2026-06-08 PHASE 2 (broader retrieval):
             // strict pass DROPS these (precision); a broaden retry KEEPS them as
@@ -642,6 +774,8 @@ export async function pickChunksForPrompt(
         tokenBudget,
         estimatedTokens: Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE),
         elapsedMs: Date.now() - t0,
+        namedRefsMatched,
+        namedRefsMissing,
     };
 }
 

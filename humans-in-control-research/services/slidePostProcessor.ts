@@ -752,6 +752,22 @@ const CHAT_FENCE_META_STRIPS: Array<{ pattern: RegExp; replace: string }> = [
     { pattern: /\b(?:a|this|the following|the present)\s+(?:case\s+study|playbook|report|analysis|brief|deck|deep[\s-]?dive|write[\s-]?up)\s*[:\-]\s*/gi, replace: '' },
 ];
 
+// 2026-06-25 - MODEL-NAME-AS-SOURCE fabrication. A reply that cites "(Source: Gemini)"
+// / "[Source: Claude]" / "Source: the model" is attributing a claim to the LLM itself -
+// a fabricated source (the documented chat failure where a named document missed
+// retrieval and the model invented "(Source: Gemini)"). Strip it on ALL chat surfaces
+// (the fence path covered (gemini ...) but the plain-prose path did not).
+const MODEL_AS_SOURCE_RE = /[([]?\s*Source:\s*(?:gemini|gpt[\w.-]*|chatgpt|claude[\w.-]*|opus[\w.-]*|sonnet[\w.-]*|haiku[\w.-]*|fable[\w.-]*|deepseek[\w.-]*|openai|anthropic|the\s+model|this\s+model|the\s+ai|an?\s+ai(?:\s+model)?|llm)\s*[\])]?/gi;
+
+export function stripModelNameAsSource(text: string): string {
+    if (!text) return text;
+    return text
+        .replace(MODEL_AS_SOURCE_RE, '')
+        .replace(/\(\s*\)/g, '')      // empty parens left behind
+        .replace(/\[\s*\]/g, '')      // empty brackets left behind
+        .replace(/\s+([,.;:!?])/g, '$1');
+}
+
 /**
  * Fence-aware meta/process scrub for a chat reply (the surface corpusChatService renders).
  * Safe to run on a reply that mixes prose and :::slide JSON fences.
@@ -780,6 +796,7 @@ export function scrubChatReplyMeta(text: string): string {
             .replace(/"\s{2,}/g, '"')
             .replace(/\s{2,}"/g, ' "')
             .replace(/\s{2,}/g, ' ');
+        out = stripModelNameAsSource(out);
         return out;
     }
 
@@ -800,6 +817,7 @@ export function scrubChatReplyMeta(text: string): string {
         let p = stripProcessReferences(line);
         p = removeMetaNarration(p);                   // safe on a single prose line
         p = deClicheText(p);
+        p = stripModelNameAsSource(p);                // kill "(Source: Gemini)" fabrications
         return p;
     });
     // Collapse 3+ consecutive blank lines to a single paragraph break; trim ends.

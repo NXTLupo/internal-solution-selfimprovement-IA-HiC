@@ -7870,9 +7870,12 @@ async def multi_search(q: str = Query(...), sources: str = Query(...), limit: in
 # ================================================================
 
 @app.get("/api/extract-pdf")
-async def extract_pdf_endpoint(url: str = Query(...), max_pages: int = Query(30),
+async def extract_pdf_endpoint(url: str = Query(...), max_pages: int = Query(200),
                                engagement: Optional[str] = Query(None),
                                persist: int = Query(1)):
+    # 2026-06-25 (article-capture fix): default raised 30 -> 200. A 30-page cap
+    # silently dropped every page past 30 of long benchmarking PDFs / reports
+    # before they were ever chunked, so the tail was never captured or retrievable.
     return await _extract_pdf_impl(url, max_pages, engagement=engagement, persist=bool(persist))
 
 async def _persist_remote_pdf(url: str, text: str, pages: int,
@@ -7917,7 +7920,7 @@ async def _persist_remote_pdf(url: str, text: str, pages: int,
     except Exception as e:
         logger.warning(f"[extract-pdf] wiki persist failed for {url[:60]} (non-fatal): {e}")
 
-async def _extract_pdf_impl(url: str, max_pages: int = 30,
+async def _extract_pdf_impl(url: str, max_pages: int = 200,
                             engagement: Optional[str] = None, persist: bool = True):
     """Download a PDF from URL, extract text content. Returns structured text.
     When persist=True (default), a successful extraction is also archived to the
@@ -8012,8 +8015,11 @@ class ParseUploadRequest(_BaseModel_parse):
     base64: str
     mimeType: Optional[str] = ""
 
-def _parse_pdf_bytes(raw: bytes, max_pages: int = 80) -> dict:
-    """Extract text from PDF bytes using PyPDF2. Returns {text, pages, totalPages, method}."""
+def _parse_pdf_bytes(raw: bytes, max_pages: int = 300) -> dict:
+    """Extract text from PDF bytes using PyPDF2. Returns {text, pages, totalPages, method}.
+    2026-06-25 (article-capture fix): default raised 80 -> 300. Uploaded PDFs are
+    Tier-1 primary evidence; an 80-page cap dropped the tail of long client decks/
+    reports so it never reached the wiki manifest. parse_upload uses this default."""
     try:
         from PyPDF2 import PdfReader
         import io as _io
@@ -11101,6 +11107,32 @@ def _ensure_canonical_engagement(canonical_abs: str, slug: str) -> bool:
             pass
         return False
 
+_OPAQUE_TITLE_RE = re.compile(
+    r'(\.(json|vtt|txt|pdf|docx?|csv|srt)$)|^transcript[_-]|'
+    r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
+    re.IGNORECASE,
+)
+
+def _lift_internal_title(filename_title: str, content: str) -> str:
+    """2026-06-25 (article-capture fix). When a page's title is an OPAQUE filename
+    (transcript_<uuid>.json, foo.vtt, a bare uuid) the human-meaningful title lives
+    only in the body, so a user asking for the doc BY NAME can't match it. If the
+    body carries a clear title line ("Title: X" as YouTube transcript exports do, or
+    a JSON \"title\": \"X\"), lift it. Returns the lifted title, or the original when
+    no confident internal title is found. Conservative: only fires on opaque titles."""
+    t = (filename_title or "").strip()
+    if t and not _OPAQUE_TITLE_RE.search(t):
+        return t  # already human-meaningful - keep it
+    head = (content or "")[:4000]
+    for pat in (r'(?im)^\s*Title:\s*(.+?)\s*$', r'(?i)"title"\s*:\s*"([^"]{4,200})"'):
+        m = re.search(pat, head)
+        if m:
+            cand = m.group(1).strip().strip('"').strip()
+            # reject if the "internal title" is itself just a filename/uuid
+            if cand and len(cand) >= 4 and not _OPAQUE_TITLE_RE.search(cand):
+                return cand[:200]
+    return t
+
 @app.post("/api/wiki/write-article")
 async def wiki_write_article(req: WikiArticleWriteRequest):
     """Persist an extracted article/transcript/PDF/upload to the wiki archive.
@@ -11108,6 +11140,15 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
     Overwrites if the hash already exists (latest extraction wins)."""
     if not req.url or not req.content:
         return JSONResponse({"error": "url + content required"}, status_code=400)
+    # 2026-06-25 - lift a human title out of the body when the supplied title is an
+    # opaque filename, so by-name retrieval can find the doc the way a user names it.
+    try:
+        _lifted = _lift_internal_title(req.title or "", req.content or "")
+        if _lifted and _lifted != (req.title or ""):
+            logger.info(f"[wiki-write-article] lifted internal title: {req.title!r} -> {_lifted!r}")
+            req.title = _lifted
+    except Exception as _lt_err:
+        logger.warning(f"[wiki-write-article] title-lift failed (non-fatal): {_lt_err}")
     if len(req.content) < 40:
         return JSONResponse({"error": f"content too short ({len(req.content)} chars); min 40"}, status_code=400)
     h = _url_hash(req.url)
@@ -14058,6 +14099,107 @@ async def manifest_chunk_pointers(engagement: str = "", types: str = "social-pos
     if include_pages:
         out["pages"] = pages
     return out
+
+
+@app.get("/api/manifest/chunks-by-title")
+async def manifest_chunks_by_title(q: str = "", limit: int = 5, min_score: float = 0.5):
+    """BY-NAME chunk admission (2026-06-25, article-capture fix).
+
+    When a user NAMES a specific document in the Analyst Desk ("what does the
+    'Crowdfunding Survival Guide' say?"), embedding/objective ranking alone often
+    misses it - the title is the only signal the user gave and it indexes nothing
+    in a uuid-filename'd page. This endpoint fuzzy-matches the phrase against every
+    manifest record's TITLE (and the page filename), and returns chunk POINTERS for
+    the best-matching pages. Pointers are manifest-tied (chunk_count-bounded), so
+    grounding stays anti-RAG: resolveChunks() dereferences spans, never raw text.
+
+    Returns the same shape as /api/manifest/chunks (chunk_ids + pages) plus
+    `matched_titles` so the caller can tell the model which doc it found - and,
+    by omission, which it did NOT (the honesty floor).
+    """
+    phrase = (q or "").strip()
+    empty = {"q": phrase, "source_count": 0, "chunk_id_count": 0, "chunk_ids": [], "pages": {}, "matched_titles": []}
+    if not phrase:
+        return empty
+
+    def _norm(s: str) -> str:
+        return _re_wiki.sub(r"[^a-z0-9 ]+", " ", (s or "").lower())
+
+    def _toks(s: str) -> set:
+        return set(t for t in _norm(s).split() if len(t) > 2)
+
+    # Drop generic words that would false-match (the user says "guide"/"report"/"doc").
+    _STOP = {"the", "and", "for", "with", "what", "does", "say", "guide", "report",
+             "document", "doc", "file", "transcript", "interview", "pdf", "txt",
+             "json", "notes", "memo", "deck", "data", "draft", "final", "copy"}
+    q_norm = _norm(phrase)
+    q_toks = _toks(phrase) - _STOP
+    if not q_toks:
+        return empty
+
+    records = _manifest_load()
+    scored = []
+    for wp, rec in records.items():
+        if int(rec.get("chunk_count") or 0) <= 0:
+            continue
+        title = str(rec.get("title") or "")
+        # title + filename tokens are the STRONG signal; manifest key_terms (salient
+        # body terms - still manifest-tied, NOT raw full-text RAG) are a SOFT boost so
+        # a doc whose human title lives in the body can still be matched by name.
+        fname = str(rec.get("url") or "") + " " + wp
+        kt = rec.get("key_terms") or rec.get("keyTerms") or []
+        kt_toks = (set(str(t).lower() for t in kt if isinstance(t, str) and len(str(t)) > 2)
+                   if isinstance(kt, (list, tuple)) else set()) - _STOP
+        title_toks = (_toks(title) | _toks(fname)) - _STOP
+        kt_only = kt_toks - title_toks
+        if not title_toks and not kt_only:
+            continue
+        # Score = QUERY COVERAGE (how many of the named tokens are present), not Jaccard
+        # over the union: a doc with rich key_terms must not be penalized for being rich.
+        # Title/filename hits count full; key_terms-only hits count half. Plus a strong
+        # bonus when the whole phrase is a substring of the title (named-exactly case).
+        inter_title = len(q_toks & title_toks)
+        inter_kt = len(q_toks & kt_only)
+        if inter_title == 0 and inter_kt == 0:
+            continue
+        cov = (inter_title + 0.5 * inter_kt) / float(len(q_toks))
+        sub_bonus = 0.5 if (len(q_norm) >= 6 and q_norm.strip() in _norm(title)) else 0.0
+        score = cov + sub_bonus
+        if score < min_score:
+            continue
+        scored.append((score, wp, rec, title))
+
+    scored.sort(key=lambda x: (-x[0], x[1]))
+    scored = scored[: max(1, min(int(limit or 5), 20))]
+
+    chunk_ids: list[str] = []
+    pages: dict = {}
+    matched_titles: list[str] = []
+    for score, wp, rec, title in scored:
+        cc = int(rec.get("chunk_count") or 0)
+        for i in range(cc):
+            chunk_ids.append(f"{wp}#c{i}")
+        kt = rec.get("key_terms") or rec.get("keyTerms") or []
+        try:
+            rs = int(rec.get("relevance")) if rec.get("relevance") is not None else 0
+        except (TypeError, ValueError):
+            rs = 0
+        pages[wp] = {
+            "title": title,
+            "relevance": rs,
+            "key_terms": list(kt) if isinstance(kt, (list, tuple)) else [],
+            "match_score": round(float(score), 3),
+        }
+        if title:
+            matched_titles.append(title)
+    return {
+        "q": phrase,
+        "source_count": len(pages),
+        "chunk_id_count": len(chunk_ids),
+        "chunk_ids": chunk_ids,
+        "pages": pages,
+        "matched_titles": matched_titles,
+    }
 
 
 @app.get("/api/manifest/chunks-by-goal")

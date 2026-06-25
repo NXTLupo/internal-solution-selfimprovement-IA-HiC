@@ -995,18 +995,27 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
             // normalized display name - this is what the LLM sees in prompts
             // and what the attractor phrase had to be stripped from.
             const { display: normalizedName } = normalizeUploadedFilename(f.name);
-            const syntheticUrl = `upload://${engagementSlug}/${encodeURIComponent(f.name)}`;
+            // 2026-06-25 - content-stable URL (no engagement slug) so re-archiving
+            // the same file across engagements hits ONE page (engagement tag is
+            // carried in the `engagement` field below, not the URL).
+            const syntheticUrl = uploadSyntheticUrl(f.name);
             const resp = await fetch(`${PROXY_BASE}/api/wiki/write-article`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     url: syntheticUrl,
                     content: text,
-                    source: normalizedName,
+                    // 2026-06-25 - UNIFIED with uploadsToDataSourceItems so both
+                    // writers target the SAME canonical page (articles/client-uploads/<h>.md):
+                    // source='Client Uploads' (grouping) + default kind 'article' +
+                    // title=filename. Previously this wrote source=filename/kind='upload'
+                    // -> a SECOND, separate page per upload at uploads/<engagement>/<h>.md,
+                    // forking every upload into two pages. The filename is preserved as
+                    // the title (the human handle); the engagement is a tag, not a path.
+                    source: 'Client Uploads',
                     title: normalizedName,
                     tier: 1, // Client uploads are Tier 1 context
                     method: 'upload',
-                    kind: 'upload',
                     engagement: engagementSlug,
                 }),
             });
@@ -1035,9 +1044,10 @@ export async function archiveUploadedDocs(files: any[], researchGoal: string): P
  * Analyst Desk treemap and as evidence nodes linked to any themes whose
  * extraction cites their text.
  */
-export function uploadsToDataSourceItems(files: any[], researchGoal: string): any[] {
+export function uploadsToDataSourceItems(files: any[], _researchGoal: string): any[] {
     if (!Array.isArray(files) || files.length === 0) return [];
-    const engagementSlug = buildEngagementSlug(researchGoal);
+    // engagement slug intentionally NOT used in the synthetic URL anymore (2026-06-25
+    // dedup fix); the proxy tags the canonical page with the run's engagement.
     const byName = new Map<string, any>();
     for (const f of files) {
         if (!f || !f.name) continue;
@@ -1047,14 +1057,24 @@ export function uploadsToDataSourceItems(files: any[], researchGoal: string): an
     for (const f of Array.from(byName.values())) {
         const text = extractTextFromUpload(f);
         if (!text || text.length < 40) continue;
-        const syntheticUrl = `upload://${engagementSlug}/${encodeURIComponent(f.name)}`;
-        // Trim to the per-item enrichment cap so downstream corpus assembly
-        // doesn't balloon from a single 45KB PDF body.
-        const capped = text.substring(0, 30_000);
+        // 2026-06-25 (article-capture fix): the synthetic URL is CONTENT-STABLE,
+        // NOT engagement-scoped. Embedding the engagement slug here gave the same
+        // uploaded file a different _url_hash per run -> a fresh wiki page each
+        // engagement (389 pages for 57 unique docs in the live wiki, ~7x). The
+        // proxy's content-hash dedup is defeated by its cross-worker cache race,
+        // so the URL itself must be the dedup key: one file = one page, the proxy
+        // appends each run's engagement tag via _ensure_canonical_engagement.
+        const syntheticUrl = uploadSyntheticUrl(f.name);
+        // 2026-06-25: capture uploads IN FULL. The prior 30K cap dropped the tail
+        // of every long interview/PDF so it was never chunked and never
+        // retrievable (the documented "Crowdfunding Survival Guide" miss). The
+        // manifest-pointer model only injects SELECTED chunks into prompts, so
+        // full capture does NOT balloon corpus assembly - it just makes the whole
+        // document addressable. Uploads are Tier-1 primary evidence; never cut them.
         items.push({
             id: `upload_${f.name.replace(/[^a-z0-9]+/gi, '-').toLowerCase().substring(0, 50)}`,
             title: f.name,
-            content: capped,
+            content: text,
             url: syntheticUrl,
             date: new Date().toISOString().split('T')[0],
             sourceType: 'company' as const,     // 'client-doc' not in the union type; 'company' is closest
@@ -1063,10 +1083,22 @@ export function uploadsToDataSourceItems(files: any[], researchGoal: string): an
             relevanceScore: 100,                 // client uploads are axiomatically relevant
             enriched: true,                      // pre-enriched; skip Jina path
             extractionMethod: 'upload',
-            wikiPath: `uploads/${engagementSlug}/${_urlHash10(syntheticUrl)}.md`,
+            // Hint only (the proxy write is authoritative). source='Client Uploads'
+            // + default kind 'article' => articles/client-uploads/<h>.md.
+            wikiPath: `articles/client-uploads/${_urlHash10(syntheticUrl)}.md`,
         });
     }
     return items;
+}
+
+/** Content-stable synthetic URL for an uploaded file. The same file name maps to
+ *  the same _url_hash across every engagement, so the proxy writes ONE canonical
+ *  wiki page (tagged with each run's engagement) instead of a duplicate per run.
+ *  2026-06-25 - fixes the ~7x upload duplication (engagement slug used to be in
+ *  the URL). Used by both archiveUploadedDocs and uploadsToDataSourceItems so the
+ *  two writers target the identical page. */
+export function uploadSyntheticUrl(fileName: string): string {
+    return `upload://${encodeURIComponent(fileName)}`;
 }
 
 /** Client-side blake2b-ish 10-char hash. MUST match the proxy's _url_hash

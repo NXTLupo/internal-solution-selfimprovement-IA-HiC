@@ -14,6 +14,7 @@ import LandingScopeBar from './components/LandingScopeBar';
 import WikiArchiveBrowser from './components/WikiArchiveBrowser';
 import CorpusChatPanel from './components/CorpusChatPanel';
 import { usePromptEnhancer, EnhanceButton, EnhancePreview } from './components/PromptEnhancer';
+import { ObjectiveInterview } from './components/ObjectiveInterview';
 import { useSubredditSuggester, SuggesterButton, SuggesterPanel } from './components/SubredditSuggester';
 import { CostMeterChip } from './components/CostMeterChip';
 // 2026-05-22 - Self-improvement loop, Phase 6: change-promotion surface
@@ -1288,6 +1289,9 @@ const App = () => {
     // pretend the user has a goal they didn't set. All slug derivations already
     // fall back to "default"/"default-engagement" when researchGoal is empty.
     const [researchGoal, setResearchGoal] = useState("");
+    // 2026-06-25 - Interview-Me-at-intake (P1): toggles the optional adaptive
+    // scoping interview panel beside the Research Goal field.
+    const [showInterview, setShowInterview] = useState(false);
     // 2026-05-14 - Prompt enhancer for the Research Goal. This is the most
     // load-bearing prompt in the whole system - it drives source retrieval,
     // multi-angle query expansion, themes, personas, deck, and prototype
@@ -6406,9 +6410,28 @@ ${synthesisParts.join('\n')}
                                              style={{ fontFamily: "'Archivo', sans-serif", lineHeight: 1.5, minHeight: 110 }}
                                              placeholder="e.g. Identify unmet needs in [your market or audience] over the next 24 months, with a focus on the friction on each side of the relationship and the decisions that drive them."
                                          />
-                                         <div className="flex justify-end mt-2">
+                                         <div className="flex justify-end gap-2 mt-2">
+                                             {/* 2026-06-25 - Interview-Me-at-intake (P1). Optional adaptive
+                                                 scoping interview that refines the Research Goal. RI applied
+                                                 pre-task; sits beside Enhance, never blocks free typing. */}
+                                             <button
+                                                 type="button"
+                                                 onClick={() => setShowInterview(v => !v)}
+                                                 title="Let a researcher interview you to sharpen this objective"
+                                                 style={{ padding: '0 12px', background: showInterview ? '#00B7C3' : 'transparent', color: showInterview ? '#FFFFFF' : '#00B7C3', border: '1px solid #00B7C3', fontWeight: 700, fontSize: 10, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer', fontFamily: "'Archivo', sans-serif", minWidth: 64 }}
+                                             >
+                                                 Interview me
+                                             </button>
                                              <EnhanceButton handle={goalEnhancer} accentColor="#00B7C3" />
                                          </div>
+                                         {showInterview && (
+                                             <ObjectiveInterview
+                                                 seed={researchGoal}
+                                                 accentColor="#00B7C3"
+                                                 onAccept={(obj) => { setResearchGoal(obj); setShowInterview(false); }}
+                                                 onClose={() => setShowInterview(false)}
+                                             />
+                                         )}
                                          {/* 2026-05-14 - T4 resume picker. Appears only when the entered
                                              goal semantically matches a prior engagement's cached briefs. */}
                                          <ResumeEngagementPanel
