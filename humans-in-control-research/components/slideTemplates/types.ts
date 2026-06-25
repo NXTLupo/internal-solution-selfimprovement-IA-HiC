@@ -920,7 +920,14 @@ export async function hydrateTokensFromFigma(brand: 'NXT' | 'NU' = 'NXT', target
         const ty: any = (t as any).type || {};
         if (ty && ty.scale) {
             const S = SCALE as any, W = WEIGHT as any, SP = SPACE as any, TP = TYPO as any;
-            for (const k of Object.keys(ty.scale)) if (typeof ty.scale[k] === 'number') S[k] = ty.scale[k];
+            // 2026-06-25 - PER-BRAND type scale. SCALE is a single global object (whichever brand
+            // hydrates last wins), which made the deck-display tier typeface-blind: NU rendered Lato
+            // at NXT's sizes (the section-divider/cover overflow). Stash THIS brand's scale on its
+            // own token object so the slides composer can resolve a per-brand deck-display size
+            // (slideComposer deckScaleFor reads T.TYPE_SCALE). Vision-pure: values still come from
+            // the Figma mode feed, never hardcoded; this only routes them per-mode.
+            (T as any).TYPE_SCALE = { ...((T as any).TYPE_SCALE || {}) };
+            for (const k of Object.keys(ty.scale)) if (typeof ty.scale[k] === 'number') { S[k] = ty.scale[k]; (T as any).TYPE_SCALE[k] = ty.scale[k]; }
             if (ty.space) for (const k of Object.keys(ty.space)) if (typeof ty.space[k] === 'number') SP[k] = ty.space[k];
             if (ty.weight) { if (typeof ty.weight.body === 'number') W.body = ty.weight.body; if (typeof ty.weight.label === 'number') W.label = ty.weight.label; if (typeof ty.weight.title === 'number') W.title = ty.weight.title; }
             if (typeof ty.floor === 'number') TP.HARD_MIN_PX = ty.floor;

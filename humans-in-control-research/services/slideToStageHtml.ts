@@ -116,6 +116,11 @@ interface BrandTokens {
     secondaryText: string;
     /** LESSON-block accent (NXT chartreuse / NU premium gold). */
     gold: string;
+    /** 2026-06-25 - small ACCENT-colored text on a DARK ground (dark insight panel,
+     *  persona identity column, inverted theme-index cards). NXT chartreuse reads on
+     *  black; NU red on navy fails contrast, so NU uses paper (white). Brand-aware,
+     *  built from existing tokens (NU=paper, NXT=accent) in brandTokens() - no new literal. */
+    accentOnDark?: string;
     /** SLIDES dark-card fill (color/graphite, used on full-bleed-dark archetypes). */
     graphite: string;
     /** SLIDES on-dark secondary text (color/rule-mid; lighter than `grey` which is on-light). */
@@ -222,6 +227,9 @@ export function brandTokens(b?: Brand | string): BrandTokens {
         gold: hx(H.GOLD_ACCENT, fb.gold),
         graphite: hx(H.GRAPHITE, fb.graphite),
         ruleMid: hx(H.RULE_MID, fb.ruleMid),
+        // brand-derived (not a hydrated key, no literal): small accent text on a dark ground.
+        // NU red fails contrast on navy -> use paper (white); NXT chartreuse reads on black -> accent.
+        accentOnDark: id === 'nu' ? hx(H.WHITE, fb.paper) : hx(H.CHARTREUSE, fb.accent),
     };
 }
 
@@ -578,7 +586,7 @@ function renderStatRowDense(stats: any[], insight: string, pattern: string, T: B
 .dq .dqm{font-size:${SCALE.body}px;line-height:1.4;color:${T.ink}}
 .dq .dqs{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:${TYPO.LABEL_TRACK_PX}px;color:${T.accentCool};margin-top:auto;text-transform:uppercase}
 .dins{background:${T.ink};color:${T.paper};padding:34px 36px;display:flex;flex-direction:column;gap:20px;min-height:0;overflow:hidden}
-.dins .dlbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.accent};font-weight:${WEIGHT.label}}
+.dins .dlbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.accentOnDark};font-weight:${WEIGHT.label}}
 .dins .ditxt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;line-height:1.42;color:${T.paper}}
 .dins .dhair{height:1px;background:${T.grey};width:100%}
 .dins .dplbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;text-transform:uppercase;color:${T.gold};font-weight:${WEIGHT.label}}
@@ -659,7 +667,7 @@ function renderThemeMosaic(slide: SlideDataLike, T: BrandTokens): string {
 .tm.inv{background:${T.band}}
 .tm.std{background:${T.callout}}
 .tm .idx{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
-.tm.inv .idx{color:${T.accent}} .tm.std .idx{color:${T.grey}}
+.tm.inv .idx{color:${T.accentOnDark}} .tm.std .idx{color:${T.grey}}
 .tm .nm{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.name}px;line-height:1.12}
 .tm.inv .nm{color:${T.bandText}} .tm.std .nm{color:${T.ink}}
 .tm .ins{font-size:${SCALE.body}px;line-height:1.38}
@@ -667,7 +675,7 @@ function renderThemeMosaic(slide: SlideDataLike, T: BrandTokens): string {
 .tm .ev{font-size:${SCALE.caption}px;line-height:1.35;font-style:italic}
 .tm.inv .ev{color:${T.bandText};opacity:0.8} .tm.std .ev{color:${T.grey}}
 .tm .src{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:0.5px;text-transform:uppercase;margin-top:auto}
-.tm.inv .src{color:${T.accent}} .tm.std .src{color:${T.grey}}
+.tm.inv .src{color:${T.accentOnDark}} .tm.std .src{color:${T.grey}}
 </style>
 <div class="tmgrid">
 ${themes.map((t, i) => `
@@ -1239,7 +1247,7 @@ function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens
 .pid .pirole{font-size:${SCALE.body}px;line-height:1.35;color:${washHex(T.paper, 0.16)}}
 .pid .pidesc{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;line-height:1.6;color:${T.gold};text-transform:uppercase}
 .pid .pihair{height:1px;background:${T.grey};width:100%}
-.pid .pilbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accent};text-transform:uppercase;font-weight:${WEIGHT.label}}
+.pid .pilbl{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:3px;color:${T.accentOnDark};text-transform:uppercase;font-weight:${WEIGHT.label}}
 .pid .piq{font-family:${T.titleFont};font-weight:${WEIGHT.body};font-size:${SCALE.lead}px;line-height:1.5;color:${T.paper}}
 .pid .pisrc{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase}
 .pid .pist{margin-top:auto;font-size:${SCALE.caption}px;line-height:1.48;color:${washHex(T.paper, 0.12)}}

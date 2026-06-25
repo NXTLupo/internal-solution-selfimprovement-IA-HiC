@@ -4,7 +4,8 @@
     "source": "Figma MCP on NXT file iSQhAVM7SI4QHAWB7y9C2z, collection 'NXT Brand Tokens' which now carries TWO MODES on one collection: NXT (modeId 221:0) and NU (modeId 535:0). NU is a mode flip, not a separate collection. The NXT/NU blocks below mirror those two modes. Fonts: NXT display=Saira Condensed, heading/body=Archivo, mono=IBM Plex Mono; NU=single-typeface Lato across all slots. on-accent token carries text-on-accent (NXT #0D0D0D black, NU #FFFFFF white) per the white-on-red accessibility rule.",
     "componentized": "2026-06-15: all ~68 NXT GOLD deliverable components are token-bound + componentized; each has a materialized NU-mode sub-component instance (mode 535:0) beside it. Brand/Logo · masthead (619:2) flips NXT wordmark -> NU red-N monogram by the brand/is-nxt|is-nu booleans. 53 mastheads unified to that component (logo consistency).",
     "nu_provenance": "2026-06-15: NU block reconciled against mode 535:0 (single-file, NU-as-a-mode). All values verified == mode 535:0 EXCEPT two intentional renderer-semantic keys: (1) 'teal' stays #16233C (navy header/premium slot for NU); the mode's color/teal var = #A4804A (gold) lives under the separate 'gold' key - do NOT overwrite 'teal' with the mode's color/teal. (2) renderer-only keys with no Figma var: kicker, band, band-text, source, gold, warn. Added missing 'success' #38A169 + 'error' #D8132D to reach NXT parity. This block is a RENDERER-FACING contract keyed by role, not a raw 1:1 mirror of Figma variable names.",
-    "refresh_protocol": "The Figma PAT lacks file_variables:read (Enterprise-gated), so the agent refreshes this file via Figma MCP and rewrites it. NEVER hand-edit hex values; re-pull both modes from 'NXT Brand Tokens' (NXT 221:0 / NU 535:0). When re-pulling, preserve the renderer-semantic keys noted in nu_provenance - map by ROLE, not by raw Figma var name."
+    "refresh_protocol": "The Figma PAT lacks file_variables:read (Enterprise-gated), so the agent refreshes this file via Figma MCP and rewrites it. NEVER hand-edit hex values; re-pull both modes from 'NXT Brand Tokens' (NXT 221:0 / NU 535:0). When re-pulling, preserve the renderer-semantic keys noted in nu_provenance - map by ROLE, not by raw Figma var name.",
+    "nu_type_scale_note": "NU display/deck tier reduced for Lato width (mode 535:0): hero 88, deckTitle 50, sectionNumeral 300, numeral 68, quoteMark 215, display 52 (2026-06-25). NXT mode 221:0 unchanged."
   },
   "NXT": {
     "color": {
@@ -87,7 +88,11 @@
       },
       "floor": 17,
       "readableBody": 28,
-      "lineHeight": { "tight": 1.0, "body": 1.15, "prose": 1.3 },
+      "lineHeight": {
+        "tight": 1.0,
+        "body": 1.15,
+        "prose": 1.3
+      },
       "heroCap": 36,
       "measureCh": 62,
       "weight": {
@@ -197,20 +202,24 @@
         "name": 30,
         "subhead": 36,
         "title": 46,
-        "display": 60,
+        "display": 52,
         "kicker": 22,
         "deckHeading": 24,
-        "deckTitle": 58,
-        "numeral": 80,
-        "hero": 120,
-        "sectionNumeral": 360,
-        "quoteMark": 260,
+        "deckTitle": 50,
+        "numeral": 68,
+        "hero": 88,
+        "sectionNumeral": 300,
+        "quoteMark": 215,
         "micro": 13,
         "nano": 11
       },
       "floor": 17,
       "readableBody": 28,
-      "lineHeight": { "tight": 1.0, "body": 1.15, "prose": 1.3 },
+      "lineHeight": {
+        "tight": 1.0,
+        "body": 1.15,
+        "prose": 1.3
+      },
       "heroCap": 36,
       "measureCh": 62,
       "weight": {

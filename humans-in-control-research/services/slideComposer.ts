@@ -20,9 +20,16 @@ import { scrubMetaTitle, deClicheDeep } from './slidePostProcessor';
 export type Brand = 'nxt' | 'nu';
 type TokenColor = 'accent' | 'rail' | 'ink' | 'cyan' | 'body' | 'secondary' | 'hairline' | 'paper' | 'ecru' | 'onAccent' | 'graphite' | 'ruleMid';
 type TokenFont = 'display' | 'heading' | 'body' | 'mono';
+// 2026-06-25 - a spec `size` may be a literal px (brand-identical tiers: label/body/caption) OR a
+// SCALE KEY resolved PER-BRAND at compose time via tk.scale[key]. The deck-display tier (hero/
+// deckTitle/sectionNumeral/numeral/deckHeading/quoteMark/display) uses KEYS so NU's wider Lato can
+// carry a smaller mode-535:0 size from the Figma feed without the section-divider/cover overflow.
+type ScaleKey = 'label' | 'caption' | 'body' | 'bodyReadable' | 'lead' | 'name' | 'subhead' | 'title'
+    | 'display' | 'kicker' | 'deckHeading' | 'deckTitle' | 'numeral' | 'hero' | 'sectionNumeral'
+    | 'quoteMark' | 'micro' | 'nano';
 
 interface RegionStyle {
-    color?: TokenColor; font?: TokenFont; size?: number; weight?: number;
+    color?: TokenColor; font?: TokenFont; size?: number | ScaleKey; weight?: number;
     tracking?: number; leading?: number; italic?: boolean; upper?: boolean;
     // prose: a READABLE body block (synthesis paragraph / definition / action body), NOT a
     // label, kicker, source line, hero numeral, heading, or tight tabular cell. Prose regions
@@ -104,7 +111,20 @@ function resolved(brand: Brand) {
     // logo brick - strictly from the registry logo token (never typeset fallback unless absent)
     const logoSvg = String(H.BRAND_LOGO_SVG || '').trim();
     const logoWm = String(H.BRAND_LOGO_WORDMARK || '').trim();
-    return { color, font, logoSvg, logoWm };
+    // 2026-06-25 - PER-BRAND deck-display scale. Reads THIS brand's hydrated TYPE_SCALE (set by
+    // hydrateTokensFromFigma from the Figma mode feed), falling back to the global SCALE build
+    // default per key. So NU resolves a mode-535:0 size where Figma diverges it, and stays == NXT
+    // (identical scale) until the NU type tokens are set - i.e. this plumbing is zero-visual-change
+    // on its own. Vision-pure: every value still originates in the Figma feed.
+    const ts: any = (H && (H as any).TYPE_SCALE) || {};
+    const sc = (k: string): number => (typeof ts[k] === 'number' ? ts[k] : (SCALE as any)[k]);
+    const scale = {
+        label: sc('label'), caption: sc('caption'), body: sc('body'), bodyReadable: sc('bodyReadable'),
+        lead: sc('lead'), name: sc('name'), subhead: sc('subhead'), title: sc('title'), display: sc('display'),
+        kicker: sc('kicker'), deckHeading: sc('deckHeading'), deckTitle: sc('deckTitle'), numeral: sc('numeral'),
+        hero: sc('hero'), sectionNumeral: sc('sectionNumeral'), quoteMark: sc('quoteMark'), micro: sc('micro'), nano: sc('nano'),
+    } as Record<string, number>;
+    return { color, font, logoSvg, logoWm, scale };
 }
 
 function esc(s: any): string {
@@ -120,7 +140,9 @@ function styleStr(r: RegionStyle, tk: ReturnType<typeof resolved>): string {
     // token-driven from Figma (TYPO.READABLE_BODY_PX / LINE.body). The clamp NEVER shrinks text:
     // a region already at/above the floor keeps its size. Single-spacing offsets the vertical
     // cost of the larger glyph, so the hand-tuned geometry still fits.
-    const size = r.prose && r.size ? Math.max(r.size, TYPO.READABLE_BODY_PX) : r.size;
+    // Resolve a SCALE KEY to this brand's px (deck-display tier is per-brand); a numeric size is literal.
+    const rawSize = typeof r.size === 'string' ? (tk.scale as any)[r.size] : r.size;
+    const size = r.prose && rawSize ? Math.max(rawSize, TYPO.READABLE_BODY_PX) : rawSize;
     const leading = r.leading != null ? r.leading : (r.prose ? LINE.body : undefined);
     const parts = [
         r.color ? `color:${tk.color[r.color]}` : '',
@@ -304,7 +326,39 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
     const tk = resolved(brand);
     const bg = spec.chrome === 'full-bleed-dark' ? tk.color.rail : tk.color.paper;
     let body = chrome(spec.chrome, tk);
-    for (const r of spec.regions) {
+    // 2026-06-25 - OPTIONAL hero-image panel (P3). The left-anchored interstitials
+    // carry a full-bleed RIGHT image panel slot in the Figma canon (cover 659:502,
+    // section-divider 661:473, thesis 661:474). When the payload supplies `heroImage`
+    // (an illustrator flat-vector data-URI/URL), render that panel and reflow the
+    // title region into the LEFT column so it clears the panel (the canon content-left
+    // layout); the PPTX exporter (gold_pptx_export GEO walker) then emits it as a real
+    // swappable picture. When ABSENT, the layout is UNCHANGED (fail-open) - default
+    // slides render exactly as before. Vision: slot bounds match the Figma canon; the
+    // image src rides the payload carrier; nothing hardcoded.
+    const HERO_PANEL: Record<string, [number, number, number, number]> = {
+        'cover': [1100, 0, 820, 1080],
+        'section-divider': [1100, 0, 820, 1080],
+        'thesis-interstitial': [1000, 0, 920, 1080],
+    };
+    const heroSrc = payload && typeof (payload as any).heroImage === 'string' ? (payload as any).heroImage : '';
+    let regions: Region[] = spec.regions;
+    if (HERO_PANEL[archetype] && heroSrc) {
+        const [ix, iy, iw, ih] = HERO_PANEL[archetype];
+        // narrow any text/static region that would run under the panel into the left column
+        regions = spec.regions.map((r) => {
+            const sr = r as StaticRegion;
+            if (sr.kind === undefined || sr.kind === 'text' || sr.kind === 'band') {
+                const x = sr.x || 0;
+                const w = typeof sr.w === 'number' ? sr.w : 0;
+                if (w && x < ix && x + w > ix - 40) {
+                    return { ...sr, w: Math.max(360, ix - x - 60) };
+                }
+            }
+            return r;
+        });
+        regions = regions.concat([{ kind: 'image', x: ix, y: iy, w: iw, h: ih, payload: 'heroImage', fit: 'cover' } as StaticRegion]);
+    }
+    for (const r of regions) {
         const k = (r as any).kind;
         if (k === 'columns') body += renderColumns(r as ColumnGroup, payload, tk);
         else if (k === 'matrix') body += renderMatrix(r as MatrixRegion, payload, tk);
@@ -330,13 +384,13 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
-            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: SCALE.deckTitle, leading: 1.06, payload: 'title' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', leading: 1.06, payload: 'title' },
             {
                 kind: 'columns', array: 'items', count: 4, baseX: 196, pitchX: 418, w: 380,
                 cells: [
-                    { dy: 252, color: 'accent', font: 'display', size: SCALE.numeral, key: 'number' },
+                    { dy: 252, color: 'accent', font: 'display', size: 'numeral', key: 'number' },
                     { dy: 352, kind: 'hairline', h: 1 },
-                    { dy: 372, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, leading: 1.26, key: 'name' },
+                    { dy: 372, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, leading: 1.26, key: 'name' },
                     { dy: 470, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
                     { dy: 800, color: 'secondary', font: 'body', size: SCALE.bodyReadable, italic: true, prose: true, key: 'quote' },
                 ],
@@ -349,13 +403,13 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
-            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: SCALE.deckTitle, payload: 'title' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
             { x: 196, y: 186, w: 1620, kind: 'hairline', h: 1 },
             {
                 kind: 'columns', array: 'stats', count: 3, baseX: 196, pitchX: 556, w: 500,
                 cells: [
-                    { dy: 215, color: 'accent', font: 'display', size: SCALE.hero, key: 'figure' },
-                    { dy: 412, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, leading: 1.28, key: 'headline' },
+                    { dy: 215, color: 'accent', font: 'display', size: 'hero', key: 'figure' },
+                    { dy: 412, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, leading: 1.28, key: 'headline' },
                     { dy: 596, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 1.14, upper: true, literal: 'MEANS' },
                     { dy: 628, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'means' },
                     { dy: 796, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 1.14, upper: true, literal: 'MATTERS' },
@@ -373,7 +427,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             // 120px (not 150): NU's Lato is far wider than NXT's Saira Condensed; 150px wrapped
             // "Intelligence Augmentation" to two lines and collided with the subtitle. 120px fits one
             // line for both brands; subtitle dropped to y:640 so even a 2-line title clears it.
-            { x: 101, y: 320, w: 1718, color: 'paper', font: 'display', size: SCALE.hero, leading: 1.0, payload: 'title' },
+            { x: 101, y: 320, w: 1718, color: 'paper', font: 'display', size: 'hero', leading: 1.0, payload: 'title' },
             { x: 101, y: 640, w: 1718, color: 'ruleMid', font: 'heading', size: SCALE.subhead, weight: 500, leading: 1.3, payload: 'subtitle' },
         ],
     },
@@ -384,7 +438,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'full-bleed-dark',
         regions: [
             { x: 101, y: 300, w: 760, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
-            { x: 101, y: 350, w: 760, color: 'paper', font: 'display', size: SCALE.numeral, leading: 1.04, payload: 'title' },
+            { x: 101, y: 350, w: 760, color: 'paper', font: 'display', size: 'numeral', leading: 1.04, payload: 'title' },
             { x: 101, y: 640, w: 720, color: 'ruleMid', font: 'body', size: SCALE.bodyReadable, leading: 1.4, payload: 'body' },
             { kind: 'image', x: 1000, y: 140, w: 860, h: 800, payload: 'illustration', fit: 'contain' },
         ],
@@ -393,11 +447,11 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
     'agenda': {
         chrome: 'content-rail',
         regions: [
-            { x: 196, y: 64, w: 1600, color: 'rail', font: 'display', size: SCALE.display, payload: 'title' },
+            { x: 196, y: 64, w: 1600, color: 'rail', font: 'display', size: 'display', payload: 'title' },
             {
                 kind: 'columns', array: 'groups', count: 2, baseX: 196, pitchX: 864, w: 760,
                 cells: [
-                    { dy: 232, color: 'accent', font: 'display', size: SCALE.display, key: 'label' },
+                    { dy: 232, color: 'accent', font: 'display', size: 'display', key: 'label' },
                     { dy: 330, color: 'rail', font: 'heading', size: SCALE.subhead, weight: 700, leading: 2.3, key: 'items', lines: true },
                 ],
             },
@@ -407,8 +461,8 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
     'section-divider': {
         chrome: 'full-bleed-dark',
         regions: [
-            { x: 101, y: 40, w: 648, color: 'accent', font: 'display', size: SCALE.sectionNumeral, leading: 1, payload: 'number' },
-            { x: 101, y: 660, w: 1740, color: 'paper', font: 'display', size: SCALE.hero, leading: 1, upper: true, payload: 'title' },
+            { x: 101, y: 40, w: 648, color: 'accent', font: 'display', size: 'sectionNumeral', leading: 1, payload: 'number' },
+            { x: 101, y: 660, w: 1740, color: 'paper', font: 'display', size: 'hero', leading: 1, upper: true, payload: 'title' },
             { x: 101, y: 916, w: 1718, color: 'ruleMid', font: 'body', size: SCALE.bodyReadable, leading: 1.3, payload: 'supporting' },
         ],
     },
@@ -417,17 +471,17 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'full-bleed-dark',
         regions: [
             { x: 101, y: 96, w: 900, color: 'accent', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'kicker' },
-            { x: 101, y: 420, w: 1500, color: 'paper', font: 'display', size: SCALE.hero, leading: 1.04, payload: 'thesis' },
+            { x: 101, y: 420, w: 1500, color: 'paper', font: 'display', size: 'hero', leading: 1.04, payload: 'thesis' },
         ],
     },
     // block-quote (609:7) - hero verbatim quote + right ecru corroborating panel.
     'block-quote': {
         chrome: 'content-rail',
         regions: [
-            { x: 196, y: 20, color: 'accent', font: 'display', size: SCALE.quoteMark, literal: '“' },
+            { x: 196, y: 20, color: 'accent', font: 'display', size: 'quoteMark', literal: '“' },
             { x: 350, y: 92, w: 800, color: 'secondary', font: 'heading', size: SCALE.caption, weight: 700, tracking: 1.08, upper: true, payload: 'topicKicker' },
-            { x: 209, y: 170, w: 1011, color: 'rail', font: 'body', size: SCALE.title, leading: 1.44, payload: 'quote' },
-            { x: 298, y: 778, w: 900, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, payload: 'attributionName' },
+            { x: 209, y: 170, w: 1011, color: 'rail', font: 'body', size: 'title', leading: 1.44, payload: 'quote' },
+            { x: 298, y: 778, w: 900, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, payload: 'attributionName' },
             { x: 298, y: 814, w: 900, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'attributionRole' },
             // corroborating panel
             { kind: 'rect', x: 1267, y: 120, w: 573, h: 778, color: 'ecru', rule: 9, ruleColor: 'rail' },
@@ -435,7 +489,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             {
                 kind: 'columns', array: 'corroborating', count: 3, baseX: 1299, pitchX: 0, baseY: 210, pitchY: 196, w: 510,
                 cells: [
-                    { dy: 0, color: 'accent', font: 'display', size: SCALE.display, key: 'figure' },
+                    { dy: 0, color: 'accent', font: 'display', size: 'display', key: 'figure' },
                     { dy: 98, color: 'rail', font: 'heading', size: SCALE.caption, weight: 700, leading: 1.2, key: 'label' },
                     { dy: 162, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, key: 'source' },
                 ],
@@ -451,7 +505,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             // title at `title` (46) not deckTitle (58): the dense table is space-constrained, and a
             // long (2-line) action title at 58 overflowed into the intro/headers. 46 keeps a 2-line
             // title clear of the intro at y206 while still governing over the 28 body.
-            { x: 196, y: 80, w: 1620, color: 'rail', font: 'display', size: SCALE.title, leading: 1.04, payload: 'title' },
+            { x: 196, y: 80, w: 1620, color: 'rail', font: 'display', size: 'title', leading: 1.04, payload: 'title' },
             { x: 196, y: 206, w: 1560, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, payload: 'intro' },
             // column headers (non-uniform x)
             {
@@ -466,7 +520,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 kind: 'columns', array: 'rows', count: 6, baseX: 196, pitchX: 0, baseY: 330, pitchY: 84, w: 1622,
                 card: { y: 0, w: 1622, h: 76, bg: 'paper', rule: 4, ruleColor: 'accent', ruleSide: 'left' },
                 cells: [
-                    { dx: 24, dy: 16, w: 250, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, key: 'subject' },
+                    { dx: 24, dy: 16, w: 250, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, key: 'subject' },
                     { dx: 274, dy: 18, w: 540, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'prove' },
                     { dx: 838, dy: 18, w: 580, color: 'body', font: 'body', size: SCALE.caption, leading: 1.3, key: 'implication' },
                     { dx: 1442, dy: 18, w: 160, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, key: 'evidenceGrade' },
@@ -484,14 +538,14 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'full-bleed-dark',
         regions: [
             { x: 101, y: 96, w: 900, color: 'accent', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 101, y: 180, w: 1718, color: 'paper', font: 'display', size: SCALE.numeral, leading: 1.04, payload: 'title' },
+            { x: 101, y: 180, w: 1718, color: 'paper', font: 'display', size: 'numeral', leading: 1.04, payload: 'title' },
             { x: 101, y: 350, w: 1718, color: 'ruleMid', font: 'body', size: SCALE.bodyReadable, leading: 1.4, payload: 'subhead' },
             {
                 kind: 'columns', array: 'cards', count: 2, baseX: 101, pitchX: 880, w: 760,
                 card: { y: 460, w: 840, h: 420, bg: 'graphite', rule: 4, ruleColor: 'accent' },
                 cells: [
-                    { dx: 40, dy: 500, color: 'accent', font: 'display', size: SCALE.numeral, key: 'numeral' },
-                    { dx: 40, dy: 644, w: 760, color: 'paper', font: 'heading', size: SCALE.title, weight: 700, leading: 1.1, key: 'heading' },
+                    { dx: 40, dy: 500, color: 'accent', font: 'display', size: 'numeral', key: 'numeral' },
+                    { dx: 40, dy: 644, w: 760, color: 'paper', font: 'heading', size: 'title', weight: 700, leading: 1.1, key: 'heading' },
                     { dx: 40, dy: 764, w: 760, color: 'ruleMid', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
                 ],
             },
@@ -502,12 +556,12 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: SCALE.deckTitle, payload: 'title' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
             {
                 kind: 'columns', array: 'columns', count: 3, baseX: 196, pitchX: 556, w: 472,
                 card: { y: 240, w: 520, h: 660, bg: 'paper', rule: 5, ruleColor: 'accent' },
                 cells: [
-                    { dx: 24, dy: 280, w: 472, color: 'rail', font: 'display', size: SCALE.deckTitle, key: 'name' },
+                    { dx: 24, dy: 280, w: 472, color: 'rail', font: 'display', size: 'deckTitle', key: 'name' },
                     { dx: 24, dy: 384, w: 472, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'definition' },
                     { dx: 24, dy: 482, w: 472, kind: 'hairline', h: 1 },
                     { dx: 24, dy: 510, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 1, upper: true, key: 'teams.label' },
@@ -524,14 +578,14 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: SCALE.deckTitle, payload: 'title' },
+            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
             { x: 196, y: 254, w: 400, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, literal: 'CURRENT CHALLENGES' },
             { x: 196, y: 286, w: 1000, kind: 'hairline', h: 2, color: 'rail' },
             {
                 kind: 'columns', array: 'challenges', count: 3, baseX: 196, pitchX: 0, baseY: 312, pitchY: 190, w: 800,
                 cells: [
-                    { dx: 0, dy: 0, color: 'accent', font: 'display', size: SCALE.deckTitle, key: 'numeral' },
-                    { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, key: 'heading' },
+                    { dx: 0, dy: 0, color: 'accent', font: 'display', size: 'deckTitle', key: 'numeral' },
+                    { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, key: 'heading' },
                     { dx: 110, dy: 44, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
                 ],
             },
@@ -554,15 +608,15 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: SCALE.deckTitle, payload: 'title' },
+            { x: 196, y: 86, w: 1000, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
             { x: 196, y: 248, w: 1000, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, payload: 'thesis' },
             { x: 196, y: 388, w: 400, color: 'rail', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, literal: 'SUPPORTING ACTIONS' },
             { x: 196, y: 420, w: 940, kind: 'hairline', h: 2, color: 'rail' },
             {
                 kind: 'columns', array: 'actions', count: 3, baseX: 196, pitchX: 0, baseY: 446, pitchY: 180, w: 800,
                 cells: [
-                    { dx: 0, dy: 0, color: 'accent', font: 'display', size: SCALE.deckTitle, key: 'numeral' },
-                    { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, key: 'heading' },
+                    { dx: 0, dy: 0, color: 'accent', font: 'display', size: 'deckTitle', key: 'numeral' },
+                    { dx: 110, dy: 0, w: 800, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, key: 'heading' },
                     { dx: 110, dy: 42, w: 800, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
                 ],
             },
@@ -573,7 +627,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                 card: { y: 0, w: 560, h: 230, bg: 'paper', rule: 4, ruleColor: 'accent', ruleSide: 'left' },
                 cells: [
                     { dx: 20, dy: 24, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.9, upper: true, key: 'label' },
-                    { dx: 20, dy: 60, w: 520, color: 'rail', font: 'heading', size: SCALE.deckHeading, weight: 700, leading: 1.1, key: 'headline' },
+                    { dx: 20, dy: 60, w: 520, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, leading: 1.1, key: 'headline' },
                     { dx: 20, dy: 130, w: 520, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, key: 'body' },
                 ],
             },
@@ -584,13 +638,13 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: SCALE.deckTitle, payload: 'title' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
             {
                 kind: 'columns', array: 'phases', count: 4, baseX: 196, pitchX: 412, w: 388,
                 cells: [
                     { dy: 268, w: 388, h: 5, kind: 'hairline', color: 'accent' },
                     { dy: 286, w: 388, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 0.8, upper: true, key: 'label' },
-                    { dy: 316, w: 364, color: 'rail', font: 'display', size: SCALE.title, key: 'name' },
+                    { dy: 316, w: 364, color: 'rail', font: 'display', size: 'title', key: 'name' },
                     { dy: 404, w: 364, color: 'body', font: 'body', size: SCALE.bodyReadable, prose: true, leading: 1.5, key: 'items', lines: true },
                 ],
             },
@@ -601,7 +655,7 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
         chrome: 'content-rail',
         regions: [
             { x: 196, y: 40, color: 'cyan', font: 'heading', size: SCALE.kicker, weight: 700, tracking: 1.76, upper: true, payload: 'eyebrow' },
-            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: SCALE.deckTitle, payload: 'title' },
+            { x: 196, y: 86, w: 1600, color: 'rail', font: 'display', size: 'deckTitle', payload: 'title' },
             {
                 kind: 'matrix', headers: 'horizons', rows: 'roles', rowLabelKey: 'name', cellsKey: 'cells',
                 headerY: 230, baseX: 420, colPitch: 366, cellW: 350,

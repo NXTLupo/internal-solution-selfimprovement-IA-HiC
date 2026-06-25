@@ -88,12 +88,32 @@ GEO = r"""
   const hex=(o)=>{const h=n=>('0'+Math.max(0,Math.min(255,Math.round(n))).toString(16)).slice(-2);
     return (h(o.r)+h(o.g)+h(o.b)).toUpperCase();};
   const rects=[];
+  const images=[];
   const push=(x,y,w,h,col)=>{
     if(!col||col.a===0||w<0.5||h<0.5) return;
     rects.push({x:x-sr.left,y:y-sr.top,w:w,h:h,fill:hex(col),alpha:col.a});
   };
   const walk=(el)=>{
     if(el.tagName==='svg') return;
+    // 2026-06-25 - IMG capture: emit each <img> (illustrator slot art: journey phase
+    // thumbnails, cover/section/thesis panels) as a REAL, swappable PowerPoint picture
+    // at its slot bounds. Capture pixels via canvas->data-URI so it works for data-URIs
+    // AND same-origin URLs regardless of how the renderer carried the src; a tainted
+    // (cross-origin) canvas falls back to the raw src for the python side to fetch.
+    if(el.tagName==='IMG'){
+      const b=el.getBoundingClientRect();
+      if(b.width>=2&&b.height>=2){
+        let data='';
+        try{
+          const cv=document.createElement('canvas');
+          cv.width=(el.naturalWidth||b.width); cv.height=(el.naturalHeight||b.height);
+          cv.getContext('2d').drawImage(el,0,0,cv.width,cv.height);
+          data=cv.toDataURL('image/png');
+        }catch(e){ data=el.getAttribute('src')||el.src||''; }
+        if(data) images.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,src:data});
+      }
+      return;
+    }
     const cs=getComputedStyle(el);
     if(cs.display==='none'||cs.visibility==='hidden') return;
     const b=el.getBoundingClientRect();
@@ -108,7 +128,7 @@ GEO = r"""
     for(const k of el.children) walk(k);
   };
   walk(stage);
-  return {rects, hasSvg: !!stage.querySelector('svg')};
+  return {rects, images, hasSvg: !!stage.querySelector('svg')};
 }
 """
 
@@ -310,6 +330,34 @@ def _render_into_presentation(prs, html_list: list) -> list:
                                     '{http://schemas.openxmlformats.org/presentationml/2006/main}style')
                                 if _style is not None:
                                     _sp.remove(_style)
+                            except Exception:
+                                pass
+                        # 2026-06-25 - place IMG slot art (journey phase thumbnails, cover/
+                        # section/thesis panels) as REAL, movable, swappable PowerPoint picture
+                        # objects at their slot bounds. The GEO walker captured each <img> as a
+                        # data-URI (or raw src). The native tier has no bg raster, so images must
+                        # be added explicitly; they sit ABOVE the geometry (added last). This closes
+                        # the long-standing gap where the editable tier silently DROPPED every image.
+                        import base64 as _b64img, io as _ioimg
+                        for im in geo.get("images", []):
+                            if im["x"] >= W or im["y"] >= H:
+                                continue
+                            src = im.get("src") or ""
+                            stream = None
+                            try:
+                                if src.startswith("data:"):
+                                    stream = _ioimg.BytesIO(_b64img.b64decode(src.split(",", 1)[1]))
+                                elif src.startswith("http"):
+                                    import urllib.request as _urlimg
+                                    stream = _ioimg.BytesIO(_urlimg.urlopen(src, timeout=10).read())
+                            except Exception:
+                                stream = None
+                            if stream is None:
+                                continue
+                            try:
+                                slide.shapes.add_picture(
+                                    stream, ex(im["x"]), ey(im["y"]),
+                                    ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
                             except Exception:
                                 pass
                     else:
