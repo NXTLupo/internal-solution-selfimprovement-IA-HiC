@@ -1347,14 +1347,27 @@ function renderCaseStudy(slide: SlideDataLike, T: BrandTokens): string {
 
     if (variant === 'before-after' && c.beforeAfter) {
         const ba = c.beforeAfter;
+        // 2026-06-29 FIELD-TOLERANT: the model emits before/after as EITHER a bare
+        // string ("Legacy batch-based deliveries...") OR an object {label, headline,
+        // points[]}. The old reader only handled the object shape, so a string payload
+        // rendered an empty wash panel with just the default BEFORE/AFTER label (live
+        // bug: State Street case study). Accept both: a string becomes the panel body;
+        // an object uses headline + points (+ state/body/summary aliases).
         const panel = (side: any, tone: 'warn' | 'cool') => {
             const accent = tone === 'warn' ? T.accentWarn : T.accentCool;
             const wash = tone === 'warn' ? T.washWarn : T.washCool;
-            const points: string[] = Array.isArray(side?.points) ? side.points.slice(0, _caps.items) : [];
+            const isStr = typeof side === 'string';
+            const label = isStr ? '' : String(side?.label || '');
+            const headline = isStr ? '' : String(side?.headline || '');
+            let points: string[] = (!isStr && Array.isArray(side?.points)) ? side.points.slice(0, _caps.items) : [];
+            if (points.length === 0) {
+                const bodyStr = isStr ? side : String(side?.state || side?.body || side?.summary || side?.text || '');
+                if (bodyStr.trim()) points = [bodyStr.trim()];
+            }
             return `
       <div class="bap" style="background:${wash}">
-        <div class="balbl" style="color:${accent}">${esc(side?.label || (tone === 'warn' ? 'BEFORE' : 'AFTER'))}</div>
-        <div class="bahead">${esc(side?.headline)}</div>
+        <div class="balbl" style="color:${accent}">${esc(label || (tone === 'warn' ? 'BEFORE' : 'AFTER'))}</div>
+        ${headline ? `<div class="bahead">${esc(headline)}</div>` : ''}
         <div class="bapts">
           ${points.map(p => `<div class="bapt"><span style="background:${accent}"></span><p>${esc(p)}</p></div>`).join('')}
         </div>

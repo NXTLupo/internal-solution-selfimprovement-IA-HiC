@@ -170,20 +170,20 @@ export const ARTIFACT_IMAGE_SPECS: Record<string, ArtifactImageSpec> = {
     'slides:cover': {
         artifact: 'slides:cover', mode: 'panel', branch: 'emotive', node: '659:502',
         ground: 'dark', kind: 'panel', bounds: { w: 820, h: 1080, aspect: 0.76 }, fit: 'cover',
-        carrier: 'panelImage', optional: true, wired: false,
-        note: 'cover 609:2 (659:502) 820x1080 portrait full-bleed - emotive signature visual',
+        carrier: 'heroImage', optional: true, wired: true,
+        note: 'cover 609:2 (659:502) 820x1080 portrait full-bleed - emotive signature visual. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports it as a native swappable picture placeholder. Nothing hardcoded (bounds=Figma canon, colors/fonts=tokens).',
     },
     'slides:section-divider': {
         artifact: 'slides:section-divider', mode: 'panel', branch: 'emotive', node: '661:473',
         ground: 'dark', kind: 'panel', bounds: { w: 820, h: 1080, aspect: 0.76 }, fit: 'cover',
-        carrier: 'panelImage', optional: true, wired: false,
-        note: 'section-divider 609:4 (661:473) 820x1080 portrait full-bleed - emotive transition visual',
+        carrier: 'heroImage', optional: true, wired: true,
+        note: 'section-divider 609:4 (661:473) 820x1080 portrait full-bleed - emotive transition visual. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
     },
     'slides:thesis-interstitial': {
         artifact: 'slides:thesis-interstitial', mode: 'panel', branch: 'emotive', node: '661:474',
         ground: 'dark', kind: 'panel', bounds: { w: 920, h: 1080, aspect: 0.85 }, fit: 'cover',
-        carrier: 'panelImage', optional: true, wired: false,
-        note: 'thesis 609:5 (661:474) 920x1080 portrait full-bleed - emotive abstract of the thesis',
+        carrier: 'heroImage', optional: true, wired: true,
+        note: 'thesis 609:5 (661:474) 920x1080 portrait full-bleed - emotive abstract of the thesis. WIRED 2026-06-29: composer paints composerPayload.heroImage as a full-bleed <img> (slideComposer HERO_PANEL); GEO walker exports a native picture placeholder. Nothing hardcoded.',
     },
     'slides:agenda': {
         artifact: 'slides:agenda', mode: 'hero', branch: 'emotive', node: '661:472',

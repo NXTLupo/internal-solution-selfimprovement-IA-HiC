@@ -7206,6 +7206,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         // carrier write THERE (panelImage for block-quote; columnIcons[] for org-model).
                         'slides:block-quote': 'composerPayload',
                         'slides:org-model': 'composerPayload',
+                        // 2026-06-29: the full-bleed interstitial archetypes carry an emotive
+                        // hero panel (registry slides:cover/section-divider/thesis-interstitial,
+                        // carrier heroImage, wired). The composer reads composerPayload.heroImage
+                        // and paints it as a full-bleed <img> (GEO walker -> native pptx picture).
+                        'slides:cover': 'composerPayload',
+                        'slides:section-divider': 'composerPayload',
+                        'slides:thesis-interstitial': 'composerPayload',
                     };
                     // C2 routing: parse the user's #img override once; the router decides DATA vs
                     // EMOTIVE per slot and enforces the section-8 default-off gate. The deterministic

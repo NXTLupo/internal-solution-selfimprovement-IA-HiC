@@ -1141,15 +1141,25 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
     if (variant === 'before-after' && data.beforeAfter) {
         const ba = data.beforeAfter;
         const quote = data.pullQuote ? prepQuote({ text: data.pullQuote.text, attribution: data.pullQuote.attribution }) : null;
-        const panel = (side: { headline: string; points: string[]; label?: string }, tone: 'warn' | 'cool') => {
+        // 2026-06-29 FIELD-TOLERANT (matches slideToStageHtml): before/after may be a
+        // bare string OR {label, headline, points[]}. A string becomes the panel body so
+        // a string payload no longer renders an empty wash panel (State Street live bug).
+        const panel = (side: any, tone: 'warn' | 'cool') => {
             const accent = hex(tone === 'warn' ? T.ACCENT_WARN : T.ACCENT_COOL);
             const wash = hex(tone === 'warn' ? T.WASH_WARN : T.WASH_COOL);
+            const isStr = typeof side === 'string';
+            const headline = isStr ? '' : String(side?.headline || '');
+            let points: string[] = (!isStr && Array.isArray(side?.points)) ? side.points.slice(0, _cc.items) : [];
+            if (points.length === 0) {
+                const bodyStr = isStr ? side : String(side?.state || side?.body || side?.summary || side?.text || '');
+                if (bodyStr.trim()) points = [bodyStr.trim()];
+            }
             return (
                 <div style={{ flex: 1, minWidth: 0, background: wash, padding: '15px 16px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                    {monoLabel(side.label || (tone === 'warn' ? 'BEFORE' : 'AFTER'), accent)}
-                    <div style={{ fontFamily: titleFont, fontWeight: titleWeight, fontSize: webPx(SCALE.lead), color: hex(T.INK), lineHeight: 1.15 }}>{truncate(side.headline, 60)}</div>
+                    {monoLabel((!isStr && side?.label) || (tone === 'warn' ? 'BEFORE' : 'AFTER'), accent)}
+                    {headline ? <div style={{ fontFamily: titleFont, fontWeight: titleWeight, fontSize: webPx(SCALE.lead), color: hex(T.INK), lineHeight: 1.15 }}>{truncate(headline, 60)}</div> : null}
                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: 0, paddingBottom: 2, gap: 5 }}>
-                        {(side.points || []).slice(0, _cc.items).map((p, i) => (
+                        {points.map((p, i) => (
                             <div key={i} style={{ display: 'flex', gap: 6, alignItems: 'flex-start' }}>
                                 <span style={{ width: 4, height: 4, background: accent, flexShrink: 0, marginTop: 3 }} />
                                 <span style={{ fontFamily: body, fontSize: webPx(SCALE.label), lineHeight: 1.4, color: hex(T.INK) }}>{truncate(p, 140)}</span>

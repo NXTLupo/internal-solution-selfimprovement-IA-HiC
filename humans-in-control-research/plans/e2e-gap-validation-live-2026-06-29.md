@@ -257,6 +257,26 @@ already-persisted themes.json ("Gemini Focused Research"); fully correcting the 
 render-time lookup of the article's `resolved_sources` by wikiPath or a one-time themes.json re-resolve. The
 viewer (the click-through inspection surface) is corrected; the card chip is the remaining cosmetic.
 
+## E4. SLIDE-RENDER FIXES (2026-06-29, second live report)
+
+- **Case-study before-after panels rendered EMPTY (render bug, data was present).** The model emits
+  `beforeAfter.before`/`.after` as STRINGS, but `renderCaseStudy` (slideToStageHtml.ts) + web.tsx
+  CaseStudySlide only handled the `{label,headline,points[]}` OBJECT shape -> string payloads showed
+  just the default BEFORE/AFTER label with empty bodies (State Street case study). FIXED: both twins
+  are now field-tolerant (string -> panel body; object -> headline+points; +state/body/summary
+  aliases). The `[slides:img] panel image attached` was a red herring (before-after never renders
+  panelImage). Verified against the chat export: payload had the content; renderer now paints it.
+- **#slides deck had NO imagery.** `slides:cover/section-divider/thesis-interstitial` WERE registered
+  as emotive full-bleed panels but `wired:false`, with a carrier-name mismatch (registry `panelImage`
+  vs the composer reading `heroImage`) and no `SUBFIELD` route, so nothing painted. FIXED: registry
+  carrier -> `heroImage`, `wired:true`; `SUBFIELD['slides:cover'|'section-divider'|'thesis-interstitial']
+  = 'composerPayload'`. The composer already paints `composerPayload.heroImage` as a full-bleed `<img>`
+  (HERO_PANEL) and the export GEO walker captures `<img>` as a NATIVE PPTX picture placeholder -
+  satisfying the no-hardcode + native-placeholder requirement (bounds = Figma canon; colors/fonts =
+  tokens; resolveArtifactImages writes `payload[spec.carrier]` generically, artifactIllustrator.ts:131).
+  Gates: tsc 0, vitest 402 (figmaRegistryParity no-hardcode ceiling intact). LIVE PROOF PENDING a fresh
+  #slides gen (cover/divider get emotive heroes) + reopening a before-after case-study (now paints).
+
 ## F. WHAT STILL NEEDS A LIVE RUN (not confirmable from code)
 - B3 missing-images: the artifact generation log / rendered output.
 - S14: open an exported `.pptx` with python-pptx (picture placeholders, `<a:blip>`, native auto-shapes, embedded fonts).
