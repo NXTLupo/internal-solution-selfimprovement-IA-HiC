@@ -165,7 +165,7 @@ const STAGE_MODEL = 'gemini-3.1-pro-preview';
 // code model; matches the proto planning stages which already use STAGE_MODEL=Pro), so
 // #proto builds work at good quality without Opus. REVERSIBLE: restore 'claude-opus-4-8'
 // after the cap lifts.
-const CODE_MODEL = 'gemini-3.1-pro-preview';
+const CODE_MODEL = OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8';
 
 // 2026-05-14 - Design exemplar curator (Behance reference library). Pulls
 // matching exemplars by concept/interaction-pattern/brand-hashtag and
@@ -173,6 +173,7 @@ const CODE_MODEL = 'gemini-3.1-pro-preview';
 // system prompt. Replaces vague "clean modern" aesthetic placeholders with
 // named, evidence-backed visual references the coder must visually pass
 // against. See: .claude/skills/design-exemplar-curator/SKILL.md
+import { OPUS_CAP_ACTIVE } from './aiRouter';
 import { curateExemplarsForBrief, buildStage4InjectionBlock } from './designExemplarCurator';
 // 2026-05-14 - Experience Prototype Composer (STRICT-RULE). Mandates that
 // Stage 4 compose every region from the AI Experience Patterns catalog at

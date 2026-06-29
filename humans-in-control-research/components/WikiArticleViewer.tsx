@@ -79,8 +79,18 @@ function parseArticleFromRawContent(raw: string, wikiPath: string): WikiArticle 
     return article;
 }
 
+/** A real named source recovered for a deep-research synthesis doc (2026-06-29). */
+interface ResolvedSource {
+    sourceName?: string;
+    title?: string;
+    author?: string;
+    kind?: string;
+    url?: string;
+}
+
 export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUrl }) => {
     const [article, setArticle] = useState<WikiArticle | null>(null);
+    const [resolvedSources, setResolvedSources] = useState<ResolvedSource[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -89,6 +99,7 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
         setLoading(true);
         setError(null);
         setArticle(null);
+        setResolvedSources([]);
         const abort = new AbortController();
         (async () => {
             try {
@@ -104,6 +115,7 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
                     return;
                 }
                 setArticle(parseArticleFromRawContent(data.content, data.wikiPath || wikiPath));
+                setResolvedSources(Array.isArray(data.resolvedSources) ? data.resolvedSources : []);
             } catch (e: any) {
                 if (e?.name !== 'AbortError') {
                     setError(e?.message || 'Unknown error');
@@ -232,6 +244,34 @@ export const WikiArticleViewer: React.FC<Props> = ({ wikiPath, onClose, onOpenUr
                             color: '#8A3B1F', background: '#FDF0EC', fontSize: 12,
                         }}>
                             <strong>Read failed.</strong> {error}
+                        </div>
+                    )}
+                    {resolvedSources.length > 0 && !loading && !error && (
+                        <div style={{
+                            border: '1px solid #D0D0C8', background: '#FFFFFF',
+                            padding: '14px 18px', marginBottom: 24,
+                        }}>
+                            <div style={{
+                                fontSize: 10, letterSpacing: 2, textTransform: 'uppercase',
+                                fontWeight: 700, color: '#6B6B00', marginBottom: 10,
+                            }}>
+                                Grounded in {resolvedSources.length} real source{resolvedSources.length === 1 ? '' : 's'}
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                {resolvedSources.map((s, i) => (
+                                    <div key={i} style={{ fontSize: 12.5, lineHeight: 1.5, color: '#1A1A1A' }}>
+                                        <span style={{ fontWeight: 700 }}>{s.sourceName || 'Source'}</span>
+                                        {s.author ? <span style={{ color: '#4B4B4B' }}> · {s.author}</span> : null}
+                                        {s.title ? <span style={{ color: '#1A1A1A' }}>{' '}— {
+                                            s.url
+                                                ? <a href={s.url} target="_blank" rel="noopener noreferrer"
+                                                     onClick={(e) => { if (onOpenUrl) { e.preventDefault(); handleOpenUrl(s.url); } }}
+                                                     style={{ color: '#115054', textDecoration: 'underline' }}>{s.title}</a>
+                                                : <span style={{ fontStyle: 'italic' }}>{s.title}</span>
+                                        }</span> : null}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     )}
                     {article && !loading && !error && (

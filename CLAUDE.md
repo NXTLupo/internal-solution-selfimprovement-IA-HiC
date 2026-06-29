@@ -8,7 +8,7 @@ This file is the platform-wide overview. Two deeper guides cover the surfaces yo
 
 - **[.claude/CLAUDE.md](.claude/CLAUDE.md)** — *always loaded.* NXT design system, citation protocol, evidence hierarchy, 350+ banned phrases, consulting frameworks (Minto / Rumelt / SCQA), content budgets, action-title rules. Applies to every generated artifact in the repo. **Note:** the em-dash hard ban and other format rules apply to *generated output* (slides, deliverables, chat replies, JSON content fields, HTML body text) — not to this file or to other repo documentation. Do not rewrite CLAUDE.md prose to strip em-dashes.
 - **[humans-in-control-research/CLAUDE.md](humans-in-control-research/CLAUDE.md)** — read FIRST for any work under `humans-in-control-research/` (the most actively developed service). Covers the three-tier proxy/SPA/wiki architecture, the 18-template slide system, the `aiRouter.ts` provider routing, the `slidePostProcessor.ts` defense-in-depth layer, the `loadGenerationContext()` wiki-first retrieval contract, and the seven-step protocol for adding a new deliverable type.
-- Service-local `CLAUDE.md` files exist in `internal-solutions-journeymapper/`, `internal-solutions-claude4-journey-mapper-v2/`, and `internal-solutions-socialresearch/` — read them when working in those services.
+- Service-local `CLAUDE.md` files exist in `internal-solutions-journeymapper/`, `internal-solutions-claude4-journey-mapper-v2/`, `internal-solutions-socialresearch/`, and `NXT-Agency/` — read them when working in those services.
 
 ## Architecture Overview
 

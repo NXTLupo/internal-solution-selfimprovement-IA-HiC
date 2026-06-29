@@ -499,6 +499,20 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 // Mirrored in: documentation.html §12, .claude/CLAUDE.md, brand/figma-node-map +
 // memory. When this rule changes, update ALL of those together.
 // ============================================================================
+// ============================================================================
+// OPUS CAP — SINGLE SOURCE OF TRUTH for the temporary Anthropic-quota workaround
+// (Opus 4.8 hit its monthly cap; it returns HTTP 400 until access is regained).
+// While `true`, NO generation path may route to claude-opus-4-8 — every site that
+// would otherwise pick Opus must fall to its Gemini stand-in. This consolidates a
+// workaround that previously lived in three places (corpusChatService
+// ARTIFACT_DEFAULT_DURING_CAP, prototypeBuilder CODE_MODEL, and — unguarded until
+// 2026-06-29 — geminiService._runBreadthShard, which kept calling Opus and eating
+// a 400 on every theme shard before falling back).
+// REVERT (after the cap lifts, e.g. 2026-07-01): set this to `false` — that ONE
+// flip restores Opus across all three sites in lockstep. No other edit required.
+// ============================================================================
+export const OPUS_CAP_ACTIVE = true;
+
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     research: 'gemini-3.1-pro-preview',
     fast_generation: 'gemini-3.5-flash',

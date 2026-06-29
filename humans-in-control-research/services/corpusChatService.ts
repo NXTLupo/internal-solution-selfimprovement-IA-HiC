@@ -10,6 +10,7 @@ import * as _hashtagRegistryModule from './hashtagRegistry';
 // feedback_deliverables_manifest_wiki_not_rag). pickChunksForPrompt pre-ranks the
 // engagement's chunk catalog; resolveChunks dereferences pointers to verbatim
 // spans; assembleChunkCorpus renders the cite-by-pointer block.
+import { OPUS_CAP_ACTIVE } from './aiRouter';
 import { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions } from './chunkRetrieval';
 import { resolveChunks, currentEngagementSlug } from './wikiPointerResolver';
 // 2026-06-02 - Single canonical shaper for run intelligence + corpus manifest.
@@ -615,7 +616,10 @@ const DELIVERABLE_MODEL_TIER: Record<string, ChatModel> = {
 // element imagery). Covers case-study, persona-card, theme-overview/detail/arc/mosaic,
 // recommendation, prd-feature, executive-brief, principles/strategy. Set to null to
 // restore the canonical claude-opus-4-8 default once the cap lifts.
-const ARTIFACT_DEFAULT_DURING_CAP: ChatModel | null = 'gemini-3.1-pro-preview';
+// Derived from the single OPUS_CAP_ACTIVE flag (aiRouter): while capped, non-schema
+// artifacts default to Gemini 3.1 Pro; when the flag flips to false the value becomes
+// null, which restores the canonical claude-opus-4-8 force-route default.
+const ARTIFACT_DEFAULT_DURING_CAP: ChatModel | null = OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : null;
 
 /** Resolve the per-deliverable model override for a message, or null if none.
  *  Keys on the ARTIFACT_TPL template id (gap-matrix / journey-map / ...), so a

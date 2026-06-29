@@ -11633,6 +11633,31 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
         frontmatter = _build_article_frontmatter(req, h, path_rel, chars,
                                                   content_hash=content_hash,
                                                   relevance_by_goal=rel_by_goal)
+        # 2026-06-29 FORWARD source attribution: deep-research docs arrive with
+        # opaque grounding-redirect URLs in derived_from + a generic provider
+        # source bucket. Resolve those redirects to REAL named sources at write
+        # time (the SAME resolver the backfill endpoint uses - single chokepoint)
+        # so new runs never persist "gemini (focused research)" without real
+        # attribution. Best-effort + bounded; failure never blocks the write.
+        try:
+            _is_dr = (req.method or '').strip().lower() == 'deep-research'
+            if _is_dr and req.derivedFrom and 'resolved_sources:' not in frontmatter:
+                _dr_urls = [str(x) for x in req.derivedFrom
+                            if isinstance(x, str) and x.startswith('http')][:16]
+                if _dr_urls:
+                    _resolved = []
+                    async with httpx.AsyncClient(follow_redirects=True) as _rc:
+                        for _u in _dr_urls:
+                            _a = await _resolve_redirect_attribution(_rc, _u)
+                            if _a.get('sourceName'):
+                                _resolved.append({k: _a.get(k, '') for k in
+                                                  ('sourceName', 'title', 'author', 'kind', 'url')})
+                    if _resolved and frontmatter.rstrip().endswith('---'):
+                        _rs = 'resolved_sources: ' + json.dumps(_resolved, separators=(',', ':'), ensure_ascii=True)
+                        _fm = frontmatter.rstrip()
+                        frontmatter = _fm[:-3].rstrip() + '\n' + _rs + '\n---'
+        except Exception as _attr_err:
+            logger.warning(f"[wiki-write-article] forward attribution resolve failed: {_attr_err}")
         body = f"{frontmatter}\n\n# {req.title or req.source or 'Untitled'}\n\n"
         if req.url:
             body += f"Source: [{req.source or req.url}]({req.url})\n\n"
@@ -11708,23 +11733,80 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
         logger.error(f"Wiki article write failed: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
 
+def _slice_chunk_from_article(content: str, chunk_frag: str):
+    """Best-effort: given a full article markdown (frontmatter + body) and a
+    chunk fragment like 'c3', return the verbatim chunk text via the chunk's
+    char_span in the `chunks:` frontmatter (offsets are into the post-frontmatter
+    body). Returns None on any parse failure — callers fall back to full content."""
+    try:
+        if not chunk_frag or not content.startswith('---'):
+            return None
+        fm_end = content.find('\n---', 4)
+        if fm_end < 0:
+            return None
+        frontmatter = content[:fm_end]
+        body = content[fm_end + 4:].lstrip('\n')
+        # Find the char_span on the line(s) following the matching chunk id.
+        # id lines look like:  - id: "<path>#c3"   then  char_span: [a, b]
+        m = re.search(
+            r'id:\s*"[^"\n]*#' + re.escape(chunk_frag) + r'"\s*\n\s*char_span:\s*\[\s*(\d+)\s*,\s*(\d+)\s*\]',
+            frontmatter)
+        if not m:
+            return None
+        start, end = int(m.group(1)), int(m.group(2))
+        if 0 <= start < end <= len(body):
+            return body[start:end].strip()
+    except Exception:
+        return None
+    return None
+
+
+def _parse_resolved_sources(content: str):
+    """Return the structured resolved_sources[] from a deep-research article's
+    frontmatter (the REAL named sources recovered for it), or [] if absent."""
+    try:
+        m = re.search(r'^resolved_sources:\s*(\[.*\])\s*$', content, re.M)
+        if not m:
+            return []
+        rs = json.loads(m.group(1))
+        return rs if isinstance(rs, list) else []
+    except Exception:
+        return []
+
+
 @app.get("/api/wiki/read-article/{hash_or_path:path}")
 async def wiki_read_article(hash_or_path: str):
     """Read a wiki article. Accepts either a full wikiPath
     (articles/source/hash.md) or just the hash — in which case we search
-    known article subdirectories."""
+    known article subdirectories. A trailing manifest chunk fragment
+    (`...md#c3`) is stripped before resolving the file and, when present,
+    used to slice the cited chunk's verbatim text from the body."""
+    # Strip the manifest chunk-pointer fragment (`<wikiPath>#cN`) before
+    # resolving the file. Without this the file lookup uses `33aec05c8b.md#c3`
+    # as a literal filename and 404s on every chunk-pointer dereference.
+    base_ref, _, chunk_frag = hash_or_path.partition('#')
     # Direct path
-    if hash_or_path.endswith('.md') or '/' in hash_or_path:
-        safe_path = os.path.normpath(os.path.join(WIKI_BASE, hash_or_path))
+    if base_ref.endswith('.md') or '/' in base_ref:
+        safe_path = os.path.normpath(os.path.join(WIKI_BASE, base_ref))
         if not safe_path.startswith(os.path.normpath(WIKI_BASE)):
             return JSONResponse({"error": "Path traversal blocked"}, status_code=400)
         if not os.path.exists(safe_path):
-            return JSONResponse({"error": "Not found", "wikiPath": hash_or_path}, status_code=404)
+            return JSONResponse({"error": "Not found", "wikiPath": base_ref}, status_code=404)
         with open(safe_path, "r", encoding="utf-8") as f:
-            return {"wikiPath": hash_or_path, "content": f.read()}
+            content = f.read()
+        out = {"wikiPath": base_ref, "content": content}
+        _rs = _parse_resolved_sources(content)
+        if _rs:
+            out["resolvedSources"] = _rs
+        if chunk_frag:
+            chunk_text = _slice_chunk_from_article(content, chunk_frag)
+            if chunk_text:
+                out["chunkId"] = chunk_frag
+                out["chunk"] = chunk_text
+        return out
 
     # Hash-only lookup: walk articles/, transcripts/, uploads/ for {hash}.md
-    h = hash_or_path
+    h = base_ref
     for namespace in ('articles', 'transcripts', 'uploads'):
         ns_root = os.path.join(WIKI_BASE, namespace)
         if not os.path.isdir(ns_root):
@@ -11734,7 +11816,17 @@ async def wiki_read_article(hash_or_path: str):
             if os.path.exists(candidate):
                 rel = os.path.relpath(candidate, WIKI_BASE).replace(os.sep, '/')
                 with open(candidate, "r", encoding="utf-8") as f:
-                    return {"wikiPath": rel, "content": f.read()}
+                    content = f.read()
+                out = {"wikiPath": rel, "content": content}
+                _rs = _parse_resolved_sources(content)
+                if _rs:
+                    out["resolvedSources"] = _rs
+                if chunk_frag:
+                    chunk_text = _slice_chunk_from_article(content, chunk_frag)
+                    if chunk_text:
+                        out["chunkId"] = chunk_frag
+                        out["chunk"] = chunk_text
+                return out
     return JSONResponse({"error": "Hash not found", "urlHash": h}, status_code=404)
 
 # 2026-06-08 — SOURCE LINK-BACK RESOLVER. Theme citations carry a sourceFile
@@ -11820,6 +11912,260 @@ async def source_resolve(request: Request):
         except Exception:
             out[f] = {'wikiPath': rel}
     return {"resolved": out, "index_size": len(_SOURCE_INDEX)}
+
+# ============================================================================
+# DEEP-RESEARCH SOURCE ATTRIBUTION (2026-06-29)
+# Standing rule: every cited source must carry REAL per-type attribution
+# (reddit subreddit+username / news outlet+headline+author / blog platform+author).
+# Deep-research synthesis docs were persisted as "gemini (focused research)" with
+# an empty author + only opaque vertexaisearch grounding-redirect URLs in
+# `derived_from`. Those redirects still resolve (verified 2026-06-29), so we can
+# recover the real sources: follow the redirect -> real URL -> derive publisher /
+# subreddit / kind, and best-effort extract the page title + author. This powers
+# both the forward path and a backfill so already-pulled research is not wasted.
+# ============================================================================
+_ATTR_CACHE: dict = {}  # redirect_url -> resolved attribution dict (process-life cache)
+
+_KNOWN_PUBLISHERS = {
+    'mckinsey.com': 'McKinsey & Company', 'bain.com': 'Bain & Company',
+    'bcg.com': 'Boston Consulting Group', 'deloitte.com': 'Deloitte',
+    'pwc.com': 'PwC', 'ey.com': 'EY', 'kpmg.com': 'KPMG',
+    'gartner.com': 'Gartner', 'forrester.com': 'Forrester',
+    'hbr.org': 'Harvard Business Review', 'wsj.com': 'The Wall Street Journal',
+    'nytimes.com': 'The New York Times', 'ft.com': 'Financial Times',
+    'bloomberg.com': 'Bloomberg', 'reuters.com': 'Reuters', 'cnbc.com': 'CNBC',
+    'forbes.com': 'Forbes', 'techcrunch.com': 'TechCrunch', 'wired.com': 'WIRED',
+    'medium.com': 'Medium', 'substack.com': 'Substack',
+    'youtube.com': 'YouTube', 'youtu.be': 'YouTube',
+    'dakota.com': 'Dakota', 'unipv.it': 'University of Pavia',
+    'intersystems.com': 'InterSystems',
+}
+
+def _publisher_from_domain(host: str) -> str:
+    host = (host or '').lower().lstrip('.')
+    if host.startswith('www.'):
+        host = host[4:]
+    if host in _KNOWN_PUBLISHERS:
+        return _KNOWN_PUBLISHERS[host]
+    # registrable-ish stem: drop TLD, title-case the leading label
+    parts = [p for p in host.split('.') if p]
+    if not parts:
+        return host or 'Unknown source'
+    stem = parts[0] if len(parts) <= 2 else parts[-2]
+    return stem.replace('-', ' ').replace('_', ' ').title()
+
+_TITLE_RE = re.compile(r'<title[^>]*>(.*?)</title>', re.I | re.S)
+_OG_TITLE_RE = re.compile(r'<meta[^>]+property=["\']og:title["\'][^>]*content=["\']([^"\']+)["\']', re.I)
+_SITE_NAME_RE = re.compile(r'<meta[^>]+property=["\']og:site_name["\'][^>]*content=["\']([^"\']+)["\']', re.I)
+_SITE_NAME_RE2 = re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:site_name["\']', re.I)
+_AUTHOR_METAS = [
+    re.compile(r'<meta[^>]+(?:name|property)=["\'](?:author|article:author|og:author)["\'][^>]*content=["\']([^"\']+)["\']', re.I),
+    re.compile(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+(?:name|property)=["\'](?:author|article:author)["\']', re.I),
+    re.compile(r'"author"\s*:\s*\{[^}]*"name"\s*:\s*"([^"]+)"', re.I),
+    re.compile(r'<[^>]+(?:class|rel)=["\'][^"\']*(?:author|byline)[^"\']*["\'][^>]*>\s*([^<]{2,80})<', re.I),
+]
+
+def _clean_text(s: str) -> str:
+    """HTML-unescape, drop lone surrogates (emoji-scrub standing rule), collapse ws."""
+    if not s:
+        return ''
+    try:
+        import html as _html
+        s = _html.unescape(s)
+    except Exception:
+        pass
+    # Drop lone surrogates + invalid sequences definitively (they break JSON.parse
+    # downstream and read as mojibake): round-trip through UTF-8 with ignore.
+    s = s.encode('utf-8', 'ignore').decode('utf-8', 'ignore')
+    # strip control chars
+    s = ''.join(ch for ch in s if ord(ch) >= 32 or ch == '\t')
+    return re.sub(r'\s+', ' ', s).strip()
+
+def _looks_like_junk_title(t: str) -> bool:
+    if not t or len(t) < 4:
+        return True
+    if re.fullmatch(r'[\d\W]+', t):     # pure number / punctuation (e.g. a URL id)
+        return True
+    return False
+
+def _extract_page_meta(html: str):
+    """Return (title, author, site_name) from page HTML, entity-decoded + cleaned."""
+    if not html:
+        return '', '', ''
+    head = html[:250_000]
+    # title: prefer og:title, then <title> with boilerplate suffix trimmed
+    title = ''
+    mo = _OG_TITLE_RE.search(head)
+    if mo:
+        title = _clean_text(mo.group(1))
+    if not title:
+        mt = _TITLE_RE.search(head)
+        if mt:
+            title = _clean_text(mt.group(1))
+            title = re.split(r'\s+[|–—\-]\s+(?=[^|–—\-]{2,45}$)', title)[0].strip() or title
+    author = ''
+    for rx in _AUTHOR_METAS:
+        ma = rx.search(head)
+        if ma:
+            cand = _clean_text(ma.group(1))
+            if cand and cand.lower() not in ('null', 'admin', 'staff', 'editor') and len(cand) <= 80:
+                author = cand
+                break
+    site = ''
+    ms = _SITE_NAME_RE.search(head) or _SITE_NAME_RE2.search(head)
+    if ms:
+        site = _clean_text(ms.group(1))
+    return title[:240], author[:120], site[:80]
+
+def _derive_attribution(final_url: str, html: str) -> dict:
+    """Pure-ish: given the resolved real URL (+ optional page html), derive
+    {sourceName, kind, subreddit, author, title, url}. Network-free except the
+    html the caller already fetched. Publisher prefers og:site_name (gives
+    'Boston University' / 'Higher Ed Dive' verbatim), then the known map, then a
+    domain stem - so attribution reads as a real outlet, never a bare domain id."""
+    from urllib.parse import urlparse, unquote
+    try:
+        u = urlparse(final_url)
+    except Exception:
+        u = None
+    host = (u.netloc if u else '').lower()
+    path = (u.path if u else '') or ''
+    page_title, page_author, site_name = _extract_page_meta(html)
+    bare = host[4:] if host.startswith('www.') else host
+    # Reddit -> subreddit + username
+    if 'reddit.com' in bare:
+        m = re.search(r'/r/([A-Za-z0-9_]+)', path)
+        sub = m.group(1) if m else ''
+        mu = re.search(r'/(?:user|u)/([A-Za-z0-9_\-]+)', path)
+        author = ('u/' + mu.group(1)) if mu else page_author
+        return {'url': final_url, 'kind': 'social',
+                'sourceName': f'Reddit r/{sub}' if sub else 'Reddit',
+                'subreddit': sub, 'author': author, 'title': page_title}
+    if 'youtube.com' in bare or 'youtu.be' in bare:
+        return {'url': final_url, 'kind': 'video', 'sourceName': site_name or 'YouTube',
+                'subreddit': '', 'author': page_author, 'title': page_title}
+    # Publisher: og:site_name > known map > domain stem
+    publisher = site_name or _publisher_from_domain(host)
+    kind = 'blog' if ('/blog/' in path or 'medium.com' in bare or 'substack.com' in bare) else 'article'
+    # title fallback from the URL slug; drop junk (numeric ids etc.)
+    if _looks_like_junk_title(page_title):
+        slug = unquote(path.rstrip('/').split('/')[-1]) if path else ''
+        slug = re.sub(r'\.\w{2,5}$', '', slug)  # drop trailing extension
+        cand = slug.replace('-', ' ').replace('_', ' ').strip().title()
+        page_title = '' if _looks_like_junk_title(cand) else cand
+    return {'url': final_url, 'kind': kind, 'sourceName': publisher,
+            'subreddit': '', 'author': page_author, 'title': page_title}
+
+async def _resolve_redirect_attribution(client: "httpx.AsyncClient", redirect_url: str) -> dict:
+    if redirect_url in _ATTR_CACHE:
+        return _ATTR_CACHE[redirect_url]
+    final_url, html = redirect_url, ''
+    try:
+        resp = await client.get(redirect_url, headers={"User-Agent": _BROWSER_UA,
+            "Accept": "text/html,application/xhtml+xml,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5"},
+            timeout=15.0, follow_redirects=True)
+        final_url = str(resp.url) or redirect_url
+        ct = (resp.headers.get("content-type") or "").lower()
+        if resp.status_code == 200 and ('html' in ct or 'xml' in ct or not ct):
+            # Force UTF-8: httpx often mis-guesses latin-1/cp1252 for pages with no
+            # explicit charset, mojibaking UTF-8 titles/authors (e.g. note.com). The
+            # modern web is overwhelmingly UTF-8; an explicit non-UTF-8 charset header
+            # is honored, otherwise decode bytes as UTF-8 with replacement.
+            declared = ''
+            m_cs = re.search(r'charset=([\w\-]+)', ct)
+            if m_cs:
+                declared = m_cs.group(1).lower()
+            if declared and declared not in ('utf-8', 'utf8', 'us-ascii', 'ascii'):
+                html = resp.text
+            else:
+                try:
+                    html = resp.content.decode('utf-8', errors='replace')
+                except Exception:
+                    html = resp.text
+    except Exception:
+        pass
+    attr = _derive_attribution(final_url, html)
+    attr['redirect'] = redirect_url
+    attr['resolved'] = final_url != redirect_url
+    _ATTR_CACHE[redirect_url] = attr
+    return attr
+
+@app.post("/api/deep-research/backfill-attribution")
+async def backfill_deep_research_attribution(request: Request):
+    """Recover REAL source attribution for already-pulled deep-research articles.
+    Walks deep-research synthesis docs (source contains 'focused research' OR
+    method=deep-research OR under articles/*focused-research*), resolves each
+    `derived_from` grounding-redirect URL to its real source, and writes a
+    structured `resolved_sources:` frontmatter block (non-destructive; keeps
+    derived_from). Body: {limit?, dry_run?, path_contains?, per_doc_cap?}."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    limit = int(body.get('limit', 0) or 0)              # 0 = all
+    dry_run = bool(body.get('dry_run', False))
+    path_contains = (body.get('path_contains') or '').strip()
+    per_doc_cap = int(body.get('per_doc_cap', 16) or 16)  # bound redirects per doc
+
+    art_root = os.path.join(WIKI_BASE, 'articles')
+    targets = []
+    for dirpath, _d, files in os.walk(art_root):
+        for fn in files:
+            if not fn.endswith('.md'):
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, fn), WIKI_BASE).replace(os.sep, '/')
+            if path_contains and path_contains not in rel:
+                continue
+            try:
+                with open(os.path.join(dirpath, fn), 'r', encoding='utf-8') as fh:
+                    head = fh.read(6000)
+            except Exception:
+                continue
+            is_dr = ('focused research' in head.lower() or 'method: "deep-research"' in head
+                     or 'method: deep-research' in head or 'focused-research' in rel)
+            if is_dr and 'derived_from:' in head and 'resolved_sources:' not in head:
+                targets.append(os.path.join(dirpath, fn))
+    if limit > 0:
+        targets = targets[:limit]
+
+    processed, updated, sources_total, examples = 0, 0, 0, []
+    async with httpx.AsyncClient(follow_redirects=True) as client:
+        for path in targets:
+            processed += 1
+            try:
+                with open(path, 'r', encoding='utf-8') as fh:
+                    content = fh.read()
+            except Exception:
+                continue
+            mdf = re.search(r'^derived_from:\s*(\[.*\])\s*$', content, re.M)
+            if not mdf:
+                continue
+            try:
+                urls = json.loads(mdf.group(1))
+            except Exception:
+                continue
+            urls = [u for u in urls if isinstance(u, str) and u.startswith('http')][:per_doc_cap]
+            resolved = []
+            for u in urls:
+                attr = await _resolve_redirect_attribution(client, u)
+                resolved.append({k: attr.get(k, '') for k in ('sourceName', 'title', 'author', 'kind', 'url')})
+            resolved = [r for r in resolved if r.get('sourceName')]
+            sources_total += len(resolved)
+            if examples == [] or len(examples) < 3:
+                examples.append({'page': os.path.relpath(path, WIKI_BASE).replace(os.sep, '/'),
+                                 'resolved_sources': resolved[:4]})
+            if resolved and not dry_run:
+                # Insert a structured resolved_sources line right after derived_from.
+                rs_line = 'resolved_sources: ' + json.dumps(resolved, separators=(',', ':'), ensure_ascii=True)
+                new_content = content[:mdf.end()] + '\n' + rs_line + content[mdf.end():]
+                try:
+                    with open(path, 'w', encoding='utf-8') as fh:
+                        fh.write(new_content)
+                    updated += 1
+                except Exception:
+                    pass
+    return {"processed": processed, "updated": updated, "sources_recovered": sources_total,
+            "dry_run": dry_run, "examples": examples, "remaining_targets": len(targets) - processed}
 
 @app.get("/api/wiki/check-article")
 async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DEDUP, engagement: str = ""):

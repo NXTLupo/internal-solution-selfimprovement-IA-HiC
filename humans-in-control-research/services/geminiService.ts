@@ -1,7 +1,7 @@
 ﻿
 import { GoogleGenAI, Type, Schema, Chat, GenerateContentResponse } from "@google/genai";
 import { FileUpload, AnalysisResult, Persona, ScriptScene, Slide, SlideLayout, StepResult_Ingestion, StepResult_Themes, StepResult_Personas, StepResult_Structure, StepResult_Narrative, StepResult_Final, Theme, SlideStyle, Citation, StrategicRecommendation, OutputOption, StepResult_JourneyMap, StepResult_TechArch, ServiceBlueprintStage, TechnicalArchitecture, TechNode, TechFlow, PRD, StepResult_PRD, StrategicRoadmap, StepResult_Roadmap, StepResult_Recommendations, StepResult_CrossCuttingSynthesis, DeckInputContext, ContentBlock } from "../types";
-import { tryRepairJson } from './aiRouter';
+import { tryRepairJson, OPUS_CAP_ACTIVE } from './aiRouter';
 import { recordAICall } from './costMeter';
 
 // 2026-06-20 COST METER FIX. The GoogleGenAI client below talks DIRECT to Google
@@ -1639,7 +1639,6 @@ ONLY EMIT THESE FIELDS PER THEME:
   • citations[] (3+ entries spanning 2+ source names - sourceFile, text, url, sourceName, author, publicationDate)
   • isCrossDocument (true if 2+ different source names support the theme)
   • status ("priority" | "emerging" | "weak")
-  • probability (FLOAT in (0, 0.10) - your verbalized confidence that this specific theme is the right framing among all plausible themes for this corpus. The < 0.10 ceiling is the moderate-tail sampling constraint. AT MOST ONE theme may exceed 0.07 (the single strongest modal answer). The rest fan out across the tail. Writing this value is your commitment to non-modal output. SEE THE VS DIRECTIVE BLOCK ABOVE for the full discipline.)
   • goalAlignment (INTEGER 0..100 - how directly the theme answers the research goal:
        100 = the theme IS what's being asked about
         80 = primary mechanism / driver
@@ -2474,7 +2473,13 @@ Now extract the full theme set from the widened evidence.`;
         // through to the existing Gemini -> GPT-5.5 chain unchanged, so
         // reliability is strictly added.
         try {
-            if ((process.env as any).ANTHROPIC_API_KEY) {
+            // 2026-06-29 - Honor the Opus cap. While OPUS_CAP_ACTIVE (single source of
+            // truth in aiRouter) is true, claude-opus-4-8 returns HTTP 400, so the
+            // Opus-first attempt below was eating a doomed 400 on EVERY theme shard
+            // (live-observed 10x) before falling through to Gemini. Skip it while capped
+            // and go straight to the Gemini -> GPT-5.5 chain; the single flag flip in
+            // aiRouter restores Opus here in lockstep with the other two cap sites.
+            if (!OPUS_CAP_ACTIVE && (process.env as any).ANTHROPIC_API_KEY) {
                 const { callAIWithRetry } = await import('./aiRetryClient');
                 const schemaDescription = `\n\nOUTPUT A SINGLE JSON OBJECT MATCHING THIS SHAPE:\n${JSON.stringify(schema, null, 2)}\n\nReturn ONLY the JSON object, no markdown fences, no preamble, no trailing prose.`;
                 onStream(`[${label}] generating via Claude Opus 4.8...`);

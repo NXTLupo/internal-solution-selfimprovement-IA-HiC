@@ -714,18 +714,23 @@ export async function pickChunksForPrompt(
     }
     // 2026-06-18 - SOURCE-TYPE BALANCE (research-run-failure-analysis P0.1). Reddit/social chunks
     // out-mass curated news/article/academic on raw volume, so a pure relevance+MMR pack let one
-    // engagement come back ~100% Reddit (themes cited reddit-deep 314x, external 0x). Apply a SOFT
-    // cap: non-(user-selected/pinned) SOCIAL chunks may fill at most SOCIAL_MAX_FRAC of the admitted
-    // pool WHILE non-social candidates remain to fill the budget; once non-social is exhausted, social
-    // may use the remainder (balance when both source types exist; never starve a genuinely social
-    // corpus). User-selected + pinned chunks are authoritative and are NEVER capped. Type is read from
-    // the manifest record's source path / subreddit.
+    // engagement come back ~100% Reddit (themes cited reddit-deep 314x, external 0x). Apply a cap:
+    // SOCIAL chunks may fill at most SOCIAL_MAX_FRAC of the AUTO-admitted pool WHILE non-social
+    // candidates remain to fill the budget; once non-social is exhausted, social may use the remainder
+    // (balance when both source types exist; never starve a genuinely social corpus).
+    // 2026-06-29 (user rule, feedback_every_source_real_attribution): 90% social is UNACCEPTABLE
+    // UNLESS it is the USER'S OWN selection. So the cap governs the AUTO (non-user-selected) picks
+    // ONLY - the denominator excludes protected/user-selected chunks, which are authoritative and
+    // NEVER capped or counted against the cap. Auto-social is held to <=40% of auto picks whenever a
+    // non-social auto candidate still fits; the user's committed KL selection passes through untouched.
     const SOCIAL_MAX_FRAC = 0.4;
     const _isSocialId = new Set<string>();
     for (const rec of candidateRecs) {
         if (rec.sourceSubreddit || isSocialSource(rec.sourcePath, rec.sourceTitle)) _isSocialId.add(rec.chunkId);
     }
-    let _socialSel = selected.reduce((n, id) => n + (_isSocialId.has(id) ? 1 : 0), 0);  // count any pinned social
+    let _socialSel = selected.reduce((n, id) => n + (_isSocialId.has(id) ? 1 : 0), 0);  // total social (incl pinned)
+    let _autoSocial = 0;   // social picked from the AUTO (non-user-selected) tier
+    let _autoTotal = 0;    // total picks from the AUTO tier (the cap's denominator)
 
     const LAMBDA = 0.7;   // relevance weight; (1-LAMBDA) penalizes redundancy
     const pool = scored
@@ -747,12 +752,13 @@ export async function pickChunksForPrompt(
             if (!p.social && mmr > bestOtherMmr) { bestOtherMmr = mmr; bestOtherIdx = i; }
         }
         if (bestIdx === -1) break;   // nothing left fits the budget
-        // SOFT social cap: defer a non-protected social pick that would breach the running cap IN
-        // FAVOR of the best non-social candidate, but only when one still fits the budget.
+        // SOCIAL cap (AUTO tier only): defer a non-protected social pick that would push auto-social
+        // past SOCIAL_MAX_FRAC of the AUTO picks, in favor of the best non-social candidate that still
+        // fits. Protected (user-selected) chunks are never deferred and never counted in the denominator.
         let pickIdx = bestIdx;
         const best = pool[bestIdx];
         if (best.social && !best.prot && bestOtherIdx !== -1
-            && _socialSel + 1 > Math.ceil(SOCIAL_MAX_FRAC * (selected.length + 1))) {
+            && _autoSocial + 1 > Math.ceil(SOCIAL_MAX_FRAC * (_autoTotal + 1))) {
             pickIdx = bestOtherIdx;
         }
         const chosen = pool[pickIdx];
@@ -762,9 +768,11 @@ export async function pickChunksForPrompt(
         budgetChars -= chosen.s.charLen;
         selectedSets.push(chosen.set);
         if (chosen.social) _socialSel++;
+        if (!chosen.prot) { _autoTotal++; if (chosen.social) _autoSocial++; }
     }
     const droppedOverBudget = pool.filter(p => !p.taken).length;
-    console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates; source-type balance: ${_socialSel} social / ${selected.length - _socialSel} non-social (social soft-cap ${Math.round(SOCIAL_MAX_FRAC * 100)}%)`);
+    const _userSocial = _socialSel - _autoSocial;  // social that came from the user's own selection
+    console.log(`[chunkRetrieval] MMR pack: selected ${selected.length} chunks (lambda=${LAMBDA}, ~${Math.round(usedChars / CHARS_PER_TOKEN_ESTIMATE)} tok) from ${pool.length} scored candidates; source-type balance: ${_socialSel} social (${_userSocial} user-selected / ${_autoSocial} auto) / ${selected.length - _socialSel} non-social (auto-social cap ${Math.round(SOCIAL_MAX_FRAC * 100)}% of ${_autoTotal} auto picks; user selections never capped)`);
 
     return {
         chunkIds: selected,

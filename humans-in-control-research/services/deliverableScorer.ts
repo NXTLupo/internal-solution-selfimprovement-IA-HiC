@@ -48,7 +48,13 @@ const universalComponents: RubricComponent[] = [
         name: 'em_dash_absent',
         weight: 0.05,
         score: (out) => {
-            const count = (out.match(/-/g) || []).length;
+            // 2026-06-29 FIX: count ONLY the AI-tell dash family (em U+2014, en U+2013,
+            // figure U+2012, horizontal-bar U+2015) - NEVER the ASCII hyphen U+002D, which
+            // is legitimate in dates (2026-06-29), compound words (co-op, state-of-the-art),
+            // slugs and URLs (standing rule: the strip must never touch ASCII hyphens). The
+            // old /-/g matched ASCII hyphens and reported them as "em-dashes", producing a
+            // false ~1691-count failure on clean themes that dragged composite -20pts.
+            const count = (out.match(/[‒–—―]/g) || []).length;
             return { score: count === 0 ? 1 : Math.max(0, 1 - count / 10), pass: count === 0, note: count > 0 ? `${count} em-dash characters present` : undefined };
         },
     },
