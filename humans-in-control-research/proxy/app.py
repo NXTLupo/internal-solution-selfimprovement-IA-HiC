@@ -12167,6 +12167,126 @@ async def backfill_deep_research_attribution(request: Request):
     return {"processed": processed, "updated": updated, "sources_recovered": sources_total,
             "dry_run": dry_run, "examples": examples, "remaining_targets": len(targets) - processed}
 
+_PROVIDER_BUCKET_RE = re.compile(r'\((?:focused|deep)\s+research\)|^\s*(?:gemini|claude|openai|gpt[\w.\-]*|deepseek)\s*$', re.I)
+
+def _article_relpath_for_citation(cit: dict):
+    """Resolve a theme citation -> the wiki article relpath it points at, from
+    whichever of wikiPath / sourceFile / chunkPointer / url it carries."""
+    for key in ('wikiPath', 'sourceFile', 'chunkPointer', 'url'):
+        v = cit.get(key)
+        if not isinstance(v, str) or '.md' not in v:
+            continue
+        ref = v.split('#', 1)[0].strip()
+        if '/' in ref:
+            cand = os.path.normpath(os.path.join(WIKI_BASE, ref))
+            if cand.startswith(os.path.normpath(WIKI_BASE)) and os.path.exists(cand):
+                return os.path.relpath(cand, WIKI_BASE).replace(os.sep, '/')
+        base = ref.split('/')[-1]
+        if not _SOURCE_INDEX or (time.time() - _SOURCE_INDEX_BUILT_AT) > 600:
+            _build_source_index()
+        rel = _SOURCE_INDEX.get(base) or _SOURCE_INDEX.get(base + '.md')
+        if rel:
+            return rel
+    return None
+
+def _relabel_from_resolved(rs: list):
+    """Build the card sourceName + author from an article's resolved_sources.
+    A deep-research synthesis draws on many sources, so we name the primary and
+    signal the rest (honest: 'Dakota +15 sources'), never a single false claim."""
+    named = [s for s in rs if isinstance(s, dict) and s.get('sourceName')]
+    if not named:
+        return None
+    primary = named[0]
+    n = len(named)
+    label = primary['sourceName'] + (f" +{n - 1} sources" if n > 1 else "")
+    return {'sourceName': label, 'author': primary.get('author', ''),
+            'primaryTitle': primary.get('title', ''), 'resolvedSources': named}
+
+@app.post("/api/themes/reresolve-attribution")
+async def reresolve_themes_attribution(request: Request):
+    """Rewrite persisted themes.json citations that still carry the generic
+    'gemini (focused research)' provider bucket: where the cited article now has
+    resolved_sources (from the backfill), relabel the citation to the REAL named
+    source(s). The board hydrates themes.json at runtime, so a reload reflects it.
+    Body: {engagement?: slug, dry_run?: bool}. Non-destructive to non-bucket cites."""
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    slug = (body.get('engagement') or '').strip()
+    dry_run = bool(body.get('dry_run', False))
+
+    eng_root = os.path.join(WIKI_BASE, 'engagements')
+    files = []
+    if os.path.isdir(eng_root):
+        for d in os.listdir(eng_root):
+            if slug and d != slug:
+                continue
+            tj = os.path.join(eng_root, d, 'themes.json')
+            if os.path.isfile(tj):
+                files.append(tj)
+
+    _rs_cache: dict = {}
+    files_updated, cites_relabeled, examples = 0, 0, []
+    for tj in files:
+        try:
+            with open(tj, 'r', encoding='utf-8') as fh:
+                doc = json.load(fh)
+        except Exception:
+            continue
+        # themes.json wraps the payload: {schema_version, kind, slug, saved_at, data:{themes:[...]}}
+        container = doc.get('data') if (isinstance(doc, dict) and isinstance(doc.get('data'), dict)) else doc
+        themes = container.get('themes') if isinstance(container, dict) else (container if isinstance(container, list) else [])
+        if not isinstance(themes, list):
+            continue
+        changed = False
+        for th in themes:
+            cits = th.get('citations') if isinstance(th, dict) else None
+            if not isinstance(cits, list):
+                continue
+            for c in cits:
+                if not isinstance(c, dict):
+                    continue
+                # Gate on the ARTICLE having resolved_sources (i.e. it is a deep-research
+                # synthesis we recovered real attribution for) - this catches every bucket
+                # variant ("Gemini Focused Research", "gemini (focused research)", "Vertex AI
+                # Search", ...) without enumerating them. Real-source citations (uploads,
+                # interviews, named outlets) have no resolved_sources and are left untouched.
+                rel = _article_relpath_for_citation(c)
+                if not rel:
+                    continue
+                name = str(c.get('sourceName') or c.get('source') or '')
+                if rel not in _rs_cache:
+                    try:
+                        with open(os.path.join(WIKI_BASE, rel), 'r', encoding='utf-8') as af:
+                            _rs_cache[rel] = _parse_resolved_sources(af.read(20000))
+                    except Exception:
+                        _rs_cache[rel] = []
+                lab = _relabel_from_resolved(_rs_cache[rel])
+                if not lab:
+                    continue
+                if len(examples) < 5:
+                    examples.append({'was': name, 'now': lab['sourceName'], 'author': lab['author']})
+                c['sourceName'] = lab['sourceName']
+                if lab['author']:
+                    c['author'] = lab['author']
+                c['resolvedSources'] = lab['resolvedSources']
+                cites_relabeled += 1
+                changed = True
+        if changed and not dry_run:
+            try:
+                tmp = tj + '.tmp'
+                with open(tmp, 'w', encoding='utf-8') as fh:
+                    json.dump(doc, fh, ensure_ascii=False, indent=2)
+                os.replace(tmp, tj)
+                files_updated += 1
+            except Exception:
+                pass
+        elif changed:
+            files_updated += 1  # would-update (dry run)
+    return {"themes_files_scanned": len(files), "files_updated": files_updated,
+            "citations_relabeled": cites_relabeled, "dry_run": dry_run, "examples": examples}
+
 @app.get("/api/wiki/check-article")
 async def wiki_check_article(url: str, min_chars: int = ARTICLE_MIN_CHARS_FOR_DEDUP, engagement: str = ""):
     """Dedup check: does the wiki already hold ≥ min_chars of extracted
