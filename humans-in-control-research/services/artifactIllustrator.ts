@@ -23,6 +23,14 @@ function conceptFromElement(el: unknown): string {
     if (typeof el === 'string') return el.trim();
     if (el && typeof el === 'object') {
         const o = el as Record<string, unknown>;
+        // STRATEGIC AUTHORING FIRST (user-locked 2026-06-27): the expert skill authors a content-true
+        // per-element concept on brandImage.concept / imageConcept BEFORE prompting. Prefer it over the
+        // raw title so the image SUPPORTS the content rather than restating the label.
+        const bi = o['brandImage'];
+        if (bi && typeof bi === 'object' && typeof (bi as Record<string, unknown>).concept === 'string' && (bi as Record<string, unknown>).concept) {
+            return String((bi as Record<string, unknown>).concept).trim();
+        }
+        if (typeof o['imageConcept'] === 'string' && (o['imageConcept'] as string).trim()) return (o['imageConcept'] as string).trim();
         for (const k of ['name', 'actionTitle', 'title', 'heading', 'label', 'capability', 'phase', 'subject', 'insight']) {
             const v = o[k];
             if (typeof v === 'string' && v.trim()) return v.trim();
@@ -33,7 +41,20 @@ function conceptFromElement(el: unknown): string {
 
 /** Derive a concept for a single-panel artifact from its top-level payload fields. */
 function conceptFromPayload(payload: Record<string, unknown>): string {
-    for (const k of ['actionTitle', 'title', 'thesis', 'name', 'heading', 'patternSignal']) {
+    // 2026-06-28 FIX: include `subject` so the case-study payload (whose identity field is
+    // `subject`, e.g. "Linear (Issue Tracking SaaS)" - NOT title/name) yields a concept seed.
+    // Without it conceptFromPayload returned '' for case-study -> resolveArtifactImages returned
+    // 0 -> caseStudy.panelImage was never generated -> the renderer (which already reads
+    // c.panelImage) painted nothing. Mirrors conceptFromElement: authored concept wins.
+    const bi = payload['brandImage'];
+    if (bi && typeof bi === 'object' && typeof (bi as Record<string, unknown>).concept === 'string'
+        && (bi as Record<string, unknown>).concept) {
+        return String((bi as Record<string, unknown>).concept).trim();
+    }
+    if (typeof payload['imageConcept'] === 'string' && (payload['imageConcept'] as string).trim()) {
+        return (payload['imageConcept'] as string).trim();
+    }
+    for (const k of ['actionTitle', 'title', 'thesis', 'subject', 'name', 'heading', 'patternSignal']) {
         const v = payload[k];
         if (typeof v === 'string' && v.trim()) return v.trim();
     }
@@ -41,16 +62,31 @@ function conceptFromPayload(payload: Record<string, unknown>): string {
 }
 
 async function generateOne(concept: string, brand: string, canvas: 'dark' | 'light', kind: SlotKind,
-                           variant: number): Promise<{ url: string; reused: boolean } | null> {
+                           variant: number, branch?: string): Promise<{ url: string; dataUri: string; reused: boolean } | null> {
     try {
-        const resp = await fetch(`${PROXY_BASE}/api/ai/illustration`, {
+        // emotive branch (user-locked 2026-06-27): the THIRD imagery type is the Memphis-iso
+        // flat-illustrative brand image (/api/ai/brand-image), NOT the old continuous single-line art
+        // (/api/ai/illustration) the user rejected. Route emotive there; other branches keep the
+        // existing path.
+        const emotive = branch === 'emotive';
+        const url = emotive ? `${PROXY_BASE}/api/ai/brand-image` : `${PROXY_BASE}/api/ai/illustration`;
+        const body = emotive
+            ? JSON.stringify({ concept, brand, variant })
+            : JSON.stringify({ concept, brand, canvas, slot: kind, variant });
+        const resp = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ concept, brand, canvas, slot: kind, variant }),
+            body,
         });
         if (!resp.ok) return null;
         const r = await resp.json();
-        return (r && typeof r.url === 'string' && r.url) ? { url: r.url, reused: !!r.reused } : null;
+        // Carry the data-URI (origin-independent) so the image survives BOTH the live preview AND
+        // the headless .pptx export. The relative `url` (/hic-workspace/...) renders only in the SPA;
+        // the export's GEO walker / _place_geo_images can decode a data: src but cannot fetch a
+        // relative path with no origin -> images were silently dropped from exports (2026-06-28).
+        return (r && typeof r.url === 'string' && r.url)
+            ? { url: r.url, dataUri: typeof r.dataUri === 'string' ? r.dataUri : '', reused: !!r.reused }
+            : null;
     } catch {
         return null;
     }
@@ -79,9 +115,11 @@ export async function resolveArtifactImages(
     // Pull a unique image for `concept`, bumping variant on intra-artifact repeats.
     const uniqueImage = async (concept: string): Promise<string> => {
         for (let v = 0; v <= 3; v++) {
-            const r = await generateOne(concept, brand, canvas, kind, v);
+            const r = await generateOne(concept, brand, canvas, kind, v, spec.branch);
             if (!r) return '';
-            if (!usedUrls.has(r.url)) { usedUrls.add(r.url); return r.url; }
+            // Dedup on the stable content-id (url); STORE the data-URI so the image embeds in exports
+            // (falls back to the url only if the endpoint returned no dataUri).
+            if (!usedUrls.has(r.url)) { usedUrls.add(r.url); return r.dataUri || r.url; }
         }
         return '';
     };

@@ -46,3 +46,34 @@ describe('render insurance themes (visual check harness)', () => {
         console.log(`[themes-render] theme names: ${slide.themeCluster.themes.map(t => t.name.slice(0,40)).join(' | ')}`);
     });
 });
+
+// 2026-06-28 TWIN-SYNC GUARD. The export twin (slideToStageHtml) and the React
+// fallback twin (goldPreviews) must agree on which carriers they paint, or the
+// preview diverges from the export + Figma. The per-theme emotive thumbnail
+// (Figma 590:9 per-card slot 895:338..340) and the per-recommendation panel
+// (Figma 678:5526) were synced into goldPreviews this session; this hermetic
+// source-parse guard (same approach as figmaRegistryParity) keeps them painted.
+describe('twin-sync: goldPreviews paints the per-element image carriers slideToStageHtml does', () => {
+    const root = resolve(__dirname, '..');
+    const gold = readFileSync(resolve(root, 'components/slideTemplates/goldPreviews.tsx'), 'utf-8');
+    const stage = readFileSync(resolve(root, 'services/slideToStageHtml.ts'), 'utf-8');
+
+    it('goldPreviews has a per-theme ThemeThumb twin of slideToStageHtml themeThumb()', () => {
+        expect(stage).toContain('function themeThumb(');           // export twin
+        expect(gold).toContain('const ThemeThumb');                // React twin helper
+        // painted in every themes layout that has a Figma per-card slot
+        const paints = (gold.match(/<ThemeThumb /g) || []).length;
+        expect(paints, 'ThemeThumb painted in overview/cluster/arc/mosaic/detail (>=5)').toBeGreaterThanOrEqual(5);
+    });
+
+    it('goldPreviews RecommendationSlide paints r.panelImage like slideToStageHtml .recimg', () => {
+        expect(stage).toContain('r.panelImage');                   // export twin paints it
+        expect(gold).toContain('r.panelImage');                    // React twin paints it
+    });
+
+    it('goldPreviews keeps painting the already-synced peer/feature/persona carriers', () => {
+        expect(gold).toContain('peerImages');                      // competitive
+        expect(gold).toContain('featureImages');                   // prd-feature
+        expect(gold).toMatch(/imageUrl/);                          // persona portrait
+    });
+});

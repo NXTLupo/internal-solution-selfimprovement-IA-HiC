@@ -36,11 +36,19 @@
 import { densityCaps, type SlideDensity, SCALE, WEIGHT, TYPO, clampMin, TOKENS } from '../components/slideTemplates/types';
 import { getBrand } from '../components/slideTemplates/brands';
 import { composeSlide } from './slideComposer';
+import { attachViz } from './vizSlot';
+import { compositeIcon } from './iconLibrary';
 
 export interface SlideDataLike {
     id?: string;
     template?: string;
     brand?: 'nxt' | 'nu';
+    /** Run industry (drives the viz glyph + domain-form). Authored by the generator. */
+    industry?: string;
+    /** Model-AUTHORED viz block (#13): the diagram's real meaning — family + labels + relationships,
+     *  built from the same corpus evidence as the prose. Rendered into the slide's image slot by
+     *  vizEngine (token-themed) and exported as a native replaceable picture. See vizSlot/vizEngine. */
+    viz?: { family?: string; industry?: string; ground?: 'dark' | 'light'; labels?: string[]; hub?: string; links?: number[][]; stages?: number[]; scores?: number[]; target?: number[]; groups?: number[]; tracks?: any[]; value?: number; seed?: number; icons?: string[] };
     /** Universal density axis - 'dense' raises item ceilings per the shared
      *  DENSITY_SPEC (types.ts) and renderers adapt type to the actual count. */
     density?: SlideDensity;
@@ -50,6 +58,10 @@ export interface SlideDataLike {
     /** SLIDES-deck archetype (template=slides:*) raw payload, read by composeSlide by exact key. */
     composerPayload?: any;
     persona?: any;
+    /** Persona portrait (data: URL / url) produced by generatePersonaSlidePortraits on the chat
+     *  path and written to the top-level slide. The persona-card renderer paints it as a figure
+     *  panel (2026-06-28 carrier-to-renderer fix). */
+    imageUrl?: string;
     recommendation?: any;
     themeCluster?: any;
     matrix?: any;
@@ -59,6 +71,7 @@ export interface SlideDataLike {
     statRow?: any;
     timeline?: any;
     sectionDivider?: any;
+    brandImage?: string;   // 2026-06-27 third imagery type: Nano-Banana flat-illustrative brand image (url/dataUri) for narrative templates
     serviceBlueprint?: any;
     journeyMap?: any;
     orgChart?: any;
@@ -615,6 +628,17 @@ function renderStatRowDense(stats: any[], insight: string, pattern: string, T: B
 // exemplars NU 165:2 / NXT 288:2). 2x the goldPreviews web twin.
 // ---------------------------------------------------------------------------
 
+// Per-theme content-true thumbnail (USER OVERRIDE 2026-06-27, registry theme-cluster mode
+// per-element/emotive). Reads the index-aligned carrier themeCluster.themeImages[i] first
+// (the illustrator's per-element string[]), then falls back to themes[i].brandImage
+// (string url or {url}). Returns '' when no per-theme image exists - NO PURE DECORATION.
+function themeThumb(data: any, t: any, i: number): string {
+    const arr = data && Array.isArray(data.themeImages) ? data.themeImages : null;
+    let ti = arr && typeof arr[i] === 'string' ? arr[i] : '';
+    if (!ti && t) ti = typeof t.brandImage === 'string' ? t.brandImage : (t.brandImage && t.brandImage.url) || '';
+    return ti ? `<img class="thumb" src="${esc(ti)}" alt="">` : '';
+}
+
 function renderThemeArc(slide: SlideDataLike, T: BrandTokens): string {
     const data = slide.themeCluster || {};
     const themes: any[] = Array.isArray(data.themes) ? data.themes.slice(0, Math.min(_caps.items, 5)) : [];
@@ -623,6 +647,7 @@ function renderThemeArc(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .tagrid{display:grid;grid-template-columns:repeat(${n},1fr);gap:20px;flex:1;min-height:0}
 .ta{display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden;padding-top:14px}
+.ta .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px;border:1px solid ${T.hair};background:${T.callout};margin-bottom:4px}
 .ta .hd{display:flex;align-items:center;gap:10px}
 .ta .num{font-family:${T.displayFont};font-size:${SCALE.subhead}px;line-height:1;color:${T.accent}}
 .ta.last .num{color:${T.accentWarn}}
@@ -639,6 +664,7 @@ function renderThemeArc(slide: SlideDataLike, T: BrandTokens): string {
 <div class="tagrid">
 ${themes.map((t, i) => `
   <div class="ta${i === n - 1 ? ' last' : ''}" style="border-top:4px solid ${i === n - 1 ? T.accentWarn : T.accent}">
+    ${themeThumb(data, t, i)}
     <div class="hd"><span class="num">${String(i + 1).padStart(2, '0')}</span>${i < n - 1 ? '<span class="arr">&rarr;</span>' : ''}</div>
     <div class="nm">${esc(t.name)}</div>
     <div class="ins">${esc(t.insight)}</div>
@@ -664,6 +690,7 @@ function renderThemeMosaic(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .tmgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;flex:1;min-height:0}
 .tm{padding:18px 24px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow:hidden}
+.tm .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px;margin-bottom:6px}
 .tm.inv{background:${T.band}}
 .tm.std{background:${T.callout}}
 .tm .idx{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
@@ -680,6 +707,7 @@ function renderThemeMosaic(slide: SlideDataLike, T: BrandTokens): string {
 <div class="tmgrid">
 ${themes.map((t, i) => `
   <div class="tm ${i === 0 || i === 3 ? 'inv' : 'std'}">
+    ${themeThumb(data, t, i)}
     <div class="idx">${String(i + 1).padStart(2, '0')}</div>
     <div class="nm">${esc(t.name)}</div>
     <div class="ins">${esc(t.insight)}</div>
@@ -707,6 +735,7 @@ function renderThemeOverview(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .tocols{display:grid;grid-template-columns:repeat(${n},1fr);gap:${n >= 4 ? 40 : 54}px;flex:1;min-height:0;align-items:start}
 .toc{display:flex;flex-direction:column;gap:10px;min-width:0;overflow:hidden}
+.toc .thumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px;border:1px solid ${T.hair};background:${T.callout}}
 .toc .num{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.title}px;line-height:1;color:${T.ink}}
 .toc .nm{font-family:${T.bodyFont};font-weight:${WEIGHT.title};font-size:${SCALE.lead}px;line-height:1.1;letter-spacing:-0.3px;color:${T.ink}}
 .toc .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -725,6 +754,7 @@ function renderThemeOverview(slide: SlideDataLike, T: BrandTokens): string {
 <div class="tocols">
 ${themes.map((t, i) => `
   <div class="toc">
+    ${themeThumb(data, t, i)}
     <div class="num">${String(i + 1).padStart(2, '0')}</div>
     <div class="nm">${esc(t.name)}</div>
     ${(t.dominance || t.mood) ? `<div class="meta">
@@ -780,6 +810,7 @@ function renderThemeDetail(slide: SlideDataLike, T: BrandTokens): string {
 .tdten .tl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.nano}px;letter-spacing:2px;text-transform:uppercase;color:${T.accentWarn}}
 .tdten .tt{font-family:${T.bodyFont};font-weight:500;font-size:${SCALE.caption}px;line-height:1.4;color:${T.ink}}
 .tdband{margin-top:8px;background:${T.accent};color:${T.bandText};padding:22px 40px;font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.deckHeading}px;line-height:1.3}
+.tdthumb{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:2px;border:1px solid ${T.hair};background:${T.callout};margin-bottom:20px}
 </style>
 <div class="tdwrap">
   ${t.insight ? `<div class="tdlede">${esc(t.insight)}</div>` : ''}
@@ -798,6 +829,7 @@ function renderThemeDetail(slide: SlideDataLike, T: BrandTokens): string {
       </div>`).join('')}
     </div>
     <div class="tdright">
+      ${(() => { const ti = (Array.isArray((data as any).themeImages) && typeof (data as any).themeImages[0] === 'string' ? (data as any).themeImages[0] : '') || (typeof t.brandImage === 'string' ? t.brandImage : (t.brandImage && t.brandImage.url) || ''); return ti ? `<img class="tdthumb" src="${esc(ti)}" alt="">` : ''; })()}
       ${(t.whatItMeans || t.implication) ? `<div class="tdlbl">What it means</div><div class="tdmean">${esc(t.whatItMeans || t.implication)}</div>` : ''}
       ${Array.isArray(t.subthemes) && t.subthemes.length ? `<div class="tdlbl">Sub-themes</div><div class="tdsubs">${t.subthemes.map(chip).join('')}</div>` : ''}
       ${t.tension ? `<div class="tdten"><div class="tl">The tension</div><div class="tt">${esc(t.tension)}</div></div>` : ''}
@@ -1022,6 +1054,10 @@ function renderRecommendation(slide: SlideDataLike, T: BrandTokens): string {
 .metric .ml{font-size:${SCALE.lead}px;color:${T.ink}}
 .impl{margin-top:${fullStack ? 4 : 14}px;font-size:${fullStack ? SCALE.lead : SCALE.lead}px;line-height:1.4;color:${T.ink}}
 .impl span{font-family:${T.monoFont};font-size:${SCALE.body}px;letter-spacing:2px;color:${T.muted};text-transform:uppercase;margin-right:8px;font-weight:600}
+/* USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-recommendation EMOTIVE scene in the
+   right column (Figma slot 678:5526 on detail 597:4, 560x140 banner; NU twin 625:1841 inherits).
+   Non-dense branch only; the dense GOLD twin (614:5) is content-packed and stays image-free. */
+.recimg{width:100%;aspect-ratio:560/140;object-fit:cover;display:block;border-radius:3px;border:1px solid ${T.hair};margin-top:4px}
 </style>
 ${r.actionTitle ? `<div class="action">${esc(trunc(r.actionTitle, 120))}</div>` : ''}
 ${r.rationale ? `<div class="rationale">${esc(trunc(r.rationale, ratBudget))}</div>` : ''}
@@ -1030,6 +1066,7 @@ ${r.rationale ? `<div class="rationale">${esc(trunc(r.rationale, ratBudget))}</d
   <div class="rcol">
     ${evidenceHtml}
     ${gridHtml}
+    ${r.panelImage ? `<img class="recimg" src="${esc(r.panelImage)}" alt="">` : ''}
   </div>
 </div>
 ${r.implication ? `<div class="impl"><span>Implication</span> ${esc(trunc(r.implication, fullStack ? 170 : 200))}</div>` : ''}`;
@@ -1162,11 +1199,16 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
         (Array.isArray(p.behaviors) && p.behaviors.length >= 2) ? 1 : 0,
         (Array.isArray(p.winConditions) && p.winConditions.length >= 2) ? 1 : 0,
     ].reduce((a, b) => a + b, 0);
-    if (quadArrays >= 3 && p.quote) return renderPersonaCardDense(p, pains, goals, T);
+    // 2026-06-28 carrier-to-renderer fix: persona portrait (generatePersonaSlidePortraits writes
+    // slide.imageUrl). §3c keeps the generator's style; the renderer just paints it as a figure
+    // panel atop the identity column. Absent -> nothing (no decorative placeholder).
+    const portrait = String((slide as any).imageUrl || '').trim();
+    if (quadArrays >= 3 && p.quote) return renderPersonaCardDense(p, pains, goals, T, portrait);
     const densePp = pains.length >= 4;
     return `<style>
 .pcols{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;flex:1}
 .pleft{display:flex;flex-direction:column;gap:18px}
+.pportrait{width:100%;aspect-ratio:4/5;max-height:300px;object-fit:cover;object-position:center top;display:block;border-radius:2px;border:1px solid ${T.hair};background:${T.callout}}
 /* 2026-06-14 type system: name capped at subhead (< title); roles snap to scale. */
 .pname{font-family:${T.displayFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.16;color:${T.ink}}
 .prole{font-family:${T.bodyFont};font-size:${SCALE.lead}px;color:${T.muted}}
@@ -1187,6 +1229,7 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
 </style>
 <div class="pcols">
   <div class="pleft">
+    ${portrait ? `<img class="pportrait" src="${esc(portrait)}" alt="">` : ''}
     <div>
       <div class="pname">${esc(p.name)}</div>
       <div class="prole">${esc(p.role)}</div>
@@ -1224,7 +1267,7 @@ function renderPersonaCard(slide: SlideDataLike, T: BrandTokens): string {
  *  dark identity column (name / descriptors / defining quote / stakes) +
  *  2x2 evidence quadrant grid (GOALS cool / PAIN POINTS warn / BEHAVIORS
  *  cool / WHAT WINS THEM accent). */
-function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens): string {
+function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens, portrait = ''): string {
     const item = (txt: string, color: string) =>
         `<div class="pqi"><span style="background:${color}"></span><p>${esc(trunc(txt, 92))}</p></div>`;
     const quads: Array<{ label: string; color: string; items: string[] }> = [];
@@ -1241,6 +1284,7 @@ function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens
     return `<style>
 .pdw{display:grid;grid-template-columns:520px 1fr;gap:32px;flex:1 1 auto;min-height:0}
 .pid{background:${T.ink};color:${T.paper};padding:34px;display:flex;flex-direction:column;gap:17px;min-height:0;overflow:hidden}
+.pidportrait{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center top;display:block;border-radius:2px;border:1px solid ${T.grey}}
 /* 2026-06-14 type system: name capped at subhead (below the 46px title so the title
  * governs - was 52px out-ranking it); roles snap to scale; quad body at the floor. */
 .pid .pin{font-family:${T.displayFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.06;color:${T.paper};text-transform:uppercase}
@@ -1260,6 +1304,7 @@ function renderPersonaCardDense(p: any, pains: any[], goals: any, T: BrandTokens
 </style>
 <div class="pdw">
   <div class="pid">
+    ${portrait ? `<img class="pidportrait" src="${esc(portrait)}" alt="">` : ''}
     <div class="pin">${esc(trunc(p.name, 34))}</div>
     ${p.role ? `<div class="pirole">${esc(trunc(p.role, 70))}</div>` : ''}
     ${(p.descriptors || p.demographics) ? `<div class="pidesc">${esc(trunc(p.descriptors || p.demographics, 84))}</div>` : ''}
@@ -1347,8 +1392,16 @@ ${metaHtml}
 </div>`;
     }
 
-    if (variant === 'evidence-stack' && Array.isArray(c.evidence) && c.evidence.length > 0) {
-        const rows = c.evidence.slice(0, _caps.sub);
+    // Field-tolerant evidence reader (2026-06-28): a budget model sometimes emits the
+    // verbatim quote under text/evidence/q instead of `quote`, or leaves it blank. Read
+    // all aliases; rows with no resolvable quote are dropped so the slide never shows an
+    // empty "" bubble. If NONE resolve, skip evidence-stack and fall through to four-block.
+    const _esQuote = (e: any): string => String(e?.quote || e?.text || e?.evidence || e?.q || '').trim();
+    const _esShows = (e: any): string => String(e?.shows || e?.whatItShows || e?.meaning || e?.takeaway || '').trim();
+    const _esRows = Array.isArray(c.evidence) ? c.evidence.filter((e: any) => _esQuote(e)) : [];
+    if (variant === 'evidence-stack' && _esRows.length > 0) {
+        const qOf = _esQuote, sOf = _esShows;
+        const rows = _esRows.slice(0, _caps.sub);
         const qFs = rows.length >= 4 ? 21 : 24;   // 4 rows = slightly smaller quotes
         return `<style>
 .cssrc{font-family:${T.monoFont};font-weight:500;font-size:12.5px;letter-spacing:1px;color:${T.accentCool};text-transform:uppercase;margin-top:10px}
@@ -1369,10 +1422,10 @@ ${rows.map((e: any) => `
   <div class="esrow">
     <div class="bar"></div>
     <div class="qcol">
-      <div class="qt">&ldquo;${esc(e.quote)}&rdquo;</div>
+      <div class="qt">&ldquo;${esc(qOf(e))}&rdquo;</div>
       ${e.source ? srcLine(e.source) : ''}
     </div>
-    ${e.shows ? `<div class="scol"><div class="slbl">WHAT IT SHOWS</div><div class="stxt">${esc(e.shows)}</div></div>` : ''}
+    ${sOf(e) ? `<div class="scol"><div class="slbl">WHAT IT SHOWS</div><div class="stxt">${esc(sOf(e))}</div></div>` : ''}
   </div>`).join('')}
 </div>`;
     }
@@ -1401,6 +1454,9 @@ ${rows.map((e: any) => `
 .fbblk .lbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase}
 .fbblk .txt{font-size:${SCALE.caption}px;line-height:1.45;color:${T.ink};font-family:${T.bodyFont}}
 .fbpanel{background:${T.ink === '#16233C' ? '#16233C' : '#115054'};padding:24px 28px;display:flex;flex-direction:column;gap:18px;min-width:0;overflow:hidden}
+/* USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-case EMOTIVE scene crowning the
+   four-block right panel (Figma slot 890:357, 544x300; NU twin 625:314 inherits). */
+.fbpanel .csimg{width:100%;aspect-ratio:544/300;object-fit:cover;object-position:center top;display:block;border-radius:4px}
 .fbpanel .plbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2.4px;text-transform:uppercase;color:${T.accent}}
 .fbpanel .hero{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;line-height:1.14;color:#FFFFFF}
 .fbpanel .herol{font-size:${SCALE.label}px;color:rgba(255,255,255,0.82);line-height:1.4;font-family:${T.bodyFont}}
@@ -1424,6 +1480,7 @@ ${metaHtml}
   </div>
   ${hasPanel ? `
   <aside class="fbpanel">
+    ${c.panelImage ? `<img class="csimg" src="${esc(c.panelImage)}" alt="">` : ''}
     ${c.keyMetric ? `<div><div class="plbl">KEY OUTCOME</div><div class="hero">${esc(c.keyMetric.value)}</div><div class="herol">${esc(c.keyMetric.label)}</div></div>` : ''}
     ${metrics.length > 0 ? `<div class="mgrid">${metrics.map((m: any) => `<div><div class="mv">${esc(m.value)}</div><div class="ml">${esc(m.label)}</div></div>`).join('')}</div>` : ''}
     ${comparables.length > 0 ? `<div class="cmp" style="border-top:1px solid rgba(255,255,255,0.18);padding-top:16px"><div class="plbl" style="margin-bottom:8px">COMPARABLES</div>${comparables.map((x: any) => `<div style="margin-bottom:8px"><div class="cn">${esc(x.name)}</div><div class="co">${esc(x.outcome)}</div></div>`).join('')}</div>` : ''}
@@ -1497,17 +1554,32 @@ function renderSectionDivider(slide: SlideDataLike, T: BrandTokens): string {
 </style>
 <div class="thwrap"><div class="thesis">${esc(trunc(d.title || slide.title, 110))}</div></div>`;
     }
-    return `<style>
+    // Third imagery type: a flat-illustrative brand image (Nano-Banana) sits in a right
+    // panel when present. Absent -> byte-identical to the prior full-width divider (no regression).
+    const brandImg = String((slide as any).brandImage || d.image || '').trim();
+    const textInner = `
+  <div class="sdnum">${esc(d.number || '01')}</div>
+  <div class="sdtitle">${esc(d.title || slide.title)}</div>
+  ${d.subtitle ? `<div class="sdsub">${esc(d.subtitle)}</div>` : ''}`;
+    const css = `<style>
 .sdwrap{flex:1;display:flex;flex-direction:column;justify-content:center}
+.sdrow{flex:1;display:flex;gap:56px;align-items:center}
+.sdcol{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.sdimgwrap{flex:0 0 44%;align-self:stretch;display:flex;align-items:center}
+.sdimgwrap img{width:100%;height:auto;max-height:88%;object-fit:cover;border-radius:4px}
 .sdnum{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.display}px;line-height:1.24;color:${T.accent};margin-bottom:20px}
 .sdtitle{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.display}px;line-height:1.2;color:${T.ink};margin-bottom:18px;max-width:1620px}
 .sdsub{font-family:${T.bodyFont};font-size:${SCALE.subhead}px;line-height:1.4;color:${T.muted};max-width:1400px}
-</style>
-<div class="sdwrap">
-  <div class="sdnum">${esc(d.number || '01')}</div>
-  <div class="sdtitle">${esc(d.title || slide.title)}</div>
-  ${d.subtitle ? `<div class="sdsub">${esc(d.subtitle)}</div>` : ''}
+</style>`;
+    if (brandImg) {
+        return `${css}
+<div class="sdrow">
+  <div class="sdcol">${textInner}</div>
+  <div class="sdimgwrap"><img src="${esc(brandImg)}" alt=""/></div>
 </div>`;
+    }
+    return `${css}
+<div class="sdwrap">${textInner}</div>`;
 }
 
 // ---------------------------------------------------------------------------
@@ -1521,10 +1593,20 @@ function renderCompetitiveMatrix(slide: SlideDataLike, T: BrandTokens): string {
     if (prose.length >= 2) {
         const top = prose.filter((r: any) => r.tier !== 'second').slice(0, 3);
         const second = prose.filter((r: any) => r.tier === 'second').slice(0, 6);
+        // Per-peer tokenized emblem (icon branch; live Figma slots 678:5530.. on 603:3).
+        // peerImages[] is index-aligned to rowsProse (the resolver's elementField), so look
+        // up by ORIGINAL prose position - the top/second filter would otherwise lose the index.
+        const peerImages: string[] = Array.isArray(m.peerImages) ? m.peerImages : [];
+        const proseIdx = new Map<any, number>(prose.map((r: any, i: number) => [r, i]));
+        const peerImg = (r: any): string => {
+            const i = proseIdx.get(r);
+            const src = i != null ? peerImages[i] : '';
+            return src ? `<img class="etglyph" src="${esc(String(src))}" alt=""/>` : '';
+        };
         const mkTop = top.map((r: any) => `
       <div class="etrow top">
         <div class="etbar"></div>
-        <div class="etn">${esc(trunc(r.name, 24))}</div>
+        <div class="etn">${peerImg(r)}<span>${esc(trunc(r.name, 24))}</span></div>
         <div class="etp">${esc(trunc(r.prove, 110))}</div>
         <div class="eti">${esc(trunc(r.implication, 150))}</div>
         <div class="ete">${esc(trunc(r.evidenceTag || '', 26))}</div>
@@ -1532,7 +1614,7 @@ function renderCompetitiveMatrix(slide: SlideDataLike, T: BrandTokens): string {
         const mkSec = second.map((r: any) => `
       <div class="etrow sec">
         <div></div>
-        <div class="etn s">${esc(trunc(r.name, 24))}</div>
+        <div class="etn s">${peerImg(r)}<span>${esc(trunc(r.name, 24))}</span></div>
         <div class="etp s">${esc(trunc(r.prove, 110))}</div>
         <div class="eti s">${esc(trunc(r.implication, 120))}</div>
         <div class="ete">${esc(trunc(r.evidenceTag || '', 26))}</div>
@@ -1543,8 +1625,9 @@ function renderCompetitiveMatrix(slide: SlideDataLike, T: BrandTokens): string {
 .etrow{display:grid;grid-template-columns:8px 250px 1.05fr 1.15fr 200px;gap:20px;align-items:start;padding:16px 0;border-bottom:1px solid ${T.hair}}
 .etrow.top{background:${T.paper === '#FFFFFF' ? T.callout : '#FFFFFF'};padding:20px 0}
 .etrow .etbar{width:4px;height:100%;background:${T.accent}}
-.etrow .etn{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;color:${T.ink};line-height:1.2}
+.etrow .etn{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.lead}px;color:${T.ink};line-height:1.2;display:flex;align-items:center;gap:10px}
 .etrow .etn.s{font-size:${SCALE.body}px;font-family:${T.bodyFont};font-weight:600}
+.etrow .etn .etglyph{width:28px;height:28px;flex-shrink:0;object-fit:contain;display:block}
 .etrow .etp{font-size:${SCALE.body}px;line-height:1.32;color:${T.accentWarn};font-weight:600}
 .etrow .etp.s{font-size:${SCALE.caption}px;color:${T.ink};font-weight:400}
 .etrow .eti{font-size:${SCALE.caption}px;line-height:1.32;color:${T.ink}}
@@ -1648,7 +1731,7 @@ function renderServiceBlueprint(slide: SlideDataLike, T: BrandTokens): string {
     return `<style>
 .sbgold{display:grid;grid-template-columns:${cols};grid-template-rows:56px 40px ${lanes.map(() => 'minmax(80px,1fr)').join(' ')} minmax(96px,auto);flex:1;border:1px solid ${T.hair};overflow:hidden;color:${T.ink}}
 .sbgold>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair}}
-.sbphase{background:${T.ink};color:${T.bandText};font-family:${T.bodyFont};font-weight:700;font-size:${cellFs + 3}px;padding:8px 14px;display:flex;align-items:center;border-top:none!important}
+.sbphase{background:${T.ink};color:${T.paper};font-family:${T.bodyFont};font-weight:700;font-size:${cellFs + 3}px;padding:8px 14px;display:flex;align-items:center;border-top:none!important}
 .sbphase.lbl{font-family:${T.monoFont};font-weight:600;font-size:${labelFs}px;letter-spacing:2px;text-transform:uppercase}
 .sbmood{background:${T.callout};font-family:${T.monoFont};font-size:${labelFs}px;letter-spacing:0.5px;color:${T.ink};padding:4px 14px;display:flex;align-items:center;gap:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sbmood.lbl{color:${T.grey};font-weight:600;letter-spacing:2px;text-transform:uppercase}
@@ -1786,148 +1869,164 @@ function _spreadByArc(count: number, nCols: number): number[] {
         Math.min(nCols - 1, Math.round((i * (nCols - 1)) / (count - 1))));
 }
 
+
+// ---------------------------------------------------------------------------
+// journey-map (#journey) - GOLD swimlane matrix, T3 anatomy (Figma 595:5 /
+// _pkg GOLD-journey-t3). A 3-col SUMMARY band (personas / overall pains /
+// opportunities) + a KPI DASHBOARD band (up to 3 tiles, tile[0] = ink hero)
+// sit ABOVE a clean phase x actor-lane matrix (numbered phase headers,
+// critical phase chartreuse, content-true actor-type icons, per-phase PAIN
+// row). No sparse per-phase persona/opp/signal rows. All colour/type from
+// BrandTokens -> NXT/NU mode-flip + native PPTX shapes.
+// ---------------------------------------------------------------------------
 function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const d: any = (slide as any).journeyMap || {};
     const capItems = Math.max(3, _caps.items || 5);
-    const capLanes = Math.max(2, _caps.sub || 3);
+    const capLanes = Math.max(2, _caps.sub || 4);
     const stagesRaw: any[] = Array.isArray(d.stages) ? d.stages.slice(0, capItems) : [];
     const stages = stagesRaw.map(s => typeof s === 'string' ? { name: s, critical: false } : (s || {}));
     const lanes: any[] = (Array.isArray(d.lanes) ? d.lanes : []).slice(0, capLanes);
     if (stages.length === 0 || lanes.length === 0) return `<p style="font-size:${SCALE.name}px">No journey stages.</p>`;
     const n = stages.length;
+    const brand = (slide as any).brand === 'nu' ? 'nu' : 'nxt';
     const dense = n >= 6;
-    const cellFs = dense ? SCALE.label : SCALE.caption;
+    const cellFs = clampMin(dense ? SCALE.label : SCALE.caption);
     const labelFs = dense ? 13 : 15;
-    const gridCols = `${dense ? 180 : 210}px repeat(${n}, 1fr)`;
+    const gridCols = `${dense ? 172 : 200}px repeat(${n}, 1fr)`;
     const ghost = (txt: string) => /^not engaged$/i.test((txt || '').trim()) || !(txt || '').trim();
+    const cellBudget = dense ? 115 : 125;
 
-    // Per-phase pains: painPoints[si] may be a string OR string[] (>=3 per
-    // phase per user feedback fb_1781292121810). overallPainPoints distribute
-    // by arc and APPEND into their phase's stack - same row, same context.
+    // Per-phase pains -> the matrix PAIN POINTS row (one stack per phase column).
     const painsRaw: any[] = Array.isArray(d.painPoints) ? d.painPoints : [];
     const painCols: string[][] = stages.map((_: any, si: number) => {
         const v = painsRaw[si];
         return Array.isArray(v) ? v.filter(Boolean).map((x: any) => stripInlineSource(String(x))) : (v ? [stripInlineSource(String(v))] : []);
     });
-    const overall: string[] = (Array.isArray(d.overallPainPoints) ? d.overallPainPoints : []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
-    _spreadByArc(overall.length, n).forEach((col, i) => painCols[col].push(overall[i]));
-
-    // Personas (JTBD voice) + opportunities distribute by arc into their rows.
-    const personas: string[] = (Array.isArray(d.personas) ? d.personas : []).filter(Boolean).map(String);
-    const voiceCols: string[][] = stages.map(() => []);
-    _spreadByArc(personas.length, n).forEach((col, i) => voiceCols[col].push(personas[i]));
-    const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map((s: any) => stripInlineSource(String(s)));
-    const oppCols: string[][] = stages.map(() => []);
-    _spreadByArc(opps.length, n).forEach((col, i) => oppCols[col].push(opps[i]));
-
-    // KPI tiles embed under their phase header name (arc-distributed).
-    const tiles: any[] = (Array.isArray(d.kpiTiles) ? d.kpiTiles : []).slice(0, 3);
-    const tileByCol: any[] = stages.map(() => null);
-    _spreadByArc(tiles.length, n).forEach((col, i) => { tileByCol[col] = tiles[i]; });
-
-    // Per-phase illustration thumbnails (illustrator-agent output for the journey
-    // img-slots, wiki/brand/image-slots/minor-pages-and-journey-variants.md).
-    // phaseImages[] aligns to stages[]; stage.image is an alternative carrier.
-    // EMPTY-STATE GUARD: when NO phase carries an image the thumbnail row is
-    // omitted entirely and the matrix renders byte-identical to the
-    // pre-illustration layout (no regression on the >99% of journeys with no art).
-    const phaseImages: string[] = Array.isArray(d.phaseImages) ? d.phaseImages : [];
-    const imgFor = (si: number): string => {
-        const direct = phaseImages[si];
-        const raw = stagesRaw[si];
-        const onStage = raw && typeof raw === 'object' ? (raw as any).image : '';
-        return String(direct || onStage || '').trim();
-    };
-    const hasImages = stages.some((_: any, si: number) => !!imgFor(si));
-
-    const hasVoice = personas.length > 0;
     const hasPains = painCols.some(c => c.length > 0);
-    const hasOpps = opps.length > 0;
-    const hasTiles = tiles.length > 0;
-    // FULL-PAYLOAD FIT: when voice + stacked pains + opportunities are ALL
-    // present the matrix carries 7+ content rows; count-adaptive type +
-    // tighter char budgets keep the grid inside the 1080 stage (geometry
-    // audit 2026-06-12 caught a 0.15in overflow on the first full payload).
-    const full = hasVoice && hasOpps && painCols.some(c => c.length >= 3);
-    const fs = clampMin(full ? cellFs - 2 : cellFs);
-    // Budgets match the SLIDE OUTPUT PROTOCOL's per-field summarization
-    // targets (pain <= 80, cell <= 100, persona <= 95, opportunity <= 85) plus
-    // ~15% slack so a model that wrote to spec is NEVER cut; trunc() is
-    // clause-aware and ellipsis-free for anything beyond.
-    const painBudget = full ? 92 : (dense ? 92 : 100);
-    const cellBudget = full ? 115 : (dense ? 115 : 125);
 
-    const rowTemplate = [
-        hasTiles ? 'minmax(86px,auto)' : 'minmax(52px,auto)',                 // header (+embedded signal)
-        ...(hasImages ? [dense ? 'minmax(84px,auto)' : 'minmax(104px,auto)'] : []), // phase illustration thumbnails
-        ...(hasVoice ? ['minmax(58px,auto)'] : []),                            // persona voice
-        ...lanes.map(() => 'minmax(64px,1fr)'),                                // actor lanes
-        ...(hasPains ? ['minmax(64px,auto)'] : []),                            // stacked pains
-        ...(hasOpps ? ['minmax(58px,auto)'] : []),                             // opportunities
+    // SUMMARY band (t3): personas / overall pains / opportunities as flat evidenced
+    // lists ABOVE the matrix - never sparse per-phase rows.
+    const personas: string[] = (Array.isArray(d.personas) ? d.personas : []).filter(Boolean).map(String).slice(0, 4);
+    const overallPains: string[] = (Array.isArray(d.overallPainPoints) ? d.overallPainPoints : []).filter(Boolean).map((s: any) => stripInlineSource(String(s))).slice(0, 4);
+    const opps: string[] = (Array.isArray(d.opportunities) ? d.opportunities : []).filter(Boolean).map((s: any) => stripInlineSource(String(s))).slice(0, 4);
+    const summaryCols = [
+        personas.length ? { lbl: 'Personas · JTBD voice', items: personas, tone: 'cool', quote: true } : null,
+        overallPains.length ? { lbl: 'Overall pain points', items: overallPains, tone: 'warn', quote: false } : null,
+        opps.length ? { lbl: 'Strategic opportunities', items: opps, tone: 'cool', quote: false } : null,
+    ].filter(Boolean) as Array<{ lbl: string; items: string[]; tone: string; quote: boolean }>;
+    const hasSummary = summaryCols.length > 0;
+
+    // KPI DASHBOARD (t3): up to 3 tiles ABOVE the matrix; tile[0] = ink hero.
+    const tiles: any[] = (Array.isArray(d.kpiTiles) ? d.kpiTiles : []).slice(0, 3);
+    const hasTiles = tiles.length > 0;
+
+    // content-true actor-type icon: person for human lanes, system glyph for systems.
+    // Resolved through the gate so NOTHING generic ever paints.
+    const laneIcon = (actor: string): string => {
+        const a = (actor || '').toLowerCase();
+        const sys = /\b(crm|system|systems|platform|database|db|api|tool|engine|bot|software|portal|dashboard|app|service|pipeline)\b/.test(a);
+        // Try the actor name first (alias/tag hit), then the content-true TYPE glyph:
+        // a people glyph for human lanes, a system/database glyph for system lanes.
+        const candidates = sys ? [actor, 'database', 'system'] : [actor, 'people', 'customer', 'team'];
+        for (const c of candidates) {
+            if (!c) continue;
+            try {
+                const g = compositeIcon({ concept: c, brand, ground: 'light', role: 'ink', size: 46 });
+                if (g && ['exact', 'alias', 'tag', 'concept'].includes(g.resolvedBy)) return g.dataUri;
+            } catch { /* next candidate */ }
+        }
+        return '';
+    };
+
+    const matrixRows = [
+        'minmax(46px,auto)',                          // phase header
+        ...lanes.map(() => 'minmax(58px,1fr)'),       // actor lanes fill remaining height
+        ...(hasPains ? ['minmax(54px,auto)'] : []),   // per-phase pain row
     ].join(' ');
 
     return `<style>
-.jmgrid{flex:1;min-height:0;display:grid;grid-template-columns:${gridCols};grid-template-rows:${rowTemplate};border:1px solid ${T.hair};overflow:hidden}
+.jmwrap{display:flex;flex-direction:column;flex:1;min-height:0;gap:16px}
+.jmmeta{display:flex;gap:52px;flex-wrap:wrap}
+.jmmeta .mi .l{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
+.jmmeta .mi .v{font-family:${T.bodyFont};font-size:${SCALE.caption}px;color:${T.ink};margin-top:2px}
+.jmsum{display:grid;grid-template-columns:repeat(${summaryCols.length || 1},1fr);gap:32px}
+.jmsum .col .h{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.jmsum .col.cool .h{color:${T.accentCool}}
+.jmsum .col.warn .h{color:${T.accentWarn}}
+.jmsum .col .it{font-family:${T.bodyFont};font-size:${SCALE.caption}px;color:${T.ink};line-height:1.4;margin-bottom:5px}
+.jmsum .col .it.q{font-style:italic}
+.jmdash{display:grid;grid-template-columns:repeat(${Math.max(tiles.length, 1)},1fr);gap:16px}
+.jmtile{background:${T.callout};padding:13px 18px;display:flex;flex-direction:column;gap:3px}
+.jmtile.hero{background:${T.ink}}
+.jmtile .tl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.grey};text-transform:uppercase}
+.jmtile.hero .tl{color:${T.accent}}
+.jmtile .tv{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.subhead}px;color:${T.ink};line-height:1.05}
+.jmtile.hero .tv{color:#FFFFFF}
+.jmtile .ts{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:1px;color:${T.grey};text-transform:uppercase}
+.jmgrid{flex:1;min-height:0;display:grid;grid-template-columns:${gridCols};grid-template-rows:${matrixRows};border:1px solid ${T.hair};overflow:hidden}
 .jmgrid>div{border-top:1px solid ${T.hair};border-left:1px solid ${T.hair}}
-.jmh{background:${T.ink};color:#FFFFFF;font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;display:flex;flex-direction:column;justify-content:center;gap:3px;border-top:none!important}
+.jmh{background:${T.ink};color:${T.paper};font-family:${T.monoFont};font-weight:700;font-size:${labelFs}px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 16px;display:flex;align-items:center;gap:11px;border-top:none!important}
 .jmh.crit{background:${T.accentWarn}}
-.jmh .sig{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${dense ? SCALE.lead : SCALE.name}px;line-height:1.05;text-transform:none;letter-spacing:0;color:#FFFFFF}
-.jmh .siglbl{font-family:${T.monoFont};font-weight:600;font-size:${SCALE.label}px;letter-spacing:2px;color:${T.accent};text-transform:uppercase}
-.jmanchor{padding:8px 16px;background:${T.paper};display:flex;flex-direction:column;justify-content:center;gap:2px}
+.jmh .step{flex:0 0 auto;width:25px;height:25px;display:flex;align-items:center;justify-content:center;background:${T.accent};color:${T.ink};font-family:${T.monoFont};font-weight:700;font-size:${SCALE.label}px}
+.jmh.crit .step{background:${T.ink};color:#FFFFFF}
+.jmh .nm{flex:1;min-width:0;line-height:1.15}
+.jmh.corner{color:${T.grey};font-weight:600;letter-spacing:2px}
+.jmthumb{background:${T.paper};display:flex;align-items:center;justify-content:center;overflow:hidden;max-height:96px}
+.jmthumb.corner{background:${T.paper}}
+.jmthumb .jmti{width:100%;height:100%;max-height:96px;object-fit:cover;display:block}
+.jmanchor{padding:8px 14px;background:${T.paper};display:flex;align-items:center;gap:10px}
+.jmanchor .ic{flex:0 0 auto;width:26px;height:26px;object-fit:contain}
+.jmanchor .txt{min-width:0;display:flex;flex-direction:column;gap:2px}
 .jmanchor .actor{font-family:${T.bodyFont};font-weight:700;font-size:${labelFs + 1}px;color:${T.ink};text-transform:uppercase;letter-spacing:0.5px;line-height:1.2}
 .jmanchor .role{font-family:${T.monoFont};font-size:${SCALE.label}px;color:${T.grey};line-height:1.3}
-${hasImages ? `.jmthumb{background:${T.paper};display:flex;align-items:center;justify-content:center;padding:6px;overflow:hidden}
-.jmthumb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}` : ''}
-.jmanchor.voice .actor{color:${T.accentCool}}
+.jmanchor.pain{align-items:flex-start;border-top:3px solid ${T.accentWarn}!important}
 .jmanchor.pain .actor{color:${T.accentWarn}}
-.jmanchor.opp .actor{color:${T.accentCool}}
-.jmv{padding:${full ? 5 : 7}px 14px;background:${washHex(T.callout, 0.5)};font-family:${T.bodyFont};font-size:${fs - 1}px;line-height:${full ? 1.3 : 1.36};font-style:italic;color:${T.ink};overflow:hidden}
-.jmc{padding:${full ? 6 : 8}px 14px;font-family:${T.bodyFont};font-size:${fs}px;line-height:${full ? 1.3 : 1.36};color:${T.ink};background:${washHex(T.callout, 0.33)};overflow:hidden}
+.jmc{padding:${dense ? 7 : 9}px 14px;font-family:${T.bodyFont};font-size:${cellFs}px;line-height:1.38;color:${T.ink};background:${washHex(T.callout, 0.33)};overflow:hidden}
 .jmc.ghost{color:${T.grey};font-style:italic}
-.jmp{padding:${full ? 5 : 7}px 14px;border-top:3px solid ${T.accentWarn}!important;background:${T.paper};overflow:hidden;display:flex;flex-direction:column;gap:4px}
-.jmp .pi{font-family:${T.bodyFont};font-size:${fs - 2}px;line-height:${full ? 1.26 : 1.32};color:${T.accentWarn};padding-left:12px;position:relative}
+.jmp{padding:${dense ? 6 : 8}px 14px;border-top:3px solid ${T.accentWarn}!important;background:${T.paper};overflow:hidden;display:flex;flex-direction:column;gap:4px}
+.jmp .pi{font-family:${T.bodyFont};font-size:${clampMin(cellFs - 1)}px;line-height:1.3;color:${T.accentWarn};padding-left:12px;position:relative}
 .jmp .pi::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:${T.accentWarn}}
-.jmo{padding:${full ? 5 : 7}px 14px;border-top:3px solid ${T.accentCool}!important;background:${washHex(T.callout, 0.4)};overflow:hidden;display:flex;flex-direction:column;gap:4px}
-.jmo .oi{font-family:${T.bodyFont};font-size:${fs - 2}px;line-height:${full ? 1.26 : 1.32};color:${T.ink};padding-left:12px;position:relative}
-.jmo .oi::before{content:'';position:absolute;left:0;top:6px;width:6px;height:6px;background:${T.accentCool}}
 </style>
-<div class="jmgrid">
-  <div class="jmh"></div>
-  ${stages.map((st: any, si: number) => {
-        const t = tileByCol[si];
-        return `<div class="jmh${st.critical ? ' crit' : ''}">
-      <div>${esc(trunc(st.name, 24))}</div>
-      ${t ? `<div class="siglbl">${esc(trunc(t.label, 26))}</div><div class="sig">${esc(trunc(t.value, 22))}</div>` : ''}
-    </div>`;
-    }).join('')}
-  ${hasImages ? `
-    <div class="jmanchor"></div>
+<div class="jmwrap">
+  <div class="jmmeta">
+    <div class="mi"><div class="l">Actors</div><div class="v">${esc(String(lanes.length))}</div></div>
+    <div class="mi"><div class="l">Phases</div><div class="v">${esc(String(n))}</div></div>
+    ${d.scope ? `<div class="mi"><div class="l">Scope</div><div class="v">${esc(trunc(String(d.scope), 40))}</div></div>` : ''}
+  </div>
+  ${hasSummary ? `<div class="jmsum">${summaryCols.map(c => `<div class="col ${c.tone}"><div class="h">${esc(c.lbl)}</div>${c.items.map(it => `<div class="it${c.quote ? ' q' : ''}">${c.quote ? `&ldquo;${esc(trunc(it, 110))}&rdquo;` : esc(trunc(it, 110))}</div>`).join('')}</div>`).join('')}</div>` : ''}
+  ${hasTiles ? `<div class="jmdash">${tiles.map((t, i) => `<div class="jmtile${i === 0 ? ' hero' : ''}"><div class="tl">${esc(trunc(String(t.label || ''), 22))}</div><div class="tv">${esc(trunc(String(t.value || ''), 18))}</div>${t.sub || t.context ? `<div class="ts">${esc(trunc(String(t.sub || t.context), 34))}</div>` : ''}</div>`).join('')}</div>` : ''}
+  <div class="jmgrid">
+    <div class="jmh corner">JOURNEY &rarr;</div>
+    ${stages.map((st: any, si: number) => `<div class="jmh${st.critical ? ' crit' : ''}"><span class="step">${String(si + 1).padStart(2, '0')}</span><span class="nm">${esc(trunc(st.name, 24))}</span></div>`).join('')}
+    ${(() => {
+        // Per-phase content-true thumbnail row (illustrator carrier phaseImages[], index-aligned to
+        // stages[]; per-stage .image is an alternative). Row renders ONLY when >=1 phase carries art,
+        // so the common no-art journey is unchanged. NO PURE DECORATION: image traces to that phase.
+        const phaseImgs: any[] = Array.isArray((d as any).phaseImages) ? (d as any).phaseImages : [];
+        const phaseImg = (si: number): string => (typeof phaseImgs[si] === 'string' ? phaseImgs[si] : '') || (stages[si] && stages[si].image) || '';
+        if (!stages.some((_: any, si: number) => phaseImg(si))) return '';
+        return `<div class="jmthumb corner"></div>${stages.map((_: any, si: number) => { const u = phaseImg(si); return `<div class="jmthumb">${u ? `<img class="jmti" src="${esc(u)}" alt="">` : ''}</div>`; }).join('')}`;
+    })()}
+    ${lanes.map((lane: any) => {
+        const ic = laneIcon(lane.actor || '');
+        return `
+    <div class="jmanchor">${ic ? `<img class="ic" src="${ic}" alt=""/>` : ''}<div class="txt"><div class="actor">${esc(trunc(lane.actor, 24))}</div>${lane.role ? `<div class="role">${esc(trunc(lane.role, 30))}</div>` : ''}</div></div>
     ${stages.map((_: any, si: number) => {
-        const src = imgFor(si);
-        return `<div class="jmthumb">${src ? `<img src="${esc(src)}" alt="" loading="lazy"/>` : ''}</div>`;
-    }).join('')}` : ''}
-  ${hasVoice ? `
-    <div class="jmanchor voice"><div class="actor">Personas</div><div class="role">JTBD voice</div></div>
-    ${voiceCols.map(items => `<div class="jmv">${items.map(p => `&ldquo;${esc(trunc(p, cellBudget))}&rdquo;`).join('<br/>')}</div>`).join('')}` : ''}
-  ${lanes.map((lane: any) => `
-    <div class="jmanchor"><div class="actor">${esc(trunc(lane.actor, 26))}</div>${lane.role ? `<div class="role">${esc(trunc(lane.role, 34))}</div>` : ''}</div>
-    ${stages.map((_: any, si: number) => {
-        const txt = (lane.cells || [])[si] || '';
-        return `<div class="jmc${ghost(txt) ? ' ghost' : ''}">${esc(trunc(txt || 'not engaged', cellBudget))}</div>`;
+            const txt = (lane.cells || [])[si] || '';
+            return `<div class="jmc${ghost(txt) ? ' ghost' : ''}">${esc(trunc(txt || 'not engaged', cellBudget))}</div>`;
+        }).join('')}`;
     }).join('')}
-  `).join('')}
-  ${hasPains ? `
-    <div class="jmanchor pain" style="border-top:3px solid ${T.accentWarn}"><div class="actor">Pain points</div></div>
-    ${painCols.map(items => `<div class="jmp">${items.slice(0, 4).map(p => `<div class="pi">${esc(trunc(p, painBudget))}</div>`).join('')}</div>`).join('')}` : ''}
-  ${hasOpps ? `
-    <div class="jmanchor opp" style="border-top:3px solid ${T.accentCool}"><div class="actor">Opportunities</div></div>
-    ${oppCols.map(items => `<div class="jmo">${items.map(o => `<div class="oi">${esc(trunc(o, painBudget + 12))}</div>`).join('')}</div>`).join('')}` : ''}
+    ${hasPains ? `
+    <div class="jmanchor pain"><div class="txt"><div class="actor">Pain points</div></div></div>
+    ${painCols.map(items => `<div class="jmp">${items.slice(0, 3).map(p => `<div class="pi">${esc(trunc(p, 90))}</div>`).join('')}</div>`).join('')}` : ''}
+  </div>
 </div>`;
 }
 
 // ---------------------------------------------------------------------------
 // gap-matrix - capability gap analysis (current vs target maturity)
 // ---------------------------------------------------------------------------
+
 
 function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
     const gaps: any[] = Array.isArray(slide.gapMatrix?.gaps) ? slide.gapMatrix.gaps.slice(0, _caps.items) : [];
@@ -2020,6 +2119,9 @@ function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
 
 function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
     const features: any[] = Array.isArray(slide.prdFeature?.features) ? slide.prdFeature.features.slice(0, _caps.items) : [];
+    // 2026-06-28 carrier-to-renderer: per-feature tokenized emblem, index-aligned to features
+    // (registry prd-feature carrier featureImages, icon branch). Empty -> nothing (fail-open).
+    const featureImages: string[] = Array.isArray(slide.prdFeature?.featureImages) ? slide.prdFeature.featureImages : [];
     // DENSE STRUCTURAL LAYOUT (W2, 2026-06-11): deep features (user story +
     // 3+ acceptance criteria) route to the prd-dense GOLD exemplar (Figma NU
     // 199:50 / NXT 322:50) - two full-depth cards per slide. The W0 paginator
@@ -2027,7 +2129,7 @@ function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
     // rendering path.
     const isDeep = (f: any) => !!f.userStory && Array.isArray(f.acceptanceCriteria) && f.acceptanceCriteria.length >= 3;
     if (features.length > 0 && features.length <= 2 && features.some(isDeep)) {
-        return renderPrdFeatureDense(features, T);
+        return renderPrdFeatureDense(features, T, featureImages);
     }
     const priColor: Record<string, string> = {
         must: T.accent, should: T.accent2, could: T.muted, wont: T.grey,
@@ -2046,12 +2148,14 @@ function renderPrdFeature(slide: SlideDataLike, T: BrandTokens): string {
 .feat ul{list-style:none;display:flex;flex-direction:column;gap:${denseFt ? 4 : 6}px}
 .feat li{font-size:${denseFt ? SCALE.body : SCALE.lead}px;line-height:1.4;color:${T.ink};padding-left:14px;position:relative}
 .feat li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;background:${T.accent}}
+.feat .fn-wrap{display:flex;align-items:center;gap:9px;min-width:0}
+.feat .fglyph{width:26px;height:26px;flex-shrink:0;object-fit:contain;display:block}
 </style>
 <div class="fgrid">
-${features.map(f => `
+${features.map((f, i) => `
   <div class="feat">
     <div class="fhead">
-      <div class="fn">${esc(f.name)}</div>
+      <div class="fn-wrap">${featureImages[i] ? `<img class="fglyph" src="${esc(String(featureImages[i]))}" alt="">` : ''}<div class="fn">${esc(f.name)}</div></div>
       <div class="fpri" style="color:${priColor[f.priority] || T.ink}">${esc(f.priority)}</div>
     </div>
     ${f.problemSolved ? `<div class="fps">${esc(f.problemSolved)}</div>` : ''}
@@ -2067,7 +2171,7 @@ ${features.map(f => `
  *  two full-depth feature cards - ink top border, numeral + name + priority
  *  chip, USER STORY italic, ACCEPTANCE CRITERIA square-tick rows, hairline
  *  footer with technical / stakeholder mono lines. */
-function renderPrdFeatureDense(features: any[], T: BrandTokens): string {
+function renderPrdFeatureDense(features: any[], T: BrandTokens, featureImages: string[] = []): string {
     const cards = features.slice(0, 2).map((f, i) => {
         const crit: string[] = Array.isArray(f.acceptanceCriteria) ? f.acceptanceCriteria.slice(0, 5) : [];
         const footer: string[] = [];
@@ -2077,6 +2181,7 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens): string {
       <div class="pdc">
         <div class="pdh">
           <div class="pdn">${String(i + 1).padStart(2, '0')}</div>
+          ${featureImages[i] ? `<img class="pdglyph" src="${esc(String(featureImages[i]))}" alt="">` : ''}
           <div class="pdt">${esc(trunc(f.name, 44))}</div>
           <div class="pdp">${esc(trunc(f.priority || 'must', 12))}</div>
         </div>
@@ -2092,6 +2197,7 @@ function renderPrdFeatureDense(features: any[], T: BrandTokens): string {
 .pdc{border-top:3px solid ${T.ink};padding:24px 28px 20px 0;display:flex;flex-direction:column;gap:13px;min-height:0;overflow:hidden}
 .pdh{display:flex;align-items:center;gap:18px}
 .pdh .pdn{font-family:${T.displayFont};font-weight:600;font-size:${SCALE.subhead}px;line-height:normal;color:${T.accent}}
+.pdh .pdglyph{width:34px;height:34px;flex-shrink:0;object-fit:contain;display:block}
 .pdh .pdt{font-family:${T.titleFont};font-weight:${T.titleWeight};font-size:${SCALE.name}px;line-height:1.15;color:${T.ink};flex:1;min-width:0}
 .pdh .pdp{font-family:${T.monoFont};font-size:${SCALE.label}px;letter-spacing:2px;text-transform:uppercase;font-weight:600;padding:6px 13px;background:${T.ink};color:${T.paper};flex-shrink:0}
 .pdps{font-size:${SCALE.body}px;line-height:1.42;color:${T.ink}}
@@ -2190,8 +2296,20 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
     // fence body IS the archetype payload (composer reads fields by dot-path). composeSlide returns
     // null for an unknown key, so a malformed name falls through to the normal GOLD dispatch.
     if (template.startsWith('slides:')) {
-        const payload = slide.composerPayload || slide;
-        const composed = composeSlide(template.slice('slides:'.length), payload, brand);
+        const archetype = template.slice('slides:'.length);
+        let payload = slide.composerPayload || slide;
+        // #13 runtime wire: if the generator AUTHORED a viz block, render it (token-themed, labeled)
+        // into this archetype's registered image slot before composing. vizSlot is the single
+        // authority; composeSlide draws it into the GOLD panel; the PPTX exporter makes it a native
+        // replaceable placeholder. No-op when there's no authored viz or the archetype has no slot.
+        const vz = slide.viz || (payload && (payload as any).viz);
+        if (vz && (vz.family || (Array.isArray(vz.labels) && vz.labels.length))) {
+            payload = attachViz(
+                { ...payload, labels: vz.labels, hub: vz.hub, links: vz.links, stages: vz.stages, scores: vz.scores, target: vz.target, groups: vz.groups, tracks: vz.tracks, value: vz.value, seed: vz.seed, icons: vz.icons },
+                { archetype, brand, ground: vz.ground || 'dark', industry: vz.industry || slide.industry, heading: slide.title, explicitFamily: vz.family },
+            );
+        }
+        const composed = composeSlide(archetype, payload, brand);
         if (composed) return composeArchetypeDoc(brand, slide.title || '', composed);
     }
     // Universal density axis: resolve this slide's item ceilings before dispatch.
@@ -2277,7 +2395,15 @@ export function slideDataToStageHtml(slide: SlideDataLike): string {
             body = renderServiceBlueprint(slide, T);
             break;
         case 'journey-map':
+            // Canonical GOLD swimlane matrix (Figma 595:2 base / 595:5 T3): actor lanes x phase
+            // columns with filled cells, embedded KPIs in the phase headers, persona-voice row,
+            // stacked pain row, opportunity row, critical phase highlighted. The matrix IS the body.
             body = renderJourneyMap(slide, T);
+            break;
+        case 'mindmap':
+            // mindmap renders NATIVELY. The primary radial path lives in mindMapRenderer (token-grounded
+            // SVG); as a slide body it falls to the generic token-grounded renderer. Flat-image retired.
+            body = renderGeneric(slide, T);
             break;
         case 'org-chart':
             body = renderOrgChart(slide, T);

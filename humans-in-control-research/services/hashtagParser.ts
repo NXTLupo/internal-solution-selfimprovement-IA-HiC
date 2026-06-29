@@ -295,6 +295,30 @@ export const parsePlaygroundDirective = buildArtifactParser('#playground');
 export const parseApproachesDirective = buildArtifactParser('#approaches');
 export const parseWhitepaperDirective = buildArtifactParser('#whitepaper');
 
+// 2026-06-26 - #img visual-routing override (visualRouter.ts / nano-banana designer plan C2+C6).
+// Lets the user PIN which branch fills a deliverable's image slot, overriding the auto router:
+//   #img=diagram   -> deterministic vizEngine (content-true data diagram, $0, exact labels)
+//   #img=generate  -> the brand-locked Nano-Banana designer skill (emotive/conceptual art)
+//   #img=icon      -> a tokenized industry/content GLYPH from the icon library (deterministic, $0)
+//   #img=none      -> suppress slot art entirely
+// Bare-flag aliases are accepted too (#img-diagram / #img-generate / #img-icon / #no-image).
+// Returns undefined when the user did not pin a branch (router auto-decides per the GOLD audit).
+export type ImgDirective = 'diagram' | 'generate' | 'icon' | 'none';
+export function parseImgDirective(message: string): ImgDirective | undefined {
+    const m = message || '';
+    const val = (extractValue(m, 'img') || '').toLowerCase();
+    if (/^(diagram|viz|chart|data)$/.test(val)) return 'diagram';
+    if (/^(generate|gen|illustrate|art|image|emotive)$/.test(val)) return 'generate';
+    if (/^(icon|glyph|mark)$/.test(val)) return 'icon';
+    if (/^(none|off|no|skip)$/.test(val)) return 'none';
+    // bare-flag aliases (word-boundary so #no-image doesn't trip on substrings)
+    if (/(?:^|\s)#(?:img-none|no-image|noimage)(?=\s|$|[.,;:!?'"])/i.test(m)) return 'none';
+    if (/(?:^|\s)#(?:img-diagram)(?=\s|$|[.,;:!?'"])/i.test(m)) return 'diagram';
+    if (/(?:^|\s)#(?:img-generate|generate-image)(?=\s|$|[.,;:!?'"])/i.test(m)) return 'generate';
+    if (/(?:^|\s)#(?:img-icon)(?=\s|$|[.,;:!?'"])/i.test(m)) return 'icon';
+    return undefined;
+}
+
 /** Help directive - bare hashtag, no topic needed. */
 export function parseHelpDirective(message: string): { triggered: boolean } {
     return { triggered: /(?:^|\s)#help(?=\s|$|[.,;:!?'"])/i.test(message) };

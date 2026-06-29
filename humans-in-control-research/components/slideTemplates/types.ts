@@ -133,6 +133,13 @@ export interface RecommendationData {
     /** Long-form supporting context for the implication footer area -
      *  rendered as a "WHY IT MATTERS" eyebrow above the implication when present. */
     whyMatters?: string;
+    /** USER OVERRIDE 2026-06-28 (scenes-where-they-fit): per-recommendation supporting EMOTIVE
+     *  scene (data: URL) painted into the NON-dense recommendation right rail (Figma slot
+     *  678:5526 on detail 597:4, 560x140 banner; NU twin 625:1841 inherits). Populated by the
+     *  registry-driven illustrator loop (artifactImageSlots.ts recommendation panel/emotive).
+     *  Takes precedence over heroImage as the right-rail image source; the dense GOLD variant
+     *  (614:5) is content-packed and stays image-free. */
+    panelImage?: string;
 }
 
 /** A single pulled quote - verbatim text + full attribution. Used anywhere a
@@ -186,7 +193,16 @@ export interface ThemeClusterData {
         tension?: string;
         whatItMeans?: string;
         convergenceLabel?: string;
+        /** Per-theme content-true emotive thumbnail URL/data-URI (USER OVERRIDE
+         *  2026-06-27, Figma 590:9 per-card brand-image-slot 895:338..340). Falls
+         *  back behind the index-aligned `themeImages[]` carrier below. NO PURE
+         *  DECORATION: must trace to THIS theme thesis. */
+        brandImage?: string | { url?: string };
     }>;
+    /** Index-aligned per-theme image carrier (illustrator output), THE preferred
+     *  source the renderer twins read (themeImages[i] -> themes[i]); falls back to
+     *  themes[i].brandImage. Mirror of services/slideToStageHtml.ts themeThumb(). */
+    themeImages?: string[];
     /** Cross-theme pattern callout. Rendered under the hero quote on
      *  theme-spotlight, below the arc on theme-arc, as a footer on mosaic. */
     patternSignal?: string;
@@ -226,6 +242,10 @@ export interface CompetitiveMatrixData {
         tier?: 'top' | 'second';
     }>;
     patternLine?: string;
+    /** Per-peer tokenized emblem data-URIs, index-aligned to rowsProse (icon branch,
+     *  registry competitive-matrix carrier). Populated by the runtime icon resolver;
+     *  both renderer twins paint it beside the institution name. */
+    peerImages?: string[];
 }
 
 export interface BlockQuoteData {
@@ -316,6 +336,12 @@ export interface CaseStudyData {
     }>;
     /** One-sentence implication line tying the case to the research objective. */
     implication?: string;
+    /** USER OVERRIDE 2026-06-28 (scenes-where-they-fit): per-case supporting EMOTIVE scene
+     *  (data: URL) painted into the four-block right panel ONLY (Figma slot 890:357, 544x300,
+     *  NU twin 625:314 inherits). Populated by the registry-driven illustrator loop
+     *  (artifactImageSlots.ts case-study panel/emotive). The renderer falls back to nothing
+     *  when absent; other case-study variants are image-free. */
+    panelImage?: string;
 }
 
 export interface PrinciplesData {
@@ -582,6 +608,10 @@ export interface PrdFeatureData {
             attribution?: string;
         }>;
     }>;
+    /** Per-feature tokenized emblem data-URIs, index-aligned to features (icon branch,
+     *  registry prd-feature carrier). Populated by the runtime icon resolver; both
+     *  renderer twins paint it on each feature card header. */
+    featureImages?: string[];
 }
 
 // === SYSTEMS INVENTORY (tech audit) ===

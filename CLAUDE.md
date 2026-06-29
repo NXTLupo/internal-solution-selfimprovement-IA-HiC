@@ -26,8 +26,8 @@ Browser → Launchpad:8000 → Agent:8500 → MCP Wrappers (8501-8507) → Core 
 - **MCP Wrappers** (`mcp-services/*/app.py`): Lightweight JSON-RPC 2.0 proxies that expose core services as tools for the agent.
 - **Core Services** (`internal-solutions-*/`): Independent apps (FastAPI, Flask, or Node/Vite) each with their own Dockerfile.
 
-### NXT Agency (External Repo — Required Sibling)
-Source lives in `../NXT-Agency/` (sibling directory, not inside this repo). **`docker compose up` will fail if this directory doesn't exist** — the compose file references `../NXT-Agency/` for build context and volume mounts. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad serves a pre-built Vite dist via Nginx — rebuild in `../NXT-Agency/agency-agents-launchpad/` if the frontend changes.
+### NXT Agency (Vendored In-Repo)
+Source is now **vendored inside this repo at `./NXT-Agency/`** (commit `1c6ae4d10`) so the cowork agent works on a fresh clone — it is no longer an external `../NXT-Agency/` sibling. All four `docker-compose-all.yml` paths reference `./NXT-Agency`. The backend connects to CX Workbench MCP services for CX tool access and exposes a noVNC browser viewport on port 6080 for live computer-use observation. The launchpad now builds from `./NXT-Agency/agency-agents-launchpad/` (multi-stage Vite→Nginx Dockerfile) rather than serving a pre-committed dist — rebuild that service if the frontend changes. API keys come from the workbench root `.env` at runtime. The vendored tree excludes `.git`/`.env`/`node_modules`/`dist`/`generated-images`.
 
 ### Critical Files (modify with caution)
 - `mcp-services/agent/app.py` — AI orchestrator (~900 lines); `tool_services` dict maps service names to MCP URLs
@@ -208,11 +208,8 @@ for attempt in range(max_retries):
             raise
 ```
 
-### External Repo Dependencies
-One service builds from a sibling directory outside this repo:
-- **NXT Agency**: `../NXT-Agency/` — FastAPI backend + Vite frontend
-
-Changes to this service require working in its respective repo. Only `docker-compose-all.yml` references it.
+### Vendored Service (formerly external)
+- **NXT Agency**: `./NXT-Agency/` — FastAPI backend + Vite frontend, vendored in-repo (see "NXT Agency" above). Edit it in place; only `docker-compose-all.yml` references it. The upstream lives in a separate repo, so keep changes here mergeable back if you sync.
 
 ### Humans-in-Control Research (`humans-in-control-research/`)
 

@@ -1,0 +1,314 @@
+[
+  {
+    "id": "browser",
+    "tags": ["browser", "web", "window", "chrome", "tab"],
+    "usage": "Web browser window or web app surface",
+    "inner": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1.5\"/><path d=\"M3 9 H21\"/><circle cx=\"6\" cy=\"7\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"8.5\" cy=\"7\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"11\" cy=\"7\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "url",
+    "tags": ["url", "address", "link", "location", "web-address"],
+    "usage": "Web address or URL bar",
+    "inner": "<rect x=\"3\" y=\"8\" width=\"18\" height=\"8\" rx=\"4\"/><path d=\"M7 12 H8\"/><path d=\"M11 12 H17\"/>"
+  },
+  {
+    "id": "code-brackets",
+    "tags": ["code", "brackets", "source", "markup", "dev"],
+    "usage": "Source code or markup",
+    "inner": "<polyline points=\"8 7 3 12 8 17\"/><polyline points=\"16 7 21 12 16 17\"/><path d=\"M13 5 L11 19\"/>"
+  },
+  {
+    "id": "terminal",
+    "tags": ["terminal", "console", "shell", "command-line", "cli"],
+    "usage": "Terminal or command console",
+    "inner": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1.5\"/><polyline points=\"7 10 10 12 7 14\"/><path d=\"M12 15 H16\"/>"
+  },
+  {
+    "id": "git-branch",
+    "tags": ["git-branch", "branch", "fork", "vcs", "version-control"],
+    "usage": "Git branch / divergent history",
+    "inner": "<circle cx=\"6\" cy=\"6\" r=\"2\"/><circle cx=\"6\" cy=\"18\" r=\"2\"/><circle cx=\"17\" cy=\"8\" r=\"2\"/><path d=\"M6 8 V16\"/><path d=\"M6 12 H13 A4 4 0 0 0 17 10\"/>"
+  },
+  {
+    "id": "commit",
+    "tags": ["commit", "git-commit", "snapshot", "revision", "node"],
+    "usage": "Git commit on a timeline",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M3 12 H9\"/><path d=\"M15 12 H21\"/>"
+  },
+  {
+    "id": "repo",
+    "tags": ["repo", "repository", "codebase", "book", "vcs"],
+    "usage": "Code repository",
+    "inner": "<path d=\"M6 4 H18 A1 1 0 0 1 19 5 V20 L12 17 L5 20 V5 A1 1 0 0 1 6 4 Z\"/><path d=\"M9 4 V14\"/>"
+  },
+  {
+    "id": "pull-request",
+    "tags": ["pull-request", "pr", "merge-request", "review", "git"],
+    "usage": "Pull request",
+    "inner": "<circle cx=\"6\" cy=\"6\" r=\"2\"/><circle cx=\"6\" cy=\"18\" r=\"2\"/><circle cx=\"18\" cy=\"18\" r=\"2\"/><path d=\"M6 8 V16\"/><path d=\"M18 16 V11 A2 2 0 0 0 16 9 H13\"/><polyline points=\"15 7 13 9 15 11\"/>"
+  },
+  {
+    "id": "merge",
+    "tags": ["merge", "git-merge", "combine", "converge", "join"],
+    "usage": "Git merge of two branches",
+    "inner": "<circle cx=\"6\" cy=\"6\" r=\"2\"/><circle cx=\"6\" cy=\"18\" r=\"2\"/><circle cx=\"17\" cy=\"16\" r=\"2\"/><path d=\"M6 8 V16\"/><path d=\"M6 9 A8 8 0 0 0 14 16\"/>"
+  },
+  {
+    "id": "api",
+    "tags": ["api", "endpoint", "interface", "plug", "connector"],
+    "usage": "API endpoint or interface",
+    "inner": "<rect x=\"5\" y=\"9\" width=\"14\" height=\"6\" rx=\"2\"/><path d=\"M5 12 H2\"/><path d=\"M22 12 H19\"/><path d=\"M9 9 V6\"/><path d=\"M15 9 V6\"/><path d=\"M9 18 V15\"/><path d=\"M15 18 V15\"/>"
+  },
+  {
+    "id": "webhook",
+    "tags": ["webhook", "callback", "trigger", "hook", "event"],
+    "usage": "Webhook / event callback",
+    "inner": "<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M9 11 L6 17\"/><circle cx=\"6\" cy=\"18\" r=\"2\"/><path d=\"M8 18 H16\"/><circle cx=\"17\" cy=\"17\" r=\"2\"/><path d=\"M11 6 A3 3 0 0 1 16 8\"/>"
+  },
+  {
+    "id": "package",
+    "tags": ["package", "module", "bundle", "box", "artifact"],
+    "usage": "Software package or module",
+    "inner": "<path d=\"M12 3 L20 7 V17 L12 21 L4 17 V7 Z\"/><polyline points=\"4 7 12 11 20 7\"/><path d=\"M12 11 V21\"/>"
+  },
+  {
+    "id": "container",
+    "tags": ["container", "docker", "pod", "image", "runtime"],
+    "usage": "Container / Docker image",
+    "inner": "<rect x=\"4\" y=\"11\" width=\"16\" height=\"7\" rx=\"1\"/><rect x=\"7\" y=\"8\" width=\"3\" height=\"3\"/><rect x=\"11\" y=\"8\" width=\"3\" height=\"3\"/><rect x=\"11\" y=\"5\" width=\"3\" height=\"3\"/><path d=\"M4 18 H20\"/>"
+  },
+  {
+    "id": "function",
+    "tags": ["function", "method", "lambda", "fx", "routine"],
+    "usage": "Function or method",
+    "inner": "<path d=\"M14 4 H12 A3 3 0 0 0 9 7 V10 H6 M9 10 V17 A3 3 0 0 1 6 20 H5\"/><path d=\"M14 12 H18\"/><path d=\"M16 9 V15\"/>"
+  },
+  {
+    "id": "queue",
+    "tags": ["queue", "buffer", "fifo", "messages", "stack"],
+    "usage": "Message queue / buffer",
+    "inner": "<rect x=\"4\" y=\"7\" width=\"4\" height=\"10\" rx=\"1\"/><rect x=\"10\" y=\"7\" width=\"4\" height=\"10\" rx=\"1\"/><rect x=\"16\" y=\"7\" width=\"4\" height=\"10\" rx=\"1\"/>"
+  },
+  {
+    "id": "cache",
+    "tags": ["cache", "memory", "fast-store", "redis", "buffer"],
+    "usage": "Cache / fast key store",
+    "inner": "<ellipse cx=\"12\" cy=\"6\" rx=\"7\" ry=\"3\"/><path d=\"M5 6 V18 A7 3 0 0 0 19 18 V6\"/><path d=\"M5 12 A7 3 0 0 0 19 12\"/><path d=\"M9 14 L11 16 L15 11\"/>"
+  },
+  {
+    "id": "cdn",
+    "tags": ["cdn", "edge", "delivery", "distribution", "network"],
+    "usage": "Content delivery network",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"3\"/><circle cx=\"5\" cy=\"6\" r=\"1.5\"/><circle cx=\"19\" cy=\"6\" r=\"1.5\"/><circle cx=\"5\" cy=\"18\" r=\"1.5\"/><circle cx=\"19\" cy=\"18\" r=\"1.5\"/><path d=\"M9.8 10.2 L6 7\"/><path d=\"M14.2 10.2 L18 7\"/><path d=\"M9.8 13.8 L6 17\"/><path d=\"M14.2 13.8 L18 17\"/>"
+  },
+  {
+    "id": "dns",
+    "tags": ["dns", "domain", "name-server", "resolve", "directory"],
+    "usage": "DNS / domain name resolution",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><ellipse cx=\"12\" cy=\"12\" rx=\"3.5\" ry=\"8\"/><path d=\"M4 12 H20\"/><path d=\"M5 8 H19\"/><path d=\"M5 16 H19\"/>"
+  },
+  {
+    "id": "load-balancer",
+    "tags": ["load-balancer", "balance", "distribute", "scale", "router"],
+    "usage": "Load balancer distributing traffic",
+    "inner": "<rect x=\"9\" y=\"3\" width=\"6\" height=\"4\" rx=\"1\"/><path d=\"M12 7 V10\"/><path d=\"M5 14 V12 H19 V14\"/><path d=\"M12 10 V14\"/><rect x=\"3\" y=\"14\" width=\"4\" height=\"4\" rx=\"1\"/><rect x=\"10\" y=\"14\" width=\"4\" height=\"4\" rx=\"1\"/><rect x=\"17\" y=\"14\" width=\"4\" height=\"4\" rx=\"1\"/>"
+  },
+  {
+    "id": "proxy",
+    "tags": ["proxy", "relay", "intermediary", "gateway", "forward"],
+    "usage": "Proxy / relay between client and server",
+    "inner": "<rect x=\"3\" y=\"9\" width=\"5\" height=\"6\" rx=\"1\"/><rect x=\"16\" y=\"9\" width=\"5\" height=\"6\" rx=\"1\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\"/><path d=\"M8 12 H9.5\"/><path d=\"M14.5 12 H16\"/>"
+  },
+  {
+    "id": "gateway",
+    "tags": ["gateway", "ingress", "entry", "arch", "portal"],
+    "usage": "API gateway / network entry point",
+    "inner": "<path d=\"M5 20 V9 L12 4 L19 9 V20\"/><path d=\"M9 20 V13 A3 3 0 0 1 15 13 V20\"/><path d=\"M3 20 H21\"/>"
+  },
+  {
+    "id": "port",
+    "tags": ["port", "socket", "interface", "connection", "plug"],
+    "usage": "Network port / socket",
+    "inner": "<rect x=\"5\" y=\"7\" width=\"14\" height=\"10\" rx=\"1.5\"/><rect x=\"9\" y=\"7\" width=\"6\" height=\"3\"/><path d=\"M9 13 H10\"/><path d=\"M14 13 H15\"/>"
+  },
+  {
+    "id": "websocket",
+    "tags": ["websocket", "duplex", "realtime", "stream", "socket"],
+    "usage": "WebSocket bidirectional connection",
+    "inner": "<circle cx=\"5\" cy=\"12\" r=\"2\"/><circle cx=\"19\" cy=\"12\" r=\"2\"/><polyline points=\"9 9 7 12 9 15\"/><polyline points=\"15 9 17 12 15 15\"/><path d=\"M7 12 H17\"/>"
+  },
+  {
+    "id": "cookie",
+    "tags": ["cookie", "session", "storage", "tracking", "crumb"],
+    "usage": "Browser cookie / session token",
+    "inner": "<path d=\"M12 4 A8 8 0 1 0 20 12 A3 3 0 0 1 16.5 8.5 A3 3 0 0 1 12 4 Z\"/><circle cx=\"9\" cy=\"11\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"13\" cy=\"14\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9\" cy=\"16\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "oauth",
+    "tags": ["oauth", "auth", "token", "consent", "authorize"],
+    "usage": "OAuth authorization / delegated access",
+    "inner": "<circle cx=\"9\" cy=\"9\" r=\"4\"/><path d=\"M11.8 11.8 L18 18\"/><path d=\"M15 15 L17 13 L20 16 L18 18 Z\"/>"
+  },
+  {
+    "id": "sdk",
+    "tags": ["sdk", "toolkit", "library", "kit", "dev-kit"],
+    "usage": "Software development kit",
+    "inner": "<rect x=\"4\" y=\"6\" width=\"16\" height=\"12\" rx=\"1.5\"/><polyline points=\"8 10 6 12 8 14\"/><polyline points=\"13 10 15 12 13 14\"/><path d=\"M4 6 V18\"/>"
+  },
+  {
+    "id": "cli",
+    "tags": ["cli", "command-line", "prompt", "shell", "tool"],
+    "usage": "Command-line tool",
+    "inner": "<polyline points=\"4 7 9 12 4 17\"/><path d=\"M12 17 H20\"/>"
+  },
+  {
+    "id": "ide",
+    "tags": ["ide", "editor", "workspace", "code-editor", "dev-env"],
+    "usage": "Integrated development environment",
+    "inner": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1.5\"/><path d=\"M9 5 V19\"/><path d=\"M5 9 H7\"/><path d=\"M5 12 H7\"/><path d=\"M5 15 H7\"/><polyline points=\"13 10 15 12 13 14\"/><path d=\"M16 14 H18\"/>"
+  },
+  {
+    "id": "debugger",
+    "tags": ["debugger", "debug", "inspect", "trace", "bug-tool"],
+    "usage": "Debugger / runtime inspection",
+    "inner": "<rect x=\"8\" y=\"7\" width=\"8\" height=\"11\" rx=\"4\"/><path d=\"M10 6 L9 4\"/><path d=\"M14 6 L15 4\"/><path d=\"M8 10 L4 9\"/><path d=\"M8 14 L4 14\"/><path d=\"M16 10 L20 9\"/><path d=\"M16 14 L20 14\"/><circle cx=\"12\" cy=\"12\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "breakpoint",
+    "tags": ["breakpoint", "pause", "stop-point", "debug-marker", "halt"],
+    "usage": "Debugger breakpoint on a line",
+    "inner": "<circle cx=\"7\" cy=\"12\" r=\"3\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M12 9 H20\"/><path d=\"M12 12 H20\"/><path d=\"M12 15 H17\"/>"
+  },
+  {
+    "id": "log-lines",
+    "tags": ["log-lines", "logs", "output", "records", "trace"],
+    "usage": "Log output / event lines",
+    "inner": "<path d=\"M5 6 H6\"/><path d=\"M9 6 H19\"/><path d=\"M5 10 H6\"/><path d=\"M9 10 H19\"/><path d=\"M5 14 H6\"/><path d=\"M9 14 H16\"/><path d=\"M5 18 H6\"/><path d=\"M9 18 H19\"/>"
+  },
+  {
+    "id": "deploy",
+    "tags": ["deploy", "ship", "release", "rocket", "launch"],
+    "usage": "Deploy / ship to production",
+    "inner": "<path d=\"M12 3 C15 6 16 10 14 15 H10 C8 10 9 6 12 3 Z\"/><circle cx=\"12\" cy=\"9\" r=\"1.5\"/><path d=\"M10 15 L7 18 L9 18 L9 20\"/><path d=\"M14 15 L17 18 L15 18 L15 20\"/>"
+  },
+  {
+    "id": "rollback",
+    "tags": ["rollback", "revert", "undo", "restore", "back"],
+    "usage": "Rollback to a prior version",
+    "inner": "<path d=\"M5 11 A7 7 0 1 1 7 16\"/><polyline points=\"5 7 5 11 9 11\"/>"
+  },
+  {
+    "id": "ci-pipeline",
+    "tags": ["ci-pipeline", "pipeline", "ci-cd", "automation", "stages"],
+    "usage": "CI/CD pipeline stages",
+    "inner": "<circle cx=\"5\" cy=\"12\" r=\"2\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/><circle cx=\"19\" cy=\"12\" r=\"2\"/><path d=\"M7 12 H10\"/><path d=\"M14 12 H17\"/><path d=\"M19 10 V7 H12\"/>"
+  },
+  {
+    "id": "build-artifact",
+    "tags": ["build-artifact", "artifact", "binary", "output", "compiled"],
+    "usage": "Build artifact / compiled output",
+    "inner": "<path d=\"M12 3 L19 6.5 V14 L12 18 L5 14 V6.5 Z\"/><polyline points=\"5 6.5 12 10 19 6.5\"/><path d=\"M12 10 V18\"/><path d=\"M9 19 L12 21 L15 19\"/>"
+  },
+  {
+    "id": "registry",
+    "tags": ["registry", "store", "catalog", "index", "warehouse"],
+    "usage": "Package / container registry",
+    "inner": "<rect x=\"4\" y=\"5\" width=\"7\" height=\"6\" rx=\"1\"/><rect x=\"13\" y=\"5\" width=\"7\" height=\"6\" rx=\"1\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"6\" rx=\"1\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"6\" rx=\"1\"/><path d=\"M7 8 H8\"/><path d=\"M16 8 H17\"/>"
+  },
+  {
+    "id": "version-tag",
+    "tags": ["version-tag", "tag", "label", "release-tag", "semver"],
+    "usage": "Version tag / release label",
+    "inner": "<path d=\"M4 9 V5 A1 1 0 0 1 5 4 H9 L20 15 L15 20 L4 9 Z\"/><circle cx=\"8\" cy=\"8\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "feature-flag",
+    "tags": ["feature-flag", "toggle", "flag", "switch", "rollout"],
+    "usage": "Feature flag / toggle",
+    "inner": "<path d=\"M6 3 V21\"/><path d=\"M6 4 H17 L14 8 L17 12 H6\"/>"
+  },
+  {
+    "id": "lint",
+    "tags": ["lint", "linter", "style-check", "static-analysis", "format"],
+    "usage": "Linter / code style check",
+    "inner": "<path d=\"M4 6 H7\"/><path d=\"M11 6 H20\"/><path d=\"M4 12 H7\"/><path d=\"M11 12 H20\"/><path d=\"M4 18 H7\"/><path d=\"M11 18 H16\"/><path d=\"M17 17 L19 19 L22 16\"/>"
+  },
+  {
+    "id": "unit-test",
+    "tags": ["unit-test", "test", "check", "pass", "spec"],
+    "usage": "Unit test passing",
+    "inner": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><polyline points=\"8 12 11 15 16 9\"/>"
+  },
+  {
+    "id": "code-coverage",
+    "tags": ["code-coverage", "coverage", "tested", "percent", "gauge"],
+    "usage": "Test coverage measurement",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 12 L12 4 A8 8 0 0 1 18.5 15.5 Z\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>"
+  },
+  {
+    "id": "bug",
+    "tags": ["bug", "defect", "issue", "error", "insect"],
+    "usage": "Software bug / defect",
+    "inner": "<ellipse cx=\"12\" cy=\"13\" rx=\"4\" ry=\"5\"/><path d=\"M8 13 H16\"/><path d=\"M10 8 A2.5 2.5 0 0 1 14 8\"/><path d=\"M9 8 L8 6\"/><path d=\"M15 8 L16 6\"/><path d=\"M8 11 L4 10\"/><path d=\"M8 15 L4 16\"/><path d=\"M16 11 L20 10\"/><path d=\"M16 15 L20 16\"/>"
+  },
+  {
+    "id": "patch",
+    "tags": ["patch", "fix", "hotfix", "bandage", "repair"],
+    "usage": "Patch / hotfix",
+    "inner": "<path d=\"M9 5 L5 9 A2 2 0 0 0 5 11 L13 19 A2 2 0 0 0 15 19 L19 15 A2 2 0 0 0 19 13 L11 5 A2 2 0 0 0 9 5 Z\"/><path d=\"M9 9 L15 15\"/><circle cx=\"11\" cy=\"13\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"13\" cy=\"11\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "release",
+    "tags": ["release", "publish", "milestone", "version-out", "ship"],
+    "usage": "Software release / publish",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 4 V7\"/><path d=\"M12 17 V20\"/><path d=\"M4 12 H7\"/><path d=\"M17 12 H20\"/>"
+  },
+  {
+    "id": "changelog",
+    "tags": ["changelog", "history", "notes", "release-notes", "log"],
+    "usage": "Changelog / release notes",
+    "inner": "<path d=\"M7 3 H15 L19 7 V21 H7 A2 2 0 0 1 5 19 V5 A2 2 0 0 1 7 3 Z\"/><polyline points=\"15 3 15 7 19 7\"/><path d=\"M8 12 H16\"/><path d=\"M8 15 H16\"/><path d=\"M8 18 H13\"/>"
+  },
+  {
+    "id": "monorepo",
+    "tags": ["monorepo", "workspace", "multi-package", "root", "nested"],
+    "usage": "Monorepo / multi-package workspace",
+    "inner": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><rect x=\"7\" y=\"7\" width=\"4\" height=\"4\" rx=\"0.5\"/><rect x=\"13\" y=\"7\" width=\"4\" height=\"4\" rx=\"0.5\"/><rect x=\"7\" y=\"13\" width=\"4\" height=\"4\" rx=\"0.5\"/><rect x=\"13\" y=\"13\" width=\"4\" height=\"4\" rx=\"0.5\"/>"
+  },
+  {
+    "id": "dependency",
+    "tags": ["dependency", "depends-on", "link", "graph", "require"],
+    "usage": "Package dependency relationship",
+    "inner": "<circle cx=\"12\" cy=\"5\" r=\"2\"/><circle cx=\"6\" cy=\"17\" r=\"2\"/><circle cx=\"18\" cy=\"17\" r=\"2\"/><path d=\"M11 6.7 L7 15.3\"/><path d=\"M13 6.7 L17 15.3\"/><path d=\"M8 17 H16\"/>"
+  },
+  {
+    "id": "semver",
+    "tags": ["semver", "version", "numbering", "dots", "x-y-z"],
+    "usage": "Semantic version number",
+    "inner": "<path d=\"M4 14 V10 A3 3 0 0 1 7 7 V7 A3 3 0 0 1 7 13 H4\"/><circle cx=\"11.5\" cy=\"16\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M15 7 A3 3 0 0 1 18 10 A3 3 0 0 1 15 13 A3 3 0 0 1 18 16 A3 3 0 0 1 15 17\"/>"
+  },
+  {
+    "id": "http-request",
+    "tags": ["http-request", "request", "send", "fetch", "outbound"],
+    "usage": "HTTP request to a server",
+    "inner": "<rect x=\"14\" y=\"5\" width=\"6\" height=\"14\" rx=\"1\"/><path d=\"M16 9 H18\"/><path d=\"M4 12 H12\"/><polyline points=\"9 9 12 12 9 15\"/>"
+  },
+  {
+    "id": "json",
+    "tags": ["json", "data", "object", "payload", "braces"],
+    "usage": "JSON data payload",
+    "inner": "<path d=\"M9 4 A2 2 0 0 0 7 6 V10 A2 2 0 0 1 5 12 A2 2 0 0 1 7 14 V18 A2 2 0 0 0 9 20\"/><path d=\"M15 4 A2 2 0 0 1 17 6 V10 A2 2 0 0 0 19 12 A2 2 0 0 0 17 14 V18 A2 2 0 0 1 15 20\"/><circle cx=\"12\" cy=\"12\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "rest",
+    "tags": ["rest", "rest-api", "resource", "http", "crud"],
+    "usage": "REST API / resource endpoints",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M8 16 V8 H12 A2 2 0 0 1 12 12 H8\"/><path d=\"M11 12 L14 16\"/>"
+  },
+  {
+    "id": "graphql",
+    "tags": ["graphql", "query", "schema", "graph", "api"],
+    "usage": "GraphQL query graph",
+    "inner": "<circle cx=\"12\" cy=\"5\" r=\"1.5\"/><circle cx=\"19\" cy=\"9\" r=\"1.5\"/><circle cx=\"19\" cy=\"15\" r=\"1.5\"/><circle cx=\"12\" cy=\"19\" r=\"1.5\"/><circle cx=\"5\" cy=\"15\" r=\"1.5\"/><circle cx=\"5\" cy=\"9\" r=\"1.5\"/><polygon points=\"12 6.5 18 9 18 15 12 17.5 6 15 6 9\"/>"
+  }
+]

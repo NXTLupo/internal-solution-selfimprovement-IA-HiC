@@ -7,8 +7,38 @@
 //
 // 2026-05-24 - Phase 6 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 // See .claude/skills/meta-themes/SKILL.md for the contract.
+//
+// 2026-06-27 - DE-HARDCODE + GLYPH PAINT. The renderer previously carried two
+// hand-keyed hex palettes (NXT_MT_STYLE / NU_MT_STYLE) + stale fonts (Bebas Neue,
+// Roboto Condensed, Open Sans). Per UNIFIED_VISION never-hardcode, every colour +
+// font now resolves from the brand token mirror (getBrand -> /api/design-tokens
+// hydration). Both brands render on the GOLD light paper surface (registry
+// ground:'light'); brand is an accent flip. Each portfolio-pattern card paints its
+// tokenized glyph (compositeIcon, deterministic + $0) - the live Figma slots
+// 683:5501-5504 on component 613:2.
+
+import { getBrand } from '../components/slideTemplates/brands';
+import { compositeIcon, isContentTrueIcon } from './iconLibrary';
 
 type Brand = 'nxt' | 'nu';
+
+/** Prefix a token hex (stored without '#') for CSS. */
+const hx = (v: string): string => (v && v.startsWith('#')) ? v : `#${v || '000000'}`;
+
+interface MtPalette {
+    bg: string; ink: string; grey: string; hair: string; accent: string; cool: string;
+    panel: string; warmPanel: string; titleFont: string; bodyFont: string; monoFont: string; titleWeight: string;
+}
+/** Resolve the meta-themes palette from the brand token mirror - NEVER a literal. */
+function mtPalette(brandId: Brand): MtPalette {
+    const b = getBrand(brandId);
+    return {
+        bg: hx(b.PALE), ink: hx(b.INK), grey: hx(b.GREY), hair: hx(b.HAIRLINE),
+        accent: hx(b.CHARTREUSE), cool: hx(b.CYAN), panel: hx(b.PANEL),
+        warmPanel: hx(b.CHARTREUSE_PALE), titleFont: b.FONT_DISPLAY, bodyFont: b.FONT_BODY,
+        monoFont: b.FONT_MONO, titleWeight: b.TITLE_WEIGHT,
+    };
+}
 
 interface EngagementTheme {
     name: string;
@@ -241,53 +271,34 @@ function escapeHtml(s: string): string {
         .replace(/"/g, '&quot;');
 }
 
-const NXT_MT_STYLE = `
-  html, body { width: 1920px; min-height: 1080px; background: #0D0D0D; color: #E8E8E8; }
-  body { font-family: 'Archivo', sans-serif; }
+/** Token-driven GOLD light-paper style. Every value resolves from the brand mirror. */
+function mtStyle(p: MtPalette): string {
+    return `
+  html, body { width: 1920px; min-height: 1080px; background: ${p.bg}; color: ${p.ink}; }
+  body { font-family: ${p.bodyFont}, sans-serif; }
   .mt-frame { width: 1920px; padding: 60px 80px; }
-  .mt-kicker { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
-  .mt-title { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; color: #FFFFFF; margin-bottom: 14px; }
-  .mt-subtitle { font-size: 14px; color: #B8B800; margin-bottom: 32px; letter-spacing: 0.02em; }
-  .mt-rail { width: 56px; height: 4px; background: #B8B800; margin-bottom: 28px; }
-  .mt-stats { display: flex; gap: 48px; margin-bottom: 36px; padding: 16px 0; border-top: 1px solid #222; border-bottom: 1px solid #222; }
-  .mt-stat-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
-  .mt-stat-value { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: #B8B800; line-height: 1; }
+  .mt-kicker { font-family: ${p.monoFont}, monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: ${p.grey}; margin-bottom: 8px; }
+  .mt-title { font-family: ${p.titleFont}, sans-serif; font-weight: ${p.titleWeight}; font-size: 48px; line-height: 1; color: ${p.ink}; margin-bottom: 14px; }
+  .mt-subtitle { font-size: 14px; color: ${p.accent}; margin-bottom: 32px; letter-spacing: 0.02em; }
+  .mt-rail { width: 56px; height: 4px; background: ${p.accent}; margin-bottom: 28px; }
+  .mt-stats { display: flex; gap: 48px; margin-bottom: 36px; padding: 16px 0; border-top: 1px solid ${p.hair}; border-bottom: 1px solid ${p.hair}; }
+  .mt-stat-label { font-family: ${p.monoFont}, monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: ${p.grey}; }
+  .mt-stat-value { font-family: ${p.titleFont}, sans-serif; font-weight: ${p.titleWeight}; font-size: 32px; color: ${p.accent}; line-height: 1; }
   .mt-themes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .mt-theme { padding: 18px 22px; background: #141414; border-left: 3px solid #00B7C3; }
-  .mt-theme.platform { border-left-color: #B8B800; background: #16160C; }
-  .mt-theme-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .mt-theme-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #FFFFFF; letter-spacing: 0.02em; line-height: 1.1; }
-  .mt-flag { display: inline-block; padding: 2px 6px; font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; background: #B8B800; color: #0D0D0D; border-radius: 1px; }
-  .mt-flag.portfolio { background: #00B7C3; color: #0D0D0D; }
-  .mt-summary { font-size: 13px; line-height: 1.5; color: #C8C8C8; margin-bottom: 10px; }
-  .mt-engagements { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.5px; color: #888; line-height: 1.6; }
-  .mt-engagements b { color: #B8B800; font-weight: 700; }
-  .mt-engagement-chip { display: inline-block; padding: 2px 6px; margin: 2px 4px 2px 0; background: #1F1F1F; color: #00B7C3; border-radius: 1px; }
+  .mt-theme { padding: 18px 22px; background: ${p.panel}; border-left: 3px solid ${p.cool}; }
+  .mt-theme.platform { border-left-color: ${p.accent}; background: ${p.warmPanel}; }
+  .mt-theme-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .mt-theme-id { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .mt-glyph { width: 40px; height: 40px; flex-shrink: 0; object-fit: contain; display: block; }
+  .mt-theme-name { font-family: ${p.titleFont}, sans-serif; font-weight: ${p.titleWeight}; font-size: 22px; color: ${p.ink}; letter-spacing: 0.02em; line-height: 1.1; }
+  .mt-flag { display: inline-block; flex-shrink: 0; padding: 2px 6px; font-family: ${p.monoFont}, monospace; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; background: ${p.accent}; color: ${p.bg}; border-radius: 1px; }
+  .mt-flag.portfolio { background: ${p.cool}; color: ${p.bg}; }
+  .mt-summary { font-size: 13px; line-height: 1.5; color: ${p.ink}; opacity: 0.85; margin-bottom: 10px; }
+  .mt-engagements { font-family: ${p.monoFont}, monospace; font-size: 9px; letter-spacing: 0.5px; color: ${p.grey}; line-height: 1.6; }
+  .mt-engagements b { color: ${p.accent}; font-weight: 700; }
+  .mt-engagement-chip { display: inline-block; padding: 2px 6px; margin: 2px 4px 2px 0; background: ${p.bg}; color: ${p.cool}; border: 1px solid ${p.hair}; border-radius: 1px; }
 `;
-
-const NU_MT_STYLE = `
-  html, body { width: 1920px; min-height: 1080px; background: #FFFFFF; color: #1A1A1A; }
-  body { font-family: 'Open Sans', sans-serif; }
-  .mt-frame { width: 1920px; padding: 60px 80px; }
-  .mt-kicker { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #888; margin-bottom: 8px; }
-  .mt-title { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 48px; line-height: 1; color: #0D0D0D; margin-bottom: 14px; }
-  .mt-subtitle { font-size: 14px; color: #C8102E; margin-bottom: 32px; letter-spacing: 0.02em; }
-  .mt-rail { width: 56px; height: 4px; background: #C8102E; margin-bottom: 28px; }
-  .mt-stats { display: flex; gap: 48px; margin-bottom: 36px; padding: 16px 0; border-top: 1px solid #E8E8E8; border-bottom: 1px solid #E8E8E8; }
-  .mt-stat-label { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: #888; }
-  .mt-stat-value { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 32px; color: #C8102E; line-height: 1; }
-  .mt-themes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .mt-theme { padding: 18px 22px; background: #F8F8F4; border-left: 3px solid #0091B6; }
-  .mt-theme.platform { border-left-color: #C8102E; background: #FBF6F6; }
-  .mt-theme-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
-  .mt-theme-name { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 22px; color: #0D0D0D; letter-spacing: 0.02em; line-height: 1.1; }
-  .mt-flag { display: inline-block; padding: 2px 6px; font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; background: #C8102E; color: #FFFFFF; border-radius: 1px; }
-  .mt-flag.portfolio { background: #0091B6; color: #FFFFFF; }
-  .mt-summary { font-size: 13px; line-height: 1.5; color: #333; margin-bottom: 10px; }
-  .mt-engagements { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.5px; color: #666; line-height: 1.6; }
-  .mt-engagements b { color: #C8102E; font-weight: 700; }
-  .mt-engagement-chip { display: inline-block; padding: 2px 6px; margin: 2px 4px 2px 0; background: #FFFFFF; color: #0091B6; border: 1px solid #E0E0E0; border-radius: 1px; }
-`;
+}
 
 export interface MetaThemesRenderInput {
     output: MetaThemesOutput;
@@ -296,19 +307,28 @@ export interface MetaThemesRenderInput {
 }
 
 export function renderMetaThemesHtml(input: MetaThemesRenderInput): string {
-    const css = input.brand === 'nu' ? NU_MT_STYLE : NXT_MT_STYLE;
+    const p = mtPalette(input.brand);
     const title = input.title || 'Portfolio Patterns';
 
     const themesHtml = input.output.themes.slice(0, 12).map(t => {
         const flagText = t.is_platform_pattern ? 'Platform' : 'Portfolio';
         const flagClass = t.is_platform_pattern ? 'platform' : 'portfolio';
+        // Per-pattern tokenized glyph (live Figma slots 683:5501-5504 on 613:2).
+        // compositeIcon is deterministic, $0, token-pure (colour from the brand
+        // mirror), content-true (the canonical pattern name drives the base glyph).
+        let glyphImg = '';
+        try {
+            const g = compositeIcon({ concept: t.canonical_name, brand: input.brand, ground: 'light', role: 'accent', size: 96 });
+            // content-true or nothing: skip the generic fallback star (meaningless decoration)
+            if (g?.dataUri && isContentTrueIcon(g.resolvedBy)) glyphImg = `<img class="mt-glyph" src="${g.dataUri}" alt=""/>`;
+        } catch { /* fail-open: card renders without a mark */ }
         const slugChips = t.engagements.slice(0, 8).map(e =>
             `<span class="mt-engagement-chip">${escapeHtml(e.slug)}</span>`
         ).join('');
         return `
         <div class="mt-theme ${t.is_platform_pattern ? 'platform' : ''}">
           <div class="mt-theme-header">
-            <div class="mt-theme-name">${escapeHtml(t.canonical_name)}</div>
+            <div class="mt-theme-id">${glyphImg}<div class="mt-theme-name">${escapeHtml(t.canonical_name)}</div></div>
             <span class="mt-flag ${flagClass}">${flagText}</span>
           </div>
           <div class="mt-summary">${escapeHtml(t.summary || '-')}</div>
@@ -323,7 +343,7 @@ export function renderMetaThemesHtml(input: MetaThemesRenderInput): string {
 <title>${escapeHtml(title)}</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  ${css}
+  ${mtStyle(p)}
 </style>
 </head>
 <body>
@@ -347,7 +367,7 @@ export function renderMetaThemesHtml(input: MetaThemesRenderInput): string {
     </div>
   </div>
   <div class="mt-themes">
-    ${themesHtml || '<div style="color:#888; padding: 40px; text-align: center;">No portfolio patterns yet - fewer than 3 engagements share a common theme.</div>'}
+    ${themesHtml || `<div style="color:${p.grey}; padding: 40px; text-align: center;">No portfolio patterns yet - fewer than 3 engagements share a common theme.</div>`}
   </div>
 </div>
 </body>

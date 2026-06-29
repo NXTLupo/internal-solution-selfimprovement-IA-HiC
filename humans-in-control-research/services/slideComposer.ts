@@ -48,7 +48,12 @@ interface StaticRegion extends RegionStyle {
     fit?: 'contain' | 'cover';  // image only (default contain)
 }
 type Cell = RegionStyle & {
-    dy: number; dx?: number; key?: string; literal?: string; kind?: 'text' | 'hairline'; w?: number; h?: number;
+    dy: number; dx?: number; key?: string; literal?: string; kind?: 'text' | 'hairline' | 'image'; w?: number; h?: number;
+    fit?: 'contain' | 'cover';   // image cell only (default contain)
+    imgCarrier?: string;  // image cell only: a PAYLOAD-level parallel array (e.g. 'columnIcons')
+                          // read by item index, so the runtime resolver's index-aligned carrier write
+                          // (artifactIconResolver/Illustrator) reaches the per-column slot. Falls back
+                          // to item[key] if the carrier is absent (model may author columns[i].icon).
     lines?: boolean;    // value is a string[] -> render each on its own line
 };
 // A repeated group of items. Items lay out along ONE axis: horizontal (pitchX, columns) or
@@ -212,6 +217,19 @@ function renderColumns(g: ColumnGroup, payload: any, tk: ReturnType<typeof resol
                 html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${c.h || 1}px;background:${tk.color[c.color || 'hairline']}"></div>`;
                 continue;
             }
+            if (c.kind === 'image') {
+                // per-item image (icon glyph / scene data-URI). Prefer a PAYLOAD-level parallel carrier
+                // array read by item index (imgCarrier, e.g. columnIcons[i] - matches the runtime
+                // resolver's index-aligned write); fall back to item[key] (model-authored columns[i].icon).
+                // Empty -> render nothing (fail-open). object-fit contain by default so a glyph is never cropped.
+                const carrierArr = c.imgCarrier ? dot(payload, c.imgCarrier) : null;
+                const isrc = (Array.isArray(carrierArr) ? carrierArr[i] : undefined)
+                    || (c.key ? dot(item, c.key) : c.literal);
+                if (!isrc || typeof isrc !== 'string') continue;
+                const ifit = c.fit || 'contain';
+                html += `<div style="position:absolute;left:${x}px;top:${y}px;width:${w}px;height:${c.h || w}px;display:flex;align-items:center;justify-content:center"><img src="${esc(isrc)}" style="max-width:100%;max-height:100%;width:auto;height:auto;object-fit:${ifit};display:block" alt=""></div>`;
+                continue;
+            }
             const raw = c.key ? dot(item, c.key) : (typeof item === 'string' ? item : c.literal);
             const content = (c.lines && Array.isArray(raw))
                 ? raw.map((s) => esc(s)).join('<br>')
@@ -281,6 +299,15 @@ function dotMark(tk: ReturnType<typeof resolved>, dark: boolean): string {
     return d;
 }
 
+/** Full-bleed RIGHT image-panel slot bounds [x,y,w,h] in 1920x1080 stage space, per archetype.
+ *  Mirrors the Figma canon (cover 659:502, section-divider 661:473, thesis 661:474). Exported so the
+ *  viz renderer (vizSlot) sizes the diagram to the actual slot — single source of truth for bounds. */
+export const HERO_PANEL: Record<string, [number, number, number, number]> = {
+    'cover': [1100, 0, 820, 1080],
+    'section-divider': [1100, 0, 820, 1080],
+    'thesis-interstitial': [1000, 0, 920, 1080],
+};
+
 /** Compose a slide from its registry archetype spec + payload + brand. Returns the inner HTML of
  * the 1920x1080 stage (the caller wraps it in the page shell). Unknown archetype -> null. */
 export function composeSlide(archetype: string, payload: any, brand: Brand): string | null {
@@ -335,11 +362,6 @@ export function composeSlide(archetype: string, payload: any, brand: Brand): str
     // swappable picture. When ABSENT, the layout is UNCHANGED (fail-open) - default
     // slides render exactly as before. Vision: slot bounds match the Figma canon; the
     // image src rides the payload carrier; nothing hardcoded.
-    const HERO_PANEL: Record<string, [number, number, number, number]> = {
-        'cover': [1100, 0, 820, 1080],
-        'section-divider': [1100, 0, 820, 1080],
-        'thesis-interstitial': [1000, 0, 920, 1080],
-    };
     const heroSrc = payload && typeof (payload as any).heroImage === 'string' ? (payload as any).heroImage : '';
     let regions: Region[] = spec.regions;
     if (HERO_PANEL[archetype] && heroSrc) {
@@ -483,6 +505,11 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
             { x: 209, y: 170, w: 1011, color: 'rail', font: 'body', size: 'title', leading: 1.44, payload: 'quote' },
             { x: 298, y: 778, w: 900, color: 'rail', font: 'heading', size: 'deckHeading', weight: 700, payload: 'attributionName' },
             { x: 298, y: 814, w: 900, color: 'secondary', font: 'body', size: SCALE.caption, payload: 'attributionRole' },
+            // USER OVERRIDE 2026-06-28 scenes-where-they-fit: OPTIONAL supporting scene in the empty
+            // left band between the quote (ends ~y500) and the attribution (y778). Figma slot 901:477
+            // (900x200 ecru/hairline/radius-base, NU twin inherits via mode-flip). Renders only when
+            // payload.panelImage is supplied; empty -> nothing (fail-open). Traces to the quote subject.
+            { kind: 'image', x: 209, y: 540, w: 900, h: 200, payload: 'panelImage', fit: 'cover' },
             // corroborating panel
             { kind: 'rect', x: 1267, y: 120, w: 573, h: 778, color: 'ecru', rule: 9, ruleColor: 'rail' },
             { x: 1299, y: 158, w: 500, color: 'secondary', font: 'heading', size: SCALE.label, weight: 700, tracking: 1, upper: true, literal: 'CORROBORATING DATA' },
@@ -569,6 +596,12 @@ const ARCHETYPE_SPECS: Record<string, ArchetypeSpec> = {
                     { dx: 24, dy: 662, w: 472, kind: 'hairline', h: 1 },
                     { dx: 24, dy: 690, color: 'cyan', font: 'heading', size: SCALE.label, weight: 700, tracking: 1, upper: true, key: 'outcomes.label' },
                     { dx: 24, dy: 720, w: 472, color: 'body', font: 'body', size: SCALE.caption, leading: 1.5, key: 'outcomes.lines', lines: true },
+                    // USER OVERRIDE 2026-06-28 scenes-where-they-fit: OPTIONAL per-column CONTENT-TRUE
+                    // operating-model glyph in the empty card-bottom band (local y800). Figma slots
+                    // 901:5476/5477/5478 (72x72 ecru/hairline/radius-base, NU twin inherits). Renders
+                    // only when columns[i].icon is supplied; empty -> nothing (fail-open). icon = a
+                    // tokenized glyph per column's operating archetype, never decoration.
+                    { dx: 24, dy: 800, w: 72, h: 72, kind: 'image', fit: 'contain', imgCarrier: 'columnIcons', key: 'icon' },
                 ],
             },
         ],

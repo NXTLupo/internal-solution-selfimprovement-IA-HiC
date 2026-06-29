@@ -2,20 +2,29 @@
  * experiencePrototypeComposer - runtime implementation of the
  * `experience-prototype-composer` skill (.claude/skills/experience-prototype-composer/).
  *
- * The skill specifies the STRICT RULE: every Stage 4 prototype must be
- * composed exclusively from the AI Experience Patterns catalog at
- * /hic-workspace/wiki/inspiration-hub/ai-patterns/_catalog.json. No invented
- * UI shapes, no generic Copilot shells, no "clean modern" placeholders.
+ * ROLE (2026-06-26, converged): this module contributes the ADVISORY
+ * decomposition + data-depth guidance for #proto - "what experience moments
+ * could compose this brief" + "make it a deep, named CASE not a placeholder".
+ * It is NOT the render vocabulary and NOT a token authority. Those are owned by:
+ *   • the proto/<Name> component manifest (the FIGMA-registered bricks) - the
+ *     single render vocabulary the orchestrator + pods compose from; and
+ *   • the live FIGMA DESIGN TOKENS block (/api/design-tokens) - the single
+ *     source of every color / font / size / radius.
+ * Earlier this module asserted a competing `p-*` catalog as "the only allowed
+ * region wrappers" and injected hardcoded (and stale) fonts. That contradicted
+ * POD_ORCHESTRATOR_SYSTEM ("there is no p-* catalog; use proto/<Name>"), poisoned
+ * the proto/<Name> fidelity check, and violated never-hardcode. Both removed.
  *
  * This module:
  *   1. Parses the user's hashtag - `#proto <experience-name> #NU | #NXT`
  *   2. Loads the catalog at runtime (cached for the session)
- *   3. Returns a Stage 4 system-prompt injection block that enforces the rule
+ *   3. Returns an advisory injection block: experience-moment names (by
+ *      human-readable label, NOT class roots) + the deep-synthetic-data contract
  *
- * It composes WITH designExemplarCurator (which provides Behance reference
- * exemplars). Both inject before Stage 4: the curator says "study these
- * source designs", the composer says "and render them ONLY using these
- * named patterns from the catalog."
+ * It composes WITH designExemplarCurator (Behance reference exemplars). Both
+ * inject before the orchestrator: the curator says "study these source designs",
+ * this module says "decompose into these kinds of experience moments and make the
+ * data deep" - while deferring all render + token decisions to the manifest + tokens.
  */
 
 const PROXY_BASE = (typeof window !== 'undefined' && (window as any).__hicProxyBase) || 'http://127.0.0.1:5012';
@@ -150,37 +159,33 @@ export async function loadCatalog(): Promise<CatalogShape> {
 }
 
 // ─────────────────────────────────────────────────────────
-// Brand language summary (for prompt injection)
+// Brand CHARACTER (qualitative only - NEVER a literal hex / font / size).
+// 2026-06-26: the old brandLanguage() hardcoded fonts (Bebas Neue / Spectral /
+// Roboto) and hexes. Those literals (a) violated the never-hardcode doctrine
+// (UNIFIED_VISION 1b), (b) had gone STALE (NXT display is Saira Condensed, NU is
+// single-typeface Lato), and (c) named fonts the /view render host does not even
+// load (Saira/Archivo/Lato/IBM Plex Mono), so the model's font picks silently fell
+// back to serif/sans. ALL color/font/size/radius now resolve from the live FIGMA
+// DESIGN TOKENS block (injected alongside this preface) - this function carries
+// only non-token brand CHARACTER (voice, accent restraint, geometry philosophy).
 // ─────────────────────────────────────────────────────────
-function brandLanguage(brand: ComposerBrand): string {
+function brandCharacter(brand: ComposerBrand): string {
     if (brand === 'nu') {
         return [
-            'NU BRAND · Design System',
-            '  Display: Spectral Light (300 weight) serif for hero, Spectral Semibold for anchors',
-            '  Body: Roboto',
-            '  Mono: Roboto Mono (tabular figures for data)',
-            '  Ink: navy ink-900 #0B1326 and ink-800 #141D30',
-            '  Accent: Huskies red #C8102E - used SPARINGLY only on key CTAs, deadlines, brand seals',
-            '  Canvas: slate-50 #F8FAFC',
-            '  Geometry: rounded 8px card corners, 4px inputs, 999px pills',
-            '  Shadows: institutional soft (0 4px 12px rgba(11,19,38,0.08))',
-            '  N logo: /hic-workspace/wiki/brand/northeastern-n.svg - render white on red 28px tile in brand-mark',
-            '  Voice: research-librarian, institutional, restrained',
-            '  data-brand attribute: "nu"',
+            'NU brand character (resolve ALL color / font / size / radius from the FIGMA DESIGN TOKENS block - never a literal):',
+            '  Voice: research-librarian, institutional, restrained, student-first, plain-spoken.',
+            '  Accent (token color/accent, Northeastern red) used SPARINGLY - key CTAs, deadlines, brand seals only; never black-on-red, never flooded.',
+            '  Single-typeface system: weight + size carry hierarchy (token font/*). Soft institutional geometry.',
+            '  N monogram: /hic-workspace/wiki/brand/northeastern-n.svg.',
+            '  Root attribute: data-brand="nu".',
         ].join('\n');
     }
     return [
-        'NXT HUMANS · anti-slop editorial brutalism',
-        '  Display: Bebas Neue ALL-CAPS geometric condensed sans',
-        '  Body: Archivo humanist sans',
-        '  Mono: JetBrains Mono (tabular figures for data)',
-        '  Ink: pure black #0D0D0D headlines, #333333 body, #666666 secondary',
-        '  Accent: chartreuse #B8B800 used SPARINGLY (<15% of surface), only on active states / CTAs',
-        '  Secondary accent: cyan #00B7C3 for evidence panels',
-        '  Canvas: near-white #FAFAFA or warm paper #F5F5F0',
-        '  Geometry: SHARP 2px corner radii, 1px hairline rules, NO drop shadows, NO glows',
-        '  Voice: editorial, front-page-of-the-FT density, every pixel earns its keep',
-        '  data-brand attribute: "nxt"',
+        'NXT brand character (resolve ALL color / font / size / radius from the FIGMA DESIGN TOKENS block - never a literal):',
+        '  Voice: editorial, front-page-of-the-FT density, restrained, declarative; every pixel earns its keep.',
+        '  Accent (token color/accent, chartreuse) used SPARINGLY (<15% of surface) on active states / CTAs; cyan (token color/cyan) for evidence/cool panels.',
+        '  Condensed display + humanist body + mono for data (token font/display, font/body, font/mono). Sharp geometry, hairline rules, no decorative shadows / glows.',
+        '  Root attribute: data-brand="nxt".',
     ].join('\n');
 }
 
@@ -278,106 +283,77 @@ export async function buildComposerInjection(input: ComposerInjectionInput): Pro
     // but its absence no longer disables the strict-rule.
 
     const brand = hashtag.brand;
-    const patternList = (catalog.patterns || []).map(p => p.id).join(', ');
+    // 2026-06-26 — Advisory experience-moment names ONLY. These are NOT CSS class
+    // roots and NOT a render vocabulary. The render vocabulary is the proto/<Name>
+    // component manifest (the FIGMA-registered bricks), injected separately. The
+    // catalog patterns below are decomposition INSPIRATION: "what experience moments
+    // could compose this", expressed by human-readable name + best-for.
     const recommendedLines = recommended.map(p =>
-        `  - ${p.id}  (${p.name}, ${p.section})  - best for: ${p.best_for.join(' / ')}`
+        `  - ${p.name}  (${p.section})  - fits: ${p.best_for.join(' / ')}`
     ).join('\n');
 
     const lines = [
         '═════════════════════════════════════════════════════════════════',
-        'EXPERIENCE PROTOTYPE COMPOSER - STRICT COMPOSITION RULE',
+        'EXPERIENCE DECOMPOSITION + DATA-DEPTH GUIDE  (advisory)',
         '═════════════════════════════════════════════════════════════════',
         '',
-        'You are NOT inventing UI. You are COMPOSING from a curated catalog.',
-        '',
-        `CATALOG: ${catalog.showcase_url || '/hic-workspace/wiki/inspiration-hub/ai-patterns/'}`,
-        `         (${catalog.total_patterns || 92}+ hand-authored AI experience patterns in NXT and NU brands)`,
+        'You are COMPOSING a brand-correct experience. Two things are load-bearing and',
+        'live elsewhere in this prompt - this block does NOT override them:',
+        '  • RENDER VOCABULARY = the proto/<Name> component manifest (the FIGMA-registered',
+        '    bricks). Build every region from a proto/<Name> component, following its',
+        '    documented anatomy. Do NOT invent UI shapes.',
+        '  • DESIGN TOKENS = the FIGMA DESIGN TOKENS block. Resolve EVERY color / font /',
+        '    size / radius from a token (var(--color/*), var(--font/*), token-driven',
+        '    utility classes). NEVER a literal hex or font name.',
+        'The experience-pattern names below are DECOMPOSITION INSPIRATION only - they are',
+        'NOT CSS class names, NOT a competing vocabulary, and NOT scored against the build.',
         '',
         `USER HASHTAG:     ${hashtag.raw.slice(0, 200)}`,
         `EXPERIENCE NAME:  ${hashtag.experience_name || '(none)'}`,
         `BRAND COMMITTED:  ${brand.toUpperCase()}`,
         '',
-        '─── BRAND LANGUAGE (uniform throughout output) ───',
-        brandLanguage(brand),
+        '─── BRAND CHARACTER (qualitative; values come from the FIGMA tokens) ───',
+        brandCharacter(brand),
         '',
-        '─── RULES (non-negotiable) ───',
-        `  1. Every UI region MUST be a NAMED pattern from the catalog. Use the`,
-        `     pattern's class root (p-chat, p-rec, p-dial, etc.) as the wrapper.`,
+        '─── DEEP SYNTHETIC DATA (a prototype is a CASE, not a placeholder) ───',
+        `  1. NAMED PROTAGONIST: every prototype has a named user with a backstory and a`,
+        `     concrete stake (e.g. "Sam Chen, CS '24, Mission Hill, $0 family contribution"),`,
+        `     never "the user" or "a student". The brief gives the domain; invent the person.`,
         '',
-        `  2. Decompose the experience into a sequence of these primitives. Annotate`,
-        `     each region in a leading comment:  <!-- pattern: p-chat -->`,
+        `  2. 12+ ANONYMIZED PEER RECORDS using a real-looking id scheme; each gets an`,
+        `     archetype tag, a headline outcome, and 2-3 path-defining decisions. Render them`,
+        `     in a cohort / vignette-trio moment built from proto/<Name> components.`,
         '',
-        `  3. Honor the brand uniformly. Set <html data-brand="${brand}">. NEVER mix`,
-        `     NXT and NU tokens within one output.`,
+        `  3. CONCRETE, SPECIFIC DATA - never "N%", "X students", "some users". A demo`,
+        `     prototype shows real-looking values consistent with the named protagonist and`,
+        `     cohort (this is fiction in service of a demo, not an evidence claim).`,
         '',
-        `  4. If no catalog pattern matches a region you want to build, you may NOT`,
-        `     invent one. Pick the closest existing pattern OR omit the region and`,
-        `     surface a "this experience needs a new pattern" note for the curator.`,
+        `  4. STAKES + COUNTERFACTUAL: if the protagonist is making a decision, surface a`,
+        `     before/after shift and a short pull-stat row so the reader feels the cost of`,
+        `     inaction. Build it from the relevant proto/<Name> components.`,
         '',
-        `  5. Minimum ${catalog.composition_rules?.min_patterns_per_prototype || 8} distinct patterns per prototype.`,
-        `     Maximum ${catalog.composition_rules?.max_patterns_per_prototype || 18}. Single-pattern outputs are demos, not experiences.`,
-        `     8 is the FLOOR for a meaningful experience; aim for 12+ on any prototype that has`,
-        `     stakes (career, money, healthcare, education). Compose patterns the way an FT`,
-        `     front page composes stories - multiple modalities in service of one argument.`,
+        `  5. NO META PLACEHOLDERS in user-facing copy: never "Lorem ipsum", "Sample data",`,
+        `     "Placeholder", "TBD", or QA-style annotations where the reader sees them.`,
         '',
-        `  6. Start your output with a PATTERN MANIFEST comment listing every`,
-        `     catalog pattern used:`,
-        `       // PATTERN MANIFEST: p-aspot.aspot-edu, p-kpi, p-time-machine, p-forecast-band,`,
-        `       //                    p-portfolio-mix, p-vignette-trio, p-counterfactual, p-rec,`,
-        `       //                    p-trail, p-dial, p-chat, p-trans, p-info-flow, p-cohort, p-hitl`,
+        ` EXEMPLAR REFERENCES (study for pattern density + data depth, not for tokens):`,
+        `   /hic-workspace/wiki/inspiration-hub/exemplar-apps/  (talent-match-nu, footprint-library-nxt, counterfactual-coop-nxt)`,
         '',
-        '─── DEEP SYNTHETIC DATA (NON-NEGOTIABLE - output is a CASE, not a placeholder) ───',
-        `  7. NAMED PROTAGONIST: Every prototype MUST have a named user with backstory.`,
-        `     "Sam Chen, CS '24, Mission Hill, $0 family contribution" - never "the user" or "a student".`,
-        `     The brief tells you the domain; you must invent a concrete person + their stake.`,
+        ' INTENT-DRIVEN EXPERIENCE MOMENTS (advisory - include the moment, render via proto/<Name>):',
+        `   "what if I had...?"            -> a time-machine / forecast-band / counterfactual moment`,
+        `   "what should I do?"            -> a portfolio / peer-vignette / recommendation moment`,
+        `   an irreversible choice         -> a human-in-the-loop approval gate`,
+        `   reviewing peer outcomes        -> a cohort matrix + peer-vignette moment`,
         '',
-        `  8. 12+ ANONYMIZED PEER RECORDS minimum. Use a real-looking ID scheme:`,
-        `     NU contexts:  NUW-0247-K '21, NUW-0309-K '22, NUW-0418-K '20  (Wiki cohort code)`,
-        `     NXT contexts: NXT-#A47, NXT-#B12, NXT-#C09  (NXT internal archetype code)`,
-        `     Each record gets an archetype tag, a headline outcome stat, and 2-3 path-defining`,
-        `     decisions. Render them in p-vignette-trio or p-cohort.`,
+        '─── EXPERIENCE MOMENTS THAT MAY FIT THIS BRIEF (advisory, by name) ───',
+        recommendedLines || '  (no specific matches - decompose from the brief + manifest categories)',
         '',
-        `  9. CONCRETE NUMBERS ONLY - never "N%", "X students", "some users", "many alumni".`,
-        `     Every callout is a real number: "11% → 64%", "47 W14 placements", "$78k median offer".`,
-        `     Forecast bands must show P10/P50/P90 actual values, not generic "low/med/high".`,
-        '',
-        ` 10. STAKES + COUNTERFACTUAL: If the user is making any decision (apply where? major?`,
-        `     accept which offer? donate how much? take which medication?), you MUST surface`,
-        `     a p-counterfactual reveal showing the before/after probability shift in a single`,
-        `     sentence, plus a 4-stat pull row. The reader should feel the cost of inaction.`,
-        '',
-        ` 11. EXEMPLAR REFERENCE: Three reference exemplars exist at`,
-        `     /hic-workspace/wiki/inspiration-hub/exemplar-apps/`,
-        `       talent-match-nu.html            (NU, 14 patterns, candidate match experience)`,
-        `       footprint-library-nxt.html       (NXT, 13 patterns, data library experience)`,
-        `       counterfactual-coop-nxt.html     (NXT, 18 patterns, time-machine + cohort reveal)`,
-        `     Match or exceed the pattern density and data depth of the closest reference.`,
-        '',
-        ` 12. INTENT-DRIVEN PATTERN BUNDLES (apply when matching):`,
-        `     User asks "what if I had...?" → MUST include p-time-machine + p-forecast-band + p-counterfactual.`,
-        `     User asks "what should I do?" → MUST include p-portfolio-mix + p-vignette-trio + p-rec.`,
-        `     User is making an irreversible choice → MUST include p-hitl approval gate.`,
-        `     User is reviewing peer outcomes → MUST include p-cohort retention matrix + p-vignette-trio.`,
-        '',
-        ` 13. NO META PLACEHOLDERS in user-facing copy. Never write "Lorem ipsum",`,
-        `     "Sample data", "Placeholder text", "TBD", "Evidence gap", "needs research"`,
-        `     anywhere the reader sees. If you cannot write a real number, invent a plausible one`,
-        `     consistent with the named protagonist and cohort.`,
-        '',
-        '─── LEGAL PATTERN IDs (the only allowed region wrappers) ───',
-        '  ' + patternList,
-        '',
-        '─── RECOMMENDED PATTERNS FOR THIS BRIEF (matched by concept overlap) ───',
-        recommendedLines || '  (no specific matches - sample across all sections)',
-        '',
-        '─── FORBIDDEN PATTERNS (will fail Stage 5 critic) ───',
+        '─── GENERIC SHELLS TO AVOID ───',
         ...(catalog.composition_rules?.forbidden_when_catalog_pattern_exists || []).map(f => `  - ${f}`),
         '',
-        '─── OUTPUT STRUCTURE ───',
-        '  - <html data-brand="' + brand + '"> at the root',
-        '  - // PATTERN MANIFEST: <comma-separated pattern ids>',
-        '  - For each region:  <!-- pattern: p-XXX --><article class="p-XXX">...</article>',
-        '  - Use the brand\'s typefaces by their EXACT names; do not approximate',
+        '─── OUTPUT ───',
+        `  - data-brand="${brand}" on the root.`,
+        '  - Every region is a proto/<Name> component from the manifest, styled only from tokens.',
+        '  - Declare the components you used in the PROTO COMPONENTS: line the orchestrator/pod prompt specifies.',
         '═════════════════════════════════════════════════════════════════',
     ];
 

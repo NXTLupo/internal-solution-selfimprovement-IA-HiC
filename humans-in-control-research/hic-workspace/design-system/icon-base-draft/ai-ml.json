@@ -1,0 +1,314 @@
+[
+  {
+    "id": "neural-network",
+    "tags": ["neural", "network", "deep-learning", "nodes", "layers"],
+    "usage": "Neural network architecture, deep learning models, connected node layers",
+    "inner": "<circle cx=\"5\" cy=\"6\" r=\"1.6\"/><circle cx=\"5\" cy=\"12\" r=\"1.6\"/><circle cx=\"5\" cy=\"18\" r=\"1.6\"/><circle cx=\"12\" cy=\"9\" r=\"1.6\"/><circle cx=\"12\" cy=\"15\" r=\"1.6\"/><circle cx=\"19\" cy=\"12\" r=\"1.6\"/><path d=\"M6.5 6.6 L10.6 8.5 M6.5 12 L10.6 9.3 M6.5 11.6 L10.6 14.4 M6.5 17.5 L10.6 15.5 M13.5 9.4 L17.6 11.5 M13.5 14.6 L17.6 12.5\"/>"
+  },
+  {
+    "id": "layer-stack",
+    "tags": ["layers", "stack", "hidden-layers", "depth", "architecture"],
+    "usage": "Stacked model layers, hidden layers, network depth",
+    "inner": "<path d=\"M12 4 L20 8 L12 12 L4 8 Z\"/><path d=\"M4 12 L12 16 L20 12\"/><path d=\"M4 16 L12 20 L20 16\"/>"
+  },
+  {
+    "id": "weights",
+    "tags": ["weights", "parameters", "connections", "synapses"],
+    "usage": "Model weights, parameter connections between neurons",
+    "inner": "<circle cx=\"6\" cy=\"6\" r=\"1.6\"/><circle cx=\"6\" cy=\"18\" r=\"1.6\"/><circle cx=\"18\" cy=\"12\" r=\"1.6\"/><path d=\"M7.5 6.6 L16.4 11.4 M7.5 17.4 L16.4 12.6\"/><circle cx=\"11\" cy=\"9\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"11\" cy=\"15\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "gradient",
+    "tags": ["gradient", "descent", "optimization", "slope", "loss"],
+    "usage": "Gradient descent, loss curve optimization, downhill slope to minimum",
+    "inner": "<path d=\"M4 5 V19 H20\"/><path d=\"M6 8 C9 9 10 16 13 16.5 C16 17 17 11 19 9\"/><circle cx=\"13\" cy=\"16.5\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "training-loop",
+    "tags": ["training", "loop", "epoch", "iteration", "cycle"],
+    "usage": "Training loop, epochs, iterative learning cycle",
+    "inner": "<path d=\"M6 8 A7 7 0 1 1 5 13\"/><polyline points=\"6 4 6 8 10 8\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/>"
+  },
+  {
+    "id": "inference",
+    "tags": ["inference", "predict", "forward-pass", "output"],
+    "usage": "Model inference, forward pass producing a prediction",
+    "inner": "<rect x=\"4\" y=\"8\" width=\"8\" height=\"8\" rx=\"1.5\"/><path d=\"M12 12 H20\"/><polyline points=\"17 9 20 12 17 15\"/>"
+  },
+  {
+    "id": "dataset",
+    "tags": ["dataset", "data", "table", "records", "rows"],
+    "usage": "Training dataset, structured data records, data table",
+    "inner": "<rect x=\"4\" y=\"5\" width=\"16\" height=\"14\" rx=\"1.5\"/><path d=\"M4 9 H20 M4 13 H20 M4 17 H20 M10 5 V19\"/>"
+  },
+  {
+    "id": "label-tag",
+    "tags": ["label", "tag", "ground-truth", "annotation", "class"],
+    "usage": "Data labels, ground-truth tags, class annotation",
+    "inner": "<path d=\"M4 9 V5.5 A1.5 1.5 0 0 1 5.5 4 H9 L20 15 L15 20 L4 9 Z\"/><circle cx=\"7.5\" cy=\"7.5\" r=\"1.1\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "annotation",
+    "tags": ["annotation", "labeling", "human-in-loop", "marking"],
+    "usage": "Data annotation, human labeling, marking up examples",
+    "inner": "<rect x=\"4\" y=\"5\" width=\"16\" height=\"12\" rx=\"1.5\"/><path d=\"M8 21 L11 17 H8 Z\"/><path d=\"M8 9 H13 M8 12.5 H16\"/><path d=\"M16 7 L18.5 9.5 L15 13 L12.5 13 V10.5 Z\"/>"
+  },
+  {
+    "id": "embedding",
+    "tags": ["embedding", "vector", "encode", "representation"],
+    "usage": "Vector embeddings, dense representation of input",
+    "inner": "<rect x=\"4\" y=\"6\" width=\"5\" height=\"5\" rx=\"1\"/><path d=\"M9.5 8.5 H14\"/><polyline points=\"12 6.5 14 8.5 12 10.5\"/><rect x=\"14.5\" y=\"5\" width=\"5\" height=\"2\"/><rect x=\"14.5\" y=\"8\" width=\"5\" height=\"2\"/><rect x=\"14.5\" y=\"11\" width=\"5\" height=\"2\"/><path d=\"M6.5 13 V18 M6.5 18 L4.5 16 M6.5 18 L8.5 16\"/>"
+  },
+  {
+    "id": "vector-space",
+    "tags": ["vector-space", "latent", "axes", "coordinates", "manifold"],
+    "usage": "Vector space, multi-dimensional coordinate space, point cloud",
+    "inner": "<path d=\"M5 19 V4 M5 19 H20 M5 19 L9 15\"/><circle cx=\"11\" cy=\"10\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"15\" cy=\"7\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"16\" cy=\"13\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9\" cy=\"14\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "token",
+    "tags": ["token", "tokenize", "subword", "unit", "piece"],
+    "usage": "Tokens, tokenization, discrete text units",
+    "inner": "<rect x=\"3.5\" y=\"9\" width=\"5\" height=\"6\" rx=\"1\"/><rect x=\"9.5\" y=\"9\" width=\"5\" height=\"6\" rx=\"1\"/><rect x=\"15.5\" y=\"9\" width=\"5\" height=\"6\" rx=\"1\"/><path d=\"M11 12 H13\"/>"
+  },
+  {
+    "id": "prompt",
+    "tags": ["prompt", "input", "instruction", "cursor", "query"],
+    "usage": "Prompt input, text instruction with cursor",
+    "inner": "<rect x=\"4\" y=\"6\" width=\"16\" height=\"12\" rx=\"1.5\"/><polyline points=\"7 10 9.5 12 7 14\"/><path d=\"M12 14 H17\"/>"
+  },
+  {
+    "id": "context-window",
+    "tags": ["context-window", "context", "buffer", "tokens", "span"],
+    "usage": "Context window, span of tokens the model can attend to",
+    "inner": "<rect x=\"3.5\" y=\"7\" width=\"17\" height=\"10\" rx=\"1.5\"/><path d=\"M8 7 V17 M16 7 V17\"/><path d=\"M10 12 H14\"/><path d=\"M8 12 L10 12 M14 12 L16 12\" stroke-dasharray=\"0.1 2\"/>"
+  },
+  {
+    "id": "fine-tune",
+    "tags": ["fine-tune", "tuning", "adjust", "sliders", "adapt"],
+    "usage": "Fine-tuning, parameter adjustment via control sliders",
+    "inner": "<path d=\"M5 5 V19 M12 5 V19 M19 5 V19\"/><circle cx=\"5\" cy=\"9\" r=\"1.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"12\" cy=\"14\" r=\"1.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"19\" cy=\"8\" r=\"1.8\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "lora-adapter",
+    "tags": ["lora", "adapter", "low-rank", "plugin", "module"],
+    "usage": "LoRA adapter, low-rank module plugged into a base model",
+    "inner": "<rect x=\"4\" y=\"7\" width=\"9\" height=\"10\" rx=\"1.5\"/><path d=\"M13 10 H17 M13 14 H17\"/><rect x=\"17\" y=\"8.5\" width=\"3\" height=\"3\" rx=\"0.6\"/><rect x=\"17\" y=\"12.5\" width=\"3\" height=\"3\" rx=\"0.6\"/>"
+  },
+  {
+    "id": "rag",
+    "tags": ["rag", "retrieval-augmented", "retrieve", "generate", "knowledge"],
+    "usage": "Retrieval-augmented generation, fetch from knowledge store then generate",
+    "inner": "<path d=\"M4 7 C4 5.9 6 5 8 5 C10 5 12 5.9 12 7 V13 C12 14.1 10 15 8 15 C6 15 4 14.1 4 13 Z\"/><path d=\"M4 7 C4 8.1 6 9 8 9 C10 9 12 8.1 12 7 M4 10 C4 11.1 6 12 8 12 C10 12 12 11.1 12 10\"/><path d=\"M13 12 H18\"/><polyline points=\"16 10 18 12 16 14\"/><rect x=\"16\" y=\"15\" width=\"5\" height=\"4\" rx=\"1\"/>"
+  },
+  {
+    "id": "retrieval",
+    "tags": ["retrieval", "search", "fetch", "lookup", "query"],
+    "usage": "Document retrieval, semantic fetch from a store",
+    "inner": "<circle cx=\"10\" cy=\"10\" r=\"5.5\"/><path d=\"M14 14 L20 20\"/><path d=\"M8 10 H12 M10 8 V12\"/>"
+  },
+  {
+    "id": "agent",
+    "tags": ["agent", "autonomous", "bot", "assistant", "actor"],
+    "usage": "AI agent, autonomous actor with perception and action",
+    "inner": "<rect x=\"6\" y=\"8\" width=\"12\" height=\"9\" rx=\"2\"/><path d=\"M12 5 V8\"/><circle cx=\"12\" cy=\"4\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9.5\" cy=\"12\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"14.5\" cy=\"12\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M4 11 V14 M20 11 V14\"/>"
+  },
+  {
+    "id": "tool-call",
+    "tags": ["tool-call", "function", "wrench", "action", "api"],
+    "usage": "Agent tool call, function invocation to an external tool",
+    "inner": "<path d=\"M14 5 A4 4 0 0 0 8.5 9.7 L4 14.2 V18 H7.8 L12.3 13.5 A4 4 0 0 0 17 8 L14.5 10.5 L12 9 L12.5 6.5 Z\"/>"
+  },
+  {
+    "id": "guardrail",
+    "tags": ["guardrail", "safety", "filter", "shield", "policy"],
+    "usage": "Safety guardrails, content filter shielding output",
+    "inner": "<path d=\"M12 4 L19 6.5 V12 C19 16 16 18.5 12 20 C8 18.5 5 16 5 12 V6.5 Z\"/><polyline points=\"9 12 11 14 15 9.5\"/>"
+  },
+  {
+    "id": "eval",
+    "tags": ["eval", "evaluation", "benchmark", "score", "test"],
+    "usage": "Model evaluation, benchmark scoring against a rubric",
+    "inner": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"16\" rx=\"1.5\"/><path d=\"M8 9 L9.5 10.5 L12 8\"/><path d=\"M8 15 L9.5 16.5 L12 14\"/><path d=\"M14 9 H16.5 M14 15 H16.5\"/>"
+  },
+  {
+    "id": "hallucination",
+    "tags": ["hallucination", "false", "fabrication", "warning", "error"],
+    "usage": "Model hallucination, fabricated false output warning",
+    "inner": "<rect x=\"4\" y=\"6\" width=\"16\" height=\"12\" rx=\"1.5\"/><path d=\"M8 21 L11 18 H8 Z\"/><path d=\"M12 9 V13\"/><circle cx=\"12\" cy=\"15.5\" r=\"0.7\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "temperature-dial",
+    "tags": ["temperature", "dial", "randomness", "sampling", "creativity"],
+    "usage": "Sampling temperature, randomness control dial",
+    "inner": "<path d=\"M5 16 A7 7 0 0 1 19 16\"/><path d=\"M12 16 L16 11\"/><circle cx=\"12\" cy=\"16\" r=\"1.3\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M5.5 14 L6.7 14.4 M18.5 14 L17.3 14.4 M12 7 V8.5\"/>"
+  },
+  {
+    "id": "model-card",
+    "tags": ["model-card", "documentation", "metadata", "spec", "profile"],
+    "usage": "Model card, documentation and metadata profile of a model",
+    "inner": "<rect x=\"4\" y=\"5\" width=\"16\" height=\"14\" rx=\"1.5\"/><circle cx=\"8.5\" cy=\"9.5\" r=\"1.8\"/><path d=\"M13 8.5 H17 M13 11 H17 M7 14.5 H17 M7 17 H14\"/>"
+  },
+  {
+    "id": "checkpoint",
+    "tags": ["checkpoint", "save", "snapshot", "flag", "state"],
+    "usage": "Training checkpoint, saved model state snapshot",
+    "inner": "<path d=\"M6 4 V20\"/><path d=\"M6 5 H17 L14 8.5 L17 12 H6\"/><circle cx=\"6\" cy=\"4\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "gpu",
+    "tags": ["gpu", "accelerator", "hardware", "compute", "card"],
+    "usage": "GPU accelerator, compute hardware for training",
+    "inner": "<rect x=\"4\" y=\"7\" width=\"15\" height=\"10\" rx=\"1.5\"/><circle cx=\"9\" cy=\"12\" r=\"2.2\"/><circle cx=\"15\" cy=\"12\" r=\"2.2\"/><path d=\"M19 10 H21 M19 14 H21 M7 17 V19 M14 17 V19\"/>"
+  },
+  {
+    "id": "tensor",
+    "tags": ["tensor", "cube", "matrix", "array", "dimensions"],
+    "usage": "Tensor, multi-dimensional numerical array",
+    "inner": "<path d=\"M8 8 L14 5 L20 8 L14 11 Z\"/><path d=\"M8 8 V15 L14 18 L20 15 V8 M14 11 V18\"/><path d=\"M4 11 L8 8 M4 11 V18 L8 15\"/>"
+  },
+  {
+    "id": "classification",
+    "tags": ["classification", "classify", "categories", "buckets", "sort"],
+    "usage": "Classification, sorting inputs into discrete categories",
+    "inner": "<circle cx=\"12\" cy=\"5.5\" r=\"1.8\"/><path d=\"M12 7.3 V10 M12 10 H6 V12 M12 10 H18 V12 M12 10 V12\"/><rect x=\"4\" y=\"12\" width=\"4\" height=\"4\" rx=\"0.6\"/><rect x=\"10\" y=\"12\" width=\"4\" height=\"4\" rx=\"0.6\"/><rect x=\"16\" y=\"12\" width=\"4\" height=\"4\" rx=\"0.6\"/>"
+  },
+  {
+    "id": "clustering",
+    "tags": ["clustering", "groups", "unsupervised", "kmeans", "segments"],
+    "usage": "Clustering, grouping similar points into clusters",
+    "inner": "<circle cx=\"7\" cy=\"8\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9\" cy=\"6\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"6\" cy=\"6\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"7\" cy=\"7\" r=\"4\"/><circle cx=\"17\" cy=\"16\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"15\" cy=\"18\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"18\" cy=\"18\" r=\"0.9\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"17\" cy=\"17\" r=\"4\"/>"
+  },
+  {
+    "id": "recommendation",
+    "tags": ["recommendation", "recommend", "suggest", "star", "personalize"],
+    "usage": "Recommendation engine, suggested item with rating",
+    "inner": "<rect x=\"4\" y=\"5\" width=\"16\" height=\"14\" rx=\"1.5\"/><path d=\"M12 8 L13.2 10.4 L15.8 10.8 L13.9 12.7 L14.4 15.3 L12 14.1 L9.6 15.3 L10.1 12.7 L8.2 10.8 L10.8 10.4 Z\"/>"
+  },
+  {
+    "id": "transformer",
+    "tags": ["transformer", "architecture", "blocks", "encoder", "decoder"],
+    "usage": "Transformer architecture, stacked attention blocks",
+    "inner": "<rect x=\"5\" y=\"5\" width=\"14\" height=\"5\" rx=\"1\"/><rect x=\"5\" y=\"14\" width=\"14\" height=\"5\" rx=\"1\"/><path d=\"M9 10 V14 M15 10 V14\"/><circle cx=\"9\" cy=\"7.5\" r=\"0.7\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"15\" cy=\"7.5\" r=\"0.7\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "attention",
+    "tags": ["attention", "self-attention", "focus", "weights", "heads"],
+    "usage": "Attention mechanism, weighted focus across tokens",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"2\"/><circle cx=\"5\" cy=\"6\" r=\"1.3\"/><circle cx=\"19\" cy=\"6\" r=\"1.3\"/><circle cx=\"5\" cy=\"18\" r=\"1.3\"/><circle cx=\"19\" cy=\"18\" r=\"1.3\"/><path d=\"M6 6.8 L10.4 10.8 M18 6.8 L13.6 10.8 M6 17.2 L10.4 13.2 M18 17.2 L13.6 13.2\"/>"
+  },
+  {
+    "id": "diffusion",
+    "tags": ["diffusion", "denoise", "generate", "noise", "image"],
+    "usage": "Diffusion model, denoising from noise to clean output",
+    "inner": "<rect x=\"4\" y=\"7\" width=\"5\" height=\"10\" rx=\"1\"/><path d=\"M5 9 L8 11 M5 11.5 L8 9.5 M5 14 L8 12.5 M5 15.5 L8 14\"/><path d=\"M9.5 12 H14\"/><polyline points=\"12 10 14 12 12 14\"/><rect x=\"15\" y=\"7\" width=\"5\" height=\"10\" rx=\"1\"/>"
+  },
+  {
+    "id": "latent-space",
+    "tags": ["latent-space", "latent", "compressed", "manifold", "encode"],
+    "usage": "Latent space, compressed representation manifold",
+    "inner": "<ellipse cx=\"12\" cy=\"12\" rx=\"8\" ry=\"5\"/><circle cx=\"10\" cy=\"11\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"14\" cy=\"13\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"13\" cy=\"10\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9\" cy=\"13.5\" r=\"0.8\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "overfitting",
+    "tags": ["overfitting", "variance", "curve", "memorize", "fit"],
+    "usage": "Overfitting, wiggly curve chasing every data point",
+    "inner": "<path d=\"M4 5 V19 H20\"/><path d=\"M6 16 C7 8 8 17 9 9 C10 15 11 7 13 14 C14.5 9 16 16 18 8\"/><circle cx=\"7\" cy=\"13\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"11\" cy=\"11\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"15\" cy=\"12\" r=\"0.6\" fill=\"currentColor\" stroke=\"none\"/>"
+  },
+  {
+    "id": "model-drift",
+    "tags": ["model-drift", "drift", "decay", "degrade", "monitor"],
+    "usage": "Model drift, performance decaying away from baseline over time",
+    "inner": "<path d=\"M4 5 V19 H20\"/><path d=\"M6 9 H18\" stroke-dasharray=\"2 2\"/><path d=\"M6 9 C10 9 11 12 14 14 C16 15.3 17 16 18 16.5\"/><polyline points=\"16 16 18 16.5 17.6 14.6\"/>"
+  },
+  {
+    "id": "feature-store",
+    "tags": ["feature-store", "features", "store", "columns", "repository"],
+    "usage": "Feature store, central repository of model features",
+    "inner": "<path d=\"M4 7 C4 5.9 7.6 5 12 5 C16.4 5 20 5.9 20 7 V17 C20 18.1 16.4 19 12 19 C7.6 19 4 18.1 4 17 Z\"/><path d=\"M4 7 C4 8.1 7.6 9 12 9 C16.4 9 20 8.1 20 7\"/><path d=\"M9 12 H15 M9 15 H13\"/>"
+  },
+  {
+    "id": "mlops",
+    "tags": ["mlops", "pipeline", "deploy", "automation", "lifecycle"],
+    "usage": "MLOps, automated model lifecycle pipeline",
+    "inner": "<circle cx=\"6\" cy=\"6\" r=\"2\"/><circle cx=\"18\" cy=\"6\" r=\"2\"/><circle cx=\"12\" cy=\"18\" r=\"2\"/><path d=\"M8 6 H16 M17 8 L13.5 16 M10.5 16 L7 8\"/>"
+  },
+  {
+    "id": "confusion-matrix",
+    "tags": ["confusion-matrix", "matrix", "metrics", "true-false", "grid"],
+    "usage": "Confusion matrix, true/false positive/negative grid",
+    "inner": "<rect x=\"5\" y=\"5\" width=\"14\" height=\"14\" rx=\"1\"/><path d=\"M12 5 V19 M5 12 H19\"/><path d=\"M7.5 8 L9.5 10 M7.5 10 L9.5 8\"/><path d=\"M14.5 8 L16.5 8 M15.5 8 V10\"/>"
+  },
+  {
+    "id": "prompt-chain",
+    "tags": ["prompt-chain", "chain", "sequence", "steps", "workflow"],
+    "usage": "Prompt chain, sequenced multi-step prompting",
+    "inner": "<rect x=\"3.5\" y=\"5\" width=\"6\" height=\"5\" rx=\"1\"/><rect x=\"14.5\" y=\"5\" width=\"6\" height=\"5\" rx=\"1\"/><rect x=\"9\" y=\"14\" width=\"6\" height=\"5\" rx=\"1\"/><path d=\"M9.5 10 V11 H12 V14 M14.5 10 V11 H12\"/>"
+  },
+  {
+    "id": "distillation",
+    "tags": ["distillation", "teacher-student", "compress", "transfer"],
+    "usage": "Model distillation, large teacher transferring to small student",
+    "inner": "<rect x=\"3.5\" y=\"5\" width=\"8\" height=\"8\" rx=\"1.5\"/><rect x=\"14\" y=\"13\" width=\"6.5\" height=\"6.5\" rx=\"1.5\"/><path d=\"M11.5 9 H14 M17.2 13 V11 H12\"/><polyline points=\"15.5 11.5 17.2 13 16 13.6\"/>"
+  },
+  {
+    "id": "quantization",
+    "tags": ["quantization", "compress", "precision", "bits", "reduce"],
+    "usage": "Quantization, reducing numerical precision to fewer bits",
+    "inner": "<path d=\"M4 16 C7 16 6 8 9 8 C12 8 11 12 14 12 C17 12 16 6 20 6\"/><path d=\"M4 18 H7 V14 H10 V16 H13 V11 H16 V13 H20\"/>"
+  },
+  {
+    "id": "multimodal",
+    "tags": ["multimodal", "modalities", "text-image-audio", "fusion"],
+    "usage": "Multimodal model, fusing text, image and audio inputs",
+    "inner": "<circle cx=\"12\" cy=\"12\" r=\"2\"/><rect x=\"4\" y=\"4\" width=\"4\" height=\"4\" rx=\"0.6\"/><path d=\"M16.5 4 H19.5 M16.5 6 H19 M16.5 8 H19.5\"/><path d=\"M5 18 C6 16 7 16 8 18 M16 16 V20 M16 16 L18 17.5\"/><path d=\"M7.5 7 L10.6 10.6 M16 8 L13.4 10.6 M7 17 L10.6 13.4 M16 18 L13.6 13.6\"/>"
+  },
+  {
+    "id": "speech-to-text",
+    "tags": ["speech-to-text", "transcribe", "asr", "voice", "audio"],
+    "usage": "Speech-to-text, transcribing voice into written text",
+    "inner": "<rect x=\"5\" y=\"4\" width=\"5\" height=\"9\" rx=\"2.5\"/><path d=\"M3.5 11 A4 4 0 0 0 11.5 11 M7.5 15 V18 M5.5 18 H9.5\"/><path d=\"M14 7 H20 M14 11 H20 M14 15 H18\"/>"
+  },
+  {
+    "id": "ocr",
+    "tags": ["ocr", "text-recognition", "scan", "extract", "document"],
+    "usage": "OCR, extracting text from a scanned document image",
+    "inner": "<path d=\"M4 8 V5.5 A1.5 1.5 0 0 1 5.5 4 H8 M16 4 H18.5 A1.5 1.5 0 0 1 20 5.5 V8 M20 16 V18.5 A1.5 1.5 0 0 1 18.5 20 H16 M8 20 H5.5 A1.5 1.5 0 0 1 4 18.5 V16\"/><path d=\"M8 10 H16 M8 13 H16 M8 16 H13\"/>"
+  },
+  {
+    "id": "reinforcement-learning",
+    "tags": ["reinforcement-learning", "rl", "reward", "agent", "policy"],
+    "usage": "Reinforcement learning, agent acting for reward feedback",
+    "inner": "<circle cx=\"7\" cy=\"12\" r=\"2.5\"/><path d=\"M9.5 11 H15\"/><polyline points=\"13 9 15 11 13 13\"/><path d=\"M16 8 L18 6 L20 8 L18 10.5 Z\"/><path d=\"M15 14 A3 3 0 0 0 19 16\"/><polyline points=\"19 13 19 16 16 16\"/>"
+  },
+  {
+    "id": "supervised",
+    "tags": ["supervised", "labeled", "guided", "ground-truth", "learning"],
+    "usage": "Supervised learning, learning from labeled examples",
+    "inner": "<path d=\"M5 4 L7.5 6.5 L11 3\"/><path d=\"M5 11 L7.5 13.5 L11 10\"/><path d=\"M5 18 L7.5 20.5 L11 17\"/><path d=\"M14 5 H20 M14 12 H20 M14 19 H20\"/>"
+  },
+  {
+    "id": "unsupervised",
+    "tags": ["unsupervised", "unlabeled", "discover", "pattern", "structure"],
+    "usage": "Unsupervised learning, finding structure in unlabeled data",
+    "inner": "<circle cx=\"7\" cy=\"7\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"6\" cy=\"12\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"9\" cy=\"16\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"15\" cy=\"6\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"18\" cy=\"10\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"16\" cy=\"15\" r=\"1\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M6 8.5 C6 14 11 13 9.5 15.5 M16 7 C20 9 16 14 16.5 14\" stroke-dasharray=\"2 2\"/>"
+  },
+  {
+    "id": "semantic-search",
+    "tags": ["semantic-search", "meaning", "vector-search", "similarity"],
+    "usage": "Semantic search, meaning-based vector similarity lookup",
+    "inner": "<circle cx=\"10\" cy=\"10\" r=\"5.5\"/><path d=\"M14 14 L20 20\"/><circle cx=\"8.5\" cy=\"9\" r=\"0.7\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"11.5\" cy=\"8.5\" r=\"0.7\" fill=\"currentColor\" stroke=\"none\"/><circle cx=\"10\" cy=\"11.5\" r=\"0.7\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M8.5 9 L11.5 8.5 L10 11.5 Z\"/>"
+  },
+  {
+    "id": "reranker",
+    "tags": ["reranker", "rerank", "reorder", "relevance", "sort"],
+    "usage": "Reranker, reordering retrieved results by relevance",
+    "inner": "<rect x=\"4\" y=\"4.5\" width=\"10\" height=\"3\" rx=\"0.8\"/><rect x=\"4\" y=\"9\" width=\"10\" height=\"3\" rx=\"0.8\"/><rect x=\"4\" y=\"13.5\" width=\"10\" height=\"3\" rx=\"0.8\"/><path d=\"M18 5 V18 M18 18 L16 16 M18 18 L20 16\"/>"
+  },
+  {
+    "id": "hallucination-guard",
+    "tags": ["hallucination-guard", "grounding", "verify", "fact-check", "shield"],
+    "usage": "Hallucination guard, grounding and fact-checking output",
+    "inner": "<path d=\"M12 4 L19 6.5 V12 C19 16 16 18.5 12 20 C8 18.5 5 16 5 12 V6.5 Z\"/><path d=\"M9.5 11.5 L11 13 L14.5 9.5\"/>"
+  }
+]

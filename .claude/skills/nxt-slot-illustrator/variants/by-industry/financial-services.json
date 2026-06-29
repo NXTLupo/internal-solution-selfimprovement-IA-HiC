@@ -1,0 +1,2947 @@
+[
+ {
+  "id": "financial-services-net-01",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "branch-network-topology",
+  "title": "Branch and ATM network footprint",
+  "subtitle": "Physical channel coverage across metro and rural zones",
+  "artifacts": [
+   "org",
+   "arch",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "mesh",
+   "seed": 4500
+  }
+ },
+ {
+  "id": "financial-services-net-02",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "correspondent-banking-web",
+  "title": "Correspondent banking relationships",
+  "subtitle": "Nostro and vostro links across partner institutions",
+  "artifacts": [
+   "arch",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4501
+  }
+ },
+ {
+  "id": "financial-services-net-03",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "payment-rail-network",
+  "title": "Payment rail interconnects",
+  "subtitle": "ACH, wire, RTP and card scheme linkages",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4502
+  }
+ },
+ {
+  "id": "financial-services-net-04",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "intercompany-exposure-graph",
+  "title": "Counterparty exposure network",
+  "subtitle": "Concentration of credit exposure across counterparties",
+  "artifacts": [
+   "arch",
+   "slides",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "mesh",
+   "seed": 4503
+  }
+ },
+ {
+  "id": "financial-services-net-05",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "fintech-partner-ecosystem",
+  "title": "Fintech and BaaS partner ecosystem",
+  "subtitle": "Embedded finance and API partner connections",
+  "artifacts": [
+   "arch",
+   "org",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "radial",
+   "seed": 4504
+  }
+ },
+ {
+  "id": "financial-services-net-06",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "funds-transfer-pricing-flow",
+  "title": "Funds transfer pricing across desks",
+  "subtitle": "Internal liquidity transfer between deposit and lending units",
+  "artifacts": [
+   "arch",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "spine",
+   "seed": 4505
+  }
+ },
+ {
+  "id": "financial-services-net-07",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "wealth-advisor-coverage-map",
+  "title": "Wealth advisor coverage network",
+  "subtitle": "Advisor-to-household assignment across regions",
+  "artifacts": [
+   "org",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 4506
+  }
+ },
+ {
+  "id": "financial-services-net-08",
+  "family": "operatingNetwork",
+  "industry": "financial-services",
+  "framework": "fraud-detection-mesh",
+  "title": "Fraud signal sharing network",
+  "subtitle": "Cross-channel fraud intelligence linkages",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 4507
+  }
+ },
+ {
+  "id": "financial-services-cap-01",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "core-banking-stack",
+  "title": "Core banking platform stack",
+  "subtitle": "Core ledger through channel and experience layers",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4508
+  }
+ },
+ {
+  "id": "financial-services-cap-02",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "payments-capability-stack",
+  "title": "Payments capability stack",
+  "subtitle": "Rails, orchestration, fraud and settlement layers",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 4509
+  }
+ },
+ {
+  "id": "financial-services-cap-03",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "risk-data-architecture",
+  "title": "Risk and capital data stack",
+  "subtitle": "Source systems through regulatory reporting layers",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 4,
+   "seed": 4510
+  }
+ },
+ {
+  "id": "financial-services-cap-04",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "digital-channel-stack",
+  "title": "Digital banking channel stack",
+  "subtitle": "Identity, services, journeys and analytics layers",
+  "artifacts": [
+   "arch",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4511
+  }
+ },
+ {
+  "id": "financial-services-cap-05",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "wealth-platform-stack",
+  "title": "Wealth management platform stack",
+  "subtitle": "Custody, portfolio, advice and client layers",
+  "artifacts": [
+   "arch",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4512
+  }
+ },
+ {
+  "id": "financial-services-cap-06",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "fraud-defense-stack",
+  "title": "Fraud and financial crime defense stack",
+  "subtitle": "Device, behavior, rules and case management layers",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4513
+  }
+ },
+ {
+  "id": "financial-services-cap-07",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "lending-origination-stack",
+  "title": "Loan origination capability stack",
+  "subtitle": "Application, decisioning, pricing and servicing layers",
+  "artifacts": [
+   "arch",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 4514
+  }
+ },
+ {
+  "id": "financial-services-cap-08",
+  "family": "capabilityStack",
+  "industry": "financial-services",
+  "framework": "compliance-control-stack",
+  "title": "Regulatory compliance control stack",
+  "subtitle": "KYC, monitoring, reporting and governance layers",
+  "artifacts": [
+   "arch",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 3,
+   "seed": 4515
+  }
+ },
+ {
+  "id": "financial-services-rad-01",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "digital-maturity-radar",
+  "title": "Digital banking maturity profile",
+  "subtitle": "Current versus target across digital dimensions",
+  "artifacts": [
+   "gap",
+   "competitive",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.7,
+    0.4,
+    0.55,
+    0.65
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.75,
+    0.85,
+    0.9
+   ],
+   "seed": 4516
+  }
+ },
+ {
+  "id": "financial-services-rad-02",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "risk-management-maturity",
+  "title": "Risk management maturity",
+  "subtitle": "Capability strength across risk domains",
+  "artifacts": [
+   "gap",
+   "audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.7,
+    0.6,
+    0.55,
+    0.65,
+    0.5,
+    0.6,
+    0.45
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.85,
+    0.8,
+    0.85,
+    0.75
+   ],
+   "seed": 4517
+  }
+ },
+ {
+  "id": "financial-services-rad-03",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "data-governance-maturity",
+  "title": "Data governance maturity",
+  "subtitle": "BCBS 239 readiness across data dimensions",
+  "artifacts": [
+   "gap",
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.45,
+    0.6,
+    0.4,
+    0.55
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.9,
+    0.75,
+    0.85
+   ],
+   "seed": 4518
+  }
+ },
+ {
+  "id": "financial-services-rad-04",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "customer-experience-maturity",
+  "title": "Customer experience maturity",
+  "subtitle": "CX capability across the relationship lifecycle",
+  "artifacts": [
+   "gap",
+   "journey",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.65,
+    0.55,
+    0.6,
+    0.5,
+    0.7,
+    0.45
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.85,
+    0.8,
+    0.9,
+    0.8
+   ],
+   "seed": 4519
+  }
+ },
+ {
+  "id": "financial-services-rad-05",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "aml-program-maturity",
+  "title": "AML program maturity",
+  "subtitle": "Financial crime capability across control areas",
+  "artifacts": [
+   "gap",
+   "audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.55,
+    0.45,
+    0.6,
+    0.5,
+    0.4
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.85,
+    0.8,
+    0.7
+   ],
+   "seed": 4520
+  }
+ },
+ {
+  "id": "financial-services-rad-06",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "wealth-advice-maturity",
+  "title": "Advisory capability maturity",
+  "subtitle": "Wealth advice strength across service dimensions",
+  "artifacts": [
+   "gap",
+   "slides",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.55,
+    0.6,
+    0.5,
+    0.65,
+    0.45,
+    0.55
+   ],
+   "target": [
+    0.8,
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.8
+   ],
+   "seed": 4521
+  }
+ },
+ {
+  "id": "financial-services-rad-07",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "cyber-resilience-radar",
+  "title": "Cyber resilience profile",
+  "subtitle": "Security posture across NIST functions",
+  "artifacts": [
+   "gap",
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.65,
+    0.6,
+    0.55,
+    0.5,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.85,
+    0.8,
+    0.85
+   ],
+   "seed": 4522
+  }
+ },
+ {
+  "id": "financial-services-rad-08",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "analytics-maturity-radar",
+  "title": "Analytics and AI maturity",
+  "subtitle": "Data science capability across the value chain",
+  "artifacts": [
+   "gap",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.45,
+    0.55,
+    0.4,
+    0.6,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.85,
+    0.75,
+    0.9,
+    0.8
+   ],
+   "seed": 4523
+  }
+ },
+ {
+  "id": "financial-services-rad-09",
+  "family": "maturityRadar",
+  "industry": "financial-services",
+  "framework": "operational-resilience-radar",
+  "title": "Operational resilience profile",
+  "subtitle": "Continuity strength across critical services",
+  "artifacts": [
+   "gap",
+   "audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.55,
+    0.5,
+    0.65,
+    0.45,
+    0.6,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.8,
+    0.8,
+    0.85,
+    0.75,
+    0.85,
+    0.8
+   ],
+   "seed": 4524
+  }
+ },
+ {
+  "id": "financial-services-fun-01",
+  "family": "fs_waterfall",
+  "industry": "financial-services",
+  "framework": "account-opening-funnel",
+  "title": "Account-opening funnel",
+  "subtitle": "Application to funded account conversion",
+  "artifacts": [
+   "journey",
+   "slides",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    54,
+    38,
+    29
+   ],
+   "seed": 4525
+  }
+ },
+ {
+  "id": "financial-services-fun-02",
+  "family": "fs_waterfall",
+  "industry": "financial-services",
+  "framework": "loan-origination-funnel",
+  "title": "Loan origination funnel",
+  "subtitle": "Inquiry to disbursed loan conversion",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    68,
+    47,
+    33,
+    24,
+    18
+   ],
+   "seed": 4526
+  }
+ },
+ {
+  "id": "financial-services-fun-03",
+  "family": "fs_waterfall",
+  "industry": "financial-services",
+  "framework": "mortgage-pipeline-funnel",
+  "title": "Mortgage application pipeline",
+  "subtitle": "Pre-approval to closing progression",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    74,
+    58,
+    41,
+    30
+   ],
+   "seed": 4527
+  }
+ },
+ {
+  "id": "financial-services-fun-04",
+  "family": "fs_waterfall",
+  "industry": "financial-services",
+  "framework": "card-acquisition-funnel",
+  "title": "Credit card acquisition funnel",
+  "subtitle": "Offer view to activated card",
+  "artifacts": [
+   "journey",
+   "slides",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    38,
+    26,
+    19
+   ],
+   "seed": 4528
+  }
+ },
+ {
+  "id": "financial-services-fun-05",
+  "family": "fs_waterfall",
+  "industry": "financial-services",
+  "framework": "deposit-onboarding-funnel",
+  "title": "Deposit onboarding funnel",
+  "subtitle": "Sign-up to first direct deposit",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    52,
+    35
+   ],
+   "seed": 4529
+  }
+ },
+ {
+  "id": "financial-services-fun-06",
+  "family": "fs_waterfall",
+  "industry": "financial-services",
+  "framework": "wealth-conversion-funnel",
+  "title": "Wealth lead conversion funnel",
+  "subtitle": "Prospect to funded advisory account",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    44,
+    31,
+    22,
+    15
+   ],
+   "seed": 4530
+  }
+ },
+ {
+  "id": "financial-services-fun-07",
+  "family": "funnelFlow",
+  "industry": "financial-services",
+  "framework": "digital-activation-funnel",
+  "title": "Digital activation funnel",
+  "subtitle": "App download to active mobile user",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    66,
+    48,
+    34,
+    25
+   ],
+   "seed": 4531
+  }
+ },
+ {
+  "id": "financial-services-fun-08",
+  "family": "funnelFlow",
+  "industry": "financial-services",
+  "framework": "cross-sell-funnel",
+  "title": "Cross-sell offer funnel",
+  "subtitle": "Eligible customer to second product held",
+  "artifacts": [
+   "journey",
+   "recommendations",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    40,
+    27,
+    19
+   ],
+   "seed": 4532
+  }
+ },
+ {
+  "id": "financial-services-fun-09",
+  "family": "funnelFlow",
+  "industry": "financial-services",
+  "framework": "collections-recovery-funnel",
+  "title": "Delinquency to recovery funnel",
+  "subtitle": "Past-due account to cured or charged off",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    76,
+    54,
+    37,
+    26,
+    17
+   ],
+   "seed": 4533
+  }
+ },
+ {
+  "id": "financial-services-jou-01",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "new-customer-onboarding-journey",
+  "title": "New customer onboarding journey",
+  "subtitle": "From application to first transaction",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4534
+  }
+ },
+ {
+  "id": "financial-services-jou-02",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "mortgage-borrower-journey",
+  "title": "Mortgage borrower journey",
+  "subtitle": "From rate shopping to home closing",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4535
+  }
+ },
+ {
+  "id": "financial-services-jou-03",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "small-business-lending-journey",
+  "title": "Small business lending journey",
+  "subtitle": "From need to funded working capital",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4536
+  }
+ },
+ {
+  "id": "financial-services-jou-04",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "dispute-resolution-journey",
+  "title": "Transaction dispute journey",
+  "subtitle": "From fraud report to resolution",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4537
+  }
+ },
+ {
+  "id": "financial-services-jou-05",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "wealth-onboarding-journey",
+  "title": "Wealth client onboarding journey",
+  "subtitle": "From discovery to portfolio funded",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4538
+  }
+ },
+ {
+  "id": "financial-services-jou-06",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "branch-to-digital-journey",
+  "title": "Branch to digital migration journey",
+  "subtitle": "Channel shift across the relationship",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    1,
+    3
+   ],
+   "seed": 4539
+  }
+ },
+ {
+  "id": "financial-services-jou-07",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "card-holder-lifecycle-journey",
+  "title": "Card holder lifecycle journey",
+  "subtitle": "From activation to retention or attrition",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    4,
+    6
+   ],
+   "seed": 4540
+  }
+ },
+ {
+  "id": "financial-services-jou-08",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "deposit-relationship-journey",
+  "title": "Deposit relationship deepening journey",
+  "subtitle": "From single account to primary bank",
+  "artifacts": [
+   "journey",
+   "slides",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4541
+  }
+ },
+ {
+  "id": "financial-services-jou-09",
+  "family": "journeyLine",
+  "industry": "financial-services",
+  "framework": "distressed-borrower-journey",
+  "title": "Distressed borrower journey",
+  "subtitle": "From early stress to workout or cure",
+  "artifacts": [
+   "journey",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4542
+  }
+ },
+ {
+  "id": "financial-services-dat-01",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "deposit-growth-by-channel",
+  "title": "Deposit growth by channel",
+  "subtitle": "Net new deposits across acquisition channels",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4543,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-02",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "credit-loss-by-segment",
+  "title": "Credit loss by segment",
+  "subtitle": "Net charge-off rate across lending segments",
+  "artifacts": [
+   "slides",
+   "report",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4544,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-03",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "fee-income-by-line",
+  "title": "Fee income by product line",
+  "subtitle": "Noninterest revenue across product families",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    5,
+    4,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4545,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-04",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "segment-profitability",
+  "title": "Profitability by customer segment",
+  "subtitle": "Risk-adjusted return across segments",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    7,
+    5,
+    4,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4546,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-05",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "delinquency-by-vintage",
+  "title": "Delinquency by origination vintage",
+  "subtitle": "30-plus day rate across loan vintages",
+  "artifacts": [
+   "slides",
+   "report",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sort": "asc",
+   "seed": 4547,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "financial-services-dat-06",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "cost-to-serve-by-channel",
+  "title": "Cost to serve by channel",
+  "subtitle": "Unit servicing cost across channels",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "recommendations"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4548,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-07",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "deposit-cost-by-product",
+  "title": "Deposit cost by product",
+  "subtitle": "Weighted rate paid across deposit types",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4549,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-08",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "branch-deposits-ranked",
+  "title": "Deposits per branch ranked",
+  "subtitle": "Balance concentration across the branch network",
+  "artifacts": [
+   "slides",
+   "report",
+   "org"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    10,
+    8,
+    7,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4550,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-09",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "aum-net-flows-by-advisor",
+  "title": "Net AUM flows by advisor tier",
+  "subtitle": "Asset gathering across advisor cohorts",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4551,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-10",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "fraud-loss-by-type",
+  "title": "Fraud loss by fraud type",
+  "subtitle": "Net loss across financial crime categories",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4552,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-dat-11",
+  "family": "dataField",
+  "industry": "financial-services",
+  "framework": "churn-rate-by-tenure",
+  "title": "Attrition by customer tenure",
+  "subtitle": "Closure rate across tenure bands",
+  "artifacts": [
+   "slides",
+   "report",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    6,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4553,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "financial-services-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "product-segment-profitability",
+  "title": "Product by segment profitability",
+  "subtitle": "Margin contribution across products and segments",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4
+    ],
+    [
+     0.7,
+     0.8,
+     0.5
+    ],
+    [
+     0.5,
+     0.6,
+     0.9
+    ],
+    [
+     0.4,
+     0.5,
+     0.7
+    ]
+   ],
+   "seed": 4554
+  }
+ },
+ {
+  "id": "financial-services-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "channel-product-adoption",
+  "title": "Channel by product adoption",
+  "subtitle": "Sales penetration across channels and products",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.9,
+     0.7
+    ],
+    [
+     0.6,
+     0.3,
+     0.8
+    ]
+   ],
+   "seed": 4555
+  }
+ },
+ {
+  "id": "financial-services-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "risk-return-product-grid",
+  "title": "Risk versus return by product",
+  "subtitle": "Capital intensity against yield across products",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6
+    ],
+    [
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.3,
+     0.8,
+     0.7
+    ],
+    [
+     0.5,
+     0.6,
+     0.4
+    ]
+   ],
+   "seed": 4556
+  }
+ },
+ {
+  "id": "financial-services-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "competitor-feature-matrix",
+  "title": "Competitor capability matrix",
+  "subtitle": "Feature parity across rival institutions",
+  "artifacts": [
+   "competitive",
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     1,
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.6,
+     1,
+     0.4,
+     0.7
+    ],
+    [
+     0.8,
+     0.5,
+     1,
+     0.6
+    ]
+   ],
+   "seed": 4557
+  }
+ },
+ {
+  "id": "financial-services-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "segment-need-coverage",
+  "title": "Segment need coverage matrix",
+  "subtitle": "Offer fit across segments and needs",
+  "artifacts": [
+   "slides",
+   "personas",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.8,
+     0.5
+    ],
+    [
+     0.6,
+     0.4,
+     0.9
+    ],
+    [
+     0.7,
+     0.6,
+     0.4
+    ]
+   ],
+   "seed": 4558
+  }
+ },
+ {
+  "id": "financial-services-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "capital-allocation-grid",
+  "title": "Capital allocation by business line",
+  "subtitle": "RWA intensity against return across lines",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4
+    ],
+    [
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.3,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4559
+  }
+ },
+ {
+  "id": "financial-services-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "fraud-channel-vector",
+  "title": "Fraud vector by channel matrix",
+  "subtitle": "Attack concentration across channels and types",
+  "artifacts": [
+   "audit",
+   "slides",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6
+    ],
+    [
+     0.5,
+     0.8,
+     0.3
+    ],
+    [
+     0.7,
+     0.6,
+     0.9
+    ],
+    [
+     0.4,
+     0.5,
+     0.7
+    ]
+   ],
+   "seed": 4560
+  }
+ },
+ {
+  "id": "financial-services-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "vendor-evaluation-matrix",
+  "title": "Core platform vendor matrix",
+  "subtitle": "Capability fit across candidate vendors",
+  "artifacts": [
+   "competitive",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.6,
+     0.7,
+     0.5
+    ]
+   ],
+   "seed": 4561
+  }
+ },
+ {
+  "id": "financial-services-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "compliance-control-coverage",
+  "title": "Compliance control coverage matrix",
+  "subtitle": "Control strength across regulations and domains",
+  "artifacts": [
+   "audit",
+   "slides",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.7
+    ],
+    [
+     0.5,
+     0.8,
+     0.6
+    ],
+    [
+     0.7,
+     0.4,
+     0.9
+    ]
+   ],
+   "seed": 4562
+  }
+ },
+ {
+  "id": "financial-services-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "branch-performance-grid",
+  "title": "Branch performance quadrant",
+  "subtitle": "Deposit growth against cost efficiency",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "org"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.9,
+     0.7
+    ],
+    [
+     0.4,
+     0.7,
+     0.5
+    ],
+    [
+     0.7,
+     0.6,
+     0.8
+    ]
+   ],
+   "seed": 4563
+  }
+ },
+ {
+  "id": "financial-services-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "financial-services",
+  "framework": "cross-sell-propensity-grid",
+  "title": "Cross-sell propensity matrix",
+  "subtitle": "Next-product likelihood across segments",
+  "artifacts": [
+   "slides",
+   "recommendations",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6,
+     0.3
+    ],
+    [
+     0.5,
+     0.8,
+     0.4,
+     0.7
+    ],
+    [
+     0.6,
+     0.5,
+     0.9,
+     0.4
+    ]
+   ],
+   "seed": 4564
+  }
+ },
+ {
+  "id": "financial-services-dia-01",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "net-interest-margin-gauge",
+  "title": "Net interest margin",
+  "subtitle": "Current NIM against peer benchmark",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 62,
+   "segments": 10,
+   "seed": 4565
+  }
+ },
+ {
+  "id": "financial-services-dia-02",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "cet1-capital-ratio-gauge",
+  "title": "CET1 capital ratio",
+  "subtitle": "Common equity tier 1 against requirement",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 71,
+   "segments": 10,
+   "seed": 4566
+  }
+ },
+ {
+  "id": "financial-services-dia-03",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "liquidity-coverage-gauge",
+  "title": "Liquidity coverage ratio",
+  "subtitle": "LCR against the regulatory minimum",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 78,
+   "segments": 10,
+   "seed": 4567
+  }
+ },
+ {
+  "id": "financial-services-dia-04",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "loan-to-deposit-gauge",
+  "title": "Loan to deposit ratio",
+  "subtitle": "Balance sheet funding utilization",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 66,
+   "segments": 10,
+   "seed": 4568
+  }
+ },
+ {
+  "id": "financial-services-dia-05",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "efficiency-ratio-gauge",
+  "title": "Efficiency ratio",
+  "subtitle": "Operating cost against revenue",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4569
+  }
+ },
+ {
+  "id": "financial-services-dia-06",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "npl-ratio-gauge",
+  "title": "Nonperforming loan ratio",
+  "subtitle": "Problem loans against total book",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 24,
+   "segments": 10,
+   "seed": 4570
+  }
+ },
+ {
+  "id": "financial-services-dia-07",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "digital-adoption-gauge",
+  "title": "Digital adoption rate",
+  "subtitle": "Active digital users across the base",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 69,
+   "segments": 10,
+   "seed": 4571
+  }
+ },
+ {
+  "id": "financial-services-dia-08",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "deposit-beta-gauge",
+  "title": "Deposit beta",
+  "subtitle": "Pass-through of rate changes to depositors",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 47,
+   "segments": 10,
+   "seed": 4572
+  }
+ },
+ {
+  "id": "financial-services-dia-09",
+  "family": "instrumentDial",
+  "industry": "financial-services",
+  "framework": "fraud-detection-rate-gauge",
+  "title": "Fraud detection rate",
+  "subtitle": "Caught fraud against total attempts",
+  "artifacts": [
+   "slides",
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 83,
+   "segments": 10,
+   "seed": 4573
+  }
+ },
+ {
+  "id": "financial-services-gan-01",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "core-migration-roadmap",
+  "title": "Core banking migration roadmap",
+  "subtitle": "Platform replacement across release waves",
+  "artifacts": [
+   "roadmap",
+   "slides",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4574
+  }
+ },
+ {
+  "id": "financial-services-gan-02",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "basel-implementation-plan",
+  "title": "Basel endgame implementation plan",
+  "subtitle": "Capital rule adoption across phases",
+  "artifacts": [
+   "roadmap",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 5,
+   "seed": 4575
+  }
+ },
+ {
+  "id": "financial-services-gan-03",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "digital-transformation-roadmap",
+  "title": "Digital transformation roadmap",
+  "subtitle": "Channel and product modernization waves",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4576
+  }
+ },
+ {
+  "id": "financial-services-gan-04",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "branch-rationalization-plan",
+  "title": "Branch rationalization timeline",
+  "subtitle": "Network optimization across phases",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 4,
+   "seed": 4577
+  }
+ },
+ {
+  "id": "financial-services-gan-05",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "payments-modernization-plan",
+  "title": "Payments modernization timeline",
+  "subtitle": "Rail upgrades across delivery waves",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4578
+  }
+ },
+ {
+  "id": "financial-services-gan-06",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "aml-remediation-roadmap",
+  "title": "AML remediation roadmap",
+  "subtitle": "Financial crime program uplift across phases",
+  "artifacts": [
+   "roadmap",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 1,
+   "milestone": 3,
+   "seed": 4579
+  }
+ },
+ {
+  "id": "financial-services-gan-07",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "wealth-platform-rollout",
+  "title": "Wealth platform rollout plan",
+  "subtitle": "Advisory tooling delivery across waves",
+  "artifacts": [
+   "roadmap",
+   "slides",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4580
+  }
+ },
+ {
+  "id": "financial-services-gan-08",
+  "family": "timelineGantt",
+  "industry": "financial-services",
+  "framework": "data-remediation-roadmap",
+  "title": "Risk data remediation roadmap",
+  "subtitle": "BCBS 239 uplift across delivery phases",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4581
+  }
+ },
+ {
+  "id": "financial-services-flo-01",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "payment-clearing-flow",
+  "title": "Payment clearing and settlement flow",
+  "subtitle": "From initiation to final settlement",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4582
+  }
+ },
+ {
+  "id": "financial-services-flo-02",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "loan-decisioning-flow",
+  "title": "Loan decisioning workflow",
+  "subtitle": "From application to credit decision",
+  "artifacts": [
+   "arch",
+   "slides",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4583
+  }
+ },
+ {
+  "id": "financial-services-flo-03",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "kyc-onboarding-flow",
+  "title": "KYC onboarding workflow",
+  "subtitle": "Identity verification and risk screening",
+  "artifacts": [
+   "arch",
+   "audit",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4584
+  }
+ },
+ {
+  "id": "financial-services-flo-04",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "fraud-alert-triage-flow",
+  "title": "Fraud alert triage workflow",
+  "subtitle": "From signal to case disposition",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4585
+  }
+ },
+ {
+  "id": "financial-services-flo-05",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "dispute-chargeback-flow",
+  "title": "Dispute and chargeback flow",
+  "subtitle": "From claim to provisional credit and recovery",
+  "artifacts": [
+   "arch",
+   "journey",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4586
+  }
+ },
+ {
+  "id": "financial-services-flo-06",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "capital-reporting-flow",
+  "title": "Regulatory capital reporting flow",
+  "subtitle": "From exposure data to filed return",
+  "artifacts": [
+   "arch",
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4587
+  }
+ },
+ {
+  "id": "financial-services-flo-07",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "collections-workflow",
+  "title": "Collections decisioning workflow",
+  "subtitle": "From past due to treatment path",
+  "artifacts": [
+   "arch",
+   "slides",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4588
+  }
+ },
+ {
+  "id": "financial-services-flo-08",
+  "family": "flowSchematic",
+  "industry": "financial-services",
+  "framework": "wire-screening-flow",
+  "title": "Wire screening and sanctions flow",
+  "subtitle": "From wire request to release or hold",
+  "artifacts": [
+   "arch",
+   "audit",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4589
+  }
+ },
+ {
+  "id": "financial-services-pro-01",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "deposit-mix-composition",
+  "title": "Deposit mix composition",
+  "subtitle": "Balance share across deposit products",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    42,
+    28,
+    18,
+    12
+   ],
+   "seed": 4590
+  }
+ },
+ {
+  "id": "financial-services-pro-02",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "loan-portfolio-mix",
+  "title": "Loan portfolio mix",
+  "subtitle": "Outstanding balance across asset classes",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    38,
+    26,
+    20,
+    16
+   ],
+   "seed": 4591
+  }
+ },
+ {
+  "id": "financial-services-pro-03",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "revenue-mix-split",
+  "title": "Revenue mix split",
+  "subtitle": "Interest against noninterest income share",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    58,
+    24,
+    18
+   ],
+   "seed": 4592
+  }
+ },
+ {
+  "id": "financial-services-pro-04",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "rwa-composition",
+  "title": "Risk-weighted asset composition",
+  "subtitle": "RWA share across risk types",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    55,
+    25,
+    20
+   ],
+   "seed": 4593
+  }
+ },
+ {
+  "id": "financial-services-pro-05",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "aum-asset-allocation",
+  "title": "AUM asset allocation",
+  "subtitle": "Client assets across allocation classes",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    45,
+    30,
+    15,
+    10
+   ],
+   "seed": 4594
+  }
+ },
+ {
+  "id": "financial-services-pro-06",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "funding-source-mix",
+  "title": "Funding source mix",
+  "subtitle": "Balance sheet funding across sources",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    60,
+    22,
+    12,
+    6
+   ],
+   "seed": 4595
+  }
+ },
+ {
+  "id": "financial-services-pro-07",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "fee-revenue-composition",
+  "title": "Fee revenue composition",
+  "subtitle": "Noninterest income across categories",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    35,
+    28,
+    22,
+    15
+   ],
+   "seed": 4596
+  }
+ },
+ {
+  "id": "financial-services-pro-08",
+  "family": "proportionStack",
+  "industry": "financial-services",
+  "framework": "channel-transaction-mix",
+  "title": "Transaction mix by channel",
+  "subtitle": "Transaction volume share across channels",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "groups": [
+    48,
+    30,
+    14,
+    8
+   ],
+   "seed": 4597
+  }
+ },
+ {
+  "id": "financial-services-sec-01",
+  "family": "sectionMark",
+  "industry": "financial-services",
+  "framework": "section-divider-risk",
+  "title": "Risk and capital",
+  "subtitle": "Balance sheet strength and resilience",
+  "artifacts": [
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4598
+  }
+ },
+ {
+  "id": "financial-services-sec-02",
+  "family": "sectionMark",
+  "industry": "financial-services",
+  "framework": "section-divider-growth",
+  "title": "Growth and franchise",
+  "subtitle": "Deposits, lending and customer value",
+  "artifacts": [
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 4,
+   "seed": 4599
+  }
+ }
+]

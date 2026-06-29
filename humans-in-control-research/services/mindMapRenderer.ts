@@ -11,50 +11,61 @@
 // 2026-05-24 - Phase 4 of plans/hic-notebooklm-uplift-plan-2026-05-24.md
 
 import type { MindMapNode, MindMapOutput } from './mindMapArchitect';
+import { getBrand } from '../components/slideTemplates/brands';
+import { compositeIcon, isContentTrueIcon } from './iconLibrary';
+
+// 2026-06-27 - DE-HARDCODE + HUB GLYPH. Previously two hand-keyed hex palettes
+// (NXT_TOKENS / NU_TOKENS) + stale fonts (Bebas Neue, Roboto Condensed, Open Sans).
+// Per UNIFIED_VISION never-hardcode, every colour + font now resolves from the brand
+// token mirror (getBrand -> /api/design-tokens hydration). Both brands render on the
+// GOLD light paper surface (registry ground:'light'); brand is an accent flip. The
+// central root node paints the tokenized hub glyph (compositeIcon) - the live Figma
+// slot 683:5509 on component 612:2.
 
 type Brand = 'nxt' | 'nu';
 
 interface PalettedTokens {
     pageBg: string;
     canvasBg: string;
-    accent: string;       // chartreuse-ish for NXT, NU red for NU
-    cyanRing: string;     // convergent-evidence ring
+    accent: string;       // chartreuse for NXT, NU red for NU
+    onAccent: string;     // contrast colour on the accent fill (NXT black, NU white)
+    cyanRing: string;     // convergent-evidence ring (NXT cyan, NU source-teal)
     titleFont: string;
     bodyFont: string;
     monoFont: string;
+    titleWeight: string;
     titleColor: string;
     bodyColor: string;
     mutedColor: string;
+    hair: string;
+    panelFill: string;    // ordinary node body fill (light panel)
+    thinFill: string;     // thin-evidence node fill (recedes)
 }
 
-const NXT_TOKENS: PalettedTokens = {
-    pageBg: '#0D0D0D',
-    canvasBg: '#0D0D0D',
-    accent: '#B8B800',
-    cyanRing: '#00B7C3',
-    titleFont: "'Bebas Neue', sans-serif",
-    bodyFont: "'Archivo', sans-serif",
-    monoFont: "'JetBrains Mono', monospace",
-    titleColor: '#FFFFFF',
-    bodyColor: '#D4D4D4',
-    mutedColor: '#888',
-};
+/** Prefix a token hex (stored without '#') for CSS/SVG. */
+const hx = (v: string): string => (v && v.startsWith('#')) ? v : `#${v || '000000'}`;
 
-const NU_TOKENS: PalettedTokens = {
-    pageBg: '#FFFFFF',
-    canvasBg: '#FFFFFF',
-    accent: '#C8102E',
-    cyanRing: '#0091B6',
-    titleFont: "'Roboto Condensed', sans-serif",
-    bodyFont: "'Open Sans', sans-serif",
-    monoFont: "'JetBrains Mono', monospace",
-    titleColor: '#0D0D0D',
-    bodyColor: '#333',
-    mutedColor: '#888',
-};
-
+/** Resolve the mind-map palette from the brand token mirror - NEVER a literal. */
 function tokensFor(brand: Brand): PalettedTokens {
-    return brand === 'nu' ? NU_TOKENS : NXT_TOKENS;
+    const b = getBrand(brand);
+    const fam = (f: string) => /\s/.test(f) ? `'${f}'` : f;
+    return {
+        pageBg: hx(b.PALE),
+        canvasBg: hx(b.PALE),
+        accent: hx(b.CHARTREUSE),
+        onAccent: hx(b.BAND_TEXT),
+        cyanRing: hx(b.CYAN),
+        titleFont: `${fam(b.FONT_DISPLAY)}, sans-serif`,
+        bodyFont: `${fam(b.FONT_BODY)}, sans-serif`,
+        monoFont: `${fam(b.FONT_MONO)}, monospace`,
+        titleWeight: b.TITLE_WEIGHT,
+        titleColor: hx(b.INK),
+        bodyColor: hx(b.INK),
+        mutedColor: hx(b.GREY),
+        hair: hx(b.HAIRLINE),
+        panelFill: hx(b.PANEL),
+        thinFill: hx(b.HAIRLINE),
+    };
 }
 
 function escapeHtml(s: string): string {
@@ -143,8 +154,8 @@ function nodeFontSize(node: MindMapNode): number {
 
 function nodeFill(node: MindMapNode, t: PalettedTokens): string {
     if (node.type === 'root') return t.accent;
-    if (node.visual_treatment === 'thin_evidence') return '#444';
-    return t.canvasBg === '#FFFFFF' ? '#F5F5F0' : '#1A1A1A';
+    if (node.visual_treatment === 'thin_evidence') return t.thinFill;
+    return t.panelFill;
 }
 
 function nodeStroke(node: MindMapNode, t: PalettedTokens): string {
@@ -240,15 +251,27 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
         }
     }
 
+    // Central hub glyph (live Figma slot 683:5509 on 612:2). compositeIcon is
+    // deterministic, $0, token-pure; the research question drives the base glyph.
+    // It crowns the root node; the root's text label is dropped (the header title
+    // already states the question) so the glyph never collides with wrapped text.
+    let hubGlyphHref = '';
+    try {
+        const g = compositeIcon({ concept: input.researchGoal || input.output.root.label, brand: input.brand, ground: 'light', role: 'accent', size: 120 });
+        // content-true or nothing: a generic fallback mark adds no meaning to the hub
+        if (g?.dataUri && isContentTrueIcon(g.resolvedBy)) hubGlyphHref = g.dataUri;
+    } catch { /* fail-open: root renders as a plain accent ring disc */ }
+
     // Nodes
     const nodes: string[] = [];
     for (const p of positioned) {
+        const isRoot = p.node.type === 'root';
         const r = nodeRadius(p.node);
         const fontSize = nodeFontSize(p.node);
         const fill = nodeFill(p.node, t);
         const stroke = nodeStroke(p.node, t);
         const strokeW = nodeStrokeWidth(p.node);
-        const labelLines = wrapLabel(p.node.label, p.node.type === 'root' ? 16 : 12);
+        const labelLines = wrapLabel(p.node.label, 12);
         const lineHeight = fontSize * 1.15;
         const totalH = labelLines.length * lineHeight;
 
@@ -257,21 +280,29 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
             ? `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(r + 6).toFixed(1)}" fill="none" stroke="${t.cyanRing}" stroke-width="2" opacity="0.55"/>`
             : '';
 
-        const labelColor = p.node.type === 'root' ? '#0D0D0D' : t.titleColor;
-
-        const textElements = labelLines.map((line, idx) => {
-            const dy = -totalH / 2 + (idx + 0.7) * lineHeight;
-            return `<tspan x="${p.x.toFixed(1)}" dy="${idx === 0 ? dy.toFixed(1) : lineHeight.toFixed(1)}">${escapeHtml(line)}</tspan>`;
-        }).join('');
-
         const dataChunkIds = (p.node.chunk_ids || []).slice(0, 12).join(',');
+
+        // Root: light panel disc + thick ACCENT ring + centred ACCENT hub glyph (no text).
+        // The glyph must NOT sit on the accent fill (accent-on-accent = invisible); a light
+        // panel disc with an accent ring keeps the hub identity AND guarantees glyph contrast.
+        // Others: panel disc + wrapped label.
+        let body: string;
+        if (isRoot) {
+            // The hub GLYPH is rendered as an HTML <img> overlay (see below) so the PPTX GEO walker
+            // captures it as a NATIVE picture placeholder; the SVG only draws the disc + accent ring.
+            body = `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${t.panelFill}" stroke="${t.accent}" stroke-width="4"/>`;
+        } else {
+            const textElements = labelLines.map((line, idx) => {
+                const dy = -totalH / 2 + (idx + 0.7) * lineHeight;
+                return `<tspan x="${p.x.toFixed(1)}" dy="${idx === 0 ? dy.toFixed(1) : lineHeight.toFixed(1)}">${escapeHtml(line)}</tspan>`;
+            }).join('');
+            body = `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeW}"/>` +
+                `<text x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" font-family="${t.bodyFont}" font-size="${fontSize}" font-weight="600" fill="${t.titleColor}" text-anchor="middle" dominant-baseline="middle">${textElements}</text>`;
+        }
 
         nodes.push(
             `<g data-node-id="${escapeHtml(p.node.id)}" data-node-label="${escapeHtml(p.node.label)}" data-chunk-ids="${escapeHtml(dataChunkIds)}" data-node-type="${escapeHtml(p.node.type)}" data-convergent="${p.node.visual_treatment === 'convergent' ? '1' : '0'}">` +
-            ring +
-            `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${strokeW}"/>` +
-            `<text x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" font-family="${t.bodyFont}" font-size="${fontSize}" font-weight="${p.node.type === 'root' ? 700 : 600}" fill="${labelColor}" text-anchor="middle" dominant-baseline="middle">${textElements}</text>` +
-            `</g>`
+            ring + body + `</g>`
         );
     }
 
@@ -296,9 +327,9 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
   html, body { width: 1920px; height: 1080px; background: ${t.pageBg}; overflow: hidden; }
   body { font-family: ${t.bodyFont}; color: ${t.bodyColor}; position: relative; }
   .mm-frame { width: 1920px; height: 1080px; padding: 50px 60px 40px 60px; position: relative; }
-  .mm-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; padding-bottom: 14px; border-bottom: 1px solid ${t.canvasBg === '#FFFFFF' ? '#DDD' : '#222'}; }
+  .mm-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4px; padding-bottom: 14px; border-bottom: 1px solid ${t.hair}; }
   .mm-kicker { font-family: ${t.monoFont}; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: ${t.mutedColor}; margin-bottom: 6px; }
-  .mm-title { font-family: ${t.titleFont}; font-size: 42px; color: ${t.titleColor}; letter-spacing: 0.01em; line-height: 1; }
+  .mm-title { font-family: ${t.titleFont}; font-weight: ${t.titleWeight}; font-size: 42px; color: ${t.titleColor}; letter-spacing: 0.01em; line-height: 1; }
   .mm-meta { text-align: right; font-family: ${t.monoFont}; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: ${t.mutedColor}; }
   .mm-meta div { margin-bottom: 4px; }
   .mm-meta span { color: ${t.accent}; font-weight: 700; }
@@ -309,7 +340,7 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
   .mm-legend .mm-sw { display: inline-block; width: 14px; height: 14px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
   .mm-legend .mm-conv { background: ${t.canvasBg}; border: 2px solid ${t.cyanRing}; }
   .mm-legend .mm-grp { background: ${t.canvasBg}; border: 2px solid ${t.accent}; }
-  .mm-legend .mm-thin { background: #444; border: 1px solid ${t.mutedColor}; }
+  .mm-legend .mm-thin { background: ${t.thinFill}; border: 1px solid ${t.mutedColor}; }
 </style>
 </head>
 <body>
@@ -327,10 +358,13 @@ export function renderMindMapHtml(input: MindMapRenderInput): string {
     </div>
   </header>
   <div class="mm-canvas">
-    <svg width="1800" height="900" viewBox="0 0 ${SVG_W} ${SVG_H}" xmlns="http://www.w3.org/2000/svg" style="display:block; margin: 0 auto;">
-      ${edges.join('\n      ')}
-      ${nodes.join('\n      ')}
-    </svg>
+    <div style="position:relative;width:1800px;height:900px;margin:0 auto;">
+      <svg width="1800" height="900" viewBox="0 0 ${SVG_W} ${SVG_H}" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+        ${edges.join('\n      ')}
+        ${nodes.join('\n      ')}
+      </svg>
+      ${hubGlyphHref ? `<img class="mm-hub-glyph" src="${hubGlyphHref}" alt="" style="position:absolute;left:${(CENTER_X / SVG_W * 100).toFixed(3)}%;top:${(CENTER_Y / SVG_H * 100).toFixed(3)}%;width:84px;height:84px;transform:translate(-50%,-50%);object-fit:contain;pointer-events:none;"/>` : ''}
+    </div>
   </div>
   <div class="mm-legend">
     <div><span class="mm-sw mm-conv"></span>Convergent evidence (≥2 source types)</div>

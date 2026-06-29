@@ -4661,6 +4661,12 @@ async def prototype_view(slug: str = Path(...)):
     <!-- Official brand logo (Figma-sourced). Use window.__BRAND_LOGO__ or a
          [data-brand-logo] element to render the real mark; never invent one. -->
     <script>{brand_logo_js}</script>
+    <!-- 2026-06-26 - Live AI backend for the prototype. The Stage-4 coder emits
+         callAI(flow, input) -> POST window.__AI_ENDPOINT__ (default /api/ai/generate)
+         expecting {{ data, provider, model }}. Point it at the real generic route so
+         in-prototype AI calls reach a functional model instead of 404-ing and
+         silently falling back to seeded data ("AI call failed for <flow>"). -->
+    <script>window.__AI_ENDPOINT__ = "/api/ai/generate"; window.__AI_PROVIDER__ = "gemini"; window.__AI_MODEL__ = "gemini-3.5-flash";</script>
     <style>.ds-brand-logo,.ds-brand-logo svg{{height:26px;width:auto;display:inline-flex;align-items:center}}</style>
     <script>document.addEventListener("DOMContentLoaded",function(){{document.querySelectorAll("[data-brand-logo]").forEach(function(el){{if(window.__BRAND_LOGO__){{el.innerHTML=window.__BRAND_LOGO__;el.classList.add("ds-brand-logo");}}}});}});</script>
     <style>
@@ -8152,6 +8158,39 @@ _VISION_EXTRACT_PROMPT = (
     "- Output ONLY the extracted content. No preamble, no 'this image shows', no commentary, no markdown."
 )
 
+# W1 — UPLOAD EXTRACTION CACHE (2026-06-28, model-usage-optimization §2 W1).
+# Vision extraction runs at temperature 0.0 on IMMUTABLE source bytes, but builds
+# the Gemini URL INLINE (bypassing the proxy's /api/ai/gemini exact-cache wrapper),
+# so a re-upload or pipeline re-run re-paid the vision call every time. Cache the
+# extracted text in the SHARED sqlite kv (ns "visionextract"), keyed on a content
+# hash of (file bytes + mime + hint + model) so the same source doc always hits.
+# Generous TTL (source docs are immutable). Best-effort / fail-open: any cache
+# error falls through to a live extraction. Counters surface under
+# /api/ai/cache-stats -> "vision_extract".
+VISION_CACHE_ENABLED = os.environ.get("VISION_CACHE_ENABLED", "1") not in ("0", "false", "False")
+try:
+    VISION_CACHE_TTL_SEC = int(os.environ.get("VISION_CACHE_TTL_SEC", str(30 * 24 * 3600)))  # 30 days
+except ValueError:
+    VISION_CACHE_TTL_SEC = 30 * 24 * 3600
+_VISION_EXTRACT_CACHE_STATS = {"hits": 0, "misses": 0, "stores": 0}   # per-worker counters
+
+def _vision_extract_cache_key(file_bytes: bytes, mime: str, hint: str) -> "str | None":
+    if not VISION_CACHE_ENABLED or not file_bytes:
+        return None
+    import hashlib as _hl
+    try:
+        h = _hl.sha256()
+        h.update(file_bytes)
+        h.update(b"\x00")
+        h.update((mime or "").encode("utf-8", "ignore"))
+        h.update(b"\x00")
+        h.update((hint or "").encode("utf-8", "ignore"))
+        h.update(b"\x00")
+        h.update(_VISION_EXTRACT_MODEL.encode("utf-8", "ignore"))
+        return h.hexdigest()
+    except Exception:
+        return None
+
 
 async def _gemini_multimodal_extract(file_bytes: bytes, mime: str, hint: str = "") -> str:
     """Send an image or PDF to Gemini (multimodal) and return transcribed/OCR'd text.
@@ -8161,6 +8200,19 @@ async def _gemini_multimodal_extract(file_bytes: bytes, mime: str, hint: str = "
     api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
     if not api_key or not file_bytes:
         return ""
+    # W1: content-hash cache lookup BEFORE any work. Immutable source bytes ->
+    # the same doc returns its stored extraction and SKIPS the vision call.
+    _vkey = _vision_extract_cache_key(file_bytes, mime, hint)
+    if _vkey:
+        try:
+            _cached = _cache_db_get("visionextract", _vkey)
+        except Exception:
+            _cached = None
+        if isinstance(_cached, str):
+            _VISION_EXTRACT_CACHE_STATS["hits"] += 1
+            logger.info(f"[vision-extract] CACHE HIT {hint or mime} -> {len(_cached)} chars (skipped vision call)")
+            return _cached
+        _VISION_EXTRACT_CACHE_STATS["misses"] += 1
     m = (mime or "").lower()
     if not (m.startswith("image/") or m == "application/pdf"):
         m = "image/png"
@@ -8187,6 +8239,13 @@ async def _gemini_multimodal_extract(file_bytes: bytes, mime: str, hint: str = "
         data = resp.json()
         parts = (((data.get("candidates") or [{}])[0].get("content") or {}).get("parts") or [])
         text = "".join(p.get("text", "") for p in parts if isinstance(p, dict)).strip()
+        # W1: store the extraction for immutable source bytes (only non-empty).
+        if _vkey and text:
+            try:
+                _cache_db_put("visionextract", _vkey, text, VISION_CACHE_TTL_SEC)
+                _VISION_EXTRACT_CACHE_STATS["stores"] += 1
+            except Exception:
+                pass
         return text
     except Exception as e:
         logger.warning(f"[vision-extract] request failed: {e}")
@@ -9408,6 +9467,135 @@ async def _semantic_cache_store(provider: str, body: dict, response: dict) -> No
             del lst[0]
         _SEMANTIC_CACHE_STATS["stores"] += 1
 
+# ----------------------------------------------------------------------------
+# GEMINI EXPLICIT CONTEXT CACHE (2026-06-28) — Gap #1 from
+# plans/prompt-caching-expertise-and-maximization-2026-06-28.md.
+#
+# Gemini supports IMPLICIT caching (automatic best-effort prefix reuse, no API
+# surface, ~0.25x on the cached portion, NOT guaranteed) AND EXPLICIT caching
+# via the CachedContent API (`cachedContents` create -> get a `name` -> reference
+# it on subsequent generateContent calls). Explicit GUARANTEES the discount on
+# the large stable prefix (systemInstruction + leading stable contents), carries
+# a real TTL, and is billed for storage while alive. The exact-match cache (above)
+# returns BEFORE the provider call on a fully-identical deterministic request;
+# explicit context caching is the SEPARATE win for when the exact cache MISSES
+# (different final user turn) but the big stable prefix RECURS — the prefix reads
+# at the cached rate while the suffix generates fresh. So it applies to
+# normal-temperature chat too (determinism is NOT required here).
+#
+# Discipline mirrors _inject_anthropic_cache_control: single-chokepoint
+# (/api/ai/gemini only), env-gated, best-effort (NEVER raises -> always
+# fail-open to the normal inline call), corpus-version-keyed (any wiki write
+# rotates the key, same as the tool cache). The CachedContent `name` is stored in
+# the SHARED sqlite kv (ns="gemcache") so all uvicorn workers reuse one cache
+# object. Provider "cache not found / expired" (404/400) -> recreate + retry ONCE,
+# else fall back to a plain inline call.
+#
+# SHIPPED OFF BY DEFAULT (GEMINI_EXPLICIT_CACHE_ENABLED=0) like the semantic
+# cache: real + wired + flippable. When off it adds ZERO overhead (every helper
+# early-returns before any work).
+# ----------------------------------------------------------------------------
+GEMINI_EXPLICIT_CACHE_ENABLED = os.environ.get("GEMINI_EXPLICIT_CACHE_ENABLED", "0") in ("1", "true", "True")
+try:
+    GEMINI_CACHE_TTL_SEC = int(os.environ.get("GEMINI_CACHE_TTL_SEC", "3600"))
+except ValueError:
+    GEMINI_CACHE_TTL_SEC = 3600
+try:
+    # Min size of the stable prefix (systemInstruction + leading stable contents)
+    # before we bother creating an explicit cache. Above the per-model token floor
+    # (~few-thousand tokens for 2.5/3.x; ~8000 chars ~= 2000 tok is a safe margin).
+    # If the prefix is under this, we SKIP explicit caching (implicit still applies).
+    GEMINI_CACHE_MIN_CHARS = int(os.environ.get("GEMINI_CACHE_MIN_CHARS", "8000"))
+except ValueError:
+    GEMINI_CACHE_MIN_CHARS = 8000
+# creates/hits/misses = cache-object lifecycle; bytes_cached = total prefix bytes
+# committed to cache objects (per-worker; size is the shared sqlite truth).
+_GEMINI_EXPLICIT_CACHE_STATS = {"creates": 0, "hits": 0, "misses": 0, "bytes_cached": 0}
+
+def _gemini_system_prefix_text(body: dict) -> str:
+    """Flatten the systemInstruction into its text, however the caller shaped it
+    (string, {parts:[{text}]}, or {text})."""
+    si = body.get("systemInstruction") or body.get("system")
+    if isinstance(si, str):
+        return si
+    if isinstance(si, dict):
+        parts = si.get("parts")
+        if isinstance(parts, list):
+            return "".join(p.get("text", "") for p in parts if isinstance(p, dict))
+        if isinstance(si.get("text"), str):
+            return si["text"]
+    return ""
+
+def _gemini_normalized_system_instruction(body: dict) -> "dict | None":
+    """Return the systemInstruction in the canonical {parts:[{text}]} shape the
+    cachedContents API expects, or None if there is no system text."""
+    txt = _gemini_system_prefix_text(body)
+    if not txt:
+        return None
+    return {"parts": [{"text": txt}]}
+
+def _gemini_explicit_cache_key(model: str, system_text: str) -> "str | None":
+    """sha256(model + system-prefix + corpus-version). Corpus version means any
+    wiki write rotates the key (same invalidation discipline as the tool cache)."""
+    if not system_text:
+        return None
+    import hashlib as _hl
+    raw = f"gem-explicit|{model}|{_corpus_version()}|{system_text}"
+    return f"{model}:{_hl.sha256(raw.encode('utf-8','ignore')).hexdigest()}"
+
+def _gemini_cache_store_get(key: "str | None") -> "str | None":
+    """Look up a live CachedContent resource name for this prefix key."""
+    if not key:
+        return None
+    val = _cache_db_get("gemcache", key)
+    if isinstance(val, dict):
+        return val.get("name")
+    return None
+
+def _gemini_cache_store_put(key: "str | None", name: str, ttl: int) -> None:
+    if not key or not name:
+        return
+    # Store with a slightly SHORTER local TTL than the remote cache so we stop
+    # referencing it before Gemini evicts it (avoids a guaranteed 404 round-trip).
+    _cache_db_put("gemcache", key, {"name": name}, max(60, ttl - 120))
+
+def _gemini_cache_store_delete(key: "str | None") -> None:
+    if not key:
+        return
+    try:
+        _cache_db().execute("DELETE FROM kv WHERE k=?", (f"gemcache:{key}",))
+    except Exception:
+        pass
+
+async def _gemini_create_cached_content(
+    api_key: str, model: str, system_instruction: dict, ttl_sec: int
+) -> "str | None":
+    """POST cachedContents to create an explicit cache object from the stable
+    system prefix. Returns the resource `name` or None on any failure (fail-open).
+    The model id must be in the fully-qualified `models/<id>` form for this API."""
+    try:
+        qualified = model if model.startswith("models/") else f"models/{model}"
+        url = "https://generativelanguage.googleapis.com/v1beta/cachedContents"
+        payload = {
+            "model": qualified,
+            "systemInstruction": system_instruction,
+            "ttl": f"{int(ttl_sec)}s",
+        }
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(
+                url, json=payload, headers=_goog_key_headers(api_key), timeout=60.0,
+            )
+        if resp.status_code != 200:
+            logger.warning(f"[gemini-explicit-cache] create failed {resp.status_code}: {resp.text[:300]}")
+            return None
+        name = resp.json().get("name")
+        if name:
+            logger.info(f"[gemini-explicit-cache] CREATED {name} model={model} ttl={ttl_sec}s")
+        return name
+    except Exception as e:
+        logger.warning(f"[gemini-explicit-cache] create skipped: {e}")
+        return None
+
 # Cache TTL: "1h" (extended, ~2x write premium, needs the beta header) or "5m"
 # (GA default). HiC default = 1h: a single engagement fans out many deliverables
 # + chat turns over far more than 5 minutes against the SAME grounding prefix, so
@@ -9623,6 +9811,13 @@ async def proxy_gemini(request: Request):
             gen_config["responseMimeType"] = config["responseMimeType"]
         if config.get("responseSchema"):
             gen_config["responseSchema"] = config["responseSchema"]
+        # 2026-06-28 (W4) — pass `seed` through so determinism-first call sites
+        # (theme depth enrichment: temperature 0 + seed 42) keep their greedy/seeded
+        # behavior when routed through the proxy. Without it the upstream call would
+        # drop the seed; the exact-cache key already hashes `config` so the seed is
+        # part of the cache identity regardless.
+        if isinstance(config.get("seed"), int):
+            gen_config["seed"] = config["seed"]
         # 2026-05-11 — Pass through Gemini's thinking budget so callers can
         # explicitly request high-cognitive-load runs (whitepaper §8.1: Stage 4
         # of the prototype pipeline benefits from high thinking_budget — 3-5x
@@ -9663,6 +9858,29 @@ async def proxy_gemini(request: Request):
         if body.get("systemInstruction"):
             gemini_body["systemInstruction"] = body["systemInstruction"]
 
+        # 2026-06-28 — FUNCTION-CALLING passthrough. The browser-side
+        # corpusChatService.callGemini routes its agentic tool loop
+        # (fetch_wiki_articles / fetch_wiki_resource / query_topic_clusters)
+        # through THIS chokepoint instead of the @google/genai SDK so chat +
+        # Gemini-tiered deliverables benefit from the exact-match + explicit
+        # context caches. The loop ITERATION logic stays client-side; only the
+        # per-turn generateContent transport moves here, so we must forward the
+        # tool declarations + (optional) toolConfig verbatim. The provider
+        # response (candidates[].content.parts[].functionCall) already passes
+        # back unmodified via JSONResponse(result), so the client parser is
+        # unchanged. Accept Gemini's native `tools` (a list of
+        # { functionDeclarations: [...] }) under either `tools` or `config.tools`.
+        _gem_tools = body.get("tools")
+        if _gem_tools is None and isinstance(config, dict):
+            _gem_tools = config.get("tools")
+        if _gem_tools:
+            gemini_body["tools"] = _gem_tools
+        _gem_tool_config = body.get("toolConfig")
+        if _gem_tool_config is None and isinstance(config, dict):
+            _gem_tool_config = config.get("toolConfig")
+        if _gem_tool_config:
+            gemini_body["toolConfig"] = _gem_tool_config
+
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"  # A2: key in header
 
         # 2026-05-19 — Surrogate-pair sanitization. Observed in the wild:
@@ -9692,6 +9910,81 @@ async def proxy_gemini(request: Request):
         content_size = len(json.dumps(gemini_body))
         logger.info(f"Gemini proxy: model={model}, content_size={content_size:,} chars")
 
+        # EXPLICIT CONTEXT CACHE (2026-06-28, Gap #1) — when the stable system
+        # prefix is large and recurs, reference a CachedContent object so the
+        # prefix reads at the cached rate and is STRIPPED from the inline request.
+        # Best-effort, fail-open, env-gated. `_gem_attach_explicit_cache` mutates
+        # gemini_body in place (removes systemInstruction, adds cachedContent) and
+        # returns the prefix key so we can recreate-and-retry once if the provider
+        # reports the cache is gone. When disabled/under-floor it is a no-op and the
+        # body keeps its inline systemInstruction (implicit caching still applies).
+        _gem_cache_key = None
+        _gem_system_instruction = None  # preserved so we can restore for fallback / retry
+
+        async def _gem_attach_explicit_cache(force_recreate: bool = False) -> "str | None":
+            """Attach an explicit cachedContent to gemini_body if eligible. Returns
+            the prefix cache key (so the caller can invalidate it on a cache-miss),
+            or None when explicit caching does not apply. NEVER raises."""
+            nonlocal gemini_body, _gem_system_instruction
+            try:
+                if not GEMINI_EXPLICIT_CACHE_ENABLED:
+                    return None
+                sys_text = _gemini_system_prefix_text(gemini_body)
+                if len(sys_text) < GEMINI_CACHE_MIN_CHARS:
+                    return None  # under floor -> implicit caching only
+                norm_si = _gemini_normalized_system_instruction(gemini_body)
+                if not norm_si:
+                    return None
+                key = _gemini_explicit_cache_key(model, sys_text)
+                if not key:
+                    return None
+                name = None if force_recreate else _gemini_cache_store_get(key)
+                if name:
+                    _GEMINI_EXPLICIT_CACHE_STATS["hits"] += 1
+                    logger.info(f"[gemini-explicit-cache] HIT {name} model={model}")
+                else:
+                    _GEMINI_EXPLICIT_CACHE_STATS["misses"] += 1
+                    name = await _gemini_create_cached_content(
+                        api_key, model, norm_si, GEMINI_CACHE_TTL_SEC
+                    )
+                    if name:
+                        _gemini_cache_store_put(key, name, GEMINI_CACHE_TTL_SEC)
+                        _GEMINI_EXPLICIT_CACHE_STATS["creates"] += 1
+                        _GEMINI_EXPLICIT_CACHE_STATS["bytes_cached"] += len(sys_text)
+                if not name:
+                    return None  # creation failed -> keep inline systemInstruction
+                # Remember the inline systemInstruction in case we must restore it,
+                # then strip it (its content now lives in the cache object) and
+                # reference the cache on the generateContent call.
+                if _gem_system_instruction is None:
+                    _gem_system_instruction = gemini_body.get("systemInstruction")
+                gemini_body.pop("systemInstruction", None)
+                gemini_body["cachedContent"] = name
+                return key
+            except Exception as e:
+                logger.warning(f"[gemini-explicit-cache] attach skipped: {e}")
+                return None
+
+        def _gem_detach_explicit_cache() -> None:
+            """Undo the explicit-cache attach: drop cachedContent and restore the
+            inline systemInstruction so a fallback/retry runs as a plain call."""
+            nonlocal gemini_body, _gem_system_instruction
+            gemini_body.pop("cachedContent", None)
+            if _gem_system_instruction is not None:
+                gemini_body["systemInstruction"] = _gem_system_instruction
+
+        def _gem_response_is_cache_miss(status_code: int, payload: dict) -> bool:
+            """Provider reported the referenced cache is gone/expired/invalid."""
+            if status_code not in (400, 403, 404):
+                return False
+            try:
+                blob = json.dumps(payload).lower()
+            except Exception:
+                blob = str(payload).lower()
+            return "cachedcontent" in blob or "cached content" in blob or "cache" in blob
+
+        _gem_cache_key = await _gem_attach_explicit_cache()
+
         # 2026-05-20 — Timeout raised 300s → 540s (matches gemini-compat path).
         # 2026-06-05 — Replaced per-provider asyncio.Semaphore with the
         # rate-limit pacer. Pacer auto-shrinks concurrency on 429 and retries
@@ -9716,16 +10009,39 @@ async def proxy_gemini(request: Request):
 
         if resp is not None:
             result = resp.json()
-            if resp.status_code != 200:
-                logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
-            # Even though the pacer retries app-level 429s, a final 429 here
-            # means the pacer exhausted attempts. Escalate to DeepSeek same
-            # as before.
-            if resp.status_code != 429:
-                if resp.status_code == 200:
-                    _ai_exact_cache_put(_exact_key, result)
-                return JSONResponse(result, status_code=resp.status_code)
-            pacer_exhausted = True
+            # EXPLICIT-CACHE self-heal: if we referenced a CachedContent that the
+            # provider says is gone/expired, drop our stale stored name, recreate
+            # ONCE and retry; if recreate fails, detach the cache and do one plain
+            # inline call. Fail-open — generation never breaks on a cache problem.
+            if (_gem_cache_key and resp.status_code != 429
+                    and gemini_body.get("cachedContent")
+                    and _gem_response_is_cache_miss(resp.status_code, result)):
+                logger.warning("[gemini-explicit-cache] referenced cache missing/expired — recreating + retrying once")
+                _gemini_cache_store_delete(_gem_cache_key)
+                _gem_cache_key = await _gem_attach_explicit_cache(force_recreate=True)
+                if not _gem_cache_key or not gemini_body.get("cachedContent"):
+                    _gem_detach_explicit_cache()  # recreate failed -> plain inline retry
+                try:
+                    resp = await _pacer_with_rate_limit(
+                        "gemini", _do_gemini_post,
+                        is_rate_limit_response=_pacer_httpx_response_is_rate_limited,
+                    )
+                    result = resp.json()
+                except RuntimeError as pacer_err2:
+                    logger.warning(f"Gemini pacer exhausted on cache retry: {pacer_err2}")
+                    pacer_exhausted = True
+                    resp = None
+            if resp is not None:
+                if resp.status_code != 200:
+                    logger.warning(f"Gemini API error {resp.status_code}: {json.dumps(result)[:300]}")
+                # Even though the pacer retries app-level 429s, a final 429 here
+                # means the pacer exhausted attempts. Escalate to DeepSeek same
+                # as before.
+                if resp.status_code != 429:
+                    if resp.status_code == 200:
+                        _ai_exact_cache_put(_exact_key, result)
+                    return JSONResponse(result, status_code=resp.status_code)
+                pacer_exhausted = True
 
         if pacer_exhausted:
             logger.warning("Gemini 429 (pacer exhausted) — falling back to DeepSeek-V4-Flash")
@@ -9796,6 +10112,116 @@ async def proxy_gemini(request: Request):
         composed = f"{err_type}: {err_str[:400]}"
         logger.error(f"Gemini proxy error: {composed}")
         return JSONResponse({"error": f"Gemini proxy error: {composed[:480]}"}, status_code=502)
+
+
+@app.post("/api/ai/generate")
+async def proxy_ai_generate(request: Request):
+    """Generic live AI backend for interactive #proto prototypes (2026-06-26).
+
+    The Stage-4 prototype coder emits `callAI(flow, input)` which POSTs
+    `{ flow, input, provider, model }` to `window.__AI_ENDPOINT__` (default
+    `/api/ai/generate`) and expects `{ data, provider, model }` back, where `data`
+    is the JSON value the UI renders for that flow. This route did not exist, so
+    every in-prototype AI call 404'd and fell back to seeded data ("AI call failed
+    for <flow> - using synced data"). Routes to Gemini Flash (fast - inside the
+    prototype's ~15s client abort) in strict JSON mode; the flow name + input shape
+    tell the model what to return. ANY failure returns non-2xx so the prototype's
+    own callAI cleanly falls back to its seeded fixture (never a hard crash)."""
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key:
+        return JSONResponse({"error": "GEMINI_API_KEY not configured"}, status_code=500)
+    try:
+        body = await request.json()
+    except Exception:
+        body = {}
+    flow = str(body.get("flow") or "generate").strip()[:120]
+    try:
+        input_str = json.dumps(body.get("input"), ensure_ascii=True)[:12000]
+    except Exception:
+        input_str = str(body.get("input"))[:12000]
+    # Optional output-shape hint. The Stage-4 coder computes the exact expected
+    # shape as its client-side `fallback`; when a prototype passes it (as `shape`
+    # / `expected_shape` / `example`), the model mirrors that structure EXACTLY so
+    # the result passes the prototype's validate() and actually renders (instead of
+    # the prototype silently falling back to its seed on a shape mismatch).
+    shape = body.get("shape") or body.get("expected_shape") or body.get("example")
+    shape_str = ""
+    if shape is not None:
+        try:
+            shape_str = json.dumps(shape, ensure_ascii=True)[:6000]
+        except Exception:
+            shape_str = ""
+    model = "gemini-3.5-flash"
+    system = (
+        "You are the live AI backend powering an interactive product PROTOTYPE built by NXT Humans. "
+        "You receive a FLOW name and an INPUT JSON. Return ONLY a single JSON value (object or array) "
+        "that the prototype UI expects for that flow, inferred from the flow name and the shape and "
+        "semantics of the input. Mirror field names present in the input. Be concise, realistic, "
+        "specific to the input, and free of placeholder text. Output JSON ONLY: no prose, no markdown, "
+        "no code fences, no commentary."
+    )
+    if shape_str:
+        system += (
+            " A SHAPE example of the exact JSON structure the UI expects is provided; your output MUST "
+            "match its structure EXACTLY (same keys, same types, same array element shape) - only the "
+            "values change to reflect the input. Do not add or rename keys."
+        )
+    user = f"FLOW: {flow}\n\nINPUT:\n{input_str}\n"
+    if shape_str:
+        user += f"\nSHAPE (match this structure exactly, change only the values):\n{shape_str}\n"
+    user += "\nReturn ONLY the JSON value the UI expects for this flow."
+    gemini_body = {
+        "contents": [{"parts": [{"text": user}]}],
+        "systemInstruction": {"parts": [{"text": system}]},
+        "generationConfig": {
+            "temperature": 0.4,
+            "maxOutputTokens": 2048,
+            "responseMimeType": "application/json",
+            "thinkingConfig": {"thinkingBudget": 0},
+        },
+    }
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=gemini_body, headers=_goog_key_headers(api_key), timeout=14.0)
+        if resp.status_code != 200:
+            logger.warning(f"[ai/generate] flow={flow} gemini {resp.status_code}: {resp.text[:200]}")
+            return JSONResponse({"error": f"model {resp.status_code}", "flow": flow}, status_code=502)
+        result = resp.json()
+        text = ""
+        for cand in result.get("candidates", []):
+            for part in (cand.get("content", {}) or {}).get("parts", []):
+                if isinstance(part, dict) and part.get("text"):
+                    text += part["text"]
+        text = (text or "").strip()
+        # strip code fences if present
+        if text.startswith("```"):
+            nl = text.find("\n")
+            if nl > 0:
+                text = text[nl + 1:]
+            if text.endswith("```"):
+                text = text[:-3]
+            text = text.strip()
+        # strip any prose preamble/suffix around the JSON value
+        if text and text[0] not in "{[":
+            starts = [i for i in (text.find("{"), text.find("[")) if i >= 0]
+            if starts:
+                st = min(starts)
+                close = "}" if text[st] == "{" else "]"
+                en = text.rfind(close)
+                if en > st:
+                    text = text[st:en + 1]
+        try:
+            data = json.loads(text)
+        except Exception as pe:
+            logger.warning(f"[ai/generate] flow={flow} non-JSON: {pe}; first200={text[:200]}")
+            return JSONResponse({"error": "model returned non-JSON", "flow": flow}, status_code=502)
+        return JSONResponse({"data": data, "provider": "gemini", "model": model}, status_code=200)
+    except httpx.TimeoutException:
+        return JSONResponse({"error": "model timeout", "flow": flow}, status_code=504)
+    except Exception as e:
+        logger.error(f"[ai/generate] flow={flow} error: {type(e).__name__}: {str(e)[:200]}")
+        return JSONResponse({"error": f"ai/generate failed: {type(e).__name__}", "flow": flow}, status_code=502)
 
 
 @app.post("/api/ai/openai")
@@ -12152,11 +12578,31 @@ async def ai_cache_stats():
     sstats["enabled"] = SEMANTIC_CACHE_ENABLED
     sstats["threshold"] = SEMANTIC_CACHE_THRESHOLD
     sstats["size"] = ssize
+    gestats = dict(_GEMINI_EXPLICIT_CACHE_STATS)
+    getotal = gestats["hits"] + gestats["misses"]
+    gestats["hit_rate"] = round(gestats["hits"] / getotal, 4) if getotal else 0.0
+    gestats["size"] = _cache_db_size("gemcache")
+    gestats["enabled"] = GEMINI_EXPLICIT_CACHE_ENABLED
+    gestats["ttl_sec"] = GEMINI_CACHE_TTL_SEC
+    gestats["min_chars"] = GEMINI_CACHE_MIN_CHARS
+    gestats["counters_note"] = "per-worker; size is shared (sqlite)"
+    vestats = dict(_VISION_EXTRACT_CACHE_STATS)
+    vetotal = vestats["hits"] + vestats["misses"]
+    vestats["hit_rate"] = round(vestats["hits"] / vetotal, 4) if vetotal else 0.0
+    vestats["size"] = _cache_db_size("visionextract")
+    vestats["enabled"] = VISION_CACHE_ENABLED
+    vestats["ttl_sec"] = VISION_CACHE_TTL_SEC
+    vestats["counters_note"] = "per-worker; size is shared (sqlite)"
     return {
         "exact_match": stats,
         "tool_stage": tstats,
         "semantic": sstats,
         "anthropic_prefix": {"enabled": PROMPT_CACHE_ENABLED, "ttl": ANTHROPIC_CACHE_TTL},
+        "gemini_explicit": gestats,
+        "vision_extract": vestats,
+        # W2 relevance-ranking cache: routed through /api/ai/gemini, so its hits land
+        # in `exact_match` (shared exact-cache, ns "exact") -- no separate namespace.
+        "relevance_score": {"note": "routed through /api/ai/gemini; hits counted under exact_match"},
     }
 
 
@@ -17049,10 +17495,38 @@ _ILLUS_LINEART = {
 }
 
 
+def _illus_palette(brand: str, canvas: str) -> dict:
+    """Brand-lock the line-art palette from the Figma token MIRROR (figma-tokens.json) instead of a
+    hardcoded hex (UNIFIED_VISION never-hardcode). Returns {line, blobs} colour-phrase strings whose
+    hexes come from the live token sheet; falls back to the static _ILLUS_LINEART map only if tokens
+    are unavailable. The role->slot mapping (accent as the line on NXT-dark, gold on NU-dark, near-
+    black ink on light, etc.) is the design intent, not a value."""
+    b = "nu" if str(brand).lower() == "nu" else "nxt"
+    c = "dark" if str(canvas).lower() == "dark" else "light"
+    toks = ((_load_figma_tokens() or {}).get(b.upper(), {}) or {}).get("color", {}) or {}
+    if not toks:
+        return _ILLUS_LINEART[b][c]
+    def hx(role, fallback):
+        v = toks.get(role)
+        return v if isinstance(v, str) and v.startswith("#") else fallback
+    accent = hx("accent", "#B8B800")
+    cyan = hx("cyan", "#00B7C3")
+    teal = hx("teal", "#115054")
+    rail = hx("rail", "#0D0D0D")
+    gold = hx("gold", accent)  # NU-only warm; NXT has no gold token -> reuse accent
+    if b == "nxt":
+        if c == "dark":
+            return {"line": f"the brand accent colour ({accent})", "blobs": f"the cool accent ({cyan}) and deep teal ({teal})"}
+        return {"line": f"near-black ink ({rail})", "blobs": f"the brand accent ({accent}) and cool accent ({cyan})"}
+    if c == "dark":
+        return {"line": f"warm gold ({gold})", "blobs": f"the brand accent ({accent}) and muted teal ({cyan})"}
+    return {"line": f"deep navy ink ({rail})", "blobs": f"the brand accent ({accent}) and warm gold ({gold})"}
+
+
 def _illustration_prompt(concept: str, brand: str, canvas: str) -> str:
     brand = "nu" if str(brand).lower() == "nu" else "nxt"
     canvas = "dark" if str(canvas).lower() == "dark" else "light"
-    la = _ILLUS_LINEART[brand][canvas]
+    la = _illus_palette(brand, canvas)
     # HOUSE STYLE (user-locked 2026-06-17): fluid CONTINUOUS single-line art + bold flat color shapes
     # sitting OFF-REGISTER behind the line, hyper-minimalist, on white (knocked out to transparent),
     # in the brand palette. Mirrors the reference prompt the user supplied. The single unbroken line
@@ -17359,6 +17833,240 @@ async def ai_illustrations_catalog(brand: str = "", tag: str = ""):
     if tag:
         reg = [e for e in reg if tag.lower() in (e.get("tags") or [])]
     return {"count": len(reg), "illustrations": reg}
+
+
+# ── BRAND IMAGERY (flat-illustrative, 2026-06-27) ───────────────────────────────
+# The THIRD imagery type (after icons + diagrams): corporate, on-brand, FLAT-ILLUSTRATIVE
+# scenes generated by Nano Banana (gemini-3.1-flash-image-preview). NOT the retired abstract
+# single-line art (_illustration_prompt) and NOT realistic photography. Full scene on its own
+# ground (NO transparency knockout). Style is user-selectable; default = editorial.
+import hashlib as _hashlib_bi
+_BRANDIMG_DIR = os.path.join(os.path.dirname(_ILLUS_DIR), "brand-images")
+# Canonical brand-image style (user-locked 2026-06-27): refined Corporate Memphis / Alegria blended
+# with modern isometric vector art. ONE house style; `style` param kept only as an optional minor
+# flavour but the structural spec below is always applied.
+_BRANDIMG_STYLES = {"memphis-iso": "the canonical NXT Corporate-Memphis + isometric house style"}
+_BRANDIMG_DEFAULT_STYLE = "memphis-iso"
+
+
+def _brand_image_palette(brand: str) -> str:
+    """On-brand palette phrase pulled from the Figma token MIRROR (never-hardcode), brand-specific.
+    Encodes the spec's 'soft pastel grounds + saturated electric brand accents + dark monoline'."""
+    b = "nu" if str(brand).lower() == "nu" else "nxt"
+    toks = ((_load_figma_tokens() or {}).get(b.upper(), {}) or {}).get("color", {}) or {}
+    def hx(role, fb):
+        v = toks.get(role)
+        return v if isinstance(v, str) and v.startswith("#") else fb
+    if b == "nxt":
+        return (f"BRAND-LOCKED palette: soft off-white and pale mint/soft-blue PASTEL grounds, contrasted "
+                f"with saturated ELECTRIC accents of chartreuse yellow-green ({hx('accent','#B8B800')}), "
+                f"bright cyan ({hx('cyan','#00B7C3')}) and deep teal ({hx('teal','#115054')}); all outlines "
+                f"and drop shadows in near-black ({hx('ink','#141414')})")
+    return (f"BRAND-LOCKED palette: warm off-white and pale grounds, contrasted with saturated ELECTRIC "
+            f"accents of crimson Huskies red ({hx('accent','#C8102E')}), muted teal ({hx('cyan','#1D6E64')}) "
+            f"and warm gold (#A4804A); all outlines and drop shadows in deep navy ({hx('rail','#0E1626')})")
+
+
+def _brand_image_prompt(concept: str, brand: str, style: str) -> str:
+    # Encodes the full user-supplied style breakdown so every brand image is consistent.
+    return (
+        f"A refined Corporate Memphis (Alegria) illustration blended with modern isometric vector art, depicting: {concept.strip()}. "
+        "LINEWORK: every object, character and detail encased in a solid CONTINUOUS dark outline of UNIFORM "
+        "stroke weight (true monoline, no thick-to-thin variation); perfectly smooth vector paths, polished "
+        "digital edges, zero sketchiness. "
+        "PERSPECTIVE: isometric / parallel projection from an elevated angle; parallel lines do NOT converge "
+        "to a vanishing point; depth built by overlapping clean flat shapes, never atmospheric fading. "
+        "CHARACTERS: stylized Corporate-Memphis people with flowing, slightly bendy limbs and minimalist "
+        "faces (simple dot eyes, thin curved mouths), defined by their action and posture. "
+        "COMPOSITION: every figure's ENTIRE HEAD is fully inside the frame with generous headroom above; "
+        "NEVER crop, cut off, or clip a head, face, or the top of any figure; keep clear margin on all sides. "
+        "OBJECTS: real items distilled to basic geometric primitives (circles, cylinders, rectangles); "
+        "clutter-free, idealized, perfectly aligned, friction-free. "
+        f"COLOR: flat SOLID color fills inside the outlines; {_brand_image_palette(brand)}. "
+        "SHADING: NO gradients; cell-shading via distinct slightly darker/lighter flat BLOCK shapes; drop "
+        "shadows rendered as crisp SOLID geometric shapes on the floor (no blur). "
+        "Overall: approachable, optimistic, tech-forward, instantly readable. "
+        "ABSOLUTELY NOT: abstract single-continuous-line art, abstract blobs, realistic photography, "
+        "painterly or 3D render, heavy gradients, generic clip-art. NO text, NO words, NO numbers, NO "
+        "logos, NO watermarks anywhere in the image."
+    )
+
+
+async def _brand_image(concept: str, brand: str, style: str = "", variant: int = 0) -> dict:
+    """Generate (or REUSE) one flat-illustrative on-brand BRAND IMAGE (full scene, no transparency),
+    persist + cache by content id. Returns {url, dataUri, id, style, reused}; fail-open."""
+    import base64
+    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    style = style if style in _BRANDIMG_STYLES else _BRANDIMG_DEFAULT_STYLE
+    try:
+        variant = max(0, int(variant))
+    except Exception:
+        variant = 0
+    iid = "brandimg-" + _hashlib_bi.sha1(f"{concept}|{brand}|{style}|{variant}".encode("utf-8")).hexdigest()[:12]
+    os.makedirs(_BRANDIMG_DIR, exist_ok=True)
+    out_path = os.path.join(_BRANDIMG_DIR, f"{iid}.png")
+    url = f"/hic-workspace/wiki/design-system/brand-images/{iid}.png"
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, "rb") as f:
+                raw = f.read()
+            return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(raw).decode(),
+                    "id": iid, "style": style, "reused": True}
+        except Exception:
+            pass
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not concept:
+        return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
+    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
+    body = {"contents": [{"parts": [{"text": _brand_image_prompt(concept, brand, style)}]}],
+            "generationConfig": {"responseModalities": ["IMAGE"]}}
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=120.0)
+        if resp.status_code != 200:
+            logger.warning(f"[brand-image] HTTP {resp.status_code}: {resp.text[:200]}")
+            return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
+        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
+        for part in parts:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                png = base64.b64decode(inline["data"])  # NO knockout - full scene keeps its ground
+                with open(out_path, "wb") as f:
+                    f.write(png)
+                return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(),
+                        "id": iid, "style": style, "reused": False}
+        return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
+    except Exception as e:
+        logger.warning(f"[brand-image] generation error: {e}")
+        return {"url": "", "dataUri": "", "id": iid, "style": style, "reused": False}
+
+
+@app.post("/api/ai/brand-image")
+async def ai_brand_image(payload: dict):
+    """Generate (or reuse) ONE flat-illustrative on-brand BRAND IMAGE (the third imagery type).
+    Body: { concept, brand:"nxt|nu", style:"geometric|humanist|editorial|isometric", variant? }.
+    Returns { url, dataUri, id, style, reused }. Fail-open (empty url on failure)."""
+    concept = (payload.get("concept") or "").strip()
+    if not concept:
+        return JSONResponse({"error": "concept required"}, status_code=400)
+    res = await _brand_image(concept, payload.get("brand", "nxt"),
+                             payload.get("style", _BRANDIMG_DEFAULT_STYLE), payload.get("variant", 0))
+    res.update({"brand": ("nu" if str(payload.get("brand", "nxt")).lower() == "nu" else "nxt")})
+    return res
+
+
+# ---------------------------------------------------------------------------
+# NANO-BANANA DIAGRAM GENERATION (2026-06-27) - journeys / architecture / mindmaps as full
+# DIAGRAM IMAGE TYPES WITH LEGIBLE TEXT LABELS (user directive, empirically verified: the image
+# model renders flow-diagram labels legibly). Distinct from the emotive flat-vector illustrator:
+# this generates a labeled, brand-locked structural diagram and does NOT knock out the ground (a
+# diagram keeps its canvas). Brand colours come from the Figma token mirror (never-hardcode);
+# content-hash cached for determinism + reuse.
+def _diagram_palette(brand: str, canvas: str) -> dict:
+    b = "nu" if str(brand).lower() == "nu" else "nxt"
+    c = "dark" if str(canvas).lower() == "dark" else "light"
+    toks = ((_load_figma_tokens() or {}).get(b.upper(), {}) or {}).get("color", {}) or {}
+    def hx(role, fb):
+        v = toks.get(role)
+        return v if isinstance(v, str) and v.startswith("#") else fb
+    accent = hx("accent", "#B8B800" if b == "nxt" else "#C8102E")
+    ink = hx("ink", "#141414" if b == "nxt" else "#16233C")
+    cyan = hx("cyan", "#00B7C3" if b == "nxt" else "#1D6E64")
+    rail = hx("rail", "#0D0D0D" if b == "nxt" else "#0E1626")
+    paper = hx("paper", hx("pale", "#FAFAF7"))
+    return {"accent": accent, "ink": ink, "cyan": cyan, "rail": rail, "paper": paper,
+            "bg": rail if c == "dark" else paper, "fg": paper if c == "dark" else ink}
+
+
+def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
+    p = _diagram_palette(brand, canvas)
+    kind = (spec.get("kind") or "flow").lower()
+    labels = [str(x).strip() for x in (spec.get("labels") or []) if str(x).strip()][:8]
+    title = (spec.get("title") or "").strip()
+    base = (f"Create a clean, professional business-consulting DIAGRAM, flat minimal vector style. "
+            f"Background {p['bg']}. Primary nodes/shapes in {p['accent']}, secondary accents in {p['cyan']}. "
+            f"Connectors and ALL text labels in {p['fg']}, crisp legible modern sans-serif. "
+            f"Generous spacing, balanced composition, NO 3D, NO gradients, NO drop shadows, NO photoreal, NO clutter. ")
+    if kind in ("journey", "journey-map", "flow", "funnel"):
+        layout = (f"A horizontal LEFT-TO-RIGHT JOURNEY FLOW: {len(labels)} stage nodes connected by thin arrows. "
+                  f"Render each stage labeled EXACTLY, in this order: {', '.join(labels)}. ")
+    elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
+        layout = (f"A layered SYSTEM ARCHITECTURE DIAGRAM: stacked horizontal tiers of connected boxes showing "
+                  f"layers and data flow. Label the components EXACTLY: {', '.join(labels)}. Show clear containment + connectors. ")
+    elif kind in ("mindmap", "mind-map"):
+        hub = (spec.get("hub") or title or "Central question").strip()
+        layout = (f"A radial MIND MAP: a central hub node labeled '{hub}', with branches radiating outward to nodes "
+                  f"labeled EXACTLY: {', '.join(labels)}. Smooth curved connectors from the hub to each branch. ")
+    else:
+        layout = f"A structural diagram with connected nodes labeled EXACTLY: {', '.join(labels)}. "
+    return base + layout + ("Spell every label correctly; make all text clearly readable and non-overlapping. "
+                            "Absolutely NO watermarks, NO logos, NO app/UI chrome, NO extra invented text.")
+
+
+def _diagram_id(spec: dict, brand: str, canvas: str) -> str:
+    import hashlib as _hl, json as _js
+    key = _js.dumps({"k": spec.get("kind"), "l": spec.get("labels"), "h": spec.get("hub"),
+                     "t": spec.get("title"), "b": brand, "c": canvas}, sort_keys=True, ensure_ascii=False)
+    return "diag-" + _hl.sha1(key.encode("utf-8")).hexdigest()[:16]
+
+
+async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
+    """Generate (or REUSE) one brand-locked, labeled structural diagram image. Returns
+    {url, dataUri, id, reused}. No knockout (a diagram keeps its ground). Fail-open."""
+    import base64
+    brand = "nu" if str(brand).lower() == "nu" else "nxt"
+    canvas = "dark" if str(canvas).lower() == "dark" else "light"
+    iid = _diagram_id(spec, brand, canvas)
+    os.makedirs(_ILLUS_DIR, exist_ok=True)
+    out_path = os.path.join(_ILLUS_DIR, f"{iid}.png")
+    url = f"/hic-workspace/wiki/design-system/illustrations/{iid}.png"
+    if os.path.exists(out_path):
+        try:
+            with open(out_path, "rb") as f:
+                raw = f.read()
+            return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(raw).decode(), "id": iid, "reused": True}
+        except Exception:
+            pass
+    api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
+    if not api_key or not (spec.get("labels")):
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+    gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
+    body = {"contents": [{"parts": [{"text": _diagram_prompt(spec, brand, canvas)}]}],
+            "generationConfig": {"responseModalities": ["IMAGE"]}}
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(gurl, json=body, headers=_goog_key_headers(api_key), timeout=120.0)
+        if resp.status_code != 200:
+            logger.warning(f"[diagram] HTTP {resp.status_code}: {resp.text[:200]}")
+            return {"url": "", "dataUri": "", "id": iid, "reused": False}
+        parts = (((resp.json().get("candidates") or [{}])[0]).get("content", {}).get("parts")) or []
+        for part in parts:
+            inline = part.get("inlineData") or part.get("inline_data")
+            if inline and inline.get("data"):
+                png = base64.b64decode(inline["data"])  # keep the diagram ground (NO knockout)
+                with open(out_path, "wb") as f:
+                    f.write(png)
+                _illus_registry_append({"id": iid, "idea": spec.get("title", ""), "kind": spec.get("kind"),
+                                        "brand": brand, "canvas": canvas, "file": f"{iid}.png", "url": url,
+                                        "model": _GEMINI_IMAGE_MODEL, "diagram": True})
+                return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(), "id": iid, "reused": False}
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+    except Exception as e:
+        logger.warning(f"[diagram] generation error: {e}")
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+
+
+@app.post("/api/ai/diagram")
+async def ai_diagram(payload: dict):
+    """Generate (or reuse) ONE brand-locked labeled DIAGRAM image (journey/architecture/mindmap) with
+    legible text labels. Body: { spec:{kind, labels[], hub?, title?}, brand, canvas } (or kind/labels/hub
+    at top level). Returns { url, dataUri, id, reused, brand, canvas }. Fail-open."""
+    spec = payload.get("spec") or {k: payload.get(k) for k in ("kind", "labels", "hub", "title")}
+    if not isinstance(spec, dict) or not spec.get("labels"):
+        return JSONResponse({"error": "spec.labels required"}, status_code=400)
+    res = await _brand_diagram(spec, payload.get("brand", "nxt"), payload.get("canvas", "light"))
+    res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
+    return res
 
 
 async def _inject_persona_images(html: str, brand: str) -> str:

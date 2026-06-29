@@ -391,8 +391,12 @@ function resolveThemeQuotes(theme: { evidence?: string; source?: string; quotes?
 // motivations on the right. Verbatim quote uses brand-red Spectral italic
 // per the "Northeastern red is a scalpel" rule. Pain points use signal--red
 // dot; motivations use signal--green. No catastrophizing verbs.
-export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: string[]; hasImage: boolean; brand?: Brand }> = ({ data, sources = [], hasImage, brand }) => {
+export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: string[]; hasImage: boolean; imageUrl?: string; brand?: Brand }> = ({ data, sources = [], hasImage, imageUrl, brand }) => {
     const p = data;
+    // 2026-06-28 carrier-to-renderer fix: paint the generated persona portrait (slide.imageUrl,
+    // written by generatePersonaSlidePortraits). Mirrors slideToStageHtml renderPersonaCard. §3c
+    // keeps the generator's style; the renderer just paints it.
+    const portrait = String(imageUrl || '').trim();
     return (
         <div
             className="nu-artifact-stage nu-artifact-stage--slide"
@@ -413,6 +417,14 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
             <div style={{ padding: '4px 28px 8px', flex: 1, display: 'grid', gridTemplateColumns: hasImage ? '1fr' : '1.05fr 1fr', gap: 18, minHeight: 0, overflow: 'hidden' }}>
                 {/* LEFT column - quote + JTBD + Cooper goals */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0 }}>
+                    {portrait && (
+                        <img
+                            src={portrait}
+                            alt=""
+                            style={{ width: '100%', aspectRatio: '4 / 5', maxHeight: 220, objectFit: 'cover', display: 'block', borderRadius: 2, border: '1px solid var(--border-subtle)' }}
+                            onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                        />
+                    )}
                     {p.quote && (
                         <blockquote
                             style={{
@@ -500,7 +512,11 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
     const hasEvidence = !!(data.evidence && data.evidence.length > 0);
     const framingTagText = data.framingTag || 'Strategic recommendation';
     const actionsLabelText = data.actionsLabel || 'Supporting actions';
-    const hasImage = !!(data.heroImage && data.heroImage.src);
+    // USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-recommendation EMOTIVE scene.
+    // panelImage (registry recommendation/panel/emotive, Figma 678:5526 on detail 597:4;
+    // NU twin 625:1841 inherits) takes precedence over the tile-sourced heroImage.
+    const recImageSrc = data.panelImage || (data.heroImage && data.heroImage.src) || '';
+    const hasImage = !!recImageSrc;
     const hasStrip = !!(data.impactStrip && (data.impactStrip.effort || data.impactStrip.risk || data.impactStrip.outcome));
     const footerText = data.implication || data.whyMatters || '';
     const footerLabel = data.implication ? 'Implication' : (data.whyMatters ? 'Why it matters' : '');
@@ -562,9 +578,9 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                     {hasImage ? (
                         <>
                             <img
-                                src={data.heroImage!.src}
-                                alt={data.heroImage!.alt || data.actionTitle}
-                                style={{ width: '100%', height: 'auto', aspectRatio: '4 / 3', objectFit: 'cover', display: 'block', marginBottom: 8 }}
+                                src={recImageSrc}
+                                alt={(data.heroImage && data.heroImage.alt) || data.actionTitle}
+                                style={{ width: '100%', height: 'auto', aspectRatio: data.panelImage ? '560 / 140' : '4 / 3', objectFit: 'cover', display: 'block', marginBottom: 8 }}
                                 onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                             />
                             {data.heroImage!.caption && (
@@ -672,6 +688,14 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
                             overflow: 'hidden',
                         }}
                     >
+                        {(() => {
+                            // Per-theme content-true thumbnail (twin of slideToStageHtml themeThumb).
+                            // Reads index-aligned data.themeImages[i] first, then themes[i].brandImage.
+                            const arr = (data as any).themeImages;
+                            const ti = (Array.isArray(arr) && typeof arr[i] === 'string' ? arr[i] : '')
+                                || (typeof (t as any).brandImage === 'string' ? (t as any).brandImage : ((t as any).brandImage?.url || ''));
+                            return ti ? <img src={ti} alt="" style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', display: 'block', borderRadius: 2, border: '1px solid var(--border-subtle)' }} /> : null;
+                        })()}
                         <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: i === 0 ? 'var(--nu-red-600)' : 'var(--fg-strong)', lineHeight: 1, letterSpacing: '-0.02em' }}>
                             {String(i + 1).padStart(2, '0')}
                         </div>
@@ -712,6 +736,15 @@ export const ThemeSpotlightSlide: React.FC<{ title: string; data: ThemeClusterDa
             </header>
             <div style={{ flex: 1, padding: '0 28px', display: 'grid', gridTemplateColumns: hasSupporting ? '3fr 2fr' : '1fr', gap: 24, minHeight: 0, overflow: 'hidden' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 0, borderRight: hasSupporting ? '1px solid var(--border-subtle)' : 'none', paddingRight: hasSupporting ? 16 : 0 }}>
+                    {(() => {
+                        // Per-theme Nano-Banana thumbnail (twin of slideToStageHtml renderThemeDetail).
+                        // Reads themeImages[0] then hero.brandImage. Fixes the detail-template gap where
+                        // the image carrier was attached but never painted.
+                        const arr = (data as any).themeImages;
+                        const ti = (Array.isArray(arr) && typeof arr[0] === 'string' ? arr[0] : '')
+                            || (typeof (hero as any).brandImage === 'string' ? (hero as any).brandImage : ((hero as any).brandImage?.url || ''));
+                        return ti ? <img src={ti} alt="" style={{ width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', display: 'block', borderRadius: 2, border: '1px solid var(--border-subtle)' }} /> : null;
+                    })()}
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
                         <div style={{ fontFamily: 'var(--font-display)', fontWeight: 300, fontSize: webPx(SCALE.subhead), color: 'var(--nu-red-600)', lineHeight: 0.9, letterSpacing: '-0.02em' }}>01</div>
                         <h2 className="art-finding" style={{ fontSize: hasSupporting ? webPx(SCALE.name) : webPx(SCALE.subhead), lineHeight: 1.18, flex: 1, minWidth: 0 }}>
@@ -1154,8 +1187,12 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                 )}
             </div>
         );
-    } else if (variant === 'evidence-stack' && data.evidence && data.evidence.length > 0) {
-        const rows = data.evidence.slice(0, _cc.sub);
+    } else if (variant === 'evidence-stack' && data.evidence && data.evidence.some((e: any) => String(e?.quote || e?.text || e?.evidence || e?.q || '').trim())) {
+        // Field-tolerant + empty-drop (2026-06-28): read quote aliases, drop rows with no
+        // resolvable quote so no empty "" bubble renders (budget-model output guard).
+        const qOf = (e: any): string => String(e?.quote || e?.text || e?.evidence || e?.q || '').trim();
+        const sOf = (e: any): string => String(e?.shows || e?.whatItShows || e?.meaning || e?.takeaway || '').trim();
+        const rows = data.evidence.filter((e: any) => qOf(e)).slice(0, _cc.sub);
         const qFs = rows.length >= 4 ? 10.5 : 12;   // 4 rows = slightly smaller quotes
         bodyContent = (
             <div style={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0, gap: 8 }}>
@@ -1165,13 +1202,13 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                         <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'stretch' }}>
                             <div style={{ width: 2, background: hex(T.ACCENT_COOL), flexShrink: 0 }} />
                             <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 5 }}>
-                                <div style={{ fontFamily: body, fontSize: qFs, lineHeight: 1.34, color: hex(T.INK) }}>“{smartQuoteClip(e.quote, 220)}”</div>
+                                <div style={{ fontFamily: body, fontSize: qFs, lineHeight: 1.34, color: hex(T.INK) }}>“{smartQuoteClip(qOf(e), 220)}”</div>
                                 {sourceLine(e.source)}
                             </div>
-                            {e.shows && (
+                            {sOf(e) && (
                                 <div style={{ width: 220, flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 4 }}>
                                     <div style={{ fontFamily: mono, fontWeight: 600, fontSize: webPx(SCALE.label), letterSpacing: '1px', color: hex(T.GREY), textTransform: 'uppercase' }}>WHAT IT SHOWS</div>
-                                    <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK) }}>{truncate(e.shows, 160)}</div>
+                                    <div style={{ fontFamily: body, fontSize: webPx(SCALE.label), lineHeight: 1.42, color: hex(T.INK) }}>{truncate(sOf(e), 160)}</div>
                                 </div>
                             )}
                         </div>
@@ -1203,6 +1240,17 @@ export const CaseStudySlide: React.FC<{ title: string; data: CaseStudyData; sour
                 </div>
                 {hasRightPanel && (
                     <aside style={{ background: hex(T.TEAL), padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 9, minWidth: 0, overflow: 'hidden' }}>
+                        {/* USER OVERRIDE 2026-06-28 scenes-where-they-fit: per-case EMOTIVE scene.
+                            Figma slot 890:357 (544x300) crowns the four-block right panel; NU twin
+                            625:314 inherits. Reads caseStudy.panelImage (registry case-study/panel/emotive). */}
+                        {data.panelImage && (
+                            <img
+                                src={data.panelImage}
+                                alt=""
+                                style={{ width: '100%', aspectRatio: '544 / 300', objectFit: 'cover', display: 'block', borderRadius: 4 }}
+                                onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                            />
+                        )}
                         {data.keyMetric && (
                             <div>
                                 <div style={{ fontFamily: mono, fontSize: webPx(SCALE.label), fontWeight: 600, letterSpacing: '1.2px', textTransform: 'uppercase', color: hex(T.CHARTREUSE), marginBottom: 4 }}>Key outcome</div>

@@ -105,10 +105,14 @@ import {
 // Illustrator (2026-06-17): resolves on-brand transparent illustrations into
 // presentation sections (data.illustration) before persist, per section imageConcept.
 import { resolvePresentationIllustrations } from '../services/presentationIllustrator';
-// Illustrator (2026-06-17): REGISTRY-DRIVEN artifact images for GOLD/#slides decks - fills every
-// IMAGE-SLOT the registry defines for each template (no-op for the deliberate no-image set).
-import { resolveArtifactImages } from '../services/artifactIllustrator';
+// Illustrator (2026-06-17): REGISTRY-DRIVEN artifact images for GOLD/#slides decks - the emotive
+// (Nano-Banana) branch is invoked via the visual router below, not directly.
 import { imageSpecFor } from '../services/artifactImageSlots';
+// Visual router (2026-06-26, nano-banana designer plan C2): per-slot decision - DATA -> deterministic
+// vizEngine, EMOTIVE -> the brand-locked Nano-Banana designer skill; honors the #img override and
+// the section-8 default-off gate. resolveRoutedSlotImages wraps the existing illustrator loop.
+import { resolveRoutedSlotImages } from '../services/visualRouter';
+import { parseImgDirective } from '../services/hashtagParser';
 
 // Diagram kinds that go through the freeform-HTML pipeline (1920x1080 exemplar
 // inheritance, iframe-isolated render). All other kinds remain on the legacy
@@ -4203,7 +4207,18 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     template,
                     brand,
                     density,
-                    title: parsed.title || 'Untitled Slide',
+                    // 2026-06-28 - never ship "Untitled Slide": if the model omitted a top-level
+                    // title, derive a real action-title from the strongest content field per template
+                    // (case-study headline/takeaway/subject, theme/recommendation/etc.) before the
+                    // generic fallback.
+                    title: parsed.title
+                        || parsed.caseStudy?.headline || parsed.caseStudy?.actionTitle || parsed.caseStudy?.takeaway
+                        || (parsed.caseStudy?.subject ? `${parsed.caseStudy.subject}: case study` : '')
+                        || parsed.recommendation?.actionTitle
+                        || (themeCluster?.takeaway || themeCluster?.patternSignal)
+                        || parsed.quote?.text
+                        || parsed.subtitle
+                        || 'Untitled Slide',
                     subtitle: parsed.subtitle,
                     sources: parsed.sources,
                     persona: parsed.persona,
@@ -4281,7 +4296,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const { generatePortrait } = await import('../services/geminiService');
             for (const persona of personas) {
                 const d = persona.data;
-                const prompt = `Professional headshot portrait of ${d.name || 'a person'}, ${d.role || 'professional'}. ${d.demographics || ''}. Clean studio background, natural lighting, confident expression. Corporate professional photography style.`;
+                // §3c: persona portrait is an ILLUSTRATED figure / abstract, NEVER a literal
+                // photoreal face. Flat-vector editorial illustration, not corporate photography.
+                const prompt = `Flat-vector editorial illustration of an archetypal figure representing ${d.name || 'a person'}, ${d.role || 'professional'}. ${d.demographics || ''}. Stylized, abstract, no photorealism, no literal recognizable face. Minimal geometric shapes, calm muted palette, clean negative space. COMPOSITION: the full figure including the ENTIRE HEAD sits comfortably within the frame with generous headroom above; NEVER crop, cut off, or clip the head, face, or top of the figure; leave clear margin on all sides.`;
                 try {
                     const imageData = await generatePortrait(prompt);
                     if (imageData) {
@@ -4308,7 +4325,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             const { generatePortrait } = await import('../services/geminiService');
             for (const slide of personaSlides) {
                 const p = slide.persona!;
-                const prompt = `Professional headshot portrait of ${p.name}, ${p.role}. ${p.demographics || ''}. Clean studio background, natural lighting, confident expression. Corporate professional photography style.`;
+                // §3c: persona portrait is an ILLUSTRATED figure / abstract, NEVER a literal
+                // photoreal face. Flat-vector editorial illustration, not corporate photography.
+                const prompt = `Flat-vector editorial illustration of an archetypal figure representing ${p.name}, ${p.role}. ${p.demographics || ''}. Stylized, abstract, no photorealism, no literal recognizable face. Minimal geometric shapes, calm muted palette, clean negative space. COMPOSITION: the full figure including the ENTIRE HEAD sits comfortably within the frame with generous headroom above; NEVER crop, cut off, or clip the head, face, or top of the figure; leave clear margin on all sides.`;
                 try {
                     const imageData = await generatePortrait(prompt);
                     if (imageData) {
@@ -6007,22 +6026,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     },
                 });
 
-                // Illustrator (2026-06-17): generate + attach on-brand transparent
-                // illustrations to any section that emitted an imageConcept, BEFORE
-                // persist, so the saved payload (and the :5014 renderer) carry the
-                // image URLs. Fail-open: a scene without art still ships.
-                try {
-                    const n = await resolvePresentationIllustrations(composeResult.payload, (l) => {
-                        toolCallLog.push(`◯ illustrator → ${l}`);
-                        setMessages(prev => prev.map(m => m.id === composingMsgId ? {
-                            ...m,
-                            content: `Composing your interactive presentation (brand=${presDirective.brand}, model=${presDirective.model})...\n\n${toolCallLog.slice(-12).join('\n')}`,
-                        } : m));
-                    });
-                    if (n > 0) console.log(`[#presentation] attached ${n} illustration(s)`);
-                } catch (illoErr) {
-                    console.warn('[#presentation] illustration pass failed (non-blocking):', illoErr);
-                }
+                // 2026-06-27 - SUPPORTING ILLUSTRATIONS RETIRED. The abstract flat-vector
+                // per-section art read as generic AI imagery (the same geometric-abstract motifs
+                // pulled off journey stages in favour of native composition). The presentation now
+                // ships text + native structured visuals only; the illustration generation/attach
+                // pass is disabled (the prompt also no longer emits imageConcept).
+                // (was: resolvePresentationIllustrations(composeResult.payload, ...))
 
                 // Persist payload via proxy
                 const persistRes = await fetch('http://127.0.0.1:5012/api/presentations', {
@@ -6479,11 +6488,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                     proxy_base: 'http://127.0.0.1:5012',
                                 });
                                 upliftTitle = `Mind Map · ${(context.researchGoal || 'Research').slice(0, 60)}`;
-                                upliftHtml = renderMindMapHtml({
-                                    output: mm,
-                                    brand,
-                                    researchGoal: context.researchGoal || parsed.cleanPrompt || 'Research',
-                                });
+                                const _mmGoal = context.researchGoal || parsed.cleanPrompt || 'Research';
+                                // 2026-06-27 - MINDMAP renders NATIVE via the token-grounded radial renderer
+                                // (renderMindMapHtml), per the locked native-composition decision. The interim
+                                // flat-image /api/ai/diagram swap is retired; diagrams compose from native shapes
+                                // + content-true icons + brand tokens, not a rasterized picture.
+                                upliftHtml = renderMindMapHtml({ output: mm, brand, researchGoal: _mmGoal });
                             } else if (tag === 'brief-dialog') {
                                 const transcript = await generateBriefDialog({
                                     topic: parsed.cleanPrompt || context.researchGoal || 'Research finding',
@@ -7187,28 +7197,51 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         'persona-card': 'persona', 'competitive-matrix': 'matrix', 'prd-feature': 'prdFeature',
                         'journey-map': 'journeyMap', 'timeline': 'timeline', 'theme-cluster': 'themeCluster',
                         'recommendation': 'recommendation',
+                        // USER OVERRIDE 2026-06-28 (scenes-where-they-fit): case-study panel emotive.
+                        // The chat path emits :::slide template=case-study; its payload subfield is caseStudy.
+                        'case-study': 'caseStudy',
+                        // USER OVERRIDE 2026-06-28 (scenes-where-they-fit): the #slides CONTENT archetypes
+                        // with genuine layout room (live-Figma audit). They emit template=slides:<archetype>
+                        // and the composer reads the carrier off composerPayload, so route the resolver's
+                        // carrier write THERE (panelImage for block-quote; columnIcons[] for org-model).
+                        'slides:block-quote': 'composerPayload',
+                        'slides:org-model': 'composerPayload',
                     };
+                    // C2 routing: parse the user's #img override once; the router decides DATA vs
+                    // EMOTIVE per slot and enforces the section-8 default-off gate. The deterministic
+                    // diagram branch is handled at compose-time by vizSlot.attachViz, so here we only
+                    // resolve the EMOTIVE (Nano-Banana) branch when the router selects it.
+                    const imgOverride = parseImgDirective(query);
+                    const runIndustry = ((getContext ? getContext() : context) as any)?.industry as string | undefined;
                     for (const s of stampedSlides as any[]) {
                         const tmpl = String(s.template || '');
-                        const spec = imageSpecFor(tmpl);
-                        // Only generate for artifacts whose renderer twin actually emits the carrier
-                        // (spec.wired). Unwired specs would burn image calls filling fields nothing
-                        // renders. Flip `wired:true` per artifact as its twin lands. Today: journey.
-                        if (!spec || spec.mode === 'none' || !spec.wired) continue;
-                        const field = SUBFIELD[tmpl];
+                        // 2026-06-27 FIX: #themes emits :::slide template=theme-overview|theme-detail|
+                        // theme-arc|theme-mosaic (per the SLIDE OUTPUT PROTOCOL), but the image-slot
+                        // registry + SUBFIELD key the themes spec under 'theme-cluster'. Without this
+                        // alias, imageSpecFor(emitted-name) was undefined and the per-theme image loop
+                        // silently skipped (root cause of #themes shipping text-only theme cards).
+                        const aliasKey = /^theme-(overview|detail|arc|mosaic|spotlight|cluster)$/.test(tmpl) ? 'theme-cluster' : tmpl;
+                        const artKey = imageSpecFor(tmpl) ? tmpl : (imageSpecFor(aliasKey) ? aliasKey : tmpl);
+                        const spec = imageSpecFor(artKey);
+                        if (!spec || spec.mode === 'none') continue;
+                        const field = SUBFIELD[artKey] || SUBFIELD[tmpl];
                         const sub = field ? s[field] : s;
                         if (!sub || typeof sub !== 'object') continue;
                         try {
-                            const n = await resolveArtifactImages(tmpl, sub, s.brand || 'nxt', s.theme || 'dark',
-                                (msg) => console.log('[slides:img]', msg));
-                            if (n > 0 && field) {
+                            const r = await resolveRoutedSlotImages(artKey, sub, s.brand || 'nxt', s.theme || 'dark',
+                                { override: imgOverride, industry: (s as any).industry || runIndustry, onLog: (msg) => console.log('[slides:img]', msg) });
+                            if (r.count > 0 && field) {
                                 setSlides(prev => prev.map(x => x.id === s.id ? { ...x, [field]: { ...sub } } : x));
                             }
                         } catch (e: any) {
-                            console.warn(`[slides] registry illustration skipped ${s.id} (${tmpl}):`, e?.message || e);
+                            console.warn(`[slides] routed illustration skipped ${s.id} (${tmpl}):`, e?.message || e);
                         }
                     }
                 })();
+                // 2026-06-27 - Flat-image diagram generation RETIRED. journey-map + architecture-map now
+                // render NATIVELY (renderJourneyDiagram / renderArchitectureMap in slideToStageHtml):
+                // token-grounded shapes + content-true icons + full GOLD content, not a rasterized picture.
+                // The /api/ai/diagram path is no longer called from the #slides loop.
             }
         }
 

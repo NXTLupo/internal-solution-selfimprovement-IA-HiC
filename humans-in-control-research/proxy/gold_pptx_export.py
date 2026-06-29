@@ -89,12 +89,26 @@ GEO = r"""
     return (h(o.r)+h(o.g)+h(o.b)).toUpperCase();};
   const rects=[];
   const images=[];
-  const push=(x,y,w,h,col)=>{
+  const svgRegions=[];
+  const push=(x,y,w,h,col,chrome)=>{
     if(!col||col.a===0||w<0.5||h<0.5) return;
-    rects.push({x:x-sr.left,y:y-sr.top,w:w,h:h,fill:hex(col),alpha:col.a});
+    rects.push({x:x-sr.left,y:y-sr.top,w:w,h:h,fill:hex(col),alpha:col.a,chrome:!!chrome});
   };
-  const walk=(el)=>{
-    if(el.tagName==='svg') return;
+  // 2026-06-27 - CHROME tagging: rail / dot-mark / logo are REPEATING brand chrome that the
+  // exporter hoists onto a per-variant slide LAYOUT (defined once, inherited). Tag every item
+  // under .rail/.dotmark/.brandlogo so the per-slide passes can EXCLUDE it (no doubles).
+  const walk=(el,inChrome)=>{
+    const chrome = inChrome || (el.classList && (el.classList.contains('rail') || el.classList.contains('dotmark') || el.classList.contains('brandlogo')));
+    // 2026-06-27 - SVG capture: record each <svg>'s bounds (logo monogram, dot-mark,
+    // diagrams) so the exporter can clip-screenshot it to a TOKENIZED native picture at
+    // its slot bounds, instead of flattening the whole slide to one immovable raster.
+    // The in-HTML SVG is the Figma-component mirror (hydrated from /api/design-tokens),
+    // so the captured picture is brand-correct with no runtime Figma call. Do not recurse.
+    if(el.tagName==='svg'){
+      const b=el.getBoundingClientRect();
+      if(b.width>=2&&b.height>=2) svgRegions.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,chrome:!!chrome});
+      return;
+    }
     // 2026-06-25 - IMG capture: emit each <img> (illustrator slot art: journey phase
     // thumbnails, cover/section/thesis panels) as a REAL, swappable PowerPoint picture
     // at its slot bounds. Capture pixels via canvas->data-URI so it works for data-URIs
@@ -110,7 +124,7 @@ GEO = r"""
           cv.getContext('2d').drawImage(el,0,0,cv.width,cv.height);
           data=cv.toDataURL('image/png');
         }catch(e){ data=el.getAttribute('src')||el.src||''; }
-        if(data) images.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,src:data});
+        if(data) images.push({x:b.left-sr.left,y:b.top-sr.top,w:b.width,h:b.height,src:data,chrome:!!chrome});
       }
       return;
     }
@@ -118,19 +132,178 @@ GEO = r"""
     if(cs.display==='none'||cs.visibility==='hidden') return;
     const b=el.getBoundingClientRect();
     const bg=parse(cs.backgroundColor);
-    if(bg&&bg.a>0) push(b.left,b.top,b.width,b.height,bg);
+    // 2026-06-27 - The #stage root's OWN background is the paper CANVAS, not slide content. Tag it
+    // chrome so it lands on the per-variant LAYOUT as the bottom-most shape (behind rail/dot-mark/
+    // logo). Otherwise it renders as a full-page rect ON THE SLIDE that COVERS the inherited master
+    // chrome (the bug: rail/logo hidden behind a white box on every content slide).
+    const isStageRoot = (el===stage);
+    if(bg&&bg.a>0) push(b.left,b.top,b.width,b.height,bg, chrome || isStageRoot);
     const lw=parseFloat(cs.borderLeftWidth)||0, rw=parseFloat(cs.borderRightWidth)||0,
           tw=parseFloat(cs.borderTopWidth)||0, bw=parseFloat(cs.borderBottomWidth)||0;
-    if(lw>=0.5&&cs.borderLeftStyle!=='none') push(b.left,b.top,lw,b.height,parse(cs.borderLeftColor));
-    if(rw>=0.5&&cs.borderRightStyle!=='none') push(b.right-rw,b.top,rw,b.height,parse(cs.borderRightColor));
-    if(tw>=0.5&&cs.borderTopStyle!=='none') push(b.left,b.top,b.width,tw,parse(cs.borderTopColor));
-    if(bw>=0.5&&cs.borderBottomStyle!=='none') push(b.left,b.bottom-bw,b.width,bw,parse(cs.borderBottomColor));
-    for(const k of el.children) walk(k);
+    if(lw>=0.5&&cs.borderLeftStyle!=='none') push(b.left,b.top,lw,b.height,parse(cs.borderLeftColor),chrome);
+    if(rw>=0.5&&cs.borderRightStyle!=='none') push(b.right-rw,b.top,rw,b.height,parse(cs.borderRightColor),chrome);
+    if(tw>=0.5&&cs.borderTopStyle!=='none') push(b.left,b.top,b.width,tw,parse(cs.borderTopColor),chrome);
+    if(bw>=0.5&&cs.borderBottomStyle!=='none') push(b.left,b.bottom-bw,b.width,bw,parse(cs.borderBottomColor),chrome);
+    for(const k of el.children) walk(k,chrome);
   };
-  walk(stage);
-  return {rects, images, hasSvg: !!stage.querySelector('svg')};
+  walk(stage,false);
+  return {rects, images, svgRegions, hasSvg: !!stage.querySelector('svg')};
 }
 """
+
+
+def _insert_native_picture(slide, stream, x_emu, y_emu, w_emu, h_emu, idx, cid):
+    """Insert an image as a NATIVE, LAYOUT-BACKED PowerPoint PICTURE placeholder (user can 'Change
+    Picture' natively) at the given slot bounds. A slide placeholder only RENDERS if a matching
+    placeholder exists on its slideLayout, so we add a `<p:ph type="pic" idx>` to BOTH the layout
+    (the backing) and the slide, then fill the slide one via insert_picture. Returns the inserted
+    picture, or None on failure (caller falls back to add_picture)."""
+    from pptx.oxml import parse_xml
+    P = 'http://schemas.openxmlformats.org/presentationml/2006/main'
+    A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
+    ox, oy, cx, cy = int(x_emu), int(y_emu), int(max(w_emu, 1)), int(max(h_emu, 1))
+
+    def ph_sp(name, cid_):
+        return parse_xml((
+            '<p:sp xmlns:p="%s" xmlns:a="%s">'
+            '<p:nvSpPr><p:cNvPr id="%d" name="%s %d"/>'
+            '<p:cNvSpPr><a:spLocks noGrp="1"/></p:cNvSpPr>'
+            '<p:nvPr><p:ph type="pic" idx="%d"/></p:nvPr></p:nvSpPr>'
+            '<p:spPr><a:xfrm><a:off x="%d" y="%d"/><a:ext cx="%d" cy="%d"/></a:xfrm>'
+            '<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr>'
+            '</p:sp>'
+        ) % (P, A, cid_, name, idx, idx, ox, oy, cx, cy))
+
+    # 1) ensure the LAYOUT has a matching picture placeholder (the backing that makes it render)
+    layout = slide.slide_layout
+    if not any(pl.placeholder_format is not None and pl.placeholder_format.idx == idx for pl in layout.placeholders):
+        layout.shapes._spTree.append(ph_sp('Picture Placeholder', 90000 + idx))
+    # 2) add the SLIDE picture placeholder (same idx) + fill it
+    slide.shapes._spTree.append(ph_sp('Picture Placeholder', cid))
+    ph = None
+    for p in slide.placeholders:
+        if p.placeholder_format is not None and p.placeholder_format.idx == idx:
+            ph = p
+            break
+    if ph is None:
+        return None
+    pic = ph.insert_picture(stream)
+    try:
+        pic.crop_left = pic.crop_right = pic.crop_top = pic.crop_bottom = 0
+    except Exception:
+        pass
+    return pic
+
+
+def _place_geo_images(slide, images, ex, ey, W, H):
+    """Place each GEO-walked <img> as a REAL native PowerPoint picture at its slot bounds: a
+    layout-backed Picture Placeholder ('Change Picture') first, plain add_picture on fallback.
+    Used by BOTH tiers - the native geometry tier and the raster (SVG) tier - so slot art
+    (journey phase thumbs, cover/section panels, the mind-map hub glyph, per-pattern marks) is a
+    swappable native picture in every export, never baked into a flat raster."""
+    import base64 as _b64, io as _io
+    for _ii, im in enumerate(images or []):
+        if im["x"] >= W or im["y"] >= H:
+            continue
+        src = im.get("src") or ""
+        stream = None
+        try:
+            if src.startswith("data:"):
+                stream = _io.BytesIO(_b64.b64decode(src.split(",", 1)[1]))
+            elif src.startswith("http"):
+                import urllib.request as _u
+                stream = _io.BytesIO(_u.urlopen(src, timeout=10).read())
+        except Exception:
+            stream = None
+        if stream is None:
+            continue
+        _pidx, _pcid = 100 + _ii, 9000 + _ii
+        try:
+            _r = _insert_native_picture(slide, stream, ex(im["x"]), ey(im["y"]),
+                                        ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)), _pidx, _pcid)
+            if _r is None:
+                stream.seek(0)
+                slide.shapes.add_picture(stream, ex(im["x"]), ey(im["y"]),
+                                         ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
+        except Exception:
+            try:
+                stream.seek(0)
+                slide.shapes.add_picture(stream, ex(im["x"]), ey(im["y"]),
+                                         ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
+            except Exception:
+                pass
+
+
+# ---------------------------------------------------------------------------
+# PER-VARIANT MASTER LAYOUTS (2026-06-27)
+# A #slides deck mixes slide variants (cover / divider / content / journey / org ...). Each
+# variant's REPEATING brand chrome (rail + dot-mark + logo) is hoisted ONCE onto its OWN cloned
+# layout; content slides of that variant inherit it (defined once, editable once, not duplicated
+# per slide, and the content slides are normal slides, not masters). Spike-proven: clone is valid
+# on reopen, shapes + pictures on a layout inherit, slides carry no chrome copy.
+# ---------------------------------------------------------------------------
+
+def _rect_sp(sid, name, x_emu, y_emu, cx_emu, cy_emu, hexcol):
+    from pptx.oxml import parse_xml
+    from pptx.oxml.ns import nsdecls
+    return parse_xml(
+        f'<p:sp {nsdecls("p", "a")}>'
+        f'<p:nvSpPr><p:cNvPr id="{sid}" name="{name}"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr>'
+        f'<p:spPr><a:xfrm><a:off x="{int(x_emu)}" y="{int(y_emu)}"/><a:ext cx="{max(1, int(cx_emu))}" cy="{max(1, int(cy_emu))}"/></a:xfrm>'
+        f'<a:prstGeom prst="rect"><a:avLst/></a:prstGeom>'
+        f'<a:solidFill><a:srgbClr val="{hexcol}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr>'
+        f'<p:txBody><a:bodyPr/><a:p/></p:txBody></p:sp>')
+
+
+def _clone_blank_layout(prs, name):
+    """Clone the blank layout (idx 6) into a NEW registered slide layout and return it. The clone
+    is a clean blank canvas (no Microsoft placeholders leak because the source is the blank layout)
+    onto which a variant's chrome is appended. Registered in the master's sldLayoutIdLst + rels so
+    the package is valid on reopen."""
+    import copy
+    from pptx.oxml.ns import nsdecls, qn
+    from pptx.oxml import parse_xml
+    from pptx.parts.slide import SlideLayoutPart
+    from pptx.opc.constants import RELATIONSHIP_TYPE as RT, CONTENT_TYPE as CT
+    master = prs.slide_masters[0]
+    src = prs.slide_layouts[6]
+    new_el = copy.deepcopy(src._element)
+    try:
+        new_el.get_or_add_cSld().set("name", name)
+    except Exception:
+        pass
+    pkg = prs.part.package
+    partname = pkg.next_partname("/ppt/slideLayouts/slideLayout%d.xml")
+    new_part = SlideLayoutPart(partname, CT.PML_SLIDE_LAYOUT, pkg, new_el)
+    rId = master.part.relate_to(new_part, RT.SLIDE_LAYOUT)
+    new_part.relate_to(master.part, RT.SLIDE_MASTER)
+    lst = master._element.get_or_add_sldLayoutIdLst()
+    ids = [int(x.get("id")) for x in lst.findall(qn("p:sldLayoutId"))] or [2147483648]
+    lst.append(parse_xml(f'<p:sldLayoutId {nsdecls("p", "r")} id="{max(ids) + 1}" r:id="{rId}"/>'))
+    return new_part.slide_layout
+
+
+def _layout_add_picture(lay, stream, x_emu, y_emu, cx_emu, cy_emu, sid, name):
+    """Append a picture to a LAYOUT's shape tree (inherited by every slide using the layout). Uses
+    the layout part's image-part machinery + a p:pic element (no friendly add_picture on layouts)."""
+    from pptx.oxml import parse_xml
+    from pptx.oxml.ns import nsdecls
+    image_part, rId = lay.part.get_or_add_image_part(stream)
+    pic = parse_xml(
+        f'<p:pic {nsdecls("p", "a", "r")}>'
+        f'<p:nvPicPr><p:cNvPr id="{sid}" name="{name}"/><p:cNvPicPr/><p:nvPr/></p:nvPicPr>'
+        f'<p:blipFill><a:blip r:embed="{rId}"/><a:stretch><a:fillRect/></a:stretch></p:blipFill>'
+        f'<p:spPr><a:xfrm><a:off x="{int(x_emu)}" y="{int(y_emu)}"/><a:ext cx="{max(1, int(cx_emu))}" cy="{max(1, int(cy_emu))}"/></a:xfrm>'
+        f'<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></p:spPr></p:pic>')
+    lay.shapes._spTree.append(pic)
+
+
+def _chrome_signature(chrome_rects, chrome_svgs, chrome_imgs):
+    """Stable key for a variant's chrome so slides with identical chrome share ONE cloned layout.
+    Rounds bounds to 2px so sub-pixel jitter does not fork layouts."""
+    def r(items, keys):
+        return tuple(sorted(tuple(round(float(i.get(k, 0)) / 2) * 2 for k in keys) + (str(i.get("fill", "")),) for i in (items or [])))
+    return repr((r(chrome_rects, ("x", "y", "w", "h")), r(chrome_svgs, ("x", "y", "w", "h")), r(chrome_imgs, ("x", "y", "w", "h"))))
 
 
 def html_to_editable_pptx(html: str, out_path: str) -> dict:
@@ -265,6 +438,7 @@ def _render_into_presentation(prs, html_list: list) -> list:
         with sync_playwright() as p:
             b = p.chromium.launch(args=["--no-sandbox", "--force-color-profile=srgb"])
             try:
+                sig_to_layout = {}
                 for stage_html in html_list:
                     doc = stage_html.replace("</head>", RESET + "</head>", 1) if "</head>" in stage_html else RESET + stage_html
                     tmp = tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8")
@@ -281,16 +455,92 @@ def _render_into_presentation(prs, html_list: list) -> list:
                     pg.wait_for_timeout(500)
                     m = pg.evaluate(MEASURE)
                     geo = pg.evaluate(GEO)
-                    native = bool(geo.get("rects")) and not geo.get("hasSvg")
-                    if not native:
-                        # SVG present (or geometry walk empty): keep the proven
-                        # raster graphic layer so curves stay pixel-faithful.
+                    # 2026-06-27 - SVG no longer forces a full-slide raster. ANY slide with geometry
+                    # goes NATIVE: solid Gold decoration -> movable native shapes (direct
+                    # interpretation, token colour + bounds), text -> native runs, each <svg>
+                    # (logo / dot-mark / diagram) -> its OWN tokenized native picture at its bounds
+                    # (clip-screenshot of the Figma-component mirror in the HTML). The all-or-nothing
+                    # raster that baked every decorative element into one immovable image is gone;
+                    # the raster path remains ONLY as a fallback when the geometry walk is empty.
+                    # PARTITION chrome (repeating brand decoration -> per-variant LAYOUT) from
+                    # content (per-slide). Chrome was tagged by the GEO walker (.rail/.dotmark/.brandlogo).
+                    all_rects = geo.get("rects", [])
+                    content_rects = [r for r in all_rects if not r.get("chrome")]
+                    chrome_rects = [r for r in all_rects if r.get("chrome")]
+                    all_imgs = geo.get("images", [])
+                    content_imgs = [i for i in all_imgs if not i.get("chrome")]
+                    chrome_imgs = [i for i in all_imgs if i.get("chrome")]
+                    all_svgs = geo.get("svgRegions", [])
+                    native = bool(all_rects)
+                    sig = _chrome_signature(chrome_rects, [s for s in all_svgs if s.get("chrome")], chrome_imgs)
+                    need_chrome = native and sig not in sig_to_layout
+                    content_svg_pics = []
+                    chrome_svg_pics = []
+                    if native:
+                        # Hide non-svg text + <img> so neither bakes into a per-svg region shot
+                        # (text is native runs; <img> are native pictures). HIDE_TEXT keeps <svg>
+                        # visible, so each region screenshot captures the tokenized vector as-is.
                         pg.add_style_tag(content=HIDE_TEXT)
+                        if all_imgs:
+                            pg.add_style_tag(content="#stage img{visibility:hidden !important}")
+                        pg.wait_for_timeout(80)
+                        import base64 as _b64svg
+                        for _r in all_svgs:
+                            _is_chrome = bool(_r.get("chrome"))
+                            if _is_chrome and not need_chrome:
+                                continue  # this variant's chrome layout already built
+                            try:
+                                _shot = pg.screenshot(clip={"x": max(0, _r["x"]), "y": max(0, _r["y"]),
+                                                            "width": max(1, _r["w"]), "height": max(1, _r["h"])})
+                                _rec = {"x": _r["x"], "y": _r["y"], "w": _r["w"], "h": _r["h"],
+                                        "src": "data:image/png;base64," + _b64svg.b64encode(_shot).decode()}
+                                (chrome_svg_pics if _is_chrome else content_svg_pics).append(_rec)
+                            except Exception:
+                                pass
+                    else:
+                        # Fallback: geometry walk empty -> keep the proven full-bleed raster.
+                        pg.add_style_tag(content=HIDE_TEXT)
+                        if all_imgs:
+                            pg.add_style_tag(content="#stage img{visibility:hidden !important}")
                         pg.wait_for_timeout(120)
                         pg.screenshot(path=bgfile.name, clip={"x": 0, "y": 0, "width": W, "height": H})
                     pg.close()
 
-                    slide = prs.slides.add_slide(prs.slide_layouts[6])
+                    # GET-OR-CREATE the per-variant LAYOUT carrying this slide's chrome (defined once,
+                    # inherited by every slide of this variant). First time a chrome signature is seen,
+                    # clone the blank layout and append its chrome: rail/dot-mark -> native shapes,
+                    # logo -> native picture. Subsequent same-variant slides reuse it (no duplication).
+                    layout = sig_to_layout.get(sig)
+                    if layout is None:
+                        layout = _clone_blank_layout(prs, f"GOLD variant {len(sig_to_layout) + 1}")
+                        if native:
+                            from pptx.oxml import parse_xml as _px  # noqa: F401 (kept for symmetry)
+                            for _ci, rc in enumerate(chrome_rects):
+                                if rc["x"] >= W or rc["y"] >= H:
+                                    continue
+                                layout.shapes._spTree.append(_rect_sp(
+                                    8000 + _ci, "GOLD chrome", ex(rc["x"]), ey(rc["y"]),
+                                    ex(max(rc["w"], 1.0)), ey(max(rc["h"], 1.0)), rc["fill"]))
+                            import base64 as _b64ch, io as _ioch
+                            for _ci, im in enumerate(list(chrome_imgs) + chrome_svg_pics):
+                                if im["x"] >= W or im["y"] >= H:
+                                    continue
+                                _src = im.get("src") or ""
+                                try:
+                                    if _src.startswith("data:"):
+                                        _st = _ioch.BytesIO(_b64ch.b64decode(_src.split(",", 1)[1]))
+                                    elif _src.startswith("http"):
+                                        import urllib.request as _uch
+                                        _st = _ioch.BytesIO(_uch.urlopen(_src, timeout=10).read())
+                                    else:
+                                        continue
+                                    _layout_add_picture(layout, _st, ex(im["x"]), ey(im["y"]),
+                                                        ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)),
+                                                        8500 + _ci, "GOLD chrome logo")
+                                except Exception:
+                                    pass
+                        sig_to_layout[sig] = layout
+                    slide = prs.slides.add_slide(layout)
                     if native:
                         # NATIVE GEOMETRY tier: every fill and border bar is a real
                         # PPTX rectangle a consultant can recolor/move/resize.
@@ -300,7 +550,7 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         except Exception:
                             _set_solid_fill_with_alpha = None
                             _suppress_effects = None
-                        for rc in geo["rects"]:
+                        for rc in content_rects:
                             if rc["x"] >= W or rc["y"] >= H:
                                 continue
                             shp = slide.shapes.add_shape(
@@ -338,30 +588,21 @@ def _render_into_presentation(prs, html_list: list) -> list:
                         # data-URI (or raw src). The native tier has no bg raster, so images must
                         # be added explicitly; they sit ABOVE the geometry (added last). This closes
                         # the long-standing gap where the editable tier silently DROPPED every image.
-                        import base64 as _b64img, io as _ioimg
-                        for im in geo.get("images", []):
-                            if im["x"] >= W or im["y"] >= H:
-                                continue
-                            src = im.get("src") or ""
-                            stream = None
-                            try:
-                                if src.startswith("data:"):
-                                    stream = _ioimg.BytesIO(_b64img.b64decode(src.split(",", 1)[1]))
-                                elif src.startswith("http"):
-                                    import urllib.request as _urlimg
-                                    stream = _ioimg.BytesIO(_urlimg.urlopen(src, timeout=10).read())
-                            except Exception:
-                                stream = None
-                            if stream is None:
-                                continue
-                            try:
-                                slide.shapes.add_picture(
-                                    stream, ex(im["x"]), ey(im["y"]),
-                                    ex(max(im["w"], 1.0)), ey(max(im["h"], 1.0)))
-                            except Exception:
-                                pass
+                        # 2026-06-25 - NATIVE picture placeholders: each generated image (viz/
+                        # illustrator slot art) goes in as a real PowerPoint PICTURE PLACEHOLDER so
+                        # the user can swap it via 'Change Picture' natively. Falls back to a plain
+                        # add_picture only if the placeholder injection fails.
+                        # 2026-06-27 - svg_pics = each <svg> region (logo / dot-mark / diagram) as its
+                        # OWN tokenized native picture at its bounds (no full-slide raster). Placed
+                        # alongside the <img> slot art so every decorative vector is movable/swappable.
+                        _place_geo_images(slide, list(content_imgs) + content_svg_pics, ex, ey, W, H)
                     else:
                         slide.shapes.add_picture(bgfile.name, 0, 0, width=Emu(int(13.333 * EMU)), height=Emu(int(7.5 * EMU)))
+                        # 2026-06-27 - SVG (raster) tier: the HTML <img> overlays were HIDDEN in the
+                        # raster capture above, so re-place each as a REAL native picture over the
+                        # raster (the mind-map hub glyph, any slot art on a diagram stage). SVG-embedded
+                        # marks (<image> inside <svg>) stay in the diagram raster by design.
+                        _place_geo_images(slide, content_imgs, ex, ey, W, H)
 
                     for r in m.get("runs", []):
                         txt = r["text"]

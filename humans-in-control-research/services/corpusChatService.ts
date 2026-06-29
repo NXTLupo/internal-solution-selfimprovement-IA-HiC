@@ -567,6 +567,77 @@ const ARTIFACT_TPL: Array<[RegExp, string]> = [
     [/#reports?\b/i, 'executive-brief'],
 ];
 
+// --- Per-deliverable model TIER OVERRIDE (bake-off-validated) ---
+// 2026-06-28 - EVIDENCE-VALIDATED downgrade, scoped to TWO deliverables.
+// The default for EVERY artifact hashtag is claude-opus-4-8 (the force-route
+// below). This map OVERRIDES that default per-deliverable, keyed on the slide
+// TEMPLATE id resolved from ARTIFACT_TPL (i.e. the value the force-route already
+// has in hand), NOT on the hashtag text.
+//
+// JUSTIFICATION: plans/model-bakeoff-gap-journey-2026-06-28.md (companion to
+// plans/model-usage-optimization-vs-ri-2026-06-28.md §3b/§3c). On identical
+// grounded evidence, Gemini 3.5 Flash MATCHED Gemini 3.1 Pro on #gap and
+// #journey across every measured dimension (0 fabricated citations, 100%
+// structural completeness, 0 anti-slop violations; Flash cited MORE distinct
+// sources) at ~9x lower cost than Pro / ~18x lower than Opus. These two are
+// SCHEMA-CONSTRAINED matrices (gap-matrix, journey-map) whose template bounds
+// the output shape; they carry NO model-authored emotive brand imagery
+// (per §3c the Nano-Banana concept-authoring constraint), so a budget tier is
+// safe. Both run DETERMINISTIC (temperature 0 - see callGemini deterministic
+// gate) which makes them exact-cache eligible.
+//
+// REVERSIBLE BY DESIGN: delete a map entry -> that deliverable falls back to
+// the claude-opus-4-8 default. The other SIX schema-constrained deliverables
+// (#blueprint #competitive #org #audit #arch #roadmap) are NOT yet validated
+// and INTENTIONALLY stay on Opus pending their own bake-off. Narrative
+// (#strategy #recommendations #report #proto) and emotive-imagery (#personas
+// #themes #case-study #recommendation) deliverables also stay on Opus per
+// quality-first + the §3c concept-authoring constraint.
+// --- USER-CHOSEN SPLIT (2026-06-28) while Opus 4.8 is quota-capped (until 07-01) ---
+// FLASH for the SCHEMA/TABLE deliverables (bake-off-proven equal to Gemini 3.1 Pro,
+// ~18x cheaper): the template bounds the output shape. PRO for everything else artifact
+// (case-study, personas, themes, strategy, recommendations, report, prd) - evidence- and
+// imagery-heavy, where Flash leaves quotes/concepts thin (live-observed empty case-study
+// quotes). REVERSIBLE: set ARTIFACT_DEFAULT_DURING_CAP=null to restore the Opus default
+// for non-schema artifacts after the cap lifts; the schema->Flash tier stays (validated).
+const DELIVERABLE_MODEL_TIER: Record<string, ChatModel> = {
+    'gap-matrix': 'gemini-3.5-flash',          // #gap       - bake-off-validated
+    'journey-map': 'gemini-3.5-flash',         // #journey   - bake-off-validated
+    'service-blueprint': 'gemini-3.5-flash',   // #blueprint - bake-off Part A (Flash==Pro)
+    'competitive-matrix': 'gemini-3.5-flash',  // #competitive
+    'org-chart': 'gemini-3.5-flash',           // #org
+    'systems-inventory': 'gemini-3.5-flash',   // #audit
+    'architecture-map': 'gemini-3.5-flash',    // #arch
+    'timeline': 'gemini-3.5-flash',            // #roadmap
+};
+// Default model for ANY artifact NOT in the Flash schema map above, while the Opus cap is
+// active: Gemini 3.1 Pro (available, off the Anthropic quota, full evidence + real per-
+// element imagery). Covers case-study, persona-card, theme-overview/detail/arc/mosaic,
+// recommendation, prd-feature, executive-brief, principles/strategy. Set to null to
+// restore the canonical claude-opus-4-8 default once the cap lifts.
+const ARTIFACT_DEFAULT_DURING_CAP: ChatModel | null = 'gemini-3.1-pro-preview';
+
+/** Resolve the per-deliverable model override for a message, or null if none.
+ *  Keys on the ARTIFACT_TPL template id (gap-matrix / journey-map / ...), so a
+ *  bare "#gap" and a "#gap #slides #NU" both resolve to the same tier entry.
+ *  Returns null for plain chat and for any deliverable NOT in the tier map
+ *  (those keep the claude-opus-4-8 force-route default). */
+function deliverableModelOverride(userMessage: string): ChatModel | null {
+    if (!isArtifactGenerationMessage(userMessage)) return null;
+    const avail = (id: ChatModel | null): ChatModel | null =>
+        id && AVAILABLE_MODELS.find(m => m.id === id)?.available ? id : null;
+    const hit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
+    // Schema/table template -> Flash (bake-off-validated). The map is keyed on the
+    // ARTIFACT_TPL template id; #slides without a named artifact template has no hit.
+    if (hit) {
+        const flash = avail(DELIVERABLE_MODEL_TIER[hit[1]]);
+        if (flash) return flash;
+    }
+    // Every other artifact (case-study/personas/themes/strategy/recs/report/prd, and a
+    // bare #slides deck) -> Gemini 3.1 Pro while the Opus cap is active. null after the cap.
+    return avail(ARTIFACT_DEFAULT_DURING_CAP);
+}
+
 /** True when the message carries #slide/#slides or any artifact hashtag -
  *  i.e. the turn is a deliverable generation, not plain grounded chat.
  *  Exported (2026-06-12) so the panel's in-flight UI (loading indicator,
@@ -601,6 +672,11 @@ export function extractAuthoritativePaste(userMessage: string): string | null {
  *  model. Single source of truth for in-flight UI labels. */
 export function routedModelFor(userMessage: string, fallback: ChatModel): ChatModel {
     if (fallback !== 'council' && isArtifactGenerationMessage(userMessage)) {
+        // 2026-06-28 - per-deliverable tier override (bake-off-validated #gap/#journey
+        // -> gemini-3.5-flash) takes precedence over the Opus default. Mirror the
+        // force-route order exactly so the in-flight UI labels the ACTUAL model.
+        const tier = deliverableModelOverride(userMessage);
+        if (tier) return tier;
         const fable = AVAILABLE_MODELS.find(m => m.id === 'claude-opus-4-8');
         if (fable?.available) return 'claude-opus-4-8';
     }
@@ -679,6 +755,42 @@ Examples:
   "5 #personas designer archetypes #slides #NXT"    → emit 5 :::slide template=persona-card brand=nxt
   "#slide show the top 3 themes"                    → emit ONE :::slide template=theme-overview block (3 columns in the grid)
   "Build a 5-slide deck on the roadmap #slide #NU"  → emit 5 :::slide blocks
+
+VIZ (content-true diagram in a slide's image slot) — AUTHOR THE MEANING, never decoration:
+  A slide may carry a "viz" object. The diagram is drawn by the engine from YOUR authored data +
+  labels (NOT random shapes), token-themed to the brand, and exported as a native, replaceable
+  PowerPoint picture. Use it on slides:cover / slides:section-divider / slides:thesis-interstitial
+  (they reserve a full-bleed image panel). Author the viz from the SAME corpus evidence as the prose.
+  Shape of the "viz" object (pick the family that fits the content):
+   - operatingNetwork (operating model / ecosystem): { "family":"operatingNetwork", "industry":"<run industry>",
+       "hub":"<center node name>", "labels":["<hub>","<node>","<node>",...], "links":[[0,1],[0,2],...] }
+       (labels[0] is the hub; links are REAL relationships between node indices)
+   - funnelFlow (pipeline/conversion): { "family":"funnelFlow", "labels":["Identify","Qualify",...], "stages":[100,60,38,...] }
+   - journeyLine (lifecycle): { "family":"journeyLine", "labels":["Acquire","Onboard",...], "stages":[/*count*/] }
+   - timelineGantt (roadmap): { "family":"timelineGantt", "labels":["Quiet phase",...], "tracks":[{"start":0,"dur":2},...] }
+   - maturityRadar (assessment): { "family":"maturityRadar", "labels":["Data","Pipeline",...], "scores":[0.5,...], "target":[0.85,...] }
+   - capabilityStack (layers): { "family":"capabilityStack", "labels":["Ledger","Payments",...] }
+   - comparisonMatrix / proportionStack / instrumentDial / dataField are also available (see the manifest).
+  RULES: every label is REAL (a named function/stage/dimension from the evidence), the links/edges
+  must make sense (the actual dependencies), never invent numbers as bare claims (the shape carries
+  magnitude). One viz per slide. Omit "viz" if the slide has no diagrammatic content.
+  ICONS-IN-DIAGRAMS (optional): add "icons" - an array of icon ids aligned by index to the
+  labels/nodes (one per node/stage) - to mark each node with a small DOMAIN GLYPH inside the diagram.
+  The engine resolves the glyph + its colour from brand tokens (never a hex; never text-in-image).
+  Universal ids: risk, opportunity, growth, governance, compliance, data, insight, workflow,
+  automation, integration, people, team, customer, time, roadmap, milestone, target, decision, alert,
+  cost, value, security, channel, network, document, search, ai, feedback, scale. Industry ids look
+  like "<industry>:<concept>" (e.g. healthcare:heartbeat, fintech:ledger). Use icons only where a
+  per-node mark adds meaning. (Small per-card / per-peer / per-action emblems on NON-deck artifacts
+  are auto-filled by the runtime from the GOLD audit - you do NOT author those.)
+  Example:
+  :::slide template=slides:section-divider brand=nxt
+  { "kicker":"OPERATING MODEL", "title":"Advancement runs on one shared donor record",
+    "viz": { "family":"operatingNetwork", "industry":"advancement", "hub":"Shared donor record",
+      "labels":["Shared donor record","Gift Officers","Annual Giving","Major Gifts","Planned Giving","Stewardship"],
+      "links":[[0,1],[0,2],[0,3],[0,4],[0,5],[1,3]],
+      "icons":["data","people","feedback","value","time","customer"] } }
+  :::
 
 NOT slide mode (no #slide/#slides anywhere):
   "Who are our customers?"           → prose answer, not a slide
@@ -802,9 +914,19 @@ render contract above):
 6.  case-study          → user requests an example, real-world case, success/failure story.
                           GOLD deep-dive variants (set "variant" in caseStudy): four-block
                           (default), before-after (operating-model shift: beforeAfter payload),
-                          evidence-stack (3 verbatim quotes: evidence[] payload). DIVERSIFY
-                          variants across multiple case studies; subjects are NAMED real
-                          entities, never archetypes. "takeaway" fills the GOLD bottom band.
+                          evidence-stack (3 verbatim quotes: evidence[] payload).
+                          VARIANT SELECTION (mandatory): when the corpus gives you 2-3 VERBATIM
+                          quotes (real sentences lifted from articles/posts) that converge on this
+                          subject, EMIT variant:"evidence-stack" and populate evidence:[{quote, source,
+                          shows}] with those verbatim quotes - the convergent-evidence section is the
+                          point of a case study and a bare four-block card with no quotes is the weak
+                          fallback. Use before-after only when the case is genuinely an operating-model
+                          shift. Use four-block only when verbatim quotes are NOT available. When the
+                          user asks for SEVERAL case studies, DIVERSIFY: mix evidence-stack /
+                          before-after / four-block across the set rather than repeating one shape.
+                          evidence[] quotes are CLEAN complete sentences with named sources, never
+                          raw interview filler. Subjects are NAMED real entities, never archetypes.
+                          "takeaway" fills the GOLD bottom band.
 7.  principles          → user requests guiding principles, design tenets, operating beliefs (3-5 items)
 8.  stat-row            → user requests key metrics, numbers, "by the numbers" (3-4 stats)
 9.  timeline            → user requests roadmap, phases, sequencing (3-5 phases)
@@ -3096,13 +3218,25 @@ export async function sendChatMessage(
     // (600K chars, window unverified) governs corpus packing - a 1.4M-char
     // Gemini-budgeted corpus would overflow the assumed 200K-token window.
     // Council mode is exempt (the user explicitly opted into the 3-model fan).
-    if (model !== 'council' && model !== 'claude-opus-4-8' && isArtifactGenerationMessage(userMessage)) {
-        const fableCfg = AVAILABLE_MODELS.find(m => m.id === 'claude-opus-4-8');
-        if (fableCfg?.available) {
-            console.info(`[chat][route] Artifact hashtag detected - force-routing deliverable generation: ${model} -> claude-opus-4-8`);
-            model = 'claude-opus-4-8';
-        } else {
-            console.warn(`[chat][route] Artifact hashtag detected but ANTHROPIC_API_KEY unavailable - keeping ${model} for this generation`);
+    if (model !== 'council' && isArtifactGenerationMessage(userMessage)) {
+        // 2026-06-28 - PER-DELIVERABLE TIER OVERRIDE (bake-off-validated) takes
+        // precedence over the Opus default. #gap (gap-matrix) + #journey
+        // (journey-map) -> gemini-3.5-flash; see DELIVERABLE_MODEL_TIER above
+        // (plans/model-bakeoff-gap-journey-2026-06-28.md). Every OTHER artifact
+        // hashtag keeps the claude-opus-4-8 force-route. Reversible: delete the
+        // map entry to restore Opus.
+        const tierOverride = deliverableModelOverride(userMessage);
+        if (tierOverride && model !== tierOverride) {
+            console.info(`[chat][route] Bake-off-validated tier override: ${model} -> ${tierOverride} (deliverable)`);
+            model = tierOverride;
+        } else if (!tierOverride && model !== 'claude-opus-4-8') {
+            const fableCfg = AVAILABLE_MODELS.find(m => m.id === 'claude-opus-4-8');
+            if (fableCfg?.available) {
+                console.info(`[chat][route] Artifact hashtag detected - force-routing deliverable generation: ${model} -> claude-opus-4-8`);
+                model = 'claude-opus-4-8';
+            } else {
+                console.warn(`[chat][route] Artifact hashtag detected but ANTHROPIC_API_KEY unavailable - keeping ${model} for this generation`);
+            }
         }
     }
 
@@ -3588,7 +3722,10 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             console.log(`[council] confidence=${council.confidence}, reads=${council.reads.filter(r => r.ok).length}/3, synth=${council.synthesisLatencyMs}ms`);
             responseText = council.finalText;
         } else if (modelConfig.provider === 'google') {
-            responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId);
+            // 2026-06-28 - run deterministic (temp 0) when this is a deliverable
+            // generation (slide-mode), e.g. the bake-off-validated #gap/#journey
+            // tier override to gemini-3.5-flash. Conversational chat stays at 0.2.
+            responseText = await callGemini(systemPrompt, userMessage, conversationHistory, activeModelId, slideModeActive);
         } else if (modelConfig.provider === 'deepseek') {
             responseText = await callDeepSeek(systemPrompt, userMessage, conversationHistory, activeModelId);
         } else if (modelConfig.provider === 'openai') {
@@ -4675,12 +4812,75 @@ async function callGemini(
     userMsg: string,
     history: ChatMessage[],
     model: string = 'gemini-3.1-pro-preview',
+    // 2026-06-28 - deterministic deliverable gate. Conversational chat keeps the
+    // small 0.2 sampling temperature (answer variety); a SCHEMA-CONSTRAINED
+    // deliverable tiered to Flash (bake-off #gap/#journey) runs at temperature 0
+    // so the output is deterministic (determinism-first rule) and exact-cache
+    // eligible at the proxy chokepoint (which only caches explicit temperature 0).
+    deterministic: boolean = false,
 ): Promise<string> {
-    const { GoogleGenAI } = await import('@google/genai');
-    const apiKey = (process.env as any).API_KEY || (process.env as any).GEMINI_API_KEY || '';
-    if (!apiKey) throw new Error('GEMINI_API_KEY not configured');
+    // 2026-06-28 — PROXY-ROUTED transport (Step 1 of the cost-optimization plan,
+    // plans/model-usage-optimization-vs-ri-2026-06-28.md §3d). Previously this
+    // path used the @google/genai SDK DIRECTLY from the browser (build-time
+    // injected API_KEY), which BYPASSED the proxy `/api/ai/gemini` chokepoint and
+    // therefore the exact-match + explicit context caches. Only callClaude was
+    // routed. We now post every per-iteration generateContent through the proxy so
+    // chat + Gemini-tiered deliverables (#gap/#journey, temp 0) get cache coverage.
+    //   - The AGENTIC TOOL LOOP stays HERE (iteration logic, tool dispatch); only
+    //     the per-turn transport moves to the proxy. The proxy forwards `tools`
+    //     verbatim and returns the raw Gemini REST response, so functionCall parts
+    //     survive and the parser below is unchanged.
+    //   - The browser no longer holds the Gemini key for this path (the proxy
+    //     does); the @google/genai SDK import is dropped from the routed path.
+    //   - The proxy handles its own 429 -> DeepSeek-V4-Flash fallback and returns
+    //     a 200 with a Gemini-shaped body (+ _fallback_provider tag), so the
+    //     prior TS-level 429 fallback is no longer needed; aiRetryClient still
+    //     handles transient 5xx/network retries.
+    const { callAIWithRetry } = await import('./aiRetryClient');
 
-    const ai = new GoogleGenAI({ apiKey });
+    // Post one generateContent turn through the proxy and return a response that
+    // mirrors the @google/genai SDK shape this function's parser expects. The
+    // native Gemini REST response carries `candidates[]` but NOT the SDK-only
+    // `.text` convenience getter, so we synthesize `.text` from the first
+    // candidate's text parts.
+    const _geminiTurn = async (
+        turnContents: GContent[],
+        opts: { withTools: boolean; temperature: number; maxOutputTokens: number },
+    ): Promise<any> => {
+        const cfg: any = {
+            systemInstruction: system,
+            temperature: opts.temperature,
+            maxOutputTokens: opts.maxOutputTokens,
+        };
+        const data: any = await callAIWithRetry('gemini', {
+            model,
+            contents: turnContents,
+            // Mirror the SDK's config object; the proxy reads temperature/
+            // maxOutputTokens from `config` and (Step 1) forwards `tools`.
+            config: cfg,
+            // The proxy uses top-level systemInstruction (Gemini REST shape) for
+            // the explicit context cache; provide it both inline-in-config (for
+            // SDK-parity semantics) and at top level (what the proxy reads).
+            systemInstruction: { parts: [{ text: system }] },
+            ...(opts.withTools ? { tools } : {}),
+        }, {
+            label: `Chat (Gemini ${model})`,
+            maxAttempts: 3,
+            // The tool loop can legitimately run long on a dense corpus; keep the
+            // generous ceiling the SDK path effectively had (no explicit timeout).
+            requestTimeoutMs: 540_000,
+        });
+        // Synthesize the SDK `.text` convenience field from candidate text parts.
+        if (data && typeof data.text !== 'string') {
+            const _parts = data?.candidates?.[0]?.content?.parts || [];
+            const _t = _parts
+                .filter((p: any) => typeof p?.text === 'string' && p.text.length > 0)
+                .map((p: any) => p.text)
+                .join('\n');
+            if (_t) data.text = _t;
+        }
+        return data;
+    };
 
     // Gemini conversation = list of `{role, parts:[{text|functionCall|functionResponse}]}`
     type GPart = { text?: string } | { functionCall?: { name: string; args: any } } | { functionResponse?: { name: string; response: { result: string } } };
@@ -4743,61 +4943,19 @@ async function callGemini(
         // the proxy /api/ai/deepseek endpoint. DeepSeek is in the pipeline
         // and has separate Azure quota. The chat user sees zero downtime;
         // a one-line progress notice surfaces the fallback.
-        let response: any;
-        try {
-            response = await ai.models.generateContent({
-                model,
-                contents,
-                config: {
-                    systemInstruction: system,
-                    temperature: 0.2,
-                    // 2026-06-23 - a conversational chat answer is short; a 64K cap pushed
-                    // gemini-3.5-flash into its slowest generation mode. 16K is ample.
-                    maxOutputTokens: 16384,
-                    tools: tools as any,
-                } as any,
-            });
-        } catch (geminiErr: any) {
-            const msg = String(geminiErr?.message || geminiErr || '');
-            const is429 = /429|resource exhausted|quota|rate.?limit/i.test(msg);
-            if (!is429) throw geminiErr;
-            console.warn(`[chat.tools] Gemini 429/quota at iter ${iter + 1}; falling back to DeepSeek-V4-Flash`);
-            _prog?.(`Gemini quota exhausted - switching to DeepSeek-V4-Flash...`);
-            // Translate Gemini contents -> DeepSeek/OpenAI-compat messages
-            const deepseekMessages: any[] = [{ role: 'system', content: system }];
-            for (const turn of contents) {
-                const role = turn.role === 'model' ? 'assistant' : 'user';
-                const text = (turn.parts || []).map((p: any) => p?.text || '').join('\n').trim();
-                if (text) deepseekMessages.push({ role, content: text });
-            }
-            const dsResp = await fetch(`${PROXY_BASE}/api/ai/deepseek`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    model: 'deepseek-v4-flash',
-                    messages: deepseekMessages,
-                    max_tokens: 32000,
-                    temperature: 0.2,
-                    stream: false,
-                }),
-                signal: AbortSignal.timeout(120_000),
-            });
-            if (!dsResp.ok) {
-                const errTxt = await dsResp.text().catch(() => '');
-                throw new Error(`DeepSeek fallback ${dsResp.status}: ${errTxt.slice(0, 200)}`);
-            }
-            const dsData = await dsResp.json();
-            const dsContent = dsData?.choices?.[0]?.message?.content || '';
-            // Build a synthetic Gemini-shaped response so the downstream parser is unchanged
-            response = {
-                candidates: [{
-                    content: { parts: [{ text: dsContent }] },
-                    finishReason: dsData?.choices?.[0]?.finish_reason || 'STOP',
-                }],
-                text: dsContent,
-                _fallback_provider: 'deepseek-v4-flash',
-            };
-        }
+        // 2026-06-28 - routed through the proxy /api/ai/gemini chokepoint (was a
+        // direct @google/genai SDK call). The proxy applies exact-match + explicit
+        // context caching and handles its own 429 -> DeepSeek-V4-Flash fallback
+        // (returning a Gemini-shaped 200 with _fallback_provider), so the prior
+        // TS-level 429 fallback block is no longer needed here. Determinism: temp 0
+        // for Gemini-tiered deliverables (bake-off #gap/#journey), 0.2 for chat.
+        const response: any = await _geminiTurn(contents, {
+            withTools: true,
+            temperature: deterministic ? 0 : 0.2,
+            // A conversational chat answer is short (16K ample); a schema-
+            // constrained deliverable needs more room for the full matrix.
+            maxOutputTokens: deterministic ? 32768 : 16384,
+        });
 
         const cand = (response as any).candidates?.[0];
         const respParts: GPart[] = cand?.content?.parts || [];
@@ -4839,15 +4997,11 @@ async function callGemini(
                     text: 'Provide your final answer now using the wiki/KG/topic data you have already retrieved. Do not call any more tools. If you cannot answer from the data on hand, say what is missing in one sentence.',
                 }],
             });
-            const retryResp = await ai.models.generateContent({
-                model,
-                contents,
-                config: {
-                    systemInstruction: system,
-                    temperature: 0.2,
-                    maxOutputTokens: 65536,
-                    // No tools on the retry - force a textual answer.
-                } as any,
+            // No tools on the retry - force a textual answer.
+            const retryResp = await _geminiTurn(contents, {
+                withTools: false,
+                temperature: 0.2,
+                maxOutputTokens: 65536,
             });
             const retryParts: GPart[] = (retryResp as any).candidates?.[0]?.content?.parts || [];
             const retryText = retryParts
@@ -4916,10 +5070,10 @@ async function callGemini(
         const _prog = (globalThis as any).__hicChatProgressFn as ((s: string) => void) | undefined;
         _prog?.('Synthesizing from gathered evidence...');
         contents.push({ role: 'user', parts: [{ text: 'You have gathered enough evidence above. Do NOT call any more tools. Answer the question now using the article, transcript, and data bodies you already retrieved. If the corpus skewed toward social posts and you found few external articles or transcripts, say so plainly and synthesize from what IS available. Never return an empty answer or tell the user to ask a more focused question.' }] });
-        const finalResp: any = await ai.models.generateContent({
-            model,
-            contents,
-            config: { systemInstruction: system, temperature: 0.2, maxOutputTokens: 65536 } as any,
+        const finalResp: any = await _geminiTurn(contents, {
+            withTools: false,
+            temperature: 0.2,
+            maxOutputTokens: 65536,
         });
         const finalText = finalResp?.text
             || (finalResp?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('\n').trim();

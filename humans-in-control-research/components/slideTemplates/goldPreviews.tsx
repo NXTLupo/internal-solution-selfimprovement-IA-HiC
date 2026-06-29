@@ -36,6 +36,23 @@ const clamp = (lines: number): React.CSSProperties => ({
 const srcMeta = (sources?: string[]) =>
     sources && sources.length ? `Sources: ${sources.slice(0, 3).join(' · ')}` : undefined;
 
+// 2026-06-28 TWIN-SYNC: per-theme content-true thumbnail (USER OVERRIDE 2026-06-27,
+// Figma themes overview 590:9 per-card brand-image-slot 895:338..340 + theme-arc/mosaic/
+// detail). Faithful React twin of services/slideToStageHtml.ts themeThumb(): read the
+// index-aligned carrier themeImages[i] first, fall back to themes[i].brandImage (string
+// url or {url}); render NOTHING when no per-theme image exists (NO PURE DECORATION).
+const themeThumbSrc = (data: ThemeClusterData, t: any, i: number): string => {
+    const arr = data && Array.isArray((data as any).themeImages) ? (data as any).themeImages : null;
+    let ti = arr && typeof arr[i] === 'string' ? arr[i] : '';
+    if (!ti && t) ti = typeof t.brandImage === 'string' ? t.brandImage : (t.brandImage && t.brandImage.url) || '';
+    return ti || '';
+};
+const ThemeThumb: React.FC<{ data: ThemeClusterData; t: any; i: number; T: Brand; mb?: number }> = ({ data, t, i, T, mb = 4 }) => {
+    const src = themeThumbSrc(data, t, i);
+    if (!src) return null;
+    return <img src={src} alt="" style={{ width: '100%', aspectRatio: '16/10', objectFit: 'cover', display: 'block', borderRadius: 2, border: `1px solid ${hex(T.HAIRLINE)}`, background: hex(T.PANEL), marginBottom: mb }} />;
+};
+
 const SectLabel: React.FC<{ T: Brand; children: React.ReactNode; color?: string; rule?: boolean }> = ({ T, children, color, rule }) => (
     <div style={{ fontFamily: fonts(T).mono, fontWeight: 600, fontSize: 7, letterSpacing: '1px', color: color || hex(T.GREY), textTransform: 'uppercase', borderBottom: rule ? `1px solid ${hex(T.HAIRLINE)}` : 'none', paddingBottom: rule ? 3 : 0 }}>{children}</div>
 );
@@ -156,6 +173,7 @@ export const ThemeClusterSlide: React.FC<{ title: string; data: ThemeClusterData
             <div style={{ display: 'grid', gridTemplateColumns: `repeat(${n},1fr)`, gap: dense ? 10 : 14, flex: 1, minHeight: 0 }}>
                 {themes.map((t, i) => (
                     <div key={i} style={{ borderTop: `2px solid ${hex(T.CHARTREUSE)}`, paddingTop: 7, display: 'flex', flexDirection: 'column', gap: 5, minWidth: 0, overflow: 'hidden' }}>
+                        <ThemeThumb data={data} t={t} i={i} T={T} />
                         <div style={{ fontFamily: F.mono, fontSize: 8, letterSpacing: '1px', color: hex(T.GREY), textTransform: 'uppercase' }}>{String(i + 1).padStart(2, '0')}</div>
                         <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: dense ? 14 : 16, lineHeight: 1.12, color: hex(T.INK), ...clamp(2) }}>{t.name}</div>
                         {/* 2026-06-12 user feedback: body copy raised (+1px at preview
@@ -193,6 +211,7 @@ export const ThemeArcSlide: React.FC<{ title: string; data: ThemeClusterData; so
             <div style={{ display: 'grid', gridTemplateColumns: `repeat(${n},1fr)`, gap: 10, flex: 1, minHeight: 0 }}>
                 {themes.map((t, i) => (
                     <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 5, minWidth: 0, overflow: 'hidden', borderTop: `2px solid ${i === n - 1 ? hex(T.ACCENT_WARN) : hex(T.CHARTREUSE)}`, paddingTop: 7 }}>
+                        <ThemeThumb data={data} t={t} i={i} T={T} />
                         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                             <span style={{ fontFamily: F.display, fontSize: 18, color: i === n - 1 ? hex(T.ACCENT_WARN) : hex(T.CHARTREUSE), lineHeight: 1 }}>{String(i + 1).padStart(2, '0')}</span>
                             {i < n - 1 && <span style={{ fontFamily: F.mono, fontSize: 10, color: hex(T.GREY) }}>&rarr;</span>}
@@ -227,6 +246,7 @@ export const ThemeMosaicSlide: React.FC<{ title: string; data: ThemeClusterData;
                     const inverse = i === 0 || i === 3;
                     return (
                         <div key={i} style={{ background: inverse ? hex(T.BAND) : hex(T.PANEL), padding: '8px 11px', display: 'flex', flexDirection: 'column', gap: 4, minWidth: 0, overflow: 'hidden' }}>
+                            <ThemeThumb data={data} t={t} i={i} T={T} mb={2} />
                             <div style={{ fontFamily: F.mono, fontSize: 7.5, letterSpacing: '1px', color: inverse ? hex(T.CHARTREUSE) : hex(T.GREY), textTransform: 'uppercase' }}>{String(i + 1).padStart(2, '0')}</div>
                             <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: 14, lineHeight: 1.12, color: inverse ? hex(T.BAND_TEXT) : hex(T.INK), ...clamp(2) }}>{t.name}</div>
                             <div style={{ fontSize: 10.5, lineHeight: 1.38, color: inverse ? hex(T.BAND_TEXT) : hex(T.INK), opacity: inverse ? 0.92 : 1, ...clamp(3) }}>{t.insight}</div>
@@ -254,6 +274,7 @@ export const ThemeOverviewSlide: React.FC<{ title: string; data: ThemeClusterDat
             <div style={{ display: 'grid', gridTemplateColumns: `repeat(${n},1fr)`, gap: dense ? 12 : 16, flex: 1, minHeight: 0 }}>
                 {themes.map((t, i) => (
                     <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: 5, minWidth: 0, overflow: 'hidden' }}>
+                        <ThemeThumb data={data} t={t} i={i} T={T} />
                         <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: 24, lineHeight: 1, color: hex(T.INK) }}>{String(i + 1).padStart(2, '0')}</div>
                         <div style={{ fontFamily: F.body, fontWeight: 600, fontSize: dense ? 13 : 14, lineHeight: 1.1, letterSpacing: '-0.2px', color: hex(T.INK), ...clamp(2) }}>{t.name}</div>
                         {(t.dominance || t.mood) && (
@@ -313,6 +334,7 @@ export const ThemeDetailSlide: React.FC<{ title: string; data: ThemeClusterData;
                         ))}
                     </div>
                     <div style={{ minWidth: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                        <ThemeThumb data={data} t={t} i={0} T={T} mb={0} />
                         {(t.whatItMeans || t.implication) && (
                             <div><SectLabel T={T}>What it means</SectLabel><div style={{ fontSize: 11, lineHeight: 1.5, color: hex(T.INK), marginTop: 3, ...clamp(5) }}>{t.whatItMeans || t.implication}</div></div>
                         )}
@@ -539,6 +561,10 @@ export const RecommendationSlide: React.FC<{ title: string; data: Recommendation
                             )}
                         </div>
                     )}
+                    {/* 2026-06-28 TWIN-SYNC: per-recommendation EMOTIVE panel (Figma slot 678:5526 on
+                        detail 597:4, 560x140 banner; NU twin 625:1841). Non-dense branch only - the dense
+                        GOLD twin (614:5) is content-packed + image-free. Twin of slideToStageHtml .recimg. */}
+                    {r.panelImage && <img src={r.panelImage} alt="" style={{ width: '100%', aspectRatio: '560/140', objectFit: 'cover', display: 'block', borderRadius: 3, border: `1px solid ${hex(T.HAIRLINE)}`, marginTop: 4 }} />}
                 </div>
             </div>
             {r.implication && (
@@ -604,7 +630,7 @@ export const PersonaCardSlide: React.FC<{ data: PersonaCardData; sources?: strin
         <GoldFrame brand={brand} kicker="PERSONA" title={`${p.name}`} meta={p.demographics || srcMeta(sources)}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 18, flex: 1, minHeight: 0 }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minWidth: 0, overflow: 'hidden' }}>
-                    {imageUrl && <img src={imageUrl} alt={p.name} style={{ width: '100%', maxHeight: 120, objectFit: 'cover', borderRadius: 2 }} />}
+                    {imageUrl && <img src={imageUrl} alt={p.name} style={{ width: '100%', maxHeight: 120, objectFit: 'cover', objectPosition: 'center top', borderRadius: 2 }} />}
                     <div style={{ fontFamily: F.body, fontSize: 14, color: hex(T.GREY), ...clamp(2) }}>{p.role}</div>
                     {p.quote && <div style={{ fontFamily: F.body, fontSize: 14, lineHeight: 1.45, color: hex(T.INK), fontStyle: 'italic', borderLeft: `2px solid ${hex(T.CHARTREUSE)}`, padding: '5px 9px', background: hex(T.PANEL), ...clamp(4) }}>&ldquo;{p.quote}&rdquo;</div>}
                     {p.bio && <div style={{ fontSize: 11.5, lineHeight: 1.45, color: hex(T.INK), ...clamp(4) }}>{p.bio}</div>}
@@ -751,6 +777,15 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
     if (prose.length >= 2) {
         const top = prose.filter(r => r.tier !== 'second').slice(0, 3);
         const second = prose.filter(r => r.tier === 'second').slice(0, 6);
+        // 2026-06-28 carrier-to-renderer sync: peerImages[] is index-aligned to the ORIGINAL prose
+        // array (the resolver's elementField); look each row up by original position so the top/second
+        // filter does not lose the index (mirrors slideToStageHtml renderCompetitiveMatrix .etglyph).
+        const peerImages: string[] = Array.isArray(m.peerImages) ? m.peerImages : [];
+        const proseIdx = new Map(prose.map((r, idx) => [r, idx]));
+        const peerImg = (r: any): string => {
+            const idx = proseIdx.get(r);
+            return idx != null ? (peerImages[idx] || '') : '';
+        };
         const rowStyle = (isTop: boolean): React.CSSProperties => ({
             display: 'grid', gridTemplateColumns: '4px 120px 1.05fr 1.15fr 90px', gap: 10, alignItems: 'start',
             padding: isTop ? '10px 0' : '8px 0', borderBottom: `1px solid ${hex(T.HAIRLINE)}`,
@@ -765,7 +800,10 @@ export const CompetitiveMatrixSlide: React.FC<{ title: string; data: Competitive
                     {[...top.map(r => ({ r, isTop: true })), ...second.map(r => ({ r, isTop: false }))].map(({ r, isTop }, i) => (
                         <div key={i} style={rowStyle(isTop)}>
                             <div style={{ width: 3, height: '100%', background: isTop ? hex(T.CHARTREUSE) : 'transparent' }} />
-                            <div style={{ fontFamily: isTop ? `'${T.FONT_TITLE}', ${F.serifish}` : F.body, fontWeight: 600, fontSize: isTop ? 13 : 10.5, color: hex(T.INK), lineHeight: 1.2, ...clamp(2) }}>{r.name}</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 6, minWidth: 0, fontFamily: isTop ? `'${T.FONT_TITLE}', ${F.serifish}` : F.body, fontWeight: 600, fontSize: isTop ? 13 : 10.5, color: hex(T.INK), lineHeight: 1.2 }}>
+                                {peerImg(r) && <img src={peerImg(r)} alt="" style={{ width: 20, height: 20, flexShrink: 0, objectFit: 'contain', display: 'block' }} />}
+                                <span style={{ minWidth: 0, ...clamp(2) }}>{r.name}</span>
+                            </div>
                             <div style={{ fontSize: isTop ? 10.5 : 9.5, lineHeight: 1.3, color: isTop ? hex(T.ACCENT_WARN) : hex(T.INK), fontWeight: isTop ? 600 : 400, ...clamp(2) }}>{r.prove}</div>
                             <div style={{ fontSize: isTop ? 10 : 9, lineHeight: 1.3, color: hex(T.INK), ...clamp(2) }}>{r.implication}</div>
                             <div style={{ fontFamily: F.mono, fontSize: 7.5, letterSpacing: '0.5px', color: hex(T.GREY), textTransform: 'uppercase', lineHeight: 1.3, ...clamp(2) }}>{r.evidenceTag}</div>
@@ -887,6 +925,9 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
     const T = resolveT(brand); const F = fonts(T);
     const caps = densityCaps('prd-feature', density);
     const features = (data.features || []).slice(0, caps.items);
+    // 2026-06-28 carrier-to-renderer: per-feature tokenized emblem, index-aligned to features
+    // (registry prd-feature carrier featureImages, icon branch). Empty -> nothing (fail-open).
+    const featureImages = Array.isArray(data.featureImages) ? data.featureImages : [];
     const cols = features.length >= 5 ? 3 : features.length >= 3 ? 2 : 1;
     const dense = features.length >= 5;
     const priColor: Record<string, string> = { must: hex(T.CHARTREUSE), should: hex(T.ACCENT_COOL), could: hex(T.GREY), wont: hex(T.GREY) };
@@ -902,6 +943,7 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                         <div key={i} style={{ borderTop: `2px solid ${hex(T.INK)}`, padding: '11px 13px 9px 0', display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0, minHeight: 0, overflow: 'hidden' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
                                 <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: 24, lineHeight: 1, color: hex(T.CHARTREUSE) }}>{String(i + 1).padStart(2, '0')}</div>
+                                {featureImages[i] && <img src={featureImages[i]} alt="" style={{ width: 28, height: 28, flexShrink: 0, objectFit: 'contain', display: 'block' }} />}
                                 <div style={{ fontFamily: `'${T.FONT_TITLE}', ${F.serifish}`, fontWeight: Number(T.TITLE_WEIGHT), fontSize: 14.5, lineHeight: 1.15, color: hex(T.INK), flex: 1, minWidth: 0, ...clamp(2) }}>{f.name}</div>
                                 <div style={{ fontFamily: F.mono, fontWeight: 600, fontSize: 7.5, letterSpacing: '1px', textTransform: 'uppercase', padding: '3px 6px', background: hex(T.INK), color: hex(T.WHITE), flexShrink: 0 }}>{f.priority}</div>
                             </div>
@@ -939,7 +981,10 @@ export const PrdFeatureSlide: React.FC<{ title: string; data: PrdFeatureData; so
                 {features.map((f, i) => (
                     <div key={i} style={{ borderTop: `2px solid ${hex(T.CHARTREUSE)}`, paddingTop: 7, display: 'flex', flexDirection: 'column', gap: dense ? 3.5 : 5, minWidth: 0, overflow: 'hidden' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 7 }}>
-                            <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: dense ? 12.5 : 16.5, lineHeight: 1.1, color: hex(T.INK), ...clamp(2) }}>{f.name}</div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: 7, minWidth: 0 }}>
+                                {featureImages[i] && <img src={featureImages[i]} alt="" style={{ width: 24, height: 24, flexShrink: 0, objectFit: 'contain', display: 'block' }} />}
+                                <div style={{ fontFamily: F.display, fontWeight: 600, fontSize: dense ? 12.5 : 16.5, lineHeight: 1.1, color: hex(T.INK), ...clamp(2) }}>{f.name}</div>
+                            </div>
                             <div style={{ fontFamily: F.mono, fontSize: dense ? 7 : 8.5, letterSpacing: '1px', textTransform: 'uppercase', fontWeight: 700, padding: '2px 5px', color: priColor[f.priority] || hex(T.INK), border: '1.5px solid currentColor', flex: '0 0 auto' }}>{f.priority}</div>
                         </div>
                         {f.problemSolved && <div style={{ fontSize: dense ? 9 : 11.5, lineHeight: 1.45, color: hex(T.INK), ...clamp(3) }}>{f.problemSolved}</div>}

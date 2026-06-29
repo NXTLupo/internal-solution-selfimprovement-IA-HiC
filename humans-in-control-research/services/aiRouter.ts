@@ -477,6 +477,14 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 //     #case-study #roadmap #blueprint #brief #explainer #report ...) AND the
 //     #proto build pipeline's generation stages (brief, interaction spec, sim,
 //     design-system, build-recipe, code, critique).
+//   • VALIDATED EXCEPTION (2026-06-28): #gap (gap-matrix) + #journey (journey-map)
+//     → gemini-3.5-flash (temperature 0, deterministic). Bake-off-validated:
+//     plans/model-bakeoff-gap-journey-2026-06-28.md (Flash == Pro on both, 0
+//     fabricated citations, ~18x cheaper). ALL OTHER artifact hashtags remain
+//     Claude Opus 4.8. The other six schema-constrained deliverables (#blueprint
+//     #competitive #org #audit #arch #roadmap) are pending their own bake-off.
+//     Encoded as DELIVERABLE_MODEL_TIER in corpusChatService.ts (reversible:
+//     delete the map entry → Opus).
 //   • Cross-provider FALLBACK (resilience only, never by choice): Gemini, then
 //     (last) OpenAI for the GENERATED prototype's own runtime; the HiC BUILD path
 //     never uses GPT-5.5 (it rejects non-default temperature → HTTP 400, and is off-rule).

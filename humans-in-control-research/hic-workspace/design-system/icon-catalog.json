@@ -1,0 +1,1424 @@
+{
+  "_source": "humans-in-control-research/services/iconLibrary.ts (runtime authority)",
+  "count": 104,
+  "content": [
+    {
+      "id": "risk",
+      "tags": [
+        "risk",
+        "threat",
+        "exposure",
+        "vulnerability",
+        "hazard",
+        "warning"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "opportunity",
+      "tags": [
+        "opportunity",
+        "unlock",
+        "potential",
+        "access",
+        "key"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "growth",
+      "tags": [
+        "growth",
+        "expand",
+        "increase",
+        "momentum",
+        "scale-up"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "governance",
+      "tags": [
+        "governance",
+        "oversight",
+        "balance",
+        "fairness",
+        "control"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "compliance",
+      "tags": [
+        "compliance",
+        "regulation",
+        "standard",
+        "policy",
+        "checklist",
+        "audit"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "data",
+      "tags": [
+        "data",
+        "dataset",
+        "database",
+        "records",
+        "storage"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "insight",
+      "tags": [
+        "insight",
+        "finding",
+        "signal",
+        "discovery",
+        "spark",
+        "pattern"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "workflow",
+      "tags": [
+        "workflow",
+        "process",
+        "flow",
+        "sequence",
+        "orchestration"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "automation",
+      "tags": [
+        "automation",
+        "automate",
+        "agentic",
+        "engine",
+        "gear"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "integration",
+      "tags": [
+        "integration",
+        "connect",
+        "interoperate",
+        "api",
+        "link"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "people",
+      "tags": [
+        "people",
+        "stakeholders",
+        "users",
+        "audience",
+        "population"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "team",
+      "tags": [
+        "team",
+        "squad",
+        "group",
+        "collaboration",
+        "pod"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "customer",
+      "tags": [
+        "customer",
+        "client",
+        "member",
+        "patient",
+        "persona",
+        "service"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "time",
+      "tags": [
+        "time",
+        "duration",
+        "speed",
+        "latency",
+        "clock",
+        "when"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "roadmap",
+      "tags": [
+        "roadmap",
+        "horizon",
+        "journey",
+        "path",
+        "plan"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "milestone",
+      "tags": [
+        "milestone",
+        "deliverable",
+        "launch",
+        "release",
+        "flag"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "target",
+      "tags": [
+        "target",
+        "goal",
+        "objective",
+        "kpi",
+        "metric",
+        "aim"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "decision",
+      "tags": [
+        "decision",
+        "choice",
+        "gate",
+        "branch",
+        "evaluate"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "alert",
+      "tags": [
+        "alert",
+        "warning",
+        "incident",
+        "escalation",
+        "notify",
+        "bell"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "cost",
+      "tags": [
+        "cost",
+        "spend",
+        "budget",
+        "price",
+        "revenue",
+        "money",
+        "coin"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "value",
+      "tags": [
+        "value",
+        "benefit",
+        "worth",
+        "premium",
+        "gem"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "security",
+      "tags": [
+        "security",
+        "protect",
+        "safeguard",
+        "privacy",
+        "trust",
+        "shield"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "channel",
+      "tags": [
+        "channel",
+        "broadcast",
+        "reach",
+        "distribution",
+        "signal-out"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "network",
+      "tags": [
+        "network",
+        "ecosystem",
+        "graph",
+        "mesh",
+        "connections"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "document",
+      "tags": [
+        "document",
+        "report",
+        "brief",
+        "paper",
+        "file"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "search",
+      "tags": [
+        "search",
+        "discover",
+        "find",
+        "explore",
+        "research"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "ai",
+      "tags": [
+        "ai",
+        "model",
+        "ml",
+        "llm",
+        "intelligence",
+        "chip"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "feedback",
+      "tags": [
+        "feedback",
+        "loop",
+        "iterate",
+        "retrospective",
+        "cycle"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "scale",
+      "tags": [
+        "scale",
+        "tier",
+        "layers",
+        "stack",
+        "foundation"
+      ],
+      "usage": "",
+      "suits": []
+    },
+    {
+      "id": "churn",
+      "tags": [
+        "churn",
+        "attrition",
+        "leaving",
+        "drop-off",
+        "lost"
+      ],
+      "usage": "a customer/segment leaving or attriting",
+      "suits": [
+        "journey",
+        "funnelFlow",
+        "gap",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "retention",
+      "tags": [
+        "retention",
+        "keep",
+        "hold",
+        "anchor",
+        "stickiness"
+      ],
+      "usage": "holding/keeping customers over time",
+      "suits": [
+        "journey",
+        "roadmap",
+        "strategy"
+      ]
+    },
+    {
+      "id": "acquisition",
+      "tags": [
+        "acquisition",
+        "attract",
+        "inbound",
+        "magnet",
+        "capture"
+      ],
+      "usage": "attracting/acquiring new customers or leads",
+      "suits": [
+        "funnelFlow",
+        "strategy",
+        "competitive"
+      ]
+    },
+    {
+      "id": "conversion",
+      "tags": [
+        "conversion",
+        "convert",
+        "merge",
+        "funnel-out"
+      ],
+      "usage": "turning prospects into outcomes (two-into-one)",
+      "suits": [
+        "funnelFlow",
+        "journey"
+      ]
+    },
+    {
+      "id": "funnel",
+      "tags": [
+        "funnel",
+        "pipeline",
+        "narrowing",
+        "stages"
+      ],
+      "usage": "a narrowing pipeline / stage progression",
+      "suits": [
+        "funnelFlow",
+        "journey",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "segmentation",
+      "tags": [
+        "segmentation",
+        "segments",
+        "cohorts",
+        "grid",
+        "split"
+      ],
+      "usage": "dividing an audience/market into segments",
+      "suits": [
+        "personas",
+        "competitive",
+        "comparisonMatrix"
+      ]
+    },
+    {
+      "id": "personalization",
+      "tags": [
+        "personalization",
+        "tailored",
+        "individual",
+        "bespoke"
+      ],
+      "usage": "individually tailored experience",
+      "suits": [
+        "personas",
+        "journey",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "loyalty",
+      "tags": [
+        "loyalty",
+        "reward",
+        "medal",
+        "advocacy",
+        "devotion"
+      ],
+      "usage": "loyal/advocate customers; rewards",
+      "suits": [
+        "journey",
+        "personas",
+        "strategy"
+      ]
+    },
+    {
+      "id": "satisfaction",
+      "tags": [
+        "satisfaction",
+        "csat",
+        "happy",
+        "delight",
+        "smile"
+      ],
+      "usage": "customer satisfaction / positive sentiment",
+      "suits": [
+        "journey",
+        "gap",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "sentiment",
+      "tags": [
+        "sentiment",
+        "voice",
+        "opinion",
+        "feedback-voice",
+        "tone"
+      ],
+      "usage": "voice-of-customer / expressed sentiment",
+      "suits": [
+        "themes",
+        "personas",
+        "journey"
+      ]
+    },
+    {
+      "id": "adoption",
+      "tags": [
+        "adoption",
+        "uptake",
+        "usage-curve",
+        "rollout"
+      ],
+      "usage": "adoption / uptake over time (S-curve)",
+      "suits": [
+        "roadmap",
+        "strategy",
+        "journeyLine"
+      ]
+    },
+    {
+      "id": "engagement",
+      "tags": [
+        "engagement",
+        "interaction",
+        "tap",
+        "active"
+      ],
+      "usage": "active engagement / interaction",
+      "suits": [
+        "journey",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "tags": [
+        "onboarding",
+        "enter",
+        "welcome",
+        "setup",
+        "first-run"
+      ],
+      "usage": "onboarding / entry into a product",
+      "suits": [
+        "journey",
+        "prd",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "resolution",
+      "tags": [
+        "resolution",
+        "resolved",
+        "solved",
+        "closed"
+      ],
+      "usage": "an issue resolved / closed",
+      "suits": [
+        "journey",
+        "tech-audit",
+        "gap"
+      ]
+    },
+    {
+      "id": "backlog",
+      "tags": [
+        "backlog",
+        "queue",
+        "todo",
+        "workload"
+      ],
+      "usage": "a backlog / queue of work",
+      "suits": [
+        "prd",
+        "roadmap",
+        "tech-audit"
+      ]
+    },
+    {
+      "id": "throughput",
+      "tags": [
+        "throughput",
+        "flow-rate",
+        "volume",
+        "processed"
+      ],
+      "usage": "volume flowing through a system",
+      "suits": [
+        "operatingNetwork",
+        "flowSchematic",
+        "tech-arch"
+      ]
+    },
+    {
+      "id": "capacity",
+      "tags": [
+        "capacity",
+        "utilization",
+        "load",
+        "fill"
+      ],
+      "usage": "capacity / utilization level",
+      "suits": [
+        "tech-audit",
+        "tech-arch",
+        "instrumentDial"
+      ]
+    },
+    {
+      "id": "efficiency",
+      "tags": [
+        "efficiency",
+        "speed",
+        "fast",
+        "performance",
+        "energy"
+      ],
+      "usage": "efficiency / performance gain",
+      "suits": [
+        "recommendations",
+        "tech-audit",
+        "strategy"
+      ]
+    },
+    {
+      "id": "benchmark",
+      "tags": [
+        "benchmark",
+        "comparison",
+        "standard",
+        "bar-mark"
+      ],
+      "usage": "measuring against a benchmark/standard",
+      "suits": [
+        "competitive",
+        "gap",
+        "comparisonMatrix"
+      ]
+    },
+    {
+      "id": "forecast",
+      "tags": [
+        "forecast",
+        "projection",
+        "outlook",
+        "predict-ahead"
+      ],
+      "usage": "projecting a future trajectory",
+      "suits": [
+        "roadmap",
+        "strategy",
+        "timelineGantt"
+      ]
+    },
+    {
+      "id": "trend",
+      "tags": [
+        "trend",
+        "growth-line",
+        "trajectory",
+        "rising"
+      ],
+      "usage": "a rising trend / trajectory",
+      "suits": [
+        "themes",
+        "strategy",
+        "dataField"
+      ]
+    },
+    {
+      "id": "experiment",
+      "tags": [
+        "experiment",
+        "test",
+        "ab-test",
+        "trial",
+        "lab"
+      ],
+      "usage": "an experiment / A-B test",
+      "suits": [
+        "prd",
+        "roadmap",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "hypothesis",
+      "tags": [
+        "hypothesis",
+        "question",
+        "assumption",
+        "unknown"
+      ],
+      "usage": "an open question / assumption to test",
+      "suits": [
+        "gap",
+        "recommendations",
+        "themes"
+      ]
+    },
+    {
+      "id": "prototype",
+      "tags": [
+        "prototype",
+        "wireframe",
+        "mockup",
+        "draft-ui"
+      ],
+      "usage": "a prototype / wireframe",
+      "suits": [
+        "prd",
+        "proto",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "priority",
+      "tags": [
+        "priority",
+        "rank",
+        "top",
+        "escalate-up",
+        "important"
+      ],
+      "usage": "high priority / ranking up",
+      "suits": [
+        "recommendations",
+        "roadmap",
+        "gap"
+      ]
+    },
+    {
+      "id": "dependency",
+      "tags": [
+        "dependency",
+        "depends-on",
+        "prerequisite",
+        "linked"
+      ],
+      "usage": "one item depending on another",
+      "suits": [
+        "roadmap",
+        "tech-arch",
+        "flowSchematic"
+      ]
+    },
+    {
+      "id": "blocker",
+      "tags": [
+        "blocker",
+        "blocked",
+        "stop",
+        "impediment"
+      ],
+      "usage": "a blocker / impediment",
+      "suits": [
+        "roadmap",
+        "tech-audit",
+        "gap"
+      ]
+    },
+    {
+      "id": "handoff",
+      "tags": [
+        "handoff",
+        "transfer",
+        "pass",
+        "relay"
+      ],
+      "usage": "a handoff between people/teams",
+      "suits": [
+        "journey",
+        "service-blueprint",
+        "operatingNetwork"
+      ]
+    },
+    {
+      "id": "consent",
+      "tags": [
+        "consent",
+        "opt-in",
+        "permission",
+        "agree"
+      ],
+      "usage": "consent / opt-in / permission",
+      "suits": [
+        "journey",
+        "prd",
+        "tech-audit"
+      ]
+    },
+    {
+      "id": "privacy",
+      "tags": [
+        "privacy",
+        "hidden",
+        "confidential",
+        "masked"
+      ],
+      "usage": "privacy / data hidden from view",
+      "suits": [
+        "tech-audit",
+        "tech-arch",
+        "gap"
+      ]
+    },
+    {
+      "id": "transparency",
+      "tags": [
+        "transparency",
+        "visibility",
+        "open",
+        "observe",
+        "eye"
+      ],
+      "usage": "transparency / visibility",
+      "suits": [
+        "governance",
+        "tech-audit",
+        "strategy"
+      ]
+    },
+    {
+      "id": "accountability",
+      "tags": [
+        "accountability",
+        "ownership",
+        "responsible",
+        "raci"
+      ],
+      "usage": "clear ownership / accountability",
+      "suits": [
+        "operatingNetwork",
+        "org",
+        "service-blueprint"
+      ]
+    },
+    {
+      "id": "sustainability",
+      "tags": [
+        "sustainability",
+        "green",
+        "leaf",
+        "long-term",
+        "renewable"
+      ],
+      "usage": "sustainable / long-term / green",
+      "suits": [
+        "strategy",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "partnership",
+      "tags": [
+        "partnership",
+        "alliance",
+        "overlap",
+        "joint"
+      ],
+      "usage": "a partnership / alliance / overlap",
+      "suits": [
+        "competitive",
+        "strategy",
+        "operatingNetwork"
+      ]
+    },
+    {
+      "id": "contract",
+      "tags": [
+        "contract",
+        "agreement",
+        "signed",
+        "terms"
+      ],
+      "usage": "a contract / signed agreement",
+      "suits": [
+        "journey",
+        "prd",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "sla",
+      "tags": [
+        "sla",
+        "guarantee",
+        "uptime",
+        "commitment"
+      ],
+      "usage": "an SLA / time commitment guarantee",
+      "suits": [
+        "tech-audit",
+        "service-blueprint",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "incident",
+      "tags": [
+        "incident",
+        "outage",
+        "failure",
+        "event"
+      ],
+      "usage": "an incident / outage event",
+      "suits": [
+        "tech-audit",
+        "tech-arch",
+        "gap"
+      ]
+    },
+    {
+      "id": "monitoring",
+      "tags": [
+        "monitoring",
+        "observability",
+        "radar",
+        "watch",
+        "scan"
+      ],
+      "usage": "monitoring / observability",
+      "suits": [
+        "tech-audit",
+        "tech-arch",
+        "operatingNetwork"
+      ]
+    },
+    {
+      "id": "migration",
+      "tags": [
+        "migration",
+        "move",
+        "transfer-system",
+        "replatform"
+      ],
+      "usage": "migrating between systems",
+      "suits": [
+        "tech-arch",
+        "tech-audit",
+        "roadmap"
+      ]
+    },
+    {
+      "id": "campaign",
+      "tags": [
+        "campaign",
+        "announce",
+        "megaphone",
+        "promote",
+        "reach"
+      ],
+      "usage": "a marketing campaign / announcement",
+      "suits": [
+        "strategy",
+        "recommendations",
+        "journey"
+      ]
+    },
+    {
+      "id": "touchpoint",
+      "tags": [
+        "touchpoint",
+        "moment",
+        "contact-point",
+        "interaction-node"
+      ],
+      "usage": "a touchpoint / moment on a journey",
+      "suits": [
+        "journey",
+        "service-blueprint",
+        "journeyLine"
+      ]
+    }
+  ],
+  "industry": {
+    "healthcare": [
+      {
+        "id": "healthcare:heartbeat",
+        "tags": [
+          "vitals",
+          "monitoring",
+          "patient-health",
+          "pulse"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "healthcare"
+      },
+      {
+        "id": "healthcare:pill",
+        "tags": [
+          "medication",
+          "pharma",
+          "treatment",
+          "dose"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "healthcare"
+      },
+      {
+        "id": "healthcare:care",
+        "tags": [
+          "care",
+          "clinic",
+          "medical",
+          "cross"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "healthcare"
+      }
+    ],
+    "fintech": [
+      {
+        "id": "fintech:ledger",
+        "tags": [
+          "ledger",
+          "accounts",
+          "bookkeeping",
+          "statement"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "fintech"
+      },
+      {
+        "id": "fintech:coin",
+        "tags": [
+          "coin",
+          "token",
+          "currency",
+          "asset"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "fintech"
+      },
+      {
+        "id": "fintech:card",
+        "tags": [
+          "card",
+          "payment",
+          "rails",
+          "checkout"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "fintech"
+      },
+      {
+        "id": "fintech:fraud",
+        "tags": [
+          "fraud",
+          "risk-shield",
+          "block",
+          "protection"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "fintech"
+      }
+    ],
+    "financial-services": [
+      {
+        "id": "financial-services:bank",
+        "tags": [
+          "bank",
+          "institution",
+          "branch"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "financial-services"
+      },
+      {
+        "id": "financial-services:vault",
+        "tags": [
+          "vault",
+          "reserves",
+          "safe",
+          "custody"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "financial-services"
+      },
+      {
+        "id": "financial-services:portfolio",
+        "tags": [
+          "portfolio",
+          "advisory",
+          "wealth",
+          "briefcase"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "financial-services"
+      }
+    ],
+    "retail": [
+      {
+        "id": "retail:cart",
+        "tags": [
+          "cart",
+          "basket",
+          "purchase",
+          "checkout"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "retail"
+      },
+      {
+        "id": "retail:tag",
+        "tags": [
+          "tag",
+          "price",
+          "sku",
+          "promotion"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "retail"
+      },
+      {
+        "id": "retail:store",
+        "tags": [
+          "store",
+          "storefront",
+          "shop",
+          "outlet"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "retail"
+      }
+    ],
+    "ai-industry": [
+      {
+        "id": "ai-industry:robot",
+        "tags": [
+          "agent",
+          "assistant",
+          "bot",
+          "autonomous"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "ai-industry"
+      },
+      {
+        "id": "ai-industry:pipeline",
+        "tags": [
+          "pipeline",
+          "inference",
+          "chain",
+          "stages"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "ai-industry"
+      },
+      {
+        "id": "ai-industry:model",
+        "tags": [
+          "model",
+          "weights",
+          "architecture",
+          "foundation-model"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "ai-industry"
+      }
+    ],
+    "insurance": [
+      {
+        "id": "insurance:umbrella",
+        "tags": [
+          "coverage",
+          "protection",
+          "umbrella",
+          "cover"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "insurance"
+      },
+      {
+        "id": "insurance:policy",
+        "tags": [
+          "policy",
+          "contract",
+          "terms",
+          "claim-doc"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "insurance"
+      },
+      {
+        "id": "insurance:claim",
+        "tags": [
+          "claim",
+          "approved",
+          "shield-check",
+          "settlement"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "insurance"
+      }
+    ],
+    "higher-ed": [
+      {
+        "id": "higher-ed:cap",
+        "tags": [
+          "graduation",
+          "degree",
+          "academic",
+          "mortarboard"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "higher-ed"
+      },
+      {
+        "id": "higher-ed:book",
+        "tags": [
+          "book",
+          "curriculum",
+          "learning",
+          "study"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "higher-ed"
+      },
+      {
+        "id": "higher-ed:campus",
+        "tags": [
+          "campus",
+          "university",
+          "institution",
+          "building"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "higher-ed"
+      }
+    ],
+    "advancement": [
+      {
+        "id": "advancement:gift",
+        "tags": [
+          "gift",
+          "donation",
+          "giving",
+          "present"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "advancement"
+      },
+      {
+        "id": "advancement:heart",
+        "tags": [
+          "philanthropy",
+          "donor-love",
+          "support",
+          "heart"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "advancement"
+      },
+      {
+        "id": "advancement:pledge",
+        "tags": [
+          "pledge",
+          "award",
+          "recognition",
+          "ribbon"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "advancement"
+      }
+    ],
+    "workforce": [
+      {
+        "id": "workforce:org",
+        "tags": [
+          "org",
+          "hierarchy",
+          "structure",
+          "reporting"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "workforce"
+      },
+      {
+        "id": "workforce:badge",
+        "tags": [
+          "badge",
+          "employee",
+          "identity",
+          "role"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "workforce"
+      },
+      {
+        "id": "workforce:skill",
+        "tags": [
+          "skill",
+          "capability",
+          "competency",
+          "rating"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "workforce"
+      }
+    ],
+    "government": [
+      {
+        "id": "government:institution",
+        "tags": [
+          "government",
+          "public-sector",
+          "agency",
+          "capitol"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "government"
+      },
+      {
+        "id": "government:citizen",
+        "tags": [
+          "citizen",
+          "constituent",
+          "resident",
+          "public"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "government"
+      },
+      {
+        "id": "government:service",
+        "tags": [
+          "public-service",
+          "form",
+          "application",
+          "process"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "government"
+      }
+    ],
+    "creative-ai": [
+      {
+        "id": "creative-ai:brush",
+        "tags": [
+          "design",
+          "creative",
+          "brush",
+          "craft"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "creative-ai"
+      },
+      {
+        "id": "creative-ai:render",
+        "tags": [
+          "render",
+          "image",
+          "generation",
+          "output"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "creative-ai"
+      },
+      {
+        "id": "creative-ai:asset",
+        "tags": [
+          "asset",
+          "layers",
+          "library",
+          "composition"
+        ],
+        "usage": "",
+        "suits": [],
+        "industry": "creative-ai"
+      }
+    ]
+  }
+}

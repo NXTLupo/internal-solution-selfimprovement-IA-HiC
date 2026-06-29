@@ -1094,9 +1094,18 @@ Output JSON.`;
             const list = cand.map((t: any, i: number) =>
                 `${i}. ${String(t.name || '').slice(0, 90)} - ${String(t.description || '').slice(0, 160)}`
             ).join('\n');
-            const resp = await this.ai.models.generateContent({
-                model: 'gemini-3.5-flash',
-                contents: `RESEARCH OBJECTIVE: "${this.goal}"\n\n` +
+            // W2 — RELEVANCE RANKING CACHE (2026-06-28, model-usage-optimization
+            // §2 W2). This is ALREADY a single BATCHED call (every candidate theme
+            // scored in one request, not per-chunk), so W2(c) "batch N per call" is
+            // a no-op here. The remaining win is caching: the call is deterministic
+            // (temperature 0) over STABLE inputs (the theme list + research goal),
+            // so the same corpus+goal re-run produces a BYTE-IDENTICAL request body.
+            // Route it through the proxy `/api/ai/gemini` chokepoint (was a direct
+            // @google/genai SDK call that bypassed the cache) so the proxy's
+            // exact-match cache (shared sqlite, keyed on the full deterministic
+            // body) HITS on re-run and skips the provider call. Fail-open: any proxy
+            // error is caught by the surrounding try/catch and scoring is skipped.
+            const _relevancePrompt = `RESEARCH OBJECTIVE: "${this.goal}"\n\n` +
                     `Score EACH candidate theme 0-100 on how directly it helps answer this research ` +
                     `objective. Use the FULL range:\n` +
                     `  90-100 = squarely on the objective's core subject AND problem.\n` +
@@ -1109,9 +1118,20 @@ Output JSON.`;
                     `  0      = genuinely irrelevant: a different problem in a different domain, no transferable lesson.\n` +
                     `Judge by SUBJECT and PROBLEM, not a shared buzzword (e.g. "AI"). Relevance is the ONLY ` +
                     `axis: do NOT penalize a theme for being single-source or thin. When uncertain, score HIGHER.\n\n` +
-                    `THEMES:\n${list}\n\nReturn ONLY JSON: {"scores":[{"i":<index>,"r":<0-100>}]}`,
-                config: { temperature: 0, responseMimeType: 'application/json' } as any,
-            });
+                    `THEMES:\n${list}\n\nReturn ONLY JSON: {"scores":[{"i":<index>,"r":<0-100>}]}`;
+            const { callAIWithRetry } = await import('./aiRetryClient');
+            const resp: any = await callAIWithRetry('gemini', {
+                model: 'gemini-3.5-flash',
+                contents: _relevancePrompt,
+                // temperature 0 (deterministic) + JSON mode -> proxy exact-cache eligible.
+                config: { temperature: 0, responseMimeType: 'application/json' },
+            }, { label: 'themes:relevance-score (Gemini Flash)', maxAttempts: 2, requestTimeoutMs: 120_000 });
+            // Synthesize the SDK `.text` convenience field from the proxy's raw
+            // Gemini REST shape (candidates[0].content.parts[].text).
+            if (resp && typeof resp.text !== 'string') {
+                const _parts = resp?.candidates?.[0]?.content?.parts || [];
+                resp.text = _parts.filter((p: any) => typeof p?.text === 'string').map((p: any) => p.text).join('\n');
+            }
             recordDirectGeminiCall('themes:relevance-score', 'gemini-3.5-flash', resp);
             let txt = (resp.text || '').trim();
             if (txt.includes('```')) txt = txt.replace(/```json|```/g, '').trim();
@@ -3022,24 +3042,38 @@ Now produce the depth JSON object per the schema in your system instructions.`;
         // branch (HiC-Gemini-Primary).
         let depth: any = null;
         try {
-            const response = await withRetry<GenerateContentResponse>(
-                () => this.ai.models.generateContent({
-                    model: 'gemini-3.1-pro-preview',
-                    contents: [{
-                        role: 'user',
-                        parts: [{ text: `SYSTEM:\n${sysPrompt}\n\nUSER:\n${userPrompt}` }],
-                    }],
-                    config: {
-                        temperature: 0,  // 2026-06-02 determinism-first: depth enrichment deterministic per theme
-                        seed: 42,
-                        maxOutputTokens: 8000,
-                        responseMimeType: 'application/json',
-                    } as any,
-                }),
-                3,
-                3000,
-                'Theme depth (Gemini Pro)',
-            );
+            // W4 — THEME SYNTHESIS CACHE (2026-06-28, model-usage-optimization §2 W4).
+            // Per-theme depth ENRICHMENT is the temp-0 (+seed 42) DETERMINISTIC
+            // sub-step of theme synthesis. Its prompt is built ONLY from stable,
+            // already-finalized inputs (theme name/description/quote/citations + the
+            // research goal), so the same corpus+goal re-run produces a BYTE-IDENTICAL
+            // request body. Routing it through the proxy `/api/ai/gemini` chokepoint
+            // (was a direct @google/genai SDK call that bypassed the cache) makes it
+            // exact-cache eligible -> re-runs replay the stored synthesis at $0 and
+            // skip the provider call. The temp-0.2/0.4 DIVERSITY/breadth passes are
+            // deliberately NOT routed here (VS needs variation). Invalidation is
+            // implicit: any wiki write that changes a theme changes the prompt body
+            // -> new key -> miss. Fail-open via the surrounding try/catch.
+            const { callAIWithRetry } = await import('./aiRetryClient');
+            const response: any = await callAIWithRetry('gemini', {
+                model: 'gemini-3.1-pro-preview',
+                contents: [{
+                    role: 'user',
+                    parts: [{ text: `SYSTEM:\n${sysPrompt}\n\nUSER:\n${userPrompt}` }],
+                }],
+                config: {
+                    temperature: 0,  // 2026-06-02 determinism-first: depth enrichment deterministic per theme
+                    seed: 42,
+                    maxOutputTokens: 8000,
+                    responseMimeType: 'application/json',
+                },
+            }, { label: 'themes:depth (Gemini Pro)', maxAttempts: 3, requestTimeoutMs: 180_000 });
+            // Synthesize the SDK `.text` convenience field from the proxy's raw
+            // Gemini REST shape (candidates[0].content.parts[].text).
+            if (response && typeof response.text !== 'string') {
+                const _parts = response?.candidates?.[0]?.content?.parts || [];
+                response.text = _parts.filter((p: any) => typeof p?.text === 'string').map((p: any) => p.text).join('\n');
+            }
             recordDirectGeminiCall('themes:depth', 'gemini-3.1-pro-preview', response);
             const rawText = response.text || '';
             try {

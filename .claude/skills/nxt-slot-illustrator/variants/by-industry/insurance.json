@@ -1,0 +1,2893 @@
+[
+ {
+  "id": "insurance-dia-01",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "combined-ratio-gauge",
+  "title": "Combined-ratio gauge",
+  "subtitle": "Underwriting profit threshold at 100 percent",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 97,
+   "segments": 10,
+   "seed": 4900
+  }
+ },
+ {
+  "id": "insurance-dat-01",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "loss-ratio-by-line",
+  "title": "Loss ratio by line of business",
+  "subtitle": "Incurred losses over earned premium per line",
+  "artifacts": [
+   "slides",
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    9,
+    5,
+    8,
+    6,
+    4,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4901,
+   "mean": true,
+   "highlight": 1
+  }
+ },
+ {
+  "id": "insurance-fun-01",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "quote-to-bind-funnel",
+  "title": "Quote-to-bind funnel",
+  "subtitle": "Conversion from quote request to bound policy",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    38,
+    21,
+    14
+   ],
+   "seed": 4902
+  }
+ },
+ {
+  "id": "insurance-jou-01",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "claims-cycle-journey",
+  "title": "Claims cycle journey",
+  "subtitle": "From first notice of loss to settlement",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 4903
+  }
+ },
+ {
+  "id": "insurance-pro-01",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "distribution-channel-mix",
+  "title": "Distribution channel mix",
+  "subtitle": "Premium share by agent, direct, and broker",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    44,
+    33,
+    23
+   ],
+   "seed": 4904
+  }
+ },
+ {
+  "id": "insurance-dat-02",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "catastrophe-exposure-by-region",
+  "title": "Catastrophe exposure by region",
+  "subtitle": "Modeled annual aggregate loss by territory",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    6,
+    8,
+    4,
+    7,
+    5,
+    3
+   ],
+   "sort": "desc",
+   "seed": 4905,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "insurance-flo-01",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "claims-processing-architecture",
+  "title": "Claims-processing architecture",
+  "subtitle": "Intake, triage, adjudication, and payout systems",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4906
+  }
+ },
+ {
+  "id": "insurance-net-01",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "reinsurance-tower-network",
+  "title": "Reinsurance tower network",
+  "subtitle": "Cedant, layers, and reinsurer panel",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4907
+  }
+ },
+ {
+  "id": "insurance-rad-01",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "underwriting-maturity-radar",
+  "title": "Underwriting maturity radar",
+  "subtitle": "Current versus target capability across six axes",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.4,
+    0.7,
+    0.5,
+    0.3,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.9,
+    0.8,
+    0.7,
+    0.9
+   ],
+   "seed": 4908
+  }
+ },
+ {
+  "id": "insurance-gan-01",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "rate-filing-roadmap",
+  "title": "Rate-filing roadmap",
+  "subtitle": "Filing, approval, and effective-date sequence",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4909
+  }
+ },
+ {
+  "id": "insurance-cap-01",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "claims-technology-stack",
+  "title": "Claims technology stack",
+  "subtitle": "From intake portal to payment rails",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4910
+  }
+ },
+ {
+  "id": "insurance-mat-01",
+  "family": "in_losstri",
+  "industry": "insurance",
+  "framework": "carrier-benchmark-matrix",
+  "title": "Carrier benchmark matrix",
+  "subtitle": "Peer carriers scored across performance axes",
+  "artifacts": [
+   "competitive",
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.6,
+     0.3
+    ],
+    [
+     0.7,
+     0.4,
+     0.8,
+     0.6
+    ]
+   ],
+   "seed": 4911
+  }
+ },
+ {
+  "id": "insurance-dat-03",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "claim-severity-distribution",
+  "title": "Claim severity distribution",
+  "subtitle": "Cost per claim across severity bands",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4912,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "insurance-dia-02",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "rate-adequacy-dial",
+  "title": "Rate adequacy dial",
+  "subtitle": "Achieved rate against indicated need",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 83,
+   "segments": 10,
+   "seed": 4913
+  }
+ },
+ {
+  "id": "insurance-pro-02",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "premium-mix-by-line",
+  "title": "Premium mix by line",
+  "subtitle": "Earned premium split across P&C, life, and health",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    40,
+    28,
+    20,
+    12
+   ],
+   "seed": 4914
+  }
+ },
+ {
+  "id": "insurance-jou-02",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "policyholder-renewal-journey",
+  "title": "Policyholder renewal journey",
+  "subtitle": "From renewal notice to repurchase decision",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4915
+  }
+ },
+ {
+  "id": "insurance-fun-02",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "underwriting-funnel",
+  "title": "Underwriting funnel",
+  "subtitle": "Submission to issued-policy conversion",
+  "artifacts": [
+   "slides",
+   "gap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    70,
+    45,
+    30,
+    18
+   ],
+   "seed": 4916
+  }
+ },
+ {
+  "id": "insurance-dat-04",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "loss-reserve-development",
+  "title": "Loss reserve development",
+  "subtitle": "Reserve adjustments by accident year",
+  "artifacts": [
+   "report",
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    5,
+    7,
+    4,
+    8,
+    3
+   ],
+   "sort": "none",
+   "seed": 4917,
+   "mean": true
+  }
+ },
+ {
+  "id": "insurance-net-02",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "broker-distribution-network",
+  "title": "Broker distribution network",
+  "subtitle": "Carrier hub to broker and agency nodes",
+  "artifacts": [
+   "org",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 4918
+  }
+ },
+ {
+  "id": "insurance-mat-02",
+  "family": "in_losstri",
+  "industry": "insurance",
+  "framework": "line-profitability-matrix",
+  "title": "Line profitability matrix",
+  "subtitle": "Growth versus margin by product line",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.4,
+     0.9,
+     0.6
+    ],
+    [
+     0.6,
+     0.3,
+     0.7
+    ]
+   ],
+   "seed": 4919
+  }
+ },
+ {
+  "id": "insurance-rad-02",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "claims-digital-maturity",
+  "title": "Claims digital maturity",
+  "subtitle": "Automation readiness across claim functions",
+  "artifacts": [
+   "gap",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.3,
+    0.7,
+    0.4,
+    0.5,
+    0.6
+   ],
+   "target": [
+    0.8,
+    0.9,
+    0.7,
+    0.9,
+    0.8,
+    0.8,
+    0.9
+   ],
+   "seed": 4920
+  }
+ },
+ {
+  "id": "insurance-cap-02",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "underwriting-data-stack",
+  "title": "Underwriting data stack",
+  "subtitle": "From third-party data to pricing engine",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 4,
+   "seed": 4921
+  }
+ },
+ {
+  "id": "insurance-gan-02",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "claims-cycle-time-gantt",
+  "title": "Claims cycle-time gantt",
+  "subtitle": "Stage durations from FNOL to closure",
+  "artifacts": [
+   "roadmap",
+   "blueprint",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 4,
+   "milestone": 5,
+   "seed": 4922
+  }
+ },
+ {
+  "id": "insurance-dat-05",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "fraud-flag-rate-by-line",
+  "title": "Fraud flag rate by line",
+  "subtitle": "Flagged claims as share of volume",
+  "artifacts": [
+   "slides",
+   "audit",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    4,
+    9,
+    3,
+    6,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4923,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "insurance-dia-03",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "renewal-retention-dial",
+  "title": "Renewal retention dial",
+  "subtitle": "Policies retained at renewal",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 89,
+   "segments": 10,
+   "seed": 4924
+  }
+ },
+ {
+  "id": "insurance-sec-01",
+  "family": "sectionMark",
+  "industry": "insurance",
+  "framework": "underwriting-section-mark",
+  "title": "Underwriting and pricing",
+  "subtitle": "Section divider for underwriting analyses",
+  "artifacts": [
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 1,
+   "seed": 4925
+  }
+ },
+ {
+  "id": "insurance-pro-03",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "expense-ratio-breakdown",
+  "title": "Expense ratio breakdown",
+  "subtitle": "Acquisition, admin, and commission shares",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    38,
+    34,
+    28
+   ],
+   "seed": 4926
+  }
+ },
+ {
+  "id": "insurance-flo-02",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "fnol-intake-flow",
+  "title": "FNOL intake flow",
+  "subtitle": "First notice of loss routing logic",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4927
+  }
+ },
+ {
+  "id": "insurance-jou-03",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "new-business-onboarding-journey",
+  "title": "New business onboarding journey",
+  "subtitle": "From application to first policy in force",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    1,
+    3,
+    5
+   ],
+   "seed": 4928
+  }
+ },
+ {
+  "id": "insurance-dat-06",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "combined-ratio-by-segment",
+  "title": "Combined ratio by segment",
+  "subtitle": "Underwriting result across customer segments",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    9,
+    6,
+    5
+   ],
+   "sort": "desc",
+   "seed": 4929,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "insurance-mat-03",
+  "family": "in_losstri",
+  "industry": "insurance",
+  "framework": "reinsurer-panel-scorecard",
+  "title": "Reinsurer panel scorecard",
+  "subtitle": "Capacity and rating across reinsurers",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.7,
+     0.6,
+     0.8
+    ],
+    [
+     0.6,
+     0.8,
+     0.9,
+     0.5
+    ],
+    [
+     0.7,
+     0.5,
+     0.7,
+     0.9
+    ]
+   ],
+   "seed": 4930
+  }
+ },
+ {
+  "id": "insurance-rad-03",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "distribution-maturity-radar",
+  "title": "Distribution maturity radar",
+  "subtitle": "Channel capability current and target",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.4,
+    0.7,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.7,
+    0.9,
+    0.8
+   ],
+   "seed": 4931
+  }
+ },
+ {
+  "id": "insurance-net-03",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "claims-vendor-ecosystem",
+  "title": "Claims vendor ecosystem",
+  "subtitle": "Adjusters, repairers, and SIU partners",
+  "artifacts": [
+   "org",
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "mesh",
+   "seed": 4932
+  }
+ },
+ {
+  "id": "insurance-cap-03",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "pricing-engine-stack",
+  "title": "Pricing engine stack",
+  "subtitle": "From rating tables to bind decision",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4933
+  }
+ },
+ {
+  "id": "insurance-fun-03",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "claims-recovery-funnel",
+  "title": "Claims recovery funnel",
+  "subtitle": "Subrogation and salvage recovery stages",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    32,
+    19
+   ],
+   "seed": 4934
+  }
+ },
+ {
+  "id": "insurance-dia-04",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "loss-ratio-gauge",
+  "title": "Loss ratio gauge",
+  "subtitle": "Incurred loss against earned premium",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 64,
+   "segments": 10,
+   "seed": 4935
+  }
+ },
+ {
+  "id": "insurance-gan-03",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "catastrophe-response-timeline",
+  "title": "Catastrophe response timeline",
+  "subtitle": "Event to mass-claims resolution sequence",
+  "artifacts": [
+   "roadmap",
+   "blueprint",
+   "slides"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4936
+  }
+ },
+ {
+  "id": "insurance-dat-07",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "premium-growth-by-line",
+  "title": "Premium growth by line",
+  "subtitle": "Year-over-year written premium change",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    8,
+    4,
+    9,
+    5,
+    7
+   ],
+   "sort": "desc",
+   "seed": 4937,
+   "mean": true,
+   "highlight": 3
+  }
+ },
+ {
+  "id": "insurance-pro-04",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "reinsurance-cession-mix",
+  "title": "Reinsurance cession mix",
+  "subtitle": "Ceded premium by treaty type",
+  "artifacts": [
+   "strategy",
+   "report",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    45,
+    30,
+    25
+   ],
+   "seed": 4938
+  }
+ },
+ {
+  "id": "insurance-jou-04",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "fraud-investigation-journey",
+  "title": "Fraud investigation journey",
+  "subtitle": "From red flag to SIU disposition",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4939
+  }
+ },
+ {
+  "id": "insurance-mat-04",
+  "family": "in_losstri",
+  "industry": "insurance",
+  "framework": "channel-economics-matrix",
+  "title": "Channel economics matrix",
+  "subtitle": "Acquisition cost versus retention by channel",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.4,
+     0.8
+    ],
+    [
+     0.5,
+     0.8,
+     0.6
+    ],
+    [
+     0.9,
+     0.5,
+     0.7
+    ]
+   ],
+   "seed": 4940
+  }
+ },
+ {
+  "id": "insurance-rad-04",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "fraud-detection-maturity",
+  "title": "Fraud detection maturity",
+  "subtitle": "SIU capability current versus target",
+  "artifacts": [
+   "gap",
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.6,
+    0.3,
+    0.5,
+    0.4
+   ],
+   "target": [
+    0.8,
+    0.9,
+    0.8,
+    0.7,
+    0.8,
+    0.8
+   ],
+   "seed": 4941
+  }
+ },
+ {
+  "id": "insurance-flo-03",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "underwriting-decision-flow",
+  "title": "Underwriting decision flow",
+  "subtitle": "Refer, decline, and accept logic",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4942
+  }
+ },
+ {
+  "id": "insurance-net-04",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "agency-management-network",
+  "title": "Agency management network",
+  "subtitle": "Field offices to independent agencies",
+  "artifacts": [
+   "org",
+   "strategy",
+   "competitive"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "radial",
+   "seed": 4943
+  }
+ },
+ {
+  "id": "insurance-cap-04",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "reserving-analytics-stack",
+  "title": "Reserving analytics stack",
+  "subtitle": "From claims data to reserve estimate",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4944
+  }
+ },
+ {
+  "id": "insurance-dat-08",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "catastrophe-loss-by-peril",
+  "title": "Catastrophe loss by peril",
+  "subtitle": "Modeled loss across natural perils",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    5,
+    8,
+    4,
+    3,
+    6
+   ],
+   "sort": "desc",
+   "seed": 4945,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "insurance-dia-05",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "reserve-adequacy-dial",
+  "title": "Reserve adequacy dial",
+  "subtitle": "Held reserves against indicated ultimate",
+  "artifacts": [
+   "slides",
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 95,
+   "segments": 10,
+   "seed": 4946
+  }
+ },
+ {
+  "id": "insurance-fun-04",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "lead-to-policy-funnel",
+  "title": "Lead-to-policy funnel",
+  "subtitle": "Marketing lead to issued policy",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    36,
+    22,
+    13
+   ],
+   "seed": 4947
+  }
+ },
+ {
+  "id": "insurance-gan-04",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "reinsurance-renewal-gantt",
+  "title": "Reinsurance renewal gantt",
+  "subtitle": "Treaty negotiation and placement schedule",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4948
+  }
+ },
+ {
+  "id": "insurance-pro-05",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "claim-cost-composition",
+  "title": "Claim cost composition",
+  "subtitle": "Indemnity, LAE, and recovery shares",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    55,
+    30,
+    15
+   ],
+   "seed": 4949
+  }
+ },
+ {
+  "id": "insurance-jou-05",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "digital-claims-journey",
+  "title": "Digital claims journey",
+  "subtitle": "App-based self-service from photo to payout",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    3
+   ],
+   "seed": 4950
+  }
+ },
+ {
+  "id": "insurance-mat-05",
+  "family": "in_losstri",
+  "industry": "insurance",
+  "framework": "insurtech-capability-matrix",
+  "title": "Insurtech capability matrix",
+  "subtitle": "Digital incumbents versus startup challengers",
+  "artifacts": [
+   "competitive",
+   "strategy",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.6,
+     0.9,
+     0.5,
+     0.7
+    ],
+    [
+     0.8,
+     0.4,
+     0.7,
+     0.6
+    ],
+    [
+     0.5,
+     0.8,
+     0.6,
+     0.9
+    ]
+   ],
+   "seed": 4951
+  }
+ },
+ {
+  "id": "insurance-dat-09",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "renewal-rate-by-cohort",
+  "title": "Renewal rate by cohort",
+  "subtitle": "Retention across tenure cohorts",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "sort": "asc",
+   "seed": 4952,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "insurance-rad-05",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "pricing-sophistication-radar",
+  "title": "Pricing sophistication radar",
+  "subtitle": "Rating capability current and target",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.7,
+    0.4,
+    0.6,
+    0.5,
+    0.3
+   ],
+   "target": [
+    0.9,
+    0.9,
+    0.8,
+    0.8,
+    0.8,
+    0.7
+   ],
+   "seed": 4953
+  }
+ },
+ {
+  "id": "insurance-net-05",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "catastrophe-modeling-network",
+  "title": "Catastrophe modeling network",
+  "subtitle": "Exposure data to capital decisions",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "spine",
+   "seed": 4954
+  }
+ },
+ {
+  "id": "insurance-cap-05",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "fraud-analytics-stack",
+  "title": "Fraud analytics stack",
+  "subtitle": "From signals to SIU referral",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 1,
+   "seed": 4955
+  }
+ },
+ {
+  "id": "insurance-fun-05",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "submission-triage-funnel",
+  "title": "Submission triage funnel",
+  "subtitle": "Inbound submissions to quotable risks",
+  "artifacts": [
+   "slides",
+   "gap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    64,
+    41,
+    25
+   ],
+   "seed": 4956
+  }
+ },
+ {
+  "id": "insurance-dia-06",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "expense-ratio-gauge",
+  "title": "Expense ratio gauge",
+  "subtitle": "Operating expense against premium",
+  "artifacts": [
+   "slides",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 29,
+   "segments": 10,
+   "seed": 4957
+  }
+ },
+ {
+  "id": "insurance-dat-10",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "claims-cycle-time-by-line",
+  "title": "Claims cycle time by line",
+  "subtitle": "Days to settle across product lines",
+  "artifacts": [
+   "slides",
+   "blueprint",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    9,
+    5,
+    7,
+    4
+   ],
+   "sort": "desc",
+   "seed": 4958,
+   "mean": true,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "insurance-gan-05",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "digital-claims-rollout",
+  "title": "Digital claims rollout",
+  "subtitle": "Phased self-service deployment by line",
+  "artifacts": [
+   "roadmap",
+   "prd",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4959
+  }
+ },
+ {
+  "id": "insurance-pro-06",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "capital-allocation-mix",
+  "title": "Capital allocation mix",
+  "subtitle": "Risk capital across business lines",
+  "artifacts": [
+   "strategy",
+   "report",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    35,
+    25,
+    22,
+    18
+   ],
+   "seed": 4960
+  }
+ },
+ {
+  "id": "insurance-jou-06",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "quote-shopping-journey",
+  "title": "Quote shopping journey",
+  "subtitle": "Buyer path from research to purchase",
+  "artifacts": [
+   "journey",
+   "personas",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4961
+  }
+ },
+ {
+  "id": "insurance-mat-06",
+  "family": "in_losstri",
+  "industry": "insurance",
+  "framework": "peril-coverage-matrix",
+  "title": "Peril coverage matrix",
+  "subtitle": "Coverage depth across perils and lines",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.4,
+     0.9,
+     0.6,
+     0.8
+    ],
+    [
+     0.7,
+     0.5,
+     0.8,
+     0.6
+    ]
+   ],
+   "seed": 4962
+  }
+ },
+ {
+  "id": "insurance-rad-06",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "reinsurance-program-maturity",
+  "title": "Reinsurance program maturity",
+  "subtitle": "Cession strategy current and target",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.5,
+    0.7,
+    0.4,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.9,
+    0.7,
+    0.8
+   ],
+   "seed": 4963
+  }
+ },
+ {
+  "id": "insurance-flo-04",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "reserving-pipeline-flow",
+  "title": "Reserving pipeline flow",
+  "subtitle": "Triangle build to booked reserve",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4964
+  }
+ },
+ {
+  "id": "insurance-dat-11",
+  "family": "dataField",
+  "industry": "insurance",
+  "framework": "loss-ratio-trend-by-quarter",
+  "title": "Loss ratio trend by quarter",
+  "subtitle": "Quarterly incurred loss movement",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    7,
+    5,
+    8,
+    6,
+    9
+   ],
+   "sort": "none",
+   "seed": 4965,
+   "mean": true,
+   "highlight": 5
+  }
+ },
+ {
+  "id": "insurance-net-06",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "underwriting-authority-network",
+  "title": "Underwriting authority network",
+  "subtitle": "Delegated authority across teams",
+  "artifacts": [
+   "org",
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "hub2",
+   "seed": 4966
+  }
+ },
+ {
+  "id": "insurance-cap-06",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "policy-admin-stack",
+  "title": "Policy administration stack",
+  "subtitle": "From quote to endorsement to renewal",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 0,
+   "seed": 4967
+  }
+ },
+ {
+  "id": "insurance-fun-06",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "claim-leakage-funnel",
+  "title": "Claim leakage funnel",
+  "subtitle": "Where indemnity dollars are lost",
+  "artifacts": [
+   "slides",
+   "audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    72,
+    48,
+    30,
+    16
+   ],
+   "seed": 4968
+  }
+ },
+ {
+  "id": "insurance-dia-07",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "solvency-ratio-dial",
+  "title": "Solvency ratio dial",
+  "subtitle": "Capital held against required minimum",
+  "artifacts": [
+   "slides",
+   "report",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 78,
+   "segments": 10,
+   "seed": 4969
+  }
+ },
+ {
+  "id": "insurance-pro-07",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "book-mix-by-risk-grade",
+  "title": "Book mix by risk grade",
+  "subtitle": "Portfolio split across risk tiers",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    30,
+    40,
+    20,
+    10
+   ],
+   "seed": 4970
+  }
+ },
+ {
+  "id": "insurance-jou-07",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "life-underwriting-journey",
+  "title": "Life underwriting journey",
+  "subtitle": "Application to issue for life products",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    4,
+    6
+   ],
+   "seed": 4971
+  }
+ },
+ {
+  "id": "insurance-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "insurance",
+  "framework": "segment-attractiveness-matrix",
+  "title": "Segment attractiveness matrix",
+  "subtitle": "Profitability versus growth by segment",
+  "artifacts": [
+   "strategy",
+   "slides",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.8,
+     0.5
+    ],
+    [
+     0.6,
+     0.4,
+     0.9
+    ],
+    [
+     0.8,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 4972
+  }
+ },
+ {
+  "id": "insurance-rad-07",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "data-capability-radar",
+  "title": "Data capability radar",
+  "subtitle": "Analytics maturity current and target",
+  "artifacts": [
+   "gap",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.5,
+    0.3,
+    0.4,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.9,
+    0.8,
+    0.7,
+    0.8,
+    0.8
+   ],
+   "seed": 4973
+  }
+ },
+ {
+  "id": "insurance-sec-02",
+  "family": "sectionMark",
+  "industry": "insurance",
+  "framework": "distribution-section-mark",
+  "title": "Distribution and growth",
+  "subtitle": "Section divider for distribution analyses",
+  "artifacts": [
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "ordinal": 2,
+   "seed": 4974
+  }
+ },
+ {
+  "id": "insurance-flo-05",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "digital-quote-flow",
+  "title": "Digital quote flow",
+  "subtitle": "Self-serve quote and bind path",
+  "artifacts": [
+   "blueprint",
+   "prd",
+   "journey"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4975
+  }
+ },
+ {
+  "id": "insurance-net-07",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "health-provider-network",
+  "title": "Health provider network",
+  "subtitle": "Plan to provider and member nodes",
+  "artifacts": [
+   "org",
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 12,
+   "layout": "mesh",
+   "seed": 4976
+  }
+ },
+ {
+  "id": "insurance-cap-07",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "distribution-tech-stack",
+  "title": "Distribution technology stack",
+  "subtitle": "From CRM to agent portal",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4977
+  }
+ },
+ {
+  "id": "insurance-fun-07",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "renewal-retention-funnel",
+  "title": "Renewal retention funnel",
+  "subtitle": "Up-for-renewal to retained book",
+  "artifacts": [
+   "slides",
+   "strategy",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    84,
+    71,
+    62
+   ],
+   "seed": 4978
+  }
+ },
+ {
+  "id": "insurance-gan-06",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "core-system-migration",
+  "title": "Core system migration",
+  "subtitle": "Legacy retirement to platform cutover",
+  "artifacts": [
+   "roadmap",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4979
+  }
+ },
+ {
+  "id": "insurance-dia-08",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "first-contact-resolution-dial",
+  "title": "First contact resolution dial",
+  "subtitle": "Claims resolved on first interaction",
+  "artifacts": [
+   "slides",
+   "blueprint",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4980
+  }
+ },
+ {
+  "id": "insurance-pro-08",
+  "family": "proportionStack",
+  "industry": "insurance",
+  "framework": "reserve-by-accident-year",
+  "title": "Reserve by accident year",
+  "subtitle": "Outstanding reserve share by year",
+  "artifacts": [
+   "slides",
+   "report",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    40,
+    30,
+    20,
+    10
+   ],
+   "seed": 4981
+  }
+ },
+ {
+  "id": "insurance-jou-08",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "broker-servicing-journey",
+  "title": "Broker servicing journey",
+  "subtitle": "From submission to commission settlement",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "org"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    1,
+    4
+   ],
+   "seed": 4982
+  }
+ },
+ {
+  "id": "insurance-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "insurance",
+  "framework": "vendor-platform-matrix",
+  "title": "Vendor platform matrix",
+  "subtitle": "Core platform vendors across criteria",
+  "artifacts": [
+   "tech-audit",
+   "competitive",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7,
+     0.5
+    ],
+    [
+     0.5,
+     0.9,
+     0.6,
+     0.7
+    ],
+    [
+     0.7,
+     0.4,
+     0.8,
+     0.6
+    ]
+   ],
+   "seed": 4983
+  }
+ },
+ {
+  "id": "insurance-rad-08",
+  "family": "maturityRadar",
+  "industry": "insurance",
+  "framework": "customer-experience-radar",
+  "title": "Customer experience radar",
+  "subtitle": "Service maturity current and target",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.4,
+    0.7,
+    0.5,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.7,
+    0.9,
+    0.8,
+    0.9
+   ],
+   "seed": 4984
+  }
+ },
+ {
+  "id": "insurance-net-08",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "claims-supply-chain-network",
+  "title": "Claims supply chain network",
+  "subtitle": "Repairers, parts, and rental partners",
+  "artifacts": [
+   "org",
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "spine",
+   "seed": 4985
+  }
+ },
+ {
+  "id": "insurance-cap-08",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "life-product-stack",
+  "title": "Life product stack",
+  "subtitle": "From mortality data to in-force admin",
+  "artifacts": [
+   "arch",
+   "prd",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4986
+  }
+ },
+ {
+  "id": "insurance-fun-08",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "agent-recruiting-funnel",
+  "title": "Agent recruiting funnel",
+  "subtitle": "Prospect agents to producing agents",
+  "artifacts": [
+   "slides",
+   "org",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    52,
+    33,
+    19,
+    11
+   ],
+   "seed": 4987
+  }
+ },
+ {
+  "id": "insurance-dia-09",
+  "family": "instrumentDial",
+  "industry": "insurance",
+  "framework": "straight-through-processing-dial",
+  "title": "Straight-through processing dial",
+  "subtitle": "Policies bound without manual touch",
+  "artifacts": [
+   "slides",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 47,
+   "segments": 10,
+   "seed": 4988
+  }
+ },
+ {
+  "id": "insurance-gan-07",
+  "family": "timelineGantt",
+  "industry": "insurance",
+  "framework": "underwriting-transformation-roadmap",
+  "title": "Underwriting transformation roadmap",
+  "subtitle": "Capability build sequence by horizon",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4989
+  }
+ },
+ {
+  "id": "insurance-jou-09",
+  "family": "journeyLine",
+  "industry": "insurance",
+  "framework": "catastrophe-claimant-journey",
+  "title": "Catastrophe claimant journey",
+  "subtitle": "Event to recovery for affected policyholders",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    1,
+    3,
+    5
+   ],
+   "seed": 4990
+  }
+ },
+ {
+  "id": "insurance-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "insurance",
+  "framework": "build-versus-buy-matrix",
+  "title": "Build versus buy matrix",
+  "subtitle": "Platform options across decision criteria",
+  "artifacts": [
+   "tech-audit",
+   "strategy",
+   "prd"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.5,
+     0.8
+    ],
+    [
+     0.6,
+     0.9,
+     0.4
+    ],
+    [
+     0.8,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 4991
+  }
+ },
+ {
+  "id": "insurance-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "insurance",
+  "framework": "risk-appetite-matrix",
+  "title": "Risk appetite matrix",
+  "subtitle": "Target exposure by line and geography",
+  "artifacts": [
+   "strategy",
+   "report",
+   "slides"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.6,
+     0.7
+    ],
+    [
+     0.4,
+     0.8,
+     0.7,
+     0.5
+    ],
+    [
+     0.6,
+     0.7,
+     0.4,
+     0.8
+    ]
+   ],
+   "seed": 4992
+  }
+ },
+ {
+  "id": "insurance-flo-06",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "reinsurance-recovery-flow",
+  "title": "Reinsurance recovery flow",
+  "subtitle": "Ceded loss to reinsurer reimbursement",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4993
+  }
+ },
+ {
+  "id": "insurance-net-09",
+  "family": "operatingNetwork",
+  "industry": "insurance",
+  "framework": "data-source-network",
+  "title": "Data source network",
+  "subtitle": "External feeds into pricing and claims",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "radial",
+   "seed": 4994
+  }
+ },
+ {
+  "id": "insurance-cap-09",
+  "family": "capabilityStack",
+  "industry": "insurance",
+  "framework": "reinsurance-capability-stack",
+  "title": "Reinsurance capability stack",
+  "subtitle": "From exposure aggregation to placement",
+  "artifacts": [
+   "arch",
+   "strategy",
+   "report"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4995
+  }
+ },
+ {
+  "id": "insurance-flo-07",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "policy-lifecycle-flow",
+  "title": "Policy lifecycle flow",
+  "subtitle": "Bind, endorse, renew, and cancel path",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4996
+  }
+ },
+ {
+  "id": "insurance-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "insurance",
+  "framework": "claims-automation-matrix",
+  "title": "Claims automation matrix",
+  "subtitle": "Automation depth across claim stages",
+  "artifacts": [
+   "tech-audit",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.6,
+     0.4,
+     0.8
+    ],
+    [
+     0.7,
+     0.9,
+     0.5
+    ],
+    [
+     0.5,
+     0.6,
+     0.7
+    ]
+   ],
+   "seed": 4997
+  }
+ },
+ {
+  "id": "insurance-fun-09",
+  "family": "funnelFlow",
+  "industry": "insurance",
+  "framework": "life-application-funnel",
+  "title": "Life application funnel",
+  "subtitle": "Application to policy in force",
+  "artifacts": [
+   "slides",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    67,
+    44,
+    28,
+    17
+   ],
+   "seed": 4998
+  }
+ },
+ {
+  "id": "insurance-flo-08",
+  "family": "flowSchematic",
+  "industry": "insurance",
+  "framework": "fraud-triage-flow",
+  "title": "Fraud triage flow",
+  "subtitle": "Claim scoring to investigation routing",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4999
+  }
+ }
+]

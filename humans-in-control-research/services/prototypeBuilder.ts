@@ -44,6 +44,85 @@ async function fetchLiveBrandTokens(brand: Brand): Promise<string> {
     return `=== FIGMA DESIGN TOKENS (${brand}) UNAVAILABLE ===\nThe live Figma token source could not be reached. Do NOT invent hex values or font families; restrict to neutral greys plus a single placeholder accent and note that tokens were unavailable.`;
 }
 
+// ── P1 TOKEN CARRIER (2026-06-26) ──────────────────────────────────────────
+// The prose tokens above are injected into the prompt; the model is asked to
+// transcribe them into a <style> block. Transcription can drift. The carrier
+// guarantees the correct Figma tokens EXIST as CSS custom properties in the
+// rendered prototype regardless of what the model wrote, so any var(--accent) /
+// var(--font-display) resolves to the live brand value. This is the deterministic
+// half of the never-hardcode contract: the model expresses intent via token names,
+// the carrier supplies the authoritative values.
+
+type BrandTokensJson = { color?: Record<string, unknown>; font?: Record<string, unknown>; space?: Record<string, unknown> };
+
+/** Structured live tokens (the brand subtree {color, font, space}) for the
+ *  deterministic carrier + purity audit. Distinct from fetchLiveBrandTokens
+ *  (prose ?format=prompt for the LLM). Returns null on any failure so callers
+ *  degrade gracefully - the carrier is skipped, never a broken build. */
+async function fetchLiveBrandTokensJson(brand: Brand): Promise<BrandTokensJson | null> {
+    try {
+        const r = await fetch(`${PROXY_BASE}/api/design-tokens?brand=${brand}&format=json`);
+        if (r.ok) {
+            const j = await r.json();
+            if (j && typeof j === 'object' && !(j as any).error) return j as BrandTokensJson;
+        }
+    } catch (e: any) {
+        console.warn('[proto] design-tokens JSON fetch failed (carrier skipped):', e?.message || e);
+    }
+    return null;
+}
+
+/** Build a :root{} block that publishes both the raw token names (--color-accent,
+ *  --font-display) AND the manifest's semantic aliases (--accent, --surface, --text,
+ *  --ink, --border, --muted, --rail, --ok, --sans, --mono, --display) that the
+ *  proto/<Name> component anatomy references, so whatever naming the model emitted
+ *  resolves to the live brand value. */
+function buildTokenRootCss(tokens: BrandTokensJson, brand: Brand): string {
+    const c = (tokens.color || {}) as Record<string, unknown>;
+    const f = (tokens.font || {}) as Record<string, unknown>;
+    const str = (v: unknown): string => (typeof v === 'string' ? v : '');
+    const pick = (k: string, fb = ''): string => str(c[k]) || fb;
+    const decls: string[] = [];
+    for (const [k, v] of Object.entries(c)) { const s = str(v); if (s) decls.push(`--color-${k}: ${s};`); }
+    for (const [k, v] of Object.entries(f)) { const s = str(v); if (s) decls.push(`--font-${k}: '${s}';`); }
+    const alias: Record<string, string> = {
+        '--accent': pick('accent'), '--on-accent': pick('on-accent'),
+        '--surface': pick('paper', '#FFFFFF'), '--panel': pick('ecru'), '--s2': pick('ecru'),
+        '--border': pick('hairline'), '--text': pick('ink'), '--ink': pick('ink'),
+        '--muted': pick('grey'), '--rail': pick('rail'), '--ok': pick('success'),
+        '--bad': pick('error'), '--cool': pick('cyan'), '--cyan': pick('cyan'), '--teal': pick('teal'),
+    };
+    for (const [k, v] of Object.entries(alias)) { if (v) decls.push(`${k}: ${v};`); }
+    if (str(f.body)) decls.push(`--sans: '${str(f.body)}';`);
+    if (str(f.mono)) decls.push(`--mono: '${str(f.mono)}';`);
+    if (str(f.display)) decls.push(`--display: '${str(f.display)}';`);
+    if (!decls.length) return '';
+    return `:root,:root[data-brand="${brand.toLowerCase()}"]{${decls.join('')}}`;
+}
+
+/** Prepend an idempotent, self-executing style injector so the :root token block
+ *  is present in the /view runtime no matter how the model authored its CSS. */
+function injectTokenCarrier(code: string, rootCss: string): string {
+    if (!rootCss) return code;
+    const prelude = `;(function(){try{if(typeof document!=='undefined'&&!document.getElementById('__hic_proto_tokens__')){var s=document.createElement('style');s.id='__hic_proto_tokens__';s.textContent=${JSON.stringify(rootCss)};document.head.appendChild(s);}}catch(e){}})();\n`;
+    return prelude + code;
+}
+
+/** Fonts that are NOT in the current Figma token set and signal stale/remembered
+ *  hardcoding (NXT display is Saira Condensed; NU is single-typeface Lato). */
+const STALE_PROTO_FONTS = ['Bebas Neue', 'Spectral', 'Roboto Condensed', 'Open Sans', 'Oswald', 'Roboto Mono'];
+
+/** Advisory token-purity audit recorded on the build receipt: counts literal hex
+ *  colors and flags any stale/hardcoded font family the model emitted. Does NOT
+ *  strip (too risky); it surfaces the signal so drift is visible + trackable. */
+function auditTokenPurity(code: string): { literal_hex: number; hex_samples: string[]; stale_fonts: string[] } {
+    const hexes = code.match(/#[0-9a-fA-F]{3,8}\b/g) || [];
+    const stale = STALE_PROTO_FONTS.filter(fnt =>
+        new RegExp(`['"\`]\\s*${fnt}\\s*['"\`]|font-family\\s*:[^;}{]*${fnt}`, 'i').test(code),
+    );
+    return { literal_hex: hexes.length, hex_samples: Array.from(new Set(hexes)).slice(0, 12), stale_fonts: stale };
+}
+
 async function fetchProtoComponentManifest(): Promise<string> {
     try {
         const r = await fetch(`${PROXY_BASE}/api/wiki/read-article/${encodeURIComponent('design-system/proto-component-manifest.md')}`);
@@ -81,7 +160,12 @@ const STAGE_MODEL = 'gemini-3.1-pro-preview';
 // (concept, interaction, visual, recipe) stay on STAGE_MODEL (Gemini 3.1 Pro) since they
 // reason/plan rather than emit the shipping React file. Opus has a Gemini fallback at each
 // code call so a single-provider outage never kills a build.
-const CODE_MODEL = 'claude-opus-4-8';
+// 2026-06-28 - TEMPORARY: Opus 4.8 is at its Anthropic monthly quota cap (until
+// 2026-07-01). Route the code stage to Gemini 3.1 Pro (off-quota, strongest available
+// code model; matches the proto planning stages which already use STAGE_MODEL=Pro), so
+// #proto builds work at good quality without Opus. REVERSIBLE: restore 'claude-opus-4-8'
+// after the cap lifts.
+const CODE_MODEL = 'gemini-3.1-pro-preview';
 
 // 2026-05-14 - Design exemplar curator (Behance reference library). Pulls
 // matching exemplars by concept/interaction-pattern/brand-hashtag and
@@ -268,93 +352,15 @@ export interface PrototypeArtifact {
 }
 
 // ============================================================
-// BRAND PALETTES (passed into Stage 3 so the model doesn't invent)
+// BRAND PALETTES - DELETED 2026-06-26 (was a stale, unused orphan).
+// The const BRAND_TOKENS that used to live here hardcoded brand palettes +
+// fonts (NXT 'Bebas Neue', NU 'Roboto Condensed' / 'Open Sans') that had gone
+// stale (NXT display is Saira Condensed; NU is single-typeface Lato) AND was no
+// longer referenced anywhere - `buildStage3System` takes `liveTokens` pulled from
+// /api/design-tokens (the single source of truth) instead. Removed per the
+// never-hardcode doctrine + CONVERGE/DELETE. Do not reintroduce a hardcoded
+// palette here; tokens come from the live FIGMA block.
 // ============================================================
-
-const BRAND_TOKENS: Record<Brand, { description: string; palette: string }> = {
-    NXT: {
-        description: `NXT Humans - Intelligence Augmentation Suite. Near-black foundation (#0D0D0D) with chartreuse/lime (#B8B800) as the load-bearing accent. Geometric, restrained, anti-marketing. Display type is Bebas Neue, body is Archivo. Sharp 2-4px corners, no decorative shadows, generous negative space.`,
-        palette: `
-  foundation:
-    background: '#FFFFFF'
-    surface: '#FAFAFA'
-    panel: '#F5F5F0'
-    text_primary: '#0D0D0D'
-    text_secondary: '#525252'
-    text_tertiary: '#ACACAC'
-    border: '#E5E5E5'
-  brand_accents:
-    lime: '#B8B800'                # primary accent, used boldly for CTAs and hero accents
-    teal: '#115054'                # headers and primary actions
-    cyan: '#00B7C3'                # data panels and secondary accent
-    rust: '#CC6644'                # negative/problem states
-  semantic:
-    success: '#0CCE6B'
-    warning: '#FD8E2E'
-    friction: '#CC6644'
-    opportunity: '#B8B800'
-    error: '#FF5A5A'
-  emphasis: '#B8B800'              # chartreuse is the brand mark - use prominently
-  type:
-    display: 'Bebas Neue'          # NXT signature display
-    body: 'Archivo'                # Archivo for body (weights 200-900)
-    mono: 'JetBrains Mono'
-    display_weight: 400
-    body_weight_normal: 400
-    body_weight_emphasis: 700
-    letterspacing_display: '0.02em'
-    letterspacing_body: '0'
-  layout:
-    radius: '2px'                  # sharp corners, NEVER pill-shaped
-    button_radius: '0px'
-    card_radius: '2px'
-    button_height: '44px'
-    grid: 'rigid-modular'
-    photo_treatment: 'flat geometric business minimalism, no decorative-stock'
-  voice: 'consulting-grade, restrained, declarative, no marketing copy, no hyperbole'`,
-    },
-    NU: {
-        description: `Northeastern University - the actual NU brand, NOT a generic-red institutional approximation. Per brand.northeastern.edu: Pantone 200 red (#C8102E, NOT generic "huskies red" #C00000) used SPARINGLY as accent, never flooded. Editorial restraint, asymmetric grids, oversized headers, generous white space, photo-forward storytelling, and a confident plain-spoken voice. NEVER use Bebas Neue, NEVER use chartreuse, NEVER use thin display fonts. NU's brand voice is "ambitious, student-first, plain-spoken" - never bombastic, never marketing-puffy.`,
-        palette: `
-  foundation:
-    background: '#FFFFFF'          # always stark white, no off-whites
-    surface: '#F7F7F7'             # NU light grey for card surfaces
-    panel: '#F0F0F0'               # subtle separation
-    text_primary: '#000000'        # NU spec: pure black, not near-black
-    text_secondary: '#414141'      # NU mid-grey
-    text_tertiary: '#737373'       # NU light-grey body
-    border: '#D9D9D9'              # NU rule lines
-  brand_accents:
-    nu_red: '#C8102E'              # PANTONE 200 C - THE official Northeastern red. NOT #C00000.
-    nu_red_deep: '#9E0A24'         # hover/pressed for primary buttons
-    nu_red_tint: '#FBE7EA'         # 8% red tint for subtle highlights - never flood with red
-    cream: '#F8E5C2'               # NU secondary accent for soft callouts
-  semantic:
-    success: '#0F8A4B'             # restrained NU-compatible green, NOT bright lime
-    warning: '#B5651D'             # NU sienna for caution, NOT orange
-    friction: '#9E0A24'            # deep red for negative states
-    opportunity: '#C8102E'         # primary red also signals opportunity/CTA
-    error: '#9E0A24'
-  emphasis: '#C8102E'              # but used SPARINGLY - buttons, key chrome, single hero accent
-  type:
-    display: 'Roboto Condensed'    # NU web spec: humanist condensed sans - NEVER 'Bebas Neue', NEVER 'Oswald'
-    body: 'Open Sans'              # NU body font, weights 400/600/700
-    mono: 'IBM Plex Mono'          # technical/data only
-    display_weight: 700            # confident bold, never thin
-    body_weight_normal: 400
-    body_weight_emphasis: 600
-    letterspacing_display: '-0.01em'  # NU style: tight, not airy
-    letterspacing_body: '0'
-  layout:
-    radius: '2px'                  # NU uses near-sharp corners, never pill-shaped buttons
-    button_radius: '2px'           # rectangular, NOT rounded
-    card_radius: '4px'
-    button_height: '44px'          # tall, confident
-    grid: 'editorial-asymmetric'   # NU's signature layout - not centered card grids
-    photo_treatment: 'hero-led, full-bleed, never decorative-icon-only'
-  voice: 'ambitious, student-first, plain-spoken, evidence-driven, never bombastic, never marketing-puffy'`,
-    },
-};
 
 // ============================================================
 // STAGE 1: CONCEPT DECOMPOSER
@@ -624,7 +630,7 @@ ${componentManifest}
 <instructions>
 1. Read the Brief and Spec.
 2. Apply the brand tokens from <brand_context> precisely. Color hex values must match exactly - do NOT round, do NOT approximate (no \`#C00000\` if the brand says \`#C8102E\`).
-3. Define the type system using five roles maximum: display, body, label, quote, data. Use the brand's display + body + mono fonts EXACTLY as named - do NOT substitute a "similar" font (no Bebas Neue if the brand says Roboto Condensed, no Open Sans if the brand says Archivo).
+3. Define the type system using five roles maximum: display, body, label, quote, data. Use the EXACT display + body + mono font families named in <brand_context> (the live Figma tokens) - do NOT substitute a "similar" font and do NOT name any font that is not in <brand_context>.
 4. Define the color system using semantic roles, not decorative names: foundation (3-5 neutrals from brand), persona accent (one brand accent), semantic (success, warning, friction, opportunity), emphasis (the brand emphasis hex).
 5. Define the spacing scale: [4, 8, 16, 24, 32, 48, 64, 96]. Use 8-point grid.
 6. Define motion tokens: easings, durations (instant 100ms, quick 200ms, standard 400ms, deliberate 700ms, ambient 3000ms).
@@ -636,7 +642,7 @@ ${componentManifest}
 The following are FAILURE MODES that ship in 90% of "branded" prototypes by default. You must avoid them:
 
 - **Wrong red shade**: \`#C00000\` (generic web red), \`#FF0000\` (pure red), or \`#990000\` are NOT Northeastern red. The only correct NU red is \`#C8102E\` (Pantone 200). Copy the hex character-for-character from <brand_context>.
-- **Wrong display font**: \`Bebas Neue\` is NXT's signature, NOT NU's. Picking Bebas for an NU prototype is an instant brand failure. Read the brand_context's type.display field and use that EXACT family name.
+- **Wrong display font**: do not substitute a "similar" or remembered font. Read the brand_context's type.display family (the live Figma token) and use that EXACT family name; naming any font not present in brand_context is an instant brand failure.
 - **Generic Google-Material rounded buttons**: NU and NXT both use sharp 2-4px corners. Do NOT default to \`border-radius: 8px\` or pill shapes.
 - **Decorative shadows + glass-morphism**: Neither brand uses heavy shadows or backdrop-filter blur. Use 1px rule lines or 1-2% darker surfaces for elevation, not shadows.
 - **Centered card grids of identical tiles**: This is the "generic SaaS dashboard" anti-pattern. Both NU and NXT favor asymmetric editorial layouts with one dominant element and supporting columns.
@@ -947,6 +953,24 @@ function tryParseJson<T>(text: string, stageName: string): T {
         if (cleaned.startsWith('json')) cleaned = cleaned.slice(4);
         cleaned = cleaned.trim();
     }
+    // Recovery #0 (2026-06-26) - strip a prose preamble/suffix around an embedded
+    // JSON value. Opus (esp. the Integration Reviewer) sometimes narrates before
+    // the JSON ("Looking at the merged code, I need to verify...") which made the
+    // whole stage fail ("Unexpected token 'L'") and ship unreviewed. Extract the
+    // outermost {...} or [...] span and parse that. The bracket-balance + truncation
+    // recoveries below still apply to whatever we extract.
+    if (cleaned && cleaned[0] !== '{' && cleaned[0] !== '[') {
+        const starts = [cleaned.indexOf('{'), cleaned.indexOf('[')].filter(i => i >= 0);
+        if (starts.length) {
+            const start = Math.min(...starts);
+            const close = cleaned[start] === '{' ? '}' : ']';
+            const end = cleaned.lastIndexOf(close);
+            if (end > start) {
+                const span = cleaned.slice(start, end + 1).trim();
+                try { return JSON.parse(span); } catch { cleaned = span; /* fall through to recovery on the extracted span */ }
+            }
+        }
+    }
     try {
         return JSON.parse(cleaned);
     } catch (e: any) {
@@ -1200,6 +1224,13 @@ Emit ONE JSON object (no prose, no fences) with these keys:
   data, it must already be a key in initial state + reducer.
 - Honor the composition rules and brand language in the preface. Tokens come from the FIGMA block.
 - shared_code must be syntactically valid React minus the screen bodies. The marker is mandatory.
+- AI CALLING CONTRACT (when the app has AI moments): define ONE shared async helper in shared_code
+  that POSTs to \`window.__AI_ENDPOINT__ || '/api/ai/generate'\` with body
+  \`{ flow, input, shape }\` and reads \`json.data\`. \`flow\` is the inference id, \`input\` is the
+  relevant data, and \`shape\` is the EXACT fallback object you would render for that flow (same keys
+  + types) so the backend mirrors the structure the UI expects. ALWAYS pass the seeded fallback as
+  \`shape\`, validate the returned data, and fall back to the seed on any error or shape mismatch.
+  Use an AbortController with a ~15s timeout. NEVER invent a different endpoint or wire format.
 </rules>`;
 
 function buildPodSystem(brand: Brand, slicedManifest: string, sharedCode: string, contract: AppShellContract): string {
@@ -1370,10 +1401,10 @@ async function buildAppViaPods(args: {
     // FIDELITY GROUND TRUTH (2026-06-23): the real proto/<Name> vocabulary from the manifest.
     // Every component a pod declares is checked against this; anything absent was invented.
     const manifestProtoIds = extractManifestProtoIds(componentManifest);
-    const buildOnePod = async (screen: PodScreenSpec): Promise<PodResult | null> => {
+    const buildOnePod = async (screen: PodScreenSpec, corrective?: string): Promise<PodResult | null> => {
         const sliced = sliceManifestForCategories(componentManifest, screen.component_categories || []);
         const podSystem = buildPodSystem(brand, sliced, contract.shared_code, contract);
-        const podUser = `BUILD THIS SCREEN.\n\nSIGNATURE (implement EXACTLY): ${screen.signature}\nID: ${screen.id}\nNAME: ${screen.name}\nPURPOSE: ${screen.purpose}\nPROTO COMPONENTS TO COMPOSE FROM (exact manifest proto/<Name> ids - build each region from one of these, following its documented anatomy): ${(screen.component_ids || []).join(', ') || '(none specified - choose the closest proto/<Name> components from the manifest categories above)'}\n\nSCREEN SPEC:\n${screen.spec}`;
+        const podUser = `BUILD THIS SCREEN.\n\nSIGNATURE (implement EXACTLY): ${screen.signature}\nID: ${screen.id}\nNAME: ${screen.name}\nPURPOSE: ${screen.purpose}\nPROTO COMPONENTS TO COMPOSE FROM (exact manifest proto/<Name> ids - build each region from one of these, following its documented anatomy): ${(screen.component_ids || []).join(', ') || '(none specified - choose the closest proto/<Name> components from the manifest categories above)'}\n\nSCREEN SPEC:\n${screen.spec}${corrective ? `\n\n${corrective}` : ''}`;
         let engine = 'Opus 4.8';
         try {
             let text: string;
@@ -1397,15 +1428,47 @@ async function buildAppViaPods(args: {
             const grounded = patterns.length - invented.length;
             if (invented.length) console.warn(`[pod ${screen.id}] FIDELITY: ${grounded}/${patterns.length} grounded; INVENTED (not in manifest): ${invented.join(', ')}`);
             else if (patterns.length) console.log(`[pod ${screen.id}] FIDELITY: ${patterns.length}/${patterns.length} components grounded in the manifest.`);
-            return { id: screen.id, code, engine, patterns_used: patterns, invented_components: invented };
+            // PER-POD COMPILE GATE (2026-06-26): parse this screen in isolation and
+            // repair/stub it here so one pod's unbalanced React.createElement() tail
+            // cannot make the whole assembled app fail to compile (the red error page).
+            const gated = await compileGatePod(screen, code);
+            return { id: screen.id, code: gated.code, engine, patterns_used: patterns, invented_components: invented };
         } catch (e: any) {
             console.warn(`[pod ${screen.id}] FAILED on both providers: ${e?.message || e}`);
             return null;
         }
     };
-    const podResults = await Promise.all(screens.map(buildOnePod));
-    const pods = podResults.filter((p): p is PodResult => p !== null);
+    const podResults = await Promise.all(screens.map(s => buildOnePod(s)));
+    let pods = podResults.filter((p): p is PodResult => p !== null);
     if (pods.length === 0) throw new Error('All screen pods failed');
+
+    // P1 REGION-SCOPED FIDELITY GATE (2026-06-26): a pod that declared a component
+    // NOT in the proto/<Name> manifest invented a UI shape. Rebuild ONLY those
+    // screens ONCE, with a corrective instruction, in parallel - never a whole-app
+    // rebuild (that path blew the 300s proxy ceiling and forced the pod split).
+    // Keep the rebuild only if it does not regress fidelity; otherwise keep the original.
+    const offending = pods.filter(p => (p.invented_components || []).length > 0);
+    if (offending.length > 0) {
+        fire(4, `Screen pods (fidelity rebuild)`, 'running', `${offending.length} screen(s) invented UI - rebuilding from manifest`);
+        const repaired = await Promise.all(offending.map(async (p) => {
+            const screen = screens.find(s => s.id === p.id);
+            if (!screen) return p;
+            const corrective = `FIDELITY CORRECTION (your previous build of this screen failed manifest fidelity).\n`
+                + `You declared components NOT in the proto/<Name> manifest (invented UI shapes): ${(p.invented_components || []).join(', ')}.\n`
+                + `Rebuild this screen composing EVERY region from a REAL proto/<Name> id present in the manifest categories above, following its documented anatomy. `
+                + `Do NOT declare any id that is not in the manifest. Re-list the components you used on the PROTO COMPONENTS: line.`;
+            const redo = await buildOnePod(screen, corrective);
+            if (redo && (redo.invented_components || []).length <= (p.invented_components || []).length) {
+                console.log(`[pod ${p.id}] fidelity rebuild: invented ${(p.invented_components || []).length} -> ${(redo.invented_components || []).length}`);
+                return redo;
+            }
+            return p;
+        }));
+        const byId = new Map(pods.map(p => [p.id, p]));
+        for (const r of repaired) byId.set(r.id, r);
+        pods = Array.from(byId.values());
+    }
+
     const podEngines = Array.from(new Set(pods.map(p => p.engine)));
     fire(4, `Screen pods (${screens.length} parallel)`, 'done', `${pods.length}/${screens.length} screens built · ${podEngines.join(', ')}`);
 
@@ -1473,17 +1536,68 @@ async function buildAppViaPods(args: {
         cc.includes('function App') &&
         /Screen_\w+/.test(cc) &&
         cc.length >= assembled.length * 0.5; // a real correction is the whole file, not a stub
-    let finalCode = correctedIsSubstantive ? cc : assembled;
     if (critique.corrected_code && !correctedIsSubstantive) {
         console.warn(`[Reviewer] corrected_code rejected as non-substantive (${cc.length}c vs assembled ${assembled.length}c) - shipping deterministic assembled file.`);
     }
-    // DETERMINISTIC COMPILE GATE: the reviewer is an LLM opinion and can miss a
-    // hard JSX syntax error (e.g. `<motion && motion.div>`). Parse-check the code
-    // with the SAME Babel the /view runtime uses, and surgically repair any
-    // SyntaxError before this ever reaches save/serve. Renderer-independent.
-    finalCode = await ensureCompiles(finalCode, fire);
+    // DETERMINISTIC COMPILE GATE (hardened 2026-06-26): the reviewer's corrected_code
+    // is a one-shot 64K rewrite that can truncate or emit an unterminated string
+    // (e.g. `const fmtM = (v) => '`). The deterministic `assembled` file (pods that
+    // passed fidelity + the static seam check) is the safe baseline. So: COMPILE-GATE
+    // the corrected_code - accept it ONLY if it parses after surgical repair; if it
+    // still fails, DISCARD it and fall back to the assembled file (compile-gated too).
+    // This stops a broken reviewer rewrite from shipping over a good build - the
+    // failure mode the prose-tolerant Integration-Reviewer parse newly exposed.
+    let finalCode: string;
+    if (correctedIsSubstantive) {
+        const repairedCc = await ensureCompiles(cc, fire);
+        const _babel = await ensureBabel();
+        const ccErr = _babel ? babelCompileError(_babel, repairedCc) : null;
+        if (ccErr) {
+            console.warn(`[Reviewer] corrected_code does not compile after repair (${ccErr.slice(0, 140)}) - discarding it for the deterministic assembled file.`);
+            finalCode = await ensureCompiles(assembled, fire);
+        } else {
+            finalCode = repairedCc;
+        }
+    } else {
+        finalCode = await ensureCompiles(assembled, fire);
+    }
+
+    // P1 TOKEN CARRIER (2026-06-26): guarantee the live Figma tokens exist as CSS
+    // custom properties in the rendered prototype, so any var(--accent)/var(--font-display)
+    // resolves to the authoritative brand value regardless of the model's transcription.
+    try {
+        const tokJson = await fetchLiveBrandTokensJson(brand);
+        const rootCss = tokJson ? buildTokenRootCss(tokJson, brand) : '';
+        if (rootCss) {
+            finalCode = injectTokenCarrier(finalCode, rootCss);
+            console.log(`[proto] token carrier injected (${rootCss.length}c of :root vars for ${brand}).`);
+        }
+    } catch (e: any) {
+        console.warn('[proto] token carrier injection skipped:', e?.message || e);
+    }
+
+    // P1 TOKEN PURITY + GROUNDING (2026-06-26): advisory build-quality signal on the
+    // receipt. grounding_pct = share of declared components that exist in the manifest.
+    const declaredTotal = pods.reduce((n, p) => n + ((p.patterns_used || []).length), 0);
+    const inventedTotal = pods.reduce((n, p) => n + ((p.invented_components || []).length), 0);
+    const grounding_pct = declaredTotal > 0 ? Math.round(((declaredTotal - inventedTotal) / declaredTotal) * 100) : 100;
+    const purity = auditTokenPurity(finalCode);
+    if (purity.stale_fonts.length || purity.literal_hex > 0) {
+        console.warn(`[proto] TOKEN PURITY: ${purity.literal_hex} literal hex, ${purity.stale_fonts.length} stale font(s)${purity.stale_fonts.length ? ` [${purity.stale_fonts.join(', ')}]` : ''}; grounding ${grounding_pct}%.`);
+    }
+    if (purity.stale_fonts.length) {
+        (critique.issues = critique.issues || []).push({
+            category: 'code_bug',
+            severity: 'minor',
+            description: `Output references stale/hardcoded font famil${purity.stale_fonts.length === 1 ? 'y' : 'ies'} not in the Figma token set: ${purity.stale_fonts.join(', ')}. Resolve every font from a token (var(--font-*)).`,
+            source_of_truth: 'design_system',
+            code_location: 'prototype CSS / inline styles',
+            fix: 'Replace the literal font family with the matching var(--font-display|title|body|mono) token.',
+        } as any);
+    }
+
     const cov = critique.session_coverage ? ` · coverage ${critique.session_coverage.coverage_pct}%` : '';
-    fire(5, 'Integration Reviewer', 'done', `${critique.verdict}${cov} · ${critique.issues?.length || 0} issues · ${correctedIsSubstantive ? 'reviewer-corrected' : 'assembled'}`);
+    fire(5, 'Integration Reviewer', 'done', `${critique.verdict}${cov} · ${critique.issues?.length || 0} issues · grounding ${grounding_pct}% · ${correctedIsSubstantive ? 'reviewer-corrected' : 'assembled'}`);
 
     // Build a BuildRecipe-shaped summary for the artifact (orchestrator contract -> recipe view).
     const buildRecipe: BuildRecipe = {
@@ -1814,6 +1928,66 @@ async function ensureCompiles(
         fire(5, 'Compile Gate', 'done', 'parses clean (repaired)');
     }
     return cur;
+}
+
+// ============================================================================
+// PER-POD COMPILE GATE (2026-06-26)
+// A single pod that emits an unbalanced React.createElement(...) tail, an extra
+// `)`, or an unterminated string makes the WHOLE assembled app fail to parse -
+// and whole-file repair (525+ lines) is unreliable (the model can't reliably
+// re-balance parens at that scale). So compile each pod IN ISOLATION, repair just
+// that small function (focused context = high success), and if it still won't
+// parse, replace it with a graceful placeholder screen so the app COMPILES and
+// every other screen still works. Contains the blast radius to one screen.
+// ============================================================================
+const POD_SYNTAX_REPAIR_SYSTEM = `<role>
+You fix a SYNTAX ERROR in ONE React screen component (a single \`function Screen_<id>(...) { ... }\`)
+that FAILS to parse under Babel. You are given the exact Babel error (line:column) and the full
+component code. Fix ONLY what is needed to make it parse - most often an unbalanced or EXTRA
+\`)\`/\`}\`/\`]\` in a \`React.createElement(...)\` call tail, an unterminated string, or a mismatched
+JSX tag. Change NOTHING else: no refactors, no renames, no behavior edits. Preserve the EXACT
+function signature and every child element.
+</role>
+<output>
+Emit ONE JSON object (no prose, no fences):
+{ "corrected_code": "the ENTIRE corrected component, first line to last - the function Screen_<id>(...) {...} declaration only, never a fragment, diff, or comment" }
+</output>`;
+
+async function compileGatePod(
+    screen: PodScreenSpec,
+    code: string,
+): Promise<{ code: string; repaired: boolean; stubbed: boolean }> {
+    const Babel = await ensureBabel();
+    if (!Babel) return { code, repaired: false, stubbed: false };
+    let cur = code;
+    let err = babelCompileError(Babel, cur);
+    if (!err) return { code: cur, repaired: false, stubbed: false };
+    for (let i = 0; i < 2 && err; i++) {
+        try {
+            const repairUser = `BABEL COMPILE ERROR in screen "${screen.id}":\n${err}\n\nFULL COMPONENT CODE:\n${cur}`;
+            const text = await callClaudeStage(POD_SYNTAX_REPAIR_SYSTEM, repairUser, 20000);
+            const parsed = tryParseJson<{ corrected_code?: string }>(text, `Pod Syntax Repair (${screen.id})`);
+            const fixed = parsed?.corrected_code ? stripCodeFences(parsed.corrected_code) : '';
+            if (fixed && /function\s+Screen_/.test(fixed) && fixed.length > 80) {
+                cur = fixed;
+                err = babelCompileError(Babel, cur);
+            } else { break; }
+        } catch (e: any) {
+            console.warn(`[pod ${screen.id}] syntax-repair call failed: ${e?.message || e}`);
+            break;
+        }
+    }
+    if (!err) {
+        console.log(`[pod ${screen.id}] compile gate: repaired to a clean parse.`);
+        return { code: cur, repaired: true, stubbed: false };
+    }
+    // Unrepairable - graceful stub so the WHOLE app still compiles + renders.
+    const sig = (screen.signature && /function\s+Screen_\w+\s*\([^)]*\)/.test(screen.signature))
+        ? screen.signature
+        : `function Screen_${screen.id}({ state, dispatch })`;
+    const stub = `${sig} {\n  return React.createElement('div', { style: { padding: '48px', fontFamily: 'system-ui, sans-serif', color: '#73757A', maxWidth: 640 } },\n    React.createElement('h2', { style: { color: '#141414', marginBottom: 8, fontWeight: 700 } }, ${JSON.stringify(screen.name || screen.id)}),\n    React.createElement('p', null, 'This screen could not be built and was replaced with a placeholder. The rest of the prototype is functional.'));\n}`;
+    console.warn(`[pod ${screen.id}] compile gate: unrepairable after 2 attempts (${(err || '').slice(0, 80)}) - replaced with a graceful stub so the app compiles.`);
+    return { code: stub, repaired: false, stubbed: true };
 }
 
 /**

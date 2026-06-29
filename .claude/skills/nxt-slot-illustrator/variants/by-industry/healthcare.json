@@ -1,0 +1,2922 @@
+[
+ {
+  "id": "healthcare-net-01",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "care-delivery-network",
+  "title": "Integrated care delivery network",
+  "subtitle": "Acute, ambulatory, post-acute, and home sites",
+  "artifacts": [
+   "arch",
+   "org",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4600
+  }
+ },
+ {
+  "id": "healthcare-net-02",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "referral-network-map",
+  "title": "Specialist referral network",
+  "subtitle": "PCP-to-specialist flow across the system",
+  "artifacts": [
+   "arch",
+   "journey",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 11,
+   "layout": "radial",
+   "seed": 4601
+  }
+ },
+ {
+  "id": "healthcare-net-03",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "aco-partner-mesh",
+  "title": "ACO partner ecosystem",
+  "subtitle": "Risk-bearing entities and shared-savings partners",
+  "artifacts": [
+   "arch",
+   "competitive",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "mesh",
+   "seed": 4602
+  }
+ },
+ {
+  "id": "healthcare-net-04",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "health-information-exchange",
+  "title": "Health information exchange topology",
+  "subtitle": "HIE nodes linking hospitals, labs, and payers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 10,
+   "layout": "hub2",
+   "seed": 4603
+  }
+ },
+ {
+  "id": "healthcare-net-05",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "clinical-trial-site-network",
+  "title": "Multi-site clinical trial network",
+  "subtitle": "Coordinating center and enrolling sites",
+  "artifacts": [
+   "arch",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 12,
+   "layout": "radial",
+   "seed": 4604
+  }
+ },
+ {
+  "id": "healthcare-net-06",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "pharma-supply-chain",
+  "title": "Pharmaceutical cold-chain network",
+  "subtitle": "Manufacturer to dispensing pharmacy nodes",
+  "artifacts": [
+   "arch",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 8,
+   "layout": "spine",
+   "seed": 4605
+  }
+ },
+ {
+  "id": "healthcare-net-07",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "telehealth-hub-spoke",
+  "title": "Telehealth hub-and-spoke model",
+  "subtitle": "Central command center to rural spoke clinics",
+  "artifacts": [
+   "arch",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 9,
+   "layout": "hub2",
+   "seed": 4606
+  }
+ },
+ {
+  "id": "healthcare-net-08",
+  "family": "operatingNetwork",
+  "industry": "healthcare",
+  "framework": "payer-provider-data-links",
+  "title": "Payer-provider data interfaces",
+  "subtitle": "Eligibility, claims, and prior-auth connections",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "n": 7,
+   "layout": "mesh",
+   "seed": 4607
+  }
+ },
+ {
+  "id": "healthcare-cap-01",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "population-health-stack",
+  "title": "Population health capability stack",
+  "subtitle": "From data ingestion to care intervention",
+  "artifacts": [
+   "strategy",
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4608
+  }
+ },
+ {
+  "id": "healthcare-cap-02",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "clinical-data-platform",
+  "title": "Clinical data platform layers",
+  "subtitle": "EHR, warehouse, analytics, and decision support",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4609
+  }
+ },
+ {
+  "id": "healthcare-cap-03",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "value-based-care-stack",
+  "title": "Value-based care operating stack",
+  "subtitle": "Contracts, attribution, care mgmt, settlement",
+  "artifacts": [
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 4,
+   "seed": 4610
+  }
+ },
+ {
+  "id": "healthcare-cap-04",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "revenue-cycle-stack",
+  "title": "Revenue cycle technology stack",
+  "subtitle": "Registration, coding, billing, collections",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 2,
+   "seed": 4611
+  }
+ },
+ {
+  "id": "healthcare-cap-05",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "interoperability-stack",
+  "title": "Interoperability standards stack",
+  "subtitle": "FHIR, HL7, and exchange governance layers",
+  "artifacts": [
+   "arch",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 1,
+   "seed": 4612
+  }
+ },
+ {
+  "id": "healthcare-cap-06",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "care-management-stack",
+  "title": "Care management capability layers",
+  "subtitle": "Identification, stratification, outreach, tracking",
+  "artifacts": [
+   "blueprint",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 5,
+   "highlight": 3,
+   "seed": 4613
+  }
+ },
+ {
+  "id": "healthcare-cap-07",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "pharma-rd-stack",
+  "title": "Drug development capability stack",
+  "subtitle": "Discovery, preclinical, trials, regulatory",
+  "artifacts": [
+   "strategy",
+   "roadmap"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 6,
+   "highlight": 2,
+   "seed": 4614
+  }
+ },
+ {
+  "id": "healthcare-cap-08",
+  "family": "capabilityStack",
+  "industry": "healthcare",
+  "framework": "health-equity-stack",
+  "title": "Health equity infrastructure stack",
+  "subtitle": "SDOH data, screening, referral, closed-loop",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "portrait",
+  "data": {
+   "layers": 4,
+   "highlight": 2,
+   "seed": 4615
+  }
+ },
+ {
+  "id": "healthcare-rad-01",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "digital-health-maturity",
+  "title": "Digital health maturity profile",
+  "subtitle": "Current capability versus target state",
+  "artifacts": [
+   "gap",
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.4,
+    0.7,
+    0.5,
+    0.3,
+    0.6
+   ],
+   "target": [
+    0.9,
+    0.8,
+    0.9,
+    0.85,
+    0.8,
+    0.9
+   ],
+   "seed": 4616
+  }
+ },
+ {
+  "id": "healthcare-rad-02",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "interoperability-maturity",
+  "title": "Interoperability maturity radar",
+  "subtitle": "FHIR readiness across data domains",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.4,
+    0.7,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.9,
+    0.85,
+    0.95,
+    0.8
+   ],
+   "seed": 4617
+  }
+ },
+ {
+  "id": "healthcare-rad-03",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "value-based-readiness",
+  "title": "Value-based care readiness",
+  "subtitle": "Risk-contract capability self-assessment",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.6,
+    0.3,
+    0.5,
+    0.4,
+    0.6
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.85,
+    0.8,
+    0.9,
+    0.8,
+    0.85
+   ],
+   "seed": 4618
+  }
+ },
+ {
+  "id": "healthcare-rad-04",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "population-health-maturity",
+  "title": "Population health analytics maturity",
+  "subtitle": "Descriptive to prescriptive capability",
+  "artifacts": [
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.7,
+    0.5,
+    0.4,
+    0.6,
+    0.3
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.8,
+    0.85,
+    0.8
+   ],
+   "seed": 4619
+  }
+ },
+ {
+  "id": "healthcare-rad-05",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "clinical-quality-maturity",
+  "title": "Quality program maturity radar",
+  "subtitle": "HEDIS measure capability by domain",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.6,
+    0.7,
+    0.5,
+    0.4,
+    0.6,
+    0.5
+   ],
+   "target": [
+    0.9,
+    0.9,
+    0.85,
+    0.8,
+    0.85,
+    0.85
+   ],
+   "seed": 4620
+  }
+ },
+ {
+  "id": "healthcare-rad-06",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "patient-experience-maturity",
+  "title": "Patient experience maturity",
+  "subtitle": "HCAHPS-aligned capability dimensions",
+  "artifacts": [
+   "gap",
+   "audit",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.6,
+    0.4,
+    0.5,
+    0.7,
+    0.4
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.8,
+    0.85,
+    0.9,
+    0.8
+   ],
+   "seed": 4621
+  }
+ },
+ {
+  "id": "healthcare-rad-07",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "data-governance-maturity",
+  "title": "Health data governance maturity",
+  "subtitle": "Privacy, quality, and stewardship axes",
+  "artifacts": [
+   "tech-audit",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.6,
+    0.5,
+    0.4,
+    0.5,
+    0.3
+   ],
+   "target": [
+    0.85,
+    0.9,
+    0.85,
+    0.85,
+    0.8,
+    0.85,
+    0.8
+   ],
+   "seed": 4622
+  }
+ },
+ {
+  "id": "healthcare-rad-08",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "trial-operations-maturity",
+  "title": "Clinical trial operations maturity",
+  "subtitle": "Site startup to data lock capability",
+  "artifacts": [
+   "gap",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.5,
+    0.4,
+    0.6,
+    0.5,
+    0.3
+   ],
+   "target": [
+    0.9,
+    0.85,
+    0.85,
+    0.8,
+    0.8
+   ],
+   "seed": 4623
+  }
+ },
+ {
+  "id": "healthcare-rad-09",
+  "family": "maturityRadar",
+  "industry": "healthcare",
+  "framework": "access-equity-maturity",
+  "title": "Access and equity maturity",
+  "subtitle": "SDOH integration capability axes",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "scores": [
+    0.4,
+    0.5,
+    0.3,
+    0.6,
+    0.4,
+    0.5
+   ],
+   "target": [
+    0.85,
+    0.85,
+    0.8,
+    0.85,
+    0.8,
+    0.85
+   ],
+   "seed": 4624
+  }
+ },
+ {
+  "id": "healthcare-fun-01",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "clinical-trial-enrollment",
+  "title": "Clinical trial enrollment funnel",
+  "subtitle": "Screened to randomized to completed",
+  "artifacts": [
+   "prd",
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    62,
+    38,
+    22,
+    14
+   ],
+   "seed": 4625
+  }
+ },
+ {
+  "id": "healthcare-fun-02",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "patient-acquisition-funnel",
+  "title": "Patient acquisition funnel",
+  "subtitle": "Inquiry to scheduled to first visit",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    58,
+    34,
+    21
+   ],
+   "seed": 4626
+  }
+ },
+ {
+  "id": "healthcare-fun-03",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "referral-conversion-funnel",
+  "title": "Specialist referral conversion",
+  "subtitle": "Referred to scheduled to completed",
+  "artifacts": [
+   "journey",
+   "gap",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    71,
+    49,
+    33,
+    20
+   ],
+   "seed": 4627
+  }
+ },
+ {
+  "id": "healthcare-fun-04",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "prior-auth-funnel",
+  "title": "Prior authorization funnel",
+  "subtitle": "Submitted to approved to rendered",
+  "artifacts": [
+   "blueprint",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    68,
+    52,
+    41
+   ],
+   "seed": 4628
+  }
+ },
+ {
+  "id": "healthcare-fun-05",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "claims-adjudication-funnel",
+  "title": "Claims adjudication funnel",
+  "subtitle": "Submitted to clean to paid",
+  "artifacts": [
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    74,
+    55,
+    38,
+    27
+   ],
+   "seed": 4629
+  }
+ },
+ {
+  "id": "healthcare-fun-06",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "screening-to-diagnosis",
+  "title": "Screening to diagnosis funnel",
+  "subtitle": "Screened, flagged, worked up, diagnosed",
+  "artifacts": [
+   "journey",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    46,
+    28,
+    16,
+    9,
+    5
+   ],
+   "seed": 4630
+  }
+ },
+ {
+  "id": "healthcare-fun-07",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "chronic-care-engagement",
+  "title": "Chronic care engagement funnel",
+  "subtitle": "Eligible to enrolled to active to adherent",
+  "artifacts": [
+   "blueprint",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    55,
+    37,
+    24
+   ],
+   "seed": 4631
+  }
+ },
+ {
+  "id": "healthcare-fun-08",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "drug-pipeline-attrition",
+  "title": "Drug pipeline attrition funnel",
+  "subtitle": "Candidates surviving each phase",
+  "artifacts": [
+   "strategy",
+   "roadmap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    52,
+    30,
+    15,
+    8
+   ],
+   "seed": 4632
+  }
+ },
+ {
+  "id": "healthcare-fun-09",
+  "family": "funnelFlow",
+  "industry": "healthcare",
+  "framework": "discharge-followup-funnel",
+  "title": "Post-discharge follow-up funnel",
+  "subtitle": "Discharged to contacted to seen",
+  "artifacts": [
+   "journey",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "stages": [
+    100,
+    63,
+    41,
+    29
+   ],
+   "seed": 4633
+  }
+ },
+ {
+  "id": "healthcare-jou-01",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "patient-care-pathway",
+  "title": "Patient care pathway",
+  "subtitle": "Symptom onset through recovery",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    2,
+    5
+   ],
+   "seed": 4634
+  }
+ },
+ {
+  "id": "healthcare-jou-02",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "chronic-disease-journey",
+  "title": "Chronic disease management journey",
+  "subtitle": "Diagnosis through long-term control",
+  "artifacts": [
+   "journey",
+   "personas",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3
+   ],
+   "seed": 4635
+  }
+ },
+ {
+  "id": "healthcare-jou-03",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "surgical-episode-journey",
+  "title": "Surgical episode journey",
+  "subtitle": "Pre-op consult through post-op recovery",
+  "artifacts": [
+   "journey",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    4,
+    6
+   ],
+   "seed": 4636
+  }
+ },
+ {
+  "id": "healthcare-jou-04",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "maternity-care-journey",
+  "title": "Maternity care journey",
+  "subtitle": "Prenatal through postpartum",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4637
+  }
+ },
+ {
+  "id": "healthcare-jou-05",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "er-to-admission-journey",
+  "title": "Emergency to admission journey",
+  "subtitle": "Arrival, triage, treatment, disposition",
+  "artifacts": [
+   "journey",
+   "gap",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2
+   ],
+   "seed": 4638
+  }
+ },
+ {
+  "id": "healthcare-jou-06",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "oncology-treatment-journey",
+  "title": "Oncology treatment journey",
+  "subtitle": "Diagnosis through survivorship",
+  "artifacts": [
+   "journey",
+   "personas",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 7,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4639
+  }
+ },
+ {
+  "id": "healthcare-jou-07",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "behavioral-health-journey",
+  "title": "Behavioral health access journey",
+  "subtitle": "First contact through ongoing therapy",
+  "artifacts": [
+   "journey",
+   "gap",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    1,
+    3
+   ],
+   "seed": 4640
+  }
+ },
+ {
+  "id": "healthcare-jou-08",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "medication-adherence-journey",
+  "title": "Medication adherence journey",
+  "subtitle": "Prescription through sustained refills",
+  "artifacts": [
+   "journey",
+   "personas"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 5,
+   "friction": [
+    2,
+    4
+   ],
+   "seed": 4641
+  }
+ },
+ {
+  "id": "healthcare-jou-09",
+  "family": "journeyLine",
+  "industry": "healthcare",
+  "framework": "transitions-of-care-journey",
+  "title": "Transitions of care journey",
+  "subtitle": "Hospital to home to primary care",
+  "artifacts": [
+   "journey",
+   "blueprint",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "stations": 6,
+   "friction": [
+    3,
+    5
+   ],
+   "seed": 4642
+  }
+ },
+ {
+  "id": "healthcare-dat-01",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "readmissions-by-service-line",
+  "title": "Readmissions by service line",
+  "subtitle": "30-day rate across clinical departments",
+  "artifacts": [
+   "audit",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4643,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "healthcare-dat-02",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "cost-per-episode-by-drg",
+  "title": "Cost per episode by DRG",
+  "subtitle": "Average spend across top diagnosis groups",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    6,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4644,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "healthcare-dat-03",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "length-of-stay-by-unit",
+  "title": "Length of stay by unit",
+  "subtitle": "Average inpatient days per department",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    6,
+    5,
+    5,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4645,
+   "mean": true,
+   "highlight": 1
+  }
+ },
+ {
+  "id": "healthcare-dat-04",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "hedis-measure-performance",
+  "title": "HEDIS measure performance",
+  "subtitle": "Score against benchmark by measure",
+  "artifacts": [
+   "audit",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    6,
+    7,
+    5,
+    8,
+    4,
+    6,
+    5
+   ],
+   "sort": "none",
+   "seed": 4646,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "healthcare-dat-05",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "ed-visits-by-acuity",
+  "title": "ED visits by acuity level",
+  "subtitle": "Volume across triage severity tiers",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    3,
+    6,
+    9,
+    7,
+    4
+   ],
+   "sort": "none",
+   "seed": 4647,
+   "highlight": 2
+  }
+ },
+ {
+  "id": "healthcare-dat-06",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "cost-by-chronic-condition",
+  "title": "Cost by chronic condition",
+  "subtitle": "Annual per-member spend across conditions",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4648,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "healthcare-dat-07",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "denials-by-reason-code",
+  "title": "Claim denials by reason code",
+  "subtitle": "Volume across top denial categories",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    8,
+    6,
+    5,
+    4,
+    3,
+    2,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4649,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "healthcare-dat-08",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "trial-enrollment-by-site",
+  "title": "Trial enrollment by site",
+  "subtitle": "Subjects randomized per investigator site",
+  "artifacts": [
+   "prd",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    7,
+    6,
+    5,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4650,
+   "mean": true,
+   "highlight": 6
+  }
+ },
+ {
+  "id": "healthcare-dat-09",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "no-show-rate-by-clinic",
+  "title": "No-show rate by clinic",
+  "subtitle": "Missed appointment rate across sites",
+  "artifacts": [
+   "audit",
+   "gap",
+   "journey"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    7,
+    6,
+    5,
+    4,
+    4,
+    3,
+    2
+   ],
+   "sort": "desc",
+   "seed": 4651,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "healthcare-dat-10",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "sdoh-burden-by-zip",
+  "title": "SDOH burden by service area",
+  "subtitle": "Social risk index across geographies",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "personas"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    9,
+    8,
+    7,
+    5,
+    4,
+    3,
+    2,
+    1
+   ],
+   "sort": "desc",
+   "seed": 4652,
+   "mean": true,
+   "highlight": 0
+  }
+ },
+ {
+  "id": "healthcare-dat-11",
+  "family": "dataField",
+  "industry": "healthcare",
+  "framework": "provider-panel-size",
+  "title": "Provider panel size distribution",
+  "subtitle": "Attributed members per PCP",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "values": [
+    2,
+    3,
+    5,
+    7,
+    8,
+    6,
+    4
+   ],
+   "sort": "none",
+   "seed": 4653,
+   "mean": true,
+   "highlight": 4
+  }
+ },
+ {
+  "id": "healthcare-mat-01",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "payer-contract-scorecard",
+  "title": "Payer contract scorecard",
+  "subtitle": "Terms compared across major payers",
+  "artifacts": [
+   "strategy",
+   "competitive",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.4,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.6,
+     0.5
+    ],
+    [
+     0.7,
+     0.4,
+     0.8,
+     0.6
+    ],
+    [
+     0.6,
+     0.7,
+     0.5,
+     0.9
+    ]
+   ],
+   "seed": 4654
+  }
+ },
+ {
+  "id": "healthcare-mat-02",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "ehr-vendor-comparison",
+  "title": "EHR vendor comparison",
+  "subtitle": "Capability fit across platforms",
+  "artifacts": [
+   "tech-audit",
+   "competitive",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.5
+    ],
+    [
+     0.7,
+     0.8,
+     0.6
+    ],
+    [
+     0.6,
+     0.7,
+     0.9
+    ],
+    [
+     0.8,
+     0.5,
+     0.7
+    ]
+   ],
+   "seed": 4655
+  }
+ },
+ {
+  "id": "healthcare-mat-03",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "care-model-tradeoffs",
+  "title": "Care model tradeoff matrix",
+  "subtitle": "Models scored against design criteria",
+  "artifacts": [
+   "strategy",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.7,
+     0.6
+    ],
+    [
+     0.6,
+     0.9,
+     0.5,
+     0.7
+    ],
+    [
+     0.7,
+     0.6,
+     0.8,
+     0.5
+    ]
+   ],
+   "seed": 4656
+  }
+ },
+ {
+  "id": "healthcare-mat-04",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "risk-vs-reward-contracts",
+  "title": "Risk versus reward by contract",
+  "subtitle": "Upside and downside across arrangements",
+  "artifacts": [
+   "strategy",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.3,
+     0.8,
+     0.4
+    ],
+    [
+     0.6,
+     0.6,
+     0.4
+    ],
+    [
+     0.9,
+     0.4,
+     0.4
+    ],
+    [
+     0.5,
+     0.7,
+     0.4
+    ]
+   ],
+   "seed": 4657
+  }
+ },
+ {
+  "id": "healthcare-mat-05",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "site-of-care-comparison",
+  "title": "Site of care comparison",
+  "subtitle": "Cost and quality across settings",
+  "artifacts": [
+   "strategy",
+   "gap",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.6
+    ],
+    [
+     0.5,
+     0.7,
+     0.8
+    ],
+    [
+     0.3,
+     0.9,
+     0.7
+    ],
+    [
+     0.7,
+     0.6,
+     0.5
+    ]
+   ],
+   "seed": 4658
+  }
+ },
+ {
+  "id": "healthcare-mat-06",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "quality-vs-cost-matrix",
+  "title": "Quality versus cost matrix",
+  "subtitle": "Service lines plotted on value axes",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.3,
+     0.4
+    ],
+    [
+     0.6,
+     0.7,
+     0.4
+    ],
+    [
+     0.4,
+     0.9,
+     0.4
+    ],
+    [
+     0.7,
+     0.5,
+     0.4
+    ]
+   ],
+   "seed": 4659
+  }
+ },
+ {
+  "id": "healthcare-mat-07",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "interoperability-readiness-grid",
+  "title": "Interoperability readiness grid",
+  "subtitle": "Standards support across systems",
+  "artifacts": [
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.7,
+     0.9,
+     0.5,
+     0.6
+    ],
+    [
+     0.6,
+     0.7,
+     0.8,
+     0.4
+    ],
+    [
+     0.8,
+     0.5,
+     0.6,
+     0.9
+    ]
+   ],
+   "seed": 4660
+  }
+ },
+ {
+  "id": "healthcare-mat-08",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "vendor-build-buy-matrix",
+  "title": "Build versus buy decision matrix",
+  "subtitle": "Options scored on key dimensions",
+  "artifacts": [
+   "strategy",
+   "tech-audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.5,
+     0.6
+    ],
+    [
+     0.4,
+     0.9,
+     0.7
+    ],
+    [
+     0.6,
+     0.6,
+     0.8
+    ]
+   ],
+   "seed": 4661
+  }
+ },
+ {
+  "id": "healthcare-mat-09",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "population-segment-needs",
+  "title": "Population segment needs matrix",
+  "subtitle": "Care needs across risk cohorts",
+  "artifacts": [
+   "personas",
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.6,
+     0.4,
+     0.5
+    ],
+    [
+     0.5,
+     0.8,
+     0.7,
+     0.6
+    ],
+    [
+     0.4,
+     0.5,
+     0.9,
+     0.7
+    ],
+    [
+     0.6,
+     0.7,
+     0.5,
+     0.8
+    ]
+   ],
+   "seed": 4662
+  }
+ },
+ {
+  "id": "healthcare-mat-10",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "telehealth-vs-inperson",
+  "title": "Telehealth versus in-person matrix",
+  "subtitle": "Modalities scored by visit type",
+  "artifacts": [
+   "strategy",
+   "journey",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.9,
+     0.4,
+     0.4
+    ],
+    [
+     0.6,
+     0.7,
+     0.4
+    ],
+    [
+     0.3,
+     0.9,
+     0.4
+    ],
+    [
+     0.8,
+     0.5,
+     0.4
+    ]
+   ],
+   "seed": 4663
+  }
+ },
+ {
+  "id": "healthcare-mat-11",
+  "family": "comparisonMatrix",
+  "industry": "healthcare",
+  "framework": "competitor-network-adequacy",
+  "title": "Network adequacy versus competitors",
+  "subtitle": "Coverage scored against rival plans",
+  "artifacts": [
+   "competitive",
+   "gap",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "wide",
+  "data": {
+   "cells": [
+    [
+     0.8,
+     0.6,
+     0.7
+    ],
+    [
+     0.5,
+     0.9,
+     0.6
+    ],
+    [
+     0.7,
+     0.4,
+     0.8
+    ],
+    [
+     0.6,
+     0.7,
+     0.5
+    ]
+   ],
+   "seed": 4664
+  }
+ },
+ {
+  "id": "healthcare-dia-01",
+  "family": "hc_ecg",
+  "industry": "healthcare",
+  "framework": "bed-occupancy-rate",
+  "title": "Bed occupancy rate",
+  "subtitle": "Current inpatient capacity utilization",
+  "artifacts": [
+   "audit",
+   "strategy"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 84,
+   "segments": 10,
+   "seed": 4665
+  }
+ },
+ {
+  "id": "healthcare-dia-02",
+  "family": "hc_ecg",
+  "industry": "healthcare",
+  "framework": "or-utilization-rate",
+  "title": "Operating room utilization",
+  "subtitle": "Scheduled time used against capacity",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 71,
+   "segments": 10,
+   "seed": 4666
+  }
+ },
+ {
+  "id": "healthcare-dia-03",
+  "family": "hc_ecg",
+  "industry": "healthcare",
+  "framework": "clean-claim-rate",
+  "title": "Clean claim rate",
+  "subtitle": "First-pass acceptance of submitted claims",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 89,
+   "segments": 10,
+   "seed": 4667
+  }
+ },
+ {
+  "id": "healthcare-dia-04",
+  "family": "hc_ecg",
+  "industry": "healthcare",
+  "framework": "medication-adherence-rate",
+  "title": "Medication adherence rate",
+  "subtitle": "Proportion of days covered, panel average",
+  "artifacts": [
+   "audit",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 63,
+   "segments": 10,
+   "seed": 4668
+  }
+ },
+ {
+  "id": "healthcare-dia-05",
+  "family": "hc_ecg",
+  "industry": "healthcare",
+  "framework": "hcahps-top-box",
+  "title": "HCAHPS top-box score",
+  "subtitle": "Overall hospital rating, highest tier",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 72,
+   "segments": 10,
+   "seed": 4669
+  }
+ },
+ {
+  "id": "healthcare-dia-06",
+  "family": "hc_ecg",
+  "industry": "healthcare",
+  "framework": "trial-enrollment-attainment",
+  "title": "Trial enrollment attainment",
+  "subtitle": "Randomized against target census",
+  "artifacts": [
+   "prd",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 58,
+   "segments": 10,
+   "seed": 4670
+  }
+ },
+ {
+  "id": "healthcare-dia-07",
+  "family": "instrumentDial",
+  "industry": "healthcare",
+  "framework": "value-based-revenue-share",
+  "title": "Value-based revenue share",
+  "subtitle": "Portion of revenue under risk contracts",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 34,
+   "segments": 10,
+   "seed": 4671
+  }
+ },
+ {
+  "id": "healthcare-dia-08",
+  "family": "instrumentDial",
+  "industry": "healthcare",
+  "framework": "network-adequacy-score",
+  "title": "Network adequacy score",
+  "subtitle": "Members meeting access-time standards",
+  "artifacts": [
+   "audit",
+   "gap",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 91,
+   "segments": 10,
+   "seed": 4672
+  }
+ },
+ {
+  "id": "healthcare-dia-09",
+  "family": "instrumentDial",
+  "industry": "healthcare",
+  "framework": "days-in-ar",
+  "title": "Days in accounts receivable",
+  "subtitle": "Revenue cycle collection velocity index",
+  "artifacts": [
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "value": 47,
+   "segments": 10,
+   "seed": 4673
+  }
+ },
+ {
+  "id": "healthcare-gan-01",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "ehr-implementation-roadmap",
+  "title": "EHR implementation roadmap",
+  "subtitle": "Phased rollout across facilities",
+  "artifacts": [
+   "roadmap",
+   "prd",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 4,
+   "seed": 4674
+  }
+ },
+ {
+  "id": "healthcare-gan-02",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "value-based-transition-plan",
+  "title": "Value-based care transition plan",
+  "subtitle": "Contract migration over fiscal years",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 5,
+   "seed": 4675
+  }
+ },
+ {
+  "id": "healthcare-gan-03",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "clinical-trial-timeline",
+  "title": "Clinical trial phase timeline",
+  "subtitle": "Startup through database lock",
+  "artifacts": [
+   "roadmap",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 1
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 1
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4676
+  }
+ },
+ {
+  "id": "healthcare-gan-04",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "service-line-launch-plan",
+  "title": "Service line launch plan",
+  "subtitle": "New program standup milestones",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 3
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 3,
+   "seed": 4677
+  }
+ },
+ {
+  "id": "healthcare-gan-05",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "interoperability-roadmap",
+  "title": "Interoperability program roadmap",
+  "subtitle": "FHIR adoption across data domains",
+  "artifacts": [
+   "roadmap",
+   "tech-audit"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4678
+  }
+ },
+ {
+  "id": "healthcare-gan-06",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "population-health-rollout",
+  "title": "Population health program rollout",
+  "subtitle": "Cohort onboarding by quarter",
+  "artifacts": [
+   "roadmap",
+   "strategy",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 1,
+     "dur": 3
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4679
+  }
+ },
+ {
+  "id": "healthcare-gan-07",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "regulatory-submission-plan",
+  "title": "Regulatory submission timeline",
+  "subtitle": "Drug filing milestones to approval",
+  "artifacts": [
+   "roadmap",
+   "prd"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 2
+    },
+    {
+     "start": 2,
+     "dur": 1
+    },
+    {
+     "start": 3,
+     "dur": 2
+    },
+    {
+     "start": 5,
+     "dur": 1
+    }
+   ],
+   "periods": 6,
+   "now": 3,
+   "milestone": 5,
+   "seed": 4680
+  }
+ },
+ {
+  "id": "healthcare-gan-08",
+  "family": "timelineGantt",
+  "industry": "healthcare",
+  "framework": "capacity-expansion-plan",
+  "title": "Capacity expansion timeline",
+  "subtitle": "Bed and OR additions by phase",
+  "artifacts": [
+   "roadmap",
+   "strategy"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "tracks": [
+    {
+     "start": 0,
+     "dur": 3
+    },
+    {
+     "start": 2,
+     "dur": 2
+    },
+    {
+     "start": 4,
+     "dur": 2
+    }
+   ],
+   "periods": 6,
+   "now": 2,
+   "milestone": 4,
+   "seed": 4681
+  }
+ },
+ {
+  "id": "healthcare-flo-01",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "care-data-exchange-architecture",
+  "title": "Care data exchange architecture",
+  "subtitle": "EHR to HIE to analytics flow",
+  "artifacts": [
+   "arch",
+   "tech-audit",
+   "blueprint"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4682
+  }
+ },
+ {
+  "id": "healthcare-flo-02",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "prior-auth-workflow",
+  "title": "Prior authorization workflow",
+  "subtitle": "Request to determination decision flow",
+  "artifacts": [
+   "blueprint",
+   "gap",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4683
+  }
+ },
+ {
+  "id": "healthcare-flo-03",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "revenue-cycle-flow",
+  "title": "Revenue cycle process flow",
+  "subtitle": "Registration through final payment",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4684
+  }
+ },
+ {
+  "id": "healthcare-flo-04",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "triage-decision-flow",
+  "title": "Emergency triage decision flow",
+  "subtitle": "Acuity routing at arrival",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4685
+  }
+ },
+ {
+  "id": "healthcare-flo-05",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "lab-order-result-flow",
+  "title": "Lab order-to-result flow",
+  "subtitle": "Order entry through result delivery",
+  "artifacts": [
+   "blueprint",
+   "tech-audit",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4686
+  }
+ },
+ {
+  "id": "healthcare-flo-06",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "care-escalation-flow",
+  "title": "Care escalation decision flow",
+  "subtitle": "Risk trigger to intervention routing",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4687
+  }
+ },
+ {
+  "id": "healthcare-flo-07",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "medication-reconciliation-flow",
+  "title": "Medication reconciliation flow",
+  "subtitle": "Admission through discharge review",
+  "artifacts": [
+   "blueprint",
+   "arch",
+   "gap"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.41,
+     0.42,
+     0.18,
+     0.16
+    ],
+    [
+     0.76,
+     0.42,
+     0.18,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ]
+   ],
+   "highlight": 2,
+   "seed": 4688
+  }
+ },
+ {
+  "id": "healthcare-flo-08",
+  "family": "flowSchematic",
+  "industry": "healthcare",
+  "framework": "claims-eligibility-flow",
+  "title": "Eligibility verification flow",
+  "subtitle": "Inquiry to coverage determination",
+  "artifacts": [
+   "blueprint",
+   "arch"
+  ],
+  "labeled": true,
+  "aspect": "wide",
+  "data": {
+   "blocks": [
+    [
+     0.06,
+     0.42,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.18,
+     0.17,
+     0.16
+    ],
+    [
+     0.4,
+     0.66,
+     0.17,
+     0.16
+    ],
+    [
+     0.77,
+     0.42,
+     0.17,
+     0.16
+    ]
+   ],
+   "links": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "highlight": 3,
+   "seed": 4689
+  }
+ },
+ {
+  "id": "healthcare-pro-01",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "payer-mix",
+  "title": "Payer mix",
+  "subtitle": "Revenue share across coverage types",
+  "artifacts": [
+   "strategy",
+   "audit",
+   "competitive"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    34,
+    28,
+    22,
+    16
+   ],
+   "seed": 4690
+  }
+ },
+ {
+  "id": "healthcare-pro-02",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "cost-structure-breakdown",
+  "title": "Cost structure breakdown",
+  "subtitle": "Operating spend by category",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    42,
+    26,
+    18,
+    14
+   ],
+   "seed": 4691
+  }
+ },
+ {
+  "id": "healthcare-pro-03",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "risk-stratification-mix",
+  "title": "Risk stratification mix",
+  "subtitle": "Member distribution across risk tiers",
+  "artifacts": [
+   "strategy",
+   "personas",
+   "blueprint"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    55,
+    28,
+    12,
+    5
+   ],
+   "seed": 4692
+  }
+ },
+ {
+  "id": "healthcare-pro-04",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "revenue-by-service-line",
+  "title": "Revenue by service line",
+  "subtitle": "Net revenue share across departments",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    30,
+    24,
+    20,
+    16,
+    10
+   ],
+   "seed": 4693
+  }
+ },
+ {
+  "id": "healthcare-pro-05",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "utilization-by-site",
+  "title": "Utilization by site of care",
+  "subtitle": "Encounter share across settings",
+  "artifacts": [
+   "strategy",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    45,
+    30,
+    15,
+    10
+   ],
+   "seed": 4694
+  }
+ },
+ {
+  "id": "healthcare-pro-06",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "trial-population-composition",
+  "title": "Trial population composition",
+  "subtitle": "Enrollment share by demographic group",
+  "artifacts": [
+   "prd",
+   "audit",
+   "gap"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    38,
+    27,
+    20,
+    15
+   ],
+   "seed": 4695
+  }
+ },
+ {
+  "id": "healthcare-pro-07",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "spend-by-care-category",
+  "title": "Spend by care category",
+  "subtitle": "Total cost of care distribution",
+  "artifacts": [
+   "strategy",
+   "audit"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    40,
+    25,
+    20,
+    15
+   ],
+   "seed": 4696
+  }
+ },
+ {
+  "id": "healthcare-pro-08",
+  "family": "proportionStack",
+  "industry": "healthcare",
+  "framework": "workforce-composition",
+  "title": "Clinical workforce composition",
+  "subtitle": "Staffing share by role type",
+  "artifacts": [
+   "audit",
+   "strategy",
+   "org"
+  ],
+  "labeled": false,
+  "aspect": "portrait",
+  "data": {
+   "groups": [
+    35,
+    28,
+    22,
+    15
+   ],
+   "seed": 4697
+  }
+ },
+ {
+  "id": "healthcare-sec-01",
+  "family": "sectionMark",
+  "industry": "healthcare",
+  "framework": "section-divider-clinical",
+  "title": "Clinical operations",
+  "subtitle": "Care pathway and throughput findings",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "ordinal": 2,
+   "seed": 4698
+  }
+ },
+ {
+  "id": "healthcare-sec-02",
+  "family": "sectionMark",
+  "industry": "healthcare",
+  "framework": "section-divider-financial",
+  "title": "Financial performance",
+  "subtitle": "Payer mix and value-based contracting",
+  "artifacts": [
+   "slides",
+   "report"
+  ],
+  "labeled": false,
+  "aspect": "square",
+  "data": {
+   "ordinal": 4,
+   "seed": 4699
+  }
+ }
+]

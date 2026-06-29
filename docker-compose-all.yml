@@ -454,6 +454,19 @@ services:
       # social-research-backend) so retrieval never starves on Gemini 429s.
       # Override to gemini/openai/voyage via the EMBED_PROVIDER env if desired.
       - EMBED_PROVIDER=${EMBED_PROVIDER:-local}
+      # 2026-06-28 — Gemini EXPLICIT context cache (cachedContents API), Gap #1.
+      # ENABLED by default (W5, model-usage-optimization §2). After STEP 1 routed
+      # browser Gemini chat through /api/ai/gemini, this chokepoint is now reachable
+      # for the high-volume chat path, so the explicit cachedContent discount is
+      # worth its (small) storage cost. Override to 0 in .env to disable. TTL +
+      # min-prefix floor are tunable. When off the proxy adds zero overhead.
+      - GEMINI_EXPLICIT_CACHE_ENABLED=${GEMINI_EXPLICIT_CACHE_ENABLED:-1}
+      - GEMINI_CACHE_TTL_SEC=${GEMINI_CACHE_TTL_SEC:-3600}
+      - GEMINI_CACHE_MIN_CHARS=${GEMINI_CACHE_MIN_CHARS:-8000}
+      # 2026-06-28 — W1 upload-extraction cache (vision OCR on immutable source
+      # bytes). ON by default; 30-day TTL. Override via .env.
+      - VISION_CACHE_ENABLED=${VISION_CACHE_ENABLED:-1}
+      - VISION_CACHE_TTL_SEC=${VISION_CACHE_TTL_SEC:-2592000}
     volumes:
       - ./humans-in-control-research/proxy:/app
       # S8: mount full hic-workspace so the scheduler can read youtube-channels.json
