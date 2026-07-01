@@ -120,6 +120,47 @@ export interface ResolvedChunkLike {
     relatedChunks?: string[];
 }
 
+/** STRAGGLER D3/#15 forward-fix (2026-07-01): recover named sources from a chunk's INLINE "Source:" line
+ *  when the manifest chunk carries no structured `sources:` frontmatter (the common case for pages chunked
+ *  before the WS-A wiki_chunker began extracting per-chunk sources). Live-validated on a real #slides AIR:
+ *  13/92 pointers carried "Source: [Name](url)" in the body but shipped an empty sources[] (un-well-formed).
+ *  HIGH-PRECISION by design: fires only on a "Source(s):" label, so bot/boilerplate text is never mis-read as
+ *  a source. Fallback only - never overrides structured manifest sources. Confidence 0.6 (real name, parsed
+ *  from body not frontmatter) sits between structured (0.85) and none (0.4). */
+export function extractInlineSources(text: string): EvidenceSource[] {
+    if (!text) return [];
+    const out: EvidenceSource[] = [];
+    const seen = new Set<string>();
+    const labelRe = /\bSources?:\s*(.+?)(?:\n|$)/gi;   // the source clause on its line
+    const linkRe = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+    let m: RegExpExecArray | null;
+    while ((m = labelRe.exec(text)) !== null && out.length < 6) {
+        const clause = m[1];
+        let hadLink = false;
+        let lm: RegExpExecArray | null;
+        linkRe.lastIndex = 0;
+        while ((lm = linkRe.exec(clause)) !== null) {
+            hadLink = true;
+            const name = lm[1].trim();
+            const url = lm[2].trim();
+            const key = name.toLowerCase();
+            if (name && !seen.has(key)) {
+                seen.add(key);
+                out.push({ sourceId: url, sourceType: 'web', sourceName: name, url, attributionLabel: name });
+            }
+        }
+        if (!hadLink) {
+            const name = clause.replace(/[)\]]+\s*$/, '').trim().slice(0, 80);   // "(Source: X)" / "[Source: X]" -> X
+            const key = name.toLowerCase();
+            if (name.length >= 2 && !seen.has(key)) {
+                seen.add(key);
+                out.push({ sourceId: `inline:${key}`, sourceType: 'web', sourceName: name, attributionLabel: name });
+            }
+        }
+    }
+    return out;
+}
+
 /** Map one resolved chunk to an EvidencePointer. objectiveScore defaults to 0 (retrieval-time score is
  *  wired in WS-F/AIR-objective work); provenanceConfidence reflects whether per-chunk sources were present. */
 export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore = 0): EvidencePointer {
@@ -127,7 +168,7 @@ export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore
     const hashIdx = id.indexOf('#');
     const wikiPath = chunk.sourcePath || (hashIdx >= 0 ? id.slice(0, hashIdx) : id);
     const chunkId = hashIdx >= 0 ? id.slice(hashIdx + 1) : id;
-    const sources: EvidenceSource[] = (chunk.sources || [])
+    const structured: EvidenceSource[] = (chunk.sources || [])
         .map((s, i) => ({
             sourceId: s.u || `${id}-s${i}`,
             sourceType: 'web' as EvidenceSourceType,   // best-effort; refined when source metadata carries type
@@ -136,6 +177,10 @@ export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore
             attributionLabel: (s.n || '').trim(),
         }))
         .filter(s => s.sourceName);
+    // D3/#15 forward-fix: when the manifest chunk has no structured sources, recover them from the inline
+    // "Source:" line in the body. Fallback only - structured manifest sources always win.
+    const sources = structured.length ? structured : extractInlineSources(chunk.text || '');
+    const provenanceConfidence = structured.length ? 0.85 : (sources.length ? 0.6 : 0.4);
     return {
         pointer: id,
         wikiPath,
@@ -146,7 +191,7 @@ export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore
         subQuestionIds: [],
         concepts: chunk.concepts || [],
         relatedChunks: chunk.relatedChunks || [],
-        provenanceConfidence: sources.length ? 0.85 : 0.4,
+        provenanceConfidence,
     };
 }
 
