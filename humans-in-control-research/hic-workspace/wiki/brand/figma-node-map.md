@@ -215,6 +215,18 @@ Machine contract: `registry.json.vizPatterns`. Family contract:
 1. **executive-brief 366:2** — still a RAW frame (not a component) and its masthead is a literal
    TEXT node (367:2), NOT the `Brand/Logo` 619:2 instance, so it will NOT mode-flip to the NU
    red-N monogram. Componentize + swap masthead to 619:2.
+   > **VERIFIED 2026-07-01 (D16, via Figma MCP get_metadata + get_variable_defs + get_screenshot):**
+   > token-binding is CONFIRMED done — every fill/font on 366:2 resolves to the NXT `color/*`+`font/*`
+   > variable set (rail, accent, grey, cyan, ink, paper, ecru, teal, hairline; Saira/Archivo/IBM Plex
+   > Mono), and the frame renders correctly (hero TRIAGE callout + 4 finding cards + cited quotes +
+   > takeaway band). The 7 content slots exist as discrete named nodes (kicker 367:3, title 367:4,
+   > hero label 368:6, hero statement 368:7, card top/desc, 2 quotes). RESIDUE = two IN-APP structural
+   > edits on the PUBLISHED library: (a) convert frame -> component, (b) swap literal masthead 367:2 for
+   > the Brand/Logo 619:2 instance (the only real functional gap: NU mode-flip of the wordmark). NOT done
+   > via MCP: structural writes on a published library frame are hard to reverse and every GOLD twin +
+   > the runtime depend on it; Code Connect (proper code<->component binding) is Pro-tier-blocked; and
+   > this changes ZERO runtime output (the renderer twins already mirror the frame + read
+   > /api/design-tokens). Correctly a designer-in-Figma-app task, not an MCP automation.
 2. **tech-architecture 606:2** — absolute-positioned rasterized SVG connectors (violates the
    auto-layout / no-collision ban) + literal-hex borders that won't recolor under NU mode.
 3. **roadmap base 599:2** — literal-hex borders (won't NU-recolor).
