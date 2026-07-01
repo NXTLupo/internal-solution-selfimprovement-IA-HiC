@@ -4402,6 +4402,31 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // to its own display target.
             const { exportGoldDeckPptx } = await import('../services/goldArtifact');
             const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
+            // D17 (owner-chosen): journey/architecture slides export as Nano-Banana diagram IMAGES. Fetch the
+            // brand-locked diagram at export time (only when actually exporting) + attach it to the slide so
+            // slideToStageHtml renders it full-body over the GOLD shell. Fail-open: on error the slide keeps
+            // its native render. Content-hash cached server-side so re-exports reuse the image.
+            for (const s of slides as any[]) {
+                if (s.diagramImage) continue;
+                let kind = '', labels: string[] = [];
+                if (s.template === 'journey-map' && s.journeyMap) {
+                    kind = 'journey';
+                    labels = (s.journeyMap.stages || []).map((x: any) => (typeof x === 'string' ? x : x?.name || '')).filter(Boolean);
+                } else if (s.template === 'architecture-map' && s.architectureMap) {
+                    kind = 'architecture';
+                    labels = (s.architectureMap.layers || []).flatMap((l: any) => (l.nodes || []).map((n: any) => n?.name || '')).filter(Boolean);
+                    if (labels.length < 2) labels = (s.architectureMap.layers || []).map((l: any) => l?.name || '').filter(Boolean);
+                } else { continue; }
+                labels = labels.slice(0, 8);
+                if (labels.length < 2) continue;
+                try {
+                    const r = await fetch('http://127.0.0.1:5012/api/ai/diagram', {
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ spec: { kind, labels, title: s.title || '' }, brand: (s.brand === 'nu' ? 'nu' : 'nxt'), canvas: 'light' }),
+                    });
+                    if (r.ok) { const d = await r.json(); if (d?.dataUri) s.diagramImage = d.dataUri; }
+                } catch { /* fail-open: native render */ }
+            }
             const stageHtmlList: string[] = [];
             for (const s of slides) {
                 try {

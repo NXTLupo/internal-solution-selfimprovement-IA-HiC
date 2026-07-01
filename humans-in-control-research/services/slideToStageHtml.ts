@@ -1894,6 +1894,10 @@ function _spreadByArc(count: number, nCols: number): number[] {
 // ---------------------------------------------------------------------------
 function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const d: any = (slide as any).journeyMap || {};
+    // D17 (owner-chosen): when a Nano-Banana diagram image is attached, render it full-body over the GOLD
+    // shell (title/rail added by the stage composer) instead of the native matrix. Embeds as a PPTX picture.
+    const _diag = String((slide as any).diagramImage || '').trim();
+    if (_diag) return `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:6px"><img src="${esc(_diag)}" alt="" style="max-width:100%;max-height:100%;object-fit:contain"/></div>`;
     const capItems = Math.max(3, _caps.items || 5);
     const capLanes = Math.max(2, _caps.sub || 4);
     const stagesRaw: any[] = Array.isArray(d.stages) ? d.stages.slice(0, capItems) : [];
@@ -2082,6 +2086,9 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
 // ---------------------------------------------------------------------------
 
 function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
+    // D17: Nano-Banana diagram image full-body over the GOLD shell when attached (else native tiers).
+    const _diag = String((slide as any).diagramImage || '').trim();
+    if (_diag) return `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:6px"><img src="${esc(_diag)}" alt="" style="max-width:100%;max-height:100%;object-fit:contain"/></div>`;
     const layers: any[] = Array.isArray(slide.architectureMap?.layers) ? slide.architectureMap.layers.slice(0, 6) : [];
     const flow: string = slide.architectureMap?.flowSummary || '';
     if (layers.length === 0) return `<p style="font-size:${SCALE.name}px">No architecture layers.</p>`;
