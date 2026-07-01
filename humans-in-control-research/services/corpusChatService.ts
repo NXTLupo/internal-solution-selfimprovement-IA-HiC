@@ -10,7 +10,7 @@ import * as _hashtagRegistryModule from './hashtagRegistry';
 // feedback_deliverables_manifest_wiki_not_rag). pickChunksForPrompt pre-ranks the
 // engagement's chunk catalog; resolveChunks dereferences pointers to verbatim
 // spans; assembleChunkCorpus renders the cite-by-pointer block.
-import { OPUS_CAP_ACTIVE } from './aiRouter';
+import { artifactModelFor } from './aiRouter';
 import { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions } from './chunkRetrieval';
 import { resolveChunks, currentEngagementSlug } from './wikiPointerResolver';
 // 2026-06-02 - Single canonical shaper for run intelligence + corpus manifest.
@@ -601,25 +601,14 @@ const ARTIFACT_TPL: Array<[RegExp, string]> = [
 // imagery-heavy, where Flash leaves quotes/concepts thin (live-observed empty case-study
 // quotes). REVERSIBLE: set ARTIFACT_DEFAULT_DURING_CAP=null to restore the Opus default
 // for non-schema artifacts after the cap lifts; the schema->Flash tier stays (validated).
-const DELIVERABLE_MODEL_TIER: Record<string, ChatModel> = {
-    'gap-matrix': 'gemini-3.5-flash',          // #gap       - bake-off-validated
-    'journey-map': 'gemini-3.5-flash',         // #journey   - bake-off-validated
-    'service-blueprint': 'gemini-3.5-flash',   // #blueprint - bake-off Part A (Flash==Pro)
-    'competitive-matrix': 'gemini-3.5-flash',  // #competitive
-    'org-chart': 'gemini-3.5-flash',           // #org
-    'systems-inventory': 'gemini-3.5-flash',   // #audit
-    'architecture-map': 'gemini-3.5-flash',    // #arch
-    'timeline': 'gemini-3.5-flash',            // #roadmap
-};
-// Default model for ANY artifact NOT in the Flash schema map above, while the Opus cap is
-// active: Gemini 3.1 Pro (available, off the Anthropic quota, full evidence + real per-
-// element imagery). Covers case-study, persona-card, theme-overview/detail/arc/mosaic,
-// recommendation, prd-feature, executive-brief, principles/strategy. Set to null to
-// restore the canonical claude-opus-4-8 default once the cap lifts.
-// Derived from the single OPUS_CAP_ACTIVE flag (aiRouter): while capped, non-schema
-// artifacts default to Gemini 3.1 Pro; when the flag flips to false the value becomes
-// null, which restores the canonical claude-opus-4-8 force-route default.
-const ARTIFACT_DEFAULT_DURING_CAP: ChatModel | null = OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : null;
+// WS-E (2026-06-30) - ROUTING CONVERGED onto the ONE authority: aiRouter.artifactModelFor. The parallel
+// DELIVERABLE_MODEL_TIER map + ARTIFACT_DEFAULT_DURING_CAP const that used to live here are DELETED (no
+// duplicate routing brain). artifactModelFor is the single source of truth: schema/table deliverables
+// (gap-matrix/journey-map/service-blueprint/competitive-matrix/org-chart/systems-inventory/architecture-map/
+// timeline) -> gemini-3.5-flash (bake-off-validated); every other artifact (case-study/personas/themes/
+// strategy/recs/report/prd + bare #slides) -> gemini-3.1-pro-preview while OPUS_CAP_ACTIVE, claude-opus-4-8
+// after. Reverse the cap by flipping OPUS_CAP_ACTIVE in aiRouter (one flag). Rationale + bake-off evidence:
+// plans/model-bakeoff-*.md + the aiRouter header block.
 
 /** Resolve the per-deliverable model override for a message, or null if none.
  *  Keys on the ARTIFACT_TPL template id (gap-matrix / journey-map / ...), so a
@@ -630,16 +619,10 @@ function deliverableModelOverride(userMessage: string): ChatModel | null {
     if (!isArtifactGenerationMessage(userMessage)) return null;
     const avail = (id: ChatModel | null): ChatModel | null =>
         id && AVAILABLE_MODELS.find(m => m.id === id)?.available ? id : null;
+    // WS-E: delegate to the ONE routing authority. Pass the ARTIFACT_TPL template id when present
+    // (gap-matrix/...), else the raw message (artifactModelFor normalizes hashtags + a bare #slides).
     const hit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
-    // Schema/table template -> Flash (bake-off-validated). The map is keyed on the
-    // ARTIFACT_TPL template id; #slides without a named artifact template has no hit.
-    if (hit) {
-        const flash = avail(DELIVERABLE_MODEL_TIER[hit[1]]);
-        if (flash) return flash;
-    }
-    // Every other artifact (case-study/personas/themes/strategy/recs/report/prd, and a
-    // bare #slides deck) -> Gemini 3.1 Pro while the Opus cap is active. null after the cap.
-    return avail(ARTIFACT_DEFAULT_DURING_CAP);
+    return avail(artifactModelFor(hit ? hit[1] : userMessage) as ChatModel);
 }
 
 /** True when the message carries #slide/#slides or any artifact hashtag -
@@ -3227,12 +3210,10 @@ export async function sendChatMessage(
     // Gemini-budgeted corpus would overflow the assumed 200K-token window.
     // Council mode is exempt (the user explicitly opted into the 3-model fan).
     if (model !== 'council' && isArtifactGenerationMessage(userMessage)) {
-        // 2026-06-28 - PER-DELIVERABLE TIER OVERRIDE (bake-off-validated) takes
-        // precedence over the Opus default. #gap (gap-matrix) + #journey
-        // (journey-map) -> gemini-3.5-flash; see DELIVERABLE_MODEL_TIER above
-        // (plans/model-bakeoff-gap-journey-2026-06-28.md). Every OTHER artifact
-        // hashtag keeps the claude-opus-4-8 force-route. Reversible: delete the
-        // map entry to restore Opus.
+        // WS-E (2026-06-30): per-deliverable routing is resolved by the ONE authority
+        // aiRouter.artifactModelFor (via deliverableModelOverride). Schema/table -> gemini-3.5-flash
+        // (bake-off-validated); everything else -> gemini-3.1-pro-preview (capped) / claude-opus-4-8
+        // (after). Reversible via the single OPUS_CAP_ACTIVE flag in aiRouter.
         const tierOverride = deliverableModelOverride(userMessage);
         if (tierOverride && model !== tierOverride) {
             console.info(`[chat][route] Bake-off-validated tier override: ${model} -> ${tierOverride} (deliverable)`);

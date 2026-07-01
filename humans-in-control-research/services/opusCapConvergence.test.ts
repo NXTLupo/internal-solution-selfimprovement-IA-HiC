@@ -24,10 +24,15 @@ describe('OPUS_CAP_ACTIVE — single source of truth for the Opus-quota workarou
         expect(src).toMatch(/if\s*\(\s*!OPUS_CAP_ACTIVE\s*&&\s*\(process\.env as any\)\.ANTHROPIC_API_KEY\s*\)/);
     });
 
-    it('corpusChatService derives ARTIFACT_DEFAULT_DURING_CAP from the flag', () => {
+    it('corpusChatService routes artifacts through the ONE authority artifactModelFor (WS-E convergence)', () => {
         const src = read('corpusChatService.ts');
-        expect(src).toMatch(/import\s*\{[^}]*OPUS_CAP_ACTIVE[^}]*\}\s*from\s*'\.\/aiRouter'/);
-        expect(src).toMatch(/ARTIFACT_DEFAULT_DURING_CAP[^=]*=\s*OPUS_CAP_ACTIVE\s*\?\s*'gemini-3\.1-pro-preview'\s*:\s*null/);
+        // WS-E (2026-06-30): the parallel DELIVERABLE_MODEL_TIER map + ARTIFACT_DEFAULT_DURING_CAP const were
+        // DELETED; deliverableModelOverride now delegates to aiRouter.artifactModelFor (single source of truth,
+        // itself cap-aware via OPUS_CAP_ACTIVE). Guard the convergence: the duplicate is gone + the delegation exists.
+        expect(src).toMatch(/import\s*\{[^}]*artifactModelFor[^}]*\}\s*from\s*'\.\/aiRouter'/);
+        expect(src).toMatch(/artifactModelFor\(hit \? hit\[1\] : userMessage\)/);
+        expect(src).not.toMatch(/const DELIVERABLE_MODEL_TIER/);          // duplicate map deleted
+        expect(src).not.toMatch(/const ARTIFACT_DEFAULT_DURING_CAP/);     // duplicate cap-default deleted
     });
 
     it('prototypeBuilder derives CODE_MODEL from the flag', () => {
