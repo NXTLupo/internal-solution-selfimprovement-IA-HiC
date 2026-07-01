@@ -5361,6 +5361,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         }),
                         extractText: (r) => (r && typeof r === 'object' && 'text' in r ? String((r as any).text || '') : ''),
                         buildScoreInput: (text) => ({ text, label: directive.generator }),
+                        // Stage-3 AIR emission (SHADOW): the strategy/HTML-artifact path is the first real
+                        // AIR consumer. buildAir+validate(shadow)+writeAir run in emitDeliverable; non-blocking.
+                        air: {
+                            trigger: directive.generator,
+                            objective: ((getContext ? getContext() : context)?.researchGoal) || '',
+                            buildPayload: (_r, t) => ({ kind: _htmlKind, html: t }),
+                        },
                     });
                     const text = _emit.result.text;
                     let cleaned = (text || '').replace(/^```(?:html)?\s*\n/i, '').replace(/\n```\s*$/i, '').trim();

@@ -1,4 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { buildAir, validateAir, AIR_VERSION } from './artifactAirService';
 import type { ResearchObjective } from './artifactAirService';
 import type { EvidencePointer } from './evidenceLedgerService';
@@ -66,6 +68,20 @@ describe('ArtifactAIR build + validate (WS-0)', () => {
             evidenceLedger: [goodPointer], shadowMode: false,
         });
         expect(validateAir(air).ok).toBe(true);
+    });
+});
+
+describe('Stage-3: AIR emission wired into emitDeliverable (shadow beachhead)', () => {
+    const read = (rel: string) => readFileSync(join(__dirname, '..', rel), 'utf-8');
+    it('emitDeliverable has an opt-in air step that builds + validates(shadow) + writes AIR', () => {
+        const src = read('services/emitDeliverable.ts');
+        expect(src).toMatch(/air\?:\s*\{/);                         // the opt-in option
+        expect(src).toMatch(/buildAir|writeAir/);                    // builds + persists
+        expect(src).toMatch(/shadowMode:\s*true/);                   // ramped: shadow first, non-blocking
+    });
+    it('the strategy/HTML-artifact path opts into AIR emission', () => {
+        const panel = read('components/CorpusChatPanel.tsx');
+        expect(panel).toMatch(/air:\s*\{[\s\S]*?trigger:\s*directive\.generator/);
     });
 });
 

@@ -60,6 +60,7 @@
 import { recordTurn, type RecordTurnOpts } from './traceRecorder';
 import { evaluatePareto, type EvaluatePareto, type QualityVector } from './qualityFrontier';
 import { persistInsightAsChunk } from './chunkRetrieval';
+import type { EvidencePointer } from './evidenceLedgerService';
 
 export interface EmitDeliverableOpts<T> {
     /** Hashtag id, e.g. '#recommendations' - used for trace tagging + ARCH lookup. */
@@ -141,6 +142,21 @@ export interface EmitDeliverableOpts<T> {
         }>;
         reproducibilityHash?: string;
         researchGoal?: string;
+    };
+
+    /** WS-0/Stage-3 (2026-06-30) - AIR EMISSION. When provided, the wrapper builds an ArtifactAIR from the
+     *  emitted result + the objective, validates it against the contract in SHADOW mode (logs violations,
+     *  never blocks), and persists it via the proxy (fire-and-forget). This makes emitDeliverable the single
+     *  chokepoint where every artifact becomes AIR - the plan's ramped shadow->blocking migration starts here.
+     *  Purely additive observability; a failure never affects the returned result. */
+    air?: {
+        trigger: string;                                     // the hashtag directive, e.g. '#strategy'
+        objective: string;                                   // the research objective / goal
+        runId?: string;                                      // defaults to the current engagement slug
+        artifactId?: string;                                 // defaults to <deliverable>_<started_at>
+        audience?: string;
+        evidence?: EvidencePointer[];                        // optional; empty in the shadow beachhead
+        buildPayload?: (result: T, text: string) => unknown; // defaults to the extracted text
     };
 }
 
@@ -267,6 +283,42 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                     .catch(() => { /* fire-and-forget */ });
             }
         } catch { /* tracker not loaded - no-op */ }
+    }
+
+    // WS-0/Stage-3 (2026-06-30) - AIR EMISSION. Build + validate (SHADOW) + persist an ArtifactAIR for this
+    // deliverable. The single chokepoint through which every artifact becomes AIR; shadow-mode validation
+    // logs contract violations without blocking (ramped shadow->blocking migration). Fire-and-forget.
+    if (opts.air && !emitError) {
+        try {
+            const { buildAir, validateAir, writeAir } = await import('./artifactAirService');
+            const runId = opts.air.runId
+                || (typeof window !== 'undefined' ? ((window as any).__hicCurrentEngagementSlug as string) : '')
+                || 'run';
+            const artifactId = opts.air.artifactId || `${opts.deliverable.replace(/^#/, '')}_${t0}`;
+            const objective = {
+                objectiveId: `obj_${runId}`,
+                userObjective: opts.air.objective || '',
+                decomposedQuestions: [] as any[],
+                audience: opts.air.audience,
+            };
+            const payload = opts.air.buildPayload ? opts.air.buildPayload(result, text) : text;
+            const { air, entry } = buildAir({
+                runId, artifactId, trigger: opts.air.trigger, objective,
+                evidenceLedger: opts.air.evidence || [], artifactPayload: payload, shadowMode: true,
+            });
+            const v = validateAir(air);
+            if (v.failures.length > 0) {
+                console.info(`[emitDeliverable/${opts.deliverable}] AIR shadow: ${v.failures.length} contract note(s) (non-blocking): ${v.failures.slice(0, 3).join('; ')}`);
+            }
+            if (!entry) {
+                console.warn(`[emitDeliverable/${opts.deliverable}] AIR: trigger '${opts.air.trigger}' not in artifact catalog - add it to services/artifactCatalog.ts`);
+            }
+            void writeAir(air).then(w => {
+                if (w.persisted) console.info(`[emitDeliverable/${opts.deliverable}] AIR persisted (shadow): ${w.path}`);
+            }).catch(() => { /* fire-and-forget */ });
+        } catch (e: any) {
+            console.warn(`[emitDeliverable/${opts.deliverable}] AIR emission failed (non-fatal):`, e?.message || e);
+        }
     }
 
     // 2026-06-06 - INSIGHT-AS-CHUNK persistence. Close the second-brain
