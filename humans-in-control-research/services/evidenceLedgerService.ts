@@ -219,9 +219,14 @@ export function isNonEvidenceChunk(text?: string): boolean {
 }
 
 /** Build an evidence ledger from the resolved chunks that grounded a generation. Non-evidence chunks
- *  (bot/mod boilerplate, tombstones) are dropped: an evidence ledger lists only claim-supporting corpus. */
+ *  (bot/mod boilerplate, tombstones) are dropped: an evidence ledger lists only claim-supporting corpus.
+ *  A chunk carrying structured manifest sources is citable regardless of body text (the drop is text-based). */
 export function buildEvidenceLedger(chunks: ResolvedChunkLike[]): EvidencePointer[] {
     return (chunks || [])
-        .filter(c => c && c.id && !isNonEvidenceChunk(c.text))
+        .filter(c => {
+            if (!c || !c.id) return false;
+            if (c.sources && c.sources.length) return true;   // structured sources -> citable, keep
+            return !isNonEvidenceChunk(c.text);                // else drop bot/mod boilerplate + stubs
+        })
         .map(c => resolvedChunkToEvidence(c));
 }
