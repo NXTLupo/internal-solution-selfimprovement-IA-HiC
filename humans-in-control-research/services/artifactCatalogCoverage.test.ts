@@ -73,6 +73,20 @@ describe('artifact catalog coverage (none omitted)', () => {
         expect(messageTargetsArtifact('what are the main themes in the corpus?')).toBe(false);
     });
 
+    it('COMBINED hashtags (#strategy #slides, #gap #NU, etc.) still route to AIR emission', () => {
+        // Combos are the real usage: a directive + #slides/#NU/#dense. Every combination of an artifact
+        // directive with modifiers must keep messageTargetsArtifact true so the deck still emits an AIR.
+        const combos = [
+            '#strategy #slides #NU', '#gap #slides', '#personas #dense', '#journey #NU',
+            '#competitive #slides #dense', '#brief #slides', '#audits #slides', '#architecture #NU',
+            '#strategy', '#playground', '#approaches',
+        ];
+        const missed = combos.filter(c => !messageTargetsArtifact(`${c} on the corpus`));
+        expect(missed, `combined-hashtag artifact requests NOT caught (deck would emit NO AIR): ${missed.join(' | ')}`).toEqual([]);
+        // and a modifier-only / non-artifact combo must NOT trigger
+        expect(messageTargetsArtifact('summarize the corpus #NU')).toBe(false);
+    });
+
     it('keeps schema_flash routingClass in sync with aiRouter SCHEMA_FLASH_ARTIFACTS', () => {
         const router = read('aiRouter.ts');
         const setBlock = router.slice(router.indexOf('SCHEMA_FLASH_ARTIFACTS'), router.indexOf('])', router.indexOf('SCHEMA_FLASH_ARTIFACTS')));
