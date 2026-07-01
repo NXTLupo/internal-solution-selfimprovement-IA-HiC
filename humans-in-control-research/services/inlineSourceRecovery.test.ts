@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { extractInlineSources, resolvedChunkToEvidence, isWellFormedPointer } from './evidenceLedgerService';
+import { extractInlineSources, resolvedChunkToEvidence, isWellFormedPointer, isNonEvidenceChunk, buildEvidenceLedger } from './evidenceLedgerService';
 
 // STRAGGLER D3/#15 forward-fix: recover named sources from a chunk's inline "Source:" line when the manifest
 // carries no structured sources[]. Cases mirror the real #slides AIR (slides_1782907982158) that motivated it.
@@ -32,6 +32,27 @@ describe('D3/#15 inline-source recovery', () => {
         expect(p.sources.length).toBeGreaterThan(0);
         expect(isWellFormedPointer(p)).toBe(true);
         expect(p.provenanceConfidence).toBe(0.6);   // recovered-from-body tier
+    });
+
+    it('flags bot/moderator boilerplate as non-evidence (the real dropped chunks)', () => {
+        expect(isNonEvidenceChunk('I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit')).toBe(true);
+        expect(isNonEvidenceChunk('**Reminder that solicitation/spamming is grounds for a permanent ban**. Please contact the moderators of this subreddit')).toBe(true);
+        expect(isNonEvidenceChunk('[removed]')).toBe(true);
+        expect(isNonEvidenceChunk('')).toBe(true);
+    });
+
+    it('does NOT flag ordinary evidence prose as non-evidence', () => {
+        expect(isNonEvidenceChunk('Asset managers require proprietary data plumbing before deploying AI, per the interviews.')).toBe(false);
+    });
+
+    it('buildEvidenceLedger drops non-evidence chunks (an evidence ledger lists only claim-supporting corpus)', () => {
+        const ledger = buildEvidenceLedger([
+            { id: 'a.md#c0', text: 'Source: [Higher Ed Dive](https://highereddive.com/x)\nChurn is the core retention failure.' },
+            { id: 'b.md#c1', text: 'I am a bot, and this action was performed automatically.' },
+            { id: 'c.md#c2', text: '[deleted]' },
+        ]);
+        expect(ledger).toHaveLength(1);
+        expect(ledger[0].pointer).toBe('a.md#c0');
     });
 
     it('structured manifest sources ALWAYS win over inline (fallback never overrides)', () => {

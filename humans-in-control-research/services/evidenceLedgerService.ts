@@ -195,7 +195,33 @@ export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore
     };
 }
 
-/** Build an evidence ledger from the resolved chunks that grounded a generation. */
+/** D12-enabler / quality (2026-07-01): recognise NON-EVIDENCE chunks - platform/bot/moderator boilerplate
+ *  and tombstones that carry no claim-supporting content. Live-validated on a real #slides AIR whose ledger
+ *  cited "I am a bot, and this action was performed automatically. Please contact the moderators of this
+ *  subreddit". Such text backs no claim, so it must not appear in an EVIDENCE ledger (and should not ground a
+ *  generation). HIGH-PRECISION: matches known automated-boilerplate markers, not ordinary prose. Exported so
+ *  the retrieval path (wikiPointerResolver/chunkRetrieval) can adopt the same predicate to stop junk grounding
+ *  at source (deploy-gated follow-up). */
+const NON_EVIDENCE_MARKERS: RegExp[] = [
+    /\bI am a bot\b/i,
+    /this action was performed automatically/i,
+    /contact the moderators of this subreddit/i,
+    /\byour (post|submission|comment) (has been|was) removed\b/i,
+    /\bposts?\s+must\b.*\bremoved\b/i,
+    /^\s*\[(deleted|removed)\]\s*$/i,
+    /\bI'm a bot\b/i,
+];
+export function isNonEvidenceChunk(text?: string): boolean {
+    const t = (text || '').trim();
+    if (t.length < 12) return true;                                  // empty / stub
+    if (/^\s*\[(deleted|removed)\]\s*$/i.test(t)) return true;
+    return NON_EVIDENCE_MARKERS.some(re => re.test(t));
+}
+
+/** Build an evidence ledger from the resolved chunks that grounded a generation. Non-evidence chunks
+ *  (bot/mod boilerplate, tombstones) are dropped: an evidence ledger lists only claim-supporting corpus. */
 export function buildEvidenceLedger(chunks: ResolvedChunkLike[]): EvidencePointer[] {
-    return (chunks || []).filter(c => c && c.id).map(c => resolvedChunkToEvidence(c));
+    return (chunks || [])
+        .filter(c => c && c.id && !isNonEvidenceChunk(c.text))
+        .map(c => resolvedChunkToEvidence(c));
 }
