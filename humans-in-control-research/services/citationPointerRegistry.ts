@@ -28,6 +28,12 @@ const _pointerSources = new Map<string, string>(); // pagePath (no #cN) -> displ
 // deep-research synthesis chunk resolves to its real sources (e.g. "Higher Ed Dive") instead of the page-level
 // synthesis title ("Gemini Focused Research"). Closes the "sources written but never read at cite time" gap.
 const _chunkSources = new Map<string, string[]>(); // full pointer (path#cN) -> real source name(s)
+// STRAGGLER #14 (2026-07-01): DOC-LEVEL resolved_sources bridge. Deep-research synthesis pages carry a rich
+// `resolved_sources: [{sourceName,...}]` frontmatter array (the REAL external sources the doc synthesized:
+// JD Power, Insurance Journal, ...) but their chunks often have no per-chunk `sources:`. Without this, such a
+// chunk resolves to the generic page bucket ("AI Research (gemini): ..."). This map lets a chunk with no
+// per-chunk source fall back to its page's real synthesized sources as an HONEST multi-source label.
+const _pageResolvedSources = new Map<string, string[]>(); // pagePath -> real synthesized source name(s)
 
 /** Register the REAL source name(s) for one chunk pointer (path#cN). Idempotent; first non-empty wins. */
 export function registerChunkSources(pointer: string, names: string[]): void {
@@ -51,6 +57,20 @@ export function registerResolvedChunkSources(chunks: Array<{ id?: string; source
             if (names.length) registerChunkSources(c.id, names);
         }
     }
+}
+
+/** STRAGGLER #14: register a page's DOC-LEVEL real sources (from `resolved_sources:` frontmatter). Used as a
+ *  fallback in resolveOne when a chunk from this page has no per-chunk source. Idempotent; first non-empty wins. */
+export function registerPageResolvedSources(pagePath: string, names: string[]): void {
+    if (!pagePath) return;
+    const key = pagePath.replace(/#c\d+$/i, '').trim();
+    if (!key || _pageResolvedSources.has(key)) return;
+    const clean: string[] = [];
+    for (const raw of names || []) {
+        const safe = String(raw || '').replace(/["\\]/g, '').replace(/\s{2,}/g, ' ').trim();
+        if (safe && !clean.includes(safe)) clean.push(safe);
+    }
+    if (clean.length) _pageResolvedSources.set(key, clean);
 }
 
 /** Register one page path -> human-readable source name. Idempotent. */
@@ -109,6 +129,16 @@ function resolveOne(pointer: string): string | null {
         return `Synthesis of ${top.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
     }
     const pagePath = clean.replace(/#c\d+$/i, '').trim();
+    // Tier 1.5 (#14): doc-level real synthesized sources. Ranks ABOVE the page sourceTitle because for a
+    // deep-research synthesis doc the page title is a generic bucket ("AI Research (gemini): ...") while
+    // resolved_sources names the REAL external sources. Honest multi-source label, never a false single primary.
+    const pageSrcs = _pageResolvedSources.get(pagePath);
+    if (pageSrcs && pageSrcs.length) {
+        if (pageSrcs.length === 1) return pageSrcs[0];
+        const top = pageSrcs.slice(0, 3);
+        const extra = pageSrcs.length - top.length;
+        return `Synthesis of ${top.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
+    }
     // Tier 2: page-level registered sourceTitle (manifest catalog).
     const hit = _pointerSources.get(pagePath);
     if (hit) return hit;

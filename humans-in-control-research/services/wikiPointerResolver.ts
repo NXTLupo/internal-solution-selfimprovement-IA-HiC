@@ -442,6 +442,27 @@ function _stripFrontmatter(pageText: string): string {
  * with the chunk ids declared in the engagement's manifest; the model
  * sees a structured chunk catalog instead of bulk article bodies.
  */
+/** STRAGGLER #14 (2026-07-01): extract the doc-level `resolved_sources:` frontmatter (a one-line JSON array
+ *  of {sourceName,...}) as a deduped list of real source names, for the page-level citation fallback. Tolerant:
+ *  returns [] on absent/malformed frontmatter. Takes the first match (some pages duplicate the line). */
+function _parseDocResolvedSources(text: string): string[] {
+    if (!text) return [];
+    const m = text.match(/^resolved_sources:\s*(\[.*\])\s*$/m);
+    if (!m) return [];
+    try {
+        const arr = JSON.parse(m[1]);
+        if (!Array.isArray(arr)) return [];
+        const names: string[] = [];
+        for (const s of arr) {
+            const n = s && typeof s === 'object' ? String((s as any).sourceName || '').trim() : '';
+            if (n && !names.includes(n)) names.push(n);
+        }
+        return names;
+    } catch {
+        return [];
+    }
+}
+
 export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks> {
     const t0 = Date.now();
     const out: ResolvedChunk[] = [];
@@ -449,6 +470,9 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
     if (!Array.isArray(chunkIds) || chunkIds.length === 0) {
         return { chunks: [], notFound: [], sourcesRead: 0, elapsedMs: 0 };
     }
+    // STRAGGLER #14: bridge doc-level resolved_sources -> page-level citation fallback (dynamic import to
+    // avoid a static cycle; non-fatal if the registry is unavailable).
+    const _cpr = await import('./citationPointerRegistry').catch(() => null as any);
     // Group by source path.
     const byPage = new Map<string, string[]>();
     for (const id of chunkIds) {
@@ -472,6 +496,12 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
             return;
         }
         reads++;
+        // STRAGGLER #14: register this page's doc-level real sources so a chunk with no per-chunk `sources:`
+        // resolves to its synthesized sources (JD Power, Insurance Journal, ...) instead of the generic bucket.
+        try {
+            const _docSrcs = _parseDocResolvedSources(text);
+            if (_docSrcs.length && _cpr?.registerPageResolvedSources) _cpr.registerPageResolvedSources(src, _docSrcs);
+        } catch { /* non-fatal */ }
         const declared = _parseChunksFrontmatter(text);
         const body = _stripFrontmatter(text);
         const byId = new Map<string, typeof declared[0]>();

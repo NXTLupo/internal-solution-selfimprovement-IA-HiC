@@ -3,6 +3,7 @@ import {
     registerPointerSource,
     registerChunkSources,
     registerResolvedChunkSources,
+    registerPageResolvedSources,
     resolveManifestPointers,
 } from './citationPointerRegistry';
 
@@ -14,6 +15,21 @@ describe('citationPointerRegistry', () => {
         );
         expect(out).toContain('(Source: NXT Stakeholder Interviews)');
         expect(out).not.toContain('.md#c');
+    });
+
+    it('#14: a chunk with no per-chunk source falls back to its page doc-level resolved_sources (honest synthesis)', () => {
+        registerPageResolvedSources('articles/gemini-focused-research/e36bf713ff.md', ['JD Power', 'OpenText Blogs', 'Insurance Journal', 'Capgemini']);
+        const out = resolveManifestPointers('Shoppers switch on price [articles/gemini-focused-research/e36bf713ff.md#c3].');
+        expect(out).toContain('Synthesis of JD Power, OpenText Blogs, Insurance Journal +1 more');
+        expect(out).not.toContain('.md#c');
+    });
+
+    it('#14: a registered per-chunk source still WINS over the page-level fallback (tier order)', () => {
+        registerPageResolvedSources('articles/deep/x.md', ['Aggregate A', 'Aggregate B']);
+        registerChunkSources('articles/deep/x.md#c0', ['Insurance Business']);
+        const out = resolveManifestPointers('Claim [articles/deep/x.md#c0].');
+        expect(out).toContain('(Source: Insurance Business)');
+        expect(out).not.toContain('Synthesis of Aggregate');
     });
 
     it('dedupes multi-pointer groups into a Sources list', () => {
