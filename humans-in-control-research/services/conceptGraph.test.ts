@@ -31,4 +31,13 @@ describe('WS-G(schema): manifest concept graph fields', () => {
         expect(agents).toMatch(/concepts/);
         expect(agents).toMatch(/related_chunks/);
     });
+
+    // WS-G(traversal): the concept graph FEEDS retrieval - pickChunksForPrompt admits 1-hop
+    // concept-adjacent neighbors of keyword-matched chunks (below matches, above dropped).
+    it('pickChunksForPrompt seeds retrieval from the concept graph', () => {
+        const cr = read('services/chunkRetrieval.ts');
+        expect(cr).toMatch(/_conceptNeighbors/);
+        expect(cr).toMatch(/CONCEPT_ADJ_SCORE/);
+        expect(cr, 'follows related_chunks edges of matched chunks').toMatch(/relatedChunks/);
+    });
 });

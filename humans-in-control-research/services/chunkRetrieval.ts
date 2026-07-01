@@ -623,6 +623,31 @@ export async function pickChunksForPrompt(
     const byId = new Map<string, ResolvedChunk>();
     for (const c of resolved.chunks) byId.set(c.id, c);
 
+    // WS-G(traversal, 2026-06-30): CONCEPT-GRAPH SEEDING. The manifest is a concept graph (WS-G-schema
+    // added per-chunk `concepts` + `related_chunks`). Here that graph FEEDS retrieval: a chunk that is
+    // concept-adjacent (1 hop via related_chunks) to a KEYWORD-MATCHED chunk is admitted even at zero
+    // keyword overlap, so on-objective evidence the keyword pass misses (synonyms, adjacent framing) still
+    // enters the pool. Ranked-first by keyword (manifest-first), concept-neighbors fill below matches, then
+    // MMR refines - the ratified "manifest+objective first, refine after seeding" order. Bounded to 1 hop
+    // off matched chunks, so it widens reach without flooding.
+    const _conceptNeighbors = new Set<string>();
+    {
+        const _matched = new Set<string>();
+        for (const rec of candidateRecs) {
+            const ch = byId.get(rec.chunkId);
+            if (!ch) continue;
+            for (const t of ch.keyTerms) {
+                if (promptKeywords.has(t.toLowerCase())) { _matched.add(ch.id); break; }
+            }
+        }
+        for (const id of _matched) {
+            const ch = byId.get(id);
+            for (const rid of (ch?.relatedChunks || [])) {
+                if (!_matched.has(rid)) _conceptNeighbors.add(rid);
+            }
+        }
+    }
+
     // Score each resolved chunk on its PRECISE per-chunk key_terms.
     interface Scored {
         chunk: ResolvedChunk;
@@ -632,8 +657,12 @@ export async function pickChunksForPrompt(
     const scored: Scored[] = [];
     let droppedZeroScore = 0;
     let _userSelectedKept = 0;
+    let _conceptAdmitted = 0;
     const _broaden = !!(opts && (opts as any).broaden);
     let _broadenBackfill = 0;
+    // WS-G(traversal): concept-adjacency admit score. Positive so the neighbor is admitted + MMR-packed,
+    // but < any keyword match (overlap*sentenceCount >= 1) so matched evidence always ranks first.
+    const CONCEPT_ADJ_SCORE = 0.5;
     // 2026-06-16 - USER SELECTIONS TRUMP AUTO RANKING (user rule). A user-selected
     // chunk is NEVER dropped for zero keyword overlap and is lifted into a tier
     // ABOVE every non-selected chunk. The tier is FINITE (not Infinity), so the
@@ -653,6 +682,14 @@ export async function pickChunksForPrompt(
         const isPinned = pinned.has(ch.id);
         const isUserSel = !!(rec.userSelected || rec.namedRef);
         if (!isPinned && !isUserSel && score === 0) {
+            // WS-G(traversal): concept-graph neighbor of a matched chunk -> admit at a low positive score
+            // (below every keyword match) so the concept graph feeds retrieval. Runs in BOTH strict and
+            // broaden modes (it is objective-adjacent by construction, not indiscriminate backfill).
+            if (_conceptNeighbors.has(ch.id)) {
+                scored.push({ chunk: ch, score: CONCEPT_ADJ_SCORE, charLen: ch.text.length });
+                _conceptAdmitted++;
+                continue;
+            }
             // NON-selected zero-overlap. 2026-06-08 PHASE 2 (broader retrieval):
             // strict pass DROPS these (precision); a broaden retry KEEPS them as
             // relevance-ranked backfill so adjacent evidence fills the budget
@@ -686,6 +723,9 @@ export async function pickChunksForPrompt(
     }
     if (_broaden && _broadenBackfill > 0) {
         console.log(`[chunkRetrieval] broaden: kept ${_broadenBackfill} zero-overlap chunk(s) as relevance-ranked backfill (was dropped in strict mode)`);
+    }
+    if (_conceptAdmitted > 0) {
+        console.log(`[chunkRetrieval] concept-graph: admitted ${_conceptAdmitted} concept-adjacent chunk(s) (1-hop related_chunks of keyword-matched chunks) that had zero keyword overlap`);
     }
 
     // Phase A1 (go-forward plan) - MMR diversity packing. The old pack took pure
