@@ -2206,6 +2206,51 @@ export interface ExportSlideArgs {
  * Used by both single-slide and multi-slide deck exports. Handles brand swapping
  * so each slide can carry its own brand without polluting other slides.
  */
+// D17 (2026-07-01, owner-chosen): journeys/architecture render as clean Nano-Banana DIAGRAM IMAGES,
+// not native shapes. Fetch the brand-locked labeled diagram from the proxy + place it as a full-body
+// native picture (keeping the GOLD rail + action title). Fail-open: on any error, return false and let
+// the caller fall through to the native exporter (never breaks an export).
+async function tryDiagramImageExport(
+    s: any, args: ExportSlideArgs, geom: PanelGeom, sources: string[],
+): Promise<boolean> {
+    let kind = '', labels: string[] = [];
+    if (args.template === 'journey-map' && args.journeyMap) {
+        kind = 'journey';
+        labels = (args.journeyMap.stages || []).map((x: any) => (typeof x === 'string' ? x : x?.name || '')).filter(Boolean);
+    } else if (args.template === 'architecture-map' && args.architectureMap) {
+        kind = 'architecture';
+        labels = (args.architectureMap.layers || []).flatMap((l: any) => (l.nodes || []).map((n: any) => n?.name || '')).filter(Boolean);
+        if (labels.length < 2) labels = (args.architectureMap.layers || []).map((l: any) => l?.name || '').filter(Boolean);
+    } else {
+        return false;
+    }
+    labels = labels.slice(0, 8);
+    if (labels.length < 2) return false;
+    const brandId = ((T as any)?.ACCENT === '#C8102E' || (T as any)?.id === 'nu') ? 'nu' : 'nxt';
+    let dataUri = '';
+    try {
+        const resp = await fetch('http://127.0.0.1:5012/api/ai/diagram', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ spec: { kind, labels, title: args.title || '' }, brand: brandId, canvas: 'light' }),
+        });
+        if (!resp.ok) return false;
+        const d = await resp.json();
+        dataUri = d?.dataUri || '';
+    } catch { return false; }
+    if (!dataUri.startsWith('data:image')) return false;
+    // action title (top of the white content panel) + full-body contained diagram image + source footer
+    const padX = 0.4;
+    const tx = geom.contentX + padX, tw = geom.contentW - padX * 2;
+    title(s, tx, 0.42, tw, args.title || '', 24);
+    const imgY = 0.42 + titleH(args.title || '', tw, 24) + 0.12;
+    const imgH = 6.95 - imgY - (sources.length ? 0.3 : 0.1);
+    try {
+        s.addImage({ data: dataUri, x: tx, y: imgY, w: tw, h: imgH, sizing: { type: 'contain', w: tw, h: imgH } });
+    } catch { return false; }
+    sourceFooter(s, tx, tw, sources);
+    return true;
+}
+
 export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
     T = args.brand || nxtBrand;
     const s = pptx.addSlide();
@@ -2214,6 +2259,16 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
 
     if (args.template === 'section-divider' && args.sectionDivider) {
         exportSectionDivider(s, args.sectionDivider);
+        return;
+    }
+
+    // D17: diagram templates (journey/architecture) export as a Nano-Banana image over the GOLD shell.
+    if (args.template === 'journey-map' || args.template === 'architecture-map') {
+        const geomD = await addBaseShell(s, false, undefined);
+        if (await tryDiagramImageExport(s, args, geomD, sources)) return;
+        // fell through (fetch failed) - render native into the SAME shell below
+        if (args.template === 'journey-map' && args.journeyMap) exportJourneyMap(s, args.title, args.journeyMap, sources, geomD);
+        else if (args.template === 'architecture-map' && args.architectureMap) exportArchitectureMap(s, args.title, args.architectureMap, sources, geomD);
         return;
     }
 
@@ -2269,9 +2324,7 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
         case 'service-blueprint':
             if (args.serviceBlueprint) exportServiceBlueprint(s, args.title, args.serviceBlueprint, sources, geom);
             break;
-        case 'journey-map':
-            if (args.journeyMap) exportJourneyMap(s, args.title, args.journeyMap, sources, geom);
-            break;
+        // journey-map handled by the D17 diagram-image branch above (early return).
         case 'org-chart':
             if (args.orgChart) exportOrgChart(s, args.title, args.orgChart, sources, geom);
             break;
@@ -2281,9 +2334,7 @@ export async function renderSlideInto(pptx: any, args: ExportSlideArgs) {
         case 'gap-matrix':
             if (args.gapMatrix) exportGapMatrix(s, args.title, args.gapMatrix, sources, geom);
             break;
-        case 'architecture-map':
-            if (args.architectureMap) exportArchitectureMap(s, args.title, args.architectureMap, sources, geom);
-            break;
+        // architecture-map handled by the D17 diagram-image branch above (early return).
         case 'prd-feature':
             if (args.prdFeature) exportPrdFeature(s, args.title, args.prdFeature, sources, geom);
             break;
