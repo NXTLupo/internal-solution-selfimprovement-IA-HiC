@@ -18627,35 +18627,61 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
             "bg": rail if c == "dark" else paper, "fg": paper if c == "dark" else ink}
 
 
+# D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
+# accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
+# (which keys on spec, not prompt text) invalidates and regenerates.
+_DIAGRAM_STYLE_VERSION = "v4-white-minimal-noinvent"
+
+
 def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
     p = _diagram_palette(brand, canvas)
     kind = (spec.get("kind") or "flow").lower()
     labels = [str(x).strip() for x in (spec.get("labels") or []) if str(x).strip()][:8]
     title = (spec.get("title") or "").strip()
-    base = (f"Create a clean, professional business-consulting DIAGRAM, flat minimal vector style. "
-            f"Background {p['bg']}. Primary nodes/shapes in {p['accent']}, secondary accents in {p['cyan']}. "
-            f"Connectors and ALL text labels in {p['fg']}, crisp legible modern sans-serif. "
-            f"Generous spacing, balanced composition, NO 3D, NO gradients, NO drop shadows, NO photoreal, NO clutter. ")
+    dark = str(canvas).lower() == "dark"
+    bg = p["rail"] if dark else "#FFFFFF"          # light canvas = PURE WHITE (owner: cleaner, whiter)
+    node_fill = p["rail"] if dark else "#FFFFFF"   # nodes are white cards, NOT accent-filled
+    text = "#FFFFFF" if dark else p["ink"]
+    outline = "#3A3A3A" if dark else "#E3E3DD"     # thin neutral hairline outlines
+    base = (f"Create a clean, WHITE, MINIMALIST business-consulting DIAGRAM in a flat, modern vector style. "
+            f"Pure {bg} background with generous empty white space. "
+            f"Nodes are {node_fill} cards/boxes with THIN {outline} outlines (1-2px), lightly rounded corners; "
+            f"do NOT fill nodes with any bold or saturated color. "
+            f"Use the accent color {p['accent']} VERY SPARINGLY and only as a small detail: thin connector arrows, "
+            f"a small node number, or a 2px top/left rule. NEVER use the accent as a large fill or card background. "
+            f"All text labels in near-black {text}, crisp legible modern sans-serif, high contrast on white. "
+            f"Airy, uncluttered, lots of breathing room, balanced. Optional: one small THIN-LINE monochrome icon per "
+            f"node, subtle and single-color. Strictly NO 3D, NO gradients, NO drop shadows, NO photoreal, NO heavy "
+            f"color fills, NO background tint, NO texture, NO clutter. ")
     if kind in ("journey", "journey-map", "flow", "funnel"):
-        layout = (f"A horizontal LEFT-TO-RIGHT JOURNEY FLOW: {len(labels)} stage nodes connected by thin arrows. "
-                  f"Render each stage labeled EXACTLY, in this order: {', '.join(labels)}. ")
+        layout = (f"Layout: a horizontal LEFT-TO-RIGHT JOURNEY FLOW of {len(labels)} white stage cards connected by thin "
+                  f"accent arrows. The stages, in this exact order: {', '.join(labels)}. ")
     elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
-        layout = (f"A layered SYSTEM ARCHITECTURE DIAGRAM: stacked horizontal tiers of connected boxes showing "
-                  f"layers and data flow. Label the components EXACTLY: {', '.join(labels)}. Show clear containment + connectors. ")
+        layout = (f"Layout: a layered SYSTEM ARCHITECTURE DIAGRAM, stacked horizontal tiers of white boxes with thin "
+                  f"connectors showing data flow between layers. Components: {', '.join(labels)}. ")
     elif kind in ("mindmap", "mind-map"):
         hub = (spec.get("hub") or title or "Central question").strip()
-        layout = (f"A radial MIND MAP: a central hub node labeled '{hub}', with branches radiating outward to nodes "
-                  f"labeled EXACTLY: {', '.join(labels)}. Smooth curved connectors from the hub to each branch. ")
+        layout = (f"Layout: a radial MIND MAP, one central white hub card labeled '{hub}', thin curved accent connectors "
+                  f"radiating to EXACTLY {len(labels)} white branch cards: {', '.join(labels)}. "
+                  f"Arrange the {len(labels)} branches ASYMMETRICALLY around the hub (uneven sides are fine); do NOT force "
+                  f"even radial symmetry and do NOT add an extra branch to balance the ring. ")
     else:
-        layout = f"A structural diagram with connected nodes labeled EXACTLY: {', '.join(labels)}. "
-    return base + layout + ("Spell every label correctly; make all text clearly readable and non-overlapping. "
-                            "Absolutely NO watermarks, NO logos, NO app/UI chrome, NO extra invented text.")
+        layout = f"Layout: white connected node cards, thin connectors, labeled: {', '.join(labels)}. "
+    return base + layout + (
+        f"NODE COUNT IS EXACT: render EXACTLY {len(labels)} labeled nodes" + (" plus the one central hub" if kind in ("mindmap", "mind-map") else "") + " — no more, no fewer. "
+        "Do NOT add, invent, pad, mirror, echo, or DUPLICATE any node or label to fill, balance, or make the layout "
+        "symmetric. If that leaves the composition asymmetric, that is correct — leave it asymmetric. Each of the "
+        "given labels appears on exactly ONE node, exactly ONCE (never a second copy anywhere, never both above and "
+        "below a node). "
+        "CRITICAL TEXT RULES: render each label EXACTLY as given. Spell every word correctly; all text horizontal, "
+        "non-overlapping, clearly readable. Absolutely NO watermarks, NO logos, NO app/UI chrome, NO extra invented "
+        "text, NO repeated nodes or words.")
 
 
 def _diagram_id(spec: dict, brand: str, canvas: str) -> str:
     import hashlib as _hl, json as _js
     key = _js.dumps({"k": spec.get("kind"), "l": spec.get("labels"), "h": spec.get("hub"),
-                     "t": spec.get("title"), "b": brand, "c": canvas}, sort_keys=True, ensure_ascii=False)
+                     "t": spec.get("title"), "b": brand, "c": canvas, "sv": _DIAGRAM_STYLE_VERSION}, sort_keys=True, ensure_ascii=False)
     return "diag-" + _hl.sha1(key.encode("utf-8")).hexdigest()[:16]
 
 
