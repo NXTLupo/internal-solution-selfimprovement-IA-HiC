@@ -3831,16 +3831,33 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
                 const _tplHit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
                 const _trigger = _tplHit ? `#${_tplHit[1]}` : (/#slides?\b/i.test(userMessage) ? '#slides' : '#artifact');
                 const _slug = currentEngagementSlug() || 'run';
-                const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }] = await Promise.all([
-                    import('./artifactAirService'), import('./evidenceLedgerService'),
+                const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }, { newRunTrace, recordToolStep }] = await Promise.all([
+                    import('./artifactAirService'), import('./evidenceLedgerService'), import('./runTraceService'),
                 ]);
+                const _nowMs = Date.now();
+                const _artifactId = `${_trigger.replace(/^#/, '')}_${_nowMs}`;
+                const _objId = `obj_${_slug}`;
+                // WS-J/D14: record the manifest grounding as a GOVERNED tool step so the AIR carries a REAL
+                // toolTrace naming the signed pack (wiki_retrieval) that authorized the read. This gives the
+                // mcp_tool_governance gate live data on every artifact run, not just a static contract file.
+                const _airTrace = newRunTrace(_slug);
+                if (_airGroundingChunks.length > 0) {
+                    recordToolStep(_airTrace, {
+                        step: 'grounding:manifest-retrieval',
+                        toolPack: 'wiki_retrieval',
+                        toolName: 'proxy:/api/manifest/chunks-by-goal + /api/wiki/read',
+                        objectiveId: _objId,
+                        downstreamArtifactIds: [_artifactId],
+                    });
+                }
                 const { air: _air } = buildAir({
                     runId: _slug,
-                    artifactId: `${_trigger.replace(/^#/, '')}_${Date.now()}`,
+                    artifactId: _artifactId,
                     trigger: _trigger,
-                    objective: { objectiveId: `obj_${_slug}`, userObjective: context.researchGoal || '', decomposedQuestions: [] },
+                    objective: { objectiveId: _objId, userObjective: context.researchGoal || '', decomposedQuestions: [] },
                     evidenceLedger: buildEvidenceLedger(_airGroundingChunks),
                     artifactPayload: { kind: _trigger.replace(/^#/, ''), content: (responseText || '').slice(0, 20000) },
+                    trace: _airTrace,
                     shadowMode: true,
                 });
                 const _v = validateAir(_air);

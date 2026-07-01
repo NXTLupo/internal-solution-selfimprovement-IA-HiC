@@ -306,13 +306,24 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
             };
             const payload = opts.air.buildPayload ? opts.air.buildPayload(result, text) : text;
             let evidence = opts.air.evidence || [];
+            // WS-J/D14: record the grounding read as a GOVERNED tool step (wiki_retrieval pack) so the AIR
+            // carries a real toolTrace, giving the mcp_tool_governance gate live per-run data on this path too.
+            const { newRunTrace, recordToolStep } = await import('./runTraceService');
+            const airTrace = newRunTrace(runId);
             if (opts.air.resolvedChunks && opts.air.resolvedChunks.length > 0) {
                 const { buildEvidenceLedger } = await import('./evidenceLedgerService');
                 evidence = buildEvidenceLedger(opts.air.resolvedChunks);
+                recordToolStep(airTrace, {
+                    step: 'grounding:manifest-retrieval',
+                    toolPack: 'wiki_retrieval',
+                    toolName: 'manifest chunk pointers -> resolveChunks',
+                    objectiveId: objective.objectiveId,
+                    downstreamArtifactIds: [artifactId],
+                });
             }
             const { air, entry } = buildAir({
                 runId, artifactId, trigger: opts.air.trigger, objective,
-                evidenceLedger: evidence, artifactPayload: payload, shadowMode: true,
+                evidenceLedger: evidence, artifactPayload: payload, trace: airTrace, shadowMode: true,
             });
             const v = validateAir(air);
             if (v.failures.length > 0) {
