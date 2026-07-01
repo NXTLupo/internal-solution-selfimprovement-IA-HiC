@@ -552,13 +552,17 @@ const ARTIFACT_TPL: Array<[RegExp, string]> = [
     [/#compet/i, 'competitive-matrix'],
     [/#gap\b/i, 'gap-matrix'],
     [/#personas?\b/i, 'persona-card'],
-    [/#themes?\b/i, 'theme-overview'],
+    // 2026-07-01 - regexes broadened to honor the catalog's own plural/compound ALIASES (was: \b-anchored
+    // singular-only, so #themecluster/#prds/#audits/#techaudit/#architecture/#orgs resolved via catalogEntryFor
+    // but were NOT caught here -> skipped the force-route + chat-path AIR). Same slide templates, still
+    // \b-anchored (no over-match). Keeps isArtifactGenerationMessage aligned with services/artifactCatalog.ts.
+    [/#themes?(-?clusters?)?\b/i, 'theme-overview'],
     [/#(recommendations?|recs?)\b/i, 'recommendation'],
     [/#road(map)?s?\b/i, 'timeline'],
-    [/#prd\b/i, 'prd-feature'],
-    [/#audit\b/i, 'systems-inventory'],
-    [/#arch\b/i, 'architecture-map'],
-    [/#org(-?charts?)?\b/i, 'org-chart'],
+    [/#prds?\b/i, 'prd-feature'],
+    [/#(tech-?)?audits?\b/i, 'systems-inventory'],
+    [/#arch(itecture)?\b/i, 'architecture-map'],
+    [/#orgs?(-?charts?)?\b/i, 'org-chart'],
     // 2026-06-13 - #brief/#explainer/#report GOLD slide twins (executive-brief,
     // one template / three variants). These resolve the template when #slide is
     // present; bare directives keep their HTML-document form (panel HTML gate).

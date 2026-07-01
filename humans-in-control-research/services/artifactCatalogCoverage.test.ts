@@ -58,18 +58,15 @@ describe('artifact catalog coverage (none omitted)', () => {
         // serves the narrative/HTML directives (templateId null: #strategy, #brief, #explainer, #report ...).
         // This guards path 1: any directive that HAS a slide templateId MUST hit the chat chokepoint, else it
         // would render a deck with no AIR. (Null-template narrative directives correctly use path 2.)
-        // Guard the CANONICAL directive form (aliases[0]) of every templated slide entry - the primary way a
-        // user invokes it. KNOWN gap (tracked): some plural/compound ALIASES (#audits, #orgs, #prds,
-        // #techaudit, #tech-audit, #architecture, #themecluster) are not matched by the ARTIFACT_TPL
-        // \b-anchored regexes even though catalogEntryFor resolves them; aligning isArtifactGenerationMessage
-        // with the catalog needs care (avoid double-emission for #strategy) + a live verify - see the D-alias
-        // follow-up. Canonical forms all route correctly today.
-        const canonical = ARTIFACT_CATALOG
+        // EVERY alias (incl plural/compound like #audits/#architecture/#themecluster) of every templated slide
+        // entry must route through path 1 - the ARTIFACT_TPL regexes are kept aligned with the catalog aliases
+        // so a user typing any declared form gets the force-route + chat-path AIR (not silently plain chat).
+        const templatedAliases = ARTIFACT_CATALOG
             .filter(e => e.modality === 'slides' && e.templateId)   // has a real slide template -> chat-path
-            .map(e => e.aliases[0]);
-        expect(canonical.length).toBeGreaterThan(12);
-        const outsideAir = canonical.filter(d => !isArtifactGenerationMessage(`${d} on the corpus`));
-        expect(outsideAir, `CANONICAL templated slide directives NOT caught by isArtifactGenerationMessage (would skip chat-path AIR): ${outsideAir.join(', ')}`).toEqual([]);
+            .flatMap(e => e.aliases);
+        expect(templatedAliases.length).toBeGreaterThan(15);
+        const outsideAir = templatedAliases.filter(d => !isArtifactGenerationMessage(`${d} on the corpus`));
+        expect(outsideAir, `templated slide directive aliases NOT caught by isArtifactGenerationMessage (would skip chat-path AIR): ${outsideAir.join(', ')}`).toEqual([]);
     });
 
     it('keeps schema_flash routingClass in sync with aiRouter SCHEMA_FLASH_ARTIFACTS', () => {
