@@ -5112,6 +5112,27 @@ const App = () => {
                 const _mergeUploads = [...uploadedCorpusItems, ..._blendCached, ..._autoCached];
                 const corpus = await mergeResultsToCorpus(executionResult, researchGoal, _mergeUploads);
 
+                // WS-F (2026-06-30): OBJECTIVE-SUPREMACY post-collection audit. Score how well the assembled
+                // corpus covers each decomposed sub-question of the objective, and surface HIGH-priority ones
+                // the corpus under-covers so a targeted follow-up can run BEFORE generation. Deterministic +
+                // fail-safe; only runs when the plan carries real sub-questions (shape guard).
+                try {
+                    const _sqs = (plan as any)?.sub_questions;
+                    if (Array.isArray(_sqs) && _sqs.length > 0 && typeof _sqs[0]?.question === 'string' && corpus) {
+                        const { auditSubQuestionCoverage } = await import('./services/researchPlanner');
+                        const _audit = auditSubQuestionCoverage(corpus, _sqs);
+                        console.info(`[App] WS-F sub-question coverage: ${Math.round(_audit.coverage * 100)}% of high+medium sub-questions covered; ${_audit.openHighPriority.length} high-priority still open`);
+                        if (_audit.openHighPriority.length > 0) {
+                            setThinkingEvents(prev => [...prev, {
+                                type: 'PHASE',
+                                content: `[COVERAGE] ${_audit.openHighPriority.length} high-priority sub-question(s) under-covered by the collected corpus (${_audit.openHighPriority.join(', ')}). Objective-supremacy: a targeted follow-up would strengthen the evidence before generation.`,
+                            }]);
+                        }
+                    }
+                } catch (covErr: any) {
+                    console.warn('[App] sub-question coverage audit failed (non-fatal):', covErr?.message || covErr);
+                }
+
                 // Also merge proxy multi-search results
                 let proxyCorpus = '';
                 if (proxyResults.length > 0) {

@@ -38,6 +38,68 @@ export type ResearchPlan = {
     max_iterations: number;
 };
 
+// =============================================================================
+// WS-F (2026-06-30): OBJECTIVE-SUPREMACY - post-collection sub-question coverage.
+// Deterministic (no LLM): after the corpus is assembled, score how well it covers
+// each decomposed sub-question of the objective, and surface HIGH-priority ones the
+// corpus under-covers so the user can run a targeted follow-up BEFORE generating.
+// This makes the objective (not source volume) the measure of "did we collect enough".
+// Pure function - unit-testable without the proxy.
+// =============================================================================
+export interface SubQuestionCoverage {
+    id: string;
+    priority: SubQuestion['priority'];
+    salientTerms: number;
+    presentTerms: number;
+    coverageFraction: number;                 // 0-1
+    status: 'uncovered' | 'partial' | 'covered';
+}
+
+export interface CoverageAudit {
+    perQuestion: SubQuestionCoverage[];
+    /** HIGH-priority sub-questions the corpus does NOT fully cover (the objective-supremacy alarm). */
+    openHighPriority: string[];
+    /** Fraction of high+medium priority sub-questions that are 'covered'. */
+    coverage: number;
+}
+
+const _COV_STOP = new Set<string>([
+    'the', 'and', 'for', 'with', 'from', 'into', 'this', 'that', 'these', 'those', 'their',
+    'what', 'how', 'why', 'does', 'do', 'is', 'are', 'will', 'would', 'should', 'can', 'about',
+    'which', 'when', 'where', 'who', 'whom', 'been', 'being', 'have', 'has', 'had',
+]);
+
+function _covSalientTerms(sq: SubQuestion): string[] {
+    const fromQ = (sq.question || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/)
+        .filter(t => t.length >= 4 && !_COV_STOP.has(t));
+    const fromEntities = (sq.expected_named_entities || []).flatMap(e =>
+        String(e).toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(t => t.length >= 3));
+    return Array.from(new Set([...fromQ, ...fromEntities]));
+}
+
+/** Score corpus coverage of each sub-question by salient-term presence. Deterministic. `covered` when
+ *  >=60% of a sub-question's salient terms appear in the corpus; `partial` when some do; else `uncovered`. */
+export function auditSubQuestionCoverage(corpusText: string, subQuestions: SubQuestion[]): CoverageAudit {
+    const corpusLc = (corpusText || '').toLowerCase();
+    const per: SubQuestionCoverage[] = [];
+    for (const sq of subQuestions || []) {
+        const terms = _covSalientTerms(sq);
+        if (terms.length === 0) {
+            per.push({ id: sq.id, priority: sq.priority, salientTerms: 0, presentTerms: 0, coverageFraction: 0, status: 'uncovered' });
+            continue;
+        }
+        let present = 0;
+        for (const t of terms) if (corpusLc.includes(t)) present++;
+        const frac = present / terms.length;
+        const status: SubQuestionCoverage['status'] = frac >= 0.6 ? 'covered' : frac > 0 ? 'partial' : 'uncovered';
+        per.push({ id: sq.id, priority: sq.priority, salientTerms: terms.length, presentTerms: present, coverageFraction: Math.round(frac * 100) / 100, status });
+    }
+    const openHighPriority = per.filter(p => p.priority === 'high' && p.status !== 'covered').map(p => p.id);
+    const scoped = per.filter(p => p.priority !== 'low');
+    const coverage = scoped.length ? Math.round((scoped.filter(p => p.status === 'covered').length / scoped.length) * 100) / 100 : 0;
+    return { perQuestion: per, openHighPriority, coverage };
+}
+
 export type ResearchPlannerInput = {
     research_goal: string;
     uploaded_brief?: string;
