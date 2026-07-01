@@ -51,15 +51,38 @@ describe('ArtifactAIR build + validate (WS-0)', () => {
         expect(res.ok).toBe(true);
     });
 
-    it('flags malformed evidence pointers, and BLOCKS once shadowMode is false', () => {
+    it('a mixed ledger above the floor WARNS but does not block (well-formedness is a ratio, not all-or-nothing)', () => {
+        // 1 good + 1 bad = 50% well-formed, above MIN_WELLFORMED_RATIO -> warning, not a structural block.
         const { air } = buildAir({
             runId: 'r1', artifactId: 'a1', trigger: '#case-study', objective,
             evidenceLedger: [goodPointer, badPointer], shadowMode: false,
         });
         const res = validateAir(air);
         expect(res.shadowMode).toBe(false);
+        expect(res.ok).toBe(true);                                  // NOT blocked - pre-migration source-lag is tolerated
+        expect(res.wellFormedRatio).toBe(0.5);
+        expect(res.warnings.some(w => /not well-formed/.test(w))).toBe(true);
+    });
+
+    it('grounding collapse (0% well-formed) BLOCKS once shadowMode is false', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#case-study', objective,
+            evidenceLedger: [badPointer, badPointer], shadowMode: false,   // 0% well-formed < floor
+        });
+        const res = validateAir(air);
         expect(res.ok).toBe(false);
-        expect(res.failures.some(f => /not well-formed/.test(f))).toBe(true);
+        expect(res.failures.some(f => /grounding collapse/.test(f))).toBe(true);
+    });
+
+    it('a STRUCTURAL violation (missing objective) BLOCKS once shadowMode is false', () => {
+        const { air } = buildAir({
+            runId: 'r1', artifactId: 'a1', trigger: '#case-study',
+            objective: { objectiveId: 'o', userObjective: '', decomposedQuestions: [] },
+            evidenceLedger: [goodPointer], shadowMode: false,
+        });
+        const res = validateAir(air);
+        expect(res.ok).toBe(false);
+        expect(res.failures.some(f => /objective/.test(f))).toBe(true);
     });
 
     it('a clean ledger passes when shadowMode is false (blocking) ', () => {
@@ -67,7 +90,9 @@ describe('ArtifactAIR build + validate (WS-0)', () => {
             runId: 'r1', artifactId: 'a1', trigger: '#case-study', objective,
             evidenceLedger: [goodPointer], shadowMode: false,
         });
-        expect(validateAir(air).ok).toBe(true);
+        const res = validateAir(air);
+        expect(res.ok).toBe(true);
+        expect(res.wellFormedRatio).toBe(1);
     });
 });
 

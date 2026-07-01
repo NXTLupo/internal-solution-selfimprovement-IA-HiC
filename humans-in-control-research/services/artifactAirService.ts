@@ -139,19 +139,34 @@ export function buildAir(input: BuildAirInput): { air: ArtifactAIR; entry: Artif
 
 export interface AirValidationResult {
     ok: boolean;
+    /** hard, structural contract violations — block once shadowMode is false. */
     failures: string[];
+    /** quality signals (e.g. evidence source-lag) — reported, never block. */
+    warnings: string[];
+    /** fraction of evidence pointers that are well-formed (0..1); 1 when the ledger is empty. */
+    wellFormedRatio: number;
     /** in shadow mode failures are reported but ok stays true so the path does not block pre-migration. */
     shadowMode: boolean;
 }
 
+/** D12 (2026-07-01): the evidence grounding-collapse FLOOR. Pointer well-formedness is a RATIO, not an
+ *  all-or-nothing block: pre-migration corpus pages legitimately carry chunks without structured `sources:`
+ *  frontmatter, so requiring 100% well-formed is unrealizable until the D3 corpus re-chunk. Blocking below
+ *  this floor catches a genuine grounding collapse (retrieval attached almost no named sources) while letting
+ *  a legitimately-grounded pre-migration run pass. RAISE toward ~0.9 once the D3 re-chunk populates sources. */
+export const MIN_WELLFORMED_RATIO = 0.10;
+
 /**
  * Validate an AIR against the contract (the TS-side mirror of the air_schema_integrity gate check).
- * In shadow mode, failures are reported but ok=true (non-blocking). When a path is migrated and shadowMode is
- * false, any failure flips ok=false (blocking).
+ * Two tiers: STRUCTURAL failures (airVersion / ids / catalog / objective) always block when not shadow;
+ * evidence well-formedness is a RATIO — it blocks only below MIN_WELLFORMED_RATIO (grounding collapse) and
+ * is otherwise a warning. In shadow mode nothing blocks (ok=true) so a path can ramp before it flips.
  */
 export function validateAir(air: ArtifactAIR): AirValidationResult {
     const failures: string[] = [];
+    const warnings: string[] = [];
     const shadow = air.qualityReport?.shadowMode !== false;
+    // STRUCTURAL contract — a real AIR always satisfies these; any violation blocks when not shadow.
     if (air.airVersion !== AIR_VERSION) failures.push(`airVersion mismatch: ${air.airVersion}`);
     if (!air.runId) failures.push('missing runId');
     if (!air.artifactId) failures.push('missing artifactId');
@@ -159,10 +174,16 @@ export function validateAir(air: ArtifactAIR): AirValidationResult {
         failures.push(`artifactType/trigger not in catalog: ${air.artifactType} / ${air.trigger}`);
     }
     if (!air.objective || !air.objective.userObjective) failures.push('missing objective.userObjective');
-    // every evidence pointer must be well-formed (dereferenceable + named source) — the anti-RAG provenance rule
-    const badPointers = (air.evidenceLedger || []).filter(p => !isWellFormedPointer(p));
-    if (badPointers.length > 0) failures.push(`${badPointers.length} evidence pointer(s) not well-formed (un-dereferenceable or no named source)`);
-    return { ok: shadow ? true : failures.length === 0, failures, shadowMode: shadow };
+    // EVIDENCE well-formedness (anti-RAG provenance) as a RATIO — see MIN_WELLFORMED_RATIO.
+    const ledger = air.evidenceLedger || [];
+    const badPointers = ledger.filter(p => !isWellFormedPointer(p));
+    const wellFormedRatio = ledger.length ? (ledger.length - badPointers.length) / ledger.length : 1;
+    if (ledger.length > 0 && wellFormedRatio < MIN_WELLFORMED_RATIO) {
+        failures.push(`evidence grounding collapse: ${Math.round(wellFormedRatio * 100)}% well-formed (${badPointers.length}/${ledger.length} pointers not well-formed; floor ${Math.round(MIN_WELLFORMED_RATIO * 100)}%)`);
+    } else if (badPointers.length > 0) {
+        warnings.push(`${badPointers.length}/${ledger.length} evidence pointer(s) not well-formed (no named source: pre-migration source-lag)`);
+    }
+    return { ok: shadow ? true : failures.length === 0, failures, warnings, wellFormedRatio, shadowMode: shadow };
 }
 
 const PROXY_BASE = 'http://127.0.0.1:5012';

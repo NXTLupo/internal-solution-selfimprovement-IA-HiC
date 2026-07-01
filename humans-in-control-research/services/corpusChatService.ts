@@ -3867,11 +3867,20 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
                     evidenceLedger: buildEvidenceLedger(_airGroundingChunks),
                     artifactPayload: { kind: _trigger.replace(/^#/, ''), content: (responseText || '').slice(0, 20000) },
                     trace: _airTrace,
-                    shadowMode: true,
+                    // D12 (2026-07-01): BLOCKING (shadow OFF) for the live artifact chat path. Live-validated:
+                    // structural checks pass on real AIRs; well-formedness is a ratio (grounding-collapse floor
+                    // 10%), so a legitimately-grounded run passes while a collapse or a malformed AIR fails. The
+                    // AIR is emitted AFTER the reply (fire-and-forget), so the teeth are on the persisted RUN
+                    // RECORD + the commit-time air_schema_integrity gate, not a pre-render user block.
+                    shadowMode: false,
                 });
                 const _v = validateAir(_air);
-                if (_v.failures.length) console.info(`[chat] AIR shadow (${_trigger}): ${_v.failures.length} contract note(s); ${_airGroundingChunks.length} evidence chunk(s)`);
-                void writeAir(_air).then(w => { if (w.persisted) console.info(`[chat] AIR persisted (shadow): ${w.path}`); }).catch(() => { /* fire-and-forget */ });
+                if (!_v.ok) {
+                    console.warn(`[chat] AIR CONTRACT FAIL (${_trigger}, blocking): ${_v.failures.join('; ')}`);
+                } else if (_v.warnings.length) {
+                    console.info(`[chat] AIR (${_trigger}) ok; well-formed ${Math.round(_v.wellFormedRatio * 100)}% - ${_v.warnings[0]}`);
+                }
+                void writeAir(_air).then(w => { if (w.persisted) console.info(`[chat] AIR persisted (blocking, ${Math.round(_v.wellFormedRatio * 100)}% well-formed): ${w.path}`); }).catch(() => { /* fire-and-forget */ });
             } catch (airErr: any) {
                 console.warn('[chat] slide-deck AIR emission failed (non-fatal):', airErr?.message || airErr);
             }
