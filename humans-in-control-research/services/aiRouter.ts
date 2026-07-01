@@ -537,11 +537,95 @@ const SCHEMA_FLASH_ARTIFACTS = new Set<string>([
 ]);
 
 export function artifactModelFor(kind?: string | null): string {
+    // WS-E/D13: delegate to the eval-backed policy engine (single authority). Behavior-preserving vs the
+    // former tier switch (schema->flash; evidence/imagery/narrative->gemini-3.1-pro-preview capped /
+    // claude-opus-4-8 after), now with a scored rationale + quota/health-awareness available via chooseArtifactModel.
+    return chooseArtifactModel(kind).selectedModel;
+}
+
+// ============================================================================
+// WS-E / D13 (2026-06-30): EVAL-BACKED ROUTER POLICY ENGINE. artifactModelFor() returns just the winning id;
+// chooseArtifactModel() is the richer authority - it scores the eligible models for THIS deliverable by
+// bake-off EVAL QUALITY + live provider QUOTA/HEALTH + relative COST, and returns {selectedModel, reason,
+// alternatives, evalBasis}. Reserves frontier models for deliverables the eval says need them (personas,
+// evidence); pushes schema/table to the cheap tier. Sync (embedded registry, no fetch) so artifactModelFor
+// delegates cleanly. Provider-native orchestration (Responses/Interactions) is a separate proxy concern.
+// ============================================================================
+interface ModelEval { quality: number; note?: string; }   // 0-1 eval quality for a model on a deliverable class
+
+// Bake-off-seeded eval evidence (plans/model-bakeoff-*.md). '_schema'/'_evidence' are class defaults;
+// a per-deliverable key (e.g. 'personas') overrides. Extend from the golden-set + traces over time.
+const ARTIFACT_EVAL_REGISTRY: Record<string, Record<string, ModelEval>> = {
+    _schema: {
+        'gemini-3.5-flash': { quality: 1.0, note: 'bakeoff: matched Pro, ~18x cheaper' },
+        'gemini-3.1-pro-preview': { quality: 1.0 },
+        'claude-opus-4-8': { quality: 1.0 },
+    },
+    _evidence: {
+        'gemini-3.5-flash': { quality: 0.5, note: 'thin quotes/concepts on evidence-heavy work' },
+        'gemini-3.1-pro-preview': { quality: 0.9 },
+        'claude-opus-4-8': { quality: 1.0 },
+    },
+    // bake-off Part B: Flash FAILED personas (1/3, truncated); Pro passed.
+    personas: { 'gemini-3.5-flash': { quality: 0.3, note: 'bakeoff PartB: FAILED (1/3, truncated)' }, 'gemini-3.1-pro-preview': { quality: 0.95 }, 'claude-opus-4-8': { quality: 1.0 } },
+    persona: { 'gemini-3.5-flash': { quality: 0.3, note: 'bakeoff PartB: FAILED (1/3, truncated)' }, 'gemini-3.1-pro-preview': { quality: 0.95 }, 'claude-opus-4-8': { quality: 1.0 } },
+    'persona-card': { 'gemini-3.5-flash': { quality: 0.3 }, 'gemini-3.1-pro-preview': { quality: 0.95 }, 'claude-opus-4-8': { quality: 1.0 } },
+};
+
+// Relative per-1M output-token $ (ordering is what the cost tilt uses, not absolute precision).
+const MODEL_COST_REL: Record<string, number> = {
+    'gemini-3.5-flash': 1, 'gemini-3.1-pro-preview': 10, 'claude-opus-4-8': 25, 'gpt-5.5': 30, 'gpt-5.4-mini': 4.5,
+};
+
+export interface RoutingDecision {
+    selectedModel: string;
+    reason: string;
+    alternatives: string[];
+    evalBasis: string;
+}
+
+export interface RoutingOpts {
+    /** model ids currently over quota (defaults to claude-opus-4-8 while OPUS_CAP_ACTIVE). */
+    quotaExhausted?: string[];
+    /** model ids with degraded provider health (from multiModelResilience). */
+    healthDegraded?: string[];
+}
+
+export function chooseArtifactModel(kind?: string | null, opts: RoutingOpts = {}): RoutingDecision {
     const k = String(kind || '').toLowerCase().replace(/^#/, '').trim();
-    if (SCHEMA_FLASH_ARTIFACTS.has(k)) return 'gemini-3.5-flash';
-    // evidence / imagery / narrative (case-study, personas, themes, strategy,
-    // recommendations, report, prd, brief, explainer, approaches, proto, ...)
-    return OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8';
+    const isSchema = SCHEMA_FLASH_ARTIFACTS.has(k);
+    const candidates = isSchema
+        ? ['gemini-3.5-flash', 'gemini-3.1-pro-preview']
+        : (OPUS_CAP_ACTIVE ? ['gemini-3.1-pro-preview', 'gemini-3.5-flash'] : ['claude-opus-4-8', 'gemini-3.1-pro-preview']);
+    const cls = isSchema ? '_schema' : '_evidence';
+    const evalMap: Record<string, ModelEval> = { ...(ARTIFACT_EVAL_REGISTRY[cls] || {}), ...(ARTIFACT_EVAL_REGISTRY[k] || {}) };
+    const exhausted = new Set(opts.quotaExhausted || (OPUS_CAP_ACTIVE ? ['claude-opus-4-8'] : []));
+    const degraded = new Set(opts.healthDegraded || []);
+    const costWeight = isSchema ? 0.04 : 0.01;   // schema: cheaper matters more (quality is a wash)
+    let eligible = candidates.filter(m => !exhausted.has(m));
+    // health-aware: PREFER healthy models - drop degraded ones when a healthy candidate remains; only fall
+    // back to a degraded model if EVERY eligible candidate is degraded (degraded still works, just worse).
+    const healthy = eligible.filter(m => !degraded.has(m));
+    if (healthy.length > 0) eligible = healthy;
+    const scored = eligible
+        .map(m => {
+            const q = evalMap[m]?.quality ?? 0.6;
+            const cost = MODEL_COST_REL[m] ?? 10;
+            const score = q - costWeight * Math.log2(cost + 1) - (degraded.has(m) ? 0.3 : 0);
+            return { m, q, cost, score, note: evalMap[m]?.note };
+        })
+        .sort((a, b) => b.score - a.score);
+    if (scored.length === 0) {
+        const fallback = isSchema ? 'gemini-3.5-flash' : (OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8');
+        return { selectedModel: fallback, reason: 'all candidates exhausted/degraded; tier default', alternatives: [], evalBasis: cls };
+    }
+    const win = scored[0];
+    return {
+        selectedModel: win.m,
+        reason: `eval q=${win.q.toFixed(2)}${win.note ? ` (${win.note})` : ''}, cost~${win.cost}, ${isSchema ? 'schema' : 'evidence'} tier${degraded.size ? ', health-adjusted' : ''}`,
+        alternatives: scored.slice(1).map(s => s.m),
+        evalBasis: ARTIFACT_EVAL_REGISTRY[k] ? k : cls,
+    };
 }
 
 /** The proxy AI endpoint family for a model id (so callers route the request to
