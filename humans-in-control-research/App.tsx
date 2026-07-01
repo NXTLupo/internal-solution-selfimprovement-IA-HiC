@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import FileUpload from './components/FileUpload';
+import { EpochProposalsPanel } from './components/EpochProposalsPanel';
 import ResultsView from './components/ResultsView';
 import AnalysisCheckpoint from './components/AnalysisCheckpoint';
 import HeuristicBriefIntake from './components/HeuristicBriefIntake';
@@ -1273,6 +1274,7 @@ const App = () => {
     const [statusMessage, setStatusMessage] = useState("");
     const [activeStage, setActiveStage] = useState<AnalysisStage>(AnalysisStage.IDLE);
     const [showMethodology, setShowMethodology] = useState<OutputOption | null>(null);
+    const [showEpochProposals, setShowEpochProposals] = useState(false);  // WS-D propose-only review panel
     // P1 (2026-06-06) - Default to empty. The OUTPUT ARTIFACTS panel that
     // toggled these is hidden as of this build; Analyst Desk chat is the
     // single entry point for deliverable generation (via #hashtag). The
@@ -6984,6 +6986,19 @@ ${synthesisParts.join('\n')}
              <AnimatePresence>
                  {showMethodology && <MethodologyModal outputId={showMethodology} onClose={() => setShowMethodology(null)} />}
              </AnimatePresence>
+
+             {/* WS-D (2026-06-30): PROPOSE-ONLY self-improvement review surface. The scheduled
+                  epoch-proposer writes gated proposals here; the owner approves/rejects in this panel.
+                  Nothing mutates the harness automatically (gated-evolution, owner decision #3). */}
+             {showEpochProposals && <EpochProposalsPanel onClose={() => setShowEpochProposals(false)} />}
+             <button
+                 onClick={() => setShowEpochProposals(true)}
+                 title="Review self-improvement proposals (propose-only)"
+                 style={{ position: 'fixed', bottom: 12, left: 12, zIndex: 8000, background: '#0D0D0D',
+                     color: '#B8B800', border: '1px solid #333', borderRadius: 2, padding: '6px 10px',
+                     fontSize: 10, fontFamily: "'IBM Plex Mono', monospace", letterSpacing: 1,
+                     textTransform: 'uppercase', cursor: 'pointer' }}
+             >◆ epochs</button>
 
              {/* UX-merger (2026-06-06) - Research Browser wiki-page click-through
                   overlay. Dispatched via 'hic:open-wiki' from ResearchCard.

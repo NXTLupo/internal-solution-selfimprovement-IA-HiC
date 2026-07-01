@@ -15918,6 +15918,105 @@ async def epochs_status(threshold: int = 5):
     }
 
 
+# =============================================================================
+# WS-D (2026-06-30): PROPOSE-ONLY epoch proposals + in-UI review.
+# The scheduled epoch-proposer runs the held-out gate and writes a PROPOSAL here
+# (status:pending) - it APPLIES NOTHING. The owner reviews + approves/rejects in
+# the SPA (EpochProposalsPanel). Approval records intent; material harness edits
+# still ride the commit-approval flow (gated-evolution, owner decision #3).
+# Backed by wiki/synthesis/epoch-proposals.json (a JSON array).
+# =============================================================================
+_EPOCH_PROPOSALS_PATH = "/hic-workspace/wiki/synthesis/epoch-proposals.json"
+
+
+def _read_epoch_proposals() -> list:
+    if not os.path.exists(_EPOCH_PROPOSALS_PATH):
+        return []
+    try:
+        with open(_EPOCH_PROPOSALS_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, list) else []
+    except Exception as e:
+        logger.warning(f"[epoch-proposals] read failed: {e}")
+        return []
+
+
+def _write_epoch_proposals(items: list) -> None:
+    os.makedirs(os.path.dirname(_EPOCH_PROPOSALS_PATH), exist_ok=True)
+    with open(_EPOCH_PROPOSALS_PATH, "w", encoding="utf-8") as f:
+        json.dump(items, f, ensure_ascii=True, indent=2)
+
+
+@app.get("/api/epochs/proposals")
+async def epoch_proposals_list(status: str = ""):
+    """List epoch proposals, newest first. Optional ?status=pending|approved|rejected."""
+    items = _read_epoch_proposals()
+    if status:
+        items = [p for p in items if isinstance(p, dict) and p.get("status") == status]
+    items = sorted(items, key=lambda p: str(p.get("created_at", "")), reverse=True)
+    pending = sum(1 for p in _read_epoch_proposals() if isinstance(p, dict) and p.get("status") == "pending")
+    return {"proposals": items, "count": len(items), "pending": pending}
+
+
+@app.post("/api/epochs/proposals")
+async def epoch_proposals_create(req: Request):
+    """PROPOSE-ONLY write from the epoch-proposer. Body: {epoch_id?, target_layer,
+    target_path, summary, proposed_edit, gate_verdict, risk_class}. Never applies the edit."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "invalid JSON"}, status_code=400)
+    if not body.get("summary") or not body.get("target_layer"):
+        return JSONResponse({"ok": False, "error": "summary and target_layer are required"}, status_code=400)
+    items = _read_epoch_proposals()
+    from datetime import datetime
+    now = datetime.utcnow().isoformat() + "Z"
+    pid = f"prop_{int(datetime.utcnow().timestamp())}_{len(items) + 1}"
+    proposal = {
+        "id": pid,
+        "created_at": now,
+        "epoch_id": body.get("epoch_id"),
+        "target_layer": body.get("target_layer"),          # skill|routing|hook|subagent
+        "target_path": body.get("target_path", ""),
+        "summary": body.get("summary"),
+        "proposed_edit": body.get("proposed_edit", ""),     # diff / description; NOT applied
+        "gate_verdict": body.get("gate_verdict"),           # {decision, discrimination_delta, ...}
+        "risk_class": body.get("risk_class", "material"),   # low_risk|material (material -> commit-approval)
+        "status": "pending",
+        "reviewed_at": None,
+        "review_note": "",
+    }
+    items.append(proposal)
+    _write_epoch_proposals(items)
+    logger.info(f"[epoch-proposals] PROPOSED {pid} ({proposal['target_layer']}: {proposal['summary'][:60]}) - pending review, NOT applied")
+    return {"ok": True, "id": pid, "proposal": proposal}
+
+
+@app.post("/api/epochs/proposals/{pid}/review")
+async def epoch_proposals_review(pid: str = Path(...), req: Request = None):
+    """Owner review from the SPA. Body: {decision: 'approved'|'rejected', note?}.
+    Records the decision + timestamp; applying an approved MATERIAL edit still rides
+    the commit-approval flow (this endpoint never mutates the harness)."""
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"ok": False, "error": "invalid JSON"}, status_code=400)
+    decision = str(body.get("decision", "")).lower()
+    if decision not in ("approved", "rejected"):
+        return JSONResponse({"ok": False, "error": "decision must be 'approved' or 'rejected'"}, status_code=400)
+    items = _read_epoch_proposals()
+    hit = next((p for p in items if isinstance(p, dict) and p.get("id") == pid), None)
+    if not hit:
+        return JSONResponse({"ok": False, "error": f"proposal {pid} not found"}, status_code=404)
+    from datetime import datetime
+    hit["status"] = decision
+    hit["reviewed_at"] = datetime.utcnow().isoformat() + "Z"
+    hit["review_note"] = str(body.get("note", ""))[:500]
+    _write_epoch_proposals(items)
+    logger.info(f"[epoch-proposals] {pid} REVIEWED -> {decision}")
+    return {"ok": True, "proposal": hit}
+
+
 @app.get("/api/golden-set/failure-corpus")
 async def golden_set_failure_corpus(n: int = 10, kinds: str = ""):
     """Enumerate N random failure-corpus deliverables (cached *.json under

@@ -107,8 +107,15 @@ run the gate. You NEVER apply an edit that fails the gate.
 4. **Candidate.** Run `runGate({failureSampleSize: 10})` again. Save as `candidate_report`.
 
 5. **Decide.** Call `compareReports(baseline_report, candidate_report, {wiringEdit})`.
-   - `decision: 'apply'` → commit the edit; append epoch record to
-     `wiki/synthesis/improvement-epochs.md`; clear sandbox.
+   - `decision: 'apply'` → **PROPOSE-ONLY (owner decision 2026-06-30). Do NOT auto-apply or auto-commit.**
+     Revert the transient edit (git checkout the live tree), then POST the proposal to the ledger:
+     `POST /api/epochs/proposals` with `{epoch_id, target_layer, target_path, summary, proposed_edit
+     (the diff), gate_verdict (the compareReports decision + deltas), risk_class}`. Set
+     `risk_class:'low_risk'` ONLY for a skill/config/prompt edit; `risk_class:'material'` for any
+     routing/renderer/connector/hook change. The owner reviews + approves in the SPA
+     (EpochProposalsPanel). An approved MATERIAL edit is applied by the owner via the normal
+     commit-approval flow; a low-risk approved edit may be applied on the next run. NEVER mutate the
+     live harness from this skill.
    - `decision: 'reject'` → revert (git checkout the live tree); append the rejected
      edit + its reason to the rejected-edit buffer at
      `hic-workspace/_epoch-<id>/rejected.md`. Do NOT re-propose the same edit.
