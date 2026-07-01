@@ -3183,11 +3183,20 @@ export async function sendChatMessage(
                 if (_picked.chunkIds.length > 0) {
                     const _resolved = await resolveChunks(_picked.chunkIds);
                     if (_resolved.chunks.length > 0) {
+                        // 2026-07-01 quality: drop bot/moderator boilerplate + tombstones BEFORE they ground the
+                        // generation (live AIR showed "I am a bot..." cited as evidence). Shared predicate with the
+                        // evidence ledger. Never let the filter empty the corpus - if all were junk, keep the raw set.
+                        const { isNonEvidenceChunk } = await import('./evidenceLedgerService');
+                        const _clean = _resolved.chunks.filter((c: any) => !isNonEvidenceChunk(c?.text));
+                        const _grounding = _clean.length > 0 ? _clean : _resolved.chunks;
+                        if (_clean.length < _resolved.chunks.length) {
+                            console.log(`[chat] quality: dropped ${_resolved.chunks.length - _clean.length} non-evidence (bot/mod) chunk(s) from grounding`);
+                        }
                         context = {
                             ...context,
-                            manifestChunkCorpus: assembleChunkCorpus(_resolved.chunks),
+                            manifestChunkCorpus: assembleChunkCorpus(_grounding),
                         };
-                        _airGroundingChunks = _resolved.chunks;  // Stage-3/D11: real AIR evidence ledger source
+                        _airGroundingChunks = _grounding;  // Stage-3/D11: real AIR evidence ledger source
                         console.log(`[chat] MANIFEST-CHUNK grounding: ${_resolved.chunks.length} chunks from ${_resolved.sourcesRead} wiki pages (catalog=${_picked.catalogSize}, ~${_picked.estimatedTokens} tok) - leading evidence; bulk corpus demoted`);
                     } else {
                         console.warn(`[chat] MANIFEST-CHUNK grounding: ${_picked.chunkIds.length} pointers selected but 0 resolved (notFound=${_resolved.notFound.length}); falling back to bulk corpus`);
