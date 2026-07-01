@@ -25,12 +25,13 @@ import os
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from checks import air_schema_integrity, artifact_catalog_coverage, citation_resolution  # noqa: E402
+from checks import air_schema_integrity, artifact_catalog_coverage, citation_resolution, mcp_tool_governance  # noqa: E402
 
 SCOPES = {
     "air": air_schema_integrity.check,
     "catalog": artifact_catalog_coverage.check,
-    "citations": citation_resolution.check,  # WS-A
+    "citations": citation_resolution.check,      # WS-A
+    "mcp-governance": mcp_tool_governance.check,  # WS-J
 }
 
 

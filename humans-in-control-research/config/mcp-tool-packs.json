@@ -1,0 +1,48 @@
+{
+  "schema": "hic-mcp-tool-packs/v1",
+  "note": "WS-J (2026-06-30). Domain-specific MCP tool packs: agents get a BOUNDED capability set, not raw access to every tool. Each pack lists allowed tools, explicitly denied tools, tools that require human approval (write/publish/delete), a per-context tool budget, and whether every call must be traced. The quality_gate 'mcp-governance' check validates a run's toolTrace (AIR.toolTrace / runTraceService ToolTraceStep) against these packs. Figma MCP is DESIGN-TIME ONLY: the SPA never calls Figma live at runtime (it uses the exported manifest + token/component/image-slot registries). Descriptors are untrusted unless signed + pinned (descriptor_signature).",
+  "packs": [
+    {
+      "id": "figma_gold_audit",
+      "mode": "domain_specific_adapter",
+      "purpose": "Design-time auditing/export of GOLD pages + token/component parity. NEVER runtime.",
+      "runtime_allowed": false,
+      "allowed_tools": [
+        "mcp__figma__get_metadata", "mcp__figma__get_variable_defs", "mcp__figma__get_screenshot",
+        "mcp__figma__search_design_system", "mcp__figma__get_design_context", "mcp__figma__get_code_connect_map"
+      ],
+      "requires_human_approval": [
+        "mcp__figma__use_figma", "mcp__figma__generate_figma_design", "mcp__figma__create_new_file",
+        "mcp__figma__add_code_connect_map", "mcp__figma__upload_assets"
+      ],
+      "denied_tools": [],
+      "max_tools_per_context": 12,
+      "trace_required": true,
+      "descriptor_signature": "unsigned:dev"
+    },
+    {
+      "id": "wiki_retrieval",
+      "mode": "resource_gateway",
+      "purpose": "Read-only manifest/wiki retrieval for grounding. Reads, never writes.",
+      "runtime_allowed": true,
+      "allowed_tools": ["proxy:/api/wiki/read", "proxy:/api/manifest/chunks", "proxy:/api/manifest/chunks-by-title"],
+      "requires_human_approval": [],
+      "denied_tools": ["proxy:/api/wiki/write-article", "proxy:/api/wiki/write"],
+      "max_tools_per_context": 200,
+      "trace_required": true,
+      "descriptor_signature": "unsigned:dev"
+    },
+    {
+      "id": "connectors_read",
+      "mode": "proxy_aggregator",
+      "purpose": "External data-source collection (200+ connectors) during a research run.",
+      "runtime_allowed": true,
+      "allowed_tools": ["proxy:/api/search/*", "proxy:/api/multi-search", "proxy:/api/deep-research/*"],
+      "requires_human_approval": [],
+      "denied_tools": [],
+      "max_tools_per_context": 400,
+      "trace_required": true,
+      "descriptor_signature": "unsigned:dev"
+    }
+  ]
+}
