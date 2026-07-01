@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ARTIFACT_CATALOG, catalogEntryFor, allArtifactIds } from './artifactCatalog';
+import { isArtifactGenerationMessage } from './corpusChatService';
 
 // WS-0 OMISSION GUARD. The artifact catalog must cover EVERY directive HiC accepts, so no hashtag is ever
 // silently omitted from routing / AIR tracking. This test reads the LIVE corpusChatService.ts ARTIFACT_TPL
@@ -48,6 +49,27 @@ describe('artifact catalog coverage (none omitted)', () => {
         expect(catalogEntryFor('#slides')?.id).toBe('slides');
         expect(catalogEntryFor('#deep-research')?.id).toBe('deep-research');
         expect(catalogEntryFor('#nonsense-directive')).toBeNull();
+    });
+
+    it('EVERY templated slide directive routes through the chat-path AIR chokepoint (isArtifactGenerationMessage)', () => {
+        // Stage-3 proof. HiC emits AIR via TWO paths: (1) the corpusChatService chat chokepoint
+        // (isArtifactGenerationMessage -> buildEvidenceLedger) serves every ARTIFACT_TPL slide-template
+        // directive; (2) the CorpusChatPanel freeform/HTML path (emitDeliverable.air, CorpusChatPanel:5193)
+        // serves the narrative/HTML directives (templateId null: #strategy, #brief, #explainer, #report ...).
+        // This guards path 1: any directive that HAS a slide templateId MUST hit the chat chokepoint, else it
+        // would render a deck with no AIR. (Null-template narrative directives correctly use path 2.)
+        // Guard the CANONICAL directive form (aliases[0]) of every templated slide entry - the primary way a
+        // user invokes it. KNOWN gap (tracked): some plural/compound ALIASES (#audits, #orgs, #prds,
+        // #techaudit, #tech-audit, #architecture, #themecluster) are not matched by the ARTIFACT_TPL
+        // \b-anchored regexes even though catalogEntryFor resolves them; aligning isArtifactGenerationMessage
+        // with the catalog needs care (avoid double-emission for #strategy) + a live verify - see the D-alias
+        // follow-up. Canonical forms all route correctly today.
+        const canonical = ARTIFACT_CATALOG
+            .filter(e => e.modality === 'slides' && e.templateId)   // has a real slide template -> chat-path
+            .map(e => e.aliases[0]);
+        expect(canonical.length).toBeGreaterThan(12);
+        const outsideAir = canonical.filter(d => !isArtifactGenerationMessage(`${d} on the corpus`));
+        expect(outsideAir, `CANONICAL templated slide directives NOT caught by isArtifactGenerationMessage (would skip chat-path AIR): ${outsideAir.join(', ')}`).toEqual([]);
     });
 
     it('keeps schema_flash routingClass in sync with aiRouter SCHEMA_FLASH_ARTIFACTS', () => {
