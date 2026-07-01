@@ -112,6 +112,47 @@ def load_feedback_signals(workspace: Path) -> list[dict]:
     return signals
 
 
+def _to_instinct(p: dict) -> dict:
+    """ECC-adopted instinct schema (2026-07-01): enrich a raw proposal with confidence / trigger /
+    domain / source_repo so the validation gate + applier reason about it as a confidence-scored
+    behavioral instinct (not just an edit diff), and so clustering can group related instincts.
+    confidence rises with severity AND with attribution breadth (independent sources = more trust)."""
+    sev = int(p.get("severity") or 3)
+    n_src = len(p.get("source_rollouts") or []) + len(p.get("source_feedback_ids") or [])
+    conf = min(0.95, 0.30 + 0.11 * sev + 0.05 * min(n_src, 6))
+    q = dict(p)
+    q["confidence"] = round(conf, 2)
+    q["trigger"] = p.get("pattern") or "unspecified"          # the situation that fires the instinct
+    q["domain"] = p.get("skill_id") or "(infer)"              # the skill/area it governs
+    q["source_repo"] = "hic-workspace/sessions/_journey-rollouts"
+    return q
+
+
+def cluster_instincts(proposals: list[dict]) -> list[dict]:
+    """ECC /evolve-style clustering (2026-07-01): group instincts by (domain, trigger) so N fragmented
+    proposals for the same skill + situation consolidate into ONE higher-level proposal, with unioned
+    attribution, max confidence, and every member summary preserved (nothing lost). This is what keeps
+    the batch small + coherent BEFORE it reaches the validation gate (whose check-8 blocks bulk /
+    duplicate / contradictory batches). Sorted strongest-first by confidence x cluster_size."""
+    clusters: dict[tuple, dict] = {}
+    for p in proposals:
+        key = (p.get("domain"), p.get("trigger"))
+        c = clusters.get(key)
+        if not c:
+            c = dict(p, cluster_size=1, cluster_members=[p.get("proposed_diff_summary", "")])
+            clusters[key] = c
+        else:
+            c["cluster_size"] += 1
+            c["confidence"] = max(c.get("confidence", 0), p.get("confidence", 0))
+            c["severity"] = max(c.get("severity", 0), p.get("severity", 0))
+            c["source_rollouts"] = list(dict.fromkeys((c.get("source_rollouts") or []) + (p.get("source_rollouts") or [])))
+            c["source_feedback_ids"] = list(dict.fromkeys((c.get("source_feedback_ids") or []) + (p.get("source_feedback_ids") or [])))
+            c["cluster_members"].append(p.get("proposed_diff_summary", ""))
+    out = list(clusters.values())
+    out.sort(key=lambda x: (x.get("confidence", 0) * x.get("cluster_size", 1)), reverse=True)
+    return out
+
+
 def classify_pattern(rollouts: list[dict], signals: list[dict]) -> list[dict]:
     """Apply pattern templates to the trajectory data. Each pattern returns
     a proposal dict shaped for the validation gate:
@@ -239,7 +280,9 @@ def classify_pattern(rollouts: list[dict], signals: list[dict]) -> list[dict]:
             "pattern": "recurring_user_correction",
         })
 
-    return proposals
+    # ECC-adopted: stamp each raw proposal with the instinct schema, then cluster related instincts
+    # into consolidated, confidence-ranked proposals before handing off to the validation gate.
+    return cluster_instincts([_to_instinct(p) for p in proposals])
 
 
 def write_proposals(workspace: Path, proposals: list[dict], batch_id: str) -> Path:
@@ -251,24 +294,41 @@ def write_proposals(workspace: Path, proposals: list[dict], batch_id: str) -> Pa
     for idx, prop in enumerate(proposals, start=1):
         skill_id = prop["skill_id"].replace("(", "").replace(")", "").replace("-", "_")
         out_file = batch_dir / f"{idx:03d}-{skill_id}.md"
+        members = prop.get("cluster_members") or []
+        members_block = ""
+        if len(members) > 1:
+            members_block = "\n## Clustered members (consolidated by /evolve-style clustering)\n" + \
+                "".join(f"- {m}\n" for m in members if m)
         body = (
             f"# Proposal: {prop['skill_id']} — {batch_id}\n\n"
+            f"## Instinct\n"
+            f"- Domain: {prop.get('domain', prop['skill_id'])}\n"
+            f"- Trigger: {prop.get('trigger', prop['pattern'])}\n"
+            f"- Confidence: {prop.get('confidence', 'n/a')}\n"
+            f"- Cluster size: {prop.get('cluster_size', 1)}\n"
+            f"- Source repo: {prop.get('source_repo', '(n/a)')}\n\n"
             f"## Source attribution\n"
             f"- Rollouts: {', '.join(prop['source_rollouts'][:6]) or '(none)'}\n"
             f"- Feedback signals: {', '.join(prop['source_feedback_ids'][:6]) or '(none)'}\n"
             f"- Pattern: {prop['pattern']}\n"
             f"- Severity: {prop['severity']}\n\n"
-            f"## Proposed change\n{prop['proposed_diff_summary']}\n\n"
+            f"## Proposed change\n{prop['proposed_diff_summary']}\n"
+            f"{members_block}\n"
             f"## Trajectory analysis summary\n{prop['rationale']}\n"
         )
         out_file.write_text(body, encoding="utf-8")
 
-    # Manifest for the validation-gate subagent
+    # Manifest for the validation-gate subagent (carries the instinct schema for check-8 batch curation)
     manifest = {
         "batch_id": batch_id,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "proposal_count": len(proposals),
         "patterns": sorted({p["pattern"] for p in proposals}),
+        "instincts": [
+            {"domain": p.get("domain"), "trigger": p.get("trigger"),
+             "confidence": p.get("confidence"), "cluster_size": p.get("cluster_size", 1)}
+            for p in proposals
+        ],
         "status": "pending-gate-audit",
     }
     (batch_dir / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")

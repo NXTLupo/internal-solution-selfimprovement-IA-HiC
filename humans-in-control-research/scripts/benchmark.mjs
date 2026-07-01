@@ -374,11 +374,54 @@ function phase6() {
   return out;
 }
 
+// pass^k (ECC-adopted 2026-07-01): the STRICTER sibling of pass@k. pass@k passes if AT LEAST ONE of
+// k runs succeeds; pass^k (pass-to-the-k) passes only if ALL k runs agree. For a research workbench
+// the load-bearing use is DETERMINISM/IDENTITY: the standing rule is "same corpus + goal -> identical
+// theme/persona/deck identity" (temp0 + seed). An identity field is stable only if every one of the k
+// repeated runs produced the byte-identical value; a single divergence fails the gate.
+function passPowK(runs, fields) {
+  if (!Array.isArray(runs) || runs.length < 2) return null;
+  const get = (o, p) => p.split('.').reduce((x, k) => (x == null ? x : x[k]), o);
+  let stable = 0; const unstable = [];
+  for (const f of fields) {
+    const vals = runs.map(r => JSON.stringify(get(r, f) ?? null));
+    if (vals.every(v => v === vals[0])) stable++; else unstable.push(f);
+  }
+  return { k: runs.length, fields: fields.length, stable, unstable, passPowK: stable === fields.length, ratio: r2(stable / (fields.length || 1)) };
+}
+
+// PHASE 7 - DETERMINISM (pass^k identity gate). Scores a cached determinism fixture if present (FREE:
+// no live model calls); otherwise emits a LIVE probe so the k identical-input runs are opt-in (spend-
+// aware, per the "live runs cost money" rule). Fixture shape: eval/determinism-runs.json =
+// [{ themeLabels:[], personaNames:[], deckThesis:'', slideTitles:[] }, ...] from k SAME corpus+goal runs.
+function phase7() {
+  const out = { phase: 'DETERMINISM', metrics: {}, probes: [] };
+  const detPath = exists(path.join(EVAL, 'determinism-runs.json')) ? path.join(EVAL, 'determinism-runs.json') : null;
+  out.metrics.determinism_runs_present = !!detPath;
+  if (detPath) {
+    try {
+      const runs = readJSON(detPath);
+      const res = passPowK(runs, ['themeLabels', 'personaNames', 'deckThesis', 'slideTitles']);
+      if (res) {
+        out.metrics.determinism_k = res.k;
+        out.metrics.identity_fields_scored = res.fields;
+        out.metrics.identity_fields_stable = res.stable;
+        out.metrics.identity_pass_pow_k = res.passPowK;      // TRUE only if ALL k runs agree on ALL identity fields
+        out.metrics.identity_stability_ratio = res.ratio;
+        if (!res.passPowK) out.probes.push('pass^k FAIL - unstable identity fields across runs: ' + res.unstable.join(', ') + '. Same corpus+goal must yield identical identity (temp0+seed). Fix UPSTREAM (determinism), never by relaxing the gate.');
+      }
+    } catch (e) { out.probes.push('determinism scoring error: ' + e.message); }
+  } else {
+    out.probes.push('pass^k IDENTITY GATE (ECC-adopted): eval/determinism-runs.json absent. LIVE (opt-in, costs k generations): run the same fixed corpus+goal k=3 times (temp0+seed) and record { themeLabels, personaNames, deckThesis, slideTitles } per run into eval/determinism-runs.json; pass^3 must = 100% (all 3 byte-identical).');
+  }
+  return out;
+}
+
 // ---- run ----
 const report = {
   generated_at_note: 'timestamp omitted for deterministic diffs; set by --baseline freeze',
   fixture: path.relative(ROOT, FIXTURE),
-  phases: [phase1(), phase2(), phase3(), phase4(), phase5(), phase6()],
+  phases: [phase1(), phase2(), phase3(), phase4(), phase5(), phase6(), phase7()],
 };
 
 if (!exists(EVAL)) fs.mkdirSync(EVAL, { recursive: true });

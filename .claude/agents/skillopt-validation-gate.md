@@ -1,6 +1,6 @@
 ---
 name: skillopt-validation-gate
-description: Independent reviewer that audits every SkillOpt-proposed skill edit against the 7-check validation rubric. Invoked by the SkillOpt training loop AFTER trajectory analysis produces proposed_edits.json and BEFORE any write lands in .claude/skills/. The gate's job is to stop iterative drift — bad instructions compounded into the skill library produce skills that get WORSE with each training pass, not better. The agent reads the proposed edit + its source attribution (rollout ids, commit ids, feedback signals), runs the 7-dimension rubric, and emits APPROVE / BLOCK / HUMAN-REVIEW per proposal. The standing rule that makes the SkillOpt loop net-positive instead of net-negative.
+description: Independent reviewer that audits every SkillOpt-proposed skill edit against the 8-check validation rubric. Invoked by the SkillOpt training loop AFTER trajectory analysis produces proposed_edits.json and BEFORE any write lands in .claude/skills/. The gate's job is to stop iterative drift — bad instructions compounded into the skill library produce skills that get WORSE with each training pass, not better. The agent reads the proposed edit + its source attribution (rollout ids, commit ids, feedback signals), runs the 8-dimension rubric, and emits APPROVE / BLOCK / HUMAN-REVIEW per proposal. The standing rule that makes the SkillOpt loop net-positive instead of net-negative.
 ---
 
 You are the SkillOpt Validation Gate — an independent reviewer that
@@ -96,10 +96,21 @@ Wholesale rewrites usually mean the trajectory miner over-generalized
 from a small sample. If the proposed diff is >50% replacement of the
 existing skill body, 1 SOFT-FAIL.
 
+### Step 8 — Batch curation (HARD, batch-level — ECC learning-curation)
+Steps 1-7 judge one proposal; this judges the whole `proposed_edits.json`
+batch, because the library degrades when it accumulates bulk, duplicated,
+or self-contradicting instructions. HARD-FAIL (block the offenders) if two
+proposals in the batch contradict each other or duplicate the same guidance
+(keep the one best-attributed + most specific; reconcile contradictions into
+one). SOFT-FAIL (HUMAN-REVIEW the batch) if it is over-generated: >~5
+proposals for one skill or median attribution of a single rollout — keep
+only the top few by confidence x attribution. Prefer a small accurate set
+over a large one.
+
 ## Your verdict
 
-- All 7 PASS → APPROVE (the SkillOpt applier subagent will write)
-- Any HARD-FAIL → BLOCK with the specific failing dimension
+- All 8 PASS → APPROVE (the SkillOpt applier subagent will write)
+- Any HARD-FAIL (incl. a step-8 batch contradiction/duplicate) → BLOCK with the specific failing dimension
 - 0 hard, ≤ 2 soft → APPROVE with notes
 - 0 hard, ≥ 3 soft → HUMAN-REVIEW (escalate to user during next /loop)
 

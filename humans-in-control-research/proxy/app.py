@@ -8330,7 +8330,9 @@ async def parse_upload(req: ParseUploadRequest):
             vtext = await _gemini_multimodal_extract(raw, "application/pdf", hint=fn)
             if len((vtext or "").strip()) >= 40:
                 logger.info(f"[parse-upload] PDF {fn} had no text layer → VISION OCR → {len(vtext)} chars ({out.get('pages', 0)} pages)")
-                return {"filename": fn, "text": vtext, "method": "pdf-vision-ocr", "pages": out.get("pages", 0), "bytes": len(raw)}
+                return {"filename": fn, "text": _neutralize_untrusted_text(vtext, fn), "method": "pdf-vision-ocr", "pages": out.get("pages", 0), "bytes": len(raw)}
+        if out.get("text"):
+            out["text"] = _neutralize_untrusted_text(out["text"], fn)  # strip invisible injection vectors + flag directives
         logger.info(f"[parse-upload] PDF {fn} → {len(_txt)} chars ({out.get('pages', 0)} pages)")
         return {"filename": fn, **out, "bytes": len(raw)}
 
@@ -8342,6 +8344,7 @@ async def parse_upload(req: ParseUploadRequest):
             decoded = raw.decode("utf-8")
         except UnicodeDecodeError:
             decoded = raw.decode("latin-1", errors="replace")
+        decoded = _neutralize_untrusted_text(decoded, fn)  # strip invisible injection vectors + flag directives
         logger.info(f"[parse-upload] TEXT {fn} → {len(decoded)} chars")
         return {"filename": fn, "text": decoded[:200_000], "method": "decode", "bytes": len(raw)}
 
@@ -9126,17 +9129,39 @@ _EMOJI_RE = re.compile(
 )
 
 
+# 2026-07-01 (ECC-adopted, prompt-injection hardening): invisible Unicode that has NO legitimate
+# place in research prose but is the primary carrier for hidden-instruction smuggling and text
+# steganography in fetched/uploaded content. Zero-width chars, bidi overrides (used to hide text
+# by reordering), and other format/tag chars. Stripped from every outbound model payload so a
+# poisoned corpus/upload cannot inject an invisible directive into a generation prompt.
+_INJECTION_INVISIBLE_RE = re.compile(
+    "["
+    "​-‏"   # zero-width space/joiner/non-joiner + LRM/RLM
+    "‪-‮"   # bidi embeddings + overrides (LRE/RLE/PDF/LRO/RLO)
+    "⁠-⁤"   # word joiner + invisible operators
+    "⁦-⁩"   # bidi isolates (LRI/RLI/FSI/PDI)
+    "﻿"          # zero-width no-break space / BOM
+    "᠎"          # mongolian vowel separator
+    "\U000e0000-\U000e007f"  # tag chars (used to smuggle hidden ASCII instructions)
+    "]",
+    flags=re.UNICODE,
+)
+
+
 def _scrub_outbound_payload(obj):
     """THE single chokepoint that sanitizes every outbound AI-provider request body.
-    Two jobs, applied recursively to every string in the JSON payload:
+    Applied recursively to every string in the JSON payload:
       1. STRIP EMOJI (forbidden, .claude/CLAUDE.md) - mirrors slidePostProcessor.EMOJI_RE,
          so no emoji from corpus/uploads/prompt ever reaches (or is echoed by) the model.
       2. STRIP LONE/unpaired surrogates (U+D800-U+DFFF) - broken emoji halves left when
          emoji-heavy corpus (Reddit) is sliced mid-pair by a chunk/char_span boundary;
          Python's UTF-8 encoder throws "surrogates not allowed" on these, which crashed
          the outbound httpx POST with a 502 (2026-06-15: took out #slides Opus generation).
-    Defensive transport sanitization - it removes only forbidden/broken glyphs, never
-    valid content. Apply in EVERY /api/ai/* handler right after request.json()."""
+      3. STRIP INVISIBLE INJECTION VECTORS (2026-07-01) - zero-width/bidi/tag chars that carry
+         hidden directives or steganographic text out of fetched/uploaded content. No legit use
+         in research prose, so removal is loss-free and closes the invisible-instruction hole.
+    Defensive transport sanitization - it removes only forbidden/broken/invisible glyphs, never
+    visible content. Apply in EVERY /api/ai/* handler right after request.json()."""
     if isinstance(obj, str):
         s = obj
         if any('\ud800' <= ch <= '\udfff' for ch in s):
@@ -9145,12 +9170,47 @@ def _scrub_outbound_payload(obj):
             s = _EMOJI_RE.sub('', s)
             s = re.sub(r'[ \t]{2,}', ' ', s)
             s = re.sub(r' +([.,;:!?])', r'\1', s)
+        if _INJECTION_INVISIBLE_RE.search(s):
+            s = _INJECTION_INVISIBLE_RE.sub('', s)
         return s
     if isinstance(obj, dict):
         return {k: _scrub_outbound_payload(v) for k, v in obj.items()}
     if isinstance(obj, list):
         return [_scrub_outbound_payload(v) for v in obj]
     return obj
+
+
+# Hard prompt-injection DIRECTIVE patterns - the classic "override the system" phrasings that
+# should never appear as an imperative inside INGESTED (untrusted) corpus text. We do NOT delete
+# them (they may be legitimately quoted in a research article ABOUT prompt injection); we LOG at
+# ingest for observability so a poisoned source can be spotted. Detection, not mutation.
+_INJECTION_DIRECTIVE_RE = re.compile(
+    r"(ignore\s+(?:all\s+)?(?:previous|prior|above)\s+instructions"
+    r"|disregard\s+(?:the\s+)?(?:previous|prior|system)\s+(?:instructions|prompt)"
+    r"|you\s+are\s+now\s+(?:a|an|in)\b"
+    r"|new\s+system\s+prompt\b"
+    r"|<\s*/?\s*system\s*>"
+    r"|\[\s*system\s*\]"
+    r"|reveal\s+(?:your|the)\s+(?:system\s+)?prompt)",
+    re.IGNORECASE,
+)
+
+
+def _neutralize_untrusted_text(text: str, source_label: str = "") -> str:
+    """Ingest-time hardening for untrusted external/uploaded content (ECC-adopted 2026-07-01).
+    Strips invisible injection/steganography vectors (loss-free) and LOGS any hard injection
+    directive for observability. Never deletes visible content - research prose stays intact."""
+    if not text:
+        return text or ""
+    cleaned = _INJECTION_INVISIBLE_RE.sub("", text)
+    try:
+        m = _INJECTION_DIRECTIVE_RE.search(cleaned)
+        if m:
+            logger.warning(f"[injection-watch] directive-like text in ingested source "
+                           f"{source_label or '(unnamed)'}: {m.group(0)[:80]!r} (kept as data, flagged)")
+    except Exception:
+        pass
+    return cleaned
 
 
 # ============================================================================

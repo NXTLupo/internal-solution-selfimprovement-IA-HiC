@@ -97,6 +97,28 @@ NOT a wholesale rewrite that loses prior detail. SkillOpt suggesting
 saw a single bad rollout and over-generalized; block and require
 finer-grained proposals.
 
+### 8. Batch curation (HARD, batch-level — ECC learning-curation, 2026-07-01)
+Checks 1-7 audit one proposal in isolation; this check audits the BATCH.
+The library gets WORSE, not better, when it accumulates many low-confidence,
+duplicated, or mutually-contradictory instructions. So, across the whole
+`proposed_edits.json` batch:
+- **Cross-proposal contradiction (HARD):** if two proposals in the batch
+  give conflicting guidance for the same skill/situation (e.g. one says
+  "lead with the number", another says "never lead with a number"), BLOCK
+  both and require the miner to reconcile them into one. Check 2 only guards
+  against contradicting EXISTING standing rules; this guards against the
+  batch contradicting itself.
+- **Duplicate-within-batch (HARD):** if two proposals encode the same
+  guidance (even if worded differently), keep the single most-specific,
+  best-attributed one and BLOCK the rest as redundant.
+- **Bulk-generation guard (SOFT):** prefer a SMALL set of high-confidence,
+  well-attributed edits over a large bulk-generated set. If a batch carries
+  more than ~5 proposals for one skill, or the median source-attribution is
+  a single rollout, treat the batch as over-generated: HUMAN-REVIEW the
+  batch as a whole and keep only the top few by confidence x attribution.
+Rationale: "prefer a small accurate set of instructions over a bulk,
+duplicated, or contradictory one" — accuracy and coherence beat volume.
+
 ## Output format
 
 The gate emits one verdict file per proposal:
@@ -119,6 +141,7 @@ The gate emits one verdict file per proposal:
 - [5] Single-source-of-truth: PASS / SOFT-FAIL ({duplicate location})
 - [6] Scope creep: PASS / SOFT-FAIL
 - [7] Reversibility: PASS / SOFT-FAIL
+- [8] Batch curation: PASS / HARD-FAIL ({contradicting/duplicate proposal id}) / SOFT-FAIL (over-generated batch)
 
 ## Verdict
 APPROVE / BLOCK / HUMAN-REVIEW
@@ -130,10 +153,11 @@ APPROVE / BLOCK / HUMAN-REVIEW
 
 ## When to escalate to HUMAN-REVIEW
 
-The gate auto-APPROVES when all 7 checks pass with no soft fails. It
-auto-BLOCKS on any hard fail. Anything in between (1-2 soft fails)
-escalates to HUMAN-REVIEW with a 1-line summary the user can decide on
-during the next /loop pass.
+The gate auto-APPROVES when all 8 checks pass with no soft fails. It
+auto-BLOCKS on any hard fail (including a check-8 cross-proposal
+contradiction or within-batch duplicate). Anything in between (1-2 soft
+fails, e.g. an over-generated batch) escalates to HUMAN-REVIEW with a
+1-line summary the user can decide on during the next /loop pass.
 
 ## Composes with
 
