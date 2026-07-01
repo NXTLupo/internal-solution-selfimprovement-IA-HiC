@@ -333,6 +333,29 @@ def _kt_count_sentences(text: str) -> int:
     return max(1, len(_SENT_KT_RE.split(text)))
 
 
+def _concept_extract(text: str, top_n: int = 5) -> list[str]:
+    """WS-G (2026-06-30): coarser than key_terms - fewer, longer, higher-frequency tokens = the
+    chunk's dominant CONCEPTS. These seed the manifest CONCEPT GRAPH: related_chunks (intra-doc
+    concept adjacency, computed here) and, in WS-G(traversal)/Stage 2, cross-doc concept-walk
+    retrieval. Deterministic (same input -> same output). Requires >=2 mentions + length >=5 so a
+    concept is a real recurring topic, not an extraction artifact."""
+    if not text:
+        return []
+    tokens = _WORD_KT_RE.findall(text.lower())
+    counts: dict[str, int] = {}
+    for t in tokens:
+        if len(t) >= 5 and t not in _KT_STOPWORDS:
+            counts[t] = counts.get(t, 0) + 1
+    if not counts:
+        return []
+    scored = [
+        (cnt * (1.0 + max(0, len(tok) - 5) * 0.1), tok)
+        for tok, cnt in counts.items() if cnt >= 2
+    ]
+    scored.sort(key=lambda kv: (-kv[0], kv[1]))
+    return [tok for _, tok in scored[:top_n]]
+
+
 def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
     """Manifest-shape chunker. Wraps `chunk_markdown` (the existing
     embedding-aware chunker) and remaps every chunk to the contract shape:
@@ -363,9 +386,21 @@ def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
             "char_span": [int(c.get("char_start", 0)), int(c.get("char_end", 0))],
             "sentence_count": _kt_count_sentences(c.get("text", "")),
             "key_terms": _kt_extract(c.get("text", ""), top_n=8),
+            # WS-G: dominant concepts for the manifest concept graph.
+            "concepts": _concept_extract(c.get("text", ""), top_n=5),
             "section": c.get("section", "") or "",
             "token_count": int(c.get("token_count", 0)),
         })
+    # WS-G: intra-doc concept adjacency. Two chunks that share >=2 concepts are related_chunks
+    # (the seed edges of the concept graph WS-G-traversal walks; cross-doc edges are Stage 2).
+    for i, ci in enumerate(out):
+        si = set(ci.get("concepts") or [])
+        if len(si) < 2:
+            continue
+        rel = [cj["id"] for j, cj in enumerate(out)
+               if j != i and len(si & set(cj.get("concepts") or [])) >= 2]
+        if rel:
+            ci["related_chunks"] = rel[:5]
     return out
 
 
@@ -401,6 +436,13 @@ def _serialize_chunks_yaml(chunks: list[dict]) -> str:
         lines.append(f"    char_span: [{int(cs[0])}, {int(cs[1])}]")
         lines.append(f"    sentence_count: {int(c.get('sentence_count', 0))}")
         lines.append(f"    key_terms: {terms_yaml}")
+        # WS-G: concept graph fields.
+        if c.get("concepts"):
+            concepts_yaml = "[" + ", ".join(_yaml_scalar(t) for t in c["concepts"]) + "]"
+            lines.append(f"    concepts: {concepts_yaml}")
+        if c.get("related_chunks"):
+            rc_yaml = "[" + ", ".join(_yaml_scalar(r) for r in c["related_chunks"]) + "]"
+            lines.append(f"    related_chunks: {rc_yaml}")
         if c.get("section"):
             lines.append(f"    section: {_yaml_scalar(c.get('section', ''))}")
         if c.get("token_count"):
@@ -589,6 +631,14 @@ def extract_chunk_spans(page_text: str) -> list[dict]:
                     (q or b).strip().strip('"').strip()
                     for q, b in parts if (q or b)
                 ]
+        elif cur is not None and (line.startswith("    concepts:") or line.startswith("    related_chunks:")):
+            # WS-G: concept graph fields, same list shape as key_terms.
+            field = "concepts" if line.startswith("    concepts:") else "related_chunks"
+            v = line.split(":", 1)[1].strip()
+            mm = re.match(r"\[(.*)\]", v)
+            if mm:
+                parts = re.findall(r'"([^"\\]*(?:\\.[^"\\]*)*)"|([^,]+)', mm.group(1))
+                cur[field] = [(q or b).strip().strip('"').strip() for q, b in parts if (q or b)]
         elif cur is not None and line.startswith("    section:"):
             cur["section"] = _yaml_strip(line.split("section:", 1)[1])
         elif cur is not None and line.startswith("    token_count:"):

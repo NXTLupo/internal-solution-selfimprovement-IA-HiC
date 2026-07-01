@@ -718,3 +718,32 @@ The quality bar: **Would a senior partner at McKinsey, BCG, or Bain look at this
 The wiki keeps getting richer. The deliverables keep getting deeper. The evidence keeps getting stronger. That's the machine.
 
 Build it.
+
+---
+
+## Chunk Frontmatter Contract (manifest chunk pointers)
+
+Every ingested wiki page carries a `chunks:` frontmatter block (written by `proxy/wiki_chunker.py`
+`chunk_for_manifest` + `upsert_chunks_into_frontmatter`, parsed by `extract_chunk_spans` and its TS twin
+`wikiPointerResolver._parseChunksFrontmatter` — the two MUST stay in sync). Each chunk entry:
+
+```yaml
+chunks:
+  - id: "articles/openalex/2024-smith.md#c3"    # stable pointer <wikiPath>#c<idx>
+    char_span: [1966, 2997]                       # offsets into the post-frontmatter body
+    sentence_count: 6
+    key_terms: [retention, cohort, advising]      # fine-grained retrieval pre-rank terms
+    concepts: [retention, advising, coaching]      # WS-G: coarser dominant concepts (concept graph)
+    related_chunks: ["articles/openalex/2024-smith.md#c5"]   # WS-G: intra-doc concept-adjacent chunks
+    section: "Findings"
+    token_count: 512
+    sources: [{"n":"Higher Ed Dive","u":"https://..."}]   # WS-A: REAL per-chunk source(s); the citation
+                                                           # resolver reads THIS at cite time, not the page title
+```
+
+- `sources` (WS-A) is the per-chunk source LINEAGE: a quote from this chunk resolves to these named sources,
+  never the page title or a provider bucket. Written from Gemini grounding (`attribute_chunks_to_grounding`).
+- `concepts` + `related_chunks` (WS-G) are the manifest CONCEPT GRAPH: dominant concepts per chunk, and
+  intra-doc edges between chunks sharing >=2 concepts. WS-G(traversal)/Stage 2 walks these (plus cross-doc
+  edges) to seed retrieval before keyword/MMR ranking. Objective-alignment scoring is added at RETRIEVAL time
+  (WS-F), not at chunk time (chunking has no objective).

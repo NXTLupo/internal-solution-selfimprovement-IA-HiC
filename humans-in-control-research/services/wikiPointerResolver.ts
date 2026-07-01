@@ -281,6 +281,10 @@ export interface ResolvedChunk {
      *  ingest by wiki_chunker.attribute_chunks_to_grounding). {n: source name/title, u: url}. Empty when the
      *  page carries no per-chunk attribution (e.g. a single-source upload where the page title suffices). */
     sources?: Array<{ n: string; u: string }>;
+    /** WS-G: the chunk's dominant concepts (manifest concept graph). */
+    concepts?: string[];
+    /** WS-G: intra-doc concept-adjacent chunk pointers (seed edges for concept-walk retrieval). */
+    relatedChunks?: string[];
 }
 
 export interface ResolvedChunks {
@@ -341,6 +345,8 @@ function _parseChunksFrontmatter(pageText: string): Array<{
     section: string;
     sentenceCount: number;
     sources?: Array<{ n: string; u: string }>;
+    concepts?: string[];
+    relatedChunks?: string[];
 }> {
     if (!pageText) return [];
     const m = _FRONTMATTER_RE.exec(pageText);
@@ -381,6 +387,15 @@ function _parseChunksFrontmatter(pageText: string): Array<{
                 cur.keyTerms = parts
                     .map(p => p.trim().replace(/^"|"$/g, ''))
                     .filter(Boolean);
+            }
+        } else if (cur && (line.startsWith('    concepts:') || line.startsWith('    related_chunks:'))) {
+            // WS-G: concept graph fields, same list shape as key_terms.
+            const field = line.startsWith('    concepts:') ? 'concepts' : 'relatedChunks';
+            const v = line.slice(line.indexOf(':') + 1).trim();
+            const mm = /\[(.*)\]/.exec(v);
+            if (mm) {
+                const parts = mm[1].match(/"([^"\\]*(?:\\.[^"\\]*)*)"|([^,]+)/g) || [];
+                cur[field] = parts.map(p => p.trim().replace(/^"|"$/g, '')).filter(Boolean);
             }
         } else if (cur && line.startsWith('    section:')) {
             cur.section = line.slice('    section:'.length).trim().replace(/^"|"$/g, '');
@@ -489,6 +504,8 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
                 charSpan: [a, b],
                 sentenceCount: d.sentenceCount,
                 sources: d.sources && d.sources.length ? d.sources : undefined,
+                concepts: d.concepts && d.concepts.length ? d.concepts : undefined,
+                relatedChunks: d.relatedChunks && d.relatedChunks.length ? d.relatedChunks : undefined,
             });
         }
     }));
