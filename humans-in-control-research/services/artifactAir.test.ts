@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { buildAir, validateAir, AIR_VERSION } from './artifactAirService';
 import type { ResearchObjective } from './artifactAirService';
 import type { EvidencePointer } from './evidenceLedgerService';
-import { compileClaim, claimMeetsPolicy, sourceDiversity } from './evidenceLedgerService';
+import { compileClaim, claimMeetsPolicy, sourceDiversity, resolvedChunkToEvidence, buildEvidenceLedger, isWellFormedPointer } from './evidenceLedgerService';
 
 const objective: ResearchObjective = {
     objectiveId: 'OBJ-1',
@@ -82,6 +82,39 @@ describe('Stage-3: AIR emission wired into emitDeliverable (shadow beachhead)', 
     it('the strategy/HTML-artifact path opts into AIR emission', () => {
         const panel = read('components/CorpusChatPanel.tsx');
         expect(panel).toMatch(/air:\s*\{[\s\S]*?trigger:\s*directive\.generator/);
+    });
+});
+
+describe('Stage-3: real evidence ledger from resolved chunks', () => {
+    it('maps a resolved chunk (with per-chunk sources + concepts) to a well-formed EvidencePointer', () => {
+        const ev = resolvedChunkToEvidence({
+            id: 'articles/x.md#c3', sourcePath: 'articles/x.md', text: 'verbatim span',
+            sources: [{ n: 'Higher Ed Dive', u: 'https://x' }], concepts: ['retention'], relatedChunks: ['articles/x.md#c5'],
+        });
+        expect(ev.pointer).toBe('articles/x.md#c3');
+        expect(ev.wikiPath).toBe('articles/x.md');
+        expect(ev.chunkId).toBe('c3');
+        expect(ev.sources[0].sourceName).toBe('Higher Ed Dive');
+        expect(ev.concepts).toEqual(['retention']);
+        expect(ev.relatedChunks).toEqual(['articles/x.md#c5']);
+        expect(ev.provenanceConfidence).toBe(0.85);
+        expect(isWellFormedPointer(ev)).toBe(true);
+    });
+
+    it('a chunk without per-chunk sources still yields a dereferenceable pointer (lower confidence)', () => {
+        const ev = resolvedChunkToEvidence({ id: 'articles/y.md#c0', text: 't' });
+        expect(ev.sources).toEqual([]);
+        expect(ev.provenanceConfidence).toBe(0.4);
+        expect(isWellFormedPointer(ev)).toBe(false);  // no named source -> not "well-formed" (shadow reports it)
+    });
+
+    it('buildEvidenceLedger maps an array + drops id-less entries', () => {
+        const ledger = buildEvidenceLedger([
+            { id: 'a.md#c1', sources: [{ n: 'S', u: 'u' }] },
+            { id: '', text: 'no id' } as any,
+        ]);
+        expect(ledger.length).toBe(1);
+        expect(ledger[0].pointer).toBe('a.md#c1');
     });
 });
 

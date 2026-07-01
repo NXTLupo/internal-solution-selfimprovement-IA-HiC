@@ -155,7 +155,10 @@ export interface EmitDeliverableOpts<T> {
         runId?: string;                                      // defaults to the current engagement slug
         artifactId?: string;                                 // defaults to <deliverable>_<started_at>
         audience?: string;
-        evidence?: EvidencePointer[];                        // optional; empty in the shadow beachhead
+        evidence?: EvidencePointer[];                        // optional pre-built ledger
+        /** The manifest chunks that grounded this generation. When provided, the wrapper maps them to a
+         *  REAL EvidencePointer ledger (buildEvidenceLedger) - preferred over a pre-built `evidence`. */
+        resolvedChunks?: Array<{ id: string; sourcePath?: string; text?: string; sources?: Array<{ n: string; u: string }>; concepts?: string[]; relatedChunks?: string[] }>;
         buildPayload?: (result: T, text: string) => unknown; // defaults to the extracted text
     };
 }
@@ -302,9 +305,14 @@ export async function emitDeliverable<T>(opts: EmitDeliverableOpts<T>): Promise<
                 audience: opts.air.audience,
             };
             const payload = opts.air.buildPayload ? opts.air.buildPayload(result, text) : text;
+            let evidence = opts.air.evidence || [];
+            if (opts.air.resolvedChunks && opts.air.resolvedChunks.length > 0) {
+                const { buildEvidenceLedger } = await import('./evidenceLedgerService');
+                evidence = buildEvidenceLedger(opts.air.resolvedChunks);
+            }
             const { air, entry } = buildAir({
                 runId, artifactId, trigger: opts.air.trigger, objective,
-                evidenceLedger: opts.air.evidence || [], artifactPayload: payload, shadowMode: true,
+                evidenceLedger: evidence, artifactPayload: payload, shadowMode: true,
             });
             const v = validateAir(air);
             if (v.failures.length > 0) {

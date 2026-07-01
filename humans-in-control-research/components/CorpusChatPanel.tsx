@@ -5190,11 +5190,14 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // directives now lead with cite-by-pointer chunks via the shared
                 // MCR helper; embedding retrieval and the raw corpus are fallbacks.
                 let corpusBlock = '';
+                // Stage-3: carry the resolved grounding chunks out to the AIR evidence ledger (emitDeliverable.air).
+                let _airChunks: Array<{ id: string; sourcePath?: string; text?: string; sources?: Array<{ n: string; u: string }>; concepts?: string[]; relatedChunks?: string[] }> = [];
                 try {
                     const { buildManifestCorpusForGoal } = await import('../services/chunkRetrieval');
                     const _mcr = await buildManifestCorpusForGoal(
                         _wpGoal || (liveCtx?.researchGoal || query), currentEngagementSlug() || '', { extraContext: query });
                     if (_mcr.chunkCount > 0) corpusBlock = _mcr.corpus + '\n\n' + _mcr.instructions;
+                    if (_mcr.chunks?.length) _airChunks = _mcr.chunks as any;
                 } catch (e: any) {
                     console.warn(`[${directive.generator}] MCR grounding failed:`, e?.message || e);
                 }
@@ -5366,6 +5369,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         air: {
                             trigger: directive.generator,
                             objective: ((getContext ? getContext() : context)?.researchGoal) || '',
+                            resolvedChunks: _airChunks,   // Stage-3: REAL evidence ledger from the grounding chunks
                             buildPayload: (_r, t) => ({ kind: _htmlKind, html: t }),
                         },
                     });

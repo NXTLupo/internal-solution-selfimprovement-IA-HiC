@@ -99,3 +99,58 @@ export function compileClaim(claimId: string, text: string, support: EvidencePoi
 export function isWellFormedPointer(p: EvidencePointer): boolean {
     return !!p.pointer && /#c\d+$/i.test(p.pointer) && Array.isArray(p.sources) && p.sources.some(s => !!s.sourceName);
 }
+
+// -----------------------------------------------------------------------------
+// Stage-3 (2026-06-30): build a REAL evidence ledger from the manifest-resolved chunks that grounded a
+// generation. Maps each ResolvedChunk (wikiPointerResolver) to an EvidencePointer, carrying its per-chunk
+// sources (WS-A), concepts + related_chunks (WS-G). This replaces the beachhead's empty ledger so AIR
+// evidence is the actual cited corpus. A chunk with no per-chunk sources still yields a dereferenceable
+// pointer (page-level attribution applies); the shadow gate reports how many lack named sources - the
+// upstream pressure to populate per-chunk sources (WS-A data-lag).
+// -----------------------------------------------------------------------------
+
+/** Minimal structural shape of a wikiPointerResolver.ResolvedChunk (imported structurally to avoid a
+ *  hard import cycle; the fields used here are stable). */
+export interface ResolvedChunkLike {
+    id: string;
+    sourcePath?: string;
+    text?: string;
+    sources?: Array<{ n: string; u: string }>;
+    concepts?: string[];
+    relatedChunks?: string[];
+}
+
+/** Map one resolved chunk to an EvidencePointer. objectiveScore defaults to 0 (retrieval-time score is
+ *  wired in WS-F/AIR-objective work); provenanceConfidence reflects whether per-chunk sources were present. */
+export function resolvedChunkToEvidence(chunk: ResolvedChunkLike, objectiveScore = 0): EvidencePointer {
+    const id = chunk.id || '';
+    const hashIdx = id.indexOf('#');
+    const wikiPath = chunk.sourcePath || (hashIdx >= 0 ? id.slice(0, hashIdx) : id);
+    const chunkId = hashIdx >= 0 ? id.slice(hashIdx + 1) : id;
+    const sources: EvidenceSource[] = (chunk.sources || [])
+        .map((s, i) => ({
+            sourceId: s.u || `${id}-s${i}`,
+            sourceType: 'web' as EvidenceSourceType,   // best-effort; refined when source metadata carries type
+            sourceName: (s.n || '').trim(),
+            url: s.u || undefined,
+            attributionLabel: (s.n || '').trim(),
+        }))
+        .filter(s => s.sourceName);
+    return {
+        pointer: id,
+        wikiPath,
+        chunkId,
+        quote: (chunk.text || '').slice(0, 400),
+        sources,
+        objectiveScore,
+        subQuestionIds: [],
+        concepts: chunk.concepts || [],
+        relatedChunks: chunk.relatedChunks || [],
+        provenanceConfidence: sources.length ? 0.85 : 0.4,
+    };
+}
+
+/** Build an evidence ledger from the resolved chunks that grounded a generation. */
+export function buildEvidenceLedger(chunks: ResolvedChunkLike[]): EvidencePointer[] {
+    return (chunks || []).filter(c => c && c.id).map(c => resolvedChunkToEvidence(c));
+}

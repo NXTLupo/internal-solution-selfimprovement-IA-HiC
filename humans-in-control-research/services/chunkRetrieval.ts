@@ -903,8 +903,10 @@ export async function buildManifestCorpusForGoal(
     goal: string,
     engagementSlug: string,
     opts?: { tokenBudget?: number; extraContext?: string },
-): Promise<{ corpus: string; chunkCount: number; sourcesRead: number; instructions: string }> {
-    const empty = { corpus: '', chunkCount: 0, sourcesRead: 0, instructions: '' };
+): Promise<{ corpus: string; chunkCount: number; sourcesRead: number; instructions: string; chunks: ResolvedChunk[] }> {
+    // Stage-3: also return the RESOLVED CHUNKS so callers can build a real AIR evidence ledger
+    // (buildEvidenceLedger) from the exact chunks that grounded the generation.
+    const empty = { corpus: '', chunkCount: 0, sourcesRead: 0, instructions: '', chunks: [] as ResolvedChunk[] };
     try {
         const picked = await pickChunksForPrompt(goal, engagementSlug, {
             tokenBudget: opts?.tokenBudget ?? 30_000,
@@ -922,6 +924,7 @@ export async function buildManifestCorpusForGoal(
             chunkCount: resolved.chunks.length,
             sourcesRead: resolved.sourcesRead,
             instructions: chunkCitationInstructions(),
+            chunks: resolved.chunks,
         };
     } catch (e: any) {
         console.warn('[MCR-helper] grounding failed (caller falls back):', e?.message || e);
