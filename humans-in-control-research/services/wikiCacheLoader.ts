@@ -18,6 +18,8 @@
  *     themes/personas/journey/etc. from cache.
  */
 
+import type { DataSourceItem } from './dataSourceConnectors';
+
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
 // =============================================================================
@@ -196,6 +198,77 @@ export async function loadEngagementBundle(slug: string): Promise<CachedEngageme
 /** Convenience: load multiple engagement bundles in parallel. */
 export async function loadEngagementBundles(slugs: string[]): Promise<CachedEngagementBundle[]> {
     return Promise.all(slugs.map(loadEngagementBundle));
+}
+
+// =============================================================================
+// WS-C (2026-06-30): AUTO-REUSE the Karpathy second brain by objective.
+// The prior cached-blend path (blendCachedItemsRef in App.tsx) was MANUAL only
+// (Knowledge Library selection). This scans the wiki `sources/` archives (one per
+// prior engagement), scores each against the CURRENT research objective via
+// scoreGoalSimilarity, and returns the objective-relevant ones as `source:'cached'`
+// DataSourceItems so App.tsx can fold them into mergeResultsToCorpus BEFORE dedup -
+// they mix with fresh collection through the same merge authority. Fails safe
+// (returns []) and is CHATTY (logs what it reused + the goal-similarity), so reuse
+// is never silent. Bounded (maxItems) so it never floods the corpus. Knowledge
+// compounds run-over-run: a new run on an adjacent objective starts richer.
+// =============================================================================
+export async function loadCachedItemsByGoal(
+    goal: string,
+    opts: { minScore?: number; maxItems?: number; maxBodyChars?: number } = {},
+): Promise<DataSourceItem[]> {
+    const minScore = opts.minScore ?? 0.2;   // matches resolveEngagementSourceArchive's "too weak" floor
+    const maxItems = opts.maxItems ?? 8;      // bounded so auto-reuse never floods the corpus
+    const maxBody = opts.maxBodyChars ?? 12000;
+    if (!goal || goal.trim().length < 8) return [];
+    try {
+        const listResp = await fetch(`${PROXY_BASE}/api/wiki/list/sources`);
+        if (!listResp.ok) return [];
+        const listData = await listResp.json();
+        const files: string[] = Array.isArray(listData?.files) ? listData.files : [];
+        const mdFiles = files.filter(f => typeof f === 'string' && f.endsWith('.md'));
+        if (mdFiles.length === 0) return [];
+
+        const scored: Array<{ path: string; score: number; body: string; title: string }> = [];
+        for (const file of mdFiles) {
+            const body = await loadSourceArchiveBody(`sources/${file}`);
+            if (!body || body.length < 200) continue;
+            const archiveGoal = readFrontmatterField(body, 'research_goal')
+                || readFrontmatterField(body, 'title') || '';
+            const score = scoreGoalSimilarity(goal, archiveGoal);
+            if (score >= minScore) {
+                scored.push({ path: `sources/${file}`, score, body, title: archiveGoal || file.replace(/\.md$/i, '') });
+            }
+        }
+        if (scored.length === 0) {
+            console.log(`[CacheLoader] AUTO-REUSE: scanned ${mdFiles.length} source archives, 0 matched objective (minScore=${minScore}) - cache miss, fresh collection only.`);
+            return [];
+        }
+        scored.sort((a, b) => b.score - a.score);
+        const top = scored.slice(0, maxItems);
+        const items: DataSourceItem[] = top.map((s) => {
+            const it: DataSourceItem = {
+                id: `cached_${s.path.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`,
+                title: s.title.slice(0, 140),
+                content: s.body.slice(0, maxBody),
+                url: `wiki://${s.path}`,
+                date: '',
+                sourceType: 'web',
+                sourceName: `Cached reuse: ${s.title.slice(0, 80)}`,
+                relevanceScore: Math.round(s.score * 100),
+            };
+            // fold-in marker read by mergeResultsToCorpus (source !== 'cached' => real upload);
+            // provenance for the run manifest + the corpus_reuse_provenance gate.
+            (it as any).source = 'cached';
+            (it as any).cachedProvenance = { path: s.path, goalSimilarity: Math.round(s.score * 1000) / 1000 };
+            return it;
+        });
+        console.info(`[CacheLoader] AUTO-REUSE by objective: folded ${items.length}/${scored.length} goal-matched cached archives (minScore=${minScore}); ` +
+            top.map(t => `${t.path.replace('sources/', '')}=${t.score.toFixed(2)}`).join(', '));
+        return items;
+    } catch (e: any) {
+        console.warn('[CacheLoader] loadCachedItemsByGoal failed (non-fatal, fresh collection continues):', e?.message || e);
+        return [];
+    }
 }
 
 // =============================================================================

@@ -1153,6 +1153,19 @@ export async function generateFreeformArtifact(args: FreeformGenerateArgs): Prom
         console.warn(`[chatToFreeform/${args.kind}] slop scrubber failed (non-fatal):`, slopErr?.message || slopErr);
     }
 
+    // WS-B (2026-06-30): resolve manifest chunk pointers ([path#cN]) to NAMED sources on the Designer
+    // freeform body. buildPromptCorpusGrounded already leads the prompt with manifest chunks + a cite-by-
+    // pointer instruction (Designer is manifest-first), but nothing resolved the pointers on OUTPUT, so they
+    // leaked into the artifact. resolveManifestPointers swaps each pointer for its real source (WS-A per-chunk
+    // attribution registered at assembleChunkCorpus) and strips any bare pointer - closing the anti-RAG
+    // last hop on the Designer surface, matching the Analyst/slide path (slidePostProcessor line ~83).
+    try {
+        const { resolveManifestPointers } = await import('../../services/citationPointerRegistry');
+        scrubbedHtml = resolveManifestPointers(scrubbedHtml);
+    } catch (ptrErr: any) {
+        console.warn(`[chatToFreeform/${args.kind}] pointer resolution failed (non-fatal):`, ptrErr?.message || ptrErr);
+    }
+
     const sanitizedHtml = sanitizeFreeformHtml(scrubbedHtml);
 
     const candidate: FreeformArtifact = {

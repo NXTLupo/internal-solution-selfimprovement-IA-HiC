@@ -5088,7 +5088,26 @@ const App = () => {
                 if (_blendCached.length > 0) {
                     console.info(`[App] BLEND: merging ${_blendCached.length} cached items with fresh corpus (dedup via merge authority).`);
                 }
-                const _mergeUploads = [...uploadedCorpusItems, ..._blendCached];
+                // WS-C (2026-06-30): AUTO-REUSE the second brain by objective. Beyond the MANUAL
+                // Knowledge Library blend above, fold in objective-relevant cached source archives from
+                // prior engagements so knowledge compounds without re-paying collection. Deduped by the
+                // merge authority (fresh duplicates collapse into cached canonicals), bounded + logged +
+                // surfaced as a thinking event so reuse is never silent. Fails safe (empty on error).
+                let _autoCached: any[] = [];
+                try {
+                    const { loadCachedItemsByGoal } = await import('./services/wikiCacheLoader');
+                    _autoCached = await loadCachedItemsByGoal(researchGoal);
+                    if (_autoCached.length > 0) {
+                        console.info(`[App] AUTO-REUSE: folded ${_autoCached.length} goal-matched cached archive(s) into the fresh corpus (dedup via merge authority).`);
+                        setThinkingEvents(prev => [...prev, {
+                            type: 'PHASE',
+                            content: `[COLLECTION] Auto-reused ${_autoCached.length} cached source archive(s) from prior engagements matching this objective (second-brain reuse; deduped against fresh collection).`,
+                        }]);
+                    }
+                } catch (reuseErr: any) {
+                    console.warn('[App] auto-reuse of cached corpus failed (non-fatal):', reuseErr?.message || reuseErr);
+                }
+                const _mergeUploads = [...uploadedCorpusItems, ..._blendCached, ..._autoCached];
                 const corpus = await mergeResultsToCorpus(executionResult, researchGoal, _mergeUploads);
 
                 // Also merge proxy multi-search results

@@ -373,6 +373,20 @@ export async function generateSlideSpec(args: SlideSpecGenerateArgs): Promise<Sl
         createdAt: args.currentArtifact?.createdAt ?? Date.now(),
         updatedAt: Date.now(),
     };
+    // WS-B (2026-06-30): resolve manifest chunk pointers ([path#cN]) to NAMED sources on the slide's text
+    // (title + text objects) so Designer slidespec artifacts cite real sources (WS-A per-chunk attribution,
+    // registered at assembleChunkCorpus) and never leak raw pointers - the anti-RAG last hop on this surface.
+    try {
+        const { resolveManifestPointers } = await import('../../services/citationPointerRegistry');
+        candidate.title = resolveManifestPointers(candidate.title);
+        const objs = (candidate.spec as any)?.objects;
+        if (Array.isArray(objs)) {
+            for (const o of objs) {
+                if (o && typeof o.text === 'string') o.text = resolveManifestPointers(o.text);
+            }
+        }
+    } catch { /* non-fatal: pointers already stripped by the renderer's own pass if present */ }
+
     const validation = validateSlideArtifact(candidate);
     if (validation.ok !== true) {
         return { ok: false, error: `Artifact validation failed: ${(validation as any).error}`, rawResponse: raw, modelUsed: model };
