@@ -3155,6 +3155,9 @@ export async function sendChatMessage(
     // corpusText to a tail. Non-fatal + fail-LOUD: on empty/err we leave
     // manifestChunkCorpus unset and the bulk-corpus path stands (never silently
     // claims manifest grounding when it did not happen).
+    // Stage-3/D11: capture the resolved grounding chunks at function scope so the slide-deck artifact
+    // path (which does NOT flow through emitDeliverable) can emit an AIR with a REAL evidence ledger below.
+    let _airGroundingChunks: any[] = [];
     if (!context.manifestChunkCorpus) {
         try {
             const _slug = currentEngagementSlug();
@@ -3201,6 +3204,7 @@ export async function sendChatMessage(
                             ...context,
                             manifestChunkCorpus: assembleChunkCorpus(_resolved.chunks),
                         };
+                        _airGroundingChunks = _resolved.chunks;  // Stage-3/D11: real AIR evidence ledger source
                         console.log(`[chat] MANIFEST-CHUNK grounding: ${_resolved.chunks.length} chunks from ${_resolved.sourcesRead} wiki pages (catalog=${_picked.catalogSize}, ~${_picked.estimatedTokens} tok) - leading evidence; bulk corpus demoted`);
                     } else {
                         console.warn(`[chat] MANIFEST-CHUNK grounding: ${_picked.chunkIds.length} pointers selected but 0 resolved (notFound=${_resolved.notFound.length}); falling back to bulk corpus`);
@@ -3836,6 +3840,35 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
             const { resolveManifestPointers } = await import('./citationPointerRegistry');
             responseText = resolveManifestPointers(responseText);
         } catch (e) { /* non-blocking */ }
+
+        // Stage-3/D11 (2026-06-30): SLIDE-DECK PATH AIR EMISSION. The #gap/#personas/#themes/#slides
+        // artifacts are generated HERE (not via emitDeliverable), so emit their AIR directly - with the REAL
+        // evidence ledger from the grounding chunks captured above. SHADOW mode + fire-and-forget: purely
+        // additive, never touches the chat reply or its return. Completes the third artifact emission path.
+        if (isArtifactGenerationMessage(userMessage)) {
+            try {
+                const _tplHit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
+                const _trigger = _tplHit ? `#${_tplHit[1]}` : (/#slides?\b/i.test(userMessage) ? '#slides' : '#artifact');
+                const _slug = currentEngagementSlug() || 'run';
+                const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }] = await Promise.all([
+                    import('./artifactAirService'), import('./evidenceLedgerService'),
+                ]);
+                const { air: _air } = buildAir({
+                    runId: _slug,
+                    artifactId: `${_trigger.replace(/^#/, '')}_${Date.now()}`,
+                    trigger: _trigger,
+                    objective: { objectiveId: `obj_${_slug}`, userObjective: context.researchGoal || '', decomposedQuestions: [] },
+                    evidenceLedger: buildEvidenceLedger(_airGroundingChunks),
+                    artifactPayload: { kind: _trigger.replace(/^#/, ''), content: (responseText || '').slice(0, 20000) },
+                    shadowMode: true,
+                });
+                const _v = validateAir(_air);
+                if (_v.failures.length) console.info(`[chat] AIR shadow (${_trigger}): ${_v.failures.length} contract note(s); ${_airGroundingChunks.length} evidence chunk(s)`);
+                void writeAir(_air).then(w => { if (w.persisted) console.info(`[chat] AIR persisted (shadow): ${w.path}`); }).catch(() => { /* fire-and-forget */ });
+            } catch (airErr: any) {
+                console.warn('[chat] slide-deck AIR emission failed (non-fatal):', airErr?.message || airErr);
+            }
+        }
 
         // 2026-05-26 - Surface unknown / fuzzy-promoted hashtag notices to the
         // user. Two cases:
