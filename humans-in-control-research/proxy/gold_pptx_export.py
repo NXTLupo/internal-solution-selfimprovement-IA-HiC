@@ -14,6 +14,9 @@ Critical constant: the 1920px stage = 144 px/in, so px->pt = px*0.5 (PX2PT). Usi
 import os
 import tempfile
 import pathlib
+import logging
+
+logger = logging.getLogger("gold_pptx_export")
 
 W, H = 1920, 1080
 EMU = 914400
@@ -306,6 +309,39 @@ def _chrome_signature(chrome_rects, chrome_svgs, chrome_imgs):
     return repr((r(chrome_rects, ("x", "y", "w", "h")), r(chrome_svgs, ("x", "y", "w", "h")), r(chrome_imgs, ("x", "y", "w", "h"))))
 
 
+def validate_pptx_native(prs) -> dict:
+    """WS-I (2026-06-30): verify a rendered deck is NATIVE-EDITABLE, not rasterized. Flags (a) any slide
+    that is a single full-slide PICTURE with no other shapes (a flattened html2canvas bitmap - the
+    '27 blank slides' failure class) and (b) a deck with zero native text runs. Returns a report; the
+    caller logs it. Read-only - never mutates the deck. python-pptx MSO_SHAPE_TYPE.PICTURE == 13."""
+    picture_only: list[int] = []
+    total_runs = 0
+    for idx, slide in enumerate(prs.slides, start=1):
+        pics, non_pic = 0, 0
+        for shape in slide.shapes:
+            try:
+                if getattr(shape, "has_text_frame", False) and shape.has_text_frame:
+                    for p in shape.text_frame.paragraphs:
+                        total_runs += len(p.runs)
+                st = getattr(shape, "shape_type", None)
+                is_pic = st is not None and int(st) == 13
+                if is_pic:
+                    pics += 1
+                else:
+                    non_pic += 1
+            except Exception:
+                non_pic += 1
+        if pics >= 1 and non_pic == 0:
+            picture_only.append(idx)
+    failures: list[str] = []
+    if picture_only:
+        failures.append(f"{len(picture_only)} full-slide picture-only (rasterized) slide(s): {picture_only[:8]}")
+    if total_runs == 0:
+        failures.append("zero native text runs across the deck")
+    return {"native": len(failures) == 0, "failures": failures,
+            "total_runs": total_runs, "picture_only_slides": picture_only}
+
+
 def html_to_editable_pptx(html: str, out_path: str) -> dict:
     """Render ONE gold-language HTML stage to an editable .pptx at out_path. Returns a small report.
 
@@ -319,9 +355,12 @@ def html_to_editable_pptx(html: str, out_path: str) -> dict:
     prs = Presentation()
     prs.slide_width, prs.slide_height = Emu(int(13.333 * EMU)), Emu(int(7.5 * EMU))
     run_total = _render_into_presentation(prs, [html])[0]
+    _native = validate_pptx_native(prs)
+    if not _native["native"]:
+        logger.warning(f"[gold-pptx] NON-NATIVE export {out_path}: {'; '.join(_native['failures'])}")
     prs.save(out_path)
     _embed_gold_fonts(out_path)
-    return {"path": out_path, "runs": run_total}
+    return {"path": out_path, "runs": run_total, "native": _native}
 
 
 def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
@@ -350,12 +389,16 @@ def html_list_to_editable_pptx(html_list: list, out_path: str) -> dict:
     prs = Presentation()
     prs.slide_width, prs.slide_height = Emu(int(13.333 * EMU)), Emu(int(7.5 * EMU))
     per_slide_runs = _render_into_presentation(prs, html_list)
+    _native = validate_pptx_native(prs)
+    if not _native["native"]:
+        logger.warning(f"[gold-pptx] NON-NATIVE deck {out_path}: {'; '.join(_native['failures'])}")
     prs.save(out_path)
     _embed_gold_fonts(out_path)
     return {
         "path": out_path,
         "slides": [{"runs": r} for r in per_slide_runs],
         "total_runs": sum(per_slide_runs),
+        "native": _native,
     }
 
 
