@@ -356,6 +356,41 @@ def _concept_extract(text: str, top_n: int = 5) -> list[str]:
     return [tok for _, tok in scored[:top_n]]
 
 
+_INLINE_SRC_LABEL_RE = __import__("re").compile(r"\bSources?:\s*(.+?)(?:\n|$)", __import__("re").IGNORECASE)
+_INLINE_SRC_LINK_RE = __import__("re").compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
+
+
+def _extract_inline_sources(text: str) -> list[dict]:
+    """D3/#15 (2026-07-01): recover per-chunk real sources from an inline "Source: [Name](url)" line in the
+    chunk body, so re-chunking populates the `sources:` frontmatter that resolveChunks/the evidence ledger
+    read. Mirrors services/evidenceLedgerService.ts extractInlineSources. HIGH-PRECISION: only on a
+    "Source(s):" label, so bot/boilerplate text is never mis-read. Returns [{"n":name,"u":url}]."""
+    if not text:
+        return []
+    out: list[dict] = []
+    seen: set[str] = set()
+    for m in _INLINE_SRC_LABEL_RE.finditer(text):
+        clause = m.group(1)
+        had_link = False
+        for lm in _INLINE_SRC_LINK_RE.finditer(clause):
+            had_link = True
+            name = (lm.group(1) or "").strip()
+            url = (lm.group(2) or "").strip()
+            key = name.lower()
+            if name and key not in seen:
+                seen.add(key)
+                out.append({"n": name, "u": url})
+        if not had_link:
+            name = clause.rstrip(")]").strip()[:80]
+            key = name.lower()
+            if len(name) >= 2 and key not in seen:
+                seen.add(key)
+                out.append({"n": name, "u": ""})
+        if len(out) >= 6:
+            break
+    return out
+
+
 def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
     """Manifest-shape chunker. Wraps `chunk_markdown` (the existing
     embedding-aware chunker) and remaps every chunk to the contract shape:
@@ -381,16 +416,24 @@ def chunk_for_manifest(body: str, source_path: str) -> list[dict]:
     chunks = chunk_markdown(body)
     out: list[dict] = []
     for c in chunks:
-        out.append({
+        _ctext = c.get("text", "")
+        _chunk = {
             "id": f"{source_path}#c{c['idx']}",
             "char_span": [int(c.get("char_start", 0)), int(c.get("char_end", 0))],
-            "sentence_count": _kt_count_sentences(c.get("text", "")),
-            "key_terms": _kt_extract(c.get("text", ""), top_n=8),
+            "sentence_count": _kt_count_sentences(_ctext),
+            "key_terms": _kt_extract(_ctext, top_n=8),
             # WS-G: dominant concepts for the manifest concept graph.
-            "concepts": _concept_extract(c.get("text", ""), top_n=5),
+            "concepts": _concept_extract(_ctext, top_n=5),
             "section": c.get("section", "") or "",
             "token_count": int(c.get("token_count", 0)),
-        })
+        }
+        # D3/#15: populate per-chunk real sources from the chunk's inline "Source:" line so re-chunked pages
+        # carry structured `sources:` frontmatter (raises the AIR well-formed ratio; deep-research chunks that
+        # already set sources via groundingSupports keep those - this only fills the gap for other pages).
+        _inline = _extract_inline_sources(_ctext)
+        if _inline:
+            _chunk["sources"] = _inline
+        out.append(_chunk)
     # WS-G: intra-doc concept adjacency. Two chunks that share >=2 concepts are related_chunks
     # (the seed edges of the concept graph WS-G-traversal walks; cross-doc edges are Stage 2).
     for i, ci in enumerate(out):
