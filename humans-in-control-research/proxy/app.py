@@ -18614,7 +18614,9 @@ async def ai_brand_image(payload: dict):
 def _diagram_palette(brand: str, canvas: str) -> dict:
     b = "nu" if str(brand).lower() == "nu" else "nxt"
     c = "dark" if str(canvas).lower() == "dark" else "light"
-    toks = ((_load_figma_tokens() or {}).get(b.upper(), {}) or {}).get("color", {}) or {}
+    bt = (_load_figma_tokens() or {}).get(b.upper(), {}) or {}
+    toks = bt.get("color", {}) or {}
+    fonts = bt.get("font", {}) or {}
     def hx(role, fb):
         v = toks.get(role)
         return v if isinstance(v, str) and v.startswith("#") else fb
@@ -18622,20 +18624,46 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
     ink = hx("ink", "#141414" if b == "nxt" else "#16233C")
     cyan = hx("cyan", "#00B7C3" if b == "nxt" else "#1D6E64")
     rail = hx("rail", "#0D0D0D" if b == "nxt" else "#0E1626")
-    paper = hx("paper", hx("pale", "#FAFAF7"))
+    paper = hx("paper", "#FFFFFF")
+    # Full GOLD-page token set (render the diagram AS an NXT GOLD exhibit, never a generic infographic)
     return {"accent": accent, "ink": ink, "cyan": cyan, "rail": rail, "paper": paper,
+            "kicker": hx("kicker", cyan), "warn": hx("warn", "#CC6644" if b == "nxt" else "#C8102E"),
+            "wash_warn": hx("wash-warn", "#FAF1EC"), "wash_cool": hx("wash-cool", "#EBF7F8"),
+            "band": hx("band", accent), "band_text": hx("band-text", "#0D0D0D" if b == "nxt" else "#FFFFFF"),
+            "grey": hx("grey", "#73757A"), "hairline": hx("hairline", "#DDDDD6"),
+            # image models can't load a named font; naming it + its character gets the closest approximation
+            "title_face": fonts.get("title") or ("Archivo" if b == "nxt" else "Lato"),
+            "body_face": fonts.get("body") or ("Archivo" if b == "nxt" else "Lato"),
+            "mono_face": fonts.get("mono") or ("IBM Plex Mono" if b == "nxt" else "Lato"),
+            "disp_face": fonts.get("display") or ("Saira Condensed" if b == "nxt" else "Lato"),
             "bg": rail if c == "dark" else paper, "fg": paper if c == "dark" else ink}
 
 
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v7-fullbleed-formula"
+_DIAGRAM_STYLE_VERSION = "v14-arch-conn-mind-icons"
+
+
+_DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)
+
+
+def _scrub_diag_text(s) -> str:
+    """Route one diagram string through the SAME anti-slop chokepoint the rest of the pipeline uses:
+    _clean_text (html-unescape, lone-surrogate drop, ws-collapse) + em-dash ban + emoji ban + the
+    _SLOP_SUBS lexicon. So no banned phrase, em-dash, or emoji can render into a diagram image."""
+    s = _clean_text(str(s or ""))
+    s = _DIAG_DASH_RE.sub(", ", s)      # em/en dash -> comma (repo-wide em-dash ban; ASCII hyphen untouched)
+    s = _EMOJI_RE.sub("", s)
+    for pat, sub in _SLOP_SUBS:
+        s = pat.sub(sub, s)
+    return re.sub(r"\s+", " ", s).strip()
 
 
 def _dq(s) -> str:
-    """Exact-quote one content string for the image prompt (Nano-Banana text-accuracy formula)."""
-    return '"' + str(s or "").replace('"', "'").replace("\n", " ").strip()[:160] + '"'
+    """Exact-quote one content string for the image prompt (Nano-Banana text-accuracy formula).
+    Anti-slop scrubbed first (em-dash/emoji/banned-phrase ban) so slop never renders into the image."""
+    return '"' + _scrub_diag_text(s).replace('"', "'")[:160] + '"'
 
 
 def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
@@ -18645,12 +18673,46 @@ def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
     p = _diagram_palette(brand, canvas)
     kind = (spec.get("kind") or "flow").lower()
     accent, ink = p["accent"], p["ink"]
-    # PART 1 - Format & Style
-    fmt = (f"Design a 16:9 FULL-BLEED, edge-to-edge management-consulting diagram that fills the ENTIRE frame with NO outer "
-           f"margin or border. Background: crisp, clean, solid white #FFFFFF. Flat modern editorial vector style, high "
-           f"resolution with razor-sharp, perfectly legible text. Titles in a BOLD dark-charcoal ({ink}) sans-serif; body and "
-           f"bullets in a regular medium-grey sans-serif; the accent color {accent} is used ONLY for thin rules, arrows, small "
-           f"kickers and critical-phase highlights - NEVER as a card fill. Cards are white with a thin 1.5px light-grey border. ")
+    tface, mface, dface = p["title_face"], p["mono_face"], p["disp_face"]
+    kicker_col, grey, hairline = p["kicker"], p["grey"], p["hairline"]
+    warn, wash_warn, wash_cool = p["warn"], p["wash_warn"], p["wash_cool"]
+    band, band_text = p["band"], p["band_text"]
+    # PART 1 - Format & Style: render the diagram AS an NXT "GOLD" consulting exhibit (exact brand anatomy),
+    # never a generic infographic. Instruction words are NEVER a title the model might draw.
+    headline = str(spec.get("title") or "").strip()
+    _kick_fallback = {"journey": "CUSTOMER JOURNEY", "journey-map": "CUSTOMER JOURNEY", "flow": "CUSTOMER JOURNEY",
+                      "funnel": "CUSTOMER JOURNEY", "arch": "SYSTEM ARCHITECTURE", "architecture": "SYSTEM ARCHITECTURE",
+                      "tech-architecture": "SYSTEM ARCHITECTURE", "architecture-map": "SYSTEM ARCHITECTURE",
+                      "mindmap": "MIND MAP", "mind-map": "MIND MAP", "blueprint": "SERVICE BLUEPRINT",
+                      "service-blueprint": "SERVICE BLUEPRINT"}
+    kicker_txt = str(spec.get("kicker") or _kick_fallback.get(kind, "")).strip()
+    fmt = (
+        f"Render ONE image, 16:9 aspect ratio, FULL-BLEED edge-to-edge with NO outer margin or border. It is a premium "
+        f"management-consulting exhibit for the {'Northeastern' if brand=='nu' else 'NXT Humans'} brand with this exact look "
+        f"(these are STYLING directions - do NOT write any of these direction words into the picture):\n"
+        f"- Background is solid {p['paper']} paper white, perfectly flat, no gradients, no drop-shadows.\n"
+        f"- A solid {p['rail']} vertical bar runs down the far LEFT edge (about 5% of the width, full height); at its bottom sits "
+        f"a small 3x3 grid of {accent} squares (a dot-mark). This left bar contains NO text at all.\n"
+        + (f"- Top line of the content area (just right of the left bar): the exact text {_dq(kicker_txt)} only, in a monospaced "
+           f"typeface, uppercase, semibold, wide letter-spacing, colored {kicker_col}. Nothing else on this line.\n" if kicker_txt else "")
+        + (f"- Just below it, the headline: the exact text {_dq(headline)} only, in a heavy grotesque sans-serif, near-black, "
+           f"large, on one line if it fits. No other headline anywhere.\n"
+           if headline else "- Do not draw a headline unless one is provided in the content below.\n")
+        + f"- A single thin light-grey horizontal rule sits under the headline, spanning the full content width (no text on it).\n"
+        f"- Typography: headings and card titles in a bold grotesque sans-serif; small labels, actor names and any source/meta "
+        f"lines in a monospaced typeface colored {grey}; large KPI numerals in a tall condensed sans-serif. Body text is "
+        f"near-black or {grey} grey. (Approximate these faces; never write the font names.)\n"
+        f"- Strict color discipline: the exhibit is mostly white with near-black text and {grey} grey. {accent} appears ONLY on "
+        f"the dot-mark, thin rules, critical-phase markers, and the bottom band. {kicker_col} appears ONLY on the top line, small "
+        f"cool accents, and opportunity markers. {warn} appears ONLY on pain/problem markers. Pain callouts may sit on a very "
+        f"pale {wash_warn} tint; opportunity callouts on a very pale {wash_cool} tint. NEVER flood a card or a whole column with "
+        f"saturated color; no green fills; no heavy black outlines. Cards are white with a thin light-grey border and padding.\n"
+        f"- A full-content-width horizontal band across the very bottom is filled {band}; it contains ONLY its one-sentence "
+        f"takeaway text (given below) in {band_text}, in the heading face.\n"
+        f"- Overall: a restrained, precise, editorial consulting exhibit, generous whitespace, strict grid alignment, with "
+        f"meaningful thin-line single-color icons (one per phase/section header, a small glyph beside each row label, a small "
+        f"alert glyph on pain items, a small lightbulb or up-arrow on opportunity items). Elegant and minimal, the polish of a "
+        f"top-tier strategy deck - NOT clip-art, NOT childish, NOT a plain spreadsheet grid. ")
 
     def q_list(xs, cap):
         return ", ".join(_dq(x) for x in (xs or [])[:cap] if str(x).strip())
@@ -18660,12 +18722,15 @@ def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
         lanes = spec.get("lanes") if isinstance(spec.get("lanes"), list) else []
         personas = spec.get("personas") or []
         takeaway = str(spec.get("takeaway") or "").strip()
-        lay = ("LAYOUT: a full-width horizontal SWIMLANE MATRIX. The columns, left to right, are the journey PHASES; the "
-               "stacked rows top-to-bottom are: a PERSONAS row (JTBD voices), one ACTOR LANE per actor (row label at far left, "
-               "one task cell per phase column), a PAIN POINTS row (accent-tinted, stacked bullets per phase), and an "
-               "OPPORTUNITIES row (cool-tint). Embed a KPI chip in the header of any phase marked critical. A single-line cited "
-               "QUOTE strip and a full-width TAKEAWAY band anchor the bottom. Thin accent arrows connect phase to phase. "
-               "TEXT (render every quoted string EXACTLY, once):\n")
+        lay = ("LAYOUT: a DESIGNED, EDITORIAL customer-journey INFOGRAPHIC (not a plain spreadsheet grid). A bold horizontal "
+               "TIMELINE SPINE runs left-to-right connecting the PHASE milestone nodes; each phase is a rounded milestone card "
+               "with a LARGE phase icon at the top, its title, and a KPI chip if critical. Beneath the spine, the other "
+               "dimensions read as visually DISTINCT, designed bands (varied shapes + rounded cards + accent color + icons, not "
+               "identical grey rows): PERSONAS as small speech-bubble callouts, one per phase; one ACTOR LANE per actor as a "
+               "labeled row of connected task cards (small lane icon by the actor name); PAIN POINTS as accent-tinted alert tags "
+               "stacked under each phase; OPPORTUNITIES as highlighted cards with an upward-arrow/lightbulb glyph; a pull-QUOTE "
+               "callout; and a bold full-width TAKEAWAY banner across the bottom. Layered visual hierarchy, generous use of the "
+               "phase icons and accent rules. TEXT (render every quoted string EXACTLY, once):\n")
         for i, ph in enumerate(phases[:6], 1):
             if not isinstance(ph, dict):
                 ph = {"name": ph}
@@ -18686,11 +18751,17 @@ def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
         for ln in lanes[:4]:
             if isinstance(ln, dict) and ln.get("actor"):
                 cells = ln.get("cells") or []
-                lay += f"  ACTOR LANE {_dq(ln.get('actor'))}: per-phase task cells = {', '.join(_dq(c) for c in cells[:6])}\n"
-        if personas:
-            lay += f"  PERSONAS row (one per phase): {q_list(personas, 6)}\n"
+                # the row's LEFT label is the actor name itself (quoted); the cells are the per-phase tasks
+                lay += f"  A task row whose left-hand label is exactly {_dq(ln.get('actor'))}; its cells left-to-right = {', '.join(_dq(c) for c in cells[:6])}\n"
+        # PERSONAS aligned per phase COLUMN; a phase with no persona has an empty cell (draw nothing there).
+        if any(str(x).strip() for x in (personas or [])):
+            pparts = []
+            for i in range(len(phases[:6])):
+                pv = str(personas[i]).strip() if i < len(personas) else ""
+                pparts.append(f"under phase {i+1}: {_dq(pv)}" if pv else f"under phase {i+1}: (empty cell, draw nothing here)")
+            lay += "  A row whose left-hand label is exactly \"PERSONAS\", with a speech-bubble callout per phase column: " + "; ".join(pparts) + "\n"
         if takeaway:
-            lay += f"  TAKEAWAY band (full width, bottom): {_dq(takeaway)}\n"
+            lay += f"  Bottom band text (in the filled band): {_dq(takeaway)}\n"
         layout = lay
     elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
         nodes = spec.get("nodes") or [{"label": x} for x in (spec.get("labels") or [])]
@@ -18726,10 +18797,16 @@ def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
         nodes = spec.get("nodes") or [{"label": x} for x in (spec.get("labels") or [])]
         layout = "LAYOUT: connected white cards with labeled arrows. TEXT:\n" + "".join(f"  {_dq((n if isinstance(n,dict) else {'label':n}).get('label'))}\n" for n in (nodes or [])[:8])
 
-    con = ("CONSTRAINTS (most important): render EVERY quoted string EXACTLY as written - correct spelling, fully legible, "
-           "horizontal, non-overlapping. ACCURACY OF THE QUOTED TEXT IS MORE IMPORTANT THAN AESTHETICS. Include every quoted "
-           "item, no more and no fewer; NEVER duplicate, mirror, pad, or invent any cell, node, label, or word. No watermarks, "
-           "no logos, no UI chrome, no placeholder text.")
+    con = ("CONSTRAINTS (most important): the ONLY text that may appear anywhere in the image is the exact double-quoted strings "
+           "given above (plus the row labels explicitly quoted, e.g. \"PERSONAS\" and the actor names). Render each such string "
+           "EXACTLY as written - correct spelling, fully legible, horizontal, non-overlapping - no more and no fewer, and NEVER "
+           "duplicate, mirror, pad, or invent any cell, node, label, or word. An empty cell stays visually EMPTY: draw nothing "
+           "there, and NEVER write the word 'empty', 'blank', 'n/a', or any placeholder. CRITICAL: do NOT draw any of the styling "
+           "or structure DIRECTION words from this prompt anywhere in the picture - never render words like kicker, action title, "
+           "timeline, spine, hairline, rail, band, row, cell, column, phase, lane, uppercase, monospace, semibold, sans-serif, a "
+           "font name, or a hex color code. ACCURACY OF THE QUOTED TEXT IS MORE IMPORTANT THAN AESTHETICS. It must read as a "
+           "designed consulting exhibit - meaningful icons, milestone nodes, callouts, restrained accent color, clear visual "
+           "hierarchy - NOT a plain uniform spreadsheet grid. No watermarks, no logos, no UI chrome, no placeholder text.")
     return fmt + layout + con
 
 
@@ -18757,8 +18834,28 @@ async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
             return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(raw).decode(), "id": iid, "reused": True}
         except Exception:
             pass
+    if not (spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes") or spec.get("layers")):
+        return {"url": "", "dataUri": "", "id": iid, "reused": False}
+    # D17 (2026-07-01, owner-chosen): NATIVE-RENDER to a full-bleed 16:9 GOLD exhibit image (real
+    # HTML/CSS from brand tokens -> headless Chromium). Locked, consistent typography + 100% accurate
+    # corpus text + real vector icons. Image-gen (below) is fallback only if Chromium is unavailable.
+    try:
+        import asyncio as _aio
+        import nxt_diagram_render as _ndr
+        pal = _diagram_palette(brand, canvas)
+        png = await _aio.to_thread(_ndr.render_diagram_png, spec, pal)
+        if png:
+            with open(out_path, "wb") as f:
+                f.write(png)
+            _illus_registry_append({"id": iid, "idea": spec.get("title", ""), "kind": spec.get("kind"),
+                                    "brand": brand, "canvas": canvas, "file": f"{iid}.png", "url": url,
+                                    "model": "native-html-chromium", "diagram": True})
+            return {"url": url, "dataUri": "data:image/png;base64," + base64.b64encode(png).decode(), "id": iid, "reused": False}
+        logger.warning("[diagram] native render unavailable (no Chromium); falling back to image-gen")
+    except Exception as e:
+        logger.warning(f"[diagram] native render error: {e}; falling back to image-gen")
     api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
-    if not api_key or not (spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes")):
+    if not api_key:
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
     gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
     body = {"contents": [{"parts": [{"text": _diagram_prompt(spec, brand, canvas)}]}],
@@ -18792,7 +18889,7 @@ async def ai_diagram(payload: dict):
     legible text labels. Body: { spec:{kind, labels[], hub?, title?}, brand, canvas } (or kind/labels/hub
     at top level). Returns { url, dataUri, id, reused, brand, canvas }. Fail-open."""
     spec = payload.get("spec") or {k: payload.get(k) for k in ("kind", "labels", "nodes", "connections", "hub", "title")}
-    if not isinstance(spec, dict) or not (spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes")):
+    if not isinstance(spec, dict) or not (spec.get("labels") or spec.get("nodes") or spec.get("phases") or spec.get("lanes") or spec.get("layers")):
         return JSONResponse({"error": "spec.labels or spec.nodes required"}, status_code=400)
     res = await _brand_diagram(spec, payload.get("brand", "nxt"), payload.get("canvas", "light"))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})

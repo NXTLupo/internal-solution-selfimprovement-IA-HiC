@@ -1,0 +1,996 @@
+{
+ "_source": "services/iconLibrary.ts (NXT composite-icon engine, Figma Icons 796:2)",
+ "count": 104,
+ "glyphs": {
+  "risk": {
+   "tags": [
+    "risk",
+    "threat",
+    "exposure",
+    "vulnerability",
+    "hazard",
+    "warning"
+   ],
+   "svg": "<path d=\"M12 4 L21 19 L3 19 Z\"/><path d=\"M12 10 V13.6\"/><circle cx=\"12\" cy=\"16.4\" r=\"0.5\" fill=\"__ICONC__\" stroke=\"none\"/>"
+  },
+  "opportunity": {
+   "tags": [
+    "opportunity",
+    "unlock",
+    "potential",
+    "access",
+    "key"
+   ],
+   "svg": "<circle cx=\"8\" cy=\"9\" r=\"3.4\"/><path d=\"M10.5 11.5 L19 20\"/><path d=\"M16 17 L18 15\"/><path d=\"M18.6 19.6 L20.2 18\"/>"
+  },
+  "growth": {
+   "tags": [
+    "growth",
+    "expand",
+    "increase",
+    "momentum",
+    "scale-up"
+   ],
+   "svg": "<path d=\"M12 20 V11\"/><path d=\"M12 13 C12 9 9 7.2 6 7.2 C6 11 9 13 12 13 Z\"/><path d=\"M12 11 C12 8 15 6.2 18 6.2 C18 9.6 15 11 12 11 Z\"/>"
+  },
+  "governance": {
+   "tags": [
+    "governance",
+    "oversight",
+    "balance",
+    "fairness",
+    "control"
+   ],
+   "svg": "<path d=\"M12 4 V19\"/><path d=\"M8 19 H16\"/><path d=\"M5 8 H19 M12 5.5 L5 8 M12 5.5 L19 8\"/><path d=\"M3 12.5 L5 8 L7 12.5 Z\"/><path d=\"M17 12.5 L19 8 L21 12.5 Z\"/>"
+  },
+  "compliance": {
+   "tags": [
+    "compliance",
+    "regulation",
+    "standard",
+    "policy",
+    "checklist",
+    "audit"
+   ],
+   "svg": "<rect x=\"6\" y=\"5\" width=\"12\" height=\"16\" rx=\"1.4\"/><path d=\"M9 5 V3.6 H15 V5\"/><path d=\"M9 13 l2.2 2.2 L15 11\"/>"
+  },
+  "data": {
+   "tags": [
+    "data",
+    "dataset",
+    "database",
+    "records",
+    "storage"
+   ],
+   "svg": "<ellipse cx=\"12\" cy=\"6.5\" rx=\"6\" ry=\"2.5\"/><path d=\"M6 6.5 V17.5 C6 18.9 8.7 20 12 20 C15.3 20 18 18.9 18 17.5 V6.5\"/><path d=\"M6 12 C6 13.4 8.7 14.5 12 14.5 C15.3 14.5 18 13.4 18 12\"/>"
+  },
+  "insight": {
+   "tags": [
+    "insight",
+    "finding",
+    "signal",
+    "discovery",
+    "spark",
+    "pattern"
+   ],
+   "svg": "<path d=\"M12 3 L13.6 10.4 L21 12 L13.6 13.6 L12 21 L10.4 13.6 L3 12 L10.4 10.4 Z\"/>"
+  },
+  "workflow": {
+   "tags": [
+    "workflow",
+    "process",
+    "flow",
+    "sequence",
+    "orchestration"
+   ],
+   "svg": "<rect x=\"3\" y=\"9\" width=\"5\" height=\"6\" rx=\"1\"/><rect x=\"16\" y=\"4\" width=\"5\" height=\"6\" rx=\"1\"/><rect x=\"16\" y=\"14\" width=\"5\" height=\"6\" rx=\"1\"/><path d=\"M8 12 H12 V7 H16 M12 12 V17 H16\"/>"
+  },
+  "automation": {
+   "tags": [
+    "automation",
+    "automate",
+    "agentic",
+    "engine",
+    "gear"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"3.2\"/><path d=\"M12 3 V6 M12 18 V21 M3 12 H6 M18 12 H21 M5.5 5.5 L7.6 7.6 M16.4 16.4 L18.5 18.5 M18.5 5.5 L16.4 7.6 M7.6 16.4 L5.5 18.5\"/>"
+  },
+  "integration": {
+   "tags": [
+    "integration",
+    "connect",
+    "interoperate",
+    "api",
+    "link"
+   ],
+   "svg": "<path d=\"M9.5 9 H7.5 a3 3 0 0 0 0 6 H9.5\"/><path d=\"M14.5 9 H16.5 a3 3 0 0 1 0 6 H14.5\"/><path d=\"M8.5 12 H15.5\"/>"
+  },
+  "people": {
+   "tags": [
+    "people",
+    "stakeholders",
+    "users",
+    "audience",
+    "population"
+   ],
+   "svg": "<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3.6 19 C3.6 14.6 14.4 14.6 14.4 19\"/><circle cx=\"17\" cy=\"9\" r=\"2.4\"/><path d=\"M14.6 16.6 C16 14.7 20.6 14.9 20.4 19\"/>"
+  },
+  "team": {
+   "tags": [
+    "team",
+    "squad",
+    "group",
+    "collaboration",
+    "pod"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"6\" r=\"2.2\"/><circle cx=\"6.5\" cy=\"15\" r=\"2.2\"/><circle cx=\"17.5\" cy=\"15\" r=\"2.2\"/><path d=\"M10.2 7.6 L8 12.9 M13.8 7.6 L16 12.9 M8.7 15 H15.3\"/>"
+  },
+  "customer": {
+   "tags": [
+    "customer",
+    "client",
+    "member",
+    "patient",
+    "persona",
+    "service"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.6\"/><circle cx=\"12\" cy=\"10\" r=\"2.6\"/><path d=\"M7.5 17 C7.5 13.4 16.5 13.4 16.5 17\"/>"
+  },
+  "time": {
+   "tags": [
+    "time",
+    "duration",
+    "speed",
+    "latency",
+    "clock",
+    "when"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 7 V12 L15.5 14\"/>"
+  },
+  "roadmap": {
+   "tags": [
+    "roadmap",
+    "horizon",
+    "journey",
+    "path",
+    "plan"
+   ],
+   "svg": "<path d=\"M5 20 C8 16 8 12 11 9\"/><path d=\"M11 4 V12\"/><path d=\"M11 4 H18 L16 6.5 L18 9 H11\"/>"
+  },
+  "milestone": {
+   "tags": [
+    "milestone",
+    "deliverable",
+    "launch",
+    "release",
+    "flag"
+   ],
+   "svg": "<path d=\"M7 21 V4\"/><path d=\"M7 4 H18 L15.5 8 L18 12 H7\"/>"
+  },
+  "target": {
+   "tags": [
+    "target",
+    "goal",
+    "objective",
+    "kpi",
+    "metric",
+    "aim"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"3.5\"/><path d=\"M12 1 V5 M12 19 V23 M1 12 H5 M19 12 H23\"/>"
+  },
+  "decision": {
+   "tags": [
+    "decision",
+    "choice",
+    "gate",
+    "branch",
+    "evaluate"
+   ],
+   "svg": "<path d=\"M12 3 L21 12 L12 21 L3 12 Z\"/><path d=\"M9 12 l2 2 4-4\"/>"
+  },
+  "alert": {
+   "tags": [
+    "alert",
+    "warning",
+    "incident",
+    "escalation",
+    "notify",
+    "bell"
+   ],
+   "svg": "<path d=\"M6 17 C6 17 7 15.5 7 12 C7 8 9 6 12 6 C15 6 17 8 17 12 C17 15.5 18 17 18 17 Z\"/><path d=\"M10.3 20 a1.8 1.8 0 0 0 3.4 0\"/><path d=\"M12 4 V6\"/>"
+  },
+  "cost": {
+   "tags": [
+    "cost",
+    "spend",
+    "budget",
+    "price",
+    "revenue",
+    "money",
+    "coin"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 7 V17 M9.5 9.2 C9.5 7.8 14.5 7.8 14.5 9.8 C14.5 12 9.5 12 9.5 14.2 C9.5 16.2 14.5 16.2 14.5 14.8\"/>"
+  },
+  "value": {
+   "tags": [
+    "value",
+    "benefit",
+    "worth",
+    "premium",
+    "gem"
+   ],
+   "svg": "<path d=\"M6 4 H18 L21 9 L12 21 L3 9 Z\"/><path d=\"M3 9 H21 M9 4 L7.5 9 M15 4 L16.5 9 M12 21 L7.5 9 M12 21 L16.5 9\"/>"
+  },
+  "security": {
+   "tags": [
+    "security",
+    "protect",
+    "safeguard",
+    "privacy",
+    "trust",
+    "shield"
+   ],
+   "svg": "<path d=\"M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z\"/>"
+  },
+  "channel": {
+   "tags": [
+    "channel",
+    "broadcast",
+    "reach",
+    "distribution",
+    "signal-out"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"14\" r=\"2\"/><path d=\"M12 16 V21\"/><path d=\"M8.5 10.5 a5 5 0 0 1 7 0 M6 8 a8.5 8.5 0 0 1 12 0\"/>"
+  },
+  "network": {
+   "tags": [
+    "network",
+    "ecosystem",
+    "graph",
+    "mesh",
+    "connections"
+   ],
+   "svg": "<circle cx=\"5\" cy=\"6\" r=\"2\"/><circle cx=\"19\" cy=\"6\" r=\"2\"/><circle cx=\"12\" cy=\"18\" r=\"2\"/><circle cx=\"12\" cy=\"11\" r=\"2\"/><path d=\"M6.5 7.2 L10.6 9.9 M17.5 7.2 L13.4 9.9 M12 13 V16\"/>"
+  },
+  "document": {
+   "tags": [
+    "document",
+    "report",
+    "brief",
+    "paper",
+    "file"
+   ],
+   "svg": "<path d=\"M7 3 H14 L18 7 V21 H7 Z\"/><path d=\"M14 3 V7 H18\"/><path d=\"M9.5 12 H15 M9.5 15 H15 M9.5 18 H13\"/>"
+  },
+  "search": {
+   "tags": [
+    "search",
+    "discover",
+    "find",
+    "explore",
+    "research"
+   ],
+   "svg": "<circle cx=\"10.5\" cy=\"10.5\" r=\"6\"/><path d=\"M15 15 L21 21\"/>"
+  },
+  "ai": {
+   "tags": [
+    "ai",
+    "model",
+    "ml",
+    "llm",
+    "intelligence",
+    "chip"
+   ],
+   "svg": "<rect x=\"7\" y=\"7\" width=\"10\" height=\"10\" rx=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/><path d=\"M10 3 V5 M14 3 V5 M10 19 V21 M14 19 V21 M3 10 H5 M3 14 H5 M19 10 H21 M19 14 H21\"/>"
+  },
+  "feedback": {
+   "tags": [
+    "feedback",
+    "loop",
+    "iterate",
+    "retrospective",
+    "cycle"
+   ],
+   "svg": "<path d=\"M5 12 a7 7 0 0 1 11.5 -5.3\"/><path d=\"M19 12 a7 7 0 0 1 -11.5 5.3\"/><path d=\"M16.5 3.5 V7 H13 M7.5 20.5 V17 H11\"/>"
+  },
+  "scale": {
+   "tags": [
+    "scale",
+    "tier",
+    "layers",
+    "stack",
+    "foundation"
+   ],
+   "svg": "<path d=\"M12 3 L21 8 L12 13 L3 8 Z\"/><path d=\"M3 12 L12 17 L21 12 M3 16 L12 21 L21 16\"/>"
+  },
+  "churn": {
+   "tags": [
+    "churn",
+    "attrition",
+    "leaving",
+    "drop-off",
+    "lost"
+   ],
+   "svg": "<circle cx=\"8\" cy=\"8\" r=\"3\"/><path d=\"M3 19 C3 14.5 13 14.5 13 19\"/><path d=\"M16 12 H22 M19 9 L22 12 L19 15\"/>"
+  },
+  "retention": {
+   "tags": [
+    "retention",
+    "keep",
+    "hold",
+    "anchor",
+    "stickiness"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"5\" r=\"2\"/><path d=\"M12 7 V20 M7 11 H17 M5 14 C5 18 8.5 20 12 20 C15.5 20 19 18 19 14\"/>"
+  },
+  "acquisition": {
+   "tags": [
+    "acquisition",
+    "attract",
+    "inbound",
+    "magnet",
+    "capture"
+   ],
+   "svg": "<path d=\"M6 4 V11 a6 6 0 0 0 12 0 V4 H14 V11 a2 2 0 0 1 -4 0 V4 Z\"/><path d=\"M6 4 H10 M14 4 H18\"/>"
+  },
+  "conversion": {
+   "tags": [
+    "conversion",
+    "convert",
+    "merge",
+    "funnel-out"
+   ],
+   "svg": "<path d=\"M4 5 L11 11 M20 5 L13 11 M12 11 V19 M9 16 L12 19 L15 16\"/>"
+  },
+  "funnel": {
+   "tags": [
+    "funnel",
+    "pipeline",
+    "narrowing",
+    "stages"
+   ],
+   "svg": "<path d=\"M3 5 H21 L14 13 V20 L10 20 V13 Z\"/>"
+  },
+  "segmentation": {
+   "tags": [
+    "segmentation",
+    "segments",
+    "cohorts",
+    "grid",
+    "split"
+   ],
+   "svg": "<rect x=\"4\" y=\"4\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"13\" y=\"4\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"4\" y=\"13\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"13\" y=\"13\" width=\"7\" height=\"7\" rx=\"1\"/>"
+  },
+  "personalization": {
+   "tags": [
+    "personalization",
+    "tailored",
+    "individual",
+    "bespoke"
+   ],
+   "svg": "<circle cx=\"9\" cy=\"8\" r=\"3\"/><path d=\"M3.5 19 C3.5 14.5 14.5 14.5 14.5 19\"/><path d=\"M18 4.5 l0.9 2 2 0.9 -2 0.9 -0.9 2 -0.9-2 -2-0.9 2-0.9 Z\"/>"
+  },
+  "loyalty": {
+   "tags": [
+    "loyalty",
+    "reward",
+    "medal",
+    "advocacy",
+    "devotion"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"9\" r=\"5\"/><circle cx=\"12\" cy=\"9\" r=\"1.6\"/><path d=\"M9 13.5 L7.5 21 L12 18.5 L16.5 21 L15 13.5\"/>"
+  },
+  "satisfaction": {
+   "tags": [
+    "satisfaction",
+    "csat",
+    "happy",
+    "delight",
+    "smile"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"9\" cy=\"10\" r=\"0.6\" fill=\"__ICONC__\" stroke=\"none\"/><circle cx=\"15\" cy=\"10\" r=\"0.6\" fill=\"__ICONC__\" stroke=\"none\"/><path d=\"M8.5 14 C9.5 16 14.5 16 15.5 14\"/>"
+  },
+  "sentiment": {
+   "tags": [
+    "sentiment",
+    "voice",
+    "opinion",
+    "feedback-voice",
+    "tone"
+   ],
+   "svg": "<path d=\"M4 5 H20 V16 H13 L9 20 V16 H4 Z\"/><circle cx=\"9.5\" cy=\"10.5\" r=\"0.5\" fill=\"__ICONC__\" stroke=\"none\"/><circle cx=\"14.5\" cy=\"10.5\" r=\"0.5\" fill=\"__ICONC__\" stroke=\"none\"/><path d=\"M9.5 13 C10.5 14.2 13.5 14.2 14.5 13\"/>"
+  },
+  "adoption": {
+   "tags": [
+    "adoption",
+    "uptake",
+    "usage-curve",
+    "rollout"
+   ],
+   "svg": "<path d=\"M4 5 V19 H20\"/><path d=\"M5 18 C9 18 9 8 12 7 C16 5.5 17 7 19 6\"/>"
+  },
+  "engagement": {
+   "tags": [
+    "engagement",
+    "interaction",
+    "tap",
+    "active"
+   ],
+   "svg": "<path d=\"M6 6 L11 20 L13.5 13.5 L20 11 Z\"/>"
+  },
+  "onboarding": {
+   "tags": [
+    "onboarding",
+    "enter",
+    "welcome",
+    "setup",
+    "first-run"
+   ],
+   "svg": "<path d=\"M14 3 H20 V21 H14\"/><path d=\"M3 12 H14 M10 8 L14 12 L10 16\"/>"
+  },
+  "resolution": {
+   "tags": [
+    "resolution",
+    "resolved",
+    "solved",
+    "closed"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M8 12 l2.5 2.5 L16 9\"/>"
+  },
+  "backlog": {
+   "tags": [
+    "backlog",
+    "queue",
+    "todo",
+    "workload"
+   ],
+   "svg": "<rect x=\"4\" y=\"5\" width=\"16\" height=\"3\" rx=\"1\"/><rect x=\"4\" y=\"10.5\" width=\"16\" height=\"3\" rx=\"1\"/><rect x=\"4\" y=\"16\" width=\"11\" height=\"3\" rx=\"1\"/>"
+  },
+  "throughput": {
+   "tags": [
+    "throughput",
+    "flow-rate",
+    "volume",
+    "processed"
+   ],
+   "svg": "<rect x=\"3\" y=\"8\" width=\"18\" height=\"8\" rx=\"2\"/><path d=\"M7 12 H17 M14 9 L17 12 L14 15\"/>"
+  },
+  "capacity": {
+   "tags": [
+    "capacity",
+    "utilization",
+    "load",
+    "fill"
+   ],
+   "svg": "<rect x=\"3\" y=\"8\" width=\"16\" height=\"8\" rx=\"1.5\"/><path d=\"M19 11 V13 H21\"/><rect x=\"5\" y=\"10\" width=\"3\" height=\"4\" fill=\"__ICONC__\" stroke=\"none\"/><rect x=\"9\" y=\"10\" width=\"3\" height=\"4\" fill=\"__ICONC__\" stroke=\"none\"/>"
+  },
+  "efficiency": {
+   "tags": [
+    "efficiency",
+    "speed",
+    "fast",
+    "performance",
+    "energy"
+   ],
+   "svg": "<path d=\"M13 3 L5 14 H11 L10 21 L19 9 H13 Z\"/>"
+  },
+  "benchmark": {
+   "tags": [
+    "benchmark",
+    "comparison",
+    "standard",
+    "bar-mark"
+   ],
+   "svg": "<path d=\"M4 20 V13 M9 20 V8 M14 20 V11 M19 20 V6\"/><path d=\"M3 15 H21\" stroke-dasharray=\"2.5 2.5\"/>"
+  },
+  "forecast": {
+   "tags": [
+    "forecast",
+    "projection",
+    "outlook",
+    "predict-ahead"
+   ],
+   "svg": "<path d=\"M3 17 L8 12 L12 14\"/><path d=\"M12 14 L17 8 L21 5\" stroke-dasharray=\"2.5 2.5\"/>"
+  },
+  "trend": {
+   "tags": [
+    "trend",
+    "growth-line",
+    "trajectory",
+    "rising"
+   ],
+   "svg": "<path d=\"M3 17 L9 11 L13 14 L21 5\"/><path d=\"M16 5 H21 V10\"/>"
+  },
+  "experiment": {
+   "tags": [
+    "experiment",
+    "test",
+    "ab-test",
+    "trial",
+    "lab"
+   ],
+   "svg": "<path d=\"M9 3 V9 L4.5 18.5 a1 1 0 0 0 1 1.5 H18.5 a1 1 0 0 0 1-1.5 L15 9 V3\"/><path d=\"M8 3 H16 M7 14 H17\"/>"
+  },
+  "hypothesis": {
+   "tags": [
+    "hypothesis",
+    "question",
+    "assumption",
+    "unknown"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M9.5 9.5 C9.5 7.5 14.5 7.5 14.5 10 C14.5 12 12 12 12 14\"/><circle cx=\"12\" cy=\"17\" r=\"0.5\" fill=\"__ICONC__\" stroke=\"none\"/>"
+  },
+  "prototype": {
+   "tags": [
+    "prototype",
+    "wireframe",
+    "mockup",
+    "draft-ui"
+   ],
+   "svg": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"1.5\"/><path d=\"M3 9 H21 M8 9 V20 M8 13 H21\"/>"
+  },
+  "priority": {
+   "tags": [
+    "priority",
+    "rank",
+    "top",
+    "escalate-up",
+    "important"
+   ],
+   "svg": "<path d=\"M6 14 L12 9 L18 14 M6 19 L12 14 L18 19\"/>"
+  },
+  "dependency": {
+   "tags": [
+    "dependency",
+    "depends-on",
+    "prerequisite",
+    "linked"
+   ],
+   "svg": "<rect x=\"3\" y=\"5\" width=\"7\" height=\"6\" rx=\"1\"/><rect x=\"14\" y=\"13\" width=\"7\" height=\"6\" rx=\"1\"/><path d=\"M10 8 H14 V13\"/>"
+  },
+  "blocker": {
+   "tags": [
+    "blocker",
+    "blocked",
+    "stop",
+    "impediment"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M6 6 L18 18\"/>"
+  },
+  "handoff": {
+   "tags": [
+    "handoff",
+    "transfer",
+    "pass",
+    "relay"
+   ],
+   "svg": "<circle cx=\"6\" cy=\"8\" r=\"2.5\"/><circle cx=\"18\" cy=\"8\" r=\"2.5\"/><path d=\"M8.5 14 H15.5 M13 11.5 L15.5 14 L13 16.5\"/>"
+  },
+  "consent": {
+   "tags": [
+    "consent",
+    "opt-in",
+    "permission",
+    "agree"
+   ],
+   "svg": "<rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\"/><path d=\"M8 12 l2.5 2.5 L16 9\"/>"
+  },
+  "privacy": {
+   "tags": [
+    "privacy",
+    "hidden",
+    "confidential",
+    "masked"
+   ],
+   "svg": "<path d=\"M3 12 C5 8 9 6 12 6 C15 6 19 8 21 12 C19 16 15 18 12 18 C9 18 5 16 3 12 Z\"/><circle cx=\"12\" cy=\"12\" r=\"2.5\"/><path d=\"M4 4 L20 20\"/>"
+  },
+  "transparency": {
+   "tags": [
+    "transparency",
+    "visibility",
+    "open",
+    "observe",
+    "eye"
+   ],
+   "svg": "<path d=\"M3 12 C5 8 9 6 12 6 C15 6 19 8 21 12 C19 16 15 18 12 18 C9 18 5 16 3 12 Z\"/><circle cx=\"12\" cy=\"12\" r=\"3\"/>"
+  },
+  "accountability": {
+   "tags": [
+    "accountability",
+    "ownership",
+    "responsible",
+    "raci"
+   ],
+   "svg": "<rect x=\"6\" y=\"5\" width=\"12\" height=\"16\" rx=\"1.4\"/><path d=\"M9 5 V3.6 H15 V5\"/><circle cx=\"12\" cy=\"11\" r=\"2\"/><path d=\"M9 17 C9 14.5 15 14.5 15 17\"/>"
+  },
+  "sustainability": {
+   "tags": [
+    "sustainability",
+    "green",
+    "leaf",
+    "long-term",
+    "renewable"
+   ],
+   "svg": "<path d=\"M12 4 C7 7 5 11 7 16 C10 12 14 11 18 11 C18 7 16 5 12 4 Z\"/><path d=\"M7 16 C7 16 9 19 13 19\"/>"
+  },
+  "partnership": {
+   "tags": [
+    "partnership",
+    "alliance",
+    "overlap",
+    "joint"
+   ],
+   "svg": "<circle cx=\"9\" cy=\"12\" r=\"5\"/><circle cx=\"15\" cy=\"12\" r=\"5\"/>"
+  },
+  "contract": {
+   "tags": [
+    "contract",
+    "agreement",
+    "signed",
+    "terms"
+   ],
+   "svg": "<path d=\"M7 3 H14 L18 7 V21 H7 Z\"/><path d=\"M14 3 V7 H18\"/><path d=\"M9.5 17 C11 15.5 12 18 13.5 16.5 M9.5 12 H15 M9.5 14.5 H13\"/>"
+  },
+  "sla": {
+   "tags": [
+    "sla",
+    "guarantee",
+    "uptime",
+    "commitment"
+   ],
+   "svg": "<path d=\"M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z\"/><circle cx=\"12\" cy=\"11\" r=\"3.2\"/><path d=\"M12 9 V11 L13.6 12\"/>"
+  },
+  "incident": {
+   "tags": [
+    "incident",
+    "outage",
+    "failure",
+    "event"
+   ],
+   "svg": "<path d=\"M12 4 L21 19 H3 Z\"/><path d=\"M12.6 9 L10 14 H12.5 L11.4 17.5\"/>"
+  },
+  "monitoring": {
+   "tags": [
+    "monitoring",
+    "observability",
+    "radar",
+    "watch",
+    "scan"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.5\"/><path d=\"M12 12 L18 7\"/><circle cx=\"12\" cy=\"12\" r=\"0.6\" fill=\"__ICONC__\" stroke=\"none\"/>"
+  },
+  "migration": {
+   "tags": [
+    "migration",
+    "move",
+    "transfer-system",
+    "replatform"
+   ],
+   "svg": "<rect x=\"3\" y=\"9\" width=\"6\" height=\"6\" rx=\"1\"/><rect x=\"15\" y=\"9\" width=\"6\" height=\"6\" rx=\"1\"/><path d=\"M9 12 H15 M13 10 L15 12 L13 14\"/>"
+  },
+  "campaign": {
+   "tags": [
+    "campaign",
+    "announce",
+    "megaphone",
+    "promote",
+    "reach"
+   ],
+   "svg": "<path d=\"M4 10 V14 H8 L16 19 V5 L8 10 Z\"/><path d=\"M16 9 a3 3 0 0 1 0 6\"/><path d=\"M8 14 V18.5 H10 V14\"/>"
+  },
+  "touchpoint": {
+   "tags": [
+    "touchpoint",
+    "moment",
+    "contact-point",
+    "interaction-node"
+   ],
+   "svg": "<path d=\"M3 14 H21\"/><circle cx=\"8\" cy=\"14\" r=\"1.5\" fill=\"__ICONC__\" stroke=\"none\"/><circle cx=\"16\" cy=\"14\" r=\"1.5\" fill=\"__ICONC__\" stroke=\"none\"/><circle cx=\"12\" cy=\"14\" r=\"3.2\"/><path d=\"M12 14 V6\"/>"
+  },
+  "heartbeat": {
+   "tags": [
+    "vitals",
+    "monitoring",
+    "patient-health",
+    "pulse"
+   ],
+   "svg": "<path d=\"M3 12 H8 L10 7 L13 17 L15 12 H21\"/>"
+  },
+  "pill": {
+   "tags": [
+    "medication",
+    "pharma",
+    "treatment",
+    "dose"
+   ],
+   "svg": "<rect x=\"3\" y=\"9\" width=\"18\" height=\"6\" rx=\"3\"/><path d=\"M12 9 V15\"/>"
+  },
+  "care": {
+   "tags": [
+    "care",
+    "clinic",
+    "medical",
+    "cross"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 8 V16 M8 12 H16\"/>"
+  },
+  "ledger": {
+   "tags": [
+    "ledger",
+    "accounts",
+    "bookkeeping",
+    "statement"
+   ],
+   "svg": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"16\" rx=\"1\"/><path d=\"M9 4 V20 M12 8 H16 M12 11 H16 M12 14 H15\"/>"
+  },
+  "coin": {
+   "tags": [
+    "coin",
+    "token",
+    "currency",
+    "asset"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.6\"/>"
+  },
+  "card": {
+   "tags": [
+    "card",
+    "payment",
+    "rails",
+    "checkout"
+   ],
+   "svg": "<rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\"/><path d=\"M3 10 H21 M6.5 14.5 H10\"/>"
+  },
+  "fraud": {
+   "tags": [
+    "fraud",
+    "risk-shield",
+    "block",
+    "protection"
+   ],
+   "svg": "<path d=\"M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z\"/><path d=\"M9.5 9.5 L14.5 14.5 M14.5 9.5 L9.5 14.5\"/>"
+  },
+  "bank": {
+   "tags": [
+    "bank",
+    "institution",
+    "branch"
+   ],
+   "svg": "<path d=\"M4 9 L12 4 L20 9 H4 Z\"/><path d=\"M6 9 V17 M10 9 V17 M14 9 V17 M18 9 V17 M4 20 H20\"/>"
+  },
+  "vault": {
+   "tags": [
+    "vault",
+    "reserves",
+    "safe",
+    "custody"
+   ],
+   "svg": "<rect x=\"3\" y=\"4\" width=\"18\" height=\"16\" rx=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"4.5\"/><path d=\"M12 7.5 V9 M12 15 V16.5 M7.5 12 H9 M15 12 H16.5\"/>"
+  },
+  "portfolio": {
+   "tags": [
+    "portfolio",
+    "advisory",
+    "wealth",
+    "briefcase"
+   ],
+   "svg": "<rect x=\"3\" y=\"8\" width=\"18\" height=\"11\" rx=\"1.5\"/><path d=\"M9 8 V6 H15 V8 M3 13 H21\"/>"
+  },
+  "cart": {
+   "tags": [
+    "cart",
+    "basket",
+    "purchase",
+    "checkout"
+   ],
+   "svg": "<circle cx=\"9\" cy=\"20\" r=\"1.4\" fill=\"__ICONC__\" stroke=\"none\"/><circle cx=\"17\" cy=\"20\" r=\"1.4\" fill=\"__ICONC__\" stroke=\"none\"/><path d=\"M3 4 H5.5 L7.5 15 H18 L20 7 H6.5\"/>"
+  },
+  "tag": {
+   "tags": [
+    "tag",
+    "price",
+    "sku",
+    "promotion"
+   ],
+   "svg": "<path d=\"M4 12 L12 4 H20 V12 L12 20 Z\"/><circle cx=\"16\" cy=\"8\" r=\"1.3\" fill=\"__ICONC__\" stroke=\"none\"/>"
+  },
+  "store": {
+   "tags": [
+    "store",
+    "storefront",
+    "shop",
+    "outlet"
+   ],
+   "svg": "<path d=\"M4 10 V20 H20 V10\"/><path d=\"M3 6 H21 L20 10 H4 Z\"/><path d=\"M10 20 V14 H14 V20\"/>"
+  },
+  "robot": {
+   "tags": [
+    "agent",
+    "assistant",
+    "bot",
+    "autonomous"
+   ],
+   "svg": "<rect x=\"5\" y=\"8\" width=\"14\" height=\"11\" rx=\"2\"/><circle cx=\"9.5\" cy=\"13\" r=\"1.2\" fill=\"__ICONC__\" stroke=\"none\"/><circle cx=\"14.5\" cy=\"13\" r=\"1.2\" fill=\"__ICONC__\" stroke=\"none\"/><path d=\"M12 4 V8 M9 19 V21 M15 19 V21\"/><circle cx=\"12\" cy=\"4\" r=\"0.9\" fill=\"__ICONC__\" stroke=\"none\"/>"
+  },
+  "pipeline": {
+   "tags": [
+    "pipeline",
+    "inference",
+    "chain",
+    "stages"
+   ],
+   "svg": "<circle cx=\"5\" cy=\"12\" r=\"2\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/><circle cx=\"19\" cy=\"12\" r=\"2\"/><path d=\"M7 12 H10 M14 12 H17\"/>"
+  },
+  "model": {
+   "tags": [
+    "model",
+    "weights",
+    "architecture",
+    "foundation-model"
+   ],
+   "svg": "<path d=\"M12 3 L20 7.5 V16.5 L12 21 L4 16.5 V7.5 Z\"/><path d=\"M12 12 L20 7.5 M12 12 V21 M12 12 L4 7.5\"/>"
+  },
+  "umbrella": {
+   "tags": [
+    "coverage",
+    "protection",
+    "umbrella",
+    "cover"
+   ],
+   "svg": "<path d=\"M3 12 a9 9 0 0 1 18 0 Z\"/><path d=\"M12 3 V12 M12 19 a2.4 2.4 0 0 0 4 0 V18\"/>"
+  },
+  "policy": {
+   "tags": [
+    "policy",
+    "contract",
+    "terms",
+    "claim-doc"
+   ],
+   "svg": "<path d=\"M6 3 H14 L18 7 V21 H6 Z\"/><path d=\"M14 3 V7 H18\"/><path d=\"M9 11 l1.6 1.6 L14 9.5 M9.5 15 H14\"/>"
+  },
+  "claim": {
+   "tags": [
+    "claim",
+    "approved",
+    "shield-check",
+    "settlement"
+   ],
+   "svg": "<path d=\"M12 3 L20 6 V11 C20 16 16.5 19.5 12 21 C7.5 19.5 4 16 4 11 V6 Z\"/><path d=\"M9 11.5 l2 2 4-4\"/>"
+  },
+  "cap": {
+   "tags": [
+    "graduation",
+    "degree",
+    "academic",
+    "mortarboard"
+   ],
+   "svg": "<path d=\"M2 9 L12 5 L22 9 L12 13 Z\"/><path d=\"M6 11 V16 C6 16 8.5 18 12 18 C15.5 18 18 16 18 16 V11\"/><path d=\"M22 9 V14\"/>"
+  },
+  "book": {
+   "tags": [
+    "book",
+    "curriculum",
+    "learning",
+    "study"
+   ],
+   "svg": "<path d=\"M4 5 C7 4 10 4 12 5.5 C14 4 17 4 20 5 V19 C17 18 14 18 12 19.5 C10 18 7 18 4 19 Z\"/><path d=\"M12 5.5 V19.5\"/>"
+  },
+  "campus": {
+   "tags": [
+    "campus",
+    "university",
+    "institution",
+    "building"
+   ],
+   "svg": "<path d=\"M4 10 L12 5 L20 10\"/><path d=\"M6 10 V19 H18 V10\"/><path d=\"M10 19 V14 H14 V19\"/><path d=\"M12 5 V3\"/>"
+  },
+  "gift": {
+   "tags": [
+    "gift",
+    "donation",
+    "giving",
+    "present"
+   ],
+   "svg": "<rect x=\"4\" y=\"9\" width=\"16\" height=\"11\" rx=\"1\"/><path d=\"M3 9 H21 V13 H3 Z M12 9 V20\"/><path d=\"M12 9 C12 9 9 4 7 6 C5 8 12 9 12 9 C12 9 15 4 17 6 C19 8 12 9 12 9\"/>"
+  },
+  "heart": {
+   "tags": [
+    "philanthropy",
+    "donor-love",
+    "support",
+    "heart"
+   ],
+   "svg": "<path d=\"M12 20 C12 20 4 15 4 9.5 C4 6.5 6.5 5 9 6 C10.5 6.6 12 8 12 8 C12 8 13.5 6.6 15 6 C17.5 5 20 6.5 20 9.5 C20 15 12 20 12 20 Z\"/>"
+  },
+  "pledge": {
+   "tags": [
+    "pledge",
+    "award",
+    "recognition",
+    "ribbon"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"9\" r=\"5\"/><path d=\"M9.5 13 L7 21 L12 18 L17 21 L14.5 13\"/>"
+  },
+  "org": {
+   "tags": [
+    "org",
+    "hierarchy",
+    "structure",
+    "reporting"
+   ],
+   "svg": "<rect x=\"9.5\" y=\"3\" width=\"5\" height=\"4\" rx=\"0.6\"/><rect x=\"3\" y=\"16\" width=\"5\" height=\"4\" rx=\"0.6\"/><rect x=\"9.5\" y=\"16\" width=\"5\" height=\"4\" rx=\"0.6\"/><rect x=\"16\" y=\"16\" width=\"5\" height=\"4\" rx=\"0.6\"/><path d=\"M12 7 V11 M5.5 16 V13 H18.5 V16 M12 11 V16\"/>"
+  },
+  "badge": {
+   "tags": [
+    "badge",
+    "employee",
+    "identity",
+    "role"
+   ],
+   "svg": "<rect x=\"6\" y=\"3\" width=\"12\" height=\"18\" rx=\"2\"/><circle cx=\"12\" cy=\"9\" r=\"2.4\"/><path d=\"M8 16 C8 13 16 13 16 16 M10 4.5 H14\"/>"
+  },
+  "skill": {
+   "tags": [
+    "skill",
+    "capability",
+    "competency",
+    "rating"
+   ],
+   "svg": "<circle cx=\"12\" cy=\"12\" r=\"8.5\"/><path d=\"M12 7.5 L13.2 10.3 L16.2 10.6 L14 12.6 L14.7 15.5 L12 14 L9.3 15.5 L10 12.6 L7.8 10.6 L10.8 10.3 Z\"/>"
+  },
+  "institution": {
+   "tags": [
+    "government",
+    "public-sector",
+    "agency",
+    "capitol"
+   ],
+   "svg": "<path d=\"M3 9 L12 4 L21 9 H3 Z\"/><path d=\"M5 9 V18 M9 9 V18 M15 9 V18 M19 9 V18 M3 21 H21 M3 18 H21\"/>"
+  },
+  "citizen": {
+   "tags": [
+    "citizen",
+    "constituent",
+    "resident",
+    "public"
+   ],
+   "svg": "<path d=\"M12 3 L19 5.5 V11 C19 16 12 21 12 21 C12 21 5 16 5 11 V5.5 Z\"/><circle cx=\"12\" cy=\"10\" r=\"2.2\"/><path d=\"M8.5 15.5 C8.5 12.5 15.5 12.5 15.5 15.5\"/>"
+  },
+  "service": {
+   "tags": [
+    "public-service",
+    "form",
+    "application",
+    "process"
+   ],
+   "svg": "<path d=\"M6 3 H14 L18 7 V21 H6 Z\"/><path d=\"M14 3 V7 H18\"/><path d=\"M9 11 H15 M9 14 H15 M9 17 l1.2 1.2 L13 16.4\"/>"
+  },
+  "brush": {
+   "tags": [
+    "design",
+    "creative",
+    "brush",
+    "craft"
+   ],
+   "svg": "<path d=\"M16 3 L21 8 L10 19 H5 V14 Z\"/><path d=\"M14 5 L19 10\"/>"
+  },
+  "render": {
+   "tags": [
+    "render",
+    "image",
+    "generation",
+    "output"
+   ],
+   "svg": "<rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1.5\"/><circle cx=\"9\" cy=\"10\" r=\"1.6\" fill=\"__ICONC__\" stroke=\"none\"/><path d=\"M3 17 L9 12 L13 15 L17 11 L21 15\"/>"
+  },
+  "asset": {
+   "tags": [
+    "asset",
+    "layers",
+    "library",
+    "composition"
+   ],
+   "svg": "<path d=\"M12 3 L21 8 L12 13 L3 8 Z\"/><path d=\"M5 11 L12 15 L19 11 M5 14.5 L12 18.5 L19 14.5\"/>"
+  }
+ }
+}
