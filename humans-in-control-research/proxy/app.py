@@ -18630,52 +18630,81 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v4-white-minimal-noinvent"
+_DIAGRAM_STYLE_VERSION = "v6-expert-rich-nogrid"
 
 
 def _diagram_prompt(spec: dict, brand: str, canvas: str) -> str:
     p = _diagram_palette(brand, canvas)
     kind = (spec.get("kind") or "flow").lower()
-    labels = [str(x).strip() for x in (spec.get("labels") or []) if str(x).strip()][:8]
     title = (spec.get("title") or "").strip()
     dark = str(canvas).lower() == "dark"
-    bg = p["rail"] if dark else "#FFFFFF"          # light canvas = PURE WHITE (owner: cleaner, whiter)
-    node_fill = p["rail"] if dark else "#FFFFFF"   # nodes are white cards, NOT accent-filled
+    bg = p["rail"] if dark else "#FFFFFF"
     text = "#FFFFFF" if dark else p["ink"]
-    outline = "#3A3A3A" if dark else "#E3E3DD"     # thin neutral hairline outlines
-    base = (f"Create a clean, WHITE, MINIMALIST business-consulting DIAGRAM in a flat, modern vector style. "
-            f"Pure {bg} background with generous empty white space. "
-            f"Nodes are {node_fill} cards/boxes with THIN {outline} outlines (1-2px), lightly rounded corners; "
-            f"do NOT fill nodes with any bold or saturated color. "
-            f"Use the accent color {p['accent']} VERY SPARINGLY and only as a small detail: thin connector arrows, "
-            f"a small node number, or a 2px top/left rule. NEVER use the accent as a large fill or card background. "
-            f"All text labels in near-black {text}, crisp legible modern sans-serif, high contrast on white. "
-            f"Airy, uncluttered, lots of breathing room, balanced. Optional: one small THIN-LINE monochrome icon per "
-            f"node, subtle and single-color. Strictly NO 3D, NO gradients, NO drop shadows, NO photoreal, NO heavy "
-            f"color fills, NO background tint, NO texture, NO clutter. ")
-    if kind in ("journey", "journey-map", "flow", "funnel"):
-        layout = (f"Layout: a horizontal LEFT-TO-RIGHT JOURNEY FLOW of {len(labels)} white stage cards connected by thin "
-                  f"accent arrows. The stages, in this exact order: {', '.join(labels)}. ")
-    elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
-        layout = (f"Layout: a layered SYSTEM ARCHITECTURE DIAGRAM, stacked horizontal tiers of white boxes with thin "
-                  f"connectors showing data flow between layers. Components: {', '.join(labels)}. ")
-    elif kind in ("mindmap", "mind-map"):
-        hub = (spec.get("hub") or title or "Central question").strip()
-        layout = (f"Layout: a radial MIND MAP, one central white hub card labeled '{hub}', thin curved accent connectors "
-                  f"radiating to EXACTLY {len(labels)} white branch cards: {', '.join(labels)}. "
-                  f"Arrange the {len(labels)} branches ASYMMETRICALLY around the hub (uneven sides are fine); do NOT force "
-                  f"even radial symmetry and do NOT add an extra branch to balance the ring. ")
+    outline = "#3A3A3A" if dark else "#D9D9D2"
+    muted = "#9A9A93"
+    # Rich nodes: [{label, desc, icon}] preferred; fall back to plain labels.
+    raw_nodes = spec.get("nodes")
+    if isinstance(raw_nodes, list) and raw_nodes:
+        nodes = []
+        for n in raw_nodes[:8]:
+            if isinstance(n, dict) and str(n.get("label", "")).strip():
+                nodes.append({"label": str(n["label"]).strip(), "desc": str(n.get("desc", "")).strip()[:90], "icon": str(n.get("icon", "")).strip()})
+            elif str(n).strip():
+                nodes.append({"label": str(n).strip(), "desc": "", "icon": ""})
     else:
-        layout = f"Layout: white connected node cards, thin connectors, labeled: {', '.join(labels)}. "
+        nodes = [{"label": str(x).strip(), "desc": "", "icon": ""} for x in (spec.get("labels") or []) if str(x).strip()][:8]
+    labels = [n["label"] for n in nodes]
+    connections = spec.get("connections") if isinstance(spec.get("connections"), list) else []
+
+    def node_spec_lines() -> str:
+        out = []
+        for i, n in enumerate(nodes, 1):
+            line = f"  {i}. \"{n['label']}\""
+            if n["desc"]:
+                line += f" - descriptor beneath the title: \"{n['desc']}\""
+            if n["icon"]:
+                line += f" - icon motif: {n['icon']}"
+            out.append(line)
+        return "\n".join(out)
+
+    base = (f"You are an expert management-consulting information designer (McKinsey/BCG grade). Create a POLISHED, "
+            f"information-rich DIAGRAM as a flat modern vector illustration on a pure {bg} background. "
+            f"EVERY node is a clean white card with a thin {outline} 1.5px rounded border and THREE parts stacked inside: "
+            f"(1) a distinct, MEANINGFUL thin-line icon (monochrome {text}) that concretely represents that node's idea "
+            f"(e.g. a database for a data layer, a handshake for engagement, a shield for governance) - never a generic dot; "
+            f"(2) a bold title in {text}; (3) a short one-line descriptor in {muted} that adds real detail. "
+            f"Use the accent {p['accent']} ONLY for connector arrows and a 2px top rule on each card - never as a fill. "
+            f"CONNECTOR INTEGRITY (critical): every connector line MUST start exactly on the edge of one node and END with an "
+            f"arrowhead exactly on the edge of another node. There are ZERO dangling, floating, orphan, or half-drawn lines, "
+            f"ZERO connectors pointing into empty space, and every node is connected into the structure (no isolated node). "
+            f"COMPOSITION: fill the full frame edge-to-edge with balanced spacing - no large empty margins or dead space; the "
+            f"diagram should feel complete and substantial. Crisp legible sans-serif, high contrast. Strictly NO 3D, NO gradients, "
+            f"NO drop shadows, NO photoreal, NO heavy color fills, NO background tint, NO texture. ")
+    if kind in ("journey", "journey-map", "flow", "funnel"):
+        layout = (f"STRUCTURE: a horizontal LEFT-TO-RIGHT process journey of {len(nodes)} stage cards, each connected to the "
+                  f"next by a labeled accent arrow, spanning the full width. Stages in this exact order:\n{node_spec_lines()}\n")
+    elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):
+        layout = (f"STRUCTURE: a top-down SYSTEM ARCHITECTURE laid out as a HIERARCHICAL TREE that follows the connections "
+                  f"below (parent tier above, children fanning out beneath), NOT a uniform 2-column grid. Wide full-width cards, "
+                  f"one row per tier, a tier may hold 1-3 cards side by side. Connectors flow downward, each joining two named "
+                  f"cards. Render EXACTLY {len(nodes)} cards TOTAL - count them; a component that already has a card must NEVER "
+                  f"get a second card. Components:\n{node_spec_lines()}\n")
+    elif kind in ("mindmap", "mind-map"):
+        hub = (spec.get("hub") or title or "Central topic").strip()
+        layout = (f"STRUCTURE: a radial MIND MAP with one central white hub card titled '{hub}', and EXACTLY {len(nodes)} branch "
+                  f"cards connected to the hub by smooth curved accent connectors (each connector joins the hub to one branch). "
+                  f"Arrange branches asymmetrically to fill the frame; do NOT add a branch for symmetry. Branches:\n{node_spec_lines()}\n")
+    else:
+        layout = f"STRUCTURE: connected white node cards with labeled connectors:\n{node_spec_lines()}\n"
+    if connections:
+        conn = "; ".join(f"{c.get('from','')}->{c.get('to','')}" + (f" ({c.get('label')})" if c.get('label') else "") for c in connections[:12] if c.get('from') and c.get('to'))
+        if conn:
+            layout += f"CONNECT EXACTLY these pairs (arrow from->to), and NO other connectors: {conn}. "
     return base + layout + (
-        f"NODE COUNT IS EXACT: render EXACTLY {len(labels)} labeled nodes" + (" plus the one central hub" if kind in ("mindmap", "mind-map") else "") + " — no more, no fewer. "
-        "Do NOT add, invent, pad, mirror, echo, or DUPLICATE any node or label to fill, balance, or make the layout "
-        "symmetric. If that leaves the composition asymmetric, that is correct — leave it asymmetric. Each of the "
-        "given labels appears on exactly ONE node, exactly ONCE (never a second copy anywhere, never both above and "
-        "below a node). "
-        "CRITICAL TEXT RULES: render each label EXACTLY as given. Spell every word correctly; all text horizontal, "
-        "non-overlapping, clearly readable. Absolutely NO watermarks, NO logos, NO app/UI chrome, NO extra invented "
-        "text, NO repeated nodes or words.")
+        f"NODE COUNT IS EXACT: render EXACTLY {len(nodes)} node cards" + (" plus the one central hub" if kind in ("mindmap", "mind-map") else "") + " - no more, no fewer. "
+        "Do NOT add, invent, pad, mirror, or DUPLICATE any node/label to fill or balance the layout; each label appears on "
+        "exactly ONE card, exactly ONCE. Render every label and descriptor EXACTLY as given, spelled correctly, horizontal, "
+        "non-overlapping. Absolutely NO watermarks, NO logos, NO app/UI chrome, NO invented extra text, NO repeated nodes.")
 
 
 def _diagram_id(spec: dict, brand: str, canvas: str) -> str:
@@ -18703,7 +18732,7 @@ async def _brand_diagram(spec: dict, brand: str, canvas: str) -> dict:
         except Exception:
             pass
     api_key = os.getenv("GEMINI_API_KEY", "") or os.getenv("API_KEY", "")
-    if not api_key or not (spec.get("labels")):
+    if not api_key or not (spec.get("labels") or spec.get("nodes")):
         return {"url": "", "dataUri": "", "id": iid, "reused": False}
     gurl = f"https://generativelanguage.googleapis.com/v1beta/models/{_GEMINI_IMAGE_MODEL}:generateContent"
     body = {"contents": [{"parts": [{"text": _diagram_prompt(spec, brand, canvas)}]}],
@@ -18736,9 +18765,9 @@ async def ai_diagram(payload: dict):
     """Generate (or reuse) ONE brand-locked labeled DIAGRAM image (journey/architecture/mindmap) with
     legible text labels. Body: { spec:{kind, labels[], hub?, title?}, brand, canvas } (or kind/labels/hub
     at top level). Returns { url, dataUri, id, reused, brand, canvas }. Fail-open."""
-    spec = payload.get("spec") or {k: payload.get(k) for k in ("kind", "labels", "hub", "title")}
-    if not isinstance(spec, dict) or not spec.get("labels"):
-        return JSONResponse({"error": "spec.labels required"}, status_code=400)
+    spec = payload.get("spec") or {k: payload.get(k) for k in ("kind", "labels", "nodes", "connections", "hub", "title")}
+    if not isinstance(spec, dict) or not (spec.get("labels") or spec.get("nodes")):
+        return JSONResponse({"error": "spec.labels or spec.nodes required"}, status_code=400)
     res = await _brand_diagram(spec, payload.get("brand", "nxt"), payload.get("canvas", "light"))
     res.update({"brand": payload.get("brand", "nxt"), "canvas": payload.get("canvas", "light")})
     return res
