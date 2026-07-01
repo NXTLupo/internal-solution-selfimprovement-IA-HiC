@@ -3918,6 +3918,29 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
     const [skillManifest, setSkillManifest] = useState<SkillManifestEntry[]>([]);
     const [deliverables, setDeliverables] = useState<DeliverableItem[]>([]);
     const [slides, setSlides] = useState<SlideData[]>([]);
+    // D17 (owner-chosen 2026-07-01): attach the FULL-BLEED native GOLD exhibit image to every
+    // journey/architecture/mindmap/blueprint slide so it renders wall-to-wall INLINE in the Analyst Desk
+    // preview (and is already present for export). Idempotent + fail-open: guarded by a ref so we fetch
+    // each slide's diagram once; on failure the slide keeps its native matrix. Runs whenever slides change.
+    const diagramFetchedRef = useRef<Set<string>>(new Set());
+    useEffect(() => {
+        const pending = (slides as any[]).filter(s =>
+            s && !s.diagramImage && !diagramFetchedRef.current.has(s.id)
+            && ['journey-map', 'architecture-map', 'mindmap', 'service-blueprint'].includes(String(s.template || '').toLowerCase()));
+        if (!pending.length) return;
+        let cancelled = false;
+        (async () => {
+            const { fetchDiagramImage } = await import('../services/diagramSpec');
+            for (const s of pending) {
+                diagramFetchedRef.current.add(s.id);
+                try {
+                    const img = await fetchDiagramImage(s, (s.brand === 'nu' ? 'nu' : 'nxt'));
+                    if (img && !cancelled) setSlides(prev => prev.map(x => x.id === s.id && !x.diagramImage ? { ...x, diagramImage: img } as any : x));
+                } catch { /* fail-open: native matrix */ }
+            }
+        })();
+        return () => { cancelled = true; };
+    }, [slides]);
     // 2026-05-23 - Universal safety net for artifact lifting. Tracks which
     // assistant message IDs have already had their fence content extracted
     // into the slide + deliverable canvases. Defense-in-depth against the
@@ -4402,30 +4425,18 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // to its own display target.
             const { exportGoldDeckPptx } = await import('../services/goldArtifact');
             const { slideDataToStageHtml } = await import('../services/slideToStageHtml');
-            // D17 (owner-chosen): journey/architecture slides export as Nano-Banana diagram IMAGES. Fetch the
-            // brand-locked diagram at export time (only when actually exporting) + attach it to the slide so
-            // slideToStageHtml renders it full-body over the GOLD shell. Fail-open: on error the slide keeps
-            // its native render. Content-hash cached server-side so re-exports reuse the image.
-            for (const s of slides as any[]) {
-                if (s.diagramImage) continue;
-                let kind = '', labels: string[] = [];
-                if (s.template === 'journey-map' && s.journeyMap) {
-                    kind = 'journey';
-                    labels = (s.journeyMap.stages || []).map((x: any) => (typeof x === 'string' ? x : x?.name || '')).filter(Boolean);
-                } else if (s.template === 'architecture-map' && s.architectureMap) {
-                    kind = 'architecture';
-                    labels = (s.architectureMap.layers || []).flatMap((l: any) => (l.nodes || []).map((n: any) => n?.name || '')).filter(Boolean);
-                    if (labels.length < 2) labels = (s.architectureMap.layers || []).map((l: any) => l?.name || '').filter(Boolean);
-                } else { continue; }
-                labels = labels.slice(0, 8);
-                if (labels.length < 2) continue;
-                try {
-                    const r = await fetch('http://127.0.0.1:5012/api/ai/diagram', {
-                        method: 'POST', headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ spec: { kind, labels, title: s.title || '' }, brand: (s.brand === 'nu' ? 'nu' : 'nxt'), canvas: 'light' }),
-                    });
-                    if (r.ok) { const d = await r.json(); if (d?.dataUri) s.diagramImage = d.dataUri; }
-                } catch { /* fail-open: native render */ }
+            // D17 (owner-chosen 2026-07-01): journey/architecture/mindmap/blueprint slides export as a
+            // FULL-BLEED native GOLD exhibit IMAGE (composed HTML/CSS -> Chromium, all expert dimensions +
+            // real NXT icons + locked typography). buildDiagramSpec maps the slide's full data to the proxy
+            // spec; fetchDiagramImage returns the content-hash-cached PNG. Attach to the slide so
+            // slideDataToStageHtml renders it wall-to-wall. Fail-open: on error the slide keeps its native matrix.
+            {
+                const { fetchDiagramImage } = await import('../services/diagramSpec');
+                for (const s of slides as any[]) {
+                    if (s.diagramImage) continue;
+                    const img = await fetchDiagramImage(s, (s.brand === 'nu' ? 'nu' : 'nxt'));
+                    if (img) s.diagramImage = img;
+                }
             }
             const stageHtmlList: string[] = [];
             for (const s of slides) {

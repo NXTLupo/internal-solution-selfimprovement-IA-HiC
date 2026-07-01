@@ -18642,7 +18642,7 @@ def _diagram_palette(brand: str, canvas: str) -> dict:
 # D17 (2026-07-01, owner-chosen): diagrams render as clean WHITE, flat, minimalist images (not
 # accent-filled cards). Bump this version when the diagram STYLE changes so the content-hash cache
 # (which keys on spec, not prompt text) invalidates and regenerates.
-_DIAGRAM_STYLE_VERSION = "v14-arch-conn-mind-icons"
+_DIAGRAM_STYLE_VERSION = "v16-strategic-detail"
 
 
 _DIAG_DASH_RE = re.compile(r"\s*[–—]\s*")  # en/em dash only (never ASCII hyphen - standing rule)

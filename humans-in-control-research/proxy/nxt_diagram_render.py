@@ -196,8 +196,13 @@ html,body{{width:{FRAME_W}px;height:{FRAME_H}px;background:{paper};overflow:hidd
 .tierconn{{display:flex;justify-content:center;align-items:center;height:30px}}
 .tcard{{border:1px solid {hair};border-radius:4px;background:{paper};padding:13px 16px;min-width:168px;max-width:250px;
   display:flex;gap:11px;align-items:flex-start}}
+.tcard .tcbody{{min-width:0}}
+.tcard .ntype{{font-family:'NXT Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:{pal['kicker']};margin-bottom:2px}}
 .tcard .tt{{font-family:'Archivo';font-weight:700;font-size:15px;line-height:1.12;color:{ink}}}
 .tcard .td{{font-family:'Archivo';font-size:10.5px;line-height:1.25;color:{grey};margin-top:3px}}
+.branch .bpts{{margin:5px 0 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:3px}}
+.branch .bpts li{{font-family:'Archivo';font-size:9.5px;line-height:1.25;color:{ink};padding-left:9px;position:relative}}
+.branch .bpts li:before{{content:'';position:absolute;left:0;top:6px;width:4px;height:4px;background:{pal['kicker']};border-radius:1px}}
 .tierlab{{position:absolute;left:0;top:50%;transform:translateY(-50%);font-family:'NXT Mono';font-size:9px;
   letter-spacing:1px;text-transform:uppercase;color:{grey}}}
 .flowcap{{margin-top:14px;text-align:center;font-family:'Archivo';font-size:12px;color:{grey};font-style:italic}}
@@ -326,9 +331,11 @@ def _arch_body(spec: dict, pal: dict) -> str:
         for nd in _list(ly.get("nodes"))[:4]:
             nd = nd if isinstance(nd, dict) else {"label": _s(nd)}
             title = _s(nd.get("label") or nd.get("name"))
-            desc = _s(nd.get("desc") or nd.get("description") or nd.get("type"))
-            cards.append(f'<div class="tcard">{_svg(_icon(title), 22, ink)}<div>'
-                         f'<div class="tt">{_e(title)}</div>'
+            desc = _s(nd.get("desc") or nd.get("description"))
+            ntype = _s(nd.get("type"))
+            type_html = f'<div class="ntype">{_e(ntype)}</div>' if ntype else ''
+            cards.append(f'<div class="tcard">{_svg(_icon(title + " " + ntype), 22, ink)}<div class="tcbody">'
+                         f'{type_html}<div class="tt">{_e(title)}</div>'
                          + (f'<div class="td">{_e(desc)}</div>' if desc else '') + '</div></div>')
         lab = f'<div class="tierlab">{_e(nm)}</div>' if nm else ''
         tiers.append(f'<div class="tier">{lab}' + "".join(cards) + '</div>')
@@ -338,9 +345,8 @@ def _arch_body(spec: dict, pal: dict) -> str:
         if i:
             parts.append(conn)
         parts.append(t)
-    flow = _s(spec.get("flowSummary"))
-    cap = f'<div class="flowcap">{_e(flow)}</div>' if flow else ''
-    return '<div class="tree">' + "".join(parts) + '</div>' + cap
+    # flowSummary becomes the bottom takeaway band (see diagram_html), not an inline caption.
+    return '<div class="tree">' + "".join(parts) + '</div>'
 
 
 def _mind_body(spec: dict, pal: dict) -> str:
@@ -356,15 +362,18 @@ def _mind_body(spec: dict, pal: dict) -> str:
         cx = 50 + 37 * math.cos(ang)
         cy = 50 + 40 * math.sin(ang)
         pos.append((cx, cy))
-    ink = pal["ink"]
+    ink, kick = pal["ink"], pal["kicker"]
     branches = []
     for (cx, cy), nd in zip(pos, nodes):
         lab = _s(nd.get("label") or nd.get("name"))
         desc = _s(nd.get("desc") or nd.get("description"))
+        # STRATEGIC DETAIL: supporting sub-points (children / points) render as bullets in the branch
+        pts = [_s(p) for p in _list(nd.get("points") or nd.get("children") or nd.get("subpoints")) if _s(p)]
+        pts_html = ('<ul class="bpts">' + "".join(f'<li>{_e(p)}</li>' for p in pts[:3]) + '</ul>') if pts else ''
         branches.append(
             f'<div class="branch" style="left:{cx}%;top:{cy}%;transform:translate(-50%,-50%)">'
             f'<div class="bhead">{_svg(_icon(lab), 17, ink)}<div class="bl">{_e(lab)}</div></div>'
-            + (f'<div class="bd">{_e(desc)}</div>' if desc else '') + '</div>')
+            + (f'<div class="bd">{_e(desc)}</div>' if desc else '') + pts_html + '</div>')
     # SVG connectors hub(center)->branch
     lines = []
     for cx, cy in pos:
@@ -386,7 +395,8 @@ def diagram_html(spec: dict, pal: dict) -> str:
     kind = (spec.get("kind") or "flow").lower()
     kicker = _s(spec.get("kicker")) or _KICK_FALLBACK.get(kind, "")
     title = _s(spec.get("title"))
-    takeaway = _s(spec.get("takeaway"))
+    # takeaway band: explicit takeaway, else flowSummary (architecture) so the band is never empty
+    takeaway = _s(spec.get("takeaway")) or _s(spec.get("flowSummary"))
     if kind in ("journey", "journey-map", "flow", "funnel", "blueprint", "service-blueprint"):
         body = _journey_body(spec, pal)
     elif kind in ("arch", "architecture", "tech-architecture", "architecture-map"):

@@ -83,6 +83,9 @@ export interface SlideData {
     executiveBrief?: ExecutiveBriefData;
     gapMatrix?: GapMatrixData;
     architectureMap?: ArchitectureMapData;
+    /** D17: full-bleed native GOLD exhibit image (data URI / URL) for journey/arch/mindmap/blueprint
+     *  slides. When set, slideDataToStageHtml renders it wall-to-wall (else the native matrix). */
+    diagramImage?: string;
     prdFeature?: PrdFeatureData;
     systemsInventory?: SystemsInventoryData;
     journeyBrief?: JourneyBrief;

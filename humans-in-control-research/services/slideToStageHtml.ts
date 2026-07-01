@@ -1894,10 +1894,8 @@ function _spreadByArc(count: number, nCols: number): number[] {
 // ---------------------------------------------------------------------------
 function renderJourneyMap(slide: SlideDataLike, T: BrandTokens): string {
     const d: any = (slide as any).journeyMap || {};
-    // D17 (owner-chosen): when a Nano-Banana diagram image is attached, render it full-body over the GOLD
-    // shell (title/rail added by the stage composer) instead of the native matrix. Embeds as a PPTX picture.
-    const _diag = String((slide as any).diagramImage || '').trim();
-    if (_diag) return `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:6px"><img src="${esc(_diag)}" alt="" style="max-width:100%;max-height:100%;object-fit:contain"/></div>`;
+    // (A full-bleed diagramImage is handled by the early return in slideDataToStageHtml; here we render
+    // the native GOLD matrix, which is the fallback when no exhibit image was attached.)
     const capItems = Math.max(3, _caps.items || 5);
     const capLanes = Math.max(2, _caps.sub || 4);
     const stagesRaw: any[] = Array.isArray(d.stages) ? d.stages.slice(0, capItems) : [];
@@ -2086,9 +2084,7 @@ function renderGapMatrix(slide: SlideDataLike, T: BrandTokens): string {
 // ---------------------------------------------------------------------------
 
 function renderArchitectureMap(slide: SlideDataLike, T: BrandTokens): string {
-    // D17: Nano-Banana diagram image full-body over the GOLD shell when attached (else native tiers).
-    const _diag = String((slide as any).diagramImage || '').trim();
-    if (_diag) return `<div style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:6px"><img src="${esc(_diag)}" alt="" style="max-width:100%;max-height:100%;object-fit:contain"/></div>`;
+    // (Full-bleed diagramImage handled by the early return in slideDataToStageHtml; native tiers below.)
     const layers: any[] = Array.isArray(slide.architectureMap?.layers) ? slide.architectureMap.layers.slice(0, 6) : [];
     const flow: string = slide.architectureMap?.flowSummary || '';
     if (layers.length === 0) return `<p style="font-size:${SCALE.name}px">No architecture layers.</p>`;
@@ -2304,10 +2300,37 @@ ${dump.join('\n')}
 // Public entry: SlideData -> #stage 1920×1080 HTML doc.
 // ---------------------------------------------------------------------------
 
+// D17 (owner-chosen 2026-07-01): a diagram slide (journey/architecture/mindmap/blueprint) with an
+// attached full-bleed exhibit image renders WALL-TO-WALL - the image IS the whole 16:9 slide, no GOLD
+// chrome around it (the image already carries the rail/kicker/title/band, composed natively by the
+// proxy nxt_diagram_render). Both the image (2560x1440) and the stage (1920x1080) are exact 16:9, so
+// object-fit:cover fills edge-to-edge with zero stretch or crop. Embeds in PPTX as one native picture.
+function fullBleedImageDoc(brand: Brand, title: string, imgUri: string): string {
+    const T = brandTokens(brand);
+    return `<!DOCTYPE html>
+<html lang="en" data-brand="${brand}">
+<head><meta charset="UTF-8"><title>${esc(title || 'Diagram')}</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#080808;overflow:hidden}
+#stage{position:absolute;width:1920px;height:1080px;background:${T.paper};transform-origin:top left}
+#stage img{position:absolute;inset:0;width:1920px;height:1080px;object-fit:cover;display:block}
+</style></head>
+<body><div id="stage"><img src="${esc(imgUri)}" alt="${esc(title || '')}"/></div></body></html>`;
+}
+
+const _DIAGRAM_IMAGE_TEMPLATES = new Set(['journey-map', 'architecture-map', 'mindmap', 'service-blueprint']);
+
 export function slideDataToStageHtml(slide: SlideDataLike): string {
     const brand: Brand = slide.brand === 'nu' ? 'nu' : 'nxt';
     const T = brandTokens(brand);
     const template = (slide.template || '').toLowerCase();
+
+    // Full-bleed native diagram exhibit (see fullBleedImageDoc). When present, it replaces the GOLD
+    // shell entirely for the diagram templates. Absent -> the native matrix/tree renderers below.
+    const _diagImg = String((slide as any).diagramImage || '').trim();
+    if (_diagImg && _DIAGRAM_IMAGE_TEMPLATES.has(template)) {
+        return fullBleedImageDoc(brand, slide.title || '', _diagImg);
+    }
 
     // SLIDES-deck archetype system (Figma 609): `template=slides:<archetype>` is COMPOSED from the
     // registry spec by slideComposer (Method A - no per-archetype renderX), the way #proto composes
