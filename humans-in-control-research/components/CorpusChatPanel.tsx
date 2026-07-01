@@ -144,6 +144,42 @@ const FREEFORM_KINDS: ReadonlySet<FreeformKind> = new Set([
 const UPLIFT_KINDS: ReadonlySet<FreeformKind> = new Set([
     'mindmap', 'brief-dialog', 'meta-themes', 'research-plan',
 ]);
+/** D18 (2026-07-01): emit an AIR for the narrativeComposer deck path (#presentation), which previously
+ *  produced a deck but emitted NO AIR (neither the sendChatMessage chat chokepoint nor emitDeliverable.air
+ *  covers composeNarrative). Resolves the objective's manifest chunks for a REAL evidence ledger (manifest-
+ *  only, no model call) and writes a SHADOW AIR (ramped: new path starts non-blocking). Fire-and-forget +
+ *  fully guarded so it can never break the compose/persist flow. */
+async function emitComposeNarrativeAir(trigger: string, goal: string, payload: unknown): Promise<void> {
+    try {
+        const { currentEngagementSlug: _slug, resolveChunks: _resolve } = await import('../services/wikiPointerResolver');
+        const { pickChunksForPrompt: _pick } = await import('../services/chunkRetrieval');
+        const slug = _slug() || 'run';
+        const g = (goal || '').slice(0, 800);
+        const picked = g ? await _pick(g, slug, { researchObjective: g, tokenBudget: 16000 }) : { chunkIds: [] as string[] };
+        const resolved = picked.chunkIds.length ? await _resolve(picked.chunkIds) : { chunks: [] as any[] };
+        const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }, { newRunTrace, recordToolStep }] = await Promise.all([
+            import('../services/artifactAirService'), import('../services/evidenceLedgerService'), import('../services/runTraceService'),
+        ]);
+        const objId = `obj_${slug}`;
+        const trace = newRunTrace(slug);
+        if (resolved.chunks.length) recordToolStep(trace, { step: 'grounding:manifest-retrieval', toolPack: 'wiki_retrieval', toolName: 'narrativeComposer compose grounding', objectiveId: objId });
+        const { air } = buildAir({
+            runId: slug,
+            artifactId: `presentation_${Date.now()}`,
+            trigger,
+            objective: { objectiveId: objId, userObjective: g, decomposedQuestions: [] },
+            evidenceLedger: buildEvidenceLedger(resolved.chunks as any),
+            artifactPayload: { kind: 'presentation', content: (() => { try { return JSON.stringify(payload).slice(0, 20000); } catch { return ''; } })() },
+            trace,
+            shadowMode: true,   // ramped: composeNarrative AIR starts shadow, like emitDeliverable
+        });
+        validateAir(air);
+        void writeAir(air).then(w => { if (w.persisted) console.info(`[presentation] AIR persisted (shadow, ${resolved.chunks.length} chunks): ${w.path}`); }).catch(() => { /* fire-and-forget */ });
+    } catch (e: any) {
+        console.warn('[presentation] AIR emission failed (non-fatal):', e?.message || e);
+    }
+}
+
 import { exportPdf, exportPng, exportPptx } from '../design-desk/services/artifactExporter';
 import { paginateSlides } from '../services/slidePaginator';
 import { toPng } from 'html-to-image';
@@ -4683,6 +4719,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
             // those here so the save doesn't fail at the proxy with an
             // opaque "schemaVersion must be 1, got None" 400. Force the
             // slug to remain stable so the saved file overwrites in place.
+            // D18: emit AIR for the edited/revised deck too (composeNarrative path was outside AIR).
+            void emitComposeNarrativeAir('#presentation', (getContext ? getContext() : context)?.researchGoal || revisionThesis || '', composeResult.payload);
+
             const p = composeResult.payload as any;
             if (!p.schemaVersion) p.schemaVersion = 1;
             if (!p.meta) p.meta = {};
@@ -6047,6 +6086,9 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                 // ships text + native structured visuals only; the illustration generation/attach
                 // pass is disabled (the prompt also no longer emits imageConcept).
                 // (was: resolvePresentationIllustrations(composeResult.payload, ...))
+
+                // D18: emit AIR for this deck (composeNarrative path was outside AIR emission).
+                void emitComposeNarrativeAir('#presentation', liveCtx?.researchGoal || presDirective.narrativeRequest || '', composeResult.payload);
 
                 // Persist payload via proxy
                 const persistRes = await fetch('http://127.0.0.1:5012/api/presentations', {
