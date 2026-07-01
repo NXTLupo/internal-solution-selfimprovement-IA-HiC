@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ARTIFACT_CATALOG, catalogEntryFor, allArtifactIds } from './artifactCatalog';
-import { isArtifactGenerationMessage } from './corpusChatService';
+import { isArtifactGenerationMessage, messageTargetsArtifact } from './corpusChatService';
 
 // WS-0 OMISSION GUARD. The artifact catalog must cover EVERY directive HiC accepts, so no hashtag is ever
 // silently omitted from routing / AIR tracking. This test reads the LIVE corpusChatService.ts ARTIFACT_TPL
@@ -58,15 +58,19 @@ describe('artifact catalog coverage (none omitted)', () => {
         // serves the narrative/HTML directives (templateId null: #strategy, #brief, #explainer, #report ...).
         // This guards path 1: any directive that HAS a slide templateId MUST hit the chat chokepoint, else it
         // would render a deck with no AIR. (Null-template narrative directives correctly use path 2.)
-        // EVERY alias (incl plural/compound like #audits/#architecture/#themecluster) of every templated slide
-        // entry must route through path 1 - the ARTIFACT_TPL regexes are kept aligned with the catalog aliases
-        // so a user typing any declared form gets the force-route + chat-path AIR (not silently plain chat).
-        const templatedAliases = ARTIFACT_CATALOG
-            .filter(e => e.modality === 'slides' && e.templateId)   // has a real slide template -> chat-path
+        // D18: EVERY slide/html artifact directive (ALL aliases, incl #strategy/#playground/#approaches and
+        // plural/compound forms) must be caught by messageTargetsArtifact -> the chat-path AIR block fires and
+        // the deck emits a real-ledger AIR. Previously #strategy (not in ARTIFACT_TPL) generated a deck via
+        // strategy-author but emitted NO AIR because the block gated on isArtifactGenerationMessage. Found by a
+        // live #strategy run (0 strategy AIRs on disk); messageTargetsArtifact closes it via the catalog SSOT.
+        const artifactAliases = ARTIFACT_CATALOG
+            .filter(e => e.modality === 'slides' || e.modality === 'html')
             .flatMap(e => e.aliases);
-        expect(templatedAliases.length).toBeGreaterThan(15);
-        const outsideAir = templatedAliases.filter(d => !isArtifactGenerationMessage(`${d} on the corpus`));
-        expect(outsideAir, `templated slide directive aliases NOT caught by isArtifactGenerationMessage (would skip chat-path AIR): ${outsideAir.join(', ')}`).toEqual([]);
+        expect(artifactAliases.length).toBeGreaterThan(20);
+        const outsideAir = artifactAliases.filter(d => !messageTargetsArtifact(`${d} on the corpus`));
+        expect(outsideAir, `artifact directive aliases NOT caught by messageTargetsArtifact (deck would emit NO AIR): ${outsideAir.join(', ')}`).toEqual([]);
+        // sanity: plain chat must NOT trigger AIR emission
+        expect(messageTargetsArtifact('what are the main themes in the corpus?')).toBe(false);
     });
 
     it('keeps schema_flash routingClass in sync with aiRouter SCHEMA_FLASH_ARTIFACTS', () => {

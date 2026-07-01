@@ -11,6 +11,7 @@ import * as _hashtagRegistryModule from './hashtagRegistry';
 // engagement's chunk catalog; resolveChunks dereferences pointers to verbatim
 // spans; assembleChunkCorpus renders the cite-by-pointer block.
 import { artifactModelFor } from './aiRouter';
+import { catalogEntryFor } from './artifactCatalog';
 import { pickChunksForPrompt, assembleChunkCorpus, chunkCitationInstructions } from './chunkRetrieval';
 import { resolveChunks, currentEngagementSlug } from './wikiPointerResolver';
 // 2026-06-02 - Single canonical shaper for run intelligence + corpus manifest.
@@ -637,6 +638,22 @@ function deliverableModelOverride(userMessage: string): ChatModel | null {
  *  defect. */
 export function isArtifactGenerationMessage(userMessage: string): boolean {
     return /#slides?\b/i.test(userMessage) || ARTIFACT_TPL.some(([re]) => re.test(userMessage));
+}
+
+/** D18 (2026-07-01): does this message target a deck/HTML ARTIFACT (any catalog directive), even ones NOT in
+ *  ARTIFACT_TPL (#strategy/#playground/#approaches - generated via the strategy-author multi-slide path in
+ *  sendChatMessage but previously OUTSIDE AIR emission because isArtifactGenerationMessage was false for them)?
+ *  Broader than isArtifactGenerationMessage: it also resolves via the artifact catalog SSOT. Used ONLY to gate
+ *  AIR emission (NOT routing/model-override), so it cannot change generation behavior - it only ensures every
+ *  catalog artifact emits an AIR. */
+export function messageTargetsArtifact(userMessage: string): boolean {
+    if (isArtifactGenerationMessage(userMessage)) return true;
+    const tags = userMessage.match(/#[a-z][a-z-]*/gi) || [];
+    for (const t of tags) {
+        const e = catalogEntryFor(t);
+        if (e && (e.modality === 'slides' || e.modality === 'html')) return true;
+    }
+    return false;
 }
 
 /** 2026-06-18 (research-run-failure-analysis P0.2) - detect a SUBSTANTIVE pasted body inside an
@@ -3839,10 +3856,13 @@ If asked for N examples and the corpus only contains M < N, provide M and say "T
         // artifacts are generated HERE (not via emitDeliverable), so emit their AIR directly - with the REAL
         // evidence ledger from the grounding chunks captured above. SHADOW mode + fire-and-forget: purely
         // additive, never touches the chat reply or its return. Completes the third artifact emission path.
-        if (isArtifactGenerationMessage(userMessage)) {
+        if (messageTargetsArtifact(userMessage)) {
             try {
                 const _tplHit = ARTIFACT_TPL.find(([re]) => re.test(userMessage));
-                const _trigger = _tplHit ? `#${_tplHit[1]}` : (/#slides?\b/i.test(userMessage) ? '#slides' : '#artifact');
+                // D18: derive the trigger for catalog artifacts NOT in ARTIFACT_TPL (#strategy/#playground/...)
+                // from the catalog directive so the AIR carries the real trigger, not a generic '#artifact'.
+                const _catHit = !_tplHit ? (userMessage.match(/#[a-z][a-z-]*/gi) || []).map(t => catalogEntryFor(t)).find(e => e && (e.modality === 'slides' || e.modality === 'html')) : null;
+                const _trigger = _tplHit ? `#${_tplHit[1]}` : (/#slides?\b/i.test(userMessage) ? '#slides' : (_catHit ? `#${_catHit.id}` : '#artifact'));
                 const _slug = currentEngagementSlug() || 'run';
                 const [{ buildAir, writeAir, validateAir }, { buildEvidenceLedger }, { newRunTrace, recordToolStep }] = await Promise.all([
                     import('./artifactAirService'), import('./evidenceLedgerService'), import('./runTraceService'),
