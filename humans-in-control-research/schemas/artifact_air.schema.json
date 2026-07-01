@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hic-artifact-air-2026-06-30",
+  "title": "ArtifactAIR",
+  "description": "The canonical Artifact Intermediate Representation emitted for every HiC run/artifact before any render. WS-0 backbone. See plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md and services/artifactAirService.ts (authoritative TS type).",
+  "type": "object",
+  "required": ["airVersion", "runId", "artifactId", "artifactType", "trigger", "objective", "evidenceLedger", "renderPlan", "modelTrace"],
+  "additionalProperties": true,
+  "properties": {
+    "airVersion": { "const": "hic-air-2026-06-30" },
+    "runId": { "type": "string", "minLength": 1 },
+    "artifactId": { "type": "string", "minLength": 1 },
+    "artifactType": { "type": "string", "minLength": 1, "description": "catalog id (e.g. 'strategy', 'gap')" },
+    "trigger": { "type": "string", "minLength": 1, "description": "raw directive (e.g. '#strategy')" },
+    "objective": {
+      "type": "object",
+      "required": ["objectiveId", "userObjective", "decomposedQuestions"],
+      "properties": {
+        "objectiveId": { "type": "string" },
+        "userObjective": { "type": "string", "minLength": 1 },
+        "decisionToSupport": { "type": "string" },
+        "audience": { "type": "string" },
+        "decomposedQuestions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "text", "priority", "coverageStatus"],
+            "properties": {
+              "id": { "type": "string" },
+              "text": { "type": "string" },
+              "priority": { "type": "integer", "minimum": 1, "maximum": 5 },
+              "requiredEvidenceTypes": { "type": "array", "items": { "type": "string" } },
+              "coverageStatus": { "enum": ["uncovered", "partial", "covered", "overcovered"] }
+            }
+          }
+        }
+      }
+    },
+    "evidenceLedger": {
+      "type": "array",
+      "description": "Every pointer MUST dereference to a cited chunk and carry at least one named source (anti-RAG provenance rule).",
+      "items": {
+        "type": "object",
+        "required": ["pointer", "wikiPath", "chunkId", "sources", "objectiveScore"],
+        "properties": {
+          "pointer": { "type": "string", "pattern": "#c[0-9]+$" },
+          "wikiPath": { "type": "string" },
+          "chunkId": { "type": "string" },
+          "charSpan": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+          "quote": { "type": "string" },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["sourceType", "sourceName", "attributionLabel"],
+              "properties": {
+                "sourceId": { "type": "string" },
+                "sourceType": { "enum": ["upload", "web", "cached_wiki", "deep_research", "connector", "social"] },
+                "sourceName": { "type": "string", "minLength": 1 },
+                "title": { "type": "string" },
+                "author": { "type": "string" },
+                "url": { "type": "string" },
+                "observedAt": { "type": "string" },
+                "attributionLabel": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "objectiveScore": { "type": "number", "minimum": 0, "maximum": 100 },
+          "subQuestionIds": { "type": "array", "items": { "type": "string" } },
+          "concepts": { "type": "array", "items": { "type": "string" } },
+          "relatedChunks": { "type": "array", "items": { "type": "string" } },
+          "provenanceConfidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "insightHierarchy": {
+      "type": "object",
+      "properties": {
+        "situation": { "type": "array", "items": { "type": "string" } },
+        "complication": { "type": "array", "items": { "type": "string" } },
+        "rootCauses": { "type": "array", "items": { "type": "string" } },
+        "implications": { "type": "array", "items": { "type": "string" } },
+        "strategicChoices": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "artifactPayload": {},
+    "renderPlan": {
+      "type": "object",
+      "required": ["targetModes", "templateCandidates", "imageSlots", "density"],
+      "properties": {
+        "targetModes": { "type": "array", "items": { "enum": ["analyst", "designer", "figma", "pptx", "html"] } },
+        "templateCandidates": { "type": "array", "items": { "type": "string" } },
+        "density": { "enum": ["base", "dense"] },
+        "imageSlots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["slotId", "mode", "wired"],
+            "properties": {
+              "slotId": { "type": "string" },
+              "templateId": { "type": "string" },
+              "figmaNodeId": { "type": "string" },
+              "mode": { "enum": ["none", "brand_image", "diagram", "icon", "data_viz", "uploaded_asset"] },
+              "modelTier": { "type": "string" },
+              "promptSource": { "enum": ["air_insight", "evidence_ledger", "user_prompt", "deterministic_icon_map"] },
+              "wired": { "type": "boolean" },
+              "altText": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "modelTrace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "selectedModel", "routingReason", "provider"],
+        "properties": {
+          "step": { "type": "string" },
+          "selectedModel": { "type": "string" },
+          "routingReason": { "type": "string" },
+          "provider": { "enum": ["gemini", "anthropic", "openai"] },
+          "costEstimateUsd": { "type": "number" },
+          "quotaState": { "enum": ["healthy", "degraded", "exhausted", "unknown"] }
+        }
+      }
+    },
+    "qualityReport": {
+      "type": "object",
+      "properties": {
+        "shadowMode": { "type": "boolean" },
+        "deterministicFailures": { "type": "array", "items": { "type": "string" } },
+        "reviewScores": { "type": "object" },
+        "promotedToSkillOpt": { "type": "boolean" }
+      }
+    },
+    "createdAtIso": { "type": "string" }
+  }
+}

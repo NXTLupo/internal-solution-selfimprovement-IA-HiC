@@ -33,16 +33,54 @@ export interface ResearchSource {
     citedText?: string;
 }
 
+/**
+ * Per-segment source attribution from Gemini's grounding metadata
+ * (`groundingMetadata.groundingSupports[]`). Each entry ties a char span of the
+ * synthesized `content` to the source(s) that support it — this is the data that
+ * lets a downstream quote be attributed to its REAL underlying source instead of
+ * the whole-doc synthesis bucket. Capturing it is the fix for the "all 167 quotes
+ * stamped Dakota" mis-attribution: the span->source map existed at fetch time and
+ * was previously discarded. (2026-06-30.)
+ */
+export interface GroundingSupport {
+    start: number;          // char start index into `content`
+    end: number;            // char end index into `content`
+    text: string;           // the supported segment text (verbatim slice of content)
+    sourceIdxs: number[];   // indices into ResearchResult.sources[]
+}
+
 export interface ResearchResult {
     mode: ResearchMode;
     provider: string;
     content: string;                // the synthesized research text
     sources: ResearchSource[];
+    /** Per-span source attribution (segment -> sources). Empty when the provider
+     *  returned no grounding supports. Enables real per-quote source resolution. */
+    groundingSupports?: GroundingSupport[];
     searchQueriesUsed: string[];
     estimatedCost: number;
     durationMs: number;
     status: 'completed' | 'failed';
     error?: string;
+}
+
+/** Map a provider groundingMetadata object to our GroundingSupport[]. Defensive:
+ *  field names per the Gemini grounded-generation response; logs nothing, returns
+ *  [] when the shape is absent so callers degrade to doc-level attribution. */
+export function extractGroundingSupports(gm: any): GroundingSupport[] {
+    const raw = gm?.groundingSupports;
+    if (!Array.isArray(raw)) return [];
+    const out: GroundingSupport[] = [];
+    for (const s of raw) {
+        const seg = s?.segment || {};
+        const start = typeof seg.startIndex === 'number' ? seg.startIndex : (typeof seg.start_index === 'number' ? seg.start_index : -1);
+        const end = typeof seg.endIndex === 'number' ? seg.endIndex : (typeof seg.end_index === 'number' ? seg.end_index : -1);
+        const idxs = s?.groundingChunkIndices || s?.grounding_chunk_indices || [];
+        if (start >= 0 && end > start && Array.isArray(idxs) && idxs.length > 0) {
+            out.push({ start, end, text: String(seg.text || ''), sourceIdxs: idxs.map((n: any) => Number(n)).filter((n: number) => Number.isInteger(n) && n >= 0) });
+        }
+    }
+    return out;
 }
 
 export interface DeepResearchProgress {
@@ -129,12 +167,14 @@ OUTPUT: Provide a structured synthesis with:
         }));
 
     const searchQueries = gm?.webSearchQueries || [];
+    const groundingSupports = extractGroundingSupports(gm);
 
     return {
         mode: config.mode,
         provider: 'gemini',
         content: text,
         sources,
+        groundingSupports,
         searchQueriesUsed: searchQueries,
         estimatedCost: searchQueries.length * 0.014,
         durationMs: Date.now() - start,

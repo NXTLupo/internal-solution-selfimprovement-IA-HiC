@@ -10,6 +10,12 @@ This file is the platform-wide overview. Two deeper guides cover the surfaces yo
 - **[humans-in-control-research/CLAUDE.md](humans-in-control-research/CLAUDE.md)** — read FIRST for any work under `humans-in-control-research/` (the most actively developed service). Covers the three-tier proxy/SPA/wiki architecture, the 18-template slide system, the `aiRouter.ts` provider routing, the `slidePostProcessor.ts` defense-in-depth layer, the `loadGenerationContext()` wiki-first retrieval contract, and the seven-step protocol for adding a new deliverable type.
 - Service-local `CLAUDE.md` files exist in `internal-solutions-journeymapper/`, `internal-solutions-claude4-journey-mapper-v2/`, `internal-solutions-socialresearch/`, and `NXT-Agency/` — read them when working in those services.
 
+> **HiC VISION (load-bearing for `humans-in-control-research/`)**: HiC is an objective-first, manifest-native,
+> evidence-cited, design-system-governed **Artifact Factory** — every run emits an Artifact Intermediate
+> Representation (AIR), and the 8 Unified Vision principles bind at 9 workflow phases. Before non-trivial HiC
+> work, read the **`hic-unified-vision`** skill, [.claude/UNIFIED_VISION.md](.claude/UNIFIED_VISION.md), and
+> [humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md](humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md).
+
 ## Architecture Overview
 
 NXT Humans Intelligence Augmentation Suite — a Docker-orchestrated microservices platform with an AI agent that controls specialized services via Model Context Protocol (MCP).

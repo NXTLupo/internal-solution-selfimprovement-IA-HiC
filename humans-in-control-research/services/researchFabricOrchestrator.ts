@@ -1082,6 +1082,21 @@ export async function executePlan(
                             .filter(Boolean)
                             .slice(0, 50);
                         if (_derived.length > 0 && items[0]) (items[0] as any).derivedFrom = _derived;
+                        // 2026-06-30 - PER-SEGMENT SOURCE ATTRIBUTION. Gemini's grounding
+                        // metadata maps each span of the synthesized text to the source(s)
+                        // that support it. Resolve sourceIdxs -> {sourceName,url} inline and
+                        // carry it on the synthesis item so write-article can attribute each
+                        // CHUNK to its REAL source (fixing "every quote stamped one source").
+                        const gss = (researchResult as any).groundingSupports as Array<{ start: number; end: number; text: string; sourceIdxs: number[] }> | undefined;
+                        if (Array.isArray(gss) && gss.length > 0 && items[0]) {
+                            const srcs = researchResult.sources || [];
+                            const _spans = gss.map(g => ({
+                                start: g.start, end: g.end, text: (g.text || '').slice(0, 400),
+                                sources: g.sourceIdxs.map(i => srcs[i]).filter(Boolean)
+                                    .map((s: any) => ({ url: s.url || '', title: s.title || '' })),
+                            })).filter(s => s.sources.length > 0).slice(0, 200);
+                            if (_spans.length > 0) (items[0] as any).groundingSupports = _spans;
+                        }
                     } catch { /* non-fatal */ }
 
                 } else if (source.type === 'data_api') {
@@ -1780,6 +1795,9 @@ async function enrichTopItems(items: DataSourceItem[], maxItems: number = ENRICH
                     collectedAt: new Date().toISOString(),
                     // Enhancement D: custody for deep-research syntheses.
                     derivedFrom: (item as any).derivedFrom || undefined,
+                    // 2026-06-30: per-segment source attribution (span -> real sources)
+                    // so write-article can stamp each CHUNK with its actual source.
+                    groundingSupports: (item as any).groundingSupports || undefined,
                 }),
                 label: 'wiki-write-article.residual-archival',
                 note: item.url ? `url=${item.url.slice(0, 80)}` : undefined,

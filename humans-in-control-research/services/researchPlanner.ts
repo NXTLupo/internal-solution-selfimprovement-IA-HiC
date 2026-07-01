@@ -6,6 +6,7 @@
 
 import { parseJSONWithRepair } from './aiOutputRepair';
 import { stableHash, withResilience, isThrottleError, type DegradationEvent, emitDegradationEvent } from './multiModelResilience';
+import { OPUS_CAP_ACTIVE } from './aiRouter';
 
 
 export type SubQuestion = {
@@ -110,8 +111,11 @@ export async function buildResearchPlan(input: ResearchPlannerInput): Promise<Re
         reflection_threshold?: number;
         max_iterations?: number;
     }>({
-        primary: 'anthropic',
-        fallbacks: ['gemini'],
+        // 2026-06-30 - cap-aware: the cap-400 body ("usage limits") does NOT match
+        // isThrottleError, so an Opus primary would re-throw instead of falling back.
+        // While capped, make Gemini the primary so #deep-research planning never 400s.
+        primary: OPUS_CAP_ACTIVE ? 'gemini' : 'anthropic',
+        fallbacks: OPUS_CAP_ACTIVE ? [] : ['gemini'],
         stage: 'research_planner:plan',
         is429: isThrottleError,
         invoke: async (provider) => {

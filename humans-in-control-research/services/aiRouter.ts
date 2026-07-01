@@ -513,6 +513,45 @@ export type TaskCategory = 'research' | 'fast_generation' | 'vision' | 'image' |
 // ============================================================================
 export const OPUS_CAP_ACTIVE = true;
 
+// ============================================================================
+// CANONICAL HASHTAG-ARTIFACT MODEL POLICY — single source of truth (2026-06-30).
+// Every hashtag artifact generation path MUST resolve its model through
+// artifactModelFor() so routing is consistent, cap-aware, and cost/quality-tiered.
+// Bake-off ground truth (plans/model-bakeoff-broadened-2026-06-28.md):
+//   • SCHEMA/TABLE deliverables — the template bounds the output, so Gemini 3.5
+//     Flash matched Gemini 3.1 Pro on completeness + 0 fabricated citations at
+//     ~18x lower cost. Flash is the cost/quality winner REGARDLESS of the cap.
+//   • EVIDENCE / IMAGERY / NARRATIVE deliverables — need the strongest model:
+//     Gemini 3.1 Pro while the Opus cap is active, Claude Opus 4.8 after it lifts.
+// NEVER returns claude-opus-4-8 while OPUS_CAP_ACTIVE (the legacy hardcoded-Opus
+// sites that ignored this were the #proto hard-fail + #approaches 400 burns).
+// Accepts a template id (gap-matrix), a hashtag (#gap), or a generator/kind name.
+// ============================================================================
+const SCHEMA_FLASH_ARTIFACTS = new Set<string>([
+    // slide-template ids
+    'gap-matrix', 'journey-map', 'service-blueprint', 'competitive-matrix',
+    'org-chart', 'systems-inventory', 'architecture-map', 'timeline',
+    // hashtag / generator aliases for the same schema deliverables
+    'gap', 'journey', 'blueprint', 'competitive', 'compete', 'org',
+    'audit', 'arch', 'tech-arch', 'roadmap',
+]);
+
+export function artifactModelFor(kind?: string | null): string {
+    const k = String(kind || '').toLowerCase().replace(/^#/, '').trim();
+    if (SCHEMA_FLASH_ARTIFACTS.has(k)) return 'gemini-3.5-flash';
+    // evidence / imagery / narrative (case-study, personas, themes, strategy,
+    // recommendations, report, prd, brief, explainer, approaches, proto, ...)
+    return OPUS_CAP_ACTIVE ? 'gemini-3.1-pro-preview' : 'claude-opus-4-8';
+}
+
+/** The proxy AI endpoint family for a model id (so callers route the request to
+ *  the matching endpoint + body shape). */
+export function endpointForModel(modelId: string): 'gemini' | 'anthropic' | 'openai' {
+    if (modelId.startsWith('claude-')) return 'anthropic';
+    if (modelId.startsWith('gpt-') || modelId.startsWith('o1') || modelId.startsWith('o3')) return 'openai';
+    return 'gemini';
+}
+
 export const DEFAULT_MODELS: Record<TaskCategory, string> = {
     research: 'gemini-3.1-pro-preview',
     fast_generation: 'gemini-3.5-flash',

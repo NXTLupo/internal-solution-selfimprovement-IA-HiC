@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
     registerPointerSource,
+    registerChunkSources,
+    registerResolvedChunkSources,
     resolveManifestPointers,
 } from './citationPointerRegistry';
 
@@ -49,5 +51,31 @@ describe('citationPointerRegistry', () => {
     it('leaves pointer-free text untouched', () => {
         const text = 'Plain text with a hyphen-word and [CHUNK_004].';
         expect(resolveManifestPointers(text)).toBe(text);
+    });
+
+    // --- WS-A: per-chunk REAL source resolution wins over the page-level title ---
+    it('chunk-level (Tier 1) sources override the page-level synthesis title', () => {
+        // A deep-research synthesis page registered page-level as the provider bucket...
+        registerPointerSource('articles/gemini-focused-research/syn1.md', 'Gemini Focused Research');
+        // ...but the specific chunk carries its REAL underlying source.
+        registerChunkSources('articles/gemini-focused-research/syn1.md#c3', ['Higher Ed Dive']);
+        const out = resolveManifestPointers('AI raises conversion [articles/gemini-focused-research/syn1.md#c3].');
+        expect(out).toContain('(Source: Higher Ed Dive)');
+        expect(out).not.toContain('Gemini Focused Research');
+    });
+
+    it('a multi-source chunk resolves to an honest synthesis label, never a single false primary', () => {
+        registerChunkSources('articles/gemini-focused-research/syn2.md#c1', ['Dakota', 'Deloitte Insights', 'BCG', 'The WealthAdvisor']);
+        const out = resolveManifestPointers('Claim [articles/gemini-focused-research/syn2.md#c1].');
+        expect(out).toContain('Synthesis of Dakota, Deloitte Insights, BCG +1 more');
+        expect(out).not.toMatch(/\+\d+ sources/); // never the old false-primary "Dakota +N sources"
+    });
+
+    it('registerResolvedChunkSources bridges resolved chunks ({id, sources:[{n,u}]})', () => {
+        registerResolvedChunkSources([
+            { id: 'articles/x/p.md#c7', sources: [{ n: 'Chronicle of Higher Ed', u: 'https://chronicle.com/a' }] },
+        ]);
+        const out = resolveManifestPointers('Finding [articles/x/p.md#c7].');
+        expect(out).toContain('(Source: Chronicle of Higher Ed)');
     });
 });

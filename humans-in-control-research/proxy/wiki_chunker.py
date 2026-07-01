@@ -405,8 +405,79 @@ def _serialize_chunks_yaml(chunks: list[dict]) -> str:
             lines.append(f"    section: {_yaml_scalar(c.get('section', ''))}")
         if c.get("token_count"):
             lines.append(f"    token_count: {int(c.get('token_count', 0))}")
+        # 2026-06-30 - PER-CHUNK REAL SOURCE ATTRIBUTION. For deep-research synthesis
+        # docs, each chunk's actual supporting source(s) (from Gemini groundingSupports)
+        # are stored here so a quote from THIS chunk resolves to its REAL source, not
+        # the whole-doc synthesis bucket. Compact JSON: [{"n":name,"u":url}].
+        if c.get("sources"):
+            import json as _json
+            lines.append(f"    sources: {_json.dumps(c['sources'], separators=(',', ':'), ensure_ascii=True)}")
     lines.append("")
     return "\n".join(lines)
+
+
+def _publisher_from_url(url: str) -> str:
+    """Lightweight publisher label from a URL host (fallback when no page title)."""
+    try:
+        from urllib.parse import urlparse
+        host = (urlparse(url).netloc or "").lower()
+        if host.startswith("www."):
+            host = host[4:]
+        parts = [p for p in host.split(".") if p]
+        if not parts:
+            return ""
+        stem = parts[0] if len(parts) <= 2 else parts[-2]
+        return stem.replace("-", " ").replace("_", " ").title()
+    except Exception:
+        return ""
+
+
+def attribute_chunks_to_grounding(chunks: list[dict], body: str, grounding_supports: list) -> list[dict]:
+    """Attach each chunk's REAL source(s) by overlapping the chunk's body span with
+    the grounding segments' verbatim text (offset-robust: matches by text, not index,
+    so it survives re-chunking + frontmatter offset shifts).
+
+    grounding_supports: [{"text": str, "sources": [{"url","title"}], ...}, ...]
+    Mutates + returns `chunks`, setting chunk["sources"] = [{"n":name,"u":url}] (<=5).
+    """
+    if not grounding_supports or not body:
+        return chunks
+    segs = []
+    for g in grounding_supports:
+        if not isinstance(g, dict):
+            continue
+        t = (g.get("text") or "").strip()
+        srcs = g.get("sources") or []
+        if len(t) >= 12 and isinstance(srcs, list) and srcs:
+            segs.append((t, srcs))
+    if not segs:
+        return chunks
+    for c in chunks:
+        cs = c.get("char_span") or [0, 0]
+        try:
+            a, b = int(cs[0]), int(cs[1])
+        except Exception:
+            continue
+        ctext = body[a:b] if 0 <= a < b <= len(body) else ""
+        if len(ctext) < 12:
+            continue
+        found, seen = [], set()
+        for (t, srcs) in segs:
+            probe = t[:120]
+            # segment falls inside this chunk, or the chunk falls inside a long segment
+            if probe in ctext or ctext[:120] in t:
+                for s in srcs:
+                    if not isinstance(s, dict):
+                        continue
+                    url = (s.get("url") or "").strip()
+                    name = (s.get("title") or "").strip() or _publisher_from_url(url)
+                    key = url or name
+                    if key and key not in seen:
+                        seen.add(key)
+                        found.append({"n": name[:120], "u": url})
+        if found:
+            c["sources"] = found[:5]
+    return chunks
 
 
 def has_chunks_frontmatter(page_text: str) -> bool:
@@ -525,6 +596,17 @@ def extract_chunk_spans(page_text: str) -> list[dict]:
                 cur["token_count"] = int(line.split("token_count:", 1)[1].strip())
             except ValueError:
                 pass
+        elif cur is not None and line.startswith("    sources:"):
+            # WS-A: per-chunk REAL source attribution, written as compact JSON [{"n":name,"u":url}].
+            # Previously dropped here, so a quote resolved to the page title, not its real source.
+            v = line.split("sources:", 1)[1].strip()
+            try:
+                import json as _json
+                arr = _json.loads(v)
+                if isinstance(arr, list):
+                    cur["sources"] = [s for s in arr if isinstance(s, dict) and (s.get("n") or s.get("u"))]
+            except Exception:
+                pass
         elif not line.startswith(" ") and not line.startswith("\t"):
             # Top-level key terminates the chunks block.
             if cur is not None:
@@ -564,6 +646,19 @@ def extract_chunk_text(page_text: str, chunk_id: str) -> str | None:
     if a < 0 or b > len(body) or a >= b:
         return None
     return body[a:b]
+
+
+def extract_chunk_sources(page_text: str, chunk_id: str) -> list[dict]:
+    """WS-A: return the REAL source(s) for a specific chunk from its frontmatter `sources:` field
+    ([{"n":name,"u":url}], up to 5). Used by proxy-side citation resolution to attribute a quote to its
+    actual source, not the page title. Returns [] when the chunk carries no per-chunk attribution."""
+    if not page_text or not chunk_id:
+        return []
+    target = next((s for s in extract_chunk_spans(page_text) if s.get("id") == chunk_id), None)
+    if not target:
+        return []
+    srcs = target.get("sources") or []
+    return srcs if isinstance(srcs, list) else []
 
 
 __all__ = [

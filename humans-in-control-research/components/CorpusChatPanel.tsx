@@ -31,7 +31,7 @@ import { validateSlide } from '../services/slideValidator';
 // balance + 9-rung repair ladder) before falling back to per-array salvage.
 // Static import (over async dynamic import) lets the sync parseSlideBlocks /
 // parseDeliverableBlocks callbacks use these helpers without a refactor.
-import { tryRepairJson, salvageJsonArray } from '../services/aiRouter';
+import { tryRepairJson, salvageJsonArray, artifactModelFor } from '../services/aiRouter';
 import DynamicPromptChips from './DynamicPromptChips';
 // --- Feedback (self-improvement loop, Phase 2, 2026-05-22) ---
 import FeedbackWidget from './FeedbackWidget';
@@ -5154,11 +5154,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
         if (firstHit) {
             const directive = firstHit.directive;
             const buildMsgId = `msg_${Date.now()}_artifact_${directive.generator.replace('#', '')}`;
-            // 2026-06-24 - artifact hashtags force-route to Claude Opus 4.8 (this
-            // path calls callWithModelChain preferModel:'claude-opus-4-8' below).
-            // Drive the loading indicator with the ROUTED model so it never falsely
-            // reads "GEMINI 3.5 FLASH IS WORKING" (the slide path already does this).
-            setInFlightModelId('claude-opus-4-8' as ChatModel);
+            // Drive the loading indicator with the ACTUAL cost/quality-routed model
+            // (aiRouter.artifactModelFor: schema -> Flash, evidence/narrative -> Pro
+            // while capped / Opus after) so the label matches what really runs.
+            setInFlightModelId(artifactModelFor(directive.generator) as ChatModel);
             setMessages(prev => [...prev, {
                 id: buildMsgId,
                 role: 'assistant',
@@ -5311,6 +5310,12 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     '#case-study': 'strategy', '#casestudy': 'strategy',
                 };
                 const _htmlKind = (_genToKind[directive.generator] || 'strategy') as any;
+                // 2026-06-30 - cap-aware cost/quality model via the canonical SSOT
+                // (aiRouter.artifactModelFor). Was hardcoded 'claude-opus-4-8', which
+                // burned an HTTP 400 on every HTML deliverable during the Opus cap
+                // before the chain fell back. Now: schema kinds -> Flash, evidence/
+                // narrative -> Gemini 3.1 Pro (capped) / Opus (after). Auto-restores.
+                const _artModel = artifactModelFor(_htmlKind);
                 // 2026-05-31 - generation as a reusable closure so we can run a
                 // DEPTH-FLOOR expand retry (the #whitepaper/#report path was a
                 // single shallow pass; this gives it the same depth discipline as
@@ -5328,8 +5333,8 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     const _emit = await emitDeliverable({
                         deliverable: directive.generator,
                         step_label: `${directive.generator} artifact`,
-                        // 2026-06-12 - artifact hashtags run on Fable 5 (directive).
-                        model_id: 'claude-opus-4-8',
+                        // cap-aware cost/quality model (aiRouter SSOT); trace label matches the real routed model.
+                        model_id: _artModel,
                         prompt: _payload,
                         started_at: _t0,
                         // 2026-06-06 - Fix 2: HTML deliverables (#strategy/
@@ -5339,7 +5344,7 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                         vs: { k: 5, frames: ['visual_layout', 'information_architecture', 'diagram_type', 'interaction_pattern', 'iconography'] },
                         emit: () => callWithModelChain({
                         deliverable: _htmlKind,
-                        preferModel: 'claude-opus-4-8',
+                        preferModel: _artModel,
                         label: `${directive.generator} artifact`,
                         buildBody: (modelId: string) => {
                             if (modelId.startsWith('claude-')) {
@@ -5756,11 +5761,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                     () => import('../services/prototypeBriefGenerator'),
                     'prototypeBriefGenerator (5-brief phase)',
                 );
-                // 2026-06-16 - #proto brief generation runs on Opus 4.8 (BRIEF_MODEL),
-                // so surface THAT in the live spinner, not the plain-chat default. Without
-                // this the indicator read `selectedModel` (Gemini 3.5 Flash) and falsely
-                // labeled an Opus 4.8 brief pass as "GEMINI 3.5 FLASH IS WORKING".
-                setInFlightModelId('claude-opus-4-8' as ChatModel);
+                // #proto brief runs on the cap-aware BRIEF_MODEL (artifactModelFor('proto'):
+                // Gemini 3.1 Pro while capped, Opus after). Label the spinner with THAT so it
+                // never falsely reads "GEMINI 3.5 FLASH IS WORKING" nor a capped "Opus".
+                setInFlightModelId(artifactModelFor('proto') as ChatModel);
                 let briefs;
                 try {
                     briefs = await generatePrototypeBriefs({
@@ -6770,11 +6774,10 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                             userPrompt: parsed.cleanPrompt || query,
                             corpus: corpusText,
                             currentArtifact: null,
-                            // 2026-06-12 - artifact hashtags run on Fable 5
-                            // (directive; the picker is gone, routing is
-                            // automatic). chatToFreeform has the anthropic
-                            // branch (no temperature - fable-safe).
-                            model: 'claude-opus-4-8',
+                            // cap-aware cost/quality model (aiRouter SSOT). chatToFreeform
+                            // has gemini + anthropic branches; while the Opus cap is active
+                            // this is Gemini 3.1 Pro, restoring Opus after the cap lifts.
+                            model: artifactModelFor(ffKind) as any,
                         });
                         if (ff.ok) {
                             // 2026-05-25 - Expert panel: domain critic + universal

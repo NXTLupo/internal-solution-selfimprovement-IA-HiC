@@ -79,9 +79,32 @@ renderers" path. Concretely:
   (Gemini 3.5 Flash for plain chat; Claude Opus 4.8 for ALL hashtag deliverables incl `#proto`).
   No parallel routing logic, no code debt.
 
+## The nine-phase operational vision (where each principle has to HOLD)
+
+The eight principles above are abstract; they bind at specific phases of the HiC end-to-end workflow. The
+DEFINITIVE statement of what HiC is for, expressed as a contract over all nine workflow phases in complete
+sentences, plus the live file:line current-state / gap / remediation ledger and the prioritized 100% plan,
+lives in two places that must be read before any non-trivial HiC pipeline, retrieval, routing, design-system,
+or self-improvement work:
+- Skill `hic-unified-vision` (`.claude/skills/hic-unified-vision/SKILL.md`) — the loadable nine-phase contract.
+- Plan `humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-2026-06-30.md` — the ledger.
+
+The nine phases and their one-line clauses (full sentences in the skill):
+1. Relevance is the user's objective, not the source type; breadth and depth serve the objective, never override it.
+2. Collect from ALL selected packs + ALL uploads + the cached second brain (reuse it, do not bypass it); knowledge compounds.
+3. Chunk with precise per-type provenance; the per-chunk `sources:` written at ingest is the field read at citation time; one format, one resolver.
+4. The manifest is a concept GRAPH (concepts + related_chunks in frontmatter) that FEEDS retrieval, not a flat list or a read-only visualization.
+5. Anti-RAG on ALL THREE surfaces: theme extraction, Analyst Desk chat, AND Designer Desk chat retrieve by manifest pointer; the Designer Desk is held to the identical contract.
+6. ONE routing authority (`aiRouter.artifactModelFor`) for every #artifact, none omitted, chosen by cost AND live quota/health AND bake-off-proven per-deliverable quality; no hardcoded call site; the cap is one reversible flag.
+7. Self-improvement is user-influenced AND auto-triggered (a real job-counter cadence), and no change ships unless it beats the incumbent on a frozen held-out golden set with an in-path, non-bypassable gate.
+8. Every GOLD page has deliberate, componentized, token-bound, registry-mapped imagery filled at runtime by Nano Banana; image-free layouts are recorded `mode:'none'`; no silently unfilled slot.
+9. Every PPTX from every path is native and editable (text runs, auto-shapes, picture placeholders, per-variant masters, embedded fonts); no full-slide raster fallback anywhere.
+
 ## How to apply
 - Before building anything, check whether the primitive exists (converge, don't duplicate).
+- Identify which of the nine phases the change touches and confirm it moves that phase TOWARD its clause.
 - Ground deliverables on the manifest; never re-introduce embedding-RAG injection.
 - Compose from registered bricks + tokens; never hardcode; never invent UI shapes.
 - Gate every self-improvement change on a held-out signal; schedule the recurring jobs.
-- Active plan: `humans-in-control-research/plans/figma-audit/_SYNTHESIS-and-track-B.md`.
+- Active plans: `humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-2026-06-30.md`
+  (nine-phase vision + 100% plan) and `humans-in-control-research/plans/figma-audit/_SYNTHESIS-and-track-B.md`.

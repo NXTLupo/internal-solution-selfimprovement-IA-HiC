@@ -11,6 +11,8 @@
  * Created 2026-05-22 as part of the self-improvement loop, Phase 2.
  */
 
+import { OPUS_CAP_ACTIVE } from './aiRouter';
+
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
 export interface RegenerationRequest {
@@ -240,7 +242,10 @@ export async function regenerateWithFeedback(
             req.deliverableType,
             req.sectionScope,
         );
-        const provider = req.provider || 'gemini';
+        // 2026-06-30 - cap-aware: while the Opus cap is active, an explicit
+        // anthropic escalation would 400 and the anthropic branch returns null
+        // (Apply-now silently no-ops). Downgrade anthropic -> gemini until the cap lifts.
+        const provider = (OPUS_CAP_ACTIVE && req.provider === 'anthropic') ? 'gemini' : (req.provider || 'gemini');
         const newText = await applyRegeneration(
             req.originalText,
             instruction,

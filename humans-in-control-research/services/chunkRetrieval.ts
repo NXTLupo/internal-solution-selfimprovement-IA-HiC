@@ -39,6 +39,9 @@ import {
     resolveChunks,
     type ResolvedChunk,
 } from './wikiPointerResolver';
+// WS-A: register per-chunk REAL sources at the assembleChunkCorpus chokepoint so cite-time resolution
+// (resolveManifestPointers) uses the chunk's actual attribution, not the page title.
+import { registerResolvedChunkSources } from './citationPointerRegistry';
 
 const PROXY_BASE = 'http://127.0.0.1:5012';
 
@@ -815,6 +818,10 @@ export function assembleChunkCorpus(
     if (!chunks || chunks.length === 0) {
         return '=== CORPUS (chunk-addressed) === [empty: no chunks in scope]\n=== END CORPUS ===';
     }
+    // WS-A: this is the single chokepoint where resolved chunks become model-facing evidence, so it is the
+    // right place to register each chunk's REAL sources for cite-time resolution (synchronous, before the
+    // model generates + resolveManifestPointers runs at render).
+    try { registerResolvedChunkSources(chunks); } catch { /* non-fatal: page-title fallback still applies */ }
     const minChars = opts.minChunkChars ?? 0;
     const intro = opts.introText ?? (
         'CORPUS (chunk-addressed). Each entry below is a verbatim span from a wiki ' +

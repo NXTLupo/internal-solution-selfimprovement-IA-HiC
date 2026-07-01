@@ -22,6 +22,37 @@
 
 const _pointerSources = new Map<string, string>(); // pagePath (no #cN) -> display name
 
+// WS-A (2026-06-30): per-CHUNK real source attribution. A chunk's frontmatter `sources:` field (written at
+// ingest by wiki_chunker.attribute_chunks_to_grounding from Gemini grounding) names the REAL underlying
+// source(s) of THAT specific span. Keyed on the FULL pointer (path#cN), this is Tier 1 of resolveOne, so a
+// deep-research synthesis chunk resolves to its real sources (e.g. "Higher Ed Dive") instead of the page-level
+// synthesis title ("Gemini Focused Research"). Closes the "sources written but never read at cite time" gap.
+const _chunkSources = new Map<string, string[]>(); // full pointer (path#cN) -> real source name(s)
+
+/** Register the REAL source name(s) for one chunk pointer (path#cN). Idempotent; first non-empty wins. */
+export function registerChunkSources(pointer: string, names: string[]): void {
+    if (!pointer) return;
+    const key = pointer.trim();
+    if (!/#c\d+$/i.test(key)) return;
+    const clean: string[] = [];
+    for (const raw of names || []) {
+        const safe = String(raw || '').replace(/["\\]/g, '').replace(/\s{2,}/g, ' ').trim();
+        if (safe && !clean.includes(safe)) clean.push(safe);
+    }
+    if (clean.length && !_chunkSources.has(key)) _chunkSources.set(key, clean);
+}
+
+/** Bulk-register per-chunk sources from resolved chunks ({ id: 'path#cN', sources: [{n,u}] }). The bridge
+ *  called by assembleChunkCorpus so every model-facing chunk carries its real attribution to cite time. */
+export function registerResolvedChunkSources(chunks: Array<{ id?: string; sources?: Array<{ n?: string; u?: string }> }>): void {
+    for (const c of chunks || []) {
+        if (c && c.id && Array.isArray(c.sources) && c.sources.length) {
+            const names = c.sources.map(s => (s?.n || '').trim()).filter(Boolean);
+            if (names.length) registerChunkSources(c.id, names);
+        }
+    }
+}
+
 /** Register one page path -> human-readable source name. Idempotent. */
 export function registerPointerSource(pagePath: string, name: string): void {
     if (!pagePath || !name) return;
@@ -66,9 +97,22 @@ function prettifyPath(pagePath: string): string | null {
 }
 
 function resolveOne(pointer: string): string | null {
-    const pagePath = pointer.replace(/#c\d+$/i, '').trim();
+    const clean = pointer.trim();
+    // Tier 1 (WS-A): per-chunk REAL sources from the chunk's frontmatter `sources:`. A single real source
+    // resolves to its name; a synthesis span backed by several resolves to an HONEST multi-source label
+    // (never a single false primary - matches proxy _relabel_from_resolved).
+    const chunkNames = _chunkSources.get(clean);
+    if (chunkNames && chunkNames.length) {
+        if (chunkNames.length === 1) return chunkNames[0];
+        const top = chunkNames.slice(0, 3);
+        const extra = chunkNames.length - top.length;
+        return `Synthesis of ${top.join(', ')}${extra > 0 ? ` +${extra} more` : ''}`;
+    }
+    const pagePath = clean.replace(/#c\d+$/i, '').trim();
+    // Tier 2: page-level registered sourceTitle (manifest catalog).
     const hit = _pointerSources.get(pagePath);
     if (hit) return hit;
+    // Tier 3: prettified path stem.
     return prettifyPath(pagePath);
 }
 
@@ -103,3 +147,4 @@ export function resolveManifestPointers(text: string): string {
 
 /** Test/diagnostic surface. */
 export function pointerRegistrySize(): number { return _pointerSources.size; }
+export function chunkSourceRegistrySize(): number { return _chunkSources.size; }

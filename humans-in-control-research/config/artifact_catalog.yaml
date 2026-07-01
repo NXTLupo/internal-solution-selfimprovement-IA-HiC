@@ -1,0 +1,44 @@
+# ARTIFACT CATALOG (human-readable mirror) — WS-0.
+# AUTHORITATIVE SOURCE: services/artifactCatalog.ts. If this file disagrees with the .ts, the .ts wins; fix
+# this file. The coverage guard is services/artifactCatalogCoverage.test.ts (fails the build if a directive
+# exists in corpusChatService ARTIFACT_TPL / the directive map without a catalog entry).
+# routingClass mirrors aiRouter.artifactModelFor(): schema_flash -> gemini-3.5-flash; evidence_pro ->
+# gemini-3.1-pro-preview (while OPUS_CAP_ACTIVE) / claude-opus-4-8 (after). NEVER hardcode a model id here.
+# Plan: plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md
+
+version: hic-artifact-catalog-2026-06-30
+authoritative_source: services/artifactCatalog.ts
+
+artifacts:
+  # ---- schema-bounded slides (schema_flash) ----
+  - {id: gap,             templateId: gap-matrix,         tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: journey,         templateId: journey-map,        tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: blueprint,       templateId: service-blueprint,  tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: compete,         templateId: competitive-matrix, tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: org,             templateId: org-chart,          tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: audit,           templateId: systems-inventory,  tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: arch,            templateId: architecture-map,   tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  - {id: roadmap,         templateId: timeline,           tier: schema,    routingClass: schema_flash, imageBearing: false, editability: native_pptx}
+  # ---- evidence / imagery / narrative slides (evidence_pro) ----
+  - {id: case-study,      templateId: case-study,         tier: evidence,  routingClass: evidence_pro, imageBearing: true,  editability: native_pptx}
+  - {id: persona,         templateId: persona-card,       tier: imagery,   routingClass: evidence_pro, imageBearing: true,  editability: native_pptx}
+  - {id: themes,          templateId: theme-overview,     tier: imagery,   routingClass: evidence_pro, imageBearing: true,  editability: native_pptx}
+  - {id: recommendations, templateId: recommendation,     tier: narrative, routingClass: evidence_pro, imageBearing: true,  editability: native_pptx}
+  - {id: prd,             templateId: prd-feature,        tier: evidence,  routingClass: evidence_pro, imageBearing: false, editability: native_pptx}
+  - {id: strategy,        templateId: null,               tier: narrative, routingClass: evidence_pro, imageBearing: true,  editability: native_pptx}
+  # ---- HTML documents ----
+  - {id: brief,           templateId: executive-brief,    tier: narrative, routingClass: evidence_pro, imageBearing: false, editability: html_document}
+  - {id: explainer,       templateId: executive-brief,    tier: narrative, routingClass: evidence_pro, imageBearing: false, editability: html_document}
+  - {id: report,          templateId: executive-brief,    tier: narrative, routingClass: evidence_pro, imageBearing: false, editability: html_document}
+  - {id: playground,      templateId: null,               tier: narrative, routingClass: evidence_pro, imageBearing: false, editability: html_document}
+  - {id: approaches,      templateId: null,               tier: narrative, routingClass: evidence_pro, imageBearing: false, editability: html_document}
+  # ---- graph / cross-engagement / dialogue ----
+  - {id: mindmap,         templateId: null,               tier: schema,    routingClass: evidence_pro, imageBearing: false, editability: spa_only}
+  - {id: meta-themes,     templateId: null,               tier: evidence,  routingClass: evidence_pro, imageBearing: false, editability: spa_only}
+  - {id: brief-dialog,    templateId: null,               tier: narrative, routingClass: evidence_pro, imageBearing: false, editability: spa_only}
+  # ---- code / external renderer / collection ----
+  - {id: proto,           templateId: null,               tier: code,      routingClass: code,        imageBearing: true,  editability: spa_only}
+  - {id: presentation,    templateId: null,               tier: narrative, routingClass: external,    imageBearing: true,  editability: external_renderer}
+  - {id: deep-research,   templateId: null,               tier: collection,routingClass: collection,  imageBearing: false, editability: spa_only}
+  # ---- multi-template deck ----
+  - {id: slides,          templateId: null,               tier: narrative, routingClass: evidence_pro, imageBearing: true,  editability: native_pptx}

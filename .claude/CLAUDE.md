@@ -13,6 +13,26 @@ registered Figma bricks + tokens at generation time, NEVER hardcoded, the SPA ne
 live). Read it before any non-trivial HiC architecture or deliverable-generation work; every plan
 must trace back to it.
 
+### THE DEFINITIVE VISION — what HiC IS (read this first, successors)
+HiC is an **objective-first, manifest-native, evidence-cited, design-system-governed Artifact Factory for
+consulting intelligence augmentation.** Every run produces a durable **Artifact Intermediate Representation
+(AIR)** + Research Run Manifest, not merely a prompt result; AIR is the shared contract across all phases. The
+eight principles bind at NINE end-to-end workflow phases — read the operational contract BEFORE touching any
+pipeline, retrieval, routing, design-system, export, or self-improvement code:
+- **Skill `hic-unified-vision`** (`.claude/skills/hic-unified-vision/SKILL.md`) — the loadable nine-phase
+  contract + the AIR backbone. INVOKE IT before non-trivial HiC work.
+- **`humans-in-control-research/plans/hic-definitive-vision-and-100-percent-plan-v2-2026-06-30.md`** — the
+  integrated AIR-first 100% plan (WS-0 backbone, WS-A..WS-J, the seven-stage sequence, the critical evaluation
+  of the expert review, and the owner-decision list). v1 (same name, no `-v2`) is the file:line audit record.
+The nine phases: (1) relevance = the user's objective, not source type; (2) collect from ALL packs + uploads +
+the cached second brain (reused); (3) chunk with precise per-type provenance, `sources:` read at cite time;
+(4) the manifest is a concept GRAPH that feeds retrieval; (5) anti-RAG = objective+manifest-first retrieval
+(rerank only after manifest seeding) on themes + Analyst + Designer desks; (6) ONE routing authority
+(`aiRouter.artifactModelFor`) for every #artifact, none omitted, by cost+quota+per-deliverable quality; (7)
+user-influenced AND auto-triggered self-improvement behind an in-path held-out gate; (8) every GOLD page
+componentized, tokenized, Nano-Banana runtime-filled; (9) every PPTX native + editable from every path. Every
+plan and commit must name the phase(s) it advances and move them TOWARD these clauses, never away.
+
 ## NXT Design System — SINGLE SOURCE OF TRUTH
 
 The design system is the published Figma library **`iSQhAVM7SI4QHAWB7y9C2z`**, whose `NXT Brand

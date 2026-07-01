@@ -3409,6 +3409,44 @@ def _resolve_session_folder(raw_slug: str) -> Optional[str]:
     return None
 
 
+def _safe_air_id(raw: str) -> str:
+    """Sanitize a runId / artifactId into a safe path segment (alnum, dash, underscore)."""
+    s = "".join(c if (c.isalnum() or c in "-_") else "-" for c in (raw or "").strip())
+    s = s.strip("-_")[:120]
+    return s or "unknown"
+
+
+@app.post("/api/air/write")
+async def air_write(req: Request):
+    """WS-0 — persist an ArtifactAIR to sessions/<runId>/artifacts/<artifactId>.air.json.
+
+    The AIR is the canonical Artifact Intermediate Representation emitted before any render
+    (services/artifactAirService.ts). This is the single persistence chokepoint; the SPA's writeAir()
+    POSTs here and degrades gracefully if this endpoint is absent. Body: {runId, artifactId, air}.
+    """
+    try:
+        body = await req.json()
+    except Exception:
+        return JSONResponse({"persisted": False, "error": "invalid JSON body"}, status_code=400)
+    run_id = _safe_air_id(str(body.get("runId") or ""))
+    artifact_id = _safe_air_id(str(body.get("artifactId") or ""))
+    air = body.get("air")
+    if not run_id or not artifact_id or not isinstance(air, dict):
+        return JSONResponse({"persisted": False, "error": "runId, artifactId, and air object are required"}, status_code=400)
+    art_dir = os.path.join(SESSIONS_BASE, run_id, "artifacts")
+    try:
+        os.makedirs(art_dir, exist_ok=True)
+        out_path = os.path.join(art_dir, f"{artifact_id}.air.json")
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(air, f, ensure_ascii=True, separators=(",", ":"))
+        rel = out_path.replace("/hic-workspace/", "").replace(os.sep, "/")
+        logger.info(f"[air-write] persisted AIR {run_id}/{artifact_id} ({len(json.dumps(air))} bytes)")
+        return {"persisted": True, "path": rel}
+    except Exception as e:
+        logger.warning(f"[air-write] failed for {run_id}/{artifact_id}: {e}")
+        return JSONResponse({"persisted": False, "error": str(e)}, status_code=500)
+
+
 @app.post("/api/sessions")
 async def session_save(req: Request):
     """Create or in-place update a session. Body shape:
@@ -11405,6 +11443,10 @@ class WikiArticleWriteRequest(BaseModel):
     # URLs a synthesis was derived from, persisted to frontmatter so a
     # synthetic-URL synthesis still links back to its real sources.
     derivedFrom: Optional[list] = None
+    # 2026-06-30: per-segment source attribution from Gemini groundingSupports.
+    # [{"text": str, "sources": [{"url","title"}], ...}] — used at write time to
+    # stamp each chunk with its REAL supporting source(s) + persist a doc sidecar.
+    groundingSupports: Optional[list] = None
     # 2026-06-08 PATH UNIFICATION (Layer 2): chain-of-custody source metadata.
     # sourcePack = which Intelligence Data Source pack surfaced this item;
     # collectedAt = ISO timestamp of collection. `engagement` (the load-bearing
@@ -11478,6 +11520,21 @@ def _build_article_frontmatter(req: WikiArticleWriteRequest, h: str, path_rel: s
         _df = [str(x) for x in req.derivedFrom if x][:50]
         if _df:
             lines.append(f'derived_from: {json.dumps(_df, separators=(",", ":"))}')
+    # 2026-06-30 - persist the [charSpan -> source] sidecar (compact: drop the verbatim
+    # segment text, keep span + real sources) for provenance + future re-chunk. The
+    # actionable per-chunk attribution is written into each chunk's `sources:` separately.
+    gs = getattr(req, 'groundingSupports', None)
+    if isinstance(gs, list) and gs:
+        side = []
+        for g in gs[:200]:
+            if not isinstance(g, dict):
+                continue
+            srcs = [{'u': s.get('url', ''), 't': (s.get('title') or '')[:120]}
+                    for s in (g.get('sources') or []) if isinstance(s, dict)]
+            if srcs:
+                side.append({'s': int(g.get('start', 0)), 'e': int(g.get('end', 0)), 'src': srcs})
+        if side:
+            lines.append(f'grounding_supports: {json.dumps(side, separators=(",", ":"), ensure_ascii=True)}')
     lines.append('---')
     return '\n'.join(lines)
 
@@ -11674,6 +11731,17 @@ async def wiki_write_article(req: WikiArticleWriteRequest):
         try:
             from wiki_chunker import chunk_for_manifest, upsert_chunks_into_frontmatter
             _chunks_for_ptr = chunk_for_manifest(body, path_rel)
+            # 2026-06-30 - attribute each chunk to its REAL source(s) via the grounding
+            # span->source map (text-overlap, offset-robust) BEFORE writing chunk
+            # frontmatter, so a quote resolves to its actual source not the synthesis bucket.
+            if _chunks_for_ptr and getattr(req, 'groundingSupports', None):
+                try:
+                    from wiki_chunker import attribute_chunks_to_grounding
+                    _chunks_for_ptr = attribute_chunks_to_grounding(_chunks_for_ptr, body, req.groundingSupports)
+                    _attr_n = sum(1 for c in _chunks_for_ptr if c.get('sources'))
+                    logger.info(f"[wiki-write-article] grounding-attributed {_attr_n}/{len(_chunks_for_ptr)} chunks for {path_rel}")
+                except Exception as _gerr:
+                    logger.warning(f"[wiki-write-article] grounding attribution failed for {path_rel}: {_gerr}")
             if _chunks_for_ptr:
                 body = upsert_chunks_into_frontmatter(body, _chunks_for_ptr, page_id=path_rel)
                 logger.info(
@@ -12190,17 +12258,33 @@ def _article_relpath_for_citation(cit: dict):
     return None
 
 def _relabel_from_resolved(rs: list):
-    """Build the card sourceName + author from an article's resolved_sources.
-    A deep-research synthesis draws on many sources, so we name the primary and
-    signal the rest (honest: 'Dakota +15 sources'), never a single false claim."""
+    """Build an HONEST citation label from an article's resolved_sources.
+    2026-06-30 FIX: a deep-research SYNTHESIS quote cannot be attributed to ONE
+    underlying source (we have no per-quote -> source mapping), so we must NEVER
+    pick a single 'primary' (the prior 'Dakota +15 sources' falsely asserted Dakota
+    as the source of 167 distinct synthesized claims - fabricated attribution).
+    Instead label it explicitly as a SYNTHESIS that draws on the real named sources,
+    naming up to three, never implying any one of them made the specific claim. The
+    author field is cleared for the same reason. resolvedSources[] carries the full
+    real list for the viewer's link-back."""
     named = [s for s in rs if isinstance(s, dict) and s.get('sourceName')]
     if not named:
         return None
-    primary = named[0]
-    n = len(named)
-    label = primary['sourceName'] + (f" +{n - 1} sources" if n > 1 else "")
-    return {'sourceName': label, 'author': primary.get('author', ''),
-            'primaryTitle': primary.get('title', ''), 'resolvedSources': named}
+    uniq = []
+    for s in named:
+        nm = s['sourceName'].strip()
+        if nm and nm not in uniq:
+            uniq.append(nm)
+    if not uniq:
+        return None
+    if len(uniq) == 1:
+        label = uniq[0]
+    else:
+        top = uniq[:3]
+        extra = len(uniq) - len(top)
+        label = 'Synthesis of ' + ', '.join(top) + (f' +{extra} more' if extra > 0 else '')
+    return {'sourceName': label, 'author': '',
+            'isSynthesis': len(uniq) > 1, 'resolvedSources': named}
 
 @app.post("/api/themes/reresolve-attribution")
 async def reresolve_themes_attribution(request: Request):

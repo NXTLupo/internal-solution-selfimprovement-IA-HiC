@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hic-research-run-manifest-2026-06-30",
+  "title": "ResearchRunManifest",
+  "description": "Per-run manifest binding an objective to the corpus it was answered from and the artifacts it produced. WS-0 backbone. Written once per run; each artifact's ArtifactAIR references this runId.",
+  "type": "object",
+  "required": ["runId", "objective", "corpus", "artifacts"],
+  "additionalProperties": true,
+  "properties": {
+    "runId": { "type": "string", "minLength": 1 },
+    "createdAtIso": { "type": "string" },
+    "objective": {
+      "type": "object",
+      "required": ["objectiveId", "userObjective"],
+      "properties": {
+        "objectiveId": { "type": "string" },
+        "userObjective": { "type": "string", "minLength": 1 },
+        "audience": { "type": "string" },
+        "decisionToSupport": { "type": "string" }
+      }
+    },
+    "corpus": {
+      "type": "object",
+      "required": ["sources"],
+      "description": "Provenance of the corpus: fresh collection + uploads + cached-wiki reuse, each labeled distinctly (WS-C).",
+      "properties": {
+        "totalChunks": { "type": "integer", "minimum": 0 },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["sourceName", "provenance"],
+            "properties": {
+              "sourceName": { "type": "string" },
+              "sourceType": { "enum": ["upload", "web", "cached_wiki", "deep_research", "connector", "social"] },
+              "provenance": { "enum": ["fresh", "upload", "cached_reuse"] },
+              "itemCount": { "type": "integer", "minimum": 0 },
+              "avgObjectiveScore": { "type": "number", "minimum": 0, "maximum": 100 },
+              "goalSimilarity": { "type": "number", "minimum": 0, "maximum": 1 }
+            }
+          }
+        },
+        "subQuestionCoverage": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "coverageStatus": { "enum": ["uncovered", "partial", "covered", "overcovered"] },
+              "highRelevanceCount": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "description": "Every artifact produced this run, by catalog id + its AIR path.",
+      "items": {
+        "type": "object",
+        "required": ["artifactId", "artifactType"],
+        "properties": {
+          "artifactId": { "type": "string" },
+          "artifactType": { "type": "string" },
+          "airPath": { "type": "string" }
+        }
+      }
+    }
+  }
+}

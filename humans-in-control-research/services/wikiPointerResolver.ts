@@ -277,6 +277,10 @@ export interface ResolvedChunk {
     section: string;
     charSpan: [number, number];
     sentenceCount: number;
+    /** WS-A: the REAL underlying source(s) of THIS chunk, from the chunk's frontmatter `sources:` (written at
+     *  ingest by wiki_chunker.attribute_chunks_to_grounding). {n: source name/title, u: url}. Empty when the
+     *  page carries no per-chunk attribution (e.g. a single-source upload where the page title suffices). */
+    sources?: Array<{ n: string; u: string }>;
 }
 
 export interface ResolvedChunks {
@@ -336,6 +340,7 @@ function _parseChunksFrontmatter(pageText: string): Array<{
     keyTerms: string[];
     section: string;
     sentenceCount: number;
+    sources?: Array<{ n: string; u: string }>;
 }> {
     if (!pageText) return [];
     const m = _FRONTMATTER_RE.exec(pageText);
@@ -379,6 +384,17 @@ function _parseChunksFrontmatter(pageText: string): Array<{
             }
         } else if (cur && line.startsWith('    section:')) {
             cur.section = line.slice('    section:'.length).trim().replace(/^"|"$/g, '');
+        } else if (cur && line.startsWith('    sources:')) {
+            // WS-A: per-chunk real sources, written as compact JSON: [{"n":name,"u":url}].
+            const v = line.slice('    sources:'.length).trim();
+            try {
+                const arr = JSON.parse(v);
+                if (Array.isArray(arr)) {
+                    cur.sources = arr
+                        .filter((s: any) => s && (s.n || s.u))
+                        .map((s: any) => ({ n: String(s.n || '').trim(), u: String(s.u || '').trim() }));
+                }
+            } catch { /* malformed sources line - skip, page title fallback still applies */ }
         } else if (!line.startsWith(' ') && !line.startsWith('\t')) {
             // Top-level key terminates the chunks block.
             if (cur) { out.push(cur); cur = null; }
@@ -452,7 +468,18 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
                 continue;
             }
             const [a, b] = d.charSpan;
+            // WS-A staleness guard: if the char_span is out of bounds or slices empty text (the page body
+            // drifted since it was chunked), DROP rather than emit a mis-sliced span that would mis-cite.
+            // A missing citation is recoverable; a wrong one is a credibility failure.
+            if (!(a >= 0 && b > a && b <= body.length)) {
+                notFound.push(id);
+                continue;
+            }
             const span = body.slice(a, b);
+            if (!span.trim()) {
+                notFound.push(id);
+                continue;
+            }
             out.push({
                 id,
                 sourcePath: src,
@@ -461,6 +488,7 @@ export async function resolveChunks(chunkIds: string[]): Promise<ResolvedChunks>
                 section: d.section,
                 charSpan: [a, b],
                 sentenceCount: d.sentenceCount,
+                sources: d.sources && d.sources.length ? d.sources : undefined,
             });
         }
     }));

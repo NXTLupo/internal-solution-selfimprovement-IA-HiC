@@ -33,7 +33,13 @@ const PROXY_BASE = 'http://127.0.0.1:5012';
 // 2026-05-29 - Upgraded to Opus 4.8 (released 2026-05-28). Standard pricing
 // dropped 3x ($5/$25 per 1M vs 4.7's $15/$75) and adaptive thinking by default
 // reduces unnecessary token consumption.
-const BRIEF_MODEL = 'claude-opus-4-8';
+import { artifactModelFor, endpointForModel } from './aiRouter';
+// 2026-06-30 - cap-aware via the canonical artifact-model policy (aiRouter SSOT).
+// #proto's brief is an evidence/imagery-heavy deliverable, so while the Opus cap
+// is active this resolves to gemini-3.1-pro-preview; the skeleton (Pass 1) + the
+// opus-mode deepen (Pass 2) therefore no longer hard-fail with HTTP 400. Restores
+// claude-opus-4-8 automatically when OPUS_CAP_ACTIVE flips to false.
+const BRIEF_MODEL = artifactModelFor('proto');
 // 2026-05-14 - Hybrid Pass 2 model. GPT-5.5 is ~70% cheaper than Opus on
 // structured deepening tasks; we keep Opus for Pass 1 (divergent framing)
 // and a narrative-only fallback for thin briefs (see assessNarrativeQuality
@@ -450,25 +456,39 @@ function recoverTruncatedJsonLocal(s: string): string | null {
 }
 
 async function callOpusJson<T>(systemPrompt: string, userContent: string, label: string, maxTokens = 16000): Promise<T> {
-    const body = {
-        model: BRIEF_MODEL,
-        max_tokens: maxTokens,
-        temperature: 1.0,           // Opus needs >= 1.0 for creative divergence; thinking will handle structure
-        system: systemPrompt,
-        messages: [{ role: 'user', content: userContent }],
-    };
+    // 2026-06-30 - route by the cap-aware BRIEF_MODEL's endpoint. While the Opus
+    // cap is active BRIEF_MODEL is gemini-3.1-pro-preview, so this MUST hit the
+    // gemini endpoint with a gemini-shaped body (the old hardcoded 'anthropic'
+    // endpoint + claude body was the #proto HTTP-400 hard-fail). Anthropic path
+    // is restored verbatim once the cap lifts.
     const { callAIWithRetry } = await import('./aiRetryClient');
-    const data = await callAIWithRetry('anthropic', body, {
-        label,
-        requestTimeoutMs: 300_000,   // 5 min - Opus with high creativity can take a while
-    });
-    const text = (data?.content || [])
-        .filter((b: any) => b?.type === 'text' && typeof b?.text === 'string')
-        .map((b: any) => b.text)
-        .join('')
-        .trim();
+    const endpoint = endpointForModel(BRIEF_MODEL);
+    let data: any;
+    if (endpoint === 'gemini') {
+        data = await callAIWithRetry('gemini', {
+            model: BRIEF_MODEL,
+            systemInstruction: { parts: [{ text: systemPrompt }] },
+            contents: [{ role: 'user', parts: [{ text: userContent }] }],
+            config: { temperature: 1.0, maxOutputTokens: maxTokens, responseMimeType: 'application/json' },
+        }, { label, requestTimeoutMs: 300_000 });
+    } else {
+        data = await callAIWithRetry('anthropic', {
+            model: BRIEF_MODEL,
+            max_tokens: maxTokens,
+            temperature: 1.0,           // Opus needs >= 1.0 for creative divergence; thinking will handle structure
+            system: systemPrompt,
+            messages: [{ role: 'user', content: userContent }],
+        }, { label, requestTimeoutMs: 300_000 });   // 5 min - Opus with high creativity can take a while
+    }
+    const text = (endpoint === 'gemini'
+        ? (data?.candidates?.[0]?.content?.parts || []).map((p: any) => p?.text || '').join('')
+        : (data?.content || [])
+            .filter((b: any) => b?.type === 'text' && typeof b?.text === 'string')
+            .map((b: any) => b.text)
+            .join('')
+    ).trim();
     if (!text) {
-        const stopReason = data?.stop_reason || 'no output';
+        const stopReason = data?.stop_reason || data?.candidates?.[0]?.finishReason || 'no output';
         throw new Error(`${label} returned empty payload (stop_reason=${stopReason}).`);
     }
     let cleaned = text;
