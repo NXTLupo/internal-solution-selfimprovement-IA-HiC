@@ -127,6 +127,21 @@ export interface ResolvedChunkLike {
  *  HIGH-PRECISION by design: fires only on a "Source(s):" label, so bot/boilerplate text is never mis-read as
  *  a source. Fallback only - never overrides structured manifest sources. Confidence 0.6 (real name, parsed
  *  from body not frontmatter) sits between structured (0.85) and none (0.4). */
+// D3 guard (2026-07-01): reject junk "source names" - provider buckets (never cite "gemini"/"openai" per the
+// citation rules) and URL-as-name (raw redirect links). Deep-research bodies carry "Source: [gemini](vertexai
+// redirect)" placeholders that are NOT real sources; their real attribution is the doc-level resolved_sources
+// (resolved via the #14 page-level tier at cite time), so inline junk must be dropped. Mirrors the Python
+// _is_junk_source_name in proxy/wiki_chunker.py.
+const PROVIDER_BUCKET_NAMES = new Set([
+    'gemini', 'openai', 'claude', 'anthropic', 'deepseek', 'gpt', 'chatgpt',
+    'vertex', 'vertexai', 'model', 'ai', 'bot', 'source', 'sources', 'n/a', 'na',
+]);
+function isJunkSourceName(name: string): boolean {
+    const n = (name || '').trim().toLowerCase();
+    if (!n || n.startsWith('http://') || n.startsWith('https://')) return true;
+    return PROVIDER_BUCKET_NAMES.has(n);
+}
+
 export function extractInlineSources(text: string): EvidenceSource[] {
     if (!text) return [];
     const out: EvidenceSource[] = [];
@@ -144,7 +159,7 @@ export function extractInlineSources(text: string): EvidenceSource[] {
             const name = lm[1].trim();
             const url = lm[2].trim();
             const key = name.toLowerCase();
-            if (name && !seen.has(key)) {
+            if (name && !seen.has(key) && !isJunkSourceName(name)) {
                 seen.add(key);
                 out.push({ sourceId: url, sourceType: 'web', sourceName: name, url, attributionLabel: name });
             }
@@ -152,7 +167,7 @@ export function extractInlineSources(text: string): EvidenceSource[] {
         if (!hadLink) {
             const name = clause.replace(/[)\]]+\s*$/, '').trim().slice(0, 80);   // "(Source: X)" / "[Source: X]" -> X
             const key = name.toLowerCase();
-            if (name.length >= 2 && !seen.has(key)) {
+            if (name.length >= 2 && !seen.has(key) && !isJunkSourceName(name)) {
                 seen.add(key);
                 out.push({ sourceId: `inline:${key}`, sourceType: 'web', sourceName: name, attributionLabel: name });
             }

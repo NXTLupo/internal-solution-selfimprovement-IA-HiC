@@ -13,6 +13,14 @@ describe('D3/#15 inline-source recovery', () => {
         expect(s[0].url).toContain('reddit.com');
     });
 
+    it('rejects junk source names: provider buckets + URL-as-name (the real gemini/redirect corpus bug)', () => {
+        expect(extractInlineSources('Source: [gemini](https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZ)')).toHaveLength(0);
+        expect(extractInlineSources('Source: https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZ')).toHaveLength(0);
+        expect(extractInlineSources('Source: [https://www.bvp.com/atlas/x](https://www.bvp.com/atlas/x)')).toHaveLength(0);
+        // real named sources still survive the guard
+        expect(extractInlineSources('Source: [Reddit Deep: r/healthinsurance](https://reddit.com/x)')[0].sourceName).toBe('Reddit Deep: r/healthinsurance');
+    });
+
     it('does NOT invent a source from bot/boilerplate text (no "Source:" label)', () => {
         const text = 'I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit.';
         expect(extractInlineSources(text)).toHaveLength(0);

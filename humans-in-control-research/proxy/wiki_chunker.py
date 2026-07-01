@@ -358,6 +358,21 @@ def _concept_extract(text: str, top_n: int = 5) -> list[str]:
 
 _INLINE_SRC_LABEL_RE = __import__("re").compile(r"\bSources?:\s*(.+?)(?:\n|$)", __import__("re").IGNORECASE)
 _INLINE_SRC_LINK_RE = __import__("re").compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
+# D3 guard (2026-07-01): reject junk "source names" - provider buckets (never cite "gemini"/"openai" per the
+# citation rules) and URL-as-name (raw redirect links). Deep-research pages carry "Source: [gemini](vertexai
+# redirect)" placeholders in the body; those are NOT real sources - the doc-level resolved_sources frontmatter
+# (read via the #14 page-level tier at cite time) is their real attribution, so inline junk must be dropped.
+_PROVIDER_BUCKET_NAMES = {
+    "gemini", "openai", "claude", "anthropic", "deepseek", "gpt", "chatgpt",
+    "vertex", "vertexai", "model", "ai", "bot", "source", "sources", "n/a", "na",
+}
+
+
+def _is_junk_source_name(name: str) -> bool:
+    n = (name or "").strip().lower()
+    if not n or n.startswith("http://") or n.startswith("https://"):
+        return True
+    return n in _PROVIDER_BUCKET_NAMES
 
 
 def _extract_inline_sources(text: str) -> list[dict]:
@@ -377,13 +392,13 @@ def _extract_inline_sources(text: str) -> list[dict]:
             name = (lm.group(1) or "").strip()
             url = (lm.group(2) or "").strip()
             key = name.lower()
-            if name and key not in seen:
+            if name and key not in seen and not _is_junk_source_name(name):
                 seen.add(key)
                 out.append({"n": name, "u": url})
         if not had_link:
             name = clause.rstrip(")]").strip()[:80]
             key = name.lower()
-            if len(name) >= 2 and key not in seen:
+            if len(name) >= 2 and key not in seen and not _is_junk_source_name(name):
                 seen.add(key)
                 out.append({"n": name, "u": ""})
         if len(out) >= 6:
