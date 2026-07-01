@@ -6675,6 +6675,13 @@ export const CorpusChatPanel: React.FC<Props> = ({ context, getContext, isOpen, 
                                 // reasoning baked into the model). Annotate so
                                 // the auditor + epoch proposer can grep.
                                 ri: { fired: true, threshold: 0.0 },
+                                // Stage-3 AIR emission (SHADOW) for the journey/blueprint path. Grounding is
+                                // server-side in the JM service, so no resolvedChunks here; payload = the JM data.
+                                air: {
+                                    trigger: tag === 'blueprint' ? '#blueprint' : '#journey',
+                                    objective: ((getContext ? getContext() : context)?.researchGoal) || '',
+                                    buildPayload: (r) => (r && typeof r === 'object' && 'data' in r ? (r as any).data : r),
+                                },
                                 emit: async () => {
                                     const resp = await fetch('http://127.0.0.1:5012/api/journey-map/generate', {
                                         method: 'POST',
